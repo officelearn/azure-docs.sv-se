@@ -1,6 +1,6 @@
 ---
-title: Begär uppgifter om kollektivtrafik i realtid | Microsoft Azure Maps
-description: Begär kollektivtrafikdata i realtid med hjälp av Microsoft Azure Maps Mobility Service.
+title: Begär offentlig överförings data för Real tid | Microsoft Azure Maps
+description: Begär offentlig överförings information i real tid med hjälp av Microsoft Azure mappar mobilitets tjänsten.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/06/2019
@@ -10,43 +10,43 @@ services: azure-maps
 manager: philmea
 ms.custom: mvc
 ms.openlocfilehash: 4743fbe84f5d41b4659e13d96868d2f64a473e4b
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086085"
 ---
-# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Begär kollektivtrafikdata i realtid med hjälp av Azure Maps Mobility Service
+# <a name="request-real-time-public-transit-data-using-the-azure-maps-mobility-service"></a>Begär offentlig överförings information i real tid med tjänsten Azure Maps Mobility
 
-Den här artikeln visar hur du använder Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) för att begära kollektivtrafikdata i realtid.
+Den här artikeln visar hur du använder Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService) för att begära offentliga data i real tid.
 
-I den här artikeln får du lära dig att begära nästa ankomst i realtid för alla linjer som anländer till ett visst stopp
+I den här artikeln får du lära dig hur du begär nästa mottagna real tid för alla rader som kommer vid ett angivet stopp
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste först ha ett Azure Maps-konto och en prenumerationsnyckel för att ringa alla samtal till Azure Maps public transit API:er. Om du vill ha information följer du instruktionerna i [Skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa ett Azure Maps-konto. Följ stegen för [att få primärnyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att få den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns [i hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
+Du måste först ha ett Azure Maps konto och en prenumerations nyckel för att kunna anropa de Azure Maps offentliga API: erna för överföring. Om du vill ha mer information följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa ett Azure Maps-konto. Följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
-I den här artikeln används [Postman-appen](https://www.getpostman.com/apps) för att skapa REST-anrop. Du kan använda valfri API-utvecklingsmiljö som du föredrar.
+I den här artikeln används [Postman-appen](https://www.getpostman.com/apps) för att bygga rest-anrop. Du kan använda valfri API utvecklings miljö som du föredrar.
 
-## <a name="request-real-time-arrivals-for-a-stop"></a>Begär ankomster i realtid för ett stopp
+## <a name="request-real-time-arrivals-for-a-stop"></a>Begär real tids mottagningar för ett stopp
 
-För att begära ankomstdata i realtid för ett visst stopp för kollektivtrafik måste du begära [ankomst-API:et](https://aka.ms/AzureMapsMobilityRealTimeArrivals) för ankomster i realtid i Azure Maps [Mobility Service](https://aka.ms/AzureMapsMobilityService). Du behöver **metroID** och **stopID** för att slutföra begäran. Mer information om hur du begär dessa parametrar finns i vår guide om hur du [begär kollektivtrafikvägar.](https://aka.ms/AMapsHowToGuidePublicTransitRouting)
+För att begära ingångs data i real tid för en viss offentlig överförings stopp, måste du göra en begäran till [real tids ingångs-API: t](https://aka.ms/AzureMapsMobilityRealTimeArrivals) för [tjänsten Azure Maps Mobility](https://aka.ms/AzureMapsMobilityService). Du behöver **metroID** och **stopID** för att slutföra begäran. Mer information om hur du begär dessa parametrar finns i vår guide om hur du [begär offentliga överförings vägar](https://aka.ms/AMapsHowToGuidePublicTransitRouting).
 
-Låt oss använda "522" som vår tunnelbana ID, som är tunnelbanan ID för "Seattle-Tacoma-Bellevue, WA" område. Använd "522---2060603" som stopp-ID, denna busshållplats är vid "Ne 24th St & 162nd Ave Ne, Bellevue WA". För att begära de kommande fem ankomstdata i realtid, för alla nästa levande ankomster vid detta stopp, utför du följande steg:
+Vi använder "522" som vårt tunnelbane-ID, som är Metro-ID: t för "Seattle – Tacoma – Bellevue, WA"-ytan. Använd "522---2060603" som stopp-ID: t det här buss steget är "ne 24 st & 162nd Ave Ne, Bellevue WA". Om du vill begära nästa fem real tids mottagande data, för alla nästa Live-införsel i detta steg, slutför du följande steg:
 
-1. Öppna Postman-appen och låt oss skapa en samling för att lagra begäranden. Välj **Ny**högst upp i Postman-appen . Välj **Samling**i fönstret **Skapa nytt** .  Namnge samlingen och välj knappen **Skapa.**
+1. Öppna Postman-appen och skapa en samling där du kan lagra begär Anden. Längst upp i Postman-appen väljer du **nytt**. I fönstret **Skapa nytt** väljer du **samling**.  Namnge samlingen och välj knappen **skapa** .
 
-2. Om du vill skapa begäran väljer du **Ny** igen. Välj **Begär**i fönstret **Skapa nytt** . Ange ett **begärandenamn** för begäran. Välj den samling som du skapade i föregående steg, som den plats där begäran ska sparas. Välj sedan **Spara**.
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** för begäran. Välj den samling som du skapade i föregående steg, som den plats där du vill spara begäran. Välj sedan **Spara**.
 
     ![Skapa en begäran i Postman](./media/how-to-request-transit-data/postman-new.png)
 
-3. Välj metoden **GET** HTTP på fliken Builder och ange följande URL för att skapa en GET-begäran. Ersätt `{subscription-key}`, med din azure maps-primärnyckel.
+3. Välj metoden **Hämta** http på fliken Builder och ange följande URL för att skapa en get-begäran. Ersätt `{subscription-key}`med Azure Maps primär nyckel.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/realtime/arrivals/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&query=522---2060603&transitType=bus
     ```
 
-4. Efter en lyckad begäran får du följande svar.  Observera att parametern 'scheduleType' definierar om den uppskattade ankomsttiden baseras på realtidsdata eller statiska data.
+4. Efter en lyckad begäran får du följande svar.  Observera att parametern "scheduleType" definierar om den uppskattade införsel tiden baseras på real tids data eller statiska data.
 
     ```JSON
     {
@@ -113,12 +113,12 @@ Låt oss använda "522" som vår tunnelbana ID, som är tunnelbanan ID för "Sea
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs om hur du begär transitdata med Mobilitetstjänsten:
+Lär dig hur du begär överförings data med mobilitets tjänsten:
 
 > [!div class="nextstepaction"]
-> [Så här begär du transitdata](how-to-request-transit-data.md)
+> [Så här begär du överförings data](how-to-request-transit-data.md)
 
-Utforska API-dokumentationen för Azure Maps Mobility Service:
+Utforska dokumentationen för Azure Maps Mobility Service API:
 
 > [!div class="nextstepaction"]
-> [API-dokumentation för Mobilitetstjänster](https://aka.ms/AzureMapsMobilityService)
+> [API-dokumentation för Mobility Service](https://aka.ms/AzureMapsMobilityService)

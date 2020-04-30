@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
 ms.openlocfilehash: 515ac034158b821968e2d7b2be9514a3f7c20866
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099120"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Gör så här: tillhandahålla valfria anspråk till din Azure AD-App
@@ -49,7 +49,7 @@ Den uppsättning valfria anspråk som är tillgängliga som standard för progra
 
 **Tabell 2: v 1.0 och v 2.0 valfri anspråks uppsättning**
 
-| Namn                       |  Beskrivning   | Tokentyp | Användar typ | Anteckningar  |
+| Name                       |  Beskrivning   | Tokentyp | Användar typ | Obs!  |
 |----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Tid när användaren senast autentiserades. Se OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Resurs innehavarens region | JWT        |           | |
@@ -78,7 +78,7 @@ De här anspråken ingår alltid i v 1.0 Azure AD-tokens, men ingår inte i v 2.
 
 **Tabell 3: v 2.0 – endast valfria anspråk**
 
-| JWT-anspråk     | Namn                            | Beskrivning                                | Anteckningar |
+| JWT-anspråk     | Name                            | Beskrivning                                | Obs! |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP-adress                      | IP-adressen som klienten loggade in från.   |       |
 | `onprem_sid`  | Lokal säkerhets identifierare |                                             |       |
@@ -185,7 +185,7 @@ Deklarerar de valfria anspråk som begärs av ett program. Ett program kan konfi
 
 **Tabell 5: egenskaper för OptionalClaims-typ**
 
-| Namn          | Typ                       | Beskrivning                                           |
+| Name          | Typ                       | Beskrivning                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Samling (OptionalClaim) | De valfria anspråk som returneras i JWT ID-token.     |
 | `accessToken` | Samling (OptionalClaim) | De valfria anspråk som returneras i JWT-åtkomsttoken. |
@@ -198,7 +198,7 @@ Om det stöds av ett angivet anspråk kan du också ändra beteendet för Option
 
 **Tabell 6: egenskaper för OptionalClaim-typ**
 
-| Namn                   | Typ                    | Beskrivning                                                                                                                                                                                                                                                                                                   |
+| Name                   | Typ                    | Beskrivning                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Namnet på det valfria anspråket.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Källa (katalog objekt) för anspråket. Det finns fördefinierade anspråk och användardefinierade anspråk från tilläggs egenskaper. Om source-värdet är null är anspråket ett fördefinierat valfritt anspråk. Om source-värdet är User är värdet i egenskapen name egenskapen Extension från objektet User. |
@@ -367,7 +367,7 @@ Det finns flera tillgängliga alternativ för att uppdatera egenskaperna för et
 - Du kan använda **manifestet** (se exemplet nedan). Läs [förstå Azure AD Application manifest-dokumentet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) först för en introduktion till manifestet.
 - Det är också möjligt att skriva ett program som använder [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api?context=graph%2Fapi%2F1.0&view=graph-rest-1.0) för att uppdatera ditt program. [OptionalClaims](https://docs.microsoft.com/graph/api/resources/optionalclaims?view=graph-rest-1.0) -typen i referens hand boken för Microsoft Graph API kan hjälpa dig att konfigurera de valfria anspråken.
 
-**Exempel**
+**Exempel:**
 
 I exemplet nedan använder du användar gränssnittet för **token-konfiguration** och **manifestet** för att lägga till valfria anspråk till åtkomst, ID och SAML-token som är avsedda för ditt program. Olika valfria anspråk kommer att läggas till i varje tokentyp som programmet kan ta emot:
 

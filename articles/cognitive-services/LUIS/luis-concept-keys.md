@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: 954e7a22ae6b242c6221119c688259e4ce629a2a
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82101067"
 ---
 # <a name="authoring-and-runtime-keys"></a>Redigering och körningsnycklar
@@ -115,7 +115,7 @@ För närvarande finns det inte någon katalog med offentliga appar.
 
 Ägaren och alla deltagare har åtkomst för att redigera appen.
 
-|Redigerings åtkomst inkluderar|Anteckningar|
+|Redigerings åtkomst inkluderar|Obs!|
 |--|--|
 |Lägga till eller ta bort slut punkts nycklar||
 |Exporterar version||

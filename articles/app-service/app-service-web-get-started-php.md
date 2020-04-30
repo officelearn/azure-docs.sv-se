@@ -1,15 +1,15 @@
 ---
-title: 'Snabbstart: Skapa en PHP-webbapp'
-description: Distribuera din första PHP Hello World till Azure App Service på några minuter. Du distribuerar med Git, vilket är ett av många sätt att distribuera till App Service.
+title: 'Snabb start: skapa en PHP-webbapp'
+description: Distribuera din första PHP-Hello World för att Azure App Service på några minuter. Du distribuerar med git, som är ett av många sätt att distribuera till App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 08/24/2018
 ms.custom: mvc, cli-validate, seodec18
 ms.openlocfilehash: de51df50995c47800a2084108973c3b009ae3462
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085985"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Skapa en PHP-webbapp i Azure
@@ -18,7 +18,7 @@ ms.locfileid: "82085985"
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en PHP-webbapp i App Service på Linux](./containers/quickstart-php.md).
 >
 
-[Azure App Service](overview.md) tillhandahåller en mycket skalbar, självkorrigering webbhotell.  Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure App Service. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-exempelkoden till webbappen.
+[Azure App Service](overview.md) ger en mycket skalbar och automatisk korrigering av webb värd tjänst.  Den här snabbstartskursen visar hur du distribuerar en PHP-app till Azure App Service. Du skapar webbappen med [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) i Cloud Shell och använder Git för att distribuera PHP-exempelkoden till webbappen.
 
 ![Exempelapp som körs i Azure](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
@@ -70,7 +70,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 Skapa i Cloud Shell en webbapp i `myAppServicePlan` App Service-planen med kommandot [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). 
 
-Ersätt `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `PHP|7.0`. Kör [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)om du vill visa alla runtimes som stöds . 
+Ersätt `<app_name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `PHP|7.0`. Om du vill se alla körningar som [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)stöds kör du. 
 
 
 ```azurecli-interactive
@@ -80,7 +80,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
 ```
 > [!NOTE]
-> Stop-parsing-symbolen `(--%)`, som introducerades i PowerShell 3.0, ger PowerShell i regel att avstå från att tolka indata som PowerShell-kommandon eller uttryck. 
+> Med stopp tolknings symbolen `(--%)`, som introducerades i PowerShell 3,0, använder PowerShell för att undvika att tolka ininformation som PowerShell-kommandon eller uttryck. 
 >
 
 När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
@@ -100,13 +100,13 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app_name&gt;.s
 }
 </pre>
 
-Du har skapat en ny tom webbapp med git-distribution aktiverad.
+Du har skapat en tom ny webbapp med Git-distribution aktive rad.
 
 > [!NOTE]
 > URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Spara den här URL:en, eftersom du behöver den senare.
 >
 
-Bläddra till webbappen som precis skapades. Ersätt _ &lt;appnamn>_ med ditt unika appnamn som skapats i föregående steg.
+Bläddra till webbappen som precis skapades. Ersätt _ &lt;App Name>_ med ditt unika app-namn som du skapade i föregående steg.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -178,19 +178,19 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
-1. Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade. Sök efter och välj **AppTjänster**.
+1. Gå till <a href="https://portal.azure.com" target="_blank">Azure Portal</a> för att hantera den webbapp som du skapade. Sök efter och välj **app Services**.
 
-    ![Sök efter App Services, Azure-portal, skapa PHP-webbapp](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
+    ![Sök efter App Services, Azure Portal, skapa PHP-webbapp](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-2. Välj namnet på din Azure-app.
+2. Välj namnet på din Azure-App.
 
     ![Portalnavigering till Azure-app](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-    Sidan **Översiktssidan för webbappen** visas. Här kan du utföra grundläggande hanteringsuppgifter som **Bläddra**, **Stoppa,** **Starta om**och **Ta bort**.
+    Webb programmets **översikts** sida visas. Här kan du utföra grundläggande hanterings åtgärder som att **Bläddra**, **stoppa**, **starta om**och **ta bort**.
 
     ![App Service-sidan på Azure Portal](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-    Webbappmenyn innehåller olika alternativ för att konfigurera appen. 
+    Menyn webbapp innehåller olika alternativ för att konfigurera din app. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

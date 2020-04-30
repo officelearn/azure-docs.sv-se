@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en nod.js-webbapp'
-description: Distribuera din första Node.js Hello World till Azure App Service på några minuter. Du distribuerar med hjälp av ett ZIP-paket, vilket är ett av många sätt att distribuera till App Service.
+title: 'Snabb start: skapa en Node. js-webbapp'
+description: Distribuera din första Node. js-Hello World Azure App Service på några minuter. Du distribuerar med ett ZIP-paket, som är ett av många sätt att distribuera till App Service.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
 ms.date: 08/23/2019
@@ -8,10 +8,10 @@ ms.custom: mvc, devcenter, seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
 ms.openlocfilehash: a185565ec125e327297883c63b1d50a2548c7853
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82086017"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Skapa en Node.js-webbapp i Azure
@@ -20,7 +20,7 @@ ms.locfileid: "82086017"
 > I den här artikeln distribueras en app till App Service i Windows. Om du vill distribuera en app till App Service i _Linux_ kan du läsa [Skapa en Node.js-webbapp i Azure App Service på Linux](./containers/quickstart-nodejs.md).
 >
 
-[Azure App Service](overview.md) tillhandahåller en mycket skalbar, självkorrigering webbhotell.  Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure App Service. Du skapar webbappen med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), men du kan även köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli). Du distribuerar Node.js-exempelkoden till webbappen med hjälp av kommandot [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip).  
+[Azure App Service](overview.md) ger en mycket skalbar och automatisk korrigering av webb värd tjänst.  Den här snabbstarten visar hur du distribuerar en Node.js-app till Azure App Service. Du skapar webbappen med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), men du kan även köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli). Du distribuerar Node.js-exempelkoden till webbappen med hjälp av kommandot [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip).  
 
 ![Exempelapp som körs i Azure](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
@@ -93,7 +93,7 @@ När webbappen har skapats visar Azure CLI utdata liknande den i följande exemp
 
 ### <a name="set-nodejs-runtime"></a>Ange Node.js-körning
 
-Ange Node-körningen till 10.14.1. Kör [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)om du vill visa alla runtimes som stöds .
+Ange Node-körningen till 10.14.1. Om du vill se alla körningar som [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)stöds kör du.
 
 ```azurecli-interactive
 # Bash and Powershell
@@ -106,7 +106,7 @@ Bläddra till webbappen som precis skapades. Ersätt `<app_name>` med ett unikt 
 http://<app_name>.azurewebsites.net
 ```
 
-Så här ska din nya webbapp se ut: ![Tom webbappsida](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
+Så här bör din nya webbapp se ut: ![tom webb program sida](media/app-service-web-get-started-nodejs-poc/app-service-web-service-created.png)
 
 ## <a name="deploy-zip-file"></a>Distribuera en ZIP-fil
 

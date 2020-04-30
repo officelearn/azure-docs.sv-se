@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
 ms.openlocfilehash: f764b0d42e08e68b45d49a5aae8542f05707ccde
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82099367"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ord lista för språk förståelse för vanliga ord listor och koncept
@@ -38,7 +38,7 @@ Batch-testning är möjligheten att verifiera en aktuell LUIS-Apps modell med en
 
 Se även:
 * [Begrepp](luis-concept-batch-test.md)
-* [Så här gör du](luis-how-to-batch-test.md)
+* [Anvisningar](luis-how-to-batch-test.md)
 * [Självstudier](luis-tutorial-batch-testing.md)
 
 ## <a name="collaborator"></a><a name="collaborator"></a>Medarbetare
@@ -166,7 +166,7 @@ Slut punkten innehåller timezoneOffset. Detta är det tal i minuter som du vill
 
 Se [ändra tidszon för en fördefinierad datetimeV2-entitet](luis-concept-data-alteration.md?#change-time-zone-of-prebuilt-datetimev2-entity).
 
-## <a name="token"></a><a name="token"></a>Åtkomsttokenbegäran
+## <a name="token"></a><a name="token"></a>Token
 En token är den minsta enhet som kan märkas i en entitet. Tokenisering baseras på programmets [kultur](luis-language-support.md#tokenization).
 
 ## <a name="train"></a><a name="train"></a>Träna
@@ -185,6 +185,6 @@ I [batch-testning](luis-interactive-test.md#batch-testing)representerar data pun
 
 En uttryck är en fras för naturliga språk, till exempel "bok 2 biljetter till Seattle nästa tisdag". Exempel på yttranden läggs till i avsikten.
 
-## <a name="version"></a><a name="version"></a>Version
+## <a name="version"></a><a name="version"></a>2.0.1
 
 En LUIS- [version](luis-how-to-manage-versions.md) är en speciell data modell som är associerad med ett Luis app-ID och den publicerade slut punkten. Varje LUIS-app har minst en version.

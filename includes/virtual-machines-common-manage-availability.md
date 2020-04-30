@@ -9,10 +9,10 @@ ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ba21dfc900145ceeacab6c363e5de84b830282b1
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82109816"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
@@ -34,7 +34,7 @@ För att undvika påverkan av den här typen av avbrott rekommenderar vi att du 
 * [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]
 * [Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
 * [Konfigurera varje programnivå i separata tillgänglighetsuppsättningar]
-* [Kombinera en Load Balancer med tillgänglighets uppsättningar]
+* [Kombinera en lastbalanserare med tillgänglighetsuppsättningar]
 * [Använda tillgänglighets zoner för att skydda från data center nivå problem]
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Använda tillgänglighets zoner för att skydda från data center nivå problem
@@ -116,7 +116,7 @@ En själv studie kurs om belastnings utjämning över tillgänglighets zoner fin
 <!-- Link references -->
 [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
 [Konfigurera varje programnivå i separata tillgänglighetsuppsättningar]: #configure-each-application-tier-into-separate-availability-zones-or-availability-sets
-[Kombinera en Load Balancer med tillgänglighets uppsättningar]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Kombinera en lastbalanserare med tillgänglighetsuppsättningar]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]: #use-managed-disks-for-vms-in-an-availability-set
 [Använda tillgänglighets zoner för att skydda från data center nivå problem]: #use-availability-zones-to-protect-from-datacenter-level-failures

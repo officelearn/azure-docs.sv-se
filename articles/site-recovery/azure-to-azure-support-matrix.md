@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
 ms.openlocfilehash: 73160a6bf416722021d76da21a32a1cd1ee04386
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82111733"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
@@ -22,7 +22,7 @@ Den här artikeln sammanfattar support och krav för haveri beredskap för virtu
 --- | ---
 **Azure Portal** | Stöds.
 **PowerShell** | Stöds. [Läs mer](azure-to-azure-powershell.md)
-**REST API** | Stöds.
+**REST-API** | Stöds.
 **CLI** | Stöds för närvarande inte
 
 
@@ -80,7 +80,7 @@ Site Recovery stöder replikering av virtuella Azure-datorer som kör operativ s
 ### <a name="windows"></a>Windows
 
 
-**Operativ system** | **Information**
+**Operativsystem** | **Information**
 --- | ---
 Windows Server 2019 | Stöds för Server Core, server med Skriv bords miljö.
 Windows Server 2016  | Server Core som stöds, server med Skriv bords miljö.
@@ -96,7 +96,7 @@ Windows 7 (x64) med SP1 och senare | Från version [9,30](https://support.micros
 
 #### <a name="linux"></a>Linux
 
-**Operativ system** | **Information**
+**Operativsystem** | **Information**
 --- | ---
 Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6,[7,7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8,0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), 8,1
 CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, 7,7, 8,0, 8,1

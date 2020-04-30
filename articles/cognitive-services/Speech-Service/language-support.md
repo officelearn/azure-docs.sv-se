@@ -12,10 +12,10 @@ ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
 ms.openlocfilehash: 0b6fea381bd6b4aa8ad3e7061e6f632176c41033
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82113841"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
@@ -36,12 +36,12 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Nationell inställning  | Språk                          | Stöds | Anpassningar                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Ja       | Inga                                                |
+| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Ja       | Nej                                                |
 | `ar-BH` | Arabiska (Bahrain), modern standard | Ja       | Språkmodell                                    |
 | `ar-EG` | Arabiska (Egypten)                    | Ja       | Språkmodell                                    |
-| `ar-KW` | Arabiska (Kuwait)                   | Ja       | Inga                                                |
-| `ar-QA` | Arabiska (Qatar)                    | Ja       | Inga                                                |
-| `ar-SA` | Arabiska (Saudiarabien)             | Ja       | Inga                                                |
+| `ar-KW` | Arabiska (Kuwait)                   | Ja       | Nej                                                |
+| `ar-QA` | Arabiska (Qatar)                    | Ja       | Nej                                                |
+| `ar-SA` | Arabiska (Saudiarabien)             | Ja       | Nej                                                |
 | `ar-SY` | Arabiska (Syrien)                    | Ja       | Språkmodell                                    |
 | `ca-ES` | Katalanska                           | Ja       | Språkmodell                                    |
 | `da-DK` | Danska (Danmark)                  | Ja       | Språkmodell                                    |
@@ -71,9 +71,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ru-RU` | Ryska (Ryssland)                  | Ja       | Akustisk modell<br>Språkmodell                  |
 | `sv-SE` | Svenska (Sverige)                  | Ja       | Språkmodell                                    |
 | `ta-IN` | Tamiliska (Indien)                     | Ja       | Språkmodell                                    |
-| `te-IN` | Telugu (Indien)                    | Ja       | Inga                                                |
-| `th-TH` | Thailändska (Thailand)                   | Ja       | Inga                                                |
-| `tr-TR` | Turkiska (Turkiet)                  | Ja       | Inga                                                |
+| `te-IN` | Telugu (Indien)                    | Ja       | Nej                                                |
+| `th-TH` | Thailändska (Thailand)                   | Ja       | Nej                                                |
+| `tr-TR` | Turkiska (Turkiet)                  | Ja       | Nej                                                |
 | `zh-CN` | Kinesiska (mandariner, förenklad)    | Ja       | Akustisk modell<br>Språkmodell                  |
 | `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Ja       | Språkmodell                                    |
 | `zh-TW` | Kinesiska (Taiwan-mandariner)      | Ja       | Språkmodell                                    |

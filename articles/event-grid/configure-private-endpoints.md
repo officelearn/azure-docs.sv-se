@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
 ms.openlocfilehash: 97f08bf0f89fdb65f0ffef7d18557f210e45a8d3
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82101016"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains-preview"></a>Konfigurera privata slut punkter för Azure Event Grid ämnen eller domäner (förhands granskning)
@@ -76,7 +76,7 @@ Det finns fyra etablerings tillstånd:
 
 | Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
 |--|--|--|
-| Ingen | Väntande åtgärder | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
+| Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från ägaren till den privata länk resursen. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |
 | Avvisa | Avvisad | Anslutningen avvisades av ägaren till den privata länk resursen. |
 | Ta bort | Frånkopplad | Anslutningen togs bort av ägaren till den privata länk resursen, den privata slut punkten blir informativ och bör tas bort för rensning. |

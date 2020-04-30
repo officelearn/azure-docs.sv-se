@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: 0fd8a379927396f2ae44d74c2d968d48fbd039c1
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82096375"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-preview"></a>Snabb start: skapa en ny Apache Spark pool (förhands granskning)
@@ -42,7 +42,7 @@ Logga in på [Azure Portal](https:/portal.azure.com/)
 ![Översikt över Synapse-arbetsytan med en röd ruta runt kommandot för att skapa en ny Apache Spark pool](media/quickstart-create-apache-spark-pool/quickstart-create-spark-pool-01.png)
 2. Ange följande information på fliken **grundläggande** :
 
-    |Inställning | Föreslaget värde | Beskrivning |
+    |Inställningen | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
     | **Namn på Apache Spark bassäng** | Ett giltigt poolnamn | Detta är det namn som Apache Spark-poolen kommer att ha. |
     | **Node-storlek** | Liten (4 vCPU/32 GB) | Ange den minsta storleken för att minska kostnaderna för den här snabb starten |

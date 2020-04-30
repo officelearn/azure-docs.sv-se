@@ -13,10 +13,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: spelluru
 ms.openlocfilehash: a7822d6ea46b7efc21f43e944d0a96f609df389a
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82100196"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Använd PowerShell för att skapa en anpassad roll i ett labb i Azure DevTest Labs
@@ -38,7 +38,7 @@ Det här exemplet på PowerShell-skriptet skapar en anpassad roll som ska använ
 
 I det här skriptet används följande kommandon: 
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) | Hämtar åtgärder för en Azure-resurs-Provider som kan skyddas med Azure RBAC. |
 | [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) | Visar en lista över alla Azure RBAC-roller som är tillgängliga för tilldelning. |

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
 ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82100540"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Virtuella datorer i en Azure Resource Manager-mall
@@ -449,7 +449,7 @@ Om du är nyfiken på statusen för resurser i distributionen kan du Visa resurs
     
 Det går inte att använda samma mall för att skapa resurser eller uppdatera befintliga resurser. När du använder kommandon för att distribuera mallar har du möjlighet att säga vilket [läge](../../resource-group-template-deploy.md) du vill använda. Läget kan anges till antingen **fullständig** eller **stegvis**. Standardvärdet är att göra stegvisa uppdateringar. Var försiktig när du använder det **fullständiga** läget eftersom du kan ta bort resurser av misstag. När du anger att läget ska **slutföras**, tar Resource Manager bort alla resurser i resurs gruppen som inte finns i mallen.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Skapa en egen mall med hjälp av [redigera Azure Resource Manager mallar](../../resource-group-authoring-templates.md).
 - Distribuera mallen som du skapade med [skapa en virtuell Windows-dator med en Resource Manager-mall](ps-template.md).

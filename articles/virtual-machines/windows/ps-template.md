@@ -8,10 +8,10 @@ ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cafe28be1d7c08c24b728de2476cb2210c6e5bd0
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82098330"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Skapa en virtuell Windows-dator från en Resource Manager-mall
@@ -64,7 +64,7 @@ Här följer några ytterligare resurser:
 
 Det sista PowerShell-kommandot från det föregående skriptet visar namnet på den virtuella datorn. Information om hur du ansluter till den virtuella datorn finns i [så här ansluter du och loggar in på en virtuell Azure-dator som kör Windows](./connect-logon.md).
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 - Om det uppstod problem med distributionen kan du ta en titt på [Felsök vanliga fel i Azure-distribution med Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
 - Lär dig hur du skapar och hanterar en virtuell dator i [skapa och hantera virtuella Windows-datorer med Azure PowerShell-modulen](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

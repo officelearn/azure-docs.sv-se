@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
 ms.openlocfilehash: f2e4f91dbc03853d6f1a5240f693ea8ff510e8c4
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82101084"
 ---
 # <a name="intents-in-your-luis-app"></a>Avsikter i din LUIS-app
@@ -29,7 +29,7 @@ Rese programs avsikter   |   Exempel på yttranden   |
  BookFlight (Boka flyg)     |   "Boka mig en flygning till Rio nästa vecka" <br/> "Lägg till Rio på 24" <br/> "Jag behöver en plan biljett nästa söndag för att Rio de Janeiro"    |
  Hälsning     |   HD <br/>Hello <br/>"Lämplig morgon"  |
  CheckWeather | "Vad är väder som i Boston?" <br/> "Visa en prognos för den här helgen" |
- Ingen         | "Hämta en cookie-recept"<br>"Gjorde The The Lakers Win?" |
+ Inga         | "Hämta en cookie-recept"<br>"Gjorde The The Lakers Win?" |
 
 Alla program levereras med det fördefinierade syftet "[ingen](#none-intent)", vilket är återställnings avsikten.
 

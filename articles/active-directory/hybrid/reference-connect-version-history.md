@@ -13,10 +13,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82112209"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
@@ -26,11 +26,11 @@ Den här artikeln är utformad för att hjälpa dig att hålla koll på de versi
 
 Den här tabellen är en lista över närliggande ämnen:
 
-Hjälpavsnitt |  Information
+Ämne |  Information
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [Uppgradera från en tidigare version till den senaste versionen av](how-to-upgrade-previous-version.md) Azure AD Connect.
 Nödvändiga behörigheter | För behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
-Ladda ned| [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Hämta| [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >Att släppa en ny version av Azure AD Connect är en process som kräver flera kvalitets kontroll steg för att säkerställa drifts funktionerna i tjänsten, och medan vi går igenom den här processen kommer versions numret för en ny version och versions statusen att uppdateras för att avspegla det senaste tillståndet.
@@ -554,7 +554,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 *   Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv. Vi vill behålla standard behörigheterna när det kommer till dig själv.
 *   Tilldela följande behörigheter:
 
-Typ     | Namn                          | Åtkomst               | Gäller för
+Typ     | Name                          | Åtkomst               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig kontroll         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig kontroll         | Det här objektet  |

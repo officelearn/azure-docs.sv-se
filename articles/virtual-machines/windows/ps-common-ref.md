@@ -8,10 +8,10 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.openlocfilehash: 8b99b6dd62920ed17d79281b448089754613d4e1
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82098416"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Vanliga PowerShell-kommandon för att skapa och hantera Azure Virtual Machines
@@ -28,7 +28,7 @@ Dessa variabler kan vara användbara för dig om du kör fler än ett av kommand
 
 ## <a name="create-a-vm---simplified"></a>Skapa en virtuell dator – förenklad
 
-| Aktivitet | Kommando |
+| Uppgift | Kommando |
 | ---- | ------- |
 | Skapa en enkel virtuell dator | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) -Name $myVM <BR></BR><BR></BR> New-AzVM har en uppsättning *förenklade* parametrar, där allt som krävs är ett enda namn. Värdet för-Name används som namn på alla resurser som krävs för att skapa en ny virtuell dator. Du kan ange fler, men det är allt som krävs.|
 | Skapa en virtuell dator från en anpassad avbildning | New-AzVm-ResourceGroupName $myResourceGroup-Name $myVM ImageName "image" – location $location  <BR></BR><BR></BR>Du måste redan ha skapat din egen [hanterade avbildning](capture-image-resource.md). Du kan använda en avbildning för att göra flera identiska virtuella datorer. |
@@ -37,7 +37,7 @@ Dessa variabler kan vara användbara för dig om du kör fler än ett av kommand
 
 ## <a name="create-a-vm-configuration"></a>Skapa en VM-konfiguration
 
-| Aktivitet | Kommando |
+| Uppgift | Kommando |
 | ---- | ------- |
 | Skapa en VM-konfiguration |$vm = [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) -VMName $MyVM-VMSize "Standard_D1_v1"<BR></BR><BR></BR>Konfigurationen av den virtuella datorn används för att definiera eller uppdatera inställningarna för den virtuella datorn. Konfigurationen initieras med namnet på den virtuella datorn och dess [storlek](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). |
 | Lägg till konfigurations inställningar |$vm = [set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem) -VM $VM-Windows-ComputerName $MyVM-Credential $cred-ProvisionVMAgent-EnableAutoUpdate<BR></BR><BR></BR>Operativ systemets inställningar, inklusive [autentiseringsuppgifter](https://technet.microsoft.com/library/hh849815.aspx) , läggs till i konfigurationsobjektet som du skapade tidigare med New-AzVMConfig. |
@@ -48,14 +48,14 @@ Dessa variabler kan vara användbara för dig om du kör fler än ett av kommand
 
 ## <a name="get-information-about-vms"></a>Hämta information om virtuella datorer
 
-| Aktivitet | Kommando |
+| Uppgift | Kommando |
 | ---- | ------- |
 | Lista virtuella datorer i en prenumeration |[Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) |
 | Lista virtuella datorer i en resurs grupp |Get-AzVM-ResourceGroupName $myResourceGroup<BR></BR><BR></BR>Använd [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup)om du vill hämta en lista över resurs grupper i din prenumeration. |
 | Hämta information om en virtuell dator |Get-AzVM-ResourceGroupName $myResourceGroup-Name $myVM |
 
 ## <a name="manage-vms"></a>Hantera virtuella datorer
-| Aktivitet | Kommando |
+| Uppgift | Kommando |
 | --- | --- |
 | Starta en virtuell dator |[Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm) -ResourceGroupName $MyResourceGroup-Name $myVM |
 | Stoppa en virtuell dator |[Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) – ResourceGroupName $MyResourceGroup-Name $myVM |

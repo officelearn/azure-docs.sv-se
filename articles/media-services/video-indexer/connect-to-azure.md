@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/22/2020
 ms.author: juliako
 ms.openlocfilehash: 89360f062f0198a6b0c857395b4956caa1109e82
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82097204"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
@@ -142,7 +142,7 @@ I dialog rutan **anslut video Indexer till en Azure-prenumeration** på din [vid
 
 Ange följande information i dialog rutan:
 
-|Inställning|Beskrivning|
+|Inställningen|Beskrivning|
 |---|---|
 |Video Indexer konto region|Namnet på Video Indexer konto region. För bättre prestanda och lägre kostnader rekommenderar vi starkt att du anger namnet på den region där Azure Media Services resursen och Azure Storage kontot finns. |
 |Azure AD-klient|Namnet på Azure AD-klienten, till exempel "contoso.onmicrosoft.com". Klient informationen kan hämtas från Azure Portal. Placera markören över namnet på den inloggade användaren i det övre högra hörnet. Hitta namnet till höger om **domänen**.|

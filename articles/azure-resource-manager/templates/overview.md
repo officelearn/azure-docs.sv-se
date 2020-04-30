@@ -1,80 +1,80 @@
 ---
 title: Översikt över mallar
-description: Beskriver fördelarna med Azure Resource Manager-mallar för distribution av resurser.
+description: Beskriver fördelarna med Azure Resource Manager mallar för att distribuera resurser.
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.openlocfilehash: b3b5fb383ac89d0968a437f35aab656afa1913f0
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086342"
 ---
 # <a name="what-are-arm-templates"></a>Vad är ARM-mallar?
 
-Med flytten till molnet har många team antagit agila utvecklingsmetoder. Dessa lag itererar snabbt. De måste upprepade gånger distribuera sina lösningar till molnet och veta att deras infrastruktur är i ett tillförlitligt tillstånd. I takt med att infrastrukturen har blivit en del av iterativ processen har uppdelningen mellan drift och utveckling försvunnit. Team måste hantera infrastruktur och programkod genom en enhetlig process.
+Med flytten till molnet har många team antagit smidiga utvecklings metoder. Dessa team itererar snabbt. De måste distribuera sina lösningar flera gånger till molnet och känna till att deras infrastruktur är i ett tillförlitligt tillstånd. Eftersom infrastrukturen har blivit en del av den iterativa processen har indelningen mellan drift och utveckling försvunnit. Team behöver hantera infrastruktur-och program kod genom en enhetlig process.
 
-För att möta dessa utmaningar kan du automatisera distributioner och använda infrastrukturen som kod. I kod definierar du den infrastruktur som måste distribueras. Infrastrukturkoden blir en del av projektet. Precis som programkoden lagrar du infrastrukturkoden i en källdatabas och version av den. Vem som helst i teamet kan köra koden och distribuera liknande miljöer.
+För att möta dessa utmaningar kan du automatisera distributioner och använda infrastrukturen som kod. I kod definierar du den infrastruktur som måste distribueras. Infrastruktur koden blir en del av projektet. Precis som program kod, lagrar du infrastruktur koden i en käll lagrings plats och version. Vilken som helst av dina team kan köra koden och distribuera liknande miljöer.
 
-Om du vill implementera infrastruktur som kod för dina Azure-lösningar använder du AZURE Resource Manager (ARM) mallar. Mallen är en JSON-fil (JavaScript Object Notation) som definierar infrastrukturen och konfigurationen för projektet. Mallen använder deklarativ syntax, vilket gör att du kan ange vad du tänker distribuera utan att behöva skriva sekvensen av programmeringskommandon för att skapa den. I mallen anger du de resurser som ska distribueras och egenskaperna för dessa resurser.
+Använd Azure Resource Manager ARM-mallar för att implementera infrastruktur som kod för dina Azure-lösningar. Mallen är en JavaScript Object Notation-fil (JSON) som definierar infrastrukturen och konfigurationen för ditt projekt. Mallen använder deklarativ syntax, som låter dig ange vad du vill distribuera utan att du behöver skriva sekvensen med programmerings kommandon för att skapa den. I mallen anger du de resurser som ska distribueras och egenskaperna för dessa resurser.
 
-## <a name="why-choose-arm-templates"></a>Varför välja ARM-mallar?
+## <a name="why-choose-arm-templates"></a>Varför ska du välja ARM-mallar?
 
-Om du försöker välja mellan att använda ARM-mallar och någon av de andra infrastrukturerna som kodtjänster bör du tänka på följande fördelar med att använda mallar:
+Om du försöker bestämma mellan att använda ARM-mallar och en annan infrastruktur som kod tjänster, bör du tänka på följande fördelar med att använda mallar:
 
-* **Deklarativ syntax**: Med ARM-mallar kan du skapa och distribuera en hel Azure-infrastruktur deklarativt. Du kan till exempel distribuera inte bara virtuella datorer, utan även nätverksinfrastruktur, lagringssystem och andra resurser som du kan behöva.
+* **Deklarativ syntax**: arm-mallar gör att du kan skapa och distribuera en hel Azure-infrastruktur i en deklarativ miljö. Du kan till exempel distribuera inte bara virtuella datorer, utan även nätverks infrastrukturen, lagrings system och andra resurser som du kan behöva.
 
-* **Repeterbara resultat:** Distribuera din infrastruktur upprepade gånger under hela utvecklingslivscykeln och ha förtroende för att dina resurser distribueras på ett konsekvent sätt. Mallar är idempotenta, vilket innebär att du kan distribuera samma mall många gånger och få samma resurstyper i samma tillstånd. Du kan utveckla en mall som representerar önskat tillstånd, i stället för att utveckla många separata mallar för att representera uppdateringar.
+* **Upprepnings bara resultat**: Distribuera infrastrukturen flera gånger under utvecklings livs cykeln och få förtroende för att resurserna distribueras på ett konsekvent sätt. Mallarna är idempotenta, vilket innebär att du kan distribuera samma mall flera gånger och få samma resurs typer i samma tillstånd. Du kan utveckla en mall som representerar det önskade läget, i stället för att utveckla många separata mallar som representerar uppdateringar.
 
-* **Orkestrering:** Du behöver inte oroa dig för komplexiteten i att beställa operationer. Resurshanteraren dirigerar distributionen av resurser som är beroende av varandra så att de skapas i rätt ordning. När det är möjligt distribuerar Resource Manager resurser parallellt så att distributionerna slutförs snabbare än seriedistributioner. Du distribuerar mallen via ett kommando, i stället för genom flera tvingande kommandon.
+* **Orchestration**: du behöver inte bekymra dig om de komplexa funktionerna för beställning. Resource Manager dirigerar distributionen av beroende resurser så att de skapas i rätt ordning. När så är möjligt distribuerar Resource Manager resurserna parallellt så att distributionerna slutar snabbare än seriella distributioner. Du distribuerar mallen via ett kommando i stället för att använda flera tvingande kommandon.
 
-   ![Jämförelse av malldistribution](./media/overview/template-processing.png)
+   ![Malldistribution jämförelse](./media/overview/template-processing.png)
 
-* **Modulära filer:** Du kan dela upp mallarna i mindre, återanvändbara komponenter och länka ihop dem vid distributionen. Du kan också kapsla en mall i en annan mall.
+* **Modulära filer**: du kan dela upp dina mallar i mindre, återanvändbara komponenter och länka dem tillsammans vid distributions tiden. Du kan också kapsla en mall inuti en annan mall.
 
-* **Skapa en Azure-resurs:** Du kan omedelbart använda nya Azure-tjänster och -funktioner i mallar. Så fort en resursprovider introducerar nya resurser kan du distribuera dessa resurser via mallar. Du behöver inte vänta på att verktyg eller moduler ska uppdateras innan du använder de nya tjänsterna.
+* **Skapa en Azure-resurs**: du kan använda nya Azure-tjänster och-funktioner direkt i mallar. Så snart en resurs leverantör inför nya resurser kan du distribuera dessa resurser via mallar. Du behöver inte vänta på att verktyg eller moduler uppdateras innan du använder de nya tjänsterna.
 
-* **Utökningsbarhet:** Med [distributionsskript](deployment-script-template.md)kan du lägga till PowerShell- eller Bash-skript i mallarna. Distributionsskripten utökar din möjlighet att konfigurera resurser under distributionen. Ett skript kan inkluderas i mallen eller lagras i en extern källa och refereras i mallen. Distributionsskript ger dig möjlighet att slutföra din end-to-end-miljöinställning i en enda ARM-mall.
+* **Utöknings barhet**: med [distributions skript](deployment-script-template.md)kan du lägga till PowerShell-eller bash-skript i dina mallar. Distributions skripten utökar din möjlighet att konfigurera resurser under distributionen. Ett skript kan inkluderas i mallen eller lagras i en extern källa och refereras till i mallen. Distributions skript ger dig möjlighet att slutföra din miljö konfiguration från slut punkt till slut punkt i en enda ARM-mall.
 
-* **Testning**: Du kan se till att mallen följer rekommenderade riktlinjer genom att testa den med ARM-mallverktygssatsen (arm-ttk). Det här testpaketet är ett PowerShell-skript som du kan hämta från [GitHub](https://github.com/Azure/arm-ttk). Verktygslådan gör det enklare för dig att utveckla expertis med mallspråket.
+* **Testning**: du kan se till att din mall följer rekommenderade rikt linjer genom att testa den med verktyget arm Template Tool Kit (arm-TTK). Det här test paketet är ett PowerShell-skript som du kan ladda ned från [GitHub](https://github.com/Azure/arm-ttk). Med verktygs paketet är det enklare för dig att utveckla expertis med hjälp av mallens språk.
 
-* **Förhandsgranskningsändringar**: Du kan använda [vad händer om-åtgärden](template-deploy-what-if.md) för att få en förhandsgranskning av ändringar innan du distribuerar mallen. Med vad händer om ser du vilka resurser som ska skapas, uppdateras eller tas bort och alla resursegenskaper som ändras. Vad händer om-åtgärden kontrollerar det aktuella tillståndet för din miljö och eliminerar behovet av att hantera tillstånd.
+* **Förhandsgranska ändringar**: du kan använda [åtgärden vad händer om](template-deploy-what-if.md) du vill få en förhands granskning av ändringarna innan du distribuerar mallen. Med vad som händer, kan du se vilka resurser som kommer att skapas, uppdateras eller tas bort och vilka resurs egenskaper som kommer att ändras. Konsekvens åtgärden kontrollerar miljöns aktuella tillstånd och eliminerar behovet av att hantera tillstånd.
 
-* **Inbyggd validering**: Mallen distribueras först efter validering. Resource Manager kontrollerar mallen innan distributionen startas för att se till att distributionen lyckas. Din distribution är mindre benägna att stoppa i ett halvfärdigt tillstånd.
+* **Inbyggd verifiering**: din mall distribueras bara när du har överfört verifieringen. Resource Manager kontrollerar mallen innan du påbörjar distributionen för att kontrol lera att distributionen kommer att lyckas. Distributionen är mindre troligt att stoppas i ett halv klart tillstånd.
 
-* **Spårade distributioner**: I Azure-portalen kan du granska distributionshistoriken och få information om malldistributionen. Du kan se mallen som har distribuerats, parametervärdena skickades in och eventuella utdatavärden. Annan infrastruktur som kodtjänster spåras inte via portalen.
+* **Spårade distributioner**: i Azure Portal kan du granska distributions historiken och få information om mall distributionen. Du kan se den mall som har distribuerats, de parameter värden som angavs i och eventuella värden. Annan infrastruktur som kod tjänster spåras inte via portalen.
 
-   ![Distributionshistorik](./media/overview/deployment-history.png)
+   ![Distributions historik](./media/overview/deployment-history.png)
 
-* **Princip som kod:** [Azure Policy](../../governance/policy/overview.md) är en princip som kodramverk för att automatisera styrning. Om du använder Azure-principer utförs principsanering på icke-kompatibla resurser när du distribueras via mallar.
+* **Princip som kod**: [Azure policy](../../governance/policy/overview.md) är en princip som kod ramverk för att automatisera styrningen. Om du använder Azure-principer görs princip reparationer på icke-kompatibla resurser när de distribueras med hjälp av mallar.
 
-* **Distributionsritningar**: Du kan dra nytta av [ritningar](../../governance/blueprints/overview.md) som tillhandahålls av Microsoft för att uppfylla lagstadgade och efterlevnadsstandarder. Dessa ritningar innehåller färdiga mallar för olika arkitekturer.
+* **Distributions ritningar**: du kan dra nytta av [skisser](../../governance/blueprints/overview.md) som tillhandahålls av Microsoft för att uppfylla regler och efterlevnad. Dessa ritningar innehåller färdiga mallar för olika arkitekturer.
 
-* **CI/CD-integrering:** Du kan integrera mallar i dina ci/cd-verktyg (continuous integration and continuous deployment), som kan automatisera dina versionspipelor för snabba och tillförlitliga program- och infrastrukturuppdateringar. Genom att använda Azure DevOps och Resource Manager-mallaktivitet kan du använda Azure Pipelines för att kontinuerligt skapa och distribuera ARM-mallprojekt. Mer information finns i [VS-projektet med pipelines](add-template-to-azure-pipelines.md) och [självstudiekurs: Kontinuerlig integrering av Azure Resource Manager-mallar med Azure Pipelines](./deployment-tutorial-pipeline.md).
+* **CI/CD-integrering**: du kan integrera mallar i verktygen för kontinuerlig integrering och distribution (CI/CD), vilket kan automatisera dina versions pipeliner för snabba och tillförlitliga program-och infrastruktur uppdateringar. Genom att använda Azure-DevOps och Resource Manager-postmall kan du använda Azure-pipelines för att kontinuerligt bygga och distribuera ARM-mallar projekt. Mer information finns i [vs Project with pipelines](add-template-to-azure-pipelines.md) and [självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines](./deployment-tutorial-pipeline.md).
 
-* **Exportbar kod**: Du kan hämta en mall för en befintlig resursgrupp genom att antingen exportera resursgruppens aktuella tillstånd eller visa mallen som används för en viss distribution. Att granska den [exporterade mallen](export-template-portal.md) är ett bra sätt att lära sig mer om mallsyntaxen.
+* **Exporterad kod**: du kan hämta en mall för en befintlig resurs grupp genom att antingen exportera det aktuella läget för resurs gruppen eller Visa mallen som används för en viss distribution. Att granska den [exporterade mallen](export-template-portal.md) är ett bra sätt att lära sig mer om mallsyntaxen.
 
-* **Redigeringsverktyg:** Du kan skapa mallar med [Visual Studio-kod](use-vs-code-to-create-template.md) och mallverktygstillägget. Du får intellisense, syntaxmarkering, in-line hjälp och många andra språkfunktioner. Förutom Visual Studio-kod kan du även använda [Visual Studio](create-visual-studio-deployment-project.md).
+* **Redigerings verktyg**: du kan skapa mallar med [Visual Studio Code](use-vs-code-to-create-template.md) och verktyget mall-tillägg. Du får IntelliSense, syntaxkontroll, direkt hjälp och många andra språk funktioner. Förutom Visual Studio Code kan du också använda [Visual Studio](create-visual-studio-deployment-project.md).
 
 ## <a name="template-file"></a>Mallfil
 
-I mallen kan du skriva [malluttryck](template-expressions.md) som utökar JSON:s funktioner. Dessa uttryck använder sig av de [funktioner](template-functions.md) som tillhandahålls av Resource Manager.
+I mallen kan du skriva [mallar](template-expressions.md) som utökar funktionerna i JSON. Dessa uttryck använder de [funktioner](template-functions.md) som tillhandahålls av Resource Manager.
 
-Mallen har följande avsnitt:
+Mallen innehåller följande avsnitt:
 
-* [Parametrar](template-parameters.md) - Ange värden under distributionen som gör att samma mall kan användas med olika miljöer.
+* [Parametrar](template-parameters.md) -ange värden under distributionen som tillåter att samma mall används med olika miljöer.
 
-* [Variabler](template-variables.md) - Definiera värden som återanvänds i mallarna. De kan konstrueras utifrån parametervärden.
+* [Variabler](template-variables.md) – definiera värden som återanvänds i dina mallar. De kan konstrueras från parameter värden.
 
-* [Användardefinierade funktioner](template-user-defined-functions.md) - Skapa anpassade funktioner som förenklar mallen.
+* [Användardefinierade funktioner](template-user-defined-functions.md) – skapa anpassade funktioner som fören klar din mall.
 
-* [Resurser](template-syntax.md#resources) - Ange de resurser som ska distribueras.
+* [Resurser](template-syntax.md#resources) – ange vilka resurser som ska distribueras.
 
-* [Utdata](template-outputs.md) - Returnera värden från de distribuerade resurserna.
+* [Utdata](template-outputs.md) – returnera värden från de distribuerade resurserna.
 
-## <a name="template-deployment-process"></a>Distributionsprocessen för mall
+## <a name="template-deployment-process"></a>Malldistribution process
 
-När du distribuerar en mall konverterar Resource Manager mallen till REST API-åtgärder. Till exempel när Resource Manager tar emot en mall med följande resursdefinition:
+När du distribuerar en mall konverterar Resource Manager mallen till REST API åtgärder. Till exempel när Resource Manager tar emot en mall med följande resursdefinition:
 
 ```json
 "resources": [
@@ -108,7 +108,7 @@ REQUEST BODY
 }
 ```
 
-## <a name="template-design"></a>Malldesign
+## <a name="template-design"></a>Mall design
 
 Det är helt upp till dig hur du definierar mallar och resursgrupper och hur du vill hantera din lösning. Du kan till exempel distribuera programmet i tre nivåer via en enda mall till en enda resursgrupp.
 
@@ -126,6 +126,6 @@ Mer information om kapslade mallar finns i [Använda länkade mallar med Azure R
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En steg-för-steg-självstudiekurs som vägleder dig genom processen att skapa en mall finns i [Självstudiekurs: Skapa och distribuera din första ARM-mall](template-tutorial-create-first-template.md).
-* Information om egenskaperna i mallfiler finns i [Förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
-* Mer information om hur du exporterar mallar finns i [Snabbstart: Skapa och distribuera ARM-mallar med hjälp av Azure-portalen](quickstart-create-templates-use-the-portal.md).
+* En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i [Självstudier: skapa och distribuera din första arm-mall](template-tutorial-create-first-template.md).
+* Information om egenskaperna i mallfiler finns i [förstå strukturen och syntaxen för ARM-mallar](template-syntax.md).
+* Information om hur du exporterar mallar finns i [snabb start: skapa och distribuera arm-mallar med hjälp av Azure Portal](quickstart-create-templates-use-the-portal.md).

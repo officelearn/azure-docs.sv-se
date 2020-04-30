@@ -1,6 +1,6 @@
 ---
 title: Exempelskript för Azure Disk Encryption
-description: Den här artikeln är bilagan till virtuella datorer för Microsoft Azure Disk Encryption for Windows.
+description: Den här artikeln är bilagan till Microsoft Azure disk kryptering för virtuella Windows-datorer.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
@@ -9,19 +9,19 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
 ms.openlocfilehash: e5e0a970df680df43a7bd303636b3d81bda3e141
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085713"
 ---
 # <a name="azure-disk-encryption-sample-scripts"></a>Exempelskript för Azure Disk Encryption 
 
-Den här artikeln innehåller exempelskript för att förbereda förkrypterade virtuella hårddiskar och andra uppgifter.
+Den här artikeln innehåller exempel skript för att förbereda förkrypterade virtuella hård diskar och andra uppgifter.
 
  
 
-## <a name="list-vms-and-secrets"></a>Lista virtuella datorer och hemligheter
+## <a name="list-vms-and-secrets"></a>Visa lista över virtuella datorer och hemligheter
 
 Lista alla krypterade virtuella datorer i din prenumeration:
 
@@ -30,80 +30,80 @@ $osVolEncrypted = {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceG
 $dataVolEncrypted= {(Get-AzVMDiskEncryptionStatus -ResourceGroupName $_.ResourceGroupName -VMName $_.Name).DataVolumesEncrypted}
 Get-AzVm | Format-Table @{Label="MachineName"; Expression={$_.Name}}, @{Label="OsVolumeEncrypted"; Expression=$osVolEncrypted}, @{Label="DataVolumesEncrypted"; Expression=$dataVolEncrypted}
 ```
-Lista alla diskkrypteringshemligheter som används för att kryptera virtuella datorer i ett nyckelvalv:
+Lista alla disk krypterings hemligheter som används för kryptering av virtuella datorer i ett nyckel valv:
 
 ```azurepowershell-interactive
 Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
 ```
 
-## <a name="the-azure-disk-encryption-prerequisites-scripts"></a>Azure Disk Kryptering förutsättningar skript
-Om du redan är bekant med förutsättningarna för Azure Disk Encryption kan du använda [Azure Disk Encryption förutsättningar PowerShell-skriptet](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Ett exempel på hur du använder det här PowerShell-skriptet finns i [Snabbstarten kryptera en virtuell dator](disk-encryption-powershell-quickstart.md). Du kan ta bort kommentarerna från ett avsnitt i skriptet, med början på rad 211, för att kryptera alla diskar för befintliga virtuella datorer i en befintlig resursgrupp. 
+## <a name="the-azure-disk-encryption-prerequisites-scripts"></a>Skript för Azure Disk Encryption nödvändiga komponenter
+Om du redan är bekant med kraven för Azure Disk Encryption kan du använda [PowerShell-skriptet Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Ett exempel på hur du använder PowerShell-skriptet finns i [kryptera en snabb start för virtuell dator](disk-encryption-powershell-quickstart.md). Du kan ta bort kommentarerna från ett avsnitt i skriptet, med början på rad 211, för att kryptera alla diskar för befintliga virtuella datorer i en befintlig resurs grupp. 
 
 I följande tabell visas vilka parametrar som kan användas i PowerShell-skriptet: 
 
-|Parameter|Beskrivning|Obligatoriska?|
+|Parameter|Beskrivning|Erforderlig?|
 |------|------|------|
-|$resourceGroupName| Namnet på den resursgrupp som KeyVault tillhör.  En ny resursgrupp med det här namnet skapas om det inte finns någon.| True|
-|$keyVaultName|Namn på keyvault där krypteringsnycklar ska placeras. Ett nytt valv med det här namnet skapas om det inte finns något nytt valv.| True|
-|$location|Plats för KeyVault. Kontrollera att KeyVault och virtuella datorer som ska krypteras finns på samma plats. Hämta en innehållsplatslista med `Get-AzLocation`.|True|
-|$subscriptionId|Identifierare för Azure-prenumerationen som ska användas.  Du kan hämta ditt prenumerations-ID med `Get-AzSubscription`.|True|
-|$aadAppName|Namnet på Azure AD-programmet som ska användas för att skriva hemligheter till KeyVault. Om det inte redan finns ett program med det namnet skapas ett nytt. Om den här appen redan finns skickar du parametern aadClientSecret till skriptet.|False|
-|$aadClientSecret|Klienthemligheten för Azure AD-programmet som skapades tidigare.|False|
-|$keyEncryptionKeyName|Namn på valfri nyckelkrypteringsnyckel i KeyVault. En ny nyckel med det här namnet skapas om det inte finns någon.|False|
+|$resourceGroupName| Namnet på den resurs grupp som nyckel valvet tillhör.  En ny resurs grupp med det här namnet kommer att skapas om det inte finns någon.| Sant|
+|$keyVaultName|Namnet på det nyckel valv där krypterings nycklar ska placeras. Ett nytt valv med det här namnet kommer att skapas om det inte finns något.| Sant|
+|$location|Plats för nyckel valvet. Se till att det nyckel valv och de virtuella datorer som ska krypteras finns på samma plats. Hämta en innehållsplatslista med `Get-AzLocation`.|Sant|
+|$subscriptionId|Identifierare för den Azure-prenumeration som ska användas.  Du kan hämta ditt prenumerations-ID med `Get-AzSubscription`.|Sant|
+|$aadAppName|Namnet på det Azure AD-program som ska användas för att skriva hemligheter till nyckel valv. Om det inte redan finns ett program med det namnet skapas ett nytt. Om den här appen redan finns skickar du aadClientSecret-parametern till skriptet.|Falskt|
+|$aadClientSecret|Klient hemlighet för Azure AD-programmet som skapades tidigare.|Falskt|
+|$keyEncryptionKeyName|Namn på valfri nyckel krypterings nyckel i nyckel valvet. En ny nyckel med det här namnet kommer att skapas om det inte finns någon.|Falskt|
 
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
-### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Kryptera eller dekryptera virtuella datorer utan en Azure AD-app
+### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Kryptera eller dekryptera virtuella datorer utan en Azure AD-App
 
-- [Aktivera diskkryptering på en befintlig eller körande Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)  
-- [Inaktivera kryptering på en windows-virtuell dator som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) 
+- [Aktivera disk kryptering på en befintlig eller Windows-VM som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)  
+- [Inaktivera kryptering på en virtuell Windows-dator som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) 
 
-### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Kryptera eller dekryptera virtuella datorer med en Azure AD-app (tidigare version) 
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Kryptera eller dekryptera virtuella datorer med en Azure AD-App (tidigare version) 
  
-- [Aktivera diskkryptering på en befintlig eller körande Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)    
-- [Inaktivera kryptering på en windows-virtuell dator som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
-- [Skapa en ny krypterad hanterad disk från en förkrypterad VHD/storage-blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
-    - Skapar en ny krypterad hanterad disk som en förkrypterad virtuell hårddisk och motsvarande krypteringsinställningar
+- [Aktivera disk kryptering på en befintlig eller Windows-VM som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)    
+- [Inaktivera kryptering på en virtuell Windows-dator som körs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
+- [Skapa en ny krypterad hanterad disk från en förkrypterad VHD/Storage-BLOB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+    - Skapar en ny krypterad hanterad disk som tillhandahöll en förkrypterad virtuell hård disk och dess motsvarande krypterings inställningar
 
-## <a name="prepare-a-pre-encrypted-windows-vhd"></a>Förbereda en förkrypterad Windows VHD
-De avsnitt som följer är nödvändiga för att förbereda en förkrypterad Windows VHD för distribution som en krypterad virtuell hårddisk i Azure IaaS. Använd informationen för att förbereda och starta en ny Virtuell Windows-dator (VHD) på Azure Site Recovery eller Azure. Mer information om hur du förbereder och laddar upp en virtuell hårddisk finns i [Ladda upp en generaliserad virtuell hårddisk och använda den för att skapa nya virtuella datorer i Azure](upload-generalized-managed.md).
+## <a name="prepare-a-pre-encrypted-windows-vhd"></a>Förbereda en förkrypterad Windows-VHD
+Avsnitten som följer är nödvändiga för att förbereda en förkrypterad Windows-VHD för distribution som en krypterad virtuell hård disk i Azure IaaS. Använd informationen för att förbereda och starta en ny virtuell Windows-dator (VHD) på Azure Site Recovery eller Azure. Mer information om hur du förbereder och laddar upp en virtuell hård disk finns i [överföra en generaliserad virtuell hård disk och använda den för att skapa nya virtuella datorer i Azure](upload-generalized-managed.md).
 
-### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>Uppdatera grupprincipen för att tillåta icke-TPM för OS-skydd
-Konfigurera bitlockergrupprincipinställningen **BitLocker-diskkryptering**, som du hittar under**Administrativa mallar** > för **lokal datorprincipdatorkonfiguration** > **Computer Configuration** > **Windows-komponenter**. Ändra den här inställningen till **Operativsystemenheter** > **Kräv ytterligare autentisering vid start** > **Tillåt BitLocker utan kompatibel TPM,** vilket visas i följande bild:
+### <a name="update-group-policy-to-allow-non-tpm-for-os-protection"></a>Uppdatera grup princip för att tillåta icke-TPM för OS-skydd
+Konfigurera BitLocker-grupprincip inställningen **BitLocker-diskkryptering**, som du hittar under**dator konfiguration** > för **lokal dator princip** > **administrativa mallar** > **Windows-komponenter**. Om du ändrar den här inställningen till **operativ system enheter** > **krävs ytterligare autentisering vid start** > **Tillåt BitLocker utan en kompatibel TPM**, som visas i följande bild:
 
 ![Microsoft Antimalware i Azure](../media/disk-encryption/disk-encryption-fig8.png)
 
-### <a name="install-bitlocker-feature-components"></a>Installera BitLocker-funktionskomponenter
+### <a name="install-bitlocker-feature-components"></a>Installera funktions komponenter i BitLocker
 För Windows Server 2012 och senare använder du följande kommando:
 
     dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
 
-Använd följande kommando för Windows Server 2008 R2:
+För Windows Server 2008 R2 använder du följande kommando:
 
     ServerManagerCmd -install BitLockers
 
-### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Förbereda OS-volymen för BitLocker med hjälp av`bdehdcfg`
-Om du vill komprimera OS-partitionen och förbereda datorn för BitLocker kör du [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) om det behövs:
+### <a name="prepare-the-os-volume-for-bitlocker-by-using-bdehdcfg"></a>Förbered operativ system volymen för BitLocker med hjälp av`bdehdcfg`
+Om du vill komprimera OS-partitionen och förbereda datorn för BitLocker kör du [BdeHdCfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) vid behov:
 
     bdehdcfg -target c: shrink -quiet 
 
-### <a name="protect-the-os-volume-by-using-bitlocker"></a>Skydda OS-volymen med BitLocker
-Använd [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) kommandot för att aktivera kryptering på startvolymen med hjälp av ett externt nyckelskydd. Placera även den externa nyckeln (.bek-filen) på den externa enheten eller volymen. Kryptering är aktiverat på systemet / startvolymen efter nästa omstart.
+### <a name="protect-the-os-volume-by-using-bitlocker"></a>Skydda operativ system volymen med hjälp av BitLocker
+Använd [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) kommandot för att aktivera kryptering på Start volymen med hjälp av ett externt nyckel skydd. Placera även den externa nyckeln (. Bek-filen) på den externa enheten eller volymen. Kryptering är aktiverat på system-/start volymen efter nästa omstart.
 
     manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
     reboot
 
 > [!NOTE]
-> Förbered den virtuella datorn med en separat virtuell dator för data/resurs för att hämta den externa nyckeln med bitlocker.
+> Förbered den virtuella datorn med en separat data-/resurs-VHD för att hämta den externa nyckeln med hjälp av BitLocker.
 
-## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Ladda upp krypterad virtuell hårddisk till ett Azure-lagringskonto
-När DM-Crypt-kryptering har aktiverats måste den lokala krypterade virtuella hårddisken laddas upp till ditt lagringskonto.
+## <a name="upload-encrypted-vhd-to-an-azure-storage-account"></a>Ladda upp krypterad virtuell hård disk till ett Azure Storage-konto
+När DM-crypt-kryptering har Aktiver ATS måste den lokala krypterade virtuella hård disken överföras till ditt lagrings konto.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 
-## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Ladda upp hemligheten för den förkrypterade virtuella datorn till ditt nyckelvalv
-Diskkrypteringshemligheten som du tidigare har fått måste överföras som en hemlighet i nyckelvalvet.  Detta kräver att du beviljar den hemliga behörigheten och behörigheten wrapkey till kontot som överför hemligheterna.
+## <a name="upload-the-secret-for-the-pre-encrypted-vm-to-your-key-vault"></a>Överför hemligheten för den förkrypterade virtuella datorn till ditt nyckel valv
+Den disk krypterings hemlighet som du fick tidigare måste laddas upp som en hemlighet i ditt nyckel valv.  Detta kräver att du beviljar behörigheten Ange hemlighet och wrapkey till det konto som ska överföra hemligheterna.
 
 ```powershell 
 # Typically, account Id is the user principal name (in user@domain.com format)
@@ -121,8 +121,8 @@ Set-AzKeyVaultAccessPolicy -VaultName $kvname -UserPrincipalName $acctid -Permis
 
 ```
 
-### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Diskkrypteringshemlighet inte krypterad med en KEK
-Om du vill konfigurera hemligheten i nyckelvalvet använder du [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). Lösenfrasen kodas som en base64-sträng och överförs sedan till nyckelvalvet. Kontrollera dessutom att följande taggar ställs in när du skapar hemligheten i nyckelvalvet.
+### <a name="disk-encryption-secret-not-encrypted-with-a-kek"></a>Disk krypterings hemligheten är inte krypterad med en KEK
+Använd [set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret)för att ställa in hemligheten i nyckel valvet. Lösen frasen kodas som en Base64-sträng och överförs sedan till nyckel valvet. Se dessutom till att följande Taggar anges när du skapar hemligheten i nyckel valvet.
 
 ```powershell
 
@@ -139,10 +139,10 @@ Om du vill konfigurera hemligheten i nyckelvalvet använder du [Set-AzKeyVaultSe
 ```
 
 
-Använd `$secretUrl` i nästa steg för [att ansluta OS-disken utan att använda KEK](#without-using-a-kek).
+Använd `$secretUrl` i nästa steg för att [koppla OS-disken utan att använda KEK](#without-using-a-kek).
 
-### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Diskkrypteringshemlighet krypterad med en KEK
-Innan du laddar upp hemligheten till nyckelvalvet kan du kryptera den med hjälp av en nyckelkrypteringsnyckel. Använd wrap [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med hjälp av nyckelkrypteringsnyckeln. Utdata för den här figursättningen är en base64 URL-kodad sträng, [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) som du sedan kan ladda upp som en hemlighet med hjälp av cmdlet.
+### <a name="disk-encryption-secret-encrypted-with-a-kek"></a>Disk krypterings hemlighet krypterad med en KEK
+Innan du överför hemligheten till nyckel valvet kan du också kryptera den med hjälp av en nyckel krypterings nyckel. Använd wrap- [API: et](https://msdn.microsoft.com/library/azure/dn878066.aspx) för att först kryptera hemligheten med nyckel krypterings nyckeln. Utdata från den här figur sättningen är en Base64-kodad sträng, som du sedan kan ladda upp som en hemlighet [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) med hjälp av cmdleten.
 
 ```powershell
     # This is the passphrase that was provided for encryption during the distribution installation
@@ -232,12 +232,12 @@ Innan du laddar upp hemligheten till nyckelvalvet kan du kryptera den med hjälp
     $secretUrl = $response.id
 ```
 
-Använd `$KeyEncryptionKey` `$secretUrl` och i nästa steg för [att koppla OS-disken med KEK](#using-a-kek).
+Använd `$KeyEncryptionKey` och `$secretUrl` i nästa steg för att [koppla OS-disken med hjälp av KEK](#using-a-kek).
 
-##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Ange en hemlig URL när du bifogar en OS-disk
+##  <a name="specify-a-secret-url-when-you-attach-an-os-disk"></a>Ange en hemlig URL när du ansluter en OS-disk
 
 ###  <a name="without-using-a-kek"></a>Utan att använda en KEK
-När du ansluter OS-disken måste du `$secretUrl`passera . WEBBADRESSEN genererades i avsnittet "Diskkrypteringshemlighet som inte är krypterad med en KEK".
+När du ansluter OS-disken måste du skicka `$secretUrl`. URL: en skapades i avsnittet "disk krypterings hemlighet som inte är krypterad med ett KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `
@@ -250,7 +250,7 @@ När du ansluter OS-disken måste du `$secretUrl`passera . WEBBADRESSEN generera
             -DiskEncryptionKeyUrl $SecretUrl
 ```
 ### <a name="using-a-kek"></a>Använda en KEK
-När du ansluter OS-disken passerar du `$KeyEncryptionKey` och `$secretUrl`. WEBBADRESSEN genererades i avsnittet "Diskkrypteringshemlig krypterad med en KEK".The URL was generated in the "Disk encryption secret encrypted with a KEK" section.
+När du ansluter OS-disken skickar `$KeyEncryptionKey` du och `$secretUrl`. URL: en skapades i avsnittet "disk krypterings hemlighet krypterad med ett KEK".
 ```powershell
     Set-AzVMOSDisk `
             -VM $VirtualMachine `

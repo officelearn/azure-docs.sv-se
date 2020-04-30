@@ -6,10 +6,10 @@ ms.date: 10/24/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
 ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82113569"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
@@ -314,7 +314,7 @@ Du kan använda både resurs-och aktivitets mått när du definierar en formel. 
       <li>$NetworkOutBytes</li></ul></p>
   </tr>
   <tr>
-    <td><b>Aktivitet</b></td>
+    <td><b>Uppgift</b></td>
     <td><p>Uppgifts måtten baseras på aktiviteternas status, till exempel aktiv, väntande och slutförd. Följande tjänstedefinierade variabler är användbara för att göra ändringar i pool storlek baserat på aktivitets mått:</p>
     <p><ul>
       <li>$ActiveTasks</li>

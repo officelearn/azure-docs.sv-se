@@ -9,15 +9,15 @@ ms.date: 07/10/2019
 ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: 01c1c7c0bdf8e55b002b73682407a3e03ee30b8f
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085796"
 ---
-Skapa en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service-planen. 
+Skapa en [webbapp](../articles/app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service plan. 
 
-I Cloud Shell kan du [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) använda kommandot. Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `RUBY|2.3`. Kör [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest)om du vill visa alla runtimes som stöds . 
+I Cloud Shell kan du använda [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest) kommandot. Ersätt `<app-name>` med ett globalt unikt appnamn (giltiga tecken är `a-z`, `0-9` och `-`) i följande exempel. Körningen har angetts till `RUBY|2.3`. Om du vill se alla körningar som [`az webapp list-runtimes --linux`](/cli/azure/webapp?view=azure-cli-latest)stöds kör du. 
 
 ```azurecli-interactive
 # Bash

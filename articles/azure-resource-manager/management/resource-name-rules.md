@@ -1,596 +1,596 @@
 ---
-title: Begränsningar för namngivning av resurser
-description: Visar regler och begränsningar för att namnge Azure-resurser.
+title: Begränsningar för resurs namn
+description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82086393"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
-Den här artikeln sammanfattar namngivningsregler och begränsningar för Azure-resurser. Rekommendationer om hur du namnger resurser finns i [Rekommenderade namngivnings- och taggningskonventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Den här artikeln sammanfattar namngivnings regler och begränsningar för Azure-resurser. Rekommendationer om hur du namnger resurser finns i [rekommenderade namngivnings-och taggnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
 
-Resursnamn är skiftlägesokänsliga om de inte uttryckligen anges i kolumnen giltiga tecken.
+Resurs namn är inte Skift läges känsliga om de inte uttryckligen anges i kolumnen giltiga tecken.
 
-I följande tabeller refererar termen alfanumerisk till:
+I följande tabeller refererar termen alfanumeriskt till:
 
-* **a** till **z** (gemener)
+* **a** till **z** (små bokstäver)
 * **A** till **Z** (versaler)
 * **0** till **9** (siffror)
 
-## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
+## <a name="microsoftanalysisservices"></a>Microsoft. AnalysisServices
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Servrar | Resursgrupp | 3–63 | Gemener och siffror.<br><br>Börja med gemener. |
+> | brygghuvudservrar | Resursgrupp | 3–63 | Små bokstäver och siffror.<br><br>Börja med gemener. |
 
-## <a name="microsoftapimanagement"></a>Microsoft.ApiHanagement
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | tjänst | Globala | 1-50 | Alfanumerika.<br><br>Börja med bokstaven. |
-> | tjänst / apis | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / apis / frågor | api | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / apis / frågor / bilagor | Frågan | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / apis / frågor / kommentarer | Frågan | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / apis / operationer | api | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / apis / operationer / taggar | Drift | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / apis / utgåvor | api | 1–80 | Alfanumeriska, understreck och bindestreck.<br><br>Börja och sluta med alfanumeriskt eller understreck. |
-> | service / apis / scheman | api | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | tjänst / apis / tagDescriptions | api | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | tjänst / apis / taggar | api | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | tjänst / api-version-set | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / auktoriseringServer | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / backends | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / certifikat | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / diagnostik | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / grupper | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / grupper / användare | grupp | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | tjänst / identitetProviders | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | tjänst / loggers | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / meddelanden | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / meddelanden / mottagareEmails | avisering | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / openidConnectProviders | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / policyer | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / produkter | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / produkter / apis | produkt | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / produkter / grupper | produkt | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / produkter / taggar | produkt | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / egenskaper | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | tjänst / abonnemang | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / taggar | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | service / mallar | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-> | tjänst / användare | tjänst | 1-256 | Det går inte att använda:<br> `*#&+:<>?` |
-
-## <a name="microsoftappconfiguration"></a>Microsoft.AppKonfigurering
+## <a name="microsoftapimanagement"></a>Microsoft. API Management
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | configurationStores | Resursgrupp | 5-50 | Alfanumeriska, understreck och bindestreck. |
+> | tjänst | EAN | 1-50 | Alfanumeriska tecken.<br><br>Börja med en bokstav. |
+> | tjänst/API: er | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | Service/API/problem | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/API/problem/bilagor | ge | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | Service/API/problem/kommentarer | ge | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/API/åtgärder | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/API: er/åtgärder/Taggar | reparation | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/API: er/versioner | api | 1–80 | Alfanumeriska tecken, under streck och bindestreck.<br><br>Börja och sluta med alfanumeriskt eller under streck. |
+> | tjänst/API/scheman | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | Service/API: er/tagDescriptions | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/API/Taggar | api | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | Service/API-version – uppsättningar | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst-authorizationServers | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/Server delar | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/certifikat | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/diagnostik | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/grupper | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/grupper/användare | grupp | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst-Identityprovider | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/loggar | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/meddelanden | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/meddelanden/recipientEmails | avisering | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst-openidConnectProviders | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/principer | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/produkter | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | service/produkter/API: er | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/produkter/grupper | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | service/produkter/Taggar | produkt | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/egenskaper | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/prenumerationer | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | service/Taggar | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/mallar | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+> | tjänst/användare | tjänst | 1-256 | Kan inte använda:<br> `*#&+:<>?` |
+
+## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | configurationStores | Resursgrupp | 5-50 | Alfanumeriska tecken, under streck och bindestreck. |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Lås | tilldelningens omfattning | 1–90 | Alfanumeriska, punkter, understreck, bindestreck och parentes.<br><br>Kan inte sluta i punkt. |
-> | policytilldelningar | tilldelningens omfattning | 1-128 visningsnamn<br><br>Resursnamn 1-260 | Visningsnamnet kan innehålla alla tecken.<br><br>Resursnamnet kan inte `%` inkludera och kan inte sluta med period eller blanksteg. |
-> | policydefinitioner | definitionsområdet | 1-128 visningsnamn<br><br>Resursnamn 1-260 | Visningsnamnet kan innehålla alla tecken.<br><br>Resursnamnet kan inte `%` inkludera och kan inte sluta med period eller blanksteg. |
-> | policySetDefinitions | definitionsområdet | 1-128 visningsnamn<br><br>Resursnamn 1-260 | Visningsnamnet kan innehålla alla tecken.<br><br>Resursnamnet kan inte `%` inkludera och kan inte sluta med period eller blanksteg.  |
+> | hålls | tilldelnings omfång | 1–90 | Alfanumeriska tecken, punkter, under streck, bindestreck och parenteser.<br><br>Kan inte sluta med punkt. |
+> | policyassignments | tilldelnings omfång | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte `%` innehålla och får inte sluta med punkt eller blank steg. |
+> | policydefinitions | definitions område | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte `%` innehålla och får inte sluta med punkt eller blank steg. |
+> | policySetDefinitions | definitions område | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte `%` innehålla och får inte sluta med punkt eller blank steg.  |
 
-## <a name="microsoftautomation"></a>Microsoft.Automation
+## <a name="microsoftautomation"></a>Microsoft. Automation
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | automationKonton | Resursgrupp | 6-50 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven och sluta med alfanumeriskt. |
-> | automationKonton / certifikat | automation konto | 1-128 | Det går inte att använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med rymden.  |
-> | automationKonton / anslutningar | automation konto | 1-128 | Det går inte att använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med rymden. |
-> | automationKonton / autentiseringsuppgifter | automation konto | 1-128 | Det går inte att använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med rymden. |
-> | automationKonton / runbooks | automation konto | 1–63 | Alfanumeriska, understreck och bindestreck.<br><br>Börja med bokstaven.  |
-> | automationKonton / scheman | automation konto | 1-128 | Det går inte att använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med rymden. |
-> | automationKonton / variabler | automation konto | 1-128 | Det går inte att använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med rymden. |
-> | automationKonton / watchers | automation konto | 1–63 |  Alfanumeriska, understreck och bindestreck.<br><br>Börja med bokstaven. |
-> | automationKonton / webhooks | automation konto | 1-128 | Det går inte att använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med rymden. |
+> | automationAccounts | Resursgrupp | 6-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja med bokstav och sluta med alfanumeriska tecken. |
+> | automationAccounts/certifikat | Automation-konto | 1-128 | Kan inte använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med blank steg.  |
+> | automationAccounts/anslutningar | Automation-konto | 1-128 | Kan inte använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med blank steg. |
+> | automationAccounts/autentiseringsuppgifter | Automation-konto | 1-128 | Kan inte använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med blank steg. |
+> | automationAccounts/Runbooks | Automation-konto | 1–63 | Alfanumeriska tecken, under streck och bindestreck.<br><br>Börja med en bokstav.  |
+> | automationAccounts/scheman | Automation-konto | 1-128 | Kan inte använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med blank steg. |
+> | automationAccounts/variabler | Automation-konto | 1-128 | Kan inte använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med blank steg. |
+> | automationAccounts/Watcher | Automation-konto | 1–63 |  Alfanumeriska tecken, under streck och bindestreck.<br><br>Börja med en bokstav. |
+> | automationAccounts/Webhooks | Automation-konto | 1-128 | Kan inte använda:<br> `<>*%&:\?.+/` <br><br>Kan inte sluta med blank steg. |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | batchKonton | Region | 3–24 | Gemener och siffror. |
-> | batchKonton / applikationer | batch-konto | 1-64 | Alfanumeriska, understreck och bindestreck. |
-> | batchKonton / certifikat | batch-konto | 5-45 | Alfanumeriska, understreck och bindestreck. |
-> | batchKonton / pooler | batch-konto | 1-64 | Alfanumeriska, understreck och bindestreck. |
+> | batchAccounts | Region | 3–24 | Små bokstäver och siffror. |
+> | batchAccounts/program | Batch-konto | 1-64 | Alfanumeriska tecken, under streck och bindestreck. |
+> | batchAccounts/certifikat | Batch-konto | 5-45 | Alfanumeriska tecken, under streck och bindestreck. |
+> | batchAccounts/pooler | Batch-konto | 1-64 | Alfanumeriska tecken, under streck och bindestreck. |
 
-## <a name="microsoftblockchain"></a>Microsoft.Blockchain (på andra)
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | blockchainMembers | Globala | 2-20 | Gemener och siffror.<br><br>Börja med gemener. |
-
-## <a name="microsoftbotservice"></a>Microsoft.BotService
+## <a name="microsoftblockchain"></a>Microsoft. blockchain
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | botServices | Globala | 2–64 |  Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
-> | botServices / kanaler | bot tjänst | 2–64 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
-> | botServices / Anslutningar | bot tjänst | 2–64 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
-> | företagKanaler | Resursgrupp | 2–64 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
+> | blockchainMembers | EAN | 2-20 | Små bokstäver och siffror.<br><br>Börja med gemener. |
 
-## <a name="microsoftcache"></a>Microsoft.Cache
+## <a name="microsoftbotservice"></a>Microsoft. BotService
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Redis | Globala | 1–63 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. Det är inte tillåtet att ta på varandra följande bindestreck. |
-> | Redis / firewallRules | Redis | 1-256 | Alfanumerika |
+> | botServices | EAN | 2–64 |  Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
+> | botServices/kanaler | bot-tjänst | 2–64 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
+> | botServices/anslutningar | bot-tjänst | 2–64 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
+> | enterpriseChannels | Resursgrupp | 2–64 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
 
-## <a name="microsoftcdn"></a>Microsoft.Cdn
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Profiler | Resursgrupp | 1-260 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | profiler/slutpunkter | Globala | 1-50 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
-
-## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
+## <a name="microsoftcache"></a>Microsoft. cache
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | certifikatOrdar | Resursgrupp | 3-30 | Alfanumerika. |
+> | Redis | EAN | 1–63 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. Efterföljande bindestreck är inte tillåtna. |
+> | Redis/firewallRules | Redis | 1-256 | Alfanumeriska tecken |
 
-## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
+## <a name="microsoftcdn"></a>Microsoft. CDN
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | konton | Resursgrupp | 2–64 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
+> | filer | Resursgrupp | 1-260 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | profiler/slut punkter | EAN | 1-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+
+## <a name="microsoftcertificateregistration"></a>Microsoft. CertificateRegistration
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | certificateOrders | Resursgrupp | 3-30 | Alfanumeriska tecken. |
+
+## <a name="microsoftcognitiveservices"></a>Microsoft. CognitiveServices
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | konton | Resursgrupp | 2–64 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | tillgänglighetSeter | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta med alfanumeriskt eller understreck. |
-> | diskEncryptionSets | Resursgrupp | 1–80 | Alfanumeriska och understreck. |
-> | Diskar | Resursgrupp | 1–80 | Alfanumeriska och understreck. |
-> | Gallerier | Resursgrupp | 1–80 | Alfanumeriska och punkter.<br><br>Börja och sluta med alfanumeriskt. |
-> | gallerier / applikationer | galleri | 1–80 | Alfanumeriska, bindestreck och punkter.<br><br>Börja och sluta med alfanumeriskt. |
-> | gallerier / applikationer / versioner | program | 32-bitars heltal | Siffror och punkter. |
-> | gallerier / bilder | galleri | 1–80 | Alfanumeriska, bindestreck och punkter.<br><br>Börja och sluta med alfanumeriskt. |
-> | gallerier / bilder / versioner | image | 32-bitars heltal | Siffror och punkter. |
-> | images | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta med alfanumeriskt eller understreck. |
-> | snapshots | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta med alfanumeriskt eller understreck. |
-> | virtuellaMaskiner | Resursgrupp | 1–15 (Windows)<br>1-64 (Linux)<br><br>Se anmärkning nedan. | Det går inte att använda:<br> `\/""[]:|<>+=;,?*@&`<br><br>Kan inte börja med understreck. Det går inte att sluta med punkt eller bindestreck. |
-> | virtuellaMachineScaleSets | Resursgrupp | 1–15 (Windows)<br>1-64 (Linux)<br><br>Se anmärkning nedan. | Det går inte att använda:<br> `\/""[]:|<>+=;,?*@&`<br><br>Kan inte börja med understreck. Det går inte att sluta med punkt eller bindestreck. |
+> | availabilitySets | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
+> | diskEncryptionSets | Resursgrupp | 1–80 | Alfanumeriska tecken och under streck. |
+> | disk | Resursgrupp | 1–80 | Alfanumeriska tecken och under streck. |
+> | gallerier | Resursgrupp | 1–80 | Alfanumeriska tecken och punkter.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | gallerier/program | galleri | 1–80 | Alfanumeriska tecken, bindestreck och punkter.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | gallerier/program/versioner | program | 32-bitars heltal | Siffror och punkter. |
+> | gallerier/bilder | galleri | 1–80 | Alfanumeriska tecken, bindestreck och punkter.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | gallerier/avbildningar/versioner | image | 32-bitars heltal | Siffror och punkter. |
+> | images | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
+> | snapshots | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
+> | virtualMachines | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Kan inte använda:<br> `\/""[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
+> | virtualMachineScaleSets | Resursgrupp | 1-15 (Windows)<br>1-64 (Linux)<br><br>Se kommentaren nedan. | Kan inte använda:<br> `\/""[]:|<>+=;,?*@&`<br><br>Får inte börja med under streck. Kan inte sluta med punkt eller bindestreck. |
 
 > [!NOTE]
-> Virtuella Azure-datorer har två olika namn: resursnamn och värdnamn. När du skapar en virtuell dator i portalen används samma värde för båda namnen. Begränsningarna i tabellen föregående är för värdnamnet. Det faktiska resursnamnet kan innehålla upp till 64 tecken.
+> Virtuella Azure-datorer har två distinkta namn: resurs namn och värdnamn. När du skapar en virtuell dator i portalen används samma värde för båda namnen. Begränsningarna i föregående tabell är för värd namnet. Det faktiska resursnamnet kan innehålla upp till 64 tecken.
 
-## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | containerGroups | Resursgrupp | 1–63 | Gemener, siffror och bindestreck.<br><br>Det går inte att starta eller sluta med bindestreck. Flera bindestreck efter varandra tillåts inte. |
-
-## <a name="microsoftcontainerregistry"></a>Microsoft.Container-registret
+## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Register | Globala | 5-50 | Alfanumerika. |
-> | register / buildTasks | registry | 5-50 | Alfanumerika. |
-> | register / buildTasks/steps | skapa uppgift | 5-50 | Alfanumerika. |
-> | register /replikeringar | registry | 5-50 | Alfanumerika. |
-> | register / scopeMaps | registry | 5-50 | Alfanumeriska, bindestreck och understreck. |
-> | register /uppgifter | registry | 5-50 | Alfanumeriska, bindestreck och understreck. |
-> | register / tokens | registry | 5-50 | Alfanumeriska, bindestreck och understreck. |
-> | register / webhooks | registry | 5-50 | Alfanumerika. |
+> | containerGroups | Resursgrupp | 1–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. Flera bindestreck efter varandra tillåts inte. |
 
-## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
+## <a name="microsoftcontainerregistry"></a>Microsoft. ContainerRegistry
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | managedClusters | Resursgrupp | 1–63 | Alfanumeriska, understreck och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | openShiftManagedClusters | Resursgrupp | 1-30 | Alfanumerika. |
+> | register | EAN | 5-50 | Alfanumeriska tecken. |
+> | register/buildTasks | registry | 5-50 | Alfanumeriska tecken. |
+> | register/buildTasks/steg | Bygg uppgift | 5-50 | Alfanumeriska tecken. |
+> | register/replikeringar | registry | 5-50 | Alfanumeriska tecken. |
+> | register/scopeMaps | registry | 5-50 | Alfanumeriska tecken, bindestreck och under streck. |
+> | register/uppgifter | registry | 5-50 | Alfanumeriska tecken, bindestreck och under streck. |
+> | register/token | registry | 5-50 | Alfanumeriska tecken, bindestreck och under streck. |
+> | register/Webhooks | registry | 5-50 | Alfanumeriska tecken. |
 
-## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | nav | Resursgrupp | 1-64 | Alfanumerika.<br><br>Börja med bokstaven.  |
-> | nav / tillståndPolicies | hubben | 1-50 | Alfanumeriskt, understreck och punkter.<br><br>Börja och sluta med alfanumeriskt. |
-> | nav / kontakter | hubben | 1-128 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / kopplingar/mappningar | anslutningsapp | 1-128 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / interaktioner | hubben | 1-128 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / kpi | hubben | 1-512 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / länkar | hubben | 1-512 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / förutsägelser | hubben | 1-512 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / profiler | hubben | 1-128 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / relationshipLinks | hubben | 1-512 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / relationer | hubben | 1-512 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / rollTilldelningar | hubben | 1-128 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-> | nav / vyer | hubben | 1-512 | Alfanumeriska och understreck.<br><br>Börja med bokstaven. |
-
-## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
+## <a name="microsoftcontainerservice"></a>Microsoft. container service
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Sammanslutningar | Resursgrupp | 1-180 | Det går inte att använda:<br>`%&\\?/`<br><br>Det går inte att sluta med punkt eller blanksteg. |
-> | resurserProviders | Resursgrupp | 3-64 | Det går inte att använda:<br>`%&\\?/`<br><br>Det går inte att sluta med punkt eller blanksteg. |
+> | managedClusters | Resursgrupp | 1–63 | Alfanumeriska tecken, under streck och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | openShiftManagedClusters | Resursgrupp | 1-30 | Alfanumeriska tecken. |
 
-## <a name="microsoftdatabox"></a>Microsoft.DataBox
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Jobb | Resursgrupp | 3–24 | Alfanumeriska, bindestreck, understreck och punkter. |
-
-## <a name="microsoftdatabricks"></a>Microsoft.Databricks
+## <a name="microsoftcustomerinsights"></a>Microsoft. CustomerInsights
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | arbetsytor | Resursgrupp | 3-30 | Alfanumeriska, understreck och bindestreck |
+> | nav | Resursgrupp | 1-64 | Alfanumeriska tecken.<br><br>Börja med en bokstav.  |
+> | hubbar/authorizationPolicies | hubben | 1-50 | Alfanumeriska tecken, under streck och punkter.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | hubbar/anslutningar | hubben | 1-128 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/anslutningar/mappningar | anslutningsapp | 1-128 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/interaktioner | hubben | 1-128 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/KPI | hubben | 1-512 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/länkar | hubben | 1-512 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/förutsägelser | hubben | 1-512 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/profiler | hubben | 1-128 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/relationshipLinks | hubben | 1-512 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/relationer | hubben | 1-512 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/roleAssignments | hubben | 1-128 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
+> | hubbar/vyer | hubben | 1-512 | Alfanumeriska tecken och under streck.<br><br>Börja med en bokstav. |
 
-## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Fabriker | Globala | 3–63 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | fabriker/ dataflöden | Fabriken | 1-260 | Det går inte att använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
-> | fabriker / dataset | Fabriken | 1-260 | Det går inte att använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
-> | fabriker / integrationRuntimes | Fabriken | 3–63 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | fabriker / länkade tjänster | Fabriken | 1-260 | Det går inte att använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
-> | fabriker/ rörledningar | Fabriken | 1-260 | Det går inte att använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
-> | fabriker / triggers | Fabriken | 1-260 | Det går inte att använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
-> | fabriker / triggers / rerunTriggers | Utlösa | 1-260 | Det går inte att använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
-
-## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics Microsoft.DataLakeAnalytics Microsoft.DataLakeAnalytics Microsoft.
+## <a name="microsoftcustomproviders"></a>Microsoft. CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | konton | Globala | 3–24 | Gemener och siffror. |
-> | konton / computePolicies | konto | 3-60 | Alfanumeriska, bindestreck och understreck. |
-> | konton / dataLakeStoreAccounts | konto | 3–24 | Gemener och siffror. |
-> | konton / firewallRules | konto | 3-50 | Alfanumeriska, bindestreck och understreck. |
-> | konton / lagringKonton | konto | 3-60 | Alfanumeriska, bindestreck och understreck. |
+> | typer | Resursgrupp | 1-180 | Kan inte använda:<br>`%&\\?/`<br><br>Kan inte sluta med punkt eller blank steg. |
+> | resourceProviders | Resursgrupp | 3-64 | Kan inte använda:<br>`%&\\?/`<br><br>Kan inte sluta med punkt eller blank steg. |
 
-## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
+## <a name="microsoftdatabox"></a>Microsoft. data-
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | konton | Globala | 3–24 | Gemener och siffror. |
-> | konton / firewallRules | konto | 3-50 | Alfanumeriska, bindestreck och understreck. |
-> | konton / virtualNetworkRules | konto | 3-50 | Alfanumeriska, bindestreck och understreck. |
+> | utskrifts | Resursgrupp | 3–24 | Alfanumeriska tecken, bindestreck, under streck och punkter. |
 
-## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
+## <a name="microsoftdatabricks"></a>Microsoft. Databricks
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | services | Resursgrupp | 2-62 | Alfanumeriska, bindestreck, punkter och understreck.<br><br>Börja med alfanumeriskt. |
-> | tjänster /projekt | tjänst | 2-57 | Alfanumeriska, bindestreck, punkter och understreck.<br><br>Börja med alfanumeriskt. |
+> | arbetsytor | Resursgrupp | 3-30 | Alfanumeriska tecken, under streck och bindestreck |
 
-## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Servrar | Globala | 3–63 | Gemener, bindestreck och siffror.<br><br>Det går inte att starta eller sluta med bindestreck. |
-> | servrar / databaser | Servrar | 1–63 | Alfanumeriska och bindestreck. |
-> | servrar / firewallRules | Servrar | 1-128 | Alfanumeriska, bindestreck och understreck. |
-> | servrar / virtualNetworkRules | Servrar | 1-128 | Alfanumeriska och bindestreck. |
-
-## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
+## <a name="microsoftdatafactory"></a>Microsoft. DataFactory
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Servrar | Globala | 3–63 | Gemener, bindestreck och siffror.<br><br>Det går inte att starta eller sluta med bindestreck. |
-> | servrar / databaser | Servrar | 1–63 | Alfanumeriska och bindestreck. |
-> | servrar / firewallRules | Servrar | 1-128 | Alfanumeriska, bindestreck och understreck. |
-> | servrar / virtualNetworkRules | Servrar | 1-128 | Alfanumeriska och bindestreck. |
+> | fabriker | EAN | 3–63 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | fabriker/data flöden | valda | 1-260 | Kan inte använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
+> | fabriker/data uppsättningar | valda | 1-260 | Kan inte använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
+> | fabriker/integrationRuntimes | valda | 3–63 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | fabriker/linkedservices | valda | 1-260 | Kan inte använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
+> | fabriker | valda | 1-260 | Kan inte använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
+> | fabriker/utlösare | valda | 1-260 | Kan inte använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
+> | fabriker/utlösare/rerunTriggers | utlösare | 1-260 | Kan inte använda:<br>`<>*#.%&:\\+?/`<br><br>Börja med alfanumeriskt. |
 
-## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Servrar | Globala | 3–63 | Gemener, bindestreck och siffror.<br><br>Det går inte att starta eller sluta med bindestreck. |
-> | servrar / databaser | Servrar | 1–63 | Alfanumeriska och bindestreck. |
-> | servrar / firewallRules | Servrar | 1-128 | Alfanumeriska, bindestreck och understreck. |
-> | servrar / virtualNetworkRules | Servrar | 1-128 | Alfanumeriska och bindestreck. |
-
-## <a name="microsoftdevices"></a>Microsoft.Devices
+## <a name="microsoftdatalakeanalytics"></a>Microsoft. DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | IotHubs | Globala | 3-50 | Alfanumeriska och bindestreck.<br><br>Kan inte sluta med bindestreck. |
-> | IotHubs / certifikat | IoT-hubb | 1-64 | Alfanumeriska, bindestreck, punkter och understreck. |
-> | IotHubs / eventHubEndpoints / ConsumerGroups | eventHubEndpoints | 1-50 | Alfanumeriska, bindestreck, punkter och understreck. |
-> | etableringTjänster | Resursgrupp | 3-64 | Alfanumeriska och bindestreck.<br><br>Avsluta med alfanumeriskt. |
-> | etableringTjänster/certifikat | etableringTjänster | 1-64 | Alfanumeriska, bindestreck, punkter och understreck. |
+> | konton | EAN | 3–24 | Små bokstäver och siffror. |
+> | konton/computePolicies | konto | 3-60 | Alfanumeriska tecken, bindestreck och under streck. |
+> | konton/dataLakeStoreAccounts | konto | 3–24 | Små bokstäver och siffror. |
+> | konton/firewallRules | konto | 3-50 | Alfanumeriska tecken, bindestreck och under streck. |
+> | konton/storageAccounts | konto | 3-60 | Alfanumeriska tecken, bindestreck och under streck. |
 
-## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Labs | Resursgrupp | 1-50 | Alfanumeriska, understreck och bindestreck. |
-> | laboratorier / customimages | Lab | 1–80 | Alfanumeriska, understreck, bindestreck och parenteser. |
-> | laboratorier / formler | Lab | 1–80 | Alfanumeriska, understreck, bindestreck och parenteser. |
-> | laboratorier / virtualmachines | Lab | 1–15 (Windows)<br>1-64 (Linux) | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. Det kan inte vara alla siffror. |
-
-## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
+## <a name="microsoftdatalakestore"></a>Microsoft. DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | databasKonton | Globala | 3-31 | Gemener, siffror och bindestreck.<br><br>Börja med gemener eller tal. |
+> | konton | EAN | 3–24 | Små bokstäver och siffror. |
+> | konton/firewallRules | konto | 3-50 | Alfanumeriska tecken, bindestreck och under streck. |
+> | konton/virtualNetworkRules | konto | 3-50 | Alfanumeriska tecken, bindestreck och under streck. |
 
-## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Domäner | Resursgrupp | 3-50 | Alfanumeriska och bindestreck. |
-> | domäner / ämnen | domän | 3-50 | Alfanumeriska och bindestreck. |
-> | händelseAbonnemang | Resursgrupp | 3-64 | Alfanumeriska och bindestreck. |
-> | Ämnen | Resursgrupp | 3-50 | Alfanumeriska och bindestreck. |
-
-## <a name="microsofteventhub"></a>Microsoft.EventHub
+## <a name="microsoftdatamigration"></a>Microsoft. data migration
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Kluster | Resursgrupp | 6-50 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven. Avsluta med bokstav eller nummer. |
-> | Namnområden | Globala | 6-50 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven. Avsluta med bokstav eller nummer. |
-> | namnområden / AuthorizationRules | namnområde | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med bokstav eller nummer. |
-> | namnrymdor / katastrofRecoveryConfigs | namnområde | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med bokstav eller nummer. |
-> | namnområden / eventhubs | namnområde | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med bokstav eller nummer. |
-> | namnrymd / eventhubs / authorizationRules | händelsehubb | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med bokstav eller nummer. |
-> | namnområden / eventhubs / konsumentgrupper | händelsehubb | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med bokstav eller nummer. |
+> | services | Resursgrupp | 2-62 | Alfanumeriska tecken, bindestreck, punkter och under streck.<br><br>Börja med alfanumeriskt. |
+> | tjänster/projekt | tjänst | 2-57 | Alfanumeriska tecken, bindestreck, punkter och under streck.<br><br>Börja med alfanumeriskt. |
 
-## <a name="microsofthdinsight"></a>Microsoft.HDInsight
+## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Kluster | Globala | 3-59 | Alfanumeriska och bindestreck<br><br>Börja och sluta med bokstav eller nummer. |
+> | brygghuvudservrar | EAN | 3–63 | Små bokstäver, bindestreck och siffror.<br><br>Får inte börja eller sluta med bindestreck. |
+> | servrar/databaser | brygghuvudservrar | 1–63 | Alfanumeriska tecken och bindestreck. |
+> | servrar/firewallRules | brygghuvudservrar | 1-128 | Alfanumeriska tecken, bindestreck och under streck. |
+> | servrar/virtualNetworkRules | brygghuvudservrar | 1-128 | Alfanumeriska tecken och bindestreck. |
 
-## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Jobb | Resursgrupp | 2–64 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven. |
-
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Komponenter | Resursgrupp | 1-260 | Det går inte att använda:<br>`%&\?/` <br><br>Det går inte att sluta med mellanslag eller punkt.  |
+> | brygghuvudservrar | EAN | 3–63 | Små bokstäver, bindestreck och siffror.<br><br>Får inte börja eller sluta med bindestreck. |
+> | servrar/databaser | brygghuvudservrar | 1–63 | Alfanumeriska tecken och bindestreck. |
+> | servrar/firewallRules | brygghuvudservrar | 1-128 | Alfanumeriska tecken, bindestreck och under streck. |
+> | servrar/virtualNetworkRules | brygghuvudservrar | 1-128 | Alfanumeriska tecken och bindestreck. |
 
-## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | IoTApps | Globala | 2-63 | Gemener, siffror och bindestreck.<br><br>Börja med gemener eller tal. |
-
-## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
+## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Valv | Globala | 3–24 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven. Avsluta med bokstav eller siffra. Det går inte att innehålla på varandra följande bindestreck. |
-> | valv / hemligheter | Valv | 1-127 | Alfanumeriska och bindestreck. |
+> | brygghuvudservrar | EAN | 3–63 | Små bokstäver, bindestreck och siffror.<br><br>Får inte börja eller sluta med bindestreck. |
+> | servrar/databaser | brygghuvudservrar | 1–63 | Alfanumeriska tecken och bindestreck. |
+> | servrar/firewallRules | brygghuvudservrar | 1-128 | Alfanumeriska tecken, bindestreck och under streck. |
+> | servrar/virtualNetworkRules | brygghuvudservrar | 1-128 | Alfanumeriska tecken och bindestreck. |
+
+## <a name="microsoftdevices"></a>Microsoft. Devices
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | IotHubs | EAN | 3-50 | Alfanumeriska tecken och bindestreck.<br><br>Kan inte sluta med bindestreck. |
+> | IotHubs/certifikat | IoT Hub | 1-64 | Alfanumeriska tecken, bindestreck, punkter och under streck. |
+> | IotHubs / eventHubEndpoints / ConsumerGroups | eventHubEndpoints | 1-50 | Alfanumeriska tecken, bindestreck, punkter och under streck. |
+> | provisioningServices | Resursgrupp | 3-64 | Alfanumeriska tecken och bindestreck.<br><br>Sluta med alfanumeriska tecken. |
+> | provisioningServices/certifikat | provisioningServices | 1-64 | Alfanumeriska tecken, bindestreck, punkter och under streck. |
+
+## <a name="microsoftdevtestlab"></a>Microsoft. DevTestLab
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | Laboration | Resursgrupp | 1-50 | Alfanumeriska tecken, under streck och bindestreck. |
+> | labb/customimages | test | 1–80 | Alfanumeriska tecken, under streck, bindestreck och parenteser. |
+> | labb/formler | test | 1–80 | Alfanumeriska tecken, under streck, bindestreck och parenteser. |
+> | labb/virtualmachines | test | 1-15 (Windows)<br>1-64 (Linux) | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. Får inte vara alla siffror. |
+
+## <a name="microsoftdocumentdb"></a>Microsoft. DocumentDB
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | databaseAccounts | EAN | 3-31 | Små bokstäver, siffror och bindestreck.<br><br>Börja med en gemen bokstav eller siffra. |
+
+## <a name="microsofteventgrid"></a>Microsoft. EventGrid
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | domäner | Resursgrupp | 3-50 | Alfanumeriska tecken och bindestreck. |
+> | domäner/ämnen | domän | 3-50 | Alfanumeriska tecken och bindestreck. |
+> | eventSubscriptions | Resursgrupp | 3-64 | Alfanumeriska tecken och bindestreck. |
+> | avsnitt | Resursgrupp | 3-50 | Alfanumeriska tecken och bindestreck. |
+
+## <a name="microsofteventhub"></a>Microsoft. EventHub
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | kluster | Resursgrupp | 6-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. Slutar med en bokstav eller en siffra. |
+> | namn områden | EAN | 6-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. Slutar med en bokstav eller en siffra. |
+> | namnrymder/AuthorizationRules | namnområde | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Börja och sluta med en bokstav eller en siffra. |
+> | namnrymder/disasterRecoveryConfigs | namnområde | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Börja och sluta med en bokstav eller en siffra. |
+> | namnrymder/eventhubs | namnområde | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Börja och sluta med en bokstav eller en siffra. |
+> | namnrymder/eventhubs/authorizationRules | händelsehubben | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Börja och sluta med en bokstav eller en siffra. |
+> | namnrymder/eventhubs/consumergroups | händelsehubben | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Börja och sluta med en bokstav eller en siffra. |
+
+## <a name="microsofthdinsight"></a>Microsoft. HDInsight
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | kluster | EAN | 3-59 | Alfanumeriska tecken och bindestreck<br><br>Börja och sluta med en bokstav eller en siffra. |
+
+## <a name="microsoftimportexport"></a>Microsoft. ImportExport
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | utskrifts | Resursgrupp | 2–64 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. |
+
+## <a name="microsoftinsights"></a>Microsoft. Insights
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | delarna | Resursgrupp | 1-260 | Kan inte använda:<br>`%&\?/` <br><br>Kan inte sluta med blank steg eller punkt.  |
+
+## <a name="microsoftiotcentral"></a>Microsoft. IoTCentral
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | IoTApps | EAN | 2-63 | Små bokstäver, siffror och bindestreck.<br><br>Börja med en gemen bokstav eller siffra. |
+
+## <a name="microsoftkeyvault"></a>Microsoft. nyckel valv
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | valv | EAN | 3–24 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. Slutar med en bokstav eller en siffra. Får inte innehålla bindestreck i rad. |
+> | valv/hemligheter | Valv | 1-127 | Alfanumeriska tecken och bindestreck. |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Kluster | Globala | 4-22 | Gemener och siffror.<br><br>Börja med bokstaven. |
-> | /kluster / databaser | cluster | 1-260 | Alfanumeriska, bindestreck, blanksteg och punkter. |
-> | /kluster / databaser / dataAnslutningar | databas | 1-40 | Alfanumeriska, bindestreck, blanksteg och punkter. |
-> | /kluster / databaser / eventhubconnections | databas | 1-40 | Alfanumeriska, bindestreck, blanksteg och punkter. |
+> | kluster | EAN | 4-22 | Små bokstäver och siffror.<br><br>Börja med en bokstav. |
+> | /Clusters/databaser | cluster | 1-260 | Alfanumeriska tecken, bindestreck, blank steg och punkter. |
+> | /Clusters/databaser/dataConnections | databas | 1-40 | Alfanumeriska tecken, bindestreck, blank steg och punkter. |
+> | /Clusters/databaser/eventhubconnections | databas | 1-40 | Alfanumeriska tecken, bindestreck, blank steg och punkter. |
 
-## <a name="microsoftlogic"></a>Microsoft.Logic
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | integrationKonton | Resursgrupp | 1–80 | Alfanumeriska, bindestreck, understreck, punkter och parentes. |
-> | integrationKonton/sammansättningar | integrationskonto | 1–80 | Alfanumeriska, bindestreck, understreck, punkter och parentes. |
-> | integrationKonto/batchKonfigurationer | integrationskonto | 1-20 | Alfanumerika. |
-> | integrationRedovisning/certifikat | integrationskonto | 1–80 | Alfanumeriska, bindestreck, understreck, punkter och parentes. |
-> | integrationKonton / kartor | integrationskonto | 1–80 | Alfanumeriska, bindestreck, understreck, punkter och parentes. |
-> | integrationKonton/partner | integrationskonto | 1–80 | Alfanumeriska, bindestreck, understreck, punkter och parentes. |
-> | integrationAktörer / rosettanetprocesskonfigurationer | integrationskonto | 1–80 | Alfanumeriska, bindestreck, understreck, punkter och parentes. |
-> | integrationKonto/scheman | integrationskonto | 1–80 | Alfanumeriska, bindestreck, understreck, punkter och parentes. |
-> | integrationKonton /sessioner | integrationskonto | 1–80 | Alfanumeriska, bindestreck, understreck, punkter och parentes. |
-> | integrationTjänstMiljöer | Resursgrupp | 1–80 | Alfanumeriska, bindestreck, punkter och understreck. |
-> | integrationServiceMiljöer / managedApis | integration tjänst miljö | 1–80 | Alfanumeriska, bindestreck, punkter och understreck. |
-> | Arbetsflöden | Resursgrupp | 1–80 | Alfanumeriska, bindestreck, understreck, punkter och parentes. |
-
-## <a name="microsoftmachinelearning"></a>Microsoft.MachineLärning
+## <a name="microsoftlogic"></a>Microsoft. Logic
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | åtagandePlaner | Resursgrupp | 1-260 | Det går inte att använda:<br>`<>*%&:?+/\\`<br><br>Kan inte sluta med ett mellanslag. |
-> | Webservices | Resursgrupp | 1-260 | Det går inte att använda:<br>`<>*%&:?+/\\`<br><br>Kan inte sluta med ett mellanslag. |
-> | arbetsytor | Resursgrupp | 1-260 | Det går inte att använda:<br>`<>*%&:?+/\\`<br><br>Kan inte sluta med ett mellanslag. |
+> | integrationAccounts | Resursgrupp | 1–80 | Alfanumeriska tecken, bindestreck, under streck, punkter och parenteser. |
+> | integrationAccounts/sammansättningar | integrationskonto | 1–80 | Alfanumeriska tecken, bindestreck, under streck, punkter och parenteser. |
+> | integrationAccounts / batchConfigurations | integrationskonto | 1-20 | Alfanumeriska tecken. |
+> | integrationAccounts/certifikat | integrationskonto | 1–80 | Alfanumeriska tecken, bindestreck, under streck, punkter och parenteser. |
+> | integrationAccounts/Maps | integrationskonto | 1–80 | Alfanumeriska tecken, bindestreck, under streck, punkter och parenteser. |
+> | integrationAccounts/partners | integrationskonto | 1–80 | Alfanumeriska tecken, bindestreck, under streck, punkter och parenteser. |
+> | integrationAccounts / rosettanetprocessconfigurations | integrationskonto | 1–80 | Alfanumeriska tecken, bindestreck, under streck, punkter och parenteser. |
+> | integrationAccounts/scheman | integrationskonto | 1–80 | Alfanumeriska tecken, bindestreck, under streck, punkter och parenteser. |
+> | integrationAccounts/sessioner | integrationskonto | 1–80 | Alfanumeriska tecken, bindestreck, under streck, punkter och parenteser. |
+> | integrationServiceEnvironments | Resursgrupp | 1–80 | Alfanumeriska tecken, bindestreck, punkter och under streck. |
+> | integrationServiceEnvironments/managedApis | integrerings tjänst miljö | 1–80 | Alfanumeriska tecken, bindestreck, punkter och under streck. |
+> | arbetsflöden | Resursgrupp | 1–80 | Alfanumeriska tecken, bindestreck, under streck, punkter och parenteser. |
+
+## <a name="microsoftmachinelearning"></a>Microsoft. MachineLearning
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | commitmentPlans | Resursgrupp | 1-260 | Kan inte använda:<br>`<>*%&:?+/\\`<br><br>Kan inte sluta med ett blank steg. |
+> | WebServices | Resursgrupp | 1-260 | Kan inte använda:<br>`<>*%&:?+/\\`<br><br>Kan inte sluta med ett blank steg. |
+> | arbetsytor | Resursgrupp | 1-260 | Kan inte använda:<br>`<>*%&:?+/\\`<br><br>Kan inte sluta med ett blank steg. |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | arbetsytor | Resursgrupp | 3-33 | Alfanumeriska och bindestreck. |
-> | arbetsytor / beräkningar | arbetsyta | 2-16 | Alfanumeriska och bindestreck. |
+> | arbetsytor | Resursgrupp | 3-33 | Alfanumeriska tecken och bindestreck. |
+> | arbets ytor/beräkningar | arbetsyta | 2-16 | Alfanumeriska tecken och bindestreck. |
 
-## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.ManagedIdentity Microsoft.
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | userAssignedId entiteter | Resursgrupp | 3-128 | Alfanumeriska, bindestreck och understreck<br><br>Börja med bokstav eller nummer. |
-
-## <a name="microsoftmaps"></a>Microsoft.Maps
+## <a name="microsoftmanagedidentity"></a>Microsoft. ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | konton | Resursgrupp | 1-98 (för resursgruppnamn och kontonamn) | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
+> | userAssignedIdentities | Resursgrupp | 3-128 | Alfanumeriska tecken, bindestreck och under streck<br><br>Börja med en bokstav eller en siffra. |
 
-## <a name="microsoftmedia"></a>Microsoft.Media
+## <a name="microsoftmaps"></a>Microsoft. Maps
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | medietjänster | Resursgrupp | 3–24 | Gemener och siffror. |
-> | mediaservices / liveEvents | Medietjänst | 1-32 | Alfanumeriska och bindestreck.<br><br>Börja med alfanumeriskt. |
-> | mediaservices / liveEvents / liveOutputs | Live-evenemang | 1-256 | Alfanumeriska och bindestreck.<br><br>Börja med alfanumeriskt. |
-> | mediatjänster / streamingEndpoints | Medietjänst | 1-24 | Alfanumeriska och bindestreck.<br><br>Börja med alfanumeriskt. |
+> | konton | Resursgrupp | 1-98 (för resurs gruppens namn och konto namn) | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. |
+
+## <a name="microsoftmedia"></a>Microsoft. Media
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | Media Services | Resursgrupp | 3–24 | Små bokstäver och siffror. |
+> | Media Services/liveEvents | Medie tjänst | 1-32 | Alfanumeriska tecken och bindestreck.<br><br>Börja med alfanumeriskt. |
+> | Media Services/liveEvents/liveOutputs | Live-händelse | 1-256 | Alfanumeriska tecken och bindestreck.<br><br>Börja med alfanumeriskt. |
+> | Media Services/strömnings slut punkter | Medie tjänst | 1-24 | Alfanumeriska tecken och bindestreck.<br><br>Börja med alfanumeriskt. |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | ansökanGateways | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | applicationSecurityGroups | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | azureFirewalls | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta med alfanumeriskt eller understreck. |
-> | bastionHosts (bastionHosts) | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | Anslutningar | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | dnsZones (1) | Resursgrupp | 1-63 tecken<br><br>2 till 34 etiketter<br><br>Varje etikett är en uppsättning tecken avgränsade med en punkt. Till exempel har **contoso.com** 2 etiketter. | Varje etikett kan innehålla alfanumeriska, understreck och bindestreck.<br><br>Varje etikett avgränsas med en punkt. |
-> | expressRouteCirklar | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | brandväggPolicies | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | firewallPolicies / ruleGroups | brandväggsprincip | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | frontDosor | Globala | 5-64 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | loadBalancers | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | loadBalancers / inboundNatRules | belastningsutjämnare | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | localNetworkGateways | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | nätverkGränssnitt | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | nätverkSäkerhetsgrupper | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | nätverkSäkerhetsgrupper /securityRules | nätverkssäkerhetsgrupp | 1–80 |  Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | nätverkWatchers | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | privatDnsZones | Resursgrupp | 1-63 tecken<br><br>2 till 34 etiketter<br><br>Varje etikett är en uppsättning tecken avgränsade med en punkt. Till exempel har **contoso.com** 2 etiketter. | Varje etikett kan innehålla alfanumeriska, understreck och bindestreck.<br><br>Varje etikett avgränsas med en punkt. |
-> | privateDnsZones / virtualNetworkLinks | privat DNS-zon | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | offentliga IP-adresser | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | offentligaIP-korrigeringar | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | routeFilters | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | routeFilter/routeFilterRules | ruttfilter | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | routeTables | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | routeTables /rutter | route table | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | serviceEndpointPolicies | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | trafficmanagerprofiles | Globala | 1–63 | Alfanumeriska, bindestreck och punkter.<br><br>Börja och sluta med alfanumeriskt. |
-> | virtualNetworkGateways | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | virtualNetworks | Resursgrupp | 2–64 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | virtualnetworks / undernät | virtuellt nätverk | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | virtualNetworks / virtualNetworkPeerings | virtuellt nätverk | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | virtuellaWans | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | vpnGateways (vpnGateways) | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | vpnGateways / vpnAnslutningar | VPN gateway | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
-> | vpnSites (vpnSites) | Resursgrupp | 1–80 | Alfanumeriska, understreck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Avsluta alfanumeriskt eller understreck. |
+> | applicationGateways | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | applicationSecurityGroups | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | azureFirewalls | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slutar med alfanumeriskt eller under streck. |
+> | bastionHosts | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | anslutning | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | dnsZones | Resursgrupp | 1-63 tecken<br><br>2 till 34 etiketter<br><br>Varje etikett är en uppsättning tecken som skiljs åt av en punkt. Till exempel har **contoso.com** 2 etiketter. | Varje etikett får innehålla alfanumeriska tecken, under streck och bindestreck.<br><br>Varje etikett avgränsas med en punkt. |
+> | expressRouteCircuits | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | firewallPolicies | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | firewallPolicies / ruleGroups | brand Väggs princip | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | frontDoors | EAN | 5-64 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | Belastningsutjämnare | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | Belastningsutjämnare/inboundNatRules | belastningsutjämnare | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | localNetworkGateways | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | networkInterfaces | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | networkSecurityGroups | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | networkSecurityGroups/securityRules | nätverks säkerhets grupp | 1–80 |  Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | networkWatchers | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | privateDnsZones | Resursgrupp | 1-63 tecken<br><br>2 till 34 etiketter<br><br>Varje etikett är en uppsättning tecken som skiljs åt av en punkt. Till exempel har **contoso.com** 2 etiketter. | Varje etikett får innehålla alfanumeriska tecken, under streck och bindestreck.<br><br>Varje etikett avgränsas med en punkt. |
+> | privateDnsZones / virtualNetworkLinks | privat DNS-zon | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | publicIPAddresses | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | publicIPPrefixes | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | routeFilters | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | routeFilters / routeFilterRules | flödes filter | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | routeTables | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | routeTables/vägar | route table | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | serviceEndpointPolicies | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | trafficmanagerprofiles | EAN | 1–63 | Alfanumeriska tecken, bindestreck och punkter.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | virtualNetworkGateways | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | virtualNetworks | Resursgrupp | 2–64 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | virtualnetworks/undernät | virtuellt nätverk | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | virtualNetworks/virtualNetworkPeerings | virtuellt nätverk | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | virtualWans | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | vpnGateways | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | vpnGateways / vpnConnections | VPN gateway | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
+> | vpnSites | Resursgrupp | 1–80 | Alfanumeriska tecken, under streck, punkter och bindestreck.<br><br>Börja med alfanumeriskt. Slut alfanumeriskt eller under streck. |
 
-## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Namnområden | Globala | 6-50 | Alfanumeriska och bindestreck<br><br>Börja och sluta med alfanumeriskt. |
-> | namnområden / AuthorizationRules | namnområde | 1-256 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Starta alfanumeriskt. |
-> | namnområden / anmälanHubs | namnområde | 1-260 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Starta alfanumeriskt. |
-> | namnområden / anmälanHubs / AuthorizationRules | meddelandehubb | 1-256 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Starta alfanumeriskt. |
-
-## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
+## <a name="microsoftnotificationhubs"></a>Microsoft. NotificationHubs
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Kluster | Resursgrupp | 4-63 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | arbetsytor | Resursgrupp | 4-63 | Alfanumeriska och bindestreck.<br><br>Börja och sluta med alfanumeriskt. |
+> | namn områden | EAN | 6-50 | Alfanumeriska tecken och bindestreck<br><br>Börja och sluta med alfanumeriska tecken. |
+> | namnrymder/AuthorizationRules | namnområde | 1-256 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta alfanumeriskt. |
+> | namnrymder/notificationHubs | namnområde | 1-260 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta alfanumeriskt. |
+> | namnrymder/notificationHubs/AuthorizationRules | Notification Hub | 1-256 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta alfanumeriskt. |
 
-## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | lösningar | arbetsyta | Ej tillämpligt | För lösningar som skapats av Microsoft måste namnet finnas i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som skapats av tredje part måste namnet finnas i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösningstypen är skiftlägeskänslig. |
-
-## <a name="microsoftportal"></a>Microsoft.Portal
+## <a name="microsoftoperationalinsights"></a>Microsoft. OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | instrumentpaneler | Resursgrupp | 3-160 | Alfanumeriska och bindestreck.<br><br>Om du vill använda begränsade tecken lägger du till en tagg med namnet **dold rubrik** med det instrumentpanelsnamn som du vill använda. Portalen visar det namnet när instrumentpanelen visas. |
+> | kluster | Resursgrupp | 4-63 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | arbetsytor | Resursgrupp | 4-63 | Alfanumeriska tecken och bindestreck.<br><br>Börja och sluta med alfanumeriska tecken. |
 
-## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | arbetsytaInsamlingar | regionen | 3–63 | Alfanumeriska och bindestreck.<br><br>Kan inte börja med bindestreck. Det går inte att använda på varandra följande bindestreck. |
-
-## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated Microsoft.PowerBIDedicated Microsoft.PowerBIDedicated Microsoft.
+## <a name="microsoftoperationsmanagement"></a>Microsoft. OperationsManagement
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Kapacitet | regionen | 3–63 | Gemener eller siffror<br><br>Börja med gemener. |
+> | lösningar | arbetsyta | Ej tillämpligt | För lösningar som har skapats av Microsoft måste namnet vara i mönstret:<br>`SolutionType(WorkspaceName)`<br><br>För lösningar som har skapats av tredje part måste namnet vara i mönstret:<br>`SolutionType[WorkspaceName]`<br><br>Ett giltigt namn är till exempel:<br>`AntiMalware(contoso-IT)`<br><br>Lösnings typen är Skift läges känslig. |
 
-## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Valv | Resursgrupp | 2-50 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven. |
-> | valv / backupPolicies | valv | 3-150 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven. Kan inte sluta med bindestreck. |
-
-## <a name="microsoftrelay"></a>Microsoft.Relay
+## <a name="microsoftportal"></a>Microsoft. Portal
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Namnområden | Globala | 6-50 | Alfanumeriska och bindestreck.<br><br>Börja med en bokstav. Avsluta med en bokstav eller ett nummer. |
-> | namnområden / AuthorizationRules | namnområde | 1-50 |  Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | namnområden / HybridAnslutningar | namnområde | 1-260 | Alfanumeriska, punkter, bindestreck, understreck och snedstreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | namnområden / HybridConnections/authorizationRules | hybridanslutning | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | namnområden / WcfRelays | namnområde | 1-260 | Alfanumeriska, punkter, bindestreck, understreck och snedstreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | namnområden / WcfRelays / authorizationRules | Wcf relä | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med alfanumeriskt. |
+> | instrumentpaneler | Resursgrupp | 3-160 | Alfanumeriska tecken och bindestreck.<br><br>Om du vill använda begränsade tecken lägger du till en tagg med namnet **dold rubrik** med namnet på instrument panelen som du vill använda. Portalen visar det namnet när instrument panelen visas. |
 
-## <a name="microsoftresources"></a>Microsoft.Resurser
+## <a name="microsoftpowerbi"></a>Microsoft. PowerBI
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Distributioner | Resursgrupp | 1-64 | Alfanumeriska, understreck, parenteser, bindestreck och punkter. |
-> | resursgrupper | prenumeration | 1–90 | Alfanumeriska tecken, understreck, parenteser, bindestreck, punkter och unicode-tecken som matchar [regex-dokumentationen](/rest/api/resources/resourcegroups/createorupdate).<br><br>Kan inte sluta med punkt. |
-> | tagNames | resource | 1-512 | Det går inte att använda:<br>`<>%&\?/` |
+> | workspaceCollections | regionen | 3–63 | Alfanumeriska tecken och bindestreck.<br><br>Får inte börja med bindestreck. Det går inte att använda efterföljande bindestreck. |
+
+## <a name="microsoftpowerbidedicated"></a>Microsoft. PowerBIDedicated
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | kapaciteter | regionen | 3–63 | Små bokstäver eller siffror<br><br>Börja med gemener. |
+
+## <a name="microsoftrecoveryservices"></a>Microsoft. RecoveryServices
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | valv | Resursgrupp | 2-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. |
+> | valv/backupPolicies | valv | 3-150 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. Kan inte sluta med bindestreck. |
+
+## <a name="microsoftrelay"></a>Microsoft. Relay
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | namn områden | EAN | 6-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. Sluta med en bokstav eller en siffra. |
+> | namnrymder/AuthorizationRules | namnområde | 1-50 |  Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | namnrymder/HybridConnections | namnområde | 1-260 | Alfanumeriska tecken, punkter, bindestreck, under streck och snedstreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | namnrymder/HybridConnections/authorizationRules | Hybrid anslutning | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | namnrymder/WcfRelays | namnområde | 1-260 | Alfanumeriska tecken, punkter, bindestreck, under streck och snedstreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | namnrymder/WcfRelays/authorizationRules | WCF-relä | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Börja och sluta med alfanumeriska tecken. |
+
+## <a name="microsoftresources"></a>Microsoft. Resources
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | distributioner | Resursgrupp | 1-64 | Alfanumeriska tecken, under streck, parenteser, bindestreck och punkter. |
+> | ResourceGroups | prenumeration | 1–90 | Alfanumeriska tecken, under streck, parenteser, bindestreck, punkter och Unicode-tecken som matchar regex- [dokumentationen](/rest/api/resources/resourcegroups/createorupdate).<br><br>Kan inte sluta med punkt. |
+> | tagNames | resource | 1-512 | Kan inte använda:<br>`<>%&\?/` |
 > | tagNames / tagValues | taggnamn | 1-256 | Alla tecken. |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
@@ -598,105 +598,105 @@ I följande tabeller refererar termen alfanumerisk till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Namnområden | Globala | 6-50 | Alfanumeriska och bindestreck.<br><br>Börja med en bokstav. Avsluta med en bokstav eller ett nummer.<br><br>Mer information finns i [Skapa namnområde](/rest/api/servicebus/create-namespace). |
-> | namnområden / AuthorizationRules | namnområde | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med alphnumeric. |
-> | namnrymdor / katastrofRecoveryConfigs | Globala | 6-50 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven. Avsluta med alfanumeriskt. |
-> | namnområden / migreringKonfigureringar | namnområde |  | Bör alltid vara **$default**. |
-> | namnområden / köer | namnområde | 1-260 | Alfanumeriska, punkter, bindestreck, understreck och snedstreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | namnrymd / köer / auktoriseringRules | kö | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med alphnumeric. |
-> | namnområden / ämnen | namnområde | 1-260 | Alfanumeriska, punkter, bindestreck, understreck och snedstreck.<br><br>Börja och sluta med alfanumeriskt. |
-> | namnrymd / ämnen / authorizationRules | ämne | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med alphnumeric. |
-> | namnrymd / ämnen / prenumerationer | ämne | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med alphnumeric. |
-> | namnrymd / ämnen / abonnemang / regler | prenumeration | 1-50 | Alfanumeriska, punkter, bindestreck och understreck.<br><br>Börja och sluta med alphnumeric. |
+> | namn områden | EAN | 6-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. Sluta med en bokstav eller en siffra.<br><br>Mer information finns i [skapa namn område](/rest/api/servicebus/create-namespace). |
+> | namnrymder/AuthorizationRules | namnområde | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta och sluta med alphnumeric. |
+> | namnrymder/disasterRecoveryConfigs | EAN | 6-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. Sluta med alfanumeriska tecken. |
+> | namnrymder/migrationConfigurations | namnområde |  | Bör alltid vara **$default**. |
+> | namnrymder/köer | namnområde | 1-260 | Alfanumeriska tecken, punkter, bindestreck, under streck och snedstreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | namnrymder/köer/authorizationRules | kö | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta och sluta med alphnumeric. |
+> | namn områden/ämnen | namnområde | 1-260 | Alfanumeriska tecken, punkter, bindestreck, under streck och snedstreck.<br><br>Börja och sluta med alfanumeriska tecken. |
+> | namnrymder/ämnen/authorizationRules | ämne | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta och sluta med alphnumeric. |
+> | namnrymder/ämnen/prenumerationer | ämne | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta och sluta med alphnumeric. |
+> | namn områden/ämnen/prenumerationer/regler | prenumeration | 1-50 | Alfanumeriska tecken, punkter, bindestreck och under streck.<br><br>Starta och sluta med alphnumeric. |
 
-## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | Kluster | regionen | 4-23 | Gemener, siffror och bindestreck.<br><br>Börja med gemener. Avsluta med gemener eller tal. |
-
-## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
+## <a name="microsoftservicefabric"></a>Microsoft. ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | signalR | Globala | 3–63 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven. Avsluta med bokstav eller nummer.  |
+> | kluster | regionen | 4-23 | Små bokstäver, siffror och bindestreck.<br><br>Börja med gemener. Slutar med bokstav eller siffra i gemener. |
+
+## <a name="microsoftsignalrservice"></a>Microsoft. SignalRService
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | signalR | EAN | 3–63 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. Slutar med en bokstav eller en siffra.  |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | managedInstances | Globala | 1–63 | Gemener, siffror och bindestreck.<br><br>Det går inte att starta eller sluta med bindestreck. |
-> | Servrar | Globala | 1–63 | Gemener, siffror och bindestreck.<br><br>Det går inte att starta eller sluta med bindestreck. |
-> | servrar /administratörer | server |  | Måste `ActiveDirectory`vara . |
-> | servrar / databaser | server | 1-128 | Det går inte att använda:<br>`<>*%&:\/?`<br><br>Det går inte att sluta med punkt eller blanksteg. |
-> | servrar / databaser / syncGroups | databas | 1-150 | Alfanumeriska, bindestreck och understreck. |
-> | servrar / elasticPools | server | 1-128 | Det går inte att använda:<br>`<>*%&:\/?`<br><br>Det går inte att sluta med punkt eller blanksteg. |
-> | servrar /redundansGrupper | Globala | 1–63 | Gemener, siffror och bindestreck.<br><br>Det går inte att starta eller sluta med bindestreck. |
-> | servrar / firewallRules | server | 1-128 | Det går inte att använda:<br>`<>*%&:;\/?`<br><br>Kan inte sluta med punkt. |
+> | managedInstances | EAN | 1–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. |
+> | brygghuvudservrar | EAN | 1–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. |
+> | servrar/administratörer | server |  | Måste vara `ActiveDirectory`. |
+> | servrar/databaser | server | 1-128 | Kan inte använda:<br>`<>*%&:\/?`<br><br>Kan inte sluta med punkt eller blank steg. |
+> | servrar/databaser/syncGroups | databas | 1-150 | Alfanumeriska tecken, bindestreck och under streck. |
+> | servrar/elasticPools | server | 1-128 | Kan inte använda:<br>`<>*%&:\/?`<br><br>Kan inte sluta med punkt eller blank steg. |
+> | servrar/failoverGroups | EAN | 1–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. |
+> | servrar/firewallRules | server | 1-128 | Kan inte använda:<br>`<>*%&:;\/?`<br><br>Kan inte sluta med punkt. |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | lagringKonton | Globala | 3–24 | Gemener och siffror. |
-> | lagringKonton / blobServices | storage account |  | Måste `default`vara . |
-> | lagringKonton / blobServices / behållare | storage account | 3–63 | Gemener, siffror och bindestreck.<br><br>Börja med gemener eller tal. Det går inte att använda på varandra följande bindestreck. |
-> | lagringKonton / filTjänster | storage account |  | Måste `default`vara . |
-> | lagringKonton / filTjänster / resurser | storage account | 3–63 | Gemener, siffror och bindestreck.<br><br>Det går inte att starta eller sluta med bindestreck. Det går inte att använda på varandra följande bindestreck. |
-> | lagringKonton / managementPolicies | storage account |  | Måste `default`vara . |
-> | blob | container | 1–1024 | Alla URL-tecken, skiftlägeskänsliga |
-> | kö | storage account | 3–63 | Gemener, siffror och bindestreck.<br><br>Det går inte att starta eller sluta med bindestreck. Det går inte att använda på varandra följande bindestreck. |
-> | tabell | storage account | 3–63 | Alfanumerika.<br><br>Börja med bokstaven. |
+> | storageAccounts | EAN | 3–24 | Små bokstäver och siffror. |
+> | storageAccounts/blobServices | storage account |  | Måste vara `default`. |
+> | storageAccounts/blobServices/containers | storage account | 3–63 | Små bokstäver, siffror och bindestreck.<br><br>Börja med en gemen bokstav eller siffra. Det går inte att använda efterföljande bindestreck. |
+> | storageAccounts/fileServices | storage account |  | Måste vara `default`. |
+> | storageAccounts/fileServices/resurser | storage account | 3–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. Det går inte att använda efterföljande bindestreck. |
+> | storageAccounts/managementPolicies | storage account |  | Måste vara `default`. |
+> | blob | container | 1–1024 | Alla URL-tecken, SKIFT läges känsliga |
+> | kö | storage account | 3–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. Det går inte att använda efterföljande bindestreck. |
+> | tabell | storage account | 3–63 | Alfanumeriska tecken.<br><br>Börja med en bokstav. |
 
-## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | storageSyncServices | Resursgrupp | 1-260 | Alfanumeriska, blanksteg, punkter, bindestreck och understreck.<br><br>Det går inte att sluta med punkt eller blanksteg. |
-> | storageSyncServices/syncGroups | synkroniseringstjänst för lagring | 1-260 | Alfanumeriska, blanksteg, punkter, bindestreck och understreck.<br><br>Det går inte att sluta med punkt eller blanksteg. |
-
-## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
+## <a name="microsoftstoragesync"></a>Microsoft. StorageSync
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Chefer | Resursgrupp | 2-50 | Alfanumeriska och bindestreck.<br><br>Börja med bokstaven. Avsluta med alfanumeriskt. |
+> | storageSyncServices | Resursgrupp | 1-260 | Alfanumeriska tecken, blank steg, punkter, bindestreck och under streck.<br><br>Kan inte sluta med punkt eller blank steg. |
+> | storageSyncServices / syncGroups | tjänsten för synkronisering av lagring | 1-260 | Alfanumeriska tecken, blank steg, punkter, bindestreck och under streck.<br><br>Kan inte sluta med punkt eller blank steg. |
 
-## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics Microsoft.StreamAnalytics Microsoft.StreamAnalytics Microsoft.
-
-> [!div class="mx-tableFixed"]
-> | Entitet | Omfång | Längd | Giltiga tecken |
-> | --- | --- | --- | --- |
-> | streamingjobb | Resursgrupp | 3–63 | Alfanumeriska, bindestreck och understreck. |
-> | streamingjobb / funktioner | streaming jobb | 3–63 | Alfanumeriska, bindestreck och understreck. |
-> | streamingjobb / ingångar | streaming jobb | 3–63 | Alfanumeriska, bindestreck och understreck. |
-> | streamingjobb / utgångar | streaming jobb | 3–63 | Alfanumeriska, bindestreck och understreck. |
-> | streamingjobb / omvandlingar | streaming jobb | 3–63 | Alfanumeriska, bindestreck och understreck. |
-
-## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
+## <a name="microsoftstorsimple"></a>Microsoft. StorSimple
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | Miljöer | Resursgrupp | 1–90 | Det går inte att använda:<br>`'<>%&:\?/#` |
-> | miljöer / accessPolicies | miljö | 1–90 | Det går inte att använda:<br> `'<>%&:\?/#` |
-> | miljöer / eventSources | miljö | 1–90 | Det går inte att använda:<br>`'<>%&:\?/#` |
-> | miljöer / referensDataSets | miljö | 3–63 | Alfanumerika |
+> | hantera | Resursgrupp | 2-50 | Alfanumeriska tecken och bindestreck.<br><br>Börja med en bokstav. Sluta med alfanumeriska tecken. |
 
-## <a name="microsoftweb"></a>Microsoft.Web
+## <a name="microsoftstreamanalytics"></a>Microsoft. StreamAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | serverfarms | Resursgrupp | 1-40 | Alfanumeriska och bindestreck. |
-> | webbplatser | Globala | 2-60 | Innehåller alfanumeriska och bindestreck.<br><br>Det går inte att starta eller sluta med bindestreck. |
-> | platser / platser | webbplats | 2-59 | Alfanumeriska och bindestreck. |
+> | streamingjobs | Resursgrupp | 3–63 | Alfanumeriska tecken, bindestreck och under streck. |
+> | streamingjobs/Functions | strömmande jobb | 3–63 | Alfanumeriska tecken, bindestreck och under streck. |
+> | streamingjobs/indata | strömmande jobb | 3–63 | Alfanumeriska tecken, bindestreck och under streck. |
+> | streamingjobs/utdata | strömmande jobb | 3–63 | Alfanumeriska tecken, bindestreck och under streck. |
+> | streamingjobs/transformeringar | strömmande jobb | 3–63 | Alfanumeriska tecken, bindestreck och under streck. |
+
+## <a name="microsofttimeseriesinsights"></a>Microsoft. TimeSeriesInsights
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | utrymmen | Resursgrupp | 1–90 | Kan inte använda:<br>`'<>%&:\?/#` |
+> | miljöer/accessPolicies | miljö | 1–90 | Kan inte använda:<br> `'<>%&:\?/#` |
+> | miljöer/eventSources | miljö | 1–90 | Kan inte använda:<br>`'<>%&:\?/#` |
+> | miljöer/referenceDataSets | miljö | 3–63 | Alfanumeriska tecken |
+
+## <a name="microsoftweb"></a>Microsoft. Web
+
+> [!div class="mx-tableFixed"]
+> | Entitet | Omfång | Längd | Giltiga tecken |
+> | --- | --- | --- | --- |
+> | Server grupper | Resursgrupp | 1-40 | Alfanumeriska tecken och bindestreck. |
+> | webbplatser | EAN | 2-60 | Innehåller alfanumeriska tecken och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. |
+> | platser/platser | webbplats | 2-59 | Alfanumeriska tecken och bindestreck. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Rekommendationer om hur du namnger resurser finns i [Klar: Rekommenderad namngivning och taggning konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
+Rekommendationer om hur du namnger resurser finns i [Ready: rekommenderade namngivnings-och taggnings konventioner](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).

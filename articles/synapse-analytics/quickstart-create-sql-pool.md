@@ -10,10 +10,10 @@ ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
 ms.openlocfilehash: a50f203b8057dd4ea51eff1cf09fc97fb598cb3e
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82096443"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool"></a>Snabb start: skapa en Synapse SQL-pool
@@ -38,7 +38,7 @@ Logga in på [Azure Portal](https://portal.azure.com/)
 ![Översikt över Synapse-arbetsytan med en röd ruta runt kommandot för att skapa en ny SQL-pool.](media/quickstart-create-sql-pool/quickstart-create-sql-pool-01.png)
 2. Ange följande information på fliken **grundläggande** :
 
-    | Inställning | Föreslaget värde | Beskrivning |
+    | Inställningen | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
     | **SQL-poolnamn** | Valfritt giltigt namn | SQL-poolens namn. |
     | **Prestanda nivå** | DW100c | Ställ in på den minsta storleken för att minska kostnaderna för den här snabb starten |

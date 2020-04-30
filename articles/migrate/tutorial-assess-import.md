@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
 ms.openlocfilehash: 484dfd7834a206dce6805dc38b0eabeae2ee352a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82114572"
 ---
 # <a name="assess-servers-by-using-imported-data"></a>Utvärdera servrar med hjälp av importerade data
@@ -106,27 +106,27 @@ I följande tabell sammanfattas fil fälten som ska fyllas i:
 **Fältnamn** | **Erforderlig** | **Information**
 --- | --- | ---
 **Server namn** | Ja | Vi rekommenderar att du anger det fullständigt kvalificerade domän namnet (FQDN).
-**IP-adress** | Inga | Server adress.
+**IP-adress** | Nej | Server adress.
 **Kärnor** | Ja | Antal processor kärnor som har allokerats till servern.
 **Minnesoptimerade** | Ja | Totalt RAM-minne, i MB, allokeras till servern.
 **OS-namn** | Ja | Serveroperativ system. <br/> Operativ system namn som matchar eller innehåller namnen [i listan känns](#supported-operating-system-names) igen av utvärderingen.
-**Operativsystemversion** | Inga | Serverns operativ system version.
-**Antal diskar** | Inga | Behövs inte om enskilda disk uppgifter anges.
-**Disk 1-storlek**  | Inga | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
-**Disk 1, Läs OPS** | Inga | Disk läsnings åtgärder per sekund.
-**Disk 1 Skriv OPS** | Inga | Disk skrivnings åtgärder per sekund.
-**Disk 1 Läs data flöde** | Inga | Data läses från disken per sekund, i MB per sekund.
-**Disk 1 Skriv data flöde** | Inga | Data som skrivs till disk per sekund, i MB per sekund.
-**Procent andel CPU-användning** | Inga | Procent andel CPU som används.
-**Procent andel minnes användning** | Inga | Procent andelen RAM-minne som används.
-**Totalt antal diskar Read OPS** | Inga | Disk läsnings åtgärder per sekund.
-**Skriv Ops totalt antal diskar** | Inga | Disk-Skriv åtgärder per sekund.
-**Totalt antal diskar läsnings data flöde** | Inga | Data läses från disken, i MB per sekund.
-**Totalt antal diskar Skriv data flöde** | Inga | Data som skrivs till disk, i MB per sekund.
-**Nätverk i data flöde** | Inga | Data som tagits emot av servern, i MB per sekund.
-**Nätverks utflöde** | Inga | Data som överförs av servern, i MB per sekund.
-**Typ av inbyggd program vara** | Inga | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
-**MAC-adress**| Inga | Serverns MAC-adress.
+**OS-version** | Nej | Serverns operativ system version.
+**Antal diskar** | Nej | Behövs inte om enskilda disk uppgifter anges.
+**Disk 1-storlek**  | Nej | Maximal disk storlek i GB.<br/>Du kan lägga till information om fler diskar genom [att lägga till kolumner](#add-multiple-disks) i mallen. Du kan lägga till upp till åtta diskar.
+**Disk 1, Läs OPS** | Nej | Disk läsnings åtgärder per sekund.
+**Disk 1 Skriv OPS** | Nej | Disk skrivnings åtgärder per sekund.
+**Disk 1 Läs data flöde** | Nej | Data läses från disken per sekund, i MB per sekund.
+**Disk 1 Skriv data flöde** | Nej | Data som skrivs till disk per sekund, i MB per sekund.
+**Procent andel CPU-användning** | Nej | Procent andel CPU som används.
+**Procent andel minnes användning** | Nej | Procent andelen RAM-minne som används.
+**Totalt antal diskar Read OPS** | Nej | Disk läsnings åtgärder per sekund.
+**Skriv Ops totalt antal diskar** | Nej | Disk-Skriv åtgärder per sekund.
+**Totalt antal diskar läsnings data flöde** | Nej | Data läses från disken, i MB per sekund.
+**Totalt antal diskar Skriv data flöde** | Nej | Data som skrivs till disk, i MB per sekund.
+**Nätverk i data flöde** | Nej | Data som tagits emot av servern, i MB per sekund.
+**Nätverks utflöde** | Nej | Data som överförs av servern, i MB per sekund.
+**Typ av inbyggd program vara** | Nej | Serverns inbyggda program vara. Värdena kan vara "BIOS" eller "UEFI".
+**MAC-adress**| Nej | Serverns MAC-adress.
 
 
 ### <a name="add-operating-systems"></a>Lägg till operativ system

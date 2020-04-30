@@ -1,7 +1,7 @@
 ---
-title: Kognitiv sökfärdighet för anpassad entitetssökning
+title: Anpassad sökning av kognitiva entiteter för entitets ökning
 titleSuffix: Azure Cognitive Search
-description: Extrahera olika anpassade entiteter från text i en cognitive search-pipeline för Azure Cognitive Search. Den här färdigheten är för närvarande i offentlig förhandsversion.
+description: Extrahera olika anpassade entiteter från text i en Azure Kognitiv sökning kognitiv Sök pipeline. Den här kunskapen är för närvarande en offentlig för hands version.
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
@@ -9,69 +9,69 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.openlocfilehash: 3659070d4ffd4346a8827d2748e67db436fc15b3
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82085747"
 ---
-#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Anpassad entitetsuppslag kognitiv färdighet (förhandsgranskning)
+#     <a name="custom-entity-lookup-cognitive-skill-preview"></a>Anpassad enhets sökning av kognitiva kunskaper (för hands version)
 
 > [!IMPORTANT] 
-> Den här färdigheten är för närvarande i offentlig förhandsversion. Förhandsversionsfunktionen tillhandahålls utan ett servicenivåavtal och rekommenderas inte för produktionsarbetsbelastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för portal eller .NET SDK.
+> Den här kunskapen är för närvarande en offentlig för hands version. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Det finns för närvarande inget stöd för Portal eller .NET SDK.
 
-Den **anpassade entitetsuppslagsfärdigheten** söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketterar den alla dokument med alla matchande entiteter. Färdigheten stöder också en grad av luddig matchning som kan tillämpas för att hitta matcher som är liknande men inte riktigt exakt.  
+Den **anpassade Sök** kompetensen för entiteten söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketteras alla dokument med matchande entiteter. Kompetensen har även stöd för en viss fuzzy-matchning som kan användas för att söka efter matchningar som liknar varandra, men som inte exakt stämmer.  
 
-Den här färdigheten är inte bunden till ett Cognitive Services API och kan användas kostnadsfritt under förhandsgranskningsperioden. Du bör dock fortfarande [koppla en Cognitive Services-resurs](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services)för att åsidosätta den dagliga anrikningsgränsen. Den dagliga gränsen gäller för fri åtkomst till Cognitive Services när den nås via Azure Cognitive Search.
+Den här kunskapen är inte kopplad till ett Cognitive Services-API och kan användas kostnads fritt under för hands perioden. Du bör fortfarande [bifoga en Cognitive Services resurs](https://docs.microsoft.com/azure/search/cognitive-search-attach-cognitive-services), men för att åsidosätta den dagliga gränsen för anrikning. Den dagliga gränsen gäller för kostnads fri åtkomst till Cognitive Services vid åtkomst via Azure Kognitiv sökning.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.CustomEntityLookupSkill 
+Microsoft. färdigheter. text. CustomEntityLookupSkill 
 
 ## <a name="data-limits"></a>Databegränsningar
-+ Den maximala indatapoststorleken som stöds är 256 MB. Om du behöver dela upp dina data innan du skickar dem till den anpassade entitetsuppslagsfärdigheten kan du överväga att använda [textdelningsfärdigheten](cognitive-search-skill-textsplit.md).
-+ Den maximala entitetsdefinitionstabellen som stöds är 10 MB om den tillhandahålls med parametern *entitiesDefinitionUri.* 
-+ Om entiteterna definieras infogade, med parametern *infogadeentitiesDefinition,* är den maximala storleken som stöds 10 kB.
++ Den maximala storlek som stöds för indata-poster är 256 MB. Om du behöver dela upp dina data innan du skickar dem till den anpassade Sök kompetensen för entiteter bör du överväga att använda [text delnings kunskaper](cognitive-search-skill-textsplit.md).
++ Den största definitions tabellen för entiteter som stöds är 10 MB om den anges med parametern *entitiesDefinitionUri* . 
++ Om entiteterna har definierats infogas med hjälp av parametern *inlineEntitiesDefinition* , är den maximala storleken som stöds är 10 kB.
 
-## <a name="skill-parameters"></a>Färdighetsparametrar
+## <a name="skill-parameters"></a>Kunskaps parametrar
 
 Parametrar är skiftlägeskänsliga.
 
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
-| enheterDefinitionUri    | Sökväg till en JSON- eller CSV-fil som innehåller all måltext som ska matchas mot. Den här entitetsdefinitionen läss i början av en indexeringskörning. Eventuella uppdateringar av den här filen i mitten av körningen kommer inte att realiseras förrän efterföljande körningar. Denna konfiguration måste vara tillgänglig via HTTPS. Se [Custom Entity Definition](#custom-entity-definition-format) Format" nedan för förväntat CSV- eller JSON-schema.|
-|inlineEntitiesDefiniera | Infogade JSON-entitetsdefinitioner. Den här parametern ersätter parametern entitiesDefinitionUri om det finns. Högst 10 kB konfiguration får anges i linje. Se [Anpassad entitetsdefinition](#custom-entity-definition-format) nedan för förväntat JSON-schema. |
-|standardSpråkkod |    (Valfritt) Språkkod för indatatexten som används för att tokenisera och avgränsa indatatext. Följande språk stöds: `da, de, en, es, fi, fr, it, ko, pt`. Standard är engelska`en`( ). Om du skickar ett språkkodslandkodformat används bara språkkodsdelen i formatet.  |
+| entitiesDefinitionUri    | Sökväg till en JSON-eller CSV-fil som innehåller all mål text som ska matchas mot. Den här definitionen av entiteten läses i början av en indexerare-körning. alla uppdateringar av filen Mid-Run kommer inte att realiseras förrän efterföljande körningar. Den här konfigurationen måste vara tillgänglig via HTTPS. Se formatet för [anpassad definition av entitet](#custom-entity-definition-format) "nedan för förväntat CSV-eller JSON-schema.|
+|inlineEntitiesDefinition | Definitioner av infogade JSON-enheter. Den här parametern ersätter parametern entitiesDefinitionUri om den finns. Högst 10 KB konfiguration kan anges infogas. Se [definitionen av anpassade entiteter](#custom-entity-definition-format) nedan för förväntat JSON-schema. |
+|defaultLanguageCode |    Valfritt Språk koden för den inmatade text som används för att Tokenize och avgränsa inmatade text. Följande språk stöds: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska`en`(). Om du skickar ett languageCode-CountryCode-format används endast languageCode-delen av formatet.  |
 
 
-## <a name="skill-inputs"></a>Indata för färdighet
+## <a name="skill-inputs"></a>Kompetens inmatningar
 
-| Indatanamn      | Beskrivning                   |
+| Inmatat namn      | Beskrivning                   |
 |---------------|-------------------------------|
-| text          | Texten att analysera.          |
-| languageCode    | Valfri. Standardvärdet är `"en"`.  |
+| text          | Den text som ska analyseras.          |
+| languageCode    | Valfritt. Standardvärdet är `"en"`.  |
 
 
-## <a name="skill-outputs"></a>Utdata för färdighet
+## <a name="skill-outputs"></a>Kunskaps utmatningar
 
 
-| Utdatanamn      | Beskrivning                   |
+| Namn på utdata      | Beskrivning                   |
 |---------------|-------------------------------|
-| Enheter | En matris med objekt som innehåller information om de matchningar som hittades och relaterade metadata. Var och en av de identifierade enheterna kan innehålla följande fält:  <ul> <li> *namn*: Den översta enheten som identifierats. Entiteten representerar formuläret "normaliserad". </li> <li> *id*: En unik identifierare för entiteten enligt användarens definitionsformat som definierats.</li> <li> *beskrivning*: Entitetsbeskrivning enligt användarens definitionsdefinierande definitionsdefinierande definitionsbesing i "Custom Entity Definition Format". </li> <li> *typ:* Entitetstyp enligt användarens definitionsdefinierande definitionsformat definierar.</li> <li> *undertyp:* Entitetsundertyp enligt användarens definitionsdefinierande definitionsformat definierar.</li>  <li> *matchar*: Samling som beskriver var och en av matchningarna för den entiteten i källtexten. Varje match kommer att ha följande medlemmar: </li> <ul> <li> *text*: Den råa texten matchar från källdokumentet. </li> <li> *offset*: Platsen där matchningen hittades i texten. </li> <li> *längd*: Längden på den matchade texten. </li> <li> *matchDistance*: Antalet tecken som skiljer sig från det ursprungliga entitetsnamnet eller aliaset.  </li> </ul> </ul>
+| poster | En matris med objekt som innehåller information om de matchningar som hittades, och relaterade metadata. Varje entitet som identifieras kan innehålla följande fält:  <ul> <li> *namn*: entiteten på den översta nivån har identifierats. Entiteten representerar "normaliserad" form. </li> <li> *ID*: en unik identifierare för entiteten som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *Beskrivning*: Beskrivning av entitet som definieras av användaren i definitions formatet för den anpassade entiteten. </li> <li> *Typ:* Entitetstyp som definieras av användaren i definitions formatet för den anpassade entiteten.</li> <li> *undertyp:* Undertyp för entitet som definieras av användaren i definitions formatet för den anpassade entiteten.</li>  <li> *matchar*: samling som beskriver var och en av matchningarna för den entiteten i käll texten. Varje matchning kommer att ha följande medlemmar: </li> <ul> <li> *text*: den obehandlade text matchningen från käll dokumentet. </li> <li> *offset*: den plats där matchningen påträffades i texten. </li> <li> *längd*: den matchade textens längd. </li> <li> *matchDistance*: antalet tecken som skiljer matchningen från det ursprungliga enhets namnet eller aliaset.  </li> </ul> </ul>
   |
 
-## <a name="custom-entity-definition-format"></a>Anpassat entitetsdefinitionsformat
+## <a name="custom-entity-definition-format"></a>Definitions format för anpassad entitet
 
-Det finns tre olika sätt att tillhandahålla listan över anpassade entiteter till skillen för anpassad entitetsökning. Du kan ange listan i en . CSV-fil, en . JSON-fil eller som en infogad definition som en del av färdighetsdefinitionen.  
+Det finns tre olika sätt att tillhandahålla listan över anpassade entiteter till den anpassade Sök kompetensen för entiteten. Du kan ange listan i en. CSV-fil, a. JSON-fil eller som en infogad definition som en del av kunskaps definitionen.  
 
-Om definitionsfilen är en . CSV eller . JSON-filen måste filens sökväg tillhandahållas som en del av parametern *entitiesDefinitionUri.* I det här fallet hämtas filen en gång i början av varje indexeringskörning. Filen måste vara tillgänglig så länge indexeraren är avsedd att köras. Dessutom måste filen kodas UTF-8.
+Om definitions filen är en. CSV eller. JSON-fil måste sökvägen till filen anges som en del av parametern *entitiesDefinitionUri* . I det här fallet hämtas filen en gång i början av varje indexerare-körning. Filen måste vara tillgänglig så länge indexeraren är avsedd att köras. Dessutom måste filen kodas UTF-8.
 
-Om definitionen anges i linje bör den anges så infogat som innehållet i *skillparametern InlineEntitiesDefinition.* 
+Om definitionen anges som infogad, ska den anges som infogad som innehåll i *inlineEntitiesDefinition* -färdighets parametern. 
 
 ### <a name="csv-format"></a>CSV-format
 
-Du kan ange definitionen av de anpassade entiteterna att leta efter i en CSV-fil (Comma-Separated Value) genom att ange sökvägen till filen och ange den i skill-parametern *entitiesDefinitionUri.* Sökvägen ska vara på en https-plats. Definitionsfilen kan vara upp till 10 MB i storlek.
+Du kan ange definitionen av de anpassade entiteterna som ska sökas efter i en fil med kommaavgränsade värden (CSV) genom att ange sökvägen till filen och ange den i *entitiesDefinitionUri* -kunskaps parametern. Sökvägen ska vara på en https-plats. Definitions filen kan vara upp till 10 MB stor.
 
-CSV-formatet är enkelt. Varje rad representerar en unik entitet, som visas nedan:
+CSV-formatet är enkelt. Varje rad representerar en unik entitet, som du ser nedan:
 
 ```
 Bill Gates, BillG, William H. Gates
@@ -79,15 +79,15 @@ Microsoft, MSFT
 Satya Nadella 
 ```
 
-I det här fallet finns det tre entiteter som kan returneras som entiteter hittades (Bill Gates, Satya Nadella, Microsoft), men de kommer att identifieras om något av villkoren på raden (alias) matchas på texten. Om strängen "William H. Gates" till exempel finns i ett dokument returneras en matchning för entiteten "Bill Gates".
+I det här fallet finns det tre entiteter som kan returneras som entiteter (Bill Gates, Satya Nadella, Microsoft), men de kommer att identifieras om någon av villkoren på raden (alias) matchar texten. Om t. ex. strängen "William H. Gates" finns i ett dokument returneras en matchning för entiteten "Bill Gates".
 
 ### <a name="json-format"></a>JSON-format
 
-Du kan också ange definitionen av anpassade entiteter som ska sökas i en JSON-fil. JSON-formatet ger dig lite mer flexibilitet eftersom det gör att du kan definiera matchande regler per term. Du kan till exempel ange det luddiga matchande avståndet (Damerau-Levenshtein-avståndet) för varje term eller om matchningen ska vara skiftlägeskänslig eller inte. 
+Du kan också ange definitionen för de anpassade entiteter som du vill söka efter i en JSON-fil. JSON-formatet ger dig större flexibilitet eftersom du kan definiera matchande regler per period. Du kan till exempel ange det fuzzy matchande avståndet (Damerau-levenshtein avstånd) för varje period eller om matchningen ska vara Skift läges känslig eller inte. 
 
- Precis som med CSV-filer måste du ange sökvägen till JSON-filen och ange den i skill-parametern *entitiesDefinitionUri.* Sökvägen ska vara på en https-plats. Definitionsfilen kan vara upp till 10 MB i storlek.
+ Precis som med CSV-filer måste du ange sökvägen till JSON-filen och ange den i *entitiesDefinitionUri* -kunskaps parametern. Sökvägen ska vara på en https-plats. Definitions filen kan vara upp till 10 MB stor.
 
-Den mest grundläggande JSON-definitionen av anpassad entitetslista kan vara en lista över entiteter som ska matchas:
+Den mest grundläggande JSON-definitionen för anpassade entiteter kan vara en lista över entiteter som ska matchas:
 
 ```json
 [ 
@@ -103,7 +103,7 @@ Den mest grundläggande JSON-definitionen av anpassad entitetslista kan vara en 
 ]
 ```
 
-Ett mer komplext exempel på en JSON-definition kan eventuellt ange id, beskrivning, typ och undertyp för varje entitet - liksom andra *alias*. Om en aliasterm matchas returneras även entiteten:
+Ett mer avancerat exempel på en JSON-definition kan alternativt ange ID, beskrivning, typ och undertyp för varje entitet – samt andra *alias*. Om ett alias matchas returneras även entiteten:
 
 ```json
 [ 
@@ -141,36 +141,36 @@ Ett mer komplext exempel på en JSON-definition kan eventuellt ange id, beskrivn
 ] 
 ```
 
-Tabellerna nedan beskriver mer information de olika konfigurationsparametrar som du kan ställa in när du definierar entiteterna så att de matchar:
+Tabellerna nedan beskriver de olika konfigurations parametrar som du kan ange när du definierar de entiteter som ska matchas i mer information:
 
 |  Fältnamn  |        Beskrivning  |
 |--------------|----------------------|
-| namn | Den översta entitetens beskrivning. Matchningar i färdighetsutdata kommer att grupperas efter det här namnet, och det bör representera den "normaliserade" formen av texten som hittas.  |
-| description  | (Valfritt) Det här fältet kan användas som en genomströmning för anpassade metadata om den matchade texten/texterna. Värdet för det här fältet visas med varje matchning av dess entitet i färdighetsutdata. |
-| typ | (Valfritt) Det här fältet kan användas som en genomströmning för anpassade metadata om den matchade texten/texterna. Värdet för det här fältet visas med varje matchning av dess entitet i färdighetsutdata. |
-| Subtyp | (Valfritt) Det här fältet kan användas som en genomströmning för anpassade metadata om den matchade texten/texterna. Värdet för det här fältet visas med varje matchning av dess entitet i färdighetsutdata. |
-| id | (Valfritt) Det här fältet kan användas som en genomströmning för anpassade metadata om den matchade texten/texterna. Värdet för det här fältet visas med varje matchning av dess entitet i färdighetsutdata. |
-| caseSensitive | (Valfritt) Standardvärdet till false. Booleskt värde som anger om jämförelser med entitetsnamnet ska vara känsliga för teckenhölje. Exempelfall okänsliga matchningar av "Microsoft" kan vara: microsoft, microSoft, MICROSOFT |
-| fuzzyReitDistance | (Valfritt) Standard till 0. Maximalt värde på 5. Betecknar det acceptabla antalet olika tecken som fortfarande skulle utgöra en matchning med entitetsnamnet. Minsta möjliga fuzziness för en viss match returneras.  Till exempel, om redigeringsavståndet är inställt på 3, "Windows 10" skulle fortfarande matcha "Windows", "Windows10" och "windows 7". <br/> När fallkänslighet är inställd på false, räknas inte fallskillnader mot fuzziness tolerans, men annars gör. |
-| defaultCaseSensitive | (Valfritt) Ändrar standardvärdet för skiftlägeskänslighet för den här entiteten. Den används för att ändra standardvärdet för alla alias skiftlägeskänsliga värden. |
-| standardFuzzyReitDistance | (Valfritt) Ändrar standardvärdet för fuzzy edit distance för den här entiteten. Den kan användas för att ändra standardvärdet för alla alias fuzzyEditDistance värden. |
-| Alias | (Valfritt) En matris med komplexa objekt som kan användas för att ange alternativa stavningar eller synonymer till rotentitetsnamnet. |
+| name | Enhets beskrivningen på den översta nivån. Matchningar i färdighets utmatningen grupperas efter det här namnet och ska motsvara "normaliserad" form för den text som hittas.  |
+| description  | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| typ | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| undertyp | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| id | Valfritt Det här fältet kan användas som en genom strömning för anpassade metadata om matchade text (er). Värdet för det här fältet visas med varje matchning av dess entitet i kunskaps resultatet. |
+| caseSensitive | Valfritt Standardvärdet är false. Booleskt värde som anger om jämförelser med entitetsnamnet ska vara känslig för Skift läge. Exempel på SKIFT läges okänsliga matchningar av "Microsoft" kan vara: Microsoft, microSoft, MICROSOFT |
+| fuzzyEditDistance | Valfritt Standardvärdet är 0. Högsta värdet 5. Anger det godkända antalet Divergent-tecken som fortfarande utgör en matchning med entitetsnamnet. Det minsta möjliga oskärpa för en bestämd matchning returneras.  Om till exempel redigerings avståndet är inställt på 3, kommer "Windows 10" fortfarande att matcha "Windows", "windows10" och "Windows 7". <br/> Om SKIFT läges känslighet är inställt på falskt räknas inte fall skillnaderna över mot oskärpa tolerans, men annars görs. |
+| defaultCaseSensitive | Valfritt Ändrar standard Skift läges känslighets värde för den här entiteten. Den används för att ändra standardvärdet för alla alias caseSensitive-värden. |
+| defaultFuzzyEditDistance | Valfritt Ändrar standardvärdet för fuzzy Edit för den här entiteten. Det kan användas för att ändra standardvärdet för alla alias fuzzyEditDistance-värden. |
+| alias | Valfritt En matris med komplexa objekt som kan användas för att ange alternativa stavningar eller synonymer till rot enhetens namn. |
 
 | Egenskaper för alias | Beskrivning |
 |------------------|-------------|
-| text  | Den alternativa stavningen eller representationen av ett namn på en målentitet.  |
-| caseSensitive | (Valfritt) Fungerar på samma sätt som rotentiteten "caseSensitive" parameter ovan, men gäller endast detta alias. |
-| fuzzyReitDistance | (Valfritt) Fungerar på samma sätt som rotentiteten "fuzzyEditDistance" parameter ovan, men gäller endast detta ett alias. |
+| text  | Den alternativa stavningen eller representationen av ett visst mål enhets namn.  |
+| caseSensitive | Valfritt Fungerar på samma sätt som rot entiteten "caseSensitive" ovan, men gäller endast detta alias. |
+| fuzzyEditDistance | Valfritt Fungerar på samma sätt som rot entiteten "fuzzyEditDistance" ovan, men gäller endast detta alias. |
 
 
 ### <a name="inline-format"></a>Infogat format
 
-I vissa fall kan det vara bekvämare att ange en lista över anpassade entiteter för att matcha infogade direkt i färdighetsdefinitionen. I så fall kan du använda ett liknande JSON-format som det som beskrivs ovan, men det är inlined i färdighetsdefinitionen.
-Endast konfigurationer som är mindre än 10 kB i storlek (serialiserad storlek) kan definieras infogade. 
+I vissa fall kan det vara bekvämare att ange en lista med anpassade entiteter som matchar direkt i kunskaps definitionen. I så fall kan du använda ett liknande JSON-format för det som beskrivs ovan, men det finns i kunskaps definitionen.
+Endast konfigurationer som är mindre än 10 KB i storlek (serialiserad storlek) kan definieras infogade. 
 
-##    <a name="sample-definition"></a>Exempeldefinition
+##    <a name="sample-definition"></a>Exempel definition
 
-En provfärdighetsdefinition med ett infogat format visas nedan:
+En exempel kunskaps definition som använder ett infogat format visas nedan:
 
 ```json
   {
@@ -208,7 +208,7 @@ En provfärdighetsdefinition med ett infogat format visas nedan:
     ]
   }
 ```
-Om du bestämmer dig för att ange en pekare till entitetsdefinitionsfilen visas en exempelfärdighetsdefinition med formatet endeturi nedan:
+Alternativt, om du bestämmer dig för att tillhandahålla en pekare till definitions filen för entiteter, visas en exempel kunskaps definition med entitiesDefinitionUri-formatet nedan:
 
 ```json
   {
@@ -231,7 +231,7 @@ Om du bestämmer dig för att ange en pekare till entitetsdefinitionsfilen visas
 
 ```
 
-##    <a name="sample-input"></a>Exempelinmatning
+##    <a name="sample-input"></a>Exempel på inmatade
 
 ```json
 {
@@ -298,12 +298,12 @@ Om du bestämmer dig för att ange en pekare till entitetsdefinitionsfilen visas
 
 ## <a name="errors-and-warnings"></a>Fel och varningar
 
-### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Varning: Nått maximal kapacitet för matchningar och hoppar över alla ytterligare dubblettmatchningar.
+### <a name="warning-reached-maximum-capacity-for-matches-skipping-all-further-duplicate-matches"></a>Varning: maximal kapacitet har nåtts för matchningar och alla ytterligare dubbla matchningar hoppas över.
 
-Den här varningen kommer att släppas ut om antalet matchningar som upptäckts är större än det högsta tillåtna antalet. I det här fallet kommer vi att sluta inkludera dubblettmatchningar. Om detta är oacceptabelt för dig, vänligen lämna in en [supportbiljett](https://ms.portal.azure.com/#create/Microsoft.Support) så att vi kan hjälpa dig med ditt individuella användningsfall.
+Den här varningen genereras om antalet matchningar som har identifierats är större än det högsta tillåtna antalet. I det här fallet slutar vi att inkludera dubbletter av matchningar. Om detta inte är acceptabelt kan du ange ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att vi kan hjälpa dig med ditt enskilda användnings fall.
 
 ## <a name="see-also"></a>Se även
 
 + [Inbyggda färdigheter](cognitive-search-predefined-skills.md)
-+ [Hur man definierar en kompetens](cognitive-search-defining-skillset.md)
-+ [Entitetsigenkänningsfärdighet (för att söka efter välkända entiteter)](cognitive-search-skill-entity-recognition.md)
++ [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
++ [Kunskap om enhets igenkänning (för att söka efter välkända entiteter)](cognitive-search-skill-entity-recognition.md)

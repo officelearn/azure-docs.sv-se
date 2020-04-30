@@ -9,10 +9,10 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.openlocfilehash: ed36dc669c8b89ba4a2b7831c6eb6f8742e73730
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82100421"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Windows-dator i Azure
@@ -111,7 +111,7 @@ Om du vill schemalägga en ny uppdaterings distribution för den virtuella dator
 | Alternativ | Beskrivning |
 | --- | --- |
 | **Namn** |Ange ett unikt namn som identifierar uppdaterings distributionen. |
-|**Operativ system**| Välj antingen **Linux** eller **Windows**.|
+|**Operativsystem**| Välj antingen **Linux** eller **Windows**.|
 | **Grupper att uppdatera** |Definiera en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för virtuella datorer som finns på Azure. Den här frågan skapar en dynamisk grupp med virtuella datorer i Azure som ska ingå i distributionen. </br></br>Välj en befintlig sparad sökning för virtuella datorer som inte finns på Azure. Med den här sökningen kan du välja en grupp med de virtuella datorerna som ska ingå i distributionen. </br></br> Mer information finns i [dynamiska grupper](../../automation/automation-update-management-groups.md).|
 | **Datorer som ska uppdateras** |Välj **Sparad sökning**, **importerad grupp**eller **datorer**.<br/><br/>Om du väljer **datorer**kan du välja enskilda datorer i den nedrullningsbara listan. Beredskapen för varje dator visas i kolumnen **Uppdatera agent beredskap** i tabellen.</br></br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../../azure-monitor/platform/computer-groups.md) |
 |**Uppdaterings klassificeringar**|Välj alla nödvändiga uppdaterings klassificeringar.|

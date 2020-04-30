@@ -1,25 +1,25 @@
 ---
-title: 'Snabbstart: Skapa en app med flera behållare'
-description: Kom igång med appar med flera behållare på Azure App Service genom att distribuera din första app med flera behållare.
-keywords: azure app tjänst, webbapp, Linux, docker, komponera, multicontainer, multi-container, webbapp för behållare, flera behållare, behållare, wordpress, Azure db för mysql, produktionsdatabas med behållare
+title: 'Snabb start: skapa en app med flera behållare'
+description: Kom igång med appar för flera behållare på Azure App Service genom att distribuera din första app med flera behållare.
+keywords: Azure App Service, webbapp, Linux, Docker, skapa, flera behållare, flera behållare, webbapp för behållare, flera behållare, behållare, WordPress, Azure dB för MySQL, produktions databas med behållare
 author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: ab8e416e460546dcf758c83aa8b357139c6dbefb
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82085883"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Skapa en app med flera containrar (förhandsversion) med hjälp av en Docker Compose-konfiguration
 
 > [!NOTE]
-> Multi-container är i förhandsgranskning.
+> Flera behållare är i för hands version.
 
-Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. Den här snabbstarten visar hur du distribuerar en app med flera behållare (förhandsversion) till Web App for Containers i [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) med hjälp av en Docker Compose-konfiguration.
+Med [Web App for Containers](app-service-linux-intro.md) får du ett flexibelt sätt att använda Docker-avbildningar. Den här snabb starten visar hur du distribuerar en app med flera behållare (för hands version) till Web App for Containers i [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) med hjälp av en Docker-konfiguration.
 
 Du genomför den här snabbstarten i Cloud Shell, men du kan även köra de här kommandona lokalt med [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 eller senare). 
 
@@ -55,7 +55,7 @@ cd multicontainerwordpress
 
 [!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
-Skapa en resursgrupp med [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) kommandot i Cloud Shell. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (USA, södra centrala). Om du vill se alla platser som stöds för App Service på Linux på **Standard**-nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
+I Cloud Shell skapar du en resurs grupp med [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) kommandot. I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *South Central US* (USA, södra centrala). Om du vill se alla platser som stöds för App Service på Linux på **Standard**-nivån kör du kommandot [`az appservice list-locations --sku S1 --linux-workers-enabled`](/cli/azure/appservice?view=azure-cli-latest#az-appservice-list-locations).
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "South Central US"
@@ -67,7 +67,7 @@ När kommandot har slutförts visar JSON-utdata resursgruppens egenskaper.
 
 ## <a name="create-an-azure-app-service-plan"></a>Skapa en Azure App Service-plan
 
-Skapa en apptjänstplan i resursgruppen med [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) kommandot i Cloud Shell.
+I Cloud Shell skapar du en App Service plan i resurs gruppen med [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) kommandot.
 
 I följande exempel skapas en App Service-plan med namnet `myAppServicePlan` i prisnivån **Standard** (`--sku S1`) och i en Linux-containrar (`--is-linux`).
 
@@ -98,9 +98,9 @@ När App Service-planen har skapats visas information av Azure CLI. Informatione
 ## <a name="create-a-docker-compose-app"></a>Skapa en Docker Compose-app
 
 > [!NOTE]
-> Docker Compose på Azure App Services har för närvarande en gräns på 4 000 tecken just nu.
+> Docker-sammanställning för Azure App Services har för närvarande en gräns på 4 000 tecken för tillfället.
 
-I Cloud Shell-terminalen skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att _ \<_ ersätta app_name>med ett unikt appnamn (giltiga `0-9`tecken `-`är `a-z`, och ).
+I Cloud Shell-terminalen skapar du en [webbapp](app-service-linux-intro.md) med flera containrar i `myAppServicePlan` App Service-planen med kommandot [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Glöm inte att ersätta _ \<APP_NAME>_ med ett unikt namn på appen (giltiga tecken `a-z`är `0-9`, och `-`).
 
 ```azurecli
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -136,7 +136,7 @@ Bläddra till den distribuerade appen på (`http://<app_name>.azurewebsites.net`
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: WordPress-appen med flera behållare](tutorial-multi-container-app.md)
+> [Självstudie: WordPress-app med flera behållare](tutorial-multi-container-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera en anpassad behållare](configure-custom-container.md)

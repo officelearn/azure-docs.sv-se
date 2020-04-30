@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 01/13/2020
 ms.author: cynthn
 ms.openlocfilehash: f456af143ac6ec21bcb9b0c3ec75635c51f748ef
-ms.sourcegitcommit: 086d7c0cf812de709f6848a645edaf97a7324360
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82099894"
 ---
 # <a name="resize-a-windows-vm"></a>Ändra storlek på en virtuell Windows-dator
@@ -25,7 +25,7 @@ Om din virtuella dator använder Premium Storage, se till att du väljer en **s*
 
 ## <a name="use-the-portal"></a>Använda portalen
 
-1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Öppna [Azure Portal](https://portal.azure.com).
 1. Öppna sidan för den virtuella datorn.
 1. I den vänstra menyn väljer du **storlek**.
 1. Välj en ny storlek i listan över tillgängliga storlekar och välj sedan **ändra storlek**.

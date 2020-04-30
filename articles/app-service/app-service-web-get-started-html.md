@@ -1,6 +1,6 @@
 ---
-title: 'Snabbstart: Skapa en statisk HTML-webbapp'
-description: Distribuera din första HTML Hello World till Azure App Service på några minuter. Du distribuerar med Git, vilket är ett av många sätt att distribuera till App Service.
+title: 'Snabb start: skapa en statisk HTML-webbapp'
+description: Distribuera din första HTML-Hello World till Azure App Service på några minuter. Du distribuerar med git, som är ett av många sätt att distribuera till App Service.
 author: msangapu-msft
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.topic: quickstart
@@ -8,15 +8,15 @@ ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
 ms.openlocfilehash: 04cd28db52630e9de26e30ef4bf35db983f48b50
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82086087"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Skapa en statisk HTML-webbapp i Azure
 
-[Azure App Service](overview.md) tillhandahåller en mycket skalbar, självkorrigering webbhotell. Den här snabbstarten visar hur du distribuerar en enkel HTML+CSS-webbplats till Azure App Service. Du slutför den här snabbstarten i [Cloud Shell,](https://docs.microsoft.com/azure/cloud-shell/overview)men du kan även köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli).
+[Azure App Service](overview.md) ger en mycket skalbar och automatisk korrigering av webb värd tjänst. Den här snabbstarten visar hur du distribuerar en enkel HTML+CSS-webbplats till Azure App Service. Du kommer att slutföra den här snabb starten i [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), men du kan också köra dessa kommandon lokalt med [Azure CLI](/cli/azure/install-azure-cli).
 
 ![Startsida för exempelapp](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -42,7 +42,7 @@ git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 
 ## <a name="create-a-web-app"></a>Skapa en webbapp
 
-Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot. Ersätt <app_name> med ett unikt programnamn i följande exempel. Statiskt innehåll indikeras `--html` av flaggan.
+Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot. Ersätt <app_name> med ett unikt programnamn i följande exempel. Statiskt innehåll anges av `--html` flaggan.
 
 ```bash
 cd html-docs-hello-world
@@ -108,11 +108,11 @@ När distributionen är klar går du tillbaka till webbläsarfönstret som öppn
 
 ## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
-Om du vill hantera webbappen som du skapade söker du efter i [Azure-portalen](https://portal.azure.com)och väljer **App Services**. 
+Om du vill hantera den webbapp som du skapade går du till [Azure Portal](https://portal.azure.com)och söker efter och väljer **app Services**. 
 
-![Välj App Services i Azure-portalen](./media/app-service-web-get-started-html/portal0.png)
+![Välj App Services i Azure Portal](./media/app-service-web-get-started-html/portal0.png)
 
-På sidan **App Services** väljer du namnet på din Azure-app.
+På sidan **app Services** väljer du namnet på din Azure-App.
 
 ![Portalnavigering till Azure-app](./media/app-service-web-get-started-html/portal1.png)
 

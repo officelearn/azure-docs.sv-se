@@ -6,19 +6,19 @@ ms.date: 03/22/2019
 ms.author: sngun
 ms.custom: seo-java-september2019
 ms.openlocfilehash: a8162afadb5a7d327804d7202b29ca0dccf275c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71210348"
 ---
-Azure-portalen övervakar ditt Cosmos DB-kontodataflöde, lagring, tillgänglighet, svarstid och konsekvens. Diagram för mått som är associerade med ett [Azure Cosmos DB Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) visar SLA-värdet jämfört med faktiska prestanda. Den här uppsättningen mått gör övervakningen av dina SLA:er transparent.
+Azure Portal övervakar ditt Cosmos DB konto genom strömning, lagring, tillgänglighet, svars tid och konsekvens. Diagram över mått som är kopplade till en [Azure Cosmos DB serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) visar SLA-värdet jämfört med faktiska prestanda. Med den här uppsättningen mått kan du övervaka dina service avtal transparenta.
 
-Så här granskar du mätvärden och SLA: 
+Granska mått och service avtal: 
 
-1. Välj **Mått** i navigeringsmenyn för cosmos DB-kontot.
+1. Välj **mått** i ditt Cosmos DBS kontos navigerings meny.
    
-2. Välj en flik som **Svarstid**och välj en tidsram till höger. Jämför linjerna **Faktiska** och **SLA** i diagrammen.
+2. Välj en flik som **svars tid**och välj en tidsram till höger. Jämför **faktiska** och **SLA** -rader i diagrammen.
    
    ![Azure Cosmos DB-måttsvit](./media/cosmos-db-tutorial-review-slas/azure-cosmosdb-metrics-suite.png)
    

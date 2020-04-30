@@ -1,5 +1,5 @@
 ---
-title: Snabbstart - Skapa en blob med Azure-portalen
+title: Snabb start – skapa en blob med Azure Portal
 titleSuffix: Azure Storage
 description: I den här snabbstarten använder du Azure-portalen i objektlagring (Blob). Sedan använder du Azure-portalen och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en container.
 services: storage
@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 04/16/2020
 ms.author: tamram
 ms.openlocfilehash: a9a048801c6bea74e6b5318eeedf76f92709bee6
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "81535185"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Azure-portalen
@@ -29,9 +29,9 @@ I den här snabbstarten får du lära dig att använda [Azure Portal](https://po
 Följ dessa steg för att skapa en container i Azure Portal:
 
 1. Navigera till ditt nya lagringskonto i Azure Portal.
-2. Bläddra till avsnittet **Blob-tjänst** på den vänstra menyn för lagringskontot och välj sedan **Behållare**.
+2. I den vänstra menyn för lagrings kontot, bläddrar du till avsnittet **BLOB service** och väljer **behållare**.
 3. Välj knappen **+ Container**.
-4. Ange ett namn för den nya containern. Containernamnet får bara innehålla gemener, måste börja med en bokstav eller siffra och får bara innehålla bokstäver, siffror och bindestreck (-). Mer information om behållar- och blobnamn finns i [Namnge och referera till behållare, blobbar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+4. Ange ett namn för den nya containern. Containernamnet får bara innehålla gemener, måste börja med en bokstav eller siffra och får bara innehålla bokstäver, siffror och bindestreck (-). Mer information om behållare och blob-namn finns i [namngivning och referens av behållare, blobbar och metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 5. Ställ in nivån för allmän åtkomst till containern. Standardnivån är **Privat (ingen anonym åtkomst)**.
 6. Klicka på **OK** för att skapa containern.
 
@@ -44,12 +44,12 @@ Blockblobar består av datablock som har satts samman för att bilda en blob. De
 Följ de här stegen för att ladda upp en blockblob till den nya containern i Azure Portal:
 
 1. Navigera till den container som du skapade i föregående avsnitt i Azure Portal.
-1. Välj containern för att visa en lista över blobar som den innehåller. Den här behållaren är ny, så den innehåller ännu inga blobbar.
-1. Välj **knappen Ladda upp** för att öppna uppladdningsbladet och bläddra i ditt lokala filsystem för att hitta en fil att ladda upp som en blockblob. Du kan också expandera det avancerade avsnittet för att konfigurera andra inställningar för uppladdningen.
+1. Välj containern för att visa en lista över blobar som den innehåller. Den här behållaren är ny, så den kommer ännu inte att innehålla några blobbar.
+1. Välj knappen **överför** för att öppna bladet överför och bläddra i det lokala fil systemet för att hitta en fil som ska laddas upp som en Block-Blob. Du kan också expandera avsnittet Avancerat om du vill konfigurera andra inställningar för överförings åtgärden.
 
     ![Skärmbild som visar uppladdning av en blob från den lokala disken](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-1. Välj **knappen Ladda upp** för att ladda upp blobben.
+1. Välj knappen **överför** för att överföra blobben.
 1. Ladda upp så många blobar du vill på det här sättet. Du kan se att de nya blobarna nu visas i listan i containern.
 
 ## <a name="download-a-block-blob"></a>Ladda ned en blockblob

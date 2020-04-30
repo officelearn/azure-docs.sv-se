@@ -1,6 +1,6 @@
 ---
-title: Snabbstart - Distribution Docker-behållare till behållarinstans - Azure CLI
-description: I den här snabbstarten använder du Azure CLI för att snabbt distribuera en behållarad webbapp som körs i en isolerad Azure-behållarinstans
+title: Snabb start – distribuera Docker-behållare till container instance – Azure CLI
+description: I den här snabb starten använder du Azure CLI för att snabbt distribuera en container-webbapp som körs i en isolerad Azure Container instance
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.custom:
@@ -8,25 +8,25 @@ ms.custom:
 - seodec18
 - mvc
 ms.openlocfilehash: e5cad7d9141963e5062423545f7e5b94f0575152
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "78252191"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Snabbstart: Distribuera en behållarinstans i Azure med Hjälp av Azure CLI
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Snabb start: Distribuera en behållar instans i Azure med hjälp av Azure CLI
 
-Använd Azure Container Instances för att köra serverlösa Docker-behållare i Azure med enkelhet och snabbhet. Distribuera ett program till en behållarinstans på begäran när du inte behöver en fullständig behållarekestreringsplattform som Azure Kubernetes Service.
+Använd Azure Container Instances för att köra Server lös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en behållar instans på begäran när du inte behöver en fullständig plattform för behållar dirigering som Azure Kubernetes-tjänsten.
 
-I den här snabbstarten använder du Azure CLI för att distribuera en isolerad Docker-behållare och göra dess program tillgängligt med ett fullständigt kvalificerat domännamn (FQDN). Några sekunder efter att du har kört ett enda distributionskommando kan du bläddra till programmet som körs i behållaren:
+I den här snabb starten använder du Azure CLI för att distribuera en isolerad Docker-behållare och göra dess program tillgängligt med ett fullständigt kvalificerat domän namn (FQDN). Några sekunder efter att du kört ett enda distributions kommando kan du bläddra till programmet som körs i behållaren:
 
-![Visa en app som distribueras till Azure Container Instances i webbläsaren][aci-app-browser]
+![Visa en app som distribuerats till Azure Container Instances i webbläsaren][aci-app-browser]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-account] konto innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du vill använda den lokalt rekommenderas version 2.0.55 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att genomföra den här snabbstarten. Om du vill använda det lokalt rekommenderar vi version 2.0.55 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -40,11 +40,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Skapa en container
 
-Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure CLI anger du ett resursgruppsnamn, ett containerinstansnamn och en Docker-containeravbildning till kommandot [az container create][az-container-create]. I den här snabbstarten `mcr.microsoft.com/azuredocs/aci-helloworld` använder du den offentliga bilden. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
+Nu när du har en resursgrupp kan du köra en container i Azure. Om du vill skapa en containerinstans med Azure CLI anger du ett resursgruppsnamn, ett containerinstansnamn och en Docker-containeravbildning till kommandot [az container create][az-container-create]. I den här snabb starten använder du den `mcr.microsoft.com/azuredocs/aci-helloworld` offentliga avbildningen. Den här avbildningen paketerar en liten webbapp som skrivits i Node.js och som hanterar en statisk HTML-sida.
 
 Du kan exponera dina containrar till internet genom att ange en eller flera portar som ska öppnas, en DNS-namnetikett eller båda. I den här snabbstarten distribuerar du en container med en DNS-namnetikett så att webbappen kan nås offentligt.
 
-Kör ett kommando som liknar följande för att starta en behållarinstans. Ange `--dns-name-label` ett värde som är unikt inom Azure-regionen där du skapar instansen. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
+Kör ett kommando som liknar följande för att starta en behållar instans. Ange ett `--dns-name-label` värde som är unikt inom den Azure-region där du skapar instansen. Om du får felmeddelandet ”DNS name label not available” (DNS-namnetikett inte tillgänglig) kan du prova en annan DNS-namnetikett.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -64,9 +64,9 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Om behållarens `ProvisioningState` **lyckas**går du till dess FQDN i webbläsaren. Om du ser en webbsida som liknar följande – grattis! Du har distribuerat ett program som körs i en dockercontainer till Azure.
+Om behållaren `ProvisioningState` har **slutförts**går du till dess FQDN i webbläsaren. Om du ser en webbsida som liknar följande – grattis! Du har distribuerat ett program som körs i en dockercontainer till Azure.
 
-![Visa en app som distribueras till Azure Container Instances i webbläsaren][aci-app-browser]
+![Visa en app som distribuerats till Azure Container Instances i webbläsaren][aci-app-browser]
 
 Om programmet inte visas direkt kan du behöva vänta några sekunder medan DNS sprids, och sedan uppdatera din webbläsare.
 
@@ -142,7 +142,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten skapade du en Azure-behållarinstans med hjälp av en offentlig Microsoft-avbildning. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
+I den här snabb starten skapade du en Azure Container instance med hjälp av en offentlig Microsoft-avbildning. Om du vill skapa en container på egen hand och distribuera den från ett privat Azure-containerregister går du vidare till självstudien för Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Självstudie för Azure Container Instances](./container-instances-tutorial-prepare-app.md)

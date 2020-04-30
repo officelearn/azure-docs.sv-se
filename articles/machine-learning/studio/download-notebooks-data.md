@@ -1,33 +1,33 @@
 ---
-title: Hämta anteckningsböcker(förhandsgranska) data
+title: Så här hämtar du data för bärbara datorer (för hands version)
 titleSuffix: ML Studio (classic) - Azure
-description: Så här hämtar du data för anteckningsböcker (förhandsgranskar) i ML Studio(klassisk).
+description: Så här laddar du ned antecknings böcker (förhands granskning) data i ML Studio (klassisk).
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
-author: xiaoharper
-ms.author: amlstudiodocs
+author: likebupt
+ms.author: keli19
 ms.date: 04/15/2020
-ms.openlocfilehash: a342ef86817f4f66a6e74b72b4d167fa548b6345
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 8a1de4ceb42ac86d8f945ec973eaa52d6ddec736
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81419195"
+ms.lasthandoff: 04/28/2020
+ms.locfileid: "82208473"
 ---
-# <a name="download-notebookspreview-data"></a>Ladda ned data för anteckningsböcker(förhandsgranskning)
+# <a name="download-notebookspreview-data"></a>Hämta Notebook-data (för hands version)
 
-Funktionen Anteckningsböcker(förhandsversion) togs bort *den 13 april 2020*. Borttagningen av fliken Anteckningsböcker (förhandsversion) och anteckningsboksfiler för användare distribueras för närvarande till Azure-regioner över hela världen.
+Funktionen Notebooks (för hands version) togs bort den *13 2020 april*. Borttagning av fliken antecknings böcker (förhands granskning) och användarens notebook-filer går för närvarande till Azure-regioner över hela världen.
 
-Den här artikeln innehåller steg-för-steg-instruktioner om hur du hämtar data för anteckningsböcker(förhandsgranskning).
+Den här artikeln innehåller stegvisa instruktioner för hur du laddar ned antecknings böcker (förhands granskning).
 
-1. Gå till fliken **Anteckningsböcker** i Azure Machine Learning Studio (klassisk).
-    ![Navigera till fliken Anteckningsböcker!](./media/download-notebooks/notebooks-list.png)
+1. Gå till fliken **antecknings böcker** i Azure Machine Learning Studio (klassisk).
+    ![Gå till fliken bärbara datorer!](./media/download-notebooks/notebooks-list.png)
 
-1. Välj den anteckningsbok som du vill hämta. Det kommer att öppnas i Jupyter.
-    ![Välj en](./media/download-notebooks/select-notebook.png) anteckningsbok Det går inte att hämta flera anteckningsböcker samtidigt.
+1. Välj den antecknings bok som du vill ladda ned. Den öppnas i Jupyter.
+    ![Välj en bärbar](./media/download-notebooks/select-notebook.png) dator som laddar ned flera bärbara datorer samtidigt stöds inte.
 
-1. Gå till **Hämta filer** -> **som**och välj ett formatalternativ.
-    ![Hämtningsalternativ för bärbara datorer](./media/download-notebooks/download-options.PNG)
+1. Gå till **filer** -> **Ladda ned som**och välj ett format alternativ.
+    ![Alternativ för nedladdning av bärbara datorer](./media/download-notebooks/download-options.PNG)
 
-1. När du har valt ett alternativ börjar anteckningsboksfilen att hämtas. Ignorera alla 500 eller 502 fel som visas, kommer de inte att påverka din nedladdning.
+1. När du har valt ett alternativ börjar Notebook-filen att laddas ned. Ignorera eventuella 500-eller 502-fel som visas påverkar inte nedladdningen.

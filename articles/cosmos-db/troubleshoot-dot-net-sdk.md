@@ -8,18 +8,18 @@ ms.author: jawilley
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5f92d98630c6fb875babeb907f92732b0c24bb52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e015c1ee335cbdfed7964d63b1f4600bc6a4cb77
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137962"
+ms.locfileid: "82208745"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnostisera och felsöka problem med Azure Cosmos DB .NET SDK
 Den här artikeln beskriver vanliga problem, lösningar, diagnostiska steg och verktyg när du använder [.NET SDK](sql-api-sdk-dotnet.md) med Azure Cosmos DB SQL API-konton.
 .NET SDK tillhandahåller logisk representation på klient sidan för att få åtkomst till Azure Cosmos DB SQL API. I den här artikeln beskrivs verktyg och metoder för att hjälpa dig om du stöter på problem.
 
-## <a name="checklist-for-troubleshooting-issues"></a>Check lista för fel söknings problem:
+## <a name="checklist-for-troubleshooting-issues"></a>Check lista för fel söknings problem
 Överväg följande check lista innan du flyttar ditt program till produktion. Genom att använda check listan förhindrar du flera vanliga problem som du kan se. Du kan också snabbt diagnostisera när ett problem uppstår:
 
 *    Använd den senaste [SDK: n](sql-api-sdk-dotnet-standard.md). Preview SDK: er bör inte användas för produktion. Detta förhindrar att kända problem som redan har åtgärd ATS visas.
@@ -101,6 +101,30 @@ Annars är det problem med ansikts anslutning.
 * Om backend-frågan returnerar snabbt och ägnar en lång tid på klienten kontrollerar du belastningen på datorn. Det beror förmodligen på att det inte finns tillräckligt med resurser och att SDK väntar på att resurser ska kunna hantera svaret.
 * Om Server dels frågan är långsam försöker du [optimera frågan](optimize-cost-queries.md) och titta på den aktuella [indexerings principen](index-overview.md) 
 
+### <a name="http-401-the-mac-signature-found-in-the-http-request-is-not-the-same-as-the-computed-signature"></a>HTTP 401: MAC-signaturen som hittades i HTTP-begäran är inte samma som den beräknade signaturen
+Om du fick följande 401-fel meddelande: "MAC-signaturen som hittades i HTTP-begäran är inte samma som den beräknade signaturen." Det kan orsakas av följande scenarier.
+
+1. Nyckeln roterades och kunde inte följa de [bästa metoderna](secure-access-to-data.md#key-rotation). Detta är vanligt vis fallet. Cosmos DB konto nyckel rotationen kan ta var som helst från några sekunder till några dagar, beroende på Cosmos DB kontots storlek.
+   1. 401 MAC-signaturen visas strax efter en nyckel rotation och upphör att gälla utan några ändringar. 
+2. Nyckeln är felkonfigurerad i programmet så nyckeln matchar inte kontot.
+   1. 401 MAC-signaturen är konsekvent och inträffar för alla anrop
+3. Det finns ett tävlings villkor med att skapa behållare. En program instans försöker komma åt behållaren innan containern har skapats. Det vanligaste scenariot för detta om programmet körs och behållaren tas bort och återskapas med samma namn medan programmet körs. SDK: n kommer att försöka använda den nya behållaren, men behållar skapandet pågår fortfarande och har inte nycklarna.
+   1. 401 MAC-signaturkrav visas strax efter att en container har skapats och endast inträffar förrän behållaren har skapats.
+ 
+ ### <a name="http-error-400-the-size-of-the-request-headers-is-too-long"></a>HTTP-fel 400. Storleken på begärandehuvuden är för lång.
+ Storleken på sidhuvudet har vuxit till stor och överskrider den maximalt tillåtna storleken. Vi rekommenderar alltid att du använder den senaste SDK: n. Se till att du använder minst version [3. x](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/changelog.md) eller [2. x](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md), som lägger till rubrik storleks spårning i undantags meddelandet.
+
+Orsaker
+ 1. Sessionstoken har blivit för stor. Sessionstoken ökar när antalet partitioner ökar i behållaren.
+ 2. Fortsättnings-token har vuxit till stor. Olika frågor har olika storlekar för att ändra token.
+ 3. Det orsakas av en kombination av sessionstoken och fortsättnings-token.
+
+Lösning:
+   1. Följ [prestanda tipsen](performance-tips.md) och konvertera programmet till läget Direct + TCP-anslutning. Direct + TCP har inte begränsningar för huvud storlek, som HTTP, vilket undviker det här problemet.
+   2. Om sessionstoken är orsaken är en temporär lösning att starta om programmet. Om du startar om program instansen återställs sessionens token. Om undantagen slutar efter omstarten bekräftar den att sessionstoken är orsaken. Det kommer att växa tillbaka till den storlek som orsakar undantaget.
+   3. Om programmet inte kan konverteras till Direct + TCP och sessionstoken är orsaken kan du göra en minskning genom att ändra klientens [konsekvens nivå](consistency-levels.md). Sessionstoken används endast för konsekvens i sessionen som är standardvärdet för Cosmos DB. Andra konsekvens nivåer kommer inte att använda sessionstoken. 
+   4. Om programmet inte kan konverteras till Direct + TCP och fortsättnings-token är orsaken, kan du försöka att ange alternativet ResponseContinuationTokenLimitInKb. Du hittar alternativet i FeedOptions för v2 eller QueryRequestOptions i v3.
+
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #logging
@@ -108,5 +132,3 @@ Annars är det problem med ansikts anslutning.
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) port exhaustion]: #snat
 [Production check list]: #production-check-list
-
-

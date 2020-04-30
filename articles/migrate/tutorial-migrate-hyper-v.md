@@ -6,12 +6,12 @@ ms.date: 04/15/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 6b9732aab9e3fe0d26b4c572efe87c3a9d3e29f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 3b68531319e83eece11833dba475020060e280b6
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535357"
+ms.locfileid: "82583316"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -40,7 +40,7 @@ Innan du börjar de här självstudierna bör du:
 1. [Granska](hyper-v-migration-architecture.md) arkitekturen för Hyper-V-migrering.
 2. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Krav för Hyper-V-värden och de Azure-URL: er som Hyper-V-värdarna behöver ha åtkomst till.
 3. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) kraven för virtuella Hyper-V-datorer som du vill migrera. Virtuella Hyper-V-datorer måste uppfylla [kraven för virtuella Azure](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements)-datorer.
-2. Vi rekommenderar att du slutför de tidigare självstudierna i den här serien. Den [första självstudien](tutorial-prepare-hyper-v.md) visar hur du konfigurerar Azure och Hyper-V för migrering. Den andra själv studie kursen visar hur du [bedömer virtuella Hyper-V-datorer] (självstudie – utvärdera-Hyper-v.md innan migreringen, med hjälp av Azure Migrate: Server bedömning. 
+2. Vi rekommenderar att du slutför de tidigare självstudierna i den här serien. Den [första självstudien](tutorial-prepare-hyper-v.md) visar hur du konfigurerar Azure och Hyper-V för migrering. Den andra själv studie kursen visar hur du [bedömer virtuella Hyper-V-datorer](tutorial-assess-hyper-v.md) före migrering med hjälp av Azure Migrate: Server bedömning. 
     > [!NOTE]
     > Även om vi rekommenderar att du testar en utvärdering behöver du inte köra en utvärdering innan du migrerar virtuella datorer.
     > För att migrera virtuella Hyper-V-datorer Azure Migrate: Server-migrering kör program varu agenter (Microsoft Azure Site Recovery Provider och Microsoft Azure återställnings tjänst agent) på Hyper-V-värdar eller klusternoder för att dirigera och replikera data till Azure Migrate. [Azure Migrates apparaten](migrate-appliance.md) används inte för Hyper-V-migrering.

@@ -1,86 +1,86 @@
 ---
 title: Felsöka problem på Azure Cache for Redis-klientsidan
-description: Lär dig hur du löser vanliga problem på klientsidan med Azure Cache for Redis, till exempel Redis-klientminnestryck, trafiksprängning, hög CPU, begränsad bandbredd, stora begäranden eller stor svarsstorlek.
+description: Lär dig hur du löser vanliga problem på klient sidan med Azure cache för Redis, till exempel Redis-klientens minnes tryck, trafik burst, hög CPU, begränsad bandbredd, stora begär Anden eller stora svars storlekar.
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 10/18/2019
 ms.openlocfilehash: ace953fcb278604cb64eef463753f0f2622d3d24
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277952"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-client-side-issues"></a>Felsöka problem på Azure Cache for Redis-klientsidan
 
-I det här avsnittet beskrivs felsökningsproblem som uppstår på grund av ett villkor för Redis-klienten som programmet använder.
+Det här avsnittet beskriver fel söknings problem som uppstår på grund av ett villkor på Redis-klienten som används av programmet.
 
-- [Minnestryck på Redis-klienten](#memory-pressure-on-redis-client)
-- [Trafiken brast](#traffic-burst)
-- [Hög processoranvändning för klient](#high-client-cpu-usage)
-- [Bandbreddsbegränsning på klientsidan](#client-side-bandwidth-limitation)
-- [Stor begäran eller svarsstorlek](#large-request-or-response-size)
+- [Minnes belastning på Redis-klienten](#memory-pressure-on-redis-client)
+- [Trafik burst](#traffic-burst)
+- [Hög CPU-användning för klienter](#high-client-cpu-usage)
+- [Bandbredds begränsning på klient Sidan](#client-side-bandwidth-limitation)
+- [Storlek på stor begäran eller svars tid](#large-request-or-response-size)
 
-## <a name="memory-pressure-on-redis-client"></a>Minnestryck på Redis-klienten
+## <a name="memory-pressure-on-redis-client"></a>Minnes belastning på Redis-klienten
 
-Minnestryck på klientdatorn leder till alla typer av prestandaproblem som kan fördröja bearbetningen av svar från cacheminnet. När minnestrycket träffar kan systemet söka data till disk. Den här _sidan fel_ orsakar systemet att sakta ner avsevärt.
+Minnes belastningen på klient datorn leder till alla typer av prestanda problem som kan fördröja bearbetningen av svar från cachen. När minnes trycks träffar kan systemet använda data på disk. Den här _sidfel_ gör att systemet saktas ned avsevärt.
 
-Så här identifierar du minnestrycket på klienten:
+Identifiera minnes belastning på klienten:
 
-- Övervaka minnesanvändningen på datorn för att se till att den inte överskrider tillgängligt minne.
-- Övervaka klientens `Page Faults/Sec` prestandaräknare. Under normal drift har de flesta system vissa sidfel. Toppar i sidfel som motsvarar tidsgränsen för begäran kan indikera minnestryck.
+- Övervaka minnes användningen på datorn för att säkerställa att den inte överskrider det tillgängliga minnet.
+- Övervaka klientens `Page Faults/Sec` prestanda räknare. Under normal drift har de flesta system vissa sidfel. Toppar i sidfel som motsvarar timeout för begär Anden kan indikera minnes belastning.
 
-Högt minnestryck på klienten kan mildras på flera sätt:
+Hög minnes belastning på klienten kan begränsas på flera sätt:
 
-- Gräva i dina minnesanvändningsmönster för att minska minnesförbrukningen på klienten.
-- Uppgradera klientens virtuella dator till en större storlek med mer minne.
+- Använd mönster för minnes användning för att minska minnes användningen på klienten.
+- Uppgradera den virtuella klient datorn till en större storlek med mer minne.
 
-## <a name="traffic-burst"></a>Trafiken brast
+## <a name="traffic-burst"></a>Trafik burst
 
-Skurar av trafik `ThreadPool` i kombination med dåliga inställningar kan resultera i fördröjningar i bearbetningen av data som redan skickats av Redis Server men ännu inte förbrukats på klientsidan.
+Burst-trafik i kombination med dåliga `ThreadPool` inställningar kan leda till fördröjningar i behandlings data som redan har skickats av Redis-servern men som ännu inte har använts på klient sidan.
 
-Övervaka hur `ThreadPool` statistiken ändras med tiden med hjälp av [ett exempel `ThreadPoolLogger` ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Du kan `TimeoutException` använda meddelanden från StackExchange.Redis som nedan för att undersöka:
+Övervaka hur `ThreadPool` statistiken förändras över tid med hjälp av [ett `ThreadPoolLogger`exempel ](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). Du kan använda `TimeoutException` meddelanden från stackexchange. Redis som nedan för att undersöka:
 
     System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
     IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
 
-I föregående undantag finns det flera frågor som är intressanta:
+I föregående undantag finns det flera problem som är intressanta:
 
-- Observera att `IOCP` i avsnittet `WORKER` och avsnittet `Busy` har du ett `Min` värde som är större än värdet. Den här `ThreadPool` skillnaden innebär att dina inställningar behöver justeras.
-- Du kan `in: 64221`också se . Det här värdet anger att 64 211 byte har tagits emot i klientens kärnuttagslagret men inte har lästs av programmet. Den här skillnaden innebär vanligtvis att ditt program (till exempel StackExchange.Redis) inte läser data från nätverket lika snabbt som servern skickar det till dig.
+- `IOCP` Observera att i avsnittet `WORKER` och avsnittet har du ett `Busy` värde som är större än `Min` värdet. Den här skillnaden innebär `ThreadPool` att inställningarna behöver justeras.
+- Du kan också se `in: 64221`. Det här värdet anger att 64 211 byte har mottagits på klientens kernel socket-lager men inte lästs av programmet. Den här skillnaden innebär vanligt vis att ditt program (t. ex. StackExchange. Redis) inte läser data från nätverket så snabbt som servern skickar det till dig.
 
-Du kan [konfigurera dina `ThreadPool` inställningar](cache-faq.md#important-details-about-threadpool-growth) för att se till att trådpoolen skalas upp snabbt under burst-scenarier.
+Du kan [Konfigurera dina `ThreadPool` inställningar](cache-faq.md#important-details-about-threadpool-growth) för att se till att trådpoolen skalas snabbt under burst-scenarier.
 
-## <a name="high-client-cpu-usage"></a>Hög processoranvändning för klient
+## <a name="high-client-cpu-usage"></a>Hög CPU-användning för klienter
 
-Hög klient CPU-användning indikerar att systemet inte kan hålla jämna steg med det arbete som det har ombetts att göra. Även om cachen skickade svaret snabbt, kan klienten misslyckas med att bearbeta svaret i tid.
+Hög CPU-användning för klienter anger att systemet inte kan fortsätta med det arbete som den har blivit ombedd att göra. Även om cachen skickade svaret snabbt, kan klienten Miss lyckas med att bearbeta svaret inom rimlig tid.
 
-Övervaka klientens systemomfattande CPU-användning med hjälp av mått som är tillgängliga i Azure-portalen eller via prestandaräknare på datorn. Var noga med att inte övervaka *process* CPU eftersom en enda process kan ha låg CPU-användning men systemomfattande CPU kan vara hög. Titta efter toppar i CPU-användning som motsvarar timeout. Hög CPU kan `in: XXX` också `TimeoutException` orsaka höga värden i felmeddelanden enligt beskrivningen i avsnittet [Trafiksprängning.](#traffic-burst)
+Övervaka klientens processor användning på hela systemet med hjälp av mått som är tillgängliga i Azure Portal eller via prestanda räknare på datorn. Var noga med att inte övervaka *process* -CPU eftersom en enda process kan ha låg processor användning, men hela systemets CPU kan vara hög. Titta efter toppar i CPU-användning som motsvarar tids gränser. Hög processor kan också orsaka höga `in: XXX` värden i `TimeoutException` fel meddelanden enligt beskrivningen i [Traffic burst](#traffic-burst) -avsnittet.
 
 > [!NOTE]
-> StackExchange.Redis 1.1.603 och `local-cpu` senare `TimeoutException` innehåller måttet i felmeddelanden. Se till att du använder den senaste versionen av [Paketet StackExchange.Redis NuGet](https://www.nuget.org/packages/StackExchange.Redis/). Det finns buggar som ständigt fixas i koden för att göra det mer robust till timeouts så att ha den senaste versionen är viktigt.
+> StackExchange. Redis 1.1.603 och senare innehåller `local-cpu` måttet i `TimeoutException` fel meddelanden. Se till att du använder den senaste versionen av [stackexchange. Redis NuGet-paketet](https://www.nuget.org/packages/StackExchange.Redis/). Det finns buggar som ständigt korrigeras i koden för att göra det mer stabilt för timeout så att den senaste versionen är viktig.
 >
 
-Så här minskar du en klients höga CPU-användning:
+Minimera en klients höga CPU-användning:
 
 - Undersök vad som orsakar CPU-toppar.
-- Uppgradera klienten till en större VM-storlek med mer CPU-kapacitet.
+- Uppgradera klienten till en större VM-storlek med mer processor kapacitet.
 
-## <a name="client-side-bandwidth-limitation"></a>Bandbreddsbegränsning på klientsidan
+## <a name="client-side-bandwidth-limitation"></a>Bandbredds begränsning på klient Sidan
 
-Beroende på klientdatorers arkitektur kan de ha begränsningar för hur mycket nätverksbandbredd de har tillgängliga. Om klienten överskrider den tillgängliga bandbredden genom att överbelasta nätverkskapaciteten bearbetas data inte på klientsidan lika snabbt som servern skickar den. Den här situationen kan leda till timeout.
+Beroende på klient datorernas arkitektur kan de ha begränsningar för hur mycket nätverks bandbredd de har tillgängliga. Om klienten överskrider den tillgängliga bandbredden genom att överbelasta nätverks kapaciteten bearbetas inte data på klient sidan så snabbt som servern skickar den. Den här situationen kan leda till timeout.
 
-Övervaka hur bandbreddsanvändningen ändras med tiden med hjälp av [ett exempel `BandwidthLogger` ](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Den här koden kanske inte körs i vissa miljöer med begränsade behörigheter (till exempel Azure-webbplatser).
+Övervaka hur bandbredds användningen förändras över tid med hjälp av [ett exempel `BandwidthLogger` ](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). Den här koden kanske inte kan köras i vissa miljöer med begränsade behörigheter (t. ex. Azure Web Sites).
 
-För att minska, minska förbrukningen av nätverksbandbredd eller öka klientens vm-storlek till en med mer nätverkskapacitet.
+Minska, minska användningen av nätverks bandbredd eller öka storleken på klientens virtuella dator till en med mer nätverks kapacitet.
 
-## <a name="large-request-or-response-size"></a>Stor begäran eller svarsstorlek
+## <a name="large-request-or-response-size"></a>Storlek på stor begäran eller svars tid
 
-En stor begäran/svar kan orsaka timeout. Anta till exempel att tidsgränsen som konfigurerats på klienten är 1 sekund. Ditt program begär två nycklar (till exempel "A" och "B") samtidigt (med samma fysiska nätverksanslutning). De flesta klienter stöder begäran "pipelining", där båda förfrågningarna "A" och "B" skickas en efter en utan att vänta på sina svar. Servern skickar tillbaka svaren i samma ordning. Om svaret "A" är stort kan det äta upp det mesta av tidsgränsen för senare förfrågningar.
+En stor begäran/svar kan orsaka timeout. Anta till exempel att ditt timeout-värde som kon figurer ATS på klienten är 1 sekund. Ditt program begär två nycklar (till exempel "A" och "B") samtidigt (med samma fysiska nätverks anslutning). De flesta klienter stöder begäran "pipelining" där både begär Anden "A" och "B" skickas efter den andra utan att vänta på deras svar. Servern skickar Svaren tillbaka i samma ordning. Om svaret "A" är stort kan det få ut mesta möjliga av tids gränsen för senare förfrågningar.
 
-I följande exempel skickas begäran "A" och "B" snabbt till servern. Servern börjar skicka svaren "A" och "B" snabbt. På grund av dataöverföringstider måste svaret "B" vänta bakom svaret "A" time out även om servern svarade snabbt.
+I följande exempel skickas begäran "A" och "B" snabbt till-servern. Servern börjar skicka Svaren "A" och "B" snabbt. På grund av data överförings tider måste svars-B vänta efter svars tiden "A", trots att servern svarade snabbt.
 
     |-------- 1 Second Timeout (A)----------|
     |-Request A-|
@@ -89,20 +89,20 @@ I följande exempel skickas begäran "A" och "B" snabbt till servern. Servern b�
                 |- Read Response A --------|
                                            |- Read Response B-| (**TIMEOUT**)
 
-Denna begäran /svar är svår att mäta. Du kan instrumentera din klientkod för att spåra stora förfrågningar och svar.
+Den här begäran/svaret är ett svårt att mäta. Du kan Instrumenta din klient kod för att spåra stora förfrågningar och svar.
 
-Upplösningar för stora svarsstorlekar varieras men inkluderar:
+Lösningar för stora svars storlekar varierar, men inkluderar:
 
-1. Optimera ditt program för ett stort antal små värden, snarare än några stora värden.
-    - Den bästa lösningen är att dela upp dina data i relaterade mindre värden.
-    - Se inlägget [Vad är det idealiska värdestorleksintervallet för redis? Är 100 KB för stor?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) för mer information om varför mindre värden rekommenderas.
-1. Öka storleken på den virtuella datorn för att få högre bandbreddsfunktioner
-    - Mer bandbredd på klienten eller servern VM kan minska dataöverföringstider för större svar.
-    - Jämför din nuvarande nätverksanvändning på båda datorerna med gränserna för din nuvarande vm-storlek. Mer bandbredd på endast servern eller bara på klienten kanske inte räcker.
-1. Öka antalet anslutningsobjekt som programmet använder.
-    - Använd en round-robin-metod för att göra begäranden via olika anslutningsobjekt.
+1. Optimera ditt program för ett stort antal små värden i stället för några få stora värden.
+    - Den bästa lösningen är att dela upp data i relaterade mindre värden.
+    - Se inlägget [Vad är det idealiska värde storleks intervallet för Redis? Är 100 KB för stort?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) Mer information om varför mindre värden rekommenderas.
+1. Öka storleken på den virtuella datorn för att få högre bandbredds kapacitet
+    - Mer bandbredd på din klient eller virtuell serverdator kan minska data överförings tiden för större svar.
+    - Jämför den aktuella nätverks användningen på båda datorerna med gränserna för din aktuella VM-storlek. Mer bandbredd på bara servern eller bara på klienten är kanske inte tillräckligt.
+1. Öka antalet anslutnings objekt som programmet använder.
+    - Använd en metod för resursallokering för att göra förfrågningar över olika anslutnings objekt.
 
 ## <a name="additional-information"></a>Ytterligare information
 
 - [Felsöka problem på Azure Cache for Redis-serversidan](cache-troubleshoot-server.md)
-- [Hur kan jag jämföra och testa prestanda för min cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+- [Hur kan jag mäta och testa prestanda för mitt cacheminne?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)

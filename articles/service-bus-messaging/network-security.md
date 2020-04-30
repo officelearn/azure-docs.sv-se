@@ -1,6 +1,6 @@
 ---
-title: Nätverkssäkerhet för Azure Service Bus
-description: I den här artikeln beskrivs nätverkssäkerhetsfunktioner som tjänsttaggar, IP-brandväggsregler, tjänstslutpunkter och privata slutpunkter.
+title: Nätverks säkerhet för Azure Service Bus
+description: I den här artikeln beskrivs funktioner för nätverks säkerhet, till exempel service märken, IP-brandvägg, tjänst slut punkter och privata slut punkter.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -13,90 +13,90 @@ ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: aschhab
 ms.openlocfilehash: 95f8c2a3b47b59bab7df909be43dacdb1f9c58f7
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79479285"
 ---
-# <a name="network-security-for-azure-service-bus"></a>Nätverkssäkerhet för Azure Service Bus 
+# <a name="network-security-for-azure-service-bus"></a>Nätverks säkerhet för Azure Service Bus 
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Service Bus: 
 
 - Tjänsttaggar
-- REGLER för IP-brandväggen
-- Slutpunkter för nätverkstjänsten
-- Privata slutpunkter (förhandsgranskning)
+- Regler för IP-brandvägg
+- Nätverks tjänst slut punkter
+- Privata slut punkter (förhands granskning)
 
 
 ## <a name="service-tags"></a>Tjänsttaggar
-En tjänsttagg representerar en grupp IP-adressprefix från en viss Azure-tjänst. Microsoft hanterar adressprefixen som omfattas av servicetag och uppdaterar automatiskt servicetag när adresserna ändras, vilket minimerar komplexiteten i frekventa uppdateringar av nätverkssäkerhetsregler. Mer information om tjänsttaggar finns i [Översikt över tjänsttaggar](../virtual-network/service-tags-overview.md).
+En service-tagg representerar en grupp med IP-adressprefix från en specifik Azure-tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras, vilket minimerar komplexiteten vid frekventa uppdateringar av nätverks säkerhets regler. Mer information om service märken finns i [Översikt över tjänst Taggar](../virtual-network/service-tags-overview.md).
 
-Du kan använda tjänsttaggar för att definiera nätverksåtkomstkontroller i [nätverkssäkerhetsgrupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Använd tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange tjänsttagnamnet (till exempel **ServiceBus**) i lämpligt *käll-* eller *målfält* för en regel kan du tillåta eller neka trafik för motsvarande tjänst.
+Du kan använda service märken för att definiera nätverks åtkomst kontroller för [nätverks säkerhets grupper](../virtual-network/security-overview.md#security-rules) eller [Azure-brandväggen](../firewall/service-tags.md). Använd tjänst Taggar i stället för vissa IP-adresser när du skapar säkerhets regler. Genom att ange service tag-namnet (till exempel **Service Bus**) i lämpligt *käll* -eller *mål* fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst.
 
-| Tjänsttagg | Syfte | Kan du använda inkommande eller utgående? | Kan vara regional? | Kan du använda med Azure-brandväggen? |
+| Tjänsttagg | Syfte | Kan använda inkommande eller utgående? | Kan regionala? | Kan använda med Azure-brandväggen? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ServiceBus** | Azure Service Bus-trafik som använder Premium-tjänstnivån. | Utgående | Ja | Ja |
+| **ServiceBus** | Azure Service Bus trafik som använder Premium-tjänstens nivå. | Utgående | Ja | Ja |
 
 
 ## <a name="ip-firewall"></a>IP-brandvägg 
-Som standard är Service Bus-namnområden tillgängliga från internet så länge begäran levereras med giltig autentisering och auktorisering. Med IP-brandväggen kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adressintervall i [CIDR-notation (Classless Inter-Domain Routing).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+Som standard är Service Bus-namnrymder tillgängliga från Internet så länge förfrågan levereras med giltig autentisering och auktorisering. Med IP-brandvägg kan du begränsa den ytterligare till endast en uppsättning IPv4-adresser eller IPv4-adress intervall i CIDR-notation [(Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) .
 
-Den här funktionen är användbar i scenarier där Azure Service Bus endast ska vara tillgänglig från vissa välkända platser. Med brandväggsregler kan du konfigurera regler för att acceptera trafik som kommer från specifika IPv4-adresser. Om du till exempel använder Service Bus med [Azure Express Route][express-route] kan du skapa en **brandväggsregel** för att tillåta trafik från endast dina lokala IP-adresser eller adresser till en FÖRETAGS NAT-gateway. 
+Den här funktionen är användbar i scenarier där Azure Service Bus bör endast vara tillgängliga från vissa välkända webbplatser. Med brand Väggs regler kan du konfigurera regler för att acceptera trafik som kommer från vissa IPv4-adresser. Om du till exempel använder Service Bus med [Azure Express Route] [Express-Route], kan du skapa en **brand Väggs regel** för att tillåta trafik från enbart den lokala infrastrukturens IP-adresser eller adresser för en Corporate NAT-gateway. 
 
-IP-brandväggsreglerna tillämpas på servicebussnamnområdesnivå. Därför gäller reglerna för alla anslutningar från klienter som använder protokoll som stöds. Alla anslutningsförsök från en IP-adress som inte matchar en tillåten IP-regel på tjänstbussens namnområde avvisas som obehöriga. Svaret nämner inte IP-regeln. IP-filterregler tillämpas i ordning och den första regeln som matchar IP-adressen bestämmer åtgärden acceptera eller avvisa.
+IP-brandväggens regler tillämpas på Service Bus namn områdes nivå. Reglerna gäller därför för alla anslutningar från klienter som använder ett protokoll som stöds. Eventuella anslutnings försök från en IP-adress som inte matchar en tillåten IP-regel på Service Bus namn området nekas som obehörig. Svaret innehåller ingen IP-regel. IP filter regler tillämpas i ordning och den första regeln som matchar IP-adressen avgör vilken åtgärd som godkänns eller nekas.
 
-Mer information finns i [Så här konfigurerar du IP-brandväggen för ett servicebussnamnområde](service-bus-ip-filtering.md)
+Mer information finns i [så här konfigurerar du IP-brandvägg för en Service Bus namnrymd](service-bus-ip-filtering.md)
 
-## <a name="network-service-endpoints"></a>Slutpunkter för nätverkstjänsten
-Integreringen av Tjänsten Buss med [VNet-tjänstslutpunkter (Virtual Network)](service-bus-service-endpoints.md) möjliggör säker åtkomst till meddelandefunktioner från arbetsbelastningar som virtuella datorer som är bundna till virtuella nätverk, med nätverkstrafiksökvägen som skyddas i båda ändar.
+## <a name="network-service-endpoints"></a>Nätverks tjänst slut punkter
+Integreringen av Service Bus med [tjänst slut punkter för virtuella datorer med Virtual Network (VNet)](service-bus-service-endpoints.md) ger säker åtkomst till meddelande funktioner från arbets belastningar som virtuella datorer som är kopplade till virtuella nätverk, med den nätverks trafik väg som skyddas i båda ändar.
 
-När den har konfigurerats för att vara bunden till minst en slutpunkt för virtuella nätverksundernätstjänsten accepterar respektive tjänstbussnamnområde inte längre trafik från var som helst utan auktoriserade virtuella nätverk. Från det virtuella nätverksperspektivet konfigurerar bindning av ett tjänstbussnamnområde till en tjänstslutpunkt en isolerad nätverkstunnel från det virtuella nätverksundernätet till meddelandetjänsten.
+När den har kon figurer ATS för att bindas till minst en tjänst slut punkt för ett virtuellt nätverk, kommer Service Bus namn området inte längre att acceptera trafik från var som helst, men auktoriserade virtuella nätverk (n). I det virtuella nätverkets perspektiv binder du en Service Bus namnrum till en tjänst slut punkt konfigurerar en isolerad nätverks tunnel från det virtuella nätverkets undernät till meddelande tjänsten.
 
-Resultatet är en privat och isolerad relation mellan arbetsbelastningarna som är bundna till undernätet och respektive Service Bus-namnområde, trots att den observerbara nätverksadressen för slutpunkten för meddelandetjänsten är i ett offentligt IP-intervall.
+Resultatet är en privat och isolerad relation mellan arbets belastningarna som är kopplade till under nätet och respektive Service Bus-namnrymd, trots att den observerade nätverks adressen för meddelande tjänstens slut punkt är i ett offentligt IP-adressintervall.
 
 > [!IMPORTANT]
-> Virtuella nätverk stöds endast i [premium-nivå](service-bus-premium-messaging.md) servicebussnamnområden.
+> Virtuella nätverk stöds endast på [Premium-nivå](service-bus-premium-messaging.md) Service Bus namn områden.
 > 
-> När du använder VNet-tjänstslutpunkter med Service Bus bör du inte aktivera dessa slutpunkter i program som blandar standard- och premiumnivåservicebussnamnområden. Eftersom standardnivån inte stöder virtuella nätverk. Slutpunkten är begränsad till endast namnområden på Premium-nivån.
+> När du använder VNet-tjänstens slut punkter med Service Bus bör du inte aktivera de här slut punkterna i program som blandar standard-och Premium-nivån Service Bus namn områden. Eftersom standard nivån inte stöder virtuella nätverk. Slut punkten är begränsad till endast Premium-nivåns namn område.
 
-### <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade säkerhetsscenarier som aktiveras av VNet-integrering 
+### <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Avancerade säkerhets scenarier som aktive ras av VNet-integrering 
 
-Lösningar som kräver tät och uppdelad säkerhet, och där virtuella nätverksundernät tillhandahåller segmentering mellan de uppdelade tjänsterna, behöver i allmänhet fortfarande kommunikationsvägar mellan tjänster som finns i dessa avdelningar.
+Lösningar som kräver tätt och compartmentalized säkerhet, och där undernät för virtuella nätverk tillhandahåller segmentering mellan compartmentalized-tjänsterna, behöver vanligt vis kommunikations vägar mellan tjänster som finns i dessa fack.
 
-Varje omedelbar IP-väg mellan avdelningarna, inklusive de som transporterar HTTPS över TCP/IP, medför risk för utnyttjande av sårbarheter från nätskiktet uppåt. Meddelandetjänster tillhandahåller helt isolerade kommunikationsvägar, där meddelanden till och med skrivs till disk när de övergår mellan parterna. Arbetsbelastningar i två olika virtuella nätverk som båda är bundna till samma Service Bus-instans kan kommunicera effektivt och tillförlitligt via meddelanden, medan respektive nätverksisoleringsgränsintegritet bevaras.
+Alla omedelbara IP-vägar mellan avdelningarna, inklusive de som driver HTTPS över TCP/IP, medför risk för utnyttjande av sårbarheter från nätverks skiktet. Meddelande tjänster tillhandahåller fullständigt isolerade kommunikations vägar, där meddelanden är jämnt skrivna till disk när de övergår mellan parter. Arbets belastningar i två distinkta virtuella nätverk som båda är kopplade till samma Service Bus instans kan kommunicera effektivt och tillförlitligt via meddelanden, medan respektive gräns för nätverks isolerings gräns bevaras.
  
-Det innebär att dina säkerhetskänsliga molnlösningar inte bara får tillgång till Azures branschledande tillförlitliga och skalbara asynkrona meddelandefunktioner, utan de kan nu använda meddelanden för att skapa kommunikationsvägar mellan säkra lösningsfack som är i sig säkrare än vad som kan uppnås med alla peer-to-peer-kommunikationsläge, inklusive HTTPS och andra TLS-säkrade socketprotokoll.
+Det innebär att dina säkerhets känsliga moln lösningar inte bara får till gång till Azure-branschledande pålitliga och skalbara funktioner för asynkrona meddelanden, men de kan nu använda meddelande hantering för att skapa kommunikations vägar mellan säkra lösnings avdelningar som är mycket säkrare än vad som kan uppnås med valfri peer-to-peer-kommunikations läge, inklusive HTTPS och andra TLS-säkrade socket-protokoll.
 
-### <a name="bind-service-bus-to-virtual-networks"></a>Bind servicebuss till virtuella nätverk
+### <a name="bind-service-bus-to-virtual-networks"></a>Binda Service Bus till virtuella nätverk
 
-*Virtuella nätverksregler* är brandväggssäkerhetsfunktionen som styr om Azure Service Bus-servern accepterar anslutningar från ett visst virtuellt nätverksundernät.
+*Virtuella nätverks regler* är brand Väggs säkerhetsfunktionen som styr om din Azure Service Bus-Server accepterar anslutningar från ett visst virtuellt nätverks under nät.
 
-Att binda ett servicebussnamnområde till ett virtuellt nätverk är en tvåstegsprocess. Du måste först skapa en slutpunkt för **tjänsten Virtuellt nätverk** i ett virtuellt nätverk undernät och aktivera den för **Microsoft.ServiceBus** enligt beskrivningen i [tjänstslutpunktsöversikten](service-bus-service-endpoints.md). När du har lagt till tjänstslutpunkten binder du servicebussens namnområde till den med en **virtuell nätverksregel**.
+Att binda ett Service Bus namn område till ett virtuellt nätverk är en två stegs process. Du måste först skapa en **Virtual Network tjänst slut punkt** i ett Virtual Network undernät och aktivera den för **Microsoft. Service Bus** enligt beskrivningen i [Översikt över tjänstens slut punkt](service-bus-service-endpoints.md). När du har lagt till tjänst slut punkten binder du Service Bus namn området till den med en **regel för virtuellt nätverk**.
 
-Regeln om virtuellt nätverk är en associering av servicebussnamnområdet med ett virtuellt nätverksundernät. Medan regeln finns beviljas alla arbetsbelastningar som är bundna till undernätet åtkomst till servicebussnamnområdet. Service Bus själv upprättar aldrig utgående anslutningar, behöver inte få åtkomst och beviljas därför aldrig åtkomst till ditt undernät genom att aktivera den här regeln.
+Den virtuella nätverks regeln är en associering av Service Bus-namnrymden med ett virtuellt nätverks under nät. Även om regeln finns beviljas alla arbets belastningar som är kopplade till under nätet åtkomst till Service Bus namn området. Service Bus själva upprättar aldrig utgående anslutningar, behöver inte få åtkomst och har därför aldrig beviljat åtkomst till ditt undernät genom att aktivera den här regeln.
 
-Mer information finns i [Så här konfigurerar du slutpunkter för virtuella nätverkstjänster för ett tjänstbussnamnområde](service-bus-service-endpoints.md)
+Mer information finns i [Konfigurera tjänst slut punkter för virtuella nätverk för ett Service Bus-namnområde](service-bus-service-endpoints.md)
 
-## <a name="private-endpoints"></a>Privata slutpunkter
+## <a name="private-endpoints"></a>Privata slut punkter
 
-Azure Private Link Service gör att du kan komma åt Azure-tjänster (till exempel Azure Service Bus, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partnertjänster via en **privat slutpunkt** i ditt virtuella nätverk.
+Azure Private Link service ger dig åtkomst till Azure-tjänster (till exempel Azure Service Bus, Azure Storage och Azure Cosmos DB) och Azure-värdbaserade kund-/partner tjänster via en **privat slut punkt** i det virtuella nätverket.
 
-En privat slutpunkt är ett nätverksgränssnitt som ansluter dig privat och säkert till en tjänst som drivs av Azure Private Link. Den privata slutpunkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt för in tjänsten i ditt virtuella nätverk. All trafik till tjänsten kan dirigeras via den privata slutpunkten, så inga gateways, NAT-enheter, ExpressRoute- eller VPN-anslutningar eller offentliga IP-adresser behövs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta detaljnivån i åtkomstkontrollen.
+En privat slut punkt är ett nätverks gränssnitt som ansluter privat och säkert till en tjänst som drivs av en privat Azure-länk. Den privata slut punkten använder en privat IP-adress från ditt virtuella nätverk, vilket effektivt ansluter tjänsten till ditt VNet. All trafik till tjänsten kan dirigeras via den privata slut punkten, så inga gatewayer, NAT-enheter, ExpressRoute-eller VPN-anslutningar eller offentliga IP-adresser krävs. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan ansluta till en instans av en Azure-resurs, vilket ger dig den högsta nivån av granularitet i åtkomst kontroll.
 
-Mer information finns i [Vad är Azure Private Link?](../private-link/private-link-overview.md)
+Mer information finns i [Vad är en privat Azure-länk?](../private-link/private-link-overview.md)
 
 > [!NOTE]
-> Den här funktionen stöds med **premiumnivån** för Azure Service Bus. Mer information om premiumnivån finns i artikeln [Service Bus Premium och Standard meddelandenivåer.](service-bus-premium-messaging.md)
+> Den här funktionen stöds med **Premium** -nivån för Azure Service Bus. Mer information om Premium-nivån finns i artikeln [Service Bus Premium-och standard meddelande nivåer](service-bus-premium-messaging.md) .
 >
-> Den här funktionen är för närvarande i **förhandsgranskning**. 
+> Den här funktionen är för närvarande en för **hands version**. 
 
 
-Mer information finns i [Så här konfigurerar du privata slutpunkter för ett servicebussnamnområde](private-link-service.md)
+Mer information finns i [så här konfigurerar du privata slut punkter för ett Service Bus-namnområde](private-link-service.md)
 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Konfigurera IP-brandvägg för ett tjänstbussnamnområde](service-bus-ip-filtering.md)
-- [Konfigurera slutpunkter för virtuella nätverkstjänster för ett tjänstbussnamnområde](service-bus-service-endpoints.md)
-- [Konfigurera privata slutpunkter för ett servicebussnamnområde](private-link-service.md)
+- [Konfigurera IP-brandvägg för ett Service Bus-namnområde](service-bus-ip-filtering.md)
+- [Konfigurera tjänst slut punkter för virtuella nätverk för ett Service Bus-namnområde](service-bus-service-endpoints.md)
+- [Konfigurera privata slut punkter för ett Service Bus-namnområde](private-link-service.md)

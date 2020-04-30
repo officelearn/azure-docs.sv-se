@@ -1,33 +1,33 @@
 ---
-title: Azure Cosmos DB-utdatabindning för funktioner 2.x
-description: Lär dig att använda Azure Cosmos DB-utdatabindningen i Azure Functions.
+title: Azure Cosmos DB utgående bindning för funktioner 2. x
+description: Lär dig att använda Azure Cosmos DB utgående bindning i Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277770"
 ---
-# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Cosmos DB-utdatabindning för Azure Functions 2.x
+# <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Cosmos DB utgående bindning för Azure Functions 2. x
 
-Med Azure Cosmos DB-utdatabindningen kan du skriva ett nytt dokument till en Azure Cosmos DB-databas med SQL API.
+Med Azure Cosmos DB utgående bindning kan du skriva ett nytt dokument till en Azure Cosmos DB-databas med hjälp av SQL-API: et.
 
-Information om inställnings- och konfigurationsinformation finns i [översikten](./functions-bindings-cosmosdb-v2.md).
+Information om konfiguration och konfigurations information finns i [översikten](./functions-bindings-cosmosdb-v2.md).
 
 <a id="example" name="example"></a>
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 Det här avsnittet innehåller följande exempel:
 
-* [Köutlösare, skriv ett dokument](#queue-trigger-write-one-doc-c)
-* [Köutlösare, skriva dokument med IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c)
+* [Köa utlösare, skriva ett dokument](#queue-trigger-write-one-doc-c)
+* [Köa utlösare, skriva dokument med IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c)
 
-Exemplen refererar `ToDoItem` till en enkel typ:
+Exemplen refererar till en enkel `ToDoItem` typ:
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -42,9 +42,9 @@ namespace CosmosDBSamplesV2
 
 <a id="queue-trigger-write-one-doc-c"></a>
 
-### <a name="queue-trigger-write-one-doc"></a>Köutlösare, skriv ett dokument
+### <a name="queue-trigger-write-one-doc"></a>Köa utlösare, skriva ett dokument
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som lägger till ett dokument i en databas med hjälp av data som tillhandahålls i meddelandet från kölagring.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som lägger till ett dokument i en databas med hjälp av data som anges i meddelande från Queue Storage.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -76,9 +76,9 @@ namespace CosmosDBSamplesV2
 
 <a id="queue-trigger-write-docs-using-iasynccollector-c"></a>
 
-### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Köutlösare, skriva dokument med IAsyncCollector
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Köa utlösare, skriva dokument med IAsyncCollector
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som lägger till en samling dokument i en databas med hjälp av data som tillhandahålls i ett kömeddelande JSON.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som lägger till en samling dokument i en databas med hjälp av data som finns i ett meddelande-JSON för köer.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -112,19 +112,19 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
 Det här avsnittet innehåller följande exempel:
 
-* [Köutlösare, skriv ett dokument](#queue-trigger-write-one-doc-c-script)
-* [Köutlösare, skriva dokument med IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c-script)
+* [Köa utlösare, skriva ett dokument](#queue-trigger-write-one-doc-c-script)
+* [Köa utlösare, skriva dokument med IAsyncCollector](#queue-trigger-write-docs-using-iasynccollector-c-script)
 
 
 <a id="queue-trigger-write-one-doc-c-script"></a>
 
-### <a name="queue-trigger-write-one-doc"></a>Köutlösare, skriv ett dokument
+### <a name="queue-trigger-write-one-doc"></a>Köa utlösare, skriva ett dokument
 
-I följande exempel visas en Azure Cosmos DB-utdatabindning i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en köindatabindning för en kö som tar emot JSON i följande format:
+I följande exempel visas en Azure Cosmos DB utgående bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en indatatyps bindning för en kö som tar emot JSON i följande format:
 
 ```json
 {
@@ -134,7 +134,7 @@ I följande exempel visas en Azure Cosmos DB-utdatabindning i en *function.json-
 }
 ```
 
-Funktionen skapar Azure Cosmos DB-dokument i följande format för varje post:
+Funktionen skapar Azure Cosmos DB dokument i följande format för varje post:
 
 ```json
 {
@@ -145,7 +145,7 @@ Funktionen skapar Azure Cosmos DB-dokument i följande format för varje post:
 }
 ```
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -159,9 +159,9 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
-Här är C# skriptkoden:
+Här är C#-skript koden:
 
 ```cs
     #r "Newtonsoft.Json"
@@ -187,11 +187,11 @@ Här är C# skriptkoden:
 
 <a id="queue-trigger-write-docs-using-iasynccollector-c-script"></a>
 
-### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Köutlösare, skriva dokument med IAsyncCollector
+### <a name="queue-trigger-write-docs-using-iasynccollector"></a>Köa utlösare, skriva dokument med IAsyncCollector
 
-Om du vill skapa flera `ICollector<T>` `IAsyncCollector<T>` dokument `T` kan du binda till eller var är en av de typer som stöds.
+Om du vill skapa flera dokument kan du binda `ICollector<T>` till `IAsyncCollector<T>` eller `T` där är en av de typer som stöds.
 
-Det här exemplet refererar till en enkel `ToDoItem` typ:
+Det här exemplet refererar till en `ToDoItem` enkel typ:
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -204,7 +204,7 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Här är filen function.json:
+Här är function. JSON-filen:
 
 ```json
 {
@@ -229,7 +229,7 @@ Här är filen function.json:
 }
 ```
 
-Här är C# skriptkoden:
+Här är C#-skript koden:
 
 ```cs
 using System;
@@ -247,9 +247,9 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en Azure Cosmos DB-utdatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en köindatabindning för en kö som tar emot JSON i följande format:
+I följande exempel visas en Azure Cosmos DB utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen använder en indatatyps bindning för en kö som tar emot JSON i följande format:
 
 ```json
 {
@@ -259,7 +259,7 @@ I följande exempel visas en Azure Cosmos DB-utdatabindning i en *function.json-
 }
 ```
 
-Funktionen skapar Azure Cosmos DB-dokument i följande format för varje post:
+Funktionen skapar Azure Cosmos DB dokument i följande format för varje post:
 
 ```json
 {
@@ -270,7 +270,7 @@ Funktionen skapar Azure Cosmos DB-dokument i följande format för varje post:
 }
 ```
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -284,7 +284,7 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
 Här är JavaScript-koden:
 
@@ -304,9 +304,9 @@ Här är JavaScript-koden:
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas hur du skriver ett dokument till en Azure CosmosDB-databas som utdata för en funktion.
+I följande exempel visas hur du skriver ett dokument till en Azure CosmosDB-databas som utdata till en funktion.
 
-Bindningsdefinitionen definieras i *function.json* `cosmosDB`där *typen* är inställd på .
+Bindnings definitionen definieras i *Function. JSON* där *Type* har angetts till `cosmosDB`.
 
 ```json
 {
@@ -340,7 +340,7 @@ Bindningsdefinitionen definieras i *function.json* `cosmosDB`där *typen* är in
 }
 ```
 
-Om du vill skriva till databasen `set` skickar du ett dokumentobjekt till metoden för databasparametern.
+Skicka ett dokument objekt till- `set` metoden för databas parametern om du vill skriva till databasen.
 
 ```python
 import azure.functions as func
@@ -356,17 +356,17 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
 # <a name="java"></a>[Java](#tab/java)
 
-* [Köutlösare, spara meddelande i databasen via returvärde](#queue-trigger-save-message-to-database-via-return-value-java)
-* [HTTP-utlösare, spara ett dokument i databasen via returvärde](#http-trigger-save-one-document-to-database-via-return-value-java)
-* [HTTP-utlösare, spara ett dokument i databasen via OutputBinding](#http-trigger-save-one-document-to-database-via-outputbinding-java)
-* [HTTP-utlösare, spara flera dokument i databasen via OutputBinding](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
+* [Köa utlösare, Spara meddelande till databas via retur värde](#queue-trigger-save-message-to-database-via-return-value-java)
+* [HTTP-utlösare, spara ett dokument till databasen via retur värde](#http-trigger-save-one-document-to-database-via-return-value-java)
+* [HTTP-utlösare, spara ett dokument till databasen via OutputBinding](#http-trigger-save-one-document-to-database-via-outputbinding-java)
+* [HTTP-utlösare, spara flera dokument till databasen via OutputBinding](#http-trigger-save-multiple-documents-to-database-via-outputbinding-java)
 
 
 <a id="queue-trigger-save-message-to-database-via-return-value-java"></a>
 
-### <a name="queue-trigger-save-message-to-database-via-return-value"></a>Köutlösare, spara meddelande i databasen via returvärde
+### <a name="queue-trigger-save-message-to-database-via-return-value"></a>Köa utlösare, Spara meddelande till databas via retur värde
 
-I följande exempel visas en Java-funktion som lägger till ett dokument i en databas med data från ett meddelande i Kölagring.
+I följande exempel visas en Java-funktion som lägger till ett dokument i en databas med data från ett meddelande i Queue Storage.
 
 ```java
 @FunctionName("getItem")
@@ -385,9 +385,9 @@ public String cosmosDbQueryById(
 ```
 <a id="http-trigger-save-one-document-to-database-via-return-value-java"></a>
 
-#### <a name="http-trigger-save-one-document-to-database-via-return-value"></a>HTTP-utlösare, spara ett dokument i databasen via returvärde
+#### <a name="http-trigger-save-one-document-to-database-via-return-value"></a>HTTP-utlösare, spara ett dokument till databasen via retur värde
 
-I följande exempel visas en Java-funktion ```@CosmosDBOutput``` vars signatur är ```String```kommenterad med och har returvärde av typen . JSON-dokumentet som returneras av funktionen skrivs automatiskt till motsvarande CosmosDB-samling.
+I följande exempel visas en Java-funktion vars signatur är kommenterad ```@CosmosDBOutput``` och har returnerat värde av ```String```typen. JSON-dokumentet som returnerades av funktionen skrivs automatiskt till motsvarande CosmosDB-samling.
 
 ```java
     @FunctionName("WriteOneDoc")
@@ -424,9 +424,9 @@ I följande exempel visas en Java-funktion ```@CosmosDBOutput``` vars signatur �
 
 <a id="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>
 
-### <a name="http-trigger-save-one-document-to-database-via-outputbinding"></a>HTTP-utlösare, spara ett dokument i databasen via OutputBinding
+### <a name="http-trigger-save-one-document-to-database-via-outputbinding"></a>HTTP-utlösare, spara ett dokument till databasen via OutputBinding
 
-I följande exempel visas en Java-funktion som skriver ett ```OutputBinding<T>``` dokument till CosmosDB via en utdataparameter. I det här ```outputItem``` exemplet måste parametern ```@CosmosDBOutput```kommenteras med , inte funktionssignaturen. Med ```OutputBinding<T>``` hjälp kan din funktion dra nytta av bindningen för att skriva dokumentet till CosmosDB samtidigt som du kan returnera ett annat värde till funktionsuppringaren, till exempel ett JSON- eller XML-dokument.
+I följande exempel visas en Java-funktion som skriver ett dokument till CosmosDB via ```OutputBinding<T>``` en utdataparameter. I det här exemplet måste ```outputItem``` parametern vara kommenterad ```@CosmosDBOutput```, inte Function-signaturen. Med ```OutputBinding<T>``` kan du använda funktionen för att dra nytta av bindningen för att skriva dokumentet till CosmosDB, samtidigt som du även tillåter att ett annat värde returneras till funktions anrop, till exempel ett JSON-eller XML-dokument.
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -470,9 +470,9 @@ I följande exempel visas en Java-funktion som skriver ett ```OutputBinding<T>``
 
 <a id="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>
 
-### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding"></a>HTTP-utlösare, spara flera dokument i databasen via OutputBinding
+### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding"></a>HTTP-utlösare, spara flera dokument till databasen via OutputBinding
 
-I följande exempel visas en Java-funktion som skriver flera ```OutputBinding<T>``` dokument till CosmosDB via en utdataparameter. I det här ```outputItem``` exemplet kommenteras ```@CosmosDBOutput```parametern med , inte funktionssignaturen. Utdataparametern ```outputItem``` har ```ToDoItem``` en lista över objekt som mallparametertyp. Med ```OutputBinding<T>``` hjälp kan din funktion dra nytta av bindningen för att skriva dokumenten till CosmosDB samtidigt som du kan returnera ett annat värde till funktionsuppringaren, till exempel ett JSON- eller XML-dokument.
+I följande exempel visas en Java-funktion som skriver flera dokument till CosmosDB via ```OutputBinding<T>``` en utdataparameter. I det här exemplet är ```outputItem``` parametern kommenterad ```@CosmosDBOutput```, inte Function-signaturen. Parametern output innehåller en ```outputItem``` lista med ```ToDoItem``` objekt som mall-parameter typ. Med ```OutputBinding<T>``` kan du använda funktionen för att dra nytta av bindningen för att skriva dokumenten till CosmosDB samtidigt som du också tillåter att ett annat värde returneras till funktions anrop, till exempel ett JSON-eller XML-dokument.
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -519,17 +519,17 @@ I följande exempel visas en Java-funktion som skriver flera ```OutputBinding<T>
     }
 ```
 
-I [Java-funktionernas körningsbibliotek](/java/api/overview/azure/functions/runtime)använder du anteckningen `@CosmosDBOutput` på parametrar som ska skrivas till Cosmos DB.  Parametertypen anteckning bör ```OutputBinding<T>```vara , där T antingen är en inbyggd Java-typ eller en POJO.
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@CosmosDBOutput` anteckningen för parametrar som ska skrivas till Cosmos dB.  Typ av antecknings parameter bör ```OutputBinding<T>```vara, där T är antingen en ursprunglig Java-typ eller en POJO.
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-I [klassbibliotek för C#](functions-dotnet-class-library.md)använder du attributet [CosmosDB.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs)
+Använd attributet [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) i [C#-klass bibliotek](functions-dotnet-class-library.md).
 
-Attributets konstruktor tar databasnamnet och samlingsnamnet. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [Utdata - konfiguration](#configuration). Här är `CosmosDB` ett attributexempel i en metodsignatur:
+Attributets konstruktor tar databasens namn och samlings namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [utdata-konfiguration](#configuration). Här är ett `CosmosDB` attribut exempel i en metodsignatur:
 
 ```csharp
     [FunctionName("QueueToDocDB")]
@@ -541,62 +541,62 @@ Attributets konstruktor tar databasnamnet och samlingsnamnet. Information om des
     }
 ```
 
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Attribut stöds inte av C# Script.
+Attribut stöds inte av C#-skript.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Attribut stöds inte av JavaScript.
+Attribut stöds inte av Java Script.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Attribut stöds inte av Python.
+Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Anteckningen `CosmosDBOutput` är tillgänglig för att skriva data till Cosmos DB. Du kan använda anteckningen på funktionen eller på en enskild funktionsparameter. När den används på funktionsmetoden är funktionens returvärde det som skrivs till Cosmos DB. Om du använder anteckningen med en parameter måste parameterns typ `OutputBinding<T>` `T` deklareras som en plats där en inbyggd Java-typ eller en POJO.If you use the annoteation with a parameter, the parameter's type must be declared as a where a native Java type or a POJO.
+`CosmosDBOutput` Anteckningen är tillgänglig för att skriva data till Cosmos dB. Du kan använda anteckningen till funktionen eller en enskild funktions parameter. När det används i funktions metoden är returvärdet för funktionen det som skrivs till Cosmos DB. Om du använder anteckningen med en parameter måste parameterns typ deklareras som en `OutputBinding<T>` där `T` en ursprunglig Java-typ eller en POJO.
 
 ---
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell beskrivs de bindningskonfigurationsegenskaper som `CosmosDB` du anger i *filen function.json* och attributet.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och `CosmosDB` attributet.
 
-|egenskapen function.json | Egenskapen Attribute |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**Typ**     | Saknas | Måste ställas `cosmosDB`in på .        |
-|**riktning**     | Saknas | Måste ställas `out`in på .         |
-|**Namn**     | Saknas | Namn på den bindningsparameter som representerar dokumentet i funktionen.  |
-|**Databasename** | **DatabaseName**|Databasen som innehåller samlingen där dokumentet skapas.     |
-|**collectionName (samlingsnamn)** |**CollectionName**  | Namnet på den samling där dokumentet skapas. |
-|**createIfNotExists**  |**CreateIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när den inte finns. Standardvärdet är *falskt* eftersom nya samlingar skapas med reserverat dataflöde, vilket har kostnadskonsekvenser. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
-|**partitionKey (partitionKey)**|**PartitionKey** |När `CreateIfNotExists` är sant definierar den sökvägen till partitionsnyckeln för den skapade samlingen.|
-|**insamlingGenomströmning**|**InsamlingGenomströmning**| När `CreateIfNotExists` är sant definierar den [dataflödet](../cosmos-db/set-throughput.md) för den skapade samlingen.|
-|**anslutningStringInställning**    |**ConnectionStringSetting** |Namnet på appinställningen som innehåller din Azure Cosmos DB-anslutningssträng.        |
-|**preferredLocations**| **PreferredLocations**| (Valfritt) Definierar önskade platser (regioner) för geo-replikerade databaskonton i Azure Cosmos DB-tjänsten. Värdena ska kommaavskiljas. Till exempel "Östra USA, Södra centrala USA,Nordeuropa". |
-|**användaMultipleWriteLocations**| **AnvändaMultipleWriteLocations**| (Valfritt) När den `true` är `PreferredLocations`inställd på tillsammans med kan den utnyttja skrivningar med flera regioner i Azure Cosmos [DB-tjänsten.](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) |
+|**bastyp**     | saknas | Måste anges till `cosmosDB`.        |
+|**riktning**     | saknas | Måste anges till `out`.         |
+|**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
+|**Databas** | **DatabaseName**|Databasen som innehåller den samling där dokumentet skapas.     |
+|**Samling** |**CollectionName**  | Namnet på den samling där dokumentet skapas. |
+|**createIfNotExists**  |**CreateIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när den inte finns. Standardvärdet är *false* eftersom nya samlingar skapas med reserverat data flöde, vilket innebär kostnads konsekvenser. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
+|**partitionKey**|**PartitionKey** |När `CreateIfNotExists` är true definierar den partitionens nyckel Sök väg för den skapade samlingen.|
+|**collectionThroughput**|**CollectionThroughput**| När `CreateIfNotExists` är sant definierar den [data flödet](../cosmos-db/set-throughput.md) för den skapade samlingen.|
+|**connectionStringSetting**    |**ConnectionStringSetting** |Namnet på den app-inställning som innehåller Azure Cosmos DB anslutnings strängen.        |
+|**preferredLocations**| **PreferredLocations**| Valfritt Definierar önskade platser (regioner) för geo-replikerade databas konton i Azure Cosmos DBs tjänsten. Värdena ska vara kommaavgränsade. Till exempel "östra USA, södra centrala USA, norra Europa". |
+|**useMultipleWriteLocations**| **UseMultipleWriteLocations**| Valfritt När det är `true` inställt på tillsammans med `PreferredLocations`kan den utnyttja [flera regioner](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) i Azure Cosmos DBS tjänsten. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Användning
 
-När du skriver till utdataparametern i funktionen skapas som standard ett dokument i databasen. Det här dokumentet har ett automatiskt genererat GUID som dokument-ID. Du kan ange dokument-ID för utdatadokumentet genom att ange egenskapen `id` i JSON-objektet som skickas till utdataparametern.
+Som standard skapas ett dokument i din databas när du skriver till Utdataparametern i funktionen. Det här dokumentet har ett automatiskt genererat GUID som dokument-ID. Du kan ange dokument-ID: t för utmatnings dokumentet `id` genom att ange egenskapen i JSON-objektet som skickas till Utdataparametern.
 
 > [!Note]
-> När du anger ID för ett befintligt dokument skrivs det över av det nya utdatadokumentet.
+> När du anger ID: t för ett befintligt dokument skrivs det över av det nya utdata-dokumentet.
 
-## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
+## <a name="exceptions-and-return-codes"></a>Undantag och retur koder
 
 | Bindning | Referens |
 |---|---|
-| CosmosDB | [CosmosDB-felkoder](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
+| CosmosDB | [Felkoder för CosmosDB](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb) |
 
 <a name="host-json"></a>
 
-## <a name="hostjson-settings"></a>värd.json-inställningar
+## <a name="hostjson-settings"></a>Host. JSON-inställningar
 
-I det här avsnittet beskrivs de globala konfigurationsinställningar som är tillgängliga för den här bindningen i version 2.x. Mer information om globala konfigurationsinställningar i version 2.x finns i [host.json-referens för Azure Functions version 2.x](functions-host-json.md).
+I det här avsnittet beskrivs globala konfigurations inställningar som är tillgängliga för den här bindningen i version 2. x. Mer information om globala konfigurations inställningar i version 2. x finns i [Host. JSON-referens för Azure Functions version 2. x](functions-host-json.md).
 
 ```json
 {
@@ -613,13 +613,13 @@ I det här avsnittet beskrivs de globala konfigurationsinställningar som är ti
 }
 ```
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------|
-|GatewayMode (GatewayMode)|Gateway|Anslutningsläget som används av funktionen när du ansluter till Azure Cosmos DB-tjänsten. Alternativen `Direct` är och`Gateway`|
-|Protokoll|Https( https)|Anslutningsprotokollet som används av funktionen vid anslutning till Azure Cosmos DB-tjänsten.  Läs [här för en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
-|leasa Förefix|Saknas|Prefix för lån som ska användas för alla funktioner i en app.|
+|GatewayMode|Gateway|Anslutnings läget som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten. Alternativen är `Direct` och`Gateway`|
+|Protokoll|Https|Anslutnings protokollet som används av funktionen vid anslutning till Azure Cosmos DBs tjänsten.  Läs [här om du vill ha en förklaring av båda lägena](../cosmos-db/performance-tips.md#networking)|
+|leasePrefix|saknas|Lease-prefix som ska användas för alla funktioner i en app.|
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Kör en funktion när ett Azure Cosmos DB-dokument skapas eller ändras (utlösare)](./functions-bindings-cosmosdb-v2-trigger.md)
-- [Läsa ett Azure Cosmos DB-dokument (indatabindning)](./functions-bindings-cosmosdb-v2-input.md)
+- [Köra en funktion när ett Azure Cosmos DB-dokument skapas eller ändras (utlösare)](./functions-bindings-cosmosdb-v2-trigger.md)
+- [Läsa ett Azure Cosmos DB dokument (ingående bindning)](./functions-bindings-cosmosdb-v2-input.md)

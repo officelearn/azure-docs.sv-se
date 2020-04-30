@@ -1,70 +1,70 @@
 ---
-title: Läs mer om supportalternativ för Azure Service Fabric
-description: Azure Service Fabric klusterversioner stöds och länkar till filsupportbiljetter
+title: Läs mer om support alternativ för Azure Service Fabric
+description: Azure Service Fabric-kluster versioner stöds och länkar till fil support biljetter
 author: pkcsf
 ms.topic: troubleshooting
 ms.date: 8/24/2018
 ms.author: pkc
 ms.openlocfilehash: 7494f0072f27f2c9b00db7070f19dfc05627eacf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79282099"
 ---
-# <a name="azure-service-fabric-support-options"></a>Supportalternativ för Azure Service Fabric
+# <a name="azure-service-fabric-support-options"></a>Support alternativ för Azure Service Fabric
 
-För att ge lämpligt stöd för dina Service Fabric-kluster som du kör dina programarbetsbelastningar på har vi ställt in olika alternativ för dig. Beroende på vilken supportnivå som behövs och hur allvarlig problemet är får du välja rätt alternativ. 
+För att leverera lämpligt stöd för dina Service Fabric-kluster som du kör program arbets belastningen på, har vi ställt in olika alternativ åt dig. Beroende på den support nivå som krävs och problemets allvarlighets grad får du välja rätt alternativ. 
 
-## <a name="report-production-issues-or-request-paid-support-for-azure"></a>Rapportera produktionsproblem eller begära betald support för Azure
+## <a name="report-production-issues-or-request-paid-support-for-azure"></a>Rapportera produktions problem eller begär betald support för Azure
 
-Om du vill rapportera problem i ditt Service Fabric-kluster som distribueras på Azure öppnar du en biljett för support [på Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) eller Microsoft [supportportal](https://support.microsoft.com/oas/default.aspx?prid=16146).
+Om du vill rapportera problem med ditt Service Fabric-kluster som har distribuerats på Azure öppnar du en biljett för support [på Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) eller [Microsoft Support Portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Läs mer om:
  
 - [Support från Microsoft för Azure](https://azure.microsoft.com/support/plans/?b=16.44).
-- [Microsoft premier-support](https://support.microsoft.com/en-us/premier).
+- [Microsoft Premier-Support](https://support.microsoft.com/en-us/premier).
 
 > [!Note]
-> Kluster som körs på en bronstillförlitlighetsnivå eller Single Node Cluster gör att du bara kan köra testarbetsbelastningar. Om du får problem med ett kluster som körs på bronstillförlitlighet eller Single Node Cluster hjälper Microsoft-supportteamet dig att minska problemet, men utför ingen grundorsaksanalys. Mer information [finns i klustrets tillförlitlighetsegenskaper.](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)
+> Kluster som körs på en brons Tillförlitlighets nivå eller ett kluster med en nod kan bara köra test arbets belastningar. Om du får problem med ett kluster som körs på brons tillförlitlighet eller ett kluster med en enda nod, kommer Microsoft support team att hjälpa dig att lösa problemet, men det kommer inte att utföra en rotor Saks analys. Mer information finns i [klustrets Tillförlitlighets egenskaper](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) .
 >
-> Mer information om vad som krävs för ett produktionsfärdigt kluster finns i [checklistan för produktionsberedskap](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
+> Mer information om vad som krävs för ett produktions klart kluster finns i [Check listan för produktions beredskap](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 
-## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Rapportera produktionsproblem eller begära betalt stöd för fristående Service Fabric-kluster
+## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Rapportera produktions problem eller begär betald support för fristående Service Fabric kluster
 
-Om du vill rapportera problem i Service Fabric-klustret som distribueras lokalt eller på andra moln öppnar du en biljett för professionell support på [Microsofts supportportal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+För rapporterings problem på ditt Service Fabric-kluster som har distribuerats lokalt eller i andra moln öppnar du en biljett för professionell support på [Microsofts support Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Läs mer om:
 
-- [Professionell support från Microsoft för lokalt](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
-- [Microsoft premier-support](https://support.microsoft.com/en-us/premier).
+- [Professional support från Microsoft för lokal](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+- [Microsoft Premier-Support](https://support.microsoft.com/en-us/premier).
 
-## <a name="report-azure-service-fabric-issues"></a>Rapportera problem med Azure-tjänstinfrastruktur
+## <a name="report-azure-service-fabric-issues"></a>Rapportera problem med Azure-Service Fabric
 
-Vi har skapat en GitHub-repo för rapportering av service fabric-problem.  Vi följer också aktivt följande forum.
+Vi har konfigurerat en GitHub-lagrings platsen för rapportering Service Fabric problem.  Vi arbetar också aktivt med att övervaka följande forum.
 
-### <a name="github-repo"></a>GitHub repo 
+### <a name="github-repo"></a>GitHub lagrings platsen 
 
-Rapportera Problem med Azure-tjänstinfrastruktur på [git repo för Service-Fabric-issues](https://github.com/Azure/service-fabric-issues). Den här repoen är avsedd för rapportering och spårning av problem med Azure Service Fabric och för att göra små funktionsbegäranden. **Använd inte detta för att rapportera problem med live-webbplatsen**.
+Rapportera Azure Service Fabric problem på [Service-Fabric-problem git-lagrings platsen](https://github.com/Azure/service-fabric-issues). Den här lagrings platsen är avsedd för rapportering och spårning av problem med Azure Service Fabric och för att göra små funktions förfrågningar. **Använd inte detta för att rapportera problem med Live-webbplatser**.
 
-### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow och MSDN-forum
+### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow-och MSDN-forum
 
-[Service Fabric-taggen på StackOverflow][stackoverflow] och [Service Fabric-forumet på MSDN][msdn-forum] används bäst för att ställa frågor om hur plattformen fungerar och hur du kan utföra vissa uppgifter med den.
+[Taggen Service Fabric på StackOverflow][stackoverflow] och [Service Fabric forum på MSDN][msdn-forum] används bäst för att ställa frågor om hur plattformen fungerar och hur du kan utföra vissa uppgifter med den.
 
-### <a name="azure-feedback-forum"></a>Forum för Azure Feedback
+### <a name="azure-feedback-forum"></a>Azure feedback-forum
 
-[Azure Feedback Forum for Service Fabric][uservoice-forum] är den bästa platsen för att skicka in stora funktionsidéer du har för produkten när vi granskar de mest populära förfrågningarna är en del av vår planering på medellång till lång sikt. Vi uppmuntrar dig att samla stöd för dina förslag inom samhället.
+[Azure feedback-forumet för Service Fabric][uservoice-forum] är den bästa platsen för att skicka stora funktions idéer för produkten när vi går igenom de populäraste förfrågningarna är en del av vårt medel stora och långsiktiga planer. Vi rekommenderar att du Rally support för dina förslag i communityn.
 
-## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Förhandsversioner av Service Fabric - stöds inte för produktionsbruk
+## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Service Fabric för hands versioner – stöds inte för produktions användning
 
-Från tid till annan, vi släpper versioner som har betydande funktioner som vi vill ha feedback på, som släpps som förhandsvisningar. Dessa förhandsgranskningsversioner bör endast användas för teständamål. Ditt produktionskluster ska alltid köra en service fabric-version som stöds, stabil. En förhandsgranskningsversion börjar alltid med ett större och mindre versionsnummer på 255. Om du till exempel ser en Service Fabric version 255.255.5703.949, ska den versionen endast användas i testkluster och förhandsgranskas. Dessa förhandsversioner meddelas också på [Service Fabric-teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric) och kommer att ha information om de funktioner som ingår.
-Det finns inget betalt supportalternativ för dessa förhandsversioner. Använd något av alternativen under [Report Azure Service Fabric-problem](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) för att ställa frågor eller ge feedback.
+Från och med tiden kommer vi att lansera versioner som har viktiga funktioner som vi vill ha feedback om, vilket publiceras som för hands versioner. Dessa för hands versioner bör endast användas i test syfte. Ditt produktions kluster bör alltid köra en stabil, stabil Service Fabric version som stöds. En för hands version börjar alltid med ett större och lägre versions nummer på 255. Om du till exempel ser en Service Fabric version 255.255.5703.949 är den versionen bara att användas i test kluster och är en för hands version. De här för hands versionerna visas också i [Service Fabric teamets blogg](https://blogs.msdn.microsoft.com/azureservicefabric) och innehåller information om de funktioner som ingår.
+Det finns inget betalt support alternativ för dessa för hands versioner. Använd något av alternativen som anges under [rapportera Azure-Service Fabric problem](https://docs.microsoft.com/azure/service-fabric/service-fabric-support#report-azure-service-fabric-issues) för att ställa frågor eller ge feedback.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Service Fabric-versioner som stöds](service-fabric-versions.md)
+[Service Fabric versioner som stöds](service-fabric-versions.md)
 
 <!--references-->
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric

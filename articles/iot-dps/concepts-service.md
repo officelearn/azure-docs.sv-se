@@ -1,6 +1,6 @@
 ---
-title: Tjänstbegrepp i Azure IoT Hub Device Provisioning Service | Microsoft-dokument
-description: Beskriver koncept för tillhandahållande av tjänster som är specifika för enheter med DPS (Device Provisioning Service) och IoT Hub
+title: Tjänst koncept i Azure IoT Hub Device Provisioning Service | Microsoft Docs
+description: Beskriver tjänst etablerings begrepp som är relaterade till enheter med enhets etablerings tjänsten (DPS) och IoT Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 09/18/2019
@@ -9,70 +9,70 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: f42502ac4db12a060af5906243d3f8e7584c5df3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79285219"
 ---
 # <a name="iot-hub-device-provisioning-service-concepts"></a>IoT Hub Device Provisioning Service begrepp
 
-IoT Hub Device Provisioning Service är en hjälptjänst för IoT Hub som du använder för att konfigurera zero-touch-enhetsetablering till en angiven IoT-hubb. Med enhetsetableringstjänsten kan du tillhandahålla miljontals enheter [automatiskt](concepts-auto-provisioning.md) på ett säkert och skalbart sätt.
+IoT Hub Device Provisioning Service är en hjälp tjänst för IoT Hub som du använder för att konfigurera enhets etablering med noll touch till en angiven IoT-hubb. Med enhets etablerings tjänsten kan du [automatiskt etablera](concepts-auto-provisioning.md) miljon tals enheter på ett säkert och skalbart sätt.
 
-Enhetsetablering är en process i två delar. Den första delen är att upprätta den första anslutningen mellan enheten och IoT-lösningen genom *att registrera* enheten. Den andra delen är att tillämpa rätt *konfiguration* på enheten baserat på de specifika kraven i lösningen. När båda stegen har slutförts har enheten *etablerats*helt. Enhetsetableringstjänsten automatiserar båda stegen och ger sömlös etablering av enheten.
+Enhets etablering är en process i två delar. Den första delen upprättar den inledande anslutningen mellan enheten och IoT-lösningen genom att *Registrera* enheten. Den andra delen tillämpar rätt *konfiguration* på enheten baserat på de särskilda kraven för lösningen. När båda stegen har slutförts är enheten helt *etablerad*. Enhetsetableringstjänsten automatiserar båda stegen och ger sömlös etablering av enheten.
 
-Den här artikeln innehåller en översikt över de etableringskoncept som är mest tillämpliga för att hantera *tjänsten*. Den här artikeln är mest relevant för personer som är involverade i [molnet setup steg](about-iot-dps.md#cloud-setup-step) för att få en enhet redo för distribution.
+Den här artikeln ger en översikt över de etablerings koncept som är mest tillämpliga för att hantera *tjänsten*. Den här artikeln är mest relevant för personer som ingår i [Cloud setup-steget](about-iot-dps.md#cloud-setup-step) för att få en enhet redo för distribution.
 
-## <a name="service-operations-endpoint"></a>Slutpunkt för tjänståtgärder
+## <a name="service-operations-endpoint"></a>Slut punkt för tjänst åtgärder
 
-Slutpunkten för tjänståtgärder är slutpunkten för att hantera tjänstinställningarna och underhålla registreringslistan. Den här slutpunkten används endast av tjänstadministratören. den används inte av enheter.
+Slut punkten för tjänst åtgärder är slut punkten för att hantera tjänst inställningar och underhålla registrerings listan. Den här slut punkten används endast av tjänst administratören. den används inte av enheter.
 
-## <a name="device-provisioning-endpoint"></a>Slutpunkt för etablerande av enhet
+## <a name="device-provisioning-endpoint"></a>Slut punkt för enhets etablering
 
-Slutpunkten för enhetsetablering är den enda slutpunkten som alla enheter använder för automatisk etablering. URL:en är densamma för alla etableringstjänstinstanser, för att eliminera behovet av att reflash-enheter med ny anslutningsinformation i scenarier för leveranskedjan. ID-scopet säkerställer klientisolering.
+Enhets etablerings slut punkten är den enda slut punkten som alla enheter använder för automatisk etablering. URL: en är samma för alla etablerings tjänst instanser, för att eliminera behovet av att göra om Flash-enheter med ny anslutnings information i scenarier med leverans kedjan. ID-omfånget garanterar klient isolering.
 
 ## <a name="linked-iot-hubs"></a>Länkade IoT-hubbar
 
-Enhetsetableringstjänsten kan bara etablera enheter till IoT-hubbar som har länkats till den. Genom att länka en IoT-hubb till en instans av tjänsten Enhetsetablering får tjänsten läs-/skrivbehörighet till IoT-hubbens enhetsregister. med länken kan en enhetsetableringstjänst registrera ett enhets-ID och ställa in den första konfigurationen i enhetstvillingen. Länkade IoT-hubbar kan finnas i alla Azure-regioner. Du kan länka nav i andra prenumerationer till din etableringstjänst.
+Enhets etablerings tjänsten kan endast etablera enheter till IoT-hubbar som har länkats till den. Genom att länka en IoT-hubb till en instans av enhets etablerings tjänsten får du Läs-/Skriv behörighet till IoT Hub-enhetens register. med länken kan en enhets etablerings tjänst registrera ett enhets-ID och ange den inledande konfigurationen på enheten. Länkade IoT-hubbar kan finnas i alla Azure-regioner. Du kan länka hubbar i andra prenumerationer till etablerings tjänsten.
 
-## <a name="allocation-policy"></a>Fördelningspolicy
+## <a name="allocation-policy"></a>Resursallokeringsprincip
 
-Inställningen på tjänstnivå som avgör hur enhetsetableringstjänsten tilldelar enheter till en IoT-hubb. Det finns tre allokeringsprinciper som stöds:
+Inställningen på service nivå som avgör hur enhets etablerings tjänsten tilldelar enheter till en IoT-hubb. Det finns tre allokeringsprinciper som stöds:
 
-* **Jämnt viktad distribution**: länkade IoT-hubbar är lika benägna att ha enheter som är etablerade till dem. Standardinställningen. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen.
+* **Jämt viktad distribution**: länkade IoT-hubbar är lika troligt att enheter har allokerats till dem. Standardvärdet. Om du endast etablerar enheter till en IoT-hubb kan du behålla den här inställningen.
 
-* **Lägsta svarstid:** enheter etableras till en IoT-hubb med den lägsta svarstiden till enheten. Om flera länkade IoT-hubbar skulle ge samma lägsta svarstid, hashar etableringstjänsten enheter över dessa hubbar
+* **Lägsta latens**: enheter allokeras till en IoT-hubb med den lägsta svars tiden för enheten. Om flera länkade IoT-hubbar skulle ge samma lägsta latens, hash-värden för etablerings tjänsten enheter över dessa nav
 
-* **Statisk konfiguration via registreringslistan**: specifikationen av den önskade IoT-hubben i registreringslistan har företräde framför allokeringsprincipen på tjänstnivå.
+* **Statisk konfiguration via registrerings listan**: specifikationen av den önskade IoT-hubben i registrerings listan har företräde framför tilldelnings principen på tjänst nivå.
 
 ## <a name="enrollment"></a>Registrering
 
-En registrering är en post för enheter eller grupper av enheter som kan registrera sig genom automatisk etablering. Registreringsposten innehåller information om enheten eller gruppen av enheter, inklusive:
-- [den attestationmekanism](concepts-security.md#attestation-mechanism) som används av enheten
-- den valfria ursprungliga önskade konfigurationen
-- önskat IoT-nav
+En registrering är en post för enheter eller grupper av enheter som kan registreras via automatisk etablering. Registrerings posten innehåller information om enheten eller gruppen med enheter, inklusive:
+- [mekanismen för attestering](concepts-security.md#attestation-mechanism) som används av enheten
+- den valfria inledande önskad konfiguration
+- önskad IoT Hub
 - önskat enhets-ID
 
-Det finns två typer av registreringar som stöds av enhetsetableringstjänsten:
+Det finns två typer av registreringar som stöds av enhets etablerings tjänsten:
 
-### <a name="enrollment-group"></a>Registreringsgrupp
+### <a name="enrollment-group"></a>Registrerings grupp
 
-En registreringsgrupp är en grupp enheter som delar en specifik attestation-mekanism. Registreringsgrupper stöder både X.509 och symmetriska. Alla enheter i X.509-registreringsgruppen presenterar X.509-certifikat som har signerats av samma rot- eller mellanliggande certifikatutfärdare. Varje enhet i den symmetriska nyckelregistreringsgruppen presenterar SAS-token som härleds från gruppens symmetriska nyckel. Registreringsgruppens namn och certifikatnamn måste vara alfanumeriska, gemener och kan innehålla bindestreck.
+En registrerings grupp är en grupp enheter som delar en särskild mekanism för attestering. Registrerings grupper stöder både X. 509 och symmetrisk. Alla enheter i gruppen X. 509-registrering finns X. 509-certifikat som har signerats av samma rot-eller mellanliggande certifikat utfärdare (CA). Varje enhet i gruppen för symmetrisk nyckel registrering finns SAS-token som härletts från den symmetriska gruppen. Namnet på registrerings gruppen och certifikat namnet måste vara alfanumeriskt, gement och får innehålla bindestreck.
 
 > [!TIP]
-> Vi rekommenderar att du använder en registreringsgrupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som alla går till samma klient.
+> Vi rekommenderar att du använder en registrerings grupp för ett stort antal enheter som delar en önskad inledande konfiguration, eller för enheter som alla kommer till samma klient.
 
 ### <a name="individual-enrollment"></a>Individuell registrering
 
-En enskild registrering är en post för en enda enhet som kan registrera. Enskilda registreringar kan använda antingen X.509 leaf-certifikat eller SAS-token (från en fysisk eller virtuell TPM) som attesteringsmekanismer. Registrerings-ID:t i en enskild registrering är alfanumeriskt, gemener och kan innehålla bindestreck. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.
+En enskild registrering är en post för en enskild enhet som kan registreras. Enskilda registreringar kan använda antingen X. 509-löv certifikat eller SAS-token (från en fysisk eller virtuell TPM) som attesterings metoder. Registrerings-ID: t i en enskild registrering är alfanumeriskt, gement och får innehålla bindestreck. Enskilda registreringar kan ha angivet önskat enhets-ID för IoT Hub.
 
 > [!TIP]
-> Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika inledande konfigurationer eller för enheter som bara kan autentisera med SAS-token via TPM-intyg.
+> Vi rekommenderar att du använder enskilda registreringar för enheter som kräver unika inledande konfigurationer eller för enheter som bara kan autentiseras med SAS-token via TPM-attestering.
 
 ## <a name="registration"></a>Registrering
 
-En registrering är posten för en enhet som har registrerats/etablerats på en IoT-hubb via enhetsetableringstjänsten. Registreringsposter skapas automatiskt. de kan tas bort, men de kan inte uppdateras.
+En registrering är en post i en enhet som har registrerats/tillhandahållits till en IoT Hub via enhets etablerings tjänsten. Registrerings poster skapas automatiskt. de kan tas bort, men de kan inte uppdateras.
 
 ## <a name="operations"></a>Åtgärder
 
-Åtgärder är faktureringsenheten för enhetsetableringstjänsten. En åtgärd är att slutföra en instruktion till tjänsten. Verksamheten omfattar enhetsregistreringar och omregistreringar. Åtgärder omfattar även ändringar på tjänstsidan, till exempel lägga till registreringslistposter och uppdatera registreringslistposter.
+Åtgärder är fakturerings enheten för enhets etablerings tjänsten. En åtgärd är slutförd slut för ande av en instruktion till tjänsten. Åtgärderna inkluderar enhets registreringar och omregistreringar; åtgärder omfattar även ändringar på tjänst sidan, till exempel att lägga till registrerings List poster och uppdatera poster i registrerings listan.

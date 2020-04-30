@@ -1,6 +1,6 @@
 ---
-title: Skapa ett mappningsprogram med Azure Maps | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du skapar ett program med hjälpmedelsfunktioner med Hjälp av Microsoft Azure Maps.
+title: Skapa ett tillgängligt kart program med Azure Maps | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du skapar ett program med hjälpmedels funktioner med hjälp av Microsoft Azure Maps.
 services: azure-maps
 author: rbrundritt
 ms.author: richbrun
@@ -9,80 +9,80 @@ ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 5fa9e159fa0ac76ce8c585936059fb7f3151c7c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79473327"
 ---
-# <a name="building-an-accessible-application"></a>Bygga ett tillgängligt program
+# <a name="building-an-accessible-application"></a>Skapa ett tillgängligt program
 
-Uppemot 20 % av internetanvändarna har ett behov av tillgängliga webbapplikationer. Därför är det viktigt att se till att ditt program är utformat så att alla användare enkelt kan använda det. I stället för att tänka på tillgänglighet som en uppsättning uppgifter att slutföra, se det som en del av din totala användarupplevelse. Ju mer tillgängligt ditt program är, desto fler personer som kan använda det. 
+Om du har fler än 20% av Internet-användare har du behov av tillgängliga webb program. Det är därför viktigt att se till att ditt program är utformat så att alla användare enkelt kan använda det. I stället för att tänka på tillgänglighet som en uppsättning uppgifter som ska slutföras, kan du se den som en del av din övergripande användar upplevelse. Den mer lättillgängliga appen, desto fler personer som kan använda det. 
 
-När det gäller rikt interaktivt innehåll som en karta är några vanliga tillgänglighetsöverväganden:
-- Stöd skärmläsaren för användare som har svårt att se webbprogrammet.
-- Ha flera metoder för att interagera med och navigera i webbprogrammet, till exempel mus, touch och tangentbord.
-- Se till att färgkontrasten är sådan att färgerna inte smälter samman och blir svåra att skilja från varandra. 
+När det kommer till omfattande interaktivt innehåll som en karta är några vanliga tillgänglighets aspekter:
+- Stöd för skärm läsaren för användare som har svårt att se webb programmet.
+- Det finns flera metoder för att interagera med och navigera i webb programmet, till exempel mus, touch och tangent bord.
+- Se till att färg kontrasten är sådan att färgerna inte smälter samman och blir hårda för att skilja sig från varandra. 
 
-Azure Maps Web SDK levereras förbyggt med många hjälpmedelsfunktioner, till exempel:
-- Beskrivningar av skärmläsare när kartan flyttas och när användaren fokuserar på en kontroll eller popup.
-- Stöd för mus, tryck och tangentbord.
-- Stöd för tillgänglig färgkontrast i vägkartstilen.
+Azure Maps Web SDK levereras med många hjälpmedels funktioner, till exempel:
+- Skärm läsar beskrivningar när kartan flyttas och när användaren fokuserar på en kontroll eller popup.
+- Stöd för musen, touch och keyboard.
+- Stöd för tillgänglig färg kontrast på väg kartans format.
 
-Fullständig information om tillgänglighetskonformance för alla Microsoft-produkter finns [här](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Sök efter "Azure Maps web" för att hitta dokumentet specifikt för Azure Maps Web SDK. 
+Fullständig tillgänglighets information för alla Microsoft-produkter hittar du [här](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Sök efter "Azure Maps webb" för att hitta det dokument som är specifikt för Azure Maps Web SDK. 
 
-## <a name="navigating-the-map"></a>Navigera på kartan
+## <a name="navigating-the-map"></a>Navigera i kartan
 
-Det finns flera olika sätt på vilka kartan kan zoomas, panoreras, roteras och kastas. Följande beskriver alla olika sätt att navigera på kartan.
+Det finns flera olika sätt på vilka kartan kan zoomas, panoreras, roteras och visas. Följande information innehåller alla olika sätt att navigera i kartan.
 
 **Zooma kartan**
 
-- Dubbelklicka på kartan med hjälp av en mus för att zooma in en nivå.
-- Rulla hjulet med hjälp av en mus för att zooma kartan.
-- Tryck på kartan med två fingrar med hjälp av en pekskärm och nyp ihop för att zooma ut eller sprida isär fingrarna för att zooma in.
-- Med hjälp av en pekskärm trycker du dubbel på kartan för att zooma in en nivå.
-- Med kartan fokuserad använder du`+`plustecknet ( )`=`eller Likhetstecknet ( ) för att zooma in en nivå.
-- Med kartan fokuserad använder du minustecknet,`-`bindestrecket ( eller Understreck (`_`) för att zooma ut en nivå.
-- Använda zoomkontrollen med en mus, pek- eller tangentbordsflik/ange tangenter.
-- Tryck och `Shift` håll ned knappen och tryck ned vänster musknapp på kartan och dra för att rita ut ett område som kartan ska zoomas in i.
+- Använd en mus, dubbelklicka på kartan för att zooma in en nivå.
+- Använd en mus, Rulla hjulet för att zooma kartan.
+- Använd en touch-skärm och vidrör kartan med två fingrar och dra ihop för att zooma ut eller sprida fingrarna från varandra för att zooma in.
+- Använd en pekskärm och dubbelknacka på kartan för att zooma på en nivå.
+- Med kartan fokuserad använder du plus tecknet (`+`) eller likhets tecknet (`=`) för att zooma in en nivå.
+- Med kartan fokuserad använder du minus tecknet, bindestrecket (`-`) eller under streck (`_`) för att zooma ut en nivå.
+- Använd zoomnings kontrollen med musen, touch eller tangent bord/ange nycklar.
+- Tryck på och håll `Shift` ned knappen och tryck på vänster musknapp ned på kartan och dra för att rita ut ett område för att zooma kartan till.
 
 **Panorera kartan**
 
-- Tryck ned med vänster musknapp på kartan med hjälp av en mus.
-- Tryck på kartan med en pekskärm och dra i valfri riktning.
+- Använd en mus, tryck ned med vänster musknapp på kartan och dra i valfri riktning.
+- Använd en touch-skärm och vidrör kartan och dra i valfri riktning.
 - Med kartan fokuserad använder du piltangenterna för att flytta kartan.
 
 **Rotera kartan**
 
-- Tryck ned med höger musknapp på kartan med hjälp av en mus och dra åt vänster eller höger. 
-- Tryck på kartan med två fingrar med hjälp av en pekskärm och rotera.
-- Med kartan fokuserad använder du skifttangenten och vänster- eller högerpiltangenterna.
-- Använda rotationskontrollen med en mus, pek- eller tangentbordsflik/ange tangenter.
+- Använd en mus, tryck ned med höger musknapp på kartan och dra åt vänster eller höger. 
+- Använd en touch-skärm och vidrör kartan med två fingrar och rotera.
+- Med kartan fokuserad använder du Shift-tangenten och vänster-eller högerpilarna.
+- Använd rotations kontrollen med musen, touch eller tangent bord/ange nycklar.
 
-**Pitcha kartan**
+**Bredd på kartan**
 
-- Tryck ned med höger musknapp på kartan med musen och dra uppåt eller nedåt. 
-- Tryck på kartan med två fingrar med hjälp av en pekskärm och dra dem uppåt eller nedåt.
-- Med kartan fokuserad använder du skifttangenten plus upp- eller nedpiltangenterna. 
-- Använda tonhöjdskontrollen med en mus, pek- eller tangentbordsflik/ange tangenter.
+- Med musen trycker du ned med höger musknapp på kartan och drar upp eller ned. 
+- Använd en touch-skärm och vidrör kartan med två fingrar och dra dem uppåt eller nedåt.
+- Med den fokuserade kartan använder du Shift-tangenten och tangenterna Uppil eller NEDPIL. 
+- Använd kontrollen mus, touch eller tangent bord/ange nycklar.
 
-## <a name="change-the-map-style"></a>Ändra kartformat
+## <a name="change-the-map-style"></a>Ändra kart stil
 
-Alla utvecklare vill inte att alla möjliga kartformat ska vara tillgängliga i deras program. Om utvecklaren visar stilväljarens kontroll över kartan kan användaren ändra kartformatet med hjälp av musen, en knapptryckning eller tangentbordet med fliken eller ange tangenten. Utvecklaren kan ange vilka kartformat de vill göra tillgängliga i kartstilsväljarens kontroll. Dessutom kan utvecklaren programmässigt ställa in och ändra kartstilen.
+Alla utvecklare vill inte att alla möjliga kart format ska vara tillgängliga i sitt program. Om utvecklaren visar kontrollen format väljare för kartan kan användaren ändra kopplings formatet med musen, en touch eller tangent bordet med tabben eller ange nyckel. Utvecklaren kan ange vilka kart format som ska vara tillgängliga i kontrollen kartans stil väljare. Dessutom kan utvecklaren program mässigt ange och ändra kart formatet.
 
 **Använd högkontrast**
 
-- När kartkontrollen har lästs in kontrollerar den om hög kontrast är aktiverad och webbläsaren stöder den.
-- Kartkontrollen övervakar inte enhetens högkontrastläge. Om enhetsläget ändras kommer kartan inte att göra det. Således måste användaren ladda om kartan genom att uppdatera sidan.
-- När hög kontrast upptäcks växlar kartstilen automatiskt till hög kontrast, och alla inbyggda kontroller använder ett format med hög kontrast. ZoomControl, PitchControl, CompassControl, StyleControl och andra inbyggda kontroller använder till exempel en högkontraststil.
-- Det finns två typer av hög kontrast, ljus och mörk. Om typen av hög kontrast kan identifieras av kartkontrollerna justeras kartans beteende i enlighet med detta. Om ljus, kommer grayscale_light kartstilen att laddas. Om typen inte kan identifieras eller är mörk läses high_contrast_dark-formaten in.
-- Om du skapar anpassade kontroller är det bra att veta om de inbyggda kontrollerna använder ett format med hög kontrast. Utvecklare kan lägga till en css-klass på kartan behållare div att kontrollera. Css klasser som skulle `high-contrast-dark` läggas `high-contrast-light`till är och . Om du vill kontrollera med JavaScript använder du:
+- När kart kontrollen läses in, kontrollerar den om hög kontrast är aktiverat och webbläsaren stöder det.
+- Kart kontrollen övervakar inte enhetens höga kontrast läge. Om enhets läget ändras, kommer kartan inte att vara det. Det innebär att användaren måste läsa in kartan igen genom att uppdatera sidan.
+- När hög kontrast identifieras växlar kart formatet automatiskt till hög kontrast, och alla inbyggda kontroller använder en hög kontrast stil. Till exempel, ZoomControl, PitchControl, CompassControl, StyleControl och andra inbyggda kontroller, kommer att använda ett högt kontrast format.
+- Det finns två typer av hög kontrast, ljus och mörk. Om typen av hög kontrast kan identifieras av kart kontrollerna, kommer beteendet för kartan att justeras efter behov. Om ljuset, kommer den grayscale_light kart stilen att läsas in. Om typen inte kan identifieras eller är mörk, kommer high_contrast_dark formatet att läsas in.
+- Om du skapar anpassade kontroller är det bra att veta om de inbyggda kontrollerna använder en hög kontrast stil. Utvecklare kan lägga till en CSS-klass på kartan container div för att kontrol lera. De CSS-klasser som ska läggas till `high-contrast-dark` är `high-contrast-light`och. Om du vill kontrol lera med hjälp av Java Script använder du:
 
 ```javascript
 map.getMapContainer().classList.contains("high-contrast-dark")
 ```
 
-eller, använd:
+eller Använd:
 
 ```javascript
 map.getMapContainer().classList.contains("high-contrast-light")
@@ -90,91 +90,91 @@ map.getMapContainer().classList.contains("high-contrast-light")
 
 ## <a name="keyboard-shortcuts"></a>Kortkommandon
 
-Kartan har ett antal kortkommandon inbyggda som gör det enklare att använda kartan. Dessa kortkommandon fungerar när kartan har fokus.
+Kartan har ett antal kortkommandon inbyggda som gör det enklare att använda kartan. Dessa kortkommandon fungerar när kartan är i fokus.
 
-| Nyckel      | Åtgärd                            |
+| Nyckel      | Action                            |
 |----------|-----------------------------------|
-| `Tab` | Navigera över kontrollerna och popup-fönsteren på kartan. |
-| `ESC` | Flytta fokus från alla element på kartan till kartelementet på den översta nivån. |
-| `Ctrl` + `Shift` + `D` | Växla informationsnivå för skärmläsare.  |
-| Vänsterpil | Panorera kartan till vänster 100 pixlar |
-| Högerpil | Panorera kartan till höger 100 pixlar |
-| Nedpil | Panorera kartan nedåt 100 pixlar |
-| Uppil | Panorera kartan upp 100 pixlar |
-| `Shift`+ uppåtpil | Öka karthöjd med 10 grader |
-| `Shift`+ nedåtpil | Minska karthöjd med 10 grader |
-| `Shift`+ högerpil | Rotera kartan 15 grader medurs |
-| `Shift`+ vänsterpil | Rotera kartan 15 grader moturs |
-| Plustecken`+`( <sup>*</sup>) eller`=`Likhetstecken ( ) | Zooma in |
-| Minustecken, bindestreck`-` <sup>*</sup>(`_`) eller Understreck ( ) | Zooma ut | 
-| `Shift`+ mus dra på kartan för att rita område | Zooma in i området |
+| `Tab` | Navigera bland kontrollerna och popup-fönster i kartan. |
+| `ESC` | Flytta fokus från valfritt element i kartan till kart elementet på översta nivån. |
+| `Ctrl` + `Shift` + `D` | Växla skärm läsar detalj nivå.  |
+| Vänsterpil | Panorera kartan till vänster 100 bild punkter |
+| Högerpil | Panorera kartan höger 100 bild punkter |
+| NEDPIL-tangenten | Panorera kartan nedåt 100 bild punkter |
+| UPPIL-nyckel | Panorera kartan upp 100 bild punkter |
+| `Shift`+ UPPIL | Öka kart bredden med 10 grader |
+| `Shift`+ NEDPIL | Minska kart bredden med 10 grader |
+| `Shift`+ HÖGERPIL | Rotera kartan 15 grader medsols |
+| `Shift`+ VÄNSTERPIL | Rotera kartan 15 grader moturs |
+| Plus tecken (`+`) eller <sup>*</sup>likhets tecken (`=`) | Zooma in |
+| Minus tecken, bindestreck (`-`) eller <sup>*</sup>under streck (`_`) | Zooma ut | 
+| `Shift`+ Dra på kartan för att rita område | Zooma in i yta |
 
-<sup>*</sup>Dessa kortkommandon delar vanligtvis samma tangent på ett tangentbord. Dessa genvägar har lagts till för att förbättra användarupplevelsen. Det spelar heller ingen roll om användaren använder skift-tangenten eller inte för dessa genvägar.
+<sup>*</sup>Dessa kortkommandon delar vanligt vis samma nyckel på ett tangent bord. Dessa genvägar har lagts till för att förbättra användar upplevelsen. Det spelar ingen roll om användaren använder Shift-tangenten eller inte för dessa kortkommandon.
 
-## <a name="screen-reader-support"></a>Stöd för Skärmläsare
+## <a name="screen-reader-support"></a>Stöd för skärm läsare
 
-Användare kan navigera på kartan med hjälp av tangentbordet. Om en skärmläsare körs meddelar kartan användaren om ändringar i dess tillstånd. Användarna meddelas till exempel om kartändringar när kartan panoreras eller zoomas. Som standard innehåller kartan förenklade beskrivningar som utesluter zoomningsnivån och koordinaterna för mitten av kartan. Användaren kan växla detaljnivån för dessa beskrivningar med `Ctrl`  +  `Shift`  +  `D`hjälp av tangentbordet genväg .
+Användare kan navigera i kartan med tangent bordet. Om en skärm läsare körs meddelar kartan användaren om ändringar i sitt tillstånd. Användare meddelas till exempel om kart ändringar när kartan är panorerad eller zoomad. Som standard tillhandahåller kartan förenklade beskrivningar som utesluter zoomnings nivån och koordinaterna i mitten av kartan. Användaren kan växla detalj nivån för dessa beskrivningar genom att använda tangent bordet `Ctrl`  +  `Shift`  +  `D`kort klipp.
 
-All ytterligare information som placeras på baskartan bör ha motsvarande textinformation för skärmläsare användare. Var noga med att lägga till [ARIA-attribut (Accessible Rich Internet Applications),](https://www.w3.org/WAI/standards-guidelines/aria/)alt och title när så är lämpligt. 
+All ytterligare information som placeras på bas kartan bör ha motsvarande text information för skärm läsar användare. Se till att du lägger till [HJÄLPMEDELSANPASSADE Aria-](https://www.w3.org/WAI/standards-guidelines/aria/), Alt-och title-attribut där det är lämpligt. 
 
-## <a name="make-popups-keyboard-accessible"></a>Göra popup-tangentbord tillgängligt
+## <a name="make-popups-keyboard-accessible"></a>Gör tangent bordet tillgängligt för popup-fönster
 
-En markör eller symbol används ofta för att representera en plats på kartan. Ytterligare information om platsen visas vanligtvis i ett popup-fönster när användaren interagerar med markören. I de flesta program visas popup-fönster när en användare klickar eller trycker på en markör. Men om du klickar och trycker måste användaren använda en mus respektive en pekskärm. En god praxis är att göra popup-fönster tillgängliga när du använder ett tangentbord. Den här funktionen kan uppnås genom att skapa en popup för varje datapunkt och lägga till den på kartan. 
+En markör eller symbol används ofta för att representera en plats på kartan. Ytterligare information om platsen visas vanligt vis i ett popup-fönster när användaren interagerar med markören. I de flesta program visas popup-fönster när en användare klickar eller trycker på en markör. Men om du klickar och trycker måste användaren använda en mus och en pekskärm. En bra idé är att göra popup-fönster tillgängliga när du använder ett tangent bord. Den här funktionen kan uppnås genom att skapa en popup för varje data punkt och lägga till den på kartan. 
 
-I följande exempel läses intressanta platser på kartan med hjälp av ett symbollager och en popup-till-kartan läggs till för varje intressant punkt. En referens till varje popup lagras i egenskaperna för varje datapunkt. Det kan också hämtas för en markör, till exempel när du klickar på en markör. När du fokuserar på kartan, genom att trycka på tabbtangenten gör det möjligt för användaren att gå igenom varje popup på kartan.
-
-<br/>
-
-<iframe height='500' scrolling='no' title='Göra ett tillgängligt program' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pennan <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>Gör ett tillgängligt</a> program<a href='https://codepen.io/azuremaps'>@azuremaps</a>av Azure Maps ( ) på <a href='https://codepen.io'>CodePen</a>. </iframe>
+I följande exempel läses intressanta punkter på kartan med ett symbol lager och ett popup-fönster läggs till i kartan för varje orienterings punkt. En referens till varje popup-fönster lagras i egenskaperna för varje data punkt. Den kan också hämtas för en markör, t. ex. När en markör klickas. När du fokuserar på kartan kan du trycka på TABB-tangenten för att gå igenom alla popup-fönster på kartan.
 
 <br/>
 
-## <a name="additional-accessibility-tips"></a>Ytterligare hjälpmedelstips
+<iframe height='500' scrolling='no' title='Gör ett tillgängligt program' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>gör ett tillgängligt program</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) i <a href='https://codepen.io'>CodePen</a>. </iframe>
 
-Här är några ytterligare tips för att göra ditt webbmappningsprogram mer tillgängligt.
+<br/>
 
-- Om du visar många interaktiva punktdata på kartan bör du överväga att minska röran och använda klustring. 
-- Se till att förhållandet mellan text/symboler och bakgrundsfärger är 4.5:1 eller mer.
-- Håll skärmläsaren (ARIA-, alt- och titelattributen) meddelanden korta, beskrivande och meningsfulla. Undvik onödig jargong och akronymer.
-- Försök att optimera meddelanden som skickas till skärmläsaren för att ge kort meningsfull information som är lätt för användaren att smälta. Om du till exempel vill uppdatera skärmläsaren med hög frekvens, till exempel när kartan flyttas, kan du överväga att göra följande:
-    - Vänta tills kartan har flyttats för att uppdatera skärmläsaren.
-    - Begränsa uppdateringarna till en gång med några sekunders mellanrum. 
+## <a name="additional-accessibility-tips"></a>Ytterligare tillgänglighets tips
+
+Här följer några ytterligare tips för att göra ditt webb mappnings program mer tillgängligt.
+
+- Om du visar många interaktiva punkt data på kartan bör du överväga att minska oredan och använda klustring. 
+- Se till att färg kontrast förhållandet mellan text/symboler och bakgrunds färger är 4,5:1 eller mer.
+- Behåll skärm läsaren (ARIA, Alt och title) meddelanden kort, beskrivande och meningsfulla meddelanden. Undvik onödiga jargong och akronymer.
+- Försök att optimera meddelanden som skickas till skärm läsaren för att ge kortfattad meningsfull information som är enkel för användaren att sammanställa. Om du till exempel vill uppdatera skärm läsaren med hög frekvens, till exempel när kartan flyttas, bör du överväga följande punkter:
+    - Vänta tills kartan har flyttat för att uppdatera skärm läsaren.
+    - Begränsa uppdateringarna till en gång om några sekunder. 
     - Kombinera meddelanden tillsammans på ett logiskt sätt. 
-- Undvik att endast förmedla information med hjälp av färger. Använd text, ikoner eller mönster för att komplettera eller ersätta färgen. Några överväganden:
-    - Om du använder ett bubbellager för att visa det relativa värdet mellan datapunkter bör du överväga att skala radien för varje bubbla, färglägga bubblan eller båda. 
-    - Överväg att använda ett symbollager med olika ikoner för olika måttkategorier, till exempel trianglar, stjärnor och fyrkanter. Symbollagret stöder också skalning av ikonens storlek. En textetikett kan också visas.
-    - Om du visar linjedata kan bredden användas för att representera vikt eller storlek. Ett mönster för streckmatris kan användas för att representera olika kategorier av linjer. Ett symbollager kan användas i kombination med en linje för att överlagra ikoner längs linjen. Det är användbart att använda en pilikon för att visa linjens flöde eller riktning.
-    - Om polygondata visas kan ett mönster, till exempel ränder, användas som ett alternativ till färg. 
-- Vissa visualiseringar, till exempel värmekartor, panellager och bildlager, är inte tillgängliga för användare med synnedsättningar. Några överväganden:
-    - Låt skärmläsaren beskriva vad lagret visar när det läggs till på kartan. Om till exempel ett väderradarpanellager visas, låt skärmläsaren säga "Väderradardata läggs över på kartan".
-- Begränsa mängden funktioner som kräver en muspekare. Dessa funktioner är otillgängliga för användare som använder ett tangentbord eller en pekenhet för att interagera med ditt program. Det är fortfarande bra att ha en hovringsstil för interaktivt innehåll som klickbara ikoner, länkar och knappar.
-- Prova att navigera i programmet med tangentbordet. Kontrollera att tabbordningen är logisk.
-- Om du skapar kortkommandon kan du försöka begränsa det till två tangenter eller mindre. 
+- Undvik att endast förmedla information med hjälp av färger. Använd text, ikoner eller mönster för att komplettera eller ersätta färgen. Några saker att tänka på:
+    - Om du använder ett bubbel-lager för att visa det relativa värdet mellan data punkter, kan du överväga att skala radien för varje bubbla, färga bubblan eller bådadera. 
+    - Överväg att använda ett symbol lager med olika ikoner för olika mått kategorier, till exempel trianglar, stjärnor och fyr kanter. Symbol lagret stöder också skalning av ikonens storlek. En text etikett kan också visas.
+    - Om du visar rad data kan bredden användas för att representera vikt eller storlek. Ett mönster för streck mat ris kan användas för att representera olika kategorier av linjer. Ett symbol lager kan användas tillsammans med en linje för att täcka över ikoner längs linjen. Det är praktiskt att använda en pil-ikon för att Visa linjens flöde eller riktning.
+    - Om du visar polygon-data, kan ett mönster, till exempel ränder, användas som ett alternativ till färg. 
+- Vissa visualiseringar som termiska kartor, panel lager och bild lager är inte tillgängliga för användare med nedsatt syn. Några saker att tänka på:
+    - Låt skärm läsaren beskriva vad lagret visar när det läggs till i kartan. Om t. ex. ett väderleks panels lager visas, har skärm läsaren säga "väder polär data överlappar kartan".
+- Begränsa mängden funktioner som kräver mus hovring. Dessa funktioner kommer inte att vara tillgängliga för användare som använder ett tangent bord eller en touch-enhet för att interagera med ditt program. Obs! det är fortfarande en bra idé att ha ett hov rings format för interaktivt innehåll, till exempel klicka bara ikoner, länkar och knappar.
+- Försök att navigera i programmet med tangent bordet. Kontrol lera att Tab-ordningen är logisk.
+- Om du skapar kortkommandon kan du försöka begränsa det till två nycklar eller färre. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hjälpmedel i Webb-SDK-modulerna.
+Lär dig mer om hjälpmedel i Web SDK-modulerna.
 
 > [!div class="nextstepaction"]
-> [Hjälpmedel för ritverktyg](drawing-tools-interactions-keyboard-shortcuts.md)
+> [Hjälpmedel för rit verktyg](drawing-tools-interactions-keyboard-shortcuts.md)
 
-Läs mer om hur du utvecklar appar med microsoft learn:
-
-> [!div class="nextstepaction"]
-> [Hjälpmedel i action-utbildningsväg för digitala märken](https://ready.azurewebsites.net/learning/track/2940)
-
-Ta en titt på de här användbara hjälpmedelsverktygen:
-> [!div class="nextstepaction"]
-> [Utveckla tillgängliga appar](https://developer.microsoft.com/windows/accessible-apps)
+Lär dig mer om att utveckla hjälpmedelsanpassade appar med Microsoft Learn:
 
 > [!div class="nextstepaction"]
-> [WAI-ARIA Översikt](https://www.w3.org/WAI/standards-guidelines/aria/)
+> [Hjälpmedel i praktiken utbildnings väg för digital Badge](https://ready.azurewebsites.net/learning/track/2940)
+
+Ta en titt på dessa användbara hjälpmedels verktyg:
+> [!div class="nextstepaction"]
+> [Utveckla hjälpmedelsanpassade appar](https://developer.microsoft.com/windows/accessible-apps)
 
 > [!div class="nextstepaction"]
-> [Utvärderingsverktyg för webbtillgänglighet (WAVE)](https://wave.webaim.org/)
+> [WAI – ARIA-översikt](https://www.w3.org/WAI/standards-guidelines/aria/)
 
 > [!div class="nextstepaction"]
-> [Kontrastkontroll av webAim-färg](https://webaim.org/resources/contrastchecker/)
+> [Verktyg för webb hjälpmedels utvärdering (WAVE)](https://wave.webaim.org/)
 
 > [!div class="nextstepaction"]
-> [Ingen kaffe vision Simulator](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US)
+> [WebAim färg kontrast kontroll](https://webaim.org/resources/contrastchecker/)
+
+> [!div class="nextstepaction"]
+> [Ingen kaffe formulerings Simulator](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US)

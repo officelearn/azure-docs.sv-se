@@ -1,27 +1,27 @@
 ---
-title: Hantering av fel i varaktiga funktioner - Azure
-description: Lär dig hur du hanterar fel i tillägget Varaktiga funktioner för Azure Functions.
+title: Hantera fel i Durable Functions – Azure
+description: Lär dig hur du hanterar fel i Durable Functions-tillägget för Azure Functions.
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 447b3dcf5040835f5a853beff68bde794ece51f5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277861"
 ---
-# <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantering av fel i varaktiga funktioner (Azure-funktioner)
+# <a name="handling-errors-in-durable-functions-azure-functions"></a>Hantera fel i Durable Functions (Azure Functions)
 
-Varaktig funktion orkestreringar implementeras i kod och kan använda programmeringsspråkets inbyggda felhanteringsfunktioner. Det finns verkligen inte några nya begrepp som du behöver lära dig att lägga till felhantering och kompensation i dina orkestreringar. Det finns dock några beteenden som du bör vara medveten om.
+Varaktiga funktions dirigering implementeras i kod och kan använda programmeringsspråkets inbyggda fel hanterings funktioner. Det finns egentligen inga nya koncept som du behöver lära dig för att lägga till fel hantering och kompensation till dina dirigeringar. Det finns dock några beteenden som du bör vara medveten om.
 
-## <a name="errors-in-activity-functions"></a>Fel i aktivitetsfunktioner
+## <a name="errors-in-activity-functions"></a>Fel i aktivitets funktioner
 
-Alla undantag som genereras i en aktivitetsfunktion konverteras tillbaka till `FunctionFailedException`orchestrator-funktionen och genereras som en . Du kan skriva felhantering och kompensationskod som passar dina behov i orchestrator-funktionen.
+Alla undantag som genereras i en aktivitets funktion konverteras tillbaka till Orchestrator-funktionen och utlöstes som `FunctionFailedException`. Du kan skriva fel hantering och kompensations kod som passar dina behov i Orchestrator-funktionen.
 
-Tänk dig till exempel följande orchestrator-funktion som överför medel från ett konto till ett annat:
+Anta till exempel följande Orchestrator-funktion som överför fonder från ett konto till ett annat:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TransferFunds")]
@@ -60,9 +60,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> De tidigare C#-exemplen är för varaktiga funktioner 2.x. För varaktiga funktioner 1.x `DurableOrchestrationContext` måste `IDurableOrchestrationContext`du använda i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -100,13 +100,13 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Om det första CreditAccount-funktionsanropet misslyckas kompenserar orchestrator-funktionen genom att kreditera tillbaka pengarna till källkontot. **CreditAccount**
+Om det första funktions anropet för **CreditAccount** Miss lyckas kompenserar Orchestrator-funktionen genom att kreditera pengarna tillbaka till käll kontot.
 
-## <a name="automatic-retry-on-failure"></a>Automatiskt återförsök vid fel
+## <a name="automatic-retry-on-failure"></a>Automatiskt försök vid fel
 
-När du anropar aktivitetsfunktioner eller underorkestreringsfunktioner kan du ange en princip för automatiskt återförsök. I följande exempel försöker du anropa en funktion upp till tre gånger och väntar 5 sekunder mellan varje nytt försök:
+När du anropar aktivitets funktioner eller under Orchestration-funktioner kan du ange en princip för automatisk återförsök. Följande exempel försöker anropa en funktion upp till tre gånger och väntar 5 sekunder mellan varje nytt försök:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestratorWithRetry")]
@@ -123,9 +123,9 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> De tidigare C#-exemplen är för varaktiga funktioner 2.x. För varaktiga funktioner 1.x `DurableOrchestrationContext` måste `IDurableOrchestrationContext`du använda i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -145,20 +145,20 @@ module.exports = df.orchestrator(function*(context) {
 
 ---
 
-Aktivitetsfunktionsanropet i föregående exempel tar en parameter för att konfigurera en automatisk återförsöksprincip. Det finns flera alternativ för att anpassa principen för automatiskt återförsök:
+Aktivitets funktions anropet i föregående exempel tar en parameter för att konfigurera en princip för automatisk återförsök. Det finns flera alternativ för att anpassa principen för automatiskt återförsök:
 
-* **Max antal försök**: Det maximala antalet försök för återförsök.
-* **Första återförsöksintervallet**: Den tid som ska vänta innan det första försöket försöker igen.
-* **Backoff koefficient**: Den koefficient som används för att bestämma ökningstakten för backoff. Standard till 1.
-* **Maximalt intervall för återförsök**: Den maximala tiden att vänta mellan försöken att försöka igen.
-* **Timeout för återförsök:** Den maximala tiden att spendera på att göra återförsök. Standardbeteendet är att försöka igen på obestämd tid.
-* **Handtag**: En användardefinierad motringning kan anges för att avgöra om en funktion ska göras på nytt.
+* **Maximalt antal försök**: maximalt antal återförsök.
+* **Första**återförsöksintervall: vänte tiden innan det första försöket.
+* **Backoff-koefficient**: den koefficient som används för att fastställa frekvensen av ökningen av backoff. Standardvärdet är 1.
+* **Högsta återförsöksintervall**: den maximala vänte tiden mellan återförsök.
+* **Timeout för återförsök**: maximal tid att spendera på nya försök. Standard beteendet är att försöka på obestämd tid.
+* **Referens**: en användardefinierad motringning kan anges för att avgöra om en funktion ska provas igen.
 
-## <a name="function-timeouts"></a>Tidsutgångar för funktion
+## <a name="function-timeouts"></a>Funktions tids gränser
 
-Du kanske vill överge ett funktionsanrop i en orchestrator-funktion om det tar för lång tid att slutföra. Det korrekta sättet att göra detta idag är `context.CreateTimer` genom att `context.df.createTimer` skapa en [hållbar timer](durable-functions-timers.md) med (.NET) eller (JavaScript) tillsammans med `Task.WhenAny` (.NET) eller `context.df.Task.any` (JavaScript), som i följande exempel:
+Du kanske vill överge ett funktions anrop i en Orchestrator-funktion om det tar för lång tid att slutföra. Det är ett bra sätt att göra detta idag genom att skapa en [varaktig timer](durable-functions-timers.md) med `context.CreateTimer` (.net `context.df.createTimer` ) eller (Java Script) `Task.WhenAny` tillsammans med (.net `context.df.Task.any` ) eller (Java Script), som i följande exempel:
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```csharp
 [FunctionName("TimerOrchestrator")]
@@ -189,9 +189,9 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> De tidigare C#-exemplen är för varaktiga funktioner 2.x. För varaktiga funktioner 1.x `DurableOrchestrationContext` måste `IDurableOrchestrationContext`du använda i stället för . Mer information om skillnaderna mellan versioner finns i artikeln [Över huvudversioner för varaktiga funktioner.](durable-functions-versions.md)
+> Föregående C#-exempel är för Durable Functions 2. x. För Durable Functions 1. x måste du använda `DurableOrchestrationContext` i stället för `IDurableOrchestrationContext`. Mer information om skillnaderna mellan versioner finns i artikeln [Durable Functions versioner](durable-functions-versions.md) .
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -218,16 +218,16 @@ module.exports = df.orchestrator(function*(context) {
 ---
 
 > [!NOTE]
-> Den här mekanismen avslutar faktiskt inte körning av aktivitetsfunktionen under pågående. Snarare tillåter det helt enkelt orchestrator funktionen att ignorera resultatet och gå vidare. Mer information finns i [timers-dokumentationen.](durable-functions-timers.md#usage-for-timeout)
+> Den här mekanismen avslutar egentligen inte körningen av aktivitets funktionen. I stället tillåter det bara att Orchestrator-funktionen ignorerar resultatet och går vidare. Mer information finns i dokumentationen för [timers](durable-functions-timers.md#usage-for-timeout) .
 
 ## <a name="unhandled-exceptions"></a>Ohanterade undantag
 
-Om en orchestrator-funktion misslyckas med ett ohanterat undantag loggas informationen om `Failed` undantaget och instansen slutförs med status.
+Om en Orchestrator-funktion Miss lyckas med ett ohanterat undantag loggas detaljerna för undantaget och instansen slutförs med en `Failed` status.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om eviga orkestreringar](durable-functions-eternal-orchestrations.md)
+> [Lär dig mer om Eternal-dirigeringar](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Läs om hur du diagnostiserar problem](durable-functions-diagnostics.md)
+> [Lär dig hur du diagnostiserar problem](durable-functions-diagnostics.md)

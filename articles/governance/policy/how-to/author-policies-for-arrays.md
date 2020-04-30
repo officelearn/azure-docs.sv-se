@@ -1,34 +1,34 @@
 ---
-title: Författare principer för matrisegenskaper på resurser
-description: Lär dig att arbeta med matrisparametrar och matrisspråkuttryck, utvärdera [*] aliaset och lägga till element med Azure Policy definition rules.
+title: Redigera principer för mat ris egenskaper för resurser
+description: Lär dig att arbeta med mat ris parametrar och matris språk uttryck, utvärdera [*]-aliaset och lägga till element med Azure Policy definitions regler.
 ms.date: 11/26/2019
 ms.topic: how-to
 ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79280669"
 ---
-# <a name="author-policies-for-array-properties-on-azure-resources"></a>Författare principer för matrisegenskaper på Azure-resurser
+# <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
-Azure Resource Manager-egenskaper definieras ofta som strängar och booleans. När det finns en 1:N-relation definieras komplexa egenskaper i stället som matriser. I Azure Policy används matriser på flera olika sätt:
+Azure Resource Manager egenskaper definieras vanligt vis som strängar och booleska värden. När en en-till-många-relation finns, definieras komplexa egenskaper i stället som matriser. I Azure Policy används matriser på flera olika sätt:
 
-- Typ av [definitionsparameter](../concepts/definition-structure.md#parameters)för att ange flera alternativ
-- En del av en [principregel](../concepts/definition-structure.md#policy-rule) som använder villkoren **i** eller **inteI**
-- En del av en principregel som utvärderar [ \[ \* \] aliaset](../concepts/definition-structure.md#understanding-the--alias) för att utvärdera:
-  - Scenarier som **Ingen,** **Alla**eller **Alla**
+- Typ av [definitions parameter](../concepts/definition-structure.md#parameters)för att tillhandahålla flera alternativ
+- En del av en [princip regel](../concepts/definition-structure.md#policy-rule) med hjälp av villkoren **i** eller **notIn**
+- En del av en princip regel som utvärderar det [ \[ \* \] alias](../concepts/definition-structure.md#understanding-the--alias) som ska utvärderas:
+  - Scenarier som **ingen**, **alla**eller **alla**
   - Komplexa scenarier med **antal**
-- I [tilläggseffekten](../concepts/effects.md#append) för att ersätta eller lägga till i en befintlig matris
+- I Lägg till- [effekter](../concepts/effects.md#append) för att ersätta eller lägga till i en befintlig matris
 
-Den här artikeln täcker varje användning av Azure Policy och innehåller flera exempeldefinitioner.
+Den här artikeln beskriver varje användning av Azure Policy och innehåller flera exempel definitioner.
 
-## <a name="parameter-arrays"></a>Parametermatriser
+## <a name="parameter-arrays"></a>Parameter mat ris
 
-### <a name="define-a-parameter-array"></a>Definiera en parametermatris
+### <a name="define-a-parameter-array"></a>Definiera en parameter mat ris
 
-Genom att definiera en parameter som en matris kan principflexibiliteten när mer än ett värde behövs.
-Med den här principdefinitionen tillåts en enskild plats för parametern **tillåtnaplatser** och standardvärden till _eastus2:_
+Genom att definiera en parameter som en matris kan principen vara flexibel när fler än ett värde krävs.
+Med den här princip definitionen kan parametern **allowedLocations** och standard platsen vara _eastus2_:
 
 ```json
 "parameters": {
@@ -44,9 +44,9 @@ Med den här principdefinitionen tillåts en enskild plats för parametern **til
 }
 ```
 
-Eftersom **typen** var _sträng_kan endast ett värde anges när principen tilldelas. Om den här principen har tilldelats tillåts resurser i omfattning endast inom en enda Azure-region. De flesta principer definitioner måste tillåta en lista över godkända alternativ, till exempel att tillåta _eastus2_, _eastus_och _westus2_.
+Som **typen** var _sträng_, kan endast ett värde anges när principen tilldelas. Om den här principen är tilldelad tillåts endast resurser i omfattning inom en enda Azure-region. De flesta princip definitioner måste tillåta en lista över godkända alternativ, till exempel att tillåta _eastus2_, _öster_och _westus2_.
 
-Om du vill skapa principdefinitionen för att tillåta flera alternativ använder du _array_ **matristypen**. Samma policy kan skrivas om på följande sätt:
+Använd _mat ris_ **typen**för att skapa princip definitionen för att tillåta flera alternativ. Samma princip kan skrivas om på följande sätt:
 
 ```json
 "parameters": {
@@ -69,17 +69,17 @@ Om du vill skapa principdefinitionen för att tillåta flera alternativ använde
 ```
 
 > [!NOTE]
-> När en principdefinition har sparats kan **egenskapen type** på en parameter inte ändras.
+> När en princip definition har sparats går det inte att ändra **typ** egenskapen för en parameter.
 
-Den här nya parameterdefinitionen tar mer än ett värde under principtilldelning. Med matrisegenskapen **tillåtenVärde definierad** begränsas de värden som är tillgängliga under tilldelning ytterligare till den fördefinierade listan med alternativ. Användning av **tillåtnavärden** är valfritt.
+Den här nya parameter definitionen tar fler än ett värde under princip tilldelningen. När du har definierat mat ris egenskapen **allowedValues** är de värden som är tillgängliga under tilldelningen ytterligare begränsad till den fördefinierade listan med alternativ. Användning av **allowedValues** är valfritt.
 
-### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Skicka värden till en parametermatris under tilldelning
+### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Skicka värden till en parameter mat ris under tilldelningen
 
-När du tilldelar principen via Azure-portalen visas en parameter för **type** _typmatris_ som en enda textruta. Ledtråden säger "Använd; separata värden. (t.ex. New York)". Om du vill skicka de tillåtna platsvärdena _för eastus2_, _eastus_och _westus2_ till parametern använder du följande sträng:
+När du tilldelar principen via Azure Portal visas en parameter av **typen** _matris_ som en enda text ruta. Tipset står "use; separera värden. (t. ex. London; New York) ". Använd följande sträng för att överföra de tillåtna positions värden för _eastus2_, _öster_och _westus2_ till parametern:
 
 `eastus2;eastus;westus2`
 
-Formatet för parametervärdet är annorlunda när du använder Azure CLI, Azure PowerShell eller REST API. Värdena skickas genom en JSON-sträng som också innehåller namnet på parametern.
+Parameter värdets format skiljer sig från Azure CLI, Azure PowerShell eller REST API. Värdena skickas via en JSON-sträng som även innehåller namnet på parametern.
 
 ```json
 {
@@ -93,18 +93,18 @@ Formatet för parametervärdet är annorlunda när du använder Azure CLI, Azure
 }
 ```
 
-Om du vill använda den här strängen med varje SDK använder du följande kommandon:
+Använd följande kommandon om du vill använda den här strängen med varje SDK:
 
-- Azure CLI: Kommando [az principtilldelning skapa](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) med **parameterparams**
-- Azure PowerShell: Cmdlet [New-AzPolicyTilldelning](/powershell/module/az.resources/New-Azpolicyassignment) med **parameterprincipParameter**
-- REST API: I åtgärden _PUT_ [create](/rest/api/resources/policyassignments/create) som en del av begärandetexten som värdet för egenskapen **properties.parameters**
+- Azure CLI: kommando [AZ princip tilldelning skapa](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) med parameter **parametrar**
+- Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) med parametern **PolicyParameter**
+- REST API: i åtgärden _Lägg_ till [skapa](/rest/api/resources/policyassignments/create) som en del av begär ande texten som värde för egenskapen **Properties. Parameters**
 
-## <a name="policy-rules-and-arrays"></a>Principregler och matriser
+## <a name="policy-rules-and-arrays"></a>Princip regler och matriser
 
-### <a name="array-conditions"></a>Matrisvillkor
+### <a name="array-conditions"></a>Mat ris villkor
 
-[Principregelvillkoren](../concepts/definition-structure.md#conditions) som en _matristyp_
-**type** av parameter kan `in` användas `notIn`med är begränsade till och . Ta följande principdefinition `equals` med villkor som exempel:
+Princip regel [villkoren](../concepts/definition-structure.md#conditions) som en _mat ris_
+**typ** parameter kan användas med är begränsad till `in` och. `notIn` Vidta följande princip definition med villkor `equals` som exempel:
 
 ```json
 {
@@ -132,20 +132,20 @@ Om du vill använda den här strängen med varje SDK använder du följande komm
 }
 ```
 
-Om du försöker skapa den här principdefinitionen via Azure-portalen visas ett fel som det här felmeddelandet:
+Försöket att skapa princip definitionen via Azure Portal leder till ett fel meddelande som detta fel meddelande:
 
-- "Principen {GUID} kunde inte parameteriseras på grund av valideringsfel. Kontrollera om principparametrarna har definierats korrekt. Det inre undantaget "Utvärderingsresultatet av språkuttrycket "[parametrar('allowedLocations')]" är typen Array, den förväntade typen är "String".
+- "Det gick inte att parameterstyrda principen {GUID} på grund av verifierings fel. Kontrol lera att princip parametrarna är korrekt definierade. Det inre undantaget för utvärderings resultatet av språk uttrycket [parameters (' allowedLocations ')] är type ' matris ', förväntad typ är sträng '. "
 
-Den **type** förväntade typen `equals` av villkor är _sträng_. Eftersom **allowedLocations** definieras som _typmatris_utvärderar principmotorn språkuttrycket och genererar felet. **type** Med `in` villkoret och `notIn` förväntar sig principmotorn _textmatrisen_ i språkuttrycket. **type** Lös det här felmeddelandet `in` genom `notIn`att ändra `equals` till antingen eller .
+Den förväntade **typen** av villkor `equals` är _sträng_. Eftersom **allowedLocations** har definierats som **typ** _mat ris_, utvärderar principmodulen språk uttryck och genererar felet. `in` Med villkoret `notIn` och förväntar sig princip motorn **typ** _mat ris_ i språk uttrycket. Lös det här fel meddelandet genom att `equals` ändra till `in` antingen `notIn`eller.
 
-### <a name="evaluating-the--alias"></a>Utvärdera [*] alias
+### <a name="evaluating-the--alias"></a>Utvärdera [*]-aliaset
 
-Alias som ** \[ \* ** har kopplat till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera ** \[ \* ** värdet för hela matrisen gör det möjligt att utvärdera varje element i matrisen individuellt, med logiska OCH mellan dem. Det finns tre standardscenarier som utvärderingen per artikel är användbart i: _Ingen_, _Alla_eller _Alla_ element matchar. För komplexa scenarier använder [du antal](../concepts/definition-structure.md#count).
+Alias som ** \[ \* ** är kopplade till deras namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen ** \[ \* ** gör det möjligt att utvärdera varje element i matrisen individuellt, med logiska och mellan dem. Det finns tre standard scenarier för utvärdering av objekt per objekt är användbart i: _ingen_, _alla_eller _alla_ element matchar. För komplexa scenarier använder du [Count](../concepts/definition-structure.md#count).
 
-Principmotorn utlöser **effekten** **då** endast när **if-regeln** utvärderas som sann.
-Detta faktum är viktigt att förstå ** \[ \* ** i samband med hur utvärderar varje enskilt element i matrisen.
+Princip motorn utlöser **effekterna** i **sedan** bara när **IF** -regeln utvärderas som sant.
+Det här faktum är viktigt att förstå i samband med hur ** \[ \* ** man utvärderar varje enskilt element i matrisen.
 
-Exempelprincipregeln för scenariotabellen nedan:
+Exempel princip regeln för scenario tabellen nedan:
 
 ```json
 "policyRule": {
@@ -164,7 +164,7 @@ Exempelprincipregeln för scenariotabellen nedan:
 }
 ```
 
-Den **ipRules** array är följande för scenariot tabellen nedan:
+**IpRules** -matrisen ser ut så här i scenario tabellen nedan:
 
 ```json
 "ipRules": [
@@ -179,35 +179,35 @@ Den **ipRules** array är följande för scenariot tabellen nedan:
 ]
 ```
 
-Ersätt `<field>` med `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
+Ersätt `<field>` med `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`för varje villkors exempel nedan.
 
-Följande resultat är resultatet av kombinationen av villkoret och exempelprincipregeln och matrisen med befintliga värden ovan:
+Följande resultat är resultatet av kombinationen av villkoret och exempel princip regeln och matrisen med befintliga värden ovan:
 
 |Villkor |Resultat | Scenario |Förklaring |
 |-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Ingenting |Ingen matchning |Ett matriselement utvärderas som falskt (127.0.0.1 != 127.0.0.1) och ett som sant (127.0.0.1 != 192.168.1.1), så **villkoret notEquals** är _falskt_ och effekten utlöses inte. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Policyeffekt |Ingen matchning |Båda matriselementen utvärderas som true (10.0.4.1 != 127.0.0.1 och 10.0.4.1 != 192.168.1.1), så **villkoret notEquals** är _sant_ och effekten utlöses. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Policyeffekt |En eller flera matchning |Ett arrayelement utvärderas som falskt (127.0.0.1 != 127.0.0.1) och ett som sant (127.0.0.1 != 192.168.1.1), så **villkoret om intekvalitet är** _falskt_. Den logiska operatorn utvärderar som sant (**inte** _falskt_), så effekten utlöses. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Ingenting |En eller flera matchning |Båda matriselementen utvärderas som sanna (10.0.4.1 != 127.0.0.1 och 10.0.4.1 != 192.168.1.1), så **villkoret om ejKvaliteter** är _sant_. Den logiska operatorn utvärderas som falsk (**inte** _sant_), så effekten utlöses inte. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Policyeffekt |Inte alla matchning |Ett matriselement utvärderas som sant (127.0.0.1 == 127.0.0.1) och ett som falskt (127.0.0.1 == 192.168.1.1), så **villkoret Lika är** _falskt_. Den logiska operatorn utvärderar som sant (**inte** _falskt_), så effekten utlöses. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Policyeffekt |Inte alla matchning |Båda matriselementen utvärderas som falska (10.0.4.1 == 127.0.0.1 och 10.0.4.1 == 192.168.1.1), så **villkoret Lika är** _falskt_. Den logiska operatorn utvärderar som sant (**inte** _falskt_), så effekten utlöses. |
-|`{<field>,"Equals":"127.0.0.1"}` |Ingenting |Alla match |Ett matriselement utvärderas som sant (127.0.0.1 == 127.0.0.1) och ett som falskt (127.0.0.1 == 192.168.1.1), så **villkoret Lika är** _falskt_ och effekten utlöses inte. |
-|`{<field>,"Equals":"10.0.4.1"}` |Ingenting |Alla match |Båda matriselementen utvärderas som falska (10.0.4.1 == 127.0.0.1 och 10.0.4.1 == 192.168.1.1), så **villkoret Lika är** _falskt_ och effekten utlöses inte. |
+|`{<field>,"notEquals":"127.0.0.1"}` |Ingenting |Ingen matchning |Ett mat ris element utvärderas som falskt (127.0.0.1! = 127.0.0.1) och ett som sant (127.0.0.1! = 192.168.1.1), så **notEquals** -villkoret är _falskt_ och effekterna utlöses inte. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Princip påverkan |Ingen matchning |Båda mat ris elementen utvärderas som sant (10.0.4.1! = 127.0.0.1 och 10.0.4.1! = 192.168.1.1), så **notEquals** -villkoret är _Sant_ och resultatet utlöses. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Princip påverkan |En eller flera matchningar |Ett mat ris element utvärderas som falskt (127.0.0.1! = 127.0.0.1) och ett som sant (127.0.0.1! = 192.168.1.1), så **notEquals** -villkoret är _falskt_. Den logiska operatorn utvärderas som sant (**inte** _falskt_), så att resultatet utlöses. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Ingenting |En eller flera matchningar |Båda mat ris elementen utvärderas som sant (10.0.4.1! = 127.0.0.1 och 10.0.4.1! = 192.168.1.1), så **notEquals** -villkoret är _Sant_. Den logiska operatorn utvärderar sig som falskt (**inte** _Sant_), så det utlöses inte. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Princip påverkan |Ingen matchning |Ett mat ris element utvärderas som sant (127.0.0.1 = = 127.0.0.1) och ett som falskt (127.0.0.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_. Den logiska operatorn utvärderas som sant (**inte** _falskt_), så att resultatet utlöses. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Princip påverkan |Ingen matchning |Båda mat ris elementen utvärderas som falskt (10.0.4.1 = = 127.0.0.1 och 10.0.4.1 = = 192.168.1.1), vilket innebär **att villkoret är** _false_. Den logiska operatorn utvärderas som sant (**inte** _falskt_), så att resultatet utlöses. |
+|`{<field>,"Equals":"127.0.0.1"}` |Ingenting |Alla matchningar |Ett mat ris element utvärderas som sant (127.0.0.1 = = 127.0.0.1) och ett som falskt (127.0.0.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_ och effekterna utlöses inte. |
+|`{<field>,"Equals":"10.0.4.1"}` |Ingenting |Alla matchningar |Båda mat ris elementen utvärderas som falskt (10.0.4.1 = = 127.0.0.1 och 10.0.4.1 = = 192.168.1.1), så **likhets** villkoret är _falskt_ och effekterna utlöses inte. |
 
-## <a name="the-append-effect-and-arrays"></a>Tilläggseffekten och matriserna
+## <a name="the-append-effect-and-arrays"></a>Lägg till effekter och matriser
 
-Effekten [lägg till](../concepts/effects.md#append) fungerar olika beroende på om fältet **är** ett ** \[ \* ** alias eller inte.
+[Lägg till-resultatet](../concepts/effects.md#append) fungerar på olika sätt beroende på om **information. fältet** är ett ** \[ \* ** alias eller inte.
 
-- När du ** \[ \* ** inte är ett alias ersätter append hela matrisen med **egenskapen value**
-- När ** \[ \* ** ett alias läggs till värdeegenskapen i den befintliga matrisen eller skapar den nya matrisen **value**
+- Om du inte ** \[ \* ** använder ett alias ersätter append hela matrisen med egenskapen **Value**
+- När ett ** \[ \* ** alias läggs till lägger till egenskapen **Value** till den befintliga matrisen eller skapar den nya matrisen
 
-Mer information finns i [tilläggsexempelna](../concepts/effects.md#append-examples).
+Mer information finns i [Lägg till exempel](../concepts/effects.md#append-examples).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska exempel i [Azure policy exempel](../samples/index.md).
 - Granska [Azure Policy-definitionsstrukturen](../concepts/definition-structure.md).
 - Granska [Förstå policy-effekter](../concepts/effects.md).
-- Förstå hur du [programmässigt skapar principer](programmatically-create.md).
+- Lär dig att [program mässigt skapa principer](programmatically-create.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](remediate-resources.md).
-- Granska vad en hanteringsgrupp är med [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md).
+- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

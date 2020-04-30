@@ -5,10 +5,10 @@ ms.date: 03/30/2020
 ms.topic: quickstart
 ms.reviewer: ravastra
 ms.openlocfilehash: 9fb013960da5b7cb8ba44f129eab73565f5b5362
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82115252"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>Snabb start: skapa en Azure blockchain-tjänst blockchain-medlem med hjälp av Azure Portal
@@ -31,14 +31,14 @@ En Azure blockchain-tjänst medlem är en blockchain-nod i ett privat konsortium
 
     ![Skapa tjänst](./media/create-member/create-member.png)
 
-    Inställning | Beskrivning
+    Inställningen | Beskrivning
     --------|------------
     Prenumeration | Välj den Azure-prenumeration som du vill använda för din tjänst. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
     Resursgrupp | Skapa ett nytt resurs grupp namn eller Välj en befintlig från din prenumeration.
     Region | Välj en region för att skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats.
     Protokoll | För närvarande stöder för hands versionen av Azure blockchain service protokollet kvorum.
     Konsortium | Ange ett unikt namn för ett nytt konsortium. Om du ansluter till ett konsortium via en inbjudan väljer du det konsortium som du ansluter till. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
-    Namn | Välj ett unikt namn för Azure blockchain service-medlemmen. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
+    Name | Välj ett unikt namn för Azure blockchain service-medlemmen. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
     Konto lösen ord för medlem | Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.
     Prissättning | Nodens konfiguration och kostnad för den nya tjänsten. Välj länken **ändra** om du vill välja mellan nivåerna **standard** och **Basic** . Använd *Basic* -nivån för utveckling, testning och bevis på koncept. Använd *standard* nivån för distributioner av produktions nivåer. Du bör också använda *standard* nivån om du använder blockchain Data Manager eller när du skickar en stor mängd privata transaktioner. Det finns inte stöd för att ändra pris nivån mellan Basic och standard när medlems skapande har skapats.
     Node-lösenord | Lösen ordet för medlemmens standard transaktions nod. Använd lösen ordet för grundläggande autentisering vid anslutning till blockchain-medlemmens offentliga standard transaktions nod.

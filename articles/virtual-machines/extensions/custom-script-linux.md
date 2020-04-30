@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
 ms.openlocfilehash: 959e473cb52e23c9d04586f0b24da34537f4e660
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115609"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda version 2 av Azures tillägg för anpassat skript med virtuella Linux-datorer
@@ -110,7 +110,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 ### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värde/exempel | Datatyp | 
+| Name | Värde/exempel | Datatyp | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
 | utgivare | Microsoft. Compute. Extensions | sträng |
@@ -119,7 +119,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 | fileUris (t. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
 | commandToExecute (t. ex.) | python MyPythonScript.py \<My-param1> | sträng |
 | -skriptet | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | sträng |
-| skipDos2Unix (t. ex.) | false | boolean |
+| skipDos2Unix (t. ex.) | falskt | boolean |
 | tidsstämpel (t. ex.) | 123456789 | 32-bitars heltal |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
 | storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+ hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg = = | sträng |

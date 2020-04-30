@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: patricka
 ms.date: 04/22/2020
 ms.openlocfilehash: db5cabd82ebfed3b1de7659e4b9450ccee0ff001
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "82115303"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-member-using-an-azure-resource-manager-template"></a>Snabb start: skapa en Azure blockchain service-medlem med en Azure Resource Manager-mall
@@ -47,11 +47,11 @@ Azure-resurser som definierats i mallen:
 
 1. Ange inställningarna för Azure blockchain service-medlemmen.
 
-    Inställning | Beskrivning
+    Inställningen | Beskrivning
     --------|------------
     Prenumeration | Välj den Azure-prenumeration som du vill använda för din tjänst. Om du har flera prenumerationer väljer du den prenumeration som resursen ska debiteras till.
     Resursgrupp | Skapa ett nytt resurs grupp namn eller Välj en befintlig från din prenumeration.
-    Location | Välj en plats där du vill skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats. Tillgängliga platser för distributionen är *westeurope, öster, Sydostasien, westeurope, europanorra, westus2*och *japanöstra*.
+    Plats | Välj en plats där du vill skapa medlemmen. Alla medlemmar i konsortiet måste finnas på samma plats. Tillgängliga platser för distributionen är *westeurope, öster, Sydostasien, westeurope, europanorra, westus2*och *japanöstra*.
     Medlemsnamn | Välj ett unikt namn för Azure blockchain service-medlemmen. Blockchain-medlems namnet får bara innehålla gemena bokstäver och siffror. Det första tecknet måste vara en bokstav. Värdet måste vara mellan 2 och 20 tecken långt.
     Namn på konsortium | Ange ett unikt namn. Mer information om konsortier finns i [Azure blockchain service Consortium](consortium.md).
     Medlems lösen ord | Medlems kontots lösen ord används för att kryptera den privata nyckeln för det Ethereum-konto som skapas för din medlem. Du använder medlems kontot och medlems kontots lösen ord för hantering av konsortier.

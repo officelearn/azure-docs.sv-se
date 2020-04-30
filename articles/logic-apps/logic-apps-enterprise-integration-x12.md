@@ -9,10 +9,10 @@ ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/31/2017
 ms.openlocfilehash: 12a1cd3c170fd7444362d1eabba1541cefb37d1a
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115558"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Exchange X12-meddelanden för B2B Enterprise-integration i Azure Logic Apps med Enterprise-integrationspaket
@@ -66,7 +66,7 @@ När du har [skapat ett integrations konto](../logic-apps/logic-apps-enterprise-
 
     | Egenskap | Beskrivning |
     | --- | --- |
-    | Namn |Avtalets namn |
+    | Name |Avtalets namn |
     | Avtals typ | Ska vara X12 |
     | Värd partner |Ett avtal måste både vara värd-och gäst partner. Värd partnern representerar den organisation som konfigurerar avtalet. |
     | Värd identitet |En identifierare för värd partnern |
@@ -98,9 +98,9 @@ Nu är ditt avtal redo att hantera inkommande meddelanden som överensstämmer m
 | Egenskap | Beskrivning |
 | --- | --- |
 | ISA1 (kvalificering av autentisering) |Välj kvalificerat värde för auktorisering från den nedrullningsbara listan. |
-| ISA2 |Valfri. Ange värde för autentiseringsinformation. Om värdet som du angav för ISA1 är ett annat än 00 anger du minst ett alfanumeriskt tecken och högst 10. |
+| ISA2 |Valfritt. Ange värde för autentiseringsinformation. Om värdet som du angav för ISA1 är ett annat än 00 anger du minst ett alfanumeriskt tecken och högst 10. |
 | ISA3 (säkerhets kvalificerare) |Välj värdet för säkerhets kvalificeraren i list rutan. |
-| ISA4 |Valfri. Ange värdet för säkerhets information. Om värdet som du angav för ISA3 är ett annat än 00 anger du minst ett alfanumeriskt tecken och högst 10. |
+| ISA4 |Valfritt. Ange värdet för säkerhets information. Om värdet som du angav för ISA3 är ett annat än 00 anger du minst ett alfanumeriskt tecken och högst 10. |
 
 ### <a name="acknowledgment"></a>Godkänd
 

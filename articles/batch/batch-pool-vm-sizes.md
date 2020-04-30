@@ -6,10 +6,10 @@ ms.date: 09/12/2019
 ms.author: labrenne
 ms.custom: seodec18
 ms.openlocfilehash: d33b97790d2ce9a276a552fd02fe28c796234b15
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115864"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
@@ -32,8 +32,8 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | Basic A | Alla storlekar *utom* Basic_A0 (a0) |
 | A | Alla storlekar *utom* Standard_A0 |
 | AV2 | Alla storlekar |
-| B | Ingen |
-| DC | Ingen |
+| B | Inga |
+| DC | Inga |
 | Dv2, DSv2 | Alla storlekar |
 | Dv3, Dsv3 | Alla storlekar |
 | Dav4, Dasv4 | Ingen – ännu inte tillgänglig |
@@ -57,8 +57,8 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 | NDv2<sup>1</sup> | Ingen – ännu inte tillgänglig |
 | NV | Alla storlekar |
 | NVv3<sup>1</sup> | Alla storlekar |
-| NVv4 | Ingen |
-| SAP HANA | Ingen |
+| NVv4 | Inga |
+| SAP HANA | Inga |
 
 <sup>1</sup> dessa VM-storlekar kan allokeras i batch-pooler i konfigurationen av den virtuella datorn, men du måste skapa ett nytt batch-konto och begära en bestämd [kvot ökning](batch-quota-limit.md#increase-a-quota). Den här begränsningen tas bort när vCPU-kvoten per VM-serien har fullt stöd för batch-konton.
 

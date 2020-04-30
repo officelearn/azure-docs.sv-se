@@ -4,10 +4,10 @@ description: Lär dig hur du aktiverar en hanterad identitet i Azure Container I
 ms.topic: article
 ms.date: 04/15/2020
 ms.openlocfilehash: 31dc198bfb2023684f3a9022bec5a5f50f0d9a72
-ms.sourcegitcommit: f7d057377d2b1b8ee698579af151bcc0884b32b4
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/24/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "82115728"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Använda hanterade identiteter med Azure Container Instances
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig mer om hanterade identiteter i Azure Conta
 Anpassa exemplen för att aktivera och använda identiteter i Azure Container Instances för att få åtkomst till andra Azure-tjänster. Dessa exempel är interaktiva. Men i praktiken skulle behållar avbildningarna köra kod för att få åtkomst till Azure-tjänster.
  
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA). För närvarande stöds endast hanterade identiteter på Azure Container Instances med Linux-behållare och ännu inte med Windows-behållare.
+> Den här funktionen finns för närvarande som en förhandsversion. Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA). För närvarande stöds endast hanterade identiteter på Azure Container Instances med Linux-behållare och ännu inte med Windows-behållare.
 
 ## <a name="why-use-a-managed-identity"></a>Varför ska jag använda en hanterad identitet?
 

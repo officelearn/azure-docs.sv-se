@@ -1,19 +1,19 @@
 ---
-title: Skapa en funktionsapp med GitHub-distribution - Azure CLI
+title: Skapa en Function-app med GitHub-distribution – Azure CLI
 description: Skapa en funktionsapp och distribuera funktionskoden från en GitHub-lagringsplats med hjälp av Azure Functions.
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
 ms.openlocfilehash: e424737b67be58ac0c3880ad2454c87fab803a15
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922724"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Skapa en funktionsapp i Azure som distribueras från GitHub
 
-Det här exempelskriptet för Azure Functions skapar en funktionsapp med hjälp av [förbrukningsplanen](../functions-scale.md#consumption-plan)tillsammans med dess relaterade resurser. Skriptet konfigurerar också funktionskoden för kontinuerlig distribution från en GitHub-lagringsplats. 
+Den här Azure Functions exempel skriptet skapar en Function-app med hjälp av [förbruknings planen](../functions-scale.md#consumption-plan), tillsammans med dess relaterade resurser. Skriptet konfigurerar också funktionskoden för kontinuerlig distribution från en GitHub-lagringsplats. 
 
 För det här exemplet behöver du följande:
 
@@ -38,11 +38,11 @@ Det här exemplet skapar en funktionsapp och distribuerar funktionskod från Git
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapar lagringskontot för funktionsappen. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i den serverlösa [förbrukningsplanen](../functions-scale.md#consumption-plan) och associerar den med en Git- eller Mercurial-databas. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en Function-app i den serverbaserade [förbruknings planen](../functions-scale.md#consumption-plan) och kopplar den till en git-eller Mercurial-lagringsplats. |
 
 ## <a name="next-steps"></a>Nästa steg
 

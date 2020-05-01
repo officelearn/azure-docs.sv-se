@@ -1,5 +1,5 @@
 ---
-title: Använd Ruby för att fråga
+title: Använd ruby för att fråga
 description: Det här avsnittet visar hur du använder Ruby för att skapa ett program som ansluter till en Azure SQL-databas och frågar den med hjälp av Transact-SQL-uttryck.
 services: sql-database
 ms.service: sql-database
@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
 ms.openlocfilehash: 4bef55b049ee542efdb9d72d13fa196c989c75ec
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73826932"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>Snabbstart: Använda Ruby för att fråga en Azure SQL-databas
@@ -30,13 +30,13 @@ För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
   || Enskild databas | Hanterad instans |
   |:--- |:--- |:---|
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Skapa| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [Powershell](scripts/sql-database-create-and-configure-database-powershell.md) | [Powershell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
   |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
   |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC-filen](sql-database-import.md) från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
 
   > [!IMPORTANT]
@@ -44,11 +44,11 @@ För att slutföra den här snabbstarten, behöver du följande förhandskrav:
   
 - Ruby och relaterad programvara för ditt operativsystem:
   
-  - **MacOS**: Installera Homebrew, rbenv och ruby-build, Ruby, FreeTDS och TinyTDS. Se steg 1.2, 1.3, 1.4, 1.5 och 2.1 i [Skapa Ruby-appar med SQL Server på macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
+  - **MacOS**: installera homebrew, rbenv och ruby-build, ruby, freetds och TinyTDS. Se steg 1.2, 1.3, 1.4, 1.5 och 2.1 i [Skapa Ruby-appar med SQL Server på macOS](https://www.microsoft.com/sql-server/developer-get-started/ruby/mac/).
   
-  - **Ubuntu**: Installera förutsättningar för Ruby, rbenv och ruby-build, Ruby, FreeTDS och TinyTDS. Se steg 1.2, 1.3, 1.4, 1.5 och 2.1 i [Skapa Ruby-appar med SQL Server på Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
+  - **Ubuntu**: installera förutsättningar för ruby, rbenv och ruby-build, ruby, freetds och TinyTDS. Se steg 1.2, 1.3, 1.4, 1.5 och 2.1 i [Skapa Ruby-appar med SQL Server på Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/ruby/ubuntu/).
   
-  - **Windows**: Installera Ruby, Ruby Devkit och TinyTDS. Se [Konfigurera utvecklingsmiljön för Ruby-utveckling](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development).
+  - **Windows**: installera ruby, ruby devkit och TinyTDS. Se [Konfigurera utvecklingsmiljön för Ruby-utveckling](/sql/connect/ruby/step-1-configure-development-environment-for-ruby-development).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
@@ -101,6 +101,6 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 ## <a name="next-steps"></a>Nästa steg
 - [Utforma din första Azure SQL-databas](sql-database-design-first-database.md).
-- [GitHub-databas för TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
-- [Rapportera problem eller ställ frågor om TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues).
+- [GitHub-lagringsplats för TinyTDS](https://github.com/rails-sqlserver/tiny_tds).
+- [Rapportera problem eller Ställ frågor om TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues).
 - [Ruby-drivrutin för SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/).

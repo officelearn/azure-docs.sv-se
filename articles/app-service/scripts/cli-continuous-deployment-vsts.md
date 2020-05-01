@@ -1,6 +1,6 @@
 ---
-title: Kontinuerlig distribution från Azure Repos
-description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du konfigurerar CI/CD från Azure Repos.
+title: Kontinuerlig distribution från Azure databaser
+description: Lär dig hur du använder Azure CLI för att automatisera distribution och hantering av din App Service-app. Det här exemplet visar hur du konfigurerar CI/CD från Azure databaser.
 author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 389d3bd3-cd8e-4715-a3a1-031ec061d385
@@ -10,17 +10,17 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: c0e9db3825de9c8c1429bec1edcc6bbb65588fcd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80058050"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>Skapa en App Service-app med kontinuerlig distribution med hjälp av Azure CLI
 
-Det här exempelskriptet skapar en app i App Service med sina relaterade resurser och konfigurerar sedan kontinuerlig distribution från en Azure DevOps-databas. För det här exemplet behöver du följande:
+Det här exempel skriptet skapar en app i App Service med dess relaterade resurser och ställer sedan in kontinuerlig distribution från en Azure DevOps-lagringsplats. För det här exemplet behöver du följande:
 
-* En Azure DevOps-databas med programkod som du har administratörsbehörighet för.
+* En Azure DevOps-lagringsplats med program kod som du har administratörs behörighet för.
 * En [personlig åtkomsttoken (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) för din Azure DevOps-organisation.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -40,7 +40,7 @@ Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha 
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Skapar en App Service-plan. |

@@ -18,10 +18,10 @@ ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
 ms.openlocfilehash: 914ccc2ac74048abb2a66b61aa65b771f8141d5e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "71212055"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till specifika användare med Azure Notification Hubs
@@ -33,7 +33,7 @@ ms.locfileid: "71212055"
 Denna självstudie visar hur du använder Azure Notification Hubs till att skicka push-meddelanden till en specifik appanvändare på en specifik enhet. En ASP.NET-WebAPI-serverdel används för att autentisera klienter. När serverdelen autentiserar en klientprogramsanvändare lägger den automatiskt till en tagg till meddelanderegistreringen. Serverdelen använder den här taggen för att skicka meddelanden till specifika användare.
 
 > [!NOTE]
-> Den färdiga koden för den här självstudien finns på [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+> Den färdiga koden för den här självstudien hittar du på [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
 I den här självstudien gör du följande:
 
@@ -60,13 +60,13 @@ Den här kursen bygger på meddelandehubben och det Visual Studio-projekt som du
 I det här avsnittet kommer du att uppdatera koden i det projekt som du slutförde i kursen [Självstudier: Skicka meddelanden till UWP-appar med Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Projektet bör redan ha associerats till Windows Store. Det bör också ha konfigurerats för meddelandehubben. I det här avsnittet kommer du att lägga till kod för att anropa den nya WebAPI-serverdelen och använda den för att registrera och skicka meddelanden.
 
 1. Öppna den lösning som du slutförde i [Självstudier: Skicka meddelanden till UWP-appar med Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) i Visual Studio.
-2. Högerklicka på projektet Universell Windows-plattform (UWP) i Solution Explorer och klicka sedan på **Hantera NuGet-paket**.
-3. Välj **Bläddra**till vänster .
+2. I Solution Explorer högerklickar du på projektet Universell Windows-plattform (UWP) och klickar sedan på **Hantera NuGet-paket**.
+3. Välj **Bläddra**till vänster på sidan.
 4. Skriv **Http-klient** i rutan **Sök**.
 5. Klicka på **System.Net.Http** i resultatlistan och klicka på **Installera**. Slutför installationen.
 6. Gå tillbaka till rutan **Sök** i NuGet och skriv **Json.net**. Installera **Newtonsoft.json**-paketet och stäng sedan NuGet Package Manager-fönstret.
 7. Dubbelklicka på filen **MainPage.xaml** i **WindowsApp**-projektet i Solution Explorer och öppna den i Visual Studio-redigeraren.
-8. I `MainPage.xaml` XML-koden ersätter du `<Grid>` avsnittet med följande kod: Den här koden lägger till en textruta för användarnamn och lösenord som användaren autentiserar med. Den lägger även till textrutor för aviseringsmeddelandet och den användarnamnstagg som ska ta emot meddelandet:
+8. I `MainPage.xaml` XML-koden ersätter du `<Grid>` avsnittet med följande kod: den här koden lägger till en text ruta för användar namn och lösen ord som användaren autentiserar med. Den lägger även till textrutor för aviseringsmeddelandet och den användarnamnstagg som ska ta emot meddelandet:
 
     ```xml
     <Grid>

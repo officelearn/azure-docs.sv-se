@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "62127471"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Snabbstart: Testa en molnbaserad lösning för att hantera mina industriella IoT-enheter
@@ -74,13 +74,13 @@ På instrumentpanelen kan du se:
 
 Panelen **Övergripande utrustningseffektivitet** visar OEE-värdena för hela företaget eller den fabrik, produktionslinje eller station du tittar på. Det här värdet sammanställs från stationsvyn till företagsnivån. OEE-bilden och dess beståndsdelar kan analyseras ytterligare.
 
-[![Övergripande utrustningseffektivitet](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
+[![Allmän utrustnings effektivitet](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
 OEE mäter produktionseffektiviteten med hjälp av produktionsrelaterade driftsparametrar. OEE är ett branschstandardmått som beräknas genom att multiplicera tillgänglighet, anläggningsutnyttjande och kvalitetsutbyte: OEE = tillgänglighet x anläggningsutnyttjande x kvalitetsutbyte.
 
 Du kan ytterligare analysera OEE för vilken nivå som helst i hierarkidata. Klicka på reglaget för OEE, tillgänglighet, prestanda eller kvalitetsprocent. En kontextpanel visas med visualiseringar som visar data över olika tidsskalor:
 
-[![Övergripande detalj för utrustningens effektivitet](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
+[![Allmän information om utrustnings effektivitet](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
 
 Du kan klicka på ett diagram för att göra vidare analyser av data.
 
@@ -92,7 +92,7 @@ Panelen för **KPI:er** visar antalet enheter som produceras per timme och energ
 
 Du kan ytterligare analysera KPI:er för vilken nivå som helst i hierarkidata. Klicka på reglaget för OEE, tillgänglighet, prestanda eller kvalitetsprocent. En kontextpanel visas med visualiseringar som visar data över olika tidsskalor:
 
-[![KPI-detalj](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
+[![KPI-information](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
 
 Du kan klicka på ett diagram för att göra vidare analyser av data.
 
@@ -100,7 +100,7 @@ Du kan klicka på ett diagram för att göra vidare analyser av data.
 
 En panel med **fabriksplatser** som visar status, plats och aktuell produktionskonfiguration i lösningen. Första gången du kör lösningsacceleratorn visar instrumentpanelen en simulerad uppsättning fabriker. Varje produktionslinjesimulering består av tre verkliga OPC UA-servrar som kör simulerade uppgifter och delar data. Mer information om OPC UA finns i [Vanliga frågor och svar om Ansluten fabrik](iot-accelerators-faq-cf.md):
 
-[![Fabriksplatser](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
+[![Fabriks platser](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
 Du kan navigera genom lösningshierarkin och visa OEE-värden och KPI:er på varje nivå:
 
@@ -112,13 +112,13 @@ Du kan navigera genom lösningshierarkin och visa OEE-värden och KPI:er på var
 
 1. Klicka på **EnergyConsumption** (Energiförbrukning). Du ser vissa diagram som ritar det här värdet över olika tidsskalor. Du kan klicka på ett diagram för att göra vidare analyser av data.
 
-[![Visa energiförbrukning](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
+[![Visa energi förbrukning](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
 
 ### <a name="map"></a>Karta
 
 Om din prenumeration ger åtkomst till [Bing Maps-API:t](iot-accelerators-faq-cf.md) visar *fabrikskartan* geografisk plats och status för alla fabriker i lösningen. Klicka på platserna som visas på kartan om du vill visa mer detaljerad information om platsen.
 
-[![Karta](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![Mappa](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Larm
 
@@ -137,7 +137,7 @@ Klicka på något av larmen. I listrutan **Välj åtgärd** väljer du **Bekräf
 
 Om du vill analysera larmdata mer i detalj klickar du på diagrammet på larmpanelen.
 
-Larmen genereras av regler som anges i en konfigurationsfil i lösningsacceleratorn. Dessa regler kan generera alarm när OEE- eller KPI-siffrorna eller OPC UA-nodvärdena överskrider ett tröskelvärde. Du kan ange detta tröskelvärde.
+Larmen genereras av regler som anges i en konfigurationsfil i lösningsacceleratorn. Dessa regler kan generera larm när OEE-eller KPI-värden eller OPC UA Node-värden går över ett tröskelvärde. Du kan ange detta tröskelvärde.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

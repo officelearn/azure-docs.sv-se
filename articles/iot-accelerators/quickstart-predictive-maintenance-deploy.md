@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
 ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "62106821"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Snabbstart: Prova en molnbaserad lösning för att analysera behovet av förutsägande underhåll på anslutna enheter
@@ -80,7 +80,7 @@ Du kan stoppa simuleringen när du vill, men om du klickar på **Starta simuleri
 
 Om du vill utforska ytterligare låter du lösningsacceleratorn för förutsägande underhåll förbli distribuerad.
 
-Om du inte längre behöver lösningsacceleratorn tar du bort den från sidan [Etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard) genom att markera den och sedan klicka på **Ta bort lösning:**
+Om du inte längre behöver Solution Accelerator tar du bort den från sidan [etablerade lösningar](https://www.azureiotsolutions.com/Accelerators#dashboard) genom att markera den och sedan klicka på **ta bort lösning**:
 
 ![Ta bort lösningen](media/quickstart-predictive-maintenance-deploy/deletesolution.png)
 

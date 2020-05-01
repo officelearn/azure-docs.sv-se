@@ -9,10 +9,10 @@ ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
 ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67593992"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Skapa en ny CDN-profil
@@ -27,7 +27,7 @@ En CDN-profil är en container för CDN-slutpunkter och den anger en prisnivå.
    
     ![Välj CDN-resurs](./media/cdn-create-profile/cdn-new-resource.png)
 
-    **Cdn-profilfönstret** visas.
+    Fönstret **CDN-profil** visas.
 
 3. Som CDN-profilinställningar använder du de värden som anges i följande tabell:
    
@@ -37,7 +37,7 @@ En CDN-profil är en container för CDN-slutpunkter och den anger en prisnivå.
     | **Prenumeration** | Välj en Azure-prenumeration i listrutan. |
     | **Resursgrupp** | Välj **Skapa ny** och ange *my-resource-group-123* som namn på resursgruppen. Om det redan används kan du ange ett annat namn eller välja **Använd befintligt** och välja **min-resurs-grupp-123** från den nedrullningsbara listan. | 
     | **Resursgruppsplats** | Välj **USA, centrala** i listrutan. |
-    | **Prisnivå** | Välj **Standard Verizon** i listrutan. |
+    | **Pris nivå** | Välj **Standard Verizon** i listrutan. |
     | **Skapa en ny CDN-slutpunkt nu** | Lämna det avmarkerat. |  
    
     ![Ny CDN-profil](./media/cdn-create-profile/cdn-new-profile.png)

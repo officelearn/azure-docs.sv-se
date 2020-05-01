@@ -9,12 +9,12 @@ ms.custom:
 - seodec18
 - seo-python-october2019
 - cli-validate
-ms.openlocfilehash: 0c9329b46d096df1afab6f7e457d143f9c6504be
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 504e2f7c07d8d29e4fe4dad52dc008c895517a3d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085764"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609790"
 ---
 # <a name="tutorial-deploy-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Självstudie: Distribuera en python-webbapp (django) med PostgreSQL i Azure App Service
 
@@ -133,7 +133,7 @@ När kommandot har slutförts söker du efter de utmatnings rader `Ran Database 
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
-> Ange platsen för din postgres-Server genom att inkludera argumentet `--location <location-name>`, där `<location_name>` är en av Azure- [regionerna](https://azure.microsoft.com/global-infrastructure/regions/). Du kan hämta de regioner som är tillgängliga för din prenumeration [`az account list-locations`](/cli/azure/account#az-account-list-locations) med kommandot.
+> `--location <location-name>`, kan ställas in på en av [Azure-regionerna](https://azure.microsoft.com/global-infrastructure/regions/). Du kan hämta de regioner som är tillgängliga för din prenumeration [`az account list-locations`](/cli/azure/account#az-account-list-locations) med kommandot. För produktion av appar sätter du din databas och din app på samma plats.
 
 ## <a name="deploy-the-app-service-app"></a>Distribuera App Service-appen
 
@@ -149,7 +149,7 @@ Se till att du är tillbaka i databas roten (`djangoapp`), eftersom appen ska di
 Skapa en App Service-app med [`az webapp up`](/cli/azure/webapp#az-webapp-up) kommandot, som visas i följande exempel. Ersätt * \<App-Name->* med ett *unikt* namn (Server slut punkten *är\<https://App-Name>. azurewebsites.net*). Tillåtna tecken för * \<App-Name>* är `A` - `Z`, `0` - `9`och `-`.
 
 ```azurecli
-az webapp up --plan myAppServicePlan --sku B1 --name <app-name>
+az webapp up --plan myAppServicePlan --location westus2 --sku B1 --name <app-name>
 ```
 <!-- !!! without --sku creates PremiumV2 plan!! -->
 
@@ -183,10 +183,10 @@ När distributionen är klar visas ett JSON-utdata som liknar följande:
 Kopiera värdet för * \<app-Resource-Group->*. Du behöver den för att konfigurera appen senare. 
 
 > [!TIP]
-> Du kan använda samma kommando senare för att distribuera ändringar och omedelbart aktivera diagnostikloggar med:
+> De relevanta inställningarna sparas i en dold *. Azure* -katalog i din lagrings plats. Du kan använda det enkla kommandot senare för att distribuera om eventuella ändringar och omedelbart aktivera diagnostikloggar med:
 > 
 > ```azurecli
-> az webapp up --name <app-name>
+> az webapp up
 > ```
 
 Exempel koden distribueras nu, men appen ansluter inte till postgres-databasen i Azure ännu. Du kommer att göra detta härnäst.
@@ -219,8 +219,6 @@ cd site/wwwroot
 
 # Activate default virtual environment in App Service container
 source /antenv/bin/activate
-# Install requirements in environment
-pip install -r requirements.txt
 # Run database migrations
 python manage.py migrate
 # Create the super user (follow prompts)
@@ -358,7 +356,7 @@ python manage.py runserver
 Kör följande kommando från databas roten för att distribuera om ändringarna:
 
 ```azurecli
-az webapp up --name <app-name>
+az webapp up
 ```
 
 App Service upptäcker att appen finns och bara distribuerar koden.

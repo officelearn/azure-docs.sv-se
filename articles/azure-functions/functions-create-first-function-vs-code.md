@@ -3,18 +3,45 @@ title: Skapa din första funktion i Azure med Visual Studio Code
 description: Skapa och publicera en enkel HTTP-utlöst funktion till Azure med Azure Functions-tillägget i Visual Studio Code.
 ms.topic: quickstart
 ms.date: 01/10/2020
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 08575164334db965a9e5592b761a06205208de9e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8954f75aba176d8222f8a82256e66131bdee8921
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81732775"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610963"
 ---
-# <a name="quickstart-create-an-azure-functions-project-using-visual-studio-code"></a>Snabb start: skapa ett Azure Functions projekt med Visual Studio Code
+::: zone pivot="programming-language-csharp"  
+# <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Snabb start: skapa en C#-funktion i Azure med Visual Studio Code
 
-I den här artikeln använder du Visual Studio Code för att skapa en funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto. 
+I den här artikeln använder du Visual Studio Code för att skapa en C#-baserad funktion i C#-klassen som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto. 
+::: zone-end  
+::: zone pivot="programming-language-javascript"
+# <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Snabb start: skapa en JavaScript-funktion i Azure med Visual Studio Code
+
+I den här artikeln använder du Visual Studio Code för att skapa en JavaScript-funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto. 
+::: zone-end
+::: zone pivot="programming-language-typescript"
+# <a name="quickstart-create-a-typescript-function-in-azure-using-visual-studio-code"></a>Snabb start: skapa en TypeScript-funktion i Azure med Visual Studio Code
+
+I den här artikeln använder du Visual Studio Code för att skapa en TypeScript-funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto. 
+::: zone-end   
+::: zone pivot="programming-language-powershell"
+# <a name="quickstart-create-a-powershell-function-in-azure-using-visual-studio-code"></a>Snabb start: skapa en PowerShell-funktion i Azure med Visual Studio Code
+
+I den här artikeln använder du Visual Studio Code för att skapa en PowerShell-funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto. 
+::: zone-end  
+::: zone pivot="programming-language-python" 
+# <a name="quickstart-create-a-python-function-in-azure-using-visual-studio-code"></a>Snabb start: skapa en python-funktion i Azure med Visual Studio Code
+
+I den här artikeln använder du Visual Studio Code för att skapa en python-funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto. 
+::: zone-end  
+::: zone pivot="programming-language-java" 
+# <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Snabb start: skapa en Java-funktion i Azure med Visual Studio Code
+
+I den här artikeln använder du Visual Studio Code för att skapa en Java-funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto. 
+::: zone-end
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python" 
 Det finns också en [CLI-baserad version](functions-create-first-azure-function-azure-cli.md) av den här artikeln.

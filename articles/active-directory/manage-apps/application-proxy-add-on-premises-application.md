@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73aa01ea08c8bab1395516c31bb46dbfd88045db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 10d0f949fb2a5755512a30dcca011690d86a7e7b
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481423"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597730"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory
 
@@ -47,10 +47,12 @@ Om du vill använda programproxy behöver du en Windows-server som kör Windows 
 Vi rekommenderar att du har mer än en Windows-server för att säkra hög tillgänglighet i produktionsmiljön. I den här självstudien räcker det med en Windows-server.
 
 > [!IMPORTANT]
-> Om du installerar anslutningen på Windows Server 2019 finns det en HTTP2 begränsning. En lösning för att använda anslutningen i den här versionen är att lägga till följande register nyckel och starta om servern. Obs! det här är en nyckel för dator register bred. 
-    ```
-    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
-    ```
+> Om du installerar anslutningen på Windows Server 2019 måste du inaktivera stöd för HTTP2-protokoll i WinHttp-komponenten. Detta är inaktiverat som standard i tidigare versioner av operativ system som stöds. Om du lägger till följande register nyckel och startar om servern inaktive ras den på Windows Server 2019. Observera att detta är en hel dators register nyckel.
+>
+> ```
+> HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+> ```
+>
 
 #### <a name="recommendations-for-the-connector-server"></a>Rekommendationer för anslutningsservern
 

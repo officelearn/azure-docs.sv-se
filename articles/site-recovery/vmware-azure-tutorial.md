@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 37fdd42adf66ebcb11b357ece6ea63384630d9f4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 878c3aa766559e455ee4456d84b86dc486e43fa5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238869"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610691"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Konfigurera katastrofåterställning till Azure för lokala virtuella VMware-datorer
 
@@ -65,11 +65,11 @@ I din käll miljö behöver du en enda, lokal dator med hög tillgänglighet som
 - **Huvud mål server**: huvud mål servern hanterar replikeringsdata under återställning efter fel från Azure.
 
 
-Alla dessa komponenter installeras tillsammans på de lokala datorer som är kända för *konfigurations servern*. Som standard ställer vi in konfigurations servern som en virtuell VMware-dator med hög tillgänglighet för katastrof återställning i VMware. Om du vill göra detta laddar du ned en för beredd mall för öppen Virtualization-app (ägg) och importerar mallen till VMware för att skapa den virtuella datorn. 
+Alla dessa komponenter installeras tillsammans på de lokala datorer som är kända för *konfigurations servern*. Som standard ställer vi in konfigurations servern som en virtuell VMware-dator med hög tillgänglighet för katastrof återställning i VMware. Om du vill göra detta laddar du ned en för beredd mall för öppen Virtualization-app (ägg) och importerar mallen till VMware för att skapa den virtuella datorn.
 
 - Den senaste versionen av konfigurations servern är tillgänglig i portalen. Du kan också hämta det direkt från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 - Om du av någon anledning inte kan använda en mall för att konfigurera en virtuell dator, följer du [dessa anvisningar](physical-manage-configuration-server.md) för att konfigurera konfigurations servern manuellt.
-- Den licens som tillhandahölls med OVF-mallen är en utvärderings licens som är giltig i 180 dagar. Windows som körs på den virtuella datorn måste aktive ras med den licens som krävs. 
+- Den licens som tillhandahölls med OVF-mallen är en utvärderings licens som är giltig i 180 dagar. Windows som körs på den virtuella datorn måste aktive ras med den licens som krävs.
 
 
 ### <a name="download-the-vm-template"></a>Ladda ned VM-mallen
@@ -77,7 +77,7 @@ Alla dessa komponenter installeras tillsammans på de lokala datorer som är kä
 1. I valvet går du till **förbereda infrastruktur** > **källa**.
 2. I **Förbered källa** väljer du **+Konfigurationsserver**.
 3. I **Lägg till server** kontrollerar du att **Konfigurationsserver för VMware** visas i **Servertyp**.
-4. Ladda ner OVF-mallen för konfigurationsservern.
+4. Hämta embryo-mallen för konfigurations servern.
 
 
 
@@ -85,7 +85,7 @@ Alla dessa komponenter installeras tillsammans på de lokala datorer som är kä
 
 
 1. Logga in på VMware vCenter-servern eller vSphere ESXi-värden med VMWare vSphere-klienten.
-2. I menyn **Arkiv** väljer du **distribuera OVF-mallen** för att starta **guiden Distribuera OVF-mall**. 
+2. I menyn **Arkiv** väljer du **distribuera OVF-mallen** för att starta **guiden Distribuera OVF-mall**.
 
      ![OVF-mall](./media/vmware-azure-tutorial/vcenter-wizard.png)
 
@@ -105,11 +105,11 @@ Om du vill lägga till ett extra nätverkskort i konfigurations servern lägger 
 
 1. I vSphere-klientlagret högerklickar du på den virtuella datorn och väljer **Redigera inställningar**.
 2. I **Maskinvara** väljer du **Lägg till** > **Ethernet-kort**. Välj **Nästa**.
-3. Välj en adaptertyp och ett nätverk. 
+3. Välj en adaptertyp och ett nätverk.
 4. Om du vill ansluta det virtuella nätverkskortet när den virtuella datorn är påslagen väljer du **Connect at power on** (Anslut när strömmen är på). Välj **Nästa** > **Slutför**. Välj sedan **OK**.
 
 
-## <a name="register-the-configuration-server"></a>Registrera konfigurationsservern 
+## <a name="register-the-configuration-server"></a>Registrera konfigurationsservern
 
 När konfigurations servern har kon figurer ATS kan du registrera den i valvet.
 
@@ -179,7 +179,7 @@ Aktivera replikering för virtuella datorer enligt följande:
 3. I **Datortyp** väljer du **Virtual Machines**.
 4. I **vCenter/vSphere Hypervisor** väljer du vSphere-värden eller den vCenter-server som hanterar värden.
 5. Välj processerver (installeras som standard på konfigurationsserverns virtuella dator). Välj sedan **OK**. Hälso status för varje processerver anges enligt rekommenderade gränser och andra parametrar. Välj en felfri processerver. Det går inte att välja en [kritisk](vmware-physical-azure-monitor-process-server.md#process-server-alerts) processerver. Du kan antingen [Felsöka och lösa](vmware-physical-azure-troubleshoot-process-server.md) felen **eller** konfigurera en [skalbar processerver](vmware-azure-set-up-process-server-scale.md).
-6. I **Mål** väljer du den prenumeration och resursgrupp där du vill skapa de redundansväxlade virtuella datorerna. Vi använder Resource Manager-distributionsmodellen. 
+6. I **Mål** väljer du den prenumeration och resursgrupp där du vill skapa de redundansväxlade virtuella datorerna. Vi använder Resource Manager-distributionsmodellen.
 7. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling.
 8. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla virtuella datorer som du aktiverat replikering för. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator.
 9. I **Virtual Machines** > **Välj virtuella datorer**väljer du de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Välj sedan **OK**. Om du inte kan visa/välja en viss virtuell dator kan du [läsa mer](https://aka.ms/doc-plugin-VM-not-showing) om hur du löser problemet.

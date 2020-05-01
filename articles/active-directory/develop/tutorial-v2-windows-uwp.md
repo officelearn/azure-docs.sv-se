@@ -12,10 +12,10 @@ ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: 0dc70aa67a1414c08ec70e2e034f4ab12b194c0a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 04/30/2020
 ms.locfileid: "81535952"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph-API från ett Universell Windows-plattform program (XAML)
@@ -342,7 +342,7 @@ Lägg till följande nya metod i *mainpage.XAML.cs*:
 
 Nu måste du registrera ditt program:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **Azure Active Directory** > **Appregistreringar**.
 1. Välj **ny registrering**. Ange ett meningsfullt program namn som ska visas för användarna av appen, till exempel *UWP-app-Calling-MSGraph*.
 1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox)** och väljer sedan **Registrera** för att fortsätta.

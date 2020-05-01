@@ -6,12 +6,12 @@ ms.date: 04/03/2020
 ms.custom: seo-python-october2019, cli-validate
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 7f8d21cbccc1a6eec7f62ab5d129f3f0637b8d13
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 606758cf81d069124c67bc06c650b96d91262deb
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085135"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597883"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -104,6 +104,11 @@ Kör följande `az webapp up` kommando i mappen *python-dok-Hello-World* som inn
 ```azurecli
 az webapp up --sku F1 -n <app-name>
 ```
+> [!CAUTION]
+> Om du använder **Azure-CLI version 2.5.0** finns det en regression i `az webapp up` där vissa scenarier Miss kan uppstå om `-l <location-name>` parametern inte ingår. Det här problemet [spåras här](https://github.com/Azure/azure-cli/issues/13257).  
+> 
+>Du kan kontrol lera vilken version av Azure-CLI som du använder med `az --version` kommandot.
+>
 
 `--sku F1` Argumentet skapar webb programmet på den kostnads fria pris nivån. Du kan utelämna det här argumentet om du vill använda en Premium-nivå i stället, vilket innebär en timkostnad.
 

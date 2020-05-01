@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: dee1d5a744ddfc2ad38cbe93447377a8af27a2f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 74c412ad4c62a5821890aa5602b521f3f63da925
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376671"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594771"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Självstudie: Konfigurera en Jenkins-miljö och aktivera CI/CD för en Java-app i Service Fabric
 
@@ -85,7 +85,7 @@ Du kan konfigurera Jenkins i eller utanför ett Service Fabric-kluster. Följand
 
    a. Markera kryssrutan och ange URL:en för GitHub-projektet under **GitHub-projekt** i det allmänna avsnittet. Den här URL:en är värd för det Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet (t.ex. ``https://github.com/testaccount/dev_test``).
 
-   b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange den webb adress till databasen som är värd för Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet ( *https://github.com/testaccount/dev_test.git*t. ex.). Du kan också ange här vilken gren som ska byggas (t.ex. **/master**).
+   b. I avsnittet **Source Code Management** (Källkodshantering) väljer du **Git**. Ange den webb adress till databasen som är värd för Service Fabric Java-program som du vill integrera med Jenkins CI/CD-flödet ( *`https://github.com/testaccount/dev_test.git`* t. ex.). Du kan också ange här vilken gren som ska byggas (t.ex. **/master**).
 
 1. Konfigurera din *GitHub* (som är värd för databasen) så att den kan kommunicera med Jenkins. Använd följande steg:
 

@@ -6,18 +6,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 55529d49bf987f3b52e1dbd836c26d7558ea7913
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: b95d5d6eb52806e5b43a495b875d30846297c465
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82560009"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592442"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Självstudie: Autentisera och auktorisera användare från slutpunkt till slutpunkt i Azure App Service
 
-[Azure App Service](overview.md) ger en mycket skalbar och automatisk korrigering av webb värd tjänst. I App Service finns dessutom funktioner för [användarautentisering och auktorisering](overview-authentication-authorization.md). I den här kursen visar vi hur du skyddar appar med App Service-autentisering och auktorisering. Vi använder en ASP.NET Core-app med Angular.js-klientdel, men det är bara ett exempel. App Service-autentisering och autentisering stöder alla språkkörningar. Du kan lära dig hur du använder det med det språk du föredrar genom att följa självstudiekursen.
-
-I självstudiekursen använder vi exempelappen och visar hur du skyddar en självständig app (i [Aktivera autentisering och auktorisering för serverdelsapp](#enable-authentication-and-authorization-for-back-end-app)).
+[Azure App Service](overview.md) ger en mycket skalbar och automatisk korrigering av webb värd tjänst. I App Service finns dessutom funktioner för [användarautentisering och auktorisering](overview-authentication-authorization.md). I den här kursen visar vi hur du skyddar appar med App Service-autentisering och auktorisering. Den använder en ASP.NET Core-app med en Angular. js-klient som exempel. App Service-autentisering och autentisering stöder alla språkkörningar. Du kan lära dig hur du använder det med det språk du föredrar genom att följa självstudiekursen.
 
 ![Enkel autentisering och auktorisering](./media/app-service-web-tutorial-auth-aad/simple-auth.png)
 
@@ -234,6 +232,8 @@ Välj **Azure Active Directory** igen och välj sedan **Azure AD App**.
 Kopiera **klient-ID** för Azure AD-programmet till en anteckning. Du behöver det här värdet senare.
 
 ![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
+
+Om du slutar här har du en fristående app som redan är skyddad av App Service autentisering och auktorisering. I de återstående avsnitten kan du se hur du skyddar en lösning för flera appar genom att "flöda" den autentiserade användaren från klient delen till Server delen. 
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>Aktivera autentisering och auktorisering för klientappen
 

@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 738be1361bfbd944575abceb08781b241336f6e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7a9e0cc3977892fd899b4a25e17ad72f13481506
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79485596"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608821"
 ---
 # <a name="tutorial-create-a-waf-policy-on-azure-cdn-using-the-azure-portal"></a>Självstudie: skapa en WAF-princip på Azure CDN med hjälp av Azure Portal
 
@@ -22,7 +22,7 @@ I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Skapa en WAF-princip
-> * Associera den med en CDN-slutpunkt
+> * Koppla den till en CDN-slutpunkt. Du kan bara koppla en WAF-princip till de slut punkter som finns på **Azure CDN Standard från Microsoft** SKU.
 > * Konfigurera WAF-regler
 
 ## <a name="prerequisites"></a>Krav
@@ -36,7 +36,7 @@ Börja med att skapa en grundläggande WAF-princip med en hanterad standard rege
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs**>söker efter **WAF**>väljer **brand vägg för webbaserade program** > väljer **skapa**.
 2. På fliken **grundläggande** på sidan **skapa en WAF-princip** anger eller väljer du följande information, accepterar standardinställningarna för återstående inställningar och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | Princip för            |Välj Azure CDN (för hands version).|
     | Prenumeration            |Välj prenumerations namnet på din front dörr.|
@@ -47,7 +47,7 @@ Börja med att skapa en grundläggande WAF-princip med en hanterad standard rege
 
 3. På fliken **Association** på sidan **skapa en WAF-princip** väljer du **Lägg till CDN-slutpunkt**, anger följande inställningar och väljer sedan **Lägg till**:
 
-    | Inställning                 | Värde                                              |
+    | Inställningen                 | Värde                                              |
     | ---                     | ---                                                |
     | CDN-profil              | Välj ditt CDN-profil namn.|
     | Slutpunkt           | Välj namnet på slut punkten och välj sedan **Lägg till**.|

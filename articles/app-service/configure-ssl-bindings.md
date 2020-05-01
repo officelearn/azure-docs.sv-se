@@ -3,15 +3,15 @@ title: Skydda en anpassad DNS med en TLS/SSL-bindning
 description: Skydda HTTPS-åtkomst till din anpassade domän genom att skapa en TLS/SSL-bindning med ett certifikat. Förbättra din webbplats säkerhet genom att tvinga HTTPS eller TLS 1,2.
 tags: buy-ssl-certificates
 ms.topic: tutorial
-ms.date: 10/25/2019
+ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 9792181379bfa6f9e0337bf14208fe853c16b745
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80811740"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597903"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Skydda ett anpassat DNS-namn med en TLS/SSL-bindning i Azure App Service
 
@@ -83,7 +83,7 @@ Använd följande tabell som hjälp för att konfigurera TLS-bindning i dialog r
 |-|-|
 | Anpassad domän | Domän namnet som TLS/SSL-bindningen ska läggas till för. |
 | Tumavtryck för privat certifikat | Certifikatet som ska bindas. |
-| TLS/SSL-typ | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** -flera SNI SSL-bindningar kan läggas till. Med det här alternativet kan flera TLS/SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information finns i [servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** -det går bara att lägga till en IP SSL-bindning. Med det här alternativet kan endast ett TLS/SSL-certifikat skydda en dedikerad offentlig IP-adress. När du har konfigurerat bindningen följer du stegen i [mappa om en post för IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL stöds endast i produktions-eller isolerade nivåer. </li></ul> |
+| TLS/SSL-typ | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** -flera SNI SSL-bindningar kan läggas till. Med det här alternativet kan flera TLS/SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information finns i [servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** -det går bara att lägga till en IP SSL-bindning. Med det här alternativet kan endast ett TLS/SSL-certifikat skydda en dedikerad offentlig IP-adress. När du har konfigurerat bindningen följer du stegen i [mappa om poster för IP SSL](#remap-records-for-ip-ssl).<br/>IP SSL stöds endast i **standard** -nivån eller högre. </li></ul> |
 
 När åtgärden har slutförts ändras den anpassade domänens TLS/SSL-tillstånd till **säker**.
 
@@ -92,15 +92,17 @@ När åtgärden har slutförts ändras den anpassade domänens TLS/SSL-tillstån
 > [!NOTE]
 > Ett **säkert** tillstånd i de **anpassade domänerna** innebär att den skyddas med ett certifikat, men App Service inte kontrollerar om certifikatet är självsignerat eller har upphört att gälla, till exempel, vilket även kan leda till att webbläsare visar ett fel eller en varning.
 
-## <a name="remap-a-record-for-ip-ssl"></a>Mappa om en A-post för IP SSL
+## <a name="remap-records-for-ip-ssl"></a>Mappa om poster för IP SSL
 
 Om du inte använder IP SSL i din app kan du gå vidare till [testa https för din anpassade domän](#test-https).
 
-Som standard använder din app en delad offentlig IP-adress. När du binder ett certifikat med IP SSL skapar App Service en ny, dedikerad IP-adress för din app.
+Det finns två ändringar som du måste göra, eventuellt:
 
-Om du har mappat en A-post till din app uppdaterar du domän registret med den nya, dedikerade IP-adressen.
+- Som standard använder din app en delad offentlig IP-adress. När du binder ett certifikat med IP SSL skapar App Service en ny, dedikerad IP-adress för din app. Om du har mappat en A-post till din app uppdaterar du domän registret med den nya, dedikerade IP-adressen.
 
-Din apps **Anpassad domän**-sida uppdateras med den nya dedikerade IP-adressen. [Kopiera den här IP-adressen](app-service-web-tutorial-custom-domain.md#info) och [mappa om A-posten](app-service-web-tutorial-custom-domain.md#map-an-a-record) till den nya IP-adressen.
+    Din apps **Anpassad domän**-sida uppdateras med den nya dedikerade IP-adressen. [Kopiera den här IP-adressen](app-service-web-tutorial-custom-domain.md#info) och [mappa om A-posten](app-service-web-tutorial-custom-domain.md#map-an-a-record) till den nya IP-adressen.
+
+- Om du har en SNI SSL bindning till `<app-name>.azurewebsites.net`, [mappa om alla CNAME-mappningar](app-service-web-tutorial-custom-domain.md#map-a-cname-record) så att de `sni.<app-name>.azurewebsites.net` pekar `sni` till i stället (Lägg till prefixet).
 
 ## <a name="test-https"></a>Testa HTTPS
 

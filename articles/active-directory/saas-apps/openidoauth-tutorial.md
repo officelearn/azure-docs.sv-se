@@ -16,18 +16,19 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8a2c962c69ead28c4e79b663010eab77a499f5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: has-adal-ref
+ms.openlocfilehash: 13c3a7f8376d4c852a74be75e323c6bb042b5407
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80048422"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610997"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Konfigurera ett OpenID/OAuth-program från Azure AD-appgalleri
 
 ## <a name="process-of-adding-an-openid-application-from-the-gallery"></a>Processen att lägga till ett OpenID-program från galleriet
 
-1. I den vänstra rutan i [Azure-portalen](https://portal.azure.com) väljer du **Azure Active Directory**. 
+1. I den vänstra rutan i [Azure-portalen](https://portal.azure.com) väljer du **Azure Active Directory**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png))
 
@@ -61,17 +62,17 @@ Det mest grundläggande inloggningsflödet innehåller följande steg:
 
 ![Autentiseringsflöde med OpenID Connect](./media/openidoauth-tutorial/authenticationflow.png)
 
-### <a name="multitenant-application"></a>Program för flera klientorganisationer 
-Ett program för flera klientorganisationer är avsett att användas i många organisationer, inte bara en enda. Det kallas vanligen för SaaS-webbprogram (Software as a Service) och skrivs av en oberoende programvaruleverantör (ISV). 
+### <a name="multitenant-application"></a>Program för flera klientorganisationer
+Ett program för flera klientorganisationer är avsett att användas i många organisationer, inte bara en enda. Det kallas vanligen för SaaS-webbprogram (Software as a Service) och skrivs av en oberoende programvaruleverantör (ISV).
 
-Program för flera klientorganisationer måste tillhandahållas i varje katalog där de kommer att användas. De kräver att användaren eller administratören ger sitt medgivande till att registrera dem. Medgivandeprocessen startar när ett program har registrerats i katalogen och ges åtkomst till Graph API eller kanske någon annan webb-API. När en användare eller administratör från en annan organisation registrerar sig för att använda programmet visar en dialogruta de behörigheter som programmet behöver. 
+Program för flera klientorganisationer måste tillhandahållas i varje katalog där de kommer att användas. De kräver att användaren eller administratören ger sitt medgivande till att registrera dem. Medgivandeprocessen startar när ett program har registrerats i katalogen och ges åtkomst till Graph API eller kanske någon annan webb-API. När en användare eller administratör från en annan organisation registrerar sig för att använda programmet visar en dialogruta de behörigheter som programmet behöver.
 
 Användaren eller administratören kan sedan ge medgivande till programmet. Medgivandet ger programmet åtkomst till angivna data och slutligen registreras programmet i katalogen.
 
 > [!NOTE]
 > Om du gör ditt program tillgängligt för användare i flera kataloger, behöver du en mekanism för att avgöra vilken klient de befinner sig i. Ett program för en enda klientorganisation behöver bara söka i en egen katalog för en användare. Ett program för flera klientorganisationer behöver identifiera en viss användare från alla kataloger i Azure AD.
-> 
-> Om du vill utföra den här uppgiften tillhandahåller Azure AD en gemensam autentiseringsslutpunkt där alla program för flera klientorganisationer kan dirigera inloggningsförfrågningar, i stället för en klientspecifik slutpunkt. Den här slutpunkten är `https://login.microsoftonline.com/common` för alla kataloger i Azure AD. En klientspecifik slutpunkt kan vara `https://login.microsoftonline.com/contoso.onmicrosoft.com`. 
+>
+> Om du vill utföra den här uppgiften tillhandahåller Azure AD en gemensam autentiseringsslutpunkt där alla program för flera klientorganisationer kan dirigera inloggningsförfrågningar, i stället för en klientspecifik slutpunkt. Den här slutpunkten är `https://login.microsoftonline.com/common` för alla kataloger i Azure AD. En klientspecifik slutpunkt kan vara `https://login.microsoftonline.com/contoso.onmicrosoft.com`.
 >
 > Den gemensamma slutpunkten är viktig att överväga på när du utvecklar ditt program. Du behöver den nödvändiga logiken för att hantera flera klienter vid inloggning, utloggning och verifiering av token.
 
@@ -80,9 +81,9 @@ Som standard främjas program för flera klientorganisationer i Azure AD. De är
 ## <a name="consent-framework"></a>Ramverk för medgivande
 
 Du kan använda Azure AD-ramverket för medgivande för att utveckla webbprogram och interna klientprogram för flera klientorgansiationer. Dessa program tillåter inloggning genom användarkonton från en Azure AD-klient, som skiljer sig från det där programmet har registrerats. De kan också behöva komma åt webb-API:er som:
-- Microsoft Graph API för att få åtkomst till Azure AD, Intune och tjänster i Office 365. 
+- Microsoft Graph API för att få åtkomst till Azure AD, Intune och tjänster i Office 365.
 - Övriga för Microsoft-tjänsters API:er.
-- Dina egna webb-API:er. 
+- Dina egna webb-API:er.
 
 Ramverket är baserat på att en användare eller administratör ger sitt medgivande till ett program som ber att få registreras i deras katalog. Registreringen kan handla om åtkomst till katalogdata. När tillstånd har getts kan klientprogrammet anropa Microsoft Graph API för användarens räkning och använda informationen vid behov.
 
@@ -146,7 +147,7 @@ Som administratör kan du även samtycka till ett programs delegerade behörighe
 
 Endast app-behörigheter kräver alltid en klient administratörs medgivande. Om ditt program begär en appspecifik behörighet och en användare försöker logga in på programmet visas ett felmeddelande. Meddelandet säger att användaren inte kan godkänna.
 
-Om programmet använder behörigheter som kräver administratörens medgivande måste det finnas en gest som administratören kan starta åtgärden med, till exempel via en knapp eller länk. Den begäran som programmet skickar för den här åtgärden är den vanliga auktoriseringsbegäran för OAuth2/OpenID Connect. Denna begäran innehåller frågesträngparametern *prompt=admin_consent*. 
+Om programmet använder behörigheter som kräver administratörens medgivande måste det finnas en gest som administratören kan starta åtgärden med, till exempel via en knapp eller länk. Den begäran som programmet skickar för den här åtgärden är den vanliga auktoriseringsbegäran för OAuth2/OpenID Connect. Denna begäran innehåller frågesträngparametern *prompt=admin_consent*.
 
 När administratören har samtyckt och tjänstens huvud namn har skapats i kundens klient behöver inloggnings begär Anden senare inte *prompten = admin_consent* parameter. Eftersom administratören har bestämt att behörigheterna som krävs är godtagbara kan tillfrågas inga andra användare i klienten om medgivande från den tidpunkten och framåt.
 

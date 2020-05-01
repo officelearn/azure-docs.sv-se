@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: c938b6174226ef9ea1104c5e95968d6122e922cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7e442d85303485ca8800d4bcb31a9afde06d0e69
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72386311"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595026"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudie: push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging (inaktuell)
 
@@ -43,7 +43,7 @@ Du skapar en tom Android-app som tar emot push-meddelanden med hjälp av Google 
 > [!IMPORTANT]
 > Det här ämnet visar push-meddelanden med Google Cloud Messaging (GCM). Se [Skicka push-meddelanden till Android med Azure Notification Hubs och FCM](notification-hubs-android-push-notification-google-fcm-get-started.md) om du använder Googles Firebase Cloud Messaging (FCM).
 
-Den slutförda koden för de här självstudierna kan hämtas från GitHub [här](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted).
+Den slutförda koden för de här självstudierna kan hämtas från GitHub [här](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp).
 
 I den här självstudien gör du följande:
 
@@ -746,4 +746,4 @@ I de här självstudierna har du skickat meddelanden till alla Android-enheter s
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

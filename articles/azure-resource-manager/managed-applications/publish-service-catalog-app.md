@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 48aaca64949aafecff27c76ad7572b3c2fa44732
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47eda62810b1098fcaca5b734be4f74edc0db49a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81391509"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82609365"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Snabb start: skapa och publicera en definition för ett hanterat program
 
@@ -290,7 +290,7 @@ Några av de parametrar som användes i det föregående exemplet är:
 
 * **resurs grupp**: namnet på resurs gruppen där definitionen för det hanterade programmet skapas.
 * **Lås nivå**: typen av lås som placerats i den hanterade resurs gruppen. Det förhindrar kunden från att utföra oönskade åtgärder på den här resursgruppen. ReadOnly stöds för närvarande endast på låsnivå. När ReadOnly har angivits kan kunden endast läsa resurser som finns i den hanterade resursgruppen. Utgivaridentiteter som beviljas åtkomst till den hanterade resursgruppen är undantagna från låset.
-* **auktorisering**: Beskriver huvudkontots ID och rolldefinitions-ID som används för att ge behörigheter till den hanterade resursgruppen. Det anges i formatet `<principalId>:<roleDefinitionId>`. Om det krävs fler än ett värde anger du dem i formatet `<principalId1>:<roleDefinitionId1> <principalId2>:<roleDefinitionId2>`. Värdena avgränsas med ett blanksteg.
+* **auktorisering**: Beskriver huvudkontots ID och rolldefinitions-ID som används för att ge behörigheter till den hanterade resursgruppen. Det anges i formatet `<principalId>:<roleDefinitionId>`. Om det krävs fler än ett värde anger du dem i formatet `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Värdena avgränsas med kommatecken.
 * **paket filens URI**: platsen för ett. zip-paket som innehåller de filer som krävs.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Ta med din egen lagring för definitionen av det hanterade programmet

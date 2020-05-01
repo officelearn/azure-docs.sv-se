@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 4eddf34f4887f0e2bad08eb5700d83eaeae0ef7e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f374e0611b887e2a2c787569d9fe58bc1a5c84e9
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81687095"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594074"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Snabb start: starta en Azure våren Cloud-App med maven-plugin-programmet
 
@@ -121,6 +121,6 @@ I den här snabb starten har du distribuerat ett fjäder moln program från en m
 
 > [!div class="nextstepaction"]
 > [Förbered ditt Azure våren Cloud-program för distribution](spring-cloud-tutorial-prepare-app-deployment.md)
-> [Läs mer om maven-plugin-program för Azure](https://github.com/microsoft/azure-maven-plugin)
+> [Läs mer om maven-plugin-program för Azure](https://github.com/microsoft/azure-maven-plugins)
 
 Fler exempel finns på GitHub: [Azure våren Cloud-exempel](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 2caae4fecdf13a1833f23cf9423cf3ded67f6f72
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d5283051de50b84ea87c0f02a391652854067168
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879041"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610757"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -28,7 +28,7 @@ Tal behållare gör det möjligt för kunderna att bygga en tal program arkitekt
 
 | Funktion | Funktioner | Nya |
 |--|--|--|
-| Tal till text | Beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar i text med mellanliggande resultat. | 2.1.1 |
+| Tal till text | Analyserar sentiment och beskrivar kontinuerliga tal i real tid eller batch-ljudinspelningar med mellanliggande resultat.  | 2.2.0 |
 | Custom Speech till text | Genom att använda en anpassad modell från [Custom Speech portalen](https://speech.microsoft.com/customspeech), kan du skriva över kontinuerliga tal i real tid eller köra ljud inspelningar i text med mellanliggande resultat. | 2.1.1 |
 | Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.3.0 |
 | Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.3.0 |
@@ -164,7 +164,7 @@ Alla Taggar, förutom i `latest` , är i följande format och är Skift läges k
 Följande tagg är ett exempel på formatet:
 
 ```
-2.1.1-amd64-en-us-preview
+2.2.0-amd64-en-us-preview
 ```
 
 För alla språk som stöds av **tal-till-text-** behållaren, se [taggar till text-Taggar](../containers/container-image-tags.md#speech-to-text).
@@ -258,6 +258,33 @@ Det här kommandot:
 * Allokerar 4 processor kärnor och 4 GB minne.
 * Exponerar TCP-port 5000 och allokerar en pseudo-TTY för behållaren.
 * Tar automatiskt bort behållaren när den har avslut ATS. Behållar avbildningen är fortfarande tillgänglig på värddatorn.
+
+
+#### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analysera sentiment för utdata från tal till text 
+
+Från och med v-2.2.0 av den tal-till-text-behållaren kan du anropa [sentiment Analysis v3-API: et](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) på utdata. Om du vill anropa sentiment-analysen behöver du en API för textanalys resurs slut punkt. Ett exempel: 
+* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
+* `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
+
+Om du har åtkomst till en text analys-slutpunkt i molnet behöver du en nyckel. Om du kör Textanalys lokalt behöver du kanske inte ange detta.
+
+Nyckeln och slut punkten skickas till tal behållaren som argument, som i följande exempel.
+
+```bash
+docker run -it --rm -p 5000:5000 \
+containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text:latest \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+CloudAI:SentimentAnalysisSettings:TextAnalyticsHost={TEXT_ANALYTICS_HOST} \
+CloudAI:SentimentAnalysisSettings:SentimentAnalysisApiKey={SENTIMENT_APIKEY}
+```
+
+Det här kommandot:
+
+* Utför samma steg som kommandot ovan.
+* Lagrar en API för textanalys slut punkt och nyckel för att skicka sentiment analys begär Anden. 
+
 
 # <a name="custom-speech-to-text"></a>[Custom Speech till text](#tab/cstt)
 
@@ -380,6 +407,9 @@ Det här kommandot:
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
+> [!NOTE]
+> Använd ett unikt port nummer om du kör flera behållare.
+
 | Containrar | SDK-värd-URL | Protokoll |
 |--|--|--|
 | Tal till text och Custom Speech till text | `ws://localhost:5000` | WS |
@@ -388,6 +418,121 @@ Det här kommandot:
 Mer information om hur du använder WSS-och HTTPS-protokoll finns i [behållar säkerhet](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
+
+#### <a name="analyze-sentiment"></a>Analysera sentiment
+
+Om du har angett dina API för textanalys autentiseringsuppgifter [för behållaren](#analyze-sentiment-on-the-speech-to-text-output)kan du använda tal-SDK för att skicka tal igenkännings begär Anden med sentiment-analys. Du kan konfigurera API-svar för att använda antingen ett *enkelt* eller *detaljerat* format.
+
+# <a name="simple-format"></a>[Enkelt format](#tab/simple-format)
+
+Om du vill konfigurera tal klienten för att använda ett enkelt format `"Sentiment"` , lägger du till `Simple.Extensions`som ett värde för. Om du vill välja en speciell Textanalys modell version ersätter `'latest'` du `speechcontext-phraseDetection.sentimentAnalysis.modelversion` i egenskaps konfigurationen.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Simple.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Simple.Extensions`Returnerar sentiment-resultatet i svarets rot lager.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6098574b79434bd4849fee7e0a50f22e",
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+# <a name="detailed-format"></a>[Detaljerat format](#tab/detailed-format)
+
+Om du vill konfigurera tal klienten så att den använder ett detaljerat format, lägger `Detailed.Extensions`du `Detailed.Options`till `"Sentiment"` som ett värde för, eller båda. Om du vill välja en speciell Textanalys modell version ersätter `'latest'` du `speechcontext-phraseDetection.sentimentAnalysis.modelversion` i egenskaps konfigurationen.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Options',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-PhraseOutput.Detailed.Extensions',
+    value='["Sentiment"]',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentAnalysis.modelversion',
+    value='latest',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
+
+`Detailed.Extensions`ger sentiment resultat i svarets rot lager. `Detailed.Options`ger resultatet i `NBest` lagret av svaret. De kan användas separat eller tillsammans.
+
+```json
+{
+   "DisplayText":"What's the weather like?",
+   "Duration":13000000,
+   "Id":"6a2aac009b9743d8a47794f3e81f7963",
+   "NBest":[
+      {
+         "Confidence":0.973695,
+         "Display":"What's the weather like?",
+         "ITN":"what's the weather like",
+         "Lexical":"what's the weather like",
+         "MaskedITN":"What's the weather like",
+         "Sentiment":{
+            "Negative":0.03,
+            "Neutral":0.79,
+            "Positive":0.18
+         }
+      },
+      {
+         "Confidence":0.9164971,
+         "Display":"What is the weather like?",
+         "ITN":"what is the weather like",
+         "Lexical":"what is the weather like",
+         "MaskedITN":"What is the weather like",
+         "Sentiment":{
+            "Negative":0.02,
+            "Neutral":0.88,
+            "Positive":0.1
+         }
+      }
+   ],
+   "Offset":4700000,
+   "RecognitionStatus":"Success",
+   "Sentiment":{
+      "Negative":0.03,
+      "Neutral":0.79,
+      "Positive":0.18
+   }
+}
+```
+
+---
+
+Om du vill inaktivera sentiment-analysen helt lägger du till `false` ett värde `sentimentanalysis.enabled`i.
+
+```python
+speech_config.set_service_property(
+    name='speechcontext-phraseDetection.sentimentanalysis.enabled',
+    value='false',
+    channel=speechsdk.ServicePropertyChannel.UriQueryParameter
+)
+```
 
 ### <a name="text-to-speech-or-custom-text-to-speech"></a>Text till tal eller anpassad text till tal
 

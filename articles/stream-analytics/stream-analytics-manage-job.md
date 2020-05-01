@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: 488664b028568b3014b9b839122705d35104861e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79b8cfd3f50ffd9f1c6b36dd73942ed3ddc5929f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239310"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594924"
 ---
 # <a name="tutorial-analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Självstudie: analysera samtals data med Stream Analytics och visualisera resultat i Power BI instrument panel
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 Innan du börjar utför du följande åtgärder:
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Logga in på [Azure-portalen](https://portal.azure.com/).
+* Logga in på [Azure Portal](https://portal.azure.com/).
 * Ladda ned telefonsamtalets händelsegeneratorapp [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) från Microsoft Download Center eller hämta källkoden från [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * Du behöver Power BI-konto.
 
@@ -43,7 +43,7 @@ Innan Stream Analytics kan analysera dataströmmen med bedrägliga samtal behöv
 
 Använd följande steg för att skapa en händelsehubb och skickar samtalsdata till den händelsehubben:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **skapa en resurs** > **Sakernas Internet** > **Event Hubs**.
 
    ![Skapa en Azure-händelsehubb på portalen](media/stream-analytics-manage-job/find-event-hub-resource.png)
@@ -264,7 +264,7 @@ Du kan testa en fråga från frågeredigeraren med hjälp av exempeldata. Kör f
 
 I den här delen av självstudien använder du ett exempel på [ASP.net](https://asp.net/) -webbprogram som skapats av Power BI-teamet för att bädda in instrument panelen. Mer information om att bädda in instrumentpaneler finns i artikeln [inbäddning med Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-Om du vill konfigurera programmet går du till GitHub [-lagringsplatsen PowerBI-Developer-samples](https://github.com/Microsoft/PowerBI-Developer-Samples) och följer anvisningarna under avsnittet **användare äger data** (Använd URL: erna för omdirigering och start sidan under underavsnittet **integrera-Web-App** ). Eftersom vi använder exempel på instrument panelen använder du exempel koden **integrera-Web-App** som finns i [GitHub-lagringsplatsen](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app).
+Om du vill konfigurera programmet går du till GitHub [-lagringsplatsen PowerBI-Developer-samples](https://github.com/Microsoft/PowerBI-Developer-Samples) och följer anvisningarna under avsnittet **användare äger data** (Använd URL: erna för omdirigering och start sidan under underavsnittet **integrera-Web-App** ). Eftersom vi använder exempel på instrument panelen använder du exempel koden **integrera-Web-App** som finns i [GitHub-lagringsplatsen](https://github.com/microsoft/PowerBI-Developer-Samples/tree/master/.NET%20Framework/User%20Owns%20Data/integrate-web-app).
 När du har fått igång programmet i webbläsaren följer du anvisningarna för att bädda in instrumentpanelen du skapade tidigare på webbsidan:
 
 1. Välj **Logga in för att Power BI**, vilket ger programmet åtkomst till instrument panelerna i ditt Power BI-konto.

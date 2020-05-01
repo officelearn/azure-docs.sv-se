@@ -1,162 +1,186 @@
 ---
-title: Windows-värd pool för virtuella skriv bord Azure Marketplace – Azure
-description: Hur du skapar en Windows-pool för virtuella skriv bord med hjälp av Azure Marketplace.
+title: Windows-pool för virtuella skriv bord Azure Portal – Azure
+description: Så här skapar du en Windows-pool för virtuella skriv bord med hjälp av Azure Portal.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/09/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d5165b160ffc196416052a56aaa0d93c05db56bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: def3ed840d2886aabfce1d1081c94298083fe6d6
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238624"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611687"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudie: skapa en värdbaserad pool med Azure Marketplace
+# <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
-I den här självstudien får du lära dig hur du skapar en adresspool i en Windows-klient för virtuella skriv bord med hjälp av ett Microsoft Azure Marketplace erbjudande.
-
-Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
-
-Uppgifterna i den här självstudien innehåller:
-
-> [!div class="checklist"]
+>[!IMPORTANT]
+>Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md).
 >
-> * Skapa en adresspool i det virtuella Windows-skrivbordet.
-> * Skapa en resurs grupp med virtuella datorer i en Azure-prenumeration.
-> * Anslut de virtuella datorerna till Active Directory-domänen.
-> * Registrera de virtuella datorerna med det virtuella Windows-skrivbordet.
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Lagringspooler är en samling av en eller flera identiska virtuella datorer (VM) i Windows-miljöer för virtuella skriv bord. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
+
+Den här artikeln vägleder dig genom installations processen för att skapa en adresspool för en Windows Virtual Desktop-miljö via Azure Portal. Den här metoden ger ett webbläsarbaserat användar gränssnitt för att skapa en adresspool i Windows Virtual Desktop, skapa en resurs grupp med virtuella datorer i en Azure-prenumeration, ansluta de virtuella datorerna till den Azure Active Directory AD-domänen och registrera de virtuella datorerna med Windows Virtual Desktop.
 
 ## <a name="prerequisites"></a>Krav
 
-* En klient i virtuellt skriv bord. En tidigare [självstudie](tenant-setup-azure-active-directory.md) skapar en klient.
-* [PowerShell-modul för Windows Virtual Desktop](/powershell/windows-virtual-desktop/overview/).
+Du måste ange följande parametrar för att skapa en värdbaserad pool:
 
-När du har den här modulen kör du följande cmdlet för att logga in på ditt konto:
+- Namnet på den virtuella dator avbildningen
+- Konfiguration av virtuell dator
+- Egenskaper för domän och nätverk
+- Egenskaper för pool för virtuella Windows-värdar
 
-```powershell
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
+Du måste också känna till följande saker:
 
-## <a name="sign-in-to-azure"></a>Logga in på Azure
+- Var källan till den avbildning du vill använda finns. Är det från Azure Gallery eller är det en anpassad avbildning?
+- Autentiseringsuppgifterna för din domän anslutning.
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+När du skapar en Windows-pool för virtuella Skriv bords värdar med Azure Resource Manager-mallen kan du skapa en virtuell dator från Azure-galleriet, en hanterad avbildning eller en ohanterad avbildning. Mer information om hur du skapar VM-avbildningar finns i [förbereda en Windows VHD-eller VHDX-överföring till Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) och [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../virtual-machines/windows/capture-image-resource.md).
 
-## <a name="run-the-azure-marketplace-offering-to-provision-a-new-host-pool"></a>Kör Azure Marketplace-erbjudandet för att etablera en ny värdbaserad pool
+Om du inte redan har en Azure-prenumeration kan du se till att [skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar följa dessa anvisningar.
 
-Så här kör du Azure Marketplace-erbjudandet för att etablera en ny adresspool:
+## <a name="begin-the-host-pool-setup-process"></a>Starta installationen av poolen för värdar
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**.
-1. Ange **virtuellt Windows-skrivbord** i fönstret Marketplace search.
-1. Välj **Windows Virtual Desktop – etablera en adresspool**och välj sedan **skapa**.
+För att börja skapa den nya poolen:
 
-Efter det följer du anvisningarna i nästa avsnitt för att ange informationen för lämpliga flikar.
+1. Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
 
-### <a name="basics"></a>Grundläggande inställningar
+2. Ange det **virtuella Windows-skrivbordet** i Sök fältet och Sök sedan efter och välj **Windows Virtual Desktop** under tjänster.
 
-Det här kan du göra på fliken **grundläggande** :
+3. På sidan Översikt för **virtuella Windows-datorer** väljer du **skapa en adresspool**.
 
-1. Välj en **prenumeration**.
-1. För **resurs grupp**väljer du **Skapa ny** och anger ett namn för den nya resurs gruppen.
-1. Välj en **region**.
-1. Ange ett namn för den värdbaserade poolen som är unik i Windows-klienten för virtuella skriv bord.
-1. Välj **typ av skriv bord**. Om du väljer **privat**, tilldelas varje användare som ansluter till den här poolen permanent till en virtuell dator.
-1. Ange användare som kan logga in på Windows-klienter för virtuella skriv bord och få åtkomst till ett skriv bord. Använd en kommaavgränsad lista. Om du till exempel vill tilldela `user1@contoso.com` och `user2@contoso.com` komma åt anger du*`user1@contoso.com,user2@contoso.com`*
-1. För **platsen för tjänstens metadata**väljer du samma plats som det virtuella nätverk som har anslutning till Active Directory servern.
+4. På fliken **grundläggande** väljer du rätt prenumeration under projekt information.
 
-   >[!IMPORTANT]
-   >Om du använder en ren Azure Active Directory Domain Services-lösning (Azure AD DS) och Azure Active Directory (Azure AD) måste du distribuera din adresspool i samma region som din Azure AD DS för att undvika fel i domän anslutning och autentiseringsuppgifter.
+5. Välj antingen **Skapa nytt** för att skapa en ny resurs grupp eller Välj en befintlig resurs grupp på den nedrullningsbara menyn.
 
-1. Välj **Nästa: Konfigurera virtuella datorer**.
+6. Ange ett unikt namn för din värd bassäng.
 
-### <a name="configure-virtual-machines"></a>Konfigurera virtuella datorer
+7. I fältet plats väljer du den region där du vill skapa fakturapoolen från den nedrullningsbara menyn.
+   
+   Azure-geografin som är associerad med de regioner som du har valt är där metadata för den här poolen och dess relaterade objekt kommer att lagras. Se till att du väljer de regioner i geografin som du vill att tjänstens metadata ska lagras i.
 
-För fliken **Konfigurera virtuella datorer** :
+     ![En skärm bild av Azure Portal som visar fältet plats med platsen östra USA vald. Bredvid fältet är texten "metadata kommer att lagras i USA, östra".](media/portal-location-field.png)
 
-1. Acceptera standardvärdena eller anpassa antalet och storleken på de virtuella datorerna.
+8. Under typ av värdstat väljer du om din värddator ska vara **personlig** eller **pool**.
+
+    - Om du väljer **privat**väljer du antingen **Automatisk** eller **direkt** i fältet tilldelnings typ.
+
+      ![En skärm bild av list rutan tilldelnings typ fält. Användaren har valt automatisk.](media/assignment-type-field.png)
+
+9. Om du väljer **pool**, anger du följande information:
+
+     - För **högsta antal sessioner**anger du det maximala antalet användare som du vill belastningsutjämna till en värd för en enda session.
+     - För **belastnings Utjämnings algoritm**väljer du antingen bredd-första eller djup-först, baserat på ditt användnings mönster.
+
+       ![En skärm bild av tilldelnings typ fältet med "pooled" valt. Användaren håller mus pekaren över bredden – först på den nedrullningsbara menyn för belastnings utjämning.](media/pooled-assignment-type.png)
+
+10. Välj **Nästa: information om virtuell dator**.
+
+11. Om du redan har skapat virtuella datorer och vill använda dem med den nya poolen väljer du **Nej**. Välj **Ja**om du vill skapa nya virtuella datorer och registrera dem i den nya poolen.
+
+Nu när du har slutfört den första delen kan vi gå vidare till nästa del av installations processen där vi skapar den virtuella datorn.
+
+## <a name="virtual-machine-details"></a>Information om virtuell dator
+
+Nu när vi går igenom den första delen måste du konfigurera din virtuella dator.
+
+Så här konfigurerar du den virtuella datorn i konfigurationen av poolen för värdar:
+
+1. Under resurs grupp väljer du den resurs grupp där du vill skapa de virtuella datorerna. Detta kan vara en annan resurs grupp än den som du använde för poolen.
+
+2. Välj den **virtuella dator region** där du vill skapa de virtuella datorerna. De kan vara samma eller olika från den region som du har valt för poolen.
+
+3. Välj sedan storleken på den virtuella dator som du vill skapa. Du kan antingen behålla standard storleken som är eller välja **ändra storlek** om du vill ändra storleken. Om du väljer **ändra storlek**i fönstret som visas väljer du storleken på den virtuella dator som passar din arbets belastning.
+
+4. Under antal virtuella datorer anger du det antal virtuella datorer som du vill skapa för din värd pool.
 
     >[!NOTE]
-    >Om den angivna storleken på den virtuella datorn som du söker efter inte visas i storleks väljaren, beror det på att vi inte har publicerat den på Azure Marketplace-verktyget ännu. Om du vill begära en storlek skapar du en begäran eller avröstar en befintlig begäran i [Windows Virtual Desktop UserVoice-forumet](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Installations processen kan skapa upp till 400 virtuella datorer när du konfigurerar din adresspool, och varje process för VM-installation skapar fyra objekt i resurs gruppen. Eftersom processen för att skapa processer inte kontrollerar din prenumerations kvot kontrollerar du att antalet virtuella datorer som du anger ligger inom Azure VM och API-gränserna för resurs gruppen och prenumerationen. Du kan lägga till fler virtuella datorer när du är klar med att skapa din värd-pool.
 
-1. Ange ett prefix för namnen på de virtuella datorerna. Om du till exempel anger *prefix*kommer de virtuella datorerna att kallas **prefix-0**, **prefix-1**och så vidare.
-1. Välj **Nästa: inställningar för virtuella datorer**.
+5. Efter det anger du ett **namn prefix** som namnger de virtuella datorer som installations processen skapar. Suffixet kommer att `-` vara med siffror från 0.
 
-### <a name="virtual-machine-settings"></a>Inställningar för virtuella datorer
+6. Välj sedan den avbildning som ska användas för att skapa den virtuella datorn. Du kan välja antingen **Galleri** eller **Storage-BLOB**.
 
-För fliken **Inställningar för virtuell dator** :
+    - Om du väljer **Galleri**väljer du en av de rekommenderade bilderna på den nedrullningsbara menyn:
 
-1. För **avbildnings källa**väljer du källan och anger den information som krävs för att hitta den och hur den ska lagras. Alternativen skiljer sig åt för blob-lagring, hanterad avbildning och Galleri.
+      - Windows 10 Enterprise multi-session, version 1909 + Office 365 ProPlus – gen 1
+      - Windows 10 Enterprise multi-session, version 1909 – gen 1
+      - Windows Server 2019 Data Center – gen1
 
-   Om du väljer att inte använda hanterade diskar väljer du det lagrings konto som innehåller *VHD* -filen.
-1. Ange User Principal Name och lösen ord. Kontot måste vara det domän konto som ska ansluta till de virtuella datorerna till den Active Directory domänen. Samma användar namn och lösen ord kommer att skapas på de virtuella datorerna som ett lokalt konto. Du kan återställa de här lokala kontona senare.
+     Om du inte ser den avbildning som du vill använda väljer du **Bläddra bland alla avbildningar och diskar**, vilket gör att du kan välja antingen en annan bild i galleriet eller en avbildning som tillhandahålls av Microsoft och andra utgivare.
 
-   >[!NOTE]
-   > Om du ansluter till dina virtuella datorer till en Azure AD DS-miljö måste du kontrol lera att din domän anslutning är medlem i [Administratörs gruppen för AAD-domänkontrollanten](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
-   >
-   > Kontot måste också ingå i den Azure AD DS-hanterade domänen eller Azure AD-klienten. Konton från externa kataloger som är associerade med din Azure AD-klient kan inte autentiseras korrekt under processen för domän anslutning.
+     ![En skärm bild av Marketplace med en lista över bilder från Microsoft som visas.](media/marketplace-images.png)
 
-1. Välj det **virtuella nätverk** som har anslutning till Active Directory-servern och välj sedan ett undernät som är värd för de virtuella datorerna.
-1. Välj **Nästa: information om virtuella Windows-datorer**.
+     Du kan också gå till **Mina objekt** och välja en anpassad avbildning som du redan har laddat upp.
 
-### <a name="windows-virtual-desktop-tenant-information"></a>Klient information för virtuella Windows-datorer
+     ![En skärm bild av fliken Mina objekt.](media/my-items.png)
 
-På fliken **Windows-klient för virtuella Skriv bords information** :
+    - Om du väljer **Storage BLOB**kan du använda en egen avbildning som bygger på Hyper-V eller på en virtuell Azure-dator. Allt du behöver göra är att ange platsen för avbildningen i Storage-blobben som en URI.
 
-1. Ange namnet på klient gruppen som innehåller din klient organisation för **Windows Virtual Desktop klient grupp namn**. Lämna det som standard om du inte angav ett angivet klient grupps namn.
-1. Ange namnet på den klient där du vill skapa den här poolen för **Windows Virtual Desktop klient namn**.
-1. Ange vilken typ av autentiseringsuppgifter du vill använda för att autentisera som Windows-ägare för klient organisation för virtuella skriv bord. Ange UPN-eller tjänstens huvud namn och lösen ord.
+7. Välj vilken typ av OS-diskar du vill att de virtuella datorerna ska använda: Standard SSD, Premium SSD eller Standard HDD.
 
-   Om du har slutfört [guiden skapa tjänst huvud namn och roll tilldelningar med PowerShell](./create-service-principal-role-powershell.md)väljer du **tjänstens huvud namn**.
+8. Under nätverk och säkerhet väljer du det virtuella nätverk och undernät där du vill placera de virtuella datorer som du skapar. Se till att det virtuella nätverket kan ansluta till domänkontrollanten eftersom du måste ansluta de virtuella datorerna i det virtuella nätverket till domänen. Välj sedan om du vill ha en offentlig IP-adress för de virtuella datorerna. Vi rekommenderar att du väljer **Nej**eftersom en privat IP-adress är säkrare.
 
-1. För **tjänstens huvud namn**anger du administratörs kontot för Azure AD-instansen som innehåller tjänstens huvud namn för klient **-ID för Azure AD**. Det finns bara stöd för tjänst huvud namn med autentiseringsuppgifter för lösen ord.
-1. Välj **Nästa: granska + skapa**.
+9. Välj vilken typ av säkerhets grupp du vill använda: **Basic**, **Advanced**eller **none**.
 
-## <a name="complete-setup-and-create-the-virtual-machine"></a>Slutför installationen och skapa den virtuella datorn
+    Om du väljer **Basic**måste du välja om du vill att en inkommande port ska vara öppen. Om du väljer **Ja**väljer du i listan med standard portar att tillåta inkommande anslutningar till.
 
-Granska installations informationen i **Granska och skapa**. Om du behöver ändra något går du tillbaka och gör ändringar. När du är klar väljer du **skapa** för att distribuera din värd-pool.
+    >[!NOTE]
+    >För större säkerhet rekommenderar vi att du inte öppnar offentliga inkommande portar.
 
-Beroende på hur många virtuella datorer du skapar kan den här processen ta 30 minuter eller mer att slutföra.
+    ![En skärm bild av sidan säkerhets grupp som visar en lista över tillgängliga portar i en nedrullningsbar meny.](media/available-ports.png)
+    
+    Om du väljer **Avancerat**väljer du en befintlig nätverks säkerhets grupp som du redan har konfigurerat.
 
->[!IMPORTANT]
-> Vi rekommenderar att du inte öppnar den inkommande port 3389 på dina virtuella datorer för att skydda din Windows Virtual Desktop-miljö i Azure. Virtuella Windows-datorer kräver inte en öppen inkommande port 3389 för att användare ska kunna komma åt värddatorns virtuella datorer.
->
-> Om du måste öppna port 3389 för fel söknings syfte rekommenderar vi att du använder just-in-Time-åtkomst. Mer information finns i [skydda dina hanterings portar med just-in-Time-åtkomst](../security-center/security-center-just-in-time.md).
+10. Efter det väljer du om du vill att de virtuella datorerna ska vara anslutna till en speciell domän och organisationsenhet. Om du väljer **Ja**anger du domänen som ska anslutas. Du kan också lägga till en speciell organisationsenhet som du vill att de virtuella datorerna ska finnas i.
 
-## <a name="optional-assign-additional-users-to-the-desktop-application-group"></a>Valfritt Tilldela ytterligare användare till program gruppen Skriv bord
+11. Under administratörs konto anger du autentiseringsuppgifterna för Active Directory-domän admin för det virtuella nätverk som du har valt.
 
-När du har skapat poolen med Azure Marketplace kan du tilldela fler användare till program gruppen Skriv bord. Hoppa över det här avsnittet om du inte vill lägga till fler.
+12. Välj **arbets yta**.
 
-Så här tilldelar du användare till program gruppen Skriv bord:
+Vi är nu redo att starta nästa steg i konfigurationen av din värddator: registrera din app-grupp på en arbets yta.
 
-1. Öppna ett PowerShell-fönster.
+## <a name="workspace-information"></a>Arbetsyteinformation
 
-1. Kör följande kommando för att logga in på Windows-miljön för virtuella skriv bord:
+Installations processen för fakturapoolen skapar en program grupp för skriv bord som standard. För att värddatorn ska fungera som avsett måste du publicera den här program gruppen till användare eller användar grupper och du måste registrera app-gruppen på en arbets yta. 
 
-   ```powershell
-   Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-   ```
+Registrera Skriv bords gruppen på en arbets yta:
 
-1. Lägg till användare i program gruppen Skriv bord med hjälp av det här kommandot:
+1. Välj **Ja**.
 
-   ```powershell
-   Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
-   ```
+   Om du väljer **Nej**kan du registrera app-gruppen senare, men vi rekommenderar att du får registrering av arbets ytorna så snart du kan så att din värd pool fungerar som den ska.
 
-   Användarens UPN ska matcha användarens identitet i Azure AD, till exempel *user1@contoso.com*. Om du vill lägga till flera användare kör du kommandot för varje användare.
+2. Välj sedan om du vill skapa en ny arbets yta eller Välj från befintliga arbets ytor. Endast arbets ytor som har skapats på samma plats som poolen kommer att kunna registrera app-gruppen på.
 
-Användare som du lägger till i gruppen Skriv bords program kan logga in på Windows Virtual Desktop med stöd för fjärr skrivbords klienter och se en resurs för ett skrivbord-skrivbord.
+3. Alternativt kan du välja **taggar**.
 
-Här är de klienter som stöds:
+    Här kan du lägga till taggar så att du kan gruppera objekten med metadata för att göra det enklare för dina administratörer.
 
-* [Fjärr skrivbords klient för Windows 7 och Windows 10](connect-windows-7-and-10.md)
-* [Webb klient för Windows Virtual Desktop](connect-web.md)
+4. När du är klar väljer du **Granska + skapa**. 
+
+     >[!NOTE]
+     >Verifierings processen för att granska och skapa kontrollerar inte om ditt lösen ord uppfyller säkerhets standarderna eller om arkitekturen är korrekt, så du måste kontrol lera eventuella problem med någon av dessa saker. 
+
+5. Granska informationen om distributionen för att kontrol lera att allting ser korrekt ut. När du är klar väljer du **Skapa**. Detta startar distributions processen, som skapar följande objekt:
+
+     - Den nya poolen för värdar.
+     - En Skriv bords grupp.
+     - En arbets yta, om du väljer att skapa den.
+     - Om du väljer att registrera gruppen för Skriv bords appar slutförs registreringen
+     - Virtuella datorer, om du väljer att skapa dem, som är anslutna till domänen och registrerade med den nya poolen.
+     - En nedladdnings länk för en Azure-resurs hanterings mall baserat på din konfiguration.
+
+Därefter är du klar!
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har skapat en adresspool och tilldelat användare åtkomst till Skriv bordet. Du kan fylla i din värd-pool med RemoteApp-program. Mer information om hur du hanterar appar i virtuella Windows-datorer finns i den här självstudien:
+Nu när du har gjort din värd pool kan du fylla den med RemoteApp-program. Om du vill veta mer om hur du hanterar appar i Windows Virtual Desktop, kan du gå till nästa självstudie:
 
 > [!div class="nextstepaction"]
 > [Själv studie kurs för hantering av app-grupper](./manage-app-groups.md)

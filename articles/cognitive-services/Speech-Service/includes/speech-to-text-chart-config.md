@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 08/22/2019
+ms.date: 04/15/2020
 ms.author: trbye
-ms.openlocfilehash: f7ca8fdaddab9757292939c4f7e658179d6e517c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 267c2fb72b38053429019746a573c740d812c38c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81421925"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608393"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Tal till text (under diagram: diagram/speechToText)
 
@@ -40,3 +40,30 @@ Om du vill åsidosätta diagrammet "paraply" lägger du `speechToText.` till pre
 | `service.annotations` | **Tal-till-text-** anteckningar för tjänste-metadata. Anteckningar är nyckel värdes par. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Om den [automatiska skalnings funktionen för horisontella Pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) är aktive rad. Om `true` `speech-to-text-autoscaler` kommer att distribueras i Kubernetes-klustret. | `true` |
 | `service.podDisruption.enabled` | Om [Pod störnings budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) är aktive rad. Om `true` `speech-to-text-poddisruptionbudget` kommer att distribueras i Kubernetes-klustret. | `true` |
+
+#### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>Sentiment-analys (under diagram: diagram/speechToText)
+
+Från och med v-2.2.0 av den tal-till-text-behållaren används följande parametrar för sentiment-analys med hjälp av API för textanalys.
+
+|Parameter|Beskrivning|Värden|Standardvärde|
+| --- | --- | --- | --- |
+|`textanalytics.enabled`| Om tjänsten för **text analys** är aktive rad| True/false| `false`|
+|`textanalytics.image.registry`| Den **text Analytics-** Docker avbildnings register| giltigt Docker-avbildnings register| |
+|`textanalytics.image.repository`| **Text Analytics** Docker-avbildningens lagrings plats| giltig Docker-avbildnings lagrings plats| |
+|`textanalytics.image.tag`| Bild tag gen för **text Analytics-** Docker| giltig Docker-avbildnings tag| |
+|`textanalytics.image.pullSecrets`| Bild hemligheterna för att hämta Docker-avbildningen av **text Analytics**| giltigt namn på hemligheter| |
+|`textanalytics.image.pullByHash`| Anger om du ska hämta Docker-avbildningen med hash.  Om `yes`, `image.hash` krävs också. Om `no`anger du det som "falskt". Standardvärdet är `false`.| True/false| `false`|
+|`textanalytics.image.hash`| **Text Analytics** Docker-avbildningens hash. Använd den bara med `image.pullByHash:true`.| giltig Docker-avbildnings-hash | |
+|`textanalytics.image.args.eula`| Ett av de argument som krävs av en **text analys** behållare, som anger att du har accepterat licensen. Värdet för det här alternativet måste vara: `accept`.| `accept`, om du vill använda behållaren | |
+|`textanalytics.image.args.billing`| Ett av de argument som krävs av en **text analys** behållare, som anger URI för fakturerings slut punkt. URI-värdet för fakturerings slut punkten är tillgängligt på sidan med tal översikts sidan för Azure Portal.|giltig URI för fakturerings slut punkt||
+|`textanalytics.image.args.apikey`| Ett av de argument som krävs av en **text analys** behållare, som används för att spåra fakturerings information.| giltig apiKey||
+|`textanalytics.cpuRequest`| Begärd processor för **text analys** behållare| int| `3000m`|
+|`textanalytics.cpuLimit`| Begränsad processor för **text analys** behållare| | `8000m`|
+|`textanalytics.memoryRequest`| Begärt minne för **text analys** behållare| | `3Gi`|
+|`textanalytics.memoryLimit`| Det begränsade minnet för **text analys** behållare| | `8Gi`|
+|`textanalytics.service.sentimentURISuffix`| URI-suffixet för sentiment Analysis är hela URI: n i formatet`<service>`"`<port>`/`<sentimentURISuffix>`http://:". | | `text/analytics/v3.0-preview/sentiment`|
+|`textanalytics.service.type`| Typ av **text analys** tjänst i Kubernetes. Se [Kubernetes-tjänst typer](https://kubernetes.io/docs/concepts/services-networking/service/) | giltig typ av Kubernetes-tjänst | `LoadBalancer` |
+|`textanalytics.service.port`| Porten för tjänsten för **text analys**| int| `50085`|
+|`textanalytics.service.annotations`| Anteckningarna användare kan lägga till i metadata för **text analys** tjänsten. Till exempel:<br/> **anteckningar**<br/>`   `**vissa/annotation1: värde1**<br/>`  `**vissa/annotation2: värde2** | anteckningar, en per rad| |
+|`textanalytics.serivce.autoScaler.enabled`| Om den [automatiska skalnings funktionen för horisontella Pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) är aktive rad. Om aktive `text-analytics-autoscaler` rad kommer att distribueras i Kubernetes-klustret | True/false| `true`|
+|`textanalytics.service.podDisruption.enabled`| Om [Pod störnings budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) är aktive rad. Om aktive `text-analytics-poddisruptionbudget` rad kommer att distribueras i Kubernetes-klustret| True/false| `true`|

@@ -9,10 +9,10 @@ ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77565476"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>Självstudie: Utföra en rotorsaksanalys för en avisering
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Du kan välja vilka anslutna enheters som ska visas på sidan **Instrumentpanel** med hjälp av filter. Om du bara vill visa enheter av typen **Truck** (Lastbil) väljer du de inbyggda filtret **Trucks** (Lastbilar) i filterlistrutan:
 
-[![Filter för lastbilar på instrumentpanelen](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
+[![Filtrera efter Last bilar på instrument panelen](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
 När du använder ett filter visas endast de enheter som matchar filtervillkoren på kartan och i telemetripanelen på **Instrumentpanelen**. Du kan se att det finns två lastbilar som är anslutna till lösningsacceleratorn, inklusive **lastbil-02**.
 
@@ -46,37 +46,37 @@ När du använder ett filter visas endast de enheter som matchar filtervillkoren
 
 Lösningsacceleratorn kartlägger telemetridata i realtid på sidan **Instrumentpanel**. Som standard visar diagrammet höjdtelemetri, vilket varierar över tid:
 
-[![Lastbilshöjd telemetri tomt](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-expanded.png#lightbox)
+[![Observations området för truckens höjd](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/trucks-moving-expanded.png#lightbox)
 
 Visa temperaturtelemetri för lastbilarna genom att klicka på **Temperatur** i **telemetripanelen**. Du kan se hur temperaturen för båda lastbilar har varierat under de senaste 15 minuterna. Du kan också se att en varning för låg temperatur har aktiverats för lastbil-02 i aviseringspanelen.
 
-[![RM instrumentpanel med låg temp varning](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-expanded.png#lightbox)
+[![RM-instrumentpanel med låg temp-avisering](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/low-temp-alert-expanded.png#lightbox)
 
 ## <a name="explore-the-data"></a>Utforska data
 
 Öppna lastbilens telemetridata i Time Series Insights-utforskaren för att identifiera orsaken till larmet om låg temperatur. Klicka på någon av länkarna **Utforska i Time Series Insights** på instrumentpanelen:
 
-[![RM-instrumentpanel med TSD-länkar markerade](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-expanded.png#lightbox)
+[![RM-instrumentpanel med länkar till TSD markerat](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/explore-tsi-expanded.png#lightbox)
 
 När utforskaren startas visas alla dina enheter:
 
-[![Inledande vy för TSI Explorer](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-expanded.png#lightbox)
+[![Inledande vy i TSD Explorer](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/initial-tsi-view-expanded.png#lightbox)
 
 Filtrera enheterna genom att skriva **lastbil** i filterrutan och välj **temperatur** som **mått** i den vänstra panelen:
 
-[![TSI Explorer lastbilstemperatur](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
+[![TSD-temperatur för Truck](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
 Du ser samma vy som du såg i instrumentpanelen för fjärrövervakning. Dessutom kan du nu zooma i närmare på den tidsram som aviseringen utlöstes i:
 
-[![TSI Explorer zoom](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
+[![Zooma i TSD Explorer](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
 Du kan också lägga till i andra telemetriströmmar som kommer från lastbilar. Klicka på knappen **Lägg till** i det övre vänstra hörnet. Ett nytt fönster visas:
 
-[![TSI Explorer med nytt fönster](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-expanded.png#lightbox)
+[![TSD Explorer med nytt fönster](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-pane-expanded.png#lightbox)
 
 I det nya fönstret ändrar du namnet på den nya etiketten till **Enheter** så att den matchar den tidigare. Välj **höjd** som **Mått** och **iothub-anslutning-enhet-id** som värde för **Delning enligt** för att lägga till höjdtelemetri i vyn:
 
-[![TSI Explorer med temperatur och höjd](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
+[![TSD-Utforskare med temperatur och höjd](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-altitude-expanded.png#lightbox)
 
 ## <a name="diagnose-the-alert"></a>Diagnostisera aviseringen
 
@@ -84,13 +84,13 @@ Du kan se att höjdprofilerna avviker från varandra när du tittar på flödena
 
 För att bekräfta din misstanke om att lastbilarna tog olika resvägar lägger du till ett annat fönster i sidopanelen med knappen **Lägg till**. I det nya fönstret ändrar du namnet på den nya etiketten till **Enheter** så att den matchar den tidigare. Välj **Höjd** som **Mått** och **iothub-anslutning-enhet-id** som värde för **Delning enligt** för att lägga till höjdtelemetri i vyn. Du kan se att lastbilarna tog olika vägar genom att titta på skillnaden mellan **longitud**-flödena:
 
-[![TSI Explorer med temperatur, höjd och longitud](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-expanded.png#lightbox)
+[![TSD-Utforskare med temperatur, höjd och longitud](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-add-longitude-expanded.png#lightbox)
 
 ## <a name="create-a-new-rule"></a>Skapa en ny regel
 
 Medan lastbilsvägar vanligtvis optimeras i förväg upptäcker du att trafikmönster, väder och andra oförutsedda händelser kan orsaka förseningar och låter lastbilsförarna fatta de slutgiltiga besluten baserat på deras omdöme. Men eftersom tillgångarna i lastbilarna är temperaturkänsliga bör du skapa en extra regel i din fjärrövervakningslösning. Den här regeln är till för att ge dig en varning om genomsnittshöjden är över 105 meter över ett 1-minutsintervall:
 
-[![Fliken Fjärrövervakningsregler anger höjdregel](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
+[![Fliken fjärrstyrd övervakning ange regler för höjd](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 
 Läs föregående självstudie för information om att skapa och [identifiera enhetsproblem](iot-accelerators-remote-monitoring-automate.md).
 

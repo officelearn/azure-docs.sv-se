@@ -1,6 +1,6 @@
 ---
-title: Etablera simulerad X.509-enhet till Azure IoT Hub med Node.js
-description: Skapa och etablera en simulerad X.509-enhet med Node.js-enheten SDK för Azure IoT Hub Device Provisioning Service (DPS). Den här snabbstarten använder enskilda registreringar.
+title: Etablera en simulerad X. 509-enhet till Azure IoT Hub med Node. js
+description: Skapa och etablera en simulerad X. 509-enhet med Node. js-enhets-SDK för Azure IoT Hub Device Provisioning Service (DPS). I den här snabb starten används enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2018
@@ -10,26 +10,26 @@ services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
 ms.openlocfilehash: 746f4adbf616f95c21874d7c1c48881f88c38d34
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77605399"
 ---
-# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabbstart: Skapa och etablera en X.509-simulerad enhet med Node.js-enheten SDK för IoT Hub Device Provisioning Service
+# <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Snabb start: skapa och etablera en simulerad X. 509-enhet med Node. js-enhets-SDK för IoT Hub Device Provisioning Service
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-I den här snabbstarten skapar du en simulerad X.509-enhet på en Windows-dator. Du använder enhetsexempel nod.js-kod för att ansluta den här simulerade enheten till din IoT-hubb med hjälp av en enskild registrering med DPS (Device Provisioning Service).
+I den här snabb starten skapar du en simulerad X. 509-enhet på en Windows-dator. Du använder enhets exempel Node. js-koden för att ansluta den här simulerade enheten med IoT-hubben med hjälp av en enskild registrering med enhets etablerings tjänsten (DPS).
 
 ## <a name="prerequisites"></a>Krav
 
-- Översyn av [begrepp för automatisk etablering](concepts-auto-provisioning.md).
-- Slutförande av [konfigurera IoT Hub Device Provisioning Service med Azure-portalen](./quick-setup-auto-provision.md).
-- Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Node.js v4.0+](https://nodejs.org).
+- Granskning av [koncept för automatisk etablering](concepts-auto-provisioning.md).
+- Slut för ande av [konfigurations IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Node. js v 4.0 +](https://nodejs.org).
 - [Git](https://git-scm.com/download/).
-- [OpenSSL](https://www.openssl.org/).
+- [Openssl](https://www.openssl.org/).
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -39,7 +39,7 @@ I den här snabbstarten skapar du en simulerad X.509-enhet på en Windows-dator.
 
 2. Kontrollera att [Node.js v4.0 eller senare](https://nodejs.org) är installerat på din dator.
 
-3. Kontrollera att [Git](https://git-scm.com/download/) är installerat på datorn och läggs till i de miljövariabler som är tillgängliga för kommandofönstret. 
+3. Kontrol lera att [git](https://git-scm.com/download/) är installerat på datorn och har lagts till i de miljövariabler som är tillgängliga för kommando fönstret. 
 
 4. Kontrollera att [OpenSSL](https://www.openssl.org/) är installerat på datorn och har lagts till i de miljövariabler som är tillgängliga för kommandofönstret. Biblioteket kan antingen byggas och installeras från källkoden eller laddas ned och installeras från en [tredje part](https://wiki.openssl.org/index.php/Binaries) som [det här](https://sourceforge.net/projects/openssl/). 
 
@@ -59,7 +59,7 @@ Du kommer att använda exempelkoden från [Azure IoT SDK för Node.js](https://g
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
 
 - [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
-- [Individuella registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enda enhet.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): används för att registrera en enskild enhet.
 
 Den här artikeln visar enskilda registreringar.
 
@@ -82,28 +82,28 @@ Den här artikeln visar enskilda registreringar.
     node create_test_cert.js device {certificate-name}
     ```
 
-4. Logga in på [Azure-portalen,](https://portal.azure.com)välj knappen **Alla resurser** på menyn till vänster och öppna instansen Enhetsetableringstjänst.
+4. Logga in på [Azure Portal](https://portal.azure.com), Välj knappen **alla resurser** i den vänstra menyn och öppna din enhets etablerings tjänst instans.
 
-5. Välj **Hantera registreringar**på menyn Tjänst för enhetsetablering . Välj fliken **Enskilda registreringar** och välj knappen **Lägg till individuell registrering** högst upp. 
+5. Från menyn enhets etablerings tjänst väljer du **Hantera registreringar**. Välj fliken **enskilda registreringar** och välj knappen **Lägg till individuell registrering** överst. 
 
-6. Ange följande information på panelen **Lägg till registrering:**
+6. Ange följande information på panelen **Lägg till registrering** :
    - Välj **X.509** som identitet för bestyrkande *mekanism*.
-   - Under filen *Primär certifikat .pem eller .cer*väljer du *Välj en fil* för att välja certifikatfilen **{certifikatnamn}_cert.pem** som skapats i föregående steg.  
+   - Under *filen Primary Certificate. pem eller. cer*väljer du *Välj en fil* för att välja certifikat filen **{certificate-Name} _cert. pem** som skapades i föregående steg.  
    - Du kan även ange följande information:
      - Välj en IoT hub som är länkad till din etableringstjänst.
      - Ange ett unikt enhets-ID. Se till att undvika känsliga data när du namnger din enhet. 
      - Uppdatera **inledande enhetstvillingstatus** med önskad inledande konfiguration för enheten.
-     - När du är klar trycker du på **knappen Spara.** 
+     - När du är klar trycker du på knappen **Spara** . 
 
-     [![Lägga till individuell registrering för X.509-intyg i portalen](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
+     [![Lägg till enskild registrering för X. 509-attestering i portalen](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-     Vid lyckad registrering visas din X.509-enhet som **{certificatename}** under kolumnen *Registrerings-ID* på fliken *Enskilda registreringar.*
+     Vid lyckad registrering visas din X. 509-enhet som **{certificateName}** under kolumnen *registrerings-ID* på fliken *enskilda registreringar* . Observera värdet för senare.
 
 ## <a name="simulate-the-device"></a>Simulera enheten
 
 [Azure IoT Hub Node.js-enhets-SDK](https://github.com/Azure/azure-iot-sdk-node) gör det enkelt att simulera en enhet. Läs mer i [Enhetskoncept](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
-1. I Azure-portalen väljer du **bladet Översikt** för tjänsten Enhetsetablering och noterar värdena för slutpunkt för **_den lobbbara enheten_** och **_ID-scopet._**
+1. I Azure Portal väljer du bladet **Översikt** för enhets etablerings tjänsten och noterar värdena för **_GLobal enhets slut punkt_** och **_ID-omfång_** .
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509-node/extract-dps-endpoints.png) 
 
@@ -123,8 +123,8 @@ Den här artikeln visar enskilda registreringar.
 
 4. Redigera **register\_x509.js**-filen. Spara filen när du gjort följande ändringar.
     - Ersätt `provisioning host` med den **_globala enhetsslutpunkt_** du antecknade i **steg 1** ovan.
-    - Ersätt `id scope` med **_ID-scopet_** som anges i **steg 1** ovan. 
-    - Ersätt `registration id` med **_registrerings-ID_** som anges i föregående avsnitt.
+    - Ersätt `id scope` med det **_ID-omfång_** som anges i **steg 1** ovan. 
+    - Ersätt `registration id` med det **_registrerings-ID_** som anges i föregående avsnitt.
     - Ersätt `cert filename` och `key filename` med de filer du kopierade i **steg 2** ovan. 
 
 5. Kör skriptet och verifiera att enheten etablerats korrekt.
@@ -133,7 +133,7 @@ Den här artikeln visar enskilda registreringar.
     node register_x509.js
     ```   
 
-6. I portalen navigerar du till IoT-hubben som är länkad till etableringstjänsten och öppnar **bladet IoT-enheter.** Vid en lyckad etablering av den simulerade X.509-enheten till navet visas dess enhets-ID på **IoT-enhetsbladet,** med *STATUS* som **aktiverat**. Du kan behöva trycka på **knappen Uppdatera** högst upp om du redan har öppnat bladet innan du kör exempelenhetsprogrammet. 
+6. I portalen navigerar du till IoT-hubben som är länkad till din etablerings tjänst och öppnar bladet **IoT-enheter** . Vid lyckad etablering av den simulerade X. 509-enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *status* **aktive rad**. Du kan behöva klicka på knappen **Uppdatera** längst upp om du redan har öppnat bladet innan du kör programmet för enhets exempel. 
 
     ![Enheten är registrerad på IoT-hubben](./media/quick-create-simulated-device-x509-node/hubregistration.png) 
 
@@ -142,16 +142,16 @@ Den här artikeln visar enskilda registreringar.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att fortsätta arbeta med och utforska enhetsklientexemplet ska du inte rensa de resurser som skapas i den här snabbstarten. Om du inte planerar att fortsätta använder du följande steg för att ta bort alla resurser som skapats av den här snabbstarten.
+Om du planerar att fortsätta att arbeta med och utforska enhets klient exemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
 
 1. Stäng utdatafönstret för enhetsklientexemplet på datorn.
-2. På menyn till vänster i Azure-portalen väljer du **Alla resurser** och väljer sedan din enhetsetableringstjänst. Öppna bladet **Hantera registreringar** för tjänsten och markera sedan fliken **Enskilda registreringar.** *REGISTRATION ID* **Delete** 
-3. På menyn till vänster i Azure-portalen väljer du **Alla resurser** och väljer sedan din IoT-hubb. Öppna **ioT-enhetsbladet** för navet, markera kryssrutan bredvid *DEVICE-ID:t* för den enhet som du registrerade i den här snabbstarten och tryck sedan på knappen **Ta bort** högst upp i fönstret.
+2. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan enhets etablerings tjänsten. Öppna bladet **Hantera registreringar** för din tjänst och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för den enhet som du har registrerat i den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret. 
+3. Välj **alla resurser** på den vänstra menyn i Azure Portal och välj sedan din IoT Hub. Öppna bladet **IoT-enheter** för navet, markera kryss rutan bredvid *enhets-ID* för den enhet som du registrerade i den här snabb starten och tryck sedan på knappen **ta bort** högst upp i fönstret.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en simulerad X.509-enhet och etablerat den i din IoT-hubb med hjälp av Azure IoT Hub Device Provisioning Service på portalen. Om du vill veta hur du registrerar din X.509-enhet programmässigt fortsätter du till snabbstarten för programmatisk registrering av X.509-enheter. 
+I den här snabb starten har du skapat en simulerad X. 509-enhet och etablerad den till IoT-hubben med hjälp av Azure-IoT Hub Device Provisioning Service på portalen. Om du vill lära dig hur du registrerar X. 509-enheten program mässigt fortsätter du till snabb starten för program mässig registrering av X. 509-enheter. 
 
 > [!div class="nextstepaction"]
-> [Snabbstart i Azure – Registrera X.509-enheter till Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-node.md)
+> [Azure snabb start – registrera X. 509-enheter till Azure IoT Hub Device Provisioning Service](quick-enroll-device-x509-node.md)

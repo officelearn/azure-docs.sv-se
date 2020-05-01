@@ -1,22 +1,22 @@
 ---
-title: Skapa en serverlös Python-funktionsapp - Azure CLI
-description: Skapa en serverlös Python-funktionsapp med Azure CLI
+title: Skapa en server lös python-Function-app – Azure CLI
+description: Skapa en server lös python-Function-app med hjälp av Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
 ms.openlocfilehash: c55934c42db6bb7248db107b97fb8998163fae8b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75922630"
 ---
-# <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Skapa en serverlös Python-funktionsapp med Azure CLI
+# <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Skapa en server lös python-Function-app med Azure CLI
 
 Det här exempelskriptet för Azure Functions skapar en funktionsapp som blir container åt dina funktioner. 
 
 >[!NOTE]
->Funktionsappen som skapats körs på Python version 3.6. Python version 3.7 stöds också av Azure Functions.
+>Function-appen som skapats körs på python version 3,6. Python version 3,7 stöds också av Azure Functions.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -26,7 +26,7 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="sample-script"></a>Exempelskript
 
-Det här skriptet skapar en Azure Function-app med hjälp av [förbrukningsplanen](../functions-scale.md#consumption-plan).
+Det här skriptet skapar en Azure Function-app med hjälp av [förbruknings planen](../functions-scale.md#consumption-plan).
 
 [!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 
@@ -36,7 +36,7 @@ Det här skriptet skapar en Azure Function-app med hjälp av [förbrukningsplane
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Konfigurerar ett Azure Storage-konto. |

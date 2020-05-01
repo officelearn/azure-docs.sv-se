@@ -1,6 +1,6 @@
 ---
-title: Registrera TPM-enhet till Azure Device Provisioning Service med Java
-description: Snabbstart – Registrera TPM-enhet till Azure IoT Hub Device Provisioning Service (DPS) med Java-tjänst SDK. Den här snabbstarten använder enskilda registreringar.
+title: Registrera TPM-enhet på Azure Device Provisioning-tjänsten med Java
+description: Snabb start – registrera TPM-enhet till Azure IoT Hub Device Provisioning Service (DPS) med Java-tjänst-SDK. Den här snabbstarten använder enskilda registreringar.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -10,24 +10,24 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: c199d5be4c103c80a6fcc126af70f48367909f64
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79241698"
 ---
-# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Snabbstart: Registrera TPM-enhet till IoT Hub Device Provisioning Service med Java Service SDK
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Snabb start: registrera TPM-enhet för att IoT Hub Device Provisioning Service med Java-tjänst-SDK
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
-I den här snabbstarten skapar du programmässigt en individuell registrering för en simulerad TPM-enhet i Azure IoT Hub Device Provisioning Service med hjälp av Java Service SDK med hjälp av ett exempel Java-program.
+I den här snabb starten skapar du program mässigt en enskild registrering för en simulerad TPM-enhet i Azure IoT Hub Device Provisioning Service med hjälp av Java-tjänst-SDK med hjälp av ett Java-exempelprogram.
 
 ## <a name="prerequisites"></a>Krav
 
-- Slutförd av [Konfigurera IoT Hub Device Provisioning Service med Azure-portalen](./quick-setup-auto-provision.md).
-- Slutförande av [Läs kryptografiska nycklar från TPM-enheten](quick-create-simulated-device.md#simulatetpm).
-- Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Utveckling Kit 8](https://aka.ms/azure-jdks). Den här snabbstarten installerar [Java-tjänsten SDK](https://azure.github.io/azure-iot-sdk-java/service/) nedan. Det fungerar på både Windows och Linux. Den här snabbstarten använder Windows.
+- Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
+- Avslut av [lästa kryptografiska nycklar från TPM-enheten](quick-create-simulated-device.md#simulatetpm).
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java se Development Kit 8](https://aka.ms/azure-jdks). I den här snabb starten installeras [Java service SDK](https://azure.github.io/azure-iot-sdk-java/service/) nedan. Det fungerar både i Windows och Linux. I den här snabb starten används Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 
@@ -62,7 +62,7 @@ I den här snabbstarten skapar du programmässigt en individuell registrering f�
 
 I det här avsnittet visas hur du lägger till etableringsinformationen för TPM-enheten i exempelkoden. 
 
-1. Öppna en kommandotolk. Klona GitHub-repo för enhetsregistreringskodexempel med [Java-tjänsten SDK:](https://azure.github.io/azure-iot-sdk-java/service/)
+1. Öppna en kommandotolk. Klona GitHub-lagrings platsen för enhets registrerings kod exempel med [Java-tjänst-SDK](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -71,7 +71,7 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
 2. I den nedladdade källkoden går du till exempelmappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_**. Öppna filen **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_** i valfritt redigeringsprogram och lägg till följande information:
 
    1. Lägg till `[Provisioning Connection String]` för etableringstjänsten från portalen enligt följande:
-       1. Navigera till etableringstjänsten i [Azure-portalen](https://portal.azure.com). 
+       1. Navigera till etablerings tjänsten i [Azure Portal](https://portal.azure.com). 
        2. Öppna **Policyer för delad åtkomst** och välj en princip som har behörigheten *EnrollmentWrite*.
        3. Kopiera **Anslutningssträng – primär nyckel**. 
 
@@ -130,7 +130,7 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
     mvn install -DskipTests
     ```
 
-   Det här kommandot hämtar [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) Maven-paketet till din dator. Det här paketet innehåller binärfilerna för [Java-tjänsten SDK](https://azure.github.io/azure-iot-sdk-java/service/), som exempelkoden behöver skapa. 
+   Det här kommandot laddar ned maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) -paketet till din dator. Det här paketet innehåller binärfilerna för [Java-tjänst-SDK](https://azure.github.io/azure-iot-sdk-java/service/), som exempel koden måste bygga. 
 
 3. Kör exemplet genom att använda de här kommandona i kommandofönstret:
 
@@ -141,19 +141,19 @@ I det här avsnittet visas hur du lägger till etableringsinformationen för TPM
 
 4. Se utdatafönstret om registreringen har lyckats. 
 
-5. Navigera till etableringstjänsten i Azure Portal. Välj **Hantera registreringar**och välj fliken **Enskilda registreringar.** *Registration ID* 
+5. Navigera till etableringstjänsten i Azure Portal. Välj **Hantera registreringar**och välj fliken **enskilda registreringar** . Observera att *registrerings-ID: t* för den simulerade TPM-enheten visas nu. 
 
     ![Verifiera lyckad TPM-registrering i portalen](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du planerar att utforska java-tjänstexemplet ska du inte rensa de resurser som skapas i den här snabbstarten. Om du inte planerar att fortsätta använder du följande steg för att ta bort alla resurser som skapats av den här snabbstarten.
+Om du planerar att utforska Java-tjänsteexemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
 
 1. Stäng utdatafönstret för Java-exemplet på datorn.
 1. Stäng TPM-simulatorfönstret som du kan ha skapat för att simulera TPM-enheten.
-1. Navigera till tjänsten Enhetsetablering i Azure-portalen, välj **Hantera registreringar**och välj sedan *Registration ID* fliken **Enskilda registreringar.** **Delete**
+1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **enskilda registreringar** . Markera kryss rutan bredvid *registrerings-ID* för registrerings posten som du skapade med den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten registrerade du en simulerad TPM-enhet till enhetens etableringstjänst. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 
+I den här snabb starten har du registrerat en simulerad TPM-enhet för enhets etablerings tjänsten. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-cloud.md)

@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Visa åtkomst en användare har till Azure-resurser
-description: I den här snabbstarten får du lära dig hur du visar åtkomsten till en användare eller annat säkerhetsobjekt har till Azure-resurser med hjälp av rollbaserad åtkomstkontroll (RBAC) och Azure-portalen.
+title: Snabb start – Visa en användares åtkomst till Azure-resurser
+description: I den här snabb starten får du lära dig hur du visar åtkomsten till en användare eller ett annat säkerhets objekt som har till gång till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure Portal.
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -15,13 +15,13 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74419616"
 ---
-# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Snabbstart: Visa åtkomsten som en användare har till Azure-resurser
+# <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Snabb start: Visa en användares åtkomst till Azure-resurser
 
 Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontroll (RBAC)](overview.md) för att visa den åtkomst som en användare eller ett annat säkerhetsobjekt har till Azure-resurser. Ibland behöver du dock bara snabbt visa åtkomsten för en enskild användare eller ett annat säkerhetsobjekt. Det enklaste sättet att göra det är att använda funktionen **Kontrollera åtkomst** på Azure-portalen.
 
@@ -54,4 +54,4 @@ Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontrol
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Bevilja en användare åtkomst till Azure-resurser med HJÄLP AV RBAC och Azure-portalen](quickstart-assign-role-user-portal.md)
+> [Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal](quickstart-assign-role-user-portal.md)

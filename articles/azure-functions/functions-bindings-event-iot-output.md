@@ -1,28 +1,28 @@
 ---
-title: Azure IoT Hub-utdatabindning för Azure-funktioner
-description: Lär dig att skriva meddelanden till Azure IoT Hubs-strömmar med Azure Functions.
+title: Azure IoT Hub utgående bindning för Azure Functions
+description: Lär dig att skriva meddelanden till Azure IoT Hub-strömmar med Azure Functions.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.openlocfilehash: d4dbf43fb5684d829e581be29832e94ad46b2936
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277432"
 ---
-# <a name="azure-iot-hub-output-binding-for-azure-functions"></a>Azure IoT Hub-utdatabindning för Azure-funktioner
+# <a name="azure-iot-hub-output-binding-for-azure-functions"></a>Azure IoT Hub utgående bindning för Azure Functions
 
-I den här artikeln beskrivs hur du arbetar med Azure Functions-utdatabindningar för IoT Hub. IoT Hub-supporten baseras på Bindningen av [Azure Event Hubs](functions-bindings-event-hubs.md).
+Den här artikeln förklarar hur du arbetar med Azure Functions utgående bindningar för IoT Hub. IoT Hub-stödet baseras på [Azure Event Hubs-bindningen](functions-bindings-event-hubs.md).
 
-Information om inställnings- och konfigurationsinformation finns i [översikten](functions-bindings-event-iot.md).
+Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-event-iot.md).
 
 > [!IMPORTANT]
-> Medan följande kodexempel använder Api:et för händelsehubbar, gäller den angivna syntaxen för IoT Hub-funktioner.
+> I följande kod exempel används Event Hub API, men den aktuella syntaxen gäller för IoT Hub functions.
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs-output.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Svara på händelser som skickas till en händelsehubbhändelseström (utlösare)](./functions-bindings-event-iot-trigger.md)
+- [Svara på händelser som skickats till händelse strömmen i Event Hub (utlösare)](./functions-bindings-event-iot-trigger.md)

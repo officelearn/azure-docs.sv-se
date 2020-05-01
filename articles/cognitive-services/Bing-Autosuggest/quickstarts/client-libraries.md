@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Använd klientbiblioteket för automatiska förslag på Bing'
+title: 'Snabb start: Använd Automatiska förslag i Bing klient bibliotek'
 titleSuffix: Azure Cognitive Services
-description: Autosuggest API erbjuder klientbibliotek som gör det enkelt att integrera sökfunktioner i dina program. Använd den här snabbstarten för att börja skicka sökförfrågningar och få tillbaka resultat.
+description: 'Den automatiska förslags-API: n erbjuder klient bibliotek som gör det enkelt att integrera Sök funktioner i dina program. Använd den här snabb starten för att börja skicka Sök begär Anden och få tillbaka resultatet.'
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 04/06/2020
 ms.author: aahi
 ms.openlocfilehash: ea8054c74d90253a0311d05ba63d1d1e6a6ab648
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80887552"
 ---
-# <a name="quickstart-use-the-bing-autosuggest-client-library"></a>Snabbstart: Använd klientbiblioteket för automatiska förslag på Bing
+# <a name="quickstart-use-the-bing-autosuggest-client-library"></a>Snabb start: Använd Automatiska förslag i Bing klient bibliotek
 
 ::: zone pivot="programming-language-csharp"
 

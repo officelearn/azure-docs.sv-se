@@ -14,10 +14,10 @@ ms.topic: tutorial
 ms.date: 10/11/2017
 ms.author: routlaw
 ms.openlocfilehash: 1b7b4d3c25794a62bc19925ade278159ebb37615
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "80066551"
 ---
 # <a name="install-the-elastic-stack-on-an-azure-vm"></a>Installera Elastic Stack på en virtuell dator i Azure VM
@@ -81,7 +81,7 @@ När den virtuella datorn har skapats visar Azure CLI information som ser ut ung
 
 ## <a name="ssh-into-your-vm"></a>SSH till den virtuella datorn
 
-Om du inte redan känner till den offentliga IP-adressen för den virtuella datorn kör du kommandot [az network public-ip list:](/cli/azure/network/public-ip)
+Om du inte redan känner till den offentliga IP-adressen för den virtuella datorn kör du kommandot [AZ Network Public-IP List](/cli/azure/network/public-ip) :
 
 ```azurecli-interactive
 az network public-ip list --resource-group myResourceGroup --query [].ipAddress

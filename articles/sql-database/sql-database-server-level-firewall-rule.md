@@ -12,13 +12,13 @@ ms.author: sachinp
 ms.reviewer: vanto, carlrab
 ms.date: 02/11/2019
 ms.openlocfilehash: ff2508952b75bad88ff8ff92388c20ba52f50f42
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "73818260"
 ---
-# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Snabbstart: Skapa en brandväggsregel på servernivå för enskilda och poolade databaser med Azure-portalen
+# <a name="quickstart-create-a-server-level-firewall-rule-for-single-and-pooled-databases-using-the-azure-portal"></a>Snabb start: skapa en brand Väggs regel på server nivå för enskilda databaser och pooler med hjälp av Azure Portal
 
 Den här snabbstarten visar hur du skapar en [brandväggsregel på servernivå](sql-database-firewall-configure.md) för enkla databaser eller pooldatabaser i Azure SQL Database med hjälp av Azure-portalen, så att du kan ansluta till databasservrar, enkla databaser, samt elastiska pooler och deras databaser. Du måste ha en brandväggsregel för att kunna ansluta från andra Azure-resurser och lokala resurser.
 
@@ -54,7 +54,7 @@ Följ de här stegen om du vill skapa en IP-brandväggsregel på servernivå fö
 4. Välj **Lägg till klient-IP** i verktygsfältet och lägg till din aktuella IP-adress i en ny IP-brandväggsregel på servernivå. Med en IP-brandväggsregel på servernivå kan du öppna port 1433 för en enskild IP-adress eller för ett IP-adressintervall.
 
    > [!IMPORTANT]
-   > Som standard är åtkomst via SQL Database-brandväggen inaktiverad för alla Azure-tjänster. Välj **PÅ** den här sidan om du vill aktivera åtkomst för alla Azure-tjänster.
+   > Som standard är åtkomst via SQL Database brand väggen inaktive rad för alla Azure-tjänster. Välj **på** den här sidan om du vill aktivera åtkomst för alla Azure-tjänster.
    >
 
 5. Välj **Spara**. En IP-brandväggsregel på servernivå för att öppna port 1433 på SQL Database-servern skapas för din aktuella IP-adress.

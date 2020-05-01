@@ -8,18 +8,18 @@ ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
 ms.openlocfilehash: 73d4d4e1a5f148dce6099b2d747ee1c290bcf7c1
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "67187714"
 ---
 ## <a name="run-the-web-application"></a>Köra webbprogrammet
 
-1. Det finns ett exempelwebbprogram med en sida som hanteras på GitHub. Öppna webbläsaren [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/)till .
+1. Det finns ett exempelwebbprogram med en sida som hanteras på GitHub. Öppna webbläsaren till [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/).
 
     > [!NOTE]
-    > Källan till HTML-filen finns på [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html).
+    > Källan till HTML-filen finns på [/docs/demo/Chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html).
 
 1. När du tillfrågas om funktionsappens bas-URL anger du `http://localhost:7071`.
 
@@ -34,4 +34,4 @@ ms.locfileid: "67187714"
 1. Öppna en till instans av webbprogrammet i ett annat webbläsarfönster. Där ser du att alla meddelanden som skickas visas i alla instanser av programmet.
 
 > [!IMPORTANT]
-> Eftersom HTML-sidan visas med HTTPS, men den lokala Azure Functions-körningen använder HTTP som standard, kan din webbläsare (till exempel Firefox) framtvinga en policy för blandat innehåll som blockerar begäranden från webbsidan till dina funktioner. För att lösa detta, använd en webbläsare som inte har denna begränsning eller starta en lokal [HTTP-server som http-server](https://www.npmjs.com/package/http-server) i katalogen */docs/demo/chat-v2.* Kontrollera att ursprunget `CORS` läggs till i inställningen i *local.settings.json*.
+> Eftersom HTML-sidan hanteras med HTTPS, men den lokala Azure Functions runtime använder HTTP som standard, kan din webbläsare (till exempel Firefox) framtvinga en princip med blandat innehåll som blockerar begär Anden från webb sidan till funktionerna. Lös detta genom att använda en webbläsare som inte har den här begränsningen eller starta en lokal HTTP-server, till exempel [http-server](https://www.npmjs.com/package/http-server) i */docs/demo/Chat-v2* -katalogen. Se till att ursprunget läggs till `CORS` i inställningen i *Local. Settings. JSON*.

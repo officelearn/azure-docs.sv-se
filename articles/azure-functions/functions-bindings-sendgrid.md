@@ -1,40 +1,40 @@
 ---
-title: SendGrid-bindningar för Azure-funktioner
-description: Azure Functions SendGrid-bindningar referens.
+title: Azure Functions SendGrid-bindningar
+description: Referens för Azure Functions SendGrid-bindningar.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 9ed2b81c12c698822b9542bb6903189c865b572b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "79277471"
 ---
-# <a name="azure-functions-sendgrid-bindings"></a>SendGrid-bindningar för Azure-funktioner
+# <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindningar
 
-I den här artikeln beskrivs hur du skickar e-post med Hjälp av [SendGrid-bindningar](https://sendgrid.com/docs/User_Guide/index.html) i Azure Functions. Azure Functions stöder en utdatabindning för SendGrid.
+Den här artikeln beskriver hur du skickar e-post med hjälp av [SendGrid](https://sendgrid.com/docs/User_Guide/index.html) -bindningar i Azure Functions. Azure Functions stöder en utgående bindning för SendGrid.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Paket - Funktioner 1.x
+## <a name="packages---functions-1x"></a>Paket-funktioner 1. x
 
-SendGrid-bindningarna finns i [paketet Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet, version 2.x. Källkoden för paketet finns i [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/) GitHub-databasen.
+SendGrid-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-paketet, version 2. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.SendGrid/) lagringsplatsen.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x-and-higher"></a>Paket - Funktioner 2.x och högre
+## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
 
-SendGrid-bindningarna finns i [paketet Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet, version 3.x. Källkoden för paketet finns i [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub-databasen.
+SendGrid-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-paketet, version 3. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) lagringsplatsen.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="example"></a>Exempel
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som använder en Service Bus-köutlösare och en SendGrid-utdatabindning.
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som använder en Service Bus Queue-utlösare och en SendGrid utgående bindning.
 
 ### <a name="synchronous"></a>Synkron
 
@@ -98,13 +98,13 @@ public class OutgoingEmail
 }
 ```
 
-Du kan utelämna inställningen av `ApiKey` attributets egenskap om du har din API-nyckel i en appinställning med namnet "AzureWebJobsSendGridApiKey".
+Du kan utelämna inställningen för attributets `ApiKey` egenskap om du har din API-nyckel i en app-inställning med namnet "AzureWebJobsSendGridApiKey".
 
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-I följande exempel visas en SendGrid-utdatabindning i en *function.json-fil* och en [C#-skriptfunktion](functions-reference-csharp.md) som använder bindningen.
+I följande exempel visas en SendGrid utgående bindning i en *Function. JSON* -fil och en [C#-skript funktion](functions-reference-csharp.md) som använder bindningen.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json 
 {
@@ -128,9 +128,9 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
-Här är C# skriptkoden:
+Här är C#-skript koden:
 
 ```csharp
 #r "SendGrid"
@@ -159,11 +159,11 @@ public class Message
 }
 ```
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-I följande exempel visas en SendGrid-utdatabindning i en *function.json-fil* och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
+I följande exempel visas en SendGrid utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
-Här är bindningsdata i *filen function.json:*
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json 
 {
@@ -181,7 +181,7 @@ Här är bindningsdata i *filen function.json:*
 }
 ```
 
-[Konfigurationsavsnittet](#configuration) förklarar dessa egenskaper.
+I [konfigurations](#configuration) avsnittet förklaras dessa egenskaper.
 
 Här är JavaScript-koden:
 
@@ -203,7 +203,7 @@ module.exports = function (context, input) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-I följande exempel visas en HTTP-utlöst funktion som skickar ett e-postmeddelande med SendGrid-bindningen. Du kan ange standardvärden i bindningskonfigurationen. Från-e-postadressen är till exempel konfigurerad i *function.json*. *from* 
+I följande exempel visas en HTTP-utlöst funktion som skickar ett e-postmeddelande med SendGrid-bindningen. Du kan ange standardvärden i bindnings konfigurationen. Till exempel konfigureras *från* -e-postadressen i *Function. JSON*. 
 
 ```json
 {
@@ -260,7 +260,7 @@ def main(req: func.HttpRequest, sendGridMessage: func.Out[str]) -> func.HttpResp
 
 # <a name="java"></a>[Java](#tab/java)
 
-I följande exempel `@SendGridOutput` används anteckningen från [Java-funktionernas körningsbibliotek](/java/api/overview/azure/functions/runtime) för att skicka ett e-postmeddelande med SendGrid-utdatabindningen.
+I följande exempel används `@SendGridOutput` anteckningen från [Java Functions runtime library](/java/api/overview/azure/functions/runtime) för att skicka ett e-postmeddelande med SendGrid utgående bindning.
 
 ```java
 package com.function;
@@ -314,11 +314,11 @@ public class HttpTriggerSendGrid {
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C #](#tab/csharp)
 
-I [klassbibliotek för C#](functions-dotnet-class-library.md)använder du [attributet SendGrid.](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs)
+Använd attributet [SendGrid](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/SendGridAttribute.cs) i [C#-klass bibliotek](functions-dotnet-class-library.md).
 
-Information om attributegenskaper som du kan konfigurera finns i [Konfiguration](#configuration). Här är `SendGrid` ett attributexempel i en metodsignatur:
+Information om vilka egenskaper för attribut som du kan konfigurera finns i [konfiguration](#configuration). Här är ett `SendGrid` attribut exempel i en metodsignatur:
 
 ```csharp
 [FunctionName("SendEmail")]
@@ -332,51 +332,51 @@ public static void Run(
 
 Ett fullständigt exempel finns i [C#-exempel](#example).
 
-# <a name="c-script"></a>[C# Skript](#tab/csharp-script)
+# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-Attribut stöds inte av C# Script.
+Attribut stöds inte av C#-skript.
 
-# <a name="javascript"></a>[Javascript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Attribut stöds inte av JavaScript.
+Attribut stöds inte av Java Script.
 
 # <a name="python"></a>[Python](#tab/python)
 
-Attribut stöds inte av Python.
+Attribut stöds inte av python.
 
 # <a name="java"></a>[Java](#tab/java)
 
-[Med SendGridOutput-anteckningen](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) kan du deklarativt konfigurera SendGrid-bindningen genom att ange konfigurationsvärden. Mer information finns i [exempel-](#example) och konfigurationsavsnitten. [configuration](#configuration)
+Med [SendGridOutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/SendGridOutput.java) -anteckningen kan du konfigurera SendGrid-bindningen genom att ange konfigurations värden. Se avsnittet [exempel](#example) och [konfiguration](#configuration) för mer information.
 
 ---
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell visas de bindningskonfigurationsegenskaper som `SendGrid` är tillgängliga i *filen function.json* och attributet/anteckningen.
+I följande tabell visas de egenskaper för bindnings konfiguration som är tillgängliga i filen *Function. JSON* och `SendGrid` attributet/anteckningen.
 
-| *egenskapen function.json* | Egenskapen Attribut/anteckning | Beskrivning | Valfri |
+| *Function. JSON* -egenskap | Attribut/antecknings egenskap | Beskrivning | Valfri |
 |--------------------------|-------------------------------|-------------|----------|
-| typ |Saknas| Måste ställas `sendGrid`in på .| Inga |
-| riktning |Saknas| Måste ställas `out`in på .| Inga |
-| namn |Saknas| Variabelnamnet som används i funktionskoden för begäran eller begärandetexten. Det här `$return` värdet är när det bara finns ett returvärde. | Inga |
-| apiKey (apiKey) | ApiKey (ApiKey) | Namnet på en appinställning som innehåller din API-nyckel. Om inte anges är standardnamn för appinställning *AzureWebJobsSendGridApiKey*.| Inga |
+| typ |saknas| Måste anges till `sendGrid`.| Nej |
+| riktning |saknas| Måste anges till `out`.| Nej |
+| name |saknas| Variabel namnet som används i funktions koden för begäran eller begär ande texten. Det här värdet `$return` är när det bara finns ett retur värde. | Nej |
+| apiKey | ApiKey | Namnet på en app-inställning som innehåller din API-nyckel. Om den inte anges är standardinställnings namnet för appen *AzureWebJobsSendGridApiKey*.| Nej |
 | till| Till | Mottagarens e-postadress. | Ja |
 | Från| Från | Avsändarens e-postadress. |  Ja |
-| Ämne| Subjekt | Ämnet för e-postmeddelandet. | Ja |
+| motiv| Subjekt | E-postmeddelandets ämne. | Ja |
 | text| Text | E-postinnehållet. | Ja |
 
-Valfria egenskaper kan ha standardvärden definierade i bindningen och antingen tillagda eller åsidosatta programmässigt.
+Valfria egenskaper kan ha standardvärden definierade i bindningen och antingen läggas till eller åsidosättas program mässigt.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 <a name="host-json"></a>  
 
-## <a name="hostjson-settings"></a>värd.json-inställningar
+## <a name="hostjson-settings"></a>Host. JSON-inställningar
 
-I det här avsnittet beskrivs de globala konfigurationsinställningar som är tillgängliga för den här bindningen i version 2.x och senare. Exempelvärden.json filen nedan innehåller endast inställningarna för version 2.x+ för den här bindningen. Mer information om globala konfigurationsinställningar i version 2.x och senare finns i [host.json-referens för Azure Functions](functions-host-json.md).
+I det här avsnittet beskrivs de globala konfigurations inställningarna som är tillgängliga för den här bindningen i version 2. x och högre. Exemplet Host. JSON-filen nedan innehåller bara version 2. x +-inställningarna för den här bindningen. Mer information om globala konfigurations inställningar i version 2. x och mer finns i [Host. JSON-referens för Azure Functions](functions-host-json.md).
 
 > [!NOTE]
-> En referens för host.json i Functions 1.x finns i [host.json-referens för Azure Functions 1.x](functions-host-json-v1.md).
+> En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md).
 
 ```json
 {
@@ -389,12 +389,12 @@ I det här avsnittet beskrivs de globala konfigurationsinställningar som är ti
 }
 ```  
 
-|Egenskap  |Default | Beskrivning |
+|Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------| 
-|Från|Saknas|Avsändarens e-postadress för alla funktioner.| 
+|Från|saknas|Avsändarens e-postadress för alla funktioner.| 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Läs mer om Utlösare och bindningar för Azure-funktioner](functions-triggers-bindings.md)
+> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/10/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dd971cec33fa9f840a48e597fb3bed9a7965895
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd4268ecad91a023683d1d6f955178fb87d78f87
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82160025"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612851"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -98,9 +98,12 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |prod.warmpath.msftcloudes.com|443|Agent trafik|AzureCloud|
 |catalogartifact.azureedge.net|443|Azure Marketplace|AzureCloud|
 |kms.core.windows.net|1688|Windows-aktivering|Internet|
+|wvdportalstorageblob.blob.core.windows.net|443|Azure Portal support|AzureCloud|
 
 >[!IMPORTANT]
 >Vi rekommenderar att du använder tjänst Taggar i stället för URL: er i de flesta fall för att förhindra tjänst problem. Att avblockera dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure Active Directory.
+>
+>Windows Virtual Desktop stöder nu FQDN-taggen.
 
 I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha åtkomst till:
 
@@ -193,7 +196,9 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 
 ## <a name="next-steps"></a>Nästa steg
 
-För att komma igång måste du skapa en klient. Om du vill veta mer om hur du skapar en klient fortsätter du till självstudien för skapande av innehavare.
+Om du använder Windows Virtual Desktop hösten 2019-versionen kan du komma igång med vår självstudie i [skapa en klient i Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+
+Om du använder Windows Virtual Desktop våren 2020-versionen måste du skapa en adresspool i stället. Gå till följande självstudie för att komma igång.
 
 > [!div class="nextstepaction"]
-> [Skapa en klientorganisation i Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+> [Skapa en adresspool med Azure Portal](create-host-pools-azure-marketplace.md)

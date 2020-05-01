@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+    - name: Styrning
+      tocHref: /azure/governance
+      topicHref: /azure/governance
+      items:
+        - name: Skisser
+          tocHref: /azure/azure-resource-manager
+          topicHref: /azure/governance/blueprints

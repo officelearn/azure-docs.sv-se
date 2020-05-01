@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Utforma en Azure-databas för MariaDB - Azure CLI'
+title: 'Självstudie: utforma en Azure Database for MariaDB – Azure CLI'
 description: Den här självstudien beskriver hur du skapar och hanterar en Azure Database for MariaDB-server och en databas med Azure CLI från kommandoraden.
 author: ajlam
 ms.author: andrela
@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc
 ms.openlocfilehash: 455d7a0c1b3826060ade1083ec6eea99e397574b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79534855"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Självstudie: Utforma en Azure Database for MariaDB med Azure CLI
@@ -22,15 +22,15 @@ Azure Database for MariaDB är en relationsdatabastjänst i Microsoft-molnet som
 > [!div class="checklist"]
 > * Skapa en Azure Database for MariaDB
 > * Konfigurera serverbrandväggen
-> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) för att skapa en databas
+> * Använd [kommando rads verktyget MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) för att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data
 > * Återställa data
 
-Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 
-Du kan använda Azure Cloud Shell i webbläsaren eller [installera Azure CLI]( /cli/azure/install-azure-cli) på din egen dator för att köra kodblocken i den här självstudien.
+Du kan använda Azure Cloud Shell i webbläsaren eller [Installera Azure CLI]( /cli/azure/install-azure-cli) på din dator för att köra kod blocken i den här självstudien.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -185,10 +185,10 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 Följande parametrar behövs för kommandot `az mariadb server restore`:
 
-| Inställning | Föreslaget värde | Beskrivning  |
+| Inställningen | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Resursgruppen där källservern finns.  |
-| namn | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
+| name | mydemoserver-restored | Namnet på den nya server som skapas med kommandot restore. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Välj en tidpunkt att återställa till. Datumet och tiden måste finnas inom källserverns kvarhållningsperiod för säkerhetskopiering. Använd datum- och tidsformatet ISO8601. Du kan använda din egen lokala tidszon som t.ex. `2017-04-13T05:59:00-08:00`, eller använda UTC Zulu-formatet `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Namn eller ID på källservern som återställningen görs från. |
 
@@ -201,7 +201,7 @@ I de här självstudierna lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en Azure Database for MariaDB-server
 > * Konfigurera serverbrandväggen
-> * Använda [kommandoradsverktyget mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) för att skapa en databas
+> * Använd [kommando rads verktyget MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) för att skapa en databas
 > * Läsa in exempeldata
 > * Söka i data
 > * Uppdatera data

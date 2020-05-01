@@ -1,6 +1,6 @@
 ---
-title: Registrera X.509-enheter till Azure Device Provisioning Service med Java
-description: Den här snabbstarten använder både gruppregistreringar och enskilda registreringar. I den här snabbstarten registrerar du X.509-enheter till Azure IoT Hub Device Provisioning Service (DPS) med Java.
+title: Registrera X. 509-enheter på Azure Device Provisioning-tjänsten med Java
+description: Den här snabbstarten använder både gruppregistreringar och enskilda registreringar. I den här snabb starten registrerar du X. 509-enheter i Azure-IoT Hub Device Provisioning Service (DPS) med Java.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
@@ -10,23 +10,23 @@ services: iot-dps
 ms.devlang: java
 ms.custom: mvc
 ms.openlocfilehash: 534956a53615cfafeffa611127bc8c3cc4493753
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "77604912"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Snabbstart: Registrera X.509-enheter till Device Provisioning Service med hjälp av Java
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-I den här snabbstarten använder du Java för att programmässigt registrera en grupp X.509-simulerade enheter till Azure IoT Hub Device Provisioning Service. Enheter registreras i en etableringstjänstinstans genom att skapa en registreringsgrupp eller en enskild registrering. Den här snabbstarten visar hur du skapar båda typerna av registreringar med hjälp av Java-tjänsten SDK och ett exempel på Java-program.
+I den här snabb starten använder du Java för att program mässigt registrera en grupp av X. 509 simulerade enheter till Azure-IoT Hub Device Provisioning Service. Enheter registreras för en etablerings tjänst instans genom att skapa en registrerings grupp eller en enskild registrering. Den här snabb starten visar hur du skapar båda typerna av registreringar med hjälp av Java-tjänst-SDK och ett Java-exempelprogram.
 
 ## <a name="prerequisites"></a>Krav
 
-- Slutförd av [Konfigurera IoT Hub Device Provisioning Service med Azure-portalen](./quick-setup-auto-provision.md).
-- Ett Azure-konto med en aktiv prenumeration. [Skapa en gratis](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Utveckling Kit 8](https://aka.ms/azure-jdks). Den här snabbstarten installerar [Java-tjänsten SDK](https://azure.github.io/azure-iot-sdk-java/service/) nedan. Det fungerar på både Windows och Linux. Den här snabbstarten använder Windows.
+- Konfiguration av [IoT Hub Device Provisioning service med Azure Portal](./quick-setup-auto-provision.md)slutförs.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Java se Development Kit 8](https://aka.ms/azure-jdks). I den här snabb starten installeras [Java service SDK](https://azure.github.io/azure-iot-sdk-java/service/) nedan. Det fungerar både i Windows och Linux. I den här snabb starten används Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 
@@ -41,7 +41,7 @@ I det här avsnittet används ett självsignerat X.509-certifikat. Det är vikti
 
 De följande stegen visar hur du lägger till etableringsinformationen för X.509-enheten i exempelkoden. 
 
-1. Öppna en kommandotolk. Klona GitHub-repo för enhetsregistreringskodexempel med [Java-tjänsten SDK:](https://azure.github.io/azure-iot-sdk-java/service/)
+1. Öppna en kommandotolk. Klona GitHub-lagrings platsen för enhets registrerings kod exempel med [Java-tjänst-SDK](https://azure.github.io/azure-iot-sdk-java/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -50,7 +50,7 @@ De följande stegen visar hur du lägger till etableringsinformationen för X.50
 2. I den nedladdade källkoden går du till exempelmappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**. Öppna filen **_/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentGroupSample.java_** i valfritt redigeringsprogram och lägg till följande information:
 
     1. Lägg till `[Provisioning Connection String]` för etableringstjänsten från portalen enligt följande:
-        1. Navigera till etableringstjänsten i [Azure-portalen](https://portal.azure.com). 
+        1. Navigera till etablerings tjänsten i [Azure Portal](https://portal.azure.com). 
         2. Öppna **Policyer för delad åtkomst** och välj en princip med behörigheten *EnrollmentWrite*.
         3. Kopiera **Anslutningssträng – primär nyckel**. 
 
@@ -134,9 +134,9 @@ De följande stegen visar hur du lägger till etableringsinformationen för X.50
 Azure IoT Device Provisioning Service stöder två typer av registreringar:
 
 - [Registreringsgrupper](concepts-service.md#enrollment-group): används för att registrera flera relaterade enheter.
-- [Individuella registreringar](concepts-service.md#individual-enrollment): Används för att registrera en enda enhet.
+- [Enskilda registreringar](concepts-service.md#individual-enrollment): används för att registrera en enskild enhet.
 
-Den här proceduren använder en registreringsgrupp. I nästa avsnitt används en enskild registrering.
+I den här proceduren används en registrerings grupp. I nästa avsnitt används en enskild registrering.
 
 1. Öppna ett kommandofönster och navigera till mappen **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_**.
 
@@ -146,7 +146,7 @@ Den här proceduren använder en registreringsgrupp. I nästa avsnitt används e
     mvn install -DskipTests
     ```
 
-   Det här kommandot hämtar [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) Maven-paketet till din dator. Paketet innehåller binärfilerna för Java-tjänst-SDK, som exempelkoden behöver skapa. Om du har kört verktyget _X.509 Certificate Generator_ i det föregående avsnittet har det här paketet redan laddats ned på datorn. 
+   Det här kommandot laddar ned maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) -paketet till din dator. Paketet innehåller binärfilerna för Java-tjänst-SDK, som exempelkoden behöver skapa. Om du har kört verktyget _X.509 Certificate Generator_ i det föregående avsnittet har det här paketet redan laddats ned på datorn. 
 
 3. Kör exemplet genom att använda de här kommandona i kommandofönstret:
 
@@ -195,18 +195,18 @@ Om du vill registrera en enskild X.509-enhet ändrar du exempelkoden för *enski
     Attestation attestation = X509Attestation.createFromClientCertificates(PUBLIC_KEY_CERTIFICATE_STRING);
     ```
 
-4. Spara, skapa och kör den enskilda registreringsprovfilen med hjälp av stegen i avsnittet [Skapa och kör exempelkoden för individuell registrering](quick-enroll-device-tpm-java.md#runjavasample). *individual enrollment*
+4. Spara, skapa och kör den enskilda exempel filen för *registrering* med hjälp av stegen i avsnittet [skapa och kör exempel koden för enskild registrering](quick-enroll-device-tpm-java.md#runjavasample).
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Om du planerar att utforska java-tjänstexemplet ska du inte rensa de resurser som skapas i den här snabbstarten. Om du inte planerar att fortsätta använder du följande steg för att ta bort alla resurser som skapats av den här snabbstarten.
+Om du planerar att utforska Java-tjänsteexemplet ska du inte rensa upp resurserna som du skapade i den här snabb starten. Om du inte planerar att fortsätta kan du använda följande steg för att ta bort alla resurser som skapats i den här snabb starten.
 
 1. Stäng utdatafönstret för Java-exemplet på datorn.
 1. Stäng _X509 Cert Generator_-fönstret på datorn.
-1. Navigera till tjänsten Enhetsetablering i Azure-portalen, välj Hantera registreringar och välj sedan *GROUP NAME* fliken **Delete** **Registreringsgrupper.** **Manage enrollments**  
+1. Gå till enhets etablerings tjänsten i Azure Portal, Välj **Hantera registreringar**och välj sedan fliken **registrerings grupper** . Markera KRYSS rutan bredvid *grupp namnet* för de X. 509-enheter som du har registrerat med hjälp av den här snabb starten och klicka på knappen **ta bort** högst upp i fönstret.  
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabbstarten registrerade du en simulerad grupp X.509-enheter till enhetens etableringstjänst. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 
+I den här snabb starten har du registrerat en simulerad grupp med X. 509-enheter för enhets etablerings tjänsten. Om du vill ha mer djupgående information om enhetsetablering kan du fortsätta till självstudien om konfiguration av Device Provisioning-tjänsten i Azure-portalen. 
 
 > [!div class="nextstepaction"]
 > [Självstudier om Azure IoT Hub Device Provisioning-tjänsten](./tutorial-set-up-cloud.md)

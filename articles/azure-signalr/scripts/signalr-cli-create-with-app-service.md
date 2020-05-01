@@ -1,6 +1,6 @@
 ---
-title: Skapa SignalR-tjänst med App Service med Azure CLI
-description: Använd Azure CLI för att skapa SignalR-tjänst med App Service. Lär dig alla CLI-kommandon för Azure SignalR-tjänsten.
+title: Skapa signal tjänst med App Service med Azure CLI
+description: Använd Azure CLI för att skapa signal tjänsten med App Service. Lär dig alla CLI-kommandon för Azure SignalR-tjänsten.
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
@@ -9,10 +9,10 @@ ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc
 ms.openlocfilehash: eb45adb699ef0f97782e6cdb8e141e254b3993f9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74158018"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>Skapa en SignalR Service med en App Service
@@ -78,7 +78,7 @@ Anteckna det faktiska namnet som genereras för den nya resursgruppen. Det visas
 
 Varje kommando i tabellen länkar till kommandospecifik dokumentation. I det här skriptet används följande kommandon:
 
-| Kommando | Anteckningar |
+| Kommando | Obs! |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az signalr create](/cli/azure/signalr#az-signalr-create) | Skapar en Azure SignalR-tjänstresurs. |

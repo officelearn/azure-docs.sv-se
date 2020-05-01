@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en Android-app'
+title: 'Snabb start: skapa en Android-app'
 description: I den här snabbstarten får du lära dig hur du skapar en Android-app med hjälp av Spatial Anchors.
 author: craigktreasure
 manager: vriveras
@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75376468"
 ---
-# <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Snabbstart: Skapa en Android-app med Azure Spatial Anchors
+# <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Android-app med Azures spatiala ankare
 
 I den här snabbstarten beskrivs hur du skapar en Android-app med hjälp av [Azure Spatial Anchors](../overview.md) i antingen Java eller C++/NDK. Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARCore Android-app som kan spara och återkalla en spatial fästpunkt.
 
@@ -32,13 +32,13 @@ Du lär dig följande:
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
-- En Windows- eller macOS-maskin med <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4+</a>.
-  - Om du kör på Windows behöver du också <a href="https://git-scm.com/download/win" target="_blank">Git för Windows</a> och <a href="https://git-lfs.github.com/">Git LFS</a>.
-  - Om du kör på macOS, få Git installerat via HomeBrew. Ange följande kommando i en enda `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`rad i terminalen: . Kör sedan `brew install git` `brew install git-lfs`och .
-  - För att skapa NDK-exemplet måste du också installera NDK och CMake 3.6 eller större SDK-verktyg i Android Studio.
+- En Windows-eller macOS-dator med <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 +</a>.
+  - Om du kör på Windows, behöver du även <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
+  - Om du kör på macOS ska du Hämta git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör `brew install git` sedan och `brew install git-lfs`.
+  - Om du vill bygga NDK-exemplet måste du också installera NDK-och CMake 3,6 eller fler SDK-verktyg i Android Studio.
 - En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklaraktiverad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kapabel</a> Android-enhet.
-  - Ytterligare drivrutiner kan krävas för att datorn ska kunna kommunicera med din Android-enhet. Se [här](https://developer.android.com/studio/run/device.html) för ytterligare information och instruktioner.
-- Appen måste inriktas på ARCore **1.11.0**.
+  - Ytterligare enhets driv rutiner kan krävas för att datorn ska kunna kommunicera med din Android-enhet. Mer information och anvisningar finns [här](https://developer.android.com/studio/run/device.html) .
+- Din app måste ha ARCore- **1.11.0**som mål.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -52,9 +52,9 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Ladda `arcore_c_api.h` ner [härifrån](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) och `Android\NDK\libraries\include`placera den i .
+Hämta `arcore_c_api.h` härifrån [och placera den i.](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) `Android\NDK\libraries\include`
 
-Från den nyligen klonade databasen initierar du undermoduler genom att köra följande kommando:
+Initiera undermoduler genom att köra följande kommando inifrån den nya klonade lagrings platsen:
 
 ```console
 git submodule update --init --recursive
@@ -76,7 +76,7 @@ Välj **Öppna ett befintligt Android Studio-projekt** och välj det projekt som
 
 ## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
-Nästa steg är att konfigurera appen så att den använder kontoidentifieraren och kontonyckeln. Du kopierade dem till en textredigerare när [du konfigurerade resursen Spatial Anchors](#create-a-spatial-anchors-resource).
+Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
 
 # <a name="java"></a>[Java](#tab/openproject-java)
 
@@ -117,4 +117,4 @@ Stoppa appen genom att välja **Stoppa** från Android Studio-verktygsfältet.
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Dela rumsliga ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Självstudie: dela spatiala ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)

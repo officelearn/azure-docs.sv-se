@@ -1,6 +1,6 @@
 ---
 title: 'Azure HDInsight: .NET-exempel'
-description: Leta reda på C# .NET-exempel på GitHub för vanliga uppgifter med HDInsight SDK för .NET.
+description: Hitta C# .NET-exempel på GitHub för vanliga uppgifter med hjälp av HDInsight SDK för .NET.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 12/06/2019
 ms.openlocfilehash: 097323b4566daeda737428121bee4d64e9f7248b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "74951572"
 ---
 # <a name="azure-hdinsight-net-samples"></a>Azure HDInsight: .NET-exempel
@@ -24,8 +24,8 @@ ms.locfileid: "74951572"
 
 Den här artikeln innehåller:
 
-* Länkar till exempel för klusterskapande uppgifter.
-* Länkar till referensinnehåll för andra hanteringsuppgifter.
+* Länkar till exempel för att skapa kluster aktiviteter.
+* Länkar till referens innehåll för andra hanterings uppgifter.
 
 Du kan [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): din Visual Studio-prenumeration ger dig krediter varje månad som kan användas för Azure-betaltjänster.
 
@@ -35,15 +35,15 @@ Du kan [aktivera Visual Studio-prenumerantförmåner](https://azure.microsoft.co
 
 [Azure HDInsight SDK för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight#sdk-installation)
 
-## <a name="cluster-management---creation"></a>Klusterhantering – skapa skapande
+## <a name="cluster-management---creation"></a>Kluster hantering – skapa
 
 * [Skapa ett Kafka-kluster](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateKafkaClusterSample.cs)
 * [Skapa ett Spark-kluster](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateSparkClusterSample.cs)
 * [Skapa ett Spark-kluster med Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateHadoopClusterWithAdlsGen2Sample.cs)
-* [Skapa ett Spark-kluster med ESP (Enterprise Security Package)](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateEspClusterSample.cs)
+* [Skapa ett Spark-kluster med Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateEspClusterSample.cs)
 
-Du kan hämta dessa exempel för .NET genom att klona [GitHub-arkivet hdinsight-dotnet-sdk-samples.](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples)
+Du kan hämta dessa exempel för .NET genom att klona GitHub-lagringsplatsen [HDInsight-dotNet-SDK-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) .
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Kodavsnitt för den här ytterligare SDK-funktionen finns i [HDInsight SDK för .NET-referensdokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+Kodfragment för dessa ytterligare SDK-funktioner finns i [referens dokumentationen för HDInsight SDK för .net](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).

@@ -11,7 +11,7 @@ ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
 ms.openlocfilehash: 5fd69dcd30292630862887ab5434764ba377b396
 ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "79481090"

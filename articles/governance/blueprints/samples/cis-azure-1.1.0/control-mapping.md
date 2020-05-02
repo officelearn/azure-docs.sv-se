@@ -1,14 +1,14 @@
 ---
 title: Exempel kontroller för benchmark-Microsoft Azure
 description: Rekommendations mappning av CIS-exemplet Microsoft Azure grunderna för att Azure Policy.
-ms.date: 11/04/2019
+ms.date: 05/01/2020
 ms.topic: sample
-ms.openlocfilehash: ea61ae4ea05b34c785485cbb5fd39c8a772565e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 735ab26e1f9432a87d5a0d927c64d44e680b0694
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656970"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688109"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Rekommendations mappning av CIS-exemplet för benchmark-Microsoft Azure grunderna
 
@@ -25,7 +25,7 @@ Många av de mappade rekommendationerna implementeras med ett [Azure policy](../
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att övervaka när Multi-Factor Authentication inte har Aktiver ATS för privilegierade Azure Active Directory-konton.
 
 - MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration
-- MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration
+- MFA ska vara aktiverade konton med Skriv behörighet för din prenumeration
 
 ## <a name="12-ensure-that-multi-factor-authentication-is-enabled-for-all-non-privileged-users"></a>1,2 se till att Multi-Factor Authentication har Aktiver ATS för alla icke-privilegierade användare
 
@@ -37,9 +37,9 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) defini
 
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att övervaka för gäst konton som kan behöva tas bort.
 
-- Externa konton med ägar behörigheter bör tas bort från din prenumeration
 - Externa konton med Läs behörighet bör tas bort från din prenumeration
 - Externa konton med Skriv behörighet bör tas bort från din prenumeration
+- Externa konton med ägar behörigheter bör tas bort från din prenumeration
 
 ## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1,23 Se till att inga anpassade prenumerations ägar roller skapas
 
@@ -51,7 +51,7 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att övervaka nätverk och virtuella datorer där Security Center standard nivån inte är aktive rad.
 
- - Security Center standard pris nivå ska väljas
+- Security Center standard pris nivå ska väljas
 
 ## <a name="22-ensure-that-automatic-provisioning-of-monitoring-agent-is-set-to-on"></a>2,2 kontrol lera att "automatisk etablering av övervaknings agent" är inställt på "on"
 
@@ -87,20 +87,14 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att skydda virtuella datorer som är riktade mot Internet.
 
-- Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta
-
-## <a name="28-ensure-asc-default-policy-setting-monitor-web-application-firewall-is-not-disabled"></a>2,8 Se till att ASC-standardprincip inställningen "övervaka brand vägg för webbaserade program" inte är inaktive rad
-
-Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att skydda virtuella datorer som kör webb program.
-
-- NSG: er-reglerna för webb program på IaaS bör vara härdade
+- Rekommendationer för anpassningsbar nätverks härdning bör tillämpas på virtuella datorer som är riktade mot Internet
 
 ## <a name="29-ensure-asc-default-policy-setting-enable-next-generation-firewallngfw-monitoring-is-not-disabled"></a>2,9 Se till att ASC-standardprincip inställningen "Aktivera nästa generations brand vägg (NGFW) övervakning" inte är inaktive rad "
 
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som skyddar undernät och virtuella datorer mot hot genom att begränsa åtkomsten. Den Security Center-princip som den här CIS-Microsoft Azure grunderna om benchmark-rekommendation har ersatts av två nya rekommendationer. De principer som refereras nedan åtgärdar de nya rekommendationerna.
 
 - Undernät ska associeras med en nätverks säkerhets grupp
-- Virtuella datorer ska associeras med en nätverks säkerhets grupp
+- Virtuella datorer som är riktade mot Internet bör skyddas med nätverks säkerhets grupper
 
 ## <a name="210-ensure-asc-default-policy-setting-monitor-vulnerability-assessment-is-not-disabled"></a>2,10 Se till att ASC standard princip inställningen "övervaka sårbarhets bedömning" inte är inaktive rad
 
@@ -128,7 +122,7 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som hjälper till att säkerställa att SQL Server Auditing är aktiverat.
 
-- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
+- Granskning på SQL Server måste vara aktiverat
 
 ## <a name="215-ensure-asc-default-policy-setting-monitor-sql-encryption-is-not-disabled"></a>2,15 kontrol lera att ASC-standardprincip inställningen "övervaka SQL-kryptering" inte är inaktive rad
 
@@ -182,7 +176,7 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) definition som hjälper till att säkerställa att SQL Server Auditing är aktiverat. 
 
-- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
+- Granskning på SQL Server måste vara aktiverat
 
 ## <a name="42-ensure-that-auditactiongroups-in-auditing-policy-for-a-sql-server-is-set-properly"></a>4,2 kontrol lera att AuditActionGroups i gransknings principen för en SQL Server är korrekt inställd
 
@@ -200,8 +194,8 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att avancerad data säkerhet är aktiverat på SQL-servrar och SQL-hanterade instanser.
 
-- Avancerad data säkerhet ska vara aktiverat på SQL-hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
+- Avancerad data säkerhet ska vara aktiverat på SQL-hanterade instanser
 
 ## <a name="45-ensure-that-threat-detection-types-is-set-to-all"></a>4,5 Se till att hot identifierings typerna är inställt på all
 
@@ -214,15 +208,15 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att avancerade data säkerhets meddelanden är korrekt aktiverade.
 
-- Avancerade data säkerhets inställningar för SQL-hanterad instans ska innehålla en e-postadress för att ta emot säkerhets aviseringar
 - Avancerade data säkerhets inställningar för SQL Server ska innehålla en e-postadress för att ta emot säkerhets aviseringar
+- Avancerade data säkerhets inställningar för SQL-hanterad instans ska innehålla en e-postadress för att ta emot säkerhets aviseringar
 
 ## <a name="47-ensure-that-email-service-and-co-administrators-is-enabled"></a>4,7 kontrol lera att "e-posttjänst och medadministratörer" är aktiverat
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att avancerade data säkerhets meddelanden är korrekt aktiverade.
 
-- E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar för SQL-hanterad instans
 - E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar i SQL Server
+- E-postaviseringar till administratörer och prenumerations ägare måste vara aktiverade i avancerade data säkerhets inställningar för SQL-hanterad instans
 
 ## <a name="48-ensure-that-azure-active-directory-admin-is-configured"></a>4,8 kontrol lera att Azure Active Directory admin har kon figurer ATS
 
@@ -240,8 +234,8 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att se till att transparenta data krypterade skydd för SQL-servrar och SQL-hanterade instanser krypteras med din egen nyckel.
 
-- SQL-hanterad instans TDE-skydd ska vara krypterat med din egen nyckel
 - SQL Server TDE-skyddskomponenten bör vara krypterat med din egen nyckel
+- SQL-hanterad instans TDE-skydd ska vara krypterat med din egen nyckel
 
 ## <a name="411-ensure-enforce-ssl-connection-is-set-to-enabled-for-mysql-database-server"></a>4,11 Se till att tvinga SSL-anslutning är inställt på ENABLEd för MySQL-databasserver
 
@@ -315,11 +309,83 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 - Azure Monitor ska samla in aktivitets loggar från alla regioner
 
+## <a name="516-ensure-the-storage-account-containing-the-container-with-activity-logs-is-encrypted-with-byok-use-your-own-key"></a>5.1.6 Se till att lagrings kontot som innehåller behållaren med aktivitets loggar är krypterat med BYOK (Använd din egen nyckel)
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att lagrings konton som innehåller aktivitets loggar krypteras med BYOK.
+
+- Lagrings kontot som innehåller behållaren med aktivitets loggar måste vara krypterat med BYOK
+
 ## <a name="517-ensure-that-logging-for-azure-keyvault-is-enabled"></a>5.1.7 kontrol lera att loggning för Azure-valv är aktiverat
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att diagnostikloggar är aktiverade för nyckel valv.
 
 - Diagnostikloggar i Key Vault ska vara aktive rad
+
+## <a name="521-ensure-that-activity-log-alert-exists-for-create-policy-assignment"></a>5.2.1 se till att aktivitets logg aviseringen finns för att skapa princip tilldelning
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att vissa aktivitets logg aviseringar finns.
+
+- Det bör finnas en aktivitets logg avisering för vissa princip åtgärder
+
+## <a name="522-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group"></a>5.2.2 se till att aktivitets logg aviseringen finns för skapa eller uppdatera nätverks säkerhets grupp
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att vissa aktivitets logg aviseringar finns.
+
+- Det bör finnas en aktivitets logg avisering för vissa administrativa åtgärder
+
+## <a name="523-ensure-that-activity-log-alert-exists-for-delete-network-security-group"></a>5.2.3 se till att aktivitets logg aviseringen finns för ta bort nätverks säkerhets grupp
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att vissa aktivitets logg aviseringar finns.
+
+- Det bör finnas en aktivitets logg avisering för vissa administrativa åtgärder
+
+## <a name="524-ensure-that-activity-log-alert-exists-for-create-or-update-network-security-group-rule"></a>5.2.4 kontrol lera att det finns en aktivitets logg avisering för regeln skapa eller uppdatera nätverks säkerhets grupp
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att vissa aktivitets logg aviseringar finns.
+
+- Det bör finnas en aktivitets logg avisering för vissa administrativa åtgärder
+
+## <a name="525-ensure-that-activity-log-alert-exists-for-the-delete-network-security-group-rule"></a>5.2.5 kontrol lera att det finns en aktivitets logg avisering för regeln ta bort nätverks säkerhets grupp
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att vissa aktivitets logg aviseringar finns.
+
+- Det bör finnas en aktivitets logg avisering för vissa administrativa åtgärder
+
+## <a name="526-ensure-that-activity-log-alert-exists-for-create-or-update-security-solution"></a>5.2.6 Se till att aktivitets logg aviseringen finns för säkerhets lösningen skapa eller uppdatera
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att vissa aktivitets logg aviseringar finns.
+
+- Det bör finnas en aktivitets logg avisering för vissa säkerhets åtgärder
+
+## <a name="527-ensure-that-activity-log-alert-exists-for-delete-security-solution"></a>5.2.7 Se till att aktivitets logg aviseringen finns för borttagning av säkerhetslösningen
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att vissa aktivitets logg aviseringar finns.
+
+- Det bör finnas en aktivitets logg avisering för vissa säkerhets åtgärder
+
+## <a name="528-ensure-that-activity-log-alert-exists-for-create-or-update-or-delete-sql-server-firewall-rule"></a>5.2.8 kontrol lera att det finns en aktivitets logg avisering för att skapa eller uppdatera eller ta bort SQL Server brand Väggs regel
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att vissa aktivitets logg aviseringar finns.
+
+- Det bör finnas en aktivitets logg avisering för vissa administrativa åtgärder
+
+## <a name="529-ensure-that-activity-log-alert-exists-for-update-security-policy"></a>5.2.9 Se till att aktivitets logg aviseringen finns för säkerhets princip för uppdatering
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att vissa aktivitets logg aviseringar finns.
+
+- Det bör finnas en aktivitets logg avisering för vissa säkerhets åtgärder
+
+## <a name="61-ensure-that-rdp-access-is-restricted-from-the-internet"></a>6,1 se till att RDP-åtkomsten är begränsad från Internet
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att RDP-åtkomsten är begränsad.
+
+- RDP-åtkomst från Internet ska blockeras
+
+## <a name="62-ensure-that-ssh-access-is-restricted-from-the-internet"></a>6,2 se till att SSH-åtkomsten är begränsad från Internet
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att SSH-åtkomsten är begränsad.
+
+- SSH-åtkomst från Internet ska blockeras
 
 ## <a name="65-ensure-that-network-watcher-is-enabled"></a>6,5 kontrol lera att Network Watcher är aktive rad
 
@@ -349,7 +415,7 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att endast godkända tillägg för virtuella datorer är installerade. Den här principen kräver en parameter mat ris som anger alla godkända tillägg för virtuella datorer. Den här policy initiativs definitionen innehåller föreslagna standardvärden som kunderna bör validera. 
 
- - Endast godkända VM-tillägg ska installeras
+- Endast godkända VM-tillägg ska installeras
 
 ## <a name="75-ensure-that-the-latest-os-patches-for-all-virtual-machines-are-applied"></a>7,5 Se till att de senaste OS-korrigeringarna för alla Virtual Machines tillämpas
 
@@ -373,7 +439,15 @@ Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -defin
 
 Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att säkerställa att rollbaserad åtkomst kontroll används för hanterade behörigheter i Kubernetes-tjänstekluster
 
-- \[För\]hands version: rollbaserad Access Control (RBAC) ska användas på Kubernetes-tjänster
+- Rollbaserad Access Control (RBAC) ska användas på Kubernetes Services
+
+## <a name="91-ensure-app-service-authentication-is-set-on-azure-app-service"></a>9,1 se till att App Service autentisering är inställt på Azure App Service
+
+Den här skissen tilldelar en [Azure policy](../../../policy/overview.md) -definition som hjälper dig att se till att förfrågningar till App Service appar autentiseras.
+
+- Autentisering ska vara aktiverat i API-appen
+- Autentisering ska aktive ras i din Function-app
+- Autentisering ska vara aktiverat på din webbapp
 
 ## <a name="92-ensure-web-app-redirects-all-http-traffic-to-https-in-azure-app-service"></a>9,2 se till att webbapp omdirigerar all HTTP-trafik till HTTPS i Azure App Service
 
@@ -434,7 +508,7 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definiti
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definitioner som hjälper dig att se till att webbappar använder den senaste versionen av Java.
 
 - Se till att Java-version är den senaste, om den används som en del av API-appen
-- Se till att Java-version är den senaste, om den används som en del av funtion-appen
+- Se till att Java-version är den senaste, om den används som en del av Function-appen
 - Se till att Java-version är den senaste, om den används som en del av webbappen
 
 ## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9,10 Se till att "HTTP-version" är den senaste, om den används för att köra webbappen
@@ -444,7 +518,6 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) -definiti
 - Se till att "HTTP-version" är den senaste, om den används för att köra API-appen
 - Se till att "HTTP-version" är den senaste, om den används för att köra Function-appen
 - Se till att "HTTP-version" är den senaste, om den används för att köra webbappen
-
 
 ## <a name="next-steps"></a>Nästa steg
 

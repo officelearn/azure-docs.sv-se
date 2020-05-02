@@ -3,24 +3,24 @@ title: Private Link
 description: Översikt över funktionen för privat slut punkt
 author: rohitnayakmsft
 ms.author: rohitna
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 4338c179fb8c0eebbb64ac5b33dc5dd8878d0794
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd717d653e57fbb8c540e4ef023011c64778a3b0
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176727"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629005"
 ---
-# <a name="private-link-for-azure-sql-database-and-data-warehouse"></a>Privat länk för Azure SQL Database och informations lager
+# <a name="private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Privat länk för Azure SQL Database och Azure Synapse Analytics
 
 Med privat länk kan du ansluta till olika PaaS-tjänster i Azure via en **privat slut punkt**. En lista över PaaS-tjänster som stöder funktionen för privat länk finns på [dokumentations sidan för privat länk](../private-link/index.yml) . En privat slut punkt är en privat IP-adress inom ett särskilt [VNet](../virtual-network/virtual-networks-overview.md) och undernät. 
 
 > [!IMPORTANT]
-> Den här artikeln gäller för Azure SQL Server och för både SQL Database och SQL Data Warehouse databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln gäller *inte* för distribution av **hanterade instanser** i Azure SQL Database.
+> Den här artikeln gäller för Azure SQL Server och för både SQL Database-och Azure Synapse Analytics-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database-och Azure Synapse-analys. Den här artikeln gäller *inte* för distribution av **hanterade instanser** i Azure SQL Database.
 
 ## <a name="data-exfiltration-prevention"></a>Data exfiltrering skydd
 
@@ -28,7 +28,7 @@ Data exfiltrering i Azure SQL Database är när en behörig användare, till exe
 
 Överväg ett scenario med en användare som kör SQL Server Management Studio (SSMS) i en virtuell Azure-dator som ansluter till en SQL Database. Den här SQL Database är i data centret västra USA. Exemplet nedan visar hur du begränsar åtkomsten med offentliga slut punkter på SQL Database med hjälp av nätverks åtkomst kontroller.
 
-1. Inaktivera all Azure Service-trafik för att SQL Database via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster **stängs**av. Se till att inga IP-adresser är tillåtna i brand Väggs reglerna för Server och databas nivå. Mer information finns i [Azure SQL Database-och data lager nätverks åtkomst kontroller](sql-database-networkaccess-overview.md).
+1. Inaktivera all Azure Service-trafik för att SQL Database via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster **stängs**av. Se till att inga IP-adresser är tillåtna i brand Väggs reglerna för Server och databas nivå. Mer information finns i [Azure SQL Database och Azure Synapse Analytics Network Access Controls](sql-database-networkaccess-overview.md).
 1. Tillåt endast trafik till SQL Database med den virtuella datorns privata IP-adress. Mer information finns i artikeln om [service Endpoint](sql-database-vnet-service-endpoint-rule-overview.md) och [VNet brand Väggs regler](sql-database-firewall-configure.md).
 1. På den virtuella Azure-datorn begränsar du omfattningen av utgående anslutning genom att använda [nätverks säkerhets grupper (NSG: er)](../virtual-network/manage-network-security-group.md) och service märken enligt följande
     - Ange en NSG-regel för att tillåta trafik för service tag = SQL. Västra USA – endast tillåta anslutning till SQL Database i västra USA
@@ -142,7 +142,6 @@ Nmap done: 256 IP addresses (1 host up) scanned in 207.00 seconds
 
 Resultatet visar att en IP-adress är upp. som motsvarar IP-adressen för den privata slut punkten.
 
-
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Kontrol lera anslutningen med SQL Server Management Studio (SSMS)
 > [!NOTE]
 > Använd det **fullständigt kvalificerade domän namnet (FQDN)** för servern i anslutnings strängar för dina klienter. Alla inloggnings försök som görs direkt till IP-adressen Miss lyckas. Det här beteendet är avsiktligt eftersom den privata slut punkten dirigerar trafik till SQL-gatewayen i regionen och FQDN måste anges för att inloggningar ska lyckas.
@@ -174,11 +173,9 @@ Om du vill upprätta en anslutning från en lokal miljö till SQL Database välj
 - [ExpressRoute-krets](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)
 
 
-## <a name="connecting-from-an-azure-sql-data-warehouse-to-azure-storage-using-polybase"></a>Ansluta från en Azure SQL Data Warehouse till Azure Storage med PolyBase
+## <a name="connecting-from-azure-synapse-analytics-to-azure-storage-using-polybase"></a>Ansluta från Azure Synapse Analytics till Azure Storage med PolyBase
 
-PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät via privata slut punkter, tjänst slut punkter eller IP-baserade brand väggar, kommer anslutningen från PolyBase till kontot att avbrytas. Följ stegen nedan om du vill aktivera både PolyBase import-och export scenarier med Azure SQL Data Warehouse ansluta till Azure Storage som är skyddade till ett [VNet.](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) 
-
-
+PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät via privata slut punkter, tjänst slut punkter eller IP-baserade brand väggar, kommer anslutningen från PolyBase till kontot att avbrytas. Om du vill aktivera både polybases import-och export scenarier med Azure Synapse Analytics ansluter du till Azure Storage som skyddas av ett VNet, följer du stegen som beskrivs [här](sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,16 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: 29dcb3c0e74482fd6670d1a0983e751043379d6e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5dbbbbb18bf81d70ed7955530db7c603594c16d0
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80371610"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652727"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Viktig information: tal enheter SDK
 
 I följande avsnitt listas ändringar i de senaste versionerna.
+
+## <a name="speech-devices-sdk-1110"></a>1.11.0 för tal enheter SDK:
+
+- Stöd för [URBETTER DDK](http://www.urbetter.com/products_56/278.html).
+- Publicerade binärfiler för [GGEC-högtalare](https://aka.ms/sdsdk-download-speaker) som används i vårt [exempel på röst assistenten](https://aka.ms/sdsdk-speaker).
+- Publicerade binärfiler för [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32) och [Linux arm 64](https://aka.ms/sdsdk-download-linux-arm64) för Raspberry Pi och liknande enheter.
+- Versionen av [tal-SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) -komponenten har uppdaterats till version 1.11.0. Mer information finns i [versions anteckningarna](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="speech-devices-sdk-190"></a>1.9.0 för tal enheter SDK:
 

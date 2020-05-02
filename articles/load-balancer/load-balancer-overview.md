@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: allensu
-ms.openlocfilehash: dd15b2ec985ddaba6031765368571a582fae1993
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 11c63c9dac6186e1c21cc0e76518a95e117574ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583713"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629464"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -27,9 +27,9 @@ ms.locfileid: "82583713"
 
 Azure Load Balancer arbetar i lager fyra av OSI-modellen (Open Systems Interconnection). Det är den enda kontakt punkten för-klienter. Load Balancer distribuerar inkommande flöden som anländer till belastningsutjämnarens klient del till instanser av backend-poolen. Dessa flöden sker enligt konfigurerade regler för belastnings utjämning och hälso avsökningar. Instanserna för backend-poolen kan vara Azure-Virtual Machines eller instanser i en skalnings uppsättning för virtuella datorer.
 
-En **[offentlig belastningsutjämnare](./concepts-limitations.md#publicloadbalancer)** kan tillhandahålla utgående anslutningar för virtuella datorer (VM) i det virtuella nätverket. Dessa anslutningar utförs genom att översätta sina privata IP-adresser till offentliga IP-adresser. Offentliga belastnings utjämning används för att belastningsutjämna Internet trafik till dina virtuella datorer.
+En **[offentlig belastningsutjämnare](./types.md#publicloadbalancer)** kan tillhandahålla utgående anslutningar för virtuella datorer (VM) i det virtuella nätverket. Dessa anslutningar utförs genom att översätta sina privata IP-adresser till offentliga IP-adresser. Offentliga belastnings utjämning används för att belastningsutjämna Internet trafik till dina virtuella datorer.
 
-En **[intern (eller privat) belastningsutjämnare](./concepts-limitations.md#internalloadbalancer)** används där privata IP-adresser bara behövs på klient delen. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk. En klient del för belastningsutjämnare kan nås från ett lokalt nätverk i ett hybrid scenario.
+En **[intern (eller privat) belastningsutjämnare](./types.md#internalloadbalancer)** används där privata IP-adresser bara behövs på klient delen. Interna belastnings utjämning används för att belastningsutjämna trafik i ett virtuellt nätverk. En klient del för belastningsutjämnare kan nås från ett lokalt nätverk i ett hybrid scenario.
 
 <p align="center">
   <img src="./media/load-balancer-overview/load-balancer.svg" width="512" title="Azure Load Balancer">
@@ -37,7 +37,7 @@ En **[intern (eller privat) belastningsutjämnare](./concepts-limitations.md#int
 
 *Bild: balansera program på flera nivåer med både offentliga och interna Load Balancer*
 
-Mer information om de enskilda komponenterna för belastnings utjämning finns i [Azure Load Balancer-komponenter och begränsningar](./concepts-limitations.md).
+Mer information om de enskilda komponenterna för belastnings utjämning finns i [Azure Load Balancer-komponenter](./components.md).
 
 ## <a name="why-use-azure-load-balancer"></a>Varför ska jag använda Azure Load Balancer?
 Med Standard Load Balancer kan du skala dina program och skapa tjänster med hög tillgänglighet. Belastnings utjämning stöder både inkommande och utgående scenarier. Load Balancer ger låg latens och högt data flöde, och skalar upp till miljon tals flöden för alla TCP-och UDP-program.
@@ -80,6 +80,6 @@ Mer information finns i [uppgradera en Basic-Load Balancer](upgrade-basic-standa
 
 Se [skapa en offentlig standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en Load Balancer.
 
-Mer information om Azure Load Balancer begränsningar och komponenter finns [Azure Load Balancer begrepp och begränsningar](./concepts-limitations.md)
+Mer information om Azure Load Balancer begränsningar och komponenter finns [Azure Load Balancer komponenter](./components.md) och [Azure Load Balancer koncept](./concepts.md)
 
 En jämförelse mellan alternativen för belastnings utjämning i Azure finns i [Översikt över alternativ för belastnings utjämning i Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).

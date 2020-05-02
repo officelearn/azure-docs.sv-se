@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 04/24/2020
 ms.custom: mvc
-ms.openlocfilehash: 87126d1beca97a905f0f3b09b565c12c37a4774d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a3bdc3673474b778aa7c1003e48e215bac6d05bf
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82203921"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628528"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -32,19 +32,11 @@ För förbättrad säkerhet och hantering kan du med hjälp av Azure Red Hat Ope
 
 ## <a name="cluster-and-node"></a>Kluster och nod
 
-Azure Red Hat OpenShift-noder körs på virtuella Azure-datorer. Du kan ansluta lagringen till noder och poddar, uppgradera klusterkomponenter och använda GPU:er.
-
-## <a name="virtual-networks-and-ingress"></a>Virtuella nätverk och ingress
-
-Du kan [ansluta ett klusters virtuella nätverk till ett befintligt virtuellt nätverk eller skapa ett virtuellt nätverk när du skapar ett kluster](tutorial-create-cluster.md#create-a-virtual-network-containing-two-empty-subnets).
-
-## <a name="kubernetes-certification"></a>Kubernetes-certifiering
-
-Azure Red Hat OpenShift-tjänsten har CNCF certifierats som Kubernetes överensstämmer.
+Azure Red Hat OpenShift-noder körs på virtuella Azure-datorer. Du kan ansluta lagring till noder och poddar och uppgradera kluster komponenter.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Läs om kraven för Azure Red Hat OpenShift:
 
 > [!div class="nextstepaction"]
-> [Konfigurera din utvecklingsmiljö](howto-setup-environment.md)
+> [Konfigurera din utvecklingsmiljö](tutorial-create-cluster.md)

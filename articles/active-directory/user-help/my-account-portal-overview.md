@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 04/20/2020
 ms.author: curtand
-ms.openlocfilehash: 4c9d421fd9ac8305c27dfa798f2869e59a04f9fb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd22f3b9d365bfee543712f680d504bb134f24d7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062463"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625705"
 ---
 # <a name="what-is-the-my-account-portal"></a>Vad är portalen Mitt konto?
 
 Portalen **mitt konto** hjälper dig att hantera ditt arbets-eller skol konto genom att konfigurera och hantera din säkerhets information, hantera dina anslutna organisationer och enheter och se hur din organisation använder dina data.
 
-Du kan gå till **min konto** portal (https://myprofile.microsoft.com)från den aktuella versionen av någon av följande webbläsare:
+Du kan gå till **min konto** portal (https://myaccount.microsoft.com)från den aktuella versionen av någon av följande webbläsare:
 
 - Chrome
 - Microsoft Edge

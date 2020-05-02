@@ -5,14 +5,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: sample
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: mjbrown
-ms.openlocfilehash: 166b9c2d6b20fbd6a71ba5df17e049838038617d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eaab34dbf91256f0e06465d97b91543237310f97
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80365911"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652916"
 ---
 # <a name="list-and-get-tables-for-azure-cosmos-db---table-api"></a>Lista och hämta tabeller för Azure Cosmos DB-Tabell-API
 
@@ -40,7 +40,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 |---|---|
 |**Azure Cosmos DB**| |
 | [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Listar Cosmos DB konton eller hämtar ett angivet Cosmos DB-konto. |
-| [Get-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtable) | Visar en lista Cosmos DB Tabell-API tabeller i ett konto eller hämtar en angiven Cosmos DB Tabell-API tabell i ett konto. |
+| [Get-AzCosmosDBTable](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbtable) | Visar en lista Tabell-API tabeller i ett konto eller hämtar en angiven Tabell-API tabell i ett konto. |
 |**Resurs grupper i Azure**| |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 |||

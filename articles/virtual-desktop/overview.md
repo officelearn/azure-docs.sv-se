@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fd4268ecad91a023683d1d6f955178fb87d78f87
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 15bf167df52e8ef54ab45de7b7b03efdaf83672a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612851"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628324"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -103,7 +103,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 >[!IMPORTANT]
 >Vi rekommenderar att du använder tjänst Taggar i stället för URL: er i de flesta fall för att förhindra tjänst problem. Att avblockera dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure Active Directory.
 >
->Windows Virtual Desktop stöder nu FQDN-taggen.
+>Windows Virtual Desktop stöder nu FQDN-taggen. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](../firewall/protect-windows-virtual-desktop.md).
 
 I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha åtkomst till:
 

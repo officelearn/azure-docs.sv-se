@@ -1,5 +1,5 @@
 ---
-title: Komma åt Azure Storage med en systemtilldelad identitet som tilldelats av Windows VM | Microsoft-dokument
+title: Åtkomst Azure Storage med hjälp av en Windows VM-systemtilldelad hanterad identitet | Microsoft Docs
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Windows-dator för att få åtkomst till Azure Storage.
 services: active-directory
 documentationcenter: ''
@@ -16,10 +16,10 @@ ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "75971952"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage
@@ -82,12 +82,12 @@ Eftersom filer behöver bloblagring måste du skapa en blobcontainer som du lagr
 
 ### <a name="grant-access"></a>Bevilja åtkomst
 
-Det här avsnittet visar hur du beviljar din virtuella datoråtkomst till en Azure Storage-behållare. Du kan använda den virtuella datorns systemtilldelade hanterade identitet för att hämta data i Azure Storage Blob.
+I det här avsnittet visas hur du beviljar din VM-åtkomst till en Azure Storage-behållare. Du kan använda den virtuella datorns systemtilldelade hanterade identitet för att hämta data i Azure Storage Blob.
 
 1. Gå tillbaka till det lagringskonto du nyss skapade.
 2. Klicka på länken **åtkomstkontroll (IAM)** i vänstra panelen.
-3. Klicka på **+ Lägg till rolltilldelning** överst på sidan om du vill lägga till en ny rolltilldelning för den virtuella datorn.
-4. Under **Roll**väljer du **Lagringsblobbdataläsare**i listrutan .
+3. Klicka på **+ Lägg till roll tilldelning** ovanpå sidan för att lägga till en ny roll tilldelning för den virtuella datorn.
+4. Under **roll**i list rutan väljer du **Storage BLOB data Reader**.
 5. I listrutan under **Tilldela behörighet till** väljer du **Virtuell dator**.
 6. Kontrollera sedan att rätt prenumeration är inställd i listrutan **Prenumeration**. Under **Resursgrupper** väljer du **Alla resursgrupper**.
 7. Under **Välj** väljer du din virtuella dator och klickar sedan på **Spara**.
@@ -98,7 +98,7 @@ Det här avsnittet visar hur du beviljar din virtuella datoråtkomst till en Azu
 
 Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilket gör att åtkomsttoken som hämtas med en hanterad identitet kan accepteras direkt. Detta är en del av Azure Storages integrering med Azure AD, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
-Här är ett .NET-kodexempel för att öppna en anslutning till Azure Storage med hjälp av en åtkomsttoken och sedan läsa innehållet i filen som du skapade tidigare. Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns hanterade identitet. .NET Framework 4.6 eller senare krävs för att använda åtkomsttokenmetoden. Ersätt värdet för `<URI to blob file>` därefter. Du kan hämta värdet genom att gå till filen du skapade och laddade upp till bloblagringen, och kopiera **URL:en** under **Egenskaper** på sidan **Översikt**.
+Här är ett .NET-kod exempel för att öppna en anslutning till Azure Storage med hjälp av en åtkomsttoken och sedan läsa innehållet i filen som du skapade tidigare. Koden måste köras på den virtuella datorn om du vill komma åt slutpunkten för den virtuella datorns hanterade identitet. .NET Framework 4,6 eller högre krävs för att använda åtkomsttoken. Ersätt värdet för `<URI to blob file>` därefter. Du kan hämta värdet genom att gå till filen du skapade och laddade upp till bloblagringen, och kopiera **URL:en** under **Egenskaper** på sidan **Översikt**.
 
 ```csharp
 using System;
@@ -184,4 +184,4 @@ Svaret innehåller filens innehåll:
 I den här självstudien har du lärt dig hur du aktiverar en systemtilldelad identitet för en virtuell Windows-dator för att få åtkomst till Azure Storage.  Läs mer om Azure Storage här:
 
 > [!div class="nextstepaction"]
-> [Azure-lagring](/azure/storage/common/storage-introduction)
+> [Azure Storage](/azure/storage/common/storage-introduction)

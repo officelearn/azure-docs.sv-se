@@ -109,7 +109,7 @@
           href: ../virtual-machines/windows/sizes-gpu.md
           maintainContext: true
           items:
-            - name: Konfigurera GPU-drivrutiner
+            - name: Konfigurera NVIDIA GPU-drivrutiner
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
         - name: Databehandling med höga prestanda

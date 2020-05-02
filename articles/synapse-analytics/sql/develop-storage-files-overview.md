@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2126996620d6f891dde4e7530c057d2c7f31a996
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81676679"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691884"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Fråga Storage-filer med hjälp av SQL on-demand-resurser (för hands version) i Synapse SQL
 
@@ -123,11 +123,15 @@ OPENROWSET(
 BULK N'path_to_file(s)', FORMAT='PARQUET');
 ```
 
+Kontrol lera att [rätt härledda data typer](best-practices-sql-on-demand.md#check-inferred-data-types) används för optimala prestanda. 
+
 ### <a name="filename-function"></a>Funktionen filename
 
-Den här funktionen returnerar fil namnet som raden kommer från.
+Den här funktionen returnerar fil namnet som raden kommer från. 
 
 Om du vill fråga efter vissa filer läser du avsnittet filename i artikeln [query Specific Files](query-specific-files.md#filename) .
+
+Retur data typen är nvarchar (1024). För bästa prestanda måste du alltid omvandla resultatet av fil namns funktionen till rätt datatyp. Om du använder tecken data typ ser du till att lämplig längd används.
 
 ### <a name="filepath-function"></a>Funktionen filsökväg
 
@@ -137,6 +141,8 @@ Den här funktionen returnerar en fullständig sökväg eller en del av sökväg
 - När den anropas med parameter, returnerar den en del av sökvägen som matchar jokertecknet i den position som anges i parametern. Parameter värde 1 skulle till exempel returnera en del av sökvägen som matchar det första jokertecknet.
 
 Mer information finns i avsnittet sökväg i artikeln [query Specific Files](query-specific-files.md#filepath) .
+
+Retur data typen är nvarchar (1024). För bästa prestanda måste du alltid skicka resultatet av funktionen fil Sök väg till rätt datatyp. Om du använder tecken data typ ser du till att lämplig längd används.
 
 ### <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Arbeta med komplexa typer och kapslade eller upprepade data strukturer
 

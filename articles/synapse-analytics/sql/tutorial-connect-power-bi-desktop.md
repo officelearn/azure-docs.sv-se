@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e0ac6ccde2443a7b374d9eb85f6f960af79c69dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769482"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692413"
 ---
-# <a name="tutorial-connect-sql-on-demand-preview-to-power-bi-desktop--create-report"></a>Självstudie: ansluta SQL på begäran (för hands version) till Power BI Desktop & Skapa rapport
+# <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Självstudie: använda SQL på begäran (för hands version) med Power BI Desktop & skapa en rapport
 
 I den här guiden får du lära dig att:
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 >
 > - Skapa demo databas
 > - Skapa vy som används för rapport
-> - Ansluta till Power BI Desktop
+> - Anslut Power BI Desktop till SQL på begäran
 > - Skapa rapport baserat på vy
 
 ## <a name="prerequisites"></a>Krav
@@ -130,11 +130,11 @@ Skapa rapporten för Power BI Desktop med hjälp av följande steg:
 
     - Exempel på AAD 
   
-    ![Klicka på Logga in.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
+        ![Klicka på Logga in.](./media/tutorial-connect-power-bi-desktop/step-2.1-select-aad-auth.png)
 
     - Exempel på SQL-inloggning – ange ditt användar namn och lösen ord.
 
-    ![Använd SQL-inloggning.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
+        ![Använd SQL-inloggning.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
 5. Välj vyn `usPopulationView`och välj sedan **load**. 

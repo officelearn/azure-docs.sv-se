@@ -3,16 +3,16 @@ title: Exempel kontroller för Azure Security benchmark-skiss
 description: Kontroll av mappningen av utkastet till Azure Policy i Azure Security benchmark.
 ms.date: 04/16/2020
 ms.topic: sample
-ms.openlocfilehash: 0f2d24d7d8c9f7ce2568f11b15e65ed1fcd02afb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f80b72f06532adef28bf5e5afd1eb94c2e34ee2d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81538735"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691294"
 ---
 # <a name="control-mapping-of-the-azure-security-benchmark-blueprint-sample"></a>Kontroll mappning för exempel på Azure Security benchmark-skiss
 
-I följande artikel beskrivs hur Azure-skisser exempel på Azures säkerhets modell för säkerhet mappas till Azures säkerhets benchmark-kontroller. Mer information om kontrollerna finns i [Azure Security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview).
+I följande artikel beskrivs hur Azure-skisser exempel på Azures säkerhets modell för säkerhet mappas till Azures säkerhets benchmark-kontroller. Mer information om kontrollerna finns i [Azure Security benchmark](../../../../security/benchmarks/overview.md).
 
 Följande mappningar är till **Azures säkerhets benchmark** -kontroller. Använd navigeringen till höger om du vill gå direkt till en bestämd kontroll mappning. De mappade kontrollerna implementeras med ett [Azure policy](../../../policy/overview.md) initiativ. Om du vill granska hela initiativet öppnar du **princip** i Azure Portal och väljer sidan **definitioner** . Leta sedan reda på ** \[och välj förhands\]granskningen: granska Azures säkerhets benchmark-rekommendationer och distribuera särskilt stöd** för inbyggda princip tillägg för virtuella datorer.
 

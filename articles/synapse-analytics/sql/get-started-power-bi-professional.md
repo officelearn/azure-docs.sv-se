@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a9db42bcd69d9a24a454c02c9bb0e2d339cb4860
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4bedcc1f7375cb83131b00be93c785069a7d3e7d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82185786"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692382"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Ansluta till Synapse SQL med Power BI Professional
 
@@ -70,10 +70,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Skapa autentiseringsuppgifter
 
-Vi måste skapa autentiseringsuppgifter innan du kan köra frågor. Autentiseringsuppgifterna används av SQL-tjänsten på begäran för att komma åt filer i lagrings utrymmet.
+Vi måste skapa autentiseringsuppgifter innan du kan köra frågor. Den här autentiseringsuppgiften används av SQL-tjänsten på begäran för att komma åt filer i lagrings utrymmet.
 
 > [!NOTE]
-> Du måste skapa autentiseringsuppgifter för åtkomst till lagrings kontot. Även om SQL på begäran kan komma åt lagring från olika regioner, ger lagrings-och Azure Synapse-arbetsytan i samma region bättre prestanda upplevelse.
+> Du måste skapa autentiseringsuppgifter för åtkomst till lagrings kontot. Även om SQL på begäran kan komma åt lagring från olika regioner, ger lagrings-och Azure Synapse-arbetsytan i samma region en bättre prestanda upplevelse.
 
 Kodfragment för **att skapa autentiseringsuppgifter för inventerings data behållare**, kör:
 
@@ -93,6 +93,7 @@ GO
 ## <a name="creating-power-bi-desktop-report"></a>Skapar Power BI Desktop-rapport
 
 Öppna Power BI Desktop-programmet och välj alternativet **Hämta data** .
+
 ![Öppna Power BI Desktop-programmet och välj Hämta data.](./media/get-started-power-bi-professional/step-0-open-powerbi.png)
 
 ### <a name="step-1---select-data-source"></a>Steg 1 – Välj data Källa

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 462185feb2b9cbebd17ce9cba54c2b23deea6c75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd7666bb9f22214fb4701e6be9edc171912d9bf9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81425149"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691870"
 ---
 # <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Lagra frågeresultat till lagring med SQL på begäran (för hands version) med Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Ditt första steg är att granska artiklarna nedan och se till att du uppfyller 
 Du kan använda CREATE EXTERNAL TABLE AS SELECT (CETAS)-instruktionen för att lagra frågeresultaten till lagringen.
 
 > [!NOTE]
-> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup).
+> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup). Du måste ändra plats för den externa data källan för data källan för att kunna peka på platsen som du har Skriv behörighet för. 
 
 ```sql
 USE [mydbname];
@@ -58,7 +58,7 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://showdemoweu.dfs.core.windows.net/data/population_csv/population.csv',
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
         FORMAT='CSV'
     ) WITH (
         CountryCode varchar(4),

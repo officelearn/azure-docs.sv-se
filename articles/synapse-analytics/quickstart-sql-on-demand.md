@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d49918fc67a45419e5c7ca123642c48e689a1496
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113790"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692174"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Snabb start: använda SQL på begäran
 
-Synapse SQL on-demand (för hands version) är en server lös fråga som gör att du kan köra SQL-frågorna på dina filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med SQL på begäran.
+Synapse SQL on-demand (för hands version) är en server lös Query-tjänst som gör att du kan köra SQL-frågor på filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med SQL på begäran.
 
 Följande filtyper stöds: JSON, CSV, Apache Parquet
 
@@ -41,19 +41,18 @@ Parametrar för snabb start:
 
 ## <a name="first-time-setup"></a>Installation vid första tiden
 
-Innan du använder exempel:
+Innan du använder exemplen:
 
 - Skapa databas för dina vyer (om du vill använda vyer)
 - Skapa autentiseringsuppgifter som ska användas av SQL på begäran för att komma åt filer i lagringen
 
 ### <a name="create-database"></a>Skapa databas
 
-Skapa en egen databas för demonstrations syfte. Det här är databasen där du skapar dina vyer. Använd den här databasen i exempel frågorna i den här artikeln.
+Skapa en egen databas för demonstrations syfte. Du använder den här databasen för att skapa vyer och för exempel frågorna i den här artikeln.
 
 > [!NOTE]
 > Databaserna används bara för att visa metadata, inte för faktiska data.
->
-> Skriv ned databas namn som du använder för senare användning i snabb starten.
+>Skriv ned databas namn som du använder för senare användning i snabb starten.
 
 Använd följande fråga och ändra `mydbname` till önskat namn:
 
@@ -66,13 +65,13 @@ CREATE DATABASE mydbname
 Om du vill köra frågor med SQL på begäran skapar du autentiseringsuppgifter för SQL på begäran för att komma åt filer i lagringen.
 
 > [!NOTE]
-> För att kunna köra exempel i det här avsnittet måste du använda SAS-token.
+> För att kunna köra exempel i det här avsnittet måste du använda en SAS-token.
 >
 > Om du vill börja använda SAS-tokens måste du släppa UserIdentity som beskrivs i följande [artikel](sql/develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
 >
 > SQL på begäran som standard använder alltid AAD-vidarekoppling.
 
-Mer information om hur du hanterar åtkomst kontroll för lagring, finns i den här [länken](sql/develop-storage-files-storage-access-control.md).
+Mer information om hur du hanterar åtkomst kontroll för lagring finns i artikeln[kontrol lera lagrings konto åtkomst för SQL på begäran](sql/develop-storage-files-storage-access-control.md) .
 
 Kör följande kodfragment för att skapa autentiseringsuppgifter som används i exempel i det här avsnittet:
 
@@ -124,7 +123,7 @@ Fler exempel finns i [fråga CSV-fil](sql/query-single-csv-file.md).
 I följande exempel visas de automatiska schema härlednings funktionerna för att fråga Parquet-filer. Det returnerar antalet rader i september 2017 utan att ange schema.
 
 > [!NOTE]
-> Du behöver inte ange columns i `OPENROWSET WITH` -satsen när du läser Parquet-filer. I så fall använder SQL på begäran metadata i Parquet-filen och bind kolumner efter namn.
+> Du behöver inte ange columns i `OPENROWSET WITH` -satsen när du läser Parquet-filer. I så fall använder SQL på begäran metadata i Parquet-filen och binder kolumner efter namn.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -135,7 +134,7 @@ FROM OPENROWSET
   ) AS nyc
 ```
 
-Hitta mer information om att [fråga Parquet-filer](sql/query-parquet-files.md)].
+Hitta mer information om att [fråga Parquet-filer](sql/query-parquet-files.md).
 
 ## <a name="querying-json-files"></a>Fråga JSON-filer
 
@@ -183,11 +182,11 @@ WHERE
 ```
 
 > [!IMPORTANT]
-> Vi läser hela JSON-filen som enskild rad/kolumn så att FIELDTERMINATOR, FIELDQUOTE och ROWTERMINATOR är inställda på 0x0B eftersom vi inte förväntar sig att hitta den i filen.
+> Vi läser hela JSON-filen som enskild rad/kolumn. Så, FIELDTERMINATOR, FIELDQUOTE och ROWTERMINATOR är inställda på 0x0B eftersom vi inte förväntar sig att hitta dem i filen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu är du redo att börja med följande snabb starts artiklar:
+Nu är du redo att fortsätta med följande artiklar:
 
 - [Fråga en enkel CSV-fil](sql/query-single-csv-file.md)
 - [Fråga mappar och flera CSV-filer](sql/query-folders-multiple-csv-files.md)
@@ -198,7 +197,4 @@ Nu är du redo att börja med följande snabb starts artiklar:
 - [Skapa och använda vyer](sql/create-use-views.md)
 - [Skapa och använda externa tabeller](sql/create-use-external-tables.md)
 - [Behåll frågeresultat till Azure Storage](sql/create-external-table-as-select.md)
-
-Gå vidare till nästa artikel om du vill lära dig att fråga en enskild CSV-fil.
-> [!div class="nextstepaction"]
-> [Fråga en enkel CSV-fil](sql/query-single-csv-file.md)
+- [Fråga en enkel CSV-fil](sql/query-single-csv-file.md)

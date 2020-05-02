@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/23/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b057f817fb0c30e45c08f8d708441bd52122af7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 92d3f2381f2fdce123511caa2339d41b0641b077
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82206756"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690645"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-float"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Float
 
@@ -37,7 +37,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Flytt ALS funktion för enkel inloggning (SSO).
+* En flytt ALS prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://app.float.com/join?).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -92,7 +92,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     Skriv en URL i mönstret `https://<hostname>.float.com/login`i text rutan **inloggnings-URL** .
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [flytt ALS klient support teamet](mailto:support@float.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Ersätt <hostname> med ditt float-värdnamn. Kontakta [flytt ALS kund support teamet](mailto:support@float.com) om du är osäker. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Float-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade attribut mappningar i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -143,11 +143,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-float-sso"></a>Konfigurera float SSO
 
-Om du vill konfigurera enkel inloggning på **float** -sidan måste du skicka det hämtade **certifikatet (base64)** och lämpliga kopierade url: er från Azure Portal till [flytt ALS support teamet](mailto:support@float.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **float** -sidan går du till avsnittet flytt ALS inställningar och väljer Konfigurera från modulen autentisering. Klistra in inloggnings-URL: en för Azure AD i fältet för slut punkts-URL för SAML 2,0, klistra in Azure AD-identifierare i fältet URL för identitets leverantörs utfärdare, klistra in den fullständiga texten från det hämtade **certifikatet (base64)** i fältet X. 509 certifikat och spara.
 
 ### <a name="create-float-test-user"></a>Skapa flytt ALS test användare
 
-I det här avsnittet skapar du en användare som heter Britta Simon i flyttal. Arbeta med [flytt ALS support teamet](mailto:support@float.com) för att lägga till användare i flytt plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i flyttal. Lägg till användaren från avsnittet personer eller team inställningar gäst och ge dem åtkomst behörighet. Användare måste skapas och acceptera inbjudan innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO 
 

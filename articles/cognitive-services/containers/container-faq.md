@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8aae650065e8de11ccdc55a8a056c379a219fcb4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876514"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690829"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Cognitive Services containers
 
@@ -76,7 +76,11 @@ Tyvärr stöds *inte* Cognitive Services-behållare internt i de suveräna molne
 
 **F: Hur ska jag köra Cognitive Services-behållare på IoT-enheter?**
 
-Om du inte har en tillförlitlig Internet anslutning eller om du vill spara pengar på bandbredd. Eller om du har krav på låg latens eller hanterar känsliga data som behöver analyseras på plats, [Azure IoT Edge med Cognitive Services-containrar](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) ger dig konsekvens med molnet.
+**A:** Om du inte har en tillförlitlig Internet anslutning eller om du vill spara pengar på bandbredd. Eller om du har krav på låg latens eller hanterar känsliga data som behöver analyseras på plats, [Azure IoT Edge med Cognitive Services-containrar](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) ger dig konsekvens med molnet.
+
+**F: är de här behållarna kompatibla med OpenShift?** 
+
+Vi testar inte behållare med OpenShift, men normalt bör Cognitive Services behållare köras på alla plattformar som stöder Docker-avbildningar. Om du använder OpenShift rekommenderar vi att du kör behållarna `root-user`som.
 
 **F: Hur gör jag för att ge feedback om produkter och funktions rekommendationer?**
 

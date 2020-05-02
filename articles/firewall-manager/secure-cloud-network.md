@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 02/18/2020
+ms.date: 05/01/2020
 ms.author: victorh
-ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b13f3b4eeb57c34f51152bb6d1914f6c80f31be1
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77443065"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691027"
 ---
 # <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>Självstudie: skydda ditt virtuella WAN med Azure Firewall Manager Preview 
 
@@ -36,29 +36,34 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Skapa en hubb och eker-arkitektur
 
-Skapa först ett eker VNet där du kan placera dina servrar.
+Skapa först ett eker-virtuellt nätverk där du kan placera dina servrar.
 
-### <a name="create-a-spoke-vnet-and-subnets"></a>Skapa ett eker VNet och undernät
+### <a name="create-a-spoke-virtual-network-and-subnets"></a>Skapa ett eker-virtuellt nätverk och undernät
 
 1. På Start sidan Azure Portal väljer du **skapa en resurs**.
 2. Välj **virtuellt nätverk**under **nätverk**.
-4. Som **namn**skriver du **ekrar-01**.
-5. I fältet **Adressutrymme** skriver du **10.0.0.0/16**.
-6. I fältet **Prenumeration** väljer du din prenumeration.
-7. För **resurs grupp**väljer du **Skapa ny**och skriver **VB-Manager** som namn och väljer **OK**.
-8. För **plats**väljer du **(US) USA, östra**.
-9. Under **undernät**, för **namn** typ **arbets belastning – SN**.
-10. I fältet **Adressintervall** skriver du **10.0.1.0/24**.
-11. Godkänn de andra standardinställningarna och välj sedan **skapa**.
+2. I fältet **Prenumeration** väljer du din prenumeration.
+1. För **resurs grupp**väljer du **Skapa ny**och skriver **VB-Manager** som namn och väljer **OK**.
+2. Som **namn**skriver du **ekrar-01**.
+3. För **region**väljer du **(US) USA, östra**.
+4. Välj **Nästa: IP-adresser**.
+1. Acceptera standardvärdet **10.0.0.0/16**för **adress utrymme**.
+3. Under **undernäts namn**väljer du **standard**.
+4. Ändra namnet på under nätet till **arbets belastningen – SN**.
+5. Skriv **10.0.1.0/24**för **under nätets adress intervall**.
+6. Välj **Spara**...
 
 Skapa sedan ett undernät för en hopp Server.
 
-1. På sidan Azure Portal start väljer du **resurs grupper** > **VB-Manager**.
-2. Välj det **ekrar-01** virtuella nätverket.
-3. Välj **undernät** > och**undernät.**
-4. Som **namn**skriver du **hopp-SN**.
-5. I fältet **Adressintervall** skriver du **10.0.2.0/24**.
-6. Välj **OK**.
+1. Välj **Lägg till undernät**.
+4. Skriv **hopp-SN**för **under näts namn**.
+5. Skriv **10.0.2.0/24**för **under nätets adress intervall**.
+6. Välj **Lägg till**.
+
+Skapa det virtuella nätverket nu.
+
+1. Välj **Granska + skapa**.
+2. Välj **Skapa**.
 
 ### <a name="create-the-secured-virtual-hub"></a>Skapa den säkra virtuella hubben
 
@@ -66,36 +71,38 @@ Skapa din säkra virtuella hubb med hjälp av brand Väggs hanteraren.
 
 1. På Start sidan för Azure Portal väljer du **alla tjänster**.
 2. I rutan Sök skriver du **Firewall Manager** och väljer **brand Väggs hanteraren**.
-3. På sidan **Firewall Manager** väljer du **skapa en säker virtuell hubb**.
-4. På sidan **Skapa ny skyddad virtuell hubb** väljer du din prenumeration och resurs gruppen **VB-Manager** .
-5. För namnet på den **säkra virtuella hubben**skriver du **Hub-01**.
-6. För **plats**väljer du **östra USA**.
-7. Skriv **10.1.0.0/16**för **nav adress utrymme**.
-8. För det nya vWAN-namnet skriver du **vWAN-01**.
-9. Lämna kryss rutan **Inkludera VPN-gateway för att aktivera betrodda säkerhets partner** avmarkerad.
-10. Välj **Nästa: Azure-brandvägg**.
-11. Godkänn standard inställningen för **Azure Firewall** som **är aktive rad** och välj sedan **Nästa: betrodd säkerhets partner**.
-12. Godkänn standardinställningen för **inaktiverade** **betrodda säkerhets partner** och välj **Nästa: granska + skapa**.
-13. Välj **Skapa**. Det tar cirka 30 minuter att distribuera.
+3. På sidan **Firewall Manager** väljer du **Visa skyddade virtuella nav**.
+4. I **brand Väggs hanteraren | Sidan skyddade virtuella hubbar** väljer du **Skapa ny säker virtuell hubb**.
+5. För **resurs grupp**väljer du **VB-Manager**.
+7. För **region**väljer du **östra USA**.
+1. För namnet på den **säkra virtuella hubben**skriver du **Hub-01**.
+2. Skriv **10.1.0.0/16**för **nav adress utrymme**.
+3. För det nya vWAN-namnet skriver du **vWAN-01**.
+4. Lämna kryss rutan **Inkludera VPN-gateway för att aktivera betrodda säkerhets partner** avmarkerad.
+5. Välj **Nästa: Azure-brandvägg**.
+6. Godkänn standard inställningen för **Azure Firewall** som **är aktive rad** och välj sedan **Nästa: betrodd säkerhets partner**.
+7. Godkänn standardinställningen för **inaktiverade** **betrodda säkerhets partner** och välj **Nästa: granska + skapa**.
+8. Välj **Skapa**. Det tar cirka 30 minuter att distribuera.
 
 ### <a name="connect-the-hub-and-spoke-vnets"></a>Anslut hubben och eker-virtuella nätverk
 
 Nu kan du peer-koppla hubben och eker-virtuella nätverk.
 
-1. Välj resurs gruppen **VB-Manager** och välj sedan det virtuella WAN **-nätverket vwan-01** .
+1. Välj resurs gruppen **VB-Manager** och välj sedan det virtuella WAN **-nätverket Vwan-01** .
 2. Under **anslutning**väljer du **virtuella nätverks anslutningar**.
 3. Välj **Lägg till anslutning**.
 4. För **anslutnings namn**skriver du **hubb-eker**.
 5. För **hubbar**väljer du **hubb-01**.
-6. För **virtuellt nätverk**väljer du **eker-01**.
-7. Välj **OK**.
+6. För **resurs grupp**väljer du **VB-Manager**.
+7. För **virtuellt nätverk**väljer du **eker-01**.
+8. Välj **OK**.
 
 ## <a name="create-a-firewall-policy-and-secure-your-hub"></a>Skapa en brand Väggs princip och skydda hubben
 
 En brand Väggs princip definierar samlingar av regler för att dirigera trafik på ett eller flera skyddade virtuella nav. Du skapar brand Väggs principen och skyddar sedan hubben.
 
-1. I brand Väggs hanteraren väljer du **skapa en Azure Firewall-princip**.
-2. Välj din prenumeration och välj sedan resurs gruppen **VB-Manager** .
+1. I brand Väggs hanteraren väljer du **Visa Azure Firewall-principer**.
+2. Välj **Skapa Azure Firewall-princip**.
 3. Under **princip information**, för **namn** typ **policy-01** och för **region** väljer du **USA, östra**.
 4. Välj **Nästa: regler**.
 5. På fliken **regler** väljer du **Lägg till en regel samling**.
@@ -109,10 +116,11 @@ En brand Väggs princip definierar samlingar av regler för att dirigera trafik 
 13. Se till att mål typen är ett **fullständigt domän namn**.
 14. För **mål**skriver ** \*du. Microsoft.com**.
 15. Välj **Lägg till**.
-16. Välj **Nästa: skyddade virtuella nav**.
-17. På fliken **skyddade virtuella hubbar** väljer du **hubb-01**.
-19. Välj **Granska + skapa**.
-20. Välj **Skapa**.
+16. Välj **Nästa: hubbar**.
+17. På fliken **hubbar** väljer du **associera virtuella nav**.
+18. Välj **hubb – 01** och välj sedan **Lägg till**.
+1. Välj **Granska + skapa**.
+2. Välj **Skapa**.
 
 Det kan ta ungefär fem minuter eller mer att slutföra.
 
@@ -126,10 +134,9 @@ Nu måste du se till att nätverks trafiken dirigeras till genom brand väggen.
 4. Under **Internet trafik**, **trafik från virtuella nätverk**, väljer du **Skicka via Azure-brandvägg**.
 5. Under **Azure privat trafik**, **trafik till virtuella nätverk**, väljer du **Skicka via Azure-brandvägg**.
 6. Välj **Redigera IP-adressprefix (ES)**.
-7. Välj **Lägg till ett IP**-adressprefix.
 8. Skriv **10.0.1.0/24** som adress till arbets belastnings under nätet och välj **Spara**.
 9. Under **Inställningar**väljer du **anslutningar**.
-10. Välj **nav-eker-** anslutningen och välj sedan **säker Internet trafik** och välj sedan **OK**.
+10. Kontrol lera att **Hub-eker-** anslutningen visar **Internet trafik** som **skyddad**.
 
 
 ## <a name="test-your-firewall"></a>Testa din brand vägg
@@ -142,17 +149,16 @@ Om du vill testa brand Väggs reglerna måste du distribuera ett par servrar. Du
 2. Välj **Windows Server 2016 Data Center** i listan **populär** .
 3. Ange följande värden för den virtuella datorn:
 
-   |Inställning  |Värde  |
+   |Inställningen  |Värde  |
    |---------|---------|
    |Resursgrupp     |**VB-chef**|
    |Namn på virtuell dator     |**Hopp-SRV**|
    |Region     |**USA USA, östra)**|
-   |Administratörens användar namn     |**azureuser**|
-   |lösenordsinställning     |Ange ditt lösen ord|
+   |Administratörens användar namn     |Ange ett användar namn|
+   |lösenordsinställning     |Ange ett lösen ord|
 
 4. Under **regler för inkommande port**för **offentliga inkommande portar**väljer du **Tillåt valda portar**.
 5. I fältet **Välj inkommande portar** väljer du **RDP (3389)**.
-
 6. Godkänn de andra standardinställningarna och välj **Nästa: diskar**.
 7. Acceptera standardvärdena för disken och välj **Nästa: nätverk**.
 8. Se till att **eker-01** har valts för det virtuella nätverket och att under nätet är **hopp-SN**.
@@ -163,7 +169,7 @@ Om du vill testa brand Väggs reglerna måste du distribuera ett par servrar. Du
 
 Använd informationen i följande tabell för att konfigurera en annan virtuell dator med namnet **arbets belastning-SRV**. Resten av konfigurationen är samma som för den virtuella datorn Srv-Jump.
 
-|Inställning  |Värde  |
+|Inställningen  |Värde  |
 |---------|---------|
 |Undernät|**Workload-SN**|
 |Offentlig IP-adress|**Inga**|

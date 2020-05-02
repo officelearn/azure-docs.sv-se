@@ -10,14 +10,19 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: a9506d45350a567e3643b6edd6afc7668662f6e5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27e6c7beb8c88a29b90b30e0c77e35e493f2480a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81416032"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690912"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Vad är Azure Synapse Analytics (tidigare SQL DW)?
+
+> [!NOTE] 
+> Testa de senaste Azure Synapse-funktionerna som arbets ytor, Spark, SQL på begäran och den integrerade Synapse Studio-upplevelsen genom att [begära åtkomst till Azure Synapse (för hands versioner av arbets ytor)](https://aka.ms/synapsepreview). 
+>
+>Utforska [dokumentationen för Azure Synapse (arbets ytans för hands version)](../overview-what-is.md).
 
 Azure Synapse är en analys tjänst som samlar ihop företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure synapse ger de här två världar tillsammans med en enhetlig upplevelse för att mata in, förbereda, hantera och hantera data för omedelbara BI-och maskin inlärnings behov.
 
@@ -30,10 +35,7 @@ Azure-Synapse har fyra komponenter:
 - Synapse-pipeline: hybrid data integrering (för hands version)
 - Studio: enhetlig användar upplevelse.  (Förhandsversion)
 
-> [!NOTE]
-> För att få åtkomst till för hands versions funktionerna i Azure Synapse, begär åtkomst [här](https://aka.ms/synapsepreview). Microsoft kommer att prioritering alla begär Anden och svara så snart som möjligt.
->
-> Visa dokumentationen för för [hands versionen av Azure Synapse](../overview-what-is.md).
+
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Synapse SQL-pool i Azure Synapse
 

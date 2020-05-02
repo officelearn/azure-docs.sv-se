@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfc3c445595bec046de4256a57d566067fe3d29e
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68698975"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692444"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Kontrollera måtten för dataflöde och svarstid för ett lagringskonto
 
@@ -24,7 +24,7 @@ I del fyra i serien lär du dig att:
 > * Konfigurera diagram i Azure Portal
 > * Verifiera mått för dataflöde och svarstid
 
-För [Azure-lagringsmått](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) använder du Övervaka i Azure som ger en enhetlig vy över prestanda och tillgänglighet för ditt lagringskonto.
+För [Azure-lagringsmått](../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) använder du Övervaka i Azure som ger en enhetlig vy över prestanda och tillgänglighet för ditt lagringskonto.
 
 ## <a name="configure-metrics"></a>Konfigurera mått
 
@@ -34,7 +34,7 @@ Välj Blob i listrutan **UNDERORDNAD TJÄNST**.
 
 Under **MÅTT** väljer du något av de mått som finns i följande tabell:
 
-Följande mått ger dig en uppfattning om programmets svarstid och dataflöde. De mått som du konfigurerar i Portal har minutmedelvärden. Om en transaktion slutförs mitt i en minut halveras minutens data för medelvärdet. I programmet registreras tiden det tar att ladda upp och hämta data och detta visas i utdata så att du kan se den faktiska tid det tog att ladda upp och ladda ned filerna. Du kan använda den här informationen med måtten i portalen för att få en full förståelse av dataflödet.
+Följande mått ger dig en uppfattning om programmets svarstid och dataflöde. De mått som du konfigurerar i Portal har minutmedelvärden. Om en transaktion har varit i mitten av en minut som minut data är hälften av genomsnittet. I programmet registreras tiden det tar att ladda upp och hämta data och detta visas i utdata så att du kan se den faktiska tid det tog att ladda upp och ladda ned filerna. Du kan använda den här informationen med måtten i portalen för att få en full förståelse av dataflödet.
 
 |Mått|Definition|
 |---|---|
@@ -52,7 +52,7 @@ Diagram kan ha fler än ett mått tilldelade till dem, men om du tilldelar fler 
 
 ## <a name="dimensions"></a>Dimensioner
 
-[Dimensioner](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) används för att få en djupare inblick i diagrammen och få mer detaljerad information. Olika mått har olika dimensioner. En dimension som du kan använda är **API-namn**. Den här dimensionen delar upp diagrammet i varje separat API-anrop. Den första bilden nedan visar ett exempeldiagram över det totala antalet transaktioner för ett lagringskonto. Den andra bilden visar samma diagram, men med dimensionen API-namn vald. Som du ser visas varje transaktion med mer detaljerad information om hur många anrop som har gjorts per API-namn.
+[Dimensioner](../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#metrics-dimensions) används för att få en djupare inblick i diagrammen och få mer detaljerad information. Olika mått har olika dimensioner. En dimension som du kan använda är **API-namn**. Den här dimensionen delar upp diagrammet i varje separat API-anrop. Den första bilden nedan visar ett exempeldiagram över det totala antalet transaktioner för ett lagringskonto. Den andra bilden visar samma diagram, men med dimensionen API-namn vald. Som du ser visas varje transaktion med mer detaljerad information om hur många anrop som har gjorts per API-namn.
 
 ![Mått för lagringskonto – transaktioner utan dimension](./media/storage-blob-scalable-app-verify-metrics/transactionsnodimensions.png)
 

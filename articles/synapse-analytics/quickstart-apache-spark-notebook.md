@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: f8525c883eb6b2c736e5fbf433464aa64ff42068
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ae866c8be8d162213077e0488a19a556399384b2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101788"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692696"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en Apache Spark pool (förhands granskning) i Azure Synapse Analytics med hjälp av webb verktyg
 
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https:/portal.azure.com/)
+Logga in på [Azure Portal](https:/portal.azure.com/).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -48,7 +48,7 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
 
 4. I fönstret **Egenskaper** anger du ett namn för antecknings boken.
 5. Klicka på **publicera**i verktygsfältet.
-6. Om det bara finns en Apache Spark pool i din arbets yta är den markerad som standard. Använd List rutan för att välja rätt Apache Spark pool om ingen är markerad.
+6. Om det bara finns en Apache Spark pool i din arbets yta, är den markerad som standard. Använd List rutan för att välja rätt Apache Spark pool om ingen är markerad.
 7. Klicka på **Lägg till kod**. Standard språket är `Pyspark`. Du kommer att använda en blandning av Pyspark och Spark SQL, så att standard valet är bra.
 8. Därefter skapar du ett enkelt Spark DataFrame-objekt som du kan ändra. I det här fallet skapar du den från kod. Det finns tre rader och tre kolumner:
 
@@ -66,7 +66,7 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
 
    ![Skapa data ram objekt](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Utdata från Spark-jobbet")
 
-10. Om Apache Spark pool-instansen inte redan körs startas den automatiskt. Du kan se status för Apache Spark pool-instansen under den cell som du kör och även på status panelen längst ned i antecknings boken. Beroende på Poolens storlek bör det ta 2-5 minuter att starta. När koden har körts visas informationen i cellen som visar hur lång tid det tog att köra och dess körning. I utmatnings cellen visas utdata.
+10. Om instansen av Apache Spark-poolen inte redan körs startas den automatiskt. Du kan se instans status för Apache Spark bassäng under den cell som du kör och även på status panelen längst ned i antecknings boken. Beroende på Poolens storlek bör det ta 2-5 minuter att starta. När koden har körts visas informationen i cellen som visar hur lång tid det tog att köra och dess körning. I utmatnings cellen visas utdata.
 
     ![Utdata från att köra en cell](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Utdata från Spark-jobbet")
 
@@ -79,7 +79,7 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
      demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')
     ```
 
-    Om du använder lagrings Utforskaren är det möjligt att se effekten av de två olika sätten att skriva en fil som används ovan. När inget fil system anges används standardvärdet i det här fallet `default>user>trusted-service-user>demo_df`. Data sparas på platsen för det angivna fil systemet.
+    Om du använder Storage Explorer är det möjligt att se effekten av de två olika sätten att skriva en fil som används ovan. När inget fil system anges används standardvärdet i det här fallet `default>user>trusted-service-user>demo_df`. Data sparas på platsen för det angivna fil systemet.
 
     Observera i formaten "CSV" och "Parquet" och skriv åtgärder som en katalog skapas med många partitionerade filer.
 
@@ -89,7 +89,7 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
 
 ## <a name="run-spark-sql-statements"></a>Kör Spark SQL-instruktioner
 
-SQL (Structured Query Language) är det vanligaste språket för frågor och definition av data. Spark SQL fungerar som ett tillägg till Apache Spark för bearbetning av strukturerade data med den välbekanta SQL-syntaxen.
+Structured Query Language (SQL) är det vanligaste språket som används för att skicka frågor till och definiera data. Spark SQL fungerar som ett tillägg till Apache Spark för bearbetning av strukturerade data med den välbekanta SQL-syntaxen.
 
 1. Klistra in följande kod i en tom cell och kör sedan koden. Kommandot visar tabellerna i poolen.
 
@@ -109,11 +109,11 @@ SQL (Structured Query Language) är det vanligaste språket för frågor och def
 
     Koden ger två utdatakolumner, en som innehåller data, som visar vyn jobb.
 
-    Som standard visar resultatet ett rutnät, men det finns en vy växlaren under rutnätet som gör att vyn kan växla mellan rutnät och diagramvy.
+    Som standard visar vyn resultat ett rutnät. Men det finns en vy växlaren under rutnätet som gör att vyn kan växla mellan rutnät och diagramvyer.
 
     ![Fråga utdata i Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query.png "Fråga utdata i Azure Synapse Spark")
 
-3. I **vyn** växlaren väljer du **diagram**
+3. I **vyn** växlaren väljer du **diagram**.
 4. Välj ikonen **visnings alternativ** längst till höger.
 5. I fältet **diagram typ** väljer du stapeldiagram.
 6. I kolumn fältet X-axel väljer du "State".
@@ -133,7 +133,7 @@ SQL (Structured Query Language) är det vanligaste språket för frågor och def
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Azure Synapse sparar dina data i Azure Data Lake Storage. Du kan på ett säkert sätt låta en spark-instans stängas av när den inte används. Du debiteras för en Azure Synapse Apache Spark-pool så länge den körs, även om den inte används. Eftersom avgifterna för poolen är många gånger mer än avgifterna för lagring, är det ekonomiskt klokt att låta Spark-instanser stängas av när de inte används.
+Azure Synapse sparar dina data i Azure Data Lake Storage. Du kan på ett säkert sätt tillåta att en spark-instans stängs av när den inte används. Du debiteras för en Azure-Synapse Apache Spark pool så länge den körs, även om den inte används. Avgifterna för poolen är många gånger större än avgifterna för lagring. Därför är det ekonomiskt klokt att låta Spark-instanser stängas av när de inte används.
 
 Om du vill se till att Spark-instansen stängs av avslutar du alla anslutna sessioner (Notebooks). Poolen stängs av när **tids gränsen för inaktivitet** i Apache Spark-poolen har uppnåtts. Du kan också välja **avsluta sessionen** från statusfältet längst ned i antecknings boken.
 

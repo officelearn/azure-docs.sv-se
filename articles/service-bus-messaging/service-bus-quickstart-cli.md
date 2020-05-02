@@ -10,29 +10,29 @@ ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
 ms.openlocfilehash: e34599b12b8b0c487c6813038951b051d1eaf425
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "66400250"
 ---
-# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Snabbstart: Använd Azure CLI för att skapa en servicebusskö
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Snabb start: Använd Azure CLI för att skapa en Service Bus kö
 Den här snabbstarten beskriver hur du skickar och tar emot meddelanden med Service Bus med hjälp av Azure CLI och Service Bus Java-biblioteket. Slutligen, om du är intresserad av mer teknisk information, kan du [läsa en förklaring](#understand-the-sample-code) av de viktigaste beståndsdelarna i exempelkoden.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Krav
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][free account] innan du börjar.
+Om du inte har någon Azure-prenumeration kan du skapa ett [kostnads fritt konto][free account] innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Om du använder **knappen Prova** på för att starta Cloud Shell loggar du in på Azure med dina autentiseringsuppgifter. 
+Om du använder knappen **prova** för att starta Cloud Shell loggar du in på Azure med dina autentiseringsuppgifter. 
 
-Om du lanserade Cloud Shell i webbläsaren antingen direkt eller i Azure-portalen växlar du till **Bash** om du ser **PowerShell** i det övre vänstra hörnet av Cloud Shell. 
+Om du startade Cloud Shell i webbläsaren antingen direkt eller i Azure Portal växlar du till **bash** om du ser **PowerShell** i det övre vänstra hörnet av Cloud Shell. 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>Använda Azure CLI för att skapa resurser
-I Cloud Shell, från Bash-prompten, utfärdar du följande kommandon för att etablera Service Bus-resurserna. Var noga med att ersätta alla platshållare med lämpliga värden: Java-exempelprogrammet förväntar sig att könamnet är BasicQueue, så ändra det inte. Du kanske vill kopiera/klistra in kommandon en efter en så att du kan ersätta värdena innan du kör dem. 
+I Cloud Shell, från Bash-prompten, utfärdar du följande kommandon för att etablera Service Bus-resurserna. Se till att ersätta alla plats hållare med lämpliga värden: Java-exempelprogrammet förväntar sig att könamnet ska BasicQueue, så ändra det inte. Du kanske vill kopiera/klistra in ett-i-ett-kommando så att du kan ersätta värdena innan du kör dem. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -368,11 +368,11 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 ```
 
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett servicebussnamnområde och administrera meddelandeenheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelsehubbar. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill veta mer om hur du skriver kod för att skicka och ta emot meddelanden fortsätter du till självstudierna i avsnittet **Skicka och ta emot meddelanden.** 
+I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill veta mer om hur du skriver kod för att skicka och ta emot meddelanden kan du fortsätta till självstudierna i avsnittet **skicka och ta emot meddelanden** . 
 
 > [!div class="nextstepaction"]
 > [Skicka och ta emot meddelanden](service-bus-dotnet-get-started-with-queues.md)

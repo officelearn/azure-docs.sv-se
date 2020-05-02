@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en iOS-app'
+title: 'Snabb start: skapa en iOS-app'
 description: I den här snabbstarten lär du dig att skapa en iOS-app med hjälp av Spatial Anchors.
 author: craigktreasure
 manager: vriveras
@@ -9,13 +9,13 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 6304077a26f5c0ecb91e1ec4936bd79b3d839d95
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
+ms.lasthandoff: 04/29/2020
 ms.locfileid: "79471225"
 ---
-# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Snabbstart: Skapa en iOS-app med Azure Spatial Anchors, i antingen Swift eller Objective-C
+# <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Snabb start: skapa en iOS-app med molnbaserade ankare, antingen i Swift eller mål-C
 
 I den här snabbstarten beskrivs hur du skapar en iOS-app med hjälp av [Azure Spatial Anchors](../overview.md) i antingen Swift eller Objective-C. Azure Spatial Anchors är en plattformsoberoende utvecklartjänst som du kan använda för att skapa upplevelser med mixad verklighet med hjälp av objekt som bevarar sin plats mellan enheter över tid. När du är klar har du en ARKit iOS-app som kan spara och återkalla en spatial fästpunkt.
 
@@ -32,11 +32,11 @@ Du lär dig följande:
 
 Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
-- En utvecklare aktiverade macOS-maskin med den senaste versionen av <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> och <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installerad.
-- Git installeras via HomeBrew:
-  1. Ange följande kommando som en enda `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`rad i terminalen: . 
+- En utvecklare aktiverade macOS-datorn med den senaste versionen av <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> och <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installerad.
+- Git installerat via HomeBrew:
+  1. Ange följande kommando som en enda rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. 
   1. Kör `brew install git` och `brew install git-lfs`.
-  1. Uppdatera din git `git lfs install` config med (för `git lfs install --system` den aktuella användaren) eller (för hela systemet).
+  1. Uppdatera git-konfigurationen med `git lfs install` (för den aktuella användaren) eller `git lfs install --system` (för hela systemet).
 - En utvecklaraktiverad <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit-kompatibel</a> iOS-enhet.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -72,7 +72,7 @@ Kör `pod install --repo-update` för att installera CocoaPods för projektet.
 Öppna nu `.xcworkspace` i Xcode.
 
 > [!NOTE]
-> Se felsökningsstegen [här](#cocoapods-issues-on-macos-catalina-1015) om du har Problem med CocoaPod efter uppgradering till macOS Catalina (10.15).
+> Se fel söknings stegen [här](#cocoapods-issues-on-macos-catalina-1015) om du har CocoaPod problem efter uppgraderingen till MacOS Catalina (10,15).
 
 # <a name="swift"></a>[Swift](#tab/openproject-swift)
 
@@ -90,7 +90,7 @@ open ./SampleObjC.xcworkspace
 
 ## <a name="configure-account-identifier-and-key"></a>Konfigurera konto-ID och -nyckel
 
-Nästa steg är att konfigurera appen så att den använder kontoidentifieraren och kontonyckeln. Du kopierade dem till en textredigerare när [du konfigurerade resursen Spatial Anchors](#create-a-spatial-anchors-resource).
+Nästa steg är att konfigurera appen så att den använder din konto identifierare och konto nyckeln. Du kopierade dem till en text redigerare när du [ställer in resursen för spatiala ankare](#create-a-spatial-anchors-resource).
 
 # <a name="swift"></a>[Swift](#tab/openproject-swift)
 
@@ -127,9 +127,9 @@ I Xcode stoppar du appen genom att trycka på **Stoppa**.
 
 ## <a name="troubleshooting"></a>Felsökning
 
-### <a name="cocoapods-issues-on-macos-catalina-1015"></a>CocoaPods frågor om macOS Catalina (10,15)
+### <a name="cocoapods-issues-on-macos-catalina-1015"></a>CocoaPods problem på macOS Catalina (10,15)
 
-Om du nyligen uppdaterat till macOS Catalina (10,15) och hade CocoaPods installerat i förväg, kan CocoaPods vara i ett brutet tillstånd och misslyckas med att korrekt konfigurera dina poddar och `.xcworkspace` projektfiler. LÃ¶s problemet genom att installera om CocoaPods genom att köra följande kommandon:
+Om du nyligen har uppdaterat till macOS Catalina (10,15) och hade CocoaPods installerat i förväg, kan CocoaPods vara i ett trasigt tillstånd och inte konfigurera dina poddar- `.xcworkspace` och projektfiler korrekt. För att lösa det här problemet måste du installera om CocoaPods genom att köra följande kommandon:
 
 ```shell
 brew update
@@ -137,15 +137,15 @@ brew install cocoapods --build-from-source
 brew link --overwrite cocoapods
 ```
 
-### <a name="app-crashes-when-deploying-to-ios-1031-from-a-personal-provisioning-profiledeveloper-account"></a>Appen kraschar när den distribueras till iOS 10.3.1 från ett personligt etableringsprofil-/utvecklarkonto 
+### <a name="app-crashes-when-deploying-to-ios-1031-from-a-personal-provisioning-profiledeveloper-account"></a>Appen kraschar vid distribution till iOS-10.3.1 från en personlig etablerings profil/utvecklarens konto 
 
-Om du distribuerar din iOS-app på iOS 10.3.1 från ett personligt `Library not loaded: @rpath/ADAL...`etableringsprofil-/utvecklarkonto kan det här felet visas: . 
+Om du distribuerar iOS-appen på iOS-10.3.1 från en personlig etablerings profil/ett utvecklares konto kan du se det här `Library not loaded: @rpath/ADAL...`felet:. 
 
 Så här löser du problemet:
 
-- Använd en etableringsprofil som inte är en profil för personligt team (betalt utvecklarkonto).
-- Distribuera din app till en iOS-enhet som kör iOS 13.3 eller tidigare, eller till en som kör betaversionen av iOS 13.4.
-- Läs mer om problemet på [Stack Overflow](https://stackoverflow.com/questions/60015309/running-ios-apps-causes-runtime-error-for-frameworks-code-signature-invalid).
+- Använd en etablerings profil som inte är en personlig team profil (betalt konto för utvecklare).
+- Distribuera din app till en iOS-enhet som kör iOS 13,3 eller tidigare, eller till en som kör iOS 13,4 beta eller version.
+- Läs mer om det här problemet på [Stack Overflow](https://stackoverflow.com/questions/60015309/running-ios-apps-causes-runtime-error-for-frameworks-code-signature-invalid).
 
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
@@ -153,4 +153,4 @@ Så här löser du problemet:
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Dela rumsliga ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)
+> [Självstudie: dela spatiala ankare mellan enheter](../tutorials/tutorial-share-anchors-across-devices.md)

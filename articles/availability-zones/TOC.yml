@@ -8,10 +8,12 @@
   items:
     - name: Hög tillgänglighet för Azure-program
       href: 'https://docs.microsoft.com/azure/architecture/resiliency/high-availability-azure-applications'
+    - name: Regioner och tillgänglighetszoner
+      href: az-overview.md
     - name: Dokumentation för tillgänglighetszoner
       items:
-        - name: Vad är tillgänglighetszoner?
-          href: az-overview.md
+        - name: Regioner som har stöd för tillgänglighetszoner
+          href: az-region.md
         - name: Virtuella datorer
           items:
             - name: Skapa en virtuell Linux-dator i en tillgänglighetszon med CLI

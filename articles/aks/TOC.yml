@@ -252,7 +252,7 @@
         - name: Visa containerdata i realtid
           href: ../azure-monitor/insights/container-insights-livedata-overview.md
           maintainContext: true
-    - name: Använda Windows Server-containrar (förhandsversion)
+    - name: Använda Windows Server-containrar
       items:
         - name: Skapa ett AKS-kluster
           href: windows-container-cli.md

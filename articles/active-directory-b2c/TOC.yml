@@ -76,6 +76,8 @@
       href: user-overview.md
     - name: Attribut för användarprofil
       href: user-profile-attributes.md
+    - name: Sessioner för enkel inloggning
+      href: session-overview.md
 - name: Anvisningar
   items:
     - name: Appintegrering
@@ -335,8 +337,8 @@
                       href: phone-factor-technical-profile.md
                     - name: REST
                       href: restful-technical-profile.md
-                    - name: SAML
-                      href: saml-technical-profile.md
+                    - name: SAML-identitetsprovider
+                      href: saml-identity-provider-technical-profile.md
                     - name: SAML-tokenutfärdare
                       href: saml-issuer-technical-profile.md
                     - name: Självkontrollerad

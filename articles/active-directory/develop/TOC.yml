@@ -103,7 +103,15 @@
   items:
     - name: Grundläggande om autentisering
       displayName: Auth basics
-      href: authentication-scenarios.md
+      items:
+        - name: Autentisering kontra auktorisering
+          href: authentication-vs-authorization.md
+        - name: Säkerhetstoken
+          href: security-tokens.md
+        - name: Programmodell
+          href: application-model.md
+        - name: Inloggningsflöde för app
+          href: app-sign-in-flow.md
     - name: Autentiseringsflöden och appscenarier
       displayName: Auth flows
       href: authentication-flows-app-scenarios.md
@@ -250,129 +258,120 @@
       items:
         - name: Översikt
           href: msal-overview.md
-        - name: Konton och klientorganisationsprofiler – Android
-          href: accounts-overview.md
-        - name: Auktoriseringsagenter – Android
-          href: authorization-agents.md
-        - name: Asynkron autentisering – Android
-          href: brokered-auth.md
-        - name: Migrering
+        - name: .NET
+          displayName: 'xamarin, ASP.NET Core'
           items:
-            - name: Översikt
-              href: msal-migration.md
+            - name: Initiera program
+              href: msal-net-initializing-client-applications.md
+            - name: Klientförsäkran
+              href: msal-net-client-assertions.md
+            - name: Integrera med Azure AD B2C
+              href: msal-net-aad-b2c-considerations.md
+            - name: Integrera med ADFS
+              href: msal-net-adfs-support.md
             - name: Migrera till MSAL.NET
               href: msal-net-migration.md
-            - name: Migrera till MSAL.js
-              href: msal-compare-msal-js-and-adal-js.md
-            - name: Migrera till MSAL.Android
-              href: migrate-android-adal-msal.md
-            - name: Migrera till MSAL.iOS/macOS
-              href: migrate-objc-adal-msal.md
-            - name: Migrera till MSAL Python
-              href: migrate-python-adal-msal.md
-            - name: Migrera till MSAL för Java
-              href: migrate-adal-msal-java.md
             - name: Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer till MSAL.NET
               href: msal-net-migration-ios-broker.md
-        - name: Autentiseringsflöden som stöds
-          href: msal-authentication-flows.md
-        - name: Offentliga klientappar med enstaka och flera konton (Android)
-          href: single-multi-account.md
-        - name: Hämta och cachelagra token
+            - name: Webbläsaröverväganden
+              href: msal-net-web-browsers.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md?tabs=dotnet
+            - name: Loggning
+              href: msal-logging.md?tabs=dotnet
+        - name: Android
           items:
+            - name: Konton och klientorganisationsprofiler
+              href: accounts-overview.md
+            - name: Auktoriseringsagenter
+              href: authorization-agents.md
+            - name: Asynkron autentisering
+              href: brokered-auth.md
+            - name: Integrera med Azure AD B2C
+              href: msal-android-b2c.md
+            - name: Migrera till MSAL.Android
+              href: migrate-android-adal-msal.md
+            - name: Läget Delad enhet
+              href: msal-android-shared-devices.md
+              displayName: 'firstline worker, frontline worker, flw'
+            - name: Offentliga klientappar med enstaka och flera konton
+              href: single-multi-account.md
+            - name: Loggning
+              href: msal-logging.md?tabs=android
+        - name: iOS och macOS
+          items:
+            - name: Integrera med Azure AD B2C
+              href: 'config-authority.md#b2c'
+            - name: Migrera till MSAL.iOS/macOS
+              href: migrate-objc-adal-msal.md
+            - name: Läge för delad enhet för iOS-enheter
+              href: msal-ios-shared-devices.md
+              displayName: 'firstline worker, frontline worker, flw'
+            - name: Enkel inloggning mellan MSAL-appar
+              href: single-sign-on-macos-ios.md
+            - name: Enkel inloggning mellan ADAL- och MSAL-appar
+              href: sso-between-adal-msal-apps-macos-ios.md
+            - name: Felsöka SSL-problem (MSAL iOS/macOS)
+              href: ssl-issues.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md?tabs=iosmacos
+            - name: Loggning
+              href: msal-logging.md?tabs=swift
+        - name: Java
+          items:
+            - name: Migrera till MSAL för Java
+              href: migrate-adal-msal-java.md
+            - name: ADFS-stöd i MSAL för Java
+              href: msal-java-adfs-support.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md?tabs=java
+            - name: Loggning
+              href: msal-logging.md?tabs=java
+        - name: JavaScript och Node.js
+          items:
+            - name: Initiera program – JavaScript
+              href: msal-js-initializing-client-applications.md
+            - name: Integrera med Azure AD B2C
+              href: msal-b2c-overview.md
+            - name: Migrera till MSAL.js
+              href: msal-compare-msal-js-and-adal-js.md
+            - name: Enkel inloggning med MSAL.js
+              href: msal-js-sso.md
+            - name: Överväganden – IE
+              href: msal-js-use-ie-browser.md
+            - name: Kända problem –IE och Microsoft Edge
+              href: msal-js-known-issues-ie-edge-browsers.md
+            - name: Kända problem – Safari
+              href: msal-js-known-issues-safari-browser.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md?tabs=javascript
+            - name: Loggning
+              href: msal-logging.md?tabs=javascript
+        - name: Python
+          items:
+            - name: Migrera till MSAL Python
+              href: migrate-python-adal-msal.md
+            - name: ADFS-stöd i MSAL för Python
+              href: msal-python-adfs-support.md
+            - name: Hantera fel och undantag
+              href: msal-handling-exceptions.md?tabs=python
+            - name: Loggning
+              href: msal-logging.md?tabs=python
+        - Name: Alla plattformar
+          items:
+            - name: Autentiseringsflöden som stöds
+              href: msal-authentication-flows.md
             - name: Hämta och cachelagra token
               href: msal-acquire-cache-tokens.md
-            - name: Omfång för v1.0-appar
-              href: msal-v1-app-scopes.md
-        - name: Klientprogram
-          displayName: Client apps
-          items:
-            - name: Konfigurera rollanspråk
-              href: active-directory-enterprise-app-role-management.md
-            - name: Anpassa anspråk – Portal
-              href: active-directory-saml-claims-customization.md
-            - name: Anpassa anspråk – PowerShell
-              href: active-directory-claims-mapping.md
-            - name: Konfigurera valfria anspråk
-              href: active-directory-optional-claims.md
-            - name: Konfigurera livslängd för token
-              href: active-directory-configurable-token-lifetimes.md
-            - name: Hantera SameSite-cookieändringar i webbläsaren Chrome
-              href: howto-handle-samesite-cookie-changes-chrome-browser.md
-        - name: Tillämpningskonfiguration
-          displayName: App configuration
-          items:
-            - name: Klientprogram
+            - name: Offentliga och konfidentiella klientappar
               href: msal-client-applications.md
             - name: Tillämpningskonfiguration
               href: msal-client-application-configuration.md
-            - name: Initiera program – .NET
-              href: msal-net-initializing-client-applications.md
-            - name: Klientförsäkran – .NET
-              href: msal-net-client-assertions.md
-            - name: Initiera program – JavaScript
-              href: msal-js-initializing-client-applications.md
-        - name: Hantera fel och undantag
-          href: msal-handling-exceptions.md
-        - name: Loggning
-          href: msal-logging.md
-        - name: Delade enheter
-          items:
-            - name: Översikt – delade enheter
+            - name: Delade enheter
               href: msal-shared-devices.md
-              displayName: 'shared device mode, firstline worker, frontline worker'
-            - name: Läge för delad enhet för iOS-enheter
-              href: msal-ios-shared-devices.md
-              displayName: 'firstline worker, frontline worker'
-            - name: Läge för delad enhet för Android-enheter
-              href: msal-android-shared-devices.md
-              displayName: 'firstline worker, frontline worker'
-        - name: Enkel inloggning
-          displayName: SSO
-          items:
-            - name: Enkel inloggning med MSAL.js
-              href: msal-js-sso.md
-            - name: Enkel inloggning med MSAL för iOS och macOS
-              items:
-                - name: Enkel inloggning mellan MSAL-appar
-                  href: single-sign-on-macos-ios.md
-                - name: Enkel inloggning mellan ADAL- och MSAL-appar
-                  href: sso-between-adal-msal-apps-macos-ios.md
-        - name: Integrera med ADFS
-          displayName: Active Directory Federation Services
-          items:
-            - name: ADFS-stöd i MSAL.NET
-              href: msal-net-adfs-support.md
-            - name: ADFS-stöd i MSAL för Python
-              href: msal-python-adfs-support.md
-            - name: ADFS-stöd i MSAL för Java
-              href: msal-java-adfs-support.md
-        - name: Integrera med Azure AD B2C
-          items:
-            - name: Android
-              href: msal-android-b2c.md
-            - name: JavaScript
-              href: msal-b2c-overview.md
-            - name: .NET
-              href: msal-net-aad-b2c-considerations.md
-            - name: iOS och macOS
-              href: 'config-authority.md#b2c'
-        - name: Överväganden och kända problem
-          items:
-            - name: MSAL.NET
-              items:
-                - name: Webbläsare
-                  href: msal-net-web-browsers.md
-            - name: MSAL.js
-              items:
-                - name: Överväganden – IE
-                  href: msal-js-use-ie-browser.md
-                - name: Kända problem –IE och Microsoft Edge
-                  href: msal-js-known-issues-ie-edge-browsers.md
-                - name: Kända problem – Safari
-                  href: msal-js-known-issues-safari-browser.md
-            - name: Felsöka SSL-problem (MSAL iOS/macOS)
-              href: ssl-issues.md
+              displayName: 'shared device mode, firstline worker, frontline worker, flw'
+            - name: Hantera SameSite-cookieändringar i webbläsaren Chrome
+              href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Autentiseringsprotokoll
       displayName: Auth protocol
       items:
@@ -457,9 +456,13 @@
     - name: Automatisk användaretablering (SCIM)
       items:
         - name: Vad är automatisk användaretablering?
-          href: /azure/active-directory/manage-apps/user-provisioning
-        - name: Skapa och integrera en SCIM-slutpunkt
-          href: /azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups
+          href: /azure/active-directory/app-provisioning/user-provisioning
+        - name: Utveckla och integrera en SCIM-slutpunkt
+          href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+        - name: Vanliga etableringsscenarier
+          href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+        - name: Automatisera konfiguration med MS Graph
+          href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
 - name: Anvisningar
   items:
     - name: Autentisering

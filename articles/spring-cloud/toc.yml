@@ -42,6 +42,10 @@
       href: spring-cloud-quotas.md
     - name: Förstå mått i Azure Spring Cloud
       href: spring-cloud-concept-metrics.md
+    - name: Säkerhetskontroller för Azure Spring Cloud-tjänsten
+      href: spring-cloud-concept-security-controls.md
+    - name: Förstå appstatus i Azure Spring Cloud
+      href: spring-cloud-concept-app-status.md
     - name: Förbereda för haveriberedskap
       href: disaster-recovery.md
 - name: Anvisningar

@@ -291,7 +291,7 @@
       items:
         - name: Alla funktioner
           href: template-functions.md
-        - name: Funktioner för matris och objekt
+        - name: Matrisfunktioner
           href: template-functions-array.md
         - name: Jämförelsefunktioner
           href: template-functions-comparison.md
@@ -303,6 +303,8 @@
           href: template-functions-logical.md
         - name: Numeriska funktioner
           href: template-functions-numeric.md
+        - name: Objektfunktioner
+          href: template-functions-object.md
         - name: Resursfunktioner
           href: template-functions-resource.md
         - name: Strängfunktioner

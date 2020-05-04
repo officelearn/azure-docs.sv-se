@@ -167,6 +167,10 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: Konfigurera SSL
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: Verksamhetskontinuitet
+          items:
+            - name: Säkerhetskopiering och återställning
+              href: concepts-hyperscale-backup.md
         - name: Övervaka och finjustera
           items:
             - name: Övervaka och finjustera
@@ -273,6 +277,8 @@
               href: howto-data-encryption-portal.md
             - name: Azure CLI
               href: howto-data-encryption-cli.md
+            - name: Validering av diskkryptering
+              href: howto-data-encryption-validation.md
         - name: Starta om servern
           items:
             - name: Azure Portal

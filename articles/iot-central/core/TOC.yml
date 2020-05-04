@@ -6,6 +6,10 @@
       href: overview-iot-central.md
     - name: Genomgång av användargränssnittet
       href: overview-iot-central-tour.md
+    - name: Senaste uppdateringarna
+      items:
+        - name: Mars 2020
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
 - name: Snabbstarter
   expanded: true
   items:
@@ -127,6 +131,14 @@
               href: howto-show-hide-chat.md
 - name: Resurser
   items:
+    - name: Senaste uppdateringarna (endera frågan)
+      href: 'https://azure.microsoft.com/updates/?category=iot&query=azure%20iot%20central'
+    - name: Senaste uppdateringarna (eller lista...)
+      items:
+        - name: April 2020
+          href: 'https://azure.microsoft.com//updates/new-iot-central-pricing-plans/'
+        - name: Mars 2020
+          href: 'https://azure.microsoft.com//updates/new-iot-central-pricing-plans/'
     - name: Alternativ för support och hjälp
       href: /azure/iot-fundamentals/iot-support-help
     - name: Mallar för branschprogram

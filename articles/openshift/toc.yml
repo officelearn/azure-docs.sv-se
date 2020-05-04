@@ -6,57 +6,67 @@
       href: intro-openshift.md
 - name: Självstudier
   items:
-    - name: Skapa och hantera ett Azure Red Hat OpenShift-kluster
-      items:
-        - name: 1 – Skapa ett Azure Red Hat OpenShift-kluster
-          href: tutorial-create-cluster.md
-        - name: 2 – Skala ett Azure Red Hat OpenShift-kluster
-          href: tutorial-scale-cluster.md
-        - name: 3 – Ta bort ett Azure Red Hat OpenShift-kluster
-          href: tutorial-delete-cluster.md
-- name: Klusteradministration
-  items:
-    - name: Klusteradministration för Azure Red Hat OpenShift
-      items:
-        - name: 1 – Klusteradministratörsroll för Azure Red Hat OpenShift
-          href: cluster-administration-cluster-admin-role.md
-        - name: 2 – Hantera säkerhetskontextrestriktioner
-          href: cluster-administration-security-context-constraints.md
-- name: Instruktionsguider
+    - name: 1 – Skapa ett Azure Red Hat OpenShift 4-kluster
+      href: tutorial-create-cluster.md
+    - name: 2 – Ansluta till ett Azure Red Hat OpenShift 4-kluster
+      href: tutorial-connect-cluster.md
+    - name: 3 – Ta bort ett Azure Red Hat OpenShift 4-kluster
+      href: tutorial-delete-cluster.md
+- name: Anvisningar
   expanded: true
   items:
-    - name: Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
-      href: howto-setup-environment.md
-      expanded: true
+    - name: Skapa ett privat Azure Red Hat OpenShift 4-kluster
+      href: create-private-cluster.md
+    - name: Konfigurera DNS-vidarebefordring för ett Azure Red Hat OpenShift 4-kluster
+      href: dns-forwarding.md
+    - name: Konfigurera Azure Active Directory-autentisering för ett Azure Red Hat OpenShift 4-kuster
       items:
-        - name: Skapa en Azure AD-klientorganisation
-          href: howto-create-tenant.md
-        - name: Skapa ett Azure AD-appobjekt och en användare
-          href: howto-aad-app-configuration.md
-    - name: Azure Red Hat OpenShift 4.3 (förhandsversion)
+        - name: Konfigurera Azure Active Directory-autentisering (CLI)
+          href: configure-azure-ad-cli.md
+        - name: Konfigurera Azure Active Directory-autentisering (portalen)
+          href: configure-azure-ad-ui.md
+    - name: Övervakning och loggning för Azure Red Hat OpenShift 4
       items:
-        - name: Skapa ett Azure Red Hat OpenShift 4.3-kluster
-          href: howto-using-azure-redhat-openshift.md
-        - name: Aktivera Azure Monitor för Azure Red Hat OpenShift 4.3
-          href: howto-azure-monitor-v4.md
-    - name: Distribuera fristående Prometheus i ett Azure Red Hat OpenShift-kluster
-      href: howto-deploy-prometheus.md
-    - name: Hantera projekt i ett Azure Red Hat OpenShift-kluster
-      href: howto-manage-projects.md
-    - name: Skapa ett privat Azure Red Hat OpenShift-kluster
-      href: howto-create-private-cluster.md
-    - name: Övervakning och loggning
-      items:
-        - name: Azure Monitor för containrar (förhandsversion)
+        - name: Azure Monitor för containrar i Azure Red Hat OpenShift 4 (förhandsversion)
           items:
-            - name: Konfigurera Azure Monitor för containrar
-              href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
-              maintainContext: true
-            - name: Inaktivera Azure Monitor för containrar
-              href: ../azure-monitor/insights/container-insights-optout-openshift.md
-              maintainContext: true
-    - name: Köra privilegierade containers i ett Azure Red Hat OpenShift-kluster
-      href: howto-run-privileged-containers.md
+            - name: Konfigurera Azure Monitor för containrar för Azure Red Hat OpenShift 4 (förhandsversion)
+              href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
+            - name: Inaktivera Azure Monitor för containrar i Azure Red Hat OpenShift 3.11 (förhandsversion)
+              href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+    - name: Azure Red Hat OpenShift 3.11
+      items:
+        - name: Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön för Azure Red Hat OpenShift 3.11
+          href: howto-setup-environment.md
+          expanded: true
+          items:
+            - name: Skapa en Azure AD-klientorganisation
+              href: howto-create-tenant.md
+            - name: Skapa ett Azure AD-appobjekt och en användare
+              href: howto-aad-app-configuration.md
+        - name: Distribuera fristående Prometheus i ett Azure Red Hat OpenShift 3.11-kluster
+          href: howto-deploy-prometheus.md
+        - name: Hantera projekt i ett Azure Red Hat OpenShift 3.11-kluster
+          href: howto-manage-projects.md
+        - name: Skapa ett privat Azure Red Hat OpenShift 3.11-kluster
+          href: howto-create-private-cluster.md
+        - name: Övervakning och loggning för Azure Red Hat OpenShift 3.11
+          items:
+            - name: Azure Monitor för containrar i Azure Red Hat OpenShift 3.11 (förhandsversion)
+              items:
+                - name: Konfigurera Azure Monitor för containrar i Azure Red Hat OpenShift 3.11
+                  href: ../azure-monitor/insights/container-insights-azure-redhat-setup.md
+                  maintainContext: true
+                - name: Inaktivera Azure Monitor för containrar i Azure Red Hat OpenShift 3.11
+                  href: ../azure-monitor/insights/container-insights-optout-openshift.md
+                  maintainContext: true
+        - name: Köra privilegierade containrar i Azure Red Hat OpenShift 3.11
+          href: howto-run-privileged-containers.md
+        - name: Klusteradministration i Azure Red Hat OpenShift 3.11
+          items:
+            - name: 1 – Klusteradministratörsroll för Azure Red Hat OpenShift 3.11
+              href: cluster-administration-cluster-admin-role.md
+            - name: 2 – Hantera restriktioner för säkerhetskontext i Azure Red Hat OpenShift 3.11
+              href: cluster-administration-security-context-constraints.md
 - name: Referens
   items:
     - name: CLI för Azure Red Hat OpenShift
@@ -69,8 +79,10 @@
       href: openshift-faq.md
     - name: Felsökning
       href: troubleshoot.md
-    - name: Resurser som stöds
+    - name: Resurser som stöds för Azure Red Hat OpenShift 3.11
       href: supported-resources.md
+    - name: Resurser som stöds för Azure Red Hat OpenShift 4.3
+      href: support-policies-v4.md
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Dokumentation om Red Hat OpenShift

@@ -155,11 +155,11 @@
           href: directory-assign-admin-roles.md
         - name: Visa och tilldela roller
           href: directory-manage-roles-portal.md
-        - name: Anpassad roll
+        - name: Anpassade roller
           items:
-            - name: Anpassad roll
+            - name: Anpassade roller
               href: roles-custom-overview.md
-            - name: Skapa anpassad roll
+            - name: Skapa en anpassad roll
               href: roles-create-custom.md
             - name: Visa anpassade rolltilldelningar
               href: roles-view-assignments.md

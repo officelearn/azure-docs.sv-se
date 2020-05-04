@@ -1,8 +1,8 @@
-- name: Dokumentation om Azure DevOps Projects
+- name: Dokumentation om Azure DevOps-startpaket
   href: index.yml
 - name: Översikt
   items:
-    - name: Vad är Azure DevOps Projects?
+    - name: Vad är Azure DevOps-startpaketet?
       href: overview.md
 - name: Snabbstarter
   expanded: true
@@ -30,7 +30,7 @@
       maintainContext: true
 - name: Självstudier
   items:
-    - name: 1 – GitHub och DevOps Projects
+    - name: 1 – GitHub och DevOps-startpaket
       href: azure-devops-project-github.md
       maintainContext: true
     - name: 2 – Distribuera till virtuella datorer

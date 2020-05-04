@@ -48,6 +48,8 @@
       href: authentication-requests-and-responses.md
     - name: Riktlinjer för begränsning i Azure Key Vault
       href: overview-throttling.md
+    - name: Tillgänglighet och redundans för Azure Key Vault
+      href: disaster-recovery-guidance.md
     - name: Tjänstslutpunkter för virtuellt nätverk för Azure Key Vault – Azure Key Vault
       href: overview-vnet-service-endpoints.md
 - name: Anvisningar
@@ -92,6 +94,10 @@
           href: soft-delete-cli.md
         - name: Använda mjuk borttagning med PowerShell
           href: soft-delete-powershell.md
+    - name: Flytta nyckelvalv
+      items:
+        - name: Flytta nyckelvalv till en annan region
+          href: keyvault-moveregion.md
     - name: Felsöka
       items:
         - name: 'Ändra klient-ID:t för nyckelvalv efter en prenumerationsflytt'

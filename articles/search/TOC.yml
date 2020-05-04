@@ -262,9 +262,11 @@
       items:
         - name: Arbeta med resultat
           href: search-pagination-page-layout.md
-        - name: Relevansjustering (bedömningsprofiler)
+        - name: Relevanspoäng
+          href: index-similarity-and-scoring.md
+        - name: Poängprofiler
           href: index-add-scoring-profiles.md
-        - name: Relevansjustering (likhetsalgoritm)
+        - name: Likhetsalgoritm
           href: index-ranking-similarity.md
     - name: Planera
       items:

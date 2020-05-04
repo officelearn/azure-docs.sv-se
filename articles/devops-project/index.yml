@@ -1,30 +1,30 @@
 ### YamlMime:Landing
-title: Dokumentation om Azure DevOps Projects
-summary: Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett av exempelprogrammen för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure.
+title: Dokumentation om Azure DevOps-startpaket
+summary: Azure DevOps-startpaketet är ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett av exempelprogrammen för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure.
 metadata:
-  title: Dokumentation om Azure DevOps Projects
+  title: Dokumentation om Azure DevOps-startpaket
   description: Ta med befintlig kod och Git-lagringsplatser eller välj ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure.
   ms.service: devops-project
   ms.topic: landing-page
   author: 
   ms.author: 
-  ms.date: 03/05/2020
-  ms.openlocfilehash: f03a03b353ffa0d0562169a51a2552c2f2ab143b
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 03/24/2020
+  ms.openlocfilehash: 461d088f85f6845dfb9204381209b477b384a0be
+  ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78942472"
+  ms.lasthandoff: 04/28/2020
+  ms.locfileid: "82231482"
 landingContent:
-- title: Om Azure DevOps Projects
+- title: Om Azure DevOps-startpaketet
   linkLists:
   - linkListType: overview
     links:
-    - text: Vad är Azure DevOps Projects?
+    - text: Vad är Azure DevOps-startpaketet?
       url: overview.md
   - linkListType: video
     links:
-    - text: Skapa CI/CD med DevOps Projects-videon (8:53)
+    - text: Skapa CI/CD med videon om DevOps-startpaket (8:53)
       url: https://channel9.msdn.com/Events/Connect/2017/T174/player/
 - title: Skapa en CI/CD-pipeline
   linkLists:

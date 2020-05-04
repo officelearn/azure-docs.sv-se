@@ -40,8 +40,6 @@
       href: components.md
     - name: Begrepp
       href: concepts.md
-    - name: Typer
-      href: types.md
     - name: Hälsoövervakning
       items:
         - name: Hälsotillståndsavsökningar

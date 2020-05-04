@@ -214,6 +214,7 @@
             - name: Webbsidor
               items:
                 - name: JavaScript för klientsidan
+                  displayname: 'SPA, Single Page Applications, React, JS, Angular'
                   href: app/javascript.md
                 - name: Källkarta för JavaScript
                   href: app/source-map-support.md
@@ -441,6 +442,11 @@
               href: app/custom-data-correlation.md
             - name: Anslutningssträngar
               href: app/sdk-connection-string.md
+            - name: Anslutningssträngar
+              href: app/sdk-connection-string.md
+            - name: GetMetric
+              displayname: 'get metric, custom metrics, metrics, TrackMetric'
+              href: app/get-metric.md
             - name: Särskilda ämnen
               items:
                 - name: Djup diagnostik för webbappar och tjänster

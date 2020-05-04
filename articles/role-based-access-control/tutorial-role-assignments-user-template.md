@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: bevilja användar åtkomst till Azure-resurser med RBAC-och Resource Manager-mall'
-description: Lär dig hur du beviljar en användare åtkomst till Azure-resurser med rollbaserad åtkomst kontroll (RBAC) med hjälp av Azure Resource Manager mall i den här självstudien.
+title: 'Självstudie: ge en användare åtkomst till Azure-resurser med hjälp av en Azure Resource Manager-mall – Azure RBAC'
+description: Lär dig hur du beviljar en användare åtkomst till Azure-resurser med hjälp av en Azure Resource Manager-mall och rollbaserad åtkomst kontroll i Azure (Azure RBAC) i den här självstudien.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f98b1e9c57cf9f624c5af3e59c8afd56d073dd28
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77138206"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735478"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>Självstudie: ge en användare åtkomst till Azure-resurser med RBAC-och Resource Manager-mall
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-an-azure-resource-manager-template"></a>Självstudie: ge en användare åtkomst till Azure-resurser med hjälp av en Azure Resource Manager mall
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. I den här självstudien skapar du en resurs grupp och ger användaren åtkomst till att skapa och hantera virtuella datorer i resurs gruppen. Den här självstudien fokuserar på processen att distribuera en Resource Manager-mall för att ge åtkomst. Mer information om hur du utvecklar Resource Manager-mallar finns i [Resource Manager-dokumentation](/azure/azure-resource-manager/) och [mallen referens](/azure/templates/microsoft.authorization/allversions
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) är hur du hanterar åtkomst till Azure-resurser. I den här självstudien skapar du en resurs grupp och ger användaren åtkomst till att skapa och hantera virtuella datorer i resurs gruppen. Den här självstudien fokuserar på processen att distribuera en Resource Manager-mall för att ge åtkomst. Mer information om hur du utvecklar Resource Manager-mallar finns i [Resource Manager-dokumentation](/azure/azure-resource-manager/) och [mallen referens](/azure/templates/microsoft.authorization/allversions
 ).
 
 I den här guiden får du lära dig att:
@@ -63,7 +63,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ## <a name="validate-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Öppna resurs gruppen som skapades i den senaste proceduren. Standard namnet är projekt namnet med **RG** tillagt.
 1. Välj **Åtkomstkontroll (IAM)** från den vänstra menyn.
 1. Välj **Rolltilldelningar**. 
@@ -83,4 +83,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+> [Självstudie: ge en användare åtkomst till Azure-resurser med hjälp av Azure PowerShell](tutorial-role-assignments-user-powershell.md)

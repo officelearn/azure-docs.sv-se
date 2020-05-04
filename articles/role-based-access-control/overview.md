@@ -1,6 +1,6 @@
 ---
-title: Vad är rollbaserad åtkomstkontroll (RBAC) för Azure-resurser? | Microsoft Docs
-description: Få en översikt över rollbaserad åtkomstkontroll (RBAC) för Azure-resurser. Använd rolltilldelningar för att styra åtkomsten till resurser i Azure.
+title: Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?
+description: Få en översikt över rollbaserad åtkomst kontroll i Azure (Azure RBAC). Använd rolltilldelningar för att styra åtkomsten till resurser i Azure.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,31 +14,31 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4a1db200b88d0eabde967961d956cdd2854e828d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d186fd2182603709921f876d0bc212762cb8586b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81686474"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735869"
 ---
-# <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Vad är rollbaserad åtkomstkontroll (RBAC) för Azure-resurser?
+# <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?
 
-Åtkomsthantering för molnresurser är en viktig funktion för alla organisationer som använder molnet. Rollbaserad åtkomstkontroll (RBAC) hjälper till vid hantering av vem som ska ha åtkomst till Azure-resurser, vad de ska kunna göra med resurserna och till vilka områden de ska ha åtkomst.
+Åtkomsthantering för molnresurser är en viktig funktion för alla organisationer som använder molnet. Rollbaserad åtkomst kontroll i Azure (Azure RBAC) hjälper dig att hantera vem som har åtkomst till Azure-resurser, vad de kan göra med dessa resurser och vilka områden de har åtkomst till.
 
-RBAC är ett auktoriseringssystem som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) och ger detaljerad åtkomsthantering av resurser i Azure.
+Azure RBAC är ett auktoriserings system som bygger på [Azure Resource Manager](../azure-resource-manager/management/overview.md) som ger detaljerad åtkomst hantering av Azure-resurser.
 
-## <a name="what-can-i-do-with-rbac"></a>Vad kan jag göra med RBAC?
+## <a name="what-can-i-do-with-azure-rbac"></a>Vad kan jag göra med Azure RBAC?
 
-Här följer några exempel på vad du kan göra med RBAC:
+Här följer några exempel på vad du kan göra med Azure RBAC:
 
 - Tillåta en användare att hantera virtuella datorer i en prenumeration och en annan användare att hantera virtuella nätverk
 - Tillåta en DBA-grupp att hantera SQL-databaser i en prenumeration
 - Tillåta en användare att hantera alla resurser i en resursgrupp, till exempel virtuella datorer, webbplatser och undernät
 - Tillåta att ett program får åtkomst till alla resurser i en resursgrupp
 
-## <a name="how-rbac-works"></a>Så fungerar RBAC
+## <a name="how-azure-rbac-works"></a>Så här fungerar Azure RBAC
 
-Du styr åtkomst till resurser med hjälp av RBAC genom att skapa rolltilldelningar. Det här är ett viktigt begrepp att förstå – det är hur behörigheter tillämpas. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång.
+Hur du styr åtkomsten till resurser med hjälp av Azure RBAC är att skapa roll tilldelningar. Det här är ett viktigt begrepp att förstå – det är hur behörigheter tillämpas. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång.
 
 ### <a name="security-principal"></a>Säkerhetsobjekt
 
@@ -64,9 +64,9 @@ Azure innehåller flera [inbyggda roller](built-in-roles.md) som du kan använda
 - [Läsare](built-in-roles.md#reader) – kan visa befintliga Azure-resurser.
 - [Administratör för användaråtkomst](built-in-roles.md#user-access-administrator) – gör att du kan hantera användarnas åtkomst till Azure-resurser.
 
-Resten av de inbyggda rollerna tillåter hantering av specifika Azure-resurser. Till exempel tillåter rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) att en användare skapar och hanterar virtuella datorer. Om de inbyggda rollerna inte uppfyller organisationens specifika krav, kan du skapa egna [anpassade roller för Azure-resurser](custom-roles.md).
+Resten av de inbyggda rollerna tillåter hantering av specifika Azure-resurser. Till exempel tillåter rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) att en användare skapar och hanterar virtuella datorer. Om de inbyggda rollerna inte uppfyller organisationens specifika behov kan du skapa egna [Azure-anpassade roller](custom-roles.md).
 
-Azure har data åtgärder som gör att du kan bevilja åtkomst till data i ett objekt. Till exempel kan en användare med dataläsningsåtkomst till ett lagringskonto läsa blobar eller meddelanden i det lagringskontot. Mer information finns i [Förstå rolldefinitioner för Azure-resurser](role-definitions.md).
+Azure har data åtgärder som gör att du kan bevilja åtkomst till data i ett objekt. Till exempel kan en användare med dataläsningsåtkomst till ett lagringskonto läsa blobar eller meddelanden i det lagringskontot. Mer information finns i [förstå definitioner av Azure-roller](role-definitions.md).
 
 ### <a name="scope"></a>Omfång
 
@@ -94,17 +94,17 @@ Du kan skapa rolltilldelningar med hjälp av Azure-portalen, Azure CLI, Azure Po
 
 ## <a name="multiple-role-assignments"></a>Flera rolltilldelningar
 
-Så vad händer om du har flera överlappande rolltilldelningar? RBAC är en additiv modell, så dina effektiva behörigheter är summan av dina roll tilldelningar. Fundera på följande exempel där en användare beviljas deltagarrollen i prenumerationsomfånget och läsarrollen på en resursgrupp. Summan av deltagar behörigheterna och läsar behörigheten är effektivt i rollen deltagare för resurs gruppen. Därför har läsarrolltilldelningen ingen inverkan i det här fallet.
+Så vad händer om du har flera överlappande rolltilldelningar? Azure RBAC är en additiv modell, så dina effektiva behörigheter är summan av dina roll tilldelningar. Fundera på följande exempel där en användare beviljas deltagarrollen i prenumerationsomfånget och läsarrollen på en resursgrupp. Summan av deltagar behörigheterna och läsar behörigheten är effektivt i rollen deltagare för resurs gruppen. Därför har läsarrolltilldelningen ingen inverkan i det här fallet.
 
 ![Flera rolltilldelningar](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Avvisa tilldelning
 
-Tidigare var RBAC en tillåt endast-modell med inga nekanden, men nu har RBAC stöd för tilldelningsnekanden begränsad utsträckning. På samma sätt som en rolltilldelning kopplar ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp, tjänstens huvudnamn eller hanterad identitet i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan en nekandetilldelning definierar en uppsättning åtgärder som *inte är tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar. Mer information finns i [förstå neka tilldelningar för Azure-resurser](deny-assignments.md).
+Tidigare var Azure RBAC en modell utan neka, men nu stöder Azure RBAC neka-tilldelningar på ett begränsat sätt. På samma sätt som en rolltilldelning kopplar ett *tilldelningsnekande* en uppsättning nekandeåtgärder till en användare, grupp, tjänstens huvudnamn eller hanterad identitet i ett visst omfång för att neka åtkomst. En rolltilldelning definierar en uppsättning åtgärder som är *tillåtna*, medan en nekandetilldelning definierar en uppsättning åtgärder som *inte är tillåtna*. Med andra ord blockerar tilldelningsnekanden användare från att utföra angivna åtgärder, även om en rolltilldelning ger dem åtkomst. Tilldelningsnekanden åsidosätter rolltilldelningar. Mer information finns i [förstå Azure Deny-tilldelningar](deny-assignments.md).
 
-## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Hur RBAC avgör om en användare har åtkomst till en resurs
+## <a name="how-azure-rbac-determines-if-a-user-has-access-to-a-resource"></a>Hur Azure RBAC bestämmer om en användare har åtkomst till en resurs
 
-Följande är de övergripande stegen som RBAC använder för att avgöra om du har åtkomst till en resurs på hanteringsplanet. Det här är bra att förstå om du vill felsöka ett problem med åtkomst.
+Följande är de övergripande steg som Azure RBAC använder för att avgöra om du har åtkomst till en resurs i hanterings planet. Det här är bra att förstå om du vill felsöka ett problem med åtkomst.
 
 1. En användare (eller tjänstens huvudnamn) hämtar en token för Azure Resource Manager.
 
@@ -128,7 +128,7 @@ Följande är de övergripande stegen som RBAC använder för att avgöra om du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabb start: Visa en användares åtkomst till Azure-resurser med hjälp av Azure Portal](check-access.md)
-- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
-- [Förstå de olika rollerna i Azure](rbac-and-directory-admin-roles.md)
+- [Snabb start: Visa en användares åtkomst till Azure-resurser](check-access.md)
+- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](role-assignments-portal.md)
+- [Förstå de olika rollerna](rbac-and-directory-admin-roles.md)
 - [Ramverk för moln införande: resurs åtkomst hantering i Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

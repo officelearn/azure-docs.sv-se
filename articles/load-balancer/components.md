@@ -11,18 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2020
 ms.author: allensu
-ms.openlocfilehash: 532dc313a673d28ffe4fc66060d6dcb491ce866c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 4a84c43b57ec4f632a2bfabb10d112e4975249bf
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691274"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733115"
 ---
 # <a name="azure-load-balancer-components"></a>Azure Load Balancer-komponenter
 
-Azure Load Balancer innehåller flera viktiga komponenter för åtgärden.  
-
-Dessa komponenter kan konfigureras i din prenumeration via Azure Portal, Azure CLI, Azure PowerShell eller mallar.
+Azure Load Balancer innehåller flera viktiga komponenter för åtgärden. Dessa komponenter kan konfigureras i din prenumeration via Azure Portal, Azure CLI, Azure PowerShell eller mallar.
 
 ## <a name="frontend-ip-configurations"></a>IP-konfigurationer för klient del
 
@@ -32,6 +30,14 @@ Belastnings utjämningens IP-adress. Det är kontakt punkten för-klienter. Dess
 - **Privat IP-adress**
 
 Valet av IP-adress avgör vilken **typ** av belastningsutjämnare som skapats. Val av privat IP-adress skapar en intern belastningsutjämnare. Val av offentlig IP-adress skapar en offentlig belastningsutjämnare.
+
+|  | Offentlig lastbalanserare  | Intern lastbalanserare |
+| ---------- | ---------- | ---------- |
+| IP-konfiguration för klient del| Offentlig IP-adress | Privat IP-adress|
+| Beskrivning | En offentlig belastningsutjämnare mappar den offentliga IP-adressen och porten för inkommande trafik till den privata IP-adressen och porten för den virtuella datorn. Belastnings utjämning mappar trafik på det andra sättet för svars trafiken från den virtuella datorn. Du kan distribuera vissa typer av trafik över flera virtuella datorer eller tjänster genom att använda belastnings Utjämnings regler. Du kan till exempel sprida belastningen av trafik för webbegäranden på flera webbservrar.| En intern belastningsutjämnare distribuerar trafik till resurser som finns i ett virtuellt nätverk. Azure begränsar åtkomsten till klient delens IP-adresser för ett virtuellt nätverk som är belastningsutjämnad. IP-adresser och virtuella nätverk på klient sidan exponeras aldrig direkt till en Internet-slutpunkt. Interna verksamhetsspecifika appar körs i Azure och nås i Azure eller via lokala resurser. |
+| SKU: er som stöds | Basic, standard | Basic, standard |
+
+![Exempel på nivå för belastnings utjämning](./media/load-balancer-overview/load-balancer.png)
 
 ## <a name="backend-pool"></a>Serverdelspool
 

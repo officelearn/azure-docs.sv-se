@@ -1,6 +1,6 @@
 ---
-title: Snabb start – Visa en användares åtkomst till Azure-resurser
-description: I den här snabb starten får du lära dig hur du visar åtkomsten till en användare eller ett annat säkerhets objekt som har till gång till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure Portal.
+title: Snabb start – Visa en användares åtkomst till Azure-resurser – Azure RBAC
+description: I den här snabb starten får du lära dig hur du visar åtkomsten till en användare eller ett annat säkerhets objekt som har till gång till Azure-resurser med hjälp av Azure Portal och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: role-based-access-control
 documentationCenter: ''
 author: rolyon
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b23c10fc2a551b8044b208911dbc048968b06564
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9be53aa964e75bab0b90495640537fe927a5af0e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74419616"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734169"
 ---
 # <a name="quickstart-view-the-access-a-user-has-to-azure-resources"></a>Snabb start: Visa en användares åtkomst till Azure-resurser
 
-Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontroll (RBAC)](overview.md) för att visa den åtkomst som en användare eller ett annat säkerhetsobjekt har till Azure-resurser. Ibland behöver du dock bara snabbt visa åtkomsten för en enskild användare eller ett annat säkerhetsobjekt. Det enklaste sättet att göra det är att använda funktionen **Kontrollera åtkomst** på Azure-portalen.
+Du kan använda bladet **åtkomst kontroll (IAM)** i [rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) om du vill visa åtkomsten till en användare eller ett annat säkerhets objekt som har till gång till Azure-resurser. Ibland behöver du dock bara snabbt visa åtkomsten för en enskild användare eller ett annat säkerhetsobjekt. Det enklaste sättet att göra det är att använda funktionen **Kontrollera åtkomst** på Azure-portalen.
 
 ## <a name="view-role-assignments"></a>Visa rolltilldelningar
 
@@ -54,4 +54,4 @@ Du kan använda bladet **Åtkomstkontroll (IAM)** i [rollbaserad åtkomstkontrol
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal](quickstart-assign-role-user-portal.md)
+> [Självstudie: ge en användare åtkomst till Azure-resurser med hjälp av Azure Portal](quickstart-assign-role-user-portal.md)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 79038152dd40b213b92a379c4b50ddd840eb8e6c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72035715"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732611"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med NetDocuments
 
@@ -137,49 +137,48 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Logga in på företagets företags webbplats som administratör i ett annat webbläsarfönster.
 
-2. Gå till **admin**.
+2. I det övre högra hörnet väljer du ditt namn>**admin**.
 
-3. Klicka på **Lägg till och ta bort användare och grupper**.
+3. Välj **Security Center**.
    
-    ![Lagringsplats](./media/netdocuments-tutorial/ic795047.png "Lagringsplats")
+    ![Lagringsplats](./media/netdocuments-tutorial/security-center.png "Security Center")
 
-4. Klicka på **Konfigurera avancerade alternativ för autentisering**.
+4. Välj **Avancerad autentisering**.
     
-    ![Konfigurera avancerade autentiserings alternativ](./media/netdocuments-tutorial/ic795048.png "Konfigurera avancerade autentiserings alternativ")
+    ![Konfigurera avancerade autentiserings alternativ](./media/netdocuments-tutorial/advance-authentication.png "Konfigurera avancerade autentiserings alternativ")
 
-5. I dialog rutan **federerad identitet** utför du följande steg:
+5.  Utför följande steg på fliken **federerad-ID** :   
    
-    ![Federerade identiteter](./media/netdocuments-tutorial/ic795049.png "Federerade identiteter")
+    ![Federerade identiteter](./media/netdocuments-tutorial/federated-id.png "Federerade identiteter")
    
     a. Som **federerad identitets Server typ**väljer du **Active Directory Federation Services (AD FS)**.
-   
-    b. Klicka på **Välj fil**för att ladda upp den hämtade metadatafilen som du har laddat ned från Azure Portal.
-   
-    c. Klicka på **OK**.
+    
+    b.  Välj **Välj fil**för att ladda upp den hämtade metadatafilen som du har laddat ned från Azure Portal.
+    
+    c.  Välj **Spara**.
 
 ### <a name="create-netdocuments-test-user"></a>Skapa nätdokument test användare
 
-Om du vill att Azure AD-användare ska kunna logga in på NetDocuments måste de tillhandahållas i NetDocuments.  
-Om det gäller net-dokument är etableringen en manuell uppgift.
+Om du vill att Azure AD-användare ska kunna logga in på NetDocuments måste de tillhandahållas i NetDocuments. Om det gäller net-dokument är etableringen en manuell uppgift.
 
 **Gör följande för att etablera ett användarkonto:**
 
 1. Logga in på din företags webbplats för net- **dokument** som administratör.
 
-2. På menyn längst upp klickar du på **Admin**.
+2. I det övre högra hörnet väljer du ditt namn>**admin**.
    
-    ![Administratör](./media/netdocuments-tutorial/ic795051.png "Admin")
+    ![Administratör](./media/netdocuments-tutorial/user-admin.png "Admin")
 
-3. Klicka på **Lägg till och ta bort användare och grupper**.
+3. Välj **Användare och grupper**.
    
-    ![Lagringsplats](./media/netdocuments-tutorial/ic795047.png "Lagringsplats")
+    ![Lagringsplats](./media/netdocuments-tutorial/users-groups.png "Lagringsplats")
 
 4. I text rutan **e-postadress** skriver du in e-postadressen för ett giltigt Azure Active Directory konto som du vill etablera och klickar sedan på **Lägg till användare**.
    
-    ![E-postadress](./media/netdocuments-tutorial/ic795053.png "E-postadress")
+    ![E-postadress](./media/netdocuments-tutorial/user-mail.png "E-postadress")
    
-    >[!NOTE]
-    >Den Azure Active Directory konto innehavaren får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan det blir aktivt. Du kan använda andra NetDocuments för att skapa verktyg för användar konton eller API: er som tillhandahålls av NetDocuments för att etablera Azure Active Directory användar konton.
+    > [!NOTE]
+    > Den Azure Active Directory konto innehavaren får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan det blir aktivt. Du kan använda andra NetDocuments för att skapa verktyg för användar konton eller API: er som tillhandahålls av NetDocuments för att etablera Azure Active Directory användar konton.
 
 ## <a name="test-sso"></a>Testa SSO 
 
@@ -196,4 +195,3 @@ När du klickar på panelen netdokument på åtkomst panelen, bör du loggas in 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Testa NetDocuments med Azure AD](https://aad.portal.azure.com/)
-

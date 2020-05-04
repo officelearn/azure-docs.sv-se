@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: skapa en anpassad roll för Azure-resurser med Azure PowerShell'
-description: Kom igång med att skapa en anpassad roll för Azure-resurser med hjälp av Azure PowerShell i den här självstudien.
+title: 'Självstudie: skapa en anpassad Azure-roll med Azure PowerShell – Azure RBAC'
+description: Kom igång med att skapa en anpassad Azure-roll med hjälp av Azure PowerShell och rollbaserad åtkomst kontroll i Azure (Azure RBAC) i den här självstudien.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8aedc59fc34278bf84983d78bf0e9a31fe38ee93
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77138284"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735597"
 ---
-# <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Självstudie: skapa en anpassad roll för Azure-resurser med hjälp av Azure PowerShell
+# <a name="tutorial-create-an-azure-custom-role-using-azure-powershell"></a>Självstudie: skapa en anpassad Azure-roll med hjälp av Azure PowerShell
 
-Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure PowerShell. Med den här anpassade rollen kan användare visa allt i en prenumerations hanteringsplan samt öppna supportbegäranden.
+Om de [inbyggda Azure-rollerna](built-in-roles.md) inte uppfyller organisationens specifika behov kan du skapa dina egna anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure PowerShell. Med den här anpassade rollen kan användare visa allt i en prenumerations hanteringsplan samt öppna supportbegäranden.
 
 I den här guiden får du lära dig att:
 
@@ -73,7 +73,7 @@ Det enklaste sättet att skapa en anpassad roll är att utgå från en inbyggd r
 
 1. Öppna filen **ReaderSupportRole.json** i en textredigerare.
 
-    Följande visar JSON-utdata. Information om de olika egenskaperna finns i [Custom roles](custom-roles.md) (Anpassade roller).
+    Följande visar JSON-utdata. Information om de olika egenskaperna finns i [Azure-anpassade roller](custom-roles.md).
 
     ```json
     {
@@ -277,4 +277,4 @@ Om du vill uppdatera den anpassade rollen kan du uppdatera JSON-filen eller anv�
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Skapa anpassade roller för Azure-resurser med Azure PowerShell](custom-roles-powershell.md)
+> [Skapa eller uppdatera Azure-anpassade roller med hjälp av Azure PowerShell](custom-roles-powershell.md)

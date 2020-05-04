@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: bevilja användar åtkomst till Azure-resurser med RBAC och Azure PowerShell'
-description: Lär dig hur du beviljar en användare åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure PowerShell i den här självstudien.
+title: 'Självstudie: ge en användare åtkomst till Azure-resurser med hjälp av Azure PowerShell-Azure RBAC'
+description: Lär dig hur du beviljar en användare åtkomst till Azure-resurser med hjälp av Azure PowerShell och rollbaserad åtkomst kontroll i Azure (Azure RBAC) i den här självstudien.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c35c08889892e877ecfac20910607ddf85b2282
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77138233"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735495"
 ---
-# <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure PowerShell
+# <a name="tutorial-grant-a-user-access-to-azure-resources-using-azure-powershell"></a>Självstudie: ge en användare åtkomst till Azure-resurser med hjälp av Azure PowerShell
 
-[Rollbaserad åtkomstkontroll (RBAC)](overview.md) är det du använder för att hantera åtkomst till Azure-resurser. I den här självstudien kommer du at ge en användare åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) är hur du hanterar åtkomst till Azure-resurser. I den här självstudien kommer du at ge en användare åtkomst för att visa allt i en prenumeration och hantera allt innehåll i en resursgrupp med hjälp av Azure PowerShell.
 
 I den här guiden får du lära dig att:
 
@@ -44,7 +44,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 ## <a name="role-assignments"></a>Rolltilldelningar
 
-För att skapa åtkomst i RBAC skapar du rolltilldelningar. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång. Här följer två rolltilldelningar som du utför i den här självstudiekursen:
+I Azure RBAC för att bevilja åtkomst skapar du en roll tilldelning. En rolltilldelning består av tre delar: säkerhetsobjekt, rolldefinition och omfång. Här följer två rolltilldelningar som du utför i den här självstudiekursen:
 
 | Säkerhetsobjekt | Rolldefinition | Omfång |
 | --- | --- | --- |
@@ -279,4 +279,4 @@ Om du vill rensa resurserna som har skapats med den här självstudien kan du ta
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure PowerShell](role-assignments-powershell.md)
+> [Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell](role-assignments-powershell.md)

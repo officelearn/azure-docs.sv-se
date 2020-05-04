@@ -3,12 +3,12 @@ title: Översikt över Azure-status | Microsoft Docs
 description: En global vy över Azure-tjänsternas hälsa
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: 766e9795b01c4a09916a025cba77744dea235faf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e0813ad5fde19069662c13fcba7bd81b055de2a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898342"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732558"
 ---
 # <a name="azure-status-overview"></a>Översikt över Azure-status
 
@@ -24,9 +24,7 @@ Sidan Azure-status uppdateras i real tid när hälso tillståndet för Azure-tj�
 
 ## <a name="azure-status-history"></a>Status historik för Azure
 
-Sidan Azure-status visar alltid den senaste hälso informationen, du kan visa äldre händelser på [sidan Azure status historik](https://status.azure.com/status/history/).
-
-Från och med händelser som publicerades i november 2019 visar sidan status historik händelser upp till 365 dagar tidigare, inklusive en preliminär orsak, lösning och nästa steg för Azure.
+Sidan Azure-status visar alltid den senaste hälso informationen, du kan visa äldre händelser på [sidan Azure status historik](https://status.azure.com/status/history/). Historik sidan innehåller alla RCAs för incidenter som inträffat den 20 november 2019 eller senare och kommer från det datumet framåt – och har en 5 års RCA-historik. RCAs före den 20 november 2019 är inte tillgängliga.
 
 ## <a name="rss-feed"></a>RSS-flöde
 

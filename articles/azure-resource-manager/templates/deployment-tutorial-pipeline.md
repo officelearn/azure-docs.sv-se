@@ -4,12 +4,12 @@ description: Lär dig hur du kontinuerligt skapar, testar och distribuerar Azure
 ms.date: 04/22/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d1c56ce913a1b63bab90f5dd5aaada382abbf493
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dacbdbcbebbbd696c14745e055ed9f7bd7905b1d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82084336"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731942"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines
 
@@ -57,7 +57,7 @@ Om du inte har ett GitHub-konto, se [krav](#prerequisites).
 
 1. Välj **nytt**, en grön knapp.
 1. I **databas namn**anger du ett namn på databasen.  Till exempel **AzureRmPipeline-lagrings platsen**. Kom ihåg att ersätta **AzureRmPipeline** med ditt projekt namn. Du kan välja antingen **offentlig** eller **privat** för att gå igenom den här självstudien. Och välj sedan **skapa lagrings plats**.
-1. Skriv ner URL: en. URL: en för lagrings platsen har följande format: ** https://github.com/[YourAccountName]/[YourRepositoryName]**.
+1. Skriv ner URL: en. URL: en för databasen har följande format **`https://github.com/[YourAccountName]/[YourRepositoryName]`**:.
 
 Den här lagrings platsen kallas för en *fjärrlagringsplats*. Varje utvecklare av samma projekt kan klona sin egen *lokala lagrings plats*och sammanfoga ändringarna till fjärrlagringsplatsen.
 
@@ -104,7 +104,7 @@ Azuredeploy. JSON har lagts till i den lokala lagrings platsen. Sedan laddar du 
     ```
 
     Du kan få en varning om LF. Du kan ignorera varningen. **Master** är huvud grenen.  Du skapar vanligt vis en gren för varje uppdatering. För att förenkla självstudien använder du huvud grenen direkt.
-1. Bläddra till GitHub-lagringsplatsen från en webbläsare.  URL: en är ** https://github.com/[YourAccountName]/[YourGitHubRepository]**. Du ser mappen **CreateWebApp** och de tre filerna i mappen.
+1. Bläddra till GitHub-lagringsplatsen från en webbläsare.  URL: en **`https://github.com/[YourAccountName]/[YourGitHubRepository]`** är. Du ser mappen **CreateWebApp** och de tre filerna i mappen.
 1. Välj **linkedStorageAccount. JSON** för att öppna mallen.
 1. Välj **RAW** -knappen. URL: en startas med **RAW.githubusercontent.com**.
 1. Skapa en kopia av URL:en.  Du måste ange det här värdet när du konfigurerar pipelinen senare i självstudien.
@@ -198,7 +198,7 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Öppna resurs gruppen. Namnet är det du angav i YAML-filen för pipelinen.  Du ska se ett lagrings konto som skapats.  Lagrings kontots namn börjar med **Store**.
 1. Välj lagrings kontots namn för att öppna det.
 1. Välj **Egenskaper**. Observera att **replikeringen** är **lokalt REDUNDANT lagring (LRS)**.

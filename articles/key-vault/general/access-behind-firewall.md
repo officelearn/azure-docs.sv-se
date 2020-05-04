@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 5317111cf023316541f3435ff0d34450061209c6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 07ae08f87c9a3e788944a48f6d5a24e2b076d16f
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82186381"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732333"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Få åtkomst till Azure Key Vault bakom en brandvägg
 
@@ -64,7 +64,13 @@ Vid all hantering och kryptografiska åtgärder för nyckelvalvsobjekt (nycklar 
 
 ## <a name="ip-address-ranges"></a>IP-adressintervall
 
-Key Vault-tjänsten använder andra Azure-resurser, som PaaS-infrastruktur. Därför är det inte möjligt att ange ett specifikt IP-adressintervall som Key Vault-tjänstens slutpunkter har vid given tidpunkt. Om din brandvägg endast har stöd för IP-adressintervall finns det mer information i dokumentet [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Autentisering och identiteter (Azure Active Directory) är en global tjänst och växlas över till andra regioner eller flytta trafik utan föregående meddelande. I det här scenariot alla IP-adressintervall som anges i [ IP-adresser för autentisering och identitet](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) läggas till i brandväggen.
+Key Vault-tjänsten använder andra Azure-resurser, som PaaS-infrastruktur. Därför är det inte möjligt att ange ett specifikt IP-adressintervall som Key Vault-tjänstens slutpunkter har vid given tidpunkt. Om din brand vägg bara stöder IP-adressintervall, se Microsoft Azure Data Center IP Range-dokument som finns på:
+* [Offentlig](https://www.microsoft.com/en-us/download/details.aspx?id=56519)
+* [US Gov](https://www.microsoft.com/en-us/download/details.aspx?id=57063)
+* [Tyskland](https://www.microsoft.com/en-us/download/details.aspx?id=57064)
+* [Kina](https://www.microsoft.com/en-us/download/details.aspx?id=57062)
+
+Autentisering och identiteter (Azure Active Directory) är en global tjänst och växlas över till andra regioner eller flytta trafik utan föregående meddelande. I det här scenariot alla IP-adressintervall som anges i [ IP-adresser för autentisering och identitet](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip) läggas till i brandväggen.
 
 ## <a name="next-steps"></a>Nästa steg
 

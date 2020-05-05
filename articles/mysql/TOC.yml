@@ -9,12 +9,19 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa DB – Portal
-      href: quickstart-create-mysql-server-database-using-azure-portal.md
-    - name: Skapa DB – Azure CLI
-      href: quickstart-create-mysql-server-database-using-azure-cli.md
-    - name: Skapa DB – Azure CLI up-kommando
-      href: quickstart-create-server-up-azure-cli.md
+    - name: Skapa DB
+      items:
+        - name: Skapa DB – Portal
+          href: quickstart-create-mysql-server-database-using-azure-portal.md
+        - name: Skapa DB – Azure CLI
+          href: quickstart-create-mysql-server-database-using-azure-cli.md
+        - name: Skapa DB – Azure CLI up-kommando
+          href: quickstart-create-server-up-azure-cli.md
+        - name: Skapa DB – Azure PowerShell
+          href: quickstart-create-mysql-server-database-using-azure-powershell.md
+        - name: Skapa DB – ARM-mall
+          href: quickstart-create-mysql-server-database-using-arm-template.md
+          displayName: deploy azure resource manager template
     - name: Ansluta och fråga
       items:
         - name: PHP
@@ -43,6 +50,8 @@
           href: tutorial-design-database-using-portal.md
         - name: Azure CLI
           href: tutorial-design-database-using-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
         - name: Azure Resource Manager-mall
           href: tutorial-provision-mysql-server-using-Azure-Resource-Manager-templates.md
     - name: 2 – Skapa en webbapp
@@ -160,6 +169,8 @@
           href: howto-restore-server-portal.md
         - name: Azure CLI
           href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
     - name: Migrera en databas
       items:
         - name: Dumpa och återställa
@@ -186,12 +197,16 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
     - name: Lagring som växer automatiskt
       items:
         - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Azure CLI
           href: howto-auto-grow-storage-cli.md
+        - name: Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
     - name: Åtkomst till serverloggar
       items:
         - name: Långsamma frågeloggar
@@ -218,6 +233,8 @@
           href: howto-read-replicas-portal.md
         - name: 'Skapa skrivskyddade repliker i Azure CLI, REST-API'
           href: howto-read-replicas-cli.md
+        - name: Skapa läsrepliker – Azure PowerShell
+          href: howto-read-replicas-powershell.md
     - name: Felsöka
       items:
         - name: Felsöka anslutningsfel
@@ -250,6 +267,8 @@
           href: howto-data-encryption-portal.md
         - name: Azure CLI
           href: howto-data-encryption-cli.md
+        - name: Validering av datakryptering
+          href: howto-data-encryption-validation.md
     - name: Azure AD-integrering
       items:
         - name: Konfigurera Azure AD-integrering
@@ -264,6 +283,8 @@
           href: howto-restart-server-portal.md
         - name: Azure CLI
           href: howto-restart-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restart-server-powershell.md
 - name: Referens
   items:
     - name: Azure CLI

@@ -23,10 +23,10 @@
       items:
         - name: Saker att tänka på gällande prestanda för Azure NetApp Files
           href: azure-netapp-files-performance-considerations.md
-        - name: Resultat från benchmark-prestandatest för Azure NetApp Files
-          href: azure-netapp-files-performance-benchmarks.md
         - name: Rekommendationer från benchmark-prestandatest för Azure NetApp Files
           href: azure-netapp-files-performance-metrics-volumes.md
+        - name: Prestandamått för Linux
+          href: performance-benchmarks-linux.md
         - name: Vanliga frågor och svar om SMB-prestanda
           href: azure-netapp-files-smb-performance.md
     - name: Kostnadsmodell för Azure NetApp Files
@@ -37,10 +37,12 @@
       items:
         - name: Lösningsarkitekturer med Azure NetApp Files
           href: azure-netapp-files-solution-architectures.md
-        - name: Fördelar med att använda Azure NetApp Files med Oracle Database
-          href: solutions-benefits-azure-netapp-files-oracle-database.md
-        - name: Fördelar med att använda Azure NetApp Files för elektronisk designautomatisering
-          href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
+        - name: Specifika lösningar
+          items:
+            - name: Fördelar med att använda Azure NetApp Files med Oracle Database
+              href: solutions-benefits-azure-netapp-files-oracle-database.md
+            - name: Fördelar med att använda Azure NetApp Files för elektronisk designautomatisering
+              href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
     - name: Vanliga frågor och svar om Azure NetApp Files
       href: azure-netapp-files-faqs.md
 - name: Anvisningar

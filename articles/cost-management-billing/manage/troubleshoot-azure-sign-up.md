@@ -1,5 +1,5 @@
 ---
-title: Det går inte att registrera ett nytt Azure-konto
+title: Felsöka problem när du registrerar ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter
 description: Lösa ett problem vid försök att registrera ett nytt konto i Microsoft Azure-portalen eller kontocentret.
 services: cost-management-billing
 author: v-miegge
@@ -9,20 +9,23 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: e8536555e3763674a2c018182e70f8d50e11556b
-ms.sourcegitcommit: d791f8f3261f7019220dd4c2dbd3e9b5a5f0ceaf
+ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
+ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/18/2020
-ms.locfileid: "81641738"
+ms.lasthandoff: 04/24/2020
+ms.locfileid: "82133169"
 ---
-# <a name="troubleshoot-issues-when-you-sign-up-a-new-account-in-azure-portal-or-azure-account-center"></a>Felsöka problem när du registrerar ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter
+# <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Felsöka problem när du registrerar ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter
 
 Ett problem kan uppstå när du försöker registrera ett nytt konto i Microsoft Azure-portalen eller Azure-kontocenter. Innan du felsöker problemet bör du först kontrollera följande:
 
 - De uppgifter du angav för din Azure-kontoprofil (däribland e-postadress, gatuadress och telefonnummer för kontakt) är korrekta.
 - Kreditkortsuppgifterna stämmer.
 - Du har inte redan ett Microsoft-konto där du använder samma uppgifter.
+
+> [!NOTE]
+> Om du redan har ett befintligt konto och behöver hjälp med att felsöka inloggningsproblem kan du läsa [Felsöka problem med inloggning för Azure-prenumeration](https://docs.microsoft.com/azure/cost-management-billing/manage/troubleshoot-sign-in-issue).
 
 ## <a name="resolutions"></a>Lösningar
 

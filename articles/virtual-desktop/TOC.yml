@@ -1,22 +1,20 @@
-- name: Windows Virtual Desktop
+- name: Windows Virtual Desktop Spring 2020-versionen
   href: index.yml
 - name: Översikt
   items:
     - name: Vad är Windows Virtual Desktop?
       href: overview.md
+    - name: Dokumentation om 2019-versionen
+      href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Självstudier
   items:
-    - name: 1. Skapa en klientorganisation i Windows Virtual Desktop
-      href: tenant-setup-azure-active-directory.md
-    - name: 2. Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
-      href: create-service-principal-role-powershell.md
-    - name: 3. Skapa en värdpool med Azure Marketplace
+    - name: 1. Skapa en värdpool med Azure-portalen
       href: create-host-pools-azure-marketplace.md
-    - name: 4. Hantera appgrupper
+    - name: 2. Hantera appgrupper
       href: manage-app-groups.md
-    - name: 5. Skapa en värdpool för att verifiera tjänstuppdateringar
+    - name: 3. Skapa en värdpool för att verifiera tjänstuppdateringar
       href: create-validation-host-pool.md
-    - name: 6. Konfigurera tjänstaviseringar
+    - name: 4. Konfigurera tjänstaviseringar
       href: set-up-service-alerts.md
 - name: Så här gör du
   items:
@@ -32,18 +30,18 @@
           href: connect-macos.md
         - name: Ansluta med iOS-klienten
           href: connect-ios.md
+    - name: Konfigurera PowerShell-modulen
+      href: powershell-module.md
     - name: Skapa en värdpool och sessionsvärdar
       items:
-        - name: Azure Resource Manager-mall
-          href: create-host-pools-arm-template.md
         - name: PowerShell
           href: create-host-pools-powershell.md
-        - name: Distribuera en virtuell Windows 7-dator
-          href: deploy-windows-7-virtual-machine.md
         - name: Distribuera en GPU-baserad sessionsvärd
           href: configure-vm-gpu.md
         - name: Visa en befintlig värdpool
           href: expand-existing-host-pool.md
+        - name: Hantera appgrupper med PowerShell
+          href: manage-app-groups-powershell.md
     - name: Skapa en profilcontainer
       items:
         - name: Använda en VM-baserad filresurs
@@ -68,20 +66,10 @@
           href: set-up-customize-master-image.md
         - name: Installera Office på en VHD-huvudavbildning
           href: install-office-on-wvd-master-image.md
-    - name: Skala sessionsvärdar automatiskt
-      href: set-up-scaling-script.md
     - name: Anpassa flöde
       href: customize-feed-for-virtual-desktop-users.md
-    - name: Distribuera hanteringsverktyget
-      items:
-        - name: Azure Resource Manager-mall
-          href: manage-resources-using-ui.md
-        - name: PowerShell
-          href: manage-resources-using-ui-powershell.md
     - name: Använda tjänstdiagnostik
       items:
-        - name: Distribuera diagnostikverktyget
-          href: deploy-diagnostics.md
         - name: Använda diagnostik med Log Analytics
           href: diagnostics-log-analytics.md
     - name: Publicera inbyggda appar
@@ -124,10 +112,6 @@
       href: troubleshoot-set-up-issues.md
     - name: Session för konfiguration av virtuell värddator
       href: troubleshoot-vm-configuration.md
-    - name: Felsöka en virtuell Windows 7-dator i Windows Virtual Desktop
-      href: troubleshoot-windows-7-vm.md
-    - name: Felsöka Windows Virtual Desktop-hanteringsverktyget
-      href: troubleshoot-management-tool.md
     - name: Anslutningar för fjärrskrivbordstjänsten
       href: troubleshoot-service-connection.md
     - name: Problem med fjärrskrivbordsklienten
@@ -140,10 +124,6 @@
   items:
     - name: Linux-support
       href: linux-overview.md
-    - name: PowerShell
-      href: /powershell/windows-virtual-desktop/overview
-    - name: REST-API
-      href: /rest/api/virtual-desktop/
     - name: RDP-filinställningar som stöds
       href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context'
     - name: Nätverksvägledning

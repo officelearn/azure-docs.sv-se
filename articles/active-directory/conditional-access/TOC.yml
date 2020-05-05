@@ -35,6 +35,8 @@
           href: concept-conditional-access-grant.md
         - name: Session
           href: concept-conditional-access-session.md
+    - name: Insikter och rapportering
+      href: howto-conditional-access-insights-reporting.md
     - name: Läget Endast rapport
       href: concept-conditional-access-report-only.md
     - name: Tjänstberoenden

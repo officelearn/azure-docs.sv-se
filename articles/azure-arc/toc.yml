@@ -4,6 +4,11 @@
   items:
     - name: Vad är Azure Arc för servrar?
       href: ./servers/overview.md
+- name: Exempel
+  items:
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md
 - name: Anvisningar
   items:
     - name: Ansluta till Azure Arc

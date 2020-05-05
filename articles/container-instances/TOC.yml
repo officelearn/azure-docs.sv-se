@@ -13,6 +13,9 @@
       href: container-instances-quickstart-portal.md
     - name: Distribuera en containerinstans – PowerShell
       href: container-instances-quickstart-powershell.md
+    - name: Distribuera en containerinstans – ARM-mall
+      displayName: Resource Manager
+      href: container-instances-quickstart-template.md
 - name: Självstudier
   items:
     - name: Skapa och distribuera en containeravbildning
@@ -51,6 +54,8 @@
       href: container-instances-orchestrator-relationship.md
     - name: Säkerhetsöverväganden
       href: container-instances-image-security.md
+    - name: Virtuellt nätverk
+      href: container-instances-virtual-network-concepts.md
 - name: Anvisningar
   items:
     - name: Distribuera
@@ -77,8 +82,6 @@
           href: container-instances-start-command.md
         - name: Köra ett kommando (exec)
           href: container-instances-exec.md
-        - name: Köra Jenkins-versionsjobb
-          href: container-instances-jenkins.md
         - name: Använda en hanterad identitet (förhandsversion)
           href: container-instances-managed-identity.md
         - name: Använda GPU-resurser (förhandsversion)

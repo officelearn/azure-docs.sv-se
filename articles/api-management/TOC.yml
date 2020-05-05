@@ -41,7 +41,7 @@
       href: policy-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Terminologi
       href: api-management-terminology.md
@@ -65,7 +65,7 @@
       href: api-management-api-import-restrictions.md
     - name: Översikt över gateway med egen värd
       href: self-hosted-gateway-overview.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: 'Definiera API: er'
       items:
@@ -101,10 +101,12 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Etablera en gateway med egen värd
           href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Distribuera en gateway med egen värd till Azure Kubernetes Service
+          href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
         - name: Distribuera en gateway med egen värd till Kubernetes
-          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+          href: how-to-deploy-self-hosted-gateway-kubernetes.md
         - name: Distribuera en gateway med egen värd till Docker
-          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+          href: how-to-deploy-self-hosted-gateway-docker.md
         - name: Konfigurera en anpassad domän för gateway med egen värd
           href: api-management-howto-configure-custom-domain-gateway.md
     - name: Cache
@@ -209,12 +211,20 @@
           href: api-management-transformation-policies.md
     - name: Hantera i produktionen
       items:
+        - name: 'Exportera API:er till Power Platform'
+          href: export-api-power-platform.md
         - name: Hantera grupper
           href: api-management-howto-create-groups.md
         - name: Hämta IP-adresser
           href: api-management-howto-ip-addresses.md
         - name: Logga händelser till Azure Event Hubs
           href: api-management-howto-log-event-hubs.md
+        - name: Logga begäranden med Azure Application Insights
+          href: api-management-howto-app-insights.md
+        - name: Konfigurera molnmått och loggar för en gateway med egen värd
+          href: how-to-configure-cloud-metrics-logs.md
+        - name: Konfigurera lokala mått och loggar för en gateway med egen värd
+          href: how-to-configure-local-metrics-logs.md
         - name: Logga begäranden med Azure Application Insights
           href: api-management-howto-app-insights.md
         - name: Konfigurera DR med säkerhetskopiering/återställning
@@ -249,7 +259,7 @@
   items:
     - name: VANLIGA FRÅGOR OCH SVAR
       href: api-management-faq.md
-    - name: Priser
+    - name: Prissättning
       href: 'https://aka.ms/apimpricing'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'

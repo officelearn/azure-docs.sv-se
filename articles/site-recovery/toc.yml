@@ -165,8 +165,6 @@
               href: azure-to-azure-about-networking.md
             - name: Anpassa nätverkskonfigurationer för den virtuella Azure-måldatorn
               href: azure-to-azure-customize-networking.md
-            - name: Konfigurera proxyinställningar för mobilitetstjänst
-              href: configure-mobility-service-proxy-settings.md
             - name: Konfigurera nätverksmappning och behålla IP-adresser efter redundans
               href: azure-to-azure-network-mapping.md
             - name: Exempel för att bevara IP-adresser efter redundans
@@ -191,6 +189,8 @@
               href: azure-to-azure-how-to-reprotect.md
             - name: Konfigurera haveriberedskap för virtuella Azure-datorer efter migrering till Azure
               href: azure-to-azure-replicate-after-migration.md
+            - name: Aktivera katastrofåterställning mellan zoner
+              href: azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md
         - name: Hantera
           items:
             - name: Uppdatera mobilitetstjänsten för virtuella Azure-datorer
@@ -241,7 +241,7 @@
               href: vmware-azure-set-up-replication.md
             - name: Distribuera mobilitetstjänsten
               items:
-                - name: Om installation av mobilitetstjänsten
+                - name: Mobilitetstjänsten – översikt och installation
                   href: vmware-physical-mobility-service-overview.md
                 - name: Förbereda för push-installation
                   href: vmware-azure-install-mobility-service.md

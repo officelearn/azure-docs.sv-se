@@ -1,20 +1,17 @@
 ---
-title: Så tillämpas en reservationsrabatt på Azure Database for PostgreSQL – enskild server
-description: Så tillämpas en reservationsrabatt på Azure Database for PostgreSQL – enskild server
+title: Förstå reservationsrabatter – Azure Database for PostgreSQL – enskild server
+description: Lär dig hur en reservationsrabatt tillämpas på Azure Database for enskilda PostgreSQL-servrar.
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/13/2020
-ms.openlocfilehash: e0dc7780ee570ce2d731bedf9ef56be606088a1f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: e01b35bc540045bc272484159380f8a11e5a6c48
+ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199304"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82509405"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-postgresql-single-server"></a>Så tillämpas en reservationsrabatt på Azure Database for PostgreSQL – enskild server
 
@@ -44,5 +41,6 @@ För resten av dessa exempel förutsätter vi att den reserverade kapaciteten f�
 
 Information om hur du förstår och visar tillämpningen av dina Azure-reservationer i rapporterna för faktureringsanvändning finns i avsnittet om [hur Azure-reservationsanvändning fungerar](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
 
-## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
+## <a name="next-steps"></a>Nästa steg
+
 Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://go.microsoft.com/fwlink/?linkid=2083458).

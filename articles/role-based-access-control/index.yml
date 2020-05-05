@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Dokumentation om RBAC för Azure-resurser
-summary: Rollbaserad åtkomstkontroll (RBAC) är ett system som ger detaljerad åtkomsthantering av resurser i Azure. Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
+title: Dokumentation om Azure RBAC
+summary: Azure RBAC (Role-Based Access Control) är ett system som ger detaljerad åtkomsthantering av resurser i Azure. Med hjälp av Azure RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete.
 metadata:
-  title: Dokumentation om rollbaserad åtkomstkontroll (RBAC) för Azure-resurser
-  description: Läs mer om rollbaserad åtkomstkontroll (RBAC) för att hantera vem som ska ha åtkomst till Azure-resurser, vad de ska kunna göra med resurserna och till vilka områden de ska ha åtkomst.
+  title: Dokumentation om Azure RBAC
+  description: Läs mer om rollbaserad åtkomstkontroll i Azure (Azure RBAC) för att hantera vem som ska ha åtkomst till Azure-resurser, vad de ska kunna göra med resurserna och till vilka områden de ska ha åtkomst.
   services: role-based-access-control
   ms.service: role-based-access-control
   ms.subservice: na
@@ -11,19 +11,19 @@ metadata:
   ms.collection: na
   author: rolyon
   ms.author: rolyon
-  ms.date: 08/26/2019
-  ms.openlocfilehash: e947b1ab685bcc1da5d3895e49c07d1ff56c0937
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 04/30/2020
+  ms.openlocfilehash: b2661936d82f8d167ec2ef466effcd84d0a972dd
+  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70968319"
+  ms.lasthandoff: 05/03/2020
+  ms.locfileid: "82733489"
 landingContent:
-- title: Om RBAC för Azure-resurser
+- title: Om Azure RBAC
   linkLists:
   - linkListType: overview
     links:
-    - text: Vad är RBAC?
+    - text: Vad är Azure RBAC?
       url: overview.md
     - text: Förstå de olika rollerna
       url: rbac-and-directory-admin-roles.md
@@ -45,7 +45,7 @@ landingContent:
       url: tutorial-role-assignments-group-powershell.md
   - linkListType: learn
     links:
-    - text: Skydda dina Azure-resurser med RBAC
+    - text: Skydda dina Azure-resurser med Azure RBAC
       url: https://docs.microsoft.com/learn/modules/secure-azure-resources-with-rbac/
 - title: Hantera åtkomst
   linkLists:
@@ -63,12 +63,16 @@ landingContent:
       url: role-assignments-rest.md
     - text: Mall
       url: role-assignments-template.md
-- title: Skapa anpassade roller
+- title: Skapa eller uppdatera anpassade roller
   linkLists:
   - linkListType: overview
     links:
     - text: Anpassade roller
       url: custom-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa en anpassad roll – portalen
+      url: custom-roles-portal.md
   - linkListType: tutorial
     links:
     - text: Skapa en anpassad roll – PowerShell

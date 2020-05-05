@@ -17,6 +17,9 @@
     - name: Skapa en skiss – REST API
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
+    - name: Skapa en skiss – ARM-mall
+      displayName: 'assign, compliance, resource manager'
+      href: ../../azure-resource-manager/templates/deploy-to-subscription.md??toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json
 - name: Självstudier
   items:
     - name: Skapa från en exempelskiss
@@ -32,9 +35,20 @@
       href: ./samples/index.md
     - name: Benchmark för Azure-säkerhet
       items:
+        - name: Översikt
+          displayName: 'standards, azure, benchmark'
+          href: ./samples/azure-security-benchmark/index.md
         - name: Kontrollmappning
           displayName: 'standards, azure, benchmark'
           href: ./samples/azure-security-benchmark/control-mapping.md
+        - name: Distributionssteg
+          displayName: 'standards, azure, benchmark'
+          href: ./samples/azure-security-benchmark/deploy.md
+    - name: Den australiska regeringens ISM PROTECTED-kontroller
+      items:
+        - name: Kontrollmappning
+          displayName: 'standards, Australian, Government, ISM, PROTECTED'
+          href: ./samples/ism-protected/control-mapping.md
     - name: Canada Federal PBMM
       items:
         - name: Översikt

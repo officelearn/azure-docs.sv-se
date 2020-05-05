@@ -178,7 +178,7 @@
                   href: automation-onboard-solutions-from-automation-account.md
                 - name: Från en Automation-runbook
                   href: automation-onboard-solutions.md
-            - name: Visa innehåll för spårade filer
+            - name: Hantera ändringsspårning och inventering
               href: change-tracking-file-contents.md
             - name: Hantera inventeringsinsamling från virtuella datorer
               href: automation-vm-inventory.md

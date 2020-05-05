@@ -149,6 +149,8 @@
           href: event-filtering.md
         - name: Leverans och nytt försök
           href: delivery-and-retry.md
+        - name: Leverans av webhook-händelser
+          href: webhook-event-delivery.md
     - name: Haveriberedskap
       items:
         - name: Geohaveriberedskap
@@ -161,6 +163,12 @@
           href: security-authorization.md
         - name: Nätverkssäkerhet
           href: network-security.md
+    - name: Övervaka och felsök
+      items:
+        - name: Diagnostikloggar
+          href: null
+        - name: Mått
+          href: metrics.md
 - name: Anvisningar
   items:
     - name: Konfigurera privata slutpunkter (förhandsversion)
@@ -191,12 +199,16 @@
       href: how-to-event-domains.md
     - name: Implementera redundans på klientsidan
       href: custom-disaster-recovery.md
+    - name: Spåra asynkrona REST-åtgärder
+      href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Felsöka
       items:
-        - name: Aktivera diagnostikloggar för ett ämne
+        - name: Aktivera diagnostikloggar
           href: enable-diagnostic-logs-topic.md
         - name: Felsöka fel
           href: troubleshoot-errors.md
+        - name: Felsöka prenumerationsvalidering
+          href: troubleshoot-subscription-validation.md
         - name: Övervaka händelseleverans
           href: monitor-event-delivery.md
 - name: Referens

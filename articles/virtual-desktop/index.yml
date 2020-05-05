@@ -11,12 +11,12 @@ metadata:
   author: Heidilohr
   ms.author: helohr
   ms.date: 03/06/2020
-  ms.openlocfilehash: f37b0cd68c62813dd4c642d9e45a20a91d08c31c
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 2f00d7b0b1c0bdf78a4908e945dd0f8a890ded1b
+  ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78898660"
+  ms.lasthandoff: 04/30/2020
+  ms.locfileid: "82611525"
 landingContent:
 - title: Om Windows Virtual Desktop
   linkLists:
@@ -24,18 +24,30 @@ landingContent:
     links:
     - text: Vad är Windows Virtual Desktop?
       url: overview.md
-- title: Kom igång
+- title: Komma igång med Windows Virtual Desktop Spring 2020-versionen
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Skapa en värdpool med Azure Marketplace
+      url: create-host-pools-azure-marketplace.md
+    - text: Hantera appgrupper för Windows Virtual Desktop
+      url: manage-app-groups.md
+    - text: Skapa en värdpool för att verifiera tjänstuppdateringar
+      url: create-validation-host-pool.md
+    - text: Konfigurera tjänstaviseringar
+      url: set-up-service-alerts.md
+- title: Komma igång med Windows Virtual Desktop Fall 2019-versionen
   linkLists:
   - linkListType: tutorial
     links:
     - text: Skapa en klientorganisation i Windows Virtual Desktop
-      url: tenant-setup-azure-active-directory.md
+      url: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
     - text: Skapa en värdpool med Azure Marketplace
       url: create-host-pools-azure-marketplace.md
     - text: Hantera appgrupper för Windows Virtual Desktop
       url: manage-app-groups.md
     - text: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
-      url: create-service-principal-role-powershell.md
+      url: ./virtual-desktop-fall-2019/create-service-principal-role-powershell.md
 - title: Ansluta till Windows Virtual Desktop
   linkLists:
   - linkListType: how-to-guide

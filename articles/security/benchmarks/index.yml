@@ -1,30 +1,30 @@
 ### YamlMime:Landing
-title: Dokumentation om benchmark-värden för Azure-säkerhet
+title: Dokumentation om Azure Security Benchmark
 summary: Läs mer om hur du skyddar dina molnlösningar på Azure med våra metodtips och riktlinjer.
 metadata:
-  title: Benchmark för Azure-säkerhet
-  description: Prestandatest för Azures säkerhetskontroller innehåller rekommendationer som hjälper dig att förbättra säkerheten för dina program och data på Azure.
+  title: Benchmark-värden för Azure-säkerhet
+  description: Azure Security Benchmark innehåller rekommendationer som hjälper dig att förbättra säkerheten för dina program och data i Azure.
   services: security
   ms.service: security
   ms.subservice: fundamentals
-  ms.custom: security-baselines
+  ms.custom: security-benchmark
   ms.topic: landing-page
   author: msmbaldwin
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: c2b36e098314af78ca3d6f28534c3d3e97697363
-  ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+  ms.openlocfilehash: 7cebc4fb6e676470b46a52cf1ea62e0990e708e9
+  ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 04/15/2020
-  ms.locfileid: "81393841"
+  ms.lasthandoff: 04/30/2020
+  ms.locfileid: "82607765"
 landingContent:
 - title: Om benchmark för Azure-säkerhet
   linkLists:
   - linkListType: overview
     links:
-    - text: Introduktion till benchmark-värden för Azure-säkerhet
+    - text: Introduktion till Azure Security Benchmark
       url: introduction.md
     - text: Översikt över Azure-säkerhetskontroller
       url: overview.md

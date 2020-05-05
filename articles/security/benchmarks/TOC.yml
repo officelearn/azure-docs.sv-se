@@ -1,8 +1,9 @@
-- name: Benchmark-värden för Azure-säkerhet
+- name: Benchmark för Azure-säkerhet
   href: index.yml
 - name: Introduktion
   href: introduction.md
 - name: Säkerhetskontroller
+  expanded: true
   items:
     - name: Översikt över Azure-säkerhetskontroller
       href: overview.md
@@ -26,11 +27,11 @@
       href: security-control-data-recovery.md
     - name: Incidenthantering
       href: security-control-incident-response.md
-    - name: Intrångstester och Red Team-övningar (rött lag)
+    - name: Penetrationstester och Red Team-tester
       href: security-control-penetration-tests-red-team-exercises.md
-- name: Säkerhetsbaslinjer
+- name: Säkerhetsbaslinjer för Azure
   items:
-    - name: Översikt över Azure-säkerhetsbaslinjer
+    - name: Översikt över säkerhetsbaslinjer för Azure
       href: security-baselines-overview.md
     - name: Säkerhetsbaslinje för Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md

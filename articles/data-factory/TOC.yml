@@ -675,6 +675,8 @@
           href: how-to-fixed-width.md
         - name: Felhantering av poster
           href: how-to-data-flow-error-rows.md
+        - name: Azure SQL DB till CosmosDB
+          href: how-to-sqldb-to-cosmosdb.md
     - name: SSIS-migrering från lokal plats
       items:
         - name: Översikt över SSIS-migrering

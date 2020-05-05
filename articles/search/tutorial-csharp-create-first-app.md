@@ -3,19 +3,19 @@ title: C#-självstudie för att skapa din första app
 titleSuffix: Azure Cognitive Search
 description: Lär dig hur du skapar ditt första C#-sökprogram steg för steg. I självstudien finns både en länk till en fungerande app på GitHub och den fullständiga processen för att bygga appen från grunden. Lär dig mer om de viktigaste komponenterna i Azure Kognitiv sökning.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 2b4f67fc448d98239947fd764d4926f1d590c5e2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a105766b713ce44d800391e2e943f2ac864fa0df
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121582"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780631"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C#-självstudie: skapa din första app – Azure-Kognitiv sökning
+# <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Självstudie: skapa din första Sökapp med hjälp av .NET SDK
 
 Lär dig hur du skapar ett webb gränssnitt för att fråga och presentera Sök Resultat från ett index med Azure Kognitiv sökning. Den här självstudien börjar med en befintlig, värdbaserad index så att du kan fokusera på att skapa en Sök sida. Indexet innehåller fiktiva hotell data. När du har en grundläggande sida kan du förbättra den i efterföljande lektioner för att inkludera sid indelning, ansikte och en typ i förväg-upplevelse.
 

@@ -1,5 +1,5 @@
 ---
-title: 'C#-självstudie: indexera flera data källor'
+title: C#-självstudie som indexerar flera Azure-datakällor
 titleSuffix: Azure Cognitive Search
 description: Lär dig hur du importerar data från flera data källor till ett enda Azure Kognitiv sökning-index med hjälp av indexerare. Den här självstudien och exempel koden finns i C#.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 8e75d9de45c64813ac75de635371d2435fb9261f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb1824e41fe9fc5185ae4e914b4828cddb2c42db
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78271487"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780529"
 ---
-# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>Självstudie: indexera data från flera data källor i C #
+# <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Självstudie: index från flera data källor med hjälp av .NET SDK
 
 Azure Kognitiv sökning kan importera, analysera och indexera data från flera data källor till ett enda konsoliderings Sök index. Detta stöder situationer där strukturerade data sammanställs med mindre strukturerade eller udda text data från andra källor, t. ex. text-, HTML-eller JSON-dokument.
 

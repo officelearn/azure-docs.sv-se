@@ -1,14 +1,14 @@
 ---
 title: Vad är Azure Lighthouse?
 description: Med Azure Lighthouse kan tjänst leverantörer leverera hanterade tjänster för sina kunder med högre automatisering och effektivitet i stor skala.
-ms.date: 04/23/2020
+ms.date: 04/30/2020
 ms.topic: overview
-ms.openlocfilehash: aea1451d995d135506fb93e3fc9e86f67227d5b8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 17e0535f50240c7ea239ae230dce90e397eadce9
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82144262"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780818"
 ---
 # <a name="what-is-azure-lighthouse"></a>Vad är Azure Lighthouse?
 
@@ -22,7 +22,7 @@ Azure Lighthouse hjälper dig att effektivt skapa och leverera hanterade tjänst
 
 - **Hantering i skala**: kund engagemang och livs cykel åtgärder för att hantera kund resurser är enklare och mer skalbar.
 - **Bättre synlighet och precision för kunder**: kunderna får bättre insyn i dina åtgärder och precis kontroll över omfattningen som de delegerar för hantering, inklusive möjligheten att ta bort åtkomsten helt medan IP-adressen bevaras.
-- **Omfattande och enhetlig plattforms verktyg**: vår verktygs upplevelse behandlar scenarier för nyckel tjänst leverantörer, inklusive flera licensierings modeller som EA, CSP och betala per användning. De nya funktionerna fungerar med befintliga verktyg och API: er, licensierings modeller och partner program som [Cloud Solution Provider-program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). De Azure Lighthouse-alternativ som du väljer kan integreras i dina befintliga arbets flöden och program, och du kan spåra din påverkan på kund engagemang genom [att länka ditt partner-ID](../billing/billing-partner-admin-link-started.md).
+- **Omfattande och enhetlig plattforms verktyg**: vår verktygs upplevelse behandlar scenarier för nyckel tjänst leverantörer, inklusive flera licensierings modeller som EA, CSP och betala per användning. De nya funktionerna fungerar med befintliga verktyg och API: er, licensierings modeller och partner program som [Cloud Solution Provider-program (CSP)](https://docs.microsoft.com/partner-center/csp-overview). Azure Lighthouse kan integreras i dina befintliga arbets flöden och program, och du kan spåra din påverkan på kund engagemang genom [att länka ditt partner-ID](../billing/billing-partner-admin-link-started.md).
 
 Det finns inga ytterligare kostnader för att använda Azure-Lighthouse för att hantera kundernas Azure-resurser.
 
@@ -34,7 +34,6 @@ Azure Lighthouse innehåller flera sätt att effektivisera kund engagemang och-h
 - **Nya Azure Portal upplevelser**: Visa information om flera innehavare på sidan nya **mina kunder** i [Azure Portal](https://portal.azure.com). På ett motsvarande **Service Provider-** blad kan dina kunder se och hantera åtkomst till tjänst leverantören. Mer information finns i [Visa och hantera kunder](./how-to/view-manage-customers.md) och [Visa och hantera tjänst leverantörer](how-to/view-manage-service-providers.md).
 - **Azure Resource Manager mallar**: utför hanterings uppgifter enklare, inklusive onboarding-kunder för Azure-delegerad resurs hantering. Mer information finns i våra [exempel lagrings platsen](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates) och [publicera en kund till Azure-delegerad resurs hantering](how-to/onboard-customer.md).
 - **Hanterade tjänster erbjuder på Azure Marketplace**: erbjud dina tjänster till kunder via privata eller offentliga erbjudanden och låt dem automatiskt registreras i Azure delegerad resurs hantering, som ett alternativ till att registrera sig med hjälp av Azure Resource Manager mallar. Mer information finns [i erbjudanden om hanterade tjänster på Azure Marketplace](concepts/managed-services-offers.md).
-- **Azure-hanterade program**: paketera och leverera program som är enkla för dina kunder att distribuera och använda i sina egna prenumerationer. Programmet distribueras till en resurs grupp som du kommer åt från din klient organisation, så att du kan hantera tjänsten som en del av den övergripande Azure Lighthouse-upplevelsen. Mer information finns i [Översikt över Azure Managed Applications](../azure-resource-manager/managed-applications/overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

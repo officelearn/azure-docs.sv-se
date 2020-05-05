@@ -1,21 +1,21 @@
 ---
 title: C#-självstudie om sid brytning för Sök Resultat
 titleSuffix: Azure Cognitive Search
-description: Den här självstudien visar hur du växlar Sök resultat. Det bygger på ett befintligt hotell projekt med sid indelning efter första, nästa, föregående, senaste och numrerade knappar. Ett andra växlings system använder oändlig rullning som utlöses genom att flytta en lodrät rullnings list till dess nedre gräns.
+description: Lägg till sid brytning och navigerings knappar för att söka efter resultat och skapa ett befintligt hotell projekt för att lägga till de första, nästa, föregående och sista och numrerade knapparna. Ett andra växlings system använder oändlig rullning som utlöses genom att flytta en lodrät rullnings list till dess nedre gräns.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 9abfeb54be6e22885b8e973034a6d89df8272146
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0dce3852d2b0489b373162fe754d745b01bd3074
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121519"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780580"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C#-självstudie: sid brytning för Sök Resultat – Azure Kognitiv sökning
+# <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Självstudie: Lägg till sid indelning i Sök resultat med hjälp av .NET SDK
 
 Lär dig hur du implementerar två olika växlings system, det första baserat på sid nummer och det andra vid oändlig rullning. Båda växlings systemen används ofta och valet av rätt är beroende av den användar upplevelse som du vill ha med resultatet. I den här självstudien skapas växlings systemen i projektet som skapats i [C#-själv studie kursen: skapa din första app – Azure kognitiv sökning-](tutorial-csharp-create-first-app.md) självstudie.
 

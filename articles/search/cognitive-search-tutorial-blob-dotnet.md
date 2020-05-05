@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: C# och AI över Azure-blobbar'
+title: C#-självstudie med AI på Azure-blobbar
 titleSuffix: Azure Cognitive Search
 description: Stega genom ett exempel på text extrahering och naturlig språk bearbetning över innehåll i blob-lagring med C# och Azure Kognitiv sökning .NET SDK.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/27/2020
-ms.openlocfilehash: 169a33d12e98235dcb4e4f317dbb8d91eb7446a4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 51e1b24f9080d102dee234fa1ca6d460c400ba78
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78851133"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780682"
 ---
-# <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Självstudie: Använd C# och AI för att generera sökbart innehåll från Azure-blobbar
+# <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Självstudie: AI-genererat sökbart innehåll från Azure-blobbar med .NET SDK
 
 Om du har ostrukturerad text eller avbildningar i Azure Blob Storage kan en [AI-pipeline](cognitive-search-concept-intro.md) utvinna information och skapa nytt innehåll som är användbart för full texts ökning eller kunskaps utvinnings scenarier. I den här C#-självstudien använder du OCR (optisk tecken läsning) på bilder och utför bearbetning av naturligt språk för att skapa nya fält som du kan använda i frågor, ansikts och filter.
 

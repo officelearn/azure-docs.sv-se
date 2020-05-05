@@ -7,14 +7,14 @@ author: spelluru
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/11/2020
+ms.date: 05/04/2020
 ms.author: spelluru
-ms.openlocfilehash: 5e80ab6d5ed0076e03f5378cbe975b15d0a28f47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c678965048a6437deb8cbf39f38f12dc116d39ab
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240998"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743923"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Snabbstart: Skapa en händelsehubb med hjälp av Azure Portal
 Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som producerats av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
@@ -33,7 +33,7 @@ För att slutföra den här snabbstarten behöver du följande:
 
 En resursgrupp är en logisk samling Azure-resurser. Alla resurser distribueras och hanteras i en resursgrupp. Så här skapar du en resursgrupp:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **Resursgrupper** i det vänstra navigeringsfönstret. Klicka sedan på **Lägg till**.
 
    ![Resursgrupper – Lägg till, knapp](./media/event-hubs-quickstart-portal/resource-groups1.png)
@@ -58,21 +58,27 @@ Ett Event Hubs-namnområde innehåller en unik omfattningscontainer som referera
 
    ![Knappen Lägg till](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Gör följande på sidan **Skapa namnområde**:
-    1. Ange ett **namn** för namn området. Systemet kontrollerar omedelbart om namnet är tillgängligt.
-    2. Välj **pris nivå** (Basic eller standard).
-    3. Observera att alternativet **Aktivera Kafka** aktive ras automatiskt. Azure Event Hubs ger dig en Kafka-slutpunkt. Den här slut punkten gör det möjligt för Event Hubs namn området att förstå [Apache Kafka](https://kafka.apache.org/intro) meddelande protokoll och API: er. Med den här funktionen kan du kommunicera med dina Event Hub på samma sätt som med Kafka-ämnen utan att ändra protokoll klienter eller köra egna kluster. Event Hubs stöder [Apache Kafka version 1,0](https://kafka.apache.org/10/documentation.html) och senare.
-    4. Välj den **prenumeration** som du vill skapa namnområdet i.
-    5. Välj en befintlig **resurs grupp** eller skapa en ny resurs grupp. 
-    4. Välj en **plats** för namnområdet.
-    5. Välj **Skapa**. Du kan behöva vänta några minuter på att systemet blir klar med att etablera resurserna.
+    1. Välj den **prenumeration** som du vill skapa namnområdet i.
+    2. Välj den **resurs grupp** som du skapade i föregående steg. 
+    3. Ange ett **namn** för namn området. Systemet kontrollerar omedelbart om namnet är tillgängligt.
+    4. Välj en **plats** för namnområdet.    
+    5. Välj **pris nivå** (Basic eller standard).  
+    6. Lämna inställningarna för **data flödes enheter** som de är. Läs mer om data flödes enheter i [Event Hubs skalbarhet](event-hubs-scalability.md#throughput-units)  
+    5. Välj **Granska + skapa** längst ned på sidan.
 
        ![Skapa ett namnområde för en händelsehubb](./media/event-hubs-quickstart-portal/create-event-hub1.png)
-5. Uppdatera sidan **Händelsehubbar** och se händelsehubbens namnområde. Du kan kontrollera status för skapandet av händelsehubben i aviseringarna. 
+   6. På sidan **Granska + skapa** granskar du inställningarna och väljer **skapa**. Vänta tills distributionen har slutförts. 
 
-    ![Skapa ett namnområde för en händelsehubb](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
-6. Välj namnområdet. Du kan se startsidan för ditt **Event Hubs-namnområde** i portalen. 
+       ![Granska + skapa sida](./media/event-hubs-quickstart-portal/review-create.png)
+   7. På sidan **distribution** väljer du **gå till resurs** för att navigera till sidan för ditt namn område. 
 
-   ![Startsida för namnområdet](./media/event-hubs-quickstart-portal/namespace-home-page.png)
+      ![Distributionen är klar – gå till resurs](./media/event-hubs-quickstart-portal/deployment-complete.png)
+   8. Bekräfta att du ser sidan **Event Hubs namn område** som liknar följande exempel: 
+
+       ![Startsida för namnområdet](./media/event-hubs-quickstart-portal/namespace-home-page.png)       
+
+       > [!NOTE]
+       > Azure Event Hubs ger dig en Kafka-slutpunkt. Den här slut punkten gör det möjligt för Event Hubs namn området att förstå [Apache Kafka](https://kafka.apache.org/intro) meddelande protokoll och API: er. Med den här funktionen kan du kommunicera med dina Event Hub på samma sätt som med Kafka-ämnen utan att ändra protokoll klienter eller köra egna kluster. Event Hubs stöder [Apache Kafka version 1,0](https://kafka.apache.org/10/documentation.html) och senare. Mer information finns i [använda Event Hubs från Apache Kafka-program](event-hubs-for-kafka-ecosystem-overview.md).
     
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
@@ -88,8 +94,6 @@ Gör följande om du vill skapa en händelsehubb i namnområdet:
 4. Du kan kontrollera status för skapandet av händelsehubben i aviseringarna. När händelsehubben har skapats kan se du den i listan över händelsehubbar som visas på följande bild:
 
     ![Händelsehubben har skapats](./media/event-hubs-quickstart-portal/event-hub-created.png)
-
-Grattis! Du har skapat ett Event Hubs-namnområde och en händelsehubb i namnområdet med Portal. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 03/25/2020
+ms.date: 05/04/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 57a764b62fcda333f042794e176c24c8e6cc5526
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8d30e7fe3138a26d9b64ec35d18260933df7999
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80374066"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780323"
 ---
 ### <a name="which-regions-are-available"></a><a name="regions"></a>Vilka regioner är tillgängliga?
 
@@ -31,17 +31,19 @@ För tillfället stöds inte IPv6. Azure skydds stöder endast IPv4.
 
 Du behöver inte en RDP-eller SSH-klient för att få åtkomst till RDP/SSH till din virtuella Azure-dator i din Azure Portal. Använd [Azure Portal](https://portal.azure.com) så att du kan få RDP/SSH-åtkomst till den virtuella datorn direkt i webbläsaren.
 
-### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Kräver Azure-skydds en klient åtkomst licens för fjärr skrivbords tjänster för administrativa orsaker på virtuella datorer i Azure?
-Nej, åtkomst till virtuella Windows Server-datorer med Azure skydds kräver inte en [klient åtkomst licens för fjärr skrivbords tjänster](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) när den används enbart för administrativa syfte.
+### <a name="do-i-need-an-agent-running-in-the-azure-virtual-machine"></a><a name="agent"></a>Behöver jag en agent som körs på den virtuella Azure-datorn?
+
+Du behöver inte installera en agent eller någon program vara i din webbläsare eller din virtuella Azure-dator. Skydds-tjänsten är utan agent och kräver ingen ytterligare program vara för RDP/SSH.
 
 ### <a name="how-many-concurrent-rdp-and-ssh-sessions-does-each-azure-bastion-support"></a><a name="limits"></a>Hur många samtidiga RDP-och SSH-sessioner gör varje Azure skydds-support?
+
 Både RDP och SSH är ett användnings-baserat protokoll. Med en hög användning av sessioner kan skydds-värden stödja ett lägre antal sessioner. Siffrorna nedan förutsätter normala dagliga arbets flöden.
 
 [!INCLUDE [limits](bastion-limits.md)]
 
-### <a name="do-i-need-an-agent-running-in-the-azure-virtual-machine"></a><a name="agent"></a>Behöver jag en agent som körs på den virtuella Azure-datorn?
+### <a name="what-features-are-supported-in-an-rdp-session"></a><a name="rdpfeaturesupport"></a>Vilka funktioner stöds i en RDP-session?
 
-Du behöver inte installera en agent eller någon program vara i din webbläsare eller din virtuella Azure-dator. Skydds-tjänsten är utan agent och kräver ingen ytterligare program vara för RDP/SSH.
+För närvarande stöds endast text kopiering och inklistring. Funktioner som fil kopiering stöds inte. Du kan gärna dela din feedback om nya funktioner på feedback- [sidan för Azure skydds](https://feedback.azure.com/forums/217313-networking?category_id=367303).
 
 ### <a name="which-browsers-are-supported"></a><a name="browsers"></a>Vilka webbläsare stöds?
 
@@ -59,9 +61,8 @@ Följande roller krävs för att upprätta en anslutning:
 
 Mer information finns på sidan med [priser](https://aka.ms/BastionHostPricing).
 
-### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>Varför visas ett fel meddelande om att sessionen har upphört att gälla innan skydds-sessionen startar?
-
-En session ska endast initieras från Azure Portal. Logga in på Azure Portal och påbörja sessionen igen. Om du går till URL: en direkt från en annan webbläsarsession eller TABB förväntas det här felet. Det hjälper till att säkerställa att sessionen är säkrare och att sessionen bara kan nås via Azure Portal.
+### <a name="does-azure-bastion-require-an-rds-cal-for-administrative-purposes-on-azure-hosted-vms"></a><a name="rdscal"></a>Kräver Azure-skydds en klient åtkomst licens för fjärr skrivbords tjänster för administrativa orsaker på virtuella datorer i Azure?
+Nej, åtkomst till virtuella Windows Server-datorer med Azure skydds kräver inte en [klient åtkomst licens för fjärr skrivbords tjänster](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab) när den används enbart för administrativa syfte.
 
 ### <a name="what-keyboard-layouts-are-supported-during-the-bastion-remote-session"></a><a name="keyboard"></a>Vilka tangentbordslayouter stöds under skydds-fjärrsessionen?
 
@@ -72,10 +73,10 @@ Azure skydds stöder för närvarande en-US-QWERTY-tangentbordslayout inuti den 
 Nej. UDR stöds inte i ett Azure skydds-undernät.
 För scenarier som omfattar både Azure-skydds och Azure Firewall/Network Virtual Machine (NVA) i samma virtuella nätverk behöver du inte tvinga trafik från ett Azure skydds-undernät till Azure-brandväggen eftersom kommunikationen mellan Azure skydds och dina virtuella datorer är privat. Mer information finns i [komma åt virtuella datorer bakom Azure Firewall med skydds](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
-### <a name="is-file-transfer-supported-with-azure-bastion-rdp-session"></a><a name="filetransfer"></a>Stöds fil överföring med Azure skydds RDP-sessionen?
+### <a name="why-do-i-get-your-session-has-expired-error-message-before-the-bastion-session-starts"></a><a name="session"></a>Varför visas ett fel meddelande om att sessionen har upphört att gälla innan skydds-sessionen startar?
 
-Vi arbetar hårt för att lägga till nya funktioner. Från och med nu stöds inte fil överföring, men är en del av vår översikt. Du kan gärna dela din feedback om nya funktioner på feedback- [sidan för Azure skydds](https://feedback.azure.com/forums/217313-networking?category_id=367303).
+En session ska endast initieras från Azure Portal. Logga in på Azure Portal och påbörja sessionen igen. Om du går till URL: en direkt från en annan webbläsarsession eller TABB förväntas det här felet. Det hjälper till att säkerställa att sessionen är säkrare och att sessionen bara kan nås via Azure Portal.
 
 ### <a name="how-do-i-handle-deployment-failures"></a><a name="udr"></a>Hur gör jag för att hantera distributions problem?
 
-Granska eventuella fel meddelanden och [få en support förfrågan i Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) efter behov. Distributions felen kan bero på [begränsningar i Azure-prenumerationen, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Mer specifikt kan kunderna stöta på en gräns för antalet offentliga IP-adresser som tillåts per prenumeration och som gör att Azure skydds-distributionen Miss lyckas.
+Granska eventuella fel meddelanden och [få en supportbegäran i Azure Portal](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) efter behov. Distributions felen kan bero på [begränsningar i Azure-prenumerationen, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits). Mer specifikt kan kunderna stöta på en gräns för antalet offentliga IP-adresser som tillåts per prenumeration och som gör att Azure skydds-distributionen Miss lyckas.

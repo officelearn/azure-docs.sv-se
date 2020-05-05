@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: indexera data från Azure SQL-databaser i C # '
+title: C#-självstudie indexera Azure SQL-data
 titleSuffix: Azure Cognitive Search
 description: I den här C#-själv studie kursen kan du ansluta till Azure SQL Database, extrahera sökbara data och läsa in den i ett Azure Kognitiv sökning-index.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/28/2020
-ms.openlocfilehash: 7660c89032ea3ef8371655b94b75c1f60603ee32
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cab996eb7c0bfccf31ed49294c6aa4b3e8cefc8f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78193976"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780767"
 ---
-# <a name="tutorial-use-c-to-index-data-from-sql-databases-in-azure-cognitive-search"></a>Självstudie: använda C# för att indexera data från SQL-databaser i Azure Kognitiv sökning
+# <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Självstudie: indexera Azure SQL-data med .NET SDK
 
 Konfigurera en [indexerare](search-indexer-overview.md) för att extrahera sökbara data från Azure SQL Database och skicka dem till ett Sök index i Azure kognitiv sökning. 
 

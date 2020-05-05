@@ -1,21 +1,21 @@
 ---
 title: C#-självstudie om att beställa resultat
 titleSuffix: Azure Cognitive Search
-description: Den här självstudien visar hur du beställer Sök resultat. Det bygger på ett tidigare hotell projekt, sortering efter primär egenskap, sekundär egenskap och innehåller en bedömnings profil för att lägga till förstärknings kriterier.
+description: Den här C#-självstudien visar hur du beställer Sök resultat. Det bygger på ett tidigare hotell projekt, sorterar efter primär egenskap, sekundär egenskap och innehåller en bedömnings profil för att lägga till förstärknings kriterier.
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 812085a5a4b3e8d1233f19c947d2fd5e433f6ab7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 699b3e5b7e51e12ec0bf39ec0c9045dd3a27a6fd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77121558"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780614"
 ---
-# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C#-självstudie: ordna resultaten – Azure Kognitiv sökning
+# <a name="tutorial-order-search-results-using-the-net-sdk"></a>Självstudie: Beställ Sök resultat med hjälp av .NET SDK
 
 Fram till den här punkten i våra självstudier, returneras och visas resultaten i en standard ordning. Detta kan vara den ordning som data finns i, eller så kanske en standard _bedömnings profil_ har definierats, som kommer att användas när inga ordnings parametrar har angetts. I den här självstudien får vi gå till hur du beställer resultat baserat på en primär egenskap och sedan för resultat som har samma primära egenskap, hur du beställer det valet på en sekundär egenskap. Som ett alternativ till att sortera baserat på numeriska värden visar det sista exemplet hur du beställer baserat på en anpassad bedömnings profil. Vi kommer också att gå djupare in i visningen av _komplexa typer_.
 

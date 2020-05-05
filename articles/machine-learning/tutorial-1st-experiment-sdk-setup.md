@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 75ae07de9d5c80245a6e75dcb2c12be9128ff4fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184596"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779029"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Självstudie: kom igång med att skapa ditt första ML-experiment med python SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,11 +47,7 @@ Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera 
 
 I den här självstudien använder du moln antecknings boken i din arbets yta för en installations fri och förkonfigurerad upplevelse. Använd [din egen miljö](how-to-configure-environment.md#local) om du vill ha kontroll över din miljö, dina paket och beroenden.
 
-Följ med i den här videon eller Använd de detaljerade stegen nedan för att klona och köra självstudien från din arbets yta. 
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
-
-
+ Använd de detaljerade stegen nedan för att klona och köra självstudien från din arbets yta. 
 
 ### <a name="clone-a-notebook-folder"></a>Klona en Notebook-mapp
 
@@ -63,7 +59,7 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
 1. Välj **antecknings böcker** till vänster.
 
-1. Öppna mappen **samples** .
+1. Välj fliken **exempel** överst.
 
 1. Öppna mappen **python** .
 
@@ -71,20 +67,21 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
 
 1. Välj **"..."** till höger om mappen **självstudier** och välj sedan **klona**.
 
-    ![Klona mapp](./media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Mappen för att klona självstudier":::
 
 1. En lista över mappar visar alla användare som har åtkomst till arbets ytan.  Välj din mapp för att klona **självstudierna** där.
 
-### <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">Öppna den klonade antecknings boken
+### <a name="open-the-cloned-notebook"></a><a name="open"></a>Öppna den klonade antecknings boken
 
-1. Under **användarfiler** öppnar du mappen och öppnar sedan mappen klonade **självstudier** .
-
-    ![Öppna mappen självstudier](./media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+1. Öppna mappen **självstudier** som precis har stängts i avsnittet **användarfiler** .
 
     > [!IMPORTANT]
     > Du kan visa antecknings böcker i mappen **exempel** , men du kan inte köra en antecknings bok därifrån.  För att kunna köra en antecknings bok, se till att du öppnar den klonade versionen av antecknings boken i avsnittet **användarfiler** .
     
 1. Välj **självstudien – 1st-experiment-SDK-träna. ipynb** -filen i **självstudierna/skapa-First-ml-experimentet** .
+
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Öppna mappen självstudier":::
+
 
 1. I det översta fältet väljer du en beräknings instans som ska användas för att köra antecknings boken. De här virtuella datorerna är förkonfigurerade med [allt du behöver för att köra Azure Machine Learning](concept-compute-instance.md#contents). 
 

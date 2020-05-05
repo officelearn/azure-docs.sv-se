@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 04/20/2020
-ms.openlocfilehash: 492c248b9a68b39b37984b978944b4f7ef34d756
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 91a3c71ecaa8af58e13cb96571fc7afdf618fcdd
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190120"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780087"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Översikt över företags säkerhet i Azure HDInsight
 
@@ -87,10 +87,10 @@ Följande tabell innehåller länkar till resurser för varje typ av säkerhets 
 | Operativ systemets säkerhet | Skapa kluster med den senaste säkra bas avbildningen | Kund |
 |  | Se till att [OS-uppdatering](../hdinsight-os-patching.md) sker med jämna mellanrum | Kund |
 | Nätverkssäkerhet | Konfigurera ett [virtuellt nätverk](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../hdinsight-plan-virtual-network-deployment.md#networktraffic) | Kund |
+|  | Konfigurera [regler för inkommande nätverks säkerhets grupp (NSG)](../control-network-traffic.md) | Kund |
 |  | Konfigurera [begränsning av utgående trafik](../hdinsight-restrict-outbound-traffic.md) med brand vägg | Kund |
-| Virtualiserad infrastruktur | Ej tillämpligt | HDInsight (Cloud Provider) |
-| Säkerhet för fysisk infrastruktur | Ej tillämpligt | HDInsight (Cloud Provider) |
+| Virtualiserad infrastruktur | E.t. | HDInsight (Cloud Provider) |
+| Säkerhet för fysisk infrastruktur | E.t. | HDInsight (Cloud Provider) |
 
 ## <a name="next-steps"></a>Nästa steg
 

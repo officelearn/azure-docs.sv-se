@@ -1,21 +1,21 @@
 ---
-title: Autoavsluta och förslag
+title: C#-självstudie om Autoavsluta och förslag
 titleSuffix: Azure Cognitive Search
-description: Den här självstudien visar komplettering och förslag som ett sätt att samla in sökord från användare som använder list rutan. Det bygger på ett befintligt hotell projekt.
+description: Lägg till komplettera automatiskt och förslag för att samla in sökord från användare som använder list rutan. Den här självstudien bygger på ett befintligt hotell projekt.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 6b74c3bbb811c122950fd969a8797e87f8f77f86
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 63c098ccd42a438f8daab787afb54cf13cd053c3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81641076"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780563"
 ---
-# <a name="c-tutorial-add-autocomplete-and-suggestions---azure-cognitive-search"></a>C#-självstudie: Lägg till komplettera automatiskt och förslag – Azure Kognitiv sökning
+# <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Självstudie: Lägg till komplettera automatiskt och förslag med hjälp av .NET SDK
 
 Lär dig hur du implementerar Autoavsluta (typeahead frågor och föreslagna dokument) när en användare börjar skriva i en sökruta. I den här självstudien visar vi automatiskt slutförda frågor och förslags resultat separat och sedan tillsammans. En användare kan bara skriva två eller tre tecken för att hitta alla resultat som är tillgängliga.
 

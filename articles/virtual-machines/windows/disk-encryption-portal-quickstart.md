@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 3a5fb354ab32dd560a94875dd84d891ce0b9d68c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2d1600a688af09515b069a3161d724bb8882596a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82081752"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791178"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Snabb start: skapa och kryptera en virtuell Windows-dator med Azure Portal
 
@@ -22,7 +22,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
@@ -34,8 +34,18 @@ Logga in på [Azure-portalen](https://portal.azure.com).
 1. För **region**väljer du samma region som du använde när du gjorde ditt nyckel valv ovan (t. ex. *USA, östra*).
 1. Kontrol lera att **storleken** är *standard D2s v3*.
 1. Under **administratörs konto**väljer du **lösen ord**. Ange ett användar namn och ett lösen ord.
-    ![Skärmen skapa ResourceGroup](../media/disk-encryption/portal-qs-windows-vm-creation.png)
-1. Välj fliken "hantering" och kontrol lera att du har ett konto för diagnostik-lagring. Om du inte har några lagrings konton väljer du "Skapa ny", ger ditt nya konto ett namn och väljer "OK ![" ResourceGroup skapa skärm](../media/disk-encryption/portal-qs-vm-creation-storage.png)
+
+    :::image type="content" source="../media/disk-encryption/portal-qs-windows-vm-creation.png" alt-text="Skärmen skapa ResourceGroup":::
+
+    > [!WARNING]
+    > Fliken "diskar" innehåller fältet "krypterings typ" under **disk alternativ**. Det här fältet används för att ange krypterings alternativ för [Managed disks](managed-disks-overview.md) + CMK, inte för Azure Disk Encryption. 
+    >
+    > För att undvika förvirring rekommenderar vi att du hoppar över fliken *diskar* helt när du har slutfört den här självstudien. 
+
+1. Välj fliken "hantering" och kontrol lera att du har ett konto för diagnostik-lagring. Om du inte har några lagrings konton väljer du "Skapa ny", ger ditt nya konto ett namn och väljer OK
+
+    :::image type="content" source="../media/disk-encryption/portal-qs-vm-creation-storage.png" alt-text="Skärmen skapa ResourceGroup":::
+
 1. Klicka på granska + skapa.
 1. På sidan **Skapa en virtuell dator** kan du se information om den virtuella datorn som du håller på att skapa. När du är klar väljer du **Skapa**.
 
@@ -47,19 +57,19 @@ Det tar några minuter för den virtuella datorn att distribueras. När distribu
 1. På den vänstra sid panelen väljer du **diskar**.
 1. På skärmen diskar väljer du **kryptering**. 
 
-    ![Val av diskar och kryptering](../media/disk-encryption/portal-qs-disks-to-encryption.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-disks-to-encryption.png" alt-text="Val av diskar och kryptering":::
 
 1. Välj **operativ system och data diskar**under **diskar som ska krypteras**på sidan kryptering.
 1. Under **krypterings inställningar**väljer du **Välj ett nyckel valv och nyckel för kryptering**.
 1. På skärmen **Välj nyckel från Azure Key Vault** väljer du **Skapa ny**.
 
-    ![Val av diskar och kryptering](../media/disk-encryption/portal-qs-keyvault-create.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Val av diskar och kryptering":::
 
 1. På skärmen **skapa nyckel valv** kontrollerar du att resurs gruppen är samma som den som du använde för att skapa den virtuella datorn.
 1. Ge ditt nyckel valv ett namn.  Varje nyckel valv i Azure måste ha ett unikt namn.
 1. På fliken **åtkomst principer** markerar du rutan **Azure Disk Encryption för volym kryptering** .
 
-    ![Val av diskar och kryptering](../media/disk-encryption/portal-qs-keyvault-enable.png)
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-enable.png" alt-text="Val av diskar och kryptering":::
 
 1. Välj **Granska + skapa**.  
 1. När nyckel valvet har klarat valideringen väljer du **skapa**. Du kommer tillbaka till skärmen **Välj nyckel från Azure Key Vault** .

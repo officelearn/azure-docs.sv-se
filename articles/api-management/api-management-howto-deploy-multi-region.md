@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: 0f8d9d7d90e88b4e43721dac274833a3b0df275e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 17c92558ebef2eee0a4daead45d16a295cedd1bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203156"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790487"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Så distribuerar du en Azure API Management-tjänstinstans till flera Azure-regioner
 
 Azure API Management stöder distribution i flera regioner, vilket gör det möjligt för API-utgivare att distribuera en enda Azure API Management-tjänst i valfritt antal Azure-regioner som stöds. Funktionen flera regioner hjälper till att minska svars tiden för förfrågningar som uppfattas av geografiskt distribuerade API-konsumenter och förbättrar tjänstens tillgänglighet om en region kopplas från.
 
-En ny Azure API Management-tjänst som ursprungligen bara innehåller en [enhet][unit] i en enda Azure-region, den primära regionen. Ytterligare regioner kan läggas till i den primära eller sekundära regionen. En API Management Gateway-komponent distribueras till varje vald primär och sekundär region. Inkommande API-begäranden dirigeras automatiskt till den närmaste regionen. Om en region försätts i offlineläge dirigeras API-begäranden automatiskt runt den felande regionen till nästa närmaste Gateway.
+En ny Azure API Management-tjänst som ursprungligen bara innehåller en [enhet][unit] i en enda Azure-region, den primära regionen. Ytterligare enheter kan läggas till i primär eller sekundär region. En API Management Gateway-komponent distribueras till varje vald primär och sekundär region. Inkommande API-begäranden dirigeras automatiskt till den närmaste regionen. Om en region försätts i offlineläge dirigeras API-begäranden automatiskt runt den felande regionen till nästa närmaste Gateway.
 
 > [!NOTE]
 > Endast Gateway-komponenten i API Management distribueras till alla regioner. Service Management-komponenten och Developer-portalen finns endast i den primära regionen. Därför kommer åtkomst till Developer-portalen och möjligheten att ändra konfigurationen (t. ex. att lägga till API: er, tillämpa principer) att frigöras tills den primära regionen är online igen, om det uppstår avbrott i den primära regionen. Även om den primära regionen är offline kan de sekundära regionerna fortsätta att betjäna API-trafik med den senaste konfigurationen som är tillgänglig för dem.

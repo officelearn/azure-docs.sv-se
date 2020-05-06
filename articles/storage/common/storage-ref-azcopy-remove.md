@@ -4,16 +4,16 @@ description: Den här artikeln innehåller referensinformation för kommandot Az
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 05/04/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f76489f384f233f65eb8fcca3a8359cd5b67c20a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74033984"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780733"
 ---
 # <a name="azcopy-remove"></a>azcopy ta bort
 
@@ -89,9 +89,13 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 ## <a name="options"></a>Alternativ
 
-**--exkludera-Sök vägs sträng**      Undanta de här Sök vägarna när du tar bort dem. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Till exempel: min mapp, mappen subDirName/File. pdf.
+**--ta bort-ögonblicks bilder** sträng som standard Miss lyckas borttagnings åtgärden om en BLOB har ögonblicks bilder. Ange include för att ta bort rot-bloben och alla dess ögonblicks bilder. Alternativt kan du bara ange "endast" om du bara vill ta bort ögonblicks bilderna men behålla rot-bloben.
+
+**--sträng för exkluderings Sök väg** utesluter dessa sökvägar när de tas bort. Det här alternativet stöder inte jokertecken (*). Kontrollerar prefix för relativ sökväg. Till exempel: min mapp, mappen subDirName/File. pdf.
 
 **--exkludera-mönster** sträng exkludera filer där namnet matchar mönster listan. Till exempel: *. jpg;*. PDF; exactName
+
+**--tvång-skrivskyddad**    När du tar bort en Azure Files fil eller mapp, tvinga borttagningen att fungera även om det befintliga objektet har en skrivskyddad attribut uppsättning
 
 **-h,--hjälp** för att ta bort
 
@@ -111,6 +115,7 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |---|---|
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
+|--sträng för betrodd-Microsoft-suffix   | Anger ytterligare domänsuffix där Azure Active Directory inloggnings-token kan skickas.  Standardvärdet är '*. Core.Windows.net;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. De som anges här läggs till i standardvärdet. För säkerhet ska du bara placeras Microsoft Azure domäner här. Avgränsa flera poster med semikolon.|
 
 ## <a name="see-also"></a>Se även
 

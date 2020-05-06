@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 339b11664308962962c59b2e9386ff122681293a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c8808450f8baa6d395ee9c24dbc59dfa919b66d
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116221"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801016"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -200,16 +200,21 @@ Mer viktig information finns i [frekvens begränsa information](./../../azure-mo
 
 Du kan ha ett begränsat antal SMS-åtgärder i en åtgärds grupp.
 
-Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds SMS inte för ditt land. Priser för länder som stöds visas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Om din landskod inte är tillgänglig kan du rösta för att få ditt land tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+> [!NOTE]
+> Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds SMS inte för ditt land.  Om din landskod inte är tillgänglig kan du rösta för att få ditt land tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). Under tiden är ett arbete runt att låta din åtgärds grupp anropa en webhook till en tredjeparts-SMS-provider med stöd i ditt land.  
 
+Priser för länder som stöds visas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).
   
 
 ### <a name="voice"></a>Röst
-Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
+Mer viktig information finns i artikeln om [pris begränsning](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
 Du kan ha ett begränsat antal röst åtgärder i en åtgärds grupp.
 
-Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds inte röst samtal för ditt land. Priser för länder som stöds visas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Om din landskod inte är tillgänglig kan du rösta för att få ditt land tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  
+> [!NOTE]
+> Om användar gränssnittet Azure Portal åtgärds grupp inte tillåter att du väljer din landskod, stöds inte röst samtal för ditt land. Om din landskod inte är tillgänglig kan du rösta för att få ditt land tillagt i [User Voice](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Under tiden är ett arbete runt att be din åtgärds grupp att anropa en webhook till en röst samtals leverantör från tredje part med support i ditt land.  
+
+Priser för länder som stöds visas på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>Webhook
 Webhook-försök görs med följande regler. Webhook-anropet görs om högst 2 gånger när följande HTTP-status koder returneras: 408, 429, 503, 504 eller HTTP-slutpunkten svarar inte. Det första återförsöket görs efter 10 sekunder. Det andra återförsöket sker efter 100 sekunder. Efter två haveri anropar ingen åtgärds grupp slut punkten i 30 minuter. 

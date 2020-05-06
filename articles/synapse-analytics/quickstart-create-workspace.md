@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: josels
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1ccfb1b008a7e3e48f56b1af62087d303522ed73
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81676731"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792215"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Snabb start: skapa en Azure Synapse Analytics-arbetsyta (för hands version)
 
@@ -41,9 +41,9 @@ Logga in på [Azure Portal](https://portal.azure.com/)
     | Inställningen | Föreslaget värde | Beskrivning |
     | :------ | :-------------- | :---------- |
     | **Prenumeration** | *Din prenumeration* | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
-    | **Resursgrupp** | *Alla resurs grupper* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
+    | **Resursgrupp** | *Alla resurs grupper* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Namn på arbetsyta** | mysampleworkspace | Anger namnet på arbets ytan, som också kommer att användas för anslutnings slut punkter.|
-    | **Region** | USA, östra 2 | Anger arbets ytans plats.|
+    | **Nationella** | USA, östra 2 | Anger arbets ytans plats.|
     | **Data Lake Storage Gen2** | Redovisning`storage account name` </br> Fil system:`root file system to use` | Anger ADLS Gen2 lagrings konto namn som ska användas som primär lagring och fil systemet som ska användas.|
     ||||
 

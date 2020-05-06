@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 0f815003449f0600bce1cb8927b92b85b51b09a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641611"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801781"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Så här arbetar du med Sök resultat i Azure Kognitiv sökning
 
@@ -92,9 +92,15 @@ Ett annat alternativ är att använda en [anpassad bedömnings profil](index-add
 
 ## <a name="hit-highlighting"></a>Träffmarkering
 
-Träff markering syftar på textformatering (till exempel fetstil eller gula högdagrar) som tillämpas på matchande term i ett resultat, vilket gör det lätt att hitta matchningen. Träff markerings instruktioner finns i [förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents). Sökmotorn omsluter den matchande termen i taggar, `highlightPreTag` `highlightPostTag`och koden hanterar svaret (till exempel genom att använda ett fetstilt teckensnitt).
+Träff markering avser textformatering (till exempel fetstil eller gula högdagrar) som tillämpas på matchande termer i ett resultat, vilket gör det lätt att hitta matchningen. Träff markerings instruktioner finns i [förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-Formatering tillämpas på frågor på hela termen. I följande exempel är begreppen "sandbrun", "sand", "stränder", "strand" som påträffas i beskrivnings fältet taggas för markering. Frågor som utlöser frågor om expandering i motorn, till exempel Fuzzy-och jokertecken, har begränsat stöd för träff markering.
+Om du vill aktivera träff markering, `highlight=[comma-delimited list of string fields]` Lägg till för att ange vilka fält som ska använda markering. Markering är användbart för längre innehålls fält, till exempel ett beskrivnings fält där matchningen inte är direkt uppenbar. Endast fält definitioner som attributas som **sökbara** kvalificerare för träff markering.
+
+Som standard returnerar Azure Kognitiv sökning upp till fem höjd punkter per fält. Du kan justera det här talet genom att lägga till i fältet ett streck följt av ett heltal. `highlight=Description-10` Returnerar till exempel upp till 10 för att matcha innehåll i fältet Beskrivning.
+
+Formatering tillämpas på frågor på hela termen. Typen av formatering bestäms av taggar, `highlightPreTag` `highlightPostTag`och koden hanterar svaret (till exempel att använda fetstil eller gul bakgrund).
+
+I följande exempel är begreppen "sandbrun", "sand", "stränder", "strand" som påträffas i beskrivnings fältet taggas för markering. Frågor som utlöser frågor om expandering i motorn, till exempel Fuzzy-och jokertecken, har begränsat stöd för träff markering.
 
 ```http
 GET /indexes/hotels-sample-index/docs/search=sandy beaches&highlight=Description?api-version=2019-05-06 

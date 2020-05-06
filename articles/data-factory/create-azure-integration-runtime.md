@@ -10,12 +10,12 @@ ms.date: 03/13/2020
 author: nabhishek
 ms.author: abnarain
 manager: anandsub
-ms.openlocfilehash: e32530ece3626807b199850a2b4af5461ff51cde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 901761c8a5dc17cd7f00c3f04153c8e9aa99b648
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414066"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858036"
 ---
 # <a name="how-to-create-and-configure-azure-integration-runtime"></a>Så här skapar och konfigurerar du Azure Integration Runtime
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -59,10 +59,10 @@ Använd följande steg för att skapa en Azure IR med hjälp av Azure Data Facto
 1. På sidan **installation av integration runtime** väljer du **Azure, egen värd**och väljer sedan **Fortsätt**. 
 
 1. På följande sida väljer du **Azure** för att skapa en Azure IR och väljer sedan **Fortsätt**.
-   ![Skapa Integration Runtime](media/create-azure-integration-runtime/new-azure-ir.png)
+   ![Skapa Integration Runtime](media/create-azure-integration-runtime/new-azure-integration-runtime.png)
 
 1. Ange ett namn för din Azure IR och välj **skapa**.
-   ![Skapa en Azure IR](media/create-azure-integration-runtime/create-azure-ir.png)
+   ![Skapa en Azure IR](media/create-azure-integration-runtime/create-azure-integration-runtime.png)
 
 1. Ett popup-meddelande visas när skapandet har slutförts. På sidan **integrerings körningar** ser du till att du ser den nyligen skapade IR-filen i listan.
 

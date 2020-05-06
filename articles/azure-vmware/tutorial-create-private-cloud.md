@@ -3,12 +3,12 @@ title: Självstudie – distribuera vSphere-kluster i Azure
 description: Lär dig att distribuera ett vSphere-kluster i Azure med hjälp av Azure VMWare-lösning (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: f6dab0dd56adae8b98137354896412e447931c69
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 712be25acf5984a4bcdf95ad70e0ccfa660c06bc
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740145"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838813"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Självstudie: Distribuera ett privat AVS-moln i Azure
 
@@ -28,6 +28,16 @@ I den här guiden får du lära dig att:
 - Lämpliga administrativa rättigheter och behörigheter för att skapa ett privat moln.
 - Se till att du har rätt nätverks konfiguration enligt beskrivningen i [Självstudier: check lista för nätverk](tutorial-network-checklist.md).
 
+## <a name="register-the-resource-provider"></a>Registrera resursprovidern
+
+För att kunna använda Azure VMWare-lösningen måste du först registrera resurs leverantören. I följande exempel registreras resurs leverantören med din prenumeration.
+
+```azurecli-interactive
+az provider register -n Microsoft.VMwareVirtustream --subscription <your subscription ID>
+```
+
+Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md).
+
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure Portal](https://portal.azure.com).
@@ -36,13 +46,13 @@ Logga in på [Azure Portal](https://portal.azure.com).
 
 Du kan skapa ett privat AVS-moln med hjälp av [Azure Portal](#azure-portal) eller med hjälp av [Azure CLI](#azure-cli).
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure-portalen
 
-I Azure Portal väljer du **+ skapa en ny resurs**. I text rutan `vmcp` **Sök i Marketplace** och välj **VMCP-privat moln** i listan. I fönstret **VMCP – privat moln** väljer du **skapa**
+I Azure Portal väljer du **+ skapa en ny resurs**. I text rutan **Sök i Marketplace** och välj `Azure VMware Solution` **Azure VMware-lösning** i listan. I fönstret **Azure VMware-lösning** väljer du **skapa**
 
 Ange värden för fälten på fliken **grundläggande** . I följande tabell visas en detaljerad lista över egenskaperna.
 
-| Field   | Värde  |
+| Fält   | Värde  |
 | ---| --- |
 | **Prenumeration** | Prenumerationen som du planerar att använda för distributionen.|
 | **Resursgrupp** | Resurs gruppen för dina privata moln resurser. |
@@ -70,14 +80,6 @@ Du kan också använda Azure CLI för att skapa ett moln privat moln i Azure. Om
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto.
 
 Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till https://shell.azure.com/bash. Välj **Kopiera** för att kopiera kod blocken, klistra in den i Cloud Shell och tryck på **RETUR** för att köra den.
-
-#### <a name="register-the-resource-provider"></a>Registrera resursprovidern
-
-För att kunna använda Azure VMWare-lösningen måste du först registrera resurs leverantören. I följande exempel registreras resurs leverantören med din prenumeration.
-
-```azurecli-interactive
-az extension add --name vmware
-```
 
 #### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

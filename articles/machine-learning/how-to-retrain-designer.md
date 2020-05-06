@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 721e5414fc4753cd5d58a17fc7ed51ea99868778
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77c1cc6ef5a7353d246958d1b047f054d5f49890
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80810387"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837166"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Omträningsmodeller med Azure Machine Learning Designer (förhandsversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -32,13 +32,7 @@ I den här artikeln kan du se hur du:
 ## <a name="prerequisites"></a>Krav
 
 * En Azure Machine Learning-arbetsyta med Enterprise SKU.
-* En data uppsättning som är tillgänglig för designern. Detta kan vara något av följande:
-   * En Azure Machine Learning registrerad data uppsättning
-    
-     **eller**
-   * En datafil som lagras i ett Azure Machine Learning data lager.
-   
-Information om data åtkomst med hjälp av designern finns i [så här importerar du data till designern](how-to-designer-import-data.md).
+* Slutför del 1 av den här instruktions serien, [transformera data i designern](how-to-designer-transform-data.md).
 
 Den här artikeln förutsätter också att du har grundläggande kunskaper om att skapa pipelines i designern. Slutför [självstudien](tutorial-designer-automobile-price-train-score.md)för en guidad introduktion. 
 

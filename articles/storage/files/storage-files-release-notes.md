@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/16/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 82d8c8ca94f3d0f4289902ae40928ff507e2d1ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cb5a3d471aa3131d3233841cd6450f0a968dfe7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460672"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800982"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information om Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -25,7 +25,7 @@ Följande versioner av Azure File Sync-agenten stöds:
 
 | Gränser | Agentversionsnummer | Utgivningsdatum | Status |
 |----|----------------------|--------------|------------------|
-| V10-version – [KB4522359](https://support.microsoft.com/en-us/help/4522409/azure-file-sync-agent-v10-release-march-2020)| 10.0.0.0 | 9 april 2020 | I flygning |
+| V10-version – [4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 april 2020 | I flygning |
 | Samlad uppdatering från december 2019 – [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 december 2019 | Stöds |
 | V9-version – [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 december 2019 | Stöds |
 | V8-version – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 oktober 2019 | Stöds |
@@ -36,10 +36,10 @@ Följande versioner av Azure File Sync-agenten stöds:
 | Samlad uppdatering för 2019 juni – [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 juni 2019 | Agent versionen som stöds upphör att gälla den 21 april 2020 |
 | Samlad uppdatering för 2019 maj – [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 maj 2019 | Agent versionen som stöds upphör att gälla den 21 april 2020 |
 | V6-version – [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 april 2019 | Agent versionen som stöds upphör att gälla den 21 april 2020 |
-| Version V5 | 5.0.2.0 - 5.2.0.0 | Ej tillämpligt | Stöds inte-agent versioner har upphört att gälla den 18 mars 2020 |
-| V4-version | 4.0.1.0 - 4.3.0.0 | Ej tillämpligt | Stöds inte-agent versioner upphörde att gälla den 6 november 2019 |
-| V3-version | 3.1.0.0 - 3.4.0.0 | Ej tillämpligt | Stöds inte-agent versioner har upphört att gälla den 19 augusti 2019 |
-| För GA-agenter | 1.1.0.0 – 3.0.13.0 | Ej tillämpligt | Stöds inte-agent versioner har upphört att gälla den 1 oktober 2018 |
+| Version V5 | 5.0.2.0 - 5.2.0.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 18 mars 2020 |
+| V4-version | 4.0.1.0 - 4.3.0.0 | E.t. | Stöds inte-agent versioner upphörde att gälla den 6 november 2019 |
+| V3-version | 3.1.0.0 - 3.4.0.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 19 augusti 2019 |
+| För GA-agenter | 1.1.0.0 – 3.0.13.0 | E.t. | Stöds inte-agent versioner har upphört att gälla den 1 oktober 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

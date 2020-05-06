@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: fa7e085f723d4f4c411f52e045c9437d5cb293b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 7d8cf03342f51a7bc6584800cb9fff8d8238921e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81459788"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801662"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
 
@@ -28,7 +28,7 @@ Om du använder [Azure Security Center](../../security-center/index.yml)får du 
 > - Vissa rekommendationer kan öka användningen av data, nätverk eller beräknings resurser, vilket resulterar i ytterligare licens-eller prenumerations kostnader. Du måste ha en giltig aktiv Azure-prenumeration för att kunna skapa resurser i Azure i de regioner som stöds.
 > - Virtuella datorer i generation 2 har inte stöd för Azure Disk Encryption. Mer information finns i [stöd för virtuella datorer i generation 2 på Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) .
 
-Du kan lära dig grunderna i Azure Disk Encryption för Linux på bara några minuter med [skapa och kryptera en virtuell Linux-dator med Azure CLI snabb start](disk-encryption-cli-quickstart.md) eller [skapa och kryptera en virtuell Linux-dator med snabb start för Azure PowerShell](disk-encryption-powershell-quickstart.md).
+Du kan lära dig grunderna i Azure Disk Encryption för Linux på bara några minuter med [skapa och kryptera en virtuell Linux-dator med Azure CLI snabb start](disk-encryption-cli-quickstart.md) eller [skapa och kryptera en virtuell Linux-dator med Azure PowerShell snabb start](disk-encryption-powershell-quickstart.md).
 
 ## <a name="supported-vms-and-operating-systems"></a>Virtuella datorer och operativ system som stöds
 
@@ -56,29 +56,36 @@ Azure Disk Encryption stöds på en delmängd av [Azure-godkända Linux-distribu
 
 Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure Disk Encryption. för de som har påtecknats har endast följande distributioner och versioner stöd Azure Disk Encryption:
 
-| Linux-distribution | Version | Volym typ som stöds för kryptering|
-| --- | --- |--- |
-| Ubuntu | 18,04| Operativ system och data disk |
-| Ubuntu | 16,04| Operativ system och data disk |
-| Ubuntu | 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](disk-encryption-troubleshooting.md) | Operativ system och data disk |
-| RHEL | 7,7 | Operativ system och data disk (se OBS! nedan) |
-| RHEL | 7,6 | Operativ system och data disk (se OBS! nedan) |
-| RHEL | 7.5 | Operativ system och data disk (se OBS! nedan) |
-| RHEL | 7.4 | Operativ system och data disk (se OBS! nedan) |
-| RHEL | 7.3 | Operativ system och data disk (se OBS! nedan) |
-| RHEL | 7.2 | Operativ system och data disk (se OBS! nedan) |
-| RHEL | 6.8 | Data disk (se OBS! nedan) |
-| RHEL | 6.7 | Data disk (se OBS! nedan) |
-| CentOS | 7,7 | Operativ system och data disk |
-| CentOS | 7,6 | Operativ system och data disk |
-| CentOS | 7.5 | Operativ system och data disk |
-| CentOS | 7.4 | Operativ system och data disk |
-| CentOS | 7.3 | Operativ system och data disk |
-| CentOS | 7,2 n | Operativ system och data disk |
-| CentOS | 6.8 | Datadisk |
-| openSUSE | 42,3 | Datadisk |
-| SLES | 12 – SP4 | Datadisk |
-| SLES | 12 – SP3 | Datadisk |
+| Utgivare | Erbjudande | SKU | URN | Volym typ som stöds för kryptering |
+| --- | --- |--- | --- |
+| Canonical | Ubuntu | 18,04 – LTS | Kanoniskt: UbuntuServer: 18.04-LTS: senaste | Operativ system och data disk |
+| Canonical | Ubuntu 18.04 | 18,04 – DAGLIGEN – LTS | Kanoniskt: UbuntuServer: 18.04-DAILY-LTS: senaste | Operativ system och data disk |
+| Canonical | Ubuntu 16.04 | 16,04 – DAGLIGEN – LTS | Kanoniskt: UbuntuServer: 16.04-DAILY-LTS: senaste | Operativ system och data disk |
+| Canonical | Ubuntu 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](disk-encryption-troubleshooting.md) | 14.04.5-LTS | Kanoniskt: UbuntuServer: 14.04.5-LTS: senaste | Operativ system och data disk |
+| Canonical | Ubuntu 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](disk-encryption-troubleshooting.md) | 14.04.5 – DAGLIGA LTS | Kanoniskt: UbuntuServer: 14.04.5-DAILY-LTS: senaste | Operativ system och data disk |
+| Redhat | RHEL 7,7 | 7,7 | RedHat: RHEL: 7.7: senaste | Operativ system och data disk (se OBS! nedan) |
+| Redhat | RHEL 7,7 | 7 – RAW | RedHat: RHEL: 7-RAW: senaste | Operativ system och data disk (se OBS! nedan) |
+| Redhat | RHEL 7,7 | 7-LVM | RedHat: RHEL: 7-LVM: senaste | Operativ system och data disk (se OBS! nedan) |
+| Redhat | RHEL 7,6 | 7,6 | RedHat: RHEL: 7.6: senaste | Operativ system och data disk (se OBS! nedan) |
+| Redhat | RHEL 7.5 | 7.5 | RedHat: RHEL: 7.5: senaste | Operativ system och data disk (se OBS! nedan) |
+| Redhat | RHEL 7,4 | 7.4 | RedHat: RHEL: 7.4: senaste | Operativ system och data disk (se OBS! nedan) |
+| Redhat | RHEL 7,3 | 7.3 | RedHat: RHEL: 7.3: senaste | Operativ system och data disk (se OBS! nedan) |
+| Redhat | RHEL 7,2 | 7.2 | RedHat: RHEL: 7.2: senaste | Operativ system och data disk (se OBS! nedan) |
+| Redhat | RHEL 6,8 | 6.8 | RedHat: RHEL: 6,8: senaste | Data disk (se OBS! nedan) |
+| Redhat | RHEL 6,7 | 6.7 | RedHat: RHEL: 6,7: senaste | Data disk (se OBS! nedan) |
+| OpenLogic | CentOS 7,7 | 7,7 | OpenLogic: CentOS: 7.7: senaste | Operativ system och data disk |
+| OpenLogic | CentOS 7,7 | 7-LVM | OpenLogic: CentOS: 7-LVM: senaste | Operativ system och data disk |
+| OpenLogic | CentOS 7,6 | 7,6 | OpenLogic: CentOS: 7.6: senaste | Operativ system och data disk |
+| OpenLogic | CentOS 7.5 | 7.5 | OpenLogic: CentOS: 7.5: senaste | Operativ system och data disk |
+| OpenLogic | CentOS 7.4 | 7.4 | OpenLogic: CentOS: 7.4: senaste | Operativ system och data disk |
+| OpenLogic | CentOS 7,3 | 7.3 | OpenLogic: CentOS: 7.3: senaste | Operativ system och data disk |
+| OpenLogic | CentOS 7,2 n | 7,2 n | OpenLogic: CentOS: 7,2 n: senaste | Operativ system och data disk |
+| OpenLogic | CentOS 7,1 | 7.1 | OpenLogic: CentOS: 7.1: senaste | Endast datadisk |
+| OpenLogic | CentOS 7,0 | 7.0 | OpenLogic: CentOS: 7.0: senaste | Endast datadisk |
+| OpenLogic | CentOS 6,8 | 6.8 | OpenLogic: CentOS: 6,8: senaste | Endast datadisk |
+| SUSE | openSUSE 42,3 | 42,3 | SUSE: openSUSE: 42.3: senaste | Endast datadisk |
+| SUSE | SLES prioritet 12 – SP4 | 12 – SP4 | SUSE: SLES: 12-SP4: senaste | Endast datadisk |
+| SUSE | SLES HPC 12-SP3 | 12 – SP3 | SUSE: SLES-HPC: 12-SP3: senaste | Endast datadisk |
 
 > [!NOTE]
 > Den nya Azure Disk Encryption-implementeringen stöds för RHEL OS och datadisk för RHEL7 avbildningar enligt principen betala per användning.  

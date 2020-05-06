@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15bf167df52e8ef54ab45de7b7b03efdaf83672a
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 438edd88b3699f3811d8bd32170b62569971c2e9
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628324"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837404"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -183,16 +183,16 @@ Windows Virtual Desktop stöder inte x86 (32-bitars), Windows 10 Enterprise N el
 
 Tillgängliga alternativ för Automation och distribution beror på vilket operativ system och vilken version du väljer, som du ser i följande tabell: 
 
-|Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|Uppdateringar av Windows Virtual Desktop agent|
-|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 multi-session, version 1903|Ja|Ja|Ja|Ja|Automatisk|
-|Windows 10 multi-session, version 1809|Ja|Ja|Nej|Nej|Automatisk|
-|Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|Automatisk|
-|Windows 10 Enterprise, version 1809|Ja|Ja|Nej|Nej|Automatisk|
-|Windows 7 Enterprise|Ja|Ja|Nej|Nej|Manuell|
-|Windows Server 2019|Ja|Ja|Nej|Nej|Automatisk|
-|Windows Server 2016|Ja|Ja|Ja|Ja|Automatisk|
-|Windows Server 2012 R2|Ja|Ja|Nej|Nej|Automatisk|
+|Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|
+|--------------------------------------|:------:|:------:|:------:|:------:|
+|Windows 10 multi-session, version 1903|Ja|Ja|Ja|Ja|
+|Windows 10 multi-session, version 1809|Ja|Ja|Nej|Nej|
+|Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|
+|Windows 10 Enterprise, version 1809|Ja|Ja|Nej|Nej|
+|Windows 7 Enterprise|Ja|Ja|Nej|Nej|
+|Windows Server 2019|Ja|Ja|Nej|Nej|
+|Windows Server 2016|Ja|Ja|Ja|Ja|
+|Windows Server 2012 R2|Ja|Ja|Nej|Nej|
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -201,4 +201,4 @@ Om du använder Windows Virtual Desktop hösten 2019-versionen kan du komma igå
 Om du använder Windows Virtual Desktop våren 2020-versionen måste du skapa en adresspool i stället. Gå till följande självstudie för att komma igång.
 
 > [!div class="nextstepaction"]
-> [Skapa en adresspool med Azure Portal](create-host-pools-azure-marketplace.md)
+> [Skapa en värdpool med Azure-portalen](create-host-pools-azure-marketplace.md)

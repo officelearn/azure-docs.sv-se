@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 9a6bd3cab41c69075f5170a8a3aad4f059d970e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: 47ddad70b4764fedefb50b93de2b7f078cf9fd27
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159055"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732911"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Förskotts betalning för Azure Database for MariaDB beräknings resurser med reserverad kapacitet
 
@@ -19,7 +19,7 @@ Azure Database for MariaDB nu kan du spara pengar genom att betala för beräkni
 
 Du behöver inte tilldela reservationen till vissa Azure Database for MariaDB-servrar. Om du redan kör Azure Database for MariaDB eller som nyligen har distribuerats får du automatiskt fördelarna med reserverad prissättning. Genom att köpa en reservation betalar du för beräknings kostnaderna för en period på en eller tre år. Så snart du köper en reservation debiteras inte längre Azure Database for MariaDB-beräknings avgifter som matchar reservations attributen enligt priserna för betala per användning. En reservation omfattar inte program vara, nätverk eller lagrings kostnader som är kopplade till MariaDB-databas servern. I slutet av reservations perioden upphör fakturerings förmånen och Azure Database for MariaDB debiteras enligt priset betala per användning. Reservationer förnyas inte automatiskt. För pris information, se [Azure Database for MariaDB reserverat kapacitets erbjudande](https://azure.microsoft.com/pricing/details/mariadb/). </br>
 
-Du kan köpa Azure Database for MariaDB reserverad kapacitet i [Azure Portal](https://portal.azure.com/). Så här köper du den reserverade kapaciteten:
+Du kan köpa Azure Database for MariaDB reserverad kapacitet i [Azure Portal](https://portal.azure.com/). Betala för reservationen [i förväg eller via månadsbetalningar](../cost-management-billing/reservations/monthly-payments-reservations.md). Så här köper du den reserverade kapaciteten:
 
 * Du måste ha ägar rollen för minst ett företag eller en enskild prenumeration med priser enligt principen betala per användning.
 * För Enterprise-prenumerationer måste **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Eller, om inställningen är inaktive rad, måste du vara en EA-administratör i prenumerationen.
@@ -37,7 +37,7 @@ Anta till exempel att du kör ett allmänt syfte, Gen5 – 32 vCore MariaDB Data
 
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Köp Azure Database for MariaDB reserverad kapacitet
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **alla tjänster** > **reservationer**.
 3.  Välj **Lägg till** och sedan i fönstret köp reservationer väljer du **Azure Database for MariaDB** för att köpa en ny reservation för dina MariaDB-databaser.
 4.  Fyll i de obligatoriska fälten. Befintliga eller nya databaser som matchar de attribut du väljer kvalificera för att hämta den reserverade kapacitets rabatten. Det faktiska antalet Azure Database for MariaDB-servrar som får rabatten beroende på omfattning och vald kvantitet.
@@ -48,7 +48,7 @@ Anta till exempel att du kör ett allmänt syfte, Gen5 – 32 vCore MariaDB Data
 
 I följande tabell beskrivs obligatoriska fält.
 
-| Field | Beskrivning |
+| Fält | Beskrivning |
 | :------------ | :------- |
 | Prenumeration   | Prenumerationen som används för att betala för den Azure Database for MariaDB reserverade kapacitets reservationen. Betalnings metoden för prenumerationen debiteras mot startkostnader för den Azure Database for MariaDB reserverade kapacitets reservationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller ett enskilt avtal med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. För en enskild prenumeration med priset betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.
 | Omfång | VCore-reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: </br></br> **Delat**används reservations rabatten för vCore på Azure Database for MariaDB servrar som körs i en prenumeration i din fakturerings kontext. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För Betala per användning-kunder gäller den delade omfattningen samtliga Betala per användning-prenumerationer som kontoadministratören har skapat.</br></br> **Enskild prenumeration**tillämpas reservations rabatten för vCore på Azure Database for MariaDB servrar i den här prenumerationen. </br></br> **En enda resurs grupp**, reservations rabatten tillämpas på Azure Database for MariaDB servrar i den valda prenumerationen och den valda resurs gruppen i den prenumerationen.

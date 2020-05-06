@@ -3,12 +3,12 @@ title: Support mat ris för VMware/fysisk haveri beredskap i Azure Site Recovery
 description: Sammanfattar stöd för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: eb78f6073d2bcb7289f13d5c994cff8c13f9a6e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8e7b2f8f6483d462f781d95011ef7b972e83b87
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185803"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801798"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -128,11 +128,13 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,25][9.25 UR] | SP1 3.1
 
 **Frisläpp** | **Mobilitets tjänst version** | **Kernelversion** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 och 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Alla börs-och 15-kernels och 15 kärnor stöds. </br></br> 4.12.14 – 5.5 – Azure till 4.12.14 – 8.22 – Azure
+SUSE Linux Enterprise Server 15 och 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Som standard stöds alla [börs-och 15-kernels](https://www.suse.com/support/kb/doc/?id=000019587) . </br></br> 4.12.14 – 5.5 – Azure till 4.12.14 – 8.22 – Azure
+
+
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux-filsystem/gäst lagring
 
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Filsystem | ext3, ext4, XFS, BTRFS (villkor som gäller enligt den här tabellen)
 Etablering av hantering av logiska volymer (LVM)| Tjock etablering – Ja <br></br> Tunn etablering – nej
@@ -156,7 +158,7 @@ Lägg till disk på replikerad virtuell dator | Stöds inte.<br/> Inaktivera rep
 
 ## <a name="network"></a>Nätverk
 
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Värd nätverk NIC Teaming | Stöds för virtuella VMware-datorer. <br/><br/>Stöds inte för replikering av fysisk dator.
 Värd nätverkets VLAN | Ja.
@@ -172,7 +174,7 @@ Gäst-/Server nätverk flera nätverkskort | Ja.
 
 ## <a name="azure-vm-network-after-failover"></a>Azure VM-nätverk (efter redundans)
 
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Azure ExpressRoute | Ja
 ILB | Ja
@@ -183,69 +185,69 @@ Reserverad IP adress | Ja
 IPv4 | Ja
 Behåll Källans IP-adress | Ja
 Tjänstslutpunkter för virtuellt nätverk i Azure<br/> | Ja
-Snabbare nätverk | Inga
+Snabbare nätverk | Nej
 
 ## <a name="storage"></a>Storage
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Dynamisk disk | OS-disken måste vara en standard disk. <br/><br/>Data diskar kan vara dynamiska diskar
-Konfiguration av Docker-disk | Inga
+Konfiguration av Docker-disk | Nej
 Värd-NFS | Ja för VMware<br/><br/> Nej för fysiska servrar
 Värd-SAN (iSCSI/FC) | Ja
 Värd virtuellt San | Ja för VMware<br/><br/> Ej tillämpligt för fysiska servrar
 Värd-multisökväg (MPIO) | Ja, testad med Microsoft DSM, EMC PowerPath 5,7 SP4, EMC PowerPath DSM för CLARiiON
 Virtuella värd volymer (VVols) | Ja för VMware<br/><br/> Ej tillämpligt för fysiska servrar
 Gäst/Server VMDK | Ja
-Gäst-/Server delad kluster disk | Inga
-Gäst/Server-krypterad disk | Inga
-Gäst-/Server-NFS | Inga
+Gäst-/Server delad kluster disk | Nej
+Gäst/Server-krypterad disk | Nej
+Gäst-/Server-NFS | Nej
 Gäst-/Server-iSCSI | För migrering – Ja<br/>Vid haveri beredskap – nej kommer iSCSI att återställas efter fel som en ansluten disk till den virtuella datorn
-Gäst/Server SMB 3,0 | Inga
+Gäst/Server SMB 3,0 | Nej
 Gäst/Server-RDM | Ja<br/><br/> Ej tillämpligt för fysiska servrar
 Gäst-/Server disk > 1 TB | Ja, disken måste vara större än 1024 MB<br/><br/>Upp till 8 192 GB vid replikering till hanterade diskar (9,26-version och senare)<br></br> Upp till 4 095 GB vid replikering till lagrings konton
-Gäst/Server-disk med fysisk och fysisk sektor storlek för 4K | Inga
-Gäst-/Server disk med en fysisk sektor storlek på 4K och 512 byte | Inga
+Gäst/Server-disk med fysisk och fysisk sektor storlek för 4K | Nej
+Gäst-/Server disk med en fysisk sektor storlek på 4K och 512 byte | Nej
 Gäst-/Server volym med Striped disk >4 TB | Ja
 Hantering av logiska volymer (LVM)| Tjocka etablering – Ja <br></br> Tunn allokering – nej
-Gäst/Server – lagrings utrymmen | Inga
-Gäst/Server Hot Lägg till/ta bort disk | Inga
+Gäst/Server – lagrings utrymmen | Nej
+Gäst/Server Hot Lägg till/ta bort disk | Nej
 Gäst/Server – exkludera disk | Ja
-Multisökväg för gäst/Server (MPIO) | Inga
+Multisökväg för gäst/Server (MPIO) | Nej
 GPT-partitioner för gäst/Server | Det finns stöd för fem partitioner från samlad [uppdatering 37](https://support.microsoft.com/help/4508614/) (version 9,25 av mobilitets tjänsten) och senare. Tidigare fyra stöddes.
 ReFS | Elastiskt fil system stöds med mobilitets tjänst version 9,23 eller senare
 Gäst/Server-EFI/UEFI-start | – Stöds för Windows Server 2012 eller senare, SLES 12 SP4 och RHEL 8,0 med Mobility agent version 9,30 och senare<br/> -Start typen för säker UEFI stöds inte.
 
 ## <a name="replication-channels"></a>Kanaler för replikering
 
-|**Typ av replikering**   |**Stöds**  |
+|**Typ av replikering**   |**Tillåtna**  |
 |---------|---------|
-|Avlästa data överföringar (ODX)    |       Inga  |
-|Seeding offline        |   Inga      |
-| Azure Data Box | Inga
+|Avlästa data överföringar (ODX)    |       Nej  |
+|Seeding offline        |   Nej      |
+| Azure Data Box | Nej
 
 ## <a name="azure-storage"></a>Azure-lagring
 
-**Komponent** | **Stöds**
+**Komponent** | **Tillåtna**
 --- | ---
 Lokalt redundant lagring | Ja
 Geografiskt redundant lagring | Ja
 Geo-redundant lagring med läsbehörighet (RA-GRS) | Ja
-Cool Storage | Inga
-Frekvent lagring| Inga
-Blockblobar | Inga
+Cool Storage | Nej
+Frekvent lagring| Nej
+Blockblobar | Nej
 Kryptering vid vila (SSE)| Ja
 Kryptering vid vila (CMK)| Ja (via PowerShell AZ 3.3.0-modul och senare)
 Premium Storage | Ja
-Import/export-tjänst | Inga
+Import/export-tjänst | Nej
 Azure Storage brand väggar för virtuella nätverk | Ja.<br/> Konfigurerat på mål lagring/cache lagrings konto (används för att lagra replikeringsdata).
 Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (transaktions kostnader är betydligt högre för v2 jämfört med v1)
 
 ## <a name="azure-compute"></a>Azure-beräkning
 
-**Funktion** | **Stöds**
+**Funktion** | **Tillåtna**
 --- | ---
 Tillgänglighetsuppsättningar | Ja
-Tillgänglighetszoner | Inga
+Tillgänglighetszoner | Nej
 ) | Ja
 Hanterade diskar | Ja
 
@@ -299,12 +301,12 @@ Maximal dataomsättning per dag som stöds av en processerver | 2 TB
 
 ## <a name="vault-tasks"></a>Valv aktiviteter
 
-**Åtgärd** | **Stöds**
+**Åtgärd** | **Tillåtna**
 --- | ---
-Flytta valv över resurs grupper | Inga
-Flytta valvet inom och över prenumerationer | Inga
-Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper | Inga
-Flytta lagring, nätverk, virtuella Azure-datorer inom och över prenumerationer. | Inga
+Flytta valv över resurs grupper | Nej
+Flytta valvet inom och över prenumerationer | Nej
+Flytta lagring, nätverk, virtuella Azure-datorer över resurs grupper | Nej
+Flytta lagring, nätverk, virtuella Azure-datorer inom och över prenumerationer. | Nej
 
 
 ## <a name="obtain-latest-components"></a>Hämta de senaste komponenterna

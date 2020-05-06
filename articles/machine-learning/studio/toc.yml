@@ -52,8 +52,6 @@
           href: create-workspace.md
         - name: Hantera
           href: manage-workspace.md
-        - name: Felsöka
-          href: troubleshooting-creating-ml-workspace.md
         - name: Distribuera med ARM
           href: deploy-with-resource-manager-template.md
     - name: Importera utbildningsdata
@@ -84,8 +82,6 @@
               href: algorithm-parameters-optimize.md
             - name: Tolka resultaten
               href: interpret-model-results.md
-            - name: Felsökning
-              href: debug-models.md
         - name: Omtrimningsmodeller
           items:
             - name: '"Nya" webbtjänster'
@@ -96,19 +92,12 @@
           items:
             - name: Komma ingång i R
               href: r-get-started.md
-            - name: Köra R-skript
-              href: extend-your-experiment-with-r.md
             - name: Skapa anpassade R-moduler
               href: custom-r-modules.md
             - name: Köra Python-skript
               href: execute-python-scripts.md
     - name: Välja en algoritm
-      items:
-        - name: Välja algoritmer
-          href: algorithm-choice.md
-        - name: Algoritmexempel
-          displayName: 'infographic, studio basics'
-          href: basics-infographic-with-algorithm-examples.md
+      href: algorithm-choice.md
     - name: Distribuera modeller
       items:
         - name: Distribuera en webbtjänst
@@ -143,14 +132,6 @@
           href: consuming-from-excel.md
         - name: Använda Excel-tillägg
           href: excel-add-in-for-web-services.md
-    - name: Användningsfall
-      items:
-        - name: Konsumentförlust
-          href: azure-ml-customer-churn-scenario.md
-        - name: Sentimentanalys
-          href: text-analytics-module-tutorial.md
-        - name: Migrera analys från Excel till Studio (klassisk)
-          href: use-case-excel-studio.md
     - name: Ta bort och exportera kunddata
       items:
         - name: Studiodata (klassisk)

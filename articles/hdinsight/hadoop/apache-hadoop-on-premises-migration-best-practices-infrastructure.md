@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61d7d2a52f58162d288b1155f9724c7912e451f3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74951521"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780104"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – metod tips för infrastruktur
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller rekommendationer för att hantera infrastrukturen 
 
 De viktigaste alternativen för att planera prestanda för HDInsight-kluster är följande:
 
-**Region**  
+**Nationella**  
 Azure-regionen fastställer var klustret är fysiskt allokerat. För att minimera svars tiden för läsningar och skrivningar bör klustret vara i samma region som data.
 
 **Lagrings plats och storlek**  
@@ -167,7 +167,7 @@ Med hjälp av Azure Virtual Network med HDInsight kan du använda följande scen
 - Ansluta HDInsight till data lager i ett virtuellt Azure-nätverk.
 - Direkt åtkomst till Hadoop-tjänster som inte är tillgängliga offentligt via Internet. Till exempel Kafka-API: er eller HBase Java API.
 
-HDInsight kan antingen läggas till i en ny eller befintlig Azure-Virtual Network. Om HDInsight läggs till i en befintlig Virtual Network, måste befintliga nätverks säkerhets grupper och användardefinierade vägar uppdateras för att tillåta obegränsad åtkomst till [flera IP-adresser](../hdinsight-management-ip-addresses.md) i Azure Data Center. Se också till att inte blockera trafik till [portarna](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ports)som används av HDInsight-tjänster.
+HDInsight kan antingen läggas till i en ny eller befintlig Azure-Virtual Network. Om HDInsight läggs till i en befintlig Virtual Network, måste befintliga nätverks säkerhets grupper och användardefinierade vägar uppdateras för att tillåta obegränsad åtkomst till [flera IP-adresser](../hdinsight-management-ip-addresses.md) i Azure Data Center. Se också till att inte blockera trafik till [portarna](../control-network-traffic.md#required-ports)som används av HDInsight-tjänster.
 
 > [!Note]  
 > HDInsight har för närvarande inte stöd för Tvingad tunnel trafik. Tvingad tunnel trafik är en under näts inställning som framtvingar utgående Internet trafik till en enhet för inspektion och loggning. Ta antingen bort Tvingad tunnel trafik innan du installerar HDInsight i ett undernät eller skapa ett nytt undernät för HDInsight. HDInsight stöder inte heller begränsning av utgående nätverks anslutning.

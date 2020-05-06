@@ -3,12 +3,12 @@ title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: b87430c9ff7d806fd1fc74d5d2a8270f9db43b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cc817c1833c4c9aedcbc5fa111de694fab715c43
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537329"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801271"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -56,7 +56,7 @@ Här är what's som stöds om du vill säkerhetskopiera lokala datorer:
 
 **Gräns** | **Information**
 --- | ---
-**Datadiskar för virtuella Azure-datorer** | Gräns på 16 <br> För att registrera dig för den privata förhandsversionen av virtuella datorer med 16+ diskar (upp till 32 diskar) skriver du till oss på AskAzureBackupTeam@microsoft.com
+**Datadiskar för virtuella Azure-datorer** | Gräns på 16 <br> Om du vill registrera dig för den begränsade för hands versionen av virtuella datorer med 16 + diskar (upp till 32 diskar) skriver du till oss påAskAzureBackupTeam@microsoft.com
 **Datadiskstorlek för virtuella Azure-datorer** | Enskild disk storlek kan vara upp till 32 TB och högst 256 TB kombinerat för alla diskar i en virtuell dator.
 
 ### <a name="azure-vm-backup-options"></a>Alternativ för säkerhetskopiering av virtuella Azure-datorer
@@ -129,8 +129,8 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 
 **Dator** | **Komprimera till MABS/DPM (TCP)** | **Komprimera till valv (HTTPS)**
 --- | --- | ---
-**Direkt säkerhets kopiering av lokala Windows-datorer** | Ej tillämpligt | ![Ja][green]
-**Säkerhets kopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | Ej tillämpligt | Ej tillämpligt
+**Direkt säkerhets kopiering av lokala Windows-datorer** | NA | ![Ja][green]
+**Säkerhets kopiering av virtuella Azure-datorer med hjälp av VM-tillägg** | NA | NA
 **Säkerhetskopiera lokalt/Azure-datorer med hjälp av MABS/DPM** | ![Ja][green] | ![Ja][green]
 
 ## <a name="retention-limits"></a>Gräns för kvarhållning
@@ -152,9 +152,9 @@ Azure Backup har lagt till funktionen för återställning av kors region för a
 | Typ av säkerhets kopierings hantering | Stöds                                                    | Regioner som stöds |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | Ja.   Stöds för krypterade virtuella datorer och virtuella datorer med mindre än 4 TB diskar | Alla offentliga Azure-regioner.  |
-| MARS-agent/lokalt | Nej                                                           | Ej tillämpligt               |
-| SQL-/SAP HANA          | Nej                                                           | Ej tillämpligt               |
-| DATABASSERVER                    | Nej                                                           | Ej tillämpligt               |
+| MARS-agent/lokalt | Nej                                                           | E.t.               |
+| SQL-/SAP HANA          | Nej                                                           | E.t.               |
+| DATABASSERVER                    | Nej                                                           | E.t.               |
 
 ## <a name="next-steps"></a>Nästa steg
 

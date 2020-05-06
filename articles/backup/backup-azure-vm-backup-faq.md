@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: a6746944e34b8bd2fbb115baaabece96ee93dd1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5705b70dd210c336fc2baa4da07f96f2ad249f64
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190103"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82800659"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -176,6 +176,14 @@ Den virtuella datorn säkerhets kopie ras med inställningarna för schemaläggn
 4. Återuppta säkerhets kopieringen.
 
 Du kan återställa den virtuella datorn från tillgängliga återställnings punkter som skapades före flytt åtgärden.
+
+### <a name="what-happens-after-i-move-a-vm-to-a-different-resource-group"></a>Vad händer när jag flyttar en virtuell dator till en annan resurs grupp?
+
+När en virtuell dator har flyttats till en annan resurs grupp är det en ny virtuell dator i den mån Azure Backup berörs.
+
+När du flyttar den virtuella datorn till en ny resurs grupp kan du skydda den virtuella datorn antingen i samma valv eller i ett annat valv. Eftersom det här är en ny virtuell dator för Azure Backup debiteras du för den separat.
+
+Den gamla återställnings punkten för den gamla datorn kommer att vara tillgänglig för återställning om det behövs. Om du inte behöver dessa säkerhetskopierade data kan du sluta skydda din gamla virtuella dator med ta bort data.
 
 ### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Finns det en gräns för antalet virtuella datorer som kan associeras med samma säkerhets kopierings princip?
 

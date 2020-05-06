@@ -1,19 +1,19 @@
 ---
-title: ta med fil
+title: inkludera fil
 titleSuffix: Azure
-description: ta med fil
+description: inkludera fil
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: include
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 2ebf5d574b4d185953ab0f7984648c440d6f107e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: fa8d8ccef7d6ad6e1b5d9f19de61e45ee8c439fa
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678644"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82587864"
 ---
 PowerShell-cmdleten **Get-AzPeeringLocation** returnerar en lista med peering-platser med den `Kind`obligatoriska parametern, som du kommer att använda i senare steg.
 
@@ -30,7 +30,7 @@ Exchange peering-platser innehåller följande fält:
 * MicrosoftIPv4Address
 * MicrosoftIPv6Address
 
-Kontrol lera att du är närvarande vid önskad peering-anläggning genom att referera till [PeeringDB](https://wwww.peeringdb.com).
+Kontrol lera att du är närvarande vid önskad peering-anläggning genom att referera till [PeeringDB](https://www.peeringdb.com).
 
 Det här exemplet visar hur du använder Seattle som peering-plats för att skapa en peering.
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: f2f8c08176f80436a339924adb4b2a09338a548a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8739dff39490f14b613af483f769ac031c1bd9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313594"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792385"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Vanliga frågor och svar om ansluten fabriks lösnings Accelerator
 
@@ -76,7 +76,7 @@ Om du har distribuerat lösningen från www.azureiotsolutions.com kan du inte lo
 1. Du kan kontrol lera vilka behållare som är aktiva `docker ps`genom att köra:.
 1. Stoppa alla simulerings behållare genom att köra `./stopsimulation`:.
 1. Starta alla behållare för simulering:
-    * Exportera en Shell-variabel med namnet **IOTHUB_CONNECTIONSTRING**. Använd värdet för **IotHubOwnerConnectionString** -inställningen i `<name of your deployment>.config.user` filen. Ett exempel:
+    * Exportera en Shell-variabel med namnet **IOTHUB_CONNECTIONSTRING**. Använd värdet för **IotHubOwnerConnectionString** -inställningen i `<name of your deployment>.config.user` filen. Exempel:
 
         ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
@@ -111,7 +111,7 @@ Simuleringen registrerar följande enheter:
 * Publisher. Rio. Corp. contoso
 * Publisher. Seattle. Corp. contoso
 
-Med hjälp av [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) -verktyget kan du kontrol lera vilka enheter som är registrerade med IoT Hub som din lösning använder. Om du vill använda Device Explorer behöver du anslutnings strängen för IoT-hubben i distributionen. Om du vill använda IoT-tillägget för Azure CLI behöver du ditt IoT Hub namn.
+Med hjälp av [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/) eller [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-iot-cli-extension) -verktyget kan du kontrol lera vilka enheter som är registrerade med IoT Hub som din lösning använder. Om du vill använda Device Explorer behöver du anslutnings strängen för IoT-hubben i distributionen. Om du vill använda IoT-tillägget för Azure CLI behöver du ditt IoT Hub namn.
 
 ### <a name="how-can-i-get-log-data-from-the-simulation-components"></a>Hur kan jag hämta logg data från simulerings komponenterna?
 
@@ -125,7 +125,7 @@ Du kan också logga in på den virtuella datorn via SSH och kontrol lera loggfil
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Hur kan jag kontrol lera om simuleringen skickar data till molnet?
 
-Med kommandot [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) eller [Azure IoT CLI-tillägget övervakare](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) , kan du granska data som skickas till IoT Hub från vissa enheter. Om du vill använda dessa verktyg måste du känna till anslutnings strängen för IoT-hubben i distributionen. Se [Hur gör jag för att ta reda på anslutnings strängen för IoT Hub som används av min lösning?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Med [Azure IoT Explorer](https://github.com/Azure/azure-iot-explorer) eller [Azure IoT CLI-tillägget Monitor-Events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) kan du granska data som skickas till IoT Hub från vissa enheter. Om du vill använda dessa verktyg måste du känna till anslutnings strängen för IoT-hubben i distributionen. Se [Hur gör jag för att ta reda på anslutnings strängen för IoT Hub som används av min lösning?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Granska data som skickats av en av utgivar enheterna:
 

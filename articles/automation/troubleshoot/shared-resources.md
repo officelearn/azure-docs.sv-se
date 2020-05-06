@@ -8,19 +8,19 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: e83c7074d252083329537e205666374705a31873
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c59e8ec67777a9cfebc12508b197e1237a61df4a
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733577"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864206"
 ---
 # <a name="troubleshoot-shared-resources-in-azure-automation"></a>Felsöka delade resurser i Azure Automation
 
-I den här artikeln beskrivs lösningar för problem som du kan köra i när du använder [delade resurser](../automation-intro.md#shared-resources) i Azure Automation.
+Den här artikeln beskriver lösningar på problem som kan uppstå när du använder [delade resurser](../automation-intro.md#shared-resources) i Azure Automation.
 
 >[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM just nu. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="modules"></a>Moduler
 
@@ -28,15 +28,15 @@ I den här artikeln beskrivs lösningar för problem som du kan köra i när du 
 
 #### <a name="issue"></a>Problem
 
-En modul fastnar i import tillstånd när du importerar eller uppdaterar dina Azure Automation-moduler.
+En modul fastnar i *import* tillstånd när du importerar eller uppdaterar dina Azure Automation-moduler.
 
 #### <a name="cause"></a>Orsak
 
-Eftersom importen av PowerShell-moduler är en komplex process för flera steg kanske en modul inte importeras korrekt och kan fastna i ett tillfälligt tillstånd. Mer information om import processen finns i [Importera en PowerShell-modul](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
+Eftersom importen av PowerShell-moduler är en komplex process i flera steg kanske en modul inte importeras korrekt och kan fastna i ett tillfälligt tillstånd. Mer information om import processen finns i [Importera en PowerShell-modul](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### <a name="resolution"></a>Lösning
 
-För att lösa det här problemet måste du ta bort modulen som fastnar i import tillstånd med hjälp av cmdleten [Remove-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) . Sedan kan du försöka importera modulen igen.
+För att lösa det här problemet måste du ta bort modulen som fastnat med cmdleten [Remove-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationModule?view=azps-3.7.0) . Sedan kan du försöka importera modulen igen.
 
 ```azurepowershell-interactive
 Remove-AzAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
@@ -54,7 +54,7 @@ Azure modules are being updated
 
 #### <a name="cause"></a>Orsak
 
-Det finns ett känt problem med att uppdatera AzureRM-modulerna i ett Automation-konto som är i en resurs grupp med ett numeriskt namn som börjar med 0.
+Det finns ett känt problem med att uppdatera AzureRM-modulerna i ett Automation-konto. Mer specifikt uppstår problemet om modulerna finns i en resurs grupp med ett numeriskt namn som börjar med 0.
 
 #### <a name="resolution"></a>Lösning
 
@@ -64,7 +64,7 @@ Om du vill uppdatera dina AzureRM-moduler i ditt Automation-konto måste kontot 
 
 #### <a name="issue"></a>Problem
 
-En modul kan inte importeras eller importeras utan problem, men inga cmdlet: ar extraheras.
+En modul kan inte importeras eller så har den importer ATS, men inga cmdlet: ar extraheras.
 
 #### <a name="cause"></a>Orsak
 
@@ -73,11 +73,11 @@ Några vanliga orsaker till att en modul inte kan importeras till Azure Automati
 * Strukturen matchar inte den struktur som Automation behöver.
 * Modulen är beroende av en annan modul som inte har distribuerats till ditt Automation-konto.
 * Dess beroenden saknas i mappen.
-* Cmdleten [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) används för att ladda upp modulen och du har inte gett den fullständiga lagrings Sök vägen eller inte har läst in modulen genom att använda en offentligt tillgänglig URL.
+* Cmdleten [New-AzAutomationModule](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationModule?view=azps-3.7.0) används för att ladda upp modulen och du har inte angett den fullständiga lagrings Sök vägen eller inte har läst in modulen genom att använda en offentligt tillgänglig URL.
 
 #### <a name="resolution"></a>Lösning
 
-Använd någon av dessa lösningar för att åtgärda problemet.
+Använd någon av dessa lösningar för att åtgärda problemet:
 
 * Se till att modulen följer formatet: modulnamn. zip-> Modulnamn eller versions nummer-> (modulnamn. psm1, Modulnamn. psd1).
 * Öppna **. psd1** -filen och se om modulen har några beroenden. Om det gör det laddar du upp dessa moduler till Automation-kontot.
@@ -91,16 +91,16 @@ När du använder [Update-AzureModule. ps1](https://github.com/azureautomation/r
 
 #### <a name="cause"></a>Orsak
 
-Standardinställningen för att avgöra hur många moduler som uppdateras samtidigt är 10 när du använder **Update-AzureModule. ps1**. Uppdaterings processen är känslig för fel när för många moduler uppdateras samtidigt.
+I denna Runbook är standardinställningen att avgöra hur många moduler som uppdateras samtidigt är 10. Uppdaterings processen är känslig för fel när för många moduler uppdateras samtidigt.
 
 #### <a name="resolution"></a>Lösning
 
-Det är inte vanligt att alla AzureRM-eller AZ-moduler krävs i samma Automation-konto. Vi rekommenderar att du bara importerar de speciella moduler som du behöver.
+Det är inte vanligt att alla AzureRM-eller AZ-moduler krävs i samma Automation-konto. Du bör bara importera de vissa moduler som du behöver.
 
 > [!NOTE]
 > Undvik att importera hela `Az.Automation` eller `AzureRM.Automation` -modulen, som importerar alla inneslutna moduler.
 
-Om uppdaterings processen pausas lägger du till `SimultaneousModuleImportJobCount` parametern i skriptet **Update-AzureModules. ps1** och anger ett lägre värde än standardvärdet 10. Om du implementerar den här logiken rekommenderar vi att du börjar med värdet 3 eller 5. `SimultaneousModuleImportJobCount`är en parameter för den **Update-AutomationAzureModulesForAccount** system Runbook som används för att uppdatera Azure-moduler. Om du gör den här ändringen körs uppdaterings processen längre, men har en bättre chans att slutföra. I följande exempel visas parametern och var den ska läggas till i runbooken:
+Om uppdaterings processen pausas lägger du till `SimultaneousModuleImportJobCount` parametern i skriptet **Update-AzureModules. ps1** och anger ett lägre värde än standardvärdet 10. Om du implementerar den här logiken kan du försöka med att börja med värdet 3 eller 5. `SimultaneousModuleImportJobCount`är en parameter för den **Update-AutomationAzureModulesForAccount** system Runbook som används för att uppdatera Azure-moduler. Om du gör den här ändringen körs uppdaterings processen längre, men har en bättre chans att slutföra. I följande exempel visas parametern och var den ska läggas till i runbooken:
 
  ```powershell
          $Body = @"
@@ -125,7 +125,7 @@ Om uppdaterings processen pausas lägger du till `SimultaneousModuleImportJobCou
 
 #### <a name="issue"></a>Problem
 
-När du försöker skapa eller uppdatera ett Kör som-konto visas ett fel meddelande som liknar följande fel meddelande:
+När du försöker skapa eller uppdatera ett Kör som-konto får du ett fel som liknar följande:
 
 ```error
 You do not have permissions to create…
@@ -133,19 +133,19 @@ You do not have permissions to create…
 
 #### <a name="cause"></a>Orsak
 
-Du har inte de behörigheter som du behöver för att skapa eller uppdatera kör som-kontot eller så är resursen låst på en resurs grupps nivå.
+Du har inte de behörigheter som du behöver för att skapa eller uppdatera kör som-kontot, eller så är resursen låst på en resurs grupps nivå.
 
 #### <a name="resolution"></a>Lösning
 
 Om du vill skapa eller uppdatera ett Kör som-konto måste du ha nödvändig [behörighet](../manage-runas-account.md#permissions) för de olika resurser som används av kör som-kontot. 
 
-Om problemet beror på ett lås kontrollerar du att låset kan tas bort. Gå sedan till den resurs som är låst i Azure Portal, högerklicka på låset och klicka på **ta bort**.
+Om problemet beror på ett lås kontrollerar du att låset kan tas bort. Gå sedan till den resurs som är låst i Azure Portal, högerklicka på låset och välj **ta bort**.
 
 ### <a name="scenario-you-receive-the-error-unable-to-find-an-entry-point-named-getperadapterinfo-in-dll-iplpapidll-when-executing-a-runbook"></a><a name="iphelper"></a>Scenario: du får fel meddelandet "Det gick inte att hitta en start punkt med namnet ' GetPerAdapterInfo ' i DLL-filen ' iplpapi. dll '" när du kör en Runbook
 
 #### <a name="issue"></a>Problem
 
-När du kör en Runbook får du följande undantag:
+När du kör en Runbook visas följande undantag:
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -167,8 +167,9 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet ovan eller inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support:
+Om den här artikeln inte löser problemet kan du prova någon av följande kanaler för ytterligare support:
 
 * Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-* Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport). Detta är det officiella Microsoft Azure kontot för att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support**.
+

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 29d5213b8eecd94ed8c8ce565972c9f98872a362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411434"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864257"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimera logg frågor i Azure Monitor
 Azure Monitor loggar använder [Azure datautforskaren (ADX)](/azure/data-explorer/) för att lagra loggdata och köra frågor för att analysera data. Den skapar, hanterar och underhåller ADX-kluster åt dig, och optimerar dem för din logg analys arbets belastning. När du kör en fråga optimeras den och dirigeras till lämpligt ADX-kluster som lagrar arbets ytans data. Både Azure Monitor loggar och Azure Datautforskaren använder många automatiska metoder för optimering av frågor. Även om automatiska optimeringar ger betydande ökning, finns det i vissa fall där du kan förbättra dina frågeresultat dramatiskt. Den här artikeln beskriver prestanda överväganden och flera tekniker för att åtgärda dem.
@@ -108,7 +108,7 @@ Heartbeat
 | summarize count() by Computer
 ```
 
-### <a name="use-effective-aggregation-commands-and-dimmentions-in-summarize-and-join"></a>Använd effektiva agg regerings kommandon och dimmentions i sammanfatta och Anslut
+### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Använd effektiva agg regerings kommandon och dimensioner i sammanfatta och delta
 
 Vissa agg regerings kommandon som [Max ()](/azure/kusto/query/max-aggfunction), [Sum ()](/azure/kusto/query/sum-aggfunction), [Count ()](/azure/kusto/query/count-aggfunction)och [AVG ()](/azure/kusto/query/avg-aggfunction) har låg processor påverkan på grund av deras logik, andra är mer komplexa och innehåller heuristik och uppskattningar som gör att de kan köras effektivt. Till exempel använder [DCount ()](/azure/kusto/query/dcount-aggfunction) HyperLogLog-algoritmen för att ge en nära bedömning av distinkta mängder av stora data uppsättningar utan att faktiskt räkna varje värde. percentils funktionerna gör liknande uppskattningar med hjälp av den närmaste rang-algoritmen. Flera av kommandona är valfria parametrar för att minska deras påverkan. Funktionen [makeset ()](/azure/kusto/query/makeset-aggfunction) har till exempel en valfri parameter för att definiera maximal uppsättnings storlek, vilket avsevärt påverkar processor och minne.
 
@@ -261,7 +261,7 @@ Perf
 ) on Computer
 ```
 
-Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Ett exempel:
+Ett vanligt fall där ett sådant fel inträffar är när [arg_max ()](/azure/kusto/query/arg-max-aggfunction) används för att hitta den senaste förekomsten. Exempel:
 
 ```Kusto
 Perf

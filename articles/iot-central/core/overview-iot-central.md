@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 05d73ae09d95879c37e86f5f3e73e35ed4607296
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 409ba6cd192f65c73aba6bd6eb11a26ec1f820fa
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82560968"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790889"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
-IoT Central är en IoT-programplattform som minskar belastningen och kostnaderna för att utveckla, hantera och underhålla IoT-lösningar i företags klass. Genom att välja att skapa med IoT Central får du möjlighet att fokusera tid, pengar och energi på att omvandla din verksamhet med IoT-data, i stället för att bara underhålla och uppdatera en komplex och ständigt växande IoT-infrastruktur.
+IoT Central är en IoT-programplattform som minskar belastningen och kostnaderna för att utveckla, hantera och underhålla IoT-lösningar i företagsklass. Genom att välja att skapa med IoT Central får du möjlighet att fokusera tid, pengar och energi på att omvandla din verksamhet med IoT-data, i stället för att bara underhålla och uppdatera en komplex och ständigt växande IoT-infrastruktur.
 
 Med webb gränssnittet kan du övervaka enhets villkor, skapa regler och hantera miljon tals enheter och deras data under deras livs cykel. Dessutom kan du agera på enhets insikter genom att utöka IoT Intelligence till branschspecifika program.
 
@@ -29,19 +29,6 @@ Den här artikeln beskriver IoT Central:
 - hur du hanterar ditt program.
 - Azure IoT Edge funktioner i IoT Central.
 - Så här ansluter du dina Azure IoT Edge runtime-baserade enheter till ditt program.
-
-## <a name="known-issues"></a>Kända problem
-
-- Kontinuerlig data export har inte stöd för Avro-formatet (inkompatibilitet).
-- Interjson stöds inte för närvarande.
-- Kart panelen stöds inte för närvarande.
-- Jobb stöder inte komplexa typer.
-- Mat ris schema typer stöds inte.
-- Endast C-enhetens SDK och Node. js-enhet och tjänst-SDK: er stöds.
-- IoT Central är för närvarande tillgängligt på platserna USA, Europa, Asien och stillahavsområdet, Australien, Storbritannien och Japan.
-- Du kan inte använda program mal len **anpassad tillämpning (bakåtkompatibelt)** på platser i Storbritannien och Japan.
-- Enhets kapacitets modeller måste ha alla gränssnitt definierade infogade i samma fil.
-- Stöd för [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) är i för hands version och endast stöds i valda regioner.
 
 ## <a name="personas"></a>Profiler
 
@@ -152,7 +139,7 @@ Administratörer hanterar åtkomst till ditt program med [användar roller och b
 
 Med en IoT-lösning som är utformad för att användas i stor skala är det viktigt med en strukturerad metod för enhets hantering. Det räcker inte bara att ansluta dina enheter till molnet, du måste hålla enheterna anslutna och felfria. En operatör kan använda följande IoT Central funktioner för att hantera dina enheter under hela programmets livs cykel:
 
-### <a name="dashboards"></a>Instrumentpaneler 
+### <a name="dashboards"></a>Instrumentpaneler
 
 Inbyggda [instrument paneler](./howto-set-up-template.md#generate-default-views) ger ett anpassningsbart gränssnitt för övervakning av enhetens hälso tillstånd och telemetri. Börja med en fördefinierad instrument panel i en [Programmall](howto-use-app-templates.md) eller skapa egna instrument paneler som är anpassade efter dina operatörers behov. Du kan dela instrument paneler med alla användare i ditt program eller hålla dem privata.
 
@@ -193,6 +180,18 @@ Bygg IoT-lösningar som:
 ## <a name="quotas"></a>Kvoter
 
 Varje Azure-prenumeration har standard kvoter som kan påverka omfånget för din IoT-lösning. IoT Central begränsar för närvarande antalet program som du kan distribuera i en prenumeration på 10. Kontakta [Microsoft-supporten](https://azure.microsoft.com/support/options/)om du behöver öka den här gränsen.
+
+## <a name="known-issues"></a>Kända problem
+
+- Kontinuerlig data export har inte stöd för Avro-formatet (inkompatibilitet).
+- Interjson stöds inte för närvarande.
+- Kart panelen stöds inte för närvarande.
+- Mat ris schema typer stöds inte.
+- Endast C-enhetens SDK och Node. js-enhet och tjänst-SDK: er stöds.
+- IoT Central är för närvarande tillgängligt på platserna USA, Europa, Asien och stillahavsområdet, Australien, Storbritannien och Japan.
+- Du kan inte använda program mal len **anpassad tillämpning (bakåtkompatibelt)** på platser i Storbritannien och Japan.
+- Enhets kapacitets modeller måste ha alla gränssnitt definierade infogade i samma fil.
+- Stöd för [IoT plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) är i för hands version och endast stöds i valda regioner.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,13 +2,13 @@
 title: Tagga resurser, resurs grupper och prenumerationer för logisk organisation
 description: Visar hur du använder taggar för att organisera Azure-resurser för fakturering och hantering.
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: 2f437682a2ac415ce8478b09a44bff044bd9511b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 9ba7c58f6fa56b8ef2c233a5fe7f8f8e04fe29e1
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255132"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864495"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Använd taggar för att ordna dina Azure-resurser och-hanterings hierarki
 
@@ -591,7 +591,9 @@ Följande begränsningar gäller för taggar:
 * Tagg namn får inte innehålla följande tecken `<`: `>`, `%` `&` `\` `?`,,,,`/`
 
    > [!NOTE]
-   > För närvarande Azure DNS zoner och Traffic Manager-tjänster inte heller att använda blank steg i taggen.
+   > För närvarande är Azure DNS zoner och Traffic Manager-tjänster inte heller att använda blank steg i taggen.
+   >
+   > Azures front dörr stöder inte användning av `#` i taggnamn.
 
 ## <a name="next-steps"></a>Nästa steg
 

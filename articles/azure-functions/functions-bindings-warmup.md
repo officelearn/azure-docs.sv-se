@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: c3ed780bc50b690b2f5c3285024695ec6426b9b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72a6f97f45ec1adaa42d1f17a1916af137845392
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77167317"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559985"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions värme utlösare
 
@@ -240,7 +240,7 @@ Ingen ytterligare information ges till en uppvärmnings-utlöst funktion när de
 ## <a name="trigger---limits"></a>Utlösare – gränser
 
 * Uppvärmnings-utlösaren är endast tillgänglig för appar som körs i [Premium-planen](./functions-premium-plan.md).
-* Uppvärmnings-utlösaren anropas bara under skalnings åtgärder, inte vid omstarter eller andra icke-skalbara starter. Du måste se till att din logik kan läsa in alla nödvändiga beroenden utan att använda uppvärmnings-utlösaren. Enkel inläsning är ett utmärkt mönster för att uppnå detta.
+* Uppvärmnings-utlösaren anropas bara vid skalnings åtgärder, inte under omstarter eller andra icke-skalnings starter. Du måste se till att din logik kan läsa in alla nödvändiga beroenden utan att använda uppvärmnings-utlösaren. Enkel inläsning är ett utmärkt mönster för att uppnå detta.
 * Uppvärmnings-utlösaren kan inte anropas när en instans redan körs.
 * Det får bara finnas en funktion för uppvärmnings-utlösare per Function-app.
 

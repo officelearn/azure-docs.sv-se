@@ -1,23 +1,17 @@
 ---
-title: Registrera data från Azure Data Lake Storage Gen1 i Azure Data Catalog | Microsoft Docs
-description: Registrera data från Azure Data Lake Storage Gen1 i Azure Data Catalog
-services: data-lake-store,data-catalog
-documentationcenter: ''
+title: Integrera Data Lake Storage Gen1 med Azure Data Catalog
+description: Lär dig hur du registrerar data från Azure Data Lake Storage Gen1 i Azure Data Catalog för att göra data synliga i din organisation.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 66191a52c6ef1f3d19afd2a47356487b07e9eff4
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60196612"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692343"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrera data från Azure Data Lake Storage Gen1 i Azure Data Catalog
 I den här artikeln får du lära dig hur du integrerar Azure Data Lake Storage Gen1 med Azure Data Catalog för att göra dina data synliga i en organisation genom att integrera den med Data Catalog. Mer information om att katalogisera data finns i [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). För att förstå scenarier där du kan använda Data Catalog, se [Azure Data Catalog vanliga scenarier](../data-catalog/data-catalog-common-scenarios.md).
@@ -56,7 +50,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 
     b. I rutan **tillgängliga objekt** visas filerna och mapparna under mappen **AmbulanceData** .
 
-    c. Rutan **objekt som ska registreras** visar en lista över de filer och mappar som du vill registrera i Azure Data Catalog.
+    c. Rutan **objekt som ska registreras** visar de filer och mappar som du vill registrera i Azure Data Catalog.
 
     ![Visa data struktur](./media/data-lake-store-with-data-catalog/view-data-structure.png "Visa data struktur")
 1. I den här självstudien bör du registrera alla filer i katalogen. Klicka på knappen (![Flytta objekt](./media/data-lake-store-with-data-catalog/move-objects.png "Flytta objekt")) för att flytta alla filer till **objekt som ska registreras** .

@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du säkerhetskopierar och återstä
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 04/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2866ec860cbc9037aa6b57389b35f17ec71a7c9d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 02ca7f268f2998d3b7d73ab9fc00bbd688b5f50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145468"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582522"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -107,5 +107,5 @@ Använd [restore-Database-](https://docs.microsoft.com/powershell/module/sqlserv
 ## <a name="related-information"></a>Relaterad information
 
 [Azure-lagringskonton](../storage/common/storage-create-storage-account.md)  
-[Hög tillgänglighet](analysis-services-bcdr.md)     
-[Hantera Azure Analysis Services](analysis-services-manage.md)
+[Hög tillgänglighet](analysis-services-bcdr.md)      
+[Vanliga frågor och svar om nätverks anslutning Analysis Services](analysis-services-network-faq.md)

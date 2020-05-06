@@ -7,16 +7,16 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: jushiman
-ms.openlocfilehash: 0e7d61516b0b7fb9bab9aa0444a123ac932aaa56
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 7b84537693b3ffc3f7398c6eb84615a96bf8e7df
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509184"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744688"
 ---
 # <a name="m-series"></a>M-serien
 
-M-serien erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne. Storlekarna på M-serien stöds både på Intel&reg; Xeon&reg; CPU E7-8890 v3 @ 2,50 GHz och på Intel&reg; Xeon&reg; platina 8280M 2.7 GHz (överlappande sjö).
+M-serien erbjuder ett högt antal vCPU (upp till 128 virtuella processorer) och en stor mängd minne (upp till 3,8 TiB). Det är också idealiskt för extremt stora databaser eller andra program som drar nytta av höga vCPU-räkningar och stora mängder minne. Storleken på M-serien stöds både på&reg; Intel Xeon&reg; CPU E7-8890 v3 @ 2,50 GHz och på Intel&reg; Xeon&reg; platina-8280M (överlappande sjö).
 
 Virtuella datorer i M-serien har&reg; Intel Hyper-Threading-teknik.
 

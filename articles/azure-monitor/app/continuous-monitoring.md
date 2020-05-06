@@ -2,13 +2,13 @@
 title: Kontinuerlig övervakning av din DevOps release-pipeline med Azure-pipeline och Azure Application Insights | Microsoft Docs
 description: Innehåller instruktioner för att snabbt konfigurera kontinuerlig övervakning med Application Insights
 ms.topic: conceptual
-ms.date: 07/16/2019
-ms.openlocfilehash: e565101218b975ef2bd29b8a32a4aa1bf4300b6d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 0d47fb1eccdfcfc7b2719825575f06dc85e62452
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655403"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652756"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Lägg till kontinuerlig övervakning i din versions pipeline
 
@@ -51,17 +51,19 @@ I rutan har **Azure App service distribution med kontinuerlig övervakning** fyr
 
 Ändra inställningar för varnings regler:
 
-1. I det vänstra fönstret på sidan Frisläpp pipelines väljer du **konfigurera Application Insights aviseringar**.
+I det vänstra fönstret på sidan Frisläpp pipelines väljer du **konfigurera Application Insights aviseringar**.
 
-1. I fönstret **Azure Monitor aviseringar** väljer du ellipsen **...** bredvid **varnings regler**.
-   
-1. I dialog rutan **aviserings regler** väljer du den nedrullningsbara symbolen bredvid en varnings regel, till exempel **tillgänglighet**. 
-   
-1. Ändra **tröskelvärdet** och andra inställningar så att de uppfyller dina krav.
-   
-   ![Ändra avisering](media/continuous-monitoring/003.png)
-   
-1. Välj **OK**och välj sedan **Spara** längst upp till höger i fönstret Azure-DevOps. Ange en beskrivande kommentar och välj sedan **OK**.
+De fyra standard varnings reglerna skapas via ett infogat skript:
+
+```bash
+$subscription = az account show --query "id";$subscription.Trim("`"");$resource="/subscriptions/$subscription/resourcegroups/"+"$(Parameters.AppInsightsResourceGroupName)"+"/providers/microsoft.insights/components/" + "$(Parameters.ApplicationInsightsResourceName)";
+az monitor metrics alert create -n 'Availability_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg availabilityResults/availabilityPercentage < 99' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'FailedRequests_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count requests/failed > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerResponseTime_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'avg requests/duration > 5' --description "created from Azure DevOps";
+az monitor metrics alert create -n 'ServerExceptions_$(Release.DefinitionName)' -g $(Parameters.AppInsightsResourceGroupName) --scopes $resource --condition 'count exceptions/server > 5' --description "created from Azure DevOps";
+```
+
+Du kan ändra skriptet och lägga till ytterligare varnings regler, ändra aviserings villkoren eller ta bort varnings regler som inte passar för ditt distributions syfte.
 
 ## <a name="add-deployment-conditions"></a>Lägg till distributions villkor
 

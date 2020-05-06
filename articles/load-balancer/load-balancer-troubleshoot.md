@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf9fa48019ab88190175131b27f4a40e29eb5ed0
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76935484"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801730"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
-
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Börja</a></span><span class="has-padding-small">lösa problemet snabbt genom att använda vår virtuella agent för att köra <b>automatiserad diagnostik.</b> </span> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <sub>Privacy Statement</sub> Sekretess <div align="right">policy</div></a></span></p>
 Den här sidan innehåller felsöknings information för grundläggande och vanliga Azure Load Balancer frågor. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
 
 När Load Balancer anslutningen inte är tillgänglig är de vanligaste symptomen följande: 
@@ -124,7 +124,7 @@ Om programmet som finns på den virtuella server delen av en Load Balancer förs
 
 ### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>Orsak 4: komma åt den interna Load Balancer-frontend-filen från den deltagande Load Balancer backend-poolen VM
 
-Om ett internt Load Balancer har kon figurer ATS i ett virtuellt nätverk och en av de virtuella datorerna för en deltagar Server försöker komma åt den interna Load Balancer-frontend, kan fel uppstå när flödet mappas till den ursprungliga virtuella datorn. Det här scenariot stöds inte. Granska [begränsningar](concepts-limitations.md#limitations) för en detaljerad diskussion.
+Om ett internt Load Balancer har kon figurer ATS i ett virtuellt nätverk och en av de virtuella datorerna för en deltagar Server försöker komma åt den interna Load Balancer-frontend, kan fel uppstå när flödet mappas till den ursprungliga virtuella datorn. Det här scenariot stöds inte. Granska [begränsningar](concepts.md#limitations) för en detaljerad diskussion.
 
 **Lösning** Det finns flera sätt att avblockera det här scenariot, inklusive att använda en proxy. Utvärdera Application Gateway eller andra tredjeparts-proxyservrar (till exempel nginx eller haproxy). Mer information om Application Gateway finns i [Översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
 

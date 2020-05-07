@@ -1,0 +1,60 @@
+---
+title: 'Azure Load Balancer SKU: er'
+description: 'Översikt över Azure Load Balancer SKU: er'
+services: load-balancer
+documentationcenter: na
+author: asudbring
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: overview
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 05/01/2020
+ms.author: allensu
+ms.openlocfilehash: c7ca630b4a6a1bedeab21feacc22cd27a1a3ee7e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82794156"
+---
+# <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU: er
+
+Azure Load Balancer har två varianter eller SKU: er.
+
+## <a name="sku-comparison"></a><a name="skus"></a>SKU-jämförelse
+
+Load Balancer stöder både Basic-och standard-SKU: er. Dessa SKU: er skiljer sig åt i scenario skala, funktioner och priser. Alla scenarier som är möjliga med Basic Load Balancer kan skapas med standard Load Balancer.
+
+Du kan jämföra och se skillnaderna i tabellen nedan. Mer information finns i [Översikt över Azure standard Load Balancer](load-balancer-standard-overview.md).
+
+>[!NOTE]
+> Microsoft rekommenderar standard Load Balancer.
+Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsuppsättningar kan bara anslutas till en SKU, aldrig båda. Belastningsutjämnaren och den offentliga IP-adressens SKU måste matcha när du använder dem med offentliga IP-adresser. Belastnings utjämning och offentliga IP-SKU: er är inte föränderligt.
+
+| | Standard Load Balancer | Grundläggande Load Balancer |
+| --- | --- | --- |
+| [Storlek på serverdelspool](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer) | Stöder upp till 1000 instanser. | Har stöd för upp till 300 instanser. |
+| Slutpunkter för serverdelspool | Virtuella datorer eller skalnings uppsättningar för virtuella datorer i ett enda virtuellt nätverk. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
+| [Hälsotillståndsavsökningar](./load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
+| [Beteende hos hälsoavsökning ur funktion](./load-balancer-custom-probe-overview.md#probedown) | TCP-anslutningar är aktiva vid en instans avsökning __och__ i alla avsökningar. | TCP-anslutningar är vilande vid en instans avsökning. Alla TCP-anslutningar avslutas när alla avsökningar är nere. |
+| Tillgänglighetszoner | Zoner-redundanta och zonindelade-frontend-klienter för inkommande och utgående trafik. | Inte tillgängligt |
+| Diagnostik | [Azure Monitor flerdimensionella mått](./load-balancer-standard-diagnostics.md) | [Azure Monitor-loggar](./load-balancer-monitor-log.md) |
+| HA-portar | [Tillgängligt för interna Load Balancer](./load-balancer-ha-ports-overview.md) | Inte tillgängligt |
+| Säker som standard | Stängda för inkommande flöden om det inte tillåts av en nätverks säkerhets grupp. Observera att intern trafik från VNet till den interna belastningsutjämnaren tillåts. | Öppnas som standard. Nätverks säkerhets gruppen är valfri. |
+| Regler för utgående trafik | [Deklarativ utgående NAT-konfiguration](./load-balancer-outbound-rules-overview.md) | Inte tillgängligt |
+| TCP-återställning vid inaktivitet | [Tillgängligt för någon regel](./load-balancer-tcp-reset.md) | Inte tillgängligt |
+| [Flera frontend-sidor](./load-balancer-multivip-overview.md) | Inkommande och [utgående](./load-balancer-outbound-connections.md) | Endast inkommande |
+| Hanteringsåtgärder | De flesta åtgärder < 30 sekunder | 60-90 + sekunders standard |
+| SLA | [99,99 %](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Inte tillgängligt | 
+
+Mer information finns i [gränser för belastnings utjämning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Information om Standard Load Balancer finns i [översikt](load-balancer-standard-overview.md), [prissättning](https://aka.ms/lbpricing) och [serviceantal](https://aka.ms/lbsla).
+
+## <a name="next-steps"></a>Nästa steg
+
+- Se [skapa en offentlig standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en Load Balancer.
+- Lär dig mer om att använda [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
+- Läs mer om [hälso avsökningar](load-balancer-custom-probe-overview.md).
+- Lär dig mer om hur du använder [Load Balancer för utgående anslutningar](load-balancer-outbound-connections.md).
+- Lär dig mer om att [standard Load Balancer med belastnings Utjämnings regler för belastnings utjämning](load-balancer-ha-ports-overview.md).
+- Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md).

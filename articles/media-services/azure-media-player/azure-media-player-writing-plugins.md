@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.openlocfilehash: b7aac80b19a7c30d994f3c14e19047583d5334ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7902dfdf81d8e44921a5218d56effc90f433f02d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727117"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857402"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Skriver plugin-program för Azure Media Player #
 
@@ -87,7 +87,7 @@ För inspiration och fler exempel på hur du skapar ett plugin-program kan du ta
 
 ### <a name="plugin-gallery"></a>Plugin-Galleri ###
 
-[Plugin-galleriet](http//:aka.ms/ampplugins) har flera plugin-program som communityn redan har bidragit med för funktioner som tids linje markörer, zoomning, analyser och mer. Sidan ger till gång till plugin-programmet och instruktioner om hur du konfigurerar det och en demonstration som visar plugin-programmet i praktiken. Om du skapar ett coolbar-plugin-program som du tror ska ingå i vårt galleri kan du skicka det så att vi kan checka ut det.
+[Plugin-galleriet](https://aka.ms/ampplugins) har flera plugin-program som communityn redan har bidragit med för funktioner som tids linje markörer, zoomning, analyser och mer. Sidan ger till gång till plugin-programmet och instruktioner om hur du konfigurerar det och en demonstration som visar plugin-programmet i praktiken. Om du skapar ett coolbar-plugin-program som du tror ska ingå i vårt galleri kan du skicka det så att vi kan checka ut det.
 
 ## <a name="next-steps"></a>Nästa steg ##
 

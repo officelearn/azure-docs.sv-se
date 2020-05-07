@@ -5,19 +5,19 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 3/26/2020
+ms.date: 4/30/2020
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 813baba37684525c336bc34a49e496f54a19288d
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: a60591fb33c8f14a65b406073cf3194fca882d12
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509745"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837387"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Viktig information om Azure Synapse Analytics
 
@@ -31,7 +31,7 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 
 
 > [!NOTE]
-> Produkt namnet som returneras av Välj @@VERSION kommer att ändras från Microsoft Azure SQL Data Warehouse till Azure Synapse Analytics. Vi kommer att skicka ett avancerat meddelande innan ändringen görs. Den här ändringen är relevant för kunder som tolkar produkt namn från resultatet av SELECT@VERSION @ i sin program kod. Om du vill undvika program kod ändringar på grund av produkt anpassning, använder du dessa kommandon för att fråga efter SERVERPROPERTY för databasens produkt namn och version: för att returnera versions nummer XX. X. XXXXX. X (utan produkt namn) Använd det här kommandot:
+> Produkt namnet som returneras genom att välja@VERSION @ ändras från Microsoft Azure SQL Data Warehouse till Microsoft Azure Synapse-analys. Vi kommer att skicka ett avancerat meddelande innan ändringen görs. Den här ändringen är relevant för kunder som tolkar produkt namn från resultatet av SELECT@VERSION @ i sin program kod. Om du vill undvika program kod ändringar på grund av produkt anpassning, använder du dessa kommandon för att fråga efter SERVERPROPERTY för databasens produkt namn och version: för att returnera versions nummer XX. X. XXXXX. X (utan produkt namn) Använd det här kommandot:
 >
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
@@ -48,13 +48,17 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 | Förbättringar av tjänsten | Information |
 | --- | --- |
 |**Kompatibilitetsnivå för databas (för hands version)**| I den här versionen kan användarna nu ange en databas kompatibilitetsnivå för att hämta Transact-SQL-språket och fråga efter bearbetnings beteenden för en specifik version av Synapse SQL-motorn. Mer information finns i [sys. database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) och [ändra databas omfattnings konfiguration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
-|**Sp_describe_undeclared_parameters**| Tillåt användare att se metadata om odeklarerade parametrar i en Transact-SQL-batch. Mer information finns i [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
+|**Sp_describe_undeclared_parameters**| Tillåt användare att se metadata om odeklarerade parametrar i en Transact-SQL-batch. Mer information finns i [sp_describe_undeclared_parameters](/sql/relational-databases/system-stored-procedures/sp-describe-undeclared-parameters-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).| <br/><br/><br/>
+
+| Förbättringar i verktyg                                         | Information                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **[Visual Studio 16,6 Preview 5](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#--visual-studio-2019-version-166-preview-5-) – SQL Server Data Tools (SSDT)** | Den här versionen innehåller följande förbättringar av SSDT: </br> </br> – Identifiering och klassificering av data<br/> – Kopiera instruktion <br/> – Tabeller med unika begränsningar<br/> – Tabeller med ett ordnat grupperat columnstore-index<br/> <br/>Den här versionen innehåller följande korrigeringar för SSDT: </br></br>  – När data typen för distributions kolumnen ändras, kommer uppdaterings skriptet som genereras av SSDT att utföra en CTAS och byta namn i stället för att släppa och återskapa tabellen. </br> |
 
 ## <a name="march-2020"></a>Mars 2020
 
 | Förbättringar i verktyg                                         | Information                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **[Visual Studio 16,6 Preview 2](/visualstudio/releases/2019/release-notes-preview) – SQL Server Data Tools (SSDT)** | Den här versionen innehåller följande förbättringar och korrigeringar för SSDT: </br> </br> – Löst ett problem där en ändring av en tabell som refereras till av en materialiserad vy (MV) gör att Alter View-instruktioner skapas som inte stöds för MVs<br/><br/> – Implementerade en ändring för att se till att jämförelsen av schema inte Miss fungerar när det finns säkerhets objekt på radnivå i databasen eller projektet. Säkerhets objekt på radnivå stöds för närvarande inte för SSDT.  <br/><br/> -Tids gränsen för SQL Server Object Explorer tids gränsen har ökat för att undvika tids gränser vid registrering av ett stort antal objekt i databasen<br/><br/> – Optimerat hur SQL Server Object Explorer hämtar listan över databas objekt för att minska instabiliteten och öka prestanda när du fyller i objekt Utforskaren |
+| **[Visual Studio 16,6 Preview 2](https://docs.microsoft.com/visualstudio/releases/2019/release-notes-preview#whats-new-in-visual-studio-2019) – SQL Server Data Tools (SSDT)** | Den här versionen innehåller följande förbättringar och korrigeringar för SSDT: </br> </br> – Löst ett problem där en ändring av en tabell som refereras till av en materialiserad vy (MV) gör att Alter View-instruktioner skapas som inte stöds för MVs<br/><br/> – Implementerade en ändring för att se till att jämförelsen av schema inte Miss fungerar när det finns säkerhets objekt på radnivå i databasen eller projektet. Säkerhets objekt på radnivå stöds för närvarande inte för SSDT.  <br/><br/> -Tids gränsen för SQL Server Object Explorer tids gränsen har ökat för att undvika tids gränser vid registrering av ett stort antal objekt i databasen<br/><br/> – Optimerat hur SQL Server Object Explorer hämtar listan över databas objekt för att minska instabiliteten och öka prestanda när du fyller i objekt Utforskaren |
 
 ## <a name="january-2020"></a>Januari 2020
 
@@ -141,7 +145,7 @@ För verktygs förbättringar kontrollerar du att rätt version är installerad 
 
 | Dokumentations förbättringar | Information |
 | --- | --- |
-|ingen | |
+|inget | |
 | | |
 
 ## <a name="december-2018"></a>December 2018

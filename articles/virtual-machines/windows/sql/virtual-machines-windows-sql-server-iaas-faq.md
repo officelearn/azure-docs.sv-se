@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 0d6d69b82e80ff9bc33e49302cf59766b9c2e8d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e1f61641eed0584ecb5bb33f1a510c7df6e60e3
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270833"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839087"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor och svar om SQL Server som körs på virtuella Windows-datorer i Azure
 
@@ -52,10 +52,14 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 1. **Är det möjligt att distribuera en äldre avbildning av SQL Server som inte är synlig i Azure Portal?**
 
    Ja, med hjälp av PowerShell. Mer information om hur du distribuerar SQL Server virtuella datorer med hjälp av PowerShell finns i [så här etablerar du SQL Server virtuella datorer med Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+   
+1. **Är det möjligt att skapa en generaliserad Azure SQL Server Marketplace-avbildning av min SQL Server VM och använda den för att distribuera virtuella datorer?**
 
-1. **Hur kan jag generalisera SQL Server på virtuell Azure-dator och använda den för att distribuera nya virtuella datorer?**
+   Ja, men du måste [registrera varje SQL Server VM med SQL Server VM Resource Provider](virtual-machines-windows-sql-register-with-resource-provider.md) för att kunna hantera dina SQL Server VM i portalen, samt använda funktioner som automatisk uppdatering och automatisk säkerhets kopiering. När du registrerar dig hos resurs leverantören måste du också ange licens typen för varje SQL Server VM.
 
-   Du kan distribuera en virtuell Windows Server-dator (utan SQL Server installerad) och använda [SQL Sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) -processen för att generalisera SQL Server på Azure VM (Windows) med installations mediet för SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Marketplace SQL Server VM avbildning som har önskad utgåva.
+1. **Hur gör jag för att generalisera SQL Server på den virtuella Azure-datorn och Använd den för att distribuera nya virtuella datorer?**
+
+   Du kan distribuera en virtuell Windows Server-dator (utan SQL Server installerad) och använda [SQL Sysprep](/sql/database-engine/install-windows/install-sql-server-using-sysprep?view=sql-server-ver15) -processen för att generalisera SQL Server på virtuell Azure-dator (Windows) med installations mediet för SQL Server. Kunder som har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot%3aprimaryr3) kan hämta sina installations medier från [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Kunder som inte har Software Assurance kan använda installations mediet från en Marketplace SQL Server VM avbildning som har önskad utgåva.
 
    Du kan också använda ett av SQL Server bilder som är form på Azure Marketplace för att generalisera SQL Server på Azure VM. Observera att du måste ta bort följande register nyckel i käll avbildningen innan du skapar en egen avbildning. Om du inte gör det kan det leda till att bloating i installations programmet för SQL Server installationen och/eller SQL IaaS-tillägget är i felaktigt tillstånd.
 
@@ -63,7 +67,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
    `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\SysPrepExternal\Specialize`
 
    > [!NOTE]
-   > Vi rekommenderar att alla SQL Server virtuella Azure-datorer, inklusive de som distribueras från anpassade generaliserade avbildningar, [registreras med en provider för SQL VM-förloppet](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) för att uppfylla kraven för efterlevnad och för att använda valfria funktioner som automatiserad uppdatering och automatisk säkerhets kopiering. Du kan också [Ange licens typ](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) för varje SQL Server VM.
+   > SQL Server på virtuella Azure-datorer, inklusive de som distribueras från anpassade generaliserade avbildningar, bör [registreras med den virtuella SQL-resurs leverantören](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-register-with-resource-provider?tabs=azure-cli%2Cbash) för att uppfylla kraven för efterlevnad och för att använda valfria funktioner som automatiserad uppdatering och automatisk säkerhets kopiering. Med resurs leverantören kan du också [Ange licens typ](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-ahb?tabs=azure-portal) för varje SQL Server VM.
 
 1. **Kan jag använda min egen virtuella hård disk för att distribuera ett SQL Server VM?**
 
@@ -92,7 +96,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Kan jag ändra en virtuell till att använda min egen SQL Server-licens om den skapades från en av galleriavbildningarna med betala per användning?**
 
-   Ja. Du kan enkelt byta en PAYG (betala per användning)-Galleri avbildningen (BYOL) genom att aktivera [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Mer information finns i [så här ändrar du licensierings modellen för en SQL Server VM](virtual-machines-windows-sql-ahb.md). Den här funktionen är för närvarande endast tillgänglig för kunder med offentliga moln.
+   Ja. Du kan enkelt byta en PAYG (betala per användning)-Galleri avbildningen (BYOL) genom att aktivera [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Mer information finns i [så här ändrar du licensierings modellen för en SQL Server VM](virtual-machines-windows-sql-ahb.md). Den här funktionen är för närvarande endast tillgänglig för offentliga och Azure Government moln kunder.
 
 1. **Kräver byte av licensieringsmodeller någon avbrottstid för SQL Server?**
 
@@ -154,10 +158,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Är det möjligt att registrera distribuerade SQL Server virtuella datorer med SQL Server VM Resource Provider?**
 
-    Ja. Om du har distribuerat SQL Server från ditt eget medium och installerat SQL IaaS-tillägget kan du registrera dina SQL Server VM med resurs leverantören för att få de hanterings förmåner som ges av tillägget för SQL-IaaS. Du kan dock inte konvertera en självdistribuerad SQL Server VM för att betala per användning.
-
-
-   
+    Ja. Om du har distribuerat SQL Server från ditt eget medium och installerat SQL IaaS-tillägget kan du registrera dina SQL Server VM med resurs leverantören för att få de hanterings förmåner som ges av tillägget för SQL-IaaS.    
 
 
 ## <a name="administration"></a>Administration

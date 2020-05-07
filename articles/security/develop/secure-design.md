@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c9e3cfa689f2e528f4d20e796017ae9d91c29fe2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 533f287693ca8aac76a3233674d95f3f49d4ae22
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461726"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857170"
 ---
 # <a name="design-secure-applications-on-azure"></a>Utforma säkra program på Azure
 I den här artikeln presenterar vi säkerhets aktiviteter och kontroller som du bör tänka på när du utformar program för molnet. Utbildnings resurser tillsammans med säkerhets frågor och koncept som du bör tänka på under krav och design faser i Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) omfattas. Målet är att hjälpa dig att definiera aktiviteter och Azure-tjänster som du kan använda för att utforma ett säkrare program.
@@ -222,11 +222,11 @@ Skulle en program varu utvecklare behöva domän administratörs rättigheter? S
 Se till att ditt program har [minst behörighet](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models#in-applications) över sina åtkomst mönster.
 
 > [!NOTE]
->  Reglerna för minsta behörighet måste gälla för program varan och för de personer som skapar program varan. Programutvecklare kan vara enorma risker för IT-säkerheten om de ges för mycket åtkomst. Konsekvenserna kan vara svåra om en utvecklare har skadlig avsikt eller har fått för mycket åtkomst. Vi rekommenderar att reglerna för minsta behörighet tillämpas för utvecklare under hela utvecklings livs cykeln.
+> Reglerna för minsta behörighet måste gälla för program varan och för de personer som skapar program varan. Programutvecklare kan vara enorma risker för IT-säkerheten om de ges för mycket åtkomst. Konsekvenserna kan vara svåra om en utvecklare har skadlig avsikt eller har fått för mycket åtkomst. Vi rekommenderar att reglerna för minsta behörighet tillämpas för utvecklare under hela utvecklings livs cykeln.
 
 #### <a name="implement-just-in-time-access"></a>Implementera just-in-Time-åtkomst
 
-Implementera JIT-åtkomst ( *just-in-Time* ) för att ytterligare minska exponerings tiden för privilegier. Använd [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity) för att:
+Implementera JIT-åtkomst ( *just-in-Time* ) för att ytterligare minska exponerings tiden för privilegier. Använd [Azure AD Privileged Identity Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-take-control-of-admin-activity) för att:
 
 - Ge användarna de behörigheter de behöver endast för JIT.
 - Tilldela roller för kortare varaktighet med förtroende för att privilegierna återkallas automatiskt.

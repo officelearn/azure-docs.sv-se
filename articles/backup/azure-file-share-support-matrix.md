@@ -3,12 +3,12 @@ title: Support mat ris för säkerhets kopiering av Azure-filresurs
 description: Innehåller en översikt över support inställningar och begränsningar när du säkerhetskopierar Azure-filresurser.
 ms.topic: conceptual
 ms.date: 1/26/2020
-ms.openlocfilehash: 3f154f92d8d094654301bc319003adc22299017b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: b5bfae9454464bc8d11cef3bd346861e13822046
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207997"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838577"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Support mat ris för säkerhets kopiering av Azure-filresurs
 
@@ -18,9 +18,9 @@ Du kan använda [tjänsten Azure Backup](https://docs.microsoft.com/azure/backup
 
 Säkerhets kopiering av Azure-filresurser finns i följande geografiska områden:
 
-| GA-regioner | Regioner som stöds men inte GA                                                      |
+| GA-regioner | Regioner som stöds (som en del av förhands granskningen) men ännu inte GA                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Sydöstra Australien (ASE), Kanada, centrala (CNC), västra centrala USA (WCUS), västra USA 2 (WUS 2), Indien, södra (INS), norra centrala USA (NCUS), Japan, östra (JPE), södra Brasilien (BRS), Asien, sydöstra (SEA), Schweiz, västra (SZW), Förenade Arabemiraten Central (UAC), östra Australien (NVI), västra Australien (INW), Australien, centrala (ACL)                                                  |Östra Australien (AE), Kanada, östra (CE), Asien, östra (EA), östra USA (EUS), östra USA 2 (EUS2), västra Japan (JPW). Indien, centrala (KRC), Korea, södra (KRS), Nord Europa (NE), södra centrala USA (SCUS), Storbritannien, södra (UKS), Storbritannien, västra (UKW), Västeuropa (USA), västra USA (WUS), US gov, Arizona (UGA), US gov, Texas (UGT), (UGV), sydöstra Afrika (San) US gov, Virginia , Förenade Arabemiraten Nord (UAN), Frankrike Central (FRC), Tyskland, norra (GN), Tyskland, västra centrala (GWC), södra Afrika (såg), Norge, västra (NWW), Schweiz, norra (SZN), Central USA (CUS)           |
+| Sydöstra Australien (ASE), Kanada, centrala (CNC), västra centrala USA (WCUS), västra USA 2 (WUS 2), södra Indien (moduler), norra centrala USA (NCUS), Japan, östra (JPE), södra Brasilien (BRS), Asien, sydöstra (SEA), Schweiz, västra (SZW), Förenade Arabemiraten Central (UAC), Norge, östra (NVI), Indien, västra (INW), Australien, centrala (Australien), Korea, centrala (KRC), södra Afrika, norra (JPW) Storbritannien, västra , Korea, södra (KRS), Tyskland, norra (GN), Norge, västra (NWW), södra Afrika, västra (såg), Schweiz, norra (SZN), Tyskland, västra centrala (GWC), Förenade Arabemiraten (UAN), Frankrike Central (FRC), Indien, östra (CNE), Asien, östra (EA), östra Australien (AE), USA, västra (WUS)                                                  |  Östra USA (EUS), östra USA 2 (EUS2), Nord Europa (NE), södra centrala USA (SCUS), Storbritannien, södra (UKS), Västeuropa (USA), US Gov, Arizona (UGA), US Gov, Texas (UGT), US Gov, Virginia (UGV)           |
 
 ## <a name="supported-storage-accounts"></a>Lagringskonton som stöds
 

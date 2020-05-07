@@ -3,12 +3,12 @@ title: Självstudie – Konfigurera nätverk för ditt privata VMWare-moln i Azu
 description: Lär dig att skapa och konfigurera de nätverk som behövs för att distribuera ditt privata moln i Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: e8278eb3ab5e99d330e34fd9739ed2bc49aa7f08
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 41043b98a6e270d8d9f4373de7876b3fcae86747
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740215"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837625"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Självstudie: Konfigurera nätverk för ditt privata VMWare-moln i Azure
 
@@ -24,7 +24,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://rc.portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
@@ -63,12 +63,12 @@ På sidan **Virtual Network Gateway** väljer du **skapa**.
 
 På fliken grundläggande på sidan **Skapa virtuell nätverksgateway** anger du värden för fälten. beskrivningar av fälten visas i följande tabell:
 
-| Field | Värde |
+| Fält | Värde |
 | --- | --- |
 | **Prenumeration** | Värdet är redan ifyllt med den prenumeration som resurs gruppen tillhör. |
 | **Resursgrupp** | Det här värdet är redan ifyllt för den aktuella resurs gruppen. Detta bör vara den resurs grupp som du skapade i ett tidigare test. |
 | **Namn** | Ange ett unikt namn för den virtuella Nätverksgatewayen. |
-| **Region** | Välj den geografiska platsen för den virtuella Nätverksgatewayen. |
+| **Nationella** | Välj den geografiska platsen för den virtuella Nätverksgatewayen. |
 | **Typ av Gateway** | Välj **ExpressRoute**. |
 | **VPN-typ** | Välj **Routningsbaserad**. |
 | **SKU** | Låt standardvärdet vara **standard:** |
@@ -94,7 +94,7 @@ Navigera till Virtual Network gateway som du skapade i föregående steg och vä
 
 På sidan **Lägg till anslutning** anger du värden för fälten. Beskrivningar av fälten visas i följande tabell:
 
-| Field | Värde |
+| Fält | Värde |
 | --- | --- |
 | **Namn**  | Ange ett namn för anslutningen.  |
 | **Anslutnings typ**  | Välj **ExpressRoute**.  |

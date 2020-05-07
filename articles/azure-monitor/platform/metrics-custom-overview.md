@@ -1,5 +1,5 @@
 ---
-title: Anpassade mått i Azure Monitor
+title: Anpassade mått i Azure Monitor (förhands granskning)
 description: Lär dig mer om anpassade mått i Azure Monitor och hur de modelleras.
 author: ancav
 ms.author: ancav
@@ -7,17 +7,20 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4286910c926cd6bd3b21acfd145e4e69548319ce
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204312"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837319"
 ---
-# <a name="custom-metrics-in-azure-monitor"></a>Anpassade mått i Azure Monitor
+# <a name="custom-metrics-in-azure-monitor-preview"></a>Anpassade mått i Azure Monitor (förhands granskning)
 
-När du distribuerar resurser och program i Azure vill du börja samla in telemetri för att få insikter om prestanda och hälsa. Azure gör vissa mått tillgängliga i rutan. Dessa mått kallas [standard eller plattform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). De är dock begränsade. Du kanske vill samla in vissa anpassade prestanda indikatorer eller företagsspecifika mått för att ge djupare insikter.
-Dessa **anpassade** mått kan samlas in via din programtelemetri, en agent som körs på dina Azure-resurser eller till och med ett externt övervaknings system och skickas direkt till Azure Monitor. När de har publicerats till Azure Monitor kan du bläddra i, fråga och avisering om anpassade mått för dina Azure-resurser och-program sida vid sida med de standard mått som genereras av Azure.
+När du distribuerar resurser och program i Azure vill du börja samla in telemetri för att få insikter om prestanda och hälsa. Azure gör vissa mått tillgängliga i rutan. Dessa mått kallas [standard eller plattform](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). De är dock begränsade. 
+
+Du kanske vill samla in vissa anpassade prestanda indikatorer eller företagsspecifika mått för att ge djupare insikter. Dessa **anpassade** mått kan samlas in via din programtelemetri, en agent som körs på dina Azure-resurser eller till och med ett externt övervaknings system och skickas direkt till Azure Monitor. När de har publicerats till Azure Monitor kan du bläddra i, fråga och avisering om anpassade mått för dina Azure-resurser och-program sida vid sida med de standard mått som genereras av Azure.
+
+Azure Monitor anpassade mått är aktuella i offentlig för hands version. 
 
 ## <a name="methods-to-send-custom-metrics"></a>Metoder för att skicka anpassade mått
 
@@ -27,19 +30,15 @@ Anpassade mått kan skickas till Azure Monitor via flera metoder:
 - Installera [InfluxDatain-agenten](collect-custom-metrics-linux-telegraf.md) på din virtuella Azure Linux-dator och skicka mått med hjälp av plugin-programmet för Azure Monitor-utdata.
 - Skicka anpassade mått [direkt till Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md) `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
-## <a name="pricing-model"></a>Prismodell
+## <a name="pricing-model-and-rentention"></a>Pris modell och bevarande
 
-Det kostar inget att mata in standard mått (plattforms mått) i Azure Monitor statistik lager. Anpassade mått som matas in i Azure Monitor Metrics-lagret faktureras per MB med varje anpassad mått-Datapoint som betraktas som 8 byte i storlek. Alla inmatade mått bevaras i 90 dagar.
+På [sidan med Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/) finns information om när faktureringen ska aktive ras för anpassade mått och mått frågor. Det finns vissa pris uppgifter för alla mått, inklusive anpassade mått och mått frågor på den här sidan. Sammanfattnings vis finns det ingen kostnad för att mata in standard mått (plattforms mått) i Azure Monitor statistik lagring, men anpassade mått kommer att ta kostnader när de anger allmän tillgänglighet. Mått för API-frågor kostar.
 
-Mått frågor kommer att debiteras baserat på antalet standard-API-anrop. Ett standard-API-anrop är ett anrop som analyserar 1 440-data punkter (1 440 är även det totala antalet data punkter som kan lagras per mått per dag). Om ett API-anrop analyserar fler än 1 440 data punkter räknas det som flera standard-API-anrop. Om ett API-anrop analyserar färre än 1 440 data punkter räknas det som mindre än ett API-anrop. Antalet standard-API-anrop beräknas varje dag som det totala antalet data punkter som analyseras per dag dividerat med 1 440.
-
-Detaljerad pris information för anpassade mått och måttfrågor finns på [sidan med Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/).
+Anpassade mått bevaras för [samma tid som plattforms måtten](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Mått som skickas till Azure Monitor via Application Insights SDK faktureras som inmatade loggdata och medför ytterligare mått för kostnader endast om Application Insights funktionen [Aktivera avisering för anpassade mått dimensioner](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) har marker ATS. Läs mer om [Application Insights pris modell](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) och [priser i din region](https://azure.microsoft.com/pricing/details/monitor/).
+> Mått som skickas till Azure Monitor via Application Insights SDK faktureras som inmatade logg data. De endast debiteras ytterligare mått endast om Application Insights funktionen [Aktivera avisering för anpassade mått dimensioner](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) har marker ATS. Den här kryss rutan skickar data till Azure Monitor Metrics-databasen med hjälp av anpassade mått-API: et för att tillåta mer komplexa aviseringar.  Läs mer om [Application Insights pris modell](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) och [priser i din region](https://azure.microsoft.com/pricing/details/monitor/).
 
-> [!NOTE]  
-> På [sidan med Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/) finns information om när faktureringen ska aktive ras för anpassade mått och mått frågor. 
 
 ## <a name="how-to-send-custom-metrics"></a>Så här skickar du anpassade mått
 
@@ -231,7 +230,7 @@ En aktiv tids serie definieras som en unik kombination av mått, dimensions nyck
 
 ## <a name="next-steps"></a>Nästa steg
 Använd anpassade mått från olika tjänster: 
- - [Virtuella datorer](collect-custom-metrics-guestos-resource-manager-vm.md)
+ - [Virtual Machines](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Skaluppsättning för virtuella datorer](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure Virtual Machines (klassisk)](collect-custom-metrics-guestos-vm-classic.md)
  - [Virtuell Linux-dator med hjälp av teleympkvistar-agenten](collect-custom-metrics-linux-telegraf.md)

@@ -1,24 +1,24 @@
 ---
-title: Konfigurera leads från ditt Microsoft Commercial Marketplace-erbjudande
-description: Konfigurera kund leads på Microsofts kommersiella marknads plats.
+title: Hantering av leads från Microsofts kommersiella marknads platser
+description: Lär dig mer om att skapa och ta emot kund leads från din Microsoft AppSource och Azure Marketplace-erbjudanden
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 54c67656d7847b44c8fc83b33a4e03be3838cf76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131101"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837336"
 ---
-# <a name="customer-leads-from-your-marketplace-offer"></a>Kundleads från ditt Marketplace-erbjudande
+# <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Kunden får ett erbjudande från ditt kommersiella Marketplace
 
-Leads är kunder som är intresserade av eller distribuerar dina erbjudanden från Microsoft [AppSource](https://appsource.microsoft.com) och [Azure Marketplace](https://azuremarketplace.microsoft.com). Du får kund ledare när ditt erbjudande har publicerats på Marketplace. I den här artikeln beskrivs:
+Leads är kunder som är intresserade av eller distribuerar dina erbjudanden från [Microsoft AppSource](https://appsource.microsoft.com) och [Azure Marketplace](https://azuremarketplace.microsoft.com). Du kan ta emot kund leads när ditt erbjudande har publicerats till den kommersiella marknads platsen. I den här artikeln förklaras följande koncept för lead-hantering:
 
-* Hur ditt Marketplace-erbjudande genererar kund ledare för att se till att du inte får affärs möjligheter. 
+* Hur ditt kommersiella Marketplace-erbjudande genererar kund leads för att se till att du inte kan missa affärs möjligheter. 
 * Så här ansluter du ditt CRM-system (Customer Relations hip Management) till ditt erbjudande så att du kan hantera dina leads på en central plats.
 * Lead-data vi skickar dig så att du kan följa upp kunder som har nått dig.
 
@@ -92,7 +92,7 @@ Kundens information skickas via flera fält. I följande exempel visas kund info
 - **Uppföljning**: Glöm inte att följa upp. Vänta en typisk transaktion för att kräva 5 till 12 uppföljnings anrop.
 - **Nurture**: Nurture dina leads för att få dig på väg till en högre vinst marginal.
 
-## <a name="leads-frequently-asked-questions"></a>Vanliga frågor och svar om leads
+## <a name="common-questions-about-lead-management"></a>Vanliga frågor om ledar hantering
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Var kan jag få hjälp med att ställa in mitt lead-mål?
 
@@ -133,7 +133,7 @@ Azure Blob Storage stöds inte längre som ett lead-mål, så du saknar kund led
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Jag har fått ett e-postmeddelande från den kommersiella marknads platsen, men varför kan jag inte hitta något lead i min CRM?
 
-Det är möjligt att slutanvändarens e-postdomän är från. edu. Av säkerhets skäl skickar vi inte personligt identifierbar information från. edu-domänen. Skicka in ett support ärende via [Hjälp och support för partner Center](https://partner.microsoft.com/support/v2/?stage=1).
+Det är möjligt att slutanvändarens e-postdomän är från. edu. Av säkerhets skäl skickar vi inte personlig information från. edu-domänen. Skicka in ett support ärende via [Hjälp och support för partner Center](https://partner.microsoft.com/support/v2/?stage=1).
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Jag har konfigurerat en Azure-tabell som mitt lead-mål. Hur kan jag Visa leads?
 
@@ -149,7 +149,7 @@ Kontrol lera om webb-till-lead-formuläret är ett obligatoriskt fält baserat p
 
 ### <a name="there-was-an-issue-with-my-lead-destination-and-i-missed-some-leads-can-i-have-them-sent-to-me-in-an-email"></a>Det uppstod ett problem med mitt lead-mål och jag missade några leads. Kan jag skicka dem till mig i ett e-postmeddelande?
 
-På grund av personligt identifierbara informations principer kan vi inte dela ledar information via oskyddad e-post.
+På grund av personliga informations principer kan vi inte dela information om leads via oskyddad e-post.
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-much-will-it-cost"></a>Jag har konfigurerat en Azure-tabell som mitt lead-mål. Hur mycket kostar det?
 

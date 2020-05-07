@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 5414a70180a82be8253dace7d800c90c1ae6a9bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50ce0d57ec7395c69bf65e41b67f0cb005a43cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276080"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854975"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -61,7 +61,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Skicka telemetri till Azure Portal
 
-Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Exempel på dessa är:
+Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal telemetridata som är användbara för att fastställa hälso tillståndet för ditt program och den underliggande användar upplevelsen. Dessa omfattar:
 
 - Ej **fångade undantag** i appen, inklusive information om
     - Stack spårning
@@ -76,7 +76,7 @@ Som standard samlar Application Insights JavaScript SDK automatiskt in ett antal
     - ID (om det finns) för användaren som gör begäran
     - Korrelations kontext (om det finns någon) där begäran görs
 - **Användar information** (till exempel plats, nätverk, IP)
-- **Enhets information** (till exempel webbläsare, OS, version, språk, upplösning, modell)
+- **Enhets information** (till exempel webbläsare, OS, version, språk, modell)
 - **Sessionsinformation**
 
 ### <a name="telemetry-initializers"></a>Telemetri-initierare
@@ -145,7 +145,14 @@ De flesta konfigurations fälten får ett namn som är förfalskade som standard
 
 Som standard hanterar **inte** denna SDK tillstånds väg ändringar som inträffar i program med en enda sida. Om du vill aktivera automatisk väg ändrings spårning för ditt program på en sida `enableAutoRouteTracking: true` kan du lägga till i konfigurations konfigurationen.
 
-För närvarande erbjuder vi ett separat [reakta plugin-program](#react-extensions) som du kan initiera med SDK: n. Den utför även spårning av ändringar i flödet, samt att samla in [andra reagera på en speciell telemetri](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+För närvarande erbjuder vi ett separat [reagerar-plugin-program](#react-extensions)som du kan initiera med det här SDK: t. Den utför även spårning av ändringar i flödet, samt att samla in [andra reagera på en speciell telemetri](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
+
+> [!NOTE]
+> Använd `enableAutoRouteTracking: true` endast om du **inte** använder den reagera plugin-programmet. Båda kan skicka nya PageViews när vägen ändras. Om båda är aktiverade kan duplicerade PageViews skickas.
+
+## <a name="configuration-autotrackpagevisittime"></a>Konfiguration: autoTrackPageVisitTime
+
+Genom att `autoTrackPageVisitTime: true`ställa in den tid som en användare lägger på varje sida spåras. På varje ny sid visningar skickas varaktigheten som användaren har använt på *föregående* sida som ett [anpassat mått](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) med namnet `PageVisitTime`. Det här anpassade måttet visas i [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) som ett "log-baserat mått".
 
 ## <a name="react-extensions"></a>Reagera på tillägg
 

@@ -13,19 +13,19 @@ ms.date: 04/17/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: f4138c4ae24ae599d4058c9fd06c33b69657fe38
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e66cd6a05a7c616b22eefffdd9d132aa0f4d36d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680075"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853979"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara livstider för token i Azure Active Directory (för hands version)
 
 Du kan ange livslängd för ett token som utfärdas av Azure Active Directory (Azure AD). Du kan ange token-livslängd för alla program i din organisation, för ett program med flera klientorganisationer eller för en specifik huvudtjänst i organisationen.
 
 > [!IMPORTANT]
-> Efter att ha hört från kunder under för hands versionen har vi implementerat [hanterings funktioner för autentisering](https://go.microsoft.com/fwlink/?linkid=2083106) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens. Efter den 1 maj 2020 kommer du inte att kunna använda konfigurerings bara livs längds princip för token för att konfigurera sessioner och uppdatera tokens. Du kan fortfarande konfigurera livstid för åtkomsttoken efter utfasningen.
+> Efter att ha hört från kunder under för hands versionen har vi implementerat [hanterings funktioner för autentisering](https://go.microsoft.com/fwlink/?linkid=2083106) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens. Efter den 30 maj 2020 kommer ingen ny klient att kunna använda konfigurerings bara livs längds princip för token för att konfigurera sessioner och uppdatera tokens. Utfasningen sker inom flera månader efter det, vilket innebär att vi slutar att respektera befintliga sessioner för session och uppdatering av token. Du kan fortfarande konfigurera livstid för åtkomsttoken efter utfasningen.
 
 I Azure AD representerar ett princip objekt en uppsättning regler som tillämpas på enskilda program eller på alla program i en organisation. Varje princip typ har en unik struktur med en uppsättning egenskaper som tillämpas på objekt som de är tilldelade till.
 

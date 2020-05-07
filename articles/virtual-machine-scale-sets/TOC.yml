@@ -63,6 +63,9 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Azure Resource Manager
@@ -81,6 +84,8 @@
           href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Hantera feldomäner i skalningsuppsättningar
           href: virtual-machine-scale-sets-manage-fault-domains.md
+    - name: Avbildningar
+      href: shared-image-galleries.md
     - name: VM-typer och storlekar
       href: ../virtual-machines/windows/sizes.md
       maintainContext: true
@@ -184,6 +189,51 @@
           href: virtual-machine-scale-sets-design-overview.md
         - name: 'Förstå instans-ID: n'
           href: virtual-machine-scale-sets-instance-ids.md
+    - name: Använda avbildningar
+      displayName: 'SIG, AMI, image'
+      items:
+        - name: Shared Image Galleries
+          items:
+            - name: PowerShell
+              items:
+                - name: Skapa ett galleri
+                  href: ../virtual-machines/shared-images-powershell.md
+                - name: Skapa en avbildning
+                  items:
+                    - name: Från en virtuell dator
+                      href: ../virtual-machines/image-version-vm-powershell.md
+                    - name: Migrera från en hanterad avbildning
+                      href: ../virtual-machines/image-version-managed-image-powershell.md
+                    - name: Kopiera från ett annat galleri
+                      href: ../virtual-machines/image-version-another-gallery-powershell.md
+                - name: Skapa en skalningsuppsättning
+                  items:
+                    - name: Specialiserade
+                      href: instance-specialized-image-version-powershell.md
+                    - name: Generaliserade
+                      href: instance-generalized-image-version-powershell.md
+                - name: Uppdatera avbildningsresurser
+                  href: ../virtual-machines/update-image-resources-powershell.md
+            - name: CLI
+              items:
+                - name: Skapa ett galleri
+                  href: ../virtual-machines/shared-images-cli.md
+                - name: Skapa en avbildning
+                  items:
+                    - name: Från en virtuell dator
+                      href: ../virtual-machines/image-version-vm-cli.md
+                    - name: Migrera från en hanterad avbildning
+                      href: ../virtual-machines/image-version-managed-image-cli.md
+                    - name: Kopiera från ett annat galleri
+                      href: ../virtual-machines/image-version-another-gallery-cli.md
+                - name: Skapa en skalningsuppsättning
+                  items:
+                    - name: Specialiserade
+                      href: instance-specialized-image-version-cli.md
+                    - name: Generaliserade
+                      href: instance-generalized-image-version-cli.md
+                - name: Uppdatera avbildningsresurser
+                  href: ../virtual-machines/update-image-resources-cli.md
     - name: Skapa en mall
       items:
         - name: Läs mer om skalningsuppsättningsmallar

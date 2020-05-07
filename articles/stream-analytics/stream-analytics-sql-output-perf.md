@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: f68f973882af28d80b3a27bc4591c5ee932404a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443608"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839121"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics utdata till Azure SQL Database
 
@@ -24,7 +24,7 @@ Här följer några konfigurationer i varje tjänst som kan hjälpa till att fö
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-- **Ärv partitionering** – det här alternativet för konfiguration av SQL-utdata gör att du kan ärva partitionerings schemat i föregående fråge steg eller indata. Med den här inställningen aktive rad, skriver du till en disk-baserad tabell och har en [helt parallell](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topologi för ditt jobb, vilket förväntar dig att se bättre data flöden. Den här partitionen sker redan automatiskt för många andra [utdata](stream-analytics-parallelization.md#partitions-in-sources-and-sinks). Tabell låsning (TABLOCK) är också inaktiverat för Mass infogningar som görs med det här alternativet.
+- **Ärv partitionering** – det här alternativet för konfiguration av SQL-utdata gör att du kan ärva partitionerings schemat i föregående fråge steg eller indata. Med den här inställningen aktive rad, skriver du till en disk-baserad tabell och har en [helt parallell](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topologi för ditt jobb, vilket förväntar dig att se bättre data flöden. Den här partitionen sker redan automatiskt för många andra [utdata](stream-analytics-parallelization.md#partitions-in-inputs-and-outputs). Tabell låsning (TABLOCK) är också inaktiverat för Mass infogningar som görs med det här alternativet.
 
 > [!NOTE] 
 > Om det finns fler än 8 inpartitioner är det inte säkert att du väljer att ärva schemat för inpartitionering. Den övre gränsen har observerats i en tabell med en enda identitets kolumn och ett grupperat index. I det här fallet kan du använda [till](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 i frågan för att uttryckligen ange antalet utgående skrivare. Dina observationer kan variera beroende på schemat och valet av index.

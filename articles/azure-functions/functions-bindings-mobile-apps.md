@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 952a94797e01a3931fdd151461250af0c2590c11
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f16f2ef077a1fc3c82075aaf7b7685f941d0a31
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76120549"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559587"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps bindningar för Azure Functions 
 
@@ -50,17 +50,17 @@ Här är bindnings data i *Function. JSON* -filen:
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
         "name": "record",
         "type": "mobileTable",
         "tableName": "MyTable",
-        "id" : "{queueTrigger}",
+        "id": "{queueTrigger}",
         "connection": "My_MobileApp_Url",
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
@@ -95,17 +95,17 @@ Här är bindnings data i *Function. JSON* -filen:
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
         "name": "record",
         "type": "mobileTable",
         "tableName": "MyTable",
-        "id" : "{queueTrigger}",
+        "id": "{queueTrigger}",
         "connection": "My_MobileApp_Url",
         "apiKey": "My_MobileApp_Key",
         "direction": "in"
@@ -136,9 +136,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-| **bastyp**| Saknas | Måste anges till "mobileTable"|
-| **riktning**| Saknas |Måste anges till "i"|
-| **Namn**| Saknas | Namnet på Indataparametern i Function-signaturen.|
+| **bastyp**| saknas | Måste anges till "mobileTable"|
+| **position**| saknas |Måste anges till "i"|
+| **Namn**| saknas | Namnet på Indataparametern i Function-signaturen.|
 |**tableName** |**TableName**|Namn på den mobila appens data tabell|
 | **identitet**| **Identitet** | Identifieraren för den post som ska hämtas. Kan vara statisk eller baserad på den utlösare som anropar funktionen. Om du till exempel använder en Queue-utlösare för din funktion `"id": "{queueTrigger}"` använder det strängvärdet i Queue-meddelandet som post-ID för hämtning.|
 |**anslutningen**|**Anslutning**|Namnet på en app-inställning som har appens URL för mobilapp. Funktionen använder denna URL för att skapa nödvändiga REST-åtgärder mot mobilappen. Skapa en app-inställning i din Function-app som innehåller webbappens URL och ange sedan namnet på appens inställning i `connection` egenskapen i den angivna bindningen. URL: en ser `http://<appname>.azurewebsites.net`ut som.
@@ -194,19 +194,19 @@ Här är bindnings data i *Function. JSON* -filen:
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
-    "name": "record",
-    "type": "mobileTable",
-    "tableName": "MyTable",
-    "connection": "My_MobileApp_Url",
-    "apiKey": "My_MobileApp_Key",
-    "direction": "out"
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "out"
     }
 ]
 }
@@ -235,19 +235,19 @@ Här är bindnings data i *Function. JSON* -filen:
 {
 "bindings": [
     {
-    "name": "myQueueItem",
-    "queueName": "myqueue-items",
-    "connection":"",
-    "type": "queueTrigger",
-    "direction": "in"
+        "name": "myQueueItem",
+        "queueName": "myqueue-items",
+        "connection": "",
+        "type": "queueTrigger",
+        "direction": "in"
     },
     {
-    "name": "record",
-    "type": "mobileTable",
-    "tableName": "MyTable",
-    "connection": "My_MobileApp_Url",
-    "apiKey": "My_MobileApp_Key",
-    "direction": "out"
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
+        "direction": "out"
     }
 ],
 "disabled": false
@@ -294,9 +294,9 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-| **bastyp**| Saknas | Måste anges till "mobileTable"|
-| **riktning**| Saknas |Måste anges till "out"|
-| **Namn**| Saknas | Namnet på Utdataparametern i Function Signature.|
+| **bastyp**| saknas | Måste anges till "mobileTable"|
+| **position**| saknas |Måste anges till "out"|
+| **Namn**| saknas | Namnet på Utdataparametern i Function Signature.|
 |**tableName** |**TableName**|Namn på den mobila appens data tabell|
 |**anslutningen**|**MobileAppUriSetting**|Namnet på en app-inställning som har appens URL för mobilapp. Funktionen använder denna URL för att skapa nödvändiga REST-åtgärder mot mobilappen. Skapa en app-inställning i din Function-app som innehåller webbappens URL och ange sedan namnet på appens inställning i `connection` egenskapen i den angivna bindningen. URL: en ser `http://<appname>.azurewebsites.net`ut som.
 |**apiKey**|**ApiKeySetting**|Namnet på en app-inställning som har din Mobilapps API-nyckel. Ange API-nyckeln om du [implementerar en API-nyckel i Node. js-appen för mobilapp](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)eller [implementerar en API-nyckel i Server delen för .net-mobilappar](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). För att tillhandahålla nyckeln skapar du en app-inställning i din Function-app som innehåller API-nyckeln och lägger `apiKey` sedan till egenskapen i din databindning med namnet på appens inställning. |

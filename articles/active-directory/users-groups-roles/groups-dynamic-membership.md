@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/27/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f8237ac13744e56baa8551f8cced12b2785a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114728"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582896"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -31,7 +31,7 @@ När alla attribut för en användare eller enhet ändras, utvärderar systemet 
 - Du kan inte skapa en enhets grupp baserat på enhetens ägares attribut. Enhets medlemskaps regler kan bara referera till enhetens attribut.
 
 > [!NOTE]
-> Den här funktionen kräver en Azure AD Premium P1-licens för varje unik användare som är medlem i en eller flera dynamiska grupper. Du behöver inte tilldela licenser till användare för att de ska vara medlemmar i dynamiska grupper, men du måste ha det minsta antalet licenser i klient organisationen för att kunna omfatta alla sådana användare. Om du till exempel har totalt 1 000 unika användare i alla dynamiska grupper i din klient organisation, behöver du minst 1 000 licenser för Azure AD Premium P1 för att uppfylla licens kravet.
+> Den här funktionen kräver en Azure AD Premium P1-licens för varje unik användare som är medlem i en eller flera dynamiska grupper. Du behöver inte tilldela licenser till användare för att de ska vara medlemmar i dynamiska grupper, men du måste ha det minsta antalet licenser i Azure AD-organisationen för att omfatta alla sådana användare. Om du till exempel har totalt 1 000 unika användare i alla dynamiska grupper i din organisation, behöver du minst 1 000 licenser för Azure AD Premium P1 för att uppfylla licens kravet.
 > Ingen licens krävs för enheter som är medlemmar i en dynamisk enhets grupp.
 
 ## <a name="rule-builder-in-the-azure-portal"></a>Regel verktyg i Azure Portal
@@ -310,20 +310,20 @@ Direct Reports for "62e19b97-8b3d-4d4a-a106-4ce66896a863"
 Följande tips kan hjälpa dig att använda regeln korrekt.
 
 - **Chefs-ID** : t är objekt-ID: t för chefen. Du hittar den i chefens **profil**.
-- För att regeln ska fungera kontrollerar du att egenskapen **Manager** är korrekt inställd för användare i din klient organisation. Du kan kontrol lera det aktuella värdet i användarens **profil**.
+- För att regeln ska fungera måste du se till att egenskapen **chef** är korrekt inställd för användare i din organisation. Du kan kontrol lera det aktuella värdet i användarens **profil**.
 - Den här regeln stöder endast chefens direkt rapporter. Med andra ord kan du inte skapa en grupp med chefens direkt rapporter *och* deras rapporter.
 - Den här regeln kan inte kombineras med andra medlemskaps regler.
 
 ### <a name="create-an-all-users-rule"></a>Skapa en regel för alla användare
 
-Du kan skapa en grupp som innehåller alla användare i en klient som använder en medlemskaps regel. När användare läggs till eller tas bort från klienten i framtiden, justeras gruppens medlemskap automatiskt.
+Du kan skapa en grupp som innehåller alla användare i en organisation som använder en medlemskaps regel. När användare läggs till eller tas bort från organisationen i framtiden justeras gruppens medlemskap automatiskt.
 
 Regeln "alla användare" är konstruerad med ett enda uttryck med operatorn-Ne och värdet null. Den här regeln lägger till B2B-gäst användare samt medlems användare i gruppen.
 
 ```
 user.objectId -ne null
 ```
-Om du vill att din grupp ska undanta gäst användare och bara inkludera medlemmar i din klient organisation kan du använda följande syntax:
+Om du vill att din grupp ska undanta gäst användare och bara inkludera medlemmar i din organisation kan du använda följande syntax:
 
 ```
 (user.objectId -ne null) -and (user.userType -eq "Member")
@@ -331,7 +331,7 @@ Om du vill att din grupp ska undanta gäst användare och bara inkludera medlemm
 
 ### <a name="create-an-all-devices-rule"></a>Skapa en regel för alla enheter
 
-Du kan skapa en grupp som innehåller alla enheter i en klient som använder en medlemskaps regel. När enheter läggs till eller tas bort från klienten i framtiden, justeras gruppens medlemskap automatiskt.
+Du kan skapa en grupp som innehåller alla enheter i en organisation som använder en medlemskaps regel. När enheter läggs till eller tas bort från organisationen i framtiden, justeras gruppens medlemskap automatiskt.
 
 Regeln "alla enheter" är konstruerad med ett enda uttryck med operatorn-Ne och värdet null:
 

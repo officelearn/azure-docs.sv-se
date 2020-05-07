@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141e83e21db18f21468113fd9927c2bdd2ed176d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9018228ec685d69fb03dfbc23de530e1bb8abb4f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79497874"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582858"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Framtvinga en namngivnings princip på Office 365-grupper i Azure Active Directory
 
-Om du vill använda konsekventa namngivnings konventioner för Office 365-grupper som skapats eller redigerats av dina användare, skapar du en grupp namngivnings princip för dina klienter i Azure Active Directory (Azure AD). Du kan till exempel använda namngivnings principen för att kommunicera funktionen i en grupp, medlemskap, geografisk region eller vem som skapade gruppen. Du kan också använda namngivnings principen för att hjälpa att kategorisera grupper i adress boken. Du kan använda principen för att blockera vissa ord från att användas i grupp namn och alias.
+Om du vill använda konsekventa namngivnings konventioner för Office 365-grupper som skapats eller redigerats av dina användare skapar du en grupp namngivnings princip för dina organisationer i Azure Active Directory (Azure AD). Du kan till exempel använda namngivnings principen för att kommunicera funktionen i en grupp, medlemskap, geografisk region eller vem som skapade gruppen. Du kan också använda namngivnings principen för att hjälpa att kategorisera grupper i adress boken. Du kan använda principen för att blockera vissa ord från att användas i grupp namn och alias.
 
 > [!IMPORTANT]
 > Med hjälp av Azure AD Naming-principen för Office 365-grupper måste du ha men inte nödvändigt vis tilldela en licens för Azure Active Directory Premium P1 eller Azure AD Basic EDU-licens för varje unik användare som är medlem i en eller flera Office 365-grupper.
@@ -42,7 +42,7 @@ Du kan tillämpa namngivnings princip för grupper på två olika sätt:
 
 ### <a name="prefix-suffix-naming-policy"></a>Prefix-namngivnings princip för suffix
 
-Den allmänna strukturen i namngivnings konventionen är prefix [GroupName] suffix. Du kan definiera flera prefix och suffix, men du kan bara ha en instans av [GroupName] i inställningen. Prefixen eller suffixen kan vara antingen fasta strängar eller användarattribut, till exempel \[avdelning\] som ersätts av den användare som skapar gruppen. Det totala antalet tecken som tillåts för prefix-och suffix-strängar i kombination är 53 tecken. 
+Den allmänna strukturen i namngivnings konventionen är prefix [GroupName] suffix. Du kan definiera flera prefix och suffix, men du kan bara ha en instans av [GroupName] i inställningen. Prefixen eller suffixen kan vara antingen fasta strängar eller användarattribut, till exempel \[avdelning\] som ersätts av den användare som skapar gruppen. Det totala antalet tecken som tillåts för prefix-och suffix-strängar, inklusive grupp namn är 53 tecken. 
 
 Prefix och suffix kan innehålla specialtecken som stöds i grupp namn och grupp Ali Aset. Alla tecken i prefixet eller suffixet som inte stöds i grupp Ali Aset används fortfarande i grupp namnet, men tas bort från grupp Ali Aset. På grund av den här begränsningen kan prefix och suffix som tillämpas på grupp namnet skilja sig från de som tillämpas på grupp Ali Aset. 
 
@@ -69,7 +69,7 @@ Blockerade ord List regler:
 
 ### <a name="roles-and-permissions"></a>Roller och behörigheter
 
-En av följande roller krävs för att konfigurera namngivnings principen:
+Om du vill konfigurera en namngivnings princip krävs en av följande roller:
 - Global administratör
 - Grupp administratör
 - Användar administratör
@@ -138,7 +138,7 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
 
    På sidan **Logga in på ditt konto** som öppnas anger du ditt administratörskonto och lösenord för att ansluta till tjänsten, och väljer **Logga in**.
 
-1. Följ stegen i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](groups-settings-cmdlets.md) för att skapa gruppinställningar för den här klientorganisationen.
+1. Följ stegen i [Azure Active Directory-cmdletar för att konfigurera grupp inställningar](groups-settings-cmdlets.md) för att skapa grupp inställningar för den här organisationen.
 
 ### <a name="view-the-current-settings"></a>Visa de aktuella inställningarna
 

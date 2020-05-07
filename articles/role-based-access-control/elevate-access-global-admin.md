@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 18490ec7c3cfde33cef186b753e2adc809f854c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6821e3de3bfec891d98e9291a479cbb7537364ca
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641356"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733675"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Utöka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper
 
@@ -47,7 +47,7 @@ Du bör ta bort den här utökade åtkomsten när du har gjort ändringarna som 
 
 ![Upphöj åtkomst](./media/elevate-access-global-admin/elevate-access.png)
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure-portalen
 
 ### <a name="elevate-access-for-a-global-administrator"></a>Utöka åtkomsten för en global administratör
 
@@ -84,7 +84,7 @@ Följ de här stegen för att öka åtkomsten för en global administratör med 
 
 1. Gör de ändringar du behöver för att göra den utökade åtkomsten.
 
-    Information om hur du tilldelar roller finns i [Hantera åtkomst med RBAC och Azure Portal](role-assignments-portal.md). Om du använder Azure AD Privileged Identity Management (PIM) kan du läsa [identifiera Azure-resurser som ska hanteras i PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) eller [tilldela Azure-resurs roller i PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+    Information om hur du tilldelar roller finns i [lägga till eller ta bort Azure roll tilldelningar med hjälp av Azure Portal](role-assignments-portal.md). Om du använder Azure AD Privileged Identity Management (PIM) kan du läsa [identifiera Azure-resurser som ska hanteras i PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) eller [tilldela Azure-resurs roller i PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 
 ### <a name="remove-elevated-access"></a>Ta bort utökad åtkomst
 
@@ -321,5 +321,5 @@ När du anropar `elevateAccess`skapar du en roll tilldelning för dig själv, s�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå de olika rollerna i Azure](rbac-and-directory-admin-roles.md)
-- [Hantera åtkomst till Azure-resurser med RBAC och REST API](role-assignments-rest.md)
+- [Förstå de olika rollerna](rbac-and-directory-admin-roles.md)
+- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API](role-assignments-rest.md)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd41e79a1e08c57e806f6ada32faccfa5fdf5792
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c5643b0ce9d93c28372b30e6fc114816cafbce6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295287"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690477"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Vad är läget endast i rapporten för villkorlig åtkomst?
 
@@ -26,7 +26,7 @@ Endast rapport läge är ett nytt tillstånd för villkorlig åtkomst som gör a
 
 - Principer för villkorlig åtkomst kan aktive ras i endast rapport läge.
 - Under inloggningen utvärderas principer i endast rapport läge men tillämpas inte.
-- Resultaten loggas i flikarna **villkorlig åtkomst** och **endast rapporter (för hands version)** i inloggnings logg informationen.
+- Resultaten loggas i flikarna **villkorlig åtkomst** och **endast rapporter** i inloggnings loggen.
 - Kunder med en Azure Monitor prenumeration kan övervaka påverkan av sina principer för villkorlig åtkomst med hjälp av arbets boken för villkorlig åtkomst.
 
 > [!WARNING]

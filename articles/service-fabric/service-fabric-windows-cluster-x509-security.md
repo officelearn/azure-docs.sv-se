@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 5a18f957dfb7143f403d5ac30ea184023021f12c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cf7d418d8bca8f690acf29ba701fdc54ced1ca6c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75613932"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562006"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows med hjälp av X. 509-certifikat
 Den här artikeln beskriver hur du skyddar kommunikationen mellan de olika noderna i det fristående Windows-klustret. Det beskriver också hur du autentiserar klienter som ansluter till det här klustret med hjälp av X. 509-certifikat. Autentisering garanterar att endast behöriga användare kan komma åt klustret och distribuerade program och utföra hanterings uppgifter. Certifikat säkerhet ska vara aktiverat på klustret när klustret skapas.  
@@ -309,7 +309,7 @@ När du har certifikat kan du installera dem på klusternoderna. Dina noder mås
     $cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object -FilterScript { $PSItem.ThumbPrint -eq $pfxThumbPrint; }
    
     # Specify the user, the permissions, and the permission type
-    $permission = "$($serviceAccount)","FullControl","Allow"
+    $permission = "$($serviceAccount)","FullControl","Allow" # "NT AUTHORITY\NetworkService" is the service account
     $accessRule = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $permission
    
     # Location of the machine-related keys
@@ -338,7 +338,7 @@ När du har konfigurerat säkerhets avsnittet i filen ClusterConfig. X509. Multi
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-När du har konfigurerat det fristående fristående Windows-klustret och har konfigurerat de autentiserade klienterna för att ansluta till den, följer du stegen i avsnittet [Anslut till ett kluster med hjälp av PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) för att ansluta till den. Ett exempel:
+När du har konfigurerat det fristående fristående Windows-klustret och har konfigurerat de autentiserade klienterna för att ansluta till den, följer du stegen i avsnittet [Anslut till ett kluster med hjälp av PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) för att ansluta till den. Exempel:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }

@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: edb34b1456efae4d06465cfa2e64e546f621c6da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbef0244f30a7cf14f8fea4c6a445cf0de662dc4
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681226"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82737903"
 ---
 # <a name="create-diagnostic-setting-to-collect-resource-logs-and-metrics-in-azure"></a>Skapa en diagnostisk inställning för att samla in resurs loggar och mått i Azure
 
@@ -31,7 +31,13 @@ Varje Azure-resurs kräver en egen diagnostisk inställning som definierar följ
 En enda diagnostisk inställning kan definiera högst en av varje mål. Om du vill skicka data till fler än en av en viss typ av mål (till exempel två olika Log Analytics-arbetsytor) skapar du flera inställningar. Varje resurs kan ha upp till fem diagnostiska inställningar.
 
 > [!NOTE]
-> [Plattforms mått](metrics-supported.md) samlas in automatiskt för att [Azure Monitor mått](data-platform-metrics.md). Diagnostiska inställningar kan användas för att samla in mått för vissa Azure-tjänster i Azure Monitor loggar för analys med andra övervaknings data med hjälp av [logg frågor](../log-query/log-query-overview.md).
+> [Plattforms mått](metrics-supported.md) samlas in automatiskt för att [Azure Monitor mått](data-platform-metrics.md). Diagnostiska inställningar kan användas för att samla in mått för vissa Azure-tjänster i Azure Monitor loggar för analys med andra övervaknings data med hjälp av [logg frågor](../log-query/log-query-overview.md) med vissa begränsningar. 
+>  
+>  
+> Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden. *Exempel*: måttet ' IOReadBytes ' på en blockchain kan utforskas och ritas på en nivå per nod. Men när det exporteras via diagnostiska inställningar representerar det exporterade måttet som alla lästa byte för alla noder. Till följd av interna begränsningar kan inte alla mått exporteras till Azure Monitor loggar/Log Analytics. Mer information finns i [listan över exporterade mått](metrics-supported-export-diagnostic-settings.md). 
+>  
+>  
+> För att komma runt de här begränsningarna för vissa mått rekommenderar vi att du extraherar dem manuellt med hjälp av [måtten REST API](https://docs.microsoft.com/rest/api/monitor/metrics/list) och importerar dem till Azure Monitor loggar med hjälp av [Azure Monitor data insamlings-API](data-collector-api.md).  
 
 ## <a name="destinations"></a>Mål
 
@@ -78,9 +84,8 @@ Du kan konfigurera diagnostikinställningar i Azure Portal antingen från Azure 
      - **AllMetrics** dirigerar en resurss plattforms mått till Azure logs Store, men i logg formuläret. De här måtten skickas vanligt vis endast till Azure Monitor Metrics Time-Series-databas. Skickar dem till Azure Monitor loggar Store (som är sökbart via Log Analytics) du integrerar dem i frågor som söker i andra loggar. Det här alternativet kanske inte är tillgängligt för alla resurs typer. När det stöds visas [Azure Monitor mått som stöds](metrics-supported.md) för vilka mått som samlas in för de olika resurs typerna.
 
        > [!NOTE]
-       > Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
-       >
-       > *Exempel*: måttet ' IOReadBytes ' på en blockchain kan utforskas och ritas på en nivå per nod. Men när det exporteras via diagnostiska inställningar representerar det exporterade måttet som alla lästa byte för alla noder.
+       > Se limitatation för routning av mått till Azure Monitor loggar tidigare i den här artikeln.  
+
 
      - **Loggar** visar de olika kategorierna som är tillgängliga beroende på resurs typen. Kontrol lera de kategorier som du vill dirigera till ett mål.
 

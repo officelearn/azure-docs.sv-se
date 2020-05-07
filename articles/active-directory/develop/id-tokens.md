@@ -2,7 +2,7 @@
 title: Referens för Microsoft Identity Platform-ID-token
 description: Lär dig hur du använder id_tokens som har spridits av Azure AD v 1.0 och Microsoft Identity Platform (v 2.0) slut punkter.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 23ff71bf24c3acbce3d27276981739305e1d074a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d1a5ee3ae56e8b5c4886308624159853c52b52c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309545"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690186"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
@@ -77,7 +77,7 @@ I den här listan visas de anspråk som finns i de flesta id_tokens som standard
 |`name` | Sträng | `name` Anspråket ger ett läsligt värde som identifierar ämnet för token. Värdet är inte garanterat unikt, det är föränderligt och har utformats för att endast användas i visnings syfte. `profile` Omfånget krävs för att ta emot det här anspråket. |
 |`nonce`| Sträng | Nonce matchar den parameter som ingår i den ursprungliga/Authorize-begäran till IDP. Om den inte matchar bör ditt program avvisa token. |
 |`oid` | Sträng, ett GUID | Det oföränderliga ID: t för ett objekt i Microsoft Identity system, i det här fallet ett användar konto. Det här ID: t identifierar unikt användaren för alla program – två olika program som loggar in på samma användare får samma värde i `oid` anspråket. Microsoft Graph returnerar detta ID som `id` egenskap för ett angivet användar konto. Eftersom `oid` tillåter flera appar att korrelera användare måste `profile` omfånget ta emot detta anspråk. Observera att om en enskild användare finns i flera klienter, kommer användaren att innehålla ett annat objekt-ID i varje klient – de betraktas som olika konton, även om användaren loggar in på varje konto med samma autentiseringsuppgifter. `oid` Anspråket är ett GUID och kan inte återanvändas. |
-|`roles`| Matris med strängar | Den uppsättning roller som har tilldelats användaren som loggar in. |
+|`roles`| Strängmatris | Den uppsättning roller som har tilldelats användaren som loggar in. |
 |`rh` | Ogenomskinlig sträng |Ett internt anspråk som används av Azure för att omverifiera token. Ignoreras. |
 |`sub` | Sträng, ett GUID | Den huvudprincip som token förutsätter information för, t. ex. användaren av en app. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Ämnet är en identifierad identifierare – den är unik för ett visst program-ID. Om en enskild användare loggar in i två olika appar med två olika klient-ID: n, får dessa appar två olika värden för ämnes anspråket. Detta kan vara så eller kanske inte önskas beroende på dina krav på arkitektur och sekretess. |
 |`tid` | Sträng, ett GUID | Ett GUID som representerar den Azure AD-klient som användaren är från. För arbets-och skol konton är GUID det oåterkalleliga klient-ID: t för den organisation som användaren tillhör. För personliga konton är `9188040d-6c67-4c5b-b112-36a304b66dad`värdet. `profile` Omfånget krävs för att ta emot det här anspråket. |

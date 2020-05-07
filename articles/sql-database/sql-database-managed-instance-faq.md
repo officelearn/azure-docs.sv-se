@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 393d67b200a4f8d44cb001b3a7e2e491209e9d58
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80364170"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598519"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om SQL Database Managed instance
 
@@ -94,7 +94,13 @@ Automatisk Online-växling mellan maskin varu generationer är möjlig om båda 
 
 Detta är en långvarig åtgärd som en ny hanterad instans skapas i bakgrunden och databaserna överförs automatiskt mellan den gamla och nya instansen med en snabb redundans i slutet av processen. 
 
+**Vad händer om båda maskin varu generationerna inte stöds i samma region?**
+
 Om båda maskin varu generationerna inte stöds i samma region, är det möjligt att ändra maskin varu generationen, men måste utföras manuellt. Detta kräver att du etablerar en ny instans i den region där den önskade maskin varu generationen är tillgänglig och manuellt säkerhetskopierar och återställer data mellan den gamla och den nya instansen.
+
+**Vad händer om det inte finns tillräckligt med IP-adresser för att utföra uppdaterings åtgärden?**
+
+Om det inte finns tillräckligt med IP-adresser i under nätet där din hanterade instans är etablerad, måste du skapa ett nytt undernät och en ny hanterad instans i det. Vi föreslår också att det nya under nätet skapas med fler IP-adresser alocated, så att framtida uppdaterings åtgärder undviker liknande situation (för Propper under näts storlek, kontrollerar [du hur storleken på VNet-undernätet ska fastställas](sql-database-managed-instance-determine-size-vnet-subnet.md). När den nya instansen har allokerats kan du manuellt säkerhetskopiera och återställa data mellan den gamla och den nya instansen eller utföra [återställning mellan olika tidpunkter](sql-database-managed-instance-point-in-time-restore.md?tabs=azure-powershell). 
 
 
 ## <a name="tune-performance"></a>Justera prestanda

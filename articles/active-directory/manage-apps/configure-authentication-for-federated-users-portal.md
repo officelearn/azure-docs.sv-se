@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60bfc964ffc394b3f79c9d279158003f383b7331
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 340cf77ae6b4c5677ed91f6a0626b73d259e5fd2
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943430"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690508"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory inloggnings beteende för ett program med hjälp av en princip för identifiering av start sfär
 
@@ -168,7 +168,7 @@ I följande exempel kan du skapa, uppdatera, länka och ta bort principer för p
 
 Om inget returneras innebär det att du inte har några principer som skapats i din klient organisation.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>Exempel: Ange HRD-princip för ett program 
+### <a name="example-set-an-hrd-policy-for-an-application"></a>Exempel: Ange en HRD-princip för ett program 
 
 I det här exemplet skapar du en princip som när den tilldelas till ett program antingen: 
 - Automatiskt påskyndar användare till en AD FS inloggnings skärm när de loggar in på ett program när det finns en enda domän i din klient organisation. 
@@ -251,7 +251,7 @@ Observera **ObjectID** för den princip som du vill visa tilldelningar för.
 Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
-### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exempel: ta bort en HRD-princip för ett program
+### <a name="example-remove-an-hrd-policy-from-an-application"></a>Exempel: ta bort en HRD-princip från ett program
 #### <a name="step-1-get-the-objectid"></a>Steg 1: Hämta ObjectID
 Använd föregående exempel för att hämta **ObjectID** för principen och det som är det program tjänst objekt som du vill ta bort den från. 
 

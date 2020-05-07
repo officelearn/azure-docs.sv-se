@@ -2,13 +2,13 @@
 title: Åtskilj telemetri i Azure Application Insights
 description: Dirigera telemetri till olika resurser för utveckling, testning och produktions märken.
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.openlocfilehash: 565d51751ad50479f4e227b6855ac63b80bd949e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.date: 04/29/2020
+ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536785"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562159"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Åtskilj telemetri från utveckling, testning och produktion
 
@@ -20,13 +20,24 @@ När du utvecklar nästa version av ett webb program vill du inte blanda [Applic
 
 När du konfigurerar Application Insights övervakning för din webbapp skapar du en Application Insights *resurs* i Microsoft Azure. Du öppnar den här resursen i Azure Portal för att se och analysera telemetri som samlats in från din app. Resursen identifieras av en *Instrumentation-nyckel* (iKey). När du installerar Application Insights-paketet för att övervaka din app konfigurerar du den med Instrumentation-nyckeln, så att den vet var du vill skicka telemetrit.
 
-Du väljer vanligt vis att använda separata resurser eller en enda delad resurs i olika scenarier:
+Varje Application Insights resurs levereras med mått som är tillgängliga direkt. Om du rapporterar helt separata komponenter till samma Application Insights resurs, kan dessa mått inte vara begripliga för instrument paneler/aviseringar.
 
-* Olika, oberoende program – Använd en separat resurs-och iKey för varje app.
-* Flera komponenter eller roller för ett företags program – Använd en [enda delad resurs](../../azure-monitor/app/app-map.md) för alla komponent program. Telemetri kan filtreras eller segmenteras av cloud_RoleName-egenskapen.
-* Utveckling, testning och lansering – Använd en separat resurs-och iKey för versioner av systemet i "Stamp" eller produktions stadiet.
-* En | B-testning – Använd en enda resurs. Skapa en TelemetryInitializer för att lägga till en egenskap i Telemetrin som identifierar varianterna.
+### <a name="use-a-single-application-insights-resource"></a>Använda en enda Application Insights resurs
 
+-   För program komponenter som distribueras tillsammans. Utvecklas vanligt vis av ett enda team, som hanteras av samma uppsättning DevOps/ITOps-användare.
+-   Om det är klokt att aggregera nyckeltal (KPI: er), till exempel svars tider, frekvenser för haverier på instrument panelen osv., över alla dessa som standard (du kan välja att segmentera efter roll namn i Metrics Explorers upplevelsen).
+-   Om du inte behöver hantera rollbaserad Access Control (RBAC) på ett annat sätt mellan program komponenterna.
+-   Om du inte behöver några mått på aviserings villkor som skiljer sig mellan komponenterna.
+-   Om du inte behöver hantera kontinuerliga exporter på olika sätt mellan komponenterna.
+-   Om du inte behöver hantera fakturering/kvoter på ett annat sätt mellan komponenterna.
+-   Om det är OK att ha en API-nyckel har samma åtkomst till data från alla komponenter. Och 10 API-nycklar är tillräckliga för behoven i alla.
+-   Om det är bra att använda samma inställningar för smart identifiering och arbets objekts integrering i alla roller.
+
+### <a name="other-things-to-keep-in-mind"></a>Andra saker att tänka på
+
+-   Du kan behöva lägga till anpassad kod för att se till att meningsfulla värden anges i [Cloud_RoleName](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net#set-cloud-role-name) -attributet. Utan meningsfulla värden som har angetts för det här attributet fungerar *ingen* av Portal upplevelserna.
+- För Service Fabric program och klassiska moln tjänster läser SDK: n automatiskt från Azures roll miljö och ställer in dessa. För alla andra typer av appar behöver du förmodligen ange det här explicit.
+-   Live Metrics-upplevelsen stöder inte delning efter roll namn.
 
 ## <a name="dynamic-instrumentation-key"></a><a name="dynamic-ikey"></a>Dynamisk Instrumentation-nyckel
 
@@ -47,7 +58,7 @@ Ange nyckeln i en initierings metod, till exempel global.aspx.cs i en ASP.NET-tj
 I det här exemplet placeras ikeys för de olika resurserna i olika versioner av webb konfigurations filen. Växling av webb konfigurations filen – som du kan göra som en del av versions skriptet – byter mål resurs.
 
 ### <a name="web-pages"></a>Webbsidor
-IKey används också i appens webb sidor, i [skriptet som du fick från snabb starts bladet](../../azure-monitor/app/javascript.md). I stället för att koda det bokstavligen i skriptet kan du generera det från Server tillstånd. Till exempel i en ASP.NET-app:
+IKey används också i appens webb sidor, i det [skript som du har fått från snabb starts fönstret](../../azure-monitor/app/javascript.md). I stället för att koda det bokstavligen i skriptet kan du generera det från Server tillstånd. Till exempel i en ASP.NET-app:
 
 *Java Script i kniv*
 
@@ -63,26 +74,11 @@ IKey används också i appens webb sidor, i [skriptet som du fick från snabb st
 
 
 ## <a name="create-additional-application-insights-resources"></a>Skapa ytterligare Application Insights resurser
-För att separera telemetri för olika program komponenter, eller för olika stämplar (utveckling/testning/produktion) av samma komponent, måste du skapa en ny Application Insights-resurs.
 
-Lägg till en Application Insights-resurs i [Portal.Azure.com](https://portal.azure.com):
-
-![Klicka på Nytt, Application Insights](./media/separate-resources/01-new.png)
-
-* **Program typen** påverkar det du ser i översikts bladet och de egenskaper som är tillgängliga i [Metric Explorer](../../azure-monitor/platform/metrics-charts.md). Om du inte ser din typ av app väljer du någon av webb typerna för webb sidor.
-* **Resurs gruppen** är en bekvämlighet för att hantera egenskaper som [åtkomst kontroll](../../azure-monitor/app/resources-roles-access-control.md). Du kan använda separata resurs grupper för utveckling, testning och produktion.
-* **Prenumeration** är ditt betalnings konto i Azure.
-* **Platsen** är den plats där vi behåller dina data. För närvarande går det inte att ändra. 
-* **Lägg till på instrument panelen** placerar en snabb åtkomst panel för din resurs på din Azures start sida. 
-
-Det tar några sekunder att skapa resursen. Du ser en avisering när den är färdig.
-
-(Du kan skriva ett [PowerShell-skript](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) för att skapa en resurs automatiskt.)
+Om du vill skapa en program insikts resurs följer du [guiden skapa resurs](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
 ### <a name="getting-the-instrumentation-key"></a>Hämtar instrumentande nyckel
-Instrumentation-nyckeln identifierar den resurs som du har skapat. 
-
-![Klicka på Essentials, klicka på Instrumentation-tangenten, CTRL + C](./media/separate-resources/02-props.png)
+Instrumentation-nyckeln identifierar den resurs som du har skapat.
 
 Du behöver Instrumentation-nycklarna för alla resurser som din app ska skicka data till.
 
@@ -90,8 +86,6 @@ Du behöver Instrumentation-nycklarna för alla resurser som din app ska skicka 
 När du publicerar en ny version av din app vill du kunna separera Telemetrin från olika versioner.
 
 Du kan ställa in egenskapen för program version så att du kan filtrera [Sök](../../azure-monitor/app/diagnostic-search.md) -och [Metric Explorer](../../azure-monitor/platform/metrics-charts.md) -resultat.
-
-![Filtrera efter en egenskap](./media/separate-resources/050-filter.png)
 
 Det finns flera olika metoder för att ange program versions egenskapen.
 
@@ -146,7 +140,6 @@ Observera dock att versions numret för versionen endast genereras av Microsoft 
 ### <a name="release-annotations"></a>Versionsanteckningar
 Om du använder Azure DevOps kan du [få en antecknings markör](../../azure-monitor/app/annotations.md) tillagd i dina diagram när du släpper en ny version. Följande bild visar hur markeringen visas.
 
-![Skärmbild av exempel på versionsanteckning i ett diagram](media/separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>Nästa steg
 
 * [Delade resurser för flera roller](../../azure-monitor/app/app-map.md)

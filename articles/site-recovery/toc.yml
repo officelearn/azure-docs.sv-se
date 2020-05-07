@@ -11,9 +11,6 @@
   items:
     - name: Replikera en virtuell Azure-dator till en annan region
       href: azure-to-azure-quickstart.md
-    - name: Skapa ett valv – ARM-mall
-      displayName: Resource Manager
-      href: quickstart-create-vault-template.md
 - name: Självstudier
   items:
     - name: Haveriberedskap för virtuell Azure-dator till Azure

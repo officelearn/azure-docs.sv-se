@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 139d7e0cf2b57cc466dc97370b90a599257ce755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0af897ca284b1d51867808c2c74496c73e9bdcc3
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266291"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582774"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med grupper för att hantera licensiering i Azure Active Directory
 
@@ -100,7 +100,7 @@ Användaren ärver inlednings vis bara licensen från *E3 Basic Services* -grupp
 
 ## <a name="managing-new-services-added-to-products"></a>Hantera nya tjänster som har lagts till i produkter
 
-När Microsoft lägger till en ny tjänst i en produkt licens plan aktive ras den som standard i alla grupper som du har tilldelat produkt licensen. Användare i din klient organisation som prenumererar på meddelanden om produkt ändringar kommer att få e-postmeddelanden före den tid som meddelar dem om de kommande service tilläggen.
+När Microsoft lägger till en ny tjänst i en produkt licens plan aktive ras den som standard i alla grupper som du har tilldelat produkt licensen. Användare i din organisation som prenumererar på meddelanden om produkt ändringar får e-postmeddelanden före den tid som meddelar dem om de kommande tjänst tilläggen.
 
 Som administratör kan du granska alla grupper som påverkas av ändringen och vidta åtgärder, till exempel inaktivera den nya tjänsten i varje grupp. Om du till exempel har skapat grupper som riktar sig enbart till specifika tjänster för distribution kan du gå tillbaka till dessa grupper och se till att alla nyligen tillagda tjänster är inaktiverade.
 
@@ -108,7 +108,7 @@ Här är ett exempel på hur den här processen kan se ut:
 
 1. Ursprungligen tilldelade du *Office 365 Enterprise E5* -produkten till flera grupper. En av dessa grupper som kallas *O365 E5-Exchange har endast* utformats för att endast aktivera *Exchange Online-tjänsten (plan 2)* för dess medlemmar.
 
-2. Du har fått ett meddelande från Microsoft att E5-produkten kommer att utökas med en ny tjänst *Microsoft Stream*. När tjänsten blir tillgänglig i din klient kan du göra följande:
+2. Du har fått ett meddelande från Microsoft att E5-produkten kommer att utökas med en ny tjänst *Microsoft Stream*. När tjänsten blir tillgänglig i din organisation kan du göra följande:
 
 3. Gå till bladet [**Azure Active Directory > licenser > alla produkter**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) och välj *Office 365 Enterprise E5*. Välj sedan **licensierade grupper** för att visa en lista över alla grupper med produkten.
 
@@ -128,9 +128,9 @@ Här är ett exempel på hur den här processen kan se ut:
 ## <a name="use-powershell-to-see-who-has-inherited-and-direct-licenses"></a>Använd PowerShell för att se vem som har ärvt och direkta licenser
 Du kan använda ett PowerShell-skript för att kontrol lera om användarna har en licens som tilldelats direkt eller ärvts från en grupp.
 
-1. Kör `connect-msolservice` cmdleten för att autentisera och ansluta till din klient.
+1. Kör `connect-msolservice` cmdleten för att autentisera och ansluta till din organisation.
 
-2. `Get-MsolAccountSku`kan användas för att identifiera alla etablerade produkt licenser i klienten.
+2. `Get-MsolAccountSku`kan användas för att identifiera alla etablerade produkt licenser i Azure AD-organisationen.
 
    ![Skärm bild av Get-MsolAccountSku-cmdleten](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 

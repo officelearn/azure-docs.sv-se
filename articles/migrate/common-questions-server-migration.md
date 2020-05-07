@@ -1,14 +1,14 @@
 ---
-title: Vanliga frågor och svar om migrering av Azure Migrate Server
+title: Vanliga frågor om migrering av Azure Migrate Server
 description: Få svar på vanliga frågor om att använda Azure Migrate Server-migrering för att migrera datorer.
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 8d4d83791366e153f0fa8b81ae120ca3fd33be2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 0cfe23b4e544040fc3ab69796988ca34b1bdcdbf
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146042"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744331"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Migrering av Azure Migrate Server: vanliga frågor
 
@@ -21,7 +21,7 @@ I den här artikeln besvaras vanliga frågor om verktyget Azure Migrate: Migreri
 
 ## <a name="what-geographies-are-supported-for-migration-with-azure-migrate"></a>Vilka geografiska områden stöds för migrering med Azure Migrate?
 
-Granska de geografiska områden som stöds för [offentliga](migrate-support-matrix.md#supported-geographies-public-cloud) och [offentliga moln](migrate-support-matrix.md#supported-geographies-azure-government).
+Granska de geografiska områden som stöds för [offentliga moln](migrate-support-matrix.md#supported-geographies-public-cloud) och [myndighetsmoln](migrate-support-matrix.md#supported-geographies-azure-government).
 
 ## <a name="how-does-agentless-vmware-replication-work"></a>Hur fungerar agent lös VMware-replikering?
 
@@ -81,11 +81,15 @@ För närvarande kan du migrera 100-VM: ar per instans av vCenter Server samtidi
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>Hur gör jag för att begränsar du replikeringen i med Azure Migrate-utrustning för att kunna använda utan agent?  
 
-Du kan begränsa användningen av NetQosPolicy. Ett exempel:
+Du kan begränsa användningen av NetQosPolicy. Exempel:
 
 AppNamePrefix som ska användas i NetQosPolicy är "GatewayWindowsService. exe". Du kan skapa en princip på Azure Migrate-enheten för att reglera replikeringstrafiken från installationen genom att skapa en princip som den här:
  
 New-NetQosPolicy-Name "ThrottleReplication"-AppPathNameMatchCondition "GatewayWindowsService. exe"-ThrottleRateActionBitsPerSecond 1 MB
+
+## <a name="can-i-migrate-vms-that-are-already-being-replicated-to-azure"></a>Kan jag migrera virtuella datorer som redan replikeras till Azure? 
+
+Om de virtuella datorerna redan replikeras till Azure på något annat sätt kan du inte migrera de datorerna som virtuella datorer med Azure Migrate Server-migrering. Som en lösning kan du hantera de virtuella datorerna som fysiska servrar och migrera dem i enlighet med den [fysiska migreringen av den fysiska servern som stöds](migrate-support-matrix-physical-migration.md).
 
 ## <a name="when-do-i-migrate-machines-as-physical-servers"></a>När migrerar jag datorer som fysiska servrar?
 

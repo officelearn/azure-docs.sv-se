@@ -10,12 +10,12 @@ ms.workload: azure-vs
 ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: abf0570ee9f01a2378e8c0370cfc3ba5fecc7406
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: d864230ff524f6c008f9f05c16505cd9d0e9f229
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098242"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583363"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicera en ASP.NET-webbapp till en virtuell Azure-dator från Visual Studio
 
@@ -24,7 +24,7 @@ Det här dokumentet beskriver hur du publicerar ett ASP.NET-webbprogram på en v
 ## <a name="prerequisites"></a>Krav
 För att kunna använda Visual Studio för att publicera ett ASP.NET-projekt till en virtuell Azure-dator måste den virtuella datorn konfigureras på rätt sätt.
 
-- Datorn måste vara konfigurerad för att köra ett ASP.NET-webbprogram och ha WebDeploy installerat.
+- Datorn måste vara konfigurerad för att köra ett ASP.NET-webbprogram och ha WebDeploy installerat. Mer information finns i [skapa en virtuell ASP.net-dator med WebDeploy](https://github.com/aspnet/Tooling/blob/AspNetVMs/docs/create-asp-net-vm-with-webdeploy.md).
 
 - Den virtuella datorn måste ha ett konfigurerat DNS-namn. Mer information finns i [skapa ett fullständigt kvalificerat domän namn i Azure Portal för en virtuell Windows-dator](portal-create-fqdn.md).
 

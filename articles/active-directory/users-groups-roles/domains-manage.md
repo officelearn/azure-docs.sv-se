@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2395aa5984de2a9fe41e4778d16aba69bfef5192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3e21d850f03fdca300085c864a12611acb968aa8
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77559241"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582963"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domän namn i Azure Active Directory
 
@@ -41,7 +41,7 @@ När din katalog skapas, är det första domän namnet, till exempel "contoso.on
 
 Du kan ändra det primära domän namnet för din katalog till att vara en verifierad anpassad domän som inte är federerad. Om du ändrar den primära domänen för din katalog ändras inte användar namnet för befintliga användare.
 
-## <a name="add-custom-domain-names-to-your-azure-ad-tenant"></a>Lägg till anpassade domän namn i Azure AD-klienten
+## <a name="add-custom-domain-names-to-your-azure-ad-organization"></a>Lägg till anpassade domän namn i din Azure AD-organisation
 
 Du kan lägga till upp till 900 hanterade domän namn. Om du konfigurerar alla domäner för federation med lokala Active Directory kan du lägga till upp till 450 domän namn i varje katalog.
 
@@ -72,7 +72,7 @@ Du kan **ForceDelete** ett domän namn i [Azure AD Admin Center](https://aad.por
 Om du vill anropa **ForceDelete** i Azure Portal måste du se till att det finns färre än 1000 referenser till domän namnet och alla referenser där Exchange är etablerings tjänsten måste uppdateras eller tas bort i [administrations centret för Exchange](https://outlook.office365.com/ecp/). Detta omfattar Exchange mail-aktiverade säkerhets grupper och distribuerade listor. Mer information finns i [ta bort e-postaktiverade säkerhets grupper](https://technet.microsoft.com/library/bb123521(v=exchg.160).aspx#Remove%20mail-enabled%20security%20groups). **ForceDelete** -åtgärden lyckas inte heller om något av följande stämmer:
 
 * Du har köpt en domän via Office 365-domän prenumerations tjänster
-* Du är en partner som administreras åt en annan kunds innehavare
+* Du är en partner som administreras åt en annan kund organisation
 
 Följande åtgärder utförs som en del av **ForceDelete** -åtgärden:
 

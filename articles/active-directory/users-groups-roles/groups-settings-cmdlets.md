@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d56bb7c30a8289fe7f261979dca6a4ffe2bfe99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50118dcd4bf0fafa3e25399cf7d82558b7c776c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80048145"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582790"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 
@@ -160,7 +160,7 @@ Här är inställningarna som definierats i gruppen. Unified SettingsTemplate. O
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Typ: boolesk<li>Standard: falskt | Booleskt värde som anger om en gäst användare kan vara ägare till grupper. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Typ: boolesk<li>Standard: sant | Booleskt värde som anger om en gäst användare får åtkomst till Office 365-grupp innehåll.  Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Typ: Sträng<li>Standard: "" | URL-adressen till en länk till gäst användnings rikt linjerna. |
-|  <ul><li>AllowToAddGuests<li>Typ: boolesk<li>Standard: sant | Ett booleskt värde som anger om gäster ska läggas till i katalogen eller inte. <br>Den här inställningen kan åsidosättas och bli skrivskyddad om *EnableMIPLabels* har värdet *True* och en gäst policy är associerad med den känslighets etikett som tilldelats gruppen.<br>Om inställningen AllowToAddGuests har värdet false på klient nivån ignoreras alla AllowToAddGuests-inställningar på grupp nivån. Om du vill aktivera gäst åtkomst endast för några få grupper måste du ange AllowToAddGuests till "klient organisations nivå" och sedan selektivt inaktivera det för vissa grupper. |
+|  <ul><li>AllowToAddGuests<li>Typ: boolesk<li>Standard: sant | Ett booleskt värde som anger om gäster ska läggas till i katalogen eller inte. <br>Den här inställningen kan åsidosättas och bli skrivskyddad om *EnableMIPLabels* har värdet *True* och en gäst policy är associerad med den känslighets etikett som tilldelats gruppen.<br>Om inställningen AllowToAddGuests är inställd på falskt på organisations nivå ignoreras alla AllowToAddGuests-inställningar på grupp nivån. Om du vill aktivera gäst åtkomst endast för några få grupper måste du ange AllowToAddGuests till "på organisations nivå" och sedan inaktivera det för vissa grupper. |
 |  <ul><li>ClassificationList<li>Typ: Sträng<li>Standard: "" | En kommaavgränsad lista över giltiga klassificerings värden som kan tillämpas på Office 365-grupper. <br>Den här inställningen gäller inte när EnableMIPLabels = = True.|
 |  <ul><li>EnableMIPLabels<li>Typ: boolesk<li>Standard: "falskt" |Flaggan som anger om känslighets etiketter som publiceras i Microsoft 365 Compliance Center kan tillämpas på Office 365-grupper. Mer information finns i [tilldela känslighets etiketter för Office 365-grupper](groups-assign-sensitivity-labels.md). |
 

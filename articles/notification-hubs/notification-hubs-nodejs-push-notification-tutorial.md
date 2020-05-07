@@ -13,16 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 6e109c5a7f4911893c81c88ae84322fb962fff6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb984a944067ddb1449f58b464e596fd138dc7c7
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71213191"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592017"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Skicka push-meddelanden med Azure Notification Hubs och Node. js
 
@@ -133,7 +133,7 @@ På `ApnsService` samma sätt som med Android-program som beskrivs ovan tillhand
 - **Nytto Last** – meddelandets JSON-eller sträng nytto Last.
 - **Motringning** – funktionen motringning.
 
-Mer information om nytto Last formatet finns i avsnittet **meddelande nytto Last** i [guiden för lokal och push-meddelande programmerings guide](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) .
+Mer information om nytto Last formatet finns i avsnittet **meddelande innehåll** i [guiden UserNotifications](https://developer.apple.com/documentation/usernotifications).
 
 I följande kod används den `ApnsService` instans som exponeras `NotificationHubService` av för att skicka ett aviserings meddelande till alla klienter:
 
@@ -195,7 +195,7 @@ notificationHubService.wns.send(null, payload , 'wns/toast', function(error){
 });
 ```
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Med exempel kodfragmenten ovan kan du enkelt skapa tjänst infrastruktur för att leverera push-meddelanden till en mängd olika enheter. Nu när du har lärt dig grunderna i att använda Notification Hubs med Node. js, följer du dessa länkar om du vill veta mer om hur du kan utöka dessa funktioner ytterligare.
 

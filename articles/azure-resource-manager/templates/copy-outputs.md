@@ -3,12 +3,12 @@ title: Definiera flera instanser av ett utdata-värde
 description: Använd kopierings åtgärden i en Azure Resource Manager-mall för att iterera flera gånger när du returnerar ett värde från en distribution.
 ms.topic: conceptual
 ms.date: 04/17/2020
-ms.openlocfilehash: 0315af2f083285c4704b08fec608341b6f0b2231
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 50c4b4b8f301ad88d3dfde98ace1aed4431693db
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617839"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583423"
 ---
 # <a name="output-iteration-in-arm-templates"></a>Utdata iteration i ARM-mallar
 
@@ -16,7 +16,7 @@ Den här artikeln visar hur du skapar fler än ett värde för utdata i din Azur
 
 Du kan också använda kopiera med [resurser](copy-resources.md), [Egenskaper i en resurs](copy-properties.md)och [variabler](copy-variables.md).
 
-## <a name="outputs-iteration"></a>Upprepningar av utdata
+## <a name="syntax"></a>Syntax
 
 Kopierings elementet har följande allmänna format:
 
@@ -30,6 +30,21 @@ Kopierings elementet har följande allmänna format:
 Egenskapen **Count** anger antalet iterationer som du vill använda för utmatning svärdet.
 
 Egenskapen **indatamängd** anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i egenskapen **indatamängd** . Det kan vara en enskild egenskap (till exempel en sträng) eller ett objekt med flera egenskaper.
+
+## <a name="copy-limits"></a>Kopierings gränser
+
+Antalet får inte överskrida 800.
+
+Antalet får inte vara ett negativt tal. Det kan vara noll om du distribuerar mallen med en senare version av Azure CLI, PowerShell eller REST API. Mer specifikt måste du använda:
+
+* Azure PowerShell **2,6** eller senare
+* Azure CLI- **2.0.74** eller senare
+* REST API version **2019-05-10** eller senare
+* [Länkade distributioner](linked-templates.md) måste använda API version **2019-05-10** eller senare för distributions resurs typen
+
+Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för Count.
+
+## <a name="outputs-iteration"></a>Upprepningar av utdata
 
 I följande exempel skapas ett variabelt antal lagrings konton och en slut punkt returneras för varje lagrings konto:
 

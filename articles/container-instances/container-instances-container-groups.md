@@ -4,12 +4,12 @@ description: Lär dig mer om behållar grupper i Azure Container Instances, en s
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: 3efc4528863286da676fc7eb758176156c87a32a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: b5f4f834d44294d846495a59af2fb65b231e4820
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115660"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583829"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Behållargrupper i Azure Container Instances
 
@@ -69,7 +69,7 @@ I det här scenariot kan du ange en resurs gräns på upp till 2 processorer fö
 
 ## <a name="networking"></a>Nätverk
 
-Behållar grupper kan dela en extern IP-adress, en eller flera portar på den IP-adressen och en DNS-etikett med ett fullständigt kvalificerat domän namn (FQDN). Om du vill att externa klienter ska kunna komma åt en behållare i gruppen måste du exponera porten på IP-adressen och från behållaren. Eftersom behållare i gruppen delar ett port namn område, stöds port mappning inte. En behållar grupps IP-adress och FQDN kommer att släppas när behållar gruppen tas bort. 
+Behållar grupper kan dela en extern IP-adress, en eller flera portar på den IP-adressen och en DNS-etikett med ett fullständigt kvalificerat domän namn (FQDN). Om du vill att externa klienter ska kunna komma åt en behållare i gruppen måste du exponera porten på IP-adressen och från behållaren. En behållar grupps IP-adress och FQDN släpps när behållar gruppen tas bort. 
 
 I en behållar grupp kan behållar instanser komma åt varandra via localhost på vilken port som helst, även om dessa portar inte exponeras externt på gruppens IP-adress eller från behållaren.
 
@@ -118,7 +118,7 @@ Lär dig hur du distribuerar en container grupp med flera behållare med en Azur
 [resource-limits]: /rest/api/container-instances/containergroups/createorupdate#resourcelimits
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
-[virtual-network]: container-instances-vnet.md
+[virtual-network]: container-instances-virtual-network-concepts.md
 [secret]: container-instances-volume-secret.md
 [volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md

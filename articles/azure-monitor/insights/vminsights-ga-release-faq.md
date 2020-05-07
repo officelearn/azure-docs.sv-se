@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 3d250ef1aba979be04a44acaf31a3d685f162e37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df96ceb47bf33b734f2127bade50af18713a97a0
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283896"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82581373"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor for VMs allmänt tillgängliga (GA)
 Vanliga frågor och svar om allmän tillgänglighet omfattar ändringar som gjorts i Q4 2019 och Q1 2020 när vi för beredde för GA.
@@ -44,7 +44,7 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-grou
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>Vad ska jag göra med prestanda räknarna i min arbets yta om jag installerar VMInsights-lösningen?
 
-Den tidigare metoden för att aktivera Azure Monitor for VMs använda prestanda räknare i din arbets yta. Den aktuella versionen lagrar dessa data i en tabell med `InsightsMetrics`namnet. Du kan välja att inaktivera dessa prestanda räknare i arbets ytan om du inte längre behöver använda dem. 
+Den tidigare metoden för att aktivera Azure Monitor for VMs använda prestanda räknare i din arbets yta. Den aktuella versionen lagrar dessa data i en tabell med `InsightsMetrics`namnet. Du kan välja att inaktivera dessa prestanda räknare i din arbets yta om du inte längre behöver använda dem. 
 
 >[!NOTE]
 >Om du har varnings regler som refererar till dessa räknare `Perf` i tabellen måste du uppdatera dem för att referera till nya data som lagras `InsightsMetrics` i tabellen. Se vår dokumentation för exempel på logg frågor som du kan använda för att referera till den här tabellen.

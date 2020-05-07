@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.custom: it-pro
+ms.custom: it-pro, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc96c94152b39cc70cfc4553690faaa5b9cb8d20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a6fab618280f1383e3840c67d85136edc095b9a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77111586"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610096"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Aktivera fjärråtkomst till Power BI Mobile med Azure AD-programproxy
 
-Den här artikeln beskriver hur du använder Azure AD-programproxy för att aktivera Power BI mobilappen för att ansluta till Power BI-rapportserver (PBIRS) och SQL Server Reporting Services (SSRS) 2016 och senare. Med den här integrationen kan användare som är borta från företags nätverket komma åt sina Power BI rapporter från Power BI mobilapp och skyddas av Azure AD-autentisering. Det här skyddet omfattar [säkerhets förmåner](application-proxy-security.md#security-benefits) som villkorlig åtkomst och Multi-Factor Authentication.  
+Den här artikeln beskriver hur du använder Azure AD-programproxy för att aktivera Power BI mobilappen för att ansluta till Power BI-rapportserver (PBIRS) och SQL Server Reporting Services (SSRS) 2016 och senare. Med den här integrationen kan användare som är borta från företags nätverket komma åt sina Power BI rapporter från Power BI mobilapp och skyddas av Azure AD-autentisering. Det här skyddet omfattar [säkerhets förmåner](application-proxy-security.md#security-benefits) som villkorlig åtkomst och Multi-Factor Authentication.
 
 ## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du redan har distribuerat rapport tjänster och [aktiverat Application Proxy](application-proxy-add-on-premises-application.md).
 
-- Om du aktiverar programproxy måste du installera en anslutning på en Windows-Server och slutföra [kraven](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) så att anslutnings programmet kan kommunicera med Azure AD-tjänsterna.  
+- Om du aktiverar programproxy måste du installera en anslutning på en Windows-Server och slutföra [kraven](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) så att anslutnings programmet kan kommunicera med Azure AD-tjänsterna.
 - När du publicerar Power BI rekommenderar vi att du använder samma interna och externa domäner. Mer information om anpassade domäner finns i [arbeta med anpassade domäner i Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
 - Den här integreringen är tillgänglig för **Power BI Mobile iOS-och Android** -program.
 
@@ -68,7 +68,7 @@ Konfigurera KCD så att Azure AD-programproxy-tjänsten kan delegera användar i
 Om du vill konfigurera KCD upprepar du följande steg för varje kopplings dator:
 
 1. Logga in på en domänkontrollant som domän administratör och öppna sedan **Active Directory användare och datorer**.
-2. Hitta den dator som anslutningen körs på.  
+2. Hitta den dator som anslutningen körs på.
 3. Dubbelklicka på datorn och välj sedan fliken **delegering** .
 4. Ställ in Delegerings inställningarna på **den här datorn som betrodd för delegering till de angivna tjänsterna**. Välj sedan **Använd valfritt autentiseringsprotokoll**.
 5. Välj **Lägg till**och välj sedan **användare eller datorer**.
@@ -95,7 +95,7 @@ Nu är du redo att konfigurera Azure AD-programproxy.
 
    b. För **läge för enkel inloggning**väljer du **integrerad Windows-autentisering**.
 
-   c. Ange det **interna programmets SPN** till det värde som du angav tidigare.  
+   c. Ange det **interna programmets SPN** till det värde som du angav tidigare.
 
    d. Välj den **delegerade inloggnings identitet** för anslutningen som du vill använda för användarens räkning. Mer information finns i [arbeta med olika lokala och molnbaserade identiteter](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities).
 
@@ -105,7 +105,7 @@ Slutför konfigurationen av programmet genom att gå till avsnittet **användare
 
 ## <a name="step-3-modify-the-reply-uris-for-the-application"></a>Steg 3: ändra svars-URI: n för programmet
 
-Innan Power BI mobilappen kan ansluta och komma åt rapport tjänster måste du konfigurera program registreringen som skapades automatiskt i steg 2. 
+Innan Power BI mobilappen kan ansluta och komma åt rapport tjänster måste du konfigurera program registreringen som skapades automatiskt i steg 2.
 
 1. På sidan Azure Active Directory **Översikt** väljer du **Appregistreringar**.
 2. Under fliken **alla program** söker du efter det program som du skapade i steg 2.
@@ -117,11 +117,11 @@ Innan Power BI mobilappen kan ansluta och komma åt rapport tjänster måste du 
    - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
-   
+
    När du konfigurerar appen för Power BI Mobile **Android**lägger du till följande omdirigerings-URI: er av typen offentlig klient (mobil & Desktop):
    - `urn:ietf:wg:oauth:2.0:oob`
    - `mspbi-adal://com.microsoft.powerbimobile`
-   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D` 
+   - `msauth://com.microsoft.powerbim/g79ekQEgXBL5foHfTlO2TPawrbI%3D`
    - `msauth://com.microsoft.powerbim/izba1HXNWrSmQ7ZvMXgqeZPtNEU%3D`
 
    > [!IMPORTANT]
@@ -144,7 +144,7 @@ Du kan använda Microsoft Intune för att hantera de klient program som företag
 1. Gå till **Azure Active Directory** och sedan **app-registreringar**.
 2. Välj det program som konfigurerades i steg 3 när du registrerar det interna klient programmet.
 3. På programmets sida väljer du API- **behörigheter**.
-4. Klicka på **Lägg till en behörighet**. 
+4. Klicka på **Lägg till en behörighet**.
 5. Under **API: er som min organisation använder**söker du efter "Microsoft Mobile Application Management" och väljer det.
 6. Lägg till **DeviceManagementManagedApps. readwrite** -behörighet för programmet
 7. Klicka på **bevilja administrativt medgivande** för att ge behörighet till programmet.

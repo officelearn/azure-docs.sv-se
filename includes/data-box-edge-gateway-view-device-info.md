@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 94c132421f1e113b667341b094acad8047e5f465
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67187803"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561781"
 ---
 1. [Anslut till PowerShell-gränssnittet](#connect-to-the-powershell-interface).
 2. Använd `Get-HcsApplianceInfo` för att hämta information om enheten.
@@ -49,7 +49,7 @@ ms.locfileid: "67187803"
     |--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     | FriendlyName                   | Det egna namnet på enheten enligt konfigurationen via det lokala webb gränssnittet under enhets distributionen. Det egna standard namnet är enhetens serie nummer.  |   |
     | Serienummer                   | Enhetens serie nummer är ett unikt nummer som tilldelas på fabriken.                                                                             |   |
-    | Modell                          | Modellen för din Data Box Edge-eller Data Box Gateways enhet. Modellen är virtuell för Data Box Gateway och fysisk för Data Box Edge.                   |   |
+    | Modell                          | Modellen för din Azure Stack Edge-eller Data Box Gateway-enhet. Modellen är fysisk för Azure Stack Edge och Virtual för Data Box Gateway.                   |   |
     | FriendlySoftwareVersion        | Den egna strängen som motsvarar enhetens program varu version. För ett system som kör för hands version blir den egna program varu versionen Data Box Edge 1902. |   |
     | HcsVersion                     | HCS UPPDATERINGSKLIENTEN program varu version som körs på enheten. Till exempel är HCS UPPDATERINGSKLIENTEN-programvaran som motsvarar Data Box Edge 1902 1.4.771.324.            |   |
     | LocalCapacityInMb              | Enhetens totala lokala kapacitet i megabit.                                                                                                        |   |

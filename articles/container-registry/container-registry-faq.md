@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 7452b5dd3c952a13a28566914d2fe513689d4751
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39b543c5f886b22d488198873b75cf76555692fa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618800"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731652"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -313,7 +313,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen `/etc/sysconfig/docker`för Docker daemon. Ett exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen `/etc/sysconfig/docker`för Docker daemon. Exempel:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -493,10 +493,10 @@ Vi stöder för närvarande inte GitLab för käll utlösare.
 
 | Git-tjänst | Käll kontext | Manuell version | Automatisk generering via commit trigger |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Ja | Ja |
-| Azure-lagringsplatser | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Ja | Ja |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Ja | Nej |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Ja | Nej |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Ja |
+| Azure-lagringsplatser | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Ja | Ja |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Ja | Inga |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Ja | Inga |
 
 ## <a name="run-error-message-troubleshooting"></a>Köra fel meddelande fel sökning
 

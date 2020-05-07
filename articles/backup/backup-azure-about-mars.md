@@ -4,12 +4,12 @@ description: Lär dig hur MARS-agenten stöder säkerhets kopierings scenarier
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d2cc8e32152f6930c9c250e2811668cc2c924616
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5656c113a6823a1708854a547b199bd16c521b04
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78673280"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611491"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>Om Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -39,19 +39,21 @@ MARS-agenten stöder följande återställnings scenarier:
 
 ## <a name="backup-process"></a>Säkerhetskopieringsprocessen
 
-1. Skapa ett [Recovery Services-valv](install-mars-agent.md#create-a-recovery-services-vault)från Azure Portal och välj filer, mappar och system tillstånd från säkerhets kopierings målen.
+1. Skapa ett [Recovery Services-valv](install-mars-agent.md#create-a-recovery-services-vault)från Azure Portal och välj filer, mappar och system tillstånd från **säkerhets kopierings målen**.
 2. [Ladda ned autentiseringsuppgifterna för Recovery Services valvet och agent installations programmet](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) till en lokal dator.
 
-    Om du vill skydda den lokala datorn genom att välja alternativet säkerhets kopiering väljer du filer, mappar och system tillstånd och laddar sedan MARS-agenten.
-
-3. Förbered infrastrukturen:
-
-    a. Kör installations programmet för att [Installera agenten](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent).
-
-    b. Använd de hämtade autentiseringsuppgifterna för valvet för att registrera datorn i Recovery Services-valvet.
-4. [Konfigurera säkerhets kopieringen](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy)från agent konsolen på klienten. Ange bevarande principen för dina säkerhets kopierings data för att börja skydda den.
+3. [Installera agenten](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) och Använd de hämtade autentiseringsuppgifterna för valvet för att registrera datorn i Recovery Services-valvet.
+4. I agent konsolen på klienten [konfigurerar du säkerhets kopieringen](https://docs.microsoft.com/azure/backup/backup-windows-with-mars-agent#create-a-backup-policy) för att ange vad som ska säkerhets kopie ras, när säkerhets kopieringen ska ske (schemat), hur länge säkerhets kopiorna ska behållas i Azure (bevarande principen) och börja skydda.
 
 ![Azure Backup Agent diagram](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
+
+### <a name="additional-information"></a>Ytterligare information
+
+- Den **första säkerhets kopieringen** (första säkerhets kopieringen) körs enligt inställningarna för säkerhets kopiering.  MARS-agenten använder VSS för att ta en ögonblicks bild av de volymer som valts för säkerhets kopiering. Agenten använder bara Windows System Writer-åtgärden för att avbilda ögonblicks bilden. Den använder inte några VSS-skrivare för program och fångar inte in programkonsekventa ögonblicks bilder. När du har tagit ögonblicks bilden med VSS skapar MARS-agenten en virtuell hård disk (VHD) i cache-mappen som du angav när du konfigurerade säkerhets kopian. Agenten lagrar också kontroll summor för varje data block.
+
+- **Stegvisa säkerhets kopieringar** (efterföljande säkerhets kopieringar) körs enligt det schema du anger. Under stegvisa säkerhets kopieringar identifieras ändrade filer och en ny virtuell hård disk skapas. Den virtuella hård disken komprimeras och krypteras och skickas sedan till valvet. När den stegvisa säkerhets kopieringen har slutförts slås den nya virtuella hård disken samman med den virtuella hård disk som skapades efter den inledande replikeringen. Denna sammanlagda virtuella hård disk tillhandahåller det senaste tillstånd som ska användas för att jämföra säkerhets kopior.
+
+- MARS-agenten kan köra säkerhets kopierings jobbet i **optimerat läge** med hjälp av ändrings journalen för USN (Update Sequence Number) eller i **läget ej optimerad** genom att söka efter ändringar i kataloger eller filer genom att genomsöka hela volymen. Icke-optimerat läge är långsammare eftersom agenten måste genomsöka varje fil på volymen och jämföra den mot metadata för att fastställa de ändrade filerna.  Den **första säkerhets kopieringen** körs alltid i icke-optimerat läge. Om den tidigare säkerhets kopieringen misslyckades kommer nästa schemalagda säkerhets kopierings jobb att köras i icke-optimerat läge.
 
 ### <a name="additional-scenarios"></a>Fler scenarier
 

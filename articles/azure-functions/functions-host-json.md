@@ -2,13 +2,13 @@
 title: Host. JSON-referens för Azure Functions 2. x
 description: Referens dokumentation för Azure Functions Host. JSON-fil med v2-körningsmiljön.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 7967cdc7f5f7cbb92c12de15d31471fda8aa6569
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/28/2020
+ms.openlocfilehash: 39e6ce5d6807a554cc1714a3970bed8303c31ce8
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758852"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690889"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Host. JSON-referens för Azure Functions 2. x och senare 
 
@@ -24,6 +24,8 @@ ms.locfileid: "81758852"
 Andra konfigurations alternativ för Function-appar hanteras i dina [app-inställningar](functions-app-settings.md) (för distribuerade appar) eller din [lokala. Settings. JSON](functions-run-local.md#local-settings-file) -fil (för lokal utveckling).
 
 Konfigurationer i Host. JSON som är relaterade till bindningar tillämpas på samma sätt för varje funktion i Function-appen. 
+
+Du kan även [åsidosätta eller tillämpa inställningar per miljö](#override-hostjson-values) med hjälp av program inställningar.
 
 ## <a name="sample-hostjson-file"></a>Exempel på Host. JSON-fil
 
@@ -386,6 +388,23 @@ En uppsättning [delade kod kataloger](functions-reference-csharp.md#watched-dir
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="override-hostjson-values"></a>Åsidosätt värden för Host. JSON
+
+Det kan finnas tillfällen när du vill konfigurera eller ändra vissa inställningar i en Host. JSON-fil för en speciell miljö, utan att ändra själva Host. JSON-filen.  Du kan åsidosätta specifika värden. JSON-värden skapar ett motsvarande värde som en program inställning. När körningen hittar en program inställning i formatet `AzureFunctionsJobHost__path__to__setting`åsidosätts den motsvarande Host. JSON-inställningen som finns `path.to.setting` i JSON. När den uttrycks som en program inställning ersätts den punkt (`.`) som används för att Visa JSON-hierarkin`__`med ett dubbelt under streck (). 
+
+Anta till exempel att du ville inaktivera insikter om program insikter när du kör lokalt. Om du har ändrat den lokala Host. JSON-filen för att inaktivera Application Insights, kan den här ändringen flyttas till din webbapp under distributionen. Det säkraste sättet att göra detta är att i stället skapa en program `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` inställning som `local.settings.json` i filen. Du kan se detta i följande `local.settings.json` fil, som inte publiceras:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "{storage-account-connection-string}",
+        "FUNCTIONS_WORKER_RUNTIME": "{language-runtime}",
+        "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"
+    }
 }
 ```
 

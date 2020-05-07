@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 05/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2de891ee109677f92ff603759701f7732f5951ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 059c43b24ddc9f319eac4f2783cfc203bed8c7f1
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188519"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900440"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Amazon-konto med anpassade principer i Azure Active Directory B2C
 
@@ -29,17 +29,16 @@ Den här artikeln visar hur du aktiverar inloggning för användare från ett Am
 - Slutför stegen i [Kom igång med anpassade principer](custom-policy-get-started.md).
 - Om du inte redan har ett Amazon-konto skapar du ett [https://www.amazon.com/](https://www.amazon.com/)på.
 
-## <a name="register-the-application"></a>Registrera programmet
+## <a name="create-an-app-in-the-amazon-developer-console"></a>Skapa en app i Amazon Developer-konsolen
 
-Om du vill aktivera inloggning för användare från ett Amazon-konto måste du skapa ett Amazon-program.
+Om du vill använda ett Amazon-konto som en federerad identitets leverantör i Azure Active Directory B2C (Azure AD B2C) måste du skapa ett program i dina [Amazon Developer-tjänster och-tekniker](https://developer.amazon.com). Om du inte redan har ett Amazon-konto kan du registrera dig på [https://www.amazon.com/](https://www.amazon.com/).
 
-1. Logga in på [Amazon Developer Center](https://login.amazon.com/) med dina Amazon-kontoautentiseringsuppgifter.
-2. Om du inte redan har gjort det klickar du på **Registrera**, följer utvecklings registrerings stegen och godkänner principen.
-3. Välj **Registrera nytt program**.
-4. Ange ett **namn**, en **Beskrivning**och **en URL för sekretess meddelande**och klicka sedan på **Spara**. Sekretess meddelandet är en sida som du hanterar som ger sekretess information till användarna.
-5. I avsnittet **webb inställningar** kopierar du värdena för **klient-ID**. Välj **Visa hemlighet** för att hämta klient hemligheten och kopiera den sedan. Du behöver båda dessa för att konfigurera ett Amazon-konto som en identitets leverantör i din klient organisation. **Klient hemlighet** är en viktig säkerhets autentiseringsuppgift.
-6. I avsnittet **webb inställningar** väljer du **Redigera**och anger `https://your-tenant-name.b2clogin.com` sedan i **tillåtna JavaScript-ursprung** och `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` i **tillåtna retur-URL: er**. Ersätt `your-tenant-name` med namnet på din klient. Använd små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
-7. Klicka på **Spara**.
+> [!NOTE]  
+> Använd följande URL: er i **steg 8** nedan och `your-tenant-name` Ersätt med namnet på din klient. När du anger ditt klient namn använder du enbart gemener, även om klienten har definierats med versaler i Azure AD B2C.
+> - För **tillåtna ursprung**anger du`https://your-tenant-name.b2clogin.com` 
+> - För **tillåtna retur-URL: er**, ange`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
+
+[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
 
 ## <a name="create-a-policy-key"></a>Skapa en princip nyckel
 

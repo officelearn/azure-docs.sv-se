@@ -6,13 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 659af8b85cb3736d663e79676b04af8041aeabfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seoapr2020
+ms.date: 04/29/2020
+ms.openlocfilehash: 13ea1043d05c9f349e25623086c2908e176772a8
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80129613"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583948"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Hantera Python-miljön i Azure HDInsight på ett säkert sätt med skriptåtgärd
 
@@ -20,7 +21,7 @@ ms.locfileid: "80129613"
 > * [Använda cell Magic](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Använda skript åtgärd](apache-spark-python-package-installation.md)
 
-HDInsight har två inbyggda python-installationer i Spark-klustret, Anaconda python 2,7 och python 3,5. I vissa fall behöver kunderna anpassa python-miljön, t. ex. installera externa python-paket eller en annan python-version. I den här artikeln visar vi bästa praxis för säker hantering av python-miljöer för ett [Apache Spark](./apache-spark-overview.md) kluster i HDInsight.
+HDInsight har två inbyggda python-installationer i Spark-klustret, Anaconda python 2,7 och python 3,5. Kunder kan behöva anpassa python-miljön. Som att installera externa python-paket eller en annan python-version. Här visar vi bästa praxis för säker hantering av python-miljöer för Apache Spark kluster i HDInsight.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -28,7 +29,7 @@ Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kl
 
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>Stöd för program med öppen källkod som används i HDInsight-kluster
 
-Microsoft Azure HDInsights tjänsten använder ett eko system med tekniker med öppen källkod som bildas runt Apache Hadoop. Microsoft Azure ger en allmän support nivå för tekniker med öppen källkod. Mer information finns på [webbplatsen för vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq/). HDInsight-tjänsten ger ytterligare en nivå av stöd för inbyggda komponenter.
+Microsoft Azure HDInsights tjänsten använder en miljö med tekniker med öppen källkod som är utformad runt Apache Hadoop. Microsoft Azure ger en allmän support nivå för tekniker med öppen källkod. Mer information finns på [webbplatsen för vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq/). HDInsight-tjänsten ger ytterligare en nivå av stöd för inbyggda komponenter.
 
 Det finns två typer av komponenter med öppen källkod som är tillgängliga i HDInsight-tjänsten:
 
@@ -40,7 +41,7 @@ Det finns två typer av komponenter med öppen källkod som är tillgängliga i 
 > [!IMPORTANT]
 > Komponenter som ingår i HDInsight-klustret stöds fullt ut. Microsoft Support hjälper till att isolera och lösa problem som rör dessa komponenter.
 >
-> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet, eller så kan de be dig att tillhandahålla tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, t. ex. [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com). Apache-projekt har även projekt webbplatser [https://apache.org](https://apache.org)på, till exempel: [Hadoop](https://hadoop.apache.org/).
+> Anpassade komponenter får kommersiellt rimlig support för att hjälpa dig att ytterligare felsöka problemet. Microsoft Support kanske kan lösa problemet, eller så kan de be dig att tillhandahålla tillgängliga kanaler för tekniken med öppen källkod där djupgående expertis för tekniken hittas. Det finns till exempel många community-platser som kan användas, t. ex. [MSDN-forum för HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), `https://stackoverflow.com`. Även Apache-projekt har projekt webbplatser `https://apache.org`.
 
 ## <a name="understand-default-python-installation"></a>Förstå den standardinställda python-installationen
 
@@ -49,15 +50,15 @@ HDInsight Spark-kluster skapas med Anaconda-installation. Det finns två python-
 | |Python 2,7|Python 3,5|
 |----|----|----|
 |Sökväg|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|Standard är inställt på 2,7|Ej tillämpligt|
-|Livy|Standard är inställt på 2,7|Ej tillämpligt|
+|Spark|Standard är inställt på 2,7|E.t.|
+|Livy|Standard är inställt på 2,7|E.t.|
 |Jupyter|PySpark-kernel|PySpark3-kernel|
 
 ## <a name="safely-install-external-python-packages"></a>Installera externa python-paket på ett säkert sätt
 
-HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 och python 3,5. Direkt installation av anpassade paket i de inbyggda standard miljöerna kan leda till oväntade ändringar i biblioteks versionen och även dela upp klustret. Följ stegen nedan för att på ett säkert sätt installera anpassade externa python-paket för dina Spark-program.
+HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 och python 3,5. Om du installerar anpassade paket direkt i de inbyggda standard miljöerna kan det leda till oväntade biblioteks ändringar. Och Bryt klustret ytterligare. För att på ett säkert sätt installera anpassade externa python-paket för dina Spark-program följer du stegen nedan.
 
-1. Skapa en virtuell python-miljö med Conda. En virtuell miljö ger ett isolerat utrymme för dina projekt utan att behöva dela andra. När du skapar den virtuella python-miljön kan du ange python-version som du vill använda. Observera att du fortfarande behöver skapa en virtuell miljö även om du vill använda python 2,7 och 3,5. Detta görs för att se till att klustrets standard miljö inte får plats. Kör skript åtgärder på klustret för alla noder med skriptet nedan för att skapa en virtuell python-miljö.
+1. Skapa en virtuell python-miljö med Conda. En virtuell miljö ger ett isolerat utrymme för dina projekt utan att behöva dela andra. När du skapar den virtuella python-miljön kan du ange python-version som du vill använda. Du måste fortfarande skapa en virtuell miljö även om du vill använda python 2,7 och 3,5. Det här kravet är att se till att klustrets standard miljö inte blir mer beständigt. Kör skript åtgärder på klustret för alla noder med skriptet nedan för att skapa en virtuell python-miljö.
 
     -   `--prefix`anger en sökväg där en virtuell Conda-miljö bor. Det finns flera konfigurationer som behöver ändras ytterligare utifrån den sökväg som anges här. I det här exemplet använder vi py35new, eftersom klustret redan har en befintlig virtuell miljö som heter py35.
     -   `python=`anger python-versionen för den virtuella miljön. I det här exemplet använder vi version 3,5, samma version som klustret som skapats i en. Du kan också använda andra python-versioner för att skapa den virtuella miljön.
@@ -67,9 +68,9 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
     sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes
     ```
 
-2. Installera externa python-paket i den virtuella miljön som skapats om det behövs. Kör skript åtgärder på klustret för alla noder med skriptet nedan för att installera externa python-paket. Du måste ha sudo-behörighet här för att kunna skriva filer till den virtuella miljömappen.
+2. Installera externa python-paket i den virtuella miljön som skapats om det behövs. Kör skript åtgärder på klustret för alla noder med skriptet nedan för att installera externa python-paket. Du måste ha behörigheten sudo här för att skriva filer till den virtuella miljömappen.
 
-    Du kan söka i [paket indexet](https://pypi.python.org/pypi) efter den fullständiga listan med tillgängliga paket. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som gjorts tillgängliga via [Conda-falska](https://conda-forge.org/feedstocks/).
+    Sök i [paket indexet](https://pypi.python.org/pypi) efter den fullständiga listan med tillgängliga paket. Du kan också hämta en lista över tillgängliga paket från andra källor. Du kan till exempel installera paket som gjorts tillgängliga via [Conda-falska](https://conda-forge.org/feedstocks/).
 
     Använd kommandot nedan om du vill installera ett bibliotek med den senaste versionen:
 
@@ -114,7 +115,7 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
     2. Expandera Advanced livy2-kuvert, Lägg till under uttryck i nederkant. Om du har installerat den virtuella miljön med ett annat prefix ändrar du sökvägen på motsvarande sätt.
 
-        ```
+        ```bash
         export PYSPARK_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         export PYSPARK_DRIVER_PYTHON=/usr/bin/anaconda/envs/py35new/bin/python
         ```
@@ -123,7 +124,7 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
     3. Expandera Advanced spark2-kuvert, Ersätt den befintliga exporten PYSPARK_PYTHON-instruktionen längst ned. Om du har installerat den virtuella miljön med ett annat prefix ändrar du sökvägen på motsvarande sätt.
 
-        ```
+        ```bash
         export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/anaconda/envs/py35new/bin/python}
         ```
 
@@ -133,7 +134,7 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
         ![Ändra Spark-konfiguration via Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
-4. Om du vill använda den nya virtuella miljön på Jupyter. Du måste ändra Jupyter-konfiguration och starta om Jupyter. Kör skript åtgärder på alla huvudnoder med nedanstående instruktion för att peka Jupyter mot den nya virtuella miljön som skapats. Se till att ändra sökvägen till det prefix du angav för den virtuella miljön. När du har kört den här skript åtgärden startar du om Jupyter-tjänsten via Ambari-ANVÄNDARGRÄNSSNITTET för att göra den här ändringen tillgänglig.
+4. Om du vill använda den nya virtuella miljön på Jupyter. Ändra Jupyter-konfiguration och starta om Jupyter. Kör skript åtgärder på alla huvudnoder med nedanstående instruktion för att peka Jupyter mot den nya virtuella miljön som skapats. Se till att ändra sökvägen till det prefix du angav för den virtuella miljön. När du har kört den här skript åtgärden startar du om Jupyter-tjänsten via Ambari-ANVÄNDARGRÄNSSNITTET för att göra den här ändringen tillgänglig.
 
     ```bash
     sudo sed -i '/python3_executable_path/c\ \"python3_executable_path\" : \"/usr/bin/anaconda/envs/py35new/bin/python3\"' /home/spark/.sparkmagic/config.json
@@ -145,13 +146,12 @@ HDInsight-kluster är beroende av den inbyggda python-miljön, både python 2,7 
 
 ## <a name="known-issue"></a>Kända problem
 
-Det finns ett känt fel för Anaconda-version 4.7.11, 4.7.12 och 4.8.0. Om du ser att skript åtgärderna låser sig `"Collecting package metadata (repodata.json): ...working..."` vid och slutar med `"Python script has been killed due to timeout after waiting 3600 secs"`. Du kan ladda ned [skriptet](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) och köra det som skript åtgärder på alla noder för att åtgärda problemet.
+Det finns ett känt fel för Anaconda- `4.7.11`versionen `4.7.12`, och `4.8.0`. Om du ser att skript åtgärderna låser sig `"Collecting package metadata (repodata.json): ...working..."` vid och slutar med `"Python script has been killed due to timeout after waiting 3600 secs"`. Du kan ladda ned [skriptet](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) och köra det som skript åtgärder på alla noder för att åtgärda problemet.
 
 Du kan kontrol lera din Anaconda-version genom att använda SSH till noden kluster huvud `/usr/bin/anaconda/bin/conda --v`och köra.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt: Apache Spark i Azure HDInsight](apache-spark-overview.md)
-* [Apache Spark med BI: utföra interaktiv data analys med hjälp av spark i HDInsight med BI-verktyg](apache-spark-use-bi-tools.md)
-* [Hantera resurser för Apache Spark-klustret i Azure HDInsight](apache-spark-resource-manager.md)
+* [Externa paket med Jupyter-anteckningsböcker i Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)
 * [Följa och felsöka jobb som körs i ett Apache Spark-kluster i HDInsight](apache-spark-job-debugging.md)

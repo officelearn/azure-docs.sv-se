@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: d1929f937d86001a0f2a399b1ebd92e47bbd2c86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6efe74008b2271b960f877f5f0f6b2b6b549a8d
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80990913"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583080"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Vanliga frågor och svar om Active Directory (Azure AD) Application Proxy
 
@@ -95,6 +95,10 @@ Om kopplings servrarna och webb program tjänst kontot finns i samma domän, kan
 
 Om kopplings servrarna och webb program tjänst kontot finns i olika domäner används resursbaserade delegering. Delegerings behörigheterna konfigureras på mål webb servern och webb program tjänst kontot. Den här metoden för begränsad delegering är relativt ny. Metoden introducerades i Windows Server 2012, som stöder delegering mellan domäner genom att tillåta resurs-(webb tjänst)-ägaren att styra vilka dator-och tjänst konton som kan delegera till den. Det finns inget användar gränssnitt som hjälper dig med den här konfigurationen, så du måste använda PowerShell.
 Mer information finns i dokumentet [förstå Kerberos-begränsad delegering med programproxyn](https://aka.ms/kcdpaper).
+
+### <a name="does-ntlm-authentication-work-with-azure-ad-application-proxy"></a>Fungerar NTLM-autentisering med Azure AD-programproxy?
+
+NTLM-autentisering kan inte användas som förautentisering eller enkel inloggnings metod. NTLM-autentisering kan endast användas när den kan förhandlas direkt mellan klienten och det publicerade webb programmet. Om du använder NTLM-autentisering visas vanligt vis en inloggnings uppvarning i webbläsaren.
 
 ## <a name="pass-through-authentication"></a>Direktautentisering
 

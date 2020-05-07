@@ -16,12 +16,13 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72dbb404d1b4d3618909e0233f332d2f98b51516
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: f55f291575aea40cba8551a5fec535f63a90150c
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049722"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610453"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Felsöka Azure AD-anslutning
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker anslutnings problem. De här problemen visas förmodligen i en miljö med en proxyserver.
@@ -31,7 +32,7 @@ Azure AD Connect använder modern autentisering (med ADAL-biblioteket) för aute
 
 I den här artikeln visar vi hur Fabrikam ansluter till Azure AD via dess proxy. Proxyservern heter fabrikamproxy och använder port 8080.
 
-Först måste vi kontrol lera att [**Machine. config**](how-to-connect-install-prerequisites.md#connectivity) är korrekt konfigurerad.  
+Först måste vi kontrol lera att [**Machine. config**](how-to-connect-install-prerequisites.md#connectivity) är korrekt konfigurerad.
 ![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
@@ -58,25 +59,24 @@ Installations guiden använder två olika säkerhets kontexter. På sidan **Ansl
 Följande problem är de vanligaste felen som du stöter på i installations guiden.
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>Installations guiden har inte kon figurer ATS korrekt
-Det här felet visas när själva guiden inte kan komma åt proxyn.  
+Det här felet visas när själva guiden inte kan komma åt proxyn.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * Om det här felet visas kontrollerar du att [Machine. config](how-to-connect-install-prerequisites.md#connectivity) har kon figurer ATS korrekt.
 * Om det ser korrekt ut följer du stegen i [Verifiera proxyanslutningar](#verify-proxy-connectivity) för att se om problemet finns utanför guiden.
 
 ### <a name="a-microsoft-account-is-used"></a>En Microsoft-konto används
-Om du använder en **Microsoft-konto** snarare än ett **skol-eller organisations** konto visas ett allmänt fel.  
+Om du använder en **Microsoft-konto** snarare än ett **skol-eller organisations** konto visas ett allmänt fel.
 ![Ett Microsoft-konto används](./media/tshoot-connect-connectivity/unknownerror.png)
 
 ### <a name="the-mfa-endpoint-cannot-be-reached"></a>Det går inte att nå MFA-slutpunkten
-Det här felet visas om det **https://secure.aadcdn.microsoftonline-p.com** inte går att nå slut punkten och din globala administratör har MFA aktiverat.  
+Det här felet visas om det **https://secure.aadcdn.microsoftonline-p.com** inte går att nå slut punkten och din globala administratör har MFA aktiverat.
 ![nomachineconfig](./media/tshoot-connect-connectivity/nomicrosoftonlinep.png)
 
 * Om det här felet visas kontrollerar du att slut punkts **Secure.aadcdn.microsoftonline-p.com** har lagts till i proxyn.
 
 ### <a name="the-password-cannot-be-verified"></a>Det går inte att verifiera lösen ordet
-Om installations guiden lyckas ansluta till Azure AD, men själva lösen ordet inte kan verifieras visas det här felet:  
-![Felaktigt lösen ord.](./media/tshoot-connect-connectivity/badpassword.png)
+Om installations guiden lyckas ansluta till Azure AD, men själva lösen ordet inte kan verifieras visas det här felet: ![felaktigt lösen ord.](./media/tshoot-connect-connectivity/badpassword.png)
 
 * Är lösen ordet ett tillfälligt lösen ord och måste ändras? Är det faktiskt rätt lösen ord? Försök att logga in på `https://login.microsoftonline.com` (på en annan dator än den Azure AD Connect servern) och kontrol lera att kontot är användbart.
 
@@ -186,7 +186,7 @@ Autentiseringen lyckades, men det har uppstått ett autentiseringsfel i Azure AD
 </div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Global administratörs roll för Azure AD krävs
-Användaren har autentiserats. Användaren är dock inte tilldelad global administratörs roll. Så här [kan du tilldela användaren rollen som global administratör](../users-groups-roles/directory-assign-admin-roles.md) . 
+Användaren har autentiserats. Användaren är dock inte tilldelad global administratörs roll. Så här [kan du tilldela användaren rollen som global administratör](../users-groups-roles/directory-assign-admin-roles.md) .
 
 <div id="privileged-identity-management">
 <!--
@@ -224,7 +224,7 @@ Visas som ett oväntat fel i installations guiden. Kan inträffa om du försöke
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Fel söknings steg för tidigare versioner.
 Med versioner som börjar med build Number 1.1.105.0 (lanserades februari 2016) drogs inloggnings assistenten tillbaka. Det här avsnittet och konfigurationen ska inte längre krävas, utan behålls som referens.
 
-För att enkel inloggnings assistenten ska fungera måste WinHTTP konfigureras. Den här konfigurationen kan göras med [**netsh**](how-to-connect-install-prerequisites.md#connectivity).  
+För att enkel inloggnings assistenten ska fungera måste WinHTTP konfigureras. Den här konfigurationen kan göras med [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
 ![kontext](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>Inloggnings assistenten har inte kon figurer ATS korrekt

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46be728216ed4b9c9e84c1c7f68c5ddf2051f42b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdc011a39c5526e6a2577ab1b21567bbe64ffcc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672309"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788883"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Gör så här: hantera inaktuella enheter i Azure AD
 
@@ -151,7 +151,7 @@ $dt = [datetime]’2017/01/01’
 Get-MsolDevice -all -LogonTimeBefore $dt | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
-## <a name="what-you-should-know"></a>Det här bör du känna till
+## <a name="what-you-should-know"></a>Det här bör du veta
 
 ### <a name="why-is-the-timestamp-not-updated-more-frequently"></a>Varför uppdateras inte tidsstämpeln oftare?
 
@@ -176,7 +176,7 @@ Mer information om de olika typerna finns i [enhetshanteringsöversikten](overvi
 
 Alla autentiseringar där en enhet används för att autentisera för Azure AD nekas. Vanliga exempel:
 
-- **Hybrid Azure AD-ansluten enhet** – Användare kan använda enheten till att logga in på sin lokala domän. Men det får inte åtkomst till Azure AD-resurser som Office 365.
+- **Hybrid Azure AD-ansluten enhet** – användarna kan använda enheten för att logga in på den lokala domänen. Men det får inte åtkomst till Azure AD-resurser som Office 365.
 - **Azure AD-ansluten enhet** – Användare kan inte använda enheten till att logga in. 
 - **Mobila enheter** – Användare kan inte komma åt Azure AD-resurser som Office 365. 
 

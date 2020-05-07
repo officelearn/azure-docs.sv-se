@@ -1,0 +1,42 @@
+- name: Azure VMware Solution (AVS)
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Azure VMware Solution (AVS)
+      href: introduction.md
+- name: Självstudier
+  items:
+    - name: 1 - Planera för nätverk
+      href: tutorial-network-checklist.md
+    - name: 2 - Skapa ett privat AVS-moln
+      href: tutorial-create-private-cloud.md
+    - name: 3 - Konfigurera nätverk
+      href: tutorial-configure-networking.md
+    - name: 4 - Få åtkomst till ett privat moln
+      href: tutorial-access-private-cloud.md
+    - name: 5 - Skala ett privat moln
+      href: tutorial-scale-private-cloud.md
+- name: Begrepp
+  items:
+    - name: Privata moln och kluster
+      href: concepts-private-clouds-clusters.md
+    - name: Nätverk och mellananslutningar för privata moln
+      href: concepts-networking.md
+    - name: Lagring i privata moln
+      href: concepts-storage.md
+    - name: Åtkomst och identitet för privata moln
+      href: concepts-identity.md
+    - name: Uppgraderingar för privata moln
+      href: concepts-upgrades.md
+- name: Anvisningar
+  items:
+    - name: Hantera DHCP
+      href: manage-dhcp.md
+    - name: Haveriberedskap
+      href: disaster-recovery.md
+- name: Referens
+  items: null
+- name: Resurser
+  items:
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md

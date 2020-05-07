@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f07c02df1b8e0032c9e1b4ef9a24c345fee20a40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426318"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598155"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Utveckla .NET standard-användardefinierade funktioner för Azure Stream Analytics jobb (för hands version)
 
@@ -42,17 +42,29 @@ Det finns tre sätt att implementera UDF:er:
 Formatet för ett UDF-paket har sökvägen `/UserCustomCode/CLR/*`. DLL-filer och resurser kopieras under `/UserCustomCode/CLR/*` mappen, som hjälper dig att isolera användar-dll: er från system-och Azure Stream Analytics-dll: er. Den här paket Sök vägen används för alla funktioner oavsett vilken metod som används för att använda dem.
 
 ## <a name="supported-types-and-mapping"></a>Typer och mappning som stöds
+För Azure Stream Analytics värden som ska användas i C# måste de konverteras från en miljö till en annan. Konvertering sker för alla indataparametrar i en UDF. Varje Azure Stream Analytics typ har en motsvarande typ i C# som visas i tabellen nedan:
 
-|**UDF-typ (C#)**  |**Azure Stream Analytics typ**  |
+|**Azure Stream Analytics typ** |**C#-typ** |
+|---------|---------|
+|bigint | long |
+|float | double |
+|nvarchar(max) | sträng |
+|datetime | DateTime |
+|Spela in | Ord\<lista sträng, objekt> |
+|Matris | Mat\<ris objekt> |
+
+Detsamma gäller om data måste konverteras från C# till Azure Stream Analytics, vilket inträffar i utmatning svärdet för en UDF. Tabellen nedan visar vilka typer som stöds:
+
+|**C#-typ**  |**Azure Stream Analytics typ**  |
 |---------|---------|
 |long  |  bigint   |
-|double  |  double   |
+|double  |  float   |
 |sträng  |  nvarchar(max)   |
-|dateTime  |  dateTime   |
-|struct  |  IRecord   |
-|objekt  |  IRecord   |
-|Mat\<ris objekt>  |  IArray   |
-|ord listans<sträng, objekt>  |  IRecord   |
+|DateTime  |  dateTime   |
+|struct  |  Spela in   |
+|objekt  |  Spela in   |
+|Mat\<ris objekt>  |  Matris   |
+|Ord\<lista sträng, objekt>  |  Spela in   |
 
 ## <a name="codebehind"></a>CodeBehind
 Du kan skriva användardefinierade funktioner i **skriptet. asql** CodeBehind. Visual Studio-verktyg kommer automatiskt att kompilera CodeBehind-filen till en sammansättnings fil. Sammansättningarna paketeras som en zip-fil och överförs till ditt lagrings konto när du skickar jobbet till Azure. Du kan lära dig hur du skriver en C#-UDF med hjälp av CodeBehind genom att följa själv studie kursen [om C# UDF för Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf.md) . 

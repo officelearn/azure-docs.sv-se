@@ -3,12 +3,12 @@ title: Förbättra prestanda för Azure-program med Azure Advisor
 description: Använd Advisor för att optimera prestanda för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 405ec395feeb33b8511b9b915151b2ed9503c371
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443063"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787948"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Förbättra prestanda för Azure-program med Azure Advisor
 
@@ -28,6 +28,10 @@ Advisor ger dig en enhetlig, sammanslagen översikt över rekommendationer för 
 > För att få rekommendationer måste en databas ha ungefär en vecka med användning och inom den veckan måste det finnas en viss konsekvent aktivitet. SQL Database Advisor kan optimeras enklare för konsekventa fråge mönster än för slumpmässiga aktiviteter.
 
 Mer information om SQL Database Advisor finns i [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/).
+
+## <a name="upgrade-your-storage-client-library-to-the-latest-version-for-better-reliability-and-performance"></a>Uppgradera ditt Storage Client Library till den senaste versionen för att få bättre tillförlitlighet och prestanda
+
+Den senaste versionen av Storage Client Library/SDK innehåller korrigeringar av problem som rapporterats av kunder och som proaktivt har identifierats via vår process för kvalitetskontroll. Den senaste versionen har även tillförlitlighets- och prestandaoptimering utöver nya funktioner som kan förbättra din övergripande upplevelse när du använder Azure Storage. Advisor ger dig rekommendationer och steg för att uppgradera till den senaste versionen av SDK om du använder en inaktuell version. Rekommendationerna är för språk som stöds – C++ och .net.
 
 ## <a name="improve-app-service-performance-and-reliability"></a>Förbättra App Service prestanda och tillförlitlighet
 
@@ -73,6 +77,26 @@ Migrera lagrings kontots distributions modell till Azure Resource Manager (Resou
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>Utforma dina lagrings konton för att förhindra att den maximala prenumerations gränsen överskrids
 
 En Azure-region kan stödja högst 250 lagrings konton per prenumeration. När gränsen har nåtts kan du inte skapa fler lagrings konton i samma region/prenumerations kombination. Advisor kontrollerar dina prenumerations-och ytbehandlings rekommendationer för att du ska kunna utforma färre lagrings konton för alla som är nära att nå Max gränsen.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-adress-high-p2s-use"></a>Överväg att öka storleken på ditt VNet-Gateway-SKU till adress med hög P2S-användning
+
+Varje gateway-SKU har endast stöd för ett angivet antal samtidiga P2S-anslutningar. Om antalet anslutningar ligger nära din gateway-gräns, kan ytterligare anslutnings försök Miss lyckas. Om du ökar storleken på din gateway kan du stödja fler samtidiga P2S-användare. Advisor ger rekommendationer och steg som du kan vidta.
+
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>Fundera på att öka storleken på din VNet Gateway-SKU för att hantera hög CPU-användning
+
+Vid hög trafikbelastning kan VPN-gatewayen ta bort paket på grund av hög CPU-användning. Du bör överväga att uppgradera din VPN Gateway SKU eftersom VPN-adressen ständigt körs på. Om du ökar storleken på din VPN-gateway ser du till att anslutningarna inte tappas på grund av hög CPU. Advisor provdes-rekommendation för att lösa det här problemet proaktivt. 
+
+## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Öka batchstorleken vid inläsning för att maximera dataflöde, datakomprimering och frågeprestanda
+
+Advisor kan upptäcka att du kan öka belastnings prestanda och data flöde genom att öka batchstorleken när du läser in i databasen. Du kan överväga att använda KOPIERINGs instruktionen. Om du inte kan använda COPY-instruktionen kan du öka batchstorleken när du använder inläsningsverktyg som SQLBulkCopy-API eller BCP – en bra tumregel är en batchstorlek mellan 100 000 och 1 miljon rader. Detta kommer att öka belastnings data flödet, data komprimering och frågans prestanda.
+
+## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Samplacera lagrings kontot inom samma region för att minimera svars tiden vid inläsning
+
+Advisor kan upptäcka att du läser in från en annan region än SQL-poolen. Du bör läsa in från ett lagrings konto som ligger inom samma region som SQL-poolen för att minimera svars tiden när du läser in data. Detta bidrar till att minimera svars tiden och öka belastnings prestandan.
+
+## <a name="unsupported-kubernetes-version-is-detected"></a>En Kubernetes-version som inte stöds har identifierats
+
+Advisor kan identifiera om en Kubernetes-version som inte stöds har identifierats. Rekommendationen hjälper till att säkerställa att Kubernetes-kluster körs med en version som stöds.
 
 ## <a name="optimize-the-performance-of-your-azure-mysql-azure-postgresql-and-azure-mariadb-servers"></a>Optimera prestanda för dina Azure MySQL-, Azure PostgreSQL-och Azure MariaDB-servrar 
 

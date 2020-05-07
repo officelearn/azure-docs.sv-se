@@ -1,18 +1,18 @@
 ---
-title: Övervaka appar
+title: Övervakning av appar
 description: Lär dig hur du övervakar appar i Azure App Service med hjälp av Azure Portal. Förstå de kvoter och mått som rapporteras.
 author: btardif
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 8baefcbfa1eb34bc6cd37e4325d9a9bfc11e2d20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7205f8a842f2086b1cf3a6bbf76c2df48ed679e9
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181230"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738107"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervaknings funktioner för webbappar, mobil-och API-appar i [Azure Portal](https://portal.azure.com).
@@ -35,7 +35,7 @@ Kvoter för kostnads fria eller delade appar är:
 | --- | --- |
 | **PROCESSOR (kort)** | Mängden CPU som tillåts för den här appen i ett intervall om 5 minuter. Den här kvoten återställs var femte minut. |
 | **PROCESSOR (dag)** | Den totala mängden processor som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
-| **Minnesoptimerade** | Den totala mängden minne som tillåts för den här appen. |
+| **Minne** | Den totala mängden minne som tillåts för den här appen. |
 | **Bandbredd** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställs var 24: e timme vid midnatt UTC. |
 | **Filsystem** | Den totala mängden lagrings utrymme som tillåts. |
 
@@ -49,7 +49,7 @@ Om en app överskrider *processorns (kort)*, *CPU (dag)* eller *bandbredds* kvot
 
 ![403-fel meddelande][http403]
 
-Om minnes kvoten för appen överskrids startas appen om.
+Om minnes kvoten för appen har överskridits stoppas appen tillfälligt.
 
 Om kvoten för fil systemet överskrids Miss lyckas eventuella Skriv åtgärder. Skriv åtgärds felen innehåller alla skrivningar till loggarna.
 
@@ -131,8 +131,7 @@ Det finns två mått som återspeglar CPU-användning:
 **Processor procent**: användbart för appar som finns i Basic-, standard-och Premium-planer, eftersom de kan skalas ut. CPU-procent är en korrekt indikation på den övergripande användningen för alla instanser.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Mät precisions precision och bevarande princip
-
-Mått för en app och en app service-plan loggas och sammanställs av tjänsten. Måtten bevaras i 90 dagar.
+Mått för en app-och App Service-plan loggas och sammanställs av tjänsten och [bevaras enligt dessa regler](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Övervaknings kvoter och mät värden i Azure Portal
 Om du vill granska statusen för de olika kvoter och mått som påverkar en app går du till [Azure Portal](https://portal.azure.com).

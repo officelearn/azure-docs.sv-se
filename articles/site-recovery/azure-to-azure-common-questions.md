@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7d3bcc32dc8f1412a5adbc175a5f8618628bce83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80547893"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738056"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
@@ -194,10 +194,10 @@ Du kan replikera 16 virtuella datorer tillsammans i en replikeringsgrupp.
 Eftersom konsekvens för flera virtuella datorer är processor intensivt, kan det påverka arbets Belastningens prestanda. Använd endast konsekvens för flera virtuella datorer om datorerna kör samma arbets belastning och du behöver konsekvens på flera datorer. Om du till exempel har två SQL Server instanser och två webb servrar i ett program, bör du bara ha konsekvens för flera virtuella datorer för de SQL Server instanserna.
 
 ### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>Kan du lägga till en redan replikerad virtuell dator i en replikeringsgrupp?
-
 Du kan lägga till en virtuell dator i en ny replikeringsgrupp samtidigt som du aktiverar replikering. Du kan också lägga till en virtuell dator i en befintlig replikeringsgrupp samtidigt som du aktiverar replikering. Du kan dock inte lägga till en redan replikerad virtuell dator till en ny replikeringsgrupp eller en befintlig replikeringsgrupp.
-
+ 
 ## <a name="failover"></a>Redundans
+
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Hur säkerställs kapacitet i mål regionen för virtuella Azure-datorer?
 
@@ -285,7 +285,7 @@ Det beror på situationen. Om den virtuella käll regionen finns, så synkronise
 
 Efter återaktivering av återställningen tar återställning efter samma tid det tar att redundansväxla från den primära regionen till en sekundär region.
 
-## <a name="capacity"></a><a name="capacity"></a>Kapaciteten
+## <a name="capacity"></a><a name="capacity"></a>Kapacitet
 
 ### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Hur säkerställs kapacitet i mål regionen för virtuella Azure-datorer?
 

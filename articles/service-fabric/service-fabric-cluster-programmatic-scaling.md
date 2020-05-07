@@ -5,16 +5,16 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ffe07960c6d32bea8ec31b1fe8248b6abc2b63af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd7c57f3089115e4da861fc8fd20331ab92bc33e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458280"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787149"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Skala ett Service Fabric kluster program mässigt 
 
-Service Fabric kluster som körs i Azure skapas ovanpå virtuella datorers skalnings uppsättningar.  [Kluster skalning](./service-fabric-cluster-scale-up-down.md) beskriver hur Service Fabric kluster kan skalas antingen manuellt eller med regler för automatisk skalning. Den här artikeln beskriver hur du hanterar autentiseringsuppgifter och skalar ett kluster i eller ut med hjälp av Fluent Azure Compute SDK, som är ett mer avancerat scenario. För en översikt läser du [programmerings metoder för samordning av Azure skalnings åtgärder](service-fabric-cluster-scaling.md#programmatic-scaling). 
+Service Fabric kluster som körs i Azure skapas ovanpå virtuella datorers skalnings uppsättningar.  [Kluster skalning](./service-fabric-cluster-scale-in-out.md) beskriver hur Service Fabric kluster kan skalas antingen manuellt eller med regler för automatisk skalning. Den här artikeln beskriver hur du hanterar autentiseringsuppgifter och skalar ett kluster i eller ut med hjälp av Fluent Azure Compute SDK, som är ett mer avancerat scenario. För en översikt läser du [programmerings metoder för samordning av Azure skalnings åtgärder](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -119,6 +119,6 @@ await client.ClusterManager.RemoveNodeStateAsync(mostRecentLiveNode.NodeName);
 
 Kom igång med att implementera din egen logik för automatisk skalning, och bekanta dig med följande begrepp och användbara API: er:
 
-- [Skalning manuellt eller med regler för automatisk skalning](./service-fabric-cluster-scale-up-down.md)
+- [Skalning manuellt eller med regler för automatisk skalning](./service-fabric-cluster-scale-in-out.md)
 - [Fluent Azures hanterings bibliotek för .net](https://github.com/Azure/azure-sdk-for-net/tree/Fluent) (användbart för att interagera med ett Service Fabric klusters underliggande skalnings uppsättningar för virtuella datorer)
 - [System. Fabric. FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) (användbart för att interagera med ett Service Fabric kluster och dess noder)

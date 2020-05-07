@@ -3,12 +3,12 @@ title: Stöd för Hyper-V-utvärdering i Azure Migrate
 description: Läs mer om stöd för Hyper-V-utvärdering med Azure Migrate Server-utvärdering
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 990d5026d9621c144c31635fabac4416eb9d20e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67fabebf805e38a6bca5dda6e691c263ee235219
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538179"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744607"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Stöd mat ris för Hyper-V-utvärdering
 
@@ -35,7 +35,7 @@ Om du vill konfigurera utvärdering av virtuell Hyper-V-dator skapar du ett Azur
 | **Support**                | **Information**               
 | :-------------------       | :------------------- |
 | **Hyper-V-värd**       | Hyper-V-värden kan vara fristående eller distribuerade i ett kluster.<br/><br/> Hyper-V-värden kan köra Windows Server 2019, Windows Server 2016 eller Windows Server 2012 R2.<br/> Du kan inte utvärdera virtuella datorer som finns på Hyper-V-värdar som kör Windows Server 2012.
-| **Åtkomst**           | Du behöver administratörs behörighet på Hyper-V-värden. <br/> Om du inte vill tilldela administratörs behörighet skapar du ett lokalt användar konto eller ett domän användar konto och lägger till användar kontot i dessa grupper – fjärrhanterings användare, Hyper-V-administratörer och användare av prestanda övervakning. |
+| **Behörigheter**           | Du behöver administratörs behörighet på Hyper-V-värden. <br/> Om du inte vill tilldela administratörs behörighet skapar du ett lokalt användar konto eller ett domän användar konto och lägger till användar kontot i dessa grupper – fjärrhanterings användare, Hyper-V-administratörer och användare av prestanda övervakning. |
 | **PowerShell-fjärranvändning**   | [PowerShell-fjärrkommunikation](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) måste vara aktiverat på varje Hyper-V-värd. |
 | **Hyper-V-replikering**       | Om du använder Hyper-V-replikering (eller om du har flera virtuella datorer med samma VM-identifierare), och du identifierar både de ursprungliga och replikerade virtuella datorerna med hjälp av Azure Migrate, kan det hända att utvärderingen som genereras av Azure Migrate inte är korrekt. |
 
@@ -54,7 +54,7 @@ Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för iden
 
 - Lär dig mer om installations [krav](migrate-appliance.md#appliance---hyper-v) för Hyper-V.
 - Lär dig mer om webb adresser som behövs för att få åtkomst till [offentliga](migrate-appliance.md#public-cloud-urls) [och offentliga](migrate-appliance.md#government-cloud-urls) moln.
-- I Azure Government måste du distribuera enheten med hjälp av skriptet.
+- I Azure Government måste du distribuera enheten [med hjälp av skriptet](deploy-appliance-script-government.md).
 
 ## <a name="port-access"></a>Port åtkomst
 

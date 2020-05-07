@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: e4d85bd460c39964c9f42ac946e3522f5f129c1c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4043702bd27bb9a37fca70475ef254bbd1f7372
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79474449"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561329"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Hantera åtkomst, energi och anslutnings läge för din Azure Data Box Gateway
 
-Den här artikeln beskriver hur du hanterar åtkomst, ström och anslutnings läge för din Azure Data Box Gateway. De här åtgärderna utförs via det lokala webb gränssnittet eller Azure Portal.
+Den här artikeln beskriver hur du hanterar åtkomst, ström och anslutnings läge för din Azure Data Box Gateway. De här åtgärderna utförs via det lokala webb gränssnittet eller Azure Portal. 
 
 I den här artikeln kan du se hur du:
 
@@ -56,16 +56,16 @@ Följ de här stegen i det lokala användar gränssnittet för att ändra enhete
 
 ## <a name="manage-resource-access"></a>Hantera företagsresurser
 
-Om du vill skapa en Data Box Edge/Data Box Gateway, IoT Hub och Azure Storage resurs måste du ha behörighet som deltagare eller högre på resurs grupps nivå. Du måste också ha motsvarande resurs leverantörer för att kunna registreras. För alla åtgärder som inbegriper aktiverings nyckel och autentiseringsuppgifter krävs även behörighet att Azure Active Directory Graph API. Dessa beskrivs i följande avsnitt.
+Om du vill skapa Azure Stack Edge/Data Box Gateway, IoT Hub och Azure Storage resurs måste du ha behörighet som deltagare eller högre på resurs grupps nivå. Du måste också ha motsvarande resurs leverantörer för att kunna registreras. För alla åtgärder som inbegriper aktiverings nyckel och autentiseringsuppgifter krävs även behörighet att Azure Active Directory Graph API. Dessa beskrivs i följande avsnitt.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Hantera Microsoft Graph API-behörigheter
 
-När du genererar aktiverings nyckeln för Data Box Edge-enheten, eller utföra åtgärder som kräver autentiseringsuppgifter, måste du ha behörighet att Microsoft Graph API. De åtgärder som behöver autentiseringsuppgifter kan vara:
+När du genererar aktiverings nyckeln för Azure Stack Edge-enheten, eller utföra åtgärder som kräver autentiseringsuppgifter, måste du ha behörighet att Microsoft Graph API. De åtgärder som behöver autentiseringsuppgifter kan vara:
 
 -  Skapa en resurs med ett associerat lagrings konto.
 -  Skapa en användare som har åtkomst till resurserna på enheten.
 
-Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver kunna `Read all directory objects`. Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects`. Om du är gäst kommer åtgärder som exempelvis att generera en aktiveringsnyckel, skapa en resurs på din Data Box Edge-enhet eller att skapa en användare att misslyckas.
+Du bör ha `User` åtkomst till Active Directory klient organisation som du behöver kunna `Read all directory objects`. Du kan inte vara gäst användare eftersom de inte har behörighet till `Read all directory objects`. Om du är gäst, kommer de åtgärder som att skapa en aktiverings nyckel att skapa en resurs på din Azure Stack Edge-enhet, vilket innebär att en användare inte kan skapa en användare.
 
 Mer information om hur du ger åtkomst till användare till Microsoft Graph API finns i [referens för Microsoft Graph behörigheter](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -88,7 +88,7 @@ Om du vill hämta en lista över registrerade resurs leverantörer i den aktuell
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-För Data Box Edge enhet `Microsoft.DataBoxEdge` ska registreras. För att `Microsoft.DataBoxEdge`registrera dig bör prenumerations administratören köra följande kommando:
+För Azure Stack Edge- `Microsoft.DataBoxEdge` enhet ska registreras. För att `Microsoft.DataBoxEdge`registrera dig bör prenumerations administratören köra följande kommando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

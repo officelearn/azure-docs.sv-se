@@ -3,12 +3,12 @@ title: Läs mer om Azure Service Fabric
 description: Lär dig mer om grundläggande begrepp och viktiga områden i Azure Service Fabric. Ger en utökad översikt över Service Fabric och hur du skapar mikrotjänster.
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.openlocfilehash: 4e6e21f5f9ebfeddb5292e00dc8a929341e77372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 573b1ec662bdc7e72f964698f5e0670860895586
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75458147"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791858"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Vill du veta mer om Service Fabric?
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Service Fabric har ett stort ytdiagram, men det är mycket att lära sig.  Den här artikeln innehåller en sammanfattning av Service Fabric och beskriver viktiga begrepp, programmerings modeller, program livs cykel, testning, kluster och hälso övervakning. Läs [översikten](service-fabric-overview.md) och [Vad är mikrotjänster?](service-fabric-overview-microservices.md) för en introduktion och hur Service Fabric kan användas för att skapa mikrotjänster. Den här artikeln innehåller ingen omfattande innehålls lista, men länkar till översikt och att komma igång-artiklar för varje Service Fabric. 
@@ -136,7 +136,7 @@ Kluster säkerhets scenarierna är:
 Mer information finns i [skydda ett kluster](service-fabric-cluster-security.md).
 
 ### <a name="scaling"></a>Skalning
-Om du lägger till nya noder i klustret ombalanserar Service Fabric partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod. Du kan skala kluster på Azure antingen [manuellt](service-fabric-cluster-scale-up-down.md) eller [via programmering](service-fabric-cluster-programmatic-scaling.md). Fristående kluster kan skalas [manuellt](service-fabric-cluster-windows-server-add-remove-nodes.md).
+Om du lägger till nya noder i klustret ombalanserar Service Fabric partitionens repliker och instanser över det ökade antalet noder. Övergripande program prestanda förbättras och konkurrens för åtkomst till minnes minskningar. Om noderna i klustret inte används effektivt kan du minska antalet noder i klustret. Service Fabric åter balanserar partitionens repliker och instanser över det minskade antalet noder för att bättre kunna använda maskin varan på varje nod. Du kan skala kluster på Azure antingen [manuellt](service-fabric-cluster-scale-in-out.md) eller [via programmering](service-fabric-cluster-programmatic-scaling.md). Fristående kluster kan skalas [manuellt](service-fabric-cluster-windows-server-add-remove-nodes.md).
 
 ### <a name="cluster-upgrades"></a>Kluster uppgraderingar
 Med jämna mellanrum släpps nya versioner av Service Fabric Runtime. Utföra körning eller infrastruktur resurser, uppgraderingar i klustret så att du alltid kör en version som [stöds](service-fabric-support.md). Förutom Fabric-uppgraderingar kan du också uppdatera kluster konfigurationen, till exempel certifikat eller program portar.

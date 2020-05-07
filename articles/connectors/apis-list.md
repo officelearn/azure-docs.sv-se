@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 04/24/2020
-ms.openlocfilehash: 27f86a3fa34f8029e59d11066de9ea5a25a8c5ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2a2ee7a2806a753ffd159c91ed782634e74c704
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147980"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838693"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Anslutningsprogram för Azure Logic Apps
 
@@ -192,10 +192,11 @@ För logi Kap par som du skapar och kör en isolerad [integrerings tjänst milj�
 
 |   |   |   |   |   |
 |---|---|---|---|---|
-[![API-][as2-icon]<br>ikon**AS2**][as2-doc] | [![API-][azure-blob-storage-icon]<br>ikon**Azure<br>Blob Storage**][azure-blob-storage-doc] | [![API-][azure-cosmos-db-icon]<br>ikon**Azure <br> Cosmos DB**][azure-cosmos-db-doc] | [![API-][azure-event-hubs-icon]<br>ikon**Azure <br>Event Hub**][azure-event-hubs-doc] | [![API-][azure-file-storage-icon]<br>ikon**Azure<br>File Storage**][azure-file-storage-doc] |
-| [![API][azure-service-bus-icon]<br>**-ikon Azure <br>Service Bus**][azure-service-bus-doc] | [![API-][azure-sql-data-warehouse-icon]<br>ikon**Azure SQL <br>Data Warehouse**][azure-sql-data-warehouse-doc] | [![API-][azure-table-storage-icon]<br>ikon**Azure <br>Table Storage**][azure-table-storage-doc] | [![API-][azure-queues-icon]<br>**ikon <br>Azure-köer**][azure-queues-doc] | [![API-][edifact-icon]<br>ikon**EDIFACT**][edifact-doc] |
-| [![API-][file-system-icon]<br>**ikon <br>fil system**][file-system-doc] | [![API][ftp-icon]<br>**-ikon FTP**][ftp-doc] | [![API-][ibm-3270-icon]<br>ikon**IBM 3270**][ibm-3270-doc] | [![API-][ibm-db2-icon]<br>ikon**IBM DB2**][ibm-db2-doc] | [![API-][ibm-mq-icon]<br>ikon**IBM MQ**][ibm-mq-doc] |
-| [![API-][sap-icon]<br>ikon**SAP**][sap-connector-doc] | [![API][sftp-ssh-icon]<br>**-ikon SFTP – SSH**][sftp-ssh-doc] | [![API][smtp-icon]<br>**-ikon SMTP**][smtp-doc] | [![API-][sql-server-icon]<br>**ikon <br>SQL Server**][sql-server-doc] | [![API-][x12-icon]<br>ikon**X12**][x12-doc] |
+[![API-][as2-icon]<br>ikon**AS2**][as2-doc] | [![API-][azure-automation-icon]<br>**ikon <br>Azure Automation**][azure-automation-doc] | [![API-][azure-blob-storage-icon]<br>ikon**Azure<br>Blob Storage**][azure-blob-storage-doc] | [![API-][azure-cosmos-db-icon]<br>ikon**Azure <br> Cosmos DB**][azure-cosmos-db-doc] | [![API-][azure-event-hubs-icon]<br>ikon**Azure <br>Event Hub**][azure-event-hubs-doc] |
+[![API-][azure-event-grid-icon]<br>ikon**Azure <br>Event Grid**][azure-event-grid-doc] | [![API-][azure-file-storage-icon]<br>ikon**Azure<br>File Storage**][azure-file-storage-doc] | [![API-][azure-key-vault-icon]<br>ikon**Azure <br>Key Vault**][azure-key-vault-doc] | [![API-][azure-monitor-logs-icon]<br>**ikon <br>Azure Monitor loggar**][azure-monitor-logs-doc] | [![API][azure-service-bus-icon]<br>**-ikon Azure <br>Service Bus**][azure-service-bus-doc] |
+| [![API-][azure-sql-data-warehouse-icon]<br>ikon**Azure SQL <br>Data Warehouse**][azure-sql-data-warehouse-doc] | [![API-][azure-table-storage-icon]<br>ikon**Azure <br>Table Storage**][azure-table-storage-doc] | [![API-][azure-queues-icon]<br>**ikon <br>Azure-köer**][azure-queues-doc] | [![API-][edifact-icon]<br>ikon**EDIFACT**][edifact-doc] | [![API-][file-system-icon]<br>**ikon <br>fil system**][file-system-doc] |
+| [![API][ftp-icon]<br>**-ikon FTP**][ftp-doc] | [![API-][ibm-3270-icon]<br>ikon**IBM 3270**][ibm-3270-doc] | [![API-][ibm-db2-icon]<br>ikon**IBM DB2**][ibm-db2-doc] | [![API-][ibm-mq-icon]<br>ikon**IBM MQ**][ibm-mq-doc] | [![API-][sap-icon]<br>ikon**SAP**][sap-connector-doc] |
+| [![API][sftp-ssh-icon]<br>**-ikon SFTP – SSH**][sftp-ssh-doc] | [![API][smtp-icon]<br>**-ikon SMTP**][smtp-doc] | [![API-][sql-server-icon]<br>**ikon <br>SQL Server**][sql-server-doc] | [![API-][x12-icon]<br>ikon**X12**][x12-doc] |
 ||||||
 
 Mer information finns i de här ämnena:
@@ -250,106 +251,6 @@ Om du vill anropa API: er som kör anpassad kod eller som inte är tillgängliga
 * [Skapa anpassade anslutningar för Logic Apps](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Skapa anpassade API:er för logikappar](../logic-apps/logic-apps-create-api-app.md)
 
-<!--Misc doc links-->
-[gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Anslut till datakällor lokalt från logikappar med lokala datagatewayer"
-
-<!--Built-in doc links-->
-[azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Skapa en Azure API Management-tjänstinstans för att hantera och publicera dina API: er"
-[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrera logikappar med App Service API Apps"
-[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrera logikappar med Azure Functions"
-[batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Bearbeta meddelanden i grupper eller som batchar"
-[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Utvärdera ett villkor och kör olika åtgärder baserat på om villkoret är sant eller falskt"
-[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Utför samma åtgärder på varje objekt i en matris"
-[http-doc]: ./connectors-native-http.md "Anropa HTTP-eller HTTPS-slutpunkter från dina Logic Apps"
-[http-request-doc]: ./connectors-native-reqres.md "Ta emot HTTP-begäranden i dina Logic Apps"
-[http-response-doc]: ./connectors-native-reqres.md "Svara på HTTP-begäranden från dina Logic Apps"
-[http-swagger-doc]: ./connectors-native-http-swagger.md "Ring upp REST-slutpunkter från dina Logic Apps"
-[http-webhook-doc]: ./connectors-native-webhook.md "Vänta på vissa händelser från HTTP-eller HTTPS-slutpunkter"
-[nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrera logikappar med kapslade arbetsflöden"
-[query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Välja och filtrera matriser med frågeåtgärden"
-[schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Köra Logi Kap par baserade på ett schema"
-[schedule-delay-doc]: ./connectors-native-delay.md "Fördröjning vid körning av nästa åtgärd"
-[schedule-delay-until-doc]: ./connectors-native-delay.md "Fördröjning vid körning av nästa åtgärd"
-[schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Köra Logic Apps enligt ett återkommande schema"
-[schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Kör Logi Kap par som behöver hantera data i intilliggande segment"
-[scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organisera åtgärder i grupper som får sin egen status efter att åtgärderna i gruppen har körts"
-[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organisera åtgärder i fall, som tilldelas unika värden. Kör bara det fall vars värde matchar resultatet från ett uttryck, ett objekt eller en token. Om inga matchningar finns kör du standard fallet"
-[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stoppa eller Avbryt ett aktivt pågående arbets flöde för din Logic app"
-[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Upprepa åtgärder tills det angivna villkoret är sant eller så har status ändrats"
-[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Utföra data åtgärder, till exempel för att filtrera matriser eller skapa CSV-och HTML-tabeller"
-[variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Utföra åtgärder med variabler, till exempel initiera, ange, öka, minska och lägga till i sträng eller mat ris variabel"
-
-<!--Managed connector doc links-->
-[azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Hantera filer i blobcontainern med Azure Blob Storage Connector"
-[azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Anslut till Azure Cosmos DB så att du kan komma åt dokument och lagrade procedurer"
-[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Övervaka händelser som publicerats av en Event Grid, till exempel när Azure-resurser eller resurser från tredje part ändras"
-[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Anslut till Azure Event Hubs så att du kan ta emot och skicka händelser mellan Logic Apps och Event Hubs"
-[azure-file-storage-doc]: https://docs.microsoft.com/connectors/azurefile/ "Anslut till ditt Azure Storage-konto så att du kan skapa, uppdatera, hämta och ta bort filer"
-[azure-queues-doc]: https://docs.microsoft.com/connectors/azurequeues/ "Anslut till ditt Azure Storage-konto så att du kan skapa och hantera köer och meddelanden"
-[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Skicka meddelanden från Service Bus-köer och Service Bus-ämnen och ta emot meddelanden från Service Bus-köer och Service Bus-prenumerationer"
-[azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Anslut till Azure SQL Data Warehouse så att du kan visa dina data"
-[azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Anslut till ditt Azure Storage-konto så att du kan skapa, uppdatera och fråga tabeller med mera"
-[biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Anslut till din BizTalk Server så att du kan köra BizTalk-baserade program sida vid sida med Azure Logic Apps"
-[box-doc]: ./connectors-create-api-box.md "Rutan Anslut till. Ladda upp, Hämta, ta bort, lista dina filer med mera"
-[dropbox-doc]: ./connectors-create-api-dropbox.md "Anslut till Dropbox. Ladda upp, Hämta, ta bort, lista dina filer med mera"
-[dynamics-365-doc]: ./connectors-create-api-crmonline.md "Anslut till Dynamics CRM Online så att du kan arbeta med CRM Online-data"
-[facebook-doc]: ./connectors-create-api-facebook.md "Anslut till Facebook. Publicera på en tids linje, hämta en sid matning med mera"
-[file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Ansluta till ett lokalt filsystem"
-[ftp-doc]: ./connectors-create-api-ftp.md "Ansluta till en FTP-/FTPS-server för FTP-aktiviteter, till exempel överföring, hämtning och borttagning av filer och mycket mer"
-[github-doc]: ./connectors-create-api-github.md "Ansluta till GitHub och spåra problem"
-[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Ansluter till Google Calendar och kan hantera kalendern"
-[google-drive-doc]: ./connectors-create-api-googledrive.md "Anslut till GoogleDrive så att du kan arbeta med dina data"
-[google-sheets-doc]: ./connectors-create-api-googlesheet.md "Anslut till Google Sheets så att du kan ändra dina blad"
-[google-tasks-doc]: ./connectors-create-api-googletasks.md "Ansluter till Google tasks så att du kan hantera dina uppgifter"
-[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Ansluta till 3270-appar i IBM-stordatorer"
-[ibm-db2-doc]: ./connectors-create-api-db2.md "Anslut till IBM DB2 i molnet eller lokalt. Uppdatera en rad, hämta en tabell med mera"
-[ibm-informix-doc]: ./connectors-create-api-informix.md "Anslut till Informix i molnet eller lokalt. Läsa en rad, lista tabeller med mera"
-[ibm-mq-doc]: ./connectors-create-api-mq.md "Ansluta till IBM MQ lokalt eller i Azure för att skicka och ta emot meddelanden"
-[instagram-doc]: ./connectors-create-api-instagram.md "Anslut till Instagram. Utlösa eller agera på händelser"
-[mailchimp-doc]: ./connectors-create-api-mailchimp.md "Anslut till ditt MailChimp-konto. Hantera och automatisera e-post"
-[mandrill-doc]: ./connectors-create-api-mandrill.md "Ansluta till Mandrill för kommunikation"
-[mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Anslut till din lokala MySQL-databas så att du kan läsa och skriva data"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Anslut till ditt Office 365-konto så att du kan skicka och ta emot e-post, hantera din kalender och dina kontakter med mera"
-[office-365-users-doc]: ./connectors-create-api-office365-users.md
-[onedrive-doc]: ./connectors-create-api-onedrive.md "Anslut till din personliga Microsoft OneDrive så att du kan ladda upp, ta bort, lista filer och mycket mer"
-[onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Anslut till ditt företag Microsoft OneDrive så att du kan ladda upp, ta bort, lista dina filer med mera"
-[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Anslut till en Oracle-databas så att du kan lägga till, infoga och ta bort rader med mera"
-[outlook.com-doc]: ./connectors-create-api-outlook.md "Anslut till din Outlook-postlåda så att du kan hantera din e-post, kalendrar, kontakter med mera"
-[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Anslut till PostgreSQL-databasen så att du kan läsa data från tabeller"
-[project-online-doc]: ./connectors-create-api-projectonline.md "Anslut till Microsoft Project Online så att du kan hantera dina projekt, aktiviteter, resurser med mera"
-[rss-doc]: ./connectors-create-api-rss.md "Publicera och hämta flödes objekt, Utlös åtgärder när ett nytt objekt publiceras i ett RSS-flöde"
-[salesforce-doc]: ./connectors-create-api-salesforce.md "Anslut till ditt Salesforce-konto. Hantera konton, leads, affärs möjligheter och mycket mer"
-[sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Ansluta till ett lokalt SAP-system"
-[sendgrid-doc]: ./connectors-create-api-sendgrid.md "Anslut till SendGrid. Skicka e-post och hantera mottagar listor"
-[sftp-ssh-doc]: ./connectors-sftp-ssh.md "Anslut till ditt SFTP-konto med hjälp av SSH. Ladda upp, Hämta, ta bort filer och mycket mer"
-[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "Anslut till en lokal SharePoint-Server. Hantera dokument, list objekt och mer"
-[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "Anslut till SharePoint Online. Hantera dokument, list objekt och mer"
-[slack-doc]: ./connectors-create-api-slack.md "Ansluta till slack och skicka meddelanden till slack-kanaler"
-[smtp-doc]: ./connectors-create-api-smtp.md "Ansluta till en SMTP-server och skicka e-post med bifogade filer"
-[sparkpost-doc]: ./connectors-create-api-sparkpost.md "Ansluter till SparkPost för kommunikation"
-[sql-server-doc]: ./connectors-create-api-sqlazure.md "Anslut till Azure SQL Database eller SQL Server. Skapa, uppdatera, hämta och ta bort poster i en SQL Database-tabell"
-[teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Anslut till Teradata-databasen för att läsa data från tabeller"
-[trello-doc]: ./connectors-create-api-trello.md "Anslut till Trello. Hantera dina projekt och organisera allt med vem som helst"
-[twilio-doc]: ./connectors-create-api-twilio.md "Anslut till Twilio. Skicka och hämta meddelanden, Hämta tillgängliga nummer, hantera inkommande telefonnummer och mycket mer"
-[twitter-doc]: ./connectors-create-api-twitter.md "Anslut till Twitter. Hämta tids linjer, publicera tweets med mera"
-[yammer-doc]: ./connectors-create-api-yammer.md "Anslut till Yammer. Publicera meddelanden, få nya meddelanden och mycket mer"
-[youtube-doc]: ./connectors-create-api-youtube.md "Anslut till YouTube. Hantera dina videor och kanaler"
-
-<!--Enterprise Intregation Pack doc links-->
-[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Koda och avkoda meddelanden som använder AS2-protokollet"
-[edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Koda och avkoda meddelanden som använder EDIFACT-protokollet"
-[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Avkoda meddelanden som använder EDIFACT-protokollet"
-[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Koda meddelanden som använder EDIFACT-protokollet"
-[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Lär dig mer om platt företags integrerings fil"
-[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Lär dig mer om platt företags integrerings fil"
-[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Hantera metadata för integrations konto artefakter"
-[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transformera JSON med flytande mallar"
-[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Koda och avkoda meddelanden som använder X12-protokollet"
-[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Avkoda meddelanden som använder X12-protokollet"
-[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Koda meddelanden som använder X12-protokollet"
-[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transformera XML-meddelanden"
-[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validera XML-meddelanden"
-
 <!-- Built-ins icons -->
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
@@ -386,7 +287,9 @@ Om du vill anropa API: er som kör anpassad kod eller som inte är tillgängliga
 [azure-event-grid-publish-icon]: ./media/apis-list/azure-event-grid-publish.png
 [azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
 [azure-file-storage-icon]: ./media/apis-list/azure-file-storage.png
+[azure-key-vault-icon]: ./media/apis-list/azure-key-vault.png
 [azure-ml-icon]: ./media/apis-list/azure-ml.png
+[azure-monitor-logs-icon]: ./media/apis-list/azure-monitor-logs.png
 [azure-queues-icon]: ./media/apis-list/azure-queues.png
 [azure-resource-manager-icon]: ./media/apis-list/azure-resource-manager.png
 [azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
@@ -469,3 +372,107 @@ Om du vill anropa API: er som kör anpassad kod eller som inte är tillgängliga
 [x12-icon]: ./media/apis-list/x12.png
 [xml-validate-icon]: ./media/apis-list/xml-validation.png
 [xml-transform-icon]: ./media/apis-list/xsl-transform.png
+
+<!--Other doc links-->
+[gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "Anslut till datakällor lokalt från logikappar med lokala datagatewayer"
+
+<!--Built-in doc links-->
+[azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Skapa en Azure API Management-tjänstinstans för att hantera och publicera dina API: er"
+[azure-app-services-doc]: ../logic-apps/logic-apps-custom-hosted-api.md "Integrera logikappar med App Service API Apps"
+[azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrera logikappar med Azure Functions"
+[batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Bearbeta meddelanden i grupper eller som batchar"
+[condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Utvärdera ett villkor och kör olika åtgärder baserat på om villkoret är sant eller falskt"
+[for-each-doc]: ../logic-apps/logic-apps-control-flow-loops.md#foreach-loop "Utför samma åtgärder på varje objekt i en matris"
+[http-doc]: ./connectors-native-http.md "Anropa HTTP-eller HTTPS-slutpunkter från dina Logic Apps"
+[http-request-doc]: ./connectors-native-reqres.md "Ta emot HTTP-begäranden i dina Logic Apps"
+[http-response-doc]: ./connectors-native-reqres.md "Svara på HTTP-begäranden från dina Logic Apps"
+[http-swagger-doc]: ./connectors-native-http-swagger.md "Ring upp REST-slutpunkter från dina Logic Apps"
+[http-webhook-doc]: ./connectors-native-webhook.md "Vänta på vissa händelser från HTTP-eller HTTPS-slutpunkter"
+[nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrera logikappar med kapslade arbetsflöden"
+[query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Välja och filtrera matriser med frågeåtgärden"
+[schedule-doc]: ../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md "Köra Logi Kap par baserade på ett schema"
+[schedule-delay-doc]: ./connectors-native-delay.md "Fördröjning vid körning av nästa åtgärd"
+[schedule-delay-until-doc]: ./connectors-native-delay.md "Fördröjning vid körning av nästa åtgärd"
+[schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Köra Logic Apps enligt ett återkommande schema"
+[schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Kör Logi Kap par som behöver hantera data i intilliggande segment"
+[scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organisera åtgärder i grupper som får sin egen status efter att åtgärderna i gruppen har körts"
+[switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organisera åtgärder i fall, som tilldelas unika värden. Kör bara det fall vars värde matchar resultatet från ett uttryck, ett objekt eller en token. Om inga matchningar finns kör du standard fallet"
+[terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stoppa eller Avbryt ett aktivt pågående arbets flöde för din Logic app"
+[until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Upprepa åtgärder tills det angivna villkoret är sant eller så har status ändrats"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Utföra data åtgärder, till exempel för att filtrera matriser eller skapa CSV-och HTML-tabeller"
+[variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Utföra åtgärder med variabler, till exempel initiera, ange, öka, minska och lägga till i sträng eller mat ris variabel"
+
+<!--Managed connector doc links-->
+[azure-automation-doc]: https://docs.microsoft.com/connectors/azureautomation/ "Skapa och hantera automatiserings jobb för molnet och den lokala infrastrukturen"
+[azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Hantera filer i blobcontainern med Azure Blob Storage Connector"
+[azure-cosmos-db-doc]: https://docs.microsoft.com/connectors/documentdb/ "Anslut till Azure Cosmos DB så att du kan komma åt dokument och lagrade procedurer"
+[azure-event-grid-doc]: ../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md "Övervaka händelser som publicerats av en Event Grid, till exempel när Azure-resurser eller resurser från tredje part ändras"
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Anslut till Azure Event Hubs så att du kan ta emot och skicka händelser mellan Logic Apps och Event Hubs"
+[azure-file-storage-doc]: https://docs.microsoft.com/connectors/azurefile/ "Anslut till ditt Azure Storage-konto så att du kan skapa, uppdatera, hämta och ta bort filer"
+[azure-key-vault-doc]: https://docs.microsoft.com/connectors/keyvault/ "Anslut till din Azure Key Vault så att du kan hantera dina hemligheter och nycklar"
+[azure-monitor-logs-doc]: https://docs.microsoft.com/connectors/azuremonitorlogs/ "Kör frågor mot Azure Monitor loggar i Log Analytics arbets ytor och Application Insights komponenter"
+[azure-queues-doc]: https://docs.microsoft.com/connectors/azurequeues/ "Anslut till ditt Azure Storage-konto så att du kan skapa och hantera köer och meddelanden"
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Skicka meddelanden från Service Bus-köer och Service Bus-ämnen och ta emot meddelanden från Service Bus-köer och Service Bus-prenumerationer"
+[azure-sql-data-warehouse-doc]: https://docs.microsoft.com/connectors/sqldw/ "Anslut till Azure SQL Data Warehouse så att du kan visa dina data"
+[azure-table-storage-doc]: https://docs.microsoft.com/connectors/azuretables/ "Anslut till ditt Azure Storage-konto så att du kan skapa, uppdatera och fråga tabeller med mera"
+[biztalk-server-doc]: https://docs.microsoft.com/connectors/biztalk/ "Anslut till din BizTalk Server så att du kan köra BizTalk-baserade program sida vid sida med Azure Logic Apps"
+[box-doc]: ./connectors-create-api-box.md "Rutan Anslut till. Ladda upp, Hämta, ta bort, lista dina filer med mera"
+[dropbox-doc]: ./connectors-create-api-dropbox.md "Anslut till Dropbox. Ladda upp, Hämta, ta bort, lista dina filer med mera"
+[dynamics-365-doc]: ./connectors-create-api-crmonline.md "Anslut till Dynamics CRM Online så att du kan arbeta med CRM Online-data"
+[facebook-doc]: ./connectors-create-api-facebook.md "Anslut till Facebook. Publicera på en tids linje, hämta en sid matning med mera"
+[file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Ansluta till ett lokalt filsystem"
+[ftp-doc]: ./connectors-create-api-ftp.md "Ansluta till en FTP-/FTPS-server för FTP-aktiviteter, till exempel överföring, hämtning och borttagning av filer och mycket mer"
+[github-doc]: ./connectors-create-api-github.md "Ansluta till GitHub och spåra problem"
+[google-calendar-doc]: ./connectors-create-api-googlecalendar.md "Ansluter till Google Calendar och kan hantera kalendern"
+[google-drive-doc]: ./connectors-create-api-googledrive.md "Anslut till GoogleDrive så att du kan arbeta med dina data"
+[google-sheets-doc]: ./connectors-create-api-googlesheet.md "Anslut till Google Sheets så att du kan ändra dina blad"
+[google-tasks-doc]: ./connectors-create-api-googletasks.md "Ansluter till Google tasks så att du kan hantera dina uppgifter"
+[ibm-3270-doc]: ./connectors-run-3270-apps-ibm-mainframe-create-api-3270.md "Ansluta till 3270-appar i IBM-stordatorer"
+[ibm-db2-doc]: ./connectors-create-api-db2.md "Anslut till IBM DB2 i molnet eller lokalt. Uppdatera en rad, hämta en tabell med mera"
+[ibm-informix-doc]: ./connectors-create-api-informix.md "Anslut till Informix i molnet eller lokalt. Läsa en rad, lista tabeller med mera"
+[ibm-mq-doc]: ./connectors-create-api-mq.md "Ansluta till IBM MQ lokalt eller i Azure för att skicka och ta emot meddelanden"
+[instagram-doc]: ./connectors-create-api-instagram.md "Anslut till Instagram. Utlösa eller agera på händelser"
+[mailchimp-doc]: ./connectors-create-api-mailchimp.md "Anslut till ditt MailChimp-konto. Hantera och automatisera e-post"
+[mandrill-doc]: ./connectors-create-api-mandrill.md "Ansluta till Mandrill för kommunikation"
+[mysql-doc]: https://docs.microsoft.com/connectors/mysql/ "Anslut till din lokala MySQL-databas så att du kan läsa och skriva data"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Anslut till ditt Office 365-konto så att du kan skicka och ta emot e-post, hantera din kalender och dina kontakter med mera"
+[office-365-users-doc]: ./connectors-create-api-office365-users.md
+[onedrive-doc]: ./connectors-create-api-onedrive.md "Anslut till din personliga Microsoft OneDrive så att du kan ladda upp, ta bort, lista filer och mycket mer"
+[onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Anslut till ditt företag Microsoft OneDrive så att du kan ladda upp, ta bort, lista dina filer med mera"
+[oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Anslut till en Oracle-databas så att du kan lägga till, infoga och ta bort rader med mera"
+[outlook.com-doc]: ./connectors-create-api-outlook.md "Anslut till din Outlook-postlåda så att du kan hantera din e-post, kalendrar, kontakter med mera"
+[postgre-sql-doc]: https://docs.microsoft.com/connectors/postgresql/ "Anslut till PostgreSQL-databasen så att du kan läsa data från tabeller"
+[project-online-doc]: ./connectors-create-api-projectonline.md "Anslut till Microsoft Project Online så att du kan hantera dina projekt, aktiviteter, resurser med mera"
+[rss-doc]: ./connectors-create-api-rss.md "Publicera och hämta flödes objekt, Utlös åtgärder när ett nytt objekt publiceras i ett RSS-flöde"
+[salesforce-doc]: ./connectors-create-api-salesforce.md "Anslut till ditt Salesforce-konto. Hantera konton, leads, affärs möjligheter och mycket mer"
+[sap-connector-doc]: ../logic-apps/logic-apps-using-sap-connector.md "Ansluta till ett lokalt SAP-system"
+[sendgrid-doc]: ./connectors-create-api-sendgrid.md "Anslut till SendGrid. Skicka e-post och hantera mottagar listor"
+[sftp-ssh-doc]: ./connectors-sftp-ssh.md "Anslut till ditt SFTP-konto med hjälp av SSH. Ladda upp, Hämta, ta bort filer och mycket mer"
+[sharepoint-server-doc]: ./connectors-create-api-sharepointserver.md "Anslut till en lokal SharePoint-Server. Hantera dokument, list objekt och mer"
+[sharepoint-online-doc]: ./connectors-create-api-sharepointonline.md "Anslut till SharePoint Online. Hantera dokument, list objekt och mer"
+[slack-doc]: ./connectors-create-api-slack.md "Ansluta till slack och skicka meddelanden till slack-kanaler"
+[smtp-doc]: ./connectors-create-api-smtp.md "Ansluta till en SMTP-server och skicka e-post med bifogade filer"
+[sparkpost-doc]: ./connectors-create-api-sparkpost.md "Ansluter till SparkPost för kommunikation"
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Anslut till Azure SQL Database eller SQL Server. Skapa, uppdatera, hämta och ta bort poster i en SQL Database-tabell"
+[teradata-doc]: https://docs.microsoft.com/connectors/teradata/ "Anslut till Teradata-databasen för att läsa data från tabeller"
+[trello-doc]: ./connectors-create-api-trello.md "Anslut till Trello. Hantera dina projekt och organisera allt med vem som helst"
+[twilio-doc]: ./connectors-create-api-twilio.md "Anslut till Twilio. Skicka och hämta meddelanden, Hämta tillgängliga nummer, hantera inkommande telefonnummer och mycket mer"
+[twitter-doc]: ./connectors-create-api-twitter.md "Anslut till Twitter. Hämta tids linjer, publicera tweets med mera"
+[yammer-doc]: ./connectors-create-api-yammer.md "Anslut till Yammer. Publicera meddelanden, få nya meddelanden och mycket mer"
+[youtube-doc]: ./connectors-create-api-youtube.md "Anslut till YouTube. Hantera dina videor och kanaler"
+
+<!--Enterprise Intregation Pack doc links-->
+[as2-doc]: ../logic-apps/logic-apps-enterprise-integration-as2.md "Koda och avkoda meddelanden som använder AS2-protokollet"
+[edifact-doc]: ../logic-apps/logic-apps-enterprise-integration-edifact.md "Koda och avkoda meddelanden som använder EDIFACT-protokollet"
+[edifact-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-decode.md "Avkoda meddelanden som använder EDIFACT-protokollet"
+[edifact-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-EDIFACT-encode.md "Koda meddelanden som använder EDIFACT-protokollet"
+[flat-file-decode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Lär dig mer om platt företags integrerings fil"
+[flat-file-encode-doc]:../logic-apps/logic-apps-enterprise-integration-flatfile.md "Lär dig mer om platt företags integrerings fil"
+[integration-account-doc]: ../logic-apps/logic-apps-enterprise-integration-metadata.md "Hantera metadata för integrations konto artefakter"
+[json-liquid-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-liquid-transform.md "Transformera JSON med flytande mallar"
+[x12-doc]: ../logic-apps/logic-apps-enterprise-integration-x12.md "Koda och avkoda meddelanden som använder X12-protokollet"
+[x12-decode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-decode.md "Avkoda meddelanden som använder X12-protokollet"
+[x12-encode-doc]: ../logic-apps/logic-apps-enterprise-integration-X12-encode.md "Koda meddelanden som använder X12-protokollet"
+[xml-transform-doc]: ../logic-apps/logic-apps-enterprise-integration-transform.md "Transformera XML-meddelanden"
+[xml-validate-doc]: ../logic-apps/logic-apps-enterprise-integration-xml-validation.md "Validera XML-meddelanden"
+

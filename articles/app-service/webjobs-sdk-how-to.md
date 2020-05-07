@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 5a8d5f96449cfecd4628c38fa2788a1e06e96b07
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a046791b8c50577c1921764b06bac5d88780194d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758903"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735002"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Så använder du Azure WebJobs SDK för händelsedriven bakgrundsbearbetning
 
@@ -956,9 +956,9 @@ I version 3. *x*behöver du inte längre rensa [`TelemetryClient`] när värden 
 
 #### <a name="version-2x"></a>Version 2. *x*
 
-I version 2. *x*, som [`TelemetryClient`] skapats internt av Application Insights-providern för WebJobs SDK använder [`ServerTelemetryChannel`](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs). När Application Insights-slutpunkten är otillgänglig eller begränsa inkommande begär Anden, sparar den här kanalen [begär anden i webbappens fil system och skickar dem igen senare](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
+I version 2. *x*, som [`TelemetryClient`] skapats internt av Application Insights-providern för WebJobs SDK använder [`ServerTelemetryChannel`](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/.publicApi/Microsoft.AI.ServerTelemetryChannel.dll). När Application Insights-slutpunkten är otillgänglig eller begränsa inkommande begär Anden, sparar den här kanalen [begär anden i webbappens fil system och skickar dem igen senare](https://apmtips.com/blog/2015/09/03/more-telemetry-channels).
 
-[`TelemetryClient`] Skapas av en klass som implementerar `ITelemetryClientFactory`. Som standard är detta [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/DefaultTelemetryClientFactory.cs).
+[`TelemetryClient`] Skapas av en klass som implementerar `ITelemetryClientFactory`. Som standard är detta [`DefaultTelemetryClientFactory`](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/).
 
 Om du vill ändra någon del av Application Insights pipeline kan du ange din egen `ITelemetryClientFactory`och värden använder klassen för att skapa en. [`TelemetryClient`] Den här koden åsidosätter exempelvis `DefaultTelemetryClientFactory` för att ändra en egenskap för: `ServerTelemetryChannel`
 

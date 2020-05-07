@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 641d7410e414be2adae2a83840c90a680aedd2fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: d160b0ead1ceb8c41bede20cb389a360d24258f9
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683356"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561394"
 ---
 # <a name="azure-data-box-gateway-limits"></a>Azure Data Box Gateway gränser
 
-Tänk på följande begränsningar när du distribuerar och använder Microsoft Azure Data Box Gateway-lösningen. 
+Tänk på följande begränsningar när du distribuerar och använder Microsoft Azure Data Box Gateway-lösningen.
 
 ## <a name="data-box-gateway-service-limits"></a>Data Box Gateway tjänst gränser
 

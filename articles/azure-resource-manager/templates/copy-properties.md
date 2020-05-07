@@ -3,12 +3,12 @@ title: Definiera flera instanser av en egenskap
 description: Använd kopierings åtgärden i en Azure Resource Manager-mall för att iterera flera gånger när du skapar en egenskap för en resurs.
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.openlocfilehash: 831ae1af202a1cdf52bdd2bdf0d9a042a97ba52f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fde2ecf14bc5b29bb31ffa78e067b780438578a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81391344"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583404"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Egenskaps upprepning i ARM-mallar
 
@@ -16,7 +16,7 @@ Den här artikeln visar hur du skapar fler än en instans av en egenskap i din A
 
 Du kan också använda kopiera med [resurser](copy-resources.md), [variabler](copy-variables.md)och [utdata](copy-outputs.md).
 
-## <a name="property-iteration"></a>Egenskaps upprepning
+## <a name="syntax"></a>Syntax
 
 Kopierings elementet har följande allmänna format:
 
@@ -35,6 +35,21 @@ Som **namn**anger du namnet på den resurs egenskap som du vill skapa.
 Egenskapen **Count** anger antalet iterationer som du vill använda för egenskapen.
 
 Egenskapen **indatamängd** anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i egenskapen **indatamängd** .
+
+## <a name="copy-limits"></a>Kopierings gränser
+
+Antalet får inte överskrida 800.
+
+Antalet får inte vara ett negativt tal. Det kan vara noll om du distribuerar mallen med en senare version av Azure CLI, PowerShell eller REST API. Mer specifikt måste du använda:
+
+* Azure PowerShell **2,6** eller senare
+* Azure CLI- **2.0.74** eller senare
+* REST API version **2019-05-10** eller senare
+* [Länkade distributioner](linked-templates.md) måste använda API version **2019-05-10** eller senare för distributions resurs typen
+
+Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för Count.
+
+## <a name="property-iteration"></a>Egenskaps upprepning
 
 I följande exempel visas hur du använder `copy` egenskapen data disks på en virtuell dator:
 
@@ -232,12 +247,6 @@ Du kan använda en iteration av resurs och egenskap tillsammans. Referera till e
   }
 }
 ```
-
-## <a name="copy-limits"></a>Kopierings gränser
-
-Antalet får inte överskrida 800.
-
-Antalet får inte vara ett negativt tal. Om du distribuerar en mall med Azure PowerShell 2,6 eller senare, Azure CLI 2.0.74 eller senare, eller REST API version **2019-05-10** eller senare, kan du ange antal till noll. Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för Count.
 
 ## <a name="example-templates"></a>Exempel på mallar
 

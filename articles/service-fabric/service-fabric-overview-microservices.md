@@ -4,12 +4,12 @@ description: En översikt över varför det är viktigt att skapa moln program m
 ms.topic: conceptual
 ms.date: 01/07/2020
 ms.custom: sfrev
-ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e0c93423b3639fb2bc3739f0d6569c4c4cec8da
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75750630"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792876"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Varför ska man använda en mikrotjänst metod för att skapa program
 
@@ -35,7 +35,7 @@ Under en-klient/server-era är vi inriktad på att utveckla program med flera ni
 
 Det finns fördelar med en monolitisk design metod. Monolitisk-program är ofta enklare att utforma, och anrop mellan komponenter går snabbare eftersom dessa anrop ofta är över interprocess communication (IPC). Alla testar också en enskild produkt, vilket är en mer effektiv användning av personal resurser. Nack delen är att det finns en tätt koppling mellan skikt skikt och att du inte kan skala enskilda komponenter. Om du behöver göra korrigeringar eller uppgraderingar måste du vänta på att andra ska kunna slutföra testningen. Det är svårare att vara smidigare.
 
-Mikrotjänster riktar sig mot dessa nack tjänster och är mer tätt justerade med föregående affärs behov. Men de har också både fördelar och skulder. Fördelarna med mikrotjänster är att var och en vanligt vis kapslar in enklare företags funktioner, som du kan skala upp eller ned, testa, distribuera och hantera oberoende av varandra. En viktig fördel med en mikrotjänster-metod är att teamen drivs mer i affärs scenarier än med teknik. Mindre team utvecklar en mikrotjänst baserat på ett kund scenario och använder alla tekniker som de vill använda.
+Mikrotjänster riktar sig mot dessa nack tjänster och är mer tätt justerade med föregående affärs behov. Men de har också både fördelar och skulder. Fördelarna med mikrotjänster är att var och en vanligt vis kapslar in enklare företags funktioner, som du kan skala ut eller i, testa, distribuera och hantera oberoende av varandra. En viktig fördel med en mikrotjänster-metod är att teamen drivs mer i affärs scenarier än med teknik. Mindre team utvecklar en mikrotjänst baserat på ett kund scenario och använder alla tekniker som de vill använda.
 
 Det innebär att organisationen inte behöver standardisera tekniska lösningar för att underhålla mikrotjänstprogram. Enskilda team som äger tjänster kan göra vad som är lämpligt för dem baserat på grupp expert kunskaper eller vad som är lämpligast för att lösa problemet. I praktiken är en uppsättning rekommenderade tekniker, till exempel ett visst NoSQL lager eller ramverk för webb program, lämpligt.
 

@@ -3,12 +3,12 @@ title: Uppgradera ett fristående Azure Service Fabric-kluster
 description: Lär dig mer om att uppgradera versionen eller konfigurationen av ett fristående Azure Service Fabric-kluster.  T
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: 6da9b4c6890895141ecc419382f05f667614fb31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac3e80aae440c6709057e4211f7a4f6a1beea058
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451827"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790651"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>Uppgradera och uppdatera ett Service Fabric fristående kluster
 
@@ -38,7 +38,7 @@ POA (patch Orchestration Application) är ett Service Fabric program som automat
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du anpassar några av [inställningarna för Service Fabric-klustrets infrastruktur resurser](service-fabric-cluster-fabric-settings.md)
-* Lär dig hur du [skalar upp och ut ditt kluster](service-fabric-cluster-scale-up-down.md)
+* Lär dig hur du [skalar upp och ut ditt kluster](service-fabric-cluster-scale-in-out.md)
 * Lär dig mer om [program uppgraderingar](service-fabric-application-upgrade.md)
 
 <!--Image references-->

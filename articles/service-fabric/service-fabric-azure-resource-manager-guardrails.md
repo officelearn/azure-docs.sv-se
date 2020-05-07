@@ -7,12 +7,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04c6444723180c34f6605810260f5f865dff2d12
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77368577"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790923"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 När du distribuerar ett Service Fabric-kluster placeras guardrails på plats, vilket kommer att Miss förAzure Resource Manager distribution om en ogiltig kluster konfiguration används. I följande avsnitt får du en översikt över vanliga problem med kluster konfiguration och de steg som krävs för att minimera problemen. 
@@ -79,7 +79,7 @@ Borttagnings åtgärden för startnoden har identifierats och kommer att avvisas
 Kontrol lera att den primära nodtypen har tillräckligt med Virtual Machines för den tillförlitlighet som anges i klustret. Du kommer inte att kunna ta bort en virtuell dator om den här skalnings uppsättningen för den virtuella datorn ska få lägre än det minsta antalet noder för den angivna Tillförlitlighets nivån.
 * Om Tillförlitlighets nivån är korrekt angiven kontrollerar du att det finns tillräckligt många noder i den primära nodtypen som behövs för Tillförlitlighets nivån. 
 * Om Tillförlitlighets nivån är felaktig initierar du en ändring på Service Fabric resurs för att sänka Tillförlitlighets nivån först innan du påbörjar alla åtgärder för skalnings uppsättningar för virtuella datorer och väntar tills den har slutförts.
-* Om Tillförlitlighets nivån är brons följer du de här [stegen](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) för att skala ned klustret på ett smidigt sätt.
+* Om Tillförlitlighets nivån är brons följer du dessa [steg](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-in-out#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) för att skala i klustret på ett smidigt sätt.
 
 ## <a name="next-steps"></a>Nästa steg
 * Skapa ett kluster på virtuella datorer eller datorer som kör Windows Server: [Service Fabric skapa kluster för Windows Server](service-fabric-cluster-creation-for-windows-server.md)

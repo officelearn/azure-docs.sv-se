@@ -4,12 +4,12 @@ description: Överväganden vid planering av Service Fabric kluster kapacitet. N
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f011dee94e135ba40f8d3c87240e905e4a2739ec
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258920"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793065"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Överväganden vid planering av Service Fabric kluster kapacitet
 Vid distribution till en produktionsmiljö är det viktigt med kapacitetsplanering. Här följer några av de objekt som du måste ta hänsyn till som en del av processen.
@@ -104,7 +104,7 @@ Använd silver eller guld tålighet för alla nodtyper som är värdar för till
 
 - Behåll det lägsta antalet fem noder för alla skalnings uppsättningar för virtuella datorer som har en hög grad av guld eller silver aktiverat.
 - Varje skalnings uppsättning för virtuella datorer med silver eller guld måste mappas till en egen nodtyp i Service Fabric klustret. Om du mappar flera skalnings uppsättningar för virtuella datorer till en enda nodtyp förhindrar det att samordningen mellan Service Fabric-klustret och Azure-infrastrukturen fungerar som de ska.
-- Ta inte bort slumpmässiga VM-instanser, Använd alltid skalnings funktionen skalnings uppsättning för virtuella datorer. Borttagning av slumpmässiga VM-instanser har möjlighet att skapa obalanser i den virtuella dator instansens spridning över UD och FD. Den här obalansen kan påverka systemets möjlighet att korrekt belastningsutjämna mellan tjänst instanser/tjänst repliker.
+- Ta inte bort slumpmässiga VM-instanser, Använd alltid skalnings uppsättning för virtuella datorer i funktionen. Borttagning av slumpmässiga VM-instanser har möjlighet att skapa obalanser i den virtuella dator instansens spridning över UD och FD. Den här obalansen kan påverka systemets möjlighet att korrekt belastningsutjämna mellan tjänst instanser/tjänst repliker.
 - Om du använder autoskalning ställer du in reglerna så att skala i (borttagning av VM-instanser) bara är utförd en nod i taget. Att skala ned fler än en instans i taget är inte säkert.
 - Om du tar bort eller frigör virtuella datorer på den primära nodtypen, bör du aldrig minska antalet allokerade virtuella datorer under vad Tillförlitlighets nivån kräver. De här åtgärderna kommer att blockeras oändligt i en skalnings uppsättning med en hållbarhets nivå på silver eller guld.
 

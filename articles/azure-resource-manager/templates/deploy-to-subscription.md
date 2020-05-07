@@ -2,13 +2,13 @@
 title: Distribuera resurser till prenumerationen
 description: Beskriver hur du skapar en resurs grupp i en Azure Resource Manager-mall. Det visar också hur du distribuerar resurser i Azures prenumerations omfång.
 ms.topic: conceptual
-ms.date: 03/23/2020
-ms.openlocfilehash: 6bec29a07653ff5ad7d1e2f8317246049e127c8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 80fe451f696480ec24b3d8eced64941de9492fef
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604995"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610827"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resurs grupper och resurser på prenumerations nivå
 
@@ -20,6 +20,7 @@ Om du vill distribuera mallar på prenumerations nivån använder du Azure CLI, 
 
 Du kan distribuera följande resurs typer på prenumerations nivån:
 
+* [modeller](/azure/templates/microsoft.blueprint/blueprints)
 * [budget](/azure/templates/microsoft.consumption/budgets)
 * [distributioner](/azure/templates/microsoft.resources/deployments) – för kapslade mallar som distribueras till resurs grupper.
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
@@ -244,11 +245,11 @@ I följande exempel skapas en resurs grupp och ett lagrings konto distribueras t
 }
 ```
 
-## <a name="create-policies"></a>Skapa principer
+## <a name="azure-policy"></a>Azure Policy
 
-### <a name="assign-policy"></a>Tilldela princip
+### <a name="assign-policy-definition"></a>Tilldela princip definition
 
-I följande exempel tilldelas en befintlig princip definition till prenumerationen. Om principen använder parametrar, anger du dem som ett objekt. Om principen inte tar parametrar använder du det tomma standard objektet.
+I följande exempel tilldelas en befintlig princip definition till prenumerationen. Om princip definitionen tar parametrar, anger du dem som ett objekt. Om princip definitionen inte tar parametrar använder du det tomma standard objektet.
 
 ```json
 {
@@ -285,7 +286,7 @@ I följande exempel tilldelas en befintlig princip definition till prenumeration
 Om du vill distribuera den här mallen med Azure CLI använder du:
 
 ```azurecli-interactive
-# Built-in policy that accepts parameters
+# Built-in policy definition that accepts parameters
 definition=$(az policy definition list --query "[?displayName=='Allowed locations'].id" --output tsv)
 
 az deployment sub create \
@@ -312,9 +313,9 @@ New-AzSubscriptionDeployment `
   -policyParameters $policyParams
 ```
 
-### <a name="define-and-assign-policy"></a>Definiera och tilldela princip
+### <a name="create-and-assign-policy-definitions"></a>Skapa och tilldela princip definitioner
 
-Du kan [definiera](../../governance/policy/concepts/definition-structure.md) och tilldela en princip i samma mall.
+Du kan [definiera](../../governance/policy/concepts/definition-structure.md) och tilldela en princip definition i samma mall.
 
 ```json
 {
@@ -357,7 +358,7 @@ Du kan [definiera](../../governance/policy/concepts/definition-structure.md) och
 }
 ```
 
-Använd följande CLI-kommando om du vill skapa en princip definition i din prenumeration och tillämpa den på prenumerationen:
+Använd följande CLI-kommando om du vill skapa en princip definition i din prenumeration och tilldela den till prenumerationen:
 
 ```azurecli
 az deployment sub create \
@@ -373,6 +374,32 @@ New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json"
+```
+
+## <a name="azure-blueprints"></a>Azure Blueprint
+
+### <a name="create-blueprint-definition"></a>Skapa skiss definition
+
+Du kan [skapa](../../governance/blueprints/tutorials/create-from-sample.md) en skiss definition från en mall.
+
+:::code language="json" source="~/quickstart-templates/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json":::
+
+Använd följande CLI-kommando om du vill skapa en skiss definition i din prenumeration:
+
+```azurecli
+az deployment sub create \
+  --name demoDeployment \
+  --location centralus \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
+```
+
+Använd följande om du vill distribuera den här mallen med PowerShell:
+
+```azurepowershell
+New-AzSubscriptionDeployment `
+  -Name demoDeployment `
+  -Location centralus `
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-level-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
 ## <a name="template-samples"></a>Exempel på mallar

@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: machine-learning
 ms.service: machine-learning
 ms.custom: include file

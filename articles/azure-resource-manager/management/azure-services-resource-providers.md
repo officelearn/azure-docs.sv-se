@@ -3,12 +3,12 @@ title: Resurs leverantörer efter Azure-tjänster
 description: Visar en lista över alla resurs leverantörs namn områden för Azure Resource Manager och Azure-tjänsten för namn området visas.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 55fbe4ae383e5275d185e2a03224e77660a01ef5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9bb8d91d141997a7dd466d247ddcb0bd364e1c80
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382500"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559852"
 ---
 # <a name="resource-providers-for-azure-services"></a>Resurs leverantörer för Azure-tjänster
 
@@ -51,7 +51,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. ClassicSubscription | Klassisk distributionsmodell |
 | Microsoft. CognitiveServices | [Cognitive Services](/azure/cognitive-services/) |
 | Microsoft. Commerce | grundläggande |
-| Microsoft.Compute | [Virtuella datorer](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
+| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
 | Microsoft. förbrukning | [Cost Management](/azure/cost-management/) |
 | Microsoft. ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft. ContainerRegistry | [Container Registry](/azure/container-registry/) |
@@ -61,7 +61,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. CustomerLockbox | Customer Lockbox för Microsoft Azure |
 | Microsoft. CustomProviders | [Anpassade providrar för Azure](../custom-providers/overview.md) |
 | Microsoft. data- | [Azure Data Box](/azure/databox-family/) |
-| Microsoft. DataBoxEdge | [Azure Stack Edge](../../databox-online/data-box-edge-overview.md) |
+| Microsoft. DataBoxEdge | [Azure Stack Edge](../../databox-online/azure-stack-edge-overview.md) |
 | Microsoft. Databricks | [Azure Databricks](/azure/azure-databricks/) |
 | Microsoft. DataCatalog | [Data Catalog](/azure/data-catalog/) |
 | Microsoft. DataFactory | [Data Factory](/azure/data-factory/) |
@@ -69,7 +69,7 @@ Den här artikeln visar hur namn områden för resurs leverantörer mappas till 
 | Microsoft. DataLakeStore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) |
 | Microsoft. data migration | [Azure Database Migration Service](/azure/dms/) |
 | Microsoft. DataShare | [Azure Data Share](/azure/data-share/) |
-| Microsoft. DBforMariaDB | [Azure-databas för MariaDB](/azure/mariadb/) |
+| Microsoft. DBforMariaDB | [Azure Database för MariaDB](/azure/mariadb/) |
 | Microsoft. DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
 | Microsoft. DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
 | Microsoft. DesktopVirtualization | [Windows Virtual Desktop](/azure/virtual-desktop/) |

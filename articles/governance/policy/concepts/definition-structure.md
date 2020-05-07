@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5d4a86f4d9f74cf17229467f19a3afa8bebcf40f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187774"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613310"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -73,14 +73,14 @@ Alla Azure Policys exempel finns på [Azure policy exempel](../samples/index.md)
 
 **Läget** avgör vilka resurs typer som ska utvärderas för en princip. De lägen som stöds är:
 
-- `all`: utvärdera resurs grupper och alla resurs typer
+- `all`: utvärdera resurs grupper, prenumerationer och alla resurs typer
 - `indexed`: utvärdera endast resurs typer som stöder taggar och platser
 
 Resurs `Microsoft.Network/routeTables` stöder till exempel taggar och plats och utvärderas i båda lägena. Men det går `Microsoft.Network/routeTables/routes` inte att tagga resursen och den utvärderas `Indexed` inte i läget.
 
 Vi rekommenderar att du ställer **mode** in läget `all` till i de flesta fall. Alla princip definitioner som `all` skapats via portalen använder läget. Om du använder PowerShell eller Azure CLI kan du ange **läges** parametern manuellt. Om princip definitionen inte innehåller ett **läges** värde används standardvärdet `all` i Azure POWERSHELL och `null` i Azure CLI. Ett `null` läge är detsamma som att använda `indexed` för att ge stöd för bakåtkompatibilitet.
 
-`indexed`ska användas när du skapar principer som tvingar etiketter eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantag är **resurs grupper**. Principer som tvingar plats eller taggar i en resurs grupp bör ange **läge** till `all` och specifikt riktar `Microsoft.Resources/subscriptions/resourceGroups` sig mot typen. Ett exempel finns i [tvinga resurs grupps Taggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/management/tag-support.md).
+`indexed`ska användas när du skapar principer som tvingar etiketter eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantaget är **resurs grupper** och **prenumerationer**. Principer som tvingar plats eller taggar i en resurs grupp eller prenumeration ska ange **läge** till `all` och särskilt vara mål `Microsoft.Resources/subscriptions/resourceGroups` för `Microsoft.Resources/subscriptions` -eller-typen. Ett exempel finns i [tvinga resurs grupps Taggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Lägen för resurs leverantörer (för hands version)
 
@@ -682,7 +682,7 @@ Listan över alias växer alltid. Använd någon av följande metoder för att t
 
 ### <a name="understanding-the--alias"></a>Förstå aliaset [*]
 
-Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som ** \[ \* ** är kopplad till den. Ett exempel:
+Flera av de tillgängliga aliasen har en version som visas som ett normalt namn och en annan som ** \[ \* ** är kopplad till den. Exempel:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

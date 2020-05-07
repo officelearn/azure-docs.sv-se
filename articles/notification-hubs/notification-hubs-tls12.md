@@ -10,20 +10,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/07/2020
+ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2020
-ms.openlocfilehash: 4da96df50e961f4291029a37e883fdcf88c6c87f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a87f3563b995081de8e7cbb4b4499718f77b02ff
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885760"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583262"
 ---
 # <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
-För att säkerställa en högre säkerhets nivå kommer Notification Hubs att inaktivera stöd för TLS-versionerna 1,0 och 1,1 den 31 maj 2020 (från och med 30 april 2020). Dessa äldre protokoll ger svag kryptering och är sårbara för BEAST-och POODLE-attacker. Program som distribueras till enheter som kör Android version 5 eller senare, eller iOS version 5 eller senare, påverkas inte av den här ändringen eftersom operativ systemen har stöd för TLS 1,2 och klienten och servern förhandlar den högsta ömsesidigt stödda versionen av protokollet vid anslutning.
+För att säkerställa en högre säkerhets nivå kommer Notification Hubs att inaktivera stöd för TLS-versionerna 1,0 och 1,1 den **31 December 2020** (från och med 30 april 2020). Dessa äldre protokoll ger svag kryptering och är sårbara för BEAST-och POODLE-attacker. Program som distribueras till enheter som kör Android version 5 eller senare, eller iOS version 5 eller senare, påverkas inte av den här ändringen eftersom operativ systemen har stöd för TLS 1,2 och klienten och servern förhandlar den högsta ömsesidigt stödda versionen av protokollet vid anslutning.
 
 Vi rekommenderar att du läser igenom alla dina program som använder Azure Notification Hubs för att säkerställa att de använder de mest tillämpliga biblioteken och TLS-stackar som stöder TLS 1,2.
 

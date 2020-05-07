@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dde84f0973cc7e21e57574bbabe398b38581358f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77022689"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562428"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Användnings fall för Azure Data Box Gateway
 
@@ -77,7 +77,7 @@ Den här Mass överföringen Slutför den inledande initierings fasen.
 
 ### <a name="ongoing-feed-with-data-box-gateway"></a>Pågående matning med Data Box Gateway
 
-Följ de här stegen för pågående inhämtning av Data Box Gateway.
+Följ de här stegen för pågående inhämtning av Data Box Gateway. 
 
 1. Skapa en moln resurs på Data Box Gateway. Den här resursen överför automatiskt data till Azure Storage-kontot. Gå till **resurser** i data Box gateway resurs och klicka på **+ Lägg till resurs**.
 

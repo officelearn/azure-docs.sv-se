@@ -4,14 +4,14 @@ ms.service: databox
 ms.topic: include
 ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 94fe099984fae77c65658d7085a8540ff4f2448b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51fde73565c9c4cdb21e998b8d43d303ceef062e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67187799"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561380"
 ---
-I det här avsnittet beskrivs begränsningarna för Azure Storage tjänst och de namngivnings konventioner som krävs för Azure Files, Azure block-blobbar och Azure Page-blobbar, som är tillämpliga för Data Box Gateway/Data Box Edge-tjänsten. Granska lagrings gränserna noggrant och följ alla rekommendationer.
+I det här avsnittet beskrivs begränsningarna för Azure Storage tjänst och de namngivnings konventioner som krävs för Azure Files, Azure block-blobbar och Azure Page-blobar, enligt vad som är tillämpligt för Azure Stack Edge/Data Box Gateway-tjänsten. Granska lagrings gränserna noggrant och följ alla rekommendationer.
 
 Den senaste informationen om begränsningar för Azure Storage-tjänsten och metod tips för namngivning av resurser, behållare och filer finns på:
 
@@ -20,4 +20,4 @@ Den senaste informationen om begränsningar för Azure Storage-tjänsten och met
 - [Blockera blobbar och Page BLOB-konventioner](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
 
 > [!IMPORTANT]
-> Om det finns filer eller kataloger som överskrider gränsen för Azure Storage-tjänsten eller inte uppfyller Azure Files/BLOB-namngivnings konventionerna, matas dessa filer eller kataloger inte in i Azure Storage via tjänsten Data Box Gateway/Data Box Edge.
+> Om det finns några filer eller kataloger som överskrider Azure Storage-tjänstens gränser eller inte uppfyller Azure Files/BLOB-namngivnings konventionerna, matas dessa filer eller kataloger inte in i Azure Storage via Azure Stack Edge/Data Box Gateway-tjänsten.

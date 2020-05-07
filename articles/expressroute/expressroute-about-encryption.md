@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/13/2019
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: d48f83df4e83fd1d1fe38eea76432e1b1c711b76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77755ab6bdbb3c1e6416475f5066b5dd463eb7f5
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461471"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838764"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute-kryptering
  
@@ -30,8 +30,8 @@ Ja. För MACsec-konfigurationen stöder vi bara det i förväg delade nyckel lä
 Nej. Om MACsec har kon figurer ATS och en nyckel avvikelse uppstår förlorar du anslutningen till Microsoft. Det innebär att det inte går att återgå till en okrypterad anslutning, vilket visar dina data. 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Kommer MACsec att aktivera på ExpressRoute direkt försämra nätverks prestanda?
 MACsec kryptering och dekryptering sker i maskin vara på de routrar som vi använder. Det finns ingen inverkan på vår sida. Du bör dock kontrol lera med nätverks leverantören för de enheter du använder och se om MACsec har några prestanda indirekt.
-### <a name="which-cipher-suites-are-supported-for-encryption"></a>vilka chiffersviter stöds för kryptering?
-Vi har stöd för AES128 och AES256.
+### <a name="which-cipher-suites-are-supported-for-encryption"></a>Vilka chiffersviter stöds för kryptering?
+Vi har stöd för den [utökade paket](https://1.ieee802.org/security/802-1aebw/) versionen av AES128 och AES256. Inaktivera dessutom en [säker kanal identifierare (området)](https://en.wikipedia.org/wiki/IEEE_802.1AE) i MACsec-konfigurationen på enheten. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Vanliga frågor och svar från slut punkt till slut punkt för IPsec
 IPsec är en [IETF-standard](https://tools.ietf.org/html/rfc6071). Den krypterar data på Internet Protocol (IP) eller nätverks nivå 3. Du kan använda IPsec för att kryptera en slutpunkt-till-slutpunkt-anslutning mellan ditt lokala nätverk och ditt virtuella nätverk (VNET) i Azure. Se andra vanliga frågor och svar nedan.

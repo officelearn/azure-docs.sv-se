@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: derek1ee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b1f4feab9587fb77089be265801c71f5b23b26ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 79c99a8ba2712fe69ec6d3b9b9d32ddf6aa081cb
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146785"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580643"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Ansluta till lokala filsystem med Azure Logic Apps
 
@@ -72,8 +72,8 @@ Den här artikeln visar hur du kan ansluta till ett lokalt fil system enligt bes
    | -------- | -------- | ----- | ----------- |
    | **Anslutnings namn** | Ja | <*anslutnings namn*> | Det namn som du vill använda för anslutningen |
    | **Rotmapp** | Ja | <*rot-mapp-namn*> | Rotmappen för ditt fil system, till exempel om du har installerat din lokala datagateway, till exempel en lokal mapp på datorn där den lokala datagatewayen är installerad, eller mappen för en nätverks resurs som datorn har åtkomst till. <p>Exempelvis: `\\PublicShare\\DropboxFiles` <p>Rotmappen är den överordnade huvudmappen som används för relativa sökvägar för alla filrelaterade åtgärder. |
-   | **Autentiseringstyp** | Nej | <*typ av autentisering*> | Den typ av autentisering som fil systemet använder: **Windows** |
-   | **Användar** | Ja | <*domain*>domän\\*username* användar<namn> | Användar namnet för den dator där du har fil systemet |
+   | **Autentiseringstyp** | Inga | <*typ av autentisering*> | Den typ av autentisering som fil systemet använder: **Windows** |
+   | **Användar** | Ja | <*domain*>domän\\*username* användar<namn> <p>ELLER <p><*lokalt*>\\dator<*användar namn*> | Användar namnet för den dator där du har fil systemets mapp. <p>Om din fil system katalog finns på samma dator som den lokala datagatewayen kan du använda <*användar namn* för *lokal dator*>\\<>. |
    | **Lösenord** | Ja | <*ditt lösen ord*> | Lösen ordet för datorn där du har fil systemet |
    | **nyckeln** | Ja | <*installerat – Gateway-namn*> | Namnet på din tidigare installerade Gateway |
    |||||

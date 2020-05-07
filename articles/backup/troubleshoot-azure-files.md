@@ -3,12 +3,12 @@ title: Felsöka säkerhets kopiering av Azure-filresurs
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a6ce613b8c0fe8a7a5df6397ba2f1eb508d61aae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100064"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562091"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Felsöka problem vid säkerhets kopiering av Azure-filresurser
 
@@ -25,6 +25,7 @@ Den här artikeln innehåller felsöknings information för att åtgärda eventu
   >Alla filresurser i ett lagringskonto kan endast skyddas med ett Recovery Services-valv. Du kan använda [det här skriptet](scripts/backup-powershell-script-find-recovery-services-vault.md) för att hitta Recovery Services-valvet där ditt lagrings konto är registrerat.
 
 - Se till att fil resursen inte finns i något av de lagrings konton som inte stöds. Du kan läsa [support mat ris för Azure-filresursen](azure-file-share-support-matrix.md) för att hitta lagrings konton som stöds.
+- Kontrol lera brand Väggs inställningarna för lagrings kontot för att säkerställa att alternativet att tillåta att betrodda Microsoft-tjänster har åtkomst till lagrings kontot har Aktiver ATS.
 
 ### <a name="error-in-portal-states-discovery-of-storage-accounts-failed"></a>Fel i portalen anger att identifieringen av lagringskonton misslyckades
 

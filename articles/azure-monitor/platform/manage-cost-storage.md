@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8904d584d453cb0945a11b08ad50688aeb1e1fc0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 601f1c224d6e1d756c27dc2478951682ce6bb4fd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207334"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854760"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar
 
@@ -44,11 +44,13 @@ På alla pris nivåer beräknas data volymen från en sträng representation av 
 
 Observera också att vissa lösningar, till exempel [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/), [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) och [konfigurations hantering](https://azure.microsoft.com/pricing/details/automation/) har sina egna pris modeller. 
 
-### <a name="dedicated-clusters"></a>Dedikerade kluster
+### <a name="log-analytics-clusters"></a>Log Analytics kluster
 
-Azure Monitor logga dedikerade kluster är samlingar av arbets ytor i ett enda hanterat Azure Datautforskaren-kluster (ADX) för att ge stöd för avancerade scenarier, till exempel [Kundhanterade nycklar](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Dedikerade kluster stöder bara pris sättnings modellen kapacitets reservationer från 1000 GB/dag med en rabatt på 25% jämfört med priset för betala per användning. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. Kluster kapacitets reservationen har en 31-dagars åtagande period efter att reservations nivån har ökat. Under åtagande perioden går det inte att minska kapacitets reservations nivån, men den kan ökas när som helst. Lär dig mer om hur du [skapar ett dedikerat kluster](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) och [kopplar arbets ytor till den](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
+Log Analytics kluster är samlingar av arbets ytor i ett enda hanterat Azure Datautforskaren-kluster för att stödja avancerade scenarier som [Kundhanterade nycklar](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys).  Log Analytics kluster stöder bara en kapacitets reservations modell som börjar på 1000 GB/dag med en rabatt på 25% jämfört med priset för betala per användning. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. Kluster kapacitets reservationen har en 31-dagars åtagande period efter att reservations nivån har ökat. Under åtagande perioden går det inte att minska kapacitets reservations nivån, men den kan ökas när som helst. Lär dig mer om hur du [skapar ett Log Analytics kluster](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource) och [kopplar arbets ytor till den](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#workspace-association-to-cluster-resource).  
 
-Eftersom faktureringen för inmatade data görs på kluster nivå har de arbets ytor som är associerade till ett kluster inte längre någon pris nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. Observera att tilldelningar per nod från Azure Security Center tillämpas på arbets ytans nivå före denna agg regering. Data kvarhållning faktureras fortfarande på arbets ytans nivå.  
+Reservations nivån för kluster kapaciteten konfigureras via program mässigt med Azure Resource Manager med `Capacity` hjälp av `Sku`parametern under. `Capacity` Anges i enheter om GB och kan ha värden på 1000 GB/dag eller mer i steg om 100 GB/dag. Detta beskrivs [här](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Om ditt kluster behöver en reservation över 2000 GB/dag kontaktar du oss [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com)på.
+
+Eftersom faktureringen för inmatade data görs på kluster nivå har de arbets ytor som är associerade till ett kluster inte längre någon pris nivå. De inmatade data mängderna från varje arbets yta som är kopplad till ett kluster sammanställs för att beräkna den dagliga fakturan för klustret. Observera att tilldelningar per nod från [Azure Security Center](https://docs.microsoft.com/azure/security-center/) tillämpas på arbets ytans nivå före denna agg regering av sammanställda data för alla arbets ytor i klustret. Data kvarhållning faktureras fortfarande på arbets ytans nivå. Observera att kluster faktureringen startar när klustret skapas, oavsett om arbets ytorna har kopplats till klustret. 
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Beräkna kostnaderna för att hantera din miljö 
 
@@ -310,7 +312,7 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>Data volym per dator
 
-`Usage` Data typen innehåller inte information på hela nivån. Om du vill se **storleken** på inmatade data per dator, `_BilledSize` använder du [egenskapen](log-standard-properties.md#_billedsize)som anger storlek i byte:
+`Usage` Data typen innehåller inte information på dator nivå. Om du vill se **storleken** på inmatade data per dator, `_BilledSize` använder du [egenskapen](log-standard-properties.md#_billedsize)som anger storlek i byte:
 
 ```kusto
 union withsource = tt * 
@@ -467,7 +469,7 @@ union withsource = tt *
 | where computerName != ""
 | summarize nodesPerHour = dcount(computerName) by bin(TimeGenerated, 1h)  
 | summarize nodesPerDay = sum(nodesPerHour)/24.  by day=bin(TimeGenerated, 1d)  
-| join (
+| join kind=leftouter (
     Heartbeat 
     | where TimeGenerated >= startofday(now(-7d)) and TimeGenerated < startofday(now())
     | where Computer != ""

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c524cb30b73c95329650924123b2ebc26a5d8a5
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255488"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856020"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Hantera anonym läsåtkomst till containrar och blob-objekt
 
@@ -51,6 +51,16 @@ Följande skärm bild visar hur du ändrar den offentliga åtkomst nivån för d
 
 ### <a name="set-container-public-access-level-with-net"></a>Ange offentlig åtkomst nivå för behållare med .NET
 
+# <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
+
+Om du vill ange behörigheter för en behållare anropar du metoden [BlobContainerClient. SetAccessPolicy](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy?view=azure-dotnet) . 
+
+I följande exempel anges behållarens behörigheter till fullständig offentlig Läs behörighet. Om du bara vill ange behörighet till offentlig Läs behörighet för blobar skickar du fältet **PublicAccessType. blob** till [BlobContainerClient. SetAccessPolicy](https://docs.microsoft.com/dotnet/api/azure.storage.blobs.blobcontainerclient.setaccesspolicy?view=azure-dotnet) -metoden. Om du vill ta bort alla behörigheter för anonyma användare använder du fältet **BlobContainerPublicAccessType. None** .
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_SetPublicContainerPermissions":::
+
+# <a name="net-v11-sdk"></a>[\.NET V11-SDK](#tab/dotnet11)
+
 Om du vill ange behörigheter för en behållare med hjälp av Azure Storage klient biblioteket för .NET måste du först hämta behållarens befintliga behörigheter genom att anropa någon av följande metoder:
 
 - [GetPermissions](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getpermissions)
@@ -76,6 +86,8 @@ private static async Task SetPublicContainerPermissions(CloudBlobContainer conta
 }
 ```
 
+---
+
 ## <a name="access-containers-and-blobs-anonymously"></a>Åtkomst till behållare och blobbar anonymt
 
 En klient som har åtkomst till behållare och blobbar anonymt kan använda konstruktorer som inte kräver autentiseringsuppgifter. I följande exempel visas några olika sätt att referera till behållare och blobbar anonymt.
@@ -83,6 +95,12 @@ En klient som har åtkomst till behållare och blobbar anonymt kan använda kons
 ### <a name="create-an-anonymous-client-object"></a>Skapa ett anonymt klient objekt
 
 Du kan skapa ett nytt tjänst klient objekt för anonym åtkomst genom att tillhandahålla slut punkten för Blob Storage för kontot. Du måste dock också känna till namnet på en behållare i kontot som är tillgängligt för anonym åtkomst.
+
+# <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_CreateAnonymousBlobClient":::
+
+# <a name="net-v11-sdk"></a>[\.NET V11-SDK](#tab/dotnet11)
 
 ```csharp
 public static void CreateAnonymousBlobClient()
@@ -100,11 +118,19 @@ public static void CreateAnonymousBlobClient()
     Console.WriteLine(container.Properties.LastModified);
     Console.WriteLine(container.Properties.ETag);
 }
-```
+``` 
+
+---
 
 ### <a name="reference-a-container-anonymously"></a>Referera till en behållare anonymt
 
 Om du har URL: en till en behållare som är anonymt tillgänglig kan du använda den för att referera till behållaren direkt.
+
+# <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_ListBlobsAnonymously":::
+
+# <a name="net-v11-sdk"></a>[\.NET V11-SDK](#tab/dotnet11)
 
 ```csharp
 public static void ListBlobsAnonymously()
@@ -120,11 +146,19 @@ public static void ListBlobsAnonymously()
         Console.WriteLine(blobItem.Uri);
     }
 }
-```
+``` 
+
+---
 
 ### <a name="reference-a-blob-anonymously"></a>Referera till en BLOB anonymt
 
 Om du har en URL till en blob som är tillgänglig för anonym åtkomst kan du referera till blobben direkt med den URL: en:
+
+# <a name="net-v12-sdk"></a>[\.NET V12-SDK](#tab/dotnet)
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Security.cs" id="Snippet_DownloadBlobAnonymously":::
+
+# <a name="net-v11-sdk"></a>[\.NET V11-SDK](#tab/dotnet11)
 
 ```csharp
 public static void DownloadBlobAnonymously()
@@ -133,7 +167,9 @@ public static void DownloadBlobAnonymously()
         new Uri(@"https://storagesamples.blob.core.windows.net/sample-container/logfile.txt"));
     blob.DownloadToFile(@"C:\Temp\logfile.txt", FileMode.Create);
 }
-```
+``` 
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

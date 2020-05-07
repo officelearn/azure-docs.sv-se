@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/3/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1fffb3eb10b7d3cbb3360a03112c3b4d7db8d109
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 5356ff0ac165deefc5053cf4faa40c1159e98678
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209493"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856899"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 [Azure Files](storage-files-introduction.md) kan distribueras på två huvudsakliga sätt: genom att montera Server lös Azure-filresurser direkt eller genom att cachelagra Azure-filresurser lokalt med hjälp av Azure File Sync. Vilket distributions alternativ du väljer ändrar de saker du behöver tänka på när du planerar för distributionen. 
@@ -84,7 +84,7 @@ I allmänhet är Azure Files funktioner och samverkan med andra tjänster identi
     - Premium-filresurser faktureras med hjälp av en etablerad fakturerings modell, vilket innebär att du betalar för hur mycket lagrings utrymme du tillhandahåller i stället för hur mycket lagrings utrymme du verkligen ber om. 
     - Standard fil resurser faktureras med hjälp av en modell där du betalar per användning, vilket omfattar en bas kostnad för lagring för hur mycket lagrings utrymme du faktiskt använder och sedan ytterligare en transaktions kostnad baserat på hur du använder resursen. Med standard fil resurser kommer din faktura att öka om du använder (Läs/skriv/montera) Azure-filresursen mer.
 - **Alternativ för redundans**
-    - Premium-filresurser är bara tillgängliga för lokalt redundant (LRS) och zon redundant lagring (ZRS). 
+    - Premium-filresurser är bara tillgängliga för lokalt redundant (LRS) och zon redundant lagring (ZRS).
     - Standard fil resurser är tillgängliga för lokalt redundant, zon redundant, Geo-redundant (GRS) och GZRS-lagring (geo-Zone redundant).
 - **Maximal storlek på fil resurs**
     - Premium-filresurser kan tillhandahållas för upp till 100 TiB utan ytterligare arbete.

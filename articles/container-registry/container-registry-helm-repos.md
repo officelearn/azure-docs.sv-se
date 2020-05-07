@@ -3,12 +3,12 @@ title: Lagra Helm-diagram
 description: Lär dig hur du lagrar Helm-diagram för dina Kubernetes-program med hjälp av databaser i Azure Container Registry
 ms.topic: article
 ms.date: 03/20/2020
-ms.openlocfilehash: 3f1a68258b758380a66b63e3c3137f1d460d288c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04ba3aaf312188ab77c04a97ab960cf9b9af078f
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399378"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857605"
 ---
 # <a name="push-and-pull-helm-charts-to-an-azure-container-registry"></a>Push-och pull-Helm diagram till ett Azure Container Registry
 
@@ -31,8 +31,8 @@ Du kan använda antingen Helm 3 eller Helm 2 för att vara värd för Helm-diagr
 ### <a name="additional-information"></a>Ytterligare information
 
 * I de flesta fall rekommenderar vi att du använder arbets flödet Helm 3 `helm chart` med inbyggda kommandon för att hantera diagram som OCI-artefakter.
-* Du kan använda äldre [AZ-ACR Helm][az-acr-helm] Azure CLI-kommandon och arbets flöde med Helm 3-klienten och-diagrammen. Vissa kommandon, som `az acr helm list` inte är kompatibla med Helm 3-diagram.
-* Från och med Helm 3 stöds [AZ ACR Helm][az-acr-helm] -kommandon huvudsakligen för kompatibilitet med Helm 2-klienten och diagram formatet. Framtida utveckling av dessa kommandon är för närvarande inte planerat.
+* Från och med Helm 3 stöds [AZ ACR Helm][az-acr-helm] -kommandon för kompatibilitet med Helm 2-klienten och diagram formatet. Framtida utveckling av dessa kommandon är för närvarande inte planerat. Se [produkt översikten](https://github.com/Azure/acr/blob/master/docs/acr-roadmap.md#acr-helm-ga).
+* Det går inte att visa eller hantera Helm 2-diagram med Azure Portal.
 
 ## <a name="use-the-helm-3-client"></a>Använda Helm 3-klienten
 
@@ -178,7 +178,7 @@ Utdata liknar följande:
 }
 ```
 
-Kör kommandot [AZ ACR-lagringsplatsen show-Manifests][az-acr-repository-show-manifests] för att se information om diagrammet som lagras i lagrings platsen. Ett exempel:
+Kör kommandot [AZ ACR-lagringsplatsen show-Manifests][az-acr-repository-show-manifests] för att se information om diagrammet som lagras i lagrings platsen. Exempel:
 
 ```azurecli
 az acr repository show-manifests \
@@ -246,7 +246,7 @@ version: 0.1.0
 
 ### <a name="install-helm-chart"></a>Installera Helm-diagram
 
-Kör `helm install` för att installera Helm-diagrammet som du hämtade till den lokala cachen och exporterade. Ange ett versions namn, till exempel *myhelmtest*, eller `--generate-name` skicka parametern. Ett exempel:
+Kör `helm install` för att installera Helm-diagrammet som du hämtade till den lokala cachen och exporterade. Ange ett versions namn, till exempel *myhelmtest*, eller `--generate-name` skicka parametern. Exempel:
 
 ```console
 helm install myhelmtest ./hello-world

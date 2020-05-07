@@ -7,15 +7,15 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 239dc0f3133a5adf59a23d333131c91d3a655597
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe9ae8997e05e4ab99dba66de88976342fbabe56
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770377"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858364"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uppgradera Azure Internal Load Balancer – ingen utgående anslutning krävs
-[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus).
+[Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/skus#skus).
 
 Den här artikeln introducerar ett PowerShell-skript som skapar en Standard Load Balancer med samma konfiguration som den grundläggande Load Balancer tillsammans med migrering av trafik från Basic Load Balancer till Standard Load Balancer.
 
@@ -33,6 +33,17 @@ Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 * Skript stöder endast intern Load Balancer uppgradering där ingen utgående anslutning krävs. Om du behöver [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för några av dina virtuella datorer kan du gå till den här [sidan](upgrade-InternalBasic-To-PublicStandard.md) för instruktioner. 
 * Om standard belastnings utjämning skapas i en annan region kan du inte associera de virtuella datorerna i den gamla regionen med den nya Standard Load Balancer. Du kan undvika den här begränsningen genom att skapa en ny virtuell dator i den nya regionen.
 * Om din Load Balancer inte har någon IP-konfiguration för klient delen eller en backend-pool, kommer du förmodligen att träffa ett fel som kör skriptet. Se till att de inte är tomma.
+
+## <a name="change-ip-allocation-method-to-static-for-frontend-ip-configuration-ignore-this-step-if-its-already-static"></a>Ändra metod för IP-allokering till statisk för klient delens IP-konfiguration (ignorera det här steget om det redan är statiskt)
+
+1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan din grundläggande Load Balancer i listan resurser.
+
+2. Under **Inställningar**väljer du **IP-konfiguration för klient**del och väljer den första IP-konfigurationen för klient delen. 
+
+3. För **tilldelning**väljer du **statisk**
+
+4. Upprepa steg 3 för alla IP-konfigurationer för klient delen av Basic-Load Balancer.
+
 
 ## <a name="download-the-script"></a>Hämta skriptet
 

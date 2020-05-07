@@ -13,12 +13,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: f1437ec5d9c3fd0ff69be0c884c340cb857ee181
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 333f23ddfe834307b5cbfebb9540e0b5efc79a53
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80881290"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853793"
 ---
 # <a name="single-sign-on-saml-protocol"></a>SAML-protokoll för enkel inloggning
 
@@ -153,12 +153,12 @@ När en begärd inloggning har slutförts skickar Azure AD ett svar till moln tj
 
 ### <a name="issuer"></a>Utfärdare
 
-Azure AD ställer in `Issuer` elementet till `https://login.microsoftonline.com/<TenantIDGUID>/` där \<TenantIDGUID> är klient-ID: t för Azure AD-klienten.
+Azure AD ställer in `Issuer` elementet till `https://sts.windows.net/<TenantIDGUID>/` där \<TenantIDGUID> är klient-ID: t för Azure AD-klienten.
 
 Till exempel kan ett svar med Issuer-elementet se ut som i följande exempel:
 
 ```
-<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion"> https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 ### <a name="status"></a>Status
@@ -191,7 +191,7 @@ Förutom `ID`, `IssueInstant` och `Version`ställer Azure AD in följande elemen
 Detta är `https://sts.windows.net/<TenantIDGUID>/`inställt \<på där TenantIDGUID> är klient-ID: t för Azure AD-klienten.
 
 ```
-<Issuer>https://login.microsoftonline.com/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
+<Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
 ```
 
 #### <a name="signature"></a>Signatur

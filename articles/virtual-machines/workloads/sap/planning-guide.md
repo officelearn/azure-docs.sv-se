@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/11/2020
+ms.date: 05/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7ddcc5165f5588ff9015d7fafbc2b822268ffea7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c2e3219cebcc5e989059c02fec86ba242e1c31cc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337166"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853871"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -503,9 +503,50 @@ Microsofts hypervisor kan hantera två olika generationer av virtuella datorer. 
  
 Det går inte att flytta en befintlig virtuell dator från en generation till den andra generationen. Om du vill ändra den virtuella datorns generation måste du distribuera en ny virtuell dator med den generation som du vill och installera om den program vara som du kör på den virtuella datorn av generationen. Detta påverkar endast den virtuella datorns virtuella hård disk avbildning och har ingen inverkan på data diskarna eller anslutna NFS-eller SMB-resurser. Data diskar, NFS-eller SMB-resurser som ursprungligen tilldelades till, till exempel på en virtuell dator i generation 1
 
-För tillfället kommer du att stöta på det här problemet särskilt mellan virtuella datorer i Azure M-serien och virtuella datorer i Mv2-serien. På grund av begränsningar i VM-formatet för generation 1 kunde inte de stora virtuella datorerna i Mv2-serien erbjudas i generation 1-format, men krävs endast i generation 2. På den andra sidan är VM-serien i M-serien inte aktive rad för att distribueras i generation 2. Det innebär att du måste ändra storlek mellan virtuella datorer i M-serien och Mv2-serien för att kunna installera om program varan på en virtuell dator som mål för den andra VM-serien. Microsoft arbetar så att du kan distribuera virtuella datorer i M-serien för distributioner i generation 2. Distribuera virtuella datorer i M-serien som generation 2-datorer i framtiden, kommer att göra det möjligt att se till att det blir mindre att ändra storlek på flera virtuella datorer i M-serien och Mv2. I båda riktningarna kan du antingen ändra storlek från M-serien till större virtuella datorer i Mv2-serien eller ned storlek från större virtuella datorer i Mv2-serien till mindre virtuella datorer i M-serien. Dokumentationen kommer att uppdateras så snart virtuella datorer i M-serien kan distribueras som virtuella datorer i generation 2.    
+> [!NOTE]
+> Distribution av Mv1 VM Family-VM: ar för virtuella datorer i generation 2 är möjligt från och med maj 2020. Med det är det möjligt att det blir mindre upp och downsizing mellan Mv1 och virtuella datorer med Mv2-familjen.
 
- 
+
+#### <a name="quotas-in-azure-virtual-machine-services"></a>Kvoter i Azure Virtual Machine-tjänster
+Azure Storage och nätverks infrastruktur delas mellan virtuella datorer som kör en mängd olika tjänster i Azure-infrastrukturen. Och precis som i dina egna data Center, sker överetablering av vissa infrastruktur resurser i en viss grad. Microsoft Azures plattformen använder disk, processor, nätverk och andra kvoter för att begränsa resursanvändningen och bevara konsekvent och deterministisk prestanda. De olika VM-typerna och-familjerna (E32s_v3, D64s_v3 osv.) har olika kvoter för antalet diskar, CPU, RAM och nätverk.
+
+> [!NOTE]
+> PROCESSOR-och minnes resurser för de VM-typer som stöds av SAP är förallokerade på noderna. Det innebär att när den virtuella datorn har distribuerats är resurserna på värden tillgängliga som de definieras av VM-typen.
+
+
+När du planerar och ändrar storlek på SAP på Azure-lösningar måste kvoterna för varje virtuell dator storlek beaktas. De virtuella dator kvoterna beskrivs [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows]. 
+
+Förutom processor-och minnes resurs kvoter är andra kvoter definierade för VM-SKU: er kopplade till:
+
+- Data flöde för nätverks trafik till den virtuella datorn
+- IOPS för lagrings trafik
+- Data flöde för nätverks trafik
+
+Data flödes gränserna för lagring av ett nätverk definieras så att brusets intilliggande effekter kan behållas till ett absolut minimum. Den lagrings kvot som tillhör en virtuell dator skriver över kvoterna för de ackumulerade diskarna som är anslutna (se även senare i lagrings delen). Eller med andra ord, om du monterar lagrings diskar som i ackumuleringen skulle överskrida data flödet och IOPS-kvoten för den virtuella datorn, prioriteras kvot gränserna för den virtuella datorn.
+
+#### <a name="rough-sizing-of-vms-for-sap"></a>Grov storlek på virtuella datorer för SAP 
+
+Som ett grovt besluts träd för att avgöra om ett SAP-system passar in i Azures tjänster för virtuella datorer och dess funktioner eller om ett befintligt system måste konfigureras på ett annat sätt för att kunna distribuera systemet på Azure, kan besluts trädet nedan användas:
+
+![Besluts träd för att bestämma möjlighet att distribuera SAP på Azure][planning-guide-figure-700]
+
+**Steg 1**: den viktigaste informationen att börja med är SAPS-kravet för ett angivet SAP-system. SAPS-kraven måste delas upp i DBMS-delen och SAP-programdelen, även om SAP-systemet redan har distribuerats lokalt i en konfiguration på två nivåer. För befintliga system kan SAPS som är relaterade till maskin varan som används ofta bestämmas eller beräknas utifrån befintliga SAP-benchmarks. Resultaten finns här: <https://sap.com/about/benchmark.html>.
+För nyligen distribuerade SAP-system bör du ha genomgått en storleks bedömning, vilket bör fastställa systemets krav på SAPS.
+Se även den här bloggen och det bifogade dokumentet för SAP-storlek på Azure:<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
+
+**Steg 2**: för befintliga system ska i/o-volymer och i/o-åtgärder per sekund på DBMS-servern mätas. För nyligen planerade system bör storleks övningen för det nya systemet också ge grova idéer om I/O-kraven på DBMS-sidan. Om du är osäker måste du utföra ett koncept bevis.
+
+**Steg 3**: jämför SAPS-kravet för DBMS-servern med SAPS de olika VM-typerna för Azure kan tillhandahålla. Informationen om SAPS av olika typer av virtuella Azure-datorer finns dokumenterad i SAP NOTE [1928533]. Fokus bör vara på den virtuella DBMS-datorn först eftersom databas skiktet är skiktet i ett SAP NetWeaver-system som inte skalas ut i de flesta distributioner. SAP-programlagret kan däremot skalas ut. Om inget av de SAP-typer som stöds av Azure VM-typer kan leverera nödvändiga SAPS, kan arbets belastningen för det planerade SAP-systemet inte köras på Azure. Du måste antingen distribuera systemet lokalt eller så måste du ändra arbets belastnings volymen för systemet.
+
+**Steg 4**: som dokumenteras [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows]tillämpar Azure en IOPS-kvot per disk oberoende om du använder standard lagring eller Premium Storage. Beroende på typ av virtuell dator, antalet data diskar som kan monteras varierar. Det innebär att du kan beräkna ett högsta IOPS-nummer som kan uppnås med var och en av de olika typerna av virtuella datorer. Beroende av databasens fillayout kan du göra stripe-diskar för att bli en volym i gäst operativ systemet. Men om den aktuella IOPS-volymen i ett distribuerat SAP-system överskrider de beräknade gränserna för den största VM-typen i Azure och om det inte finns någon risk att kompensera med mer minne, kan arbets belastningen för SAP-systemet påverkas allvarligt. I sådana fall kan du trycka på en punkt där du inte bör distribuera systemet på Azure.
+
+**Steg 5**: särskilt i SAP-system, som distribueras lokalt i konfigurationer på två nivåer, är sannolikheten att systemet kan behöva konfigureras på Azure i en konfiguration på tre nivåer. I det här steget måste du kontrol lera om det finns en komponent i SAP-programlagret, som inte kan skalas ut och som inte passar in i processor-och minnes resurser som de olika Azure VM-typerna erbjuder. Om det verkligen finns en sådan komponent kan inte SAP-systemet och dess arbets belastning distribueras till Azure. Men om du kan skala ut SAP-programkomponenter till flera virtuella Azure-datorer kan systemet distribueras till Azure.
+
+**Steg 6**: om DBMS-och SAP-programmets skikt komponenter kan köras i virtuella Azure-datorer måste konfigurationen definieras med avseende på:
+
+* Antal virtuella Azure-datorer
+* VM-typer för enskilda komponenter
+* Antal virtuella hård diskar i DBMS VM för att tillhandahålla tillräckligt med IOPS 
 
 ### <a name="storage-microsoft-azure-storage-and-data-disks"></a><a name="a72afa26-4bf4-4a25-8cf7-855d6032157f"></a>Lagring: Microsoft Azure Storage och data diskar
 Microsoft Azure Virtual Machines använder olika lagrings typer. När du implementerar SAP på Azure Virtual Machine-tjänster är det viktigt att förstå skillnaderna mellan dessa två huvud typer av lagring:
@@ -725,39 +766,6 @@ Det här kapitlet innehåller många viktiga punkter om Azure-nätverk. Här är
 * Om du vill konfigurera en plats-till-plats-eller punkt-till-plats-anslutning måste du först skapa en Azure-Virtual Network
 * När en virtuell dator har distribuerats går det inte längre att ändra Virtual Network som tilldelats den virtuella datorn
 
-### <a name="quotas-in-azure-virtual-machine-services"></a>Kvoter i Azure Virtual Machine-tjänster
-Vi måste vara tydliga om det faktum att lagrings-och nätverks infrastrukturen delas mellan virtuella datorer som kör en mängd olika tjänster i Azure-infrastrukturen. Och precis som i kundens egna data Center, sker överetablering av några av infrastruktur resurserna i en viss grad. Microsoft Azures plattformen använder disk, processor, nätverk och andra kvoter för att begränsa resursanvändningen och bevara konsekvent och deterministisk prestanda.  De olika typerna av virtuella datorer (A5, A6 osv.) har olika kvoter för antalet diskar, CPU: n, RAM-minne och nätverk.
-
-> [!NOTE]
-> PROCESSOR-och minnes resurser för de VM-typer som stöds av SAP är förallokerade på noderna. Det innebär att när den virtuella datorn har distribuerats är resurserna på värden tillgängliga som de definieras av VM-typen.
->
->
-
-När du planerar och ändrar storlek på SAP på Azure-lösningar måste kvoterna för varje virtuell dator storlek beaktas. De virtuella dator kvoterna beskrivs [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows].
-
-De kvoter som beskrivs representerar de teoretiska maximala värdena.  Gränsen för IOPS per disk kan uppnås med Small IOs (8 KB), men kanske inte kan uppnås med stor IOs (1 MB).  IOPS-gränsen tillämpas på en enskild disk granularitet.
-
-Som ett grovt besluts träd för att avgöra om ett SAP-system passar in i Azures tjänster för virtuella datorer och dess funktioner eller om ett befintligt system måste konfigureras på ett annat sätt för att kunna distribuera systemet på Azure, kan besluts trädet nedan användas:
-
-![Besluts träd för att bestämma möjlighet att distribuera SAP på Azure][planning-guide-figure-700]
-
-**Steg 1**: den viktigaste informationen att börja med är SAPS-kravet för ett angivet SAP-system. SAPS-kraven måste delas upp i DBMS-delen och SAP-programdelen, även om SAP-systemet redan har distribuerats lokalt i en konfiguration på två nivåer. För befintliga system kan SAPS som är relaterade till maskin varan som används ofta bestämmas eller beräknas utifrån befintliga SAP-benchmarks. Resultaten finns här: <https://sap.com/about/benchmark.html>.
-För nyligen distribuerade SAP-system bör du ha genomgått en storleks bedömning, vilket bör fastställa systemets krav på SAPS.
-Se även den här bloggen och det bifogade dokumentet för SAP-storlek på Azure:<https://blogs.msdn.com/b/saponsqlserver/archive/2015/12/01/new-white-paper-on-sizing-sap-solutions-on-azure-public-cloud.aspx>
-
-**Steg 2**: för befintliga system ska i/o-volymer och i/o-åtgärder per sekund på DBMS-servern mätas. För nyligen planerade system bör storleks övningen för det nya systemet också ge grova idéer om I/O-kraven på DBMS-sidan. Om du är osäker måste du utföra ett koncept bevis.
-
-**Steg 3**: jämför SAPS-kravet för DBMS-servern med SAPS de olika VM-typerna för Azure kan tillhandahålla. Informationen om SAPS av olika typer av virtuella Azure-datorer finns dokumenterad i SAP NOTE [1928533]. Fokus bör vara på den virtuella DBMS-datorn först eftersom databas skiktet är skiktet i ett SAP NetWeaver-system som inte skalas ut i de flesta distributioner. SAP-programlagret kan däremot skalas ut. Om inget av de SAP-typer som stöds av Azure VM-typer kan leverera nödvändiga SAPS, kan arbets belastningen för det planerade SAP-systemet inte köras på Azure. Du måste antingen distribuera systemet lokalt eller så måste du ändra arbets belastnings volymen för systemet.
-
-**Steg 4**: som dokumenteras [här (Linux)][virtual-machines-sizes-linux] och [här (Windows)][virtual-machines-sizes-windows]tillämpar Azure en IOPS-kvot per disk oberoende om du använder standard lagring eller Premium Storage. Beroende på typ av virtuell dator, antalet data diskar som kan monteras varierar. Det innebär att du kan beräkna ett högsta IOPS-nummer som kan uppnås med var och en av de olika typerna av virtuella datorer. Beroende av databasens fillayout kan du göra stripe-diskar för att bli en volym i gäst operativ systemet. Men om den aktuella IOPS-volymen i ett distribuerat SAP-system överskrider de beräknade gränserna för den största VM-typen i Azure och om det inte finns någon risk att kompensera med mer minne, kan arbets belastningen för SAP-systemet påverkas allvarligt. I sådana fall kan du trycka på en punkt där du inte bör distribuera systemet på Azure.
-
-**Steg 5**: särskilt i SAP-system, som distribueras lokalt i konfigurationer på två nivåer, är sannolikheten att systemet kan behöva konfigureras på Azure i en konfiguration på tre nivåer. I det här steget måste du kontrol lera om det finns en komponent i SAP-programlagret, som inte kan skalas ut och som inte passar in i processor-och minnes resurser som de olika Azure VM-typerna erbjuder. Om det verkligen finns en sådan komponent kan inte SAP-systemet och dess arbets belastning distribueras till Azure. Men om du kan skala ut SAP-programkomponenter till flera virtuella Azure-datorer kan systemet distribueras till Azure.
-
-**Steg 6**: om DBMS-och SAP-programmets skikt komponenter kan köras i virtuella Azure-datorer måste konfigurationen definieras med avseende på:
-
-* Antal virtuella Azure-datorer
-* VM-typer för enskilda komponenter
-* Antal virtuella hård diskar i DBMS VM för att tillhandahålla tillräckligt med IOPS
 
 ## <a name="managing-azure-assets"></a>Hantera Azure-tillgångar
 
@@ -1277,7 +1285,7 @@ Ett Azure Storage konto tillhandahåller inte oändliga resurser vad gäller i/O
 
 Ett annat ämne, som är relevant för lagrings konton är om de virtuella hård diskarna i ett lagrings konto får geo-replikeras. Geo-replikering är aktiverat eller inaktiverat på lagrings konto nivån och inte på VM-nivån. Om geo-replikering är aktiverat replikeras de virtuella hård diskarna i lagrings kontot till ett annat Azure-datacenter inom samma region. Innan du bestämmer detta bör du tänka på följande begränsning:
 
-Azure geo-replikering fungerar lokalt på varje virtuell hård disk i en virtuell dator och replikerar inte IOs i kronologisk ordning över flera virtuella hård diskar i en virtuell dator. Därför replikeras den virtuella hård disken som representerar den virtuella bas datorn samt eventuella ytterligare virtuella hård diskar som är anslutna till den virtuella datorn oberoende av varandra. Det innebär att det inte finns någon synkronisering mellan ändringarna i de olika virtuella hård diskarna. Det faktum att IOs replikeras oberoende av i vilken ordning de skrivs, innebär att geo-replikering inte är ett värde för databas servrar som har sina databaser distribuerade över flera virtuella hård diskar. Förutom DBMS kan det också finnas andra program där processer skriver eller manipulerar data i olika virtuella hård diskar och där det är viktigt att behålla ändrings ordningen. Om det är ett krav bör geo-replikering i Azure inte aktive ras. Beroende på om du behöver eller vill använda geo-replikering för en uppsättning virtuella datorer, men inte för en annan uppsättning, kan du redan kategorisera virtuella datorer och deras relaterade virtuella hård diskar till olika lagrings konton som har geo-replikering aktiverat eller inaktiverat.
+Azure geo-replikering fungerar lokalt på varje virtuell hård disk i en virtuell dator och replikeras inte i/o i kronologisk ordning över flera virtuella hård diskar i en virtuell dator. Därför replikeras den virtuella hård disken som representerar den virtuella bas datorn samt eventuella ytterligare virtuella hård diskar som är anslutna till den virtuella datorn oberoende av varandra. Det innebär att det inte finns någon synkronisering mellan ändringarna i de olika virtuella hård diskarna. Det faktum att I/o replikeras oberoende av i vilken ordning de skrivs, innebär att geo-replikering inte är ett värde för databas servrar som har sina databaser distribuerade över flera virtuella hård diskar. Förutom DBMS kan det också finnas andra program där processer skriver eller manipulerar data i olika virtuella hård diskar och där det är viktigt att behålla ändrings ordningen. Om det är ett krav bör geo-replikering i Azure inte aktive ras. Beroende på om du behöver eller vill använda geo-replikering för en uppsättning virtuella datorer, men inte för en annan uppsättning, kan du redan kategorisera virtuella datorer och deras relaterade virtuella hård diskar till olika lagrings konton som har geo-replikering aktiverat eller inaktiverat.
 
 #### <a name="setting-automount-for-attached-disks"></a><a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Ställer in automontering för anslutna diskar
 ---

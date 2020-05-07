@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: bulk utförar Java API, SDK &-resurser'
 description: Lär dig allt om bulk-utförar Java API och SDK, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version av Azure Cosmos DB bulk utförar Java SDK.
-author: tknandu
+author: milismsft
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
-ms.author: ramkris
-ms.openlocfilehash: 1a5de2647df5b8092fdcf8e6233f1fddc1690b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: adrianmi
+ms.openlocfilehash: 0030f974a36dc80dc8c4112000aa5934126a2482
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981332"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836452"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java-bibliotek för Mass utförar: Hämta information
 
@@ -39,4 +39,27 @@ ms.locfileid: "80981332"
 | **API-dokumentation**| [Referens dokumentation för Java API](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**Kom igång**|[Kom igång med bulk utförar Library Java SDK](bulk-executor-java.md)|
 |**Lägsta körnings tid som stöds**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
+
+## <a name="release-notes"></a>Viktig information
+
+### <a name="2100"></a><a name="2.10.0"/>2.10.0
+
+* Korrigering för DocumentAnalyzer. Java för att korrekt extrahera kapslade nyckel värden från JSON.
+
+### <a name="294"></a><a name="2.9.4"/>2.9.4
+
+* Lägg till funktioner i BulkDelete-åtgärder för att försöka igen vid vissa fel och returnera även en lista över fel till användaren som kan provas igen.
+
+### <a name="293"></a><a name="2.9.3"/>2.9.3
+
+* Uppdatering för Cosmos SDK-version 2.4.7.
+
+### <a name="292"></a><a name="2.9.2"/>2.9.2
+
+* Korrigera för "mergeAll" om du vill fortsätta med "ID" och partitionsnyckel så att alla korrigerade dokument egenskaper som placeras efter "ID" och partitionsnyckel läggs till i listan över uppdaterade objekt.
+
+### <a name="291"></a><a name="2.9.1"/>2.9.1
+
+* Uppdatera start grad för samtidighet till 1 och tillagda fel söknings loggar för minibatch.
+
 

@@ -1,274 +1,276 @@
 ---
-title: Skapa ett Power BI-apperbjudande – Azure Marketplace
-description: Lär dig hur du skapar och publicerar ett Power BI-apperbjudande till Microsoft AppSource.
+title: Skapa ett erbjudande för Power BI app i Microsoft Commercial Marketplace
+description: Lär dig hur du skapar och publicerar ett Power BI app-erbjudande i Microsoft AppSource.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/02/2020
-ms.openlocfilehash: dc036ae3cba6aa4d3a689562afffb991fadc8c0a
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.date: 05/01/2020
+ms.openlocfilehash: 17a6b7e46341ee0231ac88b849495cfc7e46ad88
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81867605"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839155"
 ---
-# <a name="create-a-power-bi-app"></a>Skapa en Power BI-app
+# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Skapa en Power BI-app för Microsoft AppSource
 
-> [!IMPORTANT]
-> Vi flyttar hanteringen av dina Power BI-apperbjudanden från Cloud Partner Portal till Partner Center. Tills dina erbjudanden har migrerats följer du instruktionerna i [Skapa ett Power BI-apperbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-create-offer) för Cloud Partner Portal för att hantera dina erbjudanden.
+Den här artikeln beskriver hur du skapar och publicerar ett Power BI app-erbjudande till Microsoft [AppSource](https://appsource.microsoft.com/).
 
-I den här artikeln beskrivs hur du skapar och publicerar ett Power BI-apperbjudande till Microsoft [AppSource](https://appsource.microsoft.com/).
-
-Innan du kan skapa ett Power BI-apperbjudande måste du ha ett kommersiellt marketplace-konto i Partner Center. Om du inte har skapat ett ännu läser du [Skapa ett kommersiellt Marketplace-konto i Partner](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) Center-kontot.
+Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
-1. Logga in [på Partner Center](https://partner.microsoft.com/dashboard/home).
-2. Välj Översikt för kommersiell **marknadsplats** > i menyn till**vänster.**
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
+3. På sidan Översikt väljer du **+ nytt erbjudande** > **Power BI tjänst program**.
 
-    :::image type="content" source="media/power-bi-menu-overview.png" alt-text="översikt över den kommersiella marknadsplatsen menyn" border="false":::
+   ![Visar menyn till vänster-navigering.](./media/new-offer-pbi-app.png)
 
-3. Välj **+ Nytt erbjudande** > **Power BI App**. Dialogrutan **Nytt erbjudande** visas.
+> [!NOTE]
+> När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
 > [!IMPORTANT]
-> Om alternativet **Power BI App**&#39;inte visas eller inte är aktiverat&#39;inte har ditt konto&#39;inte behörighet att skapa den här erbjudandetypen. Kontrollera att du&#39;har uppfyllt alla [krav](create-power-bi-app-overview.md) för den här erbjudandetypen, inklusive registrering för ett utvecklarkonto
+> Om **Power BI tjänst program** inte visas eller aktive ras har ditt konto inte behörighet att skapa den här erbjudande typen. Kontrol lera att du har uppfyllt alla [krav](create-power-bi-app-overview.md) för den här erbjudande typen, inklusive registrering av ett Developer-konto.
 
-### <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
+## <a name="new-offer"></a>Nytt erbjudande
 
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
-- Det här ID:t är synligt för kunder i webbadressen för marketplace-erbjudande och Azure Resource Manager-mallar, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. Den kan innehålla bindestreck och understreck, men inga blanksteg och är begränsad till 50 tecken. Om du till exempel anger **test-erbjudande-1** blir `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`erbjudandewebbadressen .
+- Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudandet-1** här, är `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`webb adressen för erbjudandet.
+- Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
-- Erbjudande-ID:t kan inte ändras när du har valt **Skapa**.
+Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
 
-Ange ett **offeralias**. Det här är namnet som används för att referera till erbjudandet i Partner Center.
+- Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
+- Det går inte att ändra namnet på erbjudandet när du har valt **skapa**.
 
-- Det här namnet används inte på marknadsplatsen och skiljer sig från erbjudandenamnet och andra värden som visas för kunderna.
-- Detta kan inte ändras när du har valt **Skapa**.
+Välj **skapa** för att generera erbjudandet och fortsätt.
 
-När du har angett dessa två värden väljer du **Skapa** för att fortsätta till sidan Erbjudandeöversikt.
+## <a name="offer-overview"></a>Erbjudande översikt
 
-## <a name="offer-overview"></a>Översikt över erbjudandet
+På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-**Översiktssidan Erbjudande** visar en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
 
-Den innehåller länkar för att utföra åtgärder på detta erbjudande baserat på det val du gör. Ett exempel:
+- Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
+- Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
+- Om erbjudandet är i för hands version- [Go-Live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
+- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
-- Om erbjudandet är ett utkast - [Ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
-- Om erbjudandet är live - [Sluta sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
-- Om erbjudandet är i förhandsgranskning - [Go-live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Om du inte har slutfört utgivningsut logga ut - [Avbryt publicering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+## <a name="offer-setup"></a>Erbjudande konfiguration
 
-## <a name="offer-setup"></a>Inställningar för erbjudande
+### <a name="connect-lead-management"></a>Anslut lead-hantering
 
-Följ dessa steg för att ställa in ditt erbjudande.
-
-### <a name="connect-lead-management"></a>Anslut leadhantering
-
-När du publicerar ditt erbjudande på marknadsplatsen med Partner Center måste du ansluta det till ditt CRM-system (Customer Relationship Management). På så sätt kan du få information om kundkontakter så snart någon uttrycker intresse för eller använder din produkt.
+När du publicerar ditt erbjudande till Marketplace med partner Center måste du ansluta det till ditt CRM-system (Customer Relations hip Management). På så sätt kan du ta emot kund kontakt information så snart någon uttrycker intresse för eller använder produkten.
 
 1. Välj ett leadmål där du vill att vi ska skicka kundleads. Partner Center stöder följande CRM-system:
 
-    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kundengagemang
+    - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kund engagemang
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
     - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
-    > Om ditt CRM-system inte visas ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [Https Endpoint](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra leaddata för kunder. Exportera sedan data till crm-systemet.
+    > Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [https-slutpunkt](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra kundens lead-data. Exportera sedan data till CRM-systemet.
 
-2. Anslut ditt erbjudande till leaddestinationen när du publicerar i Partner Center.
-3. Kontrollera att anslutningen till lead-målet är korrekt konfigurerad. När du har publicerat den i Partner Center validerar vi anslutningen och skickar en testledare till dig. Medan du förhandsgranskar erbjudandet innan det visas kan du också testa din leadanslutning genom att försöka köpa erbjudandet själv i förhandsversionen.
-4. Se till att anslutningen till leaddestinationen förblir uppdaterad så att du inte förlorar några leads.
+2. Anslut ditt erbjudande till lead-målet när du publicerar i Partner Center.
+3. Bekräfta att anslutningen till lead-målet har kon figurer ATS korrekt. När du har publicerat den i Partner Center kommer vi att validera anslutningen och skicka ett test lead. Medan du för hands Grans kar erbjudandet innan det blir Live kan du också testa din lead-anslutning genom att försöka köpa erbjudandet själv i för hands versionen.
+4. Se till att anslutningen till målet för målet förblir uppdaterad så att du inte förlorar några leads.
 
-Här är några ytterligare lead hanteringsresurser:
+Här följer några ytterligare resurser för ledar hantering:
 
-- [Översikt över leadhantering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
+- [Översikt över ledar hantering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Leadhantering – vanliga frågor och svar](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Översikt över leadhantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (se till att popup-blockeraren är avstängd)
+- [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (kontrol lera att blockeringen av popup-fönster är inaktive rad)
 
-Välj **Spara utkast** innan du fortsätter till nästa avsnitt, Egenskaper.
+Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="properties"></a>Egenskaper
 
-På den här sidan kan du definiera de kategorier och branscher som används för att gruppera ditt erbjudande på marknadsplatsen, din appversion och de juridiska kontrakt som stöder ditt erbjudande.
+På den här sidan kan du definiera kategorier och branscher som används för att gruppera ditt erbjudande på Marketplace, din app-version och de juridiska kontrakt som stöder ditt erbjudande.
 
 ### <a name="category"></a>Kategori
 
-Välj minst en och högst tre kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga marknadsplats sökområden och visas på din erbjudandeinformation sida. Förklara i erbjudandebeskrivningen hur ditt erbjudande stöder dessa kategorier.
+Välj minst en och högst tre kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga sökområden för Marketplace och visas på sidan med erbjudande information. I erbjudande beskrivningen förklarar du hur ditt erbjudande stöder dessa kategorier.
 
 ### <a name="industry"></a>Bransch
 
-Välj eventuellt upp till två branscher och två vertikaler under varje bransch. Kategorier används för att visa ditt erbjudande, men industrin och vertikalerna används i sökfilter och används i Storefront. Om ditt erbjudande riktar sig till en viss bransch och/eller vertikal använder du erbjudandebeskrivningen för att förklara hur erbjudandet stöder de valda branscherna eller vertikalerna. Om ditt erbjudande inte är&#39;branschspecifikt lämnar du det här avsnittet tomt.
+Du kan också välja upp till två branscher och två lodräta under varje bransch. Även om kategorier används för att visa ditt erbjudande, används branschen och de lodräta i Sök filter och används i butik. Om Erbjudandet riktar sig till en viss bransch och/eller lodrät använder du en beskrivning av erbjudandet för att förklara hur erbjudandet stöder de valda branscher eller lodräta. Lämna avsnittet tomt om ditt erbjudande inte är branschspecifika.
 
 > [!NOTE]
-> När vi arbetar för att introducera nya branscher och vertikaler för att förbättra erbjudandet upptäckt erfarenhet, vissa branscher eller vertikaler kanske ännu inte syns på Skyltfönstret. Industrier och vertikaler markerade med en (*) kommer att vara tillgängliga vid ett framtida datum. Alla publicerade erbjudanden kan upptäckas via sökordssökning.
+> När vi arbetar för att introducera nya branscher och lodräta funktioner för att förbättra identifieringen av erbjudandet, kan vissa branscher och lodräta inte visas i butik ännu. Branscher och lodräta som är markerade med en (*) är tillgängliga vid ett framtida datum. Alla publicerade erbjudanden kan upptäckas via nyckelords sökning.
 <p>&nbsp;
 
-| **Bransch** | **Subindustri** |
+| **Bransch** | **Under bransch** |
 | --- | --- |
-| *Automotive (Automotive) | *Automotive (Automotive) |
-| Jordbruk | *Övrigt - Ej segmenterad |
-| Distribution | * Partihandel<br>Paket- och paketfrakt |
-| Utbildning | *Högre<br> utbildning* Grund- och gymnasieutbildning / K-12<br>*Bibliotek och museer |
-| Ekonomiska tjänster | *Bank- och<br> kapitalmarknader* Försäkring |
-| Government | *Försvar och intelligens (brukade kallas nationell<br> och allmän säkerhet)* Allmän säkerhet och rättvisa<br>*Civil regering |
-| Hälso- och sjukvård (brukade kallas hälsa) | *Hälsa Betalare<br> * Vårdgivare<br>* Läkemedel |
-| Tillverkning och resurser (brukade kallas tillverkning) | *Kemiska och agrokemiska<br> * Diskret tillverkning<br>*Energi |
-| Detaljhandel och konsumtionsvaror (brukade kallas Detaljhandel) | *Konsumtionsvaror<br> * Återförsäljare |
-| * Media och kommunikation (brukade kallas Media och Underhållning) | *Media och<br> underhållning* Telekommunikation |
-| Professionella tjänster | *Juridiska<br> * Partner professionella tjänster |
-| * Arkitektur och konstruktion (brukade kallas Arkitektur Engineering) | *Övrigt - Ej segmenterad |
-| * Gästfrihet och resor | *Hotell och<br> fritid* Resor och transport<br>* Restauranger och mattjänster |
-| *Övriga branscher inom den offentliga sektorn | *Skogsbruk och<br> fiske* Ideella organisationer |
-| * Fastigheter | *Övrigt - Ej segmenterad |
+| * Bil | * Bil |
+| Jordbruk | * Annat – segment |
+| Distribution | * Grossist<br>Paket-och paket leverans |
+| Utbildning | *Högre utbildning<br> * Primär och sekundär utbildning/K-12<br>* Bibliotek och Museums |
+| Ekonomiska tjänster | *Bank-och kapital<br> marknader* Försäkringsbokf |
+| Government | *Försvar och information (som används för att kallas för nationell och offentlig<br> säkerhet)* Allmän säkerhet och rättvisa<br>* Civila myndigheter |
+| Sjukvård (används för att kallas hälsa) | *Hälso betalare<br> * Hälso leverantör<br>* Farmaceutiska |
+| Tillverkning och resurser (används för att kallas produktion) | *Kemisk och Agrochemical<br> * Diskret tillverkning<br>* Energi |
+| Butiks-och konsument varor (som används för att kallas detalj handel) | *Konsument varor<br> * Detaljist |
+| * Media och kommunikation (som används för att anropa media och underhållning) | *Media och underhållning<br> * Marknaden |
+| Professionella tjänster | *Legal<br> * Partner Professional-tjänster |
+| * Arkitektur och konstruktion (används för att kallas arkitektur teknik) | * Annat – segment |
+| * Service och resa | *Hotell och fritid<br> * Resor och transport<br>* Restauranger och livsmedels tjänster |
+| * Andra branscher i offentlig sektor | *Skogsbruk och fiske<br> * Ideella föreningar |
+| * Fastigheter | * Annat – segment |
 
 ### <a name="legal"></a>Juridisk information
 
 #### <a name="terms-and-conditions"></a>Villkor
 
-Om du vill ange dina egna anpassade villkor anger du upp till 10 000 tecken i rutan **Regler och villkor.** Om dina villkor kräver en längre beskrivning anger du en enda webblänk till var de finns. Den visas för kunderna som en aktiv länk.
+Om du vill ange egna anpassade villkor anger du upp till 10 000 tecken i rutan **allmänna** villkor. Om dina villkor kräver en längre Beskrivning anger du en enskild webblänk dit de kan hittas. Den kommer att visas för kunder som en aktiv länk.
 
-Kunderna måste acceptera dessa villkor innan de kan prova ditt erbjudande.
+Kunderna måste acceptera dessa villkor innan de kan testa ditt erbjudande.
 
-Välj **Spara utkast** innan du fortsätter till nästa avsnitt, Offer list.
+Välj **Spara utkast** innan du fortsätter till nästa avsnitt, erbjud listan.
 
-## <a name="offer-listing"></a>Lista över erbjudande
+## <a name="offer-listing"></a>Erbjudande lista
 
-Här definierar du erbjudandeinformationen som visas på marknadsplatsen. Detta inkluderar erbjudandet namn, beskrivning, bilder och så vidare.
+Här definierar du de erbjudande uppgifter som visas i Marketplace. Detta inkluderar erbjudandets namn, beskrivning, bilder och så vidare.
 
 ### <a name="language"></a>Språk
 
-Välj det språk som erbjudandet ska visas på. För närvarande är **engelska (USA)** det enda tillgängliga alternativet.
+Välj det språk som ditt erbjudande ska visas i. För närvarande är **engelska (USA)** det enda tillgängliga alternativet.
 
-Definiera marknadsplatsinformation (till exempel erbjudandenamn, beskrivning och bilder) för varje språk/marknad. Välj språk-/marknadsnamn för att ange den här informationen.
+Definiera Marketplace-information (t. ex. namn, beskrivning och avbildningar för erbjudandet) för varje språk/marknad. Välj språk/marknads namn för att ange den här informationen.
 
 > [!NOTE]
-> Erbjudandeuppgifter behöver inte vara på engelska om erbjudandebeskrivningen &quot;börjar med frasen, Denna ansökan är endast tillgänglig på [icke-engelska språket]. &quot; Det&#39;också okej att ge en användbar länk för att erbjuda innehåll på ett språk som&#39;skiljer sig från den som används i erbjudandet notering.
+> Erbjudande information behöver inte vara på engelska om erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i erbjudande listan.
 
-### <a name="name"></a>Namn
+### <a name="name"></a>Name
 
-Namnet du anger här visas som titeln på ditt erbjudande. Det här fältet är förfyllt med den text som du angav i rutan **Erbjudandealias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
+Namnet som du anger här visas som rubrik för ditt erbjudande. Det här fältet fylls i automatiskt med den text som du angav i rutan för **erbjuden alias** när du skapade erbjudandet. Du kan ändra det här namnet senare.
 
 Namnet:
 
-- Kan vara varumärkesskyddade (och du kan inkludera varumärkes- eller upphovsrättssymboler).
-- Kan inte vara mer än 50 tecken lång.
+- Kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler).
+- Får inte vara mer än 50 tecken långt.
 - Det går inte att inkludera emojis.
 
-### <a name="search-results-summary"></a>Sammanfattning av sökresultat
+### <a name="search-results-summary"></a>Sammanfattning av Sök Resultat
 
-Ge en kort beskrivning av ditt erbjudande. Detta kan vara upp till 100 tecken långt och används i marketplace-sökresultat.
+Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
 ### <a name="description"></a>Beskrivning
 
-Ge en längre beskrivning av ditt erbjudande, upp till 3000 tecken. Detta visas för kunder i översikten för marknadsplatsannonser.
+Ange en längre Beskrivning av erbjudandet, upp till 3 000 tecken. Detta visas för kunder i Översikt över Marketplace-registrering.
 
-Inkludera ett eller flera av följande i beskrivningen:
+Inkludera ett eller flera av följande i din beskrivning:
 
-- Värdet och de viktigaste fördelarna med ditt erbjudande ger.
-- Kategori- eller branschorganisationer, eller båda.
-- Köpmöjligheter i appen.
-- Alla nödvändiga upplysningar.
+- Det värde och de viktiga fördelar ditt erbjudande erbjuder.
+- Kategori-eller bransch kopplingar, eller både och.
+- Köp möjligheter i appen.
+- Eventuella uppgifter som krävs.
 
-Här är några tips för att skriva din beskrivning:
+Här följer några tips om hur du skriver beskrivningen:
 
-- Beskriv tydligt värdet av ditt erbjudande i de första meningarna i din beskrivning. Inkludera följande:
+- Beskriv tydligt värdet för ditt erbjudande i de första meningarna i beskrivningen. Ta med följande objekt:
   - Beskrivning av erbjudandet.
-  - Den typ av användare som drar nytta av erbjudandet.
-  - Kundens behov eller utfärdar erbjudandeadresserna.
-- Kom ihåg att de första meningarna kan visas i sökresultaten.
-- Lita inte på funktioner och funktioner för att sälja din produkt. Fokusera istället på det värde som ditt erbjudande ger.
-- Försök att använda branschspecifika ordförråd eller förmånsbaserad ordalydelse.
+  - Typen av användare som fördelar från erbjudandet.
+  - Kunden behöver eller utfärdar erbjudandena adresser.
+- Kom ihåg att de första meningarna kan visas i Sök resultaten.
+- Förlita dig inte på funktioner och funktioner för att sälja produkten. I stället fokuserar du på det värde som erbjudandet erbjuder.
+- Försök att använda branschspecifika vokabulär eller kunskapsbaserade orda lydelse.
 
-Om du vill göra erbjudandet **Beskrivning** mer engagerande använder du RTF-redigeraren för att formatera beskrivningen. Med RTF-redigeraren kan du lägga till tal, punkter, fetstil, kursiv stil och indrag för att göra beskrivningen mer läsbar.
+Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
 
-:::image type="content" source="media/power-bi-rich-text-editor.png" alt-text="illustrerar RTF-redigeraren" border="false":::
+![Använda Rich Text Editor](./media/rich-text-editor.png)
 
-### <a name="search-keywords"></a>Sök nyckelord
+| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
+| --- | --- | --- |
+| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
 
-Ange upp till tre valfria sökord för att hjälpa kunderna att hitta ditt erbjudande på marknaden. För bästa resultat, använd även dessa sökord i beskrivningen.
+### <a name="search-keywords"></a>Sök efter nyckelord
 
-### <a name="helpprivacy-web-addresses"></a>Webbadresser för hjälp/sekretess
+Ange upp till tre valfria Sök nyckelord för att hjälpa kunderna att hitta ditt erbjudande i Marketplace. För bästa resultat bör du också använda dessa nyckelord i beskrivningen.
 
-Tillhandahålla länkar som hjälper kunderna att bättre förstå ditt erbjudande.
+### <a name="helpprivacy-web-addresses"></a>Hjälp/sekretess-webbadresser
 
-#### <a name="help-link"></a>Länk till hjälp
+Tillhandahåller länkar som hjälper kunder att bättre förstå ditt erbjudande.
 
-Ange webbadressen där kunderna kan läsa mer om ditt erbjudande.
+#### <a name="help-link"></a>Hjälp länk
 
-#### <a name="privacy-policy-url"></a>Url till sekretesspolicy
+Ange webb adressen där kunderna kan lära sig mer om ditt erbjudande.
 
-Ange webbadressen till organisationens sekretesspolicy. Du är ansvarig för att ditt erbjudande följer sekretesslagar och sekretessregler. Du är också ansvarig för att publicera en giltig sekretesspolicy på din webbplats.
+#### <a name="privacy-policy-url"></a>URL för sekretess policy
+
+Ange webb adressen till din organisations sekretess policy. Du är ansvarig för att se till att ditt erbjudande uppfyller sekretess lagar och föreskrifter. Du ansvarar också för att publicera en giltig sekretess policy på din webbplats.
 
 ### <a name="contact-information"></a>Kontaktinformation
 
-Du måste ange namn, e-post och telefonnummer för en **supportkontakt** och en **teknisk kontakt.** Den här informationen visas&#39;inte för kunderna. Den är tillgänglig för Microsoft och kan tillhandahållas till CSP-partner (Cloud Solution Provider).
+Du måste ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt**. Den här informationen visas inte för kunderna. Den är tillgänglig för Microsoft och kan tillhandahållas av CSP-partner (Cloud Solution Provider).
 
-- Supportkontakt (obligatoriskt): För allmänna supportfrågor.
-- Teknisk kontakt (krävs): För tekniska frågor och certifieringsfrågor.
-- CSP-programkontakt (valfritt): För återförsäljarfrågor relaterade till CSP-programmet.
+- Support kontakt (krävs): för allmänna supportfrågor.
+- Teknisk kontakt (krävs): för tekniska frågor och certifierings problem.
+- Kontakta CSP-programmet (valfritt): för åter försäljar frågor som är relaterade till CSP-programmet.
 
-I avsnittet **Supportkontakt** anger du webbadressen **till supportwebbplatsen** där partner kan hitta support för ditt erbjudande.
+I avsnittet **support kontakt** anger du webb adressen till **Support webbplatsen** där partner kan hitta support för ditt erbjudande.
 
-### <a name="supporting-documents"></a>Verifikationer
+### <a name="supporting-documents"></a>Stöd dokument
 
-Ange minst ett och tre relaterade marknadsföringsdokument i PDF-format. Till exempel faktablad, broschyrer, checklistor eller presentationer.
+Ange minst ett och upp till tre relaterade marknadsförings dokument i PDF-format. Till exempel fakta blad, broschyrer, check listor eller presentationer.
 
-### <a name="marketplace-images"></a>Marketplace-bilder
+### <a name="marketplace-images"></a>Marketplace-avbildningar
 
-Ange logotyper och bilder som du kan använda med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
+Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
->[!Note]
->Om du har problem med att ladda upp filer https://upload.xboxlive.com kontrollerar du att det lokala nätverket inte blockerar tjänsten som används av Partner Center.
+>[!NOTE]
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
 
-#### <a name="store-logos"></a>Lagra logotyper
+#### <a name="store-logos"></a>Butiks logo typer
 
-Ange .png-filer i ditt erbjudande&#39;logotyp i två storlekar: **Liten** (48 x 48 pixlar) och **Stor** (216 x 216 pixlar).
+Ange. png-filer för ditt erbjudandes logo typ i två bild punkter:
+- **Liten** (48 x 48)
+- **Stor** (216 x 216)
 
-Båda logotyperna krävs och används på olika platser på marknadsplatsen notering.
+Båda logo typerna krävs och används på olika platser i Marketplace-listan.
 
 #### <a name="screenshots"></a>Skärmbilder
 
-Lägg till minst en och upp till fem skärmdumpar som visar hur erbjudandet fungerar. Var och en måste vara 1280 x 720 pixlar i storlek och i .png-format.
+Lägg till minst en och upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Var och en måste vara 1280 x 720 bild punkter i storlek och i PNG-format.
 
 #### <a name="videos-optional"></a>Videor (valfritt)
 
-Lägg till upp till fem videor som visar ditt erbjudande. Ange videon&#39;s namn, dess webbadress och miniatyrbild av videon med 1 280 x 720 pixlar.
+Lägg till upp till fem videor som demonstrerar ditt erbjudande. Ange videons namn, webb adress och miniatyr bild av videon med 1280 x 720 pixlar i storlek.
 
-#### <a name="additional-marketplace-listing-resources"></a>Ytterligare resurser för marknadsplatsnotering
+#### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
-Mer information om hur du skapar erbjudanden finns i [Bästa praxis för erbjudandebeskrivning](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
+Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bästa praxis](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
 
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 
-Marknadsför din app i Power BI Service till produktion och ange power bi-appinstallationslänken som gör det möjligt för kunder att installera din app. Mer information finns i [Publicera appar med instrumentpaneler och rapporter i Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
+Flytta upp din app i Power BI tjänst till produktion och ange den Power BI App Installer-länken som gör det möjligt för kunderna att installera din app. Mer information finns i [publicera appar med instrument paneler och rapporter i Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
 
-## <a name="supplemental-content"></a>Supplementellt innehåll
+## <a name="supplemental-content"></a>Kompletterande innehåll
 
-Ge ytterligare information om ditt erbjudande för att hjälpa oss att validera det. Den här informationen visas&#39;inte för kunder eller publiceras på marknadsplatsen.
+Ange ytterligare information om ditt erbjudande för att hjälpa oss att validera det. Den här informationen visas inte för kunder eller publiceras på Marketplace.
 
-### <a name="validation-assets"></a>Valideringstillgångar
+### <a name="validation-assets"></a>Validerings till gångar
 
-Du kan också lägga till instruktioner (upp till 3 000 tecken) som hjälper Microsofts valideringsteam att konfigurera, ansluta och testa appen. Inkludera vanliga konfigurationsinställningar, konton, parametrar eller annan information som kan användas för att testa alternativet Anslut data. Den här informationen är endast synlig för valideringsteamet och används endast för valideringsändamål.
+Du kan också lägga till instruktioner (upp till 3 000 tecken) för att hjälpa Microsoft validerings teamet att konfigurera, ansluta och testa din app. Inkludera vanliga konfigurations inställningar, konton, parametrar eller annan information som kan användas för att testa alternativet Anslut data. Den här informationen visas bara för validerings teamet och används endast i validerings syfte.
 
 ## <a name="review-and-publish"></a>Granska och publicera
 
-När du&#39;har slutfört alla nödvändiga avsnitt i erbjudandet kan du skicka in ditt erbjudande om att granska och publicera.
+När du har slutfört alla obligatoriska avsnitt i erbjudandet kan du skicka ditt erbjudande till granskning och publicering.
 
-I det övre högra hörnet på portalen väljer du **Granska och publicera**.
+I det övre högra hörnet av portalen väljer du **Granska och publicera**.
 
-På granskningssidan kan du:
+På sidan Granska kan du:
 
-- Se slutförandestatusen för varje avsnitt i erbjudandet. Du kan&#39;inte publicera förrän alla delar av erbjudandet har markerats som slutförd.
-  - **Inte startat** - Avsnittet har inte startats och måste slutföras.
-  - **Ofullständig** - Avsnittet har fel som måste åtgärdas eller kräver att du ger mer information. Mer information finns i avsnitten tidigare i det här dokumentet.
-  - **Komplett** - Avsnittet har alla nödvändiga data och det finns inga fel. Alla delar av erbjudandet måste vara fullständiga innan du kan skicka erbjudandet.
-- Ge testinstruktioner till certifieringsteamet för att säkerställa att din app testas korrekt. Också, ge eventuella kompletterande anteckningar som är till hjälp för att förstå ditt erbjudande.
+- Se slut för ande status för varje avsnitt i erbjudandet. Du kan inte publicera förrän alla avsnitt i erbjudandet har marker ATS som slutförda.
+  - **Inte startad** -avsnittet har inte startats och måste slutföras.
+  - **Ofullständig** – avsnittet innehåller fel som måste åtgärdas eller kräver att du anger mer information. Se avsnittet tidigare i det här dokumentet för vägledning.
+  - **Slutfört** -avsnittet innehåller alla data som krävs och det finns inga fel. Alla avsnitt i erbjudandet måste slutföras innan du kan skicka in erbjudandet.
+- Ange test instruktioner till certifierings teamet för att se till att appen testas korrekt. Ange också eventuella kompletterande kommentarer som hjälper dig att förstå ditt erbjudande.
 
-Om du vill skicka erbjudandet för publicering väljer du **Publicera**.
+Om du vill skicka publicerings erbjudandet väljer du **publicera**.
 
-Vi skickar ett e-postmeddelande till dig när en förhandsversion av erbjudandet finns tillgänglig för granskning och godkännande. Om du vill publicera ditt erbjudande för allmänheten (eller om ett privat erbjudande, till en privat målgrupp) går du till Partnercenter och väljer **Go-live**.
+Vi skickar dig ett e-postmeddelande för att meddela dig när en för hands version av erbjudandet kan granskas och godkännas. Om du vill publicera erbjudandet till allmänheten (eller om ett privat erbjudande till en privat mål grupp) går du till Partner Center och väljer **Go-Live**.

@@ -40,6 +40,8 @@
       href: components.md
     - name: Begrepp
       href: concepts.md
+    - name: 'SKU:er'
+      href: skus.md
     - name: Hälsoövervakning
       items:
         - name: Hälsotillståndsavsökningar

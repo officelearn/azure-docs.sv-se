@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 03/18/2020
-ms.openlocfilehash: 9c2e00ed14a45c6df7cf72845db2ecd069381ca5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f0eb6aa92dd8999baed6868a159c86d5e7bd0c8
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257226"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594665"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka pipelines för maskininlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -128,28 +128,32 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Felsöka och Felsök i Azure Machine Learning designer (för hands version)
 
-Det här avsnittet innehåller en översikt över hur du felsöker pipelines i designern.
-För pipeliner som skapats i designern kan du hitta **loggfilerna** på antingen sidan redigering eller på sidan körnings information för pipelinen.
+Det här avsnittet innehåller en översikt över hur du felsöker pipelines i designern. För pipeliner som skapats i designern kan du hitta **70_driver_log** -filen på antingen sidan redigering eller på sidan körnings information för pipelinen.
 
-### <a name="access-logs-from-the-authoring-page"></a>Åtkomst till loggar från sidan redigering
+### <a name="get-logs-from-the-authoring-page"></a>Hämta loggar från sidan redigering
 
-När du skickar en pipeline-körning och stannar på sidan redigering kan du hitta de loggfiler som genereras för varje modul.
+När du skickar en pipeline-körning och stannar på sidan redigering kan du hitta de loggfiler som genereras för varje modul när varje modul har slutförts.
 
-1. Välj en modul på arbets ytan redigering.
+1. Välj en modul som har körts klart på redigerings arbets ytan.
 1. I den högra rutan i modulen går du till fliken **utdata + loggar** .
-1. Välj logg filen `70_driver_log.txt`.
+1. Expandera den högra rutan och välj **70_driver_log. txt** för att visa filen i webbläsaren. Du kan också hämta loggar lokalt.
 
-    ![Redigera Page module-loggar](./media/how-to-debug-pipelines/pipelinerun-05.png)
+    ![Fönster för utökad utdata i designern](./media/how-to-debug-pipelines/designer-logs.png)
 
-### <a name="access-logs-from-pipeline-runs"></a>Åtkomst loggar från pipeline-körningar
+### <a name="get-logs-from-pipeline-runs"></a>Hämta loggar från pipeline-körningar
 
-Du kan också hitta loggfilerna för vissa körningar på sidan körnings information för pipeline i avsnittet **pipelines** eller **experiment** .
+Du kan också hitta loggfilerna för vissa körningar på sidan körnings information för pipeline, som du hittar i avsnittet **pipelines** eller **experiment** i Studio.
 
 1. Välj en pipeline-körning som skapats i designern.
-    ![Sidan pipeline-körning](./media/how-to-debug-pipelines/pipelinerun-04.png)
+
+    ![Sidan pipeline-körning](./media/how-to-debug-pipelines/designer-pipelines.png)
+
 1. Välj en modul i förhands gransknings fönstret.
 1. I den högra rutan i modulen går du till fliken **utdata + loggar** .
-1. Välj logg filen `70_driver_log.txt`.
+1. Expandera den högra rutan om du vill visa filen **70_driver_log. txt** i webbläsaren eller välj filen för att ladda ned loggarna lokalt.
+
+> [!IMPORTANT]
+> Om du vill uppdatera en pipeline från sidan körnings information för pipelinen måste du **klona** pipeline-körningen till ett nytt pipeline-utkast. En pipeline-körning är en ögonblicks bild av pipelinen. Det liknar en loggfil och kan inte ändras. 
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Felsöka och Felsök i Application Insights
 Mer information om hur du använder python-biblioteket för openräkning på det här sättet finns i den här guiden: [Felsöka och Felsök maskin inlärnings pipeliner i Application Insights](how-to-debug-pipelines-application-insights.md)

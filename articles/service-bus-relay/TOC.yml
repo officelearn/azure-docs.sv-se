@@ -30,7 +30,7 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections'
     - name: WCF-relä
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
-- name: Koncept
+- name: Begrepp
   items:
     - name: Säkerhet
       items:
@@ -59,10 +59,12 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: Node
               href: relay-hybrid-connections-node-ws-api-overview.md
-    - name: Hantera
+    - name: Hantera och övervaka
       items:
         - name: Övervaka Azure Relay med Azure Monitor
           href: relay-metrics-azure-monitor.md
+        - name: Konfigurera diagnostikloggar
+          href: diagnostic-logs.md
 - name: Referens
   items:
     - name: .NET
@@ -83,7 +85,7 @@
       href: relay-faq.md
     - name: Blogg
       href: 'https://blogs.msdn.microsoft.com/servicebus/'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

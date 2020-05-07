@@ -69,6 +69,8 @@
       href: powershell-samples.md
 - name: Begrepp
   items:
+    - name: Avbildningar
+      href: shared-image-galleries.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Regioner
@@ -457,17 +459,64 @@
         - name: Skapa loggaviseringar
           href: ../../azure-monitor/platform/alerts-log.md
     - name: Använda avbildningar
+      displayName: 'SIG, AMI, image'
       items:
         - name: Delade bildgallerier
           items:
-            - name: Översikt
-              href: shared-image-galleries.md
             - name: CLI
-              href: shared-images.md
+              items:
+                - name: Skapa ett galleri
+                  href: ../shared-images-cli.md
+                - name: Skapa en avbildning
+                  items:
+                    - name: Från en virtuell dator
+                      href: ../image-version-vm-cli.md
+                    - name: Migrera från en hanterad avbildning
+                      href: ../image-version-managed-image-cli.md
+                    - name: Kopiera från ett annat galleri
+                      href: ../image-version-another-gallery-cli.md
+                - name: Skapa en virtuell dator
+                  items:
+                    - name: Generaliserade
+                      href: ../vm-generalized-image-version-cli.md
+                - name: Uppdatera avbildningsresurser
+                  href: ../update-image-resources-cli.md
+                - name: Appregistrering för delning
+                  href: share-images-across-tenants.md
+            - name: PowerShell
+              items:
+                - name: Skapa ett galleri
+                  href: ../shared-images-powershell.md
+                - name: Skapa en avbildningsversion
+                  items:
+                    - name: Från en virtuell dator
+                      href: ../image-version-vm-powershell.md
+                    - name: Migrera från en hanterad avbildning
+                      href: ../image-version-managed-image-powershell.md
+                    - name: Kopiera från ett annat galleri
+                      href: ../image-version-another-gallery-powershell.md
+                - name: Skapa en virtuell dator
+                  items:
+                    - name: Generaliserade
+                      href: ../vm-generalized-image-version-powershell.md
+                    - name: Specialiserade
+                      href: ../vm-specialized-image-version-powershell.md
+                - name: Uppdatera avbildningsresurser
+                  href: ../update-image-resources-powershell.md
             - name: Portalen
-              href: shared-images-portal.md
-            - name: Appregistrering för delning
-              href: share-images-across-tenants.md
+              items:
+                - name: 'Skapa ett galleri, en avbildning och en virtuell dator'
+                  href: shared-images-portal.md
+            - name: Resource Manager-mallar
+              items:
+                - name: Skapa ett Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+                - name: Skapa en avbildningsdefinition i ett Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+                - name: Skapa en avbildningsversion i ett Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+                - name: Skapa en virtuell dator från avbildningsversion
+                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Felsöka delade bilder
               href: troubleshooting-shared-images.md
         - name: Image Builder (förhandsversion)
@@ -544,9 +593,9 @@
         - name: Terraform
           items:
             - name: Installera och konfigurera
-              href: ../../terraform/terraform-install-configure.md
+              href: /azure/developer/terraform/install-configure
             - name: Skapa fullständig virtuell dator
-              href: ../../terraform/terraform-create-complete-vm.md
+              href: /azure/developer/terraform/create-linux-virtual-machine-with-infrastructure
         - name: Cloud-init
           items:
             - name: Översikt över Cloud-init
@@ -564,14 +613,14 @@
             - name: Förbered en befintlig virtuell dator för cloud-init
               href: cloudinit-prepare-custom-image.md
         - name: Jenkins
-          href: /azure/developer/jenkins/overview.md
+          href: /azure/developer/jenkins/overview
           items:
             - name: Skapa en Jenkins-server
-              href: /azure/developer/jenkins/configure-on-linux-vm.md
+              href: /azure/developer/jenkins/configure-on-linux-vm
             - name: Skala med VM-agenter
-              href: /azure/developer/jenkins/scale-deployments-using-vm-agents.md
+              href: /azure/developer/jenkins/scale-deployments-using-vm-agents
             - name: Publicera artefakter till Storage
-              href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository.md
+              href: /azure/developer/jenkins/azure-storage-blobs-as-build-artifact-repository
             - name: Säker Jenkins
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: Köra containrar

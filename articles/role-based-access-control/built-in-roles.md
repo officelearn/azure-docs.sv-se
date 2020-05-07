@@ -1,6 +1,6 @@
 ---
-title: Inbyggda Azure-roller för Azure RBAC
-description: I den här artikeln beskrivs de inbyggda Azure-rollerna för rollbaserad åtkomst kontroll (RBAC) i Azure. Den listar åtgärder, NotActions, DataActions och NotDataActions.
+title: Inbyggda Azure-roller – Azure RBAC
+description: I den här artikeln beskrivs de inbyggda Azure-rollerna för rollbaserad åtkomst kontroll i Azure (Azure RBAC). Den listar åtgärder, NotActions, DataActions och NotDataActions.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,26 +11,26 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/15/2020
+ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 78e5c219d83198f3bf4c329c33018caad2b0cc62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b6587ca113319c266d2335c9cbb154e0ecc4afa1
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194932"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838747"
 ---
 # <a name="azure-built-in-roles"></a>Inbyggda Azure-roller
 
-[Rollbaserad åtkomst kontroll (RBAC) i Azure](overview.md) har flera inbyggda Azure-roller som du kan tilldela till användare, grupper, tjänstens huvud namn och hanterade identiteter. Roll tilldelningar är hur du styr åtkomsten till Azure-resurser. Om de inbyggda rollerna inte uppfyller organisationens specifika behov kan du skapa egna [Azure-anpassade roller](custom-roles.md).
+[Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) har flera inbyggda Azure-roller som du kan tilldela till användare, grupper, tjänstens huvud namn och hanterade identiteter. Roll tilldelningar är hur du styr åtkomsten till Azure-resurser. Om de inbyggda rollerna inte uppfyller organisationens specifika behov kan du skapa egna [Azure-anpassade roller](custom-roles.md).
 
-Den här artikeln innehåller de inbyggda rollerna för Azure-resurser, som alltid utvecklas. För att få de senaste rollerna använder du [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list). Om du letar efter administratörs roller för Azure Active Directory (Azure AD) kan du läsa [behörigheter för administratörs roll i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Den här artikeln innehåller de inbyggda Azure-rollerna, som alltid utvecklas. För att få de senaste rollerna använder du [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list). Om du letar efter administratörs roller för Azure Active Directory (Azure AD) kan du läsa [behörigheter för administratörs roll i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 ## <a name="all"></a>Alla
 
-Följande tabell innehåller en kort beskrivning och det unika ID: t för varje inbyggd roll. Välj roll namnet om du vill se en lista `Actions`över `NotActions`, `DataActions`, och `NotDataActions` för varje roll. Information om vad dessa åtgärder betyder och hur de tillämpas på hanterings-och data planen finns i [förstå roll definitioner för Azure-resurser](role-definitions.md).
+Följande tabell innehåller en kort beskrivning och det unika ID: t för varje inbyggd roll. Välj roll namnet om du vill se en lista `Actions`över `NotActions`, `DataActions`, och `NotDataActions` för varje roll. Information om vad dessa åtgärder betyder och hur de tillämpas på hanterings-och data planen finns i [förstå definitioner av Azure-roller](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]
@@ -81,7 +81,7 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [Avsändare av data meddelande i lagrings köer](#storage-queue-data-message-sender) | Lägg till meddelanden i en Azure Storage-kö. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [Data läsare för lagrings kön](#storage-queue-data-reader) | Läs och Visa Azure Storage köer och köa meddelanden. Information om vilka åtgärder som krävs för en specifik data åtgärd finns i [behörigheter för att anropa blob-och Queue data-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Webb** |  |  |
-> | [Azure Maps data läsare (förhands granskning)](#azure-maps-data-reader-preview) | Beviljar åtkomst till läsa kartdata relaterade data från ett Azure Maps-konto. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Azure Maps data läsare](#azure-maps-data-reader) | Beviljar åtkomst till läsa kartdata relaterade data från ett Azure Maps-konto. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Search Service deltagare](#search-service-contributor) | Låter dig hantera Sök tjänster, men inte till gång till dem. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Webb Plans deltagare](#web-plan-contributor) | Gör att du kan hantera webb planer för webbplatser, men inte till gång till dem. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [Webbplats deltagare](#website-contributor) | Gör att du kan hantera webbplatser (inte webb planer), men inte till gång till dem. | de139f84-1756-47ae-9be6-808fbbe84772 |
@@ -147,10 +147,10 @@ Följande tabell innehåller en kort beskrivning och det unika ID: t för varje 
 > | [Azure Sentinel-läsare](#azure-sentinel-reader) | Azure Sentinel-läsare | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Azure Sentinel-svarare](#azure-sentinel-responder) | Azure Sentinel-svarare | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
 > | [Key Vault deltagare](#key-vault-contributor) | Låter dig hantera nyckel valv, men inte åtkomst till dem. | f25e0fa2-a7c8-4377-a976-54943a77a395 |
-> | [Säkerhets administratör](#security-admin) | Kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer, ignorera aviseringar och rekommendationer. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [Säkerhets administratör](#security-admin) | Visa och uppdatera behörigheter för Security Center. Samma behörigheter som säkerhets läsar rollen och kan också uppdatera säkerhets principen och ignorera aviseringar och rekommendationer. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Säkerhets utvärderings deltagare](#security-assessment-contributor) | Gör att du kan skicka utvärderingar till Security Center | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Säkerhets hanterare (bakåtkompatibelt)](#security-manager-legacy) | Detta är en äldre roll. Använd säkerhets administratör i stället. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [Säkerhets läsare](#security-reader) | Kan visa rekommendationer och aviseringar, Visa säkerhets principer, Visa säkerhets tillstånd, men kan inte göra ändringar. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Säkerhetsläsare](#security-reader) | Visa behörigheter för Security Center. Kan visa rekommendationer, aviseringar, säkerhets principer och säkerhets tillstånd, men kan inte göra ändringar. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **DevOps** |  |  |
 > | [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | [Labb skapare](#lab-creator) | Gör att du kan skapa, hantera och ta bort dina hanterade labb under dina Azure Lab-konton. | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
@@ -2543,7 +2543,7 @@ Läs och Visa Azure Storage köer och köa meddelanden. Information om vilka åt
 ## <a name="web"></a>Webb
 
 
-### <a name="azure-maps-data-reader-preview"></a>Azure Maps data läsare (förhands granskning)
+### <a name="azure-maps-data-reader"></a>Azure Maps data läsare
 
 Beviljar åtkomst till läsa kartdata relaterade data från ett Azure Maps-konto.
 
@@ -2555,7 +2555,7 @@ Beviljar åtkomst till läsa kartdata relaterade data från ett Azure Maps-konto
 > | **NotActions** |  |
 > | *inget* |  |
 > | **DataActions** |  |
-> | Microsoft. Maps/Accounts/data/Read | Beviljar data Läs behörighet till ett Maps-konto. |
+> | Microsoft. Maps/Accounts/*/Read |  |
 > | **NotDataActions** |  |
 > | *inget* |  |
 
@@ -2572,12 +2572,12 @@ Beviljar åtkomst till läsa kartdata relaterade data från ett Azure Maps-konto
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Maps/accounts/data/read"
+        "Microsoft.Maps/accounts/*/read"
       ],
       "notDataActions": []
     }
   ],
-  "roleName": "Azure Maps Data Reader (Preview)",
+  "roleName": "Azure Maps Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -5710,7 +5710,7 @@ Låter dig hantera nyckel valv, men inte åtkomst till dem.
 
 ### <a name="security-admin"></a>Säkerhetsadministratör
 
-Kan visa säkerhets principer, Visa säkerhets tillstånd, redigera säkerhets principer, Visa aviseringar och rekommendationer, ignorera aviseringar och rekommendationer.
+Visa och uppdatera behörigheter för Security Center. Samma behörigheter som säkerhets läsar rollen och kan också uppdatera säkerhets principen och ignorera aviseringar och rekommendationer.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -5868,7 +5868,7 @@ Detta är en äldre roll. Använd säkerhets administratör i stället.
 
 ### <a name="security-reader"></a>Säkerhetsläsare
 
-Kan visa rekommendationer och aviseringar, Visa säkerhets principer, Visa säkerhets tillstånd, men kan inte göra ändringar.
+Visa behörigheter för Security Center. Kan visa rekommendationer, aviseringar, säkerhets principer och säkerhets tillstånd, men kan inte göra ändringar.
 
 > [!div class="mx-tableFixed"]
 > |  |  |
@@ -6217,6 +6217,9 @@ Kan läsa alla övervaknings data och redigera övervaknings inställningar. Se 
 > | Microsoft. Insights/scheduledqueryrules/* |  |
 > | Microsoft. Insights/webtests/* | Skapa och hantera insikter-webbtester |
 > | Microsoft. Insights/arbets böcker/* |  |
+> | Microsoft. Insights/privateLinkScopes/* |  |
+> | Microsoft. Insights/privateLinkScopeOperationStatuses/* |  |
+> | Microsoft. OperationalInsights/arbets ytor/Skriv | Skapar en ny arbets yta eller länkar till en befintlig arbets yta genom att ange kund-ID: t från den befintliga arbets ytan. |
 > | Microsoft. OperationalInsights/arbetsytes/intelligencepacks/* | Läsa/skriva/ta bort lösnings paket för Log Analytics. |
 > | Microsoft. OperationalInsights/arbetsytes/savedSearches/* | Läs/skriv/ta bort sparade Log Analytics-sökningar. |
 > | Microsoft. OperationalInsights/arbets ytor/search/åtgärd | Kör en Sök fråga |
@@ -6263,6 +6266,9 @@ Kan läsa alla övervaknings data och redigera övervaknings inställningar. Se 
         "Microsoft.Insights/scheduledqueryrules/*",
         "Microsoft.Insights/webtests/*",
         "Microsoft.Insights/workbooks/*",
+        "Microsoft.Insights/privateLinkScopes/*",
+        "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
+        "Microsoft.OperationalInsights/workspaces/write",
         "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
         "Microsoft.OperationalInsights/workspaces/search/action",

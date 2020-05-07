@@ -5,21 +5,20 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: jgao
-ms.openlocfilehash: 99db4ec61a515301224691d7c2e4e3c905fee1c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188917"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610810"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
 Lär dig hur du använder distributions skript i Azure Resource templates. Med en ny resurs typ som `Microsoft.Resources/deploymentScripts`kallas kan användare köra distributions skript i mallar distributioner och granska körnings resultat. Dessa skript kan användas för att utföra anpassade steg som:
 
 - lägga till användare i en katalog
-- skapa en app-registrering
 - utför data Plans åtgärder, till exempel kopiera blobbar eller Dirigerings databas
 - Leta upp och validera en licens nyckel
 - skapa ett självsignerat certifikat
@@ -37,14 +36,14 @@ Fördelarna med distributions skript:
 Distributions skript resursen är bara tillgänglig i de regioner där Azure Container instance är tillgängligt.  Se [resurs tillgänglighet för Azure Container instances i Azure-regioner](../../container-instances/container-instances-region-availability.md).
 
 > [!IMPORTANT]
-> Två distributions skript resurser, ett lagrings konto och en behållar instans, skapas i samma resurs grupp för skript körning och fel sökning. Dessa resurser tas vanligt vis bort av skript tjänsten när distributions skript körningen blir i ett Terminal-tillstånd. Du debiteras för resurserna tills resurserna tas bort. Läs mer i avsnittet om hur du [säkerhetskopierar skript resurser](#clean-up-deployment-script-resources).
+> Ett lagrings konto och en behållar instans krävs för skript körning och fel sökning. Du har möjlighet att ange ett befintligt lagrings konto, annars skapas lagrings kontot tillsammans med behållar instansen automatiskt av skript tjänsten. De två automatiskt skapade resurserna tas vanligt vis bort av skript tjänsten när distributions skript körningen blir i ett Terminal-tillstånd. Du debiteras för resurserna tills resurserna tas bort. Läs mer i avsnittet om hur du [säkerhetskopierar skript resurser](#clean-up-deployment-script-resources).
 
 ## <a name="prerequisites"></a>Krav
 
 - **En användardefinierad hanterad identitet med deltagar rollen till mål resurs gruppen**. Den här identiteten används för att köra distributions skript. Om du vill utföra åtgärder utanför resurs gruppen måste du bevilja ytterligare behörighet. Du kan till exempel tilldela identiteten till prenumerations nivån om du vill skapa en ny resurs grupp.
 
   > [!NOTE]
-  > Distributions skript motorn skapar ett lagrings konto och en behållar instans i bakgrunden.  En användardefinierad hanterad identitet med deltagar rollen på prenumerations nivå krävs om prenumerationen inte har registrerat Azure Storage-kontot (Microsoft. Storage) och Azure Container Instance (Microsoft. ContainerInstance)-resurs leverantörer.
+  > Skript tjänsten skapar ett lagrings konto (om du inte anger ett befintligt lagrings konto) och en behållar instans i bakgrunden.  En användardefinierad hanterad identitet med deltagar rollen på prenumerations nivå krävs om prenumerationen inte har registrerat Azure Storage-kontot (Microsoft. Storage) och Azure Container Instance (Microsoft. ContainerInstance)-resurs leverantörer.
 
   Information om hur du skapar en identitet finns i [skapa en användardefinierad hanterad identitet med hjälp av Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), eller med [hjälp av Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)eller [genom att använda Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md). Du behöver identitets-ID när du distribuerar mallen. Formatet på identiteten är:
 
@@ -101,6 +100,13 @@ Följande JSON är ett exempel.  Du hittar det senaste mallnamnet [här](/azure/
   },
   "properties": {
     "forceUpdateTag": 1,
+    "containerSettings": {
+      "containerGroupName": "mycustomaci"
+    },
+    "storageAccountSettings": {
+      "storageAccountName": "myStorageAccount",
+      "storageAccountKey": "myKey"
+    },
     "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "environmentVariables": [
@@ -132,6 +138,8 @@ Information om egenskaps värde:
 - **Identitet**: distributions skript tjänsten använder en användardefinierad hanterad identitet för att köra skripten. För närvarande stöds endast användardefinierad hanterad identitet.
 - **typ**: ange typ av skript. Azure PowerShell-och Azure CLI-skript stöds för närvarande. Värdena är **AzurePowerShell** och **AzureCLI**.
 - **forceUpdateTag**: om du ändrar det här värdet mellan mallens distributioner tvingas distributions skriptet att köras igen. Använd funktionen newGuid () eller utcNow () som måste anges som defaultValue för en parameter. Mer information finns i [Kör skript mer än en gång](#run-script-more-than-once).
+- **containerSettings**: Ange inställningarna för att anpassa Azure Container instance.  **containerGroupName** används för att ange behållar gruppens namn.  Om det inte anges skapas grupp namnet automatiskt.
+- **storageAccountSettings**: Ange inställningarna för att använda ett befintligt lagrings konto. Om inget anges skapas ett lagrings konto automatiskt. Se [Använd ett befintligt lagrings konto](#use-an-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Ange den version av modulen som ska användas. En lista över PowerShell-och CLI-versioner som stöds finns i [krav](#prerequisites).
 - **argument**: ange parameter värden. Värdena avgränsas med blank steg.
 - **environmentVariables**: Ange de miljövariabler som ska överföras till skriptet. Mer information finns i [utveckla distributions skript](#develop-deployment-scripts).
@@ -182,7 +190,7 @@ De utdata som returneras ser ut så här:
 
 ## <a name="use-external-scripts"></a>Använd externa skript
 
-Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter `scriptContent` du `primaryScriptUri`med. Ett exempel:
+Förutom infogade skript kan du också använda externa skriptfiler. Endast primära PowerShell-skript med fil namns tillägget **ps1** stöds. För CLI-skript kan primära skript ha alla tillägg (eller utan tillägg), så länge skripten är giltiga bash-skript. Om du vill använda externa skriptfiler ersätter `scriptContent` du `primaryScriptUri`med. Exempel:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -241,7 +249,7 @@ Utdata för distributions skript måste sparas på AZ_SCRIPTS_OUTPUT_PATH plats 
 ### <a name="handle-non-terminating-errors"></a>Hantera icke-avslutande fel
 
 Du kan styra hur PowerShell svarar på icke-avslutande fel med hjälp av [**$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
-) -variabeln i distributions skriptet. Distributions skript motorn anger/ändrar inte värdet.  Trots det värde som du angav för $ErrorActionPreference anger distributions skriptet resurs etablerings statusen till *misslyckades* när skriptet påträffar ett fel.
+) -variabeln i distributions skriptet. Skript tjänsten anger/ändrar inte värdet.  Trots det värde som du angav för $ErrorActionPreference anger distributions skriptet resurs etablerings statusen till *misslyckades* när skriptet påträffar ett fel.
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Skicka skyddade strängar till distributions skript
 
@@ -249,7 +257,7 @@ Genom att ställa in miljövariabler (EnvironmentVariable) i behållar instanser
 
 ## <a name="debug-deployment-scripts"></a>Felsöka distributions skript
 
-Skript tjänsten skapar ett [lagrings konto](../../storage/common/storage-account-overview.md) och en [behållar instans](../../container-instances/container-instances-overview.md) för skript körning. Båda resurserna har **azscripts** -suffixet i resurs namnen.
+Skript tjänsten skapar ett [lagrings konto](../../storage/common/storage-account-overview.md) (om du inte anger ett befintligt lagrings konto) och en [behållar instans](../../container-instances/container-instances-overview.md) för skript körning. Om dessa resurser skapas automatiskt av skript tjänsten, har båda resurserna **azscripts** -suffixet i resurs namnen.
 
 ![Distributions skript resurs namn för Resource Manager-mall](./media/deployment-script-template/resource-manager-template-deployment-script-resources.png)
 
@@ -292,17 +300,38 @@ Om du vill se deploymentScripts-resursen i portalen väljer du **Visa dolda type
 
 ![Distributions skript för Resource Manager-mall, Visa dolda typer, Portal](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
+## <a name="use-an-existing-storage-account"></a>Använd ett befintligt lagrings konto
+
+Ett lagrings konto och en behållar instans krävs för skript körning och fel sökning. Du har möjlighet att ange ett befintligt lagrings konto, annars skapas lagrings kontot tillsammans med behållar instansen automatiskt av skript tjänsten. Kraven för att använda ett befintligt lagrings konto:
+
+- De typer av lagrings konton som stöds är: allmänna-Purpose v2-konton, allmänna v1-konton och fileStorage-konton. Mer information finns i [typer av lagrings konton](../../storage/common/storage-account-overview.md).
+- Brand Väggs regler för lagrings kontot måste stängas av. Se [konfigurera Azure Storage-brandväggar och virtuella nätverk](../../storage/common/storage-network-security.md)
+- Distributions skriptets tilldelade hanterade identitet måste ha behörighet att hantera lagrings kontot, som innehåller läsa, skapa, ta bort fil resurser.
+
+Om du vill ange ett befintligt lagrings konto lägger du till följande JSON till egenskaps elementet för `Microsoft.Resources/deploymentScripts`:
+
+```json
+"storageAccountSettings": {
+  "storageAccountName": "myStorageAccount",
+  "storageAccountKey": "myKey"
+},
+```
+
+Se [exempel på mallar](#sample-templates) för ett `Microsoft.Resources/deploymentScripts` komplett definitions exempel.
+
+När ett befintligt lagrings konto används skapar skript tjänsten en fil resurs med ett unikt namn. Se [Rensa distributions skript resurser](#clean-up-deployment-script-resources) för hur skript tjänsten rensar fil resursen.
+
 ## <a name="clean-up-deployment-script-resources"></a>Rensa distributions skript resurser
 
-Distributions skript skapar ett lagrings konto och en behållar instans som används för att köra distributions skript och lagra felsöknings information. De här två resurserna skapas i samma resurs grupp som de etablerade resurserna och kommer att tas bort av skript tjänsten när skriptet upphör att gälla. Du kan kontrol lera livs cykeln för dessa resurser.  Du debiteras för båda resurserna tills de tas bort. Pris informationen finns i [container instances priser](https://azure.microsoft.com/pricing/details/container-instances/) och [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).
+Ett lagrings konto och en behållar instans krävs för skript körning och fel sökning. Du har möjlighet att ange ett befintligt lagrings konto, annars skapas ett lagrings konto tillsammans med en behållar instans automatiskt av skript tjänsten. De två automatiskt skapade resurserna tas bort av skript tjänsten när distributions skript körningen blir i ett Terminal-tillstånd. Du debiteras för resurserna tills resurserna tas bort. Pris informationen finns i [container instances priser](https://azure.microsoft.com/pricing/details/container-instances/) och [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).
 
 Livs cykeln för de här resurserna styrs av följande egenskaper i mallen:
 
-- **cleanupPreference**: rensnings inställning när skript körningen får statusen Terminal.  De värden som stöds är:
+- **cleanupPreference**: rensnings inställning när skript körningen får statusen Terminal. De värden som stöds är:
 
-  - **Always**: ta bort resurserna när skript körningen blir i ett terminalfönster. Eftersom deploymentScripts-resursen kanske fortfarande finns när resurserna har rensats, skulle system skriptet kopiera skript körnings resultatet, till exempel STDOUT, utdata, retur värde osv. till DB innan resurserna tas bort.
-  - **OnSuccess**: ta bara bort resurserna när skript körningen har slutförts. Du kan fortfarande komma åt resurserna för att hitta felsöknings information.
-  - **OnExpiration**: ta bara bort resurserna när **retentionInterval** -inställningen har upphört att gälla. Den här egenskapen är för närvarande inaktive rad.
+  - **Always**: ta bort de automatiskt skapade resurserna när skript körningen blir i ett Terminal-tillstånd. Om ett befintligt lagrings konto används, tar skript tjänsten bort fil resursen som skapats i lagrings kontot. Eftersom deploymentScripts-resursen kanske fortfarande finns när resurserna har rensats, bevarar skript tjänsterna skript körnings resultatet, till exempel STDOUT, utdata, retur värde osv. innan resurserna tas bort.
+  - **OnSuccess**: ta bara bort de automatiskt skapade resurserna när skript körningen har slutförts. Om ett befintligt lagrings konto används tar skript tjänsten bara bort fil resursen när skript körningen har slutförts. Du kan fortfarande komma åt resurserna för att hitta felsöknings information.
+  - **OnExpiration**: ta bara bort resurserna automatiskt när **retentionInterval** -inställningen har upphört att gälla. Om ett befintligt lagrings konto används, tar skript tjänsten bort fil resursen, men behåller lagrings kontot.
 
 - **retentionInterval**: Ange det tidsintervall som en skript resurs kommer att behållas och därefter upphör att gälla och tas bort.
 

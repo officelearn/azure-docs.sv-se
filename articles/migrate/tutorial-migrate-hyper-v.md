@@ -6,12 +6,12 @@ ms.date: 04/15/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 3b68531319e83eece11833dba475020060e280b6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 87f746108599928d3e1b4a022abc1b3a3779ef29
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583316"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853548"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -56,7 +56,7 @@ Innan du börjar de här självstudierna bör du:
 
 Lägg till verktyget Azure Migrate: Migreringsverktyg för Server.
 
-- Om du följde den andra självstudien för att [utvärdera virtuella VMware-datorer](/tutorial-assess-hyper-v.md)har du redan skapat ett Azure Migrate-projekt och kan gå vidare och lägga till verktyget nu.
+- Om du följde den andra självstudien för att [utvärdera virtuella VMware-datorer](tutorial-assess-hyper-v.md)har du redan skapat ett Azure Migrate-projekt och kan gå vidare och lägga till verktyget nu.
 - Om du inte följer den andra själv studie kursen[följer du de här anvisningarna](how-to-add-tool-first-time.md) för att skapa ett Azure Migrate-projekt. Du lägger till verktyget Azure Migrate: Migreringsverktyg för server när du skapar projektet.
 
 Om du har skapat ett projekt lägger du till verktyget enligt följande:

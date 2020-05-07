@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45648170f69d513b15e79cdd76f56e66bbc88bfa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 553ecc971235b5ba7d55a2dcb6963200919a3480
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332073"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853458"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect Cloud-etablering
 Den här artikeln innehåller rikt linjer för hur du väljer och använder Azure Active Directory (Azure AD) Anslut moln etablering som din identitets lösning.
@@ -47,6 +47,8 @@ Kör [IdFix-verktyget](https://docs.microsoft.com/office365/enterprise/prepare-d
 ### <a name="in-your-on-premises-environment"></a>I din lokala miljö
 
 1. Identifiera en domänansluten värd server som kör Windows Server 2012 R2 eller senare med minst 4 GB RAM-minne och .NET 4.7.1 + Runtime.
+
+1. Körnings principen för PowerShell på den lokala servern måste vara inställd på odefinierad eller RemoteSigned.
 
 1. Om det finns en brand vägg mellan dina servrar och Azure AD konfigurerar du följande objekt:
    - Se till att agenter kan göra *utgående* begär anden till Azure AD över följande portar:

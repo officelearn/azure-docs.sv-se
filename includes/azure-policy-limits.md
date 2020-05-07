@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
@@ -19,7 +19,7 @@ Det finns ett maximalt antal för varje objekt typ för Azure Policy. En post av
 |---|---|---|
 | Omfång | Principdefinitioner | 500 |
 | Omfång | Initiativdefinitioner | 100 |
-| Klientorganisation | Initiativdefinitioner | 1,000 |
+| Klient | Initiativdefinitioner | 1,000 |
 | Omfång | Princip-eller initiativ tilldelningar | 100 |
 | Definition av princip | Parametrar | 20 |
 | Initiativdefinition | Principer | 100 |

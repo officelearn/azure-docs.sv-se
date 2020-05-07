@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: ba0573af59c2924648361fec10bffed189291d28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 9a6fdf1a06c952d6e1e569bd05b28c663c790333
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81768568"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837880"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -42,7 +42,7 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
 | **Australiensiska myndigheter** | Australien, centrala, Australien, centrala 2 |Canberra, Canberra2 |
-| **Europa** | Frankrike, centrala, Frankrike, södra, Tyskland, norra, Tyskland, västra centrala, norra Europa, östra Norge, västra Norge, Schweiz, norra, Schweiz, västra, Storbritannien, västra, Storbritannien, södra, Västeuropa |Amsterdam, Amsterdam2, köpen hamn, Dublin, Frankfurt, Genève, London, London2, Marseille, Milano, München, Newport (Wales), Oslo, Paris, Stavanger, Stockholm, Zürich, München |
+| **Europa** | Frankrike, centrala, Frankrike, södra, Tyskland, norra, Tyskland, västra centrala, norra Europa, östra Norge, västra Norge, Schweiz, norra, Schweiz, västra, Storbritannien, västra, Storbritannien, södra, Västeuropa |Amsterdam, Amsterdam2, Berlin, köpen hamn, Dublin, Frankfurt, Genève, London, London2, Marseille, Milano, München, Newport (Wales), Oslo, Paris, Stavanger, Stockholm, Zürich, München |
 | **Nordamerika** | USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA, västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Borås, Denver, Las Vegas, Los Angeles, Miami, New York, San-Antonio, Seattle, Silicon dal, Silicon Valley2, Washington DC, Washington DC2, Montrealprotokollet, Quebec City, Toronto, Vancouver |
 | **Asien** | Asien, östra, Sydostasien | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei, |
 | **Indien** | Indien, västra, Indien, centrala, Indien, södra |Chennai, Chennai2, Mumbai, Mumbai2 |
@@ -82,6 +82,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Atlanta** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | saknas | saknas | Equinix, Megaport |
 | **Auckland** | [Vocus-grupp NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | saknas | 10 G | Devoli, Kordia, Megaport, Spark NZ, Vocus-grupp NZ |
 | **Bangkok** | [AIS](https://business.ais.co.th/solution/en/azure-expressroute.html) | 2 | saknas | 10 G | AIS |
+| **Stockholm** | [NTT GDC](https://www.e-shelter.de/en/location/berlin-1-data-center) | 1 | Tyskland, norra | 10 G | NTT globala data Center EMEA|
 | **Busan** | [LG CNS](https://www.lgcns.com/datacenter) | 2 | Sydkorea, södra | saknas | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australien, centrala | 10G, 100G | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Australien, centrala 2| 10G, 100G | CDC |
@@ -111,7 +112,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | saknas | 10 G | C3ntro, Equinix, Megaport, Neutrona-nätverk |
 | **Milano** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | saknas | 10 G | |
 | **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | saknas | 10G, 100G | Bell Canada, Cologix, Megaport, Telus, Zayo |
-| **Mumbai** | Tata Communications | 2 | Indien, västra | saknas | Global CloudXchange (GCX), är beroende jio, sify, Tata Communications, Verizon |
+| **Mumbai** | Tata Communications | 2 | Indien, västra | 10 G | Global CloudXchange (GCX), är beroende jio, sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | 2 | Indien, västra | saknas | Airtel, Sify, Vodafone Idea |
 | **München** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | saknas | 10G, 100G | |
 | **New York** | [Equinix NY9](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny9/) | 1 | saknas | saknas | CenturyLink Cloud Connect, Colt, Coresite, Equinix, molnbaserad, Megaport, Packet, Zayo |
@@ -133,11 +134,11 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Stockholm** | [Equinix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | saknas | 10 G | Equinix, Telia-bärvåg |
 | **Sydney** | [Equinix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | Australien, östra | 10G, 100G | AARNet, på&T netobligation, British Telecom, Devoli, Equinix, Kordia, Megaport, NEXTDC, NTT Communications, Optus, orange, Spark NZ, Telstra Corporation, TPG Telecom, Verizon, Vocus-grupp NZ |
 | **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | Australien, östra | 10G, 100G | Megaport, NextDC |
-| **Taipei** | Chief Telecom | 2 | saknas | 10 G | Chief Telecom, FarEasTone |
+| **Taipei** | Chief Telecom | 2 | saknas | 10 G | Chief Telecom, Chunghwa Telecom, FarEasTone |
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan, östra | 10G, 100G | Aryaka-nätverk, på&T netobligation, BBIX, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet-initiativet Japan Inc.-IIJ, Megaport, NTT Communications, NTT öst, orange, Softbank, Verizon |
 | **Tokyo2** | [I TOKYO](https://www.attokyo.com/) | 2 | Japan, östra | 10G, 100G | I TOKYO |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Kanada, centrala | 10G, 100G | PÅ&T netobligation, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
-| **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | Cologix | 10G, 100G | |
+| **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | Cologix | 10 G | Cologix |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | Östra USA, östra USA 2 | 10G, 100G | Aryaka Networks, på&T netobligation, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, intercloud, IX Reach, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, orange, PacketFabric, SES, Sprint, Tata Communications, Telia transport, Verizon, Zayo |
 | **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | Östra USA, östra USA 2 | 10G, 100G | CenturyLink Cloud Connect, Coresite, INTELSAT, Viasat, Zayo | 
 | **Zürich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Schweiz, norra | 10G, 100G | Mellan moln, Interxion, Megaport, Swisscom |
@@ -167,7 +168,7 @@ De nationella Azure-molnen är isolerade från varandra och från globala affär
 | **Peking** |China Telecom |
 | **Beijing2** | Kina, telekom, Kina, Unicom, GDS |
 | **Shanghai** |China Telecom |
-| **Shanghai2** | Kina, GDS |
+| **Shanghai2** | Kina, telekom, Kina, Unicom, GDS |
 
 Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expressroute/)
 
@@ -183,6 +184,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 * Fråga anslutningsleverantören om de är anslutna till något av utbytena i tabellen ovan. Du kan använda följande länkar för att samla in mer information om tjänster som erbjuds av utbytesleverantörer. Flera anslutningsleverantörer är redan ansluten till Ethernet-utbyten.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
+  * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
   * [Equinix Cloud Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [InterXion](https://www.interxion.com/)
   * [NextDC](https://www.nextdc.com/)

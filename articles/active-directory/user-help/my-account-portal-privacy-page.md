@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 94187cc7c0c3500a86d47a5f244457ee020581a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a97b79f7927c56a737723060cd9cb3218b12bf55
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062446"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625501"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Se hur din organisation använder dina sekretess-relaterade data
 
@@ -24,7 +24,7 @@ Du kan se hur din organisation använder dina data från sidan **Sekretess** i p
 
 ## <a name="view-your-privacy-related-info"></a>Visa din sekretessrelaterade information
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myaccount.microsoft.com/ din sida.
 
 2. Välj **Sekretess** i det vänstra navigerings fönstret eller Välj länken **Granska sekretess** från **Sekretess** blocket.
 

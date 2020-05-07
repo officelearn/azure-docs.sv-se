@@ -8,12 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 2774fc1374bf7fa3ed171258e8b1b51cfdb4b8b1
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67203172"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612953"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Konfigurera rollbaserade åtkomst kontroller i Solution Accelerator för fjärr styrning
 
@@ -28,19 +29,19 @@ Alla användare i **Administratörs** rollen har fullständig åtkomst till lös
 | Behörighet            | Admin | Skrivskydd |
 |----------------       |-------|-----------|
 | Visa lösning         | Ja   | Ja       |
-| Uppdatera larm         | Ja   | Inga        |
-| Ta bort larm         | Ja   | Inga        |
-| Skapa enheter        | Ja   | Inga        |
-| Uppdatera enheter        | Ja   | Inga        |
-| Ta bort enheter        | Ja   | Inga        |
-| Skapa enhets grupper  | Ja   | Inga        |
-| Uppdatera enhets grupper  | Ja   | Inga        |
-| Ta bort enhets grupper  | Ja   | Inga        |
-| Skapa regler          | Ja   | Inga        |
-| Uppdatera regler          | Ja   | Inga        |
-| Ta bort regler          | Ja   | Inga        |
-| Skapa jobb           | Ja   | Inga        |
-| Uppdatera SIM-hantering | Ja   | Inga        |
+| Uppdatera larm         | Ja   | Nej        |
+| Ta bort larm         | Ja   | Nej        |
+| Skapa enheter        | Ja   | Nej        |
+| Uppdatera enheter        | Ja   | Nej        |
+| Ta bort enheter        | Ja   | Nej        |
+| Skapa enhets grupper  | Ja   | Nej        |
+| Uppdatera enhets grupper  | Ja   | Nej        |
+| Ta bort enhets grupper  | Ja   | Nej        |
+| Skapa regler          | Ja   | Nej        |
+| Uppdatera regler          | Ja   | Nej        |
+| Ta bort regler          | Ja   | Nej        |
+| Skapa jobb           | Ja   | Nej        |
+| Uppdatera SIM-hantering | Ja   | Nej        |
 
 Som standard tilldelas den användare som distribuerade lösningen automatiskt **Administratörs** rollen och är en Azure Active Directory program ägare. Som program ägare kan du tilldela roller till andra användare via Azure Portal. Om du vill att en annan användare ska tilldela roller i lösningen måste de också anges som en program ägare i Azure Portal.
 
@@ -51,7 +52,7 @@ Som standard tilldelas den användare som distribuerade lösningen automatiskt *
 
 Som Azure Active Directory program ägare kan du använda Azure Portal för att lägga till eller ta bort en användare till en roll från lösningen för fjärrövervakning. Följande steg använder [Azure Active Directory företags program](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) som skapades när du distribuerade lösningen för fjärrövervakning.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Kontrol lera att [användaren finns i den katalog](../active-directory/fundamentals/add-users-azure-active-directory.md) som du använder. Du väljer den katalog som ska användas när du loggade in på [Microsoft Azure IoT Solution acceleratorer](https://www.azureiotsolutions.com/Accelerators) -webbplatsen. Katalog namnet visas i det övre högra hörnet på [sidan](https://www.azureiotsolutions.com/Accelerators).
 

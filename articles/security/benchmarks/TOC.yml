@@ -33,8 +33,6 @@
   items:
     - name: Översikt över säkerhetsbaslinjer för Azure
       href: security-baselines-overview.md
-    - name: Säkerhetsbaslinje för API Management
-      href: ../../api-management/security-baseline.md
     - name: Säkerhetsbaslinje för Azure Cache for Redis
       href: ../../azure-cache-for-redis/security-baseline.md
     - name: Säkerhetsbaslinje för säkerhetskopiering
@@ -47,12 +45,8 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Säkerhetsbaslinje för datautforskaren
       href: /azure/data-explorer/security-baseline
-    - name: Säkerhetsbaslinje för Databricks
-      href: ../../azure-databricks/security-baseline.md
     - name: Säkerhetsbaslinje för Event Hubs
       href: ../../event-hubs/security-baseline.md
-    - name: Säkerhetsbaslinje för Functions
-      href: ../../azure-functions/security-baseline.md
     - name: Säkerhetsbaslinje för HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Säkerhetsbaslinje för Key Vault

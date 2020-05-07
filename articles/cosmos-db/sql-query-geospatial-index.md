@@ -4,14 +4,14 @@ description: Indexera spatialdata med Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: eb0a2b2778b3217e185b9883def6eaa54674cc5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd96f440c4e8c971d1f1473f667d31e60edef137
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137911"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839221"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indexera geospatiala data med Azure Cosmos DB
 
@@ -28,11 +28,17 @@ Om du anger en indexerings princip som innehåller rums index för/* (alla sökv
 
 ## <a name="modifying-geospatial-data-type"></a>Ändra Geospatial datatyp
 
-I din behållare `geospatialConfig` anger hur geospatiala data ska indexeras. Du bör ange en `geospatialConfig` per container: geografi eller geometri. Om inget värde anges `geospatialConfig` används geografi data typen som standard. När du ändrar `geospatialConfig`, kommer alla befintliga geospatiala data i behållaren att indexeras om.
+I din behållare anger den **geospatiala konfigurationen** hur spatial data ska indexeras. Ange en **Geospatial konfiguration** per container: geografi eller geometri.
 
-> [!NOTE]
-> Azure Cosmos DB stöder för närvarande endast ändringar i geospatialConfig i .NET SDK i version 3,6 och senare.
->
+Du kan växla mellan **geografi** -och **geometrins** spatiala typ i Azure Portal. Det är viktigt att du skapar en [giltig princip för avstånds index med en avgränsnings ruta](#geometry-data-indexing-examples) innan du växlar till en geometri spatial typ.
+
+Så här ställer du in den **geospatiala konfigurationen** i **datautforskaren** i Azure Portal:
+
+![Ställer in Geospatial konfiguration](./media/sql-query-geospatial-index/geospatial-configuration.png)
+
+Du kan också ändra `geospatialConfig` i .NET SDK för att justera den **geospatiala konfigurationen**:
+
+Om inget värde anges `geospatialConfig` används geografi data typen som standard. När du ändrar `geospatialConfig`, kommer alla befintliga geospatiala data i behållaren att indexeras om.
 
 Här är ett exempel på hur du ändrar den geospatiala `geometry` data typen till `geospatialConfig` genom att ange egenskapen och lägga till en **boundingBox**:
 
@@ -112,7 +118,7 @@ Avgränsnings rutan består av följande egenskaper:
 
 En avgränsnings ruta krävs eftersom geometriska data upptar ett plan som kan vara oändligt. Rums index kräver dock ett begränsat utrymme. För **geografi** data typen är jordens kant linjen och du behöver inte ange någon avgränsnings ruta.
 
-Du bör skapa en avgränsnings ruta som innehåller alla (eller de flesta) data. Endast åtgärder som beräknas för de objekt som är helt inne i avgränsnings rutan kommer att kunna använda rums indexet. Du bör inte göra den begränsade avgränsnings rutan betydligt större än nödvändigt eftersom detta påverkar frågans prestanda negativt.
+Skapa en avgränsnings ruta som innehåller alla (eller de flesta) data. Endast åtgärder som beräknas för de objekt som är helt inne i avgränsnings rutan kommer att kunna använda rums indexet. Att göra den begränsade avgränsnings rutan större än nödvändigt påverkar frågans prestanda negativt.
 
 Här är ett exempel på en indexerings princip som indexerar **geometri** data med **geospatialConfig** inställt på `geometry`:
 

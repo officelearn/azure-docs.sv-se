@@ -78,7 +78,12 @@
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
       maintainContext: true
 - name: Exempel
-  href: event-hubs-samples.md
+  items:
+    - name: Kodexempel
+      href: event-hubs-samples.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Event Hubs-terminologi

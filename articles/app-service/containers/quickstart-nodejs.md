@@ -6,12 +6,12 @@ ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
 ms.devlang: javascript
-ms.openlocfilehash: 24b93e9722ff399330b6843f065f183a3b1f5181
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 52466bac083f78002a8208ba52ca7d1b951c4064
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202567"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801492"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Skapa en Node. js-app i Azure
 
@@ -151,7 +151,7 @@ I det här avsnittet får du lära dig att visa (eller "pilslut") loggarna från
 
 Hitta appen i **Azure App Service** Explorer, högerklicka på appen och välj **Visa strömmande loggar**.
 
-När du uppmanas väljer du att aktivera loggning och starta om programmet. När appen har startats om öppnas VS Code-utdatafönstret med en anslutning till logg strömmen.
+Fönstret VS Code output öppnas med en anslutning till logg strömmen.
 
 ![Visa strömmande loggar](./media/quickstart-nodejs/view-logs.png)
 

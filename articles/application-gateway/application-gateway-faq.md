@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/01/2020
+ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: 8acf04d26d0c69c426eb86f8a26a9f243c6f5ad2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136676"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836707"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Vanliga frågor och svar om Application Gateway
 
@@ -329,42 +329,6 @@ För flera domänbaserade (värdbaserade) routningar kan du skapa multisite-lyss
 ### <a name="can-i-use-special-characters-in-my-pfx-file-password"></a>Kan jag använda specialtecken i lösen ordet för PFX-filen?
 
 Nej, Använd endast alfanumeriska tecken i PFX-filens lösen ord.
-
-## <a name="configuration---web-application-firewall-waf"></a>Konfiguration – brand vägg för webbaserade program (WAF)
-
-### <a name="does-the-waf-sku-offer-all-the-features-available-in-the-standard-sku"></a>Erbjuder WAF SKU alla funktioner som är tillgängliga i standard-SKU: n?
-
-Ja. WAF stöder alla funktioner i standard-SKU: n.
-
-### <a name="how-do-i-monitor-waf"></a>Hur gör jag för att övervaka WAF?
-
-Övervaka WAF via diagnostisk loggning. Mer information finns i [diagnostisk loggning och statistik för Application Gateway](application-gateway-diagnostics.md).
-
-### <a name="does-detection-mode-block-traffic"></a>Blockeras trafik i identifierings läge?
-
-Nej. Identifierings läge loggar enbart trafik som utlöser en WAF-regel.
-
-### <a name="can-i-customize-waf-rules"></a>Kan jag anpassa WAF-regler?
-
-Ja. Mer information finns i [Anpassa WAF Rule Groups och Rules](application-gateway-customize-waf-rules-portal.md).
-
-### <a name="what-rules-are-currently-available-for-waf"></a>Vilka regler är för närvarande tillgängliga för WAF?
-
-WAF stöder för närvarande BOKNINGs- [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3,0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30)och [3,1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31). De här reglerna ger grundläggande säkerhet mot de flesta 10 högsta säkerhets risker som öppnar webb program säkerhets projekt (OWASP): 
-
-* Skydd mot SQL-inmatning
-* Skript skydd över hela platsen
-* Skydd mot vanliga webb attacker, till exempel kommando inmatning, HTTP-begäran dold, delning av HTTP-svar och attack för att ta emot fjärrfiler
-* Skydd mot åtgärder som inte följer HTTP-protokollet
-* Skydd mot avvikelser i HTTP-protokollet som att användaragent för värden och accept-huvud saknas
-* Skydd mot robotar, crawlers och skannrar
-* Identifiering av vanliga program konfigurationer (det vill säga Apache, IIS och så vidare)
-
-Mer information finns i [OWASP topp 10 sårbarheter](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013).
-
-### <a name="does-waf-support-ddos-protection"></a>Stöder WAF DDoS-skydd?
-
-Ja. Du kan aktivera DDoS-skydd på det virtuella nätverk där programgatewayen distribueras. Den här inställningen säkerställer att tjänsten Azure DDoS Protection också skyddar den virtuella IP-adressen (VIP) för Programgateway.
 
 ## <a name="configuration---ingress-controller-for-aks"></a>Konfiguration – ingress-styrenhet för AKS
 

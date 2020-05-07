@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: juliako
-ms.openlocfilehash: e2c4e5b6c10b06d82a1933962cb2d97e031876a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee9dfc11cad61d6190ae4a2382f0124207c32c4c
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80068026"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801628"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Direktsänd strömning med Azure Media Services v3
 
@@ -129,6 +129,6 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabb start för direkt uppspelning] (live-events-wirecast-quickstart.md (
+* [Snabb start för Live Streaming](live-events-wirecast-quickstart.md)
 * [Själv studie kurs om Live-direktuppspelning](stream-live-tutorial-with-api.md)
 * [Vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md)

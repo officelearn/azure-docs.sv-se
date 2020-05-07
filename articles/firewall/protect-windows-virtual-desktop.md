@@ -5,40 +5,40 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: c5d7281d50c151722303b48b2b28a597eec72d79
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 86b30b644da929f10f5d7c9642d5f89fbd29a7fa
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254179"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864085"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Använd Azure-brandväggen för att skydda fönster distributioner av virtuella skriv bord
 
-Windows Virtual Desktop (WVD) är en Skriv bords-och app Virtualization-tjänst som körs på Azure. När en användare ansluter till en Windows Virtual Desktop-miljö körs sessionen av en adresspool. En Host-pool är en samling virtuella Azure-datorer som registreras på Windows Virtual Desktop som värdar för Windows-sessioner. De här virtuella datorerna körs i det virtuella nätverket och omfattas av de virtuella nätverks säkerhets kontrollerna. De behöver utgående Internet åtkomst till WVD-tjänsten för att fungera korrekt och kan också kräva utgående Internet åtkomst för slutanvändare. Azure-brandväggen kan hjälpa dig att låsa din miljö och filtrera utgående trafik.
+Windows Virtual Desktop är en Desktop-och app Virtualization-tjänst som körs på Azure. När en användare ansluter till en Windows Virtual Desktop-miljö körs sessionen av en adresspool. En Host-pool är en samling virtuella Azure-datorer som registreras på Windows Virtual Desktop som värdar för Windows-sessioner. De här virtuella datorerna körs i det virtuella nätverket och omfattas av de virtuella nätverks säkerhets kontrollerna. De behöver utgående Internet åtkomst till Windows Virtual Desktop-tjänsten för att fungera korrekt och kan också kräva utgående Internet åtkomst för slutanvändare. Azure-brandväggen kan hjälpa dig att låsa din miljö och filtrera utgående trafik.
 
 [![Windows-arkitektur](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png) för virtuella skriv bord](media/protect-windows-virtual-desktop/windows-virtual-desktop-architecture-diagram.png#lightbox)
 
-Följ rikt linjerna i den här artikeln för att ge ytterligare skydd för WVD-poolen med hjälp av Azure-brandväggen.
+Följ rikt linjerna i den här artikeln för att ge ytterligare skydd för Windows-poolen med virtuella skriv bord med hjälp av Azure-brandväggen.
 
 ## <a name="prerequisites"></a>Krav
 
 
- - En distribuerad WVD-miljö och Host-pool.
+ - En distribuerad Windows Virtual Desktop-miljö och Host-pool.
 
-   Mer information finns i [Självstudier: skapa en adresspool med hjälp av Azure Marketplace](../virtual-desktop/create-host-pools-azure-marketplace.md) och [skapa en adresspool med en Azure Resource Manager-mall](../virtual-desktop/create-host-pools-arm-template.md).
+   Mer information finns i [Självstudier: skapa en adresspool med hjälp av Azure Marketplace](../virtual-desktop/create-host-pools-azure-marketplace.md) och [skapa en adresspool med en Azure Resource Manager-mall](../virtual-desktop/virtual-desktop-fall-2019/create-host-pools-arm-template.md).
 
-Mer information om WVD-miljöer finns i [Windows Virtual Desktop-miljö](../virtual-desktop/environment-setup.md).
+Mer information om Windows Virtual Desktop-miljöer finns i [Windows Virtual Desktop-miljö](../virtual-desktop/environment-setup.md).
 
 ## <a name="host-pool-outbound-access-to-windows-virtual-desktop"></a>Utgående värd pool till Windows Virtual Desktop
 
-De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha åtkomst till flera fullständigt kvalificerade domän namn (FQDN) för att fungera korrekt. Azure-brandväggen tillhandahåller en Windows Virtual Desktop FQDN-tagg för att förenkla den här konfigurationen. Använd följande steg för att tillåta utgående WVD-plattforms trafik:
+De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha åtkomst till flera fullständigt kvalificerade domän namn (FQDN) för att fungera korrekt. Azure-brandväggen tillhandahåller en Windows Virtual Desktop FQDN-tagg för att förenkla den här konfigurationen. Använd följande steg för att tillåta utgående plattforms trafik för virtuella Windows-datorer:
 
-- Distribuera Azure-brandväggen och konfigurera WVD-UDR (User Defined Route) för värd pool för att dirigera all trafik via Azure-brandväggen. Din standard väg pekar nu på brand väggen.
+- Distribuera Azure-brandväggen och konfigurera din Windows-UDR (User Defined Route) för virtuella Skriv bords värd för att dirigera all trafik via Azure-brandväggen. Din standard väg pekar nu på brand väggen.
 - Skapa en regel samling för program och Lägg till en regel för att aktivera *WindowsVirtualDesktop* FQDN-taggen. Käll-IP-adressintervallet är det virtuella nätverk som är värd för poolen, protokollet är **https**och målet är **WindowsVirtualDesktop**.
 
-- De nödvändiga lagrings-och Service Bus-kontona för din WVD-värd pool är distributions bara, så den har ännu inte fångats in i WindowsVirtualDesktop FQDN-taggen. Du kan åtgärda detta på något av följande sätt:
+- Uppsättningen med nödvändiga lagrings-och Service Bus-konton för Windows-poolen för virtuella skriv bord är distributions bestämd, så den har ännu inte registrerats i WindowsVirtualDesktop FQDN-taggen. Du kan åtgärda detta på något av följande sätt:
 
    - Tillåt https-åtkomst från värd poolens undernät till * xt.blob.core.windows.net, * eh.servicebus.windows.net och * xt.table.core.windows.net. Dessa jokertecken för jokertecken aktiverar nödvändig åtkomst, men är mindre restriktiva.
    - Använd följande Log Analytics-fråga för att lista de exakta FQDN: er som krävs, och Tillåt dem uttryckligen i brand Väggs program reglerna:
@@ -54,7 +54,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 - Skapa en regel samling för nätverk Lägg till följande regler:
 
    - Tillåt DNS – Tillåt trafik från din privata IP-adress till * för TCP-och UDP-portarna 53.
-   - Tillåt KMS – Tillåt trafik från dina virtuella WVD-datorer till Windows Activation Service TCP-port 1688. Mer information om mål-IP-adresser finns i [Windows-aktivering Miss lyckas i Tvingad tunnel trafik](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution).
+   - Tillåt KMS – Tillåt trafik från virtuella Windows-datorer med virtuella datorer till Windows Activation Service TCP-port 1688. Mer information om mål-IP-adresser finns i [Windows-aktivering Miss lyckas i Tvingad tunnel trafik](../virtual-machines/troubleshooting/custom-routes-enable-kms-activation.md#solution).
 
 > [!NOTE]
 > Vissa distributioner kanske inte behöver DNS-regler, till exempel Azure Active Directory domänkontrollanter vidarebefordrar DNS-frågor till Azure DNS på 168.63.129.16.
@@ -63,7 +63,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 
 Beroende på organisationens behov kanske du vill aktivera säker utgående Internet åtkomst för slutanvändarna. I de fall där listan över tillåtna mål är väldefinierad (till exempel [Office 365-åtkomst](https://docs.microsoft.com/Office365/Enterprise/office-365-ip-web-service)) kan du konfigurera den nödvändiga åtkomsten med hjälp av Azure brand Väggs program och nätverks regler. Detta dirigerar slut användar trafik direkt till Internet för bästa möjliga prestanda.
 
-Om du vill filtrera utgående användares Internet trafik med en befintlig lokal säker webbgateway kan du konfigurera webbläsare eller andra program som körs på WVD-adresspoolen med en explicit proxykonfiguration. Se till exempel att [använda kommando rads alternativ från Microsoft Edge för att konfigurera proxyinställningar](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Dessa proxyinställningar påverkar bara din slutanvändares Internet-åtkomst, vilket gör att WVD-plattformens utgående trafik direkt via Azure-brandväggen.
+Om du vill filtrera utgående användares Internet trafik med en befintlig lokal säker webbgateway kan du konfigurera webbläsare eller andra program som körs på Windows-poolen för virtuella skriv bord med en explicit proxykonfiguration. Se till exempel att [använda kommando rads alternativ från Microsoft Edge för att konfigurera proxyinställningar](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Dessa proxyinställningar påverkar bara din slutanvändares Internet-åtkomst, vilket tillåter att utgående trafik i Windows Virtual Desktop Platform direkt via Azure-brandväggen.
 
 ## <a name="additional-considerations"></a>Annat som är bra att tänka på
 

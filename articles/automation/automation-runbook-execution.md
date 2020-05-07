@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09122581a3ade4e741a29996b7202ce0f96d074b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 053a506ad28978404a147e0604fe731f0b474225
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145537"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855735"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -33,20 +33,54 @@ Följande diagram visar livs cykeln för ett Runbook-jobb för [PowerShell-Runbo
 >[!NOTE]
 >Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
-## <a name="where-to-run-your-runbooks"></a>Var du ska köra Runbooks
+## <a name="security"></a>Säkerhet
 
-Runbooks i Azure Automation kan köras antingen i ett Azure-sandbox eller en [hybrid Runbook Worker](automation-hybrid-runbook-worker.md). När Runbooks är utformade för att autentisera och köra mot resurser i Azure körs de i en Azure-sandbox, som är en delad miljö som flera jobb kan använda. Jobb som använder samma Sandbox är begränsade till resurs begränsningarna i sand boxen.
+Azure Automation använder [Azure Security Center (ASC)](https://docs.microsoft.com/azure/security-center/security-center-introAzure) för att tillhandahålla säkerhet för dina resurser och identifiera kompromisser i Linux-system. Säkerhet tillhandahålls för dina arbets belastningar, oavsett om resurserna är i Azure eller inte. Se [Introduktion till autentisering i Azure Automation](https://docs.microsoft.com/azure/automation/automation-security-overview).
+
+ASC begränsar begränsningar för användare som kan köra skript, antingen signerade eller osignerade, på en virtuell dator. Om du är en användare med rot åtkomst till en virtuell dator måste du uttryckligen konfigurera datorn med en digital signatur eller inaktivera den. Annars kan du bara köra ett skript för att tillämpa operativ system uppdateringar när du har skapat ett Automation-konto och aktiverat lämplig funktion.
+
+## <a name="subscriptions"></a>Prenumerationer
+
+En Azure- [prenumeration](https://docs.microsoft.com/office365/enterprise/subscriptions-licenses-accounts-and-tenants-for-microsoft-cloud-offerings) är ett avtal med Microsoft för att använda en eller flera molnbaserade tjänster som du debiteras för. För Azure Automation är varje prenumeration länkad till ett Azure Automation konto och du kan [skapa flera prenumerationer](manage-runbooks.md#work-with-multiple-subscriptions) i kontot.
+
+## <a name="azure-monitor"></a>Azure Monitor
+
+Azure Automation använder [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) för att övervaka dator åtgärder. Åtgärderna kräver en Log Analytics-arbetsyta och [log Analyticss agenter](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent).
+
+### <a name="log-analytics-agent-for-windows"></a>Log Analytics agent för Windows
+
+[Log Analytics agenten för Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windowsmonitor) fungerar med Azure Monitor för att hantera virtuella Windows-datorer och fysiska datorer. Datorerna kan köras antingen i Azure eller i en miljö som inte är en Azure-miljö, till exempel ett lokalt Data Center. Du måste konfigurera agenten så att den rapporterar till en eller flera Log Analytics arbets ytor.
 
 >[!NOTE]
->Azure sandbox-miljön stöder inte interaktiva åtgärder. Det kräver också att lokala MOF-filer används för Runbooks som gör Win32-anrop.
+>Log Analytics agent för Windows kallades tidigare för Microsoft Monitoring Agent (MMA).
 
-Du kan använda en Hybrid Runbook Worker för att köra Runbooks direkt på den dator som är värd för rollen och mot lokala resurser i miljön. Azure Automation lagrar och hanterar Runbooks och levererar dem sedan till en eller flera tilldelade datorer.
+### <a name="log-analytics-agent-for-linux"></a>Log Analytics agent för Linux
+
+[Log Analytics-agenten för Linux](https://docs.microsoft.com/azure/azure-monitor/platform/agent-linux) fungerar på samma sätt som agenten för Windows, men ansluter Linux-datorer till Azure Monitor. Agenten installeras med ett **nxautomation** -användarkonto som tillåter körning av kommandon som kräver rot behörigheter, till exempel på en hybrid Runbook Worker. **Nxautomation** -kontot är ett system konto som inte kräver ett lösen ord. 
+
+**Nxautomation** -kontot med motsvarande sudo-behörigheter måste finnas under [installationen av en Linux hybrid Runbook Worker](automation-linux-hrw-install.md). Om du försöker installera Worker och kontot inte finns eller inte har rätt behörighet, Miss lyckas installationen.
+
+De loggar som är tillgängliga för Log Analytics-agenten och **nxautomation** -kontot är:
+
+* /var/opt/Microsoft/omsagent/log/omsagent.log-Log Analytics agent logg 
+* /var/opt/Microsoft/omsagent/Run/automationworker/Worker.log – automatisering Worker-logg
+
+## <a name="runbook-execution-environment"></a>Körnings miljö för Runbook
+
+Runbooks i Azure Automation kan köras antingen i ett Azure-sandbox eller en [hybrid Runbook Worker](automation-hybrid-runbook-worker.md). 
+
+När Runbooks är utformade för att autentisera och köra mot resurser i Azure körs de i en Azure-sandbox, som är en delad miljö som flera jobb kan använda. Jobb som använder samma Sandbox är begränsade till resurs begränsningarna i sand boxen. Azure sandbox-miljön stöder inte interaktiva åtgärder. Den förhindrar åtkomst till alla out-of-process COM-servrar. Det kräver också att lokala MOF-filer används för Runbooks som gör Win32-anrop.
+
+Du kan också använda en [hybrid Runbook Worker](automation-hybrid-runbook-worker.md) för att köra Runbooks direkt på den dator som är värd för rollen och mot lokala resurser i miljön. Azure Automation lagrar och hanterar Runbooks och levererar dem sedan till en eller flera tilldelade datorer.
+
+>[!NOTE]
+>Om du vill köra på en Linux-Hybrid Runbook Worker måste skripten vara signerade och arbetaren har kon figurer ATS enligt detta. Du måste också stänga [av verifieringen av signaturen](https://docs.microsoft.com/azure/automation/automation-linux-hrw-install#turn-off-signature-validation). 
 
 I följande tabell visas några aktiviteter för Runbook-körningar med den rekommenderade körnings miljön som visas för var och en.
 
 |Uppgift|Rekommendation|Obs!|
 |---|---|---|
-|Integrera med Azure-resurser|Sand box för Azure|Azure är värd för Azure och det är enklare att autentisera. Om du använder en Hybrid Runbook Worker på en virtuell Azure-dator kan du använda [hanterade identiteter för Azure-resurser](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources).|
+|Integrera med Azure-resurser|Sand box för Azure|Azure är värd för Azure och det är enklare att autentisera. Om du använder en Hybrid Runbook Worker på en virtuell Azure-dator kan du [använda Runbook-autentisering med hanterade identiteter](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Få optimala prestanda för att hantera Azure-resurser|Sand box för Azure|Skriptet körs i samma miljö, vilket har mindre latens.|
 |Minimera drifts kostnader|Sand box för Azure|Det finns ingen beräknings kapacitet och inget behov av en virtuell dator.|
 |Kör tids krävande skript|Hybrid Runbook Worker|Azure-sandboxs har [resurs gränser](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).|
@@ -60,102 +94,65 @@ I följande tabell visas några aktiviteter för Runbook-körningar med den reko
 |Kör skript som kräver höjning|Hybrid Runbook Worker|Sand boxar tillåter inte utökade privilegier. Med en Hybrid Runbook Worker kan du inaktivera UAC och använda [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) när du kör kommandot som kräver utökade privilegier.|
 |Kör skript som kräver åtkomst till Windows Management Instrumentation (WMI)|Hybrid Runbook Worker|Jobb som körs i sand lådor i molnet kan inte komma åt WMI-providern. |
 
-## <a name="using-modules-in-your-runbooks"></a>Använda moduler i dina runbooks
+## <a name="resources"></a>Resurser
+
+Dina Runbooks måste innehålla logik för att hantera resurser, till exempel virtuella datorer, nätverk och resurser i nätverket. Resurserna är kopplade till en Azure-prenumeration och Runbooks kräver lämpliga autentiseringsuppgifter för att få åtkomst till alla resurser. Se [resurser](https://docs.microsoft.com/rest/api/resources/resources). Ett exempel på hur du hanterar resurser i en Runbook finns i [Hantera resurser](manage-runbooks.md#handle-resources). 
+
+## <a name="credentials"></a>Autentiseringsuppgifter
+
+En Runbook kräver rätt [autentiseringsuppgifter](shared-resources/credentials.md) för att få åtkomst till alla resurser, oavsett om det gäller Azure eller tredje part system. Autentiseringsuppgifterna lagras i Azure Automation, Key Vault osv.  
+
+## <a name="runbook-permissions"></a>Runbook-behörigheter
+
+Runbooken behöver behörighet för autentisering till Azure via autentiseringsuppgifter. Du kan ange autentiseringsuppgifter genom att använda:
+
+- Ett lokalt användar konto för att komma åt lokala resurser
+- [Hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), för virtuella datorer som körs på Azure
+- Ett Kör som-konto för Automation för att ge dig åtkomst till certifikaten för ditt Automation-konto på den virtuella datorn och använda dem lokalt för autentisering
+
+## <a name="modules"></a>Moduler
 
 Azure Automation stöder ett antal standardmoduler, inklusive AzureRM-moduler (AzureRM. Automation) och en modul som innehåller flera interna cmdletar. De kan också användas för att installera moduler, inklusive AZ-moduler (AZ. Automation) som för närvarande används i stället för AzureRM-moduler. Mer information om de moduler som är tillgängliga för dina runbooks och DSC-konfigurationer finns i [Hantera moduler i Azure Automation](shared-resources/modules.md).
 
-## <a name="creating-resources"></a>Skapa resurser
+## <a name="certificates"></a>Certifikat
 
-Om din Runbook skapar en resurs, bör skriptet kontrol lera om resursen redan finns innan du försöker skapa den. Här är ett grundläggande exempel.
+Azure Automation använder [certifikat](shared-resources/certificates.md) för autentisering till Azure eller lägger till dem i Azure eller från resurser från tredje part. Certifikaten lagras på ett säkert sätt för åtkomst av Runbooks och DSC-konfigurationer. 
 
-```powershell
-$vmName = "WindowsVM1"
-$resourceGroupName = "myResourceGroup"
-$myCred = Get-AutomationPSCredential "MyCredential"
-$vmExists = Get-AzResource -Name $vmName -ResourceGroupName $resourceGroupName
+Dina runbooks kan använda självsignerade certifikat som inte är signerade av en certifikat utfärdare (CA). Se [skapa ett nytt certifikat](shared-resources/certificates.md#create-a-new-certificate).
 
-if(!$vmExists)
-    {
-    Write-Output "VM $vmName does not exist, creating"
-    New-AzVM -Name $vmName -ResourceGroupName $resourceGroupName -Credential $myCred
-    }
-else
-    {
-    Write-Output "VM $vmName already exists, skipping"
-    }
-```
+## <a name="jobs"></a>Jobb
 
-## <a name="supporting-time-dependent-scripts"></a>Stöd för tids beroende skript
+Azure Automation stöder en miljö för att köra jobb från samma Automation-konto. En enda Runbook kan ha många jobb på samma gång. Fler jobb som du kör samtidigt, desto oftare kan de skickas till samma sandbox. 
 
-Dina Runbooks måste vara robusta och kunna hantera tillfälliga fel som kan orsaka att de startas om eller kraschar. Azure Automation försöker igen om en Runbook Miss lyckas.
+Jobb som körs i samma sand Box process kan påverka varandra. Ett exempel är att köra cmdleten [disconnect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) . Körning av denna cmdlet kopplar från varje Runbook-jobb i den delade sand Box processen. Mer information finns i [förhindra samtidiga jobb](manage-runbooks.md#prevent-concurrent-jobs).
 
-Om din Runbook normalt körs inom en tids gräns, ska skriptet implementera logik för att kontrol lera körnings tiden. Den här kontrollen säkerställer att körning av åtgärder som t. ex. Start, avstängning eller skalning bara sker under vissa tidpunkter.
+>[!NOTE]
+>PowerShell-jobb som startas från en Runbook som körs i en Azure-sandbox kanske inte körs i det fullständiga [PowerShell-språkläget](/powershell/module/microsoft.powershell.core/about/about_language_modes). 
 
-> [!NOTE]
-> Den lokala tiden för Azures sand Box process är inställd på UTC. Beräkningar för datum och tid i dina Runbooks måste ta hänsyn till detta.
+### <a name="job-statuses"></a>Jobb status
 
-## <a name="tracking-progress"></a>Spårnings förlopp
+I följande tabell beskrivs de status värden som är möjliga för ett jobb. Du kan visa en status sammanfattning för alla Runbook-jobb eller öka detalj nivån för ett särskilt Runbook-jobb i Azure Portal. Du kan också konfigurera integrering med din Log Analytics arbets yta för att vidarebefordra Runbook-jobbets status och jobb strömmar. Mer information om hur du integrerar med Azure Monitor loggar finns i [vidarebefordra jobb status och jobb strömmar från Automation till Azure Monitor loggar](automation-manage-send-joblogs-log-analytics.md). Se även [jobb status](manage-runbooks.md#obtain-job-statuses) för att få ett exempel på hur du arbetar med status i en Runbook.
 
-Det är en bra idé att redigera dina runbooks så att de är modulära i sin natur, med logik som kan återanvändas och startas om enkelt. Att spåra förloppet i en Runbook är ett bra sätt att se till att Runbook-logiken körs korrekt om det finns problem. Det är möjligt att spåra förloppet för en Runbook genom att använda en extern källa, till exempel ett lagrings konto, en databas eller delade filer. Du kan skapa logik i din Runbook för att först kontrol lera statusen för den senaste åtgärden som har vidtagits. Sedan, baserat på resultatet av kontrollen, kan logiken antingen hoppa över eller fortsätta med vissa uppgifter i runbooken.
+| Status | Beskrivning |
+|:--- |:--- |
+| Slutfört |Jobbet har slutförts. |
+| Misslyckades |Det gick inte att kompilera en grafisk eller PowerShell-arbetsflöde Runbook. Det gick inte att starta PowerShell-skriptet eller så innehöll jobbet ett undantag. Se [Azure Automation Runbook-typer](automation-runbook-types.md).|
+| Misslyckades, väntar på resurser |Jobbet misslyckades eftersom det nådde den [verkliga delnings](#fair-share) gränsen tre gånger och startade från samma kontroll punkt eller från början av runbooken varje gång. |
+| I kö |Jobbet väntar på att resurser i en automatiserings arbets uppgift ska bli tillgängliga så att de kan startas. |
+| Startar |Jobbet har tilldelats en anställd och systemet startas. |
+| Återupptar |Systemet återupptar jobbet när det har pausats. |
+| Körs |Jobbet körs |
+| Körs, väntar på resurser |Jobbet har inaktiverats på grund av att gränsen nåddes för den verkliga delningen. Den kommer snart att återupptas från den senaste kontroll punkten. |
+| Stoppad |Jobbet stoppades av användaren innan det slutfördes. |
+| Stoppas |Jobbet stoppas av systemet. |
+| Inaktiverad |Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . Jobbet pausades av användaren, av systemet, eller av ett kommando i runbook. Om en Runbook inte har en kontroll punkt börjar den från början. Om den har en kontroll punkt kan den startas igen och återupptas från den senaste kontroll punkten. Systemet pausar bara runbooken när ett undantag inträffar. Som standard är `ErrorActionPreference` variabeln inställd på Fortsätt, vilket anger att jobbet fortsätter att köras vid ett fel. Om variabeln ställs in på Avbryt pausas jobbet vid ett fel.  |
+| Pausar |Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . Systemet försöker pausa jobbet på användarens begäran. Runbooken måste nå nästa kontrollpunkt innan den kan pausas. Om den redan har passerat den senaste kontroll punkten slutförs den innan den kan pausas. |
 
-## <a name="preventing-concurrent-jobs"></a>Förhindra samtidiga jobb
+## <a name="activity-logging"></a>Aktivitetsloggning
 
-Vissa Runbooks fungerar konstigt om de körs över flera jobb samtidigt. I det här fallet är det viktigt att en Runbook implementerar logik för att avgöra om det redan finns ett jobb som körs. Här är ett grundläggande exempel.
+Körning av Runbooks i Azure Automation skriver information i en aktivitets logg för Automation-kontot. Information om hur du använder loggen finns i [Hämta information från aktivitets loggen](manage-runbooks.md#retrieve-details-from-activity-log). 
 
-```powershell
-# Authenticate to Azure
-$connection = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
--ApplicationId $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
-
-$AzContext = Select-AzSubscription -SubscriptionId $connection.SubscriptionID
-
-# Check for already running or new runbooks
-$runbookName = "<RunbookName>"
-$rgName = "<ResourceGroupName>"
-$aaName = "<AutomationAccountName>"
-$jobs = Get-AzAutomationJob -ResourceGroupName $rgName -AutomationAccountName $aaName -RunbookName $runbookName -AzContext $AzureContext
-
-# Check to see if it is already running
-$runningCount = ($jobs | ? {$_.Status -eq "Running"}).count
-
-If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Status -eq "New")) {
-    # Exit code
-    Write-Output "Runbook is already running"
-    Exit 1
-} else {
-    # Insert Your code here
-}
-```
-
-## <a name="working-with-multiple-subscriptions"></a>Arbeta med flera prenumerationer
-
-För att hantera flera prenumerationer måste din Runbook använda cmdleten [disable-AzContextAutosave](https://docs.microsoft.com/powershell/module/Az.Accounts/Disable-AzContextAutosave?view=azps-3.5.0) . Den här cmdleten säkerställer att autentiserings kontexten inte hämtas från en annan Runbook som körs i samma sandbox. Runbooken använder också-`AzContext` parametern i cmdletarna för AZ-modulen och skickar den till rätt kontext.
-
-```powershell
-# Ensures that you do not inherit an AzContext in your runbook
-Disable-AzContextAutosave –Scope Process
-
-$Conn = Get-AutomationConnection -Name AzureRunAsConnection
-Connect-AzAccount -ServicePrincipal `
--Tenant $Conn.TenantID `
--ApplicationId $Conn.ApplicationID `
--CertificateThumbprint $Conn.CertificateThumbprint
-
-$context = Get-AzContext
-
-$ChildRunbookName = 'ChildRunbookDemo'
-$AutomationAccountName = 'myAutomationAccount'
-$ResourceGroupName = 'myResourceGroup'
-
-Start-AzAutomationRunbook `
-    -ResourceGroupName $ResourceGroupName `
-    -AutomationAccountName $AutomationAccountName `
-    -Name $ChildRunbookName `
-    -DefaultProfile $context
-```
-
-## <a name="handling-exceptions"></a>Hantering av undantag
+## <a name="exceptions"></a>Undantag
 
 I det här avsnittet beskrivs några sätt att hantera undantag eller tillfälliga problem i dina runbooks. Ett exempel är ett WebSocket-undantag. Med rätt undantags hantering förhindras tillfälliga nätverks fel från att dina runbooks Miss lyckas. 
 
@@ -203,147 +200,27 @@ function Get-ContosoFiles
 }
 ```
 
-## <a name="using-executables-or-calling-processes"></a>Använda körbara filer eller anropande processer
+## <a name="errors"></a>Fel
 
-Runbooks som körs i Azure-sandbox stöder inte anrops processer, till exempel körbara filer (**. exe** -filer) eller under processer. Orsaken till detta är att en Azure-Sandbox är en delad process som körs i en behållare som kanske inte kan komma åt alla underliggande API: er. För scenarier som kräver tredjepartsprogram eller anrop till subprocesser bör du köra en Runbook på en [hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+Dina Runbooks måste hantera fel. Azure Automation stöder två typer av PowerShell-fel, avslutande och icke-avslutande. 
 
-## <a name="accessing-device-and-application-characteristics"></a>Åtkomst till enhets-och program egenskaper
-
-Runbook-jobb som körs i Azure-sandbox kan inte komma åt några enhets-eller program egenskaper. Det vanligaste API: et som används för att fråga prestanda värden i Windows är WMI, med några vanliga mått som minnes-och processor användning. Men det spelar ingen roll vilket API som används, eftersom jobb som körs i molnet inte kan komma åt Microsofts implementering av webbaserad företags hantering (WBEM). Den här plattformen bygger på Common Information Model (CIM) och tillhandahåller bransch standarder för att definiera egenskaper för enheter och program.
-
-## <a name="handling-errors"></a>Hantera fel
-
-Dina Runbooks måste kunna hantera fel. PowerShell har två typer av fel, avslutande och icke-avslutande. Om du avslutar fel stoppas Runbook-körningen när de inträffar. Runbooken slutar med jobb statusen misslyckades.
+Om du avslutar fel stoppas Runbook-körningen när de inträffar. Runbooken slutar med jobb statusen misslyckades.
 
 Icke-avslutande fel tillåter att ett skript fortsätter även efter att det har inträffat. Ett exempel på ett icke-avslutande fel är en som inträffar när en Runbook använder `Get-ChildItem` cmdleten med en sökväg som inte finns. PowerShell ser att sökvägen inte finns, genererar ett fel och fortsätter till nästa mapp. Felet i det här fallet anger inte att Runbook-jobbets status är misslyckat, och jobbet kan till och med utföras. Om du vill tvinga en Runbook att stoppa vid ett icke-avslutande fel, kan du `ErrorAction Stop` använda på-cmdleten.
 
-## <a name="handling-jobs"></a>Hanterings jobb
+## <a name="executables-or-calling-processes"></a>Körbara filer eller anropande processer
 
-Du kan återanvända körnings miljön för jobb från samma Automation-konto. En enda Runbook kan ha många jobb på samma gång. Fler jobb som du kör samtidigt, desto oftare kan de skickas till samma sandbox.
+Runbooks som körs i Azure-sandbox stöder inte anrops processer, till exempel körbara filer (**. exe** -filer) eller under processer. Orsaken till detta är att en Azure-Sandbox är en delad process som körs i en behållare som kanske inte kan komma åt alla underliggande API: er. För scenarier som kräver tredjepartsprogram eller anrop till subprocesser bör du köra en Runbook på en [hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 
-Jobb som körs i samma sand Box process kan påverka varandra. Ett exempel är att köra cmdleten [disconnect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/disconnect-azaccount?view=azps-3.7.0) . Körning av denna cmdlet kopplar från varje Runbook-jobb i den delade sand Box processen.
+## <a name="access-to-device-and-application-characteristics"></a>Åtkomst till enhets-och program egenskaper
 
-PowerShell-jobb som startas från en Runbook som körs i en Azure-sandbox kanske inte körs i det fullständiga [PowerShell-språkläget](/powershell/module/microsoft.powershell.core/about/about_language_modes). Mer information om hur du interagerar med jobb i Azure Automation finns i avsnittet [om att hämta jobb status med PowerShell](#retrieving-job-status-using-powershell).
+Runbook-jobb som körs i Azure-sandbox kan inte komma åt några enhets-eller program egenskaper. Det vanligaste API: et som används för att fråga prestanda värden i Windows är WMI, med några vanliga mått som minnes-och processor användning. Men det spelar ingen roll vilket API som används, eftersom jobb som körs i molnet inte kan komma åt Microsofts implementering av webbaserad företags hantering (WBEM). Den här plattformen bygger på Common Information Model (CIM) och tillhandahåller bransch standarder för att definiera egenskaper för enheter och program.
 
-### <a name="job-statuses"></a>Jobb status
+## <a name="webhooks"></a>Webhooks
 
-I följande tabell beskrivs de status värden som är möjliga för ett jobb.
+Externa tjänster, till exempel Azure DevOps Services och GitHub, kan starta en Runbook i Azure Automation. För att utföra den här typen av start använder tjänsten en [webhook](automation-webhooks.md) via en enda http-begäran. Med en webhook kan Runbooks startas utan implementering av en fullständig Azure Automation-lösning. 
 
-| Status | Beskrivning |
-|:--- |:--- |
-| Slutfört |Jobbet har slutförts. |
-| Misslyckades |Det gick inte att kompilera en grafisk eller PowerShell-arbetsflöde Runbook. Det gick inte att starta PowerShell-skriptet eller så innehöll jobbet ett undantag. Se [Azure Automation Runbook-typer](automation-runbook-types.md).|
-| Misslyckades, väntar på resurser |Jobbet misslyckades eftersom det nådde den [verkliga delnings](#fair-share) gränsen tre gånger och startade från samma kontroll punkt eller från början av runbooken varje gång. |
-| I kö |Jobbet väntar på att resurser i en automatiserings arbets uppgift ska bli tillgängliga så att de kan startas. |
-| Startar |Jobbet har tilldelats en anställd och systemet startas. |
-| Återupptar |Systemet återupptar jobbet när det har pausats. |
-| Körs |Jobbet körs |
-| Körs, väntar på resurser |Jobbet har inaktiverats på grund av att gränsen nåddes för den verkliga delningen. Den kommer snart att återupptas från den senaste kontroll punkten. |
-| Stoppad |Jobbet stoppades av användaren innan det slutfördes. |
-| Stoppas |Jobbet stoppas av systemet. |
-| Inaktiverad |Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . Jobbet pausades av användaren, av systemet, eller av ett kommando i runbook. Om en Runbook inte har en kontroll punkt börjar den från början. Om den har en kontroll punkt kan den startas igen och återupptas från den senaste kontroll punkten. Systemet pausar bara runbooken när ett undantag inträffar. Som standard är `ErrorActionPreference` variabeln inställd på Fortsätt, vilket anger att jobbet fortsätter att köras vid ett fel. Om variabeln ställs in på Avbryt pausas jobbet vid ett fel.  |
-| Pausar |Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . Systemet försöker pausa jobbet på användarens begäran. Runbooken måste nå nästa kontrollpunkt innan den kan pausas. Om den redan har passerat den senaste kontroll punkten slutförs den innan den kan pausas. |
-
-### <a name="viewing-job-status-from-the-azure-portal"></a>Visa jobb status från Azure Portal
-
-Du kan visa en status sammanfattning för alla Runbook-jobb eller öka detalj nivån för ett särskilt Runbook-jobb i Azure Portal. Du kan också konfigurera integrering med din Log Analytics arbets yta för att vidarebefordra Runbook-jobbets status och jobb strömmar. Mer information om hur du integrerar med Azure Monitor loggar finns i [vidarebefordra jobb status och jobb strömmar från Automation till Azure Monitor loggar](automation-manage-send-joblogs-log-analytics.md).
-
-Till höger om det valda Automation-kontot kan du se en översikt över alla Runbook-jobb under panelen **jobb statistik** .
-
-![Panel för jobb statistik](./media/automation-runbook-execution/automation-account-job-status-summary.png)
-
-Den här panelen visar ett antal och en grafisk representation av jobb statusen för varje jobb som körs.
-
-Om du klickar på panelen visas jobb sidan som innehåller en sammanfattande lista över alla jobb som körs. Den här sidan visar status, Runbook-namn, start tid och slut för ande tid för varje jobb.
-
-![Sidan jobb för Automation-konto](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)
-
-Du kan filtrera listan över jobb genom att välja **filter jobb**. Filtrera på en angiven Runbook, jobb status eller ett alternativ i list rutan och ange tidsintervallet för sökningen.
-
-![Filtrera jobb status](./media/automation-runbook-execution/automation-account-jobs-filter.png)
-
-Du kan också Visa jobb sammanfattnings information för en angiven Runbook genom att välja denna Runbook från sidan Runbooks i ditt Automation-konto och sedan välja **jobb** panelen. Den här åtgärden visar sidan jobb. Härifrån kan du klicka på jobb posten för att visa information och utdata.
-
-![Sidan jobb för Automation-konto](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)
-
-### <a name="viewing-the-job-summary"></a>Visa jobb sammanfattningen
-
-Jobb sammanfattningen som beskrivs ovan gör det möjligt att titta på en lista över alla jobb som har skapats för en viss Runbook och deras senaste status. Om du vill se detaljerad information och utdata för ett jobb klickar du på namnet i listan. I den detaljerade vyn av jobbet ingår värdena för de Runbook-parametrar som har angetts för jobbet.
-
-Du kan använda följande steg för att se jobb för en runbook.
-
-1. I Azure Portal väljer du **Automation** och väljer sedan namnet på ett Automation-konto.
-2. Från hubben väljer du **Runbooks** under **process automatisering**.
-3. På sidan Runbooks väljer du en Runbook i listan.
-3. Klicka på panelen **jobb** på sidan för den valda Runbook-flödet.
-4. Klicka på ett av jobben i listan och Visa information och utdata på sidan information om Runbook-jobb.
-
-### <a name="retrieving-job-status-using-powershell"></a>Jobb status hämtas med PowerShell
-
-Använd cmdleten [Get-AzAutomationJob](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0) för att hämta jobb som skapats för en Runbook och information om ett visst jobb. Om du startar en Runbook med PowerShell med `Start-AzAutomationRunbook`, returnerar den det resulterande jobbet. Använd [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) för att hämta jobbets utdata.
-
-Följande exempel hämtar det senaste jobbet för en exempel-Runbook och visar dess status, de värden som har angetts för Runbook-parametrarna och jobbets utdata.
-
-```azurepowershell-interactive
-$job = (Get-AzAutomationJob –AutomationAccountName "MyAutomationAccount" `
-–RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
-$job.Status
-$job.JobParameters
-Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-–AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
-```
-
-I följande exempel hämtas utdata för ett särskilt jobb och returnerar varje post. Om det finns ett undantag för en av posterna skriver skriptet detta undantag i stället för värdet. Det här beteendet är användbart eftersom undantag kan ge ytterligare information som kanske inte loggas normalt under utdata.
-
-```azurepowershell-interactive
-$output = Get-AzAutomationJobOutput -AutomationAccountName <AutomationAccountName> -Id <jobID> -ResourceGroupName <ResourceGroupName> -Stream "Any"
-foreach($item in $output)
-{
-    $fullRecord = Get-AzAutomationJobOutputRecord -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -JobId <jobID> -Id $item.StreamRecordId
-    if ($fullRecord.Type -eq "Error")
-    {
-        $fullRecord.Value.Exception
-    }
-    else
-    {
-    $fullRecord.Value
-    }
-}
-```
-
-## <a name="getting-details-from-the-activity-log"></a>Hämta information från aktivitets loggen
-
-Du kan hämta information om Runbook, till exempel den person eller det konto som startade runbooken, från aktivitets loggen för Automation-kontot. Följande PowerShell-exempel ger den senaste användaren att köra den angivna runbooken.
-
-```powershell-interactive
-$SubID = "00000000-0000-0000-0000-000000000000"
-$AutomationResourceGroupName = "MyResourceGroup"
-$AutomationAccountName = "MyAutomationAccount"
-$RunbookName = "MyRunbook"
-$StartTime = (Get-Date).AddDays(-1)
-$JobActivityLogs = Get-AzLog -ResourceGroupName $AutomationResourceGroupName -StartTime $StartTime `
-                                | Where-Object {$_.Authorization.Action -eq "Microsoft.Automation/automationAccounts/jobs/write"}
-
-$JobInfo = @{}
-foreach ($log in $JobActivityLogs)
-{
-    # Get job resource
-    $JobResource = Get-AzResource -ResourceId $log.ResourceId
-
-    if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
-    {
-        # Get runbook
-        $Runbook = Get-AzAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
-                                            -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
-
-        # Add job information to hashtable
-        $JobInfo.Add($log.SubmissionTimestamp, @($Runbook.RunbookName,$Log.Caller, $JobResource.Properties.jobId))
-    }
-}
-$JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
-```
-
-## <a name="sharing-resources-among-runbooks"></a><a name="fair-share"></a>Dela resurser mellan Runbooks
+## <a name="shared-resources-among-runbooks"></a><a name="fair-share"></a>Delade resurser mellan Runbooks
 
 Om du vill dela resurser mellan alla Runbooks i molnet Azure Automation du tillfälligt tar bort eller stoppar jobb som har körts i mer än tre timmar. Jobb för [PowerShell-Runbooks](automation-runbook-types.md#powershell-runbooks) och [python-Runbooks](automation-runbook-types.md#python-runbooks) stoppas och startas inte om, och jobb statusen stoppas.
 

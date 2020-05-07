@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76314767"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610980"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Felsökning från slutpunkt till slutpunkt med Azure Storage-mått och -loggning, AzCopy och Message Analyzer
 
@@ -161,7 +161,7 @@ Message Analyzer innehåller till gångar för Azure Storage som hjälper dig at
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Hämta och installera Message Analyzer och Azure Storage till gångar
 
-1. Hämta [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) från Microsoft Download Center och kör installations programmet.
+1. Ladda ned [Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer).
 2. Starta Message Analyzer.
 3. Från **verktyg** -menyn väljer du **till gångs hanteraren**. I dialog rutan **till gångs hanteraren** väljer du **hämtningar**och filtrerar sedan **Azure Storage**. Du ser Azure Storage till gångar, som du ser i bilden nedan.
 4. Klicka på **synkronisera alla visade objekt** för att installera Azure Storage till gångar. Tillgängliga till gångar inkluderar:
@@ -308,11 +308,11 @@ Nu när du har lärt dig att använda Message Analyzer för att analysera dina l
 
 | Att undersöka... | Använd filter uttryck... | Uttrycket gäller för loggen (klient, Server, nätverk, alla) |
 | --- | --- | --- |
-| Oväntade fördröjningar i meddelande leverans i en kö |AzureStorageClientDotNetV4. Description innehåller "försök att försöka igen." |Client |
+| Oväntade fördröjningar i meddelande leverans i en kö |AzureStorageClientDotNetV4. Description innehåller "försök att försöka igen." |Klient |
 | HTTP-ökning i PercentThrottlingError |Inkommande. Response. StatusCode = = 500 &#124;&#124; HTTP. Response. StatusCode = = 503 |Nätverk |
 | Ökning i PercentTimeoutError |Inkommande. Response. StatusCode = = 500 |Nätverk |
 | Ökning i PercentTimeoutError (alla) |* StatusCode = = 500 |Alla |
-| Ökning i PercentNetworkError |AzureStorageClientDotNetV4. EventLogEntry. level < 2 |Client |
+| Ökning i PercentNetworkError |AzureStorageClientDotNetV4. EventLogEntry. level < 2 |Klient |
 | HTTP 403-meddelanden (Förbjudet) |Inkommande. Response. StatusCode = = 403 |Nätverk |
 | HTTP 404-meddelanden (Hittades inte) |Inkommande. Response. StatusCode = = 404 |Nätverk |
 | 404 (alla) |* StatusCode = = 404 |Alla |

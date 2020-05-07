@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: bb73b3d644e96f9596f887faaf62eb15f01956ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3f2ceda6e87ce16e910f3d215c1fabe81d522f32
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769673"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855552"
 ---
 # <a name="update-azure-powershell-modules-in-azure-automation"></a>Uppdatera Azure PowerShell moduler i Azure Automation
 
-Om du vill uppdatera Azure-modulerna i ditt Automation-konto måste du använda [Runbook-modulerna uppdatera Azure-moduler](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), som är tillgängligt som öppen källkod. Om du vill börja använda **Update-AutomationAzureModulesForAccount-** runbooken för att uppdatera Azure-moduler, kan du ladda ned den från [Uppdatera Azure modules Runbook-lagringsplats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) på GitHub. Du kan sedan importera den till ditt Automation-konto eller köra det som ett skript. Information om hur du importerar en Runbook i ditt Automation-konto finns i [Importera en Runbook](manage-runbooks.md#importing-a-runbook).
+Om du vill uppdatera Azure-modulerna i ditt Automation-konto måste du använda [Runbook-modulerna uppdatera Azure-moduler](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update), som är tillgängligt som öppen källkod. Om du vill börja använda **Update-AutomationAzureModulesForAccount-** runbooken för att uppdatera Azure-moduler, kan du ladda ned den från [Uppdatera Azure modules Runbook-lagringsplats](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) på GitHub. Du kan sedan importera den till ditt Automation-konto eller köra det som ett skript. Information om hur du importerar en Runbook i ditt Automation-konto finns i [Importera en Runbook](manage-runbooks.md#import-a-runbook).
 
 De vanligaste PowerShell-modulerna anges som standard i varje Automation-konto. Azure-teamet uppdaterar Azure-modulerna regelbundet. För att hålla modulerna i dina Automation-konton uppdaterade bör du därför använda [AutomationAzureModulesForAccount](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update) Runbook.
 

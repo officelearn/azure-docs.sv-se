@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 01b5f87c2557e2195573b90766ee45e001798cca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5aee3a19e33204da00483d0f4ee3f6ee97e8a07d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537703"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856267"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -68,7 +68,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
 * <a id="redundancy-options"></a>
   **Vilka alternativ för lagring av redundans stöds av Azure Files?**  
-    För närvarande har Azure Files stöd för lokalt redundant lagring (LRS), zon redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS) (för hands version). Vi planerar att stödja lagring med Läs åtkomst till Geo-redundant (RA-GRS) i framtiden, men det finns inga tids linjer att dela just nu.
+    För närvarande har Azure Files stöd för lokalt redundant lagring (LRS), zon redundant lagring (ZRS), Geo-redundant lagring (GRS) och geo-Zone-redundant lagring (GZRS). Vi planerar att stödja lagring med Läs åtkomst till Geo-redundant (RA-GRS) i framtiden, men det finns inga tids linjer att dela just nu.
 
 * <a id="tier-options"></a>
   **Vilka lagrings nivåer stöds i Azure Files?**  

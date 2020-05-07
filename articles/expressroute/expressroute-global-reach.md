@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4c326a556530fd778c1178f11b79d2aba613b4c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e98f4a401a9fcab12bd7a276c47df67c7936b1d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136591"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853410"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute är ett privat och flexibelt sätt att ansluta dina lokala nätverk till Microsoft Cloud. Du kan komma åt många Microsoft-molntjänster som Azure och Office 365 från ditt privata data Center eller ditt företags nätverk. Du kan till exempel ha ett avdelnings kontor i San Francisco med en ExpressRoute-krets i Silicon dal och ett annat avdelnings kontor i London med en ExpressRoute-krets i samma stad. Både avdelnings kontor kan ha snabb anslutning till Azure-resurser i västra USA och Storbritannien, södra. Avdelnings kontoren kan dock inte utbyta data direkt med varandra. Med andra ord kan 10.0.1.0/24 skicka data till 10.0.3.0/24 och 10.0.4.0/24, men inte till 10.0.2.0/24.
@@ -41,6 +41,7 @@ ExpressRoute Global Reach stöds för närvarande på följande platser.
 * Korea
 * Nederländerna
 * Nya Zeeland
+* Norge
 * Singapore
 * Schweiz
 * Storbritannien

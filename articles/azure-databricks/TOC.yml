@@ -1010,6 +1010,8 @@
         - name: Säkerhetsöversikt
           href: /azure/databricks/security/index
           maintainContext: true
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
         - name: Åtkomstkontroll
           items:
             - name: Översikt över åtkomstkontroll

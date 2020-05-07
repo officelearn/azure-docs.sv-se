@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 96a2cce5d0e8abfd1f22b5fc64633eebc41aca39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f58c34a46f4eb1bffe4516f2a6f9f17a799fbfb3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431571"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786605"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Systemvyer som stöds i Synapse SQL
 Länkar till dokumentationen för T-SQL-uttryck som stöds i Synapse SQL.
@@ -249,6 +249,6 @@ Följande DMV: er gäller SQL-poolen, men måste köras genom att ansluta till *
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer referensinformation finns i [t-SQL-uttryck i SYNAPSE SQL](/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements)och [T-SQL-språkelement i Synapse SQL](/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
+Mer referensinformation finns i [t-SQL-uttryck i SYNAPSE SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements)och [T-SQL-språkelement i Synapse SQL](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements).
 
  

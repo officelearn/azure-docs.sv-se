@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 1f3a24afb2238c2448cb19b3889467a1b1819724
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 03fdbf6979db3249d1322a3025b48de81b953ae1
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460553"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856208"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Data Science Virtual Machine-baserad team Analytics och AI-miljö 
 [Data science Virtual Machine](overview.md) (DSVM) innehåller en omfattande miljö på Azure-plattformen, med fördefinierad program vara för artificiell intelligens (AI) och data analys.
@@ -43,7 +43,7 @@ Den här serien ger vägledning och pekare för vart och ett av föregående avs
 * [Rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Princip inställning och tillämpning](../../governance/policy/overview.md)
 * [Skadlig kod](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [Kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview.md)
+* [Kryptering](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
 * [Identifiering och styrning av data](https://docs.microsoft.com/azure/data-catalog/)
 
 Slutligen tillhandahåller [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/) en detaljerad arkitektur och modeller från slut punkt till slut punkt för att skapa och hantera en molnbaserad analys infrastruktur.

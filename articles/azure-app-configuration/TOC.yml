@@ -56,6 +56,8 @@
       href: use-key-vault-references-spring-boot.md
     - name: Integrera med en CI/CD-pipeline
       href: integrate-ci-cd-pipeline.md
+    - name: Integrera med Kubernetes-distribution med hjälp av Helm
+      href: integrate-kubernetes-deployment-helm.md
 - name: Exempel
   items:
     - name: Azure CLI

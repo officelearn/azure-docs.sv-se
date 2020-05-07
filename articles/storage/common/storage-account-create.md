@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff7db383a74ce01f7f1a7bf49a33e41f91decf8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255410"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853496"
 ---
 # <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
@@ -75,7 +75,7 @@ Inga.
 
 # <a name="portal"></a>[Portalen](#tab/azure-portal)
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -97,7 +97,7 @@ az login
 
 # <a name="template"></a>[Mall](#tab/template)
 
-Ej tillämpligt
+E.t.
 
 ---
 
@@ -152,8 +152,8 @@ Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikerings
 |Zonredundant lagring (ZRS)     |Standard_ZRS         |
 |Geo-redundant lagring (GRS)     |Standard_GRS         |
 |Read-Access Geo-Redundant Storage (GRS)     |Standard_RAGRS         |
-|GZRS (geo-Zone-redundant lagring) (för hands version)    |Standard_GZRS         |
-|Read-Access geo-Zone-redundant lagring (RA-GZRS) (för hands version)    |Standard_RAGZRS         |
+|Geografiskt zonredundant lagring (GZRS)    |Standard_GZRS         |
+|Read-Access geo-Zone-redundant lagring (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -195,8 +195,8 @@ Om du vill skapa ett allmänt-syfte v2-lagrings konto med ett annat replikerings
 |Zonredundant lagring (ZRS)     |Standard_ZRS         |
 |Geo-redundant lagring (GRS)     |Standard_GRS         |
 |Read-Access Geo-Redundant Storage (GRS)     |Standard_RAGRS         |
-|GZRS (geo-Zone-redundant lagring) (för hands version)    |Standard_GZRS         |
-|Read-Access geo-Zone-redundant lagring (RA-GZRS) (för hands version)    |Standard_RAGZRS         |
+|Geografiskt zonredundant lagring (GZRS)    |Standard_GZRS         |
+|Read-Access geo-Zone-redundant lagring (RA-GZRS)    |Standard_RAGZRS         |
 
 # <a name="template"></a>[Mall](#tab/template)
 

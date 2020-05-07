@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/28/2020
-ms.openlocfilehash: 09431a6690be751324bb796415d308d3b7727dad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c8a19fe338af14f97e0eb191d7b57e840c71e400
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254101"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612732"
 ---
-# <a name="auto-grow-storage-in-azure-database-for-mysql-storage-using-powershell"></a>Utöka lagringen automatiskt i Azure Database for MySQL Storage med hjälp av PowerShell
+# <a name="auto-grow-storage-in-azure-database-for-mysql-server-using-powershell"></a>Utöka lagringen automatiskt i Azure Database for MySQL server med PowerShell
 
 I den här artikeln beskrivs hur du kan konfigurera en Azure Database for MySQL Server lagring så att den växer utan att arbets belastningen påverkas.
 
@@ -52,4 +52,5 @@ New-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -Sku GP_
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [hur du skapar aviseringar för mått](howto-alert-on-metric.md).
+> [!div class="nextstepaction"]
+> [Skapa och hantera Läs repliker i Azure Database for MySQL med PowerShell](howto-read-replicas-powershell.md).

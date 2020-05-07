@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: c3dc5b26435f6d876e5eaea943e359055018913b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201320"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801696"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -78,30 +78,35 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
 
 |Problem  |Datum identifierat  |Status  |Åtgärds datum  |
 |---------|---------|---------|---------|
-|[Behörigheter för resurs gruppen har inte tillämpats på den hanterade instansen](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Har en lösning||
-|[Begränsning av manuell redundans via portalen för failover-grupper](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Har en lösning||
-|[SQL Agent-roller behöver explicit kör-behörighet för icke-sysadmin-inloggningar](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Har en lösning||
+|[Agenten slutar svara vid ändringar, inaktive ring eller aktivering av befintliga jobb](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020|Automatiskt begränsad| |
+|[Behörigheter för resurs gruppen har inte tillämpats på den hanterade instansen](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Har en lösning| |
+|[Begränsning av manuell redundans via portalen för failover-grupper](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Har en lösning| |
+|[SQL Agent-roller behöver explicit kör-behörighet för icke-sysadmin-inloggningar](#in-memory-oltp-memory-limits-are-not-applied)|Dec 2019|Har en lösning| |
 |[SQL Agent-jobb kan avbrytas efter omstart av agent processen](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dec 2019|Matchat|Mar 2020|
-|[AAD-inloggningar och användare stöds inte i SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|Ingen lösning||
-|[Minnes gränser för minnes intern OLTP tillämpas inte](#in-memory-oltp-memory-limits-are-not-applied)|Okt 2019|Har en lösning||
-|[Ett fel fel returnerades vid försök att ta bort en fil som inte är tom](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Okt 2019|Har en lösning||
-|[Ändra tjänst nivå och skapa instans åtgärder blockeras av pågående databas återställning](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Sep 2019|Har en lösning||
-|[Resource Governor på Affärskritisk tjänst nivå kan behöva konfigureras om efter en redundansväxling](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Har en lösning||
-|[Service Broker dialog rutor mellan databaser måste initieras igen efter uppgraderingen av service nivå](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Aug 2019|Har en lösning||
-|[Impersonification av Azure AD-inloggnings typer stöds inte](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|Ingen lösning||
-|[@queryparametern stöds inte i sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|Ingen lösning||
-|[Transaktionsreplikering måste konfigureras om efter GEO-redundans](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Ingen lösning||
-|[Tillfällig databas används under återställnings åtgärden](#temporary-database-is-used-during-restore-operation)||Har en lösning||
-|[TEMPDB-strukturen och innehållet har skapats på nytt](#tempdb-structure-and-content-is-re-created)||Ingen lösning||
-|[Överskrida lagrings utrymme med små databasfiler](#exceeding-storage-space-with-small-database-files)||Har en lösning||
-|[GUID-värden som visas i stället för databas namn](#guid-values-shown-instead-of-database-names)||Har en lösning||
-|[Fel loggarna är inte beständiga](#error-logs-arent-persisted)||Ingen lösning||
+|[AAD-inloggningar och användare stöds inte i SSDT](#aad-logins-and-users-are-not-supported-in-ssdt)|Nov 2019|Ingen lösning| |
+|[Minnes gränser för minnes intern OLTP tillämpas inte](#in-memory-oltp-memory-limits-are-not-applied)|Okt 2019|Har en lösning| |
+|[Ett fel fel returnerades vid försök att ta bort en fil som inte är tom](#wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty)|Okt 2019|Har en lösning| |
+|[Ändra tjänst nivå och skapa instans åtgärder blockeras av pågående databas återställning](#change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore)|Sep 2019|Har en lösning| |
+|[Resource Governor på Affärskritisk tjänst nivå kan behöva konfigureras om efter en redundansväxling](#resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover)|Sep 2019|Har en lösning| |
+|[Service Broker dialog rutor mellan databaser måste initieras igen efter uppgraderingen av service nivå](#cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade)|Aug 2019|Har en lösning| |
+|[Impersonification av Azure AD-inloggnings typer stöds inte](#impersonification-of-azure-ad-login-types-is-not-supported)|Jul 2019|Ingen lösning| |
+|[@queryparametern stöds inte i sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|Ingen lösning| |
+|[Transaktionsreplikering måste konfigureras om efter GEO-redundans](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Ingen lösning| |
+|[Tillfällig databas används under återställnings åtgärden](#temporary-database-is-used-during-restore-operation)||Har en lösning| |
+|[TEMPDB-strukturen och innehållet har skapats på nytt](#tempdb-structure-and-content-is-re-created)||Ingen lösning| |
+|[Överskrida lagrings utrymme med små databasfiler](#exceeding-storage-space-with-small-database-files)||Har en lösning| |
+|[GUID-värden som visas i stället för databas namn](#guid-values-shown-instead-of-database-names)||Har en lösning| |
+|[Fel loggarna är inte beständiga](#error-logs-arent-persisted)||Ingen lösning| |
 |[Transaktions omfånget på två databaser inom samma instans stöds inte](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Har en lösning|Mar 2020|
-|[CLR-moduler och länkade servrar kan ibland inte referera till en lokal IP-adress](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Har en lösning||
-|Databasens konsekvens kontrol leras inte med DBCC CHECKDB efter återställningen av databasen från Azure Blob Storage.||Matchat|Nov 2019|
-|Det går inte att återställa punkt-i-tid från Affärskritisk nivå till Generell användning nivå om käll databasen innehåller minnesbaserade OLTP-objekt.||Matchat|Okt 2019|
-|Database Mail funktion med externa (icke-Azure) e-postservrar som använder säker anslutning||Matchat|Okt 2019|
-|Inneslutna databaser stöds inte i hanterade instanser||Matchat|Aug 2019|
+|[CLR-moduler och länkade servrar kan ibland inte referera till en lokal IP-adress](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Har en lösning| |
+|Databasens konsekvens kontrol leras inte med DBCC CHECKDB efter återställningen av databasen från Azure Blob Storage.| |Matchat|Nov 2019|
+|Det går inte att återställa punkt-i-tid från Affärskritisk nivå till Generell användning nivå om käll databasen innehåller minnesbaserade OLTP-objekt.| |Matchat|Okt 2019|
+|Database Mail funktion med externa (icke-Azure) e-postservrar som använder säker anslutning| |Matchat|Okt 2019|
+|Inneslutna databaser stöds inte i hanterade instanser| |Matchat|Aug 2019|
+
+### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agenten slutar svara vid ändringar, inaktive ring eller aktivering av befintliga jobb
+
+I vissa fall kan det hända att agenten slutar svara om du ändrar ett befintligt jobb, inaktiverar eller aktiverar det. Problemet begränsas automatiskt vid identifiering som leder till omstart av agent processen.
 
 ### <a name="permissions-on-resource-group-not-applied-to-managed-instance"></a>Behörigheter för resurs gruppen har inte tillämpats på den hanterade instansen
 

@@ -1,23 +1,17 @@
 ---
-title: Använd Azure-mallar för att skapa HDInsight med Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Använd Azure Resource Manager mallar för att skapa och använda HDInsight-kluster med Azure Data Lake Storage Gen1
-services: data-lake-store,hdinsight
-documentationcenter: ''
+title: Mall – HDInsight-kluster med Data Lake Storage Gen1
+description: Använd Azure Resource Manager mallar för att skapa och använda Azure HDInsight-kluster med Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: 8ef8152f-2121-461e-956c-51c55144919d
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 486809201db45e0f5bbeed870e24b1f63770e319
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66161371"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692032"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Skapa ett HDInsight-kluster med Azure Data Lake Storage Gen1 med Azure Resource Manager-mall
 > [!div class="op_single_selector"]
@@ -30,7 +24,7 @@ ms.locfileid: "66161371"
 
 Lär dig hur du använder Azure PowerShell för att konfigurera ett HDInsight-kluster med Azure Data Lake Storage Gen1, **som ytterligare lagrings utrymme**.
 
-För kluster typer som stöds kan Data Lake Storage Gen1 användas som ett standard lagrings utrymme eller ytterligare lagrings konto. När Data Lake Storage Gen1 används som ytterligare lagrings utrymme, är standard lagrings kontot för klustren fortfarande Azure Storage blobbar (WASB) och de klusterbaserade filerna (till exempel loggar osv.) skrivs fortfarande till standard lagringen, medan de data som du vill bearbeta kan lagras i ett Data Lake Storage Gen1-konto. Att använda Data Lake Storage Gen1 som ett ytterligare lagrings konto påverkar inte prestanda eller möjlighet att läsa och skriva till lagringen från klustret.
+För kluster typer som stöds kan Data Lake Storage Gen1 användas som standard lagrings utrymme eller som ett ytterligare lagrings konto. När Data Lake Storage Gen1 används som ytterligare lagrings utrymme, är standard lagrings kontot för klustren fortfarande Azure Storage blobbar (WASB) och de klusterbaserade filerna (till exempel loggar osv.) skrivs fortfarande till standard lagringen, medan de data som du vill bearbeta kan lagras i ett Data Lake Storage Gen1-konto. Att använda Data Lake Storage Gen1 som ett ytterligare lagrings konto påverkar inte prestanda eller möjlighet att läsa och skriva till lagringen från klustret.
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>Använda Data Lake Storage Gen1 för kluster lagring för HDInsight
 
@@ -40,7 +34,7 @@ Här är några viktiga överväganden när du använder HDInsight med Data Lake
 
 * Alternativ för att skapa HDInsight-kluster med åtkomst till Data Lake Storage Gen1 som ytterligare lagrings utrymme är tillgängligt för HDInsight-versionerna 3,2, 3,4, 3,5 och 3,6.
 
-I den här artikeln etablerar vi ett Hadoop-kluster med Data Lake Storage Gen1 som ytterligare lagrings utrymme. Instruktioner för hur du skapar ett Hadoop-kluster med Data Lake Storage Gen1 som standard lagring finns i [skapa ett HDInsight-kluster med data Lake Storage gen1 med Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
+I den här artikeln etablerar vi ett Hadoop-kluster med Data Lake Storage Gen1 som ytterligare lagrings utrymme. Instruktioner för hur du skapar ett Hadoop-kluster med Data Lake Storage Gen1 som standard lagring finns i [skapa ett HDInsight-kluster med data Lake Storage gen1 med hjälp av Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -88,7 +82,7 @@ För att se till att de exempel data som du överför kan nås från HDInsight-k
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>Kör test jobb på HDInsight-klustret om du vill använda Data Lake Storage Gen1
 När du har konfigurerat ett HDInsight-kluster kan du köra test jobb på klustret för att testa att HDInsight-klustret har åtkomst till Data Lake Storage Gen1. För att göra det, kommer vi att köra ett Hive-exempel jobb som skapar en tabell med hjälp av exempel data som du överförde tidigare till ditt Data Lake Storage Gen1-konto.
 
-I det här avsnittet ska du använda SSH i ett HDInsight Linux-kluster och köra en Hive-exempel fråga. Om du använder en Windows-klient rekommenderar vi att du använder **SparaTillFil**, som kan laddas ned [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)från.
+I det här avsnittet ska du använda SSH i ett HDInsight Linux-kluster och köra exempel registrerings frågan. Om du använder en Windows-klient rekommenderar vi att du använder **SparaTillFil**, som kan laddas ned [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)från.
 
 Mer information om hur du använder SparaTillFil finns i [använda SSH med Linux-baserat Hadoop på HDInsight från Windows](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md).
 

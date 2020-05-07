@@ -10,6 +10,9 @@
     - name: Index
       displayName: 'template, sample'
       href: ./samples/index.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./samples/policy-samples.md
 - name: Begrepp
   items:
     - name: Azure-delegerad resurshantering
@@ -33,6 +36,9 @@
     - name: Azure Lighthouse i företagsscenarier
       displayName: 'corporation, IT, consolidate'
       href: ./concepts/enterprise.md
+    - name: Azure Lighthouse och Azure Managed Applications
+      displayName: 'managed apps, ama'
+      href: ./concepts/managed-applications.md
 - name: Anvisningar
   items:
     - name: Registrera en kund för Azure-delegerad resurshantering

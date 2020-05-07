@@ -140,6 +140,8 @@
                   href: ./../scripts/virtual-machines-windows-cli-sample-create-vm-oms.md
 - name: Begrepp
   items:
+    - name: Avbildningar
+      href: shared-image-galleries.md
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/management/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Regioner
@@ -524,19 +526,64 @@
         - name: Hämta användningsstatistik med REST
           href: ../linux/metrics-vm-usage-rest.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Använda avbildningar
+      displayName: 'SIG, AMI, image'
       items:
-        - name: Delade avbildningar
+        - name: Skapa och dela avbildningar
           items:
-            - name: Översikt
-              href: shared-image-galleries.md
             - name: PowerShell
-              href: shared-images.md
-            - name: Portalen
-              href: shared-images-portal.md
+              items:
+                - name: Skapa ett galleri
+                  href: ../shared-images-powershell.md
+                - name: Skapa en avbildning
+                  items:
+                    - name: Från en virtuell dator
+                      href: ../image-version-vm-powershell.md
+                    - name: Migrera från en hanterad avbildning
+                      href: ../image-version-managed-image-powershell.md
+                    - name: Kopiera från ett annat galleri
+                      href: ../image-version-another-gallery-powershell.md
+                - name: Skapa en virtuell dator
+                  items:
+                    - name: Generaliserade
+                      href: ../vm-generalized-image-version-powershell.md
+                    - name: Specialiserade
+                      href: ../vm-specialized-image-version-powershell.md
+                - name: Uppdatera avbildningsresurser
+                  href: ../update-image-resources-powershell.md
             - name: CLI
-              href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Appregistrering för delning
-              href: share-images-across-tenants.md
+              items:
+                - name: Skapa ett galleri
+                  href: ../linux/shared-images.md
+                - name: Skapa en avbildning
+                  items:
+                    - name: Från en virtuell dator
+                      href: ../image-version-vm-cli.md
+                    - name: Migrera från en hanterad avbildning
+                      href: ../image-version-managed-image-cli.md
+                    - name: Kopiera från ett annat galleri
+                      href: ../image-version-another-gallery-cli.md
+                    - name: Kopiera från ett annat galleri
+                      href: ../image-version-another-gallery-cli.md
+                - name: Skapa en virtuell dator
+                  items:
+                    - name: Generaliserade
+                      href: ../vm-generalized-image-version-cli.md
+                - name: Uppdatera avbildningsresurser
+                  href: ../update-image-resources-cli.md
+            - name: Portalen
+              items:
+                - name: 'Skapa ett galleri, en avbildning och en virtuell dator'
+                  href: shared-images-portal.md
+            - name: Resource Manager-mallar
+              items:
+                - name: Skapa ett Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-create/'
+                - name: Skapa en avbildningsdefinition i ett Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/'
+                - name: Skapa en avbildningsversion i ett Shared Image Gallery
+                  href: 'https://azure.microsoft.com/resources/templates/101-sig-image-version-create/'
+                - name: Skapa en virtuell dator från avbildningsversion
+                  href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Felsöka delade bilder
               href: troubleshooting-shared-images.md
         - name: Image Builder (förhandsversion)

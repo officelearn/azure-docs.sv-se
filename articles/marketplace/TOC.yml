@@ -449,6 +449,8 @@
           items:
             - name: Skapa ett erbjudande för Azure-program
               href: ./partner-center-portal/create-new-azure-apps-offer.md
+            - name: Förbrukningsbaserad fakturering för Azure-program
+              href: ./partner-center-portal/azure-app-metered-billing.md
             - name: Hantera feedback från granskning
               href: ./partner-center-portal/azure-apps-review-feedback.md
             - name: API för registrering
@@ -515,11 +517,6 @@
               href: ./partner-center-portal/create-new-saas-offer.md
             - name: SaaS-fakturering efter förbrukning
               href: ./partner-center-portal/saas-metered-billing.md
-              items:
-                - name: 'API:er för Marketplace Metering Service – vanliga frågor och svar'
-                  href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
-                - name: 'API:er för Marketplace Metering Service'
-                  href: ./partner-center-portal/marketplace-metering-service-apis.md
             - name: 'API:er för uppfyllnad av SaaS'
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -546,6 +543,14 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
             - name: Salesforce
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
+        - name: Marketplace-mättjänst
+          items:
+            - name: Autentiseringsstrategier
+              href: ./partner-center-portal/marketplace-metering-service-authentication.md
+            - name: 'API:er för Marketplace Metering Service'
+              href: ./partner-center-portal/marketplace-metering-service-apis.md
+            - name: 'API:er för Marketplace Metering Service – vanliga frågor och svar'
+              href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
         - name: Provkör erbjudandet
           href: ./partner-center-portal/test-drive.md
         - name: Alternativ för säljsamarbete
@@ -589,11 +594,13 @@
           href: ./partner-center-portal/get-paid.md
         - name: Konfigurera utbetalningskonto och deklarationsblanketter
           href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: Faktureringsinformation
-          href: ./partner-center-portal/billing-details.md
         - name: 'Betalningströsklar, metoder och tidsramar'
           href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Utbetalningssammanfattning
+        - name: Översikt över utbetalningssammanfattning
+          href: ./partner-center-portal/payout-summary-overview.md
+        - name: Utbetalningssammanfattningar
           href: ./partner-center-portal/payout-summary.md
+        - name: Information om utbetalningsprincip
+          href: ./partner-center-portal/payout-policy-details.md
         - name: Skatteinformation
           href: ./partner-center-portal/tax-details-paid-transactions.md

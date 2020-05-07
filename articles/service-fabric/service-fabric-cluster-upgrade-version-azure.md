@@ -3,12 +3,12 @@ title: Uppgradera ett klusters Azure Service Fabric-version
 description: Uppgradera Service Fabric koden och/eller konfigurationen som kör ett Service Fabric kluster, inklusive inställning av kluster uppdaterings läge, uppgradera certifikat, lägga till program portar, utföra OS-uppdateringar och så vidare. Vad kan du förväntar dig när uppgraderingen utförs?
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: c3ffcbd4296385623ff5e2c1ee001c27598ff3fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 802e7402f60370b7151c5e373c8a4921a5af7c80
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75451810"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789608"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Uppgradera Service Fabric-versionen av ett kluster
 
@@ -110,7 +110,7 @@ Output:
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du anpassar några av [inställningarna för Service Fabric-klustrets infrastruktur resurser](service-fabric-cluster-fabric-settings.md)
-* Lär dig hur du [skalar upp och ut ditt kluster](service-fabric-cluster-scale-up-down.md)
+* Lär dig hur du [skalar upp och ut ditt kluster](service-fabric-cluster-scale-in-out.md)
 * Lär dig mer om [program uppgraderingar](service-fabric-application-upgrade.md)
 
 <!--Image references-->

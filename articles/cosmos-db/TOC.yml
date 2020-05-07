@@ -139,7 +139,7 @@
         - name: Etablera dataflöde på containrar och databaser
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Etablera dataflöde – autoskalningsläge
+        - name: Etablera dataflöde – autoskalning
           href: provision-throughput-autoscale.md
         - name: Autoscale FAQ
           href: autoscale-faq.md
@@ -916,6 +916,8 @@
           href: how-to-manage-consistency.md
         - name: Konfigurera konfliktlösningsprinciper
           href: how-to-manage-conflicts.md
+        - name: Konvertera tokenformat för session
+          href: how-to-convert-session-token.md
     - name: Etablerat dataflöde
       items:
         - name: Etablera ett dataflöde på en container
@@ -1062,7 +1064,7 @@
               href: monitor-server-side-latency.md
             - name: Övervaka användning av enheter för programbegäran
               href: monitor-request-unit-usage.md
-        - name: Använda diagnostikloggar
+        - name: Använda Azure-övervakningsloggar
           items:
             - name: Övervaka med diagnostikloggar
               href: cosmosdb-monitor-resource-logs.md

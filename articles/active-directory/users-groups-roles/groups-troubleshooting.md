@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f685ac63e3b4a8cf466be4eb4561472fb084d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 689a528a75613ac6a38bed74d6597d492f498e8b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74026546"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582726"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>Felsöka och lösa problem med grupper
 
@@ -43,7 +43,7 @@ Så här inaktiverar du grupp skapande för användare som inte är administrat�
    ```
 
 <br/>**Jag har fått ett fel av högsta antal grupper som tillåts när du försökte skapa en dynamisk grupp i PowerShell**<br/>
-Om du får ett meddelande i PowerShell som anger att det _maximala antalet tillåtna grupper för dynamiska grup principer har nåtts_innebär det att du har nått Max gränsen för dynamiska grupper i din klient organisation. Det maximala antalet dynamiska grupper per klient är 5 000.
+Om du får ett meddelande i PowerShell som anger att det _maximala antalet tillåtna grupper för dynamiska grup principer har nåtts_innebär det att du har nått Max gränsen för dynamiska grupper i din organisation. Det maximala antalet dynamiska grupper per organisation är 5 000.
 
 Om du vill skapa nya dynamiska grupper måste du först ta bort vissa befintliga dynamiska grupper. Det finns inget sätt att öka gränsen.
 
@@ -53,7 +53,7 @@ Om du vill skapa nya dynamiska grupper måste du först ta bort vissa befintliga
 1. Verifiera värdena för användar-eller enhets attribut i regeln. Se till att det finns användare som uppfyller regeln. För enheter kontrollerar du enhetens egenskaper för att se till att alla synkroniserade attribut innehåller de förväntade värdena.<br/>
 2. Kontrol lera status för medlemskaps bearbetning för att bekräfta att den är klar. Du kan kontrol lera [status för medlemskaps bearbetning](groups-create-rule.md#check-processing-status-for-a-rule) och senaste uppdaterade datum på **översikts** sidan för gruppen.
 
-Om allting ser bra ut kan du ange en tid för att fylla i gruppen. Beroende på klientens storlek så kan det ta upp till 24 timmar att fylla gruppen första gången eller efter en regeländring.
+Om allting ser bra ut kan du ange en tid för att fylla i gruppen. Beroende på storleken på din Azure AD-organisation kan det ta upp till 24 timmar innan gruppen fylls för första gången eller efter en regel ändring.
 
 **Jag har konfigurerat en regel, men nu tas befintliga medlemmar i regeln bort**<br/>Det här beteendet är förväntat. Befintliga medlemmar i gruppen tas bort när en regel aktive ras eller ändras. De användare som returneras från utvärderingen av regeln läggs till som medlemmar i gruppen.
 
@@ -74,7 +74,7 @@ För närvarande finns det inget sätt att automatiskt utlösa gruppen som ska b
 
 Dessa artiklar innehåller ytterligare information om Azure Active Directory.
 
-* [Hantera åtkomst till resurser med Azure Active Directory-grupper](../fundamentals/active-directory-manage-groups.md)
+* [Hantera åtkomst till resurser med Azure Active Directory grupper](../fundamentals/active-directory-manage-groups.md)
 * [Programhantering i Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Vad är Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

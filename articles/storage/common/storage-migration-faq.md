@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 39f1137638f9cd4926b712bdd18e681d90adcdc4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b020cbd15ba17609b7a476ccda9b1e814405341e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668555"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858780"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor om Azure Storage-migrering
 
@@ -284,11 +284,11 @@ Geo-redundant lagring med Läs behörighet krävs för att få åtkomst till red
 
 **Hur kommer jag åt data som lagras i den sekundära regionen för ett replikerat lagrings konto (till exempel zon redundant lagring, Geo-redundant lagring eller Geo-redundant lagring med Läs åtkomst)?**
 
--   Om du använder zoner som är redundant lagring eller Geo-redundant lagring, kan du inte komma åt data från den sekundära regionen om du inte initierar en redundansväxling till den regionen. Mer information om redundansväxlingen finns [i haveri beredskap och lagrings kontots redundans (för hands version) i Azure Storage](storage-disaster-recovery-guidance.md).
+-   Om du använder zoner som är redundant lagring eller Geo-redundant lagring, kan du inte komma åt data från den sekundära regionen om du inte initierar en redundansväxling till den regionen. Mer information om redundansväxlingen finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
 
 -   Om du använder Geo-redundant lagring med Läs behörighet kan du när som helst komma åt data från den sekundära regionen. Använd någon av följande metoder:  
 
-    - **AzCopy**: Lägg till **sekundär** till lagrings kontots namn i URL: en för att få åtkomst till den sekundära slut punkten. Ett exempel:  
+    - **AzCopy**: Lägg till **sekundär** till lagrings kontots namn i URL: en för att få åtkomst till den sekundära slut punkten. Exempel:  
 
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 

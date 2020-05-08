@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 2c0cd47acbd4639ff5eff2af78dcebdfc26270a7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc35602b55e79f3351da0def800d2a2b2698e250
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730700"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856726"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Förbered din IoT Edge module tekniska till gångar
-
-> [!IMPORTANT]
-> Vi flyttar hanteringen av din IoT Edge-modul från Cloud Partner Portal till Partner Center. Innan du har migrerat dina erbjudanden följer du anvisningarna i [förbereda din IoT Edge modul tekniska till gångar](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-technical-assets) för Cloud Partner Portal för att hantera dina erbjudanden.
 
 Den här artikeln beskriver de krav som din Sakernas Internet (IoT) Edge-modulens tekniska till gångar måste uppfylla innan de publiceras i Azure Marketplace.
 

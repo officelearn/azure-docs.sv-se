@@ -1,23 +1,21 @@
 ---
 title: Säker kommunikation med Azure Service Fabric omvänd proxy
 description: Konfigurera omvänd proxy för att aktivera säker kommunikation från slut punkt till slut punkt i ett Azure Service Fabric-program.
-author: kavyako
 ms.topic: conceptual
 ms.date: 08/10/2017
-ms.author: kavyako
-ms.openlocfilehash: 61a8d1e766ea576f7d2984add239b0da7e2e8183
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e88a81108f38efefe413024fb2b41bbd82f297b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617112"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858522"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Ansluta till en säker tjänst med omvänd proxy
 
 Den här artikeln förklarar hur du upprättar en säker anslutning mellan omvänd proxy och tjänster, vilket innebär att en säker kanal från slut punkt till slut punkt skapas. Läs mer om omvänd proxy [i omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Det går bara att ansluta till säkra tjänster när omvänd proxy har kon figurer ATS för att lyssna på HTTPS. I den här artikeln förutsätter vi att detta är fallet.
-Läs konfigurera [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy-setup.md) för att konfigurera omvänd proxy i Service Fabric.
+> [!IMPORTANT]
+> Det går bara att ansluta till säkra tjänster när omvänd proxy har kon figurer ATS för att lyssna på HTTPS. I den här artikeln förutsätter vi att detta är fallet. Läs konfigurera [omvänd proxy i Azure Service Fabric](service-fabric-reverseproxy-setup.md) för att konfigurera omvänd proxy i Service Fabric.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Upprätta säker anslutning mellan omvänd proxy och tjänster 
 
@@ -183,7 +181,7 @@ Sedan vidarebefordras klient certifikat data i ett anpassat HTTP-huvud med namne
 Om klienten inte visar ett certifikat vidarebefordrar omvänd proxy en tom rubrik och låter tjänsten hantera ärendet.
 
 > [!NOTE]
-> Omvänd proxy är enbart vidarebefordrare. Ingen validering av klientens certifikat utförs.
+> Omvänd proxy fungerar bara som en vidarebefordrings tjänst. Ingen validering av klientens certifikat utförs.
 
 
 ## <a name="next-steps"></a>Nästa steg

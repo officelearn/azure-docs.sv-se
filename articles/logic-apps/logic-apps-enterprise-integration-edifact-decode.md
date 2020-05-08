@@ -61,7 +61,7 @@ Här är de objekt du behöver:
 
     ![integrerings konto anslutningen har skapats](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage4.png)  
 
-    Ett exempel:
+    Exempel:
 
     ![Välj EDIFACT platt fil meddelande för avkodning](./media/logic-apps-enterprise-integration-edifact-decode/edifactdecodeimage5.png)  
 

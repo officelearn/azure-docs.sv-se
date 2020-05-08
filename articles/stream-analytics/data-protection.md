@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1b3bdad0125b5bddbba20c8d807924fc3ea87e32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d201beb2ff4aba815749b12a506d2292779cb82
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299404"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857284"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Data skydd i Azure Stream Analytics 
 
@@ -32,7 +32,7 @@ Det går inte att uppdatera eller rotera nycklar till ditt lagrings konto med hj
 
 Använd följande steg för att konfigurera ditt lagrings konto för privata data till gångar. Den här konfigurationen görs från ditt Stream Analytics jobb, inte från ditt lagrings konto.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen. 
 
@@ -61,6 +61,9 @@ Alla privata data som måste behållas av Stream Analytics lagras i ditt lagring
 Anslutnings information för dina resurser, som används av ditt Stream Analytics jobb, lagras också. Kryptera ditt lagrings konto för att skydda alla dina data. 
 
 För att hjälpa dig att uppfylla dina krav på efterlevnad i en reglerad bransch eller miljö kan du läsa mer om [Microsofts erbjudanden för efterlevnad](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="known-issues"></a>Kända problem
+Det finns ett känt problem där ett jobb som använder kundhanterad nyckel körs i fel när hanterad identitet används för att autentisera till eventuella indata eller utdata. En korrigering för det här problemet har fungerat och kommer att bli tillgänglig inom en snar framtid. 
 
 ## <a name="next-steps"></a>Nästa steg
 

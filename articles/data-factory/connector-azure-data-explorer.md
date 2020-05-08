@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: 12bf807f5866567508b644105f377cfde1494250
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ba8c35fc1802f7ef3ac54c693c8106bbc40cc185
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81410765"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82560155"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Kopiera data till eller från Azure Datautforskaren med Azure Data Factory
 
@@ -149,8 +149,8 @@ Om du vill kopiera data från Azure Datautforskaren anger du egenskapen **Type**
 |:--- |:--- |:--- |
 | typ | **Typ** egenskapen för kopierings aktivitets källan måste anges till: **AzureDataExplorerSource** | Ja |
 | DocumentDB | En skrivskyddad begäran har angetts i ett [KQL-format](/azure/kusto/query/). Använd den anpassade KQL-frågan som referens. | Ja |
-| queryTimeout | Vänte tiden innan fråge förfrågningen nådde tids gränsen. Standardvärdet är 10 min (00:10:00); det högsta tillåtna värdet är 1 timme (01:00:00). | Nej |
-| notrunkering | Anger om den returnerade resultat uppsättningen ska trunkeras. Som standard trunkeras resultatet efter 500 000 poster eller 64 megabyte (MB). Trunkering rekommenderas starkt för att säkerställa rätt beteende för aktiviteten. |Nej |
+| queryTimeout | Vänte tiden innan fråge förfrågningen nådde tids gränsen. Standardvärdet är 10 min (00:10:00); det högsta tillåtna värdet är 1 timme (01:00:00). | Inga |
+| notrunkering | Anger om den returnerade resultat uppsättningen ska trunkeras. Som standard trunkeras resultatet efter 500 000 poster eller 64 megabyte (MB). Trunkering rekommenderas starkt för att säkerställa rätt beteende för aktiviteten. |Inga |
 
 >[!NOTE]
 >Som standard har Azure Datautforskaren-källan en storleks gräns på 500 000 poster eller 64 MB. Om du vill hämta alla poster utan trunkering kan du ange `set notruncation;` i början av frågan. Mer information finns i [begränsningar för frågor](https://docs.microsoft.com/azure/kusto/concepts/querylimits).
@@ -195,8 +195,8 @@ Om du vill kopiera data till Azure Datautforskaren anger du egenskapen type i ko
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen **Type** för kopierings aktivitetens Sink måste anges till: **AzureDataExplorerSink**. | Ja |
-| ingestionMappingName | Namnet på en i förväg skapad [mappning](/azure/kusto/management/mappings#csv-mapping) i en Kusto-tabell. För att mappa kolumnerna från källa till Azure Datautforskaren (som gäller för [Alla käll Arkiv och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats), inklusive CSV/JSON/Avro-format), kan du använda [kolumn mappningen](copy-activity-schema-and-type-mapping.md) kopiera aktivitet (implicit efter namn eller uttryckligen konfigurerad) och/eller Azure datautforskaren-mappningar. | Nej |
-| additionalProperties | En egenskaps uppsättning som kan användas för att ange någon av de inmatnings egenskaper som inte redan anges av Azure Datautforskaren-mottagare. Mer specifikt kan det vara praktiskt att ange inmatnings etiketter. Läs mer från [Azure Data utforska data inmatnings dokument](https://kusto.azurewebsites.net/docs/management/data-ingestion/index.html). | Nej |
+| ingestionMappingName | Namnet på en i förväg skapad [mappning](/azure/kusto/management/mappings#csv-mapping) i en Kusto-tabell. För att mappa kolumnerna från källa till Azure Datautforskaren (som gäller för [Alla käll Arkiv och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats), inklusive CSV/JSON/Avro-format), kan du använda [kolumn mappningen](copy-activity-schema-and-type-mapping.md) kopiera aktivitet (implicit efter namn eller uttryckligen konfigurerad) och/eller Azure datautforskaren-mappningar. | Inga |
+| additionalProperties | En egenskaps uppsättning som kan användas för att ange någon av de inmatnings egenskaper som inte redan anges av Azure Datautforskaren-mottagare. Mer specifikt kan det vara praktiskt att ange inmatnings etiketter. Läs mer från [Azure Data utforska data inmatnings dokument](https://docs.microsoft.com/azure/data-explorer/ingestion-properties). | Inga |
 
 **Exempel:**
 

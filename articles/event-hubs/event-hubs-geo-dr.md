@@ -14,12 +14,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 61318fbccdf92c6502aa8b2236d8b234cec67668
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 2c42637dda9d1a413c0521ea2d7565a63ca58e81
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209153"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858298"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure Event Hubs-geo-haveri beredskap 
 
@@ -138,7 +138,7 @@ Du kan bara aktivera Tillgänglighetszoner på nya namn områden med hjälp av A
 ## <a name="next-steps"></a>Nästa steg
 
 * [Exemplet på GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) går igenom ett enkelt arbets flöde som skapar en geo-par och initierar en redundansväxling för ett haveri beredskaps scenario.
-* I [referensen REST API](/rest/api/eventhub/disasterrecoveryconfigs) beskrivs API: er för att utföra den geo-haveri återställnings konfigurationen.
+* I [referensen REST API](/rest/api/eventhub/) beskrivs API: er för att utföra den geo-haveri återställnings konfigurationen.
 
 Besök följande länkar för mer utförlig information om Event Hubs:
 

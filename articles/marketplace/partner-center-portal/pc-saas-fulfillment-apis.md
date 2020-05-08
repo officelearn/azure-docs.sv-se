@@ -1,26 +1,25 @@
 ---
-title: 'API: er för SaaS-utförande | Azure Marketplace'
-description: 'Introducerar de versioner av API: erna för utförande som gör att du kan integrera dina SaaS-erbjudanden med Azure Marketplace.'
+title: 'API: er för SaaS-uppfyllelse i Microsofts kommersiella marknads platser'
+description: 'En introduktion till uppfyllande API: er som gör att du kan integrera dina SaaS-erbjudanden i Microsoft AppSource och Azure Marketplace.'
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: dsindona
-ms.openlocfilehash: 92b1c52457fa92709381124480c05a5f636167f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ba1b158bc529b148a8e3138d122c13ead19e073e
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275738"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858088"
 ---
-# <a name="saas-fulfillment-apis"></a>API:er för uppfyllnad av SaaS
+# <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API: er för SaaS-uppfyllelse i Microsofts kommersiella marknads platser
 
-API: erna för SaaS-utförande gör det möjligt för oberoende program varu leverantörer (ISV) att integrera sina SaaS-program med Azure Marketplace. Dessa API: er gör det möjligt för ISV-program att delta i alla Commerce-aktiverade kanaler: direkt, partner lampa (åter försäljare) och fält-ledde.  De är ett krav för att kunna registrera transactable SaaS-erbjudanden på Azure Marketplace.
+API: erna för SaaS-utförande gör det möjligt för oberoende program varu leverantörer (ISV) att integrera sina SaaS-program i Microsoft AppSource och Azure Marketplace. Dessa API: er gör det möjligt för ISV-program att delta i alla Commerce-aktiverade kanaler: direkt, partner lampa (åter försäljare) och fält indikator. De krävs för att visa en lista över transactable SaaS-erbjudanden i Microsoft AppSource och Azure Marketplace.
 
 > [!WARNING]
 > Den aktuella versionen av detta API är version 2, som ska användas för alla nya SaaS-erbjudanden.  Version 1 av API: et är inaktuell och underhålls för att stödja befintliga erbjudanden.
-
 
 ## <a name="business-model-support"></a>Stöd för affärs modell
 

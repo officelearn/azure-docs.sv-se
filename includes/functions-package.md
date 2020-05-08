@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: functions
 author: ggailey777
 manager: cfowler
@@ -21,5 +21,5 @@ Följande tabell visar hur du lägger till stöd för den här bindningen i varj
 | Utvecklingsmiljö               | För att lägga till stöd i <br>Functions 1.x  |
 |----------------------|----------------|
 |Lokal utveckling – klass bibliotek i C#       | [Installera paketet](../articles/azure-functions/functions-bindings-register.md#vs) | 
-|Lokal utveckling – C#-skript, Java Script, F # |Automatisk         |
-|Portal utveckling|  Automatisk    |
+|Lokal utveckling – C#-skript, Java Script, F # |Automatiskt         |
+|Portal utveckling|  Automatiskt    |

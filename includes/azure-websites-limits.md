@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 505e2d8eec20853fba3743b40cbe289585d14d61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af0f7ef04ce746c502a8ddf7b0d3971f13a42484
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304998"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82844545"
 ---
 | Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v2) | Isolerat </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -17,10 +17,10 @@ ms.locfileid: "78304998"
 | [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp |100 per resurs grupp|
 | Beräknings instans typ |Delad |Delad |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup> |Dedikerad<sup>3</sup></p> |Dedikerad<sup>3</sup>|
 | [Skala ut](../articles/app-service/manage-scale-up.md) (maximalt antal instanser) |1 delad |1 delad |3 dedikerad<sup>3</sup> |10 dedikerat<sup>3</sup> |30 dedikerat<sup>3</sup>|100 dedikerat<sup>4</sup>|
-| Lagring<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
+| Lagring<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> <br/><br/> Skicka en support förfrågan för mer än 250 GB. |1 TB<sup>5</sup> <br/><br/> Den tillgängliga lagrings kvoten är 999 GB. |
 | PROCESSOR tid (5 minuter)<sup>6</sup> |3 minuter |3 minuter |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a>|
 | CPU-tid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [priser](https://azure.microsoft.com/pricing/details/app-service/)</a> |
-| Minne (1 timme) |1 024 MB per App Service plan |1 024 MB per app |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |Ej tillämpligt |
+| Minne (1 timme) |1 024 MB per App Service plan |1 024 MB per app |E.t. |E.t. |E.t. |E.t. |
 | Bandbredd |165 MB |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |
 | Programarkitektur |32-bitars |32-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |
 | Web Sockets per instans<sup>7</sup> |5 |35 |350 |Obegränsat |Obegränsat |Obegränsat |

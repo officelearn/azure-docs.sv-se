@@ -29,7 +29,7 @@ ms.locfileid: "81422114"
 
 1. Ange de grundläggande inställningarna för det nya Azure Cosmos-kontot på sidan **Skapa Azure Cosmos DB-konto**. 
 
-    |Inställning|Värde|Beskrivning |
+    |Inställningen|Värde|Beskrivning |
     |---|---|---|
     |Prenumeration|Prenumerationens namn|Välj den Azure-prenumeration som ska användas för det här Azure Cosmos-kontot. |
     |Resursgrupp|Namn på resursgrupp|Välj en resursgrupp eller välj **Skapa ny** och ange sedan ett unikt namn för den nya resursgruppen. |

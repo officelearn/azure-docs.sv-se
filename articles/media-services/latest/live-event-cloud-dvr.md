@@ -1,7 +1,7 @@
 ---
-title: Använda tidsväxling och liveutdata för att skapa videouppspelning på begäran
+title: Använd tids växling och Live-utdata för att skapa video uppspelning på begäran
 titleSuffix: Azure Media Services
-description: I den här artikeln beskrivs hur du använder tidsväxling och liveutdata för att spela in liveströmmar och skapa uppspelning på begäran.
+description: Den här artikeln beskriver hur du använder Time-Shift och Live-utdata för att registrera Live-strömmar och skapa uppspelning på begäran.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,45 +15,45 @@ ms.topic: article
 ms.date: 08/27/2019
 ms.author: juliako
 ms.openlocfilehash: 4c7618b60e5fd86a9b8b3f22fb3333c00cfdfa61
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "74899785"
 ---
-# <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Använda tidsväxling och liveutdata för att skapa videouppspelning på begäran
+# <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Använd tids växling och Live-utdata för att skapa video uppspelning på begäran
 
-I Azure Media Services är ett [Live Output-objekt](https://docs.microsoft.com/rest/api/media/liveoutputs) som en digital videobandspelare som fångar och spelar in din livestream till en tillgång i ditt Media Services-konto. Det inspelade innehållet sparas i behållaren som definieras av [tillgångsresursen](https://docs.microsoft.com/rest/api/media/assets) (behållaren finns i Azure Storage-kontot som är kopplat till ditt konto). Live Output kan du också styra vissa egenskaper för den utgående livestreamen, till exempel hur mycket av strömmen som sparas i arkivinspelningen (till exempel kapaciteten för moln-DVR) eller när tittarna kan börja titta på livestreamen. Arkivet på disken är ett cirkulärt arkiv "fönster" som bara innehåller mängden innehåll som anges i **arkivetWindowLength** egenskapen live output. Innehåll som faller utanför det här fönstret ignoreras automatiskt från lagringsbehållaren och kan inte återställas. ArkivWindowLength-värdet representerar en ISO-8601-tidsspannatidslängd (till exempel PTHH:MM:SS), som anger dvr-värdets kapacitet. Värdet kan ställas in från minst tre minuter till högst 25 timmar.
+I Azure Media Services är ett [Live-utmatnings](https://docs.microsoft.com/rest/api/media/liveoutputs) objekt som en digital videobandspelare som fångar upp och registrerar din Live-dataström till en till gång i ditt Media Services-konto. Det inspelade innehållet sparas i den behållare som definieras av [resurs resursen (](https://docs.microsoft.com/rest/api/media/assets) behållaren är i det Azure Storage konto som är kopplat till ditt konto). Med Live-utdata kan du också styra vissa egenskaper för utgående Live-dataström, t. ex. hur mycket av data strömmen som behålls i Arkiv registreringen (till exempel kapaciteten för moln-DVR) eller när läsarna kan börja titta på den aktiva strömmen. Arkivet på disken är ett cirkulärt Arkiv "fönster" som endast innehåller den mängd innehåll som anges i egenskapen **archiveWindowLength** för Live-utdata. Innehåll som faller utanför det här fönstret tas automatiskt bort från lagrings behållaren och går inte att återskapa. ArchiveWindowLength-värdet representerar en varaktighet för ISO-8601 TimeSpan (till exempel PTHH: MM: SS), som anger kapaciteten för DVR. Värdet kan anges från minst tre minuter till högst 25 timmar.
 
-Förhållandet mellan en livehändelse och dess liveutdata liknar traditionell TV-sändning, eftersom en kanal (Live Event) representerar en konstant ström av video och en inspelning (Live Output) är begränsad till ett visst tidssegment (till exempel kvällsnyheter från 18:30 till 19:00). När du har strömmen flödar in i Live Event kan du börja direktuppspelningshändelsen genom att skapa en tillgång, Live Output och streaming locator. Live Output arkiverar strömmen och gör den tillgänglig för tittare via [slutpunkten för direktuppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints). Du kan skapa flera liveutdata (upp till högst tre) på en livehändelse med olika arkivlängder och inställningar. Information om arbetsflödet för direktuppspelning finns i avsnittet [allmänna steg.](live-streaming-overview.md#general-steps)
+Förhållandet mellan en Live-händelse och dess direktsända utdata liknar traditionell TV-sändning, i så att en kanal (live event) representerar en konstant ström med video och en inspelning (direktsända utdata) är begränsad till ett särskilt tids segment (till exempel kvälls nyheter från 6:17.30 till 7:12:00). När strömmen flödar in i Live-evenemanget kan du starta den strömmande händelsen genom att skapa en till gång, en Live-utgång och en strömmande positionerare. Live-utdata kommer att arkivera strömmen och göra den tillgänglig för användare via [slut punkten för direkt uppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints). Du kan skapa flera Live-utdata (högst tre) för en Live-händelse med olika arkiv längder och inställningar. Information om Live streaming-arbetsflödet finns i avsnittet [allmänna steg](live-streaming-overview.md#general-steps) .
 
 ## <a name="using-a-dvr-during-an-event"></a>Använda en DVR under en händelse
 
-I det här avsnittet beskrivs hur du använder en DVR under en händelse för att styra vilka delar av strömmen som är tillgängliga för "spola tillbaka".
+I det här avsnittet beskrivs hur du använder en DVR under en händelse för att kontrol lera vilka delar av data strömmen som är tillgängliga för "spola tillbaka".
 
-Värdet `archiveWindowLength` avgör hur långt tillbaka i tiden en tittare kan gå från den aktuella live-positionen. Värdet `archiveWindowLength` bestämmer också hur länge klientmanifesten kan växa.
+`archiveWindowLength` Värdet avgör hur långt tillbaka i tiden ett visnings program kan gå från den aktuella aktiva positionen. `archiveWindowLength` Värdet avgör också hur länge klient manifesten kan växa.
 
-Anta att du streamar en fotbollsmatch, `ArchiveWindowLength` och den har bara 30 minuter. En tittare som börjar titta på ditt evenemang 45 minuter efter att spelet började kan söka tillbaka till högst 15-minuters märket. Dina liveutdata för spelet fortsätter tills livehändelsen stoppas. Innehåll som faller utanför arkivetWindowLength ignoreras kontinuerligt från lagring och kan inte återställas. I det här exemplet skulle videon mellan början av händelsen och 15-minutersmarkeringen ha rensats från din DVR och från behållaren i blob-lagring för tillgången. Arkivet kan inte återställas och tas bort från behållaren i Azure blob storage.
+Anta att du har strömmat ett fotbolls spel och `ArchiveWindowLength` att det bara har 30 minuter. Ett visnings program som börjar titta på evenemanget 45 minuter efter att spelet har startats kan gå tillbaka till maximalt 15-minuters tecken. Dina direktsända utdata för spelet fortsätter tills direkt sändningen stoppas. Innehåll som faller utanför archiveWindowLength tas kontinuerligt bort från lagrings utrymmet och går inte att återvinna. I det här exemplet skulle videon mellan början av händelsen och 15-minuters märket ha rensats från din DVR och från behållaren i blob-lagring för till gången. Arkivet är inte återställnings Bart och tas bort från behållaren i Azure Blob Storage.
 
-En Live Event stöder upp till tre samtidigt köra Live Outputs (du kan skapa högst 3 inspelningar / arkiv från en livestream samtidigt). Med det här stödet kan du publicera och arkivera olika delar av en händelse efter behov. Anta att du behöver sända en 24x7 live linjär feed, och skapa "inspelningar" av de olika programmen under hela dagen för att erbjuda kunderna som on-demand innehåll för catch-up visning. I det här scenariot skapar du först en primär Live Output med ett kort arkivfönster på 1 timme eller mindre – det här är den primära livestreamen som tittarna skulle ställa in. Du skulle skapa en streaming locator för denna Live Output och publicera den på din app eller webbplats som "Live" foder. Medan Live Event körs kan du programmässigt skapa en andra samtidig Live Output i början av ett program (eller 5 minuter för tidigt för att ge några handtag för att trimma senare). Denna andra Live Output kan tas bort 5 minuter efter att programmet avslutats. Med den här andra tillgången kan du skapa en ny streamingpositionerare för att publicera det här programmet som en on-demand-tillgång i appens katalog. Du kan upprepa den här processen flera gånger för andra programgränser eller höjdpunkter som du vill dela som videor på begäran, allt medan "Live"-flödet från den första Live Output fortsätter att sända den linjära feeden.
+En Live-händelse har stöd för upp till tre pågående Live-utdata (du kan skapa högst 3 inspelningar/arkiv från en Live-dataström samtidigt). Med det här stödet kan du publicera och arkivera olika delar av en händelse vid behov. Anta att du behöver sända en Live linjär matning dygnet runt och skapa "inspelningar" av de olika programmen under dagen för att erbjuda kunder som innehåll på begäran för att komma igång. I det här scenariot skapar du först en primär Live-utmatning med ett kort Arkiv-fönster på 1 timme eller mindre – det här är den primära Live-strömmen som dina användare skulle justera in i. Du skulle skapa en strömmande positionerare för den här Live-utdatan och publicera den på din app eller webbplats som "Live"-feed. När direkt sändnings händelsen körs kan du program mässigt skapa en andra samtidig Live-utdata i början av ett program (eller 5 minuter tidigt för att ge några handtag för att beskära senare). Den andra Live-utdatan kan tas bort 5 minuter efter att programmet har avslut ATS. Med den här andra till gången kan du skapa en ny plats för strömning för att publicera programmet som en till gång på begäran i appens katalog. Du kan upprepa den här processen flera gånger för andra program gränser eller markeringar som du vill dela som videor på begäran, allt medan Live-flödet från det första Live-resultatet fortsätter att sända det linjära flödet.
 
-## <a name="creating-an-archive-for-on-demand-playback"></a>Skapa ett arkiv för uppspelning på begäran
+## <a name="creating-an-archive-for-on-demand-playback"></a>Skapa ett Arkiv för uppspelning på begäran
 
-Den tillgång som Live Output arkiverar för att automatiskt blir en on-demand-tillgång när Live Output tas bort. Du måste ta bort alla liveutdata innan en livehändelse kan stoppas. Du kan använda en valfri flagga [som tar bortOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) för att automatiskt ta bort liveutdata vid stopp.
+Till gången som Live-utdata arkiveras till blir automatiskt en till gång på begäran när Live-utdata tas bort. Du måste ta bort alla Live-utdata innan en Live-händelse kan stoppas. Du kan använda en valfri flagga [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) för att automatiskt ta bort Live-utdata vid stopp.
 
-Även efter att du har stannat och tagit bort händelsen kan användarna strömma det arkiverade innehållet som en video på begäran, så länge du inte tar bort tillgången. En tillgång bör inte tas bort om den används av en händelse. Händelsen måste tas bort först.
+Även efter att du har stoppat och tagit bort händelsen kan användarna strömma ditt arkiverade innehåll som en video på begäran så länge du inte tar bort till gången. En till gång bör inte tas bort om den används av en händelse. händelsen måste tas bort först.
 
-Om du har publicerat tillgången för din Live Output med hjälp av en streaming locator, livehändelsen (upp till DVR-fönstrets längd) kommer att fortsätta att vara synlig tills streaming locator löper ut eller borttagning, beroende på vilket som inträffar först.
+Om du har publicerat till gången till din Live-utmatning med hjälp av en strömmande positionerare, fortsätter Live-händelsen (upp till fönstret för DVR-fönster) att visas tills den går ut eller ta bort streaming-adressen, beroende på vilket som kommer först.
 
 Mer information finns i:
 
-- [Översikt över livestreaming](live-streaming-overview.md)
-- [Självstudiekurs för livestreaming](stream-live-tutorial-with-api.md)
+- [Översikt över direkt uppspelning](live-streaming-overview.md)
+- [Själv studie kurs om Live-direktuppspelning](stream-live-tutorial-with-api.md)
 
 > [!NOTE]
-> När du tar bort Live Output tar du inte bort den underliggande tillgången och innehållet i tillgången.
+> När du tar bort Live-utdata tar du inte bort den underliggande till gången och innehållet i till gången.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Subclip dina videor](subclip-video-rest-howto.md).
-* [Definiera filter för dina tillgångar](filters-dynamic-manifest-rest-howto.md).
+* [Klipp dina videor](subclip-video-rest-howto.md).
+* [Definiera filter för dina till gångar](filters-dynamic-manifest-rest-howto.md).

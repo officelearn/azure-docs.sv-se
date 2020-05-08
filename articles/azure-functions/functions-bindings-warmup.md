@@ -230,7 +230,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 | **bastyp** | saknas| Required-måste anges till `warmupTrigger`. |
-| **riktning** | saknas| Required-måste anges till `in`. |
+| **position** | saknas| Required-måste anges till `in`. |
 | **Namn** | saknas| Obligatoriskt – variabel namnet som används i funktions koden.|
 
 ## <a name="trigger---usage"></a>Utlös användning

@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 3113f01341d2a1ec6160cfea3eb9d12d18b8495c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 49a94b8877d46cf95ec8701f470d87e187713f69
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687172"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583304"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Ansluta en underordnad enhet till en Azure IoT Edge-gateway
 
@@ -185,9 +185,9 @@ Det här avsnittet introducerar ett exempel program för att ansluta en Azure Io
 
 Det här avsnittet introducerar ett exempel program för att ansluta en Azure IoT python-enhets klient till en IoT Edge Gateway.
 
-1. Hämta exemplet för **send_message** från [Azure IoT-enhetens SDK för python-exempel](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
-2. Se till att du antingen kör i en IoT Edge-behållare eller i ett fel söknings scenario `EdgeHubConnectionString` och har `EdgeModuleCACertificateFile` ställt in miljövariablerna och.
-3. I SDK-dokumentationen hittar du instruktioner för hur du kör exemplet på enheten.
+1. Hämta exemplet för **send_message_downstream** från [Azure IoT-enhetens SDK för python-exempel](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
+2. Ställ in `IOTHUB_DEVICE_CONNECTION_STRING` miljövariablerna och `IOTEDGE_ROOT_CA_CERT_PATH` enligt vad som anges i kommentarerna för python-skriptet.
+3. Mer information om hur du kör exemplet på enheten finns i SDK-dokumentationen.
 
 ## <a name="test-the-gateway-connection"></a>Testa Gateway-anslutningen
 

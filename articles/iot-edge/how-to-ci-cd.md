@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9a653d13137a3067bfaf51c64c09454a08783e31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131414"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561026"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
@@ -54,7 +54,7 @@ I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen s�
 >
 >Mer information finns i [skapa en pipeline för bygge](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
-1. Logga in på din Azure DevOps-organisation (**https:\//dev.Azure.com/{Your Organization}/**) och öppna projektet som innehåller lagrings platsen för din IoT Edge lösning.
+1. Logga in på din Azure DevOps-organisation (**https\/:/dev.Azure.com/{Your Organization}/**) och öppna projektet som innehåller din IoT Edge lösnings lagrings plats.
 
    I den här artikeln har vi skapat ett lagrings lager med namnet **IoTEdgeRepo**. Databasen innehåller **IoTEdgeSolution** som har koden för en modul med namnet **filtermodule**.
 
@@ -100,6 +100,13 @@ I det här avsnittet skapar du en ny versions pipeline. Konfigurera pipelinen s�
    * **Standard plattform**: Välj lämplig plattform för dina moduler baserat på din mål IoT Edge enhet.
    * **Utdata**-variabler: variabler för utdata innehåller ett referens namn som du kan använda för att konfigurera fil Sök vägen där din Deployment. JSON-fil kommer att skapas. Ange referens namnet till något som du kan komma ihåg som **Edge**.
 
+
+   Dessa konfigurationer använder avbildnings lagrings platsen och taggen som definieras i `module.json` filen för att namnge och tagga avbildningen av modulen. Med hjälp av **module-avbildningar** kan du även ersätta variablerna med det exakta `module.json` värdet som du definierar i filen. I Visual Studio eller Visual Studio Code anger du det faktiska värdet i en `.env` fil. I Azure-pipeline ställer du in värdet på fliken **pipeline-variabler** . Välj fliken **variabler** och konfigurera namn och värde enligt följande:
+
+    * **ACR_ADDRESS**: din Azure Container Registry adress. 
+
+    Om du har andra variabler i ditt projekt kan du ange namn och värde på den här fliken. **Bygg avbildningar** identifierar endast variabler i `${VARIABLE}` format. Se till att du använder det här formatet `**/module.json` i dina filer.
+    
 7. Välj den andra **Azure IoT Edge** uppgiften för att redigera den. Den här uppgiften push-överför alla modulblad till det behållar register som du väljer.
 
    * **Visnings namn**: visnings namnet uppdateras automatiskt när åtgärds fältet ändras.

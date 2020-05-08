@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd7726d2bbf2830d18d78b5f0b0d7202b734124d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: add2805d9a360d3d9cd45ab54f476a6852fb7bd5
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537686"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858581"
 ---
 # <a name="enable-and-create-large-file-shares"></a>Aktivera och skapa stora fil resurser
 
@@ -26,14 +26,15 @@ När du aktiverar stora fil resurser på ditt lagrings konto kan fil resurserna 
 
 ## <a name="restrictions"></a>Begränsningar
 
-För närvarande kan du bara använda lokalt redundant lagring (LRS) eller zon redundant lagring (ZRS) på konton med stor fil resurs – aktiverade konton. Du kan inte använda geo-Zone-redundant lagring (GZRS), Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS).
-Att aktivera stora fil resurser på ett konto är en oåterkallelig process. När du har aktiverat det kan du inte konvertera ditt konto till GZRS, GRS eller RA-GRS.
+För närvarande kan du bara använda lokalt redundant lagring (LRS) eller zon redundant lagring (ZRS) på konton med stor fil resurs – aktiverade konton. Du kan inte använda geo-Zone-redundant lagring (GZRS), Geo-redundant lagring (GRS), Geo-redundant lagring med Läs behörighet (RA-GRS) eller Read-Access geo-Zone-redundant lagring (RA-GZRS).
+
+Att aktivera stora fil resurser på ett konto är en oåterkallelig process. När du har aktiverat det kan du inte konvertera ditt konto till GZRS, GRS, RA-GRS eller RA-GZRS.
 
 ## <a name="create-a-new-storage-account"></a>Skapa ett nytt lagringskonto
 
 ### <a name="portal"></a>Portalen
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **Alla tjänster** i Azure-portalen. 
 1. Ange **lagrings konton**i listan över resurser. När du skriver filtreras listan baserat på dina inaktuella inaktuella inaktuella inaktuella. Välj **Lagringskonton**.
 1. I fönstret **lagrings konton** som visas väljer du **Lägg till**.
@@ -47,7 +48,7 @@ Att aktivera stora fil resurser på ett konto är en oåterkallelig process. Nä
 1. Ange replikeringen till antingen **Lokalt Redundant lagring** eller **zon-redundant lagring**.
 1. Lämna dessa fält till standardvärdena:
 
-   |Field  |Värde  |
+   |Fält  |Värde  |
    |---------|---------|
    |Distributionsmodell     |Resource Manager         |
    |Prestanda     |Standard         |
@@ -68,7 +69,7 @@ Installera först [den senaste versionen av Azure CLI](https://docs.microsoft.co
 Om du vill skapa ett lagrings konto med stora fil resurser aktiverade använder du följande kommando. Ersätt `<yourStorageAccountName>`, `<yourResourceGroup>`och `<yourDesiredRegion>` med din information.
 
 ```azurecli-interactive
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 az storage account create --name <yourStorageAccountName> -g <yourResourceGroup> -l <yourDesiredRegion> --sku Standard_LRS --kind StorageV2 --enable-large-file-share
 ```
 
@@ -79,13 +80,13 @@ Installera först [den senaste versionen av PowerShell](https://docs.microsoft.c
 Om du vill skapa ett lagrings konto med stora fil resurser aktiverade använder du följande kommando. Ersätt `<yourStorageAccountName>`, `<yourResourceGroup>`och `<yourDesiredRegion>` med din information.
 
 ```powershell
-## This command creates a large file share–enabled account. It will not support GZRS, GRS, or RA-GRS.
+## This command creates a large file share–enabled account. It will not support GZRS, GRS, RA-GRS, or RA-GZRS.
 New-AzStorageAccount -ResourceGroupName <yourResourceGroup> -Name <yourStorageAccountName> -Location <yourDesiredRegion> -SkuName Standard_LRS -EnableLargeFileShare;
 ```
 
 ## <a name="enable-large-files-shares-on-an-existing-account"></a>Aktivera stora fil resurser på ett befintligt konto
 
-Du kan också aktivera stora fil resurser på dina befintliga konton. Om du aktiverar stora fil resurser kommer du inte att kunna konvertera till GZRS, GRS eller RA-GRS. Att aktivera stora fil resurser går inte att ångra på det här lagrings kontot.
+Du kan också aktivera stora fil resurser på dina befintliga konton. Om du aktiverar stora fil resurser kan du inte konvertera till GZRS, GRS, RA-GRS eller RA-GZRS. Att aktivera stora fil resurser går inte att ångra på det här lagrings kontot.
 
 ### <a name="portal"></a>Portalen
 

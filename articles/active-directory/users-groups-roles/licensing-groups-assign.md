@@ -10,23 +10,23 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9c61bbc794438c34a4bda27c8048ac0b21f9fc1
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253070"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582708"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Tilldela licenser till användare efter grupp medlemskap i Azure Active Directory
 
 Den här artikeln beskriver hur du tilldelar produkt licenser till en grupp användare och kontrollerar att de är korrekt licensierade i Azure Active Directory (Azure AD).
 
-I det här exemplet innehåller klienten en säkerhets grupp med namnet **HR Department**. Den här gruppen omfattar alla medlemmar av personalavdelningen (cirka 1 000 användare). Du vill tilldela Office 365 Enterprise E3-licenser till hela avdelningen. Yammer Enterprise-tjänsten som ingår i produkten måste vara tillfälligt inaktive rad tills avdelningen är redo att börja använda den. Du vill också distribuera Enterprise Mobility + Security licenser till samma grupp med användare.
+I det här exemplet innehåller Azure AD-organisationen en säkerhets grupp med namnet **HR Department**. Den här gruppen omfattar alla medlemmar av personalavdelningen (cirka 1 000 användare). Du vill tilldela Office 365 Enterprise E3-licenser till hela avdelningen. Yammer Enterprise-tjänsten som ingår i produkten måste vara tillfälligt inaktive rad tills avdelningen är redo att börja använda den. Du vill också distribuera Enterprise Mobility + Security licenser till samma grupp med användare.
 
 > [!NOTE]
 > Vissa Microsoft-tjänster är inte tillgängliga på alla platser. Innan en licens kan tilldelas en användare måste administratören ange egenskapen för användnings plats för användaren.
@@ -37,7 +37,7 @@ I det här exemplet innehåller klienten en säkerhets grupp med namnet **HR Dep
 
 1. Logga in på [**Azure AD Admin Center**](https://aad.portal.azure.com) med ett licens administratörs konto. För att hantera licenser måste kontot vara en licens administratör, användar administratör eller global administratör.
 
-1. Välj **licenser** för att öppna en sida där du kan se och hantera alla licensierbart-produkter i klienten.
+1. Välj **licenser** för att öppna en sida där du kan se och hantera alla licensierbart-produkter i organisationen.
 
 1. Under **alla produkter**väljer du både Office 365 Enterprise E5 och Enterprise Mobility + Security E3 genom att välja produkt namnen. Om du vill starta tilldelningen väljer du **tilldela** högst upp på sidan.
 

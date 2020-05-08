@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 5a05f2973ac17460250fb3e80eb7bc0da9849940
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05ff56c904fc48a1041ad40f00110a8ff0fd01f1
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262884"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592051"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Partiell terms ökning och mönster med specialtecken (jokertecken, regex, mönster)
 
@@ -24,7 +24,7 @@ Partiell och mönsters ökning kan vara problematiska om indexet inte har villko
 Lösningen är att anropa en analys som bevarar en fullständig sträng, inklusive blank steg och specialtecken, om det behövs, så att du kan matcha delar av termer och mönster. Att skapa ytterligare ett fält för en intakt sträng, plus en innehålls bevarad analys, är grunden för lösningen.
 
 > [!TIP]
-> Är du bekant med Postman och REST-API: er? [Ladda ned frågan exempel samling](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/full-syntax-examples) för att fråga efter del termer och specialtecken som beskrivs i den här artikeln.
+> Är du bekant med Postman och REST-API: er? [Ladda ned frågan exempel samling](https://github.com/Azure-Samples/azure-search-postman-samples/) för att fråga efter del termer och specialtecken som beskrivs i den här artikeln.
 
 ## <a name="what-is-partial-search-in-azure-cognitive-search"></a>Vad är delvis sökning i Azure Kognitiv sökning
 

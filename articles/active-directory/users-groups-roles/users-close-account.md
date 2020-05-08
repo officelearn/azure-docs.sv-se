@@ -1,5 +1,5 @@
 ---
-title: Stäng arbets-eller skol konto i en ohanterad Azure AD-katalog
+title: Stäng arbets-eller skol konto i en ohanterad Azure AD-organisation
 description: Hur du stänger ditt arbets-eller skol konto i en ohanterad Azure Active Directory.
 services: active-directory
 author: rolyon
@@ -13,18 +13,18 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c101c0ef7932151e675c5c514ac558e6e0f94b2
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 11c337f4838279771523a1f375b7349387d68f45
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73815724"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582548"
 ---
-# <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>Stäng ditt arbets-eller skol konto i en ohanterad katalog
+# <a name="close-your-work-or-school-account-in-an-unmanaged-azure-ad-organization"></a>Stäng ditt arbets-eller skol konto i en ohanterad Azure AD-organisation
 
-Om du är en användare i en ohanterad Azure Active Directory (Azure AD)-organisation och du inte längre behöver använda appar från den organisationen eller upprätthålla någon koppling till den, kan du när som helst stänga ditt konto. En ohanterad katalog har ingen global administratör. Användare i en ohanterad katalog kan stänga sina konton på egen hand, utan att behöva kontakta en administratör.
+Om du är en användare i en ohanterad Azure Active Organization-organisation (Azure AD) och du inte längre behöver använda appar från den organisationen eller upprätthålla någon koppling till den, kan du stänga ditt konto när som helst. En ohanterad organisation har inte en global administratör. Användare i en ohanterad organisation kan stänga sina konton på egen hand, utan att behöva kontakta en administratör.
 
-Användare i en ohanterad katalog skapas ofta under självbetjänings registrering. Ett exempel kan vara en informations anställd i en organisation som registrerar sig för en kostnads fri tjänst. Mer information om självbetjänings registrering finns i [Vad är självbetjänings registrering för Azure Active Directory?](directory-self-service-signup.md).
+Användare i en ohanterad organisation skapas ofta under självbetjänings registrering. Ett exempel kan vara en informations anställd i en organisation som registrerar sig för en kostnads fri tjänst. Mer information om självbetjänings registrering finns i [Vad är självbetjänings registrering för Azure Active Directory?](directory-self-service-signup.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -32,7 +32,7 @@ Användare i en ohanterad katalog skapas ofta under självbetjänings registreri
 
 Innan du kan avsluta ditt konto bör du bekräfta följande objekt:
 
-* Se till att du är en användare av en ohanterad Azure AD-katalog. Du kan inte stänga ditt konto om du tillhör en hanterad katalog. Om du tillhör en hanterad katalog och vill avsluta ditt konto måste du kontakta administratören. Information om hur du avgör om du tillhör en ohanterad katalog finns i [ta bort användaren från en ohanterad klient](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
+* Se till att du är en användare av en ohanterad Azure AD-organisation. Du kan inte stänga ditt konto om du tillhör en hanterad organisation. Om du tillhör en hanterad organisation och vill avsluta ditt konto måste du kontakta administratören. Information om hur du avgör om du tillhör en ohanterad organisation finns i [ta bort användaren från en ohanterad klient](https://docs.microsoft.com/flow/gdpr-dsr-delete#delete-the-user-from-unmanaged-tenant).
 
 * Spara alla data som du vill behålla. Information om hur du skickar en export förfrågan finns i [komma åt och exportera systemgenererade loggar för ohanterade klienter](https://docs.microsoft.com/power-platform/admin/powerapps-gdpr-dsr-guide-systemlogs#accessing-and-exporting-system-generated-logs-for-unmanaged-tenants).
 

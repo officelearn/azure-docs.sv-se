@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: dineshm
-ms.openlocfilehash: 0f9e80aff20c1b2663491f6d6ceb99aaec58230f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29ce845fa3239dd48ff2ff0480beff08cf704b30
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74269454"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82591694"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Lista över Azure Storage-resurser i C++
 
@@ -34,7 +34,7 @@ Var och en av dessa metoder visas med olika överbelastningar för olika scenari
 
 ## <a name="asynchronous-versus-synchronous"></a>Asynkron jämfört med synkron
 
-Eftersom lagrings klient biblioteket för C++ skapas ovanpå [C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk), stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Ett exempel:
+Eftersom lagrings klient biblioteket för C++ skapas ovanpå [C++ rest-biblioteket](https://github.com/Microsoft/cpprestsdk), stöder vi asynkrona åtgärder med hjälp av [PPLX:: Task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Exempel:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -62,7 +62,7 @@ Svaret på en segmenterad registrerings åtgärd inkluderar:
 * *_segment*, som innehåller den uppsättning resultat som returneras för ett enda anrop till List-API: et.
 * *continuation_token*, som skickas till nästa anrop för att få nästa resultat sida. Om det inte finns några fler resultat att returnera, är den fortsättnings-token null.
 
-Till exempel kan ett typiskt anrop för att lista alla blobbar i en behållare se ut som i följande kodfragment. Koden är tillgänglig i våra [exempel](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted/Application.cpp):
+Till exempel kan ett typiskt anrop för att lista alla blobbar i en behållare se ut som i följande kodfragment. Koden är tillgänglig i våra [exempel](https://github.com/Azure/azure-storage-cpp/blob/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp):
 
 ```cpp
 // List blobs in the blob container
@@ -185,7 +185,7 @@ API: er för Lazy List ingår i lagrings klient biblioteket för C++ i version 2
 
 ## <a name="conclusion"></a>Slutsats
 
-I den här artikeln har vi diskuterat olika överbelastningar för att Visa API: er för olika objekt i lagrings klient biblioteket för C++. Sammanfattning:
+I den här artikeln har vi diskuterat olika överbelastningar för att Visa API: er för olika objekt i lagrings klient biblioteket för C++. Sammanfattningsvis:
 
 * Asynkrona API: er rekommenderas starkt under flera tråd scenarier.
 * Segmenterad lista rekommenderas för de flesta scenarier.

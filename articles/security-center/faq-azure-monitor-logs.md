@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: f6384c1e9e14e38b4c44c5ac79a674839b43b4ca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe306cf7d17f0789c5e134c3fcad3f8f07a0b80
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436156"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612834"
 ---
 # <a name="faq-for-customers-already-using-azure-monitor-logs"></a>Vanliga frågor och svar om kunder som redan använder Azure Monitor loggar<a name="existingloganalyticscust"></a>
 
@@ -42,7 +42,7 @@ När Security Center identifierar att en virtuell dator redan är ansluten till 
 ## <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Jag har redan arbets ytor i min miljö, kan jag använda dem för att samla in säkerhets data?
 Om en virtuell dator redan har Log Analytics-agenten installerad som ett Azure-tillägg, Security Center använda den befintliga anslutna arbets ytan. En Security Center lösning installeras på arbets ytan om den inte redan finns, och lösningen tillämpas bara på relevanta virtuella datorer via [lösnings mål](../operations-management-suite/operations-management-suite-solution-targeting.md).
 
-När Security Center installerar Log Analytics-agenten på virtuella datorer används standard arbets ytorna som skapats av Security Center.
+När Security Center installerar Log Analytics agent på virtuella datorer används standard arbets ytorna som skapats av Security Center om Security Center inte pekar på en befintlig arbets yta.
 
 ## <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Jag har redan säkerhets lösning på mina arbets ytor. Vilka är fakturerings konsekvenserna?
 Säkerhets & gransknings lösningen används för att aktivera Security Center standard-nivå funktioner för virtuella Azure-datorer. Om säkerhets & gransknings lösningen redan är installerad på en arbets yta använder Security Center den befintliga lösningen. Faktureringen har inte ändrats.

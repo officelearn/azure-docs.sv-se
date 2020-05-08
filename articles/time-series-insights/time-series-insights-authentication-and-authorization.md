@@ -11,13 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/14/2020
-ms.custom: seodec18
-ms.openlocfilehash: beefad41a270233336bb9134268c98341e81a7cd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: bf959a7ac8c1038c4306a45ba4519374c5d85f29
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380812"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612290"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights API
 
@@ -93,7 +93,7 @@ Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarauten
 
    1. Token kan sedan skickas i `Authorization` rubriken när programmet anropar Time Series Insights-API: et.
 
-* Utvecklare kan också välja att autentisera med MSAL. Läs om hur [du migrerar till MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) och finns i artikeln [Hantera ga-referenser för en Azure Time Series Insights miljö med C#](time-series-insights-manage-reference-data-csharp.md) -artikel för mer information. 
+* Utvecklare kan också välja att autentisera med MSAL. Läs om hur [du migrerar till MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) och finns i artikeln [Hantera ga-referenser för en Azure Time Series Insights miljö med C#](time-series-insights-manage-reference-data-csharp.md) -artikel för mer information.
 
 ## <a name="common-headers-and-parameters"></a>Vanliga rubriker och parametrar
 
@@ -104,7 +104,7 @@ I det här avsnittet beskrivs vanliga HTTP-begärandehuvuden och parametrar som 
 
 ### <a name="authentication"></a>Autentisering
 
-För att utföra autentiserade frågor mot [Time Series Insights REST-API: er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2,0 Bearer-token skickas i [Authorization-huvudet](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) med en rest-klient som du väljer (Postman, Java Script, C#). 
+För att utföra autentiserade frågor mot [Time Series Insights REST-API: er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2,0 Bearer-token skickas i [Authorization-huvudet](/rest/api/apimanagement/2019-12-01/authorizationserver/createorupdate) med en rest-klient som du väljer (Postman, Java Script, C#).
 
 > [!TIP]
 > Läs den värdbaserade Azure Time Series Insights [SDK-exemplet för klient-SDK](https://tsiclientsample.azurewebsites.net/) för att lära dig att autentisera med Time Series Insights-API: er program mässigt med hjälp av [Java Script client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) tillsammans med diagram och diagram.
@@ -115,7 +115,7 @@ Obligatoriska begärandehuvuden beskrivs nedan.
 
 | Nödvändigt begär ande huvud | Beskrivning |
 | --- | --- |
-| Auktorisering | För att autentisera med Time Series Insights måste en giltig OAuth 2,0 Bearer-token skickas i **Authorization** -huvudet. | 
+| Auktorisering | För att autentisera med Time Series Insights måste en giltig OAuth 2,0 Bearer-token skickas i **Authorization** -huvudet. |
 
 > [!IMPORTANT]
 > Token måste utfärdas exakt till `https://api.timeseries.azure.com/` resursen (kallas även "mål grupp" för token).
@@ -149,15 +149,15 @@ Obligatoriska URL-frågeparametrar är beroende av API-versionen.
 | Frisläpp | Möjliga API-värden |
 | --- |  --- |
 | Allmän tillgänglighet | `api-version=2016-12-12`|
-| Förhandsversion | `api-version=2018-11-01-preview` |
-| Förhandsversion | `api-version=2018-08-15-preview` |
+| Förhandsgranskning | `api-version=2018-11-01-preview` |
+| Förhandsgranskning | `api-version=2018-08-15-preview` |
 
 Valfria URL-parametrar för frågesträngar inkluderar att ange en tids gräns för körnings tider för HTTP-begäran.
 
 | Valfri frågeparameter | Beskrivning | Version |
 | --- |  --- | --- |
 | `timeout=<timeout>` | Tids gräns på Server sidan för körning av HTTP-begäran. Gäller endast för [Hämta miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) och hämta API: er för [samling av miljö](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) . Timeout-värdet ska vara i ISO 8601-varaktighets format `"PT20S"` , till exempel och måste vara `1-30 s`inom intervallet. Standardvärdet `30 s`är. | Allmän tillgänglighet (GA) |
-| `storeType=<storeType>` | För för hands versioner av miljöer där varm lagring är aktiverat kan frågan köras antingen på `WarmStore` eller `ColdStore`. Den här parametern i frågan definierar i vilken lagring frågan ska köras. Om den inte är definierad körs frågan på kall butiken. **StoreType** måste ställas in på `WarmStore`för att kunna fråga det varmt arkivet. Om den inte är definierad utförs frågan mot kyl lagret. | Förhandsversion |
+| `storeType=<storeType>` | För för hands versioner av miljöer där varm lagring är aktiverat kan frågan köras antingen på `WarmStore` eller `ColdStore`. Den här parametern i frågan definierar i vilken lagring frågan ska köras. Om den inte är definierad körs frågan på kall butiken. **StoreType** måste ställas in på `WarmStore`för att kunna fråga det varmt arkivet. Om den inte är definierad utförs frågan mot kyl lagret. | Förhandsgranskning |
 
 ## <a name="next-steps"></a>Nästa steg
 

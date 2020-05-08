@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 600167e529e1ff8cfa65eeb3d0fb6fe26e9466bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137526"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738073"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Återaktivering av skydd på virtuella Azure-datorer till den primära regionen
 
@@ -95,6 +95,10 @@ Följande villkor avgör hur mycket data som replikeras:
 |Käll regionen har 1 virtuell dator med 1 TB Premium-disk.<br/>Endast 20 GB data används och resten av disken är tom.<br/>Disk typen är Premium med 200 Mbit/s genom strömning.<br/>De inledande data på disken omedelbart efter redundansväxlingen var 15 GB. Det fanns 5 GB data ändring efter redundansväxlingen. Totalt antal fyllda data är därför 20 GB| Ungefärlig tid: 30-45 minuter.<br/>Eftersom de data som är ifyllda på disken är mindre än 10% av disk storleken utför vi en fullständig inledande replikering.<br/>Överföringshastigheten är cirka 16% av genomflödet eller 32MBps. Därför ska överförings tiden för att tillämpa ändringar på 20 GB som är 20 GB/32 MBps, ungefär 11 minuter.<br/>Det krävs en del omkostnader för Site Recovery för automatisk skalning, ungefär 20-30 minuter |
 
 När den virtuella datorn skyddas igen efter att ha växlat tillbaka till den primära regionen (dvs. om den virtuella datorn skyddas från primär region till DR-region) tas den virtuella mål datorn och de associerade NIC: erna bort.
+
+När den virtuella datorn skyddas på nytt från DR-regionen till den primära regionen tar vi inte bort den primära virtuella datorn erstwhile och tillhör ande NIC (n).
+
+När den virtuella datorn skyddas igen efter att ha växlat tillbaka till den primära regionen (dvs. om den virtuella datorn skyddas från primär region till DR-region) tas den virtuella mål datorn och de associerade NIC: erna bort. 
 
 När den virtuella datorn skyddas på nytt från DR-regionen till den primära regionen tar vi inte bort den primära virtuella datorn erstwhile och tillhör ande NIC (n).
 

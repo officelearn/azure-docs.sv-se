@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: b68e7b517ddaa9b2aaef00cf87d5b6e63871654b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c828878506ee69e90945d1f4be07eb81541b9757
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064027"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625416"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Visa och Sök efter din senaste inloggnings aktivitet från sidan mina inloggningar (för hands version)
 
@@ -30,7 +30,7 @@ Du kan visa all din senaste inloggnings aktivitet för arbets-eller skol konton 
 
 ## <a name="view-your-recent-sign-in-activity"></a>Visa din senaste inloggningsaktivitet
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myaccount.microsoft.com/ din sida.
 
 2. Välj **Mina inloggningar (förhands granskning)** i det vänstra navigerings fönstret eller Välj länken **Granska senaste aktivitet** från blockeringen **mitt inloggnings program (för hands version)** .
 

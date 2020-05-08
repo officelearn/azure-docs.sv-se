@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: f5f18e9365b09f06c1bd4f25a8efe909cc308dad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d97fbe6ac515a2559340474105d73b7c9b9c6ee4
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537023"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731925"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera Uppdateringshantering-, Ändringsspårning-och inventerings lösningar på flera virtuella datorer
 
@@ -129,7 +129,7 @@ När flera datorer onboardas kan det finnas datorer som visas som `Cannot enable
 
 **Orsak:** Lösningen stöds inte för alla Linux-distributioner eller alla versioner av Windows.
 
-**Lösning:** Se [listan över klienter som stöds](automation-update-management.md#clients) för lösningen.
+**Lösning:** Se [listan över klienter som stöds](automation-update-management.md#supported-client-types).
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Det går inte att aktivera klassiska virtuella datorer
 

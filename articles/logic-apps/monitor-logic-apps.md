@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 495877f1c839de2cf3583a37180054c91bd9f139
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: c2a609266a77293a0e3a5cb9c973a6eb3f7f72a9
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76907778"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732010"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Övervaka körnings status, granska utlösnings historik och konfigurera aviseringar för Azure Logic Apps
 
@@ -19,7 +19,8 @@ När du har [skapat och kört en Logic-app](../logic-apps/quickstart-create-firs
 
 För händelse övervakning i real tid och bättre fel sökning, ställer du in diagnostikloggning för din Logic app genom att använda [Azure Monitor loggar](../azure-monitor/overview.md). Med den här Azure-tjänsten kan du övervaka molnet och lokala miljöer så att du enklare kan underhålla deras tillgänglighet och prestanda. Du kan sedan söka efter och Visa händelser, t. ex. utlösa händelser, köra händelser och åtgärds händelser. Genom att lagra informationen i [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md)kan du skapa [logg frågor](../azure-monitor/log-query/log-query-overview.md) som hjälper dig att hitta och analysera den här informationen. Du kan också använda dessa diagnostikdata med andra Azure-tjänster, till exempel Azure Storage och Azure Event Hubs. Mer information finns i [övervaka Logic Apps med hjälp av Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> Om dina Logi Kap par körs i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) som har skapats för att använda en [intern åtkomst slut punkt](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access), kan du Visa och komma åt indata och utdata från Logic Apps körnings historik endast inifrån *det virtuella nätverket*. Kontrol lera att du har nätverks anslutning mellan de privata slut punkterna och den dator där du vill komma åt körnings historiken. Klient datorn kan till exempel finnas i ISE: s virtuella nätverk eller i ett virtuellt nätverk som är anslutet till ISE: s virtuella nätverk, till exempel via peering eller ett virtuellt privat nätverk. Mer information finns i [åtkomst till ISE-slutpunkt](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
 
 <a name="review-runs-history"></a>
 
@@ -50,7 +51,7 @@ Varje gång utlösaren utlöses för ett objekt eller en händelse skapas och k�
    | **Avbrutet** | Arbets flödet kördes men tog emot en Cancel-begäran |
    | **Misslyckades** | Minst en åtgärd misslyckades, och inga senare åtgärder i arbets flödet har kon figurer ATS för att hantera fel |
    | **Körs** | Arbets flödet körs för närvarande. <p>Den här statusen kan också visas för begränsade arbets flöden eller på grund av den aktuella pris planen. Mer information finns i [Åtgärds gränserna på sidan med priser](https://azure.microsoft.com/pricing/details/logic-apps/). Om du konfigurerar [diagnostikloggning](../logic-apps/monitor-logic-apps.md)kan du få information om eventuella begränsnings händelser som inträffar. |
-   | **Lyckades** | Alla åtgärder har genomförts. <p>**Obs!** om några problem inträffar i en speciell åtgärd, hanterade en senare åtgärd i arbets flödet det här problemet. |
+   | **Brutit** | Alla åtgärder har genomförts. <p>**Obs!** om några problem inträffar i en speciell åtgärd, hanterade en senare åtgärd i arbets flödet det här problemet. |
    | **Väntar** | Arbets flödet har inte startats eller pausats, till exempel på grund av ett tidigare arbets flöde som fortfarande körs. |
    |||
 
@@ -119,7 +120,7 @@ Varje Logic app-körning börjar med en utlösare. I utlösarens historik visas 
    |--------|-------------|
    | **Misslyckades** | Ett fel inträffade. Om du vill granska eventuella genererade fel meddelanden för en misslyckad utlösare väljer du det Utlös ande försöket och väljer **utdata**. Du kan till exempel hitta indata som inte är giltiga. |
    | **Överhoppad** | Utlösaren kontrollerade slut punkten men hittade inga data. |
-   | **Lyckades** | Utlösaren kontrollerade slut punkten och hittade tillgängliga data. Normalt visas statusen "utlöst" även tillsammans med denna status. Om inte, kan utlösarens definition ha ett villkor eller `SplitOn` kommando som inte uppfylldes. <p>Den här statusen kan gälla för en manuell utlösare, upprepnings utlösare eller avsöknings utlösare. En utlösare kan köras utan problem, men själva körningen kan fortfarande Miss lyckas när åtgärderna genererar ohanterade fel. |
+   | **Brutit** | Utlösaren kontrollerade slut punkten och hittade tillgängliga data. Normalt visas statusen "utlöst" även tillsammans med denna status. Om inte, kan utlösarens definition ha ett villkor eller `SplitOn` kommando som inte uppfylldes. <p>Den här statusen kan gälla för en manuell utlösare, upprepnings utlösare eller avsöknings utlösare. En utlösare kan köras utan problem, men själva körningen kan fortfarande Miss lyckas när åtgärderna genererar ohanterade fel. |
    |||
 
    > [!TIP]

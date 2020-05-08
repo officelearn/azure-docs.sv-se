@@ -40,8 +40,8 @@ Anta till exempel att du kör ett allmänt syfte, Gen5 – 32 vCore PostgreSQL D
 
 ## <a name="buy-azure-database-for-postgresql-reserved-capacity"></a>Köp Azure Database for PostgreSQL reserverad kapacitet
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
-2. Välj **alla tjänster** > **reservationer**.
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
+2. Välj **Alla tjänster** > **Reservationer**.
 3. Välj **Lägg till** och sedan i fönstret köp reservationer väljer du **Azure Database for PostgreSQL** för att köpa en ny reservation för dina postgresql-databaser.
 4. Fyll i de obligatoriska fälten. Befintliga eller nya databaser som matchar de attribut du väljer kvalificera för att hämta den reserverade kapacitets rabatten. Det faktiska antalet Azure Database for PostgreSQL-servrar som får rabatten beroende på omfattning och vald kvantitet.
 
@@ -63,7 +63,7 @@ I följande tabell beskrivs obligatoriska fält.
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Mer information finns i [självbetjänings utbyten och åter betalningar för Azure reservations](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
+Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](https://docs.microsoft.com/azure/billing/billing-azure-reservations-self-service-exchange-and-refund).
 
 ## <a name="vcore-size-flexibility"></a>flexibilitet för vCore-storlek
 

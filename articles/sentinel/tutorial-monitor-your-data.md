@@ -1,6 +1,6 @@
 ---
-title: Visualisera dina data med hjälp av instrument paneler baserade på Azure Monitor arbets böcker i Azure Sentinel | Microsoft Docs
-description: I den här självstudien får du lära dig hur du visualiserar dina data med hjälp av instrument paneler baserade på arbets böcker i Azure Sentinel.
+title: Visualisera dina data med Azure Monitor arbets böcker i Azure Sentinel | Microsoft Docs
+description: I den här självstudien får du lära dig hur du visualiserar dina data med hjälp av arbets böcker i Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/01/2020
+ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f145b75ba351121bf750f90dbc0a7df382ca04b1
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77585228"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739168"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Självstudie: visualisera och övervaka dina data
 
 
 
-När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel kan du visualisera och övervaka data med hjälp av Azure Sentinel-införandet av Azure Monitor arbets böcker, vilket ger mångsidighet i att skapa anpassade instrument paneler. Även om arbets böckerna visas på olika sätt i Azure Sentinel, kan det vara praktiskt att se hur du [skapar interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/app/usage-workbooks.md). Med Azure Sentinel kan du skapa anpassade arbets böcker i dina data och även med inbyggda mallar för arbets böcker så att du snabbt kan få insikter om dina data så snart du ansluter en data källa.
+När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel kan du visualisera och övervaka data med hjälp av Azure Sentinel-införandet av Azure Monitor arbets böcker, vilket ger mångsidighet i att skapa anpassade instrument paneler. Även om arbets böckerna visas på olika sätt i Azure Sentinel, kan det vara praktiskt att se hur du [skapar interaktiva rapporter med Azure Monitor arbets böcker](../azure-monitor/app/usage-workbooks.md). Med Azure Sentinel kan du skapa anpassade arbets böcker i dina data och även med inbyggda mallar för arbets böcker så att du snabbt kan få insikter om dina data så snart du ansluter en data källa.
 
 
 Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
@@ -38,7 +38,7 @@ Den här självstudien hjälper dig att visualisera dina data i Azure Sentinel.
 - Du måste ha minst behörigheter för arbets boks läsare eller arbets bok deltagare för resurs gruppen i Azure Sentinel-arbetsytan.
 
 > [!NOTE]
-> Arbets böckerna som du kan se i Azure Sentinel sparas i resurs gruppen för Azure Sentinel-arbetsytan och märks av arbets ytan där de skapades.
+> Arbets böckerna som du kan se i Azure Sentinel sparas i resurs gruppen i Azure Sentinel-arbetsytan och märks av arbets ytan där de skapades.
 
 ## <a name="use-built-in-workbooks"></a>Använda inbyggda arbets böcker
 

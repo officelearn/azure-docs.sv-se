@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 02d9ce87d45c5f1c9a123aae18f7d710b268f03e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6817ac4ebc272747776eab8b11dba62f318e4ed
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80582260"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690722"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Azure Service Bus utgående bindning för Azure Functions
 
@@ -282,12 +282,12 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste vara inställd på "Service Bus". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**riktning** | saknas | Måste anges till "out". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**position** | saknas | Måste anges till "out". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
 |**Namn** | saknas | Namnet på variabeln som representerar kön eller ämnes meddelandet i funktions koden. Ange till "$return" för att referera till funktionens retur värde. |
 |**queueName**|**QueueName**|Köns namn.  Ange endast om köa meddelanden ska skickas, inte för ett ämne.
 |**topicName**|**TopicName**|Namn på ämnet. Ange endast om meddelande ämnen skickas, inte för en kö.|
 |**anslutningen**|**Anslutning**|Namnet på en app-inställning som innehåller den Service Bus anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet. Om du till exempel anger `connection` "MyServiceBus" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyServiceBus". Om du lämnar `connection` tomt använder Functions-körningen standard Service Bus anslutnings strängen i appens inställning med namnet "AzureWebJobsServiceBus".<br><br>Om du vill hämta en anslutnings sträng följer du stegen som visas i [Hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Anslutnings strängen måste vara för ett Service Bus-namnområde, inte begränsat till en viss kö eller ett ämne.|
-|**accessRights**|**Åtkomst**|Åtkomst behörighet för anslutnings strängen. Tillgängliga värden är `manage` och `listen`. Standardvärdet `manage`är, vilket anger att `connection` har behörigheten **Hantera** . Om du använder en anslutnings sträng som inte har behörigheten **Hantera** , anger `accessRights` du "lyssna". I annat fall kan funktions körningen Miss kan försöka utföra åtgärder som kräver behörighet att hantera. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Service Bus SDK inte stöder hanterings åtgärder.|
+|**accessRights** (endast v1)|**Åtkomst**|Åtkomst behörighet för anslutnings strängen. Tillgängliga värden är `manage` och `listen`. Standardvärdet `manage`är, vilket anger att `connection` har behörigheten **Hantera** . Om du använder en anslutnings sträng som inte har behörigheten **Hantera** , anger `accessRights` du "lyssna". I annat fall kan funktions körningen Miss kan försöka utföra åtgärder som kräver behörighet att hantera. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Service Bus SDK inte stöder hanterings åtgärder.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -366,9 +366,9 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
         "serviceBus": {
             "prefetchCount": 100,
             "messageHandlerOptions": {
-                "autoComplete": false,
+                "autoComplete": true,
                 "maxConcurrentCalls": 32,
-                "maxAutoRenewDuration": "00:55:00"
+                "maxAutoRenewDuration": "00:05:00"
             },
             "sessionHandlerOptions": {
                 "autoComplete": false,
@@ -380,13 +380,15 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
     }
 }
 ```
+Om du har `isSessionsEnabled` ställt in `true`till, `sessionHandlerOptions` kommer att användas.  Om du har `isSessionsEnabled` ställt in `false`till, `messageHandlerOptions` kommer att användas.
 
 |Egenskap  |Standardvärde | Beskrivning |
 |---------|---------|---------|
 |prefetchCount|0|Hämtar eller anger antalet meddelanden som meddelande mottagaren samtidigt kan begära.|
 |maxAutoRenewDuration|00:05:00|Den längsta tid som meddelande låset ska förnyas automatiskt.|
-|Automatisk|true|Om utlösaren omedelbart ska markera meddelandet som slutfört (komplettera automatiskt) eller vänta tills funktionen avslutas för att anropa slutförd.|
-|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringning som meddelande pumpen ska initiera. Som standard bearbetar Functions-körningen flera meddelanden samtidigt. Om du vill dirigera körningen så att den bara behandlar en enskild kö eller ett ämnes meddelande `maxConcurrentCalls` i taget, anger du 1. |
+|Automatisk|true|Anger om utlösaren ska anropa Complete efter bearbetning eller om funktions koden ska anropas manuellt.|
+|maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till motringningen som meddelande pumpen ska initiera per skalad instans. Som standard bearbetar Functions-körningen flera meddelanden samtidigt.|
+|maxConcurrentSessions|2000|Maximalt antal sessioner som kan hanteras samtidigt per skalad instans.|
 
 ## <a name="next-steps"></a>Nästa steg
 

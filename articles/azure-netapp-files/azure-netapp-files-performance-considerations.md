@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 97e3c6212edd2ade4eabb96db3543e9b3b68e2ae
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "67454144"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691316"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Saker att tänka på gällande prestanda för Azure NetApp Files
 
@@ -34,8 +34,6 @@ Vanliga överväganden för lagrings prestanda, inklusive Läs-och skriv mixning
 Det maximala empiriska data flödet som har observerats vid testning är 4 500 MiB/s.  På Premium Storage-nivån tillhandahåller en volym kvot på 70,31 TiB en gräns för data flöde som är tillräckligt hög för att uppnå den här prestanda nivån.  
 
 Om du överväger att tilldela volym kvots mängder utöver 70,31 TiB kan ytterligare kvot tilldelas till en volym för lagring av ytterligare data. Den tillagda kvoten kommer dock inte att resultera i en ytterligare ökning av det faktiska data flödet.  
-
-Mer information finns i [prestanda mått för Azure NetApp Files](azure-netapp-files-performance-benchmarks.md) .
 
 ## <a name="overprovisioning-the-volume-quota"></a>Överetablera volym kvoten
 
@@ -64,4 +62,4 @@ Om dina prestanda krav är temporära i natur, eller om du har ökat prestanda b
 ## <a name="next-steps"></a>Nästa steg
 
 - [Tjänstnivåer för Azure NetApp Files](azure-netapp-files-service-levels.md)
-- [Prestandamått för Azure NetApp Files](azure-netapp-files-performance-benchmarks.md)
+- [Prestandamått för Linux](performance-benchmarks-linux.md)

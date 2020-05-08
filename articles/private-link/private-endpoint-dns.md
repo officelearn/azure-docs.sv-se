@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 477a5ffa971120d1a98c09ac4ae8ebda1c82b770
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3ec7021e63257a3c9f8cf84c6ddc0c3707fbf3bc
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209034"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928653"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>DNS-konfiguration för privat slutpunkt i Azure
 
@@ -36,57 +36,58 @@ Dina program behöver inte ändra anslutnings-URL: en. När du försöker matcha
 
 För Azure-tjänster använder du de rekommenderade zon namnen enligt beskrivningen i följande tabell:
 
-|Resurs typ för privat länk   |Underresurs  |Zonnamn  |
-|---------|---------|---------|
-|SQL DB (Microsoft. SQL/Servers)    |  SQL Server (sqlServer)        |   privatelink.database.windows.net       |
-|Azure Synapse Analytics (Microsoft. SQL/Servers)    |  SQL Server (sqlServer)        | privatelink.database.windows.net |
-|Lagrings konto (Microsoft. Storage/storageAccounts)    |  BLOB (BLOB, blob_secondary)        |    privatelink.blob.core.windows.net      |
-|Lagrings konto (Microsoft. Storage/storageAccounts)    |    Tabell (tabell, table_secondary)      |   privatelink.table.core.windows.net       |
-|Lagrings konto (Microsoft. Storage/storageAccounts)    |    Kö (kö, queue_secondary)     |   privatelink.queue.core.windows.net       |
-|Lagrings konto (Microsoft. Storage/storageAccounts)   |    Fil (fil, file_secondary)      |    privatelink.file.core.windows.net      |
-|Lagrings konto (Microsoft. Storage/storageAccounts)     |  Webb (webb, web_secondary)        |    privatelink.web.core.windows.net      |
-|Data Lake Gen2 för fil system (Microsoft. Storage/storageAccounts)  |  Data Lake Gen2 för fil system (DFS, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|SQL    |privatelink.documents.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|MongoDB    |privatelink.mongo.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Gremlin    |privatelink.gremlin.cosmos.azure.com|
-|Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)|Tabell|privatelink.table.cosmos.azure.com|
-|Azure Database for PostgreSQL-enskild server (Microsoft. DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
-|Azure Database for MySQL (Microsoft. DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
-|Azure Database for MariaDB (Microsoft. DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
-|Azure Key Vault (Microsoft. nyckel valv/-valv)|valv|privatelink.vaultcore.azure.net|
-|Azure Kubernetes service – Kubernetes-API (Microsoft. container service/managedClusters)    | managedCluster | {GUID}. privatelink. {region}. azmk8s. io|
-|Azure Search (Microsoft. search/searchServices)|searchService|privatelink.search.windows.net|   
-|Azure Container Registry (Microsoft. ContainerRegistry/register) | registry | privatelink.azurecr.io |
-|Azure App konfiguration (Microsoft. Appconfiguration/configurationStores)| configurationStore | privatelink.azconfig.io|
-|Azure Backup (Microsoft. RecoveryServices/valv)| valv |privatelink. {region}. backup. windowsazure. com|
-|Azure Event Hub (Microsoft. EventHub/Namespaces)| namnområde |privatelink.servicebus.windows.net|
-|Azure Service Bus (Microsoft. Service Bus/Namespaces) | namnområde |privatelink.servicebus.windows.net|
-|Azure Relay (Microsoft. Relay/Namespaces) | namnområde |privatelink.servicebus.windows.net|
-|Azure Event Grid (Microsoft. EventGrid/topics)     | ämne | ovan. {region}. privatelink. eventgrid. Azure. net|
-|Azure Event Grid (Microsoft. EventGrid/Domains) | domän | domänsuffix. {region}. privatelink. eventgrid. Azure. net |
-|Azure-Webbappar (Microsoft. Web/Sites)    | webbplats | privatelink.azurewebsites.net |
-|Azure Machine Learning (Microsoft. MachineLearningServices/arbetsyte)    | arbetsyta | privatelink.api.azureml.ms |
+| Resurs typ för privat länk/under resurs |Privat DNS zonnamn | Namn på offentlig DNS-zon |
+|---|---|---|---|
+| SQL DB (Microsoft. SQL/Servers)/SQL Server | privatelink.database.windows.net | database.windows.net |
+| Azure Synapse Analytics (Microsoft. SQL/Servers)/SQL Server  | privatelink.database.windows.net | database.windows.net |
+| Lagrings konto (Microsoft. Storage/storageAccounts)/BLOB (BLOB, blob_secondary) | privatelink.blob.core.windows.net | blob.core.windows.net |
+| Lagrings konto (Microsoft. Storage/storageAccounts)/tabell (tabell, table_secondary) | privatelink.table.core.windows.net | table.core.windows.net |
+| Lagrings konto (Microsoft. Storage/storageAccounts)/kö (kö, queue_secondary) | privatelink.queue.core.windows.net | queue.core.windows.net |
+| Lagrings konto (Microsoft. Storage/storageAccounts)/fil (fil, file_secondary) | privatelink.file.core.windows.net | file.core.windows.net |
+| Lagrings konto (Microsoft. Storage/storageAccounts)/Webb (webb, web_secondary) | privatelink.web.core.windows.net | web.core.windows.net |
+| Data Lake fil systemets Gen2 (Microsoft. Storage/storageAccounts)/Data Lake fil system Gen2 (DFS, dfs_secondary) | privatelink.dfs.core.windows.net | dfs.core.windows.net |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/SQL | privatelink.documents.azure.com | documents.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/MongoDB | privatelink.mongo.cosmos.azure.com | mongo.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/Cassandra | privatelink.cassandra.cosmos.azure.com | cassandra.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/Gremlin | privatelink.gremlin.cosmos.azure.com | gremlin.cosmos.azure.com |
+| Azure Cosmos DB (Microsoft. AzureCosmosDB/databaseAccounts)/tabell | privatelink.table.cosmos.azure.com | table.cosmos.azure.com |
+| Azure Database for PostgreSQL-enskild server (Microsoft. DBforPostgreSQL/servers)/postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
+| Azure Database for MySQL (Microsoft. DBforMySQL/servers)/multisqlserver | privatelink.mysql.database.azure.com | mysql.database.azure.com |
+| Azure Database for MariaDB (Microsoft. DBforMariaDB/servers)/mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
+| Azure Key Vault (Microsoft. nyckel valv/valv)/valv | privatelink.vaultcore.azure.net | vault.azure.net |
+| Azure Kubernetes service – Kubernetes API (Microsoft. container service/managedClusters)/managedCluster | privatelink. {region}. azmk8s. io | {region}. azmk8s. io |
+| Azure Search (Microsoft. search/searchServices)/searchService | privatelink.search.windows.net | search.windows.net |
+| Azure Container Registry (Microsoft. ContainerRegistry/register)/register | privatelink.azurecr.io | azurecr.io |
+| Azure App konfiguration (Microsoft. AppConfiguration/configurationStores)/configurationStore | privatelink.azconfig.io | azconfig.io |
+| Azure Backup (Microsoft. RecoveryServices/valv)/valv | privatelink. {region}. backup. windowsazure. com | {region}. backup. windowsazure. com |
+| Azure Event Hub (Microsoft. EventHub/Namespaces)/namnrymd | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Azure Service Bus (Microsoft. Service Bus/Namespaces)/namnrymd | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Azure Relay (Microsoft. Relay/Namespaces)/namnrymd | privatelink.servicebus.windows.net | servicebus.windows.net |
+| Azure Event Grid (Microsoft. EventGrid/topics)/topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+| Azure Event Grid (Microsoft. EventGrid/Domains)/Domain | privatelink.eventgrid.azure.net | eventgrid.azure.net |
+| Azure-Webbappar (Microsoft. Web/Sites)/site | privatelink.azurewebsites.net | azurewebsites.net |
+| Azure Machine Learning (Microsoft. MachineLearningServices/arbetsytes)/arbets yta | privatelink.api.azureml.ms | api.azureml.ms |
+
  
 
 
 ## <a name="dns-configuration-scenarios"></a>Scenarier för DNS-konfiguration
 
-FQDN för-tjänsterna matchar en offentlig IP-adress, du måste ändra DNS-konfigurationen för att lösa den privata slut punktens privata IP-adress.
+FQDN för tjänsterna matchas automatiskt till en offentlig IP-adress, så för att matcha den privata IP-adressen för den privata slut punkten måste du ändra DNS-konfigurationen på motsvarande sätt.
 
 DNS är en viktig komponent som gör att programmet fungerar korrekt genom att lösa på rätt sätt den privata slut punktens IP-adress.
 
 Beroende på dina inställningar finns följande scenarier för DNS-matchning integrerad:
 
-- [Virtual Network arbets belastningar utan anpassad DNS-Server](#virtual-network-workloads-without-custom-dns-server)
+- [Arbets belastningar för virtuella nätverk utan anpassad DNS-Server](#virtual-network-workloads-without-custom-dns-server)
+- [Lokala arbets belastningar med en DNS-vidarebefordrare](#on-premises-workloads-using-a-dns-forwarder)
 
-
-## <a name="virtual-network-workloads-without-custom-dns-server"></a>Virtual Network arbets belastningar utan anpassad DNS-Server
+## <a name="virtual-network-workloads-without-custom-dns-server"></a>Arbets belastningar för virtuella nätverk utan anpassad DNS-Server
 
 Den här konfigurationen är lämplig för virtuella nätverks arbets belastningar utan anpassad DNS-server. I det här scenariot angavs klient frågor för den privata slut punktens IP-adress till Azure- [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md). Azure DNS ansvarar för DNS-matchning av privata DNS-zoner.
 
 
- > [!NOTE]
+> [!NOTE]
 > Det här scenariot använder Azure SQL Database som rekommenderas Privat DNS zon. För andra tjänster kan du justera modellen med hjälp av följande [DNS-zon konfiguration för Azure-tjänster](#azure-services-dns-zone-configuration).
 
 För att konfigurera korrekt behöver du följande resurser:
@@ -99,16 +100,60 @@ För att konfigurera korrekt behöver du följande resurser:
 
 Följande diagram illustrerar DNS-matchningsfel från virtuella nätverks arbets belastningar med hjälp av privat DNS-zon
 
-:::image type="content" source="media/private-endpoint-dns/single-vnet-azure-dns.png" alt-text="ett enda virtuellt nätverk och Azure tillhandahöll DNS":::
+:::image type="content" source="media/private-endpoint-dns/single-vnet-azure-dns.png" alt-text="Ett enda virtuellt nätverk och Azure-tillhandahållen DNS":::
 
 Den här modellen kan utökas till flera peer-kopplade virtuella nätverk som är kopplade till samma privata slut punkt. Detta kan göras genom [att lägga till nya virtuella nätverks länkar](../dns/private-dns-virtual-network-links.md) till den privata DNS-zonen för alla peer-distribuerade virtuella nätverk.
 
- > [!IMPORTANT]
+> [!IMPORTANT]
 >  En enda privat DNS-zon krävs för den här konfigurationen, vilket innebär att flera zoner med samma namn för olika virtuella nätverk behöver manuella åtgärder för att slå samman DNS-posterna
 
 I det här scenariot finns det en [hubb & eker](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) -nätverkstopologi med ekrar som delar en gemensam privat slut punkt och alla eker-virtuella nätverk är länkade till samma privata DNS-zon. 
 
-:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="hubb och eker med Azure tillhandahöll DNS":::
+:::image type="content" source="media/private-endpoint-dns/hub-and-spoke-azure-dns.png" alt-text="Hubb och eker med Azure-tillhandahållen DNS":::
+
+## <a name="on-premises-workloads-using-a-dns-forwarder"></a>Lokala arbets belastningar med en DNS-vidarebefordrare
+ 
+För lokala arbets belastningar för att kunna matcha ett fullständigt domän namn för en privat slut punkt till den privata IP-adressen måste du använda en DNS-vidarebefordrare för att göra en matchning för den [offentliga DNS-zonen](#azure-services-dns-zone-configuration) i Azure som distribueras i Azure.
+
+
+Följande scenario är lämpligt för ett lokalt nätverk som har en DNS-vidarebefordrare i Azure, vilket i sin tur ansvarar för att matcha alla DNS-frågor via en server nivå vidarebefordrare till DNS- [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) som tillhandahålls av Azure. 
+
+> [!NOTE]
+> Det här scenariot använder Azure SQL Database som rekommenderas Privat DNS zon.För andra tjänster kan du justera modellen med hjälp av följande [DNS-zon konfiguration för Azure-tjänster](#azure-services-dns-zone-configuration).
+
+För att konfigurera korrekt behöver du följande resurser:
+
+- Lokalt nätverk
+- Virtuellt nätverk [som är anslutet till lokalt](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- DNS-vidarebefordrare distribuerad i Azure 
+- Privat DNS zoner [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md) med [typen A Record](../dns/dns-zones-records.md#record-types)
+- Information om privat slut punkt (FQDN-postnamn och privat IP-adress)
+
+Följande diagram illustrerar DNS-matchningsfel från ett lokalt nätverk som använder en DNS-vidarebefordrare som distribueras i Azure, där lösningen görs av en privat DNS-zon som är länkad till ett virtuellt nätverk.
+
+:::image type="content" source="media/private-endpoint-dns/on-premise-using-azure-dns.png" alt-text="Lokalt med Azure DNS":::
+
+Den här konfigurationen kan utökas för ett lokalt nätverk som redan har en DNS-lösning på plats. 
+Den lokala DNS-lösningen måste konfigureras för att vidarebefordra DNS-trafik till Azure DNS via en [villkorlig vidarebefordrare](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) som refererar till den DNS-vidarebefordrare som distribuerats i Azure.
+
+> [!NOTE]
+> Det här scenariot använder Azure SQL Database som rekommenderas Privat DNS zon.För andra tjänster kan du justera modellen med hjälp av följande [DNS-zon konfiguration för Azure-tjänster](#azure-services-dns-zone-configuration).
+
+För att konfigurera korrekt behöver du följande resurser:
+
+
+- Lokalt nätverk med en anpassad DNS-lösning på plats 
+- Virtuellt nätverk [som är anslutet till lokalt](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/)
+- DNS-vidarebefordrare distribuerad i Azure
+- Privat DNS zoner [privatelink.Database.Windows.net](../dns/private-dns-privatednszone.md)  med [typen A Record](../dns/dns-zones-records.md#record-types)
+- Information om privat slut punkt (FQDN-postnamn och privat IP-adress)
+
+Följande diagram illustrerar DNS-matchningsfel från ett lokalt nätverk som villkorligt vidarebefordrar DNS-trafik till Azure, där lösningen görs av en privat DNS-zon som är länkad till ett virtuellt nätverk
+
+> [!IMPORTANT]
+> Den villkorliga vidarebefordran måste göras till den [offentliga DNS-zonen](#azure-services-dns-zone-configuration) ex: `database.windows.net` , i stället för **privatelink**. Database.Windows.net
+
+:::image type="content" source="media/private-endpoint-dns/on-premise-forwarding-to-azure.png" alt-text="Lokal vidarebefordran till Azure DNS":::
 
 
 ## <a name="next-steps"></a>Nästa steg

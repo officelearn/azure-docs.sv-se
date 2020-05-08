@@ -1,6 +1,6 @@
 ---
-title: Lägg till roll tilldelningar med RBAC och Azure Resource Manager mallar
-description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure Resource Manager mallar.
+title: Lägg till Azure-roll tilldelningar med hjälp av Azure Resource Manager mallar – Azure RBAC
+description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av Azure Resource Manager mallar och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f817880f938f5d03024e3aacd9b84817a5ac721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77138290"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735631"
 ---
-# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Lägg till roll tilldelningar med Azure RBAC och Azure Resource Manager mallar
+# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Lägg till Azure-roll tilldelningar med Azure Resource Manager mallar
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Förutom att använda Azure PowerShell eller Azure CLI kan du tilldela roller med [Azure Resource Manager-mallar](../azure-resource-manager/templates/template-syntax.md). Mallar kan vara användbara om du behöver distribuera resurser konsekvent och upprepade gånger. I den här artikeln beskrivs hur du tilldelar roller med hjälp av mallar.
 
@@ -66,7 +66,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 ## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
 
-I RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
+I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
 
 ### <a name="resource-group-without-parameters"></a>Resurs grupp (utan parametrar)
 

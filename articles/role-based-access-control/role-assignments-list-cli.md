@@ -1,6 +1,6 @@
 ---
-title: Lista roll tilldelningar med Azure RBAC och Azure CLI
-description: Lär dig hur du avgör vilka resurser användare, grupper, tjänstens huvud namn eller hanterade identiteter har åtkomst till med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure CLI i Azure.
+title: Visa en lista med Azures roll tilldelningar med Azure CLI – Azure RBAC
+description: Lär dig hur du avgör vilka resurser användare, grupper, tjänstens huvud namn eller hanterade identiteter har åtkomst till med hjälp av Azure CLI och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5716e7bb89d017866bd1575256e2d119bb7acbe5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4b635d6867c36b8b0f385320e3720bea41b54d1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385069"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735750"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lista roll tilldelningar med Azure RBAC och Azure CLI
+# <a name="list-azure-role-assignments-using-azure-cli"></a>Visa en lista med Azures roll tilldelningar med Azure CLI
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure CLI.
 
@@ -144,4 +144,4 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägga till eller ta bort roll tilldelningar med Azure RBAC och Azure CLI](role-assignments-cli.md)
+- [Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI](role-assignments-cli.md)

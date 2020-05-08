@@ -1,5 +1,5 @@
 ---
-title: Publicerings guide för Microsoft Commercial Marketplace efter erbjudande typ
+title: Publicerings guide efter erbjudande typ – Microsoft Commercial Marketplace
 description: I den här artikeln beskrivs de erbjudande typer som är tillgängliga på Microsofts kommersiella marknads platser.
 author: dsindona
 ms.service: marketplace
@@ -7,20 +7,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6521f19ea566719fee39c238adda8e3a068e2c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39bc4e3cc653589686be539da127279b3db41be6
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419297"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872351"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Publiceringsguide efter erbjudandetyp
 
-När du [bestämmer dig för ett publicerings alternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)kan du välja den erbjudande typ som ska användas för att presentera ditt erbjudande.
+I den här artikeln beskrivs de erbjudande typer som är tillgängliga i den kommersiella marknads platsen. *Erbjudande typen* definierar erbjudande strukturen, som innehåller de metadata, artefakter och annat innehåll som används för att presentera erbjudandet i Marketplace.
 
- *Erbjudande typen* definierar erbjudande strukturen, som innehåller de metadata, artefakter och annat innehåll som används för att presentera erbjudandet i Marketplace.
-
-Innan du kan skapa ett erbjudande måste du välja en erbjudande typ. Erbjudande typen motsvarar den typ av lösning, app eller tjänst erbjudande som du vill publicera, samt dess justering för Microsofts produkter och tjänster.
+Innan du kan skapa ett erbjudande, och när du har [bestämt dig för ett publicerings alternativ](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), måste du välja en erbjudande typ som ska användas för att presentera ditt erbjudande. Erbjudande typen motsvarar den typ av lösning, app eller tjänst erbjudande som du vill publicera, samt dess justering för Microsofts produkter och tjänster.
 
 En enda erbjudande typ kan konfigureras på olika sätt för att möjliggöra olika publicerings alternativ, anrop till åtgärd, etablering eller prissättning. Publicerings alternativet och konfigurationen av erbjudande typen överensstämmer också med kravet på erbjudanden och tekniska krav.
 

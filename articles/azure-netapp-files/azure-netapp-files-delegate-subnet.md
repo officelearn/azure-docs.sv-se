@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/04/2020
 ms.author: b-juche
-ms.openlocfilehash: b83f530549ffa43789963fd0c95b4982f5289356
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f36e40091ada27f411adc2ffa78b6d4a58f8cca
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80054471"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791416"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegera ett undernät till Azure NetApp Files 
 
@@ -28,7 +28,8 @@ Du måste delegera ett undernät till Azure NetApp Files.   När du skapar en vo
 ## <a name="considerations"></a>Överväganden
 * Guiden för att skapa ett nytt undernät har som standard en /24-nätverksmask som tillhandahåller 251 tillgängliga IP-adresser. En /28-nätverksmask som tillhandahåller 16 användbara IP-adresser räcker för tjänsten.
 * Endast ett undernät kan delegeras till Azure NetApp Files i varje Azure Virtual Network (VNet).   
-   Med Azure kan du skapa flera delegerade undernät i ett VNet.  Försök att skapa en ny volym kommer dock att Miss lyckas om du använder mer än ett delegerat undernät.
+   Med Azure kan du skapa flera delegerade undernät i ett VNet.  Försök att skapa en ny volym kommer dock att Miss lyckas om du använder mer än ett delegerat undernät.  
+   Du kan bara ha ett enda delegerat undernät i ett VNet. Ett NetApp-konto kan distribuera volymer i flera virtuella nätverk, vart och ett har sitt eget delegerade undernät.  
 * Du kan inte ange en grupp eller en tjänstslutpunkt i delegerade undernät. Det leder till att delegeringen av undernätet misslyckas.
 * Åtkomst till en volym från ett globalt peer-kopplat virtuellt nätverk stöds inte för närvarande.
 * Det går inte att skapa [användardefinierade anpassade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) för virtuella dator under nät med adressprefix (mål) till ett undernät som har delegerats till Azure NetApp Files. Detta påverkar VM-anslutningen.

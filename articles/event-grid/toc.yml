@@ -8,8 +8,6 @@
       href: overview.md
     - name: Jämföra meddelandetjänster
       href: compare-messaging-services.md
-    - name: Premium vs. grundläggande nivåer
-      href: premium-basic-tiers.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -166,23 +164,15 @@
     - name: Övervaka och felsök
       items:
         - name: Diagnostikloggar
-          href: null
+          href: diagnostic-logs.md
         - name: Mått
           href: metrics.md
 - name: Anvisningar
   items:
-    - name: Konfigurera privata slutpunkter (förhandsversion)
-      href: configure-private-endpoints.md
-    - name: Konfigurera IP-brandvägg (förhandsversion)
-      href: configure-firewall.md
-    - name: Uppdatera prisnivå
-      href: update-tier.md
     - name: Skicka till anpassat ämne
       href: post-to-custom-topic.md
     - name: Ta emot händelser vid HTTP-slutpunkt
       href: receive-events.md
-    - name: Säker WebHook med AAD
-      href: secure-webhook-delivery.md
     - name: Obeställbara meddelanden och nytt försök
       href: manage-event-delivery.md
     - name: Filtrera händelser
@@ -201,6 +191,14 @@
       href: custom-disaster-recovery.md
     - name: Spåra asynkrona REST-åtgärder
       href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Skydda
+      items:
+        - name: Konfigurera privata slutpunkter (förhandsversion)
+          href: configure-private-endpoints.md
+        - name: Konfigurera IP-brandvägg (förhandsversion)
+          href: configure-firewall.md
+        - name: Säker WebHook med AAD
+          href: secure-webhook-delivery.md
     - name: Felsöka
       items:
         - name: Aktivera diagnostikloggar

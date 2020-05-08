@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 4/2/2020
+ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: fcbaabac0961f1269a929fb4a56f81ac282bae29
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80619152"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857310"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v 3.0
 
@@ -147,7 +147,7 @@ En autentiseringstoken är giltig i 10 minuter. Token ska återanvändas när du
 
 ## <a name="virtual-network-support"></a>Stöd för virtuellt nätverk
 
-Translator-tjänsten är nu tillgänglig med Virtual Network funktioner i begränsade regioner`WestUS2`( `EastUS`, `SouthCentralUS` `WestUS` `Central US EUAP`,,, `global`,). Om du vill aktivera Virtual Network kan du läsa [Konfigurera Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Translator-tjänsten är nu tillgänglig med Virtual Network funktioner i begränsade regioner`WestUS2`( `EastUS`, `SouthCentralUS` `WestUS` `CentralUSEUAP`,,, `global`,). Om du vill aktivera Virtual Network kan du läsa [Konfigurera Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
 När du har aktiverat den här funktionen måste du använda den anpassade slut punkten för att anropa Translator-API: et. Du kan inte använda den globala Translator-slutpunkten ("api.cognitive.microsofttranslator.com") och du kan inte autentisera med en åtkomsttoken.
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/24/2020
 ms.author: mjbrown
-ms.openlocfilehash: e18abf5d8e26dba7a48bd1deb7d53102b9971690
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28266471fb1e440a45e412ee889e0706cfc2ce49
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184290"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870090"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Hantera konsekvensnivåer i Azure Cosmos DB
 
@@ -23,7 +23,13 @@ Den här artikeln förklarar hur du hanterar konsekvensnivåer i Azure Cosmos DB
 
 [Standard konsekvens nivån](consistency-levels.md) är den konsekvens nivå som klienter använder som standard.
 
-### <a name="cli"></a>CLI
+# <a name="azure-portal"></a>[Azure Portal](#tab/portal)
+
+Om du vill visa eller ändra standardkonsekvensnivån loggar du in på Azure-portalen. Hitta ditt Azure Cosmos-konto och öppna fönstret **standard konsekvens** . Välj den konsekvensnivå som du vill ha som den nya standarden, och välj sedan **Spara**. Azure Portal innehåller också en visualisering av olika konsekvens nivåer med noter. 
+
+![Konsekvensmeny på Azure-portalen](./media/how-to-manage-consistency/consistency-settings.png)
+
+# <a name="cli"></a>[CLI](#tab/cli)
 
 Skapa ett Cosmos-konto med konsekvens på sessionen och uppdatera sedan standard konsekvensen.
 
@@ -35,7 +41,7 @@ az cosmosdb create --name $accountName --resource-group $resourceGroupName --def
 az cosmosdb update --name $accountName --resource-group $resourceGroupName --default-consistency-level Strong
 ```
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Skapa ett Cosmos-konto med konsekvens på sessionen och uppdatera sedan standard konsekvensen.
 
@@ -49,11 +55,7 @@ Update-AzCosmosDBAccount -ResourceGroupName $resourceGroupName `
   -Name $accountName -DefaultConsistencyLevel "Strong"
 ```
 
-### <a name="azure-portal"></a>Azure Portal
-
-Om du vill visa eller ändra standardkonsekvensnivån loggar du in på Azure-portalen. Hitta ditt Azure Cosmos-konto och öppna fönstret **standard konsekvens** . Välj den konsekvensnivå som du vill ha som den nya standarden, och välj sedan **Spara**. Azure Portal innehåller också en visualisering av olika konsekvens nivåer med noter. 
-
-![Konsekvensmeny på Azure-portalen](./media/how-to-manage-consistency/consistency-settings.png)
+---
 
 ## <a name="override-the-default-consistency-level"></a>Åsidosätta standardkonsekvensnivån
 
@@ -62,7 +64,9 @@ Klienter kan åsidosätta standardkonsekvensnivån som anges av tjänsten. Konse
 > [!TIP]
 > Konsekvens kan bara göras **avslappnad** på den begärda nivån. Om du vill övergå från svagare till starkare konsekvens uppdaterar du standard konsekvensen för Cosmos-kontot.
 
-### <a name="net-sdk-v2"></a><a id="override-default-consistency-dotnet"></a>.NET SDK V2
+### <a name="net-sdk"></a><a id="override-default-consistency-dotnet"></a>.NET SDK
+
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 // Override consistency at the client level
@@ -74,7 +78,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a name="net-sdk-v3"></a><a id="override-default-consistency-dotnet-v3"></a>.NET SDK V3
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 // Override consistency at the request level via request options
@@ -86,8 +90,11 @@ var response = await client.GetContainer(databaseName, containerName)
         new PartitionKey(itemPartitionKey),
         requestOptions);
 ```
+---
 
-### <a name="java-async-sdk"></a><a id="override-default-consistency-java-async"></a>Java Async SDK
+### <a name="java-sdk"></a><a id="override-default-consistency-java"></a>Java SDK
+
+# <a name="java-async-sdk"></a>[Java asynkron SDK](#tab/javaasync)
 
 ```java
 // Override consistency at the client level
@@ -101,13 +108,14 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a name="java-sync-sdk"></a><a id="override-default-consistency-java-sync"></a>Java Sync SDK
+# <a name="java-sync-sdk"></a>[Java Sync SDK](#tab/javasync)
 
 ```java
 // Override consistency at the client level
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
+---
 
 ### <a name="nodejsjavascripttypescript-sdk"></a><a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
@@ -137,7 +145,9 @@ En av konsekvens nivåerna i Azure Cosmos DB är konsekvens på *sessionen* . De
 
 Om du vill hantera sessionstoken manuellt hämtar du sessionstoken från svaret och anger dem per begäran. Om du inte behöver hantera sessionstoken manuellt behöver du inte använda de här exemplen. SDK håller reda på sessionstoken automatiskt. Om du inte anger sessionstoken manuellt använder SDK som standard den senaste sessionstoken.
 
-### <a name="net-sdk-v2"></a><a id="utilize-session-tokens-dotnet"></a>.NET SDK V2
+### <a name="net-sdk"></a><a id="utilize-session-tokens-dotnet"></a>.NET SDK
+
+# <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -150,7 +160,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a name="net-sdk-v3"></a><a id="utilize-session-tokens-dotnet-v3"></a>.NET SDK V3
+# <a name="net-sdk-v3"></a>[.NET SDK V3](#tab/dotnetv3)
 
 ```csharp
 Container container = client.GetContainer(databaseName, collectionName);
@@ -161,8 +171,11 @@ ItemRequestOptions options = new ItemRequestOptions();
 options.SessionToken = sessionToken;
 ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
+---
 
-### <a name="java-async-sdk"></a><a id="utilize-session-tokens-java-async"></a>Java Async SDK
+### <a name="java-sdk"></a><a id="utilize-session-tokens-java"></a>Java SDK
+
+# <a name="java-async-sdk"></a>[Java asynkron SDK](#tab/javaasync)
 
 ```java
 // Get session token from response
@@ -184,7 +197,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a name="java-sync-sdk"></a><a id="utilize-session-tokens-java-sync"></a>Java Sync SDK
+# <a name="java-sync-sdk"></a>[Java Sync SDK](#tab/javasync)
 
 ```java
 // Get session token from response
@@ -196,6 +209,7 @@ RequestOptions options = new RequestOptions();
 options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
+---
 
 ### <a name="nodejsjavascripttypescript-sdk"></a><a id="utilize-session-tokens-javascript"></a>Node.js/JavaScript/TypeScript SDK
 

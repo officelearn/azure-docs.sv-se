@@ -1,14 +1,14 @@
 ---
 title: Hantera tilldelningar med PowerShell
 description: Lär dig hur du hanterar skiss tilldelningar med den officiella Azure-ritningen PowerShell-modul, AZ. skiss.
-ms.date: 09/30/2019
+ms.date: 05/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 0868e5e207202511c1981a930870bfdc68a77a8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa0f89df79c4ae1c5b66998089f04575bd53ea37
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677427"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863985"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>Hantera tilldelningar med PowerShell
 
@@ -205,8 +205,7 @@ ResourceGroups    : ResourceGroup
 
 ### <a name="example-2-use-a-json-assignment-definition-file"></a>Exempel 2: använda en JSON-tilldelning definitions fil
 
-I följande exempel skapas nästan samma tilldelning som [exempel 1](#example-1-provide-parameters).
-I stället för att skicka parametrar till cmdleten visar exemplet användningen av en JSON-tilldelnings definitions fil och parametern **AssignmentFile** . Dessutom konfigureras egenskapen **excludedPrincipals** som en del av **låsen**. Det finns ingen PowerShell-parameter för **excludedPrincipals** och egenskapen kan bara konfigureras genom att ställa in den via JSON-tilldelningens definitions fil.
+I följande exempel skapas nästan samma tilldelning som [exempel 1](#example-1-provide-parameters). I stället för att skicka parametrar till cmdleten visar exemplet användningen av en JSON-tilldelnings definitions fil och parametern **AssignmentFile** . Dessutom konfigureras egenskapen **excludedPrincipals** som en del av **låsen**. Det finns ingen PowerShell-parameter för **excludedPrincipals** och egenskapen kan bara konfigureras genom att ställa in den via JSON-tilldelningens definitions fil.
 
 ```json
 {
@@ -335,7 +334,7 @@ $blueprintAssignment = Get-AzBlueprintAssignment -Name 'Assignment-lock-resource
 Remove-AzBlueprintAssignment -InputObject $blueprintAssignment -SubscriptionId '{subId}'
 ```
 
-## <a name="end-to-end-code-example"></a>Kod exempel från slut punkt till slut punkt
+## <a name="code-example"></a>Kodexempel
 
 Genom att samla alla steg tillsammans hämtar du skiss definitionen och skapar, uppdaterar och tar bort en skiss tilldelning i den angivna prenumerationen som visas som `{subId}`:
 

@@ -1,30 +1,30 @@
 ---
-title: Reliable Actors statlig förvaltning
-description: Beskriver hur tillståndet För tillförlitliga aktörer hanteras, bevaras och replikeras för hög tillgänglighet.
+title: Hantering av Reliable Actors tillstånd
+description: Beskriver hur Reliable Actors status hanteras, sparas och replikeras för hög tillgänglighet.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 9962d4333e458243670d1005ad2ccfbc0bb7c92a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "75348921"
 ---
-# <a name="reliable-actors-state-management"></a>Reliable Actors statlig förvaltning
-Reliable Actors är entrådiga objekt som kan kapsla in både logik och tillstånd. Eftersom aktörer körs på tillförlitliga tjänster kan de underhålla tillståndet på ett tillförlitligt sätt med hjälp av samma mekanismer för beständighet och replikering. På så sätt förlorar inte skådespelarna sitt tillstånd efter fel, vid återaktivering efter skräpinsamling eller när de flyttas mellan noder i ett kluster på grund av resursbalansering eller uppgraderingar.
+# <a name="reliable-actors-state-management"></a>Hantering av Reliable Actors tillstånd
+Reliable Actors är entrådade objekt som kan kapsla in både logik och tillstånd. Eftersom aktörerna körs på Reliable Services kan de underhålla tillstånden på ett tillförlitligt sätt genom att använda samma beständiga och replikerade mekanismer. På så sätt förlorar aktörerna sina tillstånd efter fel, vid återaktivering efter skräp insamling, eller när de flyttas runt mellan noder i ett kluster på grund av resurs utjämning eller uppgraderingar.
 
-## <a name="state-persistence-and-replication"></a>Statens persistens och replikering
-Alla tillförlitliga aktörer anses vara *tillståndskänsliga* eftersom varje aktörsinstans mappar till ett unikt ID. Det innebär att upprepade anrop till samma aktörs-ID dirigeras till samma aktörsinstans. I ett tillståndslöst system är däremot klientanrop inte garanterade att dirigeras till samma server varje gång. Av denna anledning är aktörstjänster alltid tillståndskänsliga tjänster.
+## <a name="state-persistence-and-replication"></a>Beständighet och replikering av tillstånd
+Alla Reliable Actors betraktas som *tillstånds känsliga* eftersom varje aktörs instans mappar till ett unikt ID. Det innebär att upprepade anrop till samma aktörs-ID dirigeras till samma aktörs instans. I ett tillstånds lösa system är det däremot inte säkert att klient samtal dirigeras till samma server varje gång. Av den anledningen är aktörs tjänsterna alltid tillstånds känsliga tjänster.
 
-Även om aktörer anses vara statsmedvetna, betyder det inte att de måste lagra tillstånd på ett tillförlitligt sätt. Aktörerna kan välja nivån på tillståndet persistens och replikering baserat på deras krav på datalagring:
+Även om aktörer betraktas som tillstånds känsliga, så innebär det inte att de måste lagra tillstånd på ett tillförlitligt sätt. Aktörer kan välja tillstånds nivån och replikeringens nivå utifrån deras krav på data lagring:
 
-* **Beständigt tillstånd**: Tillståndet sparas på disken och replikeras till tre eller flera repliker. Beständigt tillstånd är det mest hållbara tillståndslagringsalternativet, där tillståndet kan kvarstå genom fullständigt klusterutbrott.
-* **Flyktigt tillstånd**: Tillståndet replikeras till tre eller flera repliker och hålls endast i minnet. Flyktigt tillstånd ger återhämtning mot nodfel och aktörsfel och under uppgraderingar och resursbalansering. Tillståndet sparas dock inte på disken. Så om alla repliker går förlorade på en gång, är staten förlorad också.
-* **Inget beständigt tillstånd**: Tillståndet replikeras inte eller skrivs till disk, använd endast för aktörer som inte behöver underhålla tillståndet på ett tillförlitligt sätt.
+* **Beständigt tillstånd**: status är bestående av disk och replikeras till tre eller fler repliker. Beständigt tillstånd är det mest varaktiga lagrings alternativet och där tillstånd kan behållas genom fullständigt kluster avbrott.
+* **Volatile-tillstånd**: status replikeras till tre eller flera repliker och lagras endast i minnet. Flyktigt tillstånd ger en återhämtning mot nodfel och allokeringsfel, samt under uppgraderingar och resurs utjämning. Tillstånd är dock inte kvar på disken. Så om alla repliker går förlorade samtidigt, försvinner även statusen.
+* **Inget beständigt tillstånd**: tillstånd är inte replikerat eller skrivs till disk, används bara för aktörer som inte behöver underhålla tillstånden på ett tillförlitligt sätt.
 
-Varje nivå av uthållighet är helt enkelt en annan *tillståndsprovider* och *replikeringskonfiguration* av din tjänst. Om tillståndet skrivs till disken beror på tillståndsprovidern – komponenten i en tillförlitlig tjänst som lagrar tillstånd. Replikering beror på hur många repliker en tjänst distribueras med. Precis som med tillförlitliga tjänster kan både tillståndsprovidern och replikantalet enkelt ställas in manuellt. Aktörsramverket tillhandahåller ett attribut som, när det används på en aktör, automatiskt väljer en standardtillståndsprovider och automatiskt genererar inställningar för replikantal för att uppnå en av dessa tre persistensinställningar. Attributet StatePersistence ärvs inte av härledd klass, varje aktörstyp måste ange sin statePersistence-nivå.
+Varje nivå av persistence är helt enkelt en annan *tillstånds leverantör* och *replikeringskonfiguration* för din tjänst. Huruvida tillstånd skrivs till disk beror på tillstånds leverantören – komponenten i en tillförlitlig tjänst som lagrar tillstånd. Replikeringen beror på hur många repliker en tjänst distribueras med. Precis som med Reliable Services kan både tillstånds leverantören och replik antalet enkelt anges manuellt. Aktörs ramverket innehåller ett attribut som, när det används på en aktör, automatiskt väljer en standardprovider och automatiskt genererar inställningar för replik antal för att uppnå någon av dessa tre persistence-inställningar. Attributet StatePersistence ärvs inte av en härledd klass, varje aktörs typ måste ange sin StatePersistence-nivå.
 
 ### <a name="persisted-state"></a>Beständigt tillstånd
 ```csharp
@@ -39,9 +39,9 @@ class MyActorImpl  extends FabricActor implements MyActor
 {
 }
 ```  
-Den här inställningen använder en tillståndsprovider som lagrar data på disk och ställer automatiskt in antalet tjänstrepliker till 3.
+Den här inställningen använder en tillstånds leverantör som lagrar data på disk och ställer automatiskt in antalet tjänst repliker på 3.
 
-### <a name="volatile-state"></a>Flyktigt tillstånd
+### <a name="volatile-state"></a>Temporärt tillstånd
 ```csharp
 [StatePersistence(StatePersistence.Volatile)]
 class MyActor : Actor, IMyActor
@@ -54,9 +54,9 @@ class MyActorImpl extends FabricActor implements MyActor
 {
 }
 ```
-Den här inställningen använder en tillståndsprovider som endast används i minnet och anger antalet repliker till 3.
+Med den här inställningen används en InMemory-enda tillstånds leverantör och antalet repliker anges till 3.
 
-### <a name="no-persisted-state"></a>Inget kvarstående tillstånd
+### <a name="no-persisted-state"></a>Inget beständigt tillstånd
 ```csharp
 [StatePersistence(StatePersistence.None)]
 class MyActor : Actor, IMyActor
@@ -69,12 +69,12 @@ class MyActorImpl extends FabricActor implements MyActor
 {
 }
 ```
-Den här inställningen använder en tillståndsprovider som endast används i minnet och anger antalet repliker till 1.
+Med den här inställningen används en InMemory-enda tillstånds leverantör och antalet repliker anges till 1.
 
 ### <a name="defaults-and-generated-settings"></a>Standardinställningar och genererade inställningar
-När du använder `StatePersistence` attributet väljs en tillståndsprovider automatiskt åt dig vid körning när aktörstjänsten startar. Replikantalet ställs dock in vid kompilering av Visual Studio-aktörens byggverktyg. Byggverktygen genererar automatiskt en *standardtjänst* för aktörstjänsten i ApplicationManifest.xml. Parametrar skapas för **min replikuppsättningsstorlek** och **målreplikuppsättningsstorlek**.
+När du använder- `StatePersistence` attributet väljs en tillstånds leverantör automatiskt åt dig vid körning när aktörs tjänsten startar. Replik antalet anges dock i kompileringen av build-verktygen för Visual Studio-skådespelare. Build-verktygen genererar automatiskt en *standard tjänst* för aktörs tjänsten i ApplicationManifest. xml. Parametrar skapas för den **minsta replik uppsättningens storlek** och **storlek för mål replik uppsättningen**.
 
-Du kan ändra dessa parametrar manuellt. Men varje `StatePersistence` gång attributet ändras anges parametrarna till standardstorleksvärdena för replikuppsättning för det valda attributet, `StatePersistence` vilket åsidosätter eventuella tidigare värden. Med andra ord åsidosätts de värden som du *only* anger i ServiceManifest.xml `StatePersistence` först vid byggtillfället när du ändrar attributvärdet.
+Du kan ändra parametrarna manuellt. Men varje gången `StatePersistence` attributet ändras, anges parametrarna som standardvärden för replik uppsättnings storlek för det valda `StatePersistence` attributet, vilket åsidosätter eventuella tidigare värden. Med andra ord åsidosätts de värden som du anger i ServiceManifest. xml *bara* vid Bygg tiden när du ändrar `StatePersistence` attributvärdet.
 
 ```xml
 <ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="Application12Type" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -96,28 +96,28 @@ Du kan ändra dessa parametrar manuellt. Men varje `StatePersistence` gång attr
 </ApplicationManifest>
 ```
 
-## <a name="state-manager"></a>Statligt ansvarig
-Varje aktörsinstans har sin egen tillståndshanterare: en ordlisteliknande datastruktur som på ett tillförlitligt sätt lagrar nyckel-/värdepar. Tillståndshanteraren är ett omslag runt en tillståndsprovider. Du kan använda den för att lagra data oavsett vilken beständighetsinställning som används. Det ger inga garantier för att en tjänst som körs aktör kan ändras från en flyktig (endast i minnet) till en beständig tillståndsinställning genom en rullande uppgradering samtidigt som data bevaras. Det är dock möjligt att ändra replikantalet för en tjänst som körs.
+## <a name="state-manager"></a>Tillstånds hanterare
+Varje aktörs instans har sin egen tillstånds ansvarig: en ord lista som är en data struktur som på ett tillförlitligt sätt lagrar nyckel/värde-par. Tillstånds hanteraren är en omslutning runt en tillstånds leverantör. Du kan använda den för att lagra data oavsett vilken beständighets inställning som används. Det ger inga garantier som en tjänst som kör aktören kan ändra från en temporär tillstånds inställning (endast i minnet) till en beständig tillstånds inställning genom en löpande uppgradering och bevara data. Det är dock möjligt att ändra antalet repliker för en tjänst som körs.
 
-Tangenter för tillståndshanteraren måste vara strängar. Värden är generiska och kan vara vilken typ som helst, inklusive anpassade typer. Värden som lagras i tillståndshanteraren måste vara serialiserbara för datakontrakt eftersom de kan överföras över nätverket till andra noder under replikeringen och kan skrivas till disk, beroende på aktörens inställning för tillståndsbeständighet.
+Tillstånds hanterarens nycklar måste vara strängar. Värdena är generiska och kan vara vilken typ som helst, inklusive anpassade typer. Värden som lagras i tillstånds hanteraren måste vara serialiserbar för data kontrakt eftersom de kan överföras via nätverket till andra noder under replikeringen och kan skrivas till disk, beroende på en aktörs inställning för tillstånds persistence.
 
-Tillståndshanteraren exponerar vanliga ordlistemetoder för att hantera tillstånd, liknande dem som finns i Tillförlitlig ordlista.
+Tillstånds hanteraren visar gemensamma ordboks metoder för att hantera tillstånd, liknande de som finns i en tillförlitlig ord lista.
 
-Exempel på hantering av aktörstillstånd läser du [Åtkomst, sparar och tar bort tillståndet Tillförlitliga aktörer](service-fabric-reliable-actors-access-save-remove-state.md).
+Exempel på hur du hanterar aktörs tillstånd, Läs [åtkomst, Spara och ta bort Reliable Actorss tillstånd](service-fabric-reliable-actors-access-save-remove-state.md).
 
 ## <a name="best-practices"></a>Bästa praxis
-Här är några förslag på metoder och felsökningstips för att hantera aktörstillståndet.
+Här följer några förslag på metoder och fel söknings tips för att hantera din aktörs tillstånd.
 
-### <a name="make-the-actor-state-as-granular-as-possible"></a>Gör aktörstillståndet så detaljerat som möjligt
-Detta är avgörande för prestanda och resursanvändning för ditt program. När det finns någon skriv/uppdatering till "namngivet tillstånd" för en aktör, är hela värdet som motsvarar det "namngivna tillståndet" serialiserat och skickas över nätverket till sekundära repliker.  Sekundärerna skriver den till lokal disk och svarar tillbaka till den primära repliken. När den primära tar emot bekräftelser från kvorum av sekundära repliker, skriver den tillståndet till sin lokala disk. Anta till exempel att värdet är en klass som har 20 medlemmar och en storlek på 1 MB. Även om du bara ändrat en av klassmedlemmarna som är av storlek 1 KB, slutar det med att du betalar kostnaden för serialisering och nätverks- och diskskrivningar för hela 1 MB. Om värdet är en samling (till exempel en lista, matris eller ordlista) betalar du kostnaden för hela samlingen även om du ändrar en av dess medlemmar. StateManager-gränssnittet för aktörsklassen är som en ordbok. Du bör alltid modellera datastrukturen som representerar aktörstillstånd ovanpå den här ordlistan.
+### <a name="make-the-actor-state-as-granular-as-possible"></a>Gör aktörens tillstånd så detaljerad som möjligt
+Detta är avgörande för prestanda och resursanvändning för ditt program. När det finns en Skriv-/uppdatering av "namngivet tillstånd" för en aktör serialiseras hela värdet som motsvarar det "namngivna tillstånd" och skickas över nätverket till de sekundära replikerna.  Sekundärerna skriver den till en lokal disk och svarar tillbaka till den primära repliken. När den primära tar emot bekräftelser från ett kvorum med sekundära repliker, skriver den till den lokala disken. Anta till exempel att värdet är en klass som har 20 medlemmar och en storlek på 1 MB. Även om du bara har ändrat en av klass medlemmarna som har en storlek på 1 KB, betalar du kostnaden för serialisering och nätverks-och disk skrivningar för hela 1 MB. Om värdet är en samling (t. ex. en lista, matris eller ord lista) betalar du kostnaden för den fullständiga samlingen även om du ändrar en av dess medlemmar. StateManager-gränssnittet i aktörs klassen är som en ord lista. Du bör alltid modellera data strukturen som representerar aktörs status ovanpå den här ord listan.
  
-### <a name="correctly-manage-the-actors-life-cycle"></a>Korrekt hantera skådespelarens livscykel
-Du bör ha en tydlig princip om hur stor tillståndsstorleken är i varje partition i en aktörstjänst. Din aktör tjänst bör ha ett fast antal aktörer och återanvända dem så mycket som möjligt. Om du kontinuerligt skapar nya aktörer måste du ta bort dem när de är klara med sitt arbete. Aktörsramverket lagrar vissa metadata om varje aktör som finns. Om du tar bort alla tillstånd för en aktör tas metadata inte bort om aktören. Du måste ta bort aktören (se [ta bort aktörer och deras tillstånd)](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)för att ta bort all information om den som lagras i systemet. Som en extra kontroll bör du fråga aktörstjänsten (se [räkna upp aktörer)](service-fabric-reliable-actors-enumerate.md)då och då för att se till att antalet aktörer ligger inom det förväntade intervallet.
+### <a name="correctly-manage-the-actors-life-cycle"></a>Hantera aktörens livs cykel korrekt
+Du bör ha rensat principen för att hantera storleken på tillstånd i varje partition av en aktörs tjänst. Aktörs tjänsten bör ha ett fast antal aktörer och återanvända dem så mycket som möjligt. Om du skapar nya aktörer kontinuerligt måste du ta bort dem när de är klara med sitt arbete. Aktörs ramverket lagrar metadata om varje aktör som finns. Om du tar bort alla tillstånd för en aktör tas inte metadata bort från aktören. Du måste ta bort aktören (se [ta bort aktörer och deras status](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) om du vill ta bort all information som lagras i systemet. Som en extra kontroll bör du fråga aktörs tjänsten (se [räkna upp skådespelare](service-fabric-reliable-actors-enumerate.md)) en gång i taget för att se till att antalet aktörer ligger inom det förväntade intervallet.
  
-Om du någonsin ser att databasfilstorleken för en aktörstjänst ökar utöver den förväntade storleken kontrollerar du att du följer föregående riktlinjer. Om du följer dessa riktlinjer och fortfarande är problem med databasfilstorleken bör du [öppna en supportbiljett](service-fabric-support.md) med produktteamet för att få hjälp.
+Om du någonsin ser att databas filens storlek för en aktörs tjänst ökar utöver den förväntade storleken ser du till att du följer de föregående rikt linjerna. Om du följer dessa rikt linjer och fortfarande är databas fil storleks problem bör du [öppna ett support ärende](service-fabric-support.md) med produkt teamet för att få hjälp.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Tillstånd som lagras i Reliable Actors måste serialiseras innan det skrivs till disk och replikeras för hög tillgänglighet. Läs mer om [serialisering av aktörstyp](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
+Tillstånd som lagras i Reliable Actors måste serialiseras innan den skrivs till disk och replikeras för hög tillgänglighet. Läs mer om [typ serialisering för aktör](service-fabric-reliable-actors-notes-on-actor-type-serialization.md).
 
-Läs sedan mer om [skådespelares diagnostik och prestandaövervakning](service-fabric-reliable-actors-diagnostics.md).
+Läs sedan mer om [aktörs diagnostik och prestanda övervakning](service-fabric-reliable-actors-diagnostics.md).

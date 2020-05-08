@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 713b790c432f0e416392243262aed4b0fcda8892
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 050848b0bff65b19e2b17bd170e1d3e9ff0176f1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81274580"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792011"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Exempel: skapa en anpassad färdighet för formulär igenkänning
 
@@ -164,8 +164,8 @@ Om du vill använda den här kunskapen i en Kognitiv sökning pipeline måste du
 
 I den här hand boken har du skapat en anpassad kunskap från Azure formulär igenkännings tjänsten. Mer information om anpassade kunskaper finns i följande resurser. 
 
-* [Azure Search energi kunskaper: ett lager med anpassade kunskaper](https://github.com/*zure-Samples/azure-search-power-skills)
+* [Azure Search energi kunskaper: ett lager med anpassade kunskaper](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Lägg till en anpassad färdighet till en AI-pipeline för anrikning](cognitive-search-custom-skill-interface.md)
 * [Definiera en kunskapsuppsättning](cognitive-search-defining-skillset.md)
-* [Skapa en färdigheter (REST)](https://docs.microsoft.com/rest/api/*earchservice/create-skillset)
+* [Skapa en färdigheter (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 * [Mappa sammanrikade fält](cognitive-search-output-field-mapping.md)

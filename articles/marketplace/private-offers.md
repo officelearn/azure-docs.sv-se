@@ -1,22 +1,22 @@
 ---
-title: Privata erbjudanden | Azure Marketplace
-description: Privata erbjudanden i Azure Marketplace för app-och tjänst utgivare.
+title: Privata erbjudanden på Microsofts kommersiella marknads platser
+description: Privata erbjudanden på Microsofts kommersiella marknads plats för app-och tjänst utgivare.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: dsindona
-ms.openlocfilehash: efda9fb66a65f1f2cd40de8bf32a8a3fa99aea7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e449f65ca65a679aa6c6823938fa561b84e38368
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681436"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872391"
 ---
-# <a name="private-offers"></a>Privata erbjudanden
+# <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Privata erbjudanden på Microsofts kommersiella marknads plats
 
-Privata erbjudanden på [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) aktivera utgivare för att skapa SKU: er som endast är synliga för riktade kunder.
+Privata erbjudanden i [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) ger utgivare möjlighet att skapa planer som endast är synliga för riktade kunder. I den här artikeln får du lära dig om alternativen och fördelarna med privata erbjudanden.
 
 ## <a name="unlock-enterprise-deals-with-private-offers"></a>Lås upp företags erbjudanden med privata erbjudanden
 

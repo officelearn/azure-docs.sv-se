@@ -1,44 +1,41 @@
 ---
-title: Instrument panelen klassificeringar och recensioner i marknads plats analys på Partner Center
-description: Lär dig hur du får åtkomst till en samlad vy över kundfeedback för dina erbjudanden på Azure Marketplace och AppSource.
+title: Klassificering & recensioner Analytics-instrumentpanelen i Partner Center
+description: Lär dig hur du får åtkomst till en samlad vy över kundfeedback för dina erbjudanden på Microsoft AppSource och Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 405ba37fd10fa48bf45f1031d2e9b5b17620ea0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7ed477ea095defa27878e8f4a84162043829273
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262425"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792929"
 ---
-# <a name="ratings-and-reviews-dashboard-in-commercial-marketplace-analytics"></a>Instrument panelen för klassificering och recensioner i affärs Marketplace-analys
+# <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Klassificering & recensioner Analytics-instrumentpanelen i Partner Center
 
-Den här artikeln innehåller information om instrument panelen för klassificerings & recensioner i Partner Center. Den här instrument panelen visar en samlad vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource.
-
-Öppna instrument panelen för **klassificerings & recensioner** i Partner Center Analytics-verktyg genom att öppna **[analys](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** instrument panelen under kommersiell marknads plats.
-
->[!NOTE]
-> Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](./faq-terminology.md).
-
-## <a name="ratings--reviews"></a>Klassificering & granskningar
-
-När kunder bläddrar, söker efter och köper erbjudanden på båda marknads platser kan de lämna betyg och recensioner om de erbjudanden de har köpt.
+Den här artikeln innehåller information om instrument panelen för klassificerings & recensioner i Partner Center. Den här instrument panelen visar en samlad vy över kundfeedback för erbjudanden på Microsoft AppSource och Azure Marketplace. När kunder bläddrar, söker efter och köper erbjudanden på båda marknads platser kan de lämna betyg och recensioner om de erbjudanden de har köpt.
 
 - Kunder kan skicka in en ny klassificering eller granska och uppdatera eller ta bort en befintlig klassificering eller granska de skickas. Kunder kan bara göra ändringar i de klassificeringar och recensioner de äger.  
 - Granskningar publiceras på fliken recensioner på produkt visnings sidan för erbjudandet i Azure Marketplace eller AppSource. Kunder kan inkludera sitt namn eller publicera anonymt.  
 
-På **instrument panelen klassificering & granska** visas trender och insikter för den här aktiviteten av kunder. Du kan visa en grafisk representation av följande objekt:
+>[!NOTE]
+> Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](./faq-terminology.md).
+
+## <a name="access-the-dashboard"></a>Åtkomst till instrument panelen
+
+I [instrument panelen för extern Marketplace](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) i Partner Center expanderar du avsnittet **[analysera](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** och väljer **klassificering & recensioner**.
+
+På instrument panelen visas en grafisk representation av följande kund aktiviteter:
 
 - Klassificering & granskningar  
 - Granska kommentarer
 
-**Marketplace butik-flikarna** gör att utgivare kan se sina erbjudande mått separat på AppSource-& Azure Marketplace-flikarna. Om du vill visa vissa erbjudande mått väljer du erbjudandet i list rutan erbjudande.
+Använd butik-flikar i **Marketplace** för att visa ditt erbjudande Microsoft AppSource och Azure Marketplace-mått separat. Om du vill visa vissa erbjudande mått väljer du erbjudandet i list rutan erbjudande.
 
-
-### <a name="ratings-and-reviews-summary"></a>Sammanfattning av klassificering och recensioner
+### <a name="ratings--reviews-summary"></a>Sammanfattning av klassificerings & recensioner
 
 I sammanfattnings avsnittet klassificerings & recensioner visas måtten nedan för det valda datum intervallet:
 

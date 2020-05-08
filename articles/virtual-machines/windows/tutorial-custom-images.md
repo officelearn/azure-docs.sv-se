@@ -21,9 +21,9 @@ ms.locfileid: "82791586"
 Avbildningar kan användas för att starta distributioner och säkerställa konsekvens över flera virtuella datorer. I den här självstudien skapar du en egen specialiserad avbildning av en virtuell Azure-dator med hjälp av PowerShell och lagrar den i ett delat avbildnings Galleri. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa ett galleri för delad avbildning
+> * Skapa ett Shared Image Gallery
 > * Skapa en avbildnings definition
-> * Skapa en avbildnings version
+> * Skapa en avbildningsversion
 > * Skapa en virtuell dator från en avbildning 
 > * Dela ett avbildnings Galleri
 
@@ -109,7 +109,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 ```
 
 
-## <a name="create-an-image-version"></a>Skapa en avbildnings version
+## <a name="create-an-image-version"></a>Skapa en avbildningsversion
 
 Skapa en avbildnings version från en virtuell dator med [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
@@ -214,9 +214,9 @@ Azure erbjuder också en tjänst som bygger på Packer, [Azure VM Image Builder]
 I den här självstudien har du skapat en specialiserad VM-avbildning. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa ett galleri för delad avbildning
+> * Skapa ett Shared Image Gallery
 > * Skapa en avbildnings definition
-> * Skapa en avbildnings version
+> * Skapa en avbildningsversion
 > * Skapa en virtuell dator från en avbildning 
 > * Dela ett avbildnings Galleri
 

@@ -1,17 +1,17 @@
 ---
-Description: För att kunna ta emot pengar från erbjudande försäljning på den kommersiella marknads platsen måste du konfigurera ditt utbetalnings konto och fylla i de nödvändiga skatte formulären.
-title: Konfigurera ditt utbetalnings konto och skatte formulär | Azure Marketplace
+title: Konfigurera utbetalnings konto & skatte former – Microsoft Commercial Marketplace
+Description: Om du vill ta emot pengar från erbjudandet i den kommersiella Marketplace kan du lära dig hur du konfigurerar ditt utbetalnings konto och fyller i de nödvändiga skatte formulären.
 ms.date: 12/10/2019
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: fb0caa64feb7cb024b684a2e94937aec8893bb5e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80281314"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792895"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Konfigurera utbetalningskonto och deklarationsblanketter
 
@@ -32,7 +32,7 @@ När du har konfigurerat ditt konto finns det två saker du måste göra innan d
 
 ## <a name="tax-forms"></a>Skatte former
 
-### <a name="filling-out-your-tax-forms"></a>Fylla i dina skatte formulär
+### <a name="fill-out-your-tax-forms"></a>Fyll i dina skatte formulär
 
 Först måste du skapa en skatte profil och tilldela den till de program som du deltar i. Du kan skapa din *skatte profil* för den kommersiella marknads platsen genom att utföra följande steg:
 
@@ -45,18 +45,21 @@ Du kan slutföra och skicka in dina skatte formulär elektroniskt i Partner Cent
 > Olika länder och regioner har olika skatte krav. Den exakta mängd som du måste betala i skatter beror på de länder och regioner där du säljer ditt erbjudande. Se [Microsoft Azure Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/p/?LinkID=699560) för att ta reda på för vilka länder som Microsoft betalar och använder skatt för din räkning. I andra länder, beroende på var du är registrerad, kan du behöva betala försäljnings-och användnings skatt för din erbjudande försäljning direkt till den lokala beskattnings-utfärdaren. Dessutom kan app Sales-processen som du får vara skattepliktig som intäkt. Vi rekommenderar starkt att du kontaktar den behöriga myndigheten för ditt land eller din region som bäst kan hjälpa dig att fastställa rätt skatte information för dina kommersiella Marketplace-aktiviteter.
 
 1. I [partner Center](https://partner.microsoft.com/dashboard)väljer du ikonen **konto inställningar** i det övre högra hörnet och väljer sedan inställningar för **utvecklare**.
+
 2. Välj **betalning och skatt**på den vänstra navigerings menyn och välj sedan **utbetalning och skatte tilldelningar**.
 
 3. Välj den program-och säljar-ID-kombination som du vill konfigurera skatte information för.
 
 4. Om du vill använda en befintlig skatte profil väljer du den i list rutan. Annars väljer du **Skapa ny profil** och trycker på **Skicka**. Du kommer till sidan med skatte profiler.
+
 5. Klicka på **Redigera** om du vill redigera din skatte information.
+
 6. Välj lämplig alternativ knapp och välj land om du uppmanas att göra det. Det här steget avgör vilken Microsoft Business-entitet som ska användas för att göra utbetalningar på ditt konto.
 
 7. Beroende på dina val i steg 6 uppmanas du att ange skatte information som krävs för ditt land.
 
-> [!NOTE]
-> Oavsett ditt hemland eller medborgarskap måste du fylla i USA skatte former för att sälja erbjudanden eller tillägg via den kommersiella Marketplace. Utgivare som uppfyller vissa USA placering krav måste fylla i ett IRS W-9-formulär. Andra utgivare utanför USA måste fylla i ett IRS-W-8-formulär. Du kan fylla i dessa formulär online när du har slutfört din skatte profil.
+   > [!NOTE]
+   > Oavsett ditt hemland eller medborgarskap måste du fylla i USA skatte former för att sälja erbjudanden eller tillägg via den kommersiella Marketplace. Utgivare som uppfyller vissa USA placering krav måste fylla i ett IRS W-9-formulär. Andra utgivare utanför USA måste fylla i ett IRS-W-8-formulär. Du kan fylla i dessa formulär online när du har slutfört din skatte profil.
 
 ### <a name="withholding-rates"></a>Käll frekvens
 
@@ -108,8 +111,8 @@ Om du valde att använda ett bank konto för att ta emot utbetalningar slutför 
 
 6. Klicka på Skicka för att spara ändringarna.
 
-> [!NOTE]
-> Det kan ta upp till 48 timmar för Microsoft att verifiera informationen i din profil. När den här processen har slutförts *verifieras statusen* **slutförd**
+   > [!NOTE]
+   > Det kan ta upp till 48 timmar för Microsoft att verifiera informationen i din profil. När den här processen har slutförts *verifieras statusen* **slutförd**
 
 För att se till att utbetalningen lyckas, se till att:
 
@@ -122,7 +125,9 @@ För att se till att utbetalningen lyckas, se till att:
 Du kan redigera befintliga betalnings profiler om du behöver göra ändringar eller korrigera all felaktig information.
 
 1. I [partner Center](https://partner.microsoft.com/dashboard)väljer du kugg hjuls ikonen **Inställningar** i det övre högra hörnet och väljer sedan **Inställningar för utvecklare**.
+
 2. Under *utbetalnings-och skatte* rubriken väljer du **utbetalning och skatte profiler**.
+
 3. Dina betalnings profiler visas tillsammans med deras status. Hitta den profil som du vill redigera och klicka på **Redigera** längst till höger
 
 > [!IMPORTANT]
@@ -138,9 +143,13 @@ I Välj länder och regioner kan du skapa ett betalnings konto genom att ange di
 Vanliga frågor om att använda PayPal som betalnings metod:
 
 - **Vilka PayPal-inställningar behöver jag ha för att kunna ta emot betalningar?** Se till att ditt PayPal-konto inte blockerar eCheck-betalningar. Den här inställningen hanteras på sidan Inställningar för betalnings mottagning i PayPal. Mer information finns på [PayPals konto installations sida](https://go.microsoft.com/fwlink/p/?linkid=513139) .
+
 - **Stöds mitt land/region?** Se [betalnings trösklar, metoder och tids ramar](payment-thresholds-methods-timeframes.md) för att ta reda på var PayPal är en betalnings metod som stöds.
+
 - **Måste mitt PayPal-konto registreras i samma land/region som mitt Partner Center-konto?** Nej. När du konfigurerar ett PayPal-konto kan du acceptera standard konfigurationen. Du får inte ha några problem med andra länder/regioner och valutor om du inte har blockerat betalning i vissa valutor. Den här inställningen hanteras på sidan Inställningar för betalnings mottagning i PayPal.
+
 - **Måste jag godkänna PayPal-betalningar manuellt?** Nej. PayPal-konton ställs in som standard för att kräva att användarna accepterar betalningar manuellt, vilket innebär att om du inte accepterar betalningen inom 30 dagar returneras den. Du kan ändra den här inställningen genom att inaktivera "fråga mig" i PayPals fler inställnings sida.
+
 - **Vilka valutor stöder PayPal support?** Se [PayPals support sida](https://developer.paypal.com/docs/classic/api/currency-codes/#paypal) för den aktuella listan
 
 ### <a name="specific-requirements-for-certain-countriesregions"></a>Specifika krav för vissa länder/regioner
@@ -193,3 +202,7 @@ Om du valde att använda ett bank konto för att ta emot utbetalningar slutför 
 4. Gå tillbaka till sidan *profil tilldelning* och välj den valuta som du vill att vi ska använda när vi utfärdar dina utbetalningar.
 5. Du måste välja en betalnings profil för varje program som du deltar i, men du kan använda samma profil för flera program.
 6. Klicka på Skicka för att spara ändringarna.
+
+## <a name="next-steps"></a>Nästa steg
+
+[Fakturering på den kommersiella marknadsplatsen](billing-details.md)

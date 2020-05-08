@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 6dcda58652abe51d360748222263f30f337a2251
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182743"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791773"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -138,9 +138,9 @@ Cosmos DB använder HMAC för auktorisering. Du kan antingen använda en huvud n
 
 Cosmos DB stöder körning av utlösare under skrivningar. Tjänsten har stöd för maximalt en för-utlösare och en efter-utlösare per Skriv åtgärd. 
 
-## <a name="autoscale-mode-limits"></a>Begränsningar för autoskalning
+## <a name="limits-for-autoscale-provisioned-throughput"></a>Begränsningar för autoskalning av allokerat data flöde
 
-Se artikeln för [autoskalning](provision-throughput-autoscale.md#autoscale-limits) för data flödes-och lagrings gränser i autoskalning-läge.
+Se den [automatiska skalnings](provision-throughput-autoscale.md#autoscale-limits) artikeln för data flödes-och lagrings gränser med autoskalning.
 
 ## <a name="sql-query-limits"></a>Begränsningar för SQL-frågor
 

@@ -11,19 +11,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: 7032f9e8f57ea9400bf6a92f89b13fa1866f8fc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e7e1f91cd4b647472e1899c3485d038f25b5b24
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414396"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651806"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använd tjänst slut punkter och regler för virtuella nätverk för databas servrar
 
-*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om databas servern för dina enskilda databaser och elastiska pooler i Azure [SQL Database](sql-database-technical-overview.md) eller för dina databaser i [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från vissa undernät i virtuella nätverk. I den här artikeln förklaras varför funktionen för regel för virtuella nätverk ibland det bästa alternativet för att på ett säkert sätt tillåta kommunikation till din Azure SQL Database och SQL Data Warehouse.
+*Regler för virtuella nätverk* är en brand Väggs säkerhetsfunktion som styr om databas servern för dina enskilda databaser och elastiska pooler i Azure [SQL Database](sql-database-technical-overview.md) eller för dina databaser i [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) accepterar kommunikation som skickas från vissa undernät i virtuella nätverk. I den här artikeln förklaras varför funktionen för regel för virtuella nätverk ibland det bästa alternativet för att på ett säkert sätt tillåta kommunikation till din Azure SQL Database och Azure Synapse-analys.
 
 > [!IMPORTANT]
-> Den här artikeln gäller för Azure SQL Server och för både SQL Database och SQL Data Warehouse databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse. Den här artikeln gäller *inte* för distribution av **hanterade instanser** i Azure SQL Database eftersom den inte har någon associerad tjänst slut punkt.
+> Den här artikeln gäller för Azure SQL Server och för både SQL Database-och Azure Synapse Analytics-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database-och Azure Synapse-analys. Den här artikeln gäller *inte* för distribution av **hanterade instanser** i Azure SQL Database eftersom den inte har någon associerad tjänst slut punkt.
 
 Om du vill skapa en regel för virtuellt nätverk måste du först vara en [tjänst slut punkt för virtuella nätverk][vm-virtual-network-service-endpoints-overview-649d] för att regeln ska referera till.
 
@@ -105,11 +105,11 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekt av att använda virtuella nätverks slut punkter med Azure Storage
 
-Azure Storage har implementerat samma funktion som gör det möjligt att begränsa anslutningen till ditt Azure Storage-konto. Om du väljer att använda den här funktionen med ett Azure Storage-konto som används av Azure SQL Server kan du stöta på problem. Härnäst är en lista och en diskussion om Azure SQL Database och Azure SQL Data Warehouse funktioner som påverkas av detta.
+Azure Storage har implementerat samma funktion som gör det möjligt att begränsa anslutningen till ditt Azure Storage-konto. Om du väljer att använda den här funktionen med ett Azure Storage-konto som används av Azure SQL Server kan du stöta på problem. Härnäst är en lista och diskussion om Azure SQL Database-och Azure Synapse Analytics-funktioner som påverkas av detta.
 
-### <a name="azure-sql-data-warehouse-polybase"></a>Azure SQL Data Warehouse PolyBase
+### <a name="azure-synapse-analytics-polybase"></a>Azure Synapse Analytics PolyBase
 
-PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen från PolyBase till kontot att avbrytas. Följ stegen nedan för att aktivera både polybases import-och export scenarier med Azure SQL Data Warehouse ansluter till Azure Storage som skyddas av VNet:
+PolyBase används ofta för att läsa in data i Azure Synapse Analytics från Azure Storage-konton. Om Azure Storage konto som du läser in data från begränsar åtkomsten till en uppsättning VNet-undernät, kommer anslutningen från PolyBase till kontot att avbrytas. Följ stegen nedan om du vill aktivera både PolyBase import-och export scenarier med Azure Synapse Analytics som ansluter till Azure Storage som skyddas av VNet:
 
 #### <a name="prerequisites"></a>Krav
 
@@ -122,7 +122,7 @@ PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från A
 
 #### <a name="steps"></a>Steg
 
-1. I PowerShell **registrerar du Azure-SQL Server** som är värd för Azure SQL Data Warehouse-instansen med Azure Active Directory (AAD):
+1. I PowerShell **registrerar du azure SQL Server** som är värd för Azure Synapse Analytics-instansen med Azure Active Directory (AAD):
 
    ```powershell
    Connect-AzAccount
@@ -135,11 +135,11 @@ PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från A
    > [!NOTE]
    > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
-
-1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och klickar på **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till Azure SQL Server som är värd för din Azure SQL Data Warehouse som du har registrerat med Azure Active Directory (AAD) som i steg 1.
+    
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och väljer **Lägg till roll tilldelning**. Välj RBAC-rollen **Storage BLOB data Contributor** i list rutan. För **tilldela åtkomst till** Välj **Azure AD-användare,-grupp eller-tjänstens huvud namn**. För **Välj**anger du Server namnet för azure-SQL Server (logisk server för ditt Azure Synapse Analytics-datalager) som du har registrerat med Azure Active Directory (AAD) som i steg 1. Använd endast Server namnet, inte det fullständigt kvalificerade DNS-namnet (**servername** utan. Database.Windows.net)
 
    > [!NOTE]
-   > Endast medlemmar med ägar behörighet kan utföra det här steget. De olika inbyggda rollerna för Azure-resurser finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+   > Endast medlemmar med ägar behörighet för lagrings kontot kan utföra det här steget. De olika inbyggda rollerna för Azure-resurser finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
   
 1. **PolyBase-anslutning till Azure Storage kontot:**
 

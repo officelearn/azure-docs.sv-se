@@ -21,7 +21,7 @@ Högsta antal tjänst gränser kan höjas vid begäran. Kontakta Azure-supporten
 | Resurs            | Kostnads fri<sup>1</sup> | Basic | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
 | Högsta antal tjänster    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
-| Maximal skala i Sök enheter (SU)<sup>2</sup> |Ej tillämpligt |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |
+| Maximal skala i Sök enheter (SU)<sup>2</sup> |E.t. |3 SU |36 SU |36 SU |36 SU |36 SU |36 SU |36 SU |
 
 <sup>1</sup> kostnads fri baseras på delade, inte dedikerade resurser. Det finns inte stöd för att skala upp på delade resurser.
 

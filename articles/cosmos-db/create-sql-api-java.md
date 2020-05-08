@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 489f241453436190213b99cb4e7be0688a8b6237
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1d818957daa53efc856a345a4886e814fdaab6f3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240179"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858134"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Snabb start: bygga en Java-app för att hantera Azure Cosmos DB SQL API-data
 
@@ -81,6 +81,9 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Köra appen](#run-the-app). 
 
+
+# <a name="sync-api"></a>[Sync-API](#tab/sync)
+
 ### <a name="managing-database-resources-using-the-synchronous-sync-api"></a>Hantera databas resurser med synkron (Sync) API
 
 * `CosmosClient`-initiering. `CosmosClient` Tillhandahåller logisk representation på klient sidan för Azure Cosmos Database-tjänsten. Den här klienten används för att konfigurera och köra förfrågningar till tjänsten.
@@ -106,6 +109,8 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 * SQL-frågor över JSON utförs med hjälp `queryItems` av metoden.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
+
+# <a name="async-api"></a>[Asynkront API](#tab/async)
 
 ### <a name="managing-database-resources-using-the-asynchronous-async-api"></a>Hantera databas resurser med asynkron (asynkron) API
 
@@ -134,6 +139,8 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 * Precis som med Sync-API: et utförs SQL-frågor över JSON `queryItems` med hjälp av metoden.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
+
+---
 
 ## <a name="run-the-app"></a>Kör appen
 

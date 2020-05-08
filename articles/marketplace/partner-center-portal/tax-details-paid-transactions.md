@@ -1,17 +1,17 @@
 ---
+title: Skatte information för Microsoft Commercial Marketplace
 Description: För att förstå dina skatte överväganden för pris val, utbetalnings konsekvenser och skatte ansvar, se dina länder/regioner i tabellerna nedan.
-title: Skatte information | Azure Marketplace
-ms.date: 2/13/2020
 ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 2546de2b63c70d7456712ba39086cd7fb540cf82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 0276a859fb82f7775aca498d73d1cbf780aaf5fc
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80285171"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793031"
 ---
 # <a name="tax-details-for-commercial-marketplace-publishers"></a>Skatte information för kommersiella Marketplace-utgivare
 
@@ -23,10 +23,6 @@ För att förstå dina skatte överväganden för pris val och skatte ansvar enl
 > [!IMPORTANT]
 > Skatte ansvars områden för åter försäljar länder/regioner och omständigheter (enligt beskrivningen [nedan](#reseller-countriesregions)) omfattas av ett [Microsoft Azure Marketplace utgivar avtal](https://go.microsoft.com/fwlink/p/?LinkID=699560), trots informationen i tabellen nedan.
 > Observera att kolumnen **utbetalnings indirekt** endast gäller för utgivare. Skatte satser som anges i den här kolumnen kan ändras när som helst, och Microsoft kan inte garantera att priserna i tabellerna nedan alltid är korrekta.
-
-
-
- 
 
 | Land/region                   | Skatte överväganden för pris urval                                                                                                             | Utbetalning indirekt                    | Skatte ansvar |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|--------------------|
@@ -262,19 +258,18 @@ För att förstå dina skatte överväganden för pris val och skatte ansvar enl
 | Zambia                           | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Utgivare          |
 | Zimbabwe                         | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter.                                                                   | Pris minus butiks avgift                 | Utgivare          |
 
-Följande gäller endast för Azure Marketplace-utgivare, trots vad som strider mot vad som sägs ovan: 
+Följande gäller endast för Azure Marketplace-utgivare, trots vad som strider mot vad som sägs ovan:
 
-| Land/region                   | Skatte överväganden för pris urval                                                                                                             | Skatte hantering                    | 
+| Land/region                   | Skatte överväganden för pris urval                                                                                                             | Skatte hantering                    |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
 | Australien (för köp som görs via alla kund inköps scenarier utom Enterprise-avtal) | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. | Microsoft |
 | Australien (endast för köp som görs via Enterprise-avtal kundens inköps scenario) | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. | Utgivare |
-| Brasilien | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. | Utgivare **(se åter försäljar länder/regioner)** |
-| Mexiko | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. | Utgivare **(se åter försäljar länder/regioner)** |
+| Brasilien | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. | Utgivare (**Se åter försäljar länder/regioner**) |
+| Mexiko | Det pris som valts är det slutgiltiga försäljnings priset och inkluderar eventuella tillämpliga skatter. | Utgivare (**Se åter försäljar länder/regioner**) |
 
 ## <a name="mixed-remittance-countriesregions-for-publishers"></a>Länder/regioner med blandad remittering för utgivare
 
-
-Vissa Microsoft-fakturerings partner kan samla in och betala försäljning, användning, varor och tjänster, mervärde eller liknande skatter, om det finns några, som är tillämpliga för kundernas förvärv av dina appar eller appar i appar via butiken i de länder/regioner som anges nedan. De [rapporter](payout-summary.md#transaction-history-download-export) som Microsoft gör tillgängliga för dig kommer att identifiera de transaktioner för vilka en fakturerings partner har samlat in försäljning, användning, varor och tjänster, mervärdet eller liknande skatter som gäller för kunders förvärv av dina appar eller appar i appar via butiken. Förutom de transaktioner som beskrivs i denna rapportering kommer varken Microsoft eller dess fakturerings tjänst leverantörer att betala någon försäljning, användning, varor och tjänster, mervärde eller annan liknande skatt i samband med kundernas förvärv av dina appar eller produkter i programmet i dessa länder. Du ansvarar för att granska rapporteringen till dig och bestämma och uppfylla dina skyldigheter, i förekommande fall, för att registrera, samla in och betala in skatter i samband med transaktioner som rör dina appar eller produkter i appar.
+Vissa Microsoft-fakturerings partner kan samla in och betala försäljning, användning, varor och tjänster, mervärde eller liknande skatter, om det finns några, som är tillämpliga för kundernas förvärv av dina appar eller appar i appar via butiken i de länder/regioner som anges nedan. De [rapporter](payout-summary-overview.md#transaction-history-download-export) som Microsoft gör tillgängliga för dig kommer att identifiera de transaktioner för vilka en fakturerings partner har samlat in försäljning, användning, varor och tjänster, mervärdet eller liknande skatter som gäller för kunders förvärv av dina appar eller appar i appar via butiken. Förutom de transaktioner som beskrivs i denna rapportering kommer varken Microsoft eller dess fakturerings tjänst leverantörer att betala någon försäljning, användning, varor och tjänster, mervärde eller annan liknande skatt i samband med kundernas förvärv av dina appar eller produkter i programmet i dessa länder. Du ansvarar för att granska rapporteringen till dig och bestämma och uppfylla dina skyldigheter, i förekommande fall, för att registrera, samla in och betala in skatter i samband med transaktioner som rör dina appar eller produkter i appar.
 
 | Länder/regioner med blandad remittering |
 |------------------------------------|
@@ -285,16 +280,13 @@ Vissa Microsoft-fakturerings partner kan samla in och betala försäljning, anv�
 
 I vissa länder/regioner agerar Microsoft som en åter försäljare, i stället för din agent, för att göra dina appar och appar i appar tillgängliga i butiken. Mer information om villkor för åter försäljar länder/regioner finns i [Microsoft Azure Marketplace Publisher-avtalet](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
-Följande gäller endast för Azure Marketplace-utgivare: 
+Följande gäller endast för Azure Marketplace-utgivare:
 
 |                    Åter försäljar länder/regioner                                                                          |
 |------------------------------------------------------------------------------------------------------------------------|
 | Brasilien (för köp som görs via alla kund inköps scenarier utom CSP) |
 | Mexiko (endast för köp som görs via Enterprise-avtal kundens inköps scenario) |
 
+## <a name="next-steps"></a>Nästa steg
 
- 
-
-
-
-
+[Konfigurera utbetalningskonto och deklarationsblanketter](set-up-your-payout-account-tax-forms.md)

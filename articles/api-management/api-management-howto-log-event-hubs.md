@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 2f67079938ddcf4a65e01ef50ab7e5cdf7078b73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d122a56035e58bd5065da8fde56246da6478d54
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81260946"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871271"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Logga händelser till Azure Event Hubs i Azure API Management
 Händelsehubbar i Azure är en mycket skalbar tjänst för dataingång som kan mata in miljontals händelser per sekund så att du kan bearbeta och analysera de enorma mängder data som dina anslutna enheter och program producerar. Event Hubs fungerar som "Front dörren" för händelse pipelinen och när data samlas in i en händelsehubben kan den transformeras och lagras med hjälp av en analys av real tids analys eller batch-/minnes kort. Händelsehubbar frikopplar produktionen av en händelseström från användningen av dessa händelser så att händelsekonsumenterna kan komma åt dem på sitt eget schema.
@@ -34,9 +34,9 @@ Nu när du har en Event Hub är nästa steg att konfigurera en [loggare](https:/
 
 API Management-loggar konfigureras med hjälp av [API Management REST API](https://aka.ms/apimapi). Exempel på detaljerad begäran finns i [så här skapar du loggar](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/logger/createorupdate).
 
-## <a name="configure-log-to-eventhubs-policies"></a>Konfigurera logg-till-eventhubs-principer
+## <a name="configure-log-to-eventhub-policies"></a>Konfigurera logg-till-eventhub-principer
 
-När din logg har kon figurer ATS i API Management kan du konfigurera dina eventhubs-principer för att logga de önskade händelserna. Du kan använda logg-till-eventhubs-principen i avsnittet för inkommande eller utgående principer.
+När din logg har kon figurer ATS i API Management kan du konfigurera din logg-till-eventhub-princip för att logga de önskade händelserna. Du kan använda logg-till-eventhub-principen antingen i avsnittet inkommande princip eller i avsnittet utgående princip.
 
 1. Bläddra till APIM-instansen.
 2. Välj fliken API.
@@ -49,15 +49,32 @@ När din logg har kon figurer ATS i API Management kan du konfigurera dina event
 9. I fönstret till höger väljer du **avancerade principer** > **Logga till EventHub**. Detta infogar `log-to-eventhub` princip instruktions mal len.
 
 ```xml
-<log-to-eventhub logger-id ='logger-id'>
-  @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name))
+<log-to-eventhub logger-id="logger-id">
+    @{
+        return new JObject(
+            new JProperty("EventTime", DateTime.UtcNow.ToString()),
+            new JProperty("ServiceName", context.Deployment.ServiceName),
+            new JProperty("RequestId", context.RequestId),
+            new JProperty("RequestIp", context.Request.IpAddress),
+            new JProperty("OperationName", context.Operation.Name)
+        ).ToString();
+    }
 </log-to-eventhub>
 ```
-Ersätt `logger-id` med värdet som du använde för `{new logger name}` i URL: en för att skapa loggaren i föregående steg.
+Ersätt `logger-id` med värdet som du använde för `{loggerId}` i URL: en för begäran för att skapa loggaren i föregående steg.
 
-Du kan använda alla uttryck som returnerar en sträng som värde för `log-to-eventhub` elementet. I det här exemplet loggas en sträng som innehåller datum och tid, tjänst namn, begärande-ID, begär ande-IP-adress och åtgärds namn.
+Du kan använda alla uttryck som returnerar en sträng som värde för `log-to-eventhub` elementet. I det här exemplet loggas en sträng i JSON-format som innehåller datum och tid, tjänst namn, ID för begäran, begär ande-IP-adress och åtgärds namn.
 
 Klicka på **Spara** för att spara den uppdaterade princip konfigurationen. Så snart den har sparats är principen aktiv och händelserna loggas i den angivna Händelsehubben.
+
+## <a name="preview-the-log-in-event-hubs-by-using-azure-stream-analytics"></a>Förhandsgranska loggen i Event Hubs med Azure Stream Analytics
+
+Du kan förhandsgranska loggen i Event Hubs genom att använda [Azure Stream Analytics frågor](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics). 
+
+1. I Azure Portal bläddrar du till händelsehubben som loggen skickar händelser till. 
+2. Under **funktioner**väljer du fliken **bearbeta data** .
+3. På kortet **Aktivera real tids insikter från evenemang** väljer du **utforska**.
+4. Du bör kunna förhandsgranska loggen på fliken **förhands granskning av indatakälla** . Om informationen som visas inte är aktuell väljer du **Uppdatera** för att se de senaste händelserna.
 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om Azure Event Hubs

@@ -4,15 +4,15 @@ description: Den här artikeln beskriver hur du säkerhetskopierar och återstä
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 02ca7f268f2998d3b7d73ab9fc00bbd688b5f50c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: aa98a13b84e89c90e29525fb6743ac33faf1d917
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582522"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871292"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -24,7 +24,7 @@ Att säkerhetskopiera tabell modell databaser i Azure Analysis Services är unge
 > 
 
 > [!NOTE]
-> Om lagrings kontot finns i en annan region, måste brand Väggs inställningarna konfigureras för att tillåta åtkomst från **alla nätverk**. Brand Väggs inställningar som kon figurer ATS för valda nätverk med vit listas IP-adresser och Tillåt betrott Microsoft Services-undantag stöds inte.
+> Om lagrings kontot finns i en annan region konfigurerar du inställningarna för lagrings konto brand väggen för att tillåta åtkomst från **valda nätverk**. I brand Väggs **adress intervall**anger du IP-adressintervallet för den region som Analysis Services-servern finns i. Det finns stöd för att konfigurera brand Väggs inställningar för lagrings konto för att tillåta åtkomst från alla nätverk, men att välja valda nätverk och ange ett IP-adressintervall rekommenderas. Mer information finns i [vanliga frågor och svar om nätverks anslutning](analysis-services-network-faq.md#backup-and-restore).
 
 Säkerhets kopior sparas med tillägget. ABF. För i-minnes tabell modeller lagras både modell data och metadata. För DirectQuery-tabell modeller lagras bara modellens metadata. Säkerhets kopior kan komprimeras och krypteras beroende på vilka alternativ du väljer.
 

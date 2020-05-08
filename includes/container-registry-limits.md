@@ -24,15 +24,15 @@ ms.locfileid: "79117130"
 | Ladda ned bandbredd MBps<sup>2</sup> | 30 | 60 | 100 |
 | Ladda upp bandbredd MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
-| Geo-replikering | Ej tillämpligt | Ej tillämpligt | [Stöds][geo-replication] |
-| Förtroende för innehåll | Ej tillämpligt | Ej tillämpligt | [Stöds][content-trust] |
-| Åtkomst till virtuellt nätverk | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskningsvyn][vnet] |
-| Integrering av privata länkar | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskningsvyn][plink] |
-| Kundhanterade nycklar | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskningsvyn][cmk] |
-| Databas – begränsade behörigheter | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskningsvyn][token]|
-| &bull;Token | Ej tillämpligt | Ej tillämpligt | 20 000 |
-| &bull;Omfångs kartor | Ej tillämpligt | Ej tillämpligt | 20 000 |
-| &bull;Mappning av databaser per område | Ej tillämpligt | Ej tillämpligt | 500 |
+| Geo-replikering | E.t. | E.t. | [Stöds][geo-replication] |
+| Förtroende för innehåll | E.t. | E.t. | [Stöds][content-trust] |
+| Åtkomst till virtuellt nätverk | E.t. | E.t. | [Förhandsgranskning][vnet] |
+| Integrering av privata länkar | E.t. | E.t. | [Förhandsgranskning][plink] |
+| Kundhanterade nycklar | E.t. | E.t. | [Förhandsgranskning][cmk] |
+| Databas – begränsade behörigheter | E.t. | E.t. | [Förhandsgranskning][token]|
+| &bull;Token | E.t. | E.t. | 20 000 |
+| &bull;Omfångs kartor | E.t. | E.t. | 20 000 |
+| &bull;Mappning av databaser per område | E.t. | E.t. | 500 |
 
 
 <sup>1</sup> De angivna lagrings gränserna är mängden lagrings utrymme som *ingår* för varje nivå. Du debiteras ytterligare en daglig taxa per GiB för avbildnings lagring över dessa gränser. Mer information om priser finns i [Azure Container Registry prissättning][pricing].

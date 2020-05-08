@@ -1,26 +1,24 @@
 ---
-title: Vanliga frågor och termer för den kommersiella Marketplace-analysen i Partner Center
-description: Lär dig hur du löser vanliga frågor om den kommersiella Marketplace-analysen. Innehåller en data ord lista för analys terminologi.
+title: Vanliga frågor och svar om kommersiell Marketplace & terminologi – Partner Center
+description: Få svar på vanliga frågor om den kommersiella Marketplace-analysen i Partner Center. Den här artikeln innehåller en data ord lista för analys terminologi.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: b7367e58de818c20723c02a6763b1bf1e3b18f24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42478f6e6d6cb28364fe39aafcb52b3a17aa3c23
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251834"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791484"
 ---
-# <a name="frequently-asked-questions-and-terminology-for-commercial-marketplace-analytics"></a>Vanliga frågor och terminologi för analys av kommersiella Marketplace
+# <a name="commercial-marketplace-analytics-terminology-and-common-questions"></a>Terminologi för kommersiell marknads plats analys och vanliga frågor
 
 Den här artikeln handlar om vanliga frågor om analys meddelanden i Partner Center och innehåller en ord lista med analys terminologi.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-Det här avsnittet innehåller svar på vanliga frågor om **inga analyser som är tillgängliga än** meddelanden i Partner Center.
+## <a name="common-questions"></a>Vanliga frågor
 
 **Jag kan inte Visa mina analys data i Partner Center. När jag har åtkomst till dessa sidor visas meddelandet nedan. Varför är det här?**
 

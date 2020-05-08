@@ -3,15 +3,15 @@ title: Ansluta till virtuella Azure-nätverk med en ISE
 description: Skapa en integrerings tjänst miljö (ISE) som kan komma åt Azure Virtual Networks (virtuella nätverk) från Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.openlocfilehash: fa63380a8e27dcc8f4de414c483f8d8ed2323e7b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/05/2020
+ms.openlocfilehash: 8fab8c51655c860bc63715a5313c18ac72d4b0cd
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234121"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871616"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
@@ -80,42 +80,49 @@ För att se till att din ISE är tillgänglig och att Logi Kap par i som ISE kan
 
 * Om du har skapat ett nytt virtuellt Azure-nätverk och undernät utan några begränsningar behöver du inte konfigurera [nätverks säkerhets grupper (NSG: er)](../virtual-network/security-overview.md#network-security-groups) i det virtuella nätverket för att styra trafiken mellan undernät.
 
-* I ett befintligt virtuellt nätverk kan du *välja* att konfigurera NSG: er genom att [filtrera nätverks trafik över undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du vill använda den här vägen, eller om du redan använder NSG: er, se till att du [öppnar portarna i den här tabellen](#network-ports-for-ise) i det virtuella nätverket där du har NSG: er eller vill ställa in NSG: er.
+* För ett befintligt virtuellt nätverk kan du *välja* att konfigurera [nätverks säkerhets grupper (NSG: er)](../virtual-network/security-overview.md#network-security-groups) för att [filtrera nätverks trafik över undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du vill använda den här vägen, eller om du redan använder NSG: er, se till att du [öppnar portarna som beskrivs i den här tabellen](#network-ports-for-ise) för dessa NSG: er.
 
-  > [!NOTE]
-  > Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)måste du använda *både* TCP-och UDP-protokollen. NSG säkerhets regler beskriver de portar som du måste öppna för IP-adresserna som behöver åtkomst till dessa portar. Kontrol lera att alla brand väggar, routrar eller andra objekt som finns mellan dessa slut punkter också behåller de portarna som är tillgängliga för dessa IP-adresser.
+  När du ställer in [säkerhets regler för NSG](../virtual-network/security-overview.md#security-rules)måste du använda *både* **TCP** -och **UDP** -protokollen, eller så kan du välja **en** i stället så att du inte behöver skapa separata regler för varje protokoll. NSG säkerhets regler beskriver de portar som du måste öppna för IP-adresserna som behöver åtkomst till dessa portar. Kontrol lera att alla brand väggar, routrar eller andra objekt som finns mellan dessa slut punkter också behåller de portarna som är tillgängliga för dessa IP-adresser.
 
 <a name="network-ports-for-ise"></a>
 
 ### <a name="network-ports-used-by-your-ise"></a>Nätverks portar som används av din ISE
 
-I den här tabellen beskrivs de portar i ditt virtuella Azure-nätverk som används av ISE och var dessa portar används. För att minska komplexiteten när du skapar säkerhets regler motsvarar [tjänst taggarna](../virtual-network/service-tags-overview.md) i tabellen grupper av IP-adressprefix för en enskild Azure-tjänst.
+I den här tabellen beskrivs de portar som din ISE måste ha åtkomst till och syftet med dessa portar. För att minska komplexiteten när du skapar säkerhets regler använder tabellen [tjänst koder](../virtual-network/service-tags-overview.md) som representerar grupper med IP-adressprefix för en speciell Azure-tjänst. Om inget annat anges kan *interna ISE* och *extern ISE* referera till [åtkomst slut punkten som väljs när ISE skapas](connect-virtual-network-vnet-isolated-environment.md#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
 
 > [!IMPORTANT]
-> Käll portar är tillfälliga, så se till att du ställer in dem på `*` för alla regler. Om inget annat anges kan interna ISE och extern ISE referera till den [slut punkt som väljs vid skapande av ISE](connect-virtual-network-vnet-isolated-environment.md#create-environment). Mer information finns i [slut punkts åtkomst](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). 
+> För alla regler, se till att du ställer in käll portar `*` på eftersom käll portar är tillfälliga.
 
-| Syfte | Riktning | Målportar | Käll tjänst tag gen | Måltjänsttagg | Obs! |
-|---------|-----------|-------------------|--------------------|-------------------------|-------|
-| Kommunikation mellan undernät i det virtuella nätverket | Inkommande & utgående | * | Adress utrymmet för det virtuella nätverk som har dina ISE-undernät | Adress utrymmet för det virtuella nätverk som har dina ISE-undernät | Krävs för att trafik ska flöda *mellan* under näten i det virtuella nätverket. <p><p>**Viktigt**: för att trafik ska flöda mellan *komponenterna* i varje undernät, se till att du öppnar alla portar i varje undernät. |
-| Kommunikation till din Logic app | Inkommande | 443 | Intern ISE: <br>VirtualNetwork <p><p>Extern ISE: <br>Internet <br>(se **Notes** -kolumnen) | VirtualNetwork | I stället för att använda taggen **Internet** service kan du ange käll-IP-adressen för den dator eller tjänst som anropar eventuella begär ande utlösare eller webhookar i din Logic app. <p><p>**Viktigt**: om du stänger eller blockerar den här porten förhindras http-anrop till Logic Apps som har begär ande utlösare. |
-| Körnings historik för Logic app | Inkommande | 443 | Intern ISE: <br>VirtualNetwork <p><p>Extern ISE: <br>Internet <br>(se **Notes** -kolumnen) | VirtualNetwork | I stället för att använda taggen **Internet** service kan du ange käll-IP-adressen för den dator eller tjänst som du vill visa din Logic Apps körnings historik för. <p><p>**Viktigt**: även om du stänger eller blockerar den här porten hindrar dig inte från att Visa körnings historiken kan du inte Visa indata och utdata för varje steg i den här körnings historiken. |
-| Logic Apps designer – dynamiska egenskaper | Inkommande | 454 | LogicAppsManagement | VirtualNetwork | Begär Anden kommer från Logic Apps åtkomst slut punktens [inkommande](../logic-apps/logic-apps-limits-and-config.md#inbound) IP-adresser för den regionen. |
-| Kopplings distribution | Inkommande | 454 | AzureConnectors | VirtualNetwork | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar eller korrigeringar. |
-| Nätverks hälso kontroll | Inkommande | 454 | LogicApps | VirtualNetwork | Begär Anden kommer från Logic Apps åtkomst slut punkten för både [inkommande](../logic-apps/logic-apps-limits-and-config.md#inbound) och [utgående](../logic-apps/logic-apps-limits-and-config.md#outbound) IP-adresser för den regionen. |
-| Beroende för App Service hantering | Inkommande | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| Kommunikation från Azure Traffic Manager | Inkommande | Intern ISE: 454 <p><p>Extern ISE: 443 | AzureTrafficManager | VirtualNetwork | |
-| API Management hanterings slut punkt | Inkommande | 3443 | API Management | VirtualNetwork | |
-| Distribution av kopplings princip | Inkommande | 3443 | API Management | VirtualNetwork | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar eller korrigeringar. |
-| Kommunikation från din Logic app | Utgående | 80, 443 | VirtualNetwork | Varierar beroende på mål | Slut punkterna för den externa tjänst som din Logic app behöver för att kommunicera med. |
-| Azure Active Directory | Utgående | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Anslutnings hantering | Utgående | 443 | VirtualNetwork  | AppService | |
-| Publicera diagnostikloggar & mått | Utgående | 443 | VirtualNetwork  | AzureMonitor | |
-| Azure Storage beroende | Utgående | 80, 443, 445 | VirtualNetwork | Storage | |
-| Azure SQL-beroende | Utgående | 1433 | VirtualNetwork | SQL | |
-| Azure Resource Health | Utgående | 1886 | VirtualNetwork | AzureMonitor | Krävs för att publicerings hälso status ska Resource Health |
-| Beroende från logg till Event Hub-princip och övervaknings agent | Utgående | 5672 | VirtualNetwork | EventHub | |
-| Få åtkomst till Azure cache för Redis-instanser mellan roll instanser | Inkommande <br>Utgående | 6379 – 6383 | VirtualNetwork | VirtualNetwork | För att ISE ska fungera med Azure cache för Redis måste du också öppna de här [utgående och inkommande portarna som beskrivs i Azure cache för Redis vanliga frågor och svar](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-||||||
+#### <a name="inbound-security-rules"></a>Ingående säkerhetsregler
+
+| Syfte | Käll tjänst tag gen eller IP-adresser | Källportar | Mål service tag eller IP-adresser | Målportar | Obs! |
+|---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+| Kommunikation mellan undernät i det virtuella nätverket | Adress utrymme för det virtuella nätverket med ISE-undernät | * | Adress utrymme för det virtuella nätverket med ISE-undernät | * | Krävs för att trafik ska flöda *mellan* under näten i det virtuella nätverket. <p><p>**Viktigt**: för att trafik ska flöda mellan *komponenterna* i varje undernät, se till att du öppnar alla portar i varje undernät. |
+| Båda: <p>Kommunikation till din Logic app <p><p>Kör historik för Logic app| Intern ISE: <br>**VirtualNetwork** <p><p>Extern ISE: **Internet** eller se **kommentarer** | * | **VirtualNetwork** | 443 | I stället för att använda taggen **Internet** service kan du ange käll-IP-adressen för följande objekt: <p><p>– Datorn eller tjänsten som anropar alla begär ande utlösare eller Webhooks i din Logic app <p>– Datorn eller tjänsten som du vill få åtkomst till kör historik för Logic app <p><p>**Viktigt**: om du stänger eller blockerar den här porten förhindras anrop till Logic Apps som har begär ande utlösare eller Webhooks. Du hindras också från att komma åt indata och utdata för varje steg i körnings historiken. Du kommer dock inte hindras från att komma åt körnings historiken för Logic app.|
+| Logic Apps designer – dynamiska egenskaper | **LogicAppsManagement** | * | **VirtualNetwork** | 454 | Förfrågningar kommer från den Logic Apps åtkomst slut punktens [inkommande IP-adresser](../logic-apps/logic-apps-limits-and-config.md#inbound) för den regionen. |
+| Kopplings distribution | **AzureConnectors** | * | **VirtualNetwork** | 454 | Krävs för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar och korrigeringar. |
+| Nätverks hälso kontroll | **LogicApps** | * | **VirtualNetwork** | 454 | Förfrågningar kommer från Logic Apps åtkomst slut punktens [inkommande IP-adresser](../logic-apps/logic-apps-limits-and-config.md#inbound) och [utgående IP-adresser](../logic-apps/logic-apps-limits-and-config.md#outbound) för den regionen. |
+| Beroende för App Service hantering | **AppServiceManagement** | * | **VirtualNetwork** | 454, 455 ||
+| Kommunikation från Azure Traffic Manager | **AzureTrafficManager** | * | **VirtualNetwork** | Intern ISE: 454 <p><p>Extern ISE: 443 ||
+| Båda: <p>Distribution av kopplings princip <p>API Management hanterings slut punkt | **API Management** | * | **VirtualNetwork** | 3443 | För distribution av anslutnings principer krävs port åtkomst för att distribuera och uppdatera anslutningar. Om du stänger eller blockerar den här porten kan ISE-distributioner Miss Missing och förhindrar anslutnings uppdateringar och korrigeringar. |
+| Få åtkomst till Azure cache för Redis-instanser mellan roll instanser | **VirtualNetwork** | * | **VirtualNetwork** | 6379-6383, plus se **kommentarer**| För att ISE ska fungera med Azure cache för Redis måste du öppna de här [utgående och inkommande portarna som beskrivs i Azure cache för Redis vanliga frågor och svar](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+|||||||
+
+#### <a name="outbound-security-rules"></a>Säkerhetsregler för utgående trafik
+
+| Syfte | Käll tjänst tag gen eller IP-adresser | Källportar | Mål service tag eller IP-adresser | Målportar | Obs! |
+|---------|------------------------------------|--------------|-----------------------------------------|-------------------|-------|
+| Kommunikation mellan undernät i det virtuella nätverket | Adress utrymme för det virtuella nätverket med ISE-undernät | * | Adress utrymme för det virtuella nätverket med ISE-undernät | * | Krävs för att trafik ska flöda *mellan* under näten i det virtuella nätverket. <p><p>**Viktigt**: för att trafik ska flöda mellan *komponenterna* i varje undernät, se till att du öppnar alla portar i varje undernät. |
+| Kommunikation från din Logic app | **VirtualNetwork** | * | Varierar beroende på mål | 80, 443 | Målet varierar beroende på slut punkterna för den externa tjänst som din Logic app behöver för att kommunicera med. |
+| Azure Active Directory | **VirtualNetwork** | * | **AzureActiveDirectory** | 80, 443 ||
+| Azure Storage beroende | **VirtualNetwork** | * | **Storage** | 80, 443, 445 ||
+| Anslutnings hantering | **VirtualNetwork** | * | **AppService** | 443 ||
+| Publicera diagnostikloggar & mått | **VirtualNetwork** | * | **AzureMonitor** | 443 ||
+| Azure SQL-beroende | **VirtualNetwork** | * | **SQL** | 1433 ||
+| Azure Resource Health | **VirtualNetwork** | * | **AzureMonitor** | 1886 | Krävs för att publicering av hälso status ska Resource Health. |
+| Beroende från logg till Event Hub-princip och övervaknings agent | **VirtualNetwork** | * | **EventHub** | 5672 ||
+| Få åtkomst till Azure cache för Redis-instanser mellan roll instanser | **VirtualNetwork** | * | **VirtualNetwork** | 6379-6383, plus se **kommentarer**| För att ISE ska fungera med Azure cache för Redis måste du öppna de här [utgående och inkommande portarna som beskrivs i Azure cache för Redis vanliga frågor och svar](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+|||||||
 
 <a name="create-environment"></a>
 
@@ -141,7 +148,7 @@ I den här tabellen beskrivs de portar i ditt virtuella Azure-nätverk som anvä
    | **Position** | Ja | <*Azure-datacenter-region*> | Azure Data Center-regionen där du distribuerar din miljö |
    | **SKU** | Ja | **Premium** eller **Developer (service avtal)** | ISE-SKU: n för att skapa och använda. För skillnader mellan dessa SKU: er, se [ISE SKU: er](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Viktigt**: det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
    | **Ytterligare kapacitet** | Premium: <br>Ja <p><p>Utvecklarläget <br>Inte tillämpligt | Premium: <br>0 till 10 <p><p>Utvecklarläget <br>Inte tillämpligt | Antalet ytterligare bearbetnings enheter som ska användas för denna ISE-resurs. Information om hur du lägger till kapacitet när du har skapat finns i [lägga till ISE-kapacitet](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) |
-   | **Åtkomst slut punkt** | Ja | **Intern** eller **extern** | Den typ av åtkomst slut punkter som ska användas för din ISE. Dessa slut punkter avgör om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. <p><p>Valet påverkar också hur du kan visa och komma åt indata och utdata i din Logic app kör historik. Mer information finns i [åtkomst till ISE-slutpunkt](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Viktigt**: det här alternativet är endast tillgängligt vid skapande av ISE och kan inte ändras senare. |
+   | **Åtkomst slut punkt** | Ja | **Intern** eller **extern** | Den typ av åtkomst slut punkter som ska användas för din ISE. Dessa slut punkter avgör om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. <p><p>Valet påverkar också hur du kan visa och komma åt indata och utdata i din Logic app kör historik. Mer information finns i [åtkomst till ISE-slutpunkt](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Viktigt**: du kan bara välja åtkomst slut punkten under skapande av ISE och inte ändra det här alternativet senare. |
    | **Virtuellt nätverk** | Ja | <*Azure-Virtual-Network-Name*> | Det virtuella Azure-nätverket där du vill mata in din miljö så att Logic Apps i den miljön kan komma åt ditt virtuella nätverk. Om du inte har ett nätverk [skapar du först ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). <p><p>**Viktigt**: du kan *bara* utföra den här inmatningen när du skapar din ISE. |
    | **Undernät** | Ja | <*undernät-resurs lista*> | En ISE kräver fyra *tomma* undernät för att skapa och distribuera resurser i din miljö. [Följ stegen i den här tabellen](#create-subnet)om du vill skapa varje undernät. |
    |||||

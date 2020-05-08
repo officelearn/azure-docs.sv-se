@@ -1,31 +1,31 @@
 ---
-title: Användnings instrument panel i kommersiell Marketplace-analys på Partner Center
-description: Lär dig hur du kommer åt alla virtuella datorer erbjuder användning och mätning av mät värden.
+title: Instrument panelen för användning i Microsofts marknads plats analys
+description: Lär dig hur du kommer åt alla virtuella datorer erbjuder användning och mätning av mät värden. Gå till användnings instrument panelen i Partner Center under kommersiell marknads plats.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 33762540d14ea51e8325abe9a466007cd7cca748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89a0a782b4a18b71f7be8bcdd3728fd008c24d5a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262187"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793014"
 ---
-# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Instrument panelen för användning i kommersiell Marketplace-analys
+# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Instrument panelen för användning i Microsofts marknads plats analys
 
 Den här artikeln innehåller information om användnings instrument panelen i Partner Center. Den här instrument panelen visar alla virtuella datorer som erbjuder användnings mått och mätnings mått i två separata flikar: VM-användning och avgiftsbelagd fakturerings användning.
 
-Öppna instrument panelen för användning genom att öppna **[analys](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** instrument panelen under kommersiell marknads plats.
+Öppna instrument panelen för användning genom att öppna **[analys](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** instrument panelen under **kommersiell marknads**plats.
 
 >[!NOTE]
 > Detaljerade definitioner av analys terminologi finns i [vanliga frågor och terminologi för affärs platsers analys](./faq-terminology.md).
 
 ## <a name="usage-dashboard"></a>Instrumentpanelen Användning
 
-Användnings instrument panelen representerar måtten för all virtuell dator (VM) erbjuder användning och mätning av fakturerings användning. De finns i två separata flikar: användning av virtuella datorer och avgiftsbelagd fakturerings användning.
+Användnings instrument panelen representerar måtten för all virtuell dator (VM) erbjuder användning och mätning av fakturerings användning. Dessa mått finns i två separata flikar: användning av virtuella datorer och avgiftsbelagd fakturerings användning.
 
 På fliken VM-användning finns grafiska representationer av följande objekt:
 
@@ -46,7 +46,7 @@ På fliken VM-användning finns grafiska representationer av följande objekt:
 I tabellen användnings översikt visas kund förbruknings timmar för alla erbjudanden som de har köpt.
 
 - Normaliserad användnings tid definieras som de användnings timmar som normaliseras för antalet virtuella dator kärnor ([antal VM-kärnor] x [timmar RAW Usage]). Virtuella datorer som anges som "SHAREDCORE" använder 1/6 (eller 0,1666) som [antal VM-kärnor] multiplikatorn.
-- Rå användnings timmar definieras som mängden tid som virtuella datorer har körts i timmar.
+- Rå användnings timmar definieras som antalet virtuella datorer som har körts i timmar.
 - Procentvärdet representerar användnings öknings ändringar för det valda datum intervallet ([senaste månads användning – första månads användning])/första månads användning).
 - Gröna trianglar som pekar uppåt visar en tillväxt ändring.
 - Röd triangel som pekar nedåt indikerar en negativ tillväxt ändring i förhållande till föregående månad.
@@ -58,13 +58,13 @@ Den **normaliserade användningen av geografi** -termisk karta visar användning
 
 ### <a name="usage-by-offers"></a>Användning efter erbjudanden
 
-- I cirkel diagrammet **normalisera användning per erbjudande** visas en analys av normaliserade användnings timmar per erbjudanden enligt det valda datum intervallet. De 5 främsta erbjudandena visas i Graph, medan resten grupperas i kategorin "rest all".
+- I cirkel diagrammet **normalisera användning per erbjudande** visas en analys av normaliserade användnings timmar per erbjudanden enligt det valda datum intervallet. De fem främsta erbjudandena visas i Graph, medan resten grupperas i resten av **alla** kategorier.
 - Stapeldiagrammet visar en tillväxt trend i månaden för det valda datum intervallet. Månads kolumnerna representerar användnings timmar från erbjudandena med högst användnings timmar för respektive månad. Linje diagrammet visar trenden för tillväxt procent ritad på den sekundära Y-axeln.
 - Använd skjutreglaget överst i diagrammet för att rulla från höger till vänster längs x-axeln och/eller fokusera på vissa data punkter.
 
 ### <a name="usage-trend-by-offers-and-skus"></a>Användnings trend per erbjudanden och SKU: er
 
-Det här diagrammet visar trenden för normaliserad användning för de valda SKU: erna för ett erbjudande. Erbjudandet ranknings lista visar de översta 50-erbjudandenna med högsta användning och sorteras efter användnings timmar. SKU-ranknings lista visar de översta 50 SKU: erna med den högsta användningen för det valda erbjudandet.
+Det här diagrammet visar trenden för normaliserad användning för de valda SKU: erna för ett erbjudande. Erbjudandet ranknings lista visar de översta 50-erbjudandenna med högsta användning, sorterade efter användnings timmar. SKU-ranknings lista visar de översta 50 SKU: erna med den högsta användningen för det valda erbjudandet.
 
 ### <a name="usage-by-offer-type"></a>Användning per erbjudande typ
 
@@ -91,7 +91,7 @@ Ranknings lista visar de virtuella 50 VM-storlekarna med högsta användning och
 
 - Varje kolumn i rutnätet är sorterbar.
 - Data kan extraheras till en CSV-fil om antalet poster är mindre än 1000.
-- Om antalet poster är över 1000 placeras export data asynkront på en nedladdnings sida som kommer att vara tillgängliga under de närmaste 30 dagarna.
+- Om antalet poster är över 1000 placeras export data asynkront på en nedladdnings sida som kommer att vara tillgänglig under de närmaste 30 dagarna.
 - Filter kan tillämpas på **detaljerad användnings information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land, försäljnings kanal, Marketplace-licens typ, användnings typ, erbjudande namn, erbjudande typ, kostnads fria utvärderings prenumerationer, Marketplace-ID, kund-ID och företags namn.
 
 > [!NOTE]
@@ -123,5 +123,5 @@ På fliken **avgiftsbelagd fakturerings användning** visas användnings informa
 - Information om dina beställningar i ett grafiskt och nedladdnings Bart format finns i [order instrument panel i kommersiell Marketplace-analys](./orders-dashboard.md).
 - Detaljerad information om dina kunder, inklusive tillväxt trender, finns [på kund instrument panel i affärs Marketplace-analys](./customer-dashboard.md).
 - En lista över dina nedladdnings begär Anden under de senaste 30 dagarna finns i [Hämta instrument panel i kommersiell Marketplace-analys](./downloads-dashboard.md).
-- Om du vill se en sammanställd vy över kundfeedback för erbjudanden på Azure Marketplace och AppSource, se [klassificering och granskning på instrument panelen i kommersiell Marketplace-analys](./ratings-reviews.md).
+- Om du vill se en sammanställd vy över kundfeedback för erbjudanden på Microsoft AppSource och Azure Marketplace, se [instrument panelen för klassificering och granskning i marknads plats analys](./ratings-reviews.md).
 - Vanliga frågor och svar om den kommersiella Marketplace-analysen och en omfattande ord lista med data termer finns i [vanliga frågor och termer för att få en kommersiell Marketplace-analys](./faq-terminology.md).

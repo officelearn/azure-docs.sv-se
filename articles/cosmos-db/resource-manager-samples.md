@@ -4,53 +4,55 @@ description: Använd Azure Resource Manager mallar för att skapa och konfigurer
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 14c3438c5d6e7bed110f9e0dbfcd04655c3e9121
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 501065875cafc035d491e606c016f3ad4dbfc5d4
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193266"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791637"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Resource Manager-mallar för Azure Cosmos DB
 
 Följande tabeller innehåller länkar till Azure Resource Manager mallar för Azure Cosmos DB:
 
-## <a name="sql-core-api"></a>SQL-API (Core)
+## <a name="core-sql-api"></a>Core (SQL) API
 
 |**Mall**|**Beskrivning**|
 |---|---|
-|[Skapa ett Azure Cosmos-konto, en databas, en behållare](manage-sql-with-resource-manager.md#create-resource) | Den här mallen skapar ett SQL (Core) API-konto i två regioner med två behållare med data flöde för delad databas och en behållare med dedikerat data flöde. Data flödet kan uppdateras genom att skicka om mallen med uppdaterat egenskaps värde för genomflöde. |
-|[Skapa ett Azure Cosmos-konto, en databas och en behållare med en lagrad procedur, utlösare och UDF](manage-sql-with-resource-manager.md#create-sproc) | Den här mallen skapar ett SQL (Core) API-konto i två regioner med en lagrad procedur, utlösare och UDF för en behållare. |
-|[Skapa en privat slut punkt för ett befintligt Azure Cosmos-konto](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Den här mallen skapar en privat slut punkt för ett befintligt Azure Cosmos SQL API-konto i ett befintligt virtuellt nätverk. |
-|[Skapa ett Azure Cosmos-konto på den kostnads fria nivån](manage-sql-with-resource-manager.md#free-tier) |  Den här mallen skapar ett Azure Cosmos DB-konto på den kostnads fria nivån. |
+|[Skapa ett Azure Cosmos-konto, en databas, container med autoskalning av data flöde](manage-sql-with-resource-manager.md#create-autoscale) | Den här mallen skapar ett kärn-API-konto (SQL) i två regioner, en databas och container med autoskalning av data flöde. |
+|[Skapa ett Azure Cosmos-konto, en databas, behållare med standard (manuell) data flöde](manage-sql-with-resource-manager.md#create-manual) | Den här mallen skapar ett kärn-API-konto (SQL) i två regioner, en databas och en behållare med standard data flöde. |
+|[Skapa ett Azure Cosmos-konto, en databas och en behållare med en lagrad procedur, utlösare och UDF](manage-sql-with-resource-manager.md#create-sproc) | Den här mallen skapar ett Core (SQL) API-konto i två regioner med en lagrad procedur, utlösare och UDF för en behållare. |
+|[Skapa en privat slut punkt för ett befintligt Azure Cosmos-konto](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Den här mallen skapar en privat slut punkt för ett befintligt API-konto i Azure Cosmos Core (SQL) i ett befintligt virtuellt nätverk. |
+|[Skapa ett Azure Cosmos-konto på den kostnads fria nivån](manage-sql-with-resource-manager.md#free-tier) |  Den här mallen skapar ett API-konto för Azure Cosmos DB Core (SQL) på den kostnads fria nivån. |
 
 ## <a name="mongodb-api"></a>MongoDB-API
 
 |**Mall**|**Beskrivning**|
 |---| ---|
-|[Skapa ett Azure Cosmos-konto, databas, samling](manage-mongodb-with-resource-manager.md#create-resource) | Den här mallen skapar ett konto med hjälp av Azure Cosmos DB API för MongoDB i två regioner med stöd för flera huvud servrar. Azure Cosmos-kontot kommer att ha två behållare som delar data flöde på databas nivå. |
+|[Skapa ett Azure Cosmos-konto, databas, samling med autoskalning av data flöde](manage-mongodb-with-resource-manager.md#create-autoscale) | Den här mallen skapar ett konto med hjälp av Azure Cosmos DB API för MongoDB i två regioner med två behållare som delar data flöde på databas nivå. |
+|[Skapa ett Azure Cosmos-konto, en databas, en samling med standard (manuell) data flöde](manage-mongodb-with-resource-manager.md#create-manual) | Den här mallen skapar ett konto med hjälp av Azure Cosmos DB API för MongoDB i två regioner med två behållare som delar databas nivåns standard data flöde. |
 
 ## <a name="cassandra-api"></a>Cassandra-API
 
 |**Mall**|**Beskrivning**|
 |---| ---|
-|[Skapa ett Azure Cosmos-konto, ett tecken utrymme, en tabell](manage-cassandra-with-resource-manager.md#create-resource) | Den här mallen skapar ett API för Cassandra-konto i två regioner med stöd för flera huvud servrar. Azure Cosmos-kontot kommer att ha två tabeller som delar data flöde på grund av på grund av tecken utrymmes nivå. |
+|[Skapa ett Azure Cosmos-konto, nyckel utrymme, tabell med autoskalning av data flöde](manage-cassandra-with-resource-manager.md#create-autoscale) | Den här mallen skapar ett API för Cassandra konto i två regioner med ett nyckel utrymme och en tabell med autoskalning av data flöde. |
+|[Skapa ett Azure Cosmos-konto, ett disk utrymme, en tabell med standard data flöde (manuell)](manage-cassandra-with-resource-manager.md#create-manual) | Den här mallen skapar ett API för Cassandra konto i två regioner med ett blank steg och en tabell med manuellt data flöde. |
 
 ## <a name="gremlin-api"></a>Gremlin-API
 
 |**Mall**|**Beskrivning**|
 |---| ---|
-|[Skapa ett Azure Cosmos-konto, en databas, ett diagram](manage-gremlin-with-resource-manager.md#create-resource) | Den här mallen skapar ett Gremlin API-konto i två regioner med aktiverat multi-master. Azure Cosmos-kontot kommer att ha två grafer som delar data flöde på databas nivå. |
+|[Skapa ett Azure Cosmos-konto, en databas, Graf med autoskalning av data flöde](manage-gremlin-with-resource-manager.md#create-autoscale) | Den här mallen skapar ett Gremlin API-konto i två regioner med en databas och en graf med autoskalning av data flöde. |
+|[Skapa ett Azure Cosmos-konto, en databas, Graf med standard (manuell) data flöde](manage-gremlin-with-resource-manager.md#create-manual) | Den här mallen skapar ett Gremlin API-konto i två regioner med en databas och en graf med standard data flöde. |
 
 ## <a name="table-api"></a>Tabell-API
 
 |**Mall**|**Beskrivning**|
 |---| ---|
-|[Skapa ett Azure Cosmos-konto, en tabell](manage-table-with-resource-manager.md#create-resource) | Den här mallen skapar ett Tabell-API-konto i två regioner med stöd för flera huvud servrar. Azure Cosmos-kontot har en enda tabell. |
-
-> [!TIP]
-> Aktivera delat data flöde när du använder Tabell-API genom att aktivera data flöde på konto nivå på Azure-portalen.
+|[Skapa ett Azure Cosmos-konto, tabell med autoskalning av data flöde](manage-table-with-resource-manager.md#create-autoscale) | Den här mallen skapar ett Tabell-API-konto i två regioner och en enda tabell med autoskalning av data flödet. |
+|[Skapa ett Azure Cosmos-konto, en tabell med standard data flöde (Manual)](manage-table-with-resource-manager.md#create-manual) | Den här mallen skapar ett Tabell-API konto i två regioner och en enda tabell med standard data flöde. |
 
 Se [Azure Resource Manager referens för Azure Cosmos DB](/azure/templates/microsoft.documentdb/allversions) sidan för referens dokumentationen.

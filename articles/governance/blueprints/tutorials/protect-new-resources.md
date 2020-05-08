@@ -1,14 +1,14 @@
 ---
 title: 'Självstudie: skydda nya resurser med lås'
 description: I den här självstudien använder du alternativen för resurs lås för Azure-ritningar skrivskyddade och tar inte bort för att skydda nyligen distribuerade resurser.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: tutorial
-ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 90ffb0f5b8c1b6d3919b05abf778c5082bfee0dc
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74327447"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864172"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Självstudie: skydda nya resurser med resurs lås för Azure-ritningar
 

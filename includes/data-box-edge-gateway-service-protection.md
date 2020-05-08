@@ -4,13 +4,13 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 248d10e8814d195a515a658653cfc38de7dd4652
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 727b2985711b51f1474fecb014906b08d18437cb
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67187988"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562141"
 ---
-- För att få åtkomst till tjänsten Data Box Edge måste din organisation ha en prenumeration på Enterprise-avtal (EA) eller moln lösnings leverantör (CSP). Mer information finns i [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).
+- För att få åtkomst till tjänsten Azure Stack Edge måste din organisation ha en prenumeration på Enterprise-avtal (EA) eller moln lösnings leverantör (CSP). Mer information finns i [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/).
 - Eftersom den här hanterings tjänsten finns i Azure skyddas den av säkerhetsfunktionerna i Azure. Mer information om de säkerhetsfunktioner som tillhandahålls av Azure finns i [Microsoft Azure säkerhets Center](https://azure.microsoft.com/support/trust-center/security/).
 - För SDK-hanterings åtgärder kan du hämta krypterings nyckeln för resursen i **enhets egenskaper**. Du kan bara Visa krypterings nyckeln om du har behörighet för resurs Graph API.

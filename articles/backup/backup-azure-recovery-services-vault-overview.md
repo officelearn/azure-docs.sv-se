@@ -3,12 +3,12 @@ title: Översikt över Recovery Services-valv
 description: En översikt och jämförelse mellan Recovery Services valv och Azure Backup valv.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: e6a359287533c9ffdd688b5285b24b9c70fa7b7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0dacd82b7cf4258c0147bbaf9dc39ee6fc0fa25
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436966"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597966"
 ---
 # <a name="recovery-services-vaults-overview"></a>Översikt över Recovery Services-valv
 
@@ -79,6 +79,14 @@ Följande avsnitt innehåller länkar till artiklar som förklarar hur du använ
 ### <a name="secure-the-vault"></a>Skydda valvet
 
 - [Skydda moln säkerhets kopierings data i Recovery Services valv](backup-azure-security-feature.md)
+
+## <a name="azure-advisor"></a>Azure Advisor
+
+[Azure Advisor](https://docs.microsoft.com/azure/advisor/) är en anpassad moln konsult som hjälper dig att optimera användningen av Azure. Den analyserar din Azure-användning och ger rekommendationer som hjälper dig att optimera och skydda dina distributioner. Det ger rekommendationer i fyra kategorier: hög tillgänglighet, säkerhet, prestanda och kostnad.
+
+Azure Advisor ger [rekommendationer](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) för virtuella datorer som inte har säkerhetskopierats, så att du aldrig har säkerhetskopierat viktiga virtuella datorer. Du kan också styra rekommendationerna genom att försätta dem i vilo läge.  Du kan klicka på rekommendationen och aktivera säkerhets kopiering på virtuella datorer på en rad genom att ange valvet (där säkerhets kopiorna ska lagras) och säkerhets kopierings policyn (schema för säkerhets kopior och kvarhållning av säkerhets kopior).
+
+![Azure Advisor](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

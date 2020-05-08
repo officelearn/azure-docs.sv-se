@@ -8,12 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: c2db0cca120d08b85229618547a2aaabbba437ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870218"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611406"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar om Virtual Machine Scale Sets
 
@@ -45,11 +45,13 @@ Skapa och avbilda en VM-avbildning och Använd den som källa för din skalnings
 
 ### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Vilka virtuella datorer tas bort om jag minskar skalningsuppsättningens kapacitet från 20 till 15?
 
-Virtuella datorer tas bort från skalningsuppsättningen jämnt bland uppgraderingsdomäner och feldomäner för att maximera tillgängligheten. Virtuella datorer med högst ID tas bort först.
+Som standard tas virtuella datorer bort från skalnings uppsättningen jämnt över tillgänglighets zoner (om skalnings uppsättningen distribueras i zonindelade-konfigurationen) och fel domäner för att maximera tillgängligheten. Virtuella datorer med högst ID tas bort först.
+
+Du kan ändra ordningen för borttagning av virtuella datorer genom att ange en [skalnings princip](virtual-machine-scale-sets-scale-in-policy.md) för skalnings uppsättningen.
 
 ### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>Hur blir om det om jag sedan ökar kapaciteten från 15 till 18?
 
-Om du ökar kapaciteten till 18 skapas 3 nya virtuella datorer. Varje gång ökas den virtuella datorinstansens ID från det tidigare högsta värdet (t.ex. 20, 21, 22). Virtuella datorer balanseras mellan feldomäner och uppdateringsdomäner.
+Om du ökar kapaciteten till 18 skapas 3 nya virtuella datorer. Varje gång ökas den virtuella datorinstansens ID från det tidigare högsta värdet (t.ex. 20, 21, 22). Virtuella datorer är balanserade över fel domäner.
 
 ### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Kan jag framtvinga en körning av sekvensen när jag använder flera tillägg i en skalningsuppsättning?
 
@@ -223,7 +225,7 @@ Du kan tillhandahålla offentliga SSH-nycklar i oformaterad text när du skapar 
 
 linuxConfiguration element namn | Krävs | Typ | Beskrivning
 --- | --- | --- | ---
-SSH | Nej | Samling | Anger SSH-nyckeln för ett Linux-operativsystem
+SSH | Inga | Samling | Anger SSH-nyckeln för ett Linux-operativsystem
 path | Ja | Sträng | Anger sökvägen till Linux-filen där SSH-nycklar eller certifikatet ska placeras
 Data | Ja | Sträng | Anger en Base64-kodad Offentlig SSH-nyckel
 
@@ -335,13 +337,13 @@ Mer information finns i [Microsoft Trust Center](https://www.microsoft.com/Trust
 
 Ja. Du kan se några exempel på MSI-mallar i Azure snabb starts mallar för [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) och [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
-## <a name="deleting"></a>Rader 
+## <a name="deleting"></a>Rader
 
 ### <a name="will-the-locks-i-set-in-place-on-virtual-machine-scale-set-instances-be-respected-when-deleting-instances"></a>Kommer de Lås jag ställer in på plats på instanser av skalnings uppsättning för virtuella datorer att respekteras när instanser tas bort?
 
-I Azure-portalen har du möjlighet att ta bort en enskild instans eller Mass borttagning genom att välja flera instanser. Om du försöker ta bort en enskild instans som har ett lås på plats, respekteras låset och du kan inte ta bort instansen. Men om du väljer flera instanser och någon av dessa instanser har ett lås på plats, respekteras inte låset och alla markerade instanser tas bort. 
- 
-I Azure CLI har du bara möjlighet att ta bort en enskild instans. Om du försöker ta bort en enskild instans som har ett lås på plats, respekteras låset och du kan inte ta bort den instansen. 
+I Azure-portalen har du möjlighet att ta bort en enskild instans eller Mass borttagning genom att välja flera instanser. Om du försöker ta bort en enskild instans som har ett lås på plats, respekteras låset och du kan inte ta bort instansen. Men om du väljer flera instanser och någon av dessa instanser har ett lås på plats, respekteras inte låset och alla markerade instanser tas bort.
+
+I Azure CLI har du bara möjlighet att ta bort en enskild instans. Om du försöker ta bort en enskild instans som har ett lås på plats, respekteras låset och du kan inte ta bort den instansen.
 
 ## <a name="extensions"></a>Tillägg
 

@@ -1,53 +1,18 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
-author: roygara
+author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/29/2020
-ms.author: rogarana
+ms.date: 04/27/2020
+ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 84736b7f1dcdf8b186fddbced5dd773e008c0dd2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39cc37293ecb0e900a9a88d5aa00863f3e450400
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887458"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594459"
 ---
-Disk-burst stöds för Premium-SSD. Burst-överföring stöds på Premium SSD-disk storlekar <= 512 GiB (P20 eller lägre). Dessa disk storlekar stöder burst-överföring på bästa möjliga sätt och använder ett kredit system för att hantera burst-överföring. Krediterna ackumuleras i en burst-bucke när disk trafik unders tiger det tillhandahållna prestanda målet för disk storleken, och använder krediterna när trafiken överförs bortom målet. Disk trafiken spåras mot både IOPS och bandbredden i det etablerade målet. Disk-burst kringgår inte storleks begränsningarna för virtuella datorer (VM) på IOPS eller data flödet.
-
-Disk-burst är aktiverat som standard på nya distributioner av disk storlekarna som stöder det. Befintliga disk storlekar, om de har stöd för disk burst, kan aktivera burst via någon av följande metoder:
-
-- Koppla från och återanslut disken.
-- Stoppa och starta den virtuella datorn.
-
-## <a name="burst-states"></a>Burst-tillstånd
-
-Alla burst-tillämpliga disk storlekar börjar med en full burst-kredit Bucket när disken är ansluten till en virtuell dator. Max längden för burst-överföring bestäms av storleken på burst-huvudbucket. Du kan bara ackumulera oanvända krediter upp till storleken på kredit Bucket. När som helst kan din disk burst-kredit Bucket vara i något av följande tre tillstånd: 
-
-- Påförs när disk trafiken använder mindre än det tillhandahållna prestanda målet. Du kan ackumulera kredit om disk trafiken är bortom IOPS eller bandbredds mål eller både och. Du kan fortfarande ackumulera IO-krediter när du förbrukar full disk bandbredd, vice versa.  
-
-- Avböja, när disk trafiken använder mer än det tillhandahållna prestanda målet. Burst-trafiken förbrukar oberoende krediter från IOPS eller bandbredd. 
-
-- Återstående konstant, när disk trafiken är exakt vid det tillhandahållna prestanda målet. 
-
-Disk storlekarna som ger stöd för burst-överföring tillsammans med burst-specifikationer sammanfattas i tabellen nedan.
-
-## <a name="regional-availability"></a>Regional tillgänglighet
-
-Disk-burst är tillgängligt i alla regioner i det offentliga molnet.
-
-## <a name="disk-sizes"></a>Disk storlekar
-
-[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
-
-## <a name="example-scenarios"></a>Exempelscenarier
-
-Här följer några exempel scenarier för att ge dig en bättre uppfattning om hur detta fungerar:
-
-- Ett vanligt scenario som kan dra nytta av disk burst är snabbare start av virtuella datorer och program start på OS-diskar. Ta en virtuell Linux-dator med en 8 GiB OS-avbildning som exempel. Om vi använder en P2-disk som OS-disk är det etablerade målet 120 IOPS och 25 MiB. När den virtuella datorn startar kommer det att finnas en Läs insamling av OS-disken som laddar upp startfilerna. Med introduktionen av bursting kan du läsa den högsta Burst-hastigheten på 3500 IOPS och 170 MiB, vilket påskyndar inläsnings tiden med minst 6x. Efter VM-starten är trafik nivån på OS-disken oftast låg eftersom de flesta data åtgärder av programmet kommer att vara mot anslutna data diskar. Om trafiken är under det etablerade målet ackumuleras krediten.
-
-- Om du är värd för en fjärran sluten virtuell dator miljö, ökar, när en aktiv användare startar ett program som AutoCAD, att Läs trafik till OS-disken ökar markant. I det här fallet kommer burst-trafik att förbruka ackumulerade krediter, vilket gör att du kan gå utöver det etablerade målet och starta programmet mycket snabbare.
-
-- En P1-disk har ett allokerat mål på 120 IOPS och 25 MiB. Om den faktiska trafiken på disken var 100 IOPS och 20 MiB under de senaste 1 sekunderna, krediteras den oanvända 20 IOs-enheten och 5 MB till diskens burst-Bucket. Krediter i burst-Bucket kan senare användas när trafiken överskrider det etablerade målet, upp till den maximala burst-gränsen. Max gränsen för burst definierar taket för disk trafik även om du har burst-krediter att använda. I detta fall, även om du har 10 000 IOs i kredit Bucket, kan en P1-disk inte utfärda mer än max burst på 3 500 IO per sekund.  
+På Azure erbjuder vi möjlighet att öka prestandan för disk lagring IOPS och MB/s, vilket kallas burst-överföring på både Virtual Machines och diskar. Busting är användbart i många fall, till exempel vid hantering av oväntad disk trafik eller bearbetning av batch-jobb. Du kan effektivt utnyttja VM och disknivå-överföring för att uppnå fantastiska bas linje-och burst-prestanda både på den virtuella datorn och på hård disken. På så sätt kan du få bra prestanda och prestanda för hög prestanda både för din virtuella dator och disk.

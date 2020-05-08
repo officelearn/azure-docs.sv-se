@@ -3,12 +3,12 @@ title: Definiera flera instanser av en variabel
 description: Använd kopierings åtgärden i en Azure Resource Manager mall för att iterera flera gånger när du skapar en variabel.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: ed0c2d87c48a18b0a065f6c76e1e69142a9df048
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fbe392e8a0fb477b6986fc9c7584291590eb4e7
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153309"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583369"
 ---
 # <a name="variable-iteration-in-arm-templates"></a>Variabel iteration i ARM-mallar
 
@@ -16,7 +16,7 @@ Den här artikeln visar hur du skapar fler än ett värde för en variabel i din
 
 Du kan också använda kopiera med [resurser](copy-resources.md), [Egenskaper i en resurs](copy-properties.md)och [utdata](copy-outputs.md).
 
-## <a name="variable-iteration"></a>Variabel iteration
+## <a name="syntax"></a>Syntax
 
 Kopierings elementet har följande allmänna format:
 
@@ -33,6 +33,21 @@ Kopierings elementet har följande allmänna format:
 Egenskapen **Name** är ett värde som identifierar slingan. Egenskapen **Count** anger antalet iterationer som du vill använda för variabeln.
 
 Egenskapen **indatamängd** anger de egenskaper som du vill upprepa. Du skapar en matris med element som skapats från värdet i egenskapen **indatamängd** . Det kan vara en enskild egenskap (till exempel en sträng) eller ett objekt med flera egenskaper.
+
+## <a name="copy-limits"></a>Kopierings gränser
+
+Antalet får inte överskrida 800.
+
+Antalet får inte vara ett negativt tal. Det kan vara noll om du distribuerar mallen med en senare version av Azure CLI, PowerShell eller REST API. Mer specifikt måste du använda:
+
+* Azure PowerShell **2,6** eller senare
+* Azure CLI- **2.0.74** eller senare
+* REST API version **2019-05-10** eller senare
+* [Länkade distributioner](linked-templates.md) måste använda API version **2019-05-10** eller senare för distributions resurs typen
+
+Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för Count.
+
+## <a name="variable-iteration"></a>Variabel iteration
 
 I följande exempel visas hur du skapar en matris med sträng värden:
 
@@ -294,12 +309,6 @@ I nästa exempel visas olika sätt som du kan använda kopiera med variabler.
   }
 }
 ```
-
-## <a name="copy-limits"></a>Kopierings gränser
-
-Antalet får inte överskrida 800.
-
-Antalet får inte vara ett negativt tal. Om du distribuerar en mall med Azure PowerShell 2,6 eller senare, Azure CLI 2.0.74 eller senare, eller REST API version **2019-05-10** eller senare, kan du ange antal till noll. Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för Count.
 
 ## <a name="example-templates"></a>Exempel på mallar
 

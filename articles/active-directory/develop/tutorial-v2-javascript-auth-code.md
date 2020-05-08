@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/22/2020
 ms.author: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: ee156c8118a67061d0a000867ee64fe1f3ebd18c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f664f5fa4219a8bcc32230b352e90cc2516faceb
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182141"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890387"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa---msaljs-20"></a>Logga in användare och anropa Microsoft Graph-API: et från ett Java Script-program med en enda sida (SPA)-MSAL. js 2,0
 
@@ -282,7 +282,7 @@ Nu har du en enkel server som kan hantera din SPA. Den avsedda mappstrukturen i 
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
-Följ anvisningarna för att [Registrera ett nytt program med en sida](https://docs.microsoft.com/zure/active-directory/develop/scenario-spa-app-registration).
+Följ anvisningarna för att [Registrera ett nytt program med en sida](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration).
 
 #### <a name="set-a-redirect-url-for-nodejs"></a>Ange en omdirigerings-URL för Node. js
 
@@ -493,7 +493,7 @@ Det SPA som genereras av den här `acquireTokenSilent` guiden anropar `acquireTo
 
 #### <a name="get-a-user-token-interactively"></a>Hämta en användartoken interaktivt
 
-Efter den första inloggningen bör användarna inte uppmanas att autentisera varje gång de behöver för att begära en token för att få åtkomst till en resurs. Använd `acquireTokenSilent`för att förhindra sådana omautentiserings begär Anden. Det finns dock vissa situationer där du kan behöva tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Ett exempel:
+Efter den första inloggningen bör användarna inte uppmanas att autentisera varje gång de behöver för att begära en token för att få åtkomst till en resurs. Använd `acquireTokenSilent`för att förhindra sådana omautentiserings begär Anden. Det finns dock vissa situationer där du kan behöva tvinga användare att interagera med Microsoft Identity Platform-slutpunkten. Exempel:
 
 - Användarna måste ange sina autentiseringsuppgifter på nytt eftersom lösen ordet har upphört att gälla.
 - Ditt program begär åtkomst till en resurs och du behöver användarens medgivande.

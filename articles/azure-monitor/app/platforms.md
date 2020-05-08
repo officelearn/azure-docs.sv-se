@@ -4,19 +4,19 @@ description: Språk, plattformar och integreringar som är tillgängliga för Ap
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: cbda252fece638393ee7757dc165c4b009a0195e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 153d4ad3d95c182dcc4f2aa3bad857d7e1984cc2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136731"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891116"
 ---
 # <a name="supported-languages"></a>Språk som stöds
 
 * [C#|VB (.NET)](../../azure-monitor/app/asp-net.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript](../../azure-monitor/app/javascript.md)
-* [Node. JS](../../azure-monitor/app/nodejs.md)
+* [Node.JS](../../azure-monitor/app/nodejs.md)
 * [Python](../../azure-monitor/app/opencensus-python.md)
 
 ## <a name="supported-platforms-and-frameworks"></a>Plattformar och ramverk som stöds
@@ -33,7 +33,7 @@ ms.locfileid: "79136731"
 * [Android](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
-* [Node. JS](https://www.npmjs.com/package/applicationinsights)
+* [Node.JS](https://www.npmjs.com/package/applicationinsights)
 * [Python](../../azure-monitor/app/opencensus-python.md)
 * [Universell Windows-app](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
 * [Windows-baserade skrivbordsprogram, tjänster och arbetarroller](../../azure-monitor/app/windows-desktop.md)
@@ -46,7 +46,7 @@ ms.locfileid: "79136731"
 * [Azure Monitor](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)
 
 ## <a name="export-and-data-analysis"></a>Export och data analys
-* [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
+* [Power BI](https://powerbi.microsoft.com/blog/explore-your-application-insights-data-with-power-bi/)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
 ## <a name="unsupported-sdks"></a>SDK:er som inte stöds

@@ -1,5 +1,5 @@
 ---
-title: Utbetalnings sammanfattningar – Azure Marketplace
+title: Utbetalnings rapporter – Microsoft Commercial Marketplace
 description: Utbetalnings rapporterna visar information om de pengar du har fått för ditt erbjudande, inklusive betalnings belopp och när du betalar.
 author: mingshen
 ms.author: mingshen
@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 40f8ca1cdbdf44639b009792c71cbf9fd55d8841
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: 0380330c2cfd4b0a72dcc158a0d6e051d5547b31
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779860"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857013"
 ---
-# <a name="payout-summaries"></a>Utbetalnings sammanfattningar
+# <a name="payout-summaries"></a>Utbetalningssammanfattningar
 
 Sammanfattningen av utbetalningen visar information om de pengar som du har fått av Microsoft. Du kan också se när du får betalningar och hur mycket du betalar.
 
@@ -243,4 +243,4 @@ Transaktions historiken från före juli 1 2019 hanteras separat. Instruktioner 
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Information om utbetalnings princip](./payout-policy-details.md)
+- [Information om utbetalningsprincip](./payout-policy-details.md)

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 4cb8168cd6d1c19cc797a7cd5454b96131fa35be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86d647ebfcf6e4c1ea8d05f58dd1f559d6e30cfc
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106625"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900461"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicera händelser till Azure Active Directory skyddade slut punkter
 
@@ -31,8 +31,8 @@ Börja med att skapa ett Azure AD-program för den skyddade slut punkten. Se htt
 
 Använd PowerShell-skriptet nedan för att skapa en roll-och tjänst princip i ditt Azure AD-program. Du behöver klient-ID och objekt-ID från ditt Azure AD-program:
 
-    > [!NOTE]
-    > You must be a member of the [Azure AD Application Administrator role](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) to execute this script.
+   > [!NOTE]
+   > Du måste vara medlem i [rollen Azure AD-programadministratör](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) för att köra det här skriptet.
     
 1. Ändra PowerShell-skriptets $myTenantId att använda ditt Azure AD-klient-ID.
 1. Ändra PowerShell-skriptets $myAzureADApplicationObjectId att använda objekt-ID: t för ditt Azure AD-program

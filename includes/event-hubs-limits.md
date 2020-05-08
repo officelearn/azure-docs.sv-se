@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: event-hubs
 author: sethmanheim
 ms.service: event-hubs
@@ -38,8 +38,8 @@ Följande begränsningar är gemensamma för nivåerna Basic, standard och Dedic
 | Antal konsument grupper per Event-hubb |Entitet | &nbsp; |1 |20 |
 | Antal AMQP-anslutningar per namnrymd |Namnområde |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. |100 |5 000|
 | Högsta kvarhållningsperiod för händelse data |Entitet | &nbsp; |1 dag |1-7 dagar |
-|Apache Kafka aktive rad namnrymd|Namnområde |Event Hubs namespace strömmar program med Kafka-protokoll |Nej | Ja |
-|Capture |Entitet | När aktive rad är mikrobatchar i samma ström |Nej |Ja |
+|Apache Kafka aktive rad namnrymd|Namnområde |Event Hubs namespace strömmar program med Kafka-protokoll |Inga | Ja |
+|Capture |Entitet | När aktive rad är mikrobatchar i samma ström |Inga |Ja |
 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Event Hubs Dedicated-kvoter och begränsningar

@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: f1d08581c5d29fc41fb33541d766af7cece88cdc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c171c1bab99e4e3748267308745ee66631ed08d
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451677"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888965"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: skydda känsliga data och lagra krypterings nycklar i Azure Key Vault
 
@@ -621,4 +621,4 @@ När du har skapat en databas som använder Always Encrypted kanske du vill gör
 - [Transparent data kryptering](https://msdn.microsoft.com/library/bb934049.aspx)
 - [SQL Server kryptering](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Always Encrypted guiden](https://msdn.microsoft.com/library/mt459280.aspx)
-- [Always Encrypted blogg](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+- [Always Encrypted blogg](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

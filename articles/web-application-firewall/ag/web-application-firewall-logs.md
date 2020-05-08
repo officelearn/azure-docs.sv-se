@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: victorh
-ms.openlocfilehash: 4bc2aa055c40fb33edade8f7815311e392633885
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bca41effc4e9834f8c76308556facb0681717cd
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133867"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888882"
 ---
 # <a name="resource-logs-for-azure-web-application-firewall"></a>Resurs loggar för Azure Web Application-brandvägg
 
@@ -305,7 +305,7 @@ Vi har publicerat en Resource Manager-mall som installerar och kör den populär
 ## <a name="next-steps"></a>Nästa steg
 
 * Visualisera räknare och händelse loggar med hjälp av [Azure Monitor loggar](../../azure-monitor/insights/azure-networking-analytics.md).
-* [Visualisera din Azure aktivitets logg med Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogg inlägg.
+* [Visualisera din Azure aktivitets logg med Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blogg inlägg.
 * [Visa och analysera Azure aktivitets loggar i Power BI och fler](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogg inlägg.
 
 [1]: ../media/web-application-firewall-logs/figure1.png

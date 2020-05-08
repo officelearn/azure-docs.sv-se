@@ -2,16 +2,15 @@
 title: Azure Application Insights-beroende automatisk insamling | Microsoft Docs
 description: Application Insights automatiskt samla in och visualisera beroenden
 ms.topic: reference
-author: nikmd23
-ms.author: nimolnar
-ms.date: 04/29/2019
-ms.reviewer: mbullwin
-ms.openlocfilehash: eaafe19f5112b433d50a34aa551aa84d196726a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/06/2020
+ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665824"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891597"
 ---
 # <a name="dependency-auto-collection"></a>Automatisk insamling för beroenden
 
@@ -28,10 +27,15 @@ Nedan visas en lista över beroende anrop som identifieras automatiskt som beroe
 | <b>Kommunikations bibliotek</b> |
 | [HttpClient](https://www.microsoft.com/net/) | 4,5 +, .NET core 1.1 + |
 | [SqlClient](https://www.nuget.org/packages/System.Data.SqlClient) | .NET core 1.0 +, NuGet 4.3.0 |
+| [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient/1.1.2)| 1.1.0 – senaste stabila versionen. (Se kommentaren nedan.)
 | [EventHubs-klient-SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1.1.0 |
 | [Service Bus-klient-SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Lagrings klienter</b>|  |
 | ADO.NET | 4,5 + |
+
+> [!NOTE]
+> Det finns ett [känt problem](https://github.com/microsoft/ApplicationInsights-dotnet/issues/1347) med äldre versioner av Microsoft. data. SqlClient. Vi rekommenderar att du använder 1.1.0 eller senare för att undvika det här problemet. Entity Framework Core levereras inte nödvändigt vis med den senaste stabila versionen av Microsoft. data. SqlClient så vi rekommenderar att du bekräftar att du har minst 1.1.0 för att undvika det här problemet.   
+
 
 ## <a name="java"></a>Java
 | App-servrar | Versioner |

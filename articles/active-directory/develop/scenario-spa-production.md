@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 04a900c98311f4e7dcccbfca93ea41e212308759
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 777f3de8f2872e378fe30cc50ee0a5eb3823a625
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882105"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900319"
 ---
 # <a name="single-page-application-move-to-production"></a>Program med en sida: flytta till produktion
 
@@ -40,7 +40,7 @@ Djupgående snabb starts exempel, som förklarar koden för att logga in använd
 Exempel som visar hur du hämtar tokens för ditt eget Server dels webb-API med hjälp av MSAL. js:
 
 > [!div class="nextstepaction"]
-> [SPA med en ASP.NET Server del](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2)
+> [SPA med en ASP.NET Server del](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
 
 Exempel som visar hur du använder MSAL. js för att logga in användare i en app som har registrerats med Azure Active Directory B2C (Azure AD B2C):
 

@@ -11,14 +11,15 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e52930211611673b6fe2309e2dca067a91ebc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331776"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611321"
 ---
-# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter 
+# <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Felsöka hybrid Azure Active Directory anslutna enheter
 
 Innehållet i den här artikeln gäller enheter som kör Windows 10 eller Windows Server 2016.
 
@@ -30,13 +31,13 @@ I den här artikeln förutsätter vi att du har [konfigurerat hybrid Azure Activ
 - [Företags växling av inställningar](../active-directory-windows-enterprise-state-roaming-overview.md)
 - [Windows Hello för företag](../active-directory-azureadjoin-passport-deployment.md)
 
-Det här dokumentet innehåller fel söknings vägledning för att lösa eventuella problem. 
+Det här dokumentet innehåller fel söknings vägledning för att lösa eventuella problem.
 
 För Windows 10 och Windows Server 2016 har hybrid Azure Active Directorys anslutning stöd för Windows 10 november 2015 Update och senare.
 
 ## <a name="troubleshoot-join-failures"></a>Felsök anslutnings fel
 
-### <a name="step-1-retrieve-the-join-status"></a>Steg 1: Hämta kopplings status 
+### <a name="step-1-retrieve-the-join-status"></a>Steg 1: Hämta kopplings status
 
 **Hämta anslutnings status:**
 
@@ -88,22 +89,22 @@ WamDefaultAuthority: organizations
          AzureAdPrt: YES
 ```
 
-### <a name="step-2-evaluate-the-join-status"></a>Steg 2: utvärdera kopplings status 
+### <a name="step-2-evaluate-the-join-status"></a>Steg 2: utvärdera kopplings status
 
 Granska följande fält och kontrol lera att de har de förväntade värdena:
 
-#### <a name="domainjoined--yes"></a>DomainJoined: Ja  
+#### <a name="domainjoined--yes"></a>DomainJoined: Ja
 
-Det här fältet anger om enheten är ansluten till en lokal Active Directory eller inte. Om värdet är **Nej**kan enheten inte utföra en hybrid Azure AD-anslutning.  
+Det här fältet anger om enheten är ansluten till en lokal Active Directory eller inte. Om värdet är **Nej**kan enheten inte utföra en hybrid Azure AD-anslutning.
 
-#### <a name="workplacejoined--no"></a>WorkplaceJoined: Nej  
+#### <a name="workplacejoined--no"></a>WorkplaceJoined: Nej
 
 Det här fältet anger om enheten är registrerad med Azure AD som en personlig enhet (markerad som *arbets plats ansluten*). Det här värdet ska vara **Nej** för en domänansluten dator som också är hybrid Azure AD-ansluten. Om värdet är **Ja**, har ett arbets-eller skol konto lagts till innan hybriden av Azure AD-anslutning slutfördes. I det här fallet ignoreras kontot när du använder uppdaterings versionen för Windows 10 (1607).
 
-#### <a name="azureadjoined--yes"></a>AzureAdJoined: Ja  
+#### <a name="azureadjoined--yes"></a>AzureAdJoined: Ja
 
 Det här fältet anger om enheten är ansluten. Värdet blir **Ja** om enheten antingen är en Azure AD-ansluten enhet eller en hybrid Azure AD-ansluten enhet.
-Om värdet är **Nej**har kopplingen till Azure AD inte slutförts ännu. 
+Om värdet är **Nej**har kopplingen till Azure AD inte slutförts ännu.
 
 Fortsätt till nästa steg för ytterligare fel sökning.
 
@@ -155,7 +156,7 @@ Möjliga orsaker till problemet:
    - Ett giltigt SCP-objekt krävs i AD-skogen, som enheten tillhör, som pekar på ett verifierat domän namn i Azure AD.
    - Information finns i avsnittet [Konfigurera en tjänst anslutnings punkt](hybrid-azuread-join-federated-domains.md#configure-hybrid-azure-ad-join).
 - Det gick inte att ansluta och hämta metadata för identifiering från identifierings slut punkten.
-   - Enheten ska kunna komma åt `https://enterpriseregistration.windows.net`, i system kontexten, för att identifiera slut punkterna för registrering och auktorisering. 
+   - Enheten ska kunna komma åt `https://enterpriseregistration.windows.net`, i system kontexten, för att identifiera slut punkterna för registrering och auktorisering.
    - Om den lokala miljön kräver en utgående proxy måste IT-administratören se till att enhetens dator konto kan identifiera och tyst autentisera till den utgående proxyn.
 - Det gick inte att ansluta till användar sfär slut punkten och utföra sfär identifiering. (Endast Windows 10 version 1809 och senare)
    - Enheten ska kunna komma åt `https://login.microsoftonline.com`, i system kontexten, för att utföra sfär identifiering för den verifierade domänen och fastställa domän typen (hanterad/federerad).
@@ -173,7 +174,7 @@ Möjliga orsaker till problemet:
    - Orsak: tids gränsen för åtgärden nåddes under identifieringen.
    - Lösning: kontrol lera `https://enterpriseregistration.windows.net` att är tillgängligt i system kontexten. Mer information finns i avsnittet krav på [nätverks anslutning](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
-   - Orsak: det gick inte att identifiera allmän sfär. Det gick inte att fastställa domän typ (hanterad/federerad) från STS. 
+   - Orsak: det gick inte att identifiera allmän sfär. Det gick inte att fastställa domän typ (hanterad/federerad) från STS.
    - Lösning: hitta underfelet nedan för att undersöka ytterligare.
 
 **Vanliga under fel koder:**
@@ -260,7 +261,7 @@ Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och 
 
 - **ERROR_ADAL_PROTOCOL_NOT_SUPPORTED** (0xcaa90017/-894894057)
    - Orsak: autentiseringsprotokollet är inte WS-Trust.
-   - Lösning: den lokala identitets leverantören måste ha stöd för WS-Trust 
+   - Lösning: den lokala identitets leverantören måste ha stöd för WS-Trust
 - **ERROR_ADAL_FAILED_TO_PARSE_XML** (0xcaa9002c/-894894036)
    - Orsak: den lokala Federations tjänsten returnerade inget XML-svar.
    - Lösning: se till att MEX-slutpunkten returnerar en giltig XML. Kontrol lera att proxyn inte stör och returnerar icke-XML-svar.
@@ -278,7 +279,7 @@ Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och 
    - Lösning: försök igen om en stund eller försök att ansluta från en alternativ stabil nätverks plats.
 - **ERROR_ADAL_INTERNET_SECURE_FAILURE** (0xcaa82f8f/-894947441)
    - Orsak: Transport Layer Security (TLS), som tidigare kallades Secure Sockets Layer (SSL), det gick inte att verifiera certifikat som skickats av servern.
-   - Lösning: kontrol lera skevningen för klient tiden. Försök igen om en stund eller försök att ansluta från en alternativ stabil nätverks plats. 
+   - Lösning: kontrol lera skevningen för klient tiden. Försök igen om en stund eller försök att ansluta från en alternativ stabil nätverks plats.
 - **ERROR_ADAL_INTERNET_CANNOT_CONNECT** (0xcaa82efd/-894947587)
    - Orsak: försöket att ansluta till `https://login.microsoftonline.com` misslyckades.
    - Lösning: kontrol lera nätverks anslutningen `https://login.microsoftonline.com`till.
@@ -293,11 +294,11 @@ Använd Loggboken loggar för att hitta felkod, underfelkod, Server fel kod och 
    - Lösning: kontrol lera inställningarna för Federations servern. Leta efter server fel koden i inloggnings loggarna.
 - **ERROR_ADAL_WSTRUST_TOKEN_REQUEST_FAIL** (0xcaa90006/-894894074)
    - Orsak: ett fel uppstod vid försök att hämta åtkomsttoken från token-slutpunkten.
-   - Lösning: Sök efter det underliggande felet i ADAL-loggen. 
+   - Lösning: Sök efter det underliggande felet i ADAL-loggen.
 - **ERROR_ADAL_OPERATION_PENDING** (0xcaa1002d/-895418323)
    - Orsak: allmänt ADAL-problem
    - Lösning: Sök efter felkoden eller server fel koden från inloggnings loggarna.
-    
+
 #### <a name="join-phase"></a>Kopplings fas
 
 Orsaker till problemet:
@@ -337,7 +338,7 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
    - Orsak: ett felsvar togs emot från DRS med felkod: "DirectoryError"
    - Lösning: Mer information om möjliga orsaker och lösningar hittar du i Server fel koden.
 - **DSREG_E_DEVICE_AUTHENTICATION_ERROR** (0x801c0002/-2145648638)
-   - Orsak: ett felsvar togs emot från DRS med felkod: "AuthenticationError" och ErrorSubCode är inte "DeviceNotFound". 
+   - Orsak: ett felsvar togs emot från DRS med felkod: "AuthenticationError" och ErrorSubCode är inte "DeviceNotFound".
    - Lösning: Mer information om möjliga orsaker och lösningar hittar du i Server fel koden.
 - **DSREG_E_DEVICE_INTERNALSERVICE_ERROR** (0x801c0006/-2145648634)
    - Orsak: ett felsvar togs emot från DRS med felkod: "DirectoryError"
@@ -349,7 +350,7 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
    - Orsak: TPM-åtgärden misslyckades eller var ogiltig
    - Lösning: troligen på grund av en felaktig Sysprep-avbildning. Se till att den dator där Sysprep-avbildningen skapades inte är Azure AD-ansluten, att en hybrid Azure AD är ansluten eller att Azure AD är registrerad.
 - **TPM_E_PCP_INTERNAL_ERROR** (0x80290407/-2144795641)
-   - Orsak: allmänt TPM-fel. 
+   - Orsak: allmänt TPM-fel.
    - Lösning: inaktivera TPM på enheter med det här felet. Windows 10 version 1809 och högre identifierar automatiskt TPM-haverier och slutför Azure AD-anslutning utan att använda TPM.
 - **TPM_E_NOTFIPS** (0x80280036/-2144862154)
    - Orsak: TPM i FIPS-läge stöds inte för närvarande.
@@ -386,28 +387,32 @@ Använd Loggboken loggar för att hitta fasen och ErrorCode för kopplings felen
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Steg 5: samla in loggar och kontakta Microsoft Support
 
-Hämta offentliga skript här: [ https://1drv.ms/u/s! AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ]( https://1drv.ms/u/s!AkyTjQ17vtfagYkZ6VJzPg78e3o7PQ)
+Hämta filen auth. zip från[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Öppna en administratörs kommando tolk och `start_ngc_tracing_public.cmd`kör.
-2. Utför stegen för att återskapa problemet.
-3. Stoppa körningen av loggnings skriptet genom `stop_ngc_tracing_public.cmd`att köra.
-4. Zip och skicka loggarna under `%SYSTEMDRIVE%\TraceDJPP\*` för analys.
+1. Zippa upp filerna och Byt namn på de inkluderade filerna **Start-auth. txt** och **Stop-auth. txt** till **Start-auth. cmd** och **Stop-auth. cmd**.
+1. Kör **Start-auth. cmd**från en upphöjd kommando tolk.
+1. Använd switch-konto för att växla till en annan session med problem användaren.
+1. Återskapa problemet.
+1. Använd switch-konto om du vill växla tillbaka till admin-sessionen som kör spårningen.
+1. Kör **Stop-auth. cmd**från en upphöjd kommando tolk.
+1. Zip och skicka mappen **Authlogs** från mappen där skripten kördes.
 
 ## <a name="troubleshoot-post-join-issues"></a>Felsöka problem efter anslutning
 
-### <a name="retrieve-the-join-status"></a>Hämta kopplings status 
+### <a name="retrieve-the-join-status"></a>Hämta kopplings status
 
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: Ja och AzureADPrt: Ja
-  
-Fälten visar om användaren har autentiserats för Azure AD vid inloggning på enheten. Om värdena är **Nej**kan det bero på att:
+
+Fälten visar om användaren har autentiserats för Azure AD vid inloggning på enheten.
+Om värdena är **Nej**kan det bero på att:
 
 - Felaktig lagrings nyckel i den TPM som är kopplad till enheten vid registreringen (kontrol lera KeySignTest vid körning).
 - Alternativt inloggnings-ID
 - Det gick inte att hitta HTTP-proxy
 
 ## <a name="known-issues"></a>Kända problem
-- Under Inställningar – > konton – > åtkomst till arbete eller skola kan hybrid Azure AD-anslutna enheter Visa två olika konton, en för Azure AD och en för lokal AD, vid anslutning till mobila hotspots eller externa WiFi-nätverk. Detta är endast ett UI-problem och påverkar inte funktionaliteten. 
- 
+- Under Inställningar – > konton – > åtkomst till arbete eller skola kan hybrid Azure AD-anslutna enheter Visa två olika konton, en för Azure AD och en för lokal AD, vid anslutning till mobila hotspots eller externa WiFi-nätverk. Detta är endast ett UI-problem och påverkar inte funktionaliteten.
+
 ## <a name="next-steps"></a>Nästa steg
 
 Fortsätt [Felsöka enheter med kommandot dsregcmd](troubleshoot-device-dsregcmd.md)

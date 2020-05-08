@@ -2,13 +2,13 @@
 title: Distribuera flera instanser av resurser
 description: Använd kopierings åtgärd och matriser i en Azure Resource Manager mall för att distribuera resurs typen flera gånger.
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.openlocfilehash: e65ab93c21daffa0053e53d953fe95fa9f28e2a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153326"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583396"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Resurs upprepning i ARM-mallar
 
@@ -18,7 +18,7 @@ Du kan också använda kopiera med [Egenskaper](copy-properties.md), [variabler]
 
 Om du behöver ange om en resurs har distribuerats alls, se [villkors element](conditional-resource-deployment.md).
 
-## <a name="resource-iteration"></a>Resurs upprepning
+## <a name="syntax"></a>Syntax
 
 Kopierings elementet har följande allmänna format:
 
@@ -34,6 +34,23 @@ Kopierings elementet har följande allmänna format:
 Egenskapen **Name** är ett värde som identifierar slingan. Egenskapen **Count** anger antalet iterationer som du vill använda för resurs typen.
 
 Använd egenskaperna **mode** och **batchSize** för att ange om resurserna distribueras parallellt eller i följd. Dessa egenskaper beskrivs i [serie eller parallellt](#serial-or-parallel).
+
+## <a name="copy-limits"></a>Kopierings gränser
+
+Antalet får inte överskrida 800.
+
+Antalet får inte vara ett negativt tal. Det kan vara noll om du distribuerar mallen med en senare version av Azure CLI, PowerShell eller REST API. Mer specifikt måste du använda:
+
+* Azure PowerShell **2,6** eller senare
+* Azure CLI- **2.0.74** eller senare
+* REST API version **2019-05-10** eller senare
+* [Länkade distributioner](linked-templates.md) måste använda API version **2019-05-10** eller senare för distributions resurs typen
+
+Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för Count.
+
+Var försiktig med att använda [fullständig läges distribution](deployment-modes.md) med Copy. Om du omdistribuerar med slutfört läge till en resurs grupp raderas alla resurser som inte är angivna i mallen när du har löst kopierings slingen.
+
+## <a name="resource-iteration"></a>Resurs upprepning
 
 I följande exempel skapas antalet lagrings konton som anges i parametern **storageCount** .
 
@@ -257,14 +274,6 @@ I följande exempel visas implementeringen:
   ...
 }]
 ```
-
-## <a name="copy-limits"></a>Kopierings gränser
-
-Antalet får inte överskrida 800.
-
-Antalet får inte vara ett negativt tal. Om du distribuerar en mall med Azure PowerShell 2,6 eller senare, Azure CLI 2.0.74 eller senare, eller REST API version **2019-05-10** eller senare, kan du ange antal till noll. Tidigare versioner av PowerShell, CLI och REST API stöder inte noll för Count.
-
-Var försiktig med att använda [fullständig läges distribution](deployment-modes.md) med Copy. Om du omdistribuerar med slutfört läge till en resurs grupp raderas alla resurser som inte är angivna i mallen när du har löst kopierings slingen.
 
 ## <a name="example-templates"></a>Exempel på mallar
 

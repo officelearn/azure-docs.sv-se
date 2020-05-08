@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: d0669a89527cabd23b81a0948e8cf9962dcd1e9e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: HT
+ms.openlocfilehash: 52f389e00d63f3659dfe79487b31ec9c3fab1ced
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232061"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580693"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Data omvandlings uttryck i data flöde för mappning
 
@@ -26,10 +26,10 @@ I Data Factory använder du uttrycks språket i funktionen mappa data flöde fö
 ___
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-Absolut värde för ett tal.
+Absolut värde för ett tal.  
 * ``abs(-20) -> 20``  
 * ``abs(10) -> 10``  
-___
+___   
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Beräknar ett värde för cosinus-inversen* ``acos(1) -> 0.0``  
@@ -116,7 +116,7 @@ Samlar in alla värden i uttrycket i den aggregerade gruppen i en matris. Strukt
 ___
 ### <code>columnNames</code>
 <code><b>columnNames(<i>&lt;value1&gt;</i> : string) => array</b></code><br/><br/>
-Hämtar alla utdatakolumner för en ström. Du kan skicka ett valfritt Stream-namn som det andra argumentet.
+Hämtar alla utdatakolumner för en ström. Du kan skicka ett valfritt Stream-namn som det andra argumentet.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
 ___
@@ -156,8 +156,8 @@ Beräknar CRC32-hashen för en uppsättning av varierande primitiva data typer m
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Hämtar det aktuella datumet då jobbet börjar köras. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. ["https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
-* ``currentDate() == toDate('2250-12-31') -> false`` * ``currentDate('PST')  == toDate('2250-12-31') -> false``  
+Hämtar det aktuella datumet då jobbet börjar köras. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. ["https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``currentDate() == toDate('2250-12-31') -> false``  
+* ``currentDate('PST')  == toDate('2250-12-31') -> false``  
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``  
 ___
 ### <code>currentTimestamp</code>
@@ -278,9 +278,11 @@ Baserat på ett villkor gäller ett värde eller det andra. Om inget annat anges
 ___
 ### <code>iifNull</code>
 <code><b>iifNull(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => any</b></code><br/><br/>
-Kontrollerar om värdet inte är NULL och returnerar det andra. Den testar för alla indata tills den hittar det första värdet som inte är null* ``iifNull(10, 20) -> 10``  
+Kontrollerar om den första parametern är null. Om detta inte är null returneras den första parametern. Om värdet är null returneras den andra parametern. Om tre parametrar anges är beteendet detsamma som IIF (isNull (värde1), värde2, value3) och den tredje parametern returneras om det första värdet inte är null.  
+* ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
-* ``iifNull('bojjus', 'bo', 'dumbo') -> 'dumbo'``  
+* ``iifNull('azure', 'data', 'factory') -> 'factory'``  
+* ``iifNull(null, 'data', 'factory') -> 'data'``  
 ___
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
@@ -373,7 +375,7 @@ ___
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
 Mönstret är en sträng som matchar bokstavligen. Undantagen är följande specialtecken: _ matchar valfritt tecken i indatatypen (liknar. i reguljära uttryck i POSIX matchar noll eller flera tecken i indatamängden (liknar. * i reguljära uttryck i POSIX).
-Escape-tecken är. Om ett escape-tecken föregår en särskild symbol eller ett annat escape-tecken matchas följande tecken bokstavligen. Det är inte tillåtet att undanta andra tecken.
+Escape-tecken är. Om ett escape-tecken föregår en särskild symbol eller ett annat escape-tecken matchas följande tecken bokstavligen. Det är inte tillåtet att undanta andra tecken.  
 * ``like('icecream', 'ice%') -> true``  
 ___
 ### <code>locate</code>
@@ -504,7 +506,7 @@ Logisk OR-operator. Samma som | |* ``or(true, false) -> true``
 ___
 ### <code>pMod</code>
 <code><b>pMod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Positiv Modulus av siffer par.
+Positiv Modulus av siffer par.  
 * ``pmod(-20, 8) -> 4``  
 ___
 ### <code>partitionId</code>
@@ -944,7 +946,7 @@ Baserat på ett villkor får du en kolumn som inte är vägd varians* ``variance
 ##Fönster funktioner följande funktioner är bara tillgängliga i fönster transformationer___
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
-Funktionen CumeDist beräknar positionen för ett värde relativt till alla värden i partitionen. Resultatet är antalet rader före eller lika med den aktuella raden i ordningen för partitionen, dividerat med det totala antalet rader i fönstrets partition. Eventuella förbindelse värden i ordningen kommer att utvärderas till samma position.
+Funktionen CumeDist beräknar positionen för ett värde relativt till alla värden i partitionen. Resultatet är antalet rader före eller lika med den aktuella raden i ordningen för partitionen, dividerat med det totala antalet rader i fönstrets partition. Eventuella förbindelse värden i ordningen kommer att utvärderas till samma position.  
 * ``cumeDist()``  
 ___
 ### <code>denseRank</code>
@@ -963,7 +965,7 @@ Hämtar värdet för den första parametern utvärderade n rader efter den aktue
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-Funktionen NTile delar upp raderna för varje partition i `n` buckets mellan 1 och högst. `n` Bucket-värden kommer att skilja sig från de flesta 1. Om antalet rader i partitionen inte delas jämnt i antalet buckets, distribueras resten av värdena en per Bucket, från den första Bucket. Funktionen NTile är användbar för beräkning av tertiles, kvartilen, deciles och annan gemensam sammanfattnings statistik. Funktionen beräknar två variabler under initieringen: storleken på en vanlig Bucket kommer att ha en extra rad tillagd. Båda variablerna baseras på den aktuella partitionens storlek. Under beräknings processen håller funktionen reda på det aktuella rad numret, aktuellt Bucket-nummer och rad numret som Bucket ska ändras till (bucketThreshold). När det aktuella rad numret når Bucket-tröskelvärdet ökas värdet för Bucket med ett och tröskelvärdet ökas med Bucket-storlek (plus ett extra om den aktuella Bucket är utfylld).
+Funktionen NTile delar upp raderna för varje partition i `n` buckets mellan 1 och högst. `n` Bucket-värden kommer att skilja sig från de flesta 1. Om antalet rader i partitionen inte delas jämnt i antalet buckets, distribueras resten av värdena en per Bucket, från den första Bucket. Funktionen NTile är användbar för beräkning av tertiles, kvartilen, deciles och annan gemensam sammanfattnings statistik. Funktionen beräknar två variabler under initieringen: storleken på en vanlig Bucket kommer att ha en extra rad tillagd. Båda variablerna baseras på den aktuella partitionens storlek. Under beräknings processen håller funktionen reda på det aktuella rad numret, aktuellt Bucket-nummer och rad numret som Bucket ska ändras till (bucketThreshold). När det aktuella rad numret når Bucket-tröskelvärdet ökas värdet för Bucket med ett och tröskelvärdet ökas med Bucket-storlek (plus ett extra om den aktuella Bucket är utfylld).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___

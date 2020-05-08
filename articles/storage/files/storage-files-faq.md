@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 5aee3a19e33204da00483d0f4ee3f6ee97e8a07d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: b4d3be9fbacee82f36f1238c5d9b4598c95b5df2
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856267"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888808"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor och svar om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via [SMB-protokollet (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)som är bransch standard. Du kan montera Azure-filresurser samtidigt i molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära var data används.
@@ -170,7 +170,7 @@ I den här artikeln besvaras vanliga frågor om Azure Files funktioner och funkt
 
     - Du kan använda signaturer för delad åtkomst (SAS) för att skapa token som har specifika behörigheter och som är giltiga för ett visst tidsintervall. Du kan till exempel generera en token med skrivskyddad åtkomst till en bestämd fil som har en giltighet på 10 minuter. Alla som har token när token är giltiga har skrivskyddad åtkomst till filen under 10 minuter. Signaturer för delad åtkomst stöds endast via REST API eller i klient bibliotek. Du måste montera Azure-filresursen över SMB genom att använda lagrings konto nycklarna.
 
-    - Azure File Sync bevarar och replikerar alla godtyckliga ACL: er, eller DACL: er (oavsett om de är Active Directory-baserade eller lokala) till alla Server slut punkter som den synkroniserar till. Eftersom Windows Server redan kan autentiseras med Active Directory, är Azure File Sync ett effektivt Stop-intervall-alternativ tills fullt stöd för Active Directory-baserad autentisering och ACL-stöd tas emot.
+    - Azure File Sync bevarar och replikerar alla godtyckliga ACL: er, eller DACL: er (oavsett om de är Active Directory-baserade eller lokala) till alla Server slut punkter som den synkroniserar till. 
     
     Du kan referera till att [auktorisera åtkomst till Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för en omfattande åter givning av alla protokoll som stöds på Azure Storage Services. 
 

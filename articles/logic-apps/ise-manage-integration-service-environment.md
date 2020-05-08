@@ -3,15 +3,15 @@ title: Hantera integrerings tjänst miljöer i Azure Logic Apps
 description: Kontrol lera nätverks hälsa och hantera Logi Kap par, anslutningar, anpassade anslutningar och integrations konton i integrerings tjänst miljön (ISE) för Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/11/2020
-ms.openlocfilehash: f48106be67763c093a183be01098cab74391752e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284205"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598427"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Hantera integrerings tjänst miljön (ISE) i Azure Logic Apps
 
@@ -54,6 +54,10 @@ Du kan visa och hantera de Logic Apps som finns i din ISE.
    ![Visa Logic Apps](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
 1. Om du vill ta bort Logi Kap par som du inte längre behöver i din ISE väljer du dessa Logic Apps och väljer sedan **ta bort**. Bekräfta att du vill ta bort genom att välja **Ja**.
+
+> [!NOTE]
+> Om du tar bort och återskapar en underordnad Logic-app måste du spara om den överordnade Logic-appen. Den omskapade underordnade appen kommer att ha olika metadata.
+> Om du inte sparar om den överordnade Logic-appen när du har återskapat dess underordnade Logic-program, kommer anropen till den underordnade Logic-appen att Miss varnas med fel "obehörig". Det här beteendet gäller för över-underordnade Logic Apps, till exempel de som använder artefakter i integrations konton eller anropar Azure Functions.
 
 <a name="find-api-connections"></a>
 

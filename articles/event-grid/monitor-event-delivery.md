@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 16587feaca65aa21836d9be1c44e00faa0f4f8d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a01ab91fe84aaa1fe55018754eddbf8b8f89643
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722143"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890857"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Övervaka Event Grid meddelande leverans 
 
@@ -27,18 +27,21 @@ Om du vill ha information om händelse leverans och försök kan du [Event Grid 
 
 Portalen visar mått för statusen för att leverera händelse meddelanden.
 
-För ämnen är måtten:
+Här följer några av måtten för ämnen:
 
 * **Publiceringen lyckades**: händelsen har skickats till ämnet och bearbetats med ett 2xx-svar.
 * **Publiceringen misslyckades**: händelsen skickades till ämnet men avvisades med en felkod.
 * **Omatchad**: händelsen har publicerats till ämnet, men inte matchad med en händelse prenumeration. Händelsen släpptes.
 
-För prenumerationer är måtten:
+Här är några av måtten för prenumerationer:
 
 * **Leveransen lyckades**: händelsen har levererats till prenumerationens slut punkt och ett 2xx-svar togs emot.
-* **Leveransen misslyckades**: händelsen som skickades till prenumerationens slut punkt, men tog emot ett 4xx-eller 5XX-svar.
+* **Leveransen misslyckades**: varje gång tjänsten försöker leverera och händelse hanteraren inte returnerar en lyckad 2xx-kod ökar den **misslyckade leverans** räknaren. Om vi försöker leverera samma händelse flera gånger och Miss lyckas, ökar den **misslyckade leverans** räknaren för varje fel.
 * **Utgångna händelser**: händelsen levererades inte och alla nya återförsök har skickats. Händelsen släpptes.
 * **Matchade händelser**: händelsen i ämnet matchades av händelse prenumerationen.
+
+    > [!NOTE]
+    > En fullständig lista över mått finns i [mått som stöds av Azure Event Grid](metrics.md).
 
 ## <a name="event-subscription-status"></a>Status för händelse prenumeration
 

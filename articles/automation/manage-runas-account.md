@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5cb3752e5a74f26936efcbb9dba5cdcda76e01f4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d77fc756530115ff828c79a3b444c1152ffe5c5a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113314"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608685"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -475,7 +475,7 @@ Vissa konfigurations objekt som krävs för ett Kör som-eller klassiskt kör so
 * Kör som-konto har tagits bort från deltagar rollen
 * Huvudnamn för tjänsten eller program i Azure AD
 
-För sådana felkonfigurations instanser identifierar Automation-kontot ändringarna och visar statusen `Incomplete` i rutan Egenskaper för kör som-konton för kontot.
+För sådana felkonfigurations instanser identifierar Automation-kontot ändringarna och visar statusen *ofullständig* i fönstret Egenskaper för kör som-konton för kontot.
 
 ![Konfigurationsstatusen Ofullständig för Kör som-konto](media/manage-runas-account/automation-account-runas-incomplete-config.png)
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 8cba02d3c7d1e649853570b199b646b1c4dcce2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667405"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901358"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Felsöka replikering i haveri beredskap för virtuella Azure-datorer
 
@@ -41,7 +41,7 @@ Om du väljer händelsen bör du se exakt disk information:
 
 Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser är baserade på våra tester, men de kan inte användas för alla möjliga kombinationer av program I indata-output (I/O). De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program.
 
-Det finns två gränser att tänka på: data omsättning per disk och data omsättning per virtuell dator. Nu ska vi titta på Premium P20-disken i följande tabell för ett exempel. För en enskild virtuell dator kan Site Recovery hantera 5 MB/s omsättning per disk med högst fem sådana diskar. Site Recovery har en gräns på 25 MB/s av total omsättning per virtuell dator.
+Det finns två gränser att tänka på: data omsättning per disk och data omsättning per virtuell dator. Nu ska vi titta på Premium P20-disken i följande tabell för ett exempel. För en enskild virtuell dator kan Site Recovery hantera 5 MB/s omsättning per disk med högst fem sådana diskar. Site Recovery har en gräns på 54 MB/s av den totala omsättningen per virtuell dator.
 
 **Lagrings mål för replikering** | **Genomsnittlig I/O-storlek för käll disk** |**Genomsnittlig data omsättning för käll disk** | **Total data omsättning per dag för käll data disk**
 ---|---|---|---

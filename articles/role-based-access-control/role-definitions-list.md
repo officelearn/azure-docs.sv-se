@@ -1,6 +1,6 @@
 ---
-title: Lista roll definitioner i Azure RBAC med Azure Portal, Azure PowerShell, Azure CLI eller REST API | Microsoft Docs
-description: Lär dig hur du visar inbyggda och anpassade roller i Azure RBAC med Azure Portal, Azure PowerShell, Azure CLI eller REST API.
+title: Visa lista över Azure-roll definitioner – Azure RBAC
+description: Lär dig hur du visar inbyggda Azure-och anpassade roller med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/19/2020
+ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: aa888eedc81ceb3188f801e273c70722207bf512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e691e37a85604132a6b1c4b2af3501f2c8636e18
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062992"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891260"
 ---
-# <a name="list-role-definitions-in-azure-rbac"></a>Lista roll definitioner i Azure RBAC
+# <a name="list-azure-role-definitions"></a>Visa lista över Azure-roll definitioner
 
-En roll definition är en samling behörigheter som kan utföras, till exempel läsa, skriva och ta bort. Den brukar bara kallas en roll. [Rollbaserad åtkomst kontroll (RBAC) i Azure](overview.md) har över 120 [inbyggda roller](built-in-roles.md) eller så kan du skapa egna anpassade roller. Den här artikeln beskriver hur du visar en lista över inbyggda och anpassade roller som du kan använda för att bevilja åtkomst till Azure-resurser.
+En roll definition är en samling behörigheter som kan utföras, till exempel läsa, skriva och ta bort. Den brukar bara kallas en roll. [Rollbaserad åtkomst kontroll i Azure (Azure RBAC)](overview.md) har över 120 [inbyggda roller](built-in-roles.md) eller så kan du skapa dina egna anpassade roller. Den här artikeln beskriver hur du visar en lista över inbyggda och anpassade roller som du kan använda för att bevilja åtkomst till Azure-resurser.
 
 En lista över administratörs roller för Azure Active Directory finns [i administratörs roll behörigheter i Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
@@ -344,6 +344,55 @@ Om du vill lista roll definitioner använder du [roll definitionerna-list](/rest
     > | `$filter=atScopeAndBelow()` | Visar en lista över roll definitioner för det angivna omfånget och eventuella under omfattningar. |
     > | `$filter=type+eq+'{type}'` | Visar en lista med roll definitioner av den angivna typen. Typ av roll kan vara `CustomRole` eller `BuiltInRole`. |
 
+Följande begäran listar anpassade roll definitioner i prenumerations omfattningen:
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=type+eq+'CustomRole'
+```
+
+Följande visar ett exempel på utdata:
+
+```json
+{
+    "value": [
+        {
+            "properties": {
+                "roleName": "Billing Reader Plus",
+                "type": "CustomRole",
+                "description": "Read billing data and download invoices",
+                "assignableScopes": [
+                    "/subscriptions/{subscriptionId1}"
+                ],
+                "permissions": [
+                    {
+                        "actions": [
+                            "Microsoft.Authorization/*/read",
+                            "Microsoft.Billing/*/read",
+                            "Microsoft.Commerce/*/read",
+                            "Microsoft.Consumption/*/read",
+                            "Microsoft.Management/managementGroups/read",
+                            "Microsoft.CostManagement/*/read",
+                            "Microsoft.Billing/invoices/download/action",
+                            "Microsoft.CostManagement/exports/*"
+                        ],
+                        "notActions": [
+                            "Microsoft.CostManagement/exports/delete"
+                        ]
+                    }
+                ],
+                "createdOn": "2020-02-21T04:49:13.7679452Z",
+                "updatedOn": "2020-02-21T04:49:13.7679452Z",
+                "createdBy": "{createdByObjectId1}",
+                "updatedBy": "{updatedByObjectId1}"
+            },
+            "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/{roleDefinitionId1}",
+            "type": "Microsoft.Authorization/roleDefinitions",
+            "name": "{roleDefinitionId1}"
+        }
+    ]
+}
+```
+
 ### <a name="list-a-role-definition"></a>Lista en roll definition
 
 Om du vill visa information om en speciell roll använder du [roll definitionerna-get](/rest/api/authorization/roledefinitions/get) eller [Role definitions-get efter ID](/rest/api/authorization/roledefinitions/getbyid) REST API.
@@ -372,9 +421,45 @@ Om du vill visa information om en speciell roll använder du [roll definitionern
      
 1. Ersätt *{roleDefinitionId}* med roll Definitions-ID: n.
 
+Följande begäran visar roll definitionen för [läsaren](built-in-roles.md#reader) :
+
+```http
+GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7?api-version=2015-07-01
+```
+
+Följande visar ett exempel på utdata:
+
+```json
+{
+    "properties": {
+        "roleName": "Reader",
+        "type": "BuiltInRole",
+        "description": "Lets you view everything, but not make any changes.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "*/read"
+                ],
+                "notActions": []
+            }
+        ],
+        "createdOn": "2015-02-02T21:55:09.8806423Z",
+        "updatedOn": "2019-02-05T21:24:35.7424745Z",
+        "createdBy": null,
+        "updatedBy": null
+    },
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7"
+}
+```
+
 ## <a name="next-steps"></a>Nästa steg
 
-- [Inbyggda roller för Azure-resurser](built-in-roles.md)
-- [Anpassade roller för Azure-resurser](custom-roles.md)
-- [Lista roll tilldelningar med hjälp av Azure RBAC och Azure Portal](role-assignments-list-portal.md)
-- [Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal](role-assignments-portal.md)
+- [Inbyggda Azure-roller](built-in-roles.md)
+- [Anpassade Azure-roller](custom-roles.md)
+- [Visa en lista med Azures roll tilldelningar med hjälp av Azure Portal](role-assignments-list-portal.md)
+- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](role-assignments-portal.md)

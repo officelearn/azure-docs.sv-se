@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: ffa348c796a4d9d4e3bdb8e7ce18ba0eb82e17ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418396"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890743"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime i Azure Data Factory 
 
@@ -128,6 +128,10 @@ IR-platsen definierar platsen för backend-beräkningen och i stort sett platsen
 
 ### <a name="azure-ir-location"></a>Azure IR-plats
 
+Du kan ange en viss plats för en Azure IR, i vilket fall aktiviteten körs eller sändningen sker i den specifika regionen.
+
+Om du väljer att använda alternativet lös automatiskt Azure IR, som är standard,
+
 - För kopierings aktiviteten gör ADF det bästa arbetet för att automatiskt identifiera ditt mottagares data lagers plats. Använd sedan IR i antingen samma region om det är tillgängligt eller var som helst i samma geografi. om mottagar data lagrets region inte kan identifieras, används IR i Data Factory-regionen som ett alternativ.
 
   Du har till exempel din fabrik som skapats i östra USA, 
@@ -135,7 +139,8 @@ IR-platsen definierar platsen för backend-beräkningen och i stort sett platsen
   - När du kopierar data till Azure blob i västra USA, om ADF har identifierat att blobben är i västra USA, körs kopierings aktiviteten på IR i västra USA. om region identifieringen Miss lyckas körs kopierings aktiviteten på IR i USA, östra.
   - När du kopierar data till Salesforce som regionen inte kan identifieras på, körs kopierings aktiviteten på IR i USA, östra.
 
-- För kopierings aktiviteten gör ADF det bästa arbetet för att automatiskt identifiera din mottagare och ditt käll data lager för att välja den bästa platsen, antingen i samma region (om den är tillgänglig) eller det som är närmast en i samma geografi, eller om det inte går att använda Data Factory-regionen som alternativ.
+  >[!TIP] 
+  >Om du måste efterleva strikta datakrav och måste säkerställa att data inte lämnar ett visst område kan du uttryckligen skapa en Azure IR i den regionen och hänvisa den länkade tjänsten till denna IR med egenskapen ConnectVia. Till exempel om du vill kopiera data från en blob i Storbritannien, Syd, till SQL DW i Storbritannien, Syd, och vill se till att data inte lämnar Storbritannien ska du skapa en Azure-IR i Storbritannien, Syd, och länka båda länkade tjänster till denna IR.
 
 - För sökning/GetMetadata/ta bort aktivitet (kallas även för pipeline-aktiviteter), sändning av omvandlings aktivitet (även kallat externa aktiviteter) och redigerings åtgärder (test anslutning, bläddra i Mapplista och tabell lista, för hands data), används IR i Data Factory-regionen.
 

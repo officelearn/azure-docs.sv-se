@@ -1,32 +1,21 @@
 ---
 title: Lägg till Migreringsverktyg i Azure Migrate
 description: Lär dig hur du lägger till Migreringsverktyg i Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.manager: carmonm
 ms.topic: article
-ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 6bcb65912627356215769ccc8380ee1a7404f6f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/26/2020
+ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185968"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901452"
 ---
 # <a name="add-migration-tools"></a>Lägga till migreringsverktyg
 
 I den här artikeln beskrivs hur du lägger till Migreringsverktyg i [Azure Migrate](migrate-overview.md).
 
-Azure Migrate tillhandahåller en hubb med verktyg för utvärdering och migrering till Azure. Den innehåller inbyggda verktyg, verktyg som tillhandahålls av andra Azure-tjänster och oberoende program varu leverantörer (ISV) som tillhandahålls av tredje part.
-
-Om du vill lägga till ett Migreringsverktyg och ännu inte har skapat ett Azure Migrate projekt, följer du den här [artikeln](how-to-add-tool-first-time.md).
-
-
-
-## <a name="selecting-an-isv-tool"></a>Välja ett ISV-verktyg
-
-Om du väljer ett [ISV-verktyg](migrate-services-overview.md#isv-integration) för migrering kan du starta genom att skaffa en licens eller registrera dig för en kostnads fri utvärderings version, i enlighet med ISV-principen. I varje verktyg finns det ett alternativ för att ansluta till Azure Migrate. Distribuera verktyget och följ anvisningarna och dokumentationen för verktyget för att ansluta arbets ytan med Azure Migrate. 
+- Om du vill lägga till ett Migreringsverktyg och ännu inte har skapat ett Azure Migrate projekt, följer du den här [artikeln](how-to-add-tool-first-time.md).
+- Om du har lagt till ett ISV-verktyg för migrering [följer du stegen](prepare-isv-movere.md)för att förbereda arbetet med verktyget.
 
 ## <a name="select-a-migration-scenario"></a>Välj ett scenario för migrering
 

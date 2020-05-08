@@ -9,11 +9,11 @@ ms.date: 02/19/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 82e5221daefaecb687ad9feb79305e546d4ec17e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "68424159"
 ---
 > [!NOTE]
-> En webbapp kan ta time out efter 20 minuters inaktivitet. Endast begäranden till den faktiska webbappen återställer timern. Visa appens konfiguration i Azure-portalen eller göra förfrågningar`https://<app_name>.scm.azurewebsites.net`till den avancerade verktygswebbplatsen ( ) återställ inte timern. Om din app körs kontinuerligt eller schemalagt (Timer-utlösare) WebJobs aktiverar du **Alltid på** för att säkerställa att WebJobs körs på ett tillförlitligt sätt. Den här funktionen är endast tillgänglig på [prisnivåerna](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)Basic, Standard och Premium .
+> En webbapp kan ta lång tid efter 20 minuters inaktivitet. Endast begär anden till den faktiska webbappen återställer timern. Om du visar appens konfiguration i Azure Portal eller gör förfrågningar till webbplatsen för avancerade verktyg (`https://<app_name>.scm.azurewebsites.net`) återställs inte timern. Om din app kör kontinuerliga eller schemalagda webbjobber, aktiverar du **Always on** för att säkerställa att webbjobben körs på ett tillförlitligt sätt. Den här funktionen är endast tillgänglig på [pris nivåerna](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)Basic, standard och Premium.

@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av fysiska s
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 539e25f8b6cc92674fef567de6e6de16d0a9394a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b7bde5df943a35bfcf08ace3b454a26dae8c1d89
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81535289"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901413"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbereda för utvärdering och migrering av fysiska servrar till Azure
 
@@ -105,10 +105,9 @@ Förbered Azure för att migrera fysiska servrar med hjälp av Server migrering.
 ### <a name="assign-azure-account-permissions"></a>Tilldela behörigheter för Azure-konto
 
 Tilldela Azure-kontot rollen virtuell dator deltagare. Detta ger behörighet att:
-
-    - Skapa en virtuell dator i den valda resursgruppen.
-    - Skapa en virtuell dator i det valda virtuella nätverket.
-    - Skriv till en Azure-hanterad disk. 
+  - Skapa en virtuell dator i den valda resursgruppen.
+  - Skapa en virtuell dator i det valda virtuella nätverket.
+  - Skriv till en Azure-hanterad disk. 
 
 ### <a name="create-an-azure-network"></a>Skapa ett Azure-nätverk
 

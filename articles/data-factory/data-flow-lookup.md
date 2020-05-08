@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/23/2020
-ms.openlocfilehash: af4e33e2653aebe5d1c979aa314463e4beb7b0d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233405"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594329"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Söknings omvandling i data flöde för mappning
 
@@ -33,7 +33,7 @@ En uppslags omvandling liknar en vänster yttre koppling. Alla rader från den p
 
 **Matcha flera rader:** Om den är aktive rad returnerar en rad med flera matchningar i den primära data strömmen flera rader. Annars returneras bara en rad som baseras på villkoret "matcha on".
 
-**Matcha på:** Endast synlig om ' matcha flera rader ' är aktiverat. Välj om du vill matcha på alla rader, den första matchningen eller den sista matchningen. Alla rader rekommenderas eftersom de körs snabbast. Om den första raden eller sista raden är markerad, måste du ange sorterings villkor.
+**Matcha på:** Endast synlig om ' matcha flera rader ' inte är markerat. Välj om du vill matcha på alla rader, den första matchningen eller den sista matchningen. Alla rader rekommenderas eftersom de körs snabbast. Om den första raden eller sista raden är markerad, måste du ange sorterings villkor.
 
 **Sök villkor:** Välj vilka kolumner som ska matchas. Om likhets villkoret är uppfyllt, kommer raderna att anses vara en matchning. Hovra och välj beräknad kolumn för att extrahera ett värde med hjälp av [data flödets uttrycks språk](data-flow-expression-functions.md).
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 76af5f398edd736874fa79095f2e80c02298eac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd8442c00e2b7685b0dc1a7bd5150c87f2c27b7c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277341"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891455"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Utgående bindningar för Azure Queue Storage för Azure Functions
 
@@ -123,7 +123,7 @@ Här är *Function. JSON* -filen:
     {
       "type": "queue",
       "direction": "out",
-      "name": "$return",
+      "name": "myQueueItem",
       "queueName": "outqueue",
       "connection": "MyStorageConnectionAppSetting"
     }
@@ -137,7 +137,8 @@ Här är JavaScript-koden:
 
 ```javascript
 module.exports = function (context, input) {
-    context.done(null, input.body);
+    context.bindings.myQueueItem = input.body;
+    context.done();
 };
 ```
 
@@ -317,7 +318,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste anges till `queue`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**riktning** | saknas | Måste anges till `out`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**position** | saknas | Måste anges till `out`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
 |**Namn** | saknas | Namnet på variabeln som representerar kön i funktions koden. Ange till `$return` att referera till funktionens retur värde.|
 |**queueName** |**QueueName** | Köns namn. |
 |**anslutningen** | **Anslutning** |Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` på "telestorage" söker Functions-körningen efter en app-inställning med namnet "Storage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna `AzureWebJobsStorage`app-inställningen.|

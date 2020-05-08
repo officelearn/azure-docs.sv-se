@@ -2,7 +2,7 @@
 title: OAuth-flöde för implicit beviljande av OAuth 2,0-Microsoft Identity Platform | Azure
 description: Skydda appar med en enda sida med hjälp av implicit flöde för Microsoft Identity Platform.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,12 +12,12 @@ ms.date: 11/19/2019
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 89ae088b9cbb3bb3c593cfcbbfb4ce619baccfa8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34ae87859b20895598611d25eb069fd05c24d262
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868414"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900420"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft Identity Platform och implicit beviljande flöde
 
@@ -239,3 +239,6 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 ## <a name="next-steps"></a>Nästa steg
 
 * Gå över [MSAL JS-exemplen](sample-v2-code.md) för att komma igång med kodning.
+
+[OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
+[OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819

@@ -1,18 +1,18 @@
 ---
-title: Lead-hantering för Dynamics 365 kund engagemang | Azure Marketplace
-description: Konfigurera ledar hantering för Dynamics 365 kund engagemang.
+title: Lead-hantering för Dynamics 365 kund engagemang – Microsoft Commercial Marketplace
+description: Lär dig hur du konfigurerar Dynamics 365 kund engagemang för att hantera leads från Microsoft AppSource och Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: b9158f7b2e3fc73a2fe2a9b20ead2558b7467f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131061"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791008"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurera lead-hantering för Dynamics 365 kund engagemang
 
@@ -23,12 +23,12 @@ Den här artikeln beskriver hur du konfigurerar Dynamics 365 kund engagemang (ti
 
 ## <a name="prerequisites"></a>Krav
 
-Följande användar behörigheter krävs för att slutföra stegen i den här artikeln. Du måste:
+Följande användar behörigheter krävs för att slutföra stegen i den här artikeln:
 
-* Bli administratör för din Dynamics 365 kund engagemang-instans för att kunna installera en lösning och följ de här anvisningarna.
-* Vara en klient administratör för att skapa ett nytt tjänst konto för den lead-tjänst som används för att skicka leads från kommersiella Marketplace-erbjudanden.
-* Ha åtkomst till administrations portalen för Office 365.
-* Har åtkomst till Azure Portal.
+* Administratörs behörighet på din Dynamics 365 kund engagemang-instans för att kunna installera en lösning.
+* Klient administratörs rättigheter för att skapa ett nytt tjänst konto för den lead-tjänst som används för att skicka leads från kommersiella Marketplace-erbjudanden.
+* Åtkomst till administrations portalen för Office 365.
+* Åtkomst till Azure Portal.
 
 ## <a name="install-the-solution"></a>Installera lösningen
 
@@ -112,7 +112,7 @@ Så här konfigurerar du Azure Active Directory för Dynamics 365-kund engageman
 
 1. Gå till avsnittet "säkerhets inställningar" i den här artikeln om du vill slutföra konfigurationen av anslutningen för den här användaren.
 
-### <a name="office-365"></a>Office 365
+### <a name="office-365"></a>Office 365
 
 Om du inte vill använda Azure Active Directory kan du registrera en ny användare på Microsoft 365 administrations Center. Du måste uppdatera ditt användar namn och lösen ord var 90 dag om du vill fortsätta få leads.
 

@@ -7,24 +7,20 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6f93e00cb9f840b27578eb9a5b0c6a2cab1ac525
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160553"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789852"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Lead-hantering för kommersiell marknads plats
 
-
 Kunderna är i mitten av en eventuell verksamhet. I transformeringen av dagens produkt förvärv måste marknads förare fokusera på att ansluta till kunder direkt och skapa en relation. Detta är anledningen till att generera högkvalitativa leads är ett viktigt verktyg för din sälj cykel. När du har angett ditt erbjudande i [partner Center](https://partner.microsoft.com/), finns det verktyg som har Aktiver ATS för att du ska få kontakt information via programmering direkt efter att en kund uttrycker intresse eller distribuerar produkten på Marketplace. 
-
-
 
 ## <a name="what-are-leads-in-the-marketplace"></a>Vad är leads på Marketplace?
 
 Leads är från kunder som är intresserade eller distribuerar dina produkter från Marketplace. Oavsett om produkten är listad på Azure Marketplace eller AppSource kommer du att kunna ta emot leads från kunder när den har kon figurer ATS korrekt från din CRM till din lista (er) i Partner Center. 
-
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Så här ansluter du ditt CRM-system med partner Center
 
@@ -48,7 +44,7 @@ När du har konfigurerat ditt lead-mål och har publicerat publicera på ditt er
 
 När den tekniska konfigurationen är på plats bör du inkludera dessa leads i din aktuella försäljning & marknadsförings strategi och operativa processer. Vi är intresserade av att bättre förstå den övergripande Sälj processen och vill arbeta nära dig med att tillhandahålla högkvalitativa leads och tillräckligt med data för att lyckas. Vi välkomnar din feedback om hur vi kan optimera och förbättra de leads som vi skickar till dig med ytterligare data för att hjälpa kunderna att lyckas. Berätta för oss om du är intresse rad av att ge feedback och förslag för att göra det möjligt för ditt säljteam att bli mer framgångs rik med marknads ledande kunder.
 
-## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a>Vanliga fel vid lead-konfiguration under publicering i Partner Center
+## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a>Vanliga fel vid lead-konfiguration under publicering i Partner Center
 
 **Det gick inte att spara leadet i Dynamics CRM. Kontrol lera konto inställningarna för Dynamics CRM. LastCRMError: det går inte att logga in på Dynamics CRM, LastCRMException:** 
 

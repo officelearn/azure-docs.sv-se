@@ -1,6 +1,6 @@
 ---
-title: Analysera dina media med Hjälp av Azure-portalen | Microsoft-dokument
-description: I det här avsnittet beskrivs hur du bearbetar dina media med Media Analytics-medieprocessorer med hjälp av Azure-portalen.
+title: Analysera dina media med Azure Portal | Microsoft Docs
+description: I det här avsnittet beskrivs hur du bearbetar media med Medieanalys Media processor (MPs) med hjälp av Azure Portal.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,130 +15,130 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/27/2020
+ms.lasthandoff: 04/27/2020
 ms.locfileid: "74462610"
 ---
-# <a name="analyze-your-media-using-the-azure-portal"></a>Analysera dina media med Azure-portalen 
+# <a name="analyze-your-media-using-the-azure-portal"></a>Analysera dina media med hjälp av Azure Portal 
 
 > [!IMPORTANT]
-> Granska [pensionsplaner](media-services-analytics-overview.md#retirement-plans) för vissa medieprocessorer.
+> Granska [indragnings planer](media-services-analytics-overview.md#retirement-plans) för vissa medie processorer.
 
 ## <a name="overview"></a>Översikt
-Azure Media Services Analytics är en samling tal- och visionskomponenter (i företagsskala, efterlevnad, säkerhet och global räckvidd) som gör det enklare för organisationer och företag att härleda användbara insikter från sina videofiler. Mer detaljerad översikt över Azure Media Services Analytics finns [i det här](media-services-analytics-overview.md) avsnittet. 
+Azure Media Services Analytics är en samling tal-och Visions komponenter (i företags skala, efterlevnad, säkerhet och global räckvidd) som gör det enklare för organisationer och företag att härleda användbara insikter från sina videofiler. Mer detaljerad översikt över Azure Media Services Analytics finns i [det här](media-services-analytics-overview.md) avsnittet. 
 
-I det här avsnittet beskrivs hur du bearbetar dina media med Media Analytics-medieprocessorer med hjälp av Azure-portalen. Media Analytics-parlamentsledamöter producerar MP4-filer eller JSON-filer. Om en medieprocessor har skapat en MP4-fil hämtar du filen gradvis. Om en medieprocessor har skapat en JSON-fil hämtar du filen från Azure-blob-lagringen. 
+I det här avsnittet beskrivs hur du bearbetar media med Medieanalys Media processor (MPs) med hjälp av Azure Portal. Medieanalys MPs producerar MP4-filer eller JSON-filer. Om en medie processor har producerat en MP4-fil kan du hämta filen progressivt. Om en medie processor har producerat en JSON-fil, laddar du ned filen från Azure Blob Storage. 
 
-## <a name="choose-an-asset-that-you-want-to-analyze"></a>Välj en tillgång som du vill analysera
+## <a name="choose-an-asset-that-you-want-to-analyze"></a>Välj en till gång som du vill analysera
 1. Välj ditt Azure Media Services-konto i [Azure-portalen](https://portal.azure.com/).
 2. I fönstret **Inställningar** väljer du **Tillgångar**.  
    
     ![Analysera videor](./media/media-services-portal-analyze/media-services-portal-analyze001.png)
-3. Välj den tillgång som du vill analysera och tryck på knappen **Analysera.**
+3. Välj den till gång som du vill analysera och tryck på knappen **analysera** .
    
     ![Analysera videor](./media/media-services-portal-analyze/media-services-portal-analyze002.png)
-4. Välj processorn i fönstret **Processmedia asset med Media Analytics.** 
+4. Välj processorn i fönstret **bearbeta medie till gång med medieanalys** . 
    
-    Resten av artikeln förklarar varför och hur man använder varje processor. 
-5. Tryck på **Skapa** för att starta ett jobb.
+    I resten av artikeln förklaras varför och hur du använder varje processor. 
+5. Tryck på **skapa** för att starta ett jobb.
 
 ## <a name="azure-media-indexer"></a>Azure Media Indexer
-Med medieprocessorn **För Azure Media Indexer** kan du göra mediefiler och innehåll sökbart samt skapa spår med dold textning. I det här avsnittet finns information om alternativ som du anger för den här mp-gruppen.
+Med **Azure Media Indexer** medie processor kan du göra mediefiler och innehåll sökbara, samt generera textning för dold textning. Det här avsnittet innehåller information om alternativ som du anger för det här hanterings paketet.
 
 ![Analysera videor](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
 ### <a name="language"></a>Språk
-Det naturliga språk som ska kännas igen i multimediafilen. Till exempel engelska eller spanska. 
+Det naturliga språket som ska identifieras i multimedie filen. Till exempel engelska eller spanska. 
 
 ### <a name="captions"></a>Undertexter
-Du kan välja ett textningsformat som ska genereras från ditt innehåll. Ett indexeringsjobb kan generera filer med dold textning i följande format:  
+Du kan välja ett text format som ska genereras från ditt innehåll. Ett indexerings jobb kan skapa filer med dold textning i följande format:  
  
-* **TTML (TTML)**
-* **WebVTT (olika)**
+* **TTML**
+* **WebVTT**
 
-CC-filer (Closed Caption) i dessa format kan användas för att göra ljud- och videofiler tillgängliga för personer med nedsatt hörsel.
+Filer med dold textning (CC) i dessa format kan användas för att göra ljud-och videofiler tillgängliga för personer med hörsel funktions hinder.
 
 ### <a name="keywords"></a>Nyckelord
-Välj det här alternativet om du vill generera en XML-fil för nyckelord. Den här filen innehåller nyckelord som extraherats från talinnehållet, med frekvens- och offsetinformation.
+Välj det här alternativet om du vill skapa en nyckelords-XML-fil. Den här filen innehåller nyckelord som har extraherats från tal innehållet, med frekvens och förskjutnings information.
 
 ### <a name="job-name"></a>Jobbnamn
-Ett eget namn som låter dig identifiera jobbet. [I](media-services-portal-check-job-progress.md) den här artikeln beskrivs hur du kan övervaka hur ett jobb fortskrider. 
+Ett eget namn som gör att du kan identifiera jobbet. I [den här](media-services-portal-check-job-progress.md) artikeln beskrivs hur du kan övervaka förloppet för ett jobb. 
 
 ### <a name="output-file"></a>Utdatafil
-Ett eget namn där du kan identifiera utdatainnehållet. 
+Ett eget namn som gör att du kan identifiera utdata för innehållet. 
 
 ### <a name="speed"></a>Hastighet
-Ange hur snabbt indatavideon ska öka. Utdata är en stabiliserad och timelapsende återgivning av indatavideon.
+Ange hastigheten som Indataporten ska påskyndas med. Utdatan är en stabiliserad och tids fördröjning av indata-videon.
 
 ### <a name="job-name"></a>Jobbnamn
-Ett eget namn som låter dig identifiera jobbet. [I](media-services-portal-check-job-progress.md) den här artikeln beskrivs hur du kan övervaka hur ett jobb fortskrider. 
+Ett eget namn som gör att du kan identifiera jobbet. I [den här](media-services-portal-check-job-progress.md) artikeln beskrivs hur du kan övervaka förloppet för ett jobb. 
 
 ### <a name="output-file"></a>Utdatafil
-Ett eget namn där du kan identifiera utdatainnehållet. 
+Ett eget namn som gör att du kan identifiera utdata för innehållet. 
 
 ## <a name="azure-media-face-detector"></a>Azure Media Face Detector
-**Med Azure Media Face Detector-medieprocessorn** (MP) kan du räkna, spåra rörelser och till och med mäta publikens deltagande och reaktion via ansiktsuttryck. Den här tjänsten innehåller två funktioner: 
+Med MP ( **Azure Media Face Detector** Media processor) kan du räkna, spåra förflyttningar och till och med mäta åhörarnas medverkan och reaktion via ansikts uttryck. Den här tjänsten innehåller två funktioner: 
 
-* **Ansiktsigenkänning**
+* **Ansiktsspårning**
   
-    Ansiktsigenkänning hittar och spårar mänskliga ansikten i en video. Flera ansikten kan identifieras och sedan spåras när de flyttas runt, med tid och plats metadata returneras i en JSON-fil. Under spårning, kommer det att försöka ge ett konsekvent ID till samma ansikte medan personen flyttar runt på skärmen, även om de är blockerade eller kort lämna ramen.
+    Ansikts igenkänning hittar och spårar mänskliga ansikten i en video. Du kan identifiera flera ansikten och sedan spåras de när de flyttas runt, med tids-och platsens metadata som returneras i en JSON-fil. Under spårningen görs ett försök att ge ett konsekvent ID till samma ansikte medan personen rör sig på skärmen, även om de är blockerade eller om de ska lämna ramen.
   
   > [!NOTE]
-  > Dessa tjänster utför inte ansiktsigenkänning. En person som lämnar ramen eller blir blockerad för länge kommer att få ett nytt ID när de återvänder.
+  > Den här tjänsten utför inte ansikts igenkänning. En person som lämnar ramen eller som kan förhindras för länge får ett nytt ID när de returneras.
   > 
   > 
-* **Emotion upptäckt**
+* **Känslo-identifiering**
   
-    Emotion Detection är en valfri komponent i Face Detection Media Processor som returnerar analys på flera känslomässiga attribut från ansikten upptäckt, inklusive lycka, sorg, rädsla, ilska och mycket mer. 
+    Känslo-identifiering är en valfri komponent i Ansiktsigenkänning medie processorn som returnerar analyser på flera känslomässig-attribut från de ansikten som identifierats, inklusive glädje, ledsenhet, frukt, ilska och mycket annat. 
 
 ![Analysera videor](./media/media-services-portal-analyze/media-services-portal-analyze005.png)
 
-### <a name="detection-mode"></a>Identifieringsläge
+### <a name="detection-mode"></a>Identifierings läge
 Ett av följande lägen kan användas av processorn:
 
-* ansiktsigenkänning
-* per ansiktskänning av känslor
-* aggregerad känsloiguppt
+* ansikts igenkänning
+* identifiering av känslo per ansikts
+* sammanställd identifiering av Känslo
 
 ### <a name="job-name"></a>Jobbnamn
-Ett eget namn som låter dig identifiera jobbet. [I](media-services-portal-check-job-progress.md) den här artikeln beskrivs hur du kan övervaka hur ett jobb fortskrider. 
+Ett eget namn som gör att du kan identifiera jobbet. I [den här](media-services-portal-check-job-progress.md) artikeln beskrivs hur du kan övervaka förloppet för ett jobb. 
 
 ### <a name="output-file"></a>Utdatafil
-Ett eget namn där du kan identifiera utdatainnehållet. 
+Ett eget namn som gör att du kan identifiera utdata för innehållet. 
 
 ## <a name="azure-media-motion-detector"></a>Azure Media Motion Detector
-**Med Azure Media Motion Detector-medieprocessorn** (MP) kan du effektivt identifiera intressanta delar i en annars lång och händelselös video. Rörelsedetektering kan användas på statiska kamerabilder för att identifiera delar av videon där rörelse uppstår. Den genererar en JSON-fil som innehåller en metadata med tidsstämplar och det begränsningsområde där händelsen inträffade.
+Med hjälp av MP ( **Azure Media motion Detector** Media processor) kan du på ett effektivt sätt identifiera intresse områden inom en i övrigt lång och en video som inte är i händelse av händelse. Rörelse identifiering kan användas på statiska kamera tagningar för att identifiera delar av videon där rörelsen sker. Den genererar en JSON-fil som innehåller en metadata med tidsstämplar och den bindnings region där händelsen inträffade.
 
-Riktad mot säkerhet videoflöden, denna teknik kan kategorisera rörelse i relevanta händelser och falska positiva såsom skuggor och ljusförändringar. Detta gör att du kan generera säkerhetsvarningar från kameraflöden utan att vara spammad med oändliga irrelevanta händelser, samtidigt som du kan extrahera stunder av intresse från extremt långa övervakningsvideor.
+Den här tekniken är riktad mot säkerhets video flöden och kan kategorisera rörelsen i relevanta händelser och falska positiva identifieringar, till exempel skuggor och belysnings ändringar. På så sätt kan du generera säkerhets aviseringar från kamera flöden utan att skicka skräp post med oändliga irrelevanta händelser, samtidigt som du kan extrahera mycket intresse från extremt långa övervaknings videor.
 
 ![Analysera videor](./media/media-services-portal-analyze/media-services-portal-analyze006.png)
 
 ## <a name="azure-media-video-thumbnails"></a>Azure Media Video Thumbnails
-Den här processorn kan hjälpa dig att skapa sammanfattningar av långa videor genom att automatiskt välja intressanta utdrag från källvideon. Detta är användbart när du vill ge en snabb översikt över vad som väntar i en lång video. Detaljerad information och exempel finns i [Använda Azure Media Video Thumbnails för att skapa en videouppsummering](media-services-video-summarization.md)
+Den här processorn kan hjälpa dig att skapa sammanfattningar av långa videor genom att automatiskt välja intressanta kodfragment från käll videon. Detta är användbart när du vill ge en snabb översikt över vad som förväntas i en lång video. Detaljerad information och exempel finns i [använda Azure Media Video thumbnails för att skapa en video Sammanfattning](media-services-video-summarization.md)
 
 ![Analysera videor](./media/media-services-portal-analyze/media-services-portal-analyze008.png)
 
 ### <a name="job-name"></a>Jobbnamn
-Ett eget namn som låter dig identifiera jobbet. [I](media-services-portal-check-job-progress.md) den här artikeln beskrivs hur du kan övervaka hur ett jobb fortskrider. 
+Ett eget namn som gör att du kan identifiera jobbet. I [den här](media-services-portal-check-job-progress.md) artikeln beskrivs hur du kan övervaka förloppet för ett jobb. 
 
 ### <a name="output-file"></a>Utdatafil
-Ett eget namn där du kan identifiera utdatainnehållet. 
+Ett eget namn som gör att du kan identifiera utdata för innehållet. 
 
-## <a name="azure-media-content-moderator"></a>Moderator för Azure Media-innehåll
-Den här processorn hjälper dig att upptäcka potentiellt vuxet och racyinnehåll i videor. Processorn identifierar automatiskt bilder och nyckelrutor i videon. Den betyg nyckelrutor för möjliga vuxna eller racy innehåll, och föreslår recensioner baserat på standard trösklar. Detaljerad information och exempel finns i [Använda Azure Media Content Moderator för moderera videor](media-services-content-moderation.md)
+## <a name="azure-media-content-moderator"></a>Azure Media Content Moderator
+Den här processorn hjälper dig att identifiera potentiellt vuxna och vågat innehåll i videor. Processorn identifierar automatiskt bilder och nyckel rutor i videon. Den ger nyckel rutorna för möjlig vuxen eller vågat innehåll, och föreslår recensioner baserat på standard tröskelvärden. Detaljerad information och exempel finns i [använda Azure Media Content moderator för att få en medelhög video](media-services-content-moderation.md)
 
 ![Måttliga videor](./media/media-services-portal-analyze/media-services-portal-analyze-content-moderator.PNG)
 
 ### <a name="version"></a>Version 
-Använd "2.0".
+Använd "2,0".
 
 ### <a name="mode"></a>Läge
-2.0-versionen ignorerar `Mode` inställningen.
+I 2,0-versionen ignoreras `Mode` inställningen.
 
 ## <a name="next-steps"></a>Nästa steg
-Visa utbildningsvägar för Media Services.
+Visa Media Services utbildnings vägar.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 

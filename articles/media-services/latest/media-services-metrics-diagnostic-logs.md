@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 75363212684bb09e84a4bc4881af26e6d2a8e7e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585279"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559540"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Övervaka Media Services mått och diagnostikloggar via Azure Monitor
 
@@ -63,7 +63,7 @@ Följande Media Services [slut punkter för direkt uppspelnings](https://docs.mi
 |Måttnamn|Visningsnamn|Beskrivning|
 |---|---|---|
 |Begäranden|Begäranden|Visar det totala antalet HTTP-begäranden som hanteras av slut punkten för direkt uppspelning.|
-|Utgående|Utgående|Det totala antalet utgående byte. Till exempel, byte som strömmas av slut punkten för direkt uppspelning.|
+|Utgående|Utgående|Utgående byte totalt per minut per slut punkt för direkt uppspelning.|
 |SuccessE2ELatency|Slutför svars tid för slut punkt till slut punkt|Varaktighet från när strömnings slut punkten fick begäran till när den sista byten av svaret skickades.|
 
 ### <a name="why-would-i-want-to-use-metrics"></a>Varför skulle jag vilja använda mått?

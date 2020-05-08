@@ -1,6 +1,6 @@
 ---
-title: 'SaaS uppfyllelse API: er v1 | Azure Marketplace'
-description: Förklarar hur du skapar och hanterar ett SaaS-erbjudande på Azure Marketplace med hjälp av tillhörande Uppfyllelse v1 API:er.
+title: 'API: er för SaaS-utförande v1 | Azure Marketplace'
+description: 'Förklarar hur du skapar och hanterar ett SaaS-erbjudande på Azure Marketplace med associerade v1-API: er.'
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -9,20 +9,20 @@ ms.date: 05/23/2019
 ms.author: dsindona
 ROBOTS: NOINDEX
 ms.openlocfilehash: 3ec8373288a2ea5809ee5d349c52c57051586035
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/28/2020
+ms.lasthandoff: 04/28/2020
 ms.locfileid: "80288350"
 ---
-# <a name="saas-fulfillment-apis-version-1-deprecated"></a>SaaS uppfyllelse API:er version 1 (föråldrad)
+# <a name="saas-fulfillment-apis-version-1-deprecated"></a>API: er för SaaS-uppfyllelse, version 1 (inaktuell)
 
-I den här artikeln beskrivs hur du skapar ett SaaS-erbjudande med API:er. API:erna, som består av REST-metoder och slutpunkter, är nödvändiga för att tillåta prenumerationer på ditt SaaS-erbjudande om du har valt Sälja via Azure.  
+Den här artikeln förklarar hur du skapar ett SaaS-erbjudande med API: er. API: erna, som består av REST-metoder och slut punkter, är nödvändiga för att tillåta prenumerationer på ditt SaaS-erbjudande om du har valt att sälja via Azure.  
 
 > [!WARNING]
-> Den här första versionen av SaaS Uppfyllelse API är föråldrad; Använd i stället [SaaS Uppfyllelse API V2](./pc-saas-fulfillment-api-v2.md).  Den här första versionen av API:et underhålls för närvarande endast för att betjäna befintliga utgivare. 
+> Den här inledande versionen av API för SaaS-uppfyllaning är föråldrad. Använd i stället [SaaS uppfyllelse API v2](./pc-saas-fulfillment-api-v2.md).  Den här inledande versionen av API: et behålls för närvarande endast för att betjäna befintliga utgivare. 
 
-Följande API:er tillhandahålls för att hjälpa dig att integrera din SaaS-tjänst med Azure:
+Följande API: er tillhandahålls för att hjälpa dig att integrera din SaaS-tjänst med Azure:
 
 -   Lös
 -   Prenumerera
@@ -30,23 +30,23 @@ Följande API:er tillhandahålls för att hjälpa dig att integrera din SaaS-tj�
 -   Avbryt prenumeration
 
 
-## <a name="api-methods-and-endpoints"></a>API-metoder och slutpunkter
+## <a name="api-methods-and-endpoints"></a>API-metoder och slut punkter
 
-I följande avsnitt beskrivs API-metoder och slutpunkter som är tillgängliga för att aktivera prenumerationer för ett SaaS-erbjudande.
+I följande avsnitt beskrivs de API-metoder och slut punkter som är tillgängliga för att aktivera prenumerationer för ett SaaS-erbjudande.
 
 
-### <a name="marketplace-api-endpoint-and-api-version"></a>Slutpunkt och API-version för Marketplace API
+### <a name="marketplace-api-endpoint-and-api-version"></a>Marketplace API-slutpunkt och API-version
 
-Slutpunkten för Azure Marketplace `https://marketplaceapi.microsoft.com`API är .
+Slut punkten för Azure Marketplace API är `https://marketplaceapi.microsoft.com`.
 
-Den aktuella `api-version=2017-04-15`API-versionen är .
+Den aktuella API-versionen `api-version=2017-04-15`är.
 
 
 ### <a name="resolve-subscription"></a>Lös prenumeration
 
-POST-åtgärd för att lösa slutpunkten gör det möjligt för användare att matcha en marketplace-token till ett beständigt resurs-ID.  Resurs-ID är den unika identifieraren för SAAS-prenumeration. 
+POST åtgärd vid åtgärd för att lösa slut punkter låter användarna matcha en Marketplace-token till ett beständigt resurs-ID.  Resurs-ID: t är den unika identifieraren för SAAS-prenumerationen. 
 
-När en användare omdirigeras till en ISV:webbplats innehåller URL:en token i frågeparametrarna. ISV förväntas använda den här token och göra en begäran om att lösa den. Svaret innehåller det unika SAAS-prenumerations-ID: n, namn, erbjudande-ID och abonnemang för resursen. Den här token är endast giltig i en timme.
+När en användare omdirigeras till en ISV-webbplats innehåller URL: en token i frågeparametrar. ISV förväntas använda denna token och gör en begäran om att lösa det. Svaret innehåller det unika prenumerations-ID: t, namn, erbjudande-ID och plan för resursen. Denna token är endast giltig för en timme.
 
 *Förfrågan*
 
@@ -54,7 +54,7 @@ När en användare omdirigeras till en ISV:webbplats innehåller URL:en token i 
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=2017-04-15**
 
-|  **Parameternamn** |     **Beskrivning**                                      |
+|  **Parameter namn** |     **Beskrivning**                                      |
 |  ------------------ |     ---------------------------------------------------- |
 |  api-version        |  Den version av åtgärden som ska användas för den här begäran.   |
 |  |  |
@@ -62,17 +62,17 @@ När en användare omdirigeras till en ISV:webbplats innehåller URL:en token i 
 
 *Rubriker*
 
-| **Huvudnyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                                                                                                                                                  |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | Inga           | Ett unikt strängvärde för att spåra begäran från klienten, helst ett GUID. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna.  |
-| x-ms-correlationid | Inga           | Ett unikt strängvärde för åtgärder på klienten. Det här fältet korrelerar alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna. |
-| Innehållstyp       | Ja          | `application/json`                                        |
-| auktorisering      | Ja          | JSON-webbtokentoken (JWT) bärare token.                    |
-| x-ms-marketplace-token| Ja| Parametern tokenfrågefråga i URL:en när användaren omdirigeras till SaaS ISV:s webbplats från Azure. **Anm.:** Denna token är endast giltig i 1 timme. Dessutom avkodar URL tokenvärdet från webbläsaren innan du använder det.|
+| x-MS-RequestId     | Inga           | Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
+| x-MS-correlationId | Inga           | Ett unikt sträng värde för åtgärden på klienten. Det här fältet korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
+| Innehålls typ       | Ja          | `application/json`                                        |
+| auktorisering      | Ja          | JSON Web token (JWT) Bearer-token.                    |
+| x-MS-Marketplace-token| Ja| Parametern för token-frågan i URL: en när användaren omdirigeras till SaaS ISV ' s webbplats från Azure. **Obs:** Denna token är endast giltig i 1 timme. Dessutom avkodar URL-värdet för token från webbläsaren innan det används.|
 |  |  |  |
   
 
-*Svarskropp*
+*Svars text*
 
 ``` json
 {
@@ -85,60 +85,60 @@ När en användare omdirigeras till en ISV:webbplats innehåller URL:en token i 
 
 | **Parameternamn** | **Datatyp** | **Beskrivning**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | String        | ID för SaaS-prenumerationen.          |
-| subscriptionName| String| Namnet på SaaS-prenumerationen som angetts av användaren i Azure när du prenumererar på SaaS-tjänsten.|
-| OfferId (erbjudande)            | String        | Erbjudande-ID som användaren prenumererar på. |
-| planId (på)             | String        | Plan-ID som användaren prenumererar på.  |
+| id                 | Sträng        | ID för SaaS-prenumerationen.          |
+| subscriptionName| Sträng| Namnet på SaaS-prenumerationen som har angetts av användaren i Azure och som prenumererar på SaaS-tjänsten.|
+| OfferId            | Sträng        | Erbjudande-ID som användaren prenumererar på. |
+| planId             | Sträng        | Plans-ID som användaren prenumererar på.  |
 |  |  |  |
 
 
-*Svarskoder*
+*Svars koder*
 
 | **HTTP-statuskod** | **Felkod**     | **Beskrivning**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token har lösts.                                                            |
-| 400                  | `BadRequest`         | Antingen saknas obligatoriska rubriker eller så har en ogiltig api-version angetts. Det gick inte att lösa token eftersom token antingen är felaktig eller har upphört att gälla (token är endast giltig i 1 timme när den har genererats). |
+| 400                  | `BadRequest`         | Antingen saknas nödvändiga huvuden eller så har en ogiltig API-version angetts. Det gick inte att matcha token eftersom antingen token är felaktig eller har upphört att gälla (token är endast giltig i 1 timme när den har genererats). |
 | 403                  | `Forbidden`          | Anroparen har inte behörighet att utföra den här åtgärden.                                 |
-| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begäranden, försök igen senare.                                |
-| 503                  | `ServiceUnavailable` | Tjänsten är ned tillfälligt, försök igen senare.                                        |
+| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begär Anden, försök igen senare.                                |
+| 503                  | `ServiceUnavailable` | Tjänsten är tillfälligt avstängd, försök igen senare.                                        |
 |  |  |  |
 
 
 *Svarsrubriker*
 
-| **Rubriknyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Ja          | Begärande-ID som tagits emot från klienten.                                                                   |
-| x-ms-correlationid | Ja          | Korrelations-ID om det skickas av klienten, annars är det här värdet serverns korrelations-ID.                   |
-| x-ms-activityid    | Ja          | Ett unikt strängvärde för att spåra begäran från tjänsten. Detta ID används för alla avstämningar. |
-| Försök igen efter        | Inga           | Det här värdet anges endast för ett 429-svar.                                                                   |
+| x-MS-RequestId     | Ja          | Begärande-ID mottaget från klienten.                                                                   |
+| x-MS-correlationId | Ja          | Korrelations-ID om det skickas av klienten, annars är det här värdet Server korrelations-ID.                   |
+| x-MS-ActivityId    | Ja          | Ett unikt sträng värde för spårning av begäran från tjänsten. Detta ID används för alla avstämningar. |
+| Försök igen        | Inga           | Det här värdet anges bara för 429-svar.                                                                   |
 |  |  |  |
 
 
 ### <a name="subscribe"></a>Prenumerera
 
-Med slutpunkten för prenumerera kan användare starta en prenumeration på en SaaS-tjänst för en viss plan och aktivera fakturering i handelssystemet.
+Prenumerations slut punkten låter användare starta en prenumeration på en SaaS-tjänst för en viss plan och aktivera fakturering i Commerce-systemet.
 
-**Sätta**
+**FÖRAS**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*? API-version = 2017-04-15**
 
-| **Parameternamn**  | **Beskrivning**                                       |
+| **Parameter namn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Unikt ID för SaaS-prenumeration som erhålls efter att ha löst token via Resolve API.                              |
+| subscriptionId      | Unikt ID för SaaS-prenumeration som erhålls efter att ha löst token via lösnings-API.                              |
 | api-version         | Den version av åtgärden som ska användas för den här begäran. |
 |  |  |
 
 *Rubriker*
 
-|  **Huvudnyckel**        | **Obligatoriskt** |  **Beskrivning**                                                  |
+|  **Rubrik nyckel**        | **Obligatoriskt** |  **Beskrivning**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
-| x-ms-requestid         |   Inga         | Ett unikt strängvärde för att spåra begäran från klienten, helst ett GUID. Om detta inte tillhandahålls genereras en och anges i svarsrubrikerna. |
-| x-ms-correlationid     |   Inga         | Ett unikt strängvärde för åtgärder på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om detta inte tillhandahålls genereras en och anges i svarsrubrikerna. |
-| Om-matcha/om-ingen-matchning |   Inga         |   Starkt validerare ETag-värde.                                                          |
-| innehållstyp           |   Ja        |    `application/json`                                                                   |
-|  auktorisering         |   Ja        |    JSON-webbtokentoken (JWT) bärare token.                                               |
-| x-ms-marketplace-session-läge| Inga | Flagga för att aktivera torrkörningsläge när du prenumererar på ett SaaS-erbjudande. Om den är inställd debiteras inte prenumerationen. Detta är användbart för ISV-testningsscenarier. Ställ in den på **"dryrun"**|
+| x-MS-RequestId         |   Inga         | Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om detta inte anges genereras en och anges i svarshuvuden. |
+| x-MS-correlationId     |   Inga         | Ett unikt sträng värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klient åtgärd med händelser på Server sidan. Om detta inte anges genereras en och anges i svarshuvuden. |
+| If-Match/If-None-Match |   Inga         |   Starkt validator ETag-värde.                                                          |
+| innehålls typ           |   Ja        |    `application/json`                                                                   |
+|  auktorisering         |   Ja        |    JSON Web token (JWT) Bearer-token.                                               |
+| x-MS-Marketplace-session-mode| Inga | Flagga för att aktivera torrt körnings läge när du prenumererar på ett SaaS-erbjudande. Om den är inställd debiteras inte prenumerationen. Detta är användbart för testnings scenarier i ISV. Ställ in det på **"blobbar"**|
 |  |  |  |
 
 *Brödtext*
@@ -151,44 +151,44 @@ Med slutpunkten för prenumerera kan användare starta en prenumeration på en S
 
 | **Elementnamn** | **Datatyp** | **Beskrivning**                      |
 |------------------|---------------|--------------------------------------|
-| planId (på)           | (Obligatoriskt) Sträng        | Plan-ID för SaaS-tjänstanvändaren prenumererar på.  |
+| planId           | Kunna Nollängd        | Plan-ID för SaaS-tjänstens användare prenumererar på.  |
 |  |  |  |
 
-*Svarskoder*
+*Svars koder*
 
 | **HTTP-statuskod** | **Felkod**     | **Beskrivning**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
-| 202                  | `Accepted`           | SaaS-prenumerationsaktivering har mottagits för en viss plan.                   |
-| 400                  | `BadRequest`         | Antingen saknas obligatoriska rubriker eller så är JSON-brödtexten felaktig. |
+| 202                  | `Accepted`           | SaaS prenumerations aktivering togs emot för en specifik plan.                   |
+| 400                  | `BadRequest`         | De obligatoriska huvudena saknas eller så är texten i JSON felaktig. |
 | 403                  | `Forbidden`          | Anroparen har inte behörighet att utföra den här åtgärden.                   |
-| 404                  | `NotFound`           | Prenumerationen hittades inte med det angivna ID:et                                  |
+| 404                  | `NotFound`           | Prenumerationen hittades inte med angivet ID                                  |
 | 409                  | `Conflict`           | En annan åtgärd pågår för prenumerationen.                     |
-| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begäranden, försök igen senare.                  |
-| 503                  | `ServiceUnavailable` | Tjänsten är ned tillfälligt, försök igen senare.                          |
+| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begär Anden, försök igen senare.                  |
+| 503                  | `ServiceUnavailable` | Tjänsten är tillfälligt avstängd, försök igen senare.                          |
 |  |  |  |
 
-För ett 202-svar följer du upp statusen för begäranden vid rubriken "Operation-plats". Autentiseringen är samma som andra Marketplace-API:er.
+För ett 202-svar följer du anvisningarna i begärans åtgärds status i rubriken åtgärds plats. Autentiseringen är samma som andra Marketplace-API: er.
 
 *Svarsrubriker*
 
-| **Rubriknyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Ja          | Begärande-ID som tagits emot från klienten.                                                                   |
-| x-ms-correlationid | Ja          | Korrelations-ID om det skickas av klienten, annars är det här värdet serverns korrelations-ID.                   |
-| x-ms-activityid    | Ja          | Ett unikt strängvärde för att spåra begäran från tjänsten. Det här värdet används för alla avstämningar. |
-| Försök igen efter        | Ja          | Intervall med vilket klienten kan kontrollera statusen.                                                       |
-| Operation-plats | Ja          | Länk till en resurs för att hämta operationsstatus.                                                        |
+| x-MS-RequestId     | Ja          | Begärande-ID mottaget från klienten.                                                                   |
+| x-MS-correlationId | Ja          | Korrelations-ID om det skickas av klienten, annars är det här värdet Server korrelations-ID.                   |
+| x-MS-ActivityId    | Ja          | Ett unikt sträng värde för spårning av begäran från tjänsten. Det här värdet används för alla avstämningar. |
+| Försök igen        | Ja          | Intervallet som klienten kan kontrol lera status för.                                                       |
+| Åtgärds plats | Ja          | Länka till en resurs för att hämta åtgärds statusen.                                                        |
 |  |  |  |
 
-### <a name="change-plan-endpoint"></a>Slutpunkt för ändringsplan
+### <a name="change-plan-endpoint"></a>Ändra plan slut punkt
 
-Ändringsslutpunkten gör det möjligt för användaren att konvertera sin för närvarande tecknade plan till ett nytt abonnemang.
+Med ändrings slut punkten kan användaren konvertera sin prenumeration till en ny plan.
 
-**Patch**
+**9.0a**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*? API-version = 2017-04-15**
 
-| **Parameternamn**  | **Beskrivning**                                       |
+| **Parameter namn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | ID för SaaS-prenumeration.                              |
 | api-version         | Den version av åtgärden som ska användas för den här begäran. |
@@ -196,13 +196,13 @@ För ett 202-svar följer du upp statusen för begäranden vid rubriken "Operati
 
 *Rubriker*
 
-| **Huvudnyckel**          | **Obligatoriskt** | **Beskrivning**                                                                                                                                                                                                                  |
+| **Rubrik nyckel**          | **Obligatoriskt** | **Beskrivning**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
-| x-ms-requestid          | Inga           | Ett unikt strängvärde för att spåra begäran från klienten. Rekommendera en GUID. Om detta inte tillhandahålls genereras en och anges i svarsrubrikerna.   |
-| x-ms-correlationid      | Inga           | Ett unikt strängvärde för åtgärder på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om detta inte tillhandahålls genereras en och anges i svarsrubrikerna. |
-| Om-matcha /Om-ingen-matchning | Inga           | Starkt validerare ETag-värde.                              |
-| innehållstyp            | Ja          | `application/json`                                        |
-| auktorisering           | Ja          | JSON-webbtokentoken (JWT) bärare token.                    |
+| x-MS-RequestId          | Inga           | Ett unikt sträng värde för att spåra begäran från klienten. Rekommendera ett GUID. Om detta inte anges genereras en och anges i svarshuvuden.   |
+| x-MS-correlationId      | Inga           | Ett unikt sträng värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klient åtgärd med händelser på Server sidan. Om detta inte anges genereras en och anges i svarshuvuden. |
+| If-Match/If-None-Match | Inga           | Starkt validator ETag-värde.                              |
+| innehålls typ            | Ja          | `application/json`                                        |
+| auktorisering           | Ja          | JSON Web token (JWT) Bearer-token.                    |
 |  |  |  |
 
 *Brödtext*
@@ -215,44 +215,44 @@ För ett 202-svar följer du upp statusen för begäranden vid rubriken "Operati
 
 |  **Elementnamn** |  **Datatyp**  | **Beskrivning**                              |
 |  ---------------- | -------------   | --------------------------------------       |
-|  planId (på)           |  (Obligatoriskt) Sträng         | Plan-ID för SaaS-tjänstanvändaren prenumererar på.          |
+|  planId           |  Kunna Nollängd         | Plan-ID för SaaS-tjänstens användare prenumererar på.          |
 |  |  |  |
 
-*Svarskoder*
+*Svars koder*
 
 | **HTTP-statuskod** | **Felkod**     | **Beskrivning**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
-| 202                  | `Accepted`           | SaaS-prenumerationsaktivering har mottagits för en viss plan.                   |
-| 400                  | `BadRequest`         | Antingen saknas obligatoriska rubriker eller så är JSON-brödtexten felaktig. |
+| 202                  | `Accepted`           | SaaS prenumerations aktivering togs emot för en specifik plan.                   |
+| 400                  | `BadRequest`         | De obligatoriska huvudena saknas eller så är texten i JSON felaktig. |
 | 403                  | `Forbidden`          | Anroparen har inte behörighet att utföra den här åtgärden.                   |
-| 404                  | `NotFound`           | Prenumerationen hittades inte med det angivna ID:et                                  |
+| 404                  | `NotFound`           | Prenumerationen hittades inte med angivet ID                                  |
 | 409                  | `Conflict`           | En annan åtgärd pågår för prenumerationen.                     |
-| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begäranden, försök igen senare.                  |
-| 503                  | `ServiceUnavailable` | Tjänsten är ned tillfälligt, försök igen senare.                          |
+| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begär Anden, försök igen senare.                  |
+| 503                  | `ServiceUnavailable` | Tjänsten är tillfälligt avstängd, försök igen senare.                          |
 |  |  |  |
 
 *Svarsrubriker*
 
-| **Rubriknyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Ja          | Begärande-ID som tagits emot från klienten.                                                                   |
-| x-ms-correlationid | Ja          | Korrelations-ID om det skickas av klienten, annars är det här värdet serverns korrelations-ID.                   |
-| x-ms-activityid    | Ja          | Ett unikt strängvärde för att spåra begäran från tjänsten. Det här värdet används för alla avstämningar. |
-| Försök igen efter        | Ja          | Intervall med vilket klienten kan kontrollera statusen.                                                       |
-| Operation-plats | Ja          | Länk till en resurs för att hämta operationsstatus.                                                        |
+| x-MS-RequestId     | Ja          | Begärande-ID mottaget från klienten.                                                                   |
+| x-MS-correlationId | Ja          | Korrelations-ID om det skickas av klienten, annars är det här värdet Server korrelations-ID.                   |
+| x-MS-ActivityId    | Ja          | Ett unikt sträng värde för spårning av begäran från tjänsten. Det här värdet används för alla avstämningar. |
+| Försök igen        | Ja          | Intervallet som klienten kan kontrol lera status för.                                                       |
+| Åtgärds plats | Ja          | Länka till en resurs för att hämta åtgärds statusen.                                                        |
 |  |  |  |
 
 ### <a name="delete-subscription"></a>Ta bort prenumeration
 
-Med åtgärden Ta bort på slutpunkten prenumerera kan en användare ta bort en prenumeration med ett visst ID.
+Åtgärden ta bort i prenumerations slut punkten gör att användaren kan ta bort en prenumeration med ett angivet ID.
 
 *Förfrågan*
 
-**Ta bort**
+**TA bort**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*? API-version = 2017-04-15**
 
-| **Parameternamn**  | **Beskrivning**                                       |
+| **Parameter namn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | ID för SaaS-prenumeration.                              |
 | api-version         | Den version av åtgärden som ska användas för den här begäran. |
@@ -260,64 +260,64 @@ Med åtgärden Ta bort på slutpunkten prenumerera kan en användare ta bort en 
 
 *Rubriker*
 
-| **Huvudnyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                                                                                                                                                  |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
-| x-ms-requestid     | Inga           | Ett unikt strängvärde för att spåra begäran från klienten. Rekommendera en GUID. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna.                                                           |
-| x-ms-correlationid | Inga           | Ett unikt strängvärde för åtgärder på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om detta inte tillhandahålls genereras en och anges i svarsrubrikerna. |
-| auktorisering      | Ja          | JSON-webbtokentoken (JWT) bärare token.                    |
+| x-MS-RequestId     | Inga           | Ett unikt sträng värde för att spåra begäran från klienten. Rekommendera ett GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.                                                           |
+| x-MS-correlationId | Inga           | Ett unikt sträng värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klient åtgärd med händelser på Server sidan. Om detta inte anges genereras en och anges i svarshuvuden. |
+| auktorisering      | Ja          | JSON Web token (JWT) Bearer-token.                    |
 |  |  |  |
 
-*Svarskoder*
+*Svars koder*
 
 | **HTTP-statuskod** | **Felkod**     | **Beskrivning**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
-| 202                  | `Accepted`           | SaaS-prenumerationsaktivering har mottagits för en viss plan.                   |
-| 400                  | `BadRequest`         | Antingen saknas obligatoriska rubriker eller så är JSON-brödtexten felaktig. |
+| 202                  | `Accepted`           | SaaS prenumerations aktivering togs emot för en specifik plan.                   |
+| 400                  | `BadRequest`         | De obligatoriska huvudena saknas eller så är texten i JSON felaktig. |
 | 403                  | `Forbidden`          | Anroparen har inte behörighet att utföra den här åtgärden.                   |
-| 404                  | `NotFound`           | Prenumerationen hittades inte med det angivna ID:et                                  |
-| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begäranden, försök igen senare.                  |
-| 503                  | `ServiceUnavailable` | Tjänsten är tillfälligt nere. Försök igen senare.                          |
+| 404                  | `NotFound`           | Prenumerationen hittades inte med angivet ID                                  |
+| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begär Anden, försök igen senare.                  |
+| 503                  | `ServiceUnavailable` | Tjänsten är tillfälligt avstängd. Försök igen senare.                          |
 |  |  |  |
 
-För ett 202-svar följer du upp statusen för begäranden vid rubriken "Operation-plats". Autentiseringen är samma som andra Marketplace-API:er.
+För ett 202-svar följer du anvisningarna i begärans åtgärds status i rubriken åtgärds plats. Autentiseringen är samma som andra Marketplace-API: er.
 
 *Svarsrubriker*
 
-| **Rubriknyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Ja          | Begärande-ID som tagits emot från klienten.                                                                   |
-| x-ms-correlationid | Ja          | Korrelations-ID om det skickas av klienten, annars är detta serverns korrelations-ID.                   |
-| x-ms-activityid    | Ja          | Ett unikt strängvärde för att spåra begäran från tjänsten. Detta används för alla avstämningar. |
-| Försök igen efter        | Ja          | Intervall med vilket klienten kan kontrollera statusen.                                                       |
-| Operation-plats | Ja          | Länk till en resurs för att hämta operationsstatus.                                                        |
+| x-MS-RequestId     | Ja          | Begärande-ID mottaget från klienten.                                                                   |
+| x-MS-correlationId | Ja          | Korrelations-ID om det skickas av klienten, annars är detta Server korrelations-ID.                   |
+| x-MS-ActivityId    | Ja          | Ett unikt sträng värde för spårning av begäran från tjänsten. Detta används för alla avstämningar. |
+| Försök igen        | Ja          | Intervallet som klienten kan kontrol lera status för.                                                       |
+| Åtgärds plats | Ja          | Länka till en resurs för att hämta åtgärds statusen.                                                        |
 |   |  |  |
 
 ### <a name="get-operation-status"></a>Hämta åtgärdsstatus
 
-Med den här slutpunkten kan användaren spåra status för en utlöst asynkron åtgärd (abonnemang för prenumeration/ändring).
+Den här slut punkten låter användaren spåra statusen för en utlöst asynkron åtgärd (prenumeration/Avsluta prenumeration/ändra plan).
 
 *Förfrågan*
 
-**Få**
+**HÄMTA**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*? API-version = 2017-04-15**
 
-| **Parameternamn**  | **Beskrivning**                                       |
+| **Parameter namn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
-| operationId         | Unikt ID för åtgärden som utlöses.                |
+| operationId         | Unikt ID för åtgärden som har utlösts.                |
 | api-version         | Den version av åtgärden som ska användas för den här begäran. |
 |  |  |
 
 *Rubriker*
 
-| **Huvudnyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                                                                                                                                                  |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Inga           | Ett unikt strängvärde för att spåra begäran från klienten. Rekommendera en GUID. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna.   |
-| x-ms-correlationid | Inga           | Ett unikt strängvärde för åtgärder på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna.  |
-| auktorisering      | Ja          | JSON-webbtokentoken (JWT) bärare token.                    |
+| x-MS-RequestId     | Inga           | Ett unikt sträng värde för att spåra begäran från klienten. Rekommendera ett GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.   |
+| x-MS-correlationId | Inga           | Ett unikt sträng värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klient åtgärd med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden.  |
+| auktorisering      | Ja          | JSON Web token (JWT) Bearer-token.                    |
 |  |  |  | 
 
-*Svarskropp*
+*Svars text*
 
 ```json
 {
@@ -331,46 +331,46 @@ Med den här slutpunkten kan användaren spåra status för en utlöst asynkron 
 
 | **Parameternamn** | **Datatyp** | **Beskrivning**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | String        | ID för operationen.                                                                      |
-| status             | Enum          | Åtgärdsstatus, något av `In Progress` `Succeeded`följande: `Failed`, eller .          |
-| resourceLocation   | String        | Länk till prenumerationen som har skapats eller ändrats. Detta hjälper klienten att få uppdaterade tillståndspoståtgärd. Det här värdet `Unsubscribe` har inte angetts för operationer. |
-| Skapad            | DateTime      | Operation skapa tid i UTC.                                                           |
-| lastModified       | DateTime      | Senaste uppdatering om åtgärden i UTC.                                                      |
+| id                 | Sträng        | Åtgärdens ID.                                                                      |
+| status             | Enum          | Åtgärds status, något av följande: `In Progress`, `Succeeded`eller `Failed`.          |
+| resourceLocation   | Sträng        | Länk till prenumerationen som skapades eller ändrades. Detta hjälper klienten att hämta uppdaterad tillstånds post åtgärd. Det här värdet är inte angivet `Unsubscribe` för åtgärder. |
+| Create            | DateTime      | Skapande tid för åtgärden i UTC.                                                           |
+| lastModified       | DateTime      | Senaste uppdatering av åtgärden i UTC.                                                      |
 |  |  |  |
 
-*Svarskoder*
+*Svars koder*
 
 | **HTTP-statuskod** | **Felkod**     | **Beskrivning**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
-| 200                  | `OK`                 | Löst begäran om erbehåll och brödtexten innehåller svaret.    |
-| 400                  | `BadRequest`         | Antingen saknas obligatoriska rubriker eller så har en ogiltig api-version angetts. |
+| 200                  | `OK`                 | GET-begäran har lösts och texten innehåller svaret.    |
+| 400                  | `BadRequest`         | Antingen saknas nödvändiga huvuden eller också har en ogiltig API-version angetts. |
 | 403                  | `Forbidden`          | Anroparen har inte behörighet att utföra den här åtgärden.                      |
-| 404                  | `NotFound`           | Prenumerationen hittades inte med det angivna ID:et.                                     |
-| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begäranden, försök igen senare.                     |
-| 503                  | `ServiceUnavailable` | Tjänsten är ned tillfälligt, försök igen senare.                             |
+| 404                  | `NotFound`           | Det gick inte att hitta prenumerationen med angivet ID.                                     |
+| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begär Anden, försök igen senare.                     |
+| 503                  | `ServiceUnavailable` | Tjänsten är tillfälligt avstängd, försök igen senare.                             |
 |  |  |  |
 
 *Svarsrubriker*
 
-| **Rubriknyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Ja          | Begärande-ID som tagits emot från klienten.                                                                   |
-| x-ms-correlationid | Ja          | Korrelations-ID om det skickas av klienten, annars är detta serverns korrelations-ID.                   |
-| x-ms-activityid    | Ja          | Ett unikt strängvärde för att spåra begäran från tjänsten. Detta används för alla avstämningar. |
-| Försök igen efter        | Ja          | Intervall med vilket klienten kan kontrollera statusen.                                                       |
+| x-MS-RequestId     | Ja          | Begärande-ID mottaget från klienten.                                                                   |
+| x-MS-correlationId | Ja          | Korrelations-ID om det skickas av klienten, annars är detta Server korrelations-ID.                   |
+| x-MS-ActivityId    | Ja          | Ett unikt sträng värde för spårning av begäran från tjänsten. Detta används för alla avstämningar. |
+| Försök igen        | Ja          | Intervallet som klienten kan kontrol lera status för.                                                       |
 |  |  |  |
 
-### <a name="get-subscription"></a>Få prenumeration
+### <a name="get-subscription"></a>Hämta prenumeration
 
-Med åtgärden Hämta på prenumerationsslutpunkten kan en användare hämta en prenumeration med en viss resursidentifierare.
+Med åtgärden Hämta i prenumerations slut punkten kan en användare hämta en prenumeration med en viss resurs-ID.
 
 *Förfrågan*
 
-**Få**
+**HÄMTA**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*? API-version = 2017-04-15**
 
-| **Parameternamn**  | **Beskrivning**                                       |
+| **Parameter namn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | ID för SaaS-prenumeration.                              |
 | api-version         | Den version av åtgärden som ska användas för den här begäran. |
@@ -378,14 +378,14 @@ Med åtgärden Hämta på prenumerationsslutpunkten kan en användare hämta en 
 
 *Rubriker*
 
-| **Huvudnyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                           |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Inga           | Ett unikt strängvärde för att spåra begäran från klienten, helst ett GUID. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna.                                                           |
-| x-ms-correlationid | Inga           | Ett unikt strängvärde för åtgärder på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna. |
-| auktorisering      | Ja          | JSON-webbtokentoken (JWT) bärare token.                                                                    |
+| x-MS-RequestId     | Inga           | Ett unikt sträng värde för att spåra begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.                                                           |
+| x-MS-correlationId | Inga           | Ett unikt sträng värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klient åtgärd med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
+| auktorisering      | Ja          | JSON Web token (JWT) Bearer-token.                                                                    |
 |  |  |  |
 
-*Svarskropp*
+*Svars text*
 
 ```json
 {
@@ -401,63 +401,63 @@ Med åtgärden Hämta på prenumerationsslutpunkten kan en användare hämta en 
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | ID för SaaS-prenumerationsresurs i Azure.    |
-| offerId (erbjudandeId)                | String        | Erbjudande-ID som användaren prenumererar på.         |
-| planId (på)                 | String        | Plan-ID som användaren prenumererar på.          |
-| saasSubscriptionName   | String        | Namnet på SaaS-prenumerationen.                |
-| saasSubscriptionStatus | Enum          | Status för åtgärden.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapar resursen men den aktiveras inte av ISV.   <br/> - `Unsubscribed`: Användaren har avslutat prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`: Azure-prenumerationen är avstängd.  |
-| Skapad                | DateTime      | Tidsstämpelvärde för skapande av prenumeration i UTC. |
-| lastModified           | DateTime      | Tidsstämpelvärde för prenumeration i UTC. |
+| id                     | Sträng        | ID för SaaS-prenumerations resurs i Azure.    |
+| offerId                | Sträng        | Erbjudande-ID som användaren prenumererar på.         |
+| planId                 | Sträng        | Plans-ID som användaren prenumererar på.          |
+| saasSubscriptionName   | Sträng        | Namnet på SaaS-prenumerationen.                |
+| saasSubscriptionStatus | Enum          | Åtgärds status.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapar resursen, men den aktive ras inte av ISV.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har inaktiverat prenumerationen.   <br/> - `Deactivated`: Azure-prenumerationen har pausats.  |
+| Create                | DateTime      | Tids stämplings värde för skapande av prenumeration i UTC. |
+| lastModified           | DateTime      | Tids stämplings värde för prenumeration har ändrats i UTC. |
 |  |  |  |
 
-*Svarskoder*
+*Svars koder*
 
 | **HTTP-statuskod** | **Felkod**     | **Beskrivning**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
-| 200                  | `OK`                 | Löst begäran om erbehåll och brödtexten innehåller svaret.    |
-| 400                  | `BadRequest`         | Antingen saknas obligatoriska rubriker eller så har en ogiltig api-version angetts. |
+| 200                  | `OK`                 | GET-begäran har lösts och texten innehåller svaret.    |
+| 400                  | `BadRequest`         | Antingen saknas nödvändiga huvuden eller också har en ogiltig API-version angetts. |
 | 403                  | `Forbidden`          | Anroparen har inte behörighet att utföra den här åtgärden.                      |
-| 404                  | `NotFound`           | Prenumerationen hittades inte med det angivna ID:et                                     |
-| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begäranden, försök igen senare.                     |
-| 503                  | `ServiceUnavailable` | Tjänsten är ned tillfälligt, försök igen senare.                             |
+| 404                  | `NotFound`           | Prenumerationen hittades inte med angivet ID                                     |
+| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begär Anden, försök igen senare.                     |
+| 503                  | `ServiceUnavailable` | Tjänsten är tillfälligt avstängd, försök igen senare.                             |
 |  |  |  |
 
 *Svarsrubriker*
 
-| **Rubriknyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Ja          | Begärande-ID som tagits emot från klienten.                                                                   |
-| x-ms-correlationid | Ja          | Korrelations-ID om det skickas av klienten, annars är detta serverns korrelations-ID.                   |
-| x-ms-activityid    | Ja          | Ett unikt strängvärde för att spåra begäran från tjänsten. Detta används för alla avstämningar. |
-| Försök igen efter        | Inga           | Intervall med vilket klienten kan kontrollera statusen.                                                       |
-| Etag               | Ja          | Länk till en resurs för att hämta operationsstatus.                                                        |
+| x-MS-RequestId     | Ja          | Begärande-ID mottaget från klienten.                                                                   |
+| x-MS-correlationId | Ja          | Korrelations-ID om det skickas av klienten, annars är detta Server korrelations-ID.                   |
+| x-MS-ActivityId    | Ja          | Ett unikt sträng värde för spårning av begäran från tjänsten. Detta används för alla avstämningar. |
+| Försök igen        | Inga           | Intervallet som klienten kan kontrol lera status för.                                                       |
+| eTag               | Ja          | Länka till en resurs för att hämta åtgärds statusen.                                                        |
 |  |  |  |
 
-### <a name="get-subscriptions"></a>Få prenumerationer
+### <a name="get-subscriptions"></a>Hämta prenumerationer
 
-Med slutpunkten Hämta på prenumerationer kan en användare hämta alla prenumerationer för alla erbjudanden från ISV.
+Med slut punkten Hämta åtgärd för prenumerationer kan en användare hämta alla prenumerationer för alla erbjudanden från ISV.
 
 *Förfrågan*
 
-**Få**
+**HÄMTA**
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
-| **Parameternamn**  | **Beskrivning**                                       |
+| **Parameter namn**  | **Beskrivning**                                       |
 |---------------------|-------------------------------------------------------|
 | api-version         | Den version av åtgärden som ska användas för den här begäran. |
 |  |  |
 
 *Rubriker*
 
-| **Huvudnyckel**     | **Obligatoriskt** | **Beskrivning**                                           |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | Inga           | Ett unikt strängvärde för att spåra begäran från klienten. Rekommendera en GUID. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna.             |
-| x-ms-correlationid | Inga           | Ett unikt strängvärde för åtgärder på klienten. Det här värdet är för att korrelera alla händelser från klientåtgärden med händelser på serversidan. Om det här värdet inte anges genereras ett och anges i svarsrubrikerna. |
-| auktorisering      | Ja          | JSON-webbtokentoken (JWT) bärare token.                    |
+| x-MS-RequestId     | Inga           | Ett unikt sträng värde för att spåra begäran från klienten. Rekommendera ett GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden.             |
+| x-MS-correlationId | Inga           | Ett unikt sträng värde för åtgärden på klienten. Det här värdet är för att korrelera alla händelser från klient åtgärd med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
+| auktorisering      | Ja          | JSON Web token (JWT) Bearer-token.                    |
 |  |  |  |
 
-*Svarskropp*
+*Svars text*
 
 ```json
 {
@@ -473,40 +473,40 @@ Med slutpunkten Hämta på prenumerationer kan en användare hämta alla prenume
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | String        | ID för SaaS-prenumerationsresurs i Azure    |
-| offerId (erbjudandeId)                | String        | Erbjudande-ID som användaren prenumererar på         |
-| planId (på)                 | String        | Plan-ID som användaren prenumererar på          |
-| saasSubscriptionName   | String        | Namnet på SaaS-prenumerationen                |
-| saasSubscriptionStatus | Enum          | Status för åtgärden.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapar resursen men den aktiveras inte av ISV.   <br/> - `Unsubscribed`: Användaren har avslutat prenumerationen.   <br/> - `Suspended`: Användaren har avbrutit prenumerationen.   <br/> - `Deactivated`: Azure-prenumerationen är avstängd.  |
-| Skapad                | DateTime      | Tidsstämpelvärde för skapande av prenumeration i UTC |
-| lastModified           | DateTime      | Tidsstämpelvärde för prenumeration i UTC |
+| id                     | Sträng        | ID för prenumerations resurs för SaaS i Azure    |
+| offerId                | Sträng        | Erbjudande-ID som användaren prenumererar på         |
+| planId                 | Sträng        | Plan-ID som användaren prenumererar på          |
+| saasSubscriptionName   | Sträng        | Namnet på SaaS-prenumerationen                |
+| saasSubscriptionStatus | Enum          | Åtgärds status.  Något av följande:  <br/> - `Subscribed`: Prenumerationen är aktiv.  <br/> - `Pending`: Användaren skapar resursen, men den aktive ras inte av ISV.   <br/> - `Unsubscribed`: Användaren har avbrutit prenumerationen.   <br/> - `Suspended`: Användaren har inaktiverat prenumerationen.   <br/> - `Deactivated`: Azure-prenumerationen har pausats.  |
+| Create                | DateTime      | Tids stämplings värde för skapande av prenumeration i UTC |
+| lastModified           | DateTime      | Tids stämplings värde för prenumeration har ändrats i UTC |
 |  |  |  |
 
-*Svarskoder*
+*Svars koder*
 
 | **HTTP-statuskod** | **Felkod**     | **Beskrivning**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
-| 200                  | `OK`                 | Löst begäran om erbehåll och brödtexten innehåller svaret.    |
-| 400                  | `BadRequest`         | Antingen saknas obligatoriska rubriker eller så har en ogiltig api-version angetts. |
+| 200                  | `OK`                 | GET-begäran har lösts och texten innehåller svaret.    |
+| 400                  | `BadRequest`         | Antingen saknas nödvändiga huvuden eller också har en ogiltig API-version angetts. |
 | 403                  | `Forbidden`          | Anroparen har inte behörighet att utföra den här åtgärden.                      |
-| 404                  | `NotFound`           | Prenumerationen hittades inte med det angivna ID:et                                     |
-| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begäranden, försök igen senare.                     |
-| 503                  | `ServiceUnavailable` | Tjänsten är tillfälligt nere. Försök igen senare.                             |
+| 404                  | `NotFound`           | Prenumerationen hittades inte med angivet ID                                     |
+| 429                  | `RequestThrottleId`  | Tjänsten är upptagen med att bearbeta begär Anden, försök igen senare.                     |
+| 503                  | `ServiceUnavailable` | Tjänsten är tillfälligt avstängd. Försök igen senare.                             |
 |  |  |  |
 
 *Svarsrubriker*
 
-| **Rubriknyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
+| **Rubrik nyckel**     | **Obligatoriskt** | **Beskrivning**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | Ja          | Begärande-ID som tagits emot från klienten.                                                                   |
-| x-ms-correlationid | Ja          | Korrelations-ID om det skickas av klienten, annars är detta serverns korrelations-ID.                   |
-| x-ms-activityid    | Ja          | Ett unikt strängvärde för att spåra begäran från tjänsten. Detta används för alla avstämningar. |
-| Försök igen efter        | Inga           | Intervall med vilket klienten kan kontrollera statusen.                                                       |
+| x-MS-RequestId     | Ja          | Begärande-ID mottaget från klienten.                                                                   |
+| x-MS-correlationId | Ja          | Korrelations-ID om det skickas av klienten, annars är detta Server korrelations-ID.                   |
+| x-MS-ActivityId    | Ja          | Ett unikt sträng värde för spårning av begäran från tjänsten. Detta används för alla avstämningar. |
+| Försök igen        | Inga           | Intervallet som klienten kan kontrol lera status för.                                                       |
 |  |  |  |
 
-### <a name="saas-webhook"></a>SaaS Webhook
+### <a name="saas-webhook"></a>SaaS-webhook
 
-En SaaS webhook används för att meddela ändringar proaktivt till SaaS-tjänsten. Detta POST API förväntas vara oautentiserade och kommer att anropas av Microsoft-tjänsten. SaaS-tjänsten förväntas anropa åtgärds-API:et för att validera och auktorisera innan du vidtar åtgärder på webhook-meddelandet. 
+En SaaS-webhook används för att meddela ändringar proaktivt till SaaS-tjänsten. Detta POST-API förväntas vara oautentiserat och kommer att anropas av Microsoft-tjänsten. SaaS-tjänsten förväntas anropa API: et för åtgärder för att verifiera och auktorisera innan åtgärden för webhook-aviseringen kan utföras. 
 
 *Brödtext*
 
@@ -523,17 +523,17 @@ En SaaS webhook används för att meddela ändringar proaktivt till SaaS-tjänst
 
 | **Parameternamn**     | **Datatyp** | **Beskrivning**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | String       | Unikt ID för åtgärden som utlöses.                |
-| activityId (på)   | String        | Ett unikt strängvärde för att spåra begäran från tjänsten. Detta används för alla avstämningar.               |
-| subscriptionId                     | String        | ID för SaaS-prenumerationsresurs i Azure.    |
-| offerId (erbjudandeId)                | String        | Erbjudande-ID som användaren prenumererar på. Tillhandahålls endast med åtgärden "Uppdatera".        |
-| publisherId                | String        | Publisher-ID för SaaS-erbjudandet         |
-| planId (på)                 | String        | Plan-ID som användaren prenumererar på. Tillhandahålls endast med åtgärden "Uppdatera".          |
-| åtgärd                 | String        | Åtgärden som utlöser det här meddelandet. Möjliga värden - Aktivera, Ta bort, pausa, återställa, uppdatera          |
-| Tidsstämpel                 | String        | TImestamp-värde i UTC när det här meddelandet utlöstes.          |
+| id  | Sträng       | Unikt ID för åtgärden som har utlösts.                |
+| activityId   | Sträng        | Ett unikt sträng värde för spårning av begäran från tjänsten. Detta används för alla avstämningar.               |
+| subscriptionId                     | Sträng        | ID för SaaS-prenumerations resurs i Azure.    |
+| offerId                | Sträng        | Erbjudande-ID som användaren prenumererar på. Endast tillhandahållits med åtgärden Uppdatera.        |
+| publisherId                | Sträng        | Utgivar-ID för SaaS-erbjudandet         |
+| planId                 | Sträng        | Plans-ID som användaren prenumererar på. Endast tillhandahållits med åtgärden Uppdatera.          |
+| åtgärd                 | Sträng        | Den åtgärd som utlöser det här meddelandet. Möjliga värden-aktivera, ta bort, pausa, återställa, uppdatera          |
+| Tidsstämpel                 | Sträng        | Tidsstämpel-värde i UTC när det här meddelandet utlöstes.          |
 |  |  |  |
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utvecklare kan också programmässigt hämta och manipulera arbetsbelastningar, erbjudanden och utgivarprofiler med hjälp av [CLOUD Partner Portal REST API:er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).
+Utvecklare kan också program mässigt hämta och ändra arbets belastningar, erbjudanden och utgivar profiler med hjälp av [Cloud Partner Portal REST-API: er](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

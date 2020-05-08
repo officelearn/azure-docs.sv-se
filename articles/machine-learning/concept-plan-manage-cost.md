@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 67b703f0079e26d01330d52d170f99699480fad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: b777e6a45bdfe78889366982a6c28e10e21c4fbc
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196392"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856993"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
 
@@ -90,7 +90,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 Precis som andra Azure Compute-resurser levereras AmlCompute med en [kvot (eller begränsad) konfiguration](how-to-manage-quotas.md#azure-machine-learning-compute). Den här kvoten är av VM-serien (till exempel Dv2-serien, NCv3-serien) och varierar beroende på region för varje prenumeration. Prenumerationer börjar med små standardvärden och hjälper dig att komma igång, men Använd den här inställningen för att kontrol lera hur mycket Amlcompute resurser som är tillgängliga för att kunna användas i din prenumeration. 
 
-Konfigurera även [kvoten för arbets ytan med VM-serien](/how-to-manage-quotas.md#workspace-level-quota)för varje arbets yta i en prenumeration. På så sätt kan du ha mer detaljerad kontroll över kostnaderna som varje arbets yta kan ådra sig och begränsa vissa VM-familjer. 
+Konfigurera även [kvoten för arbets ytan med VM-serien](how-to-manage-quotas.md#workspace-level-quota)för varje arbets yta i en prenumeration. På så sätt kan du ha mer detaljerad kontroll över kostnaderna som varje arbets yta kan ådra sig och begränsa vissa VM-familjer. 
 
 Om du vill ange kvoter på arbets ytans nivå börjar du med [Azure Portal](https://portal.azure.com).  Välj en arbets yta i din prenumeration och välj **användnings områden + kvoter** i det vänstra fönstret. Välj sedan fliken **Konfigurera kvoter** för att Visa kvoterna. Du måste ha behörighet för prenumerations omfånget för att ange den här kvoten, eftersom det är en inställning som påverkar flera arbets ytor.
 

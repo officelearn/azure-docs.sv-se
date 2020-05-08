@@ -1,22 +1,22 @@
 ---
-title: API v2 för SaaS-utförande | Azure Marketplace
-description: 'Den här artikeln förklarar hur du skapar och hanterar ett SaaS-erbjudande på AppSource och Azure Marketplace genom att använda de associerade API: erna för uppfyllande v2.'
+title: 'API: er för SaaS-utförande v2 i Microsofts kommersiella marknads platser'
+description: 'Lär dig hur du skapar och hanterar ett SaaS-erbjudande på Microsoft AppSource och Azure Marketplace genom att använda API: erna version 2.'
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: dsindona
-ms.openlocfilehash: ca49418013357ecaae62ea5e91374eaa1cbde59d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f452349c0d636bc74a3722e2526623c955093f7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275772"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854189"
 ---
-# <a name="saas-fulfillment-apis-version-2"></a>API:er för uppfyllnad av SaaS, v2 
+# <a name="saas-fulfillment-apis-version-2-in-microsoft-commercial-marketplace"></a>API: er för SaaS-uppfyllelse, version 2, i Microsofts kommersiella marknads platser
 
-Den här artikeln beskriver de API: er som gör det möjligt för partner att sälja sina SaaS-program på AppSource Marketplace och på Azure Marketplace. Dessa API: er är ett krav för SaaS-erbjudanden på AppSource och Azure Marketplace.
+Den här artikeln beskriver API: er för utförande som gör det möjligt för partner att sälja sina SaaS-program i Microsoft AppSource och Azure Marketplace. Dessa API: er krävs för SaaS-erbjudanden för transactable.
 
 ## <a name="managing-the-saas-subscription-life-cycle"></a>Hantera livs cykeln för SaaS-prenumeration
 
@@ -859,9 +859,9 @@ Där åtgärden kan vara något av följande:
 Om statusen kan vara något av följande: 
 - **NotStarted** <br>
  - **Pågår** <br>
-- **Lyckades** <br>
+- **Brutit** <br>
 - **Misslyckades** <br>
-- **Konflikt** <br>
+- **Uppstod** <br>
 
 I ett webhook-meddelande har de åtgärds bara statusarna **lyckats** och **misslyckats**. En åtgärds livs cykel är från **NotStarted** till ett Terminal-tillstånd som **lyckades**, **misslyckades**eller **står i konflikt**. Om du får **NotStarted** eller **pågår**fortsätter du att begära STATUSEN via get-API tills åtgärden når ett Terminal-tillstånd innan åtgärden utförs. 
 

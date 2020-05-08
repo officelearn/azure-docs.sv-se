@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 91ecff311b8820d3b97e1de0e4b4e87c150e749b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f936b62349a534e6193a3c628c66c49d1a58b681
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678925"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790838"
 ---
 # <a name="troubleshoot-issues-with-the-update-management-solution"></a>Felsök problem med Uppdateringshantering-lösningen
 
@@ -49,13 +49,13 @@ Det här felet kan inträffa av följande orsaker:
 
 * Kör fel sökaren för [Windows](update-agent-issues.md#troubleshoot-offline) eller [Linux](update-agent-issues-linux.md#troubleshoot-offline), beroende på vilket operativ system du har.
 
-* Gå till [nätverks planering](../automation-hybrid-runbook-worker.md#network-planning) och lär dig om vilka adresser och portar som måste tillåtas för att uppdateringshantering ska fungera.  
+* Gå till [nätverks konfiguration](../automation-hybrid-runbook-worker.md#network-planning) och lär dig om vilka adresser och portar som måste tillåtas för att uppdateringshantering ska fungera.  
 
-* Gå till [nätverks planering](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) och lär dig om vilka adresser och portar som måste tillåtas för att Log Analytics-agenten ska fungera.
+* Gå till [nätverks konfiguration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) och lär dig om vilka adresser och portar som måste tillåtas för att Log Analytics agenten ska fungera.
 
 * Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som får konfigureras för lösningen. Om din dator visas på arbets ytan men inte på * * Uppdateringshantering-portalen, måste du ange omfattnings konfigurationen som mål för datorerna. Mer information om omfattnings konfigurationen finns i [onboard Machines på arbets ytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Ta bort Worker-konfigurationen genom att följa stegen i [ta bort hybrid Runbook Worker](../automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker). 
+* Ta bort arbets konfigurationen genom att följa stegen i [ta bort en Windows hybrid Runbook Worker](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) eller [ta bort en Linux-hybrid Runbook Worker](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Scenario: ersatt uppdatering anges som saknas i Uppdateringshantering
 
@@ -448,7 +448,7 @@ Datorn har redan publicerats till en annan arbets yta för Uppdateringshantering
 ### <a name="resolution"></a>Lösning
 
 1. Följ stegen under [datorer som inte visas i portalen under uppdateringshantering](#nologs) för att kontrol lera att datorn rapporterar till rätt arbets yta.
-2. Rensa artefakter på datorn genom [att ta bort hybrid Runbook-gruppen](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)och försök sedan igen.
+2. Rensa artefakter på datorn genom [att ta bort hybrid Runbook-gruppen](../automation-windows-hrw-install.md#remove-a-hybrid-worker-group)och försök sedan igen.
 
 ## <a name="scenario-machine-cant-communicate-with-the-service"></a><a name="machine-unable-to-communicate"></a>Scenario: datorn kan inte kommunicera med tjänsten
 

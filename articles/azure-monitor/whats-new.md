@@ -5,16 +5,59 @@ ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
-ms.date: 03/05/2020
-ms.openlocfilehash: a2e6d2a459a6713aa9372496fc3a933c0a886ed9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/06/2020
+ms.openlocfilehash: 8701acc6ac10dd9d31df99bb04dd030d156250e2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80802612"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871398"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Vad är nytt i Azure Monitor-dokumentationen?
 Den här artikeln innehåller listor Azure Monitor artiklar som antingen är nya eller som har uppdaterats markant. Den kommer att uppdateras den första veckan i varje månad för att inkludera artikel uppdateringar från föregående månad.
+
+## <a name="april-2020"></a>April 2020
+
+### <a name="general"></a>Allmänt
+- [Azure Monitor kundhanterat nyckel](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys.md) tillagt avsnitt om asynkrona åtgärder
+- [Hantera Log Analytics arbets ytor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access.md) uppdaterade anpassade loggar.
+
+### <a name="alerts"></a>Aviseringar
+- [Åtgärds regler för Azure Monitor aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules) – tillagd video.
+- [Översikt över aviseringar och meddelande övervakning i Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview.md) -tillagd video.
+
+### <a name="application-insights"></a>Application Insights
+- [Program karta i Azure Application insikter](https://docs.microsoft.com/azure/azure-monitor/app/app-map.md) – moln roll namn konfiguration för Java-agent har lagts till.
+- [Referens för Azure Application Insights .net-Agent-API: t](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-api-reference.md) .
+- [IP-adresser som används av Application Insights och Log Analytics](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses.md) uppdaterade IP-adresser för App Insights-och Log Analytics-API: er, åtgärds grupp Webhooks, Azure amerikanska myndigheter.
+- [Övervaka Java-program var som helst](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config.md) – ny artikel
+- [Övervaka Java-program i valfri miljö](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent.md) – ny artikel
+- [Övervaka Java-program som körs i en miljö](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments.md) – ny artikel
+- [Övervaka Java-program som körs lokalt](https://docs.microsoft.com/azure/azure-monitor/app/java-on-premises.md) – ny artikel
+- [Ta bort Application Insights i Visual Studio](https://docs.microsoft.com/azure/azure-monitor/app/remove-application-insights.md) – ny artikel
+- [Telemetri-sampling i Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/sampling) -Fix i fast priss exempel i python.
+
+### <a name="containers"></a>Containrar
+- [Konfigurera Azure Red Hat OpenShift v4. x med Azure Monitor för behållare](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-azure-redhat4-setup) – ny artikel
+- [Åtgärda ServiceNow-synkroniseringsproblem manuellt](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-resync-servicenow) – ny artikel
+- [Så här slutar du övervaka Azure och Red Hat OpenShift v4-kluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-openshift-v4) – ny artikel
+- [Så här stoppar du övervakning av ditt Azure Red Hat OpenShift v3-kluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-openshift-v3) – ny artikel
+- [Så här stoppar du övervakning av ditt hybrid Kubernetes-kluster](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-optout-hybrid) – ny artikel
+
+### <a name="insights"></a>Insikter
+- [Övervaka Azure Key Vaults med Azure Monitor för nyckel valv (för hands version)](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview) – ny artikel
+
+### <a name="logs"></a>Loggar
+- [Azure Monitor tjänst gränser](https://docs.microsoft.com/azure/azure-monitor/service-limits) – begränsning av användar frågor har lagts till.
+- [Hantera användning och kostnader för Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage) – tillagd fakturering för loggar kluster. Lade till Kusto-fråga för att möjliggöra för kunder med äldre pris nivå per nod att avgöra om de ska flyttas till en per GB-eller kapacitets reservations nivå.
+
+### <a name="metrics"></a>Mått
+- [Avancerade funktioner i Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts) -tillägg av agg regerings avsnitt.
+
+### <a name="workbooks"></a>Arbetsböcker
+- [Azure Monitor arbets böcker och Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-automate) – har lagt till Resource Manager-mallen för att distribuera en mall för arbets böcker.
+
+
 
 ## <a name="march-2020"></a>Mars 2020
 

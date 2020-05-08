@@ -35,8 +35,9 @@
       href: powershell-samples.md
     - name: Mallar för Resurshanteraren
       href: template-samples.md
-    - name: Azure Policy-mallar
-      href: policy-samples.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Verksamhetskontinuitet
@@ -390,7 +391,7 @@
     - name: Azure PowerShell
       href: /powershell/module/az.network
     - name: .NET
-      href: /api/overview/azure/virtual-network
+      href: /dotnet/api/overview/azure/virtual-network
     - name: Java
       href: /java/api/
     - name: Node.js

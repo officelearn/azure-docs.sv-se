@@ -10,14 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/17/2019
 ms.author: martinco
-ms.reviewer: arvindha
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d2f284fddfc49632e467adbf5877856b40a81dd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: arvindha, celested
+ms.openlocfilehash: 4f391a2fce669c2684ac5001e3659247adfeb4f6
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522418"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593547"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -27,7 +26,7 @@ Azure Active Directory (Azure AD) automatisk användar etablering fören klar pr
 
 Se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../app-provisioning/user-provisioning.md) för att bättre förstå funktionerna.
 
-## <a name="learn"></a>Läs mer
+## <a name="learn"></a>Learn
 
 Användar etablering skapar en grund för pågående identitets styrning och förbättrar kvaliteten på affärs processer som förlitar sig på auktoritativa identitets data.
 
@@ -51,7 +50,7 @@ Azure AD tillhandahåller självbetjänings integrering av alla program med hjä
 
 Du behöver rätt licenser för de program som du vill etablera automatiskt. Diskutera med program ägare om de användare som har tilldelats programmet har rätt licenser för sina program roller. Om Azure AD hanterar automatisk etablering baserat på roller måste rollerna som tilldelats i Azure AD anpassas till program licenser. Felaktiga licenser som ägs i programmet kan leda till fel vid etablering/uppdatering av en användare.
 
-### <a name="terms"></a>Villkor
+### <a name="terms"></a>Termer
 
 I den här artikeln används följande villkor:
 

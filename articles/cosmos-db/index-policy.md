@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: tisande
-ms.openlocfilehash: f010ec46c41c2302cc9c99a631fd18b1af9661eb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68adfb8b4cfb7c665a8e8b162b4698a095bb671e
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232078"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82869936"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexeringsprinciper i Azure Cosmos DB
 
@@ -27,7 +27,7 @@ I vissa fall kan det vara bra att åsidosätta det här automatiska beteendet s�
 Azure Cosmos DB stöder två indexerings lägen:
 
 - **Konsekvent**: indexet uppdateras synkront när du skapar, uppdaterar eller tar bort objekt. Det innebär att konsekvensen för dina Läs frågor är den [konsekvens som kon figurer ATS för kontot](consistency-levels.md).
-- **Ingen**: indexering har inaktiverats för behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också användas för att förbättra prestandan för Mass åtgärder. När Mass åtgärderna har slutförts kan index läget anges till konsekvent och övervakas med hjälp av [IndexTransformationProgress](how-to-manage-indexing-policy.md#use-the-net-sdk-v2) tills det är klart.
+- **Ingen**: indexering har inaktiverats för behållaren. Detta används vanligt vis när en behållare används som ett rent nyckel värdes lager utan behov av sekundära index. Det kan också användas för att förbättra prestandan för Mass åtgärder. När Mass åtgärderna har slutförts kan index läget anges till konsekvent och övervakas med hjälp av [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) tills det är klart.
 
 > [!NOTE]
 > Azure Cosmos DB stöder också ett Lazy-indexerings läge. Lazywrite-indexering utför uppdateringar av indexet på en mycket lägre prioritets nivå när motorn inte utför något annat arbete. Detta kan resultera i **inkonsekventa eller ofullständiga** frågeresultat. Om du planerar att fråga en Cosmos-behållare bör du inte välja Lazy-indexering.

@@ -37,6 +37,11 @@
       href: tutorial-security-incident.md
     - name: Förbättra regelefterlevnaden
       href: security-center-compliance-dashboard.md
+- name: Exempel
+  items:
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Säkerhetspoäng
@@ -107,7 +112,7 @@
           href: custom-security-policies.md
         - name: Hantera principer med Azure Policy REST API
           href: configure-security-policy-azure-policy.md
-    - name: Lägga till dynamiska efterlevnadspaket
+    - name: Välja standarder för din instrumentpanel för efterlevnad
       href: update-regulatory-compliance-packages.md
     - name: Anpassa informationsskyddsprincipen
       href: security-center-info-protection-policy.md

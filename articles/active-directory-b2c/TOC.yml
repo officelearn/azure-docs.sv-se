@@ -226,7 +226,9 @@
         - name: Token och sessionshantering
           items:
             - name: Anpassa token
-              href: custom-policy-manage-sso-and-token-config.md
+              href: configure-tokens-custom-policy.md
+            - name: Konfigurera sessionsbeteende
+              href: session-behavior-custom-policy.md
         - name: Skicka externa IdP-token
           href: idp-pass-through-custom.md
         - name: Anpassningsbar upplevelse

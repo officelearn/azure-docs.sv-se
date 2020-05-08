@@ -4,14 +4,14 @@ description: Förklarar hur du konfigurerar ytterligare inställningar för cach
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 05/06/2020
 ms.author: v-erkel
-ms.openlocfilehash: 7938fcc0819fc3e5e0762cc8c3c2931594ed1c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3bab06166110a3627bb3a99d51ceb09b0c7ed80
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195068"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871410"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Konfigurera ytterligare inställningar för Azure HPC cache
 
@@ -42,13 +42,15 @@ Läs mer om MTU-inställningar i virtuella Azure-nätverk genom [att läsa TCP/I
 ## <a name="configure-root-squash"></a>Konfigurera rot-squash
 <!-- linked from troubleshoot -->
 
-Inställningen **Aktivera rot squash** styr hur Azure HPC cache tillåter rot åtkomst. Rot-squash hjälper till att förhindra åtkomst till rot nivå från obehöriga klienter.
+Inställningen **Aktivera rot squash** styr hur Azure HPC cache behandlar begär Anden från rot användaren på klient datorer.
 
-Med den här inställningen kan användare kontrol lera rot åtkomst på cachenivå, vilket kan hjälpa dig att ``no_root_squash`` kompensera för den nödvändiga inställningen för de NAS-system som används som lagrings mål. (Läs mer om [NFS-mål krav för lagring](hpc-cache-prereqs.md#nfs-storage-requirements).) Det kan också förbättra säkerheten när den används med Azure Blob Storage-mål.
+När rot-squash har Aktiver ATS mappas rot användare från en klient automatiskt till användaren "ingen" när de skickar förfrågningar via Azure HPC-cachen. Det förhindrar också att klient begär Anden använder set-UID-behörighet bitar.
+
+Om rot-squash är inaktive rad skickas en begäran från klientens rot användare (UID 0) till ett Server dels-NFS-lagrings system som rot. Den här konfigurationen kan tillåta olämplig fil åtkomst.
+
+Genom att ange rot-squash i cacheminnet kan du kompensera ``no_root_squash`` för den nödvändiga inställningen på NAS-system som används som lagrings mål. (Läs mer om [NFS-mål krav för lagring](hpc-cache-prereqs.md#nfs-storage-requirements).) Det kan också förbättra säkerheten när den används med Azure Blob Storage-mål.
 
 Standardinställningen är **Ja**. (Cacheminnen som skapats före april 2020 kan ha standardvärdet **Nej**.)
-
-När den här funktionen är aktive rad förhindrar den här funktionen också att en Set-UID-behörighet används i klient begär anden till cacheminnet.
 
 ## <a name="view-snapshots-for-blob-storage-targets"></a>Visa ögonblicks bilder för Blob Storage-mål
 

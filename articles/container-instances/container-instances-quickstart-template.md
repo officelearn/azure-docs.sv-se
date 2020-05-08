@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
-ms.openlocfilehash: 92856f48cb915dd91f132a61e83a2da776db5170
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: MT
+ms.openlocfilehash: 28e27da28b789163e57cefc719044c868ba2e933
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629912"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854526"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-a-resource-manager-template"></a>Snabb start: Distribuera en behållar instans i Azure med hjälp av en Resource Manager-mall
 
@@ -103,4 +103,4 @@ I den här snabb starten skapade du en Azure Container instance från en offentl
 En stegvis själv studie kurs som vägleder dig genom processen för att skapa en mall finns i:
 
 > [!div class="nextstepaction"]
-> [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Självstudie: skapa och distribuera din första Azure Resource Manager-mall](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)

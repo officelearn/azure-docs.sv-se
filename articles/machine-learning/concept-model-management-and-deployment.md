@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7857d11c625911cd1b49dfcf0e0d612fc6a3871e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314298"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929765"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
@@ -153,7 +153,7 @@ Azure ML ger dig möjlighet att spåra gransknings historiken från slut punkt t
 - Med [tolkning](how-to-machine-learning-interpretability.md) kan du förklara dina modeller, uppfylla regelefterlevnad och förstå hur modeller kommer till följd av angivna ingångar.
 - I Azure ML-körnings historik lagras en ögonblicks bild av koden, data och beräkningarna som används för att träna en modell.
 - Azure ML Model-registret fångar alla metadata som är associerade med din modell (vilket experiment tränade den, där den distribueras, om distributionerna är felfria).
-- [Genom att integrera med Azure Event Grid](concept-event-grid-integration.md) kan du agera på händelser i ml-livscykel. Till exempel modell registrering, distribution, data drift och utbildning (körning)-händelser.
+- [Med integrering med Azure](how-to-use-event-grid.md) kan du agera på händelser i ml-livscykel. Till exempel modell registrering, distribution, data drift och utbildning (körning)-händelser.
 
 > [!TIP]
 > Även om information om modeller och data uppsättningar samlas in automatiskt, kan du lägga till ytterligare information med hjälp av __taggar__. När du letar efter registrerade modeller och data uppsättningar i din arbets yta kan du använda taggar som ett filter.

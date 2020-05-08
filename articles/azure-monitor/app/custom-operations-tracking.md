@@ -4,12 +4,12 @@ description: Spåra anpassade åtgärder med Azure Application Insights .NET SDK
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 316c1b7ea32f661b009bfee7a89cb7e5ed082f3b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79276106"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690853"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Spåra anpassade åtgärder med Application Insights .NET SDK
 
@@ -38,7 +38,7 @@ Nu ska vi se hur sådana åtgärder kan spåras.
 På en hög nivå är uppgiften att skapa `RequestTelemetry` och ange kända egenskaper. När åtgärden har slutförts spårar du Telemetrin. Följande exempel visar den här uppgiften.
 
 ### <a name="http-request-in-owin-self-hosted-app"></a>HTTP-begäran i OWIN app med egen värd
-I det här exemplet sprids spårnings kontexten enligt [http-protokollet för korrelation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Du bör förvänta dig att ta emot rubriker som beskrivs där.
+I det här exemplet sprids spårnings kontexten enligt [http-protokollet för korrelation](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). Du bör förvänta dig att ta emot rubriker som beskrivs där.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -117,7 +117,7 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 HTTP-protokollet för korrelation deklarerar också `Correlation-Context` rubriken. Detta är dock utelämnat här för enkelhetens skull.
 
 ## <a name="queue-instrumentation"></a>Queue Instruments
-Även om det finns [W3C-spårnings kontext](https://www.w3.org/TR/trace-context/) och [http-protokoll för korrelation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) för att skicka KORRELATIONS information med http-begäran, måste varje Queue-protokoll definiera hur samma information skickas ihop i Queue-meddelandet. Vissa Queue-protokoll (t. ex. AMQP) tillåter att ytterligare metadata skickas och andra (Azure Storage kö) kräver att kontexten kodas i meddelande nytto lasten.
+Även om det finns [W3C-spårnings kontext](https://www.w3.org/TR/trace-context/) och [http-protokoll för korrelation](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) för att skicka KORRELATIONS information med http-begäran, måste varje Queue-protokoll definiera hur samma information skickas ihop i Queue-meddelandet. Vissa Queue-protokoll (t. ex. AMQP) tillåter att ytterligare metadata skickas och andra (Azure Storage kö) kräver att kontexten kodas i meddelande nytto lasten.
 
 > [!NOTE]
 > * **Spårning mellan komponenter stöds inte för köer än** Med HTTP, om din producent och konsument skickar telemetri till olika Application Insightss resurser, visar transaktions diagnos och program karta transaktioner och mappar från slut punkt till slut punkt. Om köer inte stöds ännu. 
@@ -346,7 +346,7 @@ Se till att du ställer in operation (korrelation)-identifierarna när du tar bo
 
 ### <a name="dependency-types"></a>Beroende typer
 
-Application Insights använder beroende typen för att cusomize UI-upplevelser. För köer identifieras följande typer av `DependencyTelemetry` som förbättrar [upplevelsen för transaktions diagnostik](/azure/azure-monitor/app/transaction-diagnostics):
+Application Insights använder beroende typen för att anpassa GRÄNSSNITTs upplevelser. För köer identifieras följande typer av `DependencyTelemetry` som förbättrar [upplevelsen för transaktions diagnostik](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue`för Azure Storage köer
 - `Azure Event Hubs`för Azure Event Hubs
 - `Azure Service Bus`för Azure Service Bus
@@ -482,4 +482,4 @@ Varje Application Insights-åtgärd (Request eller Dependency) omfattar `Activit
 - Se [data modellen](../../azure-monitor/app/data-model.md) för Application Insights typer och data modeller.
 - Rapportera anpassade [händelser och mått](../../azure-monitor/app/api-custom-events-metrics.md) till Application Insights.
 - Ta en titt på standard [konfigurationen](configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) för samling med kontext egenskaper.
-- Kontrol lera [användar handboken för system. Diagnostics. Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) för att se hur vi korrelerar telemetri.
+- Kontrol lera [användar handboken för system. Diagnostics. Activity](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) för att se hur vi korrelerar telemetri.

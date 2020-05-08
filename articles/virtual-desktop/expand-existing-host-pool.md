@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aee5195fe86fed3e631908a38d3bdb7d5e4883b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: be76c665e1f5319b3e1ff1976e44fee9cd90ea6b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79365227"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607206"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
+
+>[!IMPORTANT]
+>Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/expand-existing-host-pool-2019.md).
+>
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 När du ramperar användningen i din värd pool kan du behöva expandera den befintliga poolen med nya sessionsbaserade värdar för att hantera den nya belastningen.
 
@@ -25,103 +31,48 @@ I den här artikeln får du lära dig hur du kan expandera en befintlig adresspo
 
 Innan du börjar ska du kontrol lera att du har skapat en adresspool och en sessions värd för virtuella datorer (VM) med någon av följande metoder:
 
-- [Azure Marketplace-erbjudande](./create-host-pools-azure-marketplace.md)
-- [GitHub Azure Resource Manager-mall](./create-host-pools-arm-template.md)
+- [Azure Portal](./create-host-pools-azure-marketplace.md)
 - [Skapa en värdpool med PowerShell](./create-host-pools-powershell.md)
 
 Du behöver också följande information från första gången du skapade värddatorn och de virtuella datorerna i sessionen:
 
 - Namn på virtuell dator, avbildning och namn
-- Autentiseringsuppgifter för domän anslutning och Windows Virtual Desktop-innehavaradministratör
+- Autentiseringsuppgifter för domän anslutning
 - Namn på virtuellt nätverk och undernät
 
-Följande tre avsnitt är tre metoder som du kan använda för att expandera värddatorn. Du kan göra det med ett distributions verktyg som du är van vid.
+## <a name="add-virtual-machines-with-the-azure-portal"></a>Lägg till virtuella datorer med Azure Portal
 
->[!NOTE]
->Under distributions fasen visas fel meddelanden för den tidigare sessionen värd för VM-resurser om de för närvarande är avstängd. Felen inträffar eftersom Azure inte kan köra PowerShell DSC-tillägget för att kontrol lera att de virtuella datorerna i sessionen är korrekt registrerade i den befintliga poolen. Du kan ignorera dessa fel eller så kan du undvika felen genom att starta alla VM-värdar i den befintliga adresspoolen innan du påbörjar distributions processen.
+Expandera din värddator genom att lägga till virtuella datorer:
 
-## <a name="redeploy-from-azure"></a>Distribuera igen från Azure
+1. Logga in på Azure Portal.
 
-Om du redan har skapat en adresspool och en session som är värd för en virtuell dator med [Azure Marketplace-erbjudandet](./create-host-pools-azure-marketplace.md) eller [Azure Resource Manager GitHub-mallen](./create-host-pools-arm-template.md)kan du distribuera om samma mall från Azure Portal. Om du distribuerar om mallen automatiskt kommer all information som du har angett i den ursprungliga mallen, förutom lösen ord.
+2. Sök efter och välj **virtuellt skriv bord i Windows**.
 
-Så här distribuerar du om Azure Resource Manager-mallen för att expandera en adresspool:
+3. I menyn till vänster på skärmen väljer du **lagringspooler**och väljer sedan namnet på den värddator som du vill lägga till virtuella datorer i.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Från Sök fältet överst i Azure Portal söker du efter **resurs grupper** och väljer objektet under **tjänster**.
-3. Sök efter och välj den resurs grupp som du skapade när du gjorde poolen för värdar.
-4. I panelen på vänster sida av webbläsaren väljer du **distributioner**.
-5. Välj lämplig distribution för processen för att skapa en värddator för poolen:
-     - Om du har skapat den ursprungliga poolen med Azure Marketplace-erbjudandet väljer du distributionen som börjar med **RDS. WVD-repool-Host-pool**.
-     - Om du har skapat den ursprungliga poolen med GitHub Azure Resource Manager-mallen väljer du distributionen med namnet **Microsoft. template**.
-6. Välj **omdistribuera**.
-     
-     >[!NOTE]
-     >Om mallen inte distribueras om automatiskt när du väljer **distribuera**om väljer du **mall** i panelen till vänster i webbläsaren och väljer sedan **distribuera**.
+4. Välj **virtuella datorer** på menyn på vänster sida av skärmen.
 
-7. Välj den resurs grupp som innehåller aktuella virtuella dator värdar i den befintliga poolen.
-     
-     >[!NOTE]
-     >Om du ser ett fel som uppmanar dig att välja en annan resurs grupp även om den du angav är korrekt väljer du en annan resurs grupp och väljer sedan den ursprungliga resurs gruppen.
+5. Välj **+ Lägg** till för att börja skapa din värd pool.
 
-8. Ange följande URL för *_artifactsLocation*:`https://raw.githubusercontent.com/Azure/RDS-Templates/master/wvd-templates/`
-9. Ange det nya totala antalet värddatorer som du vill använda för *RDSH-antalet instanser*. Om du till exempel expanderar din värddator från fem värdar till åtta, anger du **8**.
-10. Ange samma befintliga domän lösen ord som du använde för det befintliga domän-UPN: t. Ändra inte användar namnet eftersom det kommer att orsaka ett fel när du kör mallen.
-11. Ange samma klient administratörs lösen ord som du använde för användar-eller program-ID: t som du angav för *klient-admin-UPN eller program-ID*. Ändra inte användar namnet igen.
-12. Slutför överföringen för att expandera din värd-pool.
+6. Ignorera fliken grundläggande inställningar och välj sedan fliken **VM-information** . Här kan du Visa och redigera information om den virtuella datorn (VM) som du vill lägga till i poolen.
 
-## <a name="run-the-azure-marketplace-offering"></a>Kör Azure Marketplace-erbjudandet
-
-Följ anvisningarna i [skapa en adresspool med hjälp av Azure Marketplace](./create-host-pools-azure-marketplace.md) tills du har kommit [till att köra Azure Marketplace-erbjudandet för att etablera en ny adresspool](./create-host-pools-azure-marketplace.md#run-the-azure-marketplace-offering-to-provision-a-new-host-pool). När du kommer till den punkten måste du ange följande information för varje flik:
-
-### <a name="basics"></a>Grundläggande inställningar
-
-Alla värden i det här avsnittet ska matcha det du angav när du först skapade värddatorn och de virtuella datorerna i sessionen, förutom användare som är *Standard användare*:
-
-1.    För *prenumeration*väljer du den prenumeration där du först skapade värd-poolen.
-2.    För *resurs grupp*väljer du samma resurs grupp där de befintliga virtuella datorerna för anslutningspoolen värdar finns.
-3.    För *region*väljer du samma region där de befintliga virtuella datorerna för anslutningspoolen värd för värdar finns.
-4.    För *Hostpool-namn*anger du namnet på den befintliga poolen.
-5.    För *Skriv bords typ*väljer du den Skriv bords typ som matchar den befintliga poolen.
-6.    För *standard Skriv bords användare*anger du en kommaavgränsad lista över alla ytterligare användare som du vill logga in på de virtuella Windows-klienterna och får åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill user3@contoso.com tilldela och user4@contoso.com komma åt, anger user3@contoso.comdu,user4@contoso.com.
-7.    Välj **Nästa: Konfigurera virtuell dator**.
-
->[!NOTE]
->Förutom för *Standard användare av Skriv bordet*måste alla fält matcha exakt vad som har kon figurer ATS i den befintliga poolen. Om det finns ett matchnings fel som leder till en ny adresspool.
-
-### <a name="configure-virtual-machines"></a>Konfigurera virtuella datorer
-
-Alla parameter värden i det här avsnittet ska överensstämma med vad du angav när du först skapade värddatorn och de virtuella datorerna i sessionen, förutom det totala antalet virtuella datorer. Antalet virtuella datorer som du anger är antalet virtuella datorer i den expanderade poolen:
-
-1. Välj den virtuella dator storlek som matchar de befintliga virtuella datorerna i sessionen.
-    
+7. Välj den resurs grupp som du vill skapa de virtuella datorerna under och välj sedan regionen. Du kan välja den aktuella region som du använder eller en ny region.
+   
+8. Ange det nya totala antalet värdar för sessionen som du vill ha i **antalet virtuella datorer**. Om du till exempel expanderar din värddator från fem värdar till åtta, anger du **8**. 
+   
     >[!NOTE]
-    >Om den angivna virtuella dator storleken som du söker efter inte visas i storleks väljaren för virtuell dator, beror det på att vi inte har publicerat den på Azure Marketplace-verktyget ännu. Om du vill begära en VM-storlek skapar du en begäran eller avröstar en befintlig begäran i [Windows Virtual Desktop UserVoice-forumet](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
+    >Du kan inte redigera storleken eller avbildningen av de virtuella datorerna eftersom det är viktigt att se till att alla virtuella datorer i poolen har samma storlek.
+    
+9. För information om det **virtuella nätverket**väljer du det virtuella nätverk och undernät som du vill att de virtuella datorerna ska anslutas till. Du kan välja samma virtuella nätverk som befintliga datorer som används eller välja en annan som passar den region som du valde i steg 7.
 
-2. Anpassa *användnings profilen*, det *totala antalet användare*och *antalet virtuella dator* parametrar för att välja det totala antalet Sessionsgränser som du vill ha i din värddator. Om du till exempel expanderar din värddator från fem värddatorer till åtta kan du konfigurera de här alternativen för att komma till 8 virtuella datorer.
-3. Ange ett prefix för namnen på de virtuella datorerna. Om du till exempel anger namnet "prefix" kommer de virtuella datorerna att kallas "prefix-0," prefix-1, "och så vidare.
-4. Välj **Nästa: inställningar för virtuella datorer**.
+10. För **Administratörs kontot**anger du Active Directory domän användar namn och lösen ord som är associerat med det virtuella nätverk som du har valt. Dessa autentiseringsuppgifter används för att ansluta de virtuella datorerna till det virtuella nätverket.
 
-### <a name="virtual-machine-settings"></a>Inställningar för virtuella datorer
+      >[!NOTE]
+      >Se till att dina administratörs namn överensstämmer med informationen som lämnas här. Och det finns inget MFA aktiverat för kontot.
 
-Alla parameter värden i det här avsnittet ska överensstämma med vad du angav när du först skapade värddatorn och de virtuella datorerna i sessionen.
+11. Välj fliken **taggar** om du har några taggar som du vill gruppera de virtuella datorerna med. Annars hoppar du över den här fliken. 
 
-1. För *avbildnings källa* och *avbildnings-OS-version*anger du samma information som du angav när du först skapade Host-poolen.
-2. Ange samma information som du angav när du först skapade den för att ansluta till de virtuella datorerna till Active Directory-domänen för *AD-domän anslutningens UPN* och de associerade lösen orden. Dessa autentiseringsuppgifter kommer att användas för att skapa ett lokalt konto på dina virtuella datorer. Du kan återställa de här lokala kontona om du vill ändra autentiseringsuppgifterna senare.
-3. För information om det virtuella nätverket väljer du samma virtuella nätverk och undernät där dina befintliga VM-värdar för fjärrskrivbordssessioner finns.
-4. Välj **Nästa: Konfigurera information om virtuella Windows-datorer**.
-
-### <a name="windows-virtual-desktop-information"></a>Information om virtuella Windows-datorer
-
-Alla parameter värden i det här avsnittet ska överensstämma med vad du angav när du först skapade värddatorn och de virtuella datorerna i sessionen.
-
-1. Ange namnet på klient gruppen som innehåller din klient organisation för *Windows Virtual Desktop klient grupp namn*. Lämna det som standard om du inte angav ett angivet klient grupps namn.
-2. Ange namnet på den klient där du vill skapa den här poolen för *Windows Virtual Desktop klient namn*.
-3. Ange samma autentiseringsuppgifter som du använde när du först skapade Host-poolen och de virtuella datorerna i sessionen. Om du använder ett huvud namn för tjänsten anger du ID: t för den Azure Active Directory-instans där tjänstens huvud namn finns.
-4. Välj **Nästa: granska + skapa**.
-
-## <a name="run-the-github-azure-resource-manager-template"></a>Kör Azure Resource Managers mal len GitHub
-
-Följ anvisningarna i [köra Azure Resource Manager-mallen för att skapa en ny adresspool](./create-host-pools-arm-template.md#run-the-azure-resource-manager-template-for-provisioning-a-new-host-pool) och ange alla samma parameter värden förutom *RDSH-antalet instanser*. Ange antalet virtuella dator värdar som du vill ha i värddatorn när du har kört mallen. Om du till exempel expanderar din värddator från fem värdar till åtta, anger du **8**.
+12. Välj fliken **Granska + skapa** . granska dina val och om allt ser bra ut väljer du **skapa**. 
 
 ## <a name="next-steps"></a>Nästa steg
 

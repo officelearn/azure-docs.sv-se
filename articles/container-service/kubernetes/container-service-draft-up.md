@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 8d688d2918c9100019d033e93e9a3dca9e492de2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 039879cb725c20af3c40698947ea9abe189d08ad
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76271138"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731771"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>FÖRÅLDRAD Använd Draft med Azure Container Service och Azure Container Registry för att bygga och distribuera ett program till Kubernetes
 
@@ -102,7 +102,7 @@ Nu när du har ett kluster kan du importera autentiseringsuppgifterna med hjälp
 
 
 1. Hämta utkast för din miljö vid https://github.com/Azure/draft/releases och installera i sökvägen så att kommandot kan användas.
-2. Ladda ned Helm för din miljö https://github.com/kubernetes/helm/releases på och [installera den i sökvägen så att kommandot kan användas](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+2. Ladda ned Helm för din miljö https://github.com/kubernetes/helm/releases på och [installera den i sökvägen så att kommandot kan användas](https://helm.sh/docs/intro/quickstart#install-helm).
 3. Konfigurera Draft för att använda ditt register och skapa underdomäner för varje Helm-diagram som skapas. För att konfigurera Draft behöver du:
    - ditt Azure Container Registry-namn (`draftacsdemo` i det här exemplet)
    - din registernyckel, eller ditt lösenord, från `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.

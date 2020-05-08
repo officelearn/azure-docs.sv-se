@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: sngun
-ms.openlocfilehash: d380e4c025b35f0000e13c62422d54dc10079524
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5df7866f7897109dbd7a0ea8a52b857ab671875
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192875"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735359"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Granska Azure Cosmos DB kontroll Plans åtgärder
 
@@ -27,7 +27,9 @@ Här följer några exempel på scenarier där gransknings kontroll Plans åtgä
 
 ## <a name="disable-key-based-metadata-write-access"></a>Inaktivera nyckelbaserade metadata skriv åtkomst
 
-Innan du granskar kontroll Plans åtgärderna i Azure Cosmos DB inaktiverar du den nyckelbaserade metadata-Skriv åtkomsten på ditt konto. När Key-baserade metadata skriv åtkomst är inaktive rad förhindras klienter som ansluter till Azure Cosmos-kontot via konto nycklar från åtkomst till kontot. Du kan inaktivera skriv åtkomst genom att ställa `disableKeyBasedMetadataWriteAccess` in egenskapen på True. När du har angett den här egenskapen kan ändringar i alla resurser ske från en användare med en korrekt rollbaserad åtkomst kontroll (RBAC) roll och autentiseringsuppgifter. Mer information om hur du ställer in den här egenskapen finns i artikeln [förhindra ändringar från SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) : er. När du har inaktiverat skriv åtkomst fungerar indexet SDK-baserade ändringar i data flödet.
+Innan du granskar kontroll Plans åtgärderna i Azure Cosmos DB inaktiverar du den nyckelbaserade metadata-Skriv åtkomsten på ditt konto. När Key-baserade metadata skriv åtkomst är inaktive rad förhindras klienter som ansluter till Azure Cosmos-kontot via konto nycklar från åtkomst till kontot. Du kan inaktivera skriv åtkomst genom att ställa `disableKeyBasedMetadataWriteAccess` in egenskapen på True. När du har angett den här egenskapen kan ändringar i alla resurser ske från en användare med en korrekt rollbaserad åtkomst kontroll (RBAC) roll och autentiseringsuppgifter. Mer information om hur du ställer in den här egenskapen finns i artikeln [förhindra ändringar från SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) : er. 
+
+När `disableKeyBasedMetadataWriteAccess` är aktive rad, om SDK-baserade klienter kör Create eller Update-åtgärder, så *tillåts inte "åtgärds post" på resursen "ContainerNameorDatabaseName" via Azure Cosmos DB slut punkten* returneras. Du måste aktivera åtkomst till sådana åtgärder för ditt konto eller utföra åtgärderna skapa/uppdatera via Azure Resource Manager, Azure CLI eller Azure PowerShell. Om du vill växla tillbaka anger du disableKeyBasedMetadataWriteAccess till **falskt** med hjälp av Azure CLI enligt beskrivningen i artikeln [förhindra ändringar från Cosmos SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk) . Se till att ändra värdet `disableKeyBasedMetadataWriteAccess` till falskt i stället för sant.
 
 Tänk på följande när du inaktiverar skriv åtkomst till metadata:
 
@@ -65,7 +67,7 @@ När du har aktiverat loggning följer du stegen nedan för att spåra åtgärde
    | where TimeGenerated >= ago(1h)
    ```
 
-Följande skärm bilder fångar loggar när ett VNET läggs till i ett Azure Cosmos-konto:
+Följande skärm bilder fångar loggar när en konsekvens nivå ändras för ett Azure Cosmos-konto:
 
 ![Kontroll Plans loggar när ett VNet läggs till](./media/audit-control-plane-logs/add-ip-filter-logs.png)
 
@@ -149,8 +151,25 @@ För API-speciella åtgärder heter åtgärden med följande format:
 
 * CassandraKeyspacesUpdateStart, CassandraKeyspacesUpdateComplete
 * CassandraKeyspacesThroughputUpdateStart, CassandraKeyspacesThroughputUpdateComplete
+* SqlContainersUpdateStart, SqlContainersUpdateComplete
 
 Egenskapen *ResourceDetails* innehåller hela resurs bröd texten som en begäran om nytto last och innehåller alla egenskaper som begärs för uppdatering
+
+## <a name="diagnostic-log-queries-for-control-plane-operations"></a>Diagnostiska logg frågor för kontroll Plans åtgärder
+
+Här följer några exempel på hur du kan hämta diagnostikloggar för kontroll Plans åtgärder:
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdateStart"
+```
+
+```kusto
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdateStart"
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,16 +3,16 @@ title: Uppdatera behållar grupp
 description: Lär dig hur du uppdaterar pågående behållare i Azure Container Instances behållar grupper.
 ms.topic: article
 ms.date: 04/17/2020
-ms.openlocfilehash: dc10e38aa6be9473f89df6f7fa10a72f63d9ada8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: cfc27de8caae98dd1c3065b5ed06433c4baaa5d2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854445"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928728"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Uppdatera containers i Azure Container Instances
 
-Under normal drift av dina behållar instanser kan du se till att du behöver uppdatera de behållare som körs i en [behållar grupp](container-instances-container-groups.md). Du kanske vill uppdatera en egenskap, till exempel en avbildnings version, ett DNS-namn eller en miljö variabel eller uppdatera en egenskap i en behållare vars program har kraschat.
+Under normal drift av dina behållar instanser kan du se till att du behöver uppdatera de behållare som körs i en [behållar grupp](./container-instances-container-groups.md). Du kanske vill uppdatera en egenskap, till exempel en avbildnings version, ett DNS-namn eller en miljö variabel eller uppdatera en egenskap i en behållare vars program har kraschat.
 
 Uppdatera behållarna i en behållare grupp som körs genom att distribuera om en befintlig grupp med minst en ändrad egenskap. När du uppdaterar en behållar grupp startas alla behållare som körs i gruppen om på plats, vanligt vis på samma underliggande behållar värd.
 
@@ -28,7 +28,7 @@ Så här uppdaterar du en befintlig behållar grupp:
 * Ange andra egenskaper med de värden du angav tidigare. Om du inte anger ett värde för en egenskap återställs värdet till standardvärdet.
 
 > [!TIP]
-> En [yaml-fil](container-instances-container-groups.md#deployment) hjälper till att underhålla en behållar grupps distributions konfiguration och ger en start punkt för att distribuera en uppdaterad grupp. Om du använde en annan metod för att skapa gruppen kan du exportera konfigurationen till YAML med hjälp av [AZ container export][az-container-export], 
+> En [yaml-fil](./container-instances-container-groups.md#deployment) hjälper till att underhålla en behållar grupps distributions konfiguration och ger en start punkt för att distribuera en uppdaterad grupp. Om du använde en annan metod för att skapa gruppen kan du exportera konfigurationen till YAML med hjälp av [AZ container export][az-container-export], 
 
 ### <a name="example"></a>Exempel
 
@@ -80,7 +80,7 @@ När du tar bort en behållar grupp och återskapar den, är den inte "omdistrib
 
 Som nämns flera gånger i den här artikeln är **behållar gruppen**. Varje behållare i Azure Container Instances distribueras i en behållar grupp och behållar grupper kan innehålla fler än en behållare.
 
-[Behållargrupper i Azure Container Instances](container-instances-container-groups.md)
+[Behållargrupper i Azure Container Instances](./container-instances-container-groups.md)
 
 [Distribuera en grupp med flera containrar](container-instances-multi-container-group.md)
 

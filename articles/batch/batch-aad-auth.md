@@ -3,12 +3,13 @@ title: Autentisera Azure Batch tjänster med Azure Active Directory
 description: Batch stöder Azure AD för autentisering från batch-tjänsten. Lär dig hur du autentiserar på ett av två sätt.
 ms.topic: article
 ms.date: 01/28/2020
-ms.openlocfilehash: e1f95871788b4b9848ba622da1c8eb0cc83c07aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3fa1aa2bb7389200fe5e5a80598686143344d636
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116187"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608480"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -35,9 +36,9 @@ Om du vill autentisera med Azure AD använder du den här slut punkten tillsamma
 
 `https://login.microsoftonline.com/<tenant-id>`
 
-> [!NOTE] 
-> Den klient-/regionsspecifika slut punkten krävs när du autentiserar med ett huvud namn för tjänsten. 
-> 
+> [!NOTE]
+> Den klient-/regionsspecifika slut punkten krävs när du autentiserar med ett huvud namn för tjänsten.
+>
 > Den klient-/regionsspecifika slut punkten är valfri när du autentiserar med integrerad autentisering, men rekommenderas. Du kan dock också använda den vanliga Azure AD-slutpunkten. Den gemensamma slut punkten ger ett allmänt gränssnitt för insamling av autentiseringsuppgifter när en enskild klient inte har angetts. Den gemensamma slut punkten `https://login.microsoftonline.com/common`är.
 >
 >
@@ -126,7 +127,7 @@ Om du vill autentisera med ett huvud namn för tjänsten måste du tilldela RBAC
 1. I avsnittet **Inställningar** i batch-kontot väljer du **Access Control (IAM)**.
 1. Välj fliken **roll tilldelningar** .
 1. Välj **Lägg till rolltilldelning**.
-1. I list rutan **roll** väljer du rollen *deltagare* eller *läsare* för ditt program. Mer information om dessa roller finns i [Kom igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).  
+1. I list rutan **roll** väljer du rollen *deltagare* eller *läsare* för ditt program. Mer information om dessa roller finns i [Kom igång med rollbaserad Access Control i Azure Portal](../role-based-access-control/overview.md).
 1. Ange namnet på ditt program i fältet **Välj** . Välj ditt program i listan och välj sedan **Spara**.
 
 Ditt program bör nu visas i inställningarna för åtkomst kontroll med en RBAC-roll tilldelad.
@@ -209,7 +210,7 @@ Klient-ID: t identifierar den Azure AD-klient som tillhandahåller Authenticatio
 I kod exemplen i det här avsnittet visas hur du autentiserar med Azure AD med integrerad autentisering och med ett huvud namn för tjänsten. De flesta av dessa kod exempel använder .NET, men begreppen liknar andra språk.
 
 > [!NOTE]
-> En token för Azure AD-autentisering upphör att gälla efter en timme. När du använder ett **metoden batchclient** -objekt med lång livs längd rekommenderar vi att du hämtar en token från ADAL på varje begäran för att säkerställa att du alltid har en giltig token. 
+> En token för Azure AD-autentisering upphör att gälla efter en timme. När du använder ett **metoden batchclient** -objekt med lång livs längd rekommenderar vi att du hämtar en token från ADAL på varje begäran för att säkerställa att du alltid har en giltig token.
 >
 >
 > För att uppnå detta i .NET, skriver du en metod som hämtar token från Azure AD och skickar den metoden till ett **BatchTokenCredentials** -objekt som ett ombud. Metoden delegate anropas på varje begäran till batch-tjänsten för att säkerställa att en giltig token har angetts. Som standard cachelagrar ADAL-token, så en ny token hämtas endast från Azure AD vid behov. Mer information om tokens i Azure AD finns i [autentiserings scenarier för Azure AD][aad_auth_scenarios].
@@ -266,9 +267,9 @@ public static async Task<string> GetAuthenticationTokenAsync()
     var authContext = new AuthenticationContext(AuthorityUri);
 
     // Acquire the authentication token from Azure AD.
-    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri, 
-                                                        ClientId, 
-                                                        new Uri(RedirectUri), 
+    var authResult = await authContext.AcquireTokenAsync(BatchResourceUri,
+                                                        ClientId,
+                                                        new Uri(RedirectUri),
                                                         new PlatformParameters(PromptBehavior.Auto));
 
     return authResult.AccessToken;
@@ -307,7 +308,7 @@ Referera till Azure AD-slutpunkten i din kod, inklusive klient-ID. När du anvä
 private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
 ```
 
-Referera till resurs slut punkten för batch-tjänsten:  
+Referera till resurs slut punkten för batch-tjänsten:
 
 ```csharp
 private const string BatchResourceUri = "https://batch.core.windows.net/";
@@ -372,7 +373,7 @@ När du använder ett huvud namn för tjänsten måste du ange klient-ID: t. Hä
 TENANT_ID = "<tenant-id>"
 ```
 
-Referera till resurs slut punkten för batch-tjänsten:  
+Referera till resurs slut punkten för batch-tjänsten:
 
 ```python
 RESOURCE = "https://batch.core.windows.net/"

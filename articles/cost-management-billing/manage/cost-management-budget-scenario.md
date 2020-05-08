@@ -6,14 +6,14 @@ ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
 ms.topic: reference
-ms.date: 04/01/2020
+ms.date: 05/04/2020
 ms.author: banders
-ms.openlocfilehash: a9e1d838e7d3322ddf218c5cbec40b652709b5d7
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 633ca5cd16b8e730225900c30c575e74a0956ada
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80586383"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791688"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Hantera kostnader med Azure Budgets
 
@@ -273,7 +273,7 @@ Nu ska du konfigurera **Postman** för att skapa en budget genom att anropa REST
 1. Ange **Värde** till den token som skapades med ArmClient sist i det förra avsnittet.
 1. Välj fliken **Body** (Brödtext) i Postman.
 1. Välj knappalternativet **raw** (rådata).
-1. I textrutan klistrar du in exempelbudgetdefinitionen nedan. Ersätt parametrarna **subscriptionID**, **budgetname** och **actiongroupname** med ditt prenumerations-ID, ett unikt namn för din budget och åtgärdsgruppsnamnet som du skapade både i URL:en och begärandetexten:
+1. I textrutan klistrar du in exempelbudgetdefinitionen nedan. Ersätt parametrarna `subscriptionID`, `resourcegroupname` och `actiongroupname` med ditt prenumerations-ID, ett unikt namn för din resursgrupp och åtgärdsgruppsnamnet som du skapade både i URL:en och begärandetexten:
 
     ```
         {

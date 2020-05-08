@@ -1,28 +1,24 @@
 ---
-title: Automatiserad SaaS app User-etablering i Azure AD | Microsoft Docs
+title: Automatiserad SaaS app User-etablering i Azure AD
 description: En introduktion till hur du kan använda Azure AD för att automatiskt etablera, avetablera och kontinuerligt uppdatera användar konton över flera SaaS-program från tredje part.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/25/2019
 ms.author: mimart
-ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e828fd9c2561007c332db67bfd0b20dda9b845f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 1e72d885858b543999090a4a0521845d556802fd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79454541"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593122"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatisera användar etablering och avetablering för program med Azure Active Directory
+# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-ad"></a>Automatisera användar etablering och avetablering för program med Azure AD
 
 I Azure Active Directory (Azure AD), avser termen **app-etablering** att automatiskt skapa användar identiteter och roller i molnet ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)och mycket annat.
 

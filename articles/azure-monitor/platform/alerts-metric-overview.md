@@ -4,12 +4,12 @@ description: Få en översikt över vad du kan göra med mått aviseringar och h
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: a6860cad077b597df923274f8971f5652d4ba9e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397979"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855037"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur måttaviseringar fungerar i Azure Monitor
 
@@ -26,7 +26,7 @@ Anta att du har skapat en varnings regel för enkel statisk tröskel enligt föl
 - Mål resurs (den Azure-resurs som du vill övervaka): myVM
 - Mått: procent andel CPU
 - Villkors typ: statisk
-- Tids agg regering (statistik som körs över rå metriska värden. Tids agg regeringar som stöds är min, Max, AVG, total, Count): genomsnitt
+- Tids agg regering (statistik som körs över rå metriska värden. [Tids agg regeringar som stöds](metrics-charts.md#changing-aggregation) är min, Max, AVG, total, Count): genomsnitt
 - Period (fönstret för att se hur Mät värden kontrol leras): de senaste 5 minuterna
 - Frekvens (den frekvens med vilken måttets avisering kontrollerar om villkoren är uppfyllda): 1 min
 - Operator: större än
@@ -43,7 +43,7 @@ Anta att du har skapat en mått regel för enkla dynamiska tröskelvärden enlig
 - Mål resurs (den Azure-resurs som du vill övervaka): myVM
 - Mått: procent andel CPU
 - Villkors typ: dynamisk
-- Tids agg regering (statistik som körs över rå metriska värden. Tids agg regeringar som stöds är min, Max, AVG, total, Count): genomsnitt
+- Tids agg regering (statistik som körs över rå metriska värden. [Tids agg regeringar som stöds](metrics-charts.md#changing-aggregation) är min, Max, AVG, total, Count): genomsnitt
 - Period (fönstret för att se hur Mät värden kontrol leras): de senaste 5 minuterna
 - Frekvens (den frekvens med vilken måttets avisering kontrollerar om villkoren är uppfyllda): 1 min
 - Operator: större än

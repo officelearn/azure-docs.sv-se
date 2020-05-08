@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: df22c857571e51bb886ff1d25db185a306999540
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 409fe69d111e2c5aebe0ad0bd38ced10604b5f1b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80420859"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82839070"
 ---
 # <a name="high-performance-computing-vm-sizes"></a>Datorer med hög prestanda beräknings storlek
 
@@ -39,7 +39,7 @@ Virtuella Azure-datorer i H-serien (VM: ar) har utformats för att leverera pres
 
 ## <a name="rdma-capable-instances"></a>RDMA-kompatibla instanser
 
-De flesta av de virtuella HPC-datorernas storlekar (HBv2, HB, HC, H16r, H16mr, A8 och A9) är ett nätverks gränssnitt för RDMA-anslutning (Remote Direct Memory Access). Markerat [N-serien] (https://docs.microsoft.com/azure/virtual-machines/nc-series) storlekar som anges med r, till exempel NC24rs-konfigurationer (NC24rs_v3, NC24rs_v2 och NC24r) är också RDMA-kompatibla. Det här gränssnittet är tillsammans med standard gränssnittet för Azure-nätverket tillgängligt i de andra VM-storlekarna.
+De flesta av de virtuella HPC-datorernas storlekar (HBv2, HB, HC, H16r, H16mr, A8 och A9) är ett nätverks gränssnitt för RDMA-anslutning (Remote Direct Memory Access). De valda [N-serie](https://docs.microsoft.com/azure/virtual-machines/nc-series) storlekarna som anges med r, till exempel NC24rs-konfigurationer (NC24rs_v3, NC24rs_v2 och NC24r) är också RDMA-kompatibla. Det här gränssnittet är tillsammans med standard gränssnittet för Azure-nätverket tillgängligt i de andra VM-storlekarna.
 
 Med det här gränssnittet kan de RDMA-kompatibla instanserna kommunicera över ett InfiniBand-nätverk (IB) till HDR-priser för HBv2, EDR rates för HB, HC, FDR-priser för H16r, H16mr och RDMA-kompatibla N-seriens virtuella datorer och QDR priser för A8-och A9-datorer. Dessa RDMA-funktioner kan öka skalbarheten och prestandan för vissa MPI-program (Message Passing Interface). Mer information om hastighet finns i informationen i tabellerna på den här sidan.
 
@@ -92,7 +92,7 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
 
 - **Virtuella datorer** – distribuera RDMA-kompatibla HPC-datorer i samma skalnings uppsättning eller tillgänglighets uppsättning (när du använder Azure Resource Manager distributions modell). Om du använder den klassiska distributions modellen distribuerar du de virtuella datorerna i samma moln tjänst.
 
-- **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer (VMSS), se till att du begränsar distributionen till en enda placerings grupp. I en Resource Manager-mall anger du till exempel `singlePlacementGroup` egenskapen till. `true` Observera att den maximala VMSS-storlek som kan anpassas med `singlePlacementGroup` egenskapen till `true` är en gräns på 100 virtuella datorer som standard. Om HPC-jobbets skalning måste vara högre än 100 virtuella datorer i en enda VMSS-klient kan du begära en ökning, [öppna en support förfrågan online](../azure-supportability/how-to-create-azure-support-request.md) utan kostnad.
+- **Skalnings uppsättningar för virtuella datorer** – i en skalnings uppsättning för virtuella datorer (VMSS), se till att du begränsar distributionen till en enda placerings grupp för InfiniBand-kommunikation i VMSS. I en Resource Manager-mall anger du till exempel `singlePlacementGroup` egenskapen till. `true` Observera att den maximala VMSS-storlek som kan anpassas med `singlePlacementGroup` egenskapen till `true` är en gräns på 100 virtuella datorer som standard. Om HPC-jobbets skalning måste vara högre än 100 virtuella datorer i en enda VMSS-klient kan du begära en ökning, [öppna en support förfrågan online](../azure-supportability/how-to-create-azure-support-request.md) utan kostnad. Gränsen för antalet virtuella datorer i en enda VMSS kan ökas till 300. Observera att när du distribuerar virtuella datorer med tillgänglighets uppsättningar är max gränsen på 200 VM: ar per tillgänglighets uppsättning.
 
 - **MPI mellan virtuella datorer** – om RDMA (t. ex. använder MPI-kommunikation) krävs mellan virtuella datorer (VM), se till att de virtuella datorerna finns i samma skalnings uppsättning eller tillgänglighets uppsättning för virtuella datorer.
 
@@ -129,6 +129,6 @@ Azure innehåller flera alternativ för att skapa kluster med virtuella Windows 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om hur du optimerar HPC-programmet för Azure och några exempel på [HPC-arbetsbelastningar] (https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
+- Lär dig mer om hur du optimerar HPC-programmet för Azure och några exempel på [HPC-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/overview) 
 
 - Lär dig mer om hur [Azure Compute Units (ACU)](acu.md) kan hjälpa dig att jämföra beräknings prestanda i Azure SKU: er.

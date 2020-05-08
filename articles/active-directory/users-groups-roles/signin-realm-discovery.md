@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b6a65a964016f702fcf75aa4cbdab33a952e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1f27c7b91a78da8944c23fd353d3b6791b3e015
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74024258"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582551"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Identifiering av start sfär för Azure Active Directory inloggnings sidor
 
@@ -28,7 +28,7 @@ Vi ändrar vårt Azure Active Directory (Azure AD)-inloggnings beteende för att
 
 Tidigare var identifiering av start sfär styrd av den domän som anges vid inloggning eller av en identifierings princip för start sfär för vissa äldre program. I vårt identifierings beteende kan en Azure Active Directory användare felaktigt ange sitt användar namn, men det kommer fortfarande att hamna på sin organisations skärm för autentiseringsuppgifter samling. Detta inträffar när användaren korrekt tillhandahåller organisationens domän namn "contoso.com". Det här beteendet tillåter inte att granularitet anpassar upplevelserna för en enskild användare.
 
-För att ge stöd för ett bredare antal autentiseringsuppgifter och öka användbarheten, kan Azure Active Directory Sök efter användar namns ökningen under inloggnings processen uppdateras nu. Det nya beteendet gör intelligenta beslut genom att läsa inställningar för klient-och användar nivå baserat på användar namnet som angetts på inloggnings sidan. För att göra detta möjligt kontrollerar Azure Active Directory för att se om det användar namn som har angetts på inloggnings sidan finns i den angivna domänen eller omdirigerar användaren att ange sina autentiseringsuppgifter.
+För att ge stöd för ett bredare antal autentiseringsuppgifter och öka användbarheten, kan Azure Active Directory Sök efter användar namns ökningen under inloggnings processen uppdateras nu. Det nya beteendet fattar intelligenta beslut genom att läsa inställningar på organisations-och användar nivå baserat på användar namnet som angetts på inloggnings sidan. För att göra detta möjligt kontrollerar Azure Active Directory för att se om det användar namn som har angetts på inloggnings sidan finns i den angivna domänen eller omdirigerar användaren att ange sina autentiseringsuppgifter.
 
 En ytterligare fördel med detta arbete är förbättrad fel meddelande tjänst. Här följer några exempel på de förbättrade fel meddelandena vid inloggning till ett program som endast stöder Azure Active Directory användare.
 

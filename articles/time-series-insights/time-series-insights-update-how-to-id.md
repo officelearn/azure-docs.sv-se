@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: a62c2460698408f6a2bfa51c6638bdeaf88bb31f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faf98d4fc5bf6c7028cf7d20bdf8df89fb3d533b
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77083525"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838730"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Metod tips för att välja ett Time Series-ID
 
@@ -27,6 +27,7 @@ Att välja ett lämpligt tids serie-ID är kritiskt. Att välja ett Time Series-
 
 > [!IMPORTANT]
 > Time Series-ID: n är:
+>
 > * En *SKIFT* läges känslig egenskap: bokstavs-och tecken Skift läge används vid sökningar, jämförelser, uppdateringar och vid partitionering.
 > * En *oföränderlig* egenskap: när den har skapats kan den inte ändras.
 
@@ -56,7 +57,7 @@ I följande scenarier beskrivs hur du väljer mer än en nyckel egenskap som dit
 
 ### <a name="example-2-time-series-id-with-a-composite-key"></a>Exempel 2: Time Series-ID med en sammansatt nyckel
 
-* Du behöver flera egenskaper för att vara unika inom samma flotta av till gångar. 
+* Du behöver flera egenskaper för att vara unika inom samma flotta av till gångar.
 * Du är tillverkare av smarta byggnader och distribuerar sensorer i varje rum. I varje rum har du normalt samma värden för **sensorId**. Exempel är **sensor1**, **sensor2**och **sensor3**.
 * Din byggnad har överlappande golv-och rums nummer mellan platser i egenskapen **flrRm**. De här talen har värden som **1a**, **2b**och **3a**.
 * Du har en egenskap, **plats**, som innehåller värden som **Redmond**, **Barcelona**och **Tokyo**. För att skapa unikhet anger du följande tre egenskaper som tids serie-ID-nycklar: **sensorId**, **flrRm**och **location**.
@@ -72,7 +73,7 @@ Exempel på rå händelse:
 }
 ```
 
-I Azure Portal kan du ange den sammansatta nyckeln enligt följande: 
+I Azure Portal kan du ange den sammansatta nyckeln enligt följande:
 
 ```JSON
 [{"name":"sensorId","type":"String"},{"name":"flrRm","type":"String"},{"name":"location","type":"string"}]

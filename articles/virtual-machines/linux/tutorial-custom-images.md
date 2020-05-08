@@ -1,146 +1,197 @@
 ---
 title: Självstudie – Skapa anpassade VM-avbildningar med Azure CLI
 description: I den här självstudien får du lära dig hur du använder Azure CLI för att skapa en anpassad virtuell datoravbildning i Azure
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.subservice: imaging
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc7b395d46fd28cde9ccbbda8a8a55447efa61c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: akjosh
+ms.openlocfilehash: 9f3a175352aa0455cecc2e31e235a60cc27c76c5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81460060"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792181"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Självstudie: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure CLI
 
 Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för startkonfigurationer, till exempel förinläsning av program, programkonfigurationer och andra OS-konfigurationer. I den här självstudien skapar du en egen anpassad avbildning av en virtuell Azure-dator. Lär dig att:
 
 > [!div class="checklist"]
-> * Avetablera och generalisera virtuella datorer
-> * Skapa en anpassad avbildning
-> * Skapa en virtuell dator från en anpassad avbildning
-> * Göra en lista med alla avbildningar i din prenumeration
-> * Ta bort en avbildning
+> * Skapa ett Shared Image Gallery
+> * Skapa en avbildnings definition
+> * Skapa en avbildningsversion
+> * Skapa en virtuell dator från en avbildning 
+> * Dela ett avbildnings Galleri
+
 
 I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
-Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.4.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
+
+## <a name="overview"></a>Översikt
+
+Ett [delat bild galleri](shared-image-galleries.md) fören klar en anpassad bild delning i hela organisationen. Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för startkonfigurationer, till exempel förinläsning av program, programkonfigurationer och andra OS-konfigurationer. 
+
+Med galleriet för delade avbildningar kan du dela dina anpassade VM-avbildningar med andra. Välj vilka bilder du vill dela, vilka regioner du vill göra tillgängliga i och vilka du vill dela dem med. 
+
+Funktionen för delad bild galleri har flera resurs typer:
+
+[!INCLUDE [virtual-machines-shared-image-gallery-resources](../../../includes/virtual-machines-shared-image-gallery-resources.md)]
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Stegen nedan visar hur du tar en befintlig virtuell dator och omvandlar den till en återanvändbar anpassad avbildning som du kan skapa nya VM-instanser med.
 
-Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den här självstudiekursen. Om det behövs kan du skapa ett av [skript exemplet](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md) . När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
+Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den här självstudiekursen. Vid behov kan du se CLI- [snabb](quick-create-cli.md) starten för att skapa en virtuell dator som ska användas för den här självstudien. När du arbetar igenom självstudien ersätter du resurs namnen där det behövs.
 
-## <a name="create-a-custom-image"></a>Skapa en anpassad avbildning
+## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
-Om du vill skapa en avbildning av en virtuell dator måste du förbereda den virtuella datorn genom att avetablera, frigöra och markera den virtuella källdatorn som generaliserad. Du kan skapa en avbildning när den virtuella datorn har förberetts.
+Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-### <a name="deprovision-the-vm"></a>Avetablera den virtuella datorn 
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
-Avetableringen generaliserar den virtuella datorn genom att ta bort datorspecifik information. Tack vare generaliseringen kan man distribuera flera virtuella datorer från en enda avbildning. Under avetableringen återställs värdnamnet till *localhost.localdomain*. SSH-värdnycklar, namnserverkonfigurationer, rotlösenord och cachelagrade DHCP-lån tas också bort.
+## <a name="create-an-image-gallery"></a>Skapa ett bild galleri 
 
-> [!WARNING]
-> Om du avetablerar och markerar den virtuella datorn som generaliserad blir den virtuella käll datorn oanvändbar och går inte att starta om. 
+Ett avbildnings galleri är den primära resurs som används för att aktivera avbildnings delning. 
 
-Om du vill avetablera den virtuella datorn kan du använda Azure VM-agenten (waagent). Azure VM-agenten är installerad på den virtuella datorn och hanterar etablering och interaktion med Azures infrastrukturkontrollant. Mer information finns i [Användarguide för Azure Linux Agent](../extensions/agent-linux.md).
+Tillåtna tecken för Galleri namn är versaler eller gemener, siffror, punkter och punkter. Galleri namnet får inte innehålla bindestreck.   Galleri namn måste vara unika inom din prenumeration. 
 
-Anslut till den virtuella datorn med SSH och kör kommandot för att avetablera den virtuella datorn. Med argumentet `+user` tas det senast etablerade användarkontot och alla associerade data också bort. Ersätt IP-exempeladressen med den offentliga IP-adressen för din virtuella dator.
+Skapa ett bild galleri med [AZ sig-Create](/cli/azure/sig#az-sig-create). I följande exempel skapas en resurs grupp med namnet *myGalleryRG* i *USA, östra*och ett galleri som heter *Galleri.*
 
-SSH till den virtuella datorn.
-```bash
-ssh azureuser@52.174.34.95
-```
-Avetablera den virtuella datorn.
-
-```bash
-sudo waagent -deprovision+user -force
-```
-Stäng SSH-sessionen.
-
-```bash
-exit
+```azurecli-interactive
+az group create --name myGalleryRG --location eastus
+az sig create --resource-group myGalleryRG --gallery-name myGallery
 ```
 
-### <a name="deallocate-and-mark-the-vm-as-generalized"></a>Frigöra och markera den virtuella datorn som generaliserad
+## <a name="get-infornation-about-the-vm"></a>Hämta Infornation om den virtuella datorn
 
-Om du vill skapa en avbildning måste den virtuella datorn frigöras. Frigör den virtuella datorn med hjälp av [az vm deallocate](/cli//azure/vm). 
-   
+Du kan se en lista över virtuella datorer som är tillgängliga med [AZ VM List](/cli/azure/vm#az-vm-list). 
+
+```azurecli-interactive
+az vm list --output table
+```
+
+När du känner till namnet på den virtuella datorn och vilken resurs grupp det finns i hämtar du ID: t för den virtuella datorn med [AZ VM get-instance-View](/cli/azure/vm#az-vm-get-instance-view). 
+
+```azurecli-interactive
+az vm get-instance-view -g MyResourceGroup -n MyVm --query id
+```
+
+Kopiera ID: t för den virtuella datorn som ska användas senare.
+
+## <a name="create-an-image-definition"></a>Skapa en avbildnings definition
+
+Bild definitioner skapa en logisk gruppering för avbildningar. De används för att hantera information om de avbildnings versioner som skapas i dem. 
+
+Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. 
+
+Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+
+Skapa en bild definition i galleriet med hjälp av [AZ sig-bild-definition Create](/cli/azure/sig/image-definition#az-sig-image-definition-create). 
+
+I det här exemplet heter avbildnings definitionen *myImageDefinition*och är för en [SPECIALISERAd](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) Linux OS-avbildning. 
+
 ```azurecli-interactive 
-az vm deallocate --resource-group myResourceGroup --name myVM
+az sig image-definition create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --publisher myPublisher \
+   --offer myOffer \
+   --sku mySKU \
+   --os-type Linux \
+   --os-state specialized
 ```
 
-Slutligen anger du tillståndet för den virtuella datorn som generaliserad med [az vm generalize](/cli//azure/vm), så att Azure-plattformen vet att den virtuella datorn har generaliserats. Du kan bara skapa en avbildning från en generaliserad virtuell dator.
-   
+Kopiera bild definitionens ID från det utdata som ska användas senare.
+
+## <a name="create-the-image-version"></a>Skapa avbildnings versionen
+
+Skapa en avbildnings version från den virtuella datorn med [AZ avbildnings Galleri skapa-avbildning-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
+
+Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom intervallet för ett 32-bitars heltal. Format: *Major version*. *MinorVersion*. *Korrigering*.
+
+I det här exemplet är versionen av vår avbildning *1.0.0* och vi kommer att skapa 2 repliker i regionen *västra centrala USA* , 1 replik i regionen *södra centrala USA* och 1 replik i regionen *USA, östra 2* med zon-redundant lagring. De replikerade regionerna måste innehålla den region som den virtuella käll datorn finns i.
+
+Ersätt värdet för `--managed-image` i det här exemplet med ID: t för din virtuella dator från föregående steg.
+
 ```azurecli-interactive 
-az vm generalize --resource-group myResourceGroup --name myVM
+az sig image-version create \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --gallery-image-definition myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --target-regions "westcentralus" "southcentralus=1" "eastus=1=standard_zrs" \
+   --replica-count 2 \
+   --managed-image "/subscriptions/<Subscription ID>/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM"
 ```
 
-### <a name="create-the-image"></a>Skapa avbildningen
+> [!NOTE]
+> Du måste vänta tills avbildnings versionen är fullständigt slutförd och replikerad innan du kan använda samma hanterade avbildning för att skapa en annan avbildnings version.
+>
+> Du kan också lagra avbildningen i premiun-lagringen genom `--storage-account-type  premium_lrs`att lägga till eller [zonen redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) genom att lägga till `--storage-account-type  standard_zrs` när du skapar avbildnings versionen.
+>
 
-Nu kan du skapa en avbildning av den virtuella datorn med hjälp av [az image create](/cli//azure/image). I följande exempel skapas en avbildning med namnet *myImage* från en virtuell dator med namnet *myVM*.
-   
-```azurecli-interactive 
-az image create \
-    --resource-group myResourceGroup \
-    --name myImage \
-    --source myVM
-```
  
-## <a name="create-vms-from-the-image"></a>Skapa virtuella datorer från avbildningen
+## <a name="create-the-vm"></a>Skapa den virtuella datorn
 
-Nu när du har en avbildning kan du skapa en eller flera nya virtuella datorer från den med hjälp av [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet *myVMfromImage* från en avbildning med namnet *myImage*.
+Skapa den virtuella datorn med [AZ VM Create](/cli/azure/vm#az-vm-create) med hjälp av parametern--specialiserad för att indikera att avbildningen är en specialiserad avbildning. 
 
-```azurecli-interactive 
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMfromImage \
-    --image myImage \
-    --admin-username azureuser \
-    --generate-ssh-keys
+Använd bild Definitions-ID `--image` : t för för att skapa den virtuella datorn från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa den virtuella datorn från en angiven version genom att ange avbildningens versions `--image`-ID för. 
+
+I det här exemplet skapar vi en virtuell dator från den senaste versionen av *myImageDefinition* -avbildningen.
+
+```azurecli
+az group create --name myResourceGroup --location eastus
+az vm create --resource-group myResourceGroup \
+    --name myVM \
+    --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
+    --specialized
 ```
 
-Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda avbildning. Om du planerar storskaliga, samtidiga distributioner av fler än 20 virtuella datorer från samma anpassade avbildning, bör du använda ett [delat avbildnings Galleri](shared-image-galleries.md) med flera avbildnings repliker. 
+## <a name="share-the-gallery"></a>Dela galleriet
 
-## <a name="image-management"></a>Avbildningshantering 
+Du kan dela avbildningar över prenumerationer med hjälp av rollbaserad Access Control (RBAC). Du kan dela bilder i galleriet, bild definitionen eller avbildnings versionen leve. Alla användare som har Läs behörighet till en avbildnings version, även över prenumerationer, kan distribuera en virtuell dator med hjälp av avbildnings versionen.
 
-Här följer några exempel på vanliga hanteringsuppgifter för avbildning och hur du utför dem med hjälp av Azure CLI.
+Vi rekommenderar att du delar med andra användare på Galleri nivån. Om du vill hämta objekt-ID: t för galleriet använder du [AZ sig Visa](/cli/azure/sig#az-sig-show).
 
-Lista alla avbildningar efter namn i ett tabellformat.
-
-```azurecli-interactive 
-az image list \
-    --resource-group myResourceGroup
+```azurecli-interactive
+az sig show \
+   --resource-group myGalleryRG \
+   --gallery-name myGallery \
+   --query id
 ```
 
-Ta bort en avbildning. I det här exemplet tar vi bort avbildningen med namnet *myOldImage* från *myResourceGroup*.
+Använd objekt-ID: t som ett omfång, tillsammans med en e-postadress och [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att ge en användare åtkomst till det delade avbildnings galleriet. Ersätt `<email-address>` och `<gallery iD>` med din egen information.
 
-```azurecli-interactive 
-az image delete \
-    --name myOldImage \
-    --resource-group myResourceGroup
+```azurecli-interactive
+az role assignment create \
+   --role "Reader" \
+   --assignee <email address> \
+   --scope <gallery ID>
 ```
+
+Mer information om hur du delar resurser med RBAC finns i [Hantera åtkomst med RBAC och Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli).
+
+## <a name="azure-image-builder"></a>Azure Image Builder
+
+Azure erbjuder också en tjänst som bygger på Packer, [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview). Du behöver bara beskriva dina anpassningar i en mall så att du kan hantera avbildnings skapandet. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Avetablera och generalisera virtuella datorer
-> * Skapa en anpassad avbildning
-> * Skapa en virtuell dator från en anpassad avbildning
-> * Göra en lista med alla avbildningar i din prenumeration
-> * Ta bort en avbildning
+> * Skapa ett Shared Image Gallery
+> * Skapa en avbildnings definition
+> * Skapa en avbildningsversion
+> * Skapa en virtuell dator från en avbildning 
+> * Dela ett avbildnings Galleri
 
 Gå vidare till nästa självstudie om du vill veta mer om virtuella datorer med hög tillgänglighet.
 

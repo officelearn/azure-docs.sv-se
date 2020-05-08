@@ -35,7 +35,7 @@ Nedan visas en ögonblicks bild av de aktuella versionerna av alla programmering
 | [.NET SDK](https://aka.ms/search-sdk) |9.0 |Allmänt tillgänglig, lanserad maj 2019 |
 | [För hands version av .NET SDK](https://aka.ms/search-sdk-preview) |8,0 – för hands version |För hands version, lanserad april 2019 |
 | [Tjänsten REST API](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Allmänt tillgänglig |
-| [Service REST API 2019-05-06 – för hands version](search-api-preview.md) |2019-05-06 – för hands version |Förhandsversion |
+| [Service REST API 2019-05-06 – för hands version](search-api-preview.md) |2019-05-06 – för hands version |Förhandsgranskning |
 | [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |3.0 |Allmänt tillgänglig |
 | [REST API för hantering](https://docs.microsoft.com/rest/api/searchmanagement/) |2020-03-13|Allmänt tillgänglig |
 

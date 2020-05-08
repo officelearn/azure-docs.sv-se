@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 771d7f5b037fde1144b18dc4ed0dee7aecac6744
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cf051da4e2976ca54c95b54cd6ac89cb6f6cc1b1
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100217"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562227"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Felsöka anslutnings problem till Azure Database for PostgreSQL-enskild server
 
@@ -49,6 +49,7 @@ Om programmet inte kan ansluta till Azure Database for PostgreSQL, indikerar det
 * Konfiguration av Server brand vägg: kontrol lera att Azure Database for PostgreSQL Server-brandväggen är konfigurerad för att tillåta anslutningar från klienten, inklusive proxyservrar och gatewayer.
 * Konfiguration av klient brand väggen: brand väggen på klienten måste tillåta anslutningar till din databas server. IP-adresser och portar på den server som du inte kan tillåta måste vara tillåtna samt program namn som PostgreSQL i vissa brand väggar.
 * Användar fel: du kan ange anslutnings parametrar som inte har angetts, till exempel Server namnet i anslutnings strängen eller ett * \@servername* -suffix som saknas i användar namnet.
+* Om fel _servern inte har kon figurer ATS för att tillåta IPv6-anslutningar_, Observera att den grundläggande nivån inte stöder slut punkter för VNet-tjänster. Du måste ta bort Microsoft. SQL-slutpunkten från det undernät som försöker ansluta till den grundläggande servern.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Steg för att lösa problem med beständiga anslutningar
 

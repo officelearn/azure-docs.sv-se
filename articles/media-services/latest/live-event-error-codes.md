@@ -1,7 +1,7 @@
 ---
 title: Fel koder för Azure Media Services Live-händelse | Microsoft Docs
 description: Den här artikeln innehåller fel koder för Live-händelser.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2020
-ms.author: juliako
-ms.openlocfilehash: f9067562f67190b8bc04392f33078d4d3262f986
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/4/2020
+ms.author: inhenkel
+ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77654587"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791059"
 ---
 # <a name="media-services-live-event-error-codes"></a>Fel koder för Media Services Live-händelse
 
@@ -40,6 +40,7 @@ När du prenumererar på [Event Grid](https://docs.microsoft.com/azure/event-gri
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Tidsstämpeln för video-eller ljud-FLVTag är ogiltig från RTMP-kodaren. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | Inkommande kodare inmatade strömmar med ram-indata överskrider den högsta tillåtna 30fps för kodning av Live-händelser/-kanaler.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | Inkommande kodade inmatade data strömmar översteg följande tillåtna lösningar: 1920x1088 för att koda Live-händelser/kanaler och 4096 x 2160 för direkt sändnings händelser/kanaler.|
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV | Live-händelsen har fått en stor mängd ljuddata samtidigt, eller en stor mängd video data utan några viktiga bild rutor. Vi har frånkopplat kodaren för att ge den möjlighet att försöka igen med rätt data. |
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 

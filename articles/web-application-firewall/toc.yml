@@ -63,6 +63,8 @@
           href: ./ag/policy-overview.md
         - name: Översikt över botskydd
           href: ./ag/bot-protection-overview.md
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: ./ag/application-gateway-waf-faq.md
     - name: Front Door
       items:
         - name: Anpassade regler

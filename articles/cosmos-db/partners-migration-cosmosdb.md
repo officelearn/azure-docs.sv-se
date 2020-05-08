@@ -6,52 +6,48 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad5ed2b45a182c1f33f33ca1f6d4e3212c61b6a2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76988183"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791739"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL migrering och program utvecklings partner
 
 Från NoSQL-migrering till program utveckling kan du välja bland flera olika erfarna system integrerande partner och verktyg för att stödja dina Azure Cosmos DB-lösningar. 
 
-## <a name="migration-tools"></a>Migreringsverktyg
-
-|**Partner**  |**Funktioner & upplevelse**  |**Länder/regioner som stöds**  |**Kontakt**  |
-|---------|---------|---------|---------|
-|![Striims][2]    |  [Flytta real tids data till Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) från en mängd olika data källor. <br/> Striims fören klar insamling och data flytt i real tid från en rad olika lokala källor, inklusive Enterprise-dokument och Relations databaser, sensorer och loggfiler till Azure Cosmos DB. |   USA   |  [Webbplats](https://www.striim.com/)       |
-
 ## <a name="systems-integrator-partners"></a>Systems Integrator-partner
 
-|**Partner**  |**Funktioner & upplevelse**  |**Länder/regioner som stöds**  |**Kontakt**  |
-|---------|---------|---------|---------|
-| ![10thMagnitude][13] | NoSQL-migrering; Utveckling av nya appar | USA | [Webbplats](https://www.10thmagnitude.com/)|
-|![Altoros Development LLC][3]    |  NoSQL-migrering, <br/> App innovation (befintliga appar), <br/> Utveckling av nya appar |   USA, Norge, Finland, Vitryssland, Argentina |  [Webbplats](https://www.altoros.com/)     |
-|![Attunix Redapt][4]     |   NoSQL-migrering, <br/> App innovation (befintliga appar), <br/> Utveckling av nya appar      |    USA     |  [Webbplats](https://www.attunix.com/)       |
-| ![Avanade][26] | Utveckling av nya appar, <br/> App innovation (befintliga appar) | Österrike, Tyskland, Schweiz, Italien, Norge, Spanien, Storbritannien | [Webbplats](https://www.avanade.com/)
-|![BlueMetal arkitekter][5]     |  NoSQL-migrering, <br/> App innovation (befintliga appar), <br/> Utveckling av nya appar       |    Nordamerika, Asien och Stilla havs området     |  [Webbplats](https://www.bluemetal.com/)       |
-|![Capax global LLC][6]     |  NoSQL-migrering, <br/> App innovation (befintliga appar), <br/> Utveckling av nya appar       |    USA     |  [Webbplats](https://www.capaxglobal.com/)       |
-| ![Cap Gemini][14] | NoSQL-migrering; App innovation (befintliga appar); Utveckling av nya appar | USA, Frankrike, Storbritannien, Nederländerna, Finland  | [Webbplats](https://www.capgemini.com/) | 
-|![Coeo][7]     |   App innovation (befintliga appar), <br/> Utveckling av nya appar |    Storbritannien     |  [Webbplats](https://www.coeo.com/)       |
-| ![Cognizant][15] | NoSQL-migrering |USA, Kanada, Storbritannien, Danmark, Nederländerna, Schweiz, Australien, Japan | [Webbplats](https://www.cognizant.com/)|
-|![Infosys][8]     |  NoSQL-migrering       |    Global     |  [Webbplats](https://www.infosys.com/)       |
-| ![Lagash][16] | NoSQL-migrering, <br/> Utveckling av nya appar | Argentina, Chile, Colombia, Mexiko| [Webbplats](https://www.lagash.com/)|
-| ![Lambda3 Personalen][17] | NoSQL-migrering, <br/> Utveckling av nya appar | Brasilien| [Webbplats](https://www.lambda3.com.br/)|
-|![Neal-analys][9]     |     Utveckling av appar (nya appar)    |    USA     |  [Webbplats](https://www.nealanalytics.com/)       |
-|![Pragmatic Works Software Inc][10]    |   NoSQL-migrering      |   USA      |  [Webbplats](https://www.pragmaticworks.com/)       |
-| ![Ricoh global][18] | NoSQL-migrering, <br/> App innovation (befintliga appar)| Storbritannien  | [Webbplats](https://www.ricoh.com/)|
-| ![SNP-teknik][19] | NoSQL-migrering| USA | [Webbplats](https://www.snp.com/)|
-| ![Solidsoft-svar][20] | NoSQL-migrering | Kroatien, Sverige, Danmark, Irland, Bulgarien, Slovenien, Cypern, Malta, Litauen, Tjeckien, Island och Schweiz och Liechtenstein| [Webbplats](https://www.reply.com/solidsoft-reply/)|
-| ![Spansk punkt teknik][21] | NoSQL-migrering| Irland| [Webbplats](https://www.spanishpoint.ie/)|
-| ![Syone][22] | NoSQL-migrering| Portugal| [Webbplats](https://www.syone.com/)|
-|![Tallan][11]    |  NoSQL-migrering, <br/> App innovation (befintliga appar), <br/> Utveckling av nya appar       |    USA     |  [Webbplats](https://www.tallan.com/)       |
-| ![KAMERASYSTEM][23] | App innovation (befintliga appar), <br/> Utveckling av nya appar | USA, Storbritannien, Frankrike, Malaysia, Danmark, Norge, Sverige| [Webbplats](https://www.tcs.com/)|
-|![VTeamLabs][12]    | NoSQL-migrering       |  USA      | [Webbplats](https://www.vteamlabs.com/)       |
-| ![Vit ankor][24] |NoSQL-migrering, <br/> Utveckling av nya appar | Tyskland | [Webbplats](https://whiteducksoftware.com/)|
-| ![ALLT][25] | Utveckling av nya appar | Portugal, Storbritannien| [Webbplats](https://www.xpand-it.com/)|
-
+|**Partner**  |**Funktioner & upplevelse**  |**Länder/regioner som stöds**  |
+|---------|---------|---------|
+|[Striims](https://www.striim.com/)    |  Kontinuerlig data förflyttning i real tid, datamigrering|   USA   |
+| [10thMagnitude](https://www.10thmagnitude.com/) | IoT, återförsäljarversion (lager), operativa analyser (Spark), Server lös arkitektur, utveckling av appar | USA |
+|[Altoros Development LLC](https://www.altoros.com/)  |  IoT, anpassnings detalj handel (inventering), Server lös arkitekturer NoSQL migrering, utveckling av appar|   USA |
+|[Avanade](https://www.avanade.com/) | IoT, återförsäljarversion (inventering), Server lös arkitektur, utveckling av appar | Österrike, Tyskland, Schweiz, Italien, Norge, Spanien, Storbritannien, Kanada |
+|[Accenture](https://www.accenture.com/) | IoT, återförsäljarversion (inventering), Server lös arkitektur, utveckling av appar |Global|
+|[BlueMetal](https://www.bluemetal.com/)     |  IoT, anpassnings detalj handel (inventering), drift analys för Enterprise & SMC, AI-bildanteckning, till gångs kontroll, NoSQL migrering, utveckling av appar     |    Nordamerika, Asien och Stilla havs området     |
+|[Capax global LLC](https://www.capaxglobal.com/) | IoT, anpassning, detalj handel (inventering), operativa analyser (Spark), Server lös arkitektur, utveckling av appar|    USA     |  
+| [Cap Gemini](https://www.capgemini.com/) | Detalj handel (inventering), IoT, operativa analyser (Spark), utveckling av appar | USA, Frankrike, Storbritannien, Nederländerna, Finland  |
+| [Cognizant](https://www.cognizant.com/) | IoT, anpassning, detalj handel (inventering), operativa analyser (Spark), utveckling av appar |USA, Kanada, Storbritannien, Danmark, Nederländerna, Schweiz, Australien, Japan |
+|[Infosys](https://www.infosys.com/)     | Apputveckling      |    USA    |  
+| [Lagash-system](https://www.lagash.com/) | IoT, arkitektur utan server, utveckling av appar | Argentina, Chile, Colombia, Mexiko|
+| [Lambda3 Personalen](https://www.lambda3.com.br/) | Anpassning i real tid, detalj handels inventering, utveckling av appar | Brasilien|
+|[Neal-analys](https://www.nealanalytics.com/)    |     Anpassning, detalj handel (inventering), operativa analyser (Spark), utveckling av appar  |    USA     |  
+|[Pragmatic Works Software Inc](https://www.pragmaticworks.com/)    |   NoSQL-migrering      |   USA      |
+| [Ricoh Digital-tjänster](https://www.ricoh.com/) | IoT, real tids anpassning, detalj handels inventering, NoSQL migrering | Storbritannien  |
+|[SNP-teknik](https://www.snp.com/) | NoSQL-migrering| USA |
+| [Solidsoft-svar](https://www.reply.com/solidsoft-reply/) | NoSQL-migrering | Kroatien, Sverige, Danmark, Irland, Bulgarien, Slovenien, Cypern, Malta, Litauen, Tjeckiska republiken, Island, Schweiz och Liechtenstein|
+| [Spansk punkt teknik](https://www.spanishpoint.ie/) | NoSQL-migrering| Irland|
+| [Syone](https://www.syone.com/) | NoSQL-migrering| Portugal|
+|[Tallan](https://www.tallan.com/)    |  Apputveckling      |    USA     |
+| [KAMERASYSTEM](https://www.tcs.com/) | Apputveckling | USA, Storbritannien, Frankrike, Malaysia, Danmark, Norge, Sverige|
+|[VTeamLabs](https://www.vteamlabs.com/)    | Anpassning, detalj handel (inventering), IoT, spel, operativa analyser (Spark), Server lös arkitektur, NoSQL migrering, utveckling av appar       |  USA      |  
+| [White ankor GmbH](https://whiteducksoftware.com/) |Ny app-utveckling, app-backend, lagring för dokumentbaserade data| Tyskland |
+| [ALLT](https://www.xpand-it.com/) | Utveckling av nya appar | Portugal, Storbritannien|
+| [Hanu](https://hanu.com/) | IoT, utveckling av appar | USA|
+| [Incycle-programvara](https://www.incyclesoftware.com/) | NoSQL-migrering, Server lös arkitektur, utveckling av appar| USA|
+| [Orion](https://www.orioninc.com/) | Anpassning, detalj handel (inventering), operativa analyser (Spark), IoT, utveckling av appar| USA, Kanada|
 
 ## <a name="next-steps"></a>Nästa steg
 

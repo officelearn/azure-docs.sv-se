@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: 9e867a544de8904274286cb68fc047f3f4b93e0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 89cd1de3658c16fccdb70567641a68f5c1575507
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183321"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791756"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Steg före migrering för datamigrering från MongoDB till Azure Cosmos DB s API för MongoDB
 
@@ -30,7 +30,7 @@ Om du redan har slutfört ovanstående krav för migrering kan du [migrera Mongo
 
 Följande är särskilda egenskaper för Azure Cosmos DB s API för MongoDB:
 
-- **Kapacitets modell**: databasens kapacitet på Azure Cosmos DB baseras på en data flödes-baserad modell. Den här modellen är baserad på [enheter för programbegäran per sekund](request-units.md), som är en enhet som representerar antalet databas åtgärder som kan utföras mot en samling per sekund. Den här kapaciteten kan allokeras på [en databas eller samlings nivå](set-throughput.md)och kan tillhandahållas i en fördelnings modell, eller med hjälp av den [automatiska skalnings modellen](provision-throughput-autoscale.md).
+- **Kapacitets modell**: databasens kapacitet på Azure Cosmos DB baseras på en data flödes-baserad modell. Den här modellen är baserad på [enheter för programbegäran per sekund](request-units.md), som är en enhet som representerar antalet databas åtgärder som kan utföras mot en samling per sekund. Den här kapaciteten kan allokeras på [en databas eller samlings nivå](set-throughput.md), och den kan tillhandahållas i en fördelnings modell, eller med hjälp av [autoskalning av allokerat data flöde](provision-throughput-autoscale.md).
 
 - **Enheter för programbegäran**: varje databas åtgärd har en ru: er-kostnad (associerad Request units) i Azure Cosmos dB. Vid körning subtraheras detta från den tillgängliga enhets enhets nivån på en specifik sekund. Om en begäran kräver mer ru: er än den för närvarande allokerade RU/s finns det två alternativ för att lösa problemet, öka mängden ru: er eller vänta tills nästa sekund startar och försök sedan igen.
 

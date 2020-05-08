@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9a6fdf1a06c952d6e1e569bd05b28c663c790333
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: HT
+ms.openlocfilehash: 19457dc7324c509f54a58a2cdaa39561bfc71b4d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837880"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853338"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -138,7 +138,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Tokyo** | [Equinix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | Japan, östra | 10G, 100G | Aryaka-nätverk, på&T netobligation, BBIX, British Telecom, CenturyLink Cloud Connect, Colt, Equinix, Internet-initiativet Japan Inc.-IIJ, Megaport, NTT Communications, NTT öst, orange, Softbank, Verizon |
 | **Tokyo2** | [I TOKYO](https://www.attokyo.com/) | 2 | Japan, östra | 10G, 100G | I TOKYO |
 | **Toronto** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | Kanada, centrala | 10G, 100G | PÅ&T netobligation, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, IX Reach Megaport, Telus, Verizon, Zayo |
-| **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | Cologix | 10 G | Cologix |
+| **Vancouver** | [Cologix VAN1](https://www.cologix.com/data-centers/vancouver/van1/) | 1 | saknas | 10 G | Cologix |
 | **Washington DC** | [Equinix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | Östra USA, östra USA 2 | 10G, 100G | Aryaka Networks, på&T netobligation, British Telecom, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Equinix, Internet2, intercloud, IX Reach, Level 3 Communications, Megaport, Neutrona Networks, NTT Communications, orange, PacketFabric, SES, Sprint, Tata Communications, Telia transport, Verizon, Zayo |
 | **Washington DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | Östra USA, östra USA 2 | 10G, 100G | CenturyLink Cloud Connect, Coresite, INTELSAT, Viasat, Zayo | 
 | **Zürich** | [Interxion ZUR2](https://www.interxion.com/Locations/zurich/) | 1 | Schweiz, norra | 10G, 100G | Mellan moln, Interxion, Megaport, Swisscom |

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 94cdeff36553268d691fc968036c5264e77fddc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13d7e0bfd3c7061d9dec68a1d14ff2a5e2c05fcd
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188815"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791263"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Skala ett Azure Cosmos DB API för Cassandra-konto elastiskt
 
@@ -58,9 +58,9 @@ Du kan skala systemet dynamiskt med kod genom att köra [CQL Alter-kommandon](ca
 
 Fördelen med den här metoden är att du kan svara på skalnings behov dynamiskt och på ett anpassat sätt som passar ditt program. Med den här metoden kan du fortfarande utnyttja standardvärdena för RU/s. Om systemets skalnings behov främst förväntas (cirka 70% eller mer) kan du använda SDK med CQL för att få en mer kostnads effektiv metod för automatisk skalning än att använda autoskalning. Nack delen med den här metoden är att det kan vara ganska komplicerat att implementera återförsök medan hastighets begränsningen kan öka svars tiden.
 
-## <a name="use-autoscale"></a><a id="use-autoscale"></a>Använda automatisk skalning
+## <a name="use-autoscale-provisioned-throughput"></a><a id="use-autoscale"></a>Använd autoskalning av allokerat data flöde
 
-Förutom manuell eller programmerings metod för etablering av data flöde kan du också konfigurera Azure Cosmos-behållare i autoskalning-läge. Autoskalning-läget kommer automatiskt att skalas efter förbruknings behoven inom angivna RU-intervall utan att kompromissa med service avtal. Mer information finns i artikeln [skapa behållare och databaser för Azure Cosmos i autoskalning-läge](provision-throughput-autoscale.md) .
+Förutom standard (manuell) eller programmerings sätt för etablering av data flöde kan du också konfigurera Azure Cosmos-behållare i autoskalning av allokerat data flöde. Automatisk skalning kommer automatiskt att skalas efter förbruknings behoven inom de angivna RU-intervallen utan att kompromissa med service avtal. Mer information finns i avsnittet [Skapa Azure Cosmos-behållare och databaser i den automatiska skalnings](provision-throughput-autoscale.md) artikeln.
 
 Fördelen med den här metoden är att det är det enklaste sättet att hantera skalnings behoven i systemet. Det garanterar inte att tillämpa hastighets begränsning **inom de konfigurerade ru-intervallen**. Nack delen är att om skalnings behoven i systemet är förutsägbara kan autoskalning vara ett mindre kostnads effektivt sätt att hantera dina skalnings behov än att använda de beskrivna kontroll planet eller SDK-nivå närmast ovan.
 

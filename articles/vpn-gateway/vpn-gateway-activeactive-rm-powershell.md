@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: ec3697208434eb971e47136416f2c2cc541b5cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 436428c8f4a30706ab16ddace2d491287e620646
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244646"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559834"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurera aktiva, aktiva S2S VPN-anslutningar med Azure VPN-gatewayer
 
@@ -36,9 +36,7 @@ Om du redan har en VPN-gateway kan du:
 Du kan kombinera dessa tillsammans för att bygga en mer komplex nätverks topologi med hög tillgänglighet som uppfyller dina behov.
 
 > [!IMPORTANT]
-> I läget aktiv-aktiv används endast följande SKU: er: 
->   * VpnGw1 VpnGw2, VpnGw3
->   * HighPerformance (för gamla äldre SKU: er)
+> Det aktiva aktiva läget är tillgängligt för alla SKU: er förutom Basic.
 
 ## <a name="part-1---create-and-configure-active-active-vpn-gateways"></a><a name ="aagateway"></a>Del 1 – Skapa och konfigurera aktiva-aktiva VPN-gatewayer
 Följande steg konfigurerar din Azure VPN-gateway i aktiva-aktiva lägen. De viktigaste skillnaderna mellan de aktiva och aktiva standby-gatewayerna:

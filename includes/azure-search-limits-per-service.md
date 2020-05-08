@@ -19,11 +19,11 @@ Lagringen begränsas av disk utrymme eller av en hård gräns på det *maximala 
 
 | Resurs | Kostnadsfri | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Service nivå avtal (SLA)<sup>3</sup>  |Nej |Ja |Ja |Ja |Ja |Ja |Ja |Ja |
+| Service nivå avtal (SLA)<sup>3</sup>  |Inga |Ja |Ja |Ja |Ja |Ja |Ja |Ja |
 | Lagringsutrymme per partition |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
-| Partitioner per tjänst |Ej tillämpligt |1 |12 |12 |12 |3 |12 |12 |
-| Partitionsstorlek |Ej tillämpligt |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
-| Repliker |Ej tillämpligt |3 |12 |12 |12 |12 |12 |12 |
+| Partitioner per tjänst |E.t. |1 |12 |12 |12 |3 |12 |12 |
+| Partitionsstorlek |E.t. |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
+| Repliker |E.t. |3 |12 |12 |12 |12 |12 |12 |
 
 <sup>1</sup> Basic har en fast partition. På den här nivån används ytterligare Sök enheter för att allokera fler repliker för ökad arbets belastning för frågor.
 

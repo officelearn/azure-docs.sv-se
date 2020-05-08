@@ -4,12 +4,12 @@ description: Lär dig mer om att skala Azure Service Fabric-kluster i eller ut o
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 9dd60a5898b648215fc8b26e49a706a7b19dfeeb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a21182c974d6141264c8ca0c36bfc8f6a366d6f3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258699"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793184"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Skala Azure Service Fabric-kluster
 Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster kan du skala klustret vågrätt (ändra antalet noder) eller lodrätt (ändra resurserna för noderna).  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -29,13 +29,13 @@ När du skalar ett Azure-kluster bör du ha följande rikt linjer i åtanke:
 - icke-primära nodtyper som kör tillstånds känsliga produktions arbets belastningar bör alltid ha fem eller fler noder.
 - icke-primära nodtyper som kör tillstånds lösa produktions arbets belastningar bör alltid ha två eller flera noder.
 - Alla nodtyper för [hållbarhets nivån](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) guld eller silver bör alltid ha fem eller fler noder.
-- Ta inte bort slumpmässiga virtuella dator instanser/noder från en nodtyp, Använd alltid skalnings funktionen skalnings uppsättning för virtuella datorer. Borttagning av slumpmässiga VM-instanser kan negativt påverka systemets möjlighet att belastningsutjämna.
+- Ta inte bort slumpmässiga virtuella dator instanser/noder från en nodtyp, Använd alltid skalnings uppsättningen för virtuella datorer i funktionen. Borttagning av slumpmässiga VM-instanser kan negativt påverka systemets möjlighet att belastningsutjämna.
 - Om du använder regler för automatisk skalning ställer du in reglerna så att skalning i (tar bort VM-instanser) görs en nod i taget. Att skala ned fler än en instans i taget är inte säkert.
 
-Eftersom Service Fabric-nodtypen i klustret består av virtuella datorers skalnings uppsättningar på Server delen, kan du [Konfigurera regler för automatisk skalning eller manuellt skala](service-fabric-cluster-scale-up-down.md) varje nodtyp/virtuell dators skalnings uppsättning.
+Eftersom Service Fabric-nodtypen i klustret består av virtuella datorers skalnings uppsättningar på Server delen, kan du [Konfigurera regler för automatisk skalning eller manuellt skala](service-fabric-cluster-scale-in-out.md) varje nodtyp/virtuell dators skalnings uppsättning.
 
 ### <a name="programmatic-scaling"></a>Programmerings skalning
-I många fall kan du [skala upp ett kluster manuellt eller med regler för automatisk skalning](service-fabric-cluster-scale-up-down.md) som är effektiva lösningar. För mer avancerade scenarier kan de inte vara rätt anpassade. Eventuella nack delar med dessa metoder är:
+I många fall kan du [skala upp ett kluster manuellt eller med regler för automatisk skalning](service-fabric-cluster-scale-in-out.md) som är effektiva lösningar. För mer avancerade scenarier kan de inte vara rätt anpassade. Eventuella nack delar med dessa metoder är:
 
 - Manuell skalning kräver att du loggar in och uttryckligen begär skalnings åtgärder. Om skalnings åtgärder krävs ofta eller på oväntade tider är det inte säkert att den här metoden är en felfri lösning.
 - När AutoScale-regler tar bort en instans från en skalnings uppsättning för virtuella datorer tar de inte automatiskt bort kunskapen från den noden från det associerade Service Fabric-klustret om nodtypen har en hållbarhets nivå på silver eller guld. Eftersom AutoScale-regler fungerar på skalnings uppsättnings nivå (i stället för på Service Fabric nivå), kan regler för automatisk skalning ta bort Service Fabric noder utan att stänga av dem på ett smidigt sätt. Den här oartig tar bort "Ghost" Service Fabric nodens tillstånd bakom efter skalnings åtgärder. En enskild person (eller tjänst) måste regelbundet rensa bort status för noden i Service Fabric klustret.

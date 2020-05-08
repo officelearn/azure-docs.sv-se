@@ -1,32 +1,36 @@
 ---
-title: Azure-tabell i programmet för kommersiella marknads platser | Azure Marketplace
-description: Konfigurera ledar hantering för Azure-Blob
+title: Hantering av leads med Azure Blob Storage – Microsoft Commercial Marketplace
+description: Lär dig hur du använder Azure Blob för att konfigurera leads för Microsoft AppSource och Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 062252b007e22fcd2644c8b647fc0ecc2f5938cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80285256"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792725"
 ---
-# <a name="lead-management-instructions-for-azure-blob"></a>Instruktioner för ledar hantering för Azure-Blob
+# <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Blob Storage för att hantera affärs marknads platser
 
 >[!Caution]
->Azure Blob-alternativet för att bearbeta leads från Marketplace-erbjudandet är inaktuellt. Om du för närvarande har ett erbjudande publicerat med konfiguration av lead-hantering för Azure Blob tar du inte längre emot kund leads. Uppdatera konfigurationen för hantering av lead till något av de andra alternativen för hantering av lead. Lär dig mer om de andra alternativen på [sidan för introduktions hanteringens landning](./commercial-marketplace-get-customer-leads.md). "
+>Stöd för kommersiella Marketplace för Azure Blob Storage är föråldrat och är inte längre ett alternativ för att bearbeta leads från ditt erbjudande. Om du för närvarande har ett erbjudande om kommersiellt marknads plats med hantering av lead som kon figurer ATS för Azure Blob får du inte längre kund leads. Uppdatera konfigurationen för hantering av lead till något av de andra alternativen för hantering av lead. Lär dig mer om de andra alternativen på [sidan för introduktions hanteringens landning](./commercial-marketplace-get-customer-leads.md). "
 
-Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds i Partner Center för att ta emot Azure Marketplace-och AppSource-leads, kan du använda en Azure-Blob för att hantera dessa leads. Du kan sedan välja att exportera data och importera dem till ditt CRM-system. I instruktionerna i den här artikeln får du lära dig hur du skapar ett Azure Storage-konto och en Azure-Blob under det kontot. Dessutom kan du skapa ett nytt flöde med hjälp av Microsoft Flow för att skicka ett e-postmeddelande när ditt erbjudande tar emot ett lead.
+ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds i Partner Center för att ta emot Microsoft AppSource och Azure Marketplace-leads, kan du använda Azure Blob Storage. Du kan sedan välja att exportera data och importera dem till ditt CRM-system. I instruktionerna i den här artikeln får du lära dig hur du skapar ett Azure Storage-konto och en BLOB under det kontot. Dessutom kan du skapa ett nytt flöde med hjälp av Automatisk inskrivning för att skicka ett e-postmeddelande när ditt erbjudande tar emot ett lead.
 
+>[!NOTE]
+>Den Energis par anslutning som används i dessa instruktioner kräver en betald prenumeration för att automatisera energi. Se till att du tar hänsyn till detta innan du följer anvisningarna i den här artikeln.
 
-## <a name="how-to-configure-azure-blob"></a>Så här konfigurerar du Azure Blob
+## <a name="configure-azure-blob-storage"></a>Konfigurera Azure Blob Storage
 
 1. Om du inte har ett Azure-konto kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/pricing/free-trial/).
-1. När ditt Azure-konto är aktivt loggar du in på [Azure Portal](https://portal.azure.com).
-1. I Azure Portal skapar du ett lagrings konto med hjälp av följande procedur.  
+
+2. När ditt Azure-konto är aktivt loggar du in på [Azure Portal](https://portal.azure.com).
+
+3. I Azure Portal skapar du ett lagrings konto med hjälp av följande procedur.  
     1. Välj **+ skapa en resurs** i den vänstra meny raden.  Det **nya** fönstret (bladet) kommer att visas till höger.
     2. Välj **lagring** i det **nya** fönstret.  En **aktuell** lista visas till höger.
     3. Välj **lagrings kontot** för att börja skapa konto.  Följ anvisningarna i artikeln [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
@@ -65,7 +69,7 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
     ![Ny behållare](./media/commercial-marketplace-lead-management-instructions-azure-blob/new-container.png)
 
-## <a name="configure-your-offer-to-send-leads-to-the-azure-blob"></a>Konfigurera ditt erbjudande för att skicka leads till Azure-blobben
+## <a name="configure-your-offer-to-send-leads-to-azure-blob-storage"></a>Konfigurera ditt erbjudande för att skicka leads till Azure Blob Storage
 
 När du är redo att konfigurera ledar hanterings informationen för ditt erbjudande i publicerings portalen följer du stegen nedan:
 

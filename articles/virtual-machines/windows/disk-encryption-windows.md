@@ -8,16 +8,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: deb2860c8d027a0a258c4a962fe33d6f516e10dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4509c62b15eb06c89fe80555a26773fdd3876e66
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82085651"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790906"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Azure Disk Encryption-scenarier på virtuella Windows-datorer
 
-Azure Disk Encryption för virtuella Windows-datorer (VM: ar) använder BitLocker-funktionen i Windows för att tillhandahålla fullständig disk kryptering för operativ system disken och data disken. Dessutom innehåller den kryptering av den tillfälliga resurs disken när VolumeType-parametern är all.
+Azure Disk Encryption för virtuella Windows-datorer (VM: ar) använder BitLocker-funktionen i Windows för att tillhandahålla fullständig disk kryptering för operativ system disken och data disken. Dessutom ger den en kryptering av den temporära disken när VolumeType-parametern är all.
 
 Azure Disk Encryption är [integrerat med Azure Key Vault](disk-encryption-key-vault.md) för att hjälpa dig att styra och hantera disk krypterings nycklar och hemligheter. En översikt över tjänsten finns i [Azure Disk Encryption för virtuella Windows-datorer](disk-encryption-overview.md).
 

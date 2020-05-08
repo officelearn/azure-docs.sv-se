@@ -1,5 +1,5 @@
 ---
-title: 'Gör så här: Lägg till valideringar i anpassade kommando parametrar (för hands version)'
+title: 'Gör så här: Lägg till valideringar i anpassade kommando parametrar'
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln förklarar vi hur du lägger till valideringar i en parameter i anpassade kommandon.
 services: cognitive-services
@@ -10,43 +10,54 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: cf6e4e4f0bfab43fb738f8415022e55fcbcbd05a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2b7fd608156ab269cfc0c85c6c508fa9d5eebc83
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76156462"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857182"
 ---
 # <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Gör så här: Lägg till valideringar i anpassade kommando parametrar (för hands version)
 
-I den här artikeln får du lära dig hur du lägger till verifieringar i parametrar och fråga efter korrigering.
+I den här artikeln ska du lägga till verifieringar i parametrar och prompter för korrigering.
 
 ## <a name="prerequisites"></a>Krav
 
 Du måste ha slutfört stegen i följande artiklar:
 
-- [Snabb start: skapa ett anpassat kommando (förhands granskning)](./quickstart-custom-speech-commands-create-new.md)
-- [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
+> [!div class="checklist"]
+> * [Snabb start: skapa ett anpassat kommando](./quickstart-custom-speech-commands-create-new.md)
+> * [Snabb start: skapa ett anpassat kommando med parametrar](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## <a name="create-a-settemperature-command"></a>Skapa ett SetTemperature-kommando
 
-För att demonstrera valideringar ska vi skapa ett nytt kommando som gör det möjligt för användaren att ange temperatur.
+För att demonstrera valideringar ska vi skapa ett nytt kommando som gör det möjligt för användarna att ange temperatur.
 
 1. Öppna dina tidigare skapade program för anpassade kommandon i [tal Studio](https://speech.microsoft.com/)
-1. Skapa ett nytt kommando **SetTemperature**
-1. Lägg till en parameter för mål temperaturen
-1. Lägg till en validering för temperatur parametern
-   > [!div class="mx-imgBorder"]
-   > ![Lägg till en intervall validering](media/custom-speech-commands/validations-add-temperature.png)
+1. Skapa ett nytt kommando`SetTemperature`
+1. Lägg till en parameter för mål temperaturen.
 
-   | Inställningen           | Föreslaget värde                                          | Beskrivning                                                                                      |
-   | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-   | Name              | Temperatur                                              | Ett beskrivande namn för kommando parametern                                                    |
-   | Krävs          | true                                                     | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs |
-   | Svarsmall | "– Vilken temperatur vill du ha?"                     | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd                              |
-   | Typ              | Antal                                                   | Parameter typ, t. ex. tal, sträng eller datum/tid                                      |
-   | Validering        | Minsta värde: 60, Max värde: 80                             | För Number-parametrar är det tillåtna värde intervallet för parametern                             |
-   | Svarsmall | ", Det går bara att ange mellan 60 och 80 grader"      | Fråga efter ett uppdaterat värde om valideringen Miss lyckas                                       |
+   | Parameter konfiguration           | Föreslaget värde    |Beskrivning                 |                                    
+   | ----------------- | ----------------------------------| -------------|
+   | Name              | Temperatur                       | Ett beskrivande namn för parametern                                |
+   | Krävs          | analysera                           | Kryss ruta som anger om ett värde för den här parametern krävs innan kommandot slutförs |
+   | Svar för obligatorisk parameter     | Enkelt redigerings program – > vilken temperatur vill du ha?  | En uppmaning om att fråga efter värdet för den här parametern när den inte är känd |
+   | Typ              | Antal                            | Typ av parameter, till exempel Number, String, datum tid eller geografi   |
+
+1. Lägg till en verifiering för temperatur parametern.
+
+    - På sidan **parametrar** -konfiguration för `Temperature` parameter väljer `Add a validation` du från avsnittet validering.
+    - Fyll i värdena i popup-fönstret **ny validering** enligt följande och välj **skapa**.
+
+  
+       | Parameter konfiguration         | Föreslaget värde                                          | Beskrivning                                                                        |
+       | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+       | Minvärde        | 60               | För Number-parametrar kan det minsta värdet som denna parameter anta |
+       | Maxvärde        | 80               | För Number-parametrar kan det högsta värdet som den här parametern anta |
+       | Felsvar – enkelt redigerings program| Första variationen – tyvärr kan jag bara ange mellan 60 och 80 grader      | Fråga om du vill ange ett nytt värde om valideringen Miss lyckas                                       |
+
+       > [!div class="mx-imgBorder"]
+       > ![Lägg till en intervall validering](media/custom-speech-commands/validations-add-temperature.png)
 
 1. Lägg till några exempel meningar
 
@@ -59,26 +70,27 @@ För att demonstrera valideringar ska vi skapa ett nytt kommando som gör det m�
 
 1. Lägg till en regel för slut för ande för att bekräfta resultatet
 
-   | Inställningen    | Föreslaget värde                                           | Beskrivning                                        |
-   | ---------- | --------------------------------------------------------- | -------------------------------------------------- |
-   | Regelnamn  | Bekräftelse meddelande                                      | Ett namn som beskriver syftet med regeln          |
-   | Villkor | Obligatorisk parameter-temperatur                          | Villkor som avgör när regeln kan köras    |
-   | Åtgärder    | SpeechResponse-"-OK, ställa in på {temperatur} grader" | Den åtgärd som ska vidtas när regel villkoret är sant |
+   | Inställningen    | Föreslaget värde                                           |Beskrivning                                     |
+   | ---------- | --------------------------------------------------------- |-----|
+   | Name       | Bekräftelse meddelande                                      |Ett namn som beskriver syftet med regeln |
+   | Villkor | Obligatoriska parametrar-`Temperature`                       |Villkor som avgör när regeln kan köras    |   
+   | Åtgärder    | Skicka tal svar –`Ok, setting temperature to {Temperature} degrees` | Den åtgärd som ska vidtas när regel villkoret är sant |
 
 > [!TIP]
-> I det här exemplet används ett tal svar för att bekräfta resultatet. Exempel på hur du slutför kommandot med en klient åtgärd finns i: [så här gör du för att utföra kommandon på klienten med Speech SDK (för hands version)](./how-to-custom-speech-commands-fulfill-sdk.md) .
+> I det här exemplet används ett tal svar för att bekräfta resultatet. Exempel på hur du slutför kommandot med en klient åtgärd finns i: [så här gör du för att utföra kommandon på klienten med tal-SDK: n](./how-to-custom-speech-commands-fulfill-sdk.md)
+
 
 ## <a name="try-it-out"></a>Prova nu
+1. Välj `Train` ikonen som finns överst i den högra rutan.
 
-Välj panelen test och prova några interaktioner.
+1. När inlärningen är klar väljer `Test` du och provar några interaktioner.
 
-- Inmatade: Ange temperatur till 72 grader
-- Utdata: "OK, ställa in på 72 grader"
-
-- Inmatade: Ange temperatur till 45 grader
-- Output: "Tyvärr, jag kan bara ange mellan 60 och 80 grader"
-- Inmatade: gör det till 72 grader i stället
-- Utdata: "OK, ställa in på 72 grader"
+    - Inmatade: Ange temperatur till 72 grader
+    - Utdata: OK, ställa in temperatur på 72 grader
+    - Inmatade: Ange temperatur till 45 grader
+    - Utdata: Tyvärr, det går bara att ange mellan 60 och 80 grader
+    - Inmatade: gör det till 72 grader i stället
+    - Utdata: OK, ställa in temperatur på 72 grader
 
 ## <a name="next-steps"></a>Nästa steg
 

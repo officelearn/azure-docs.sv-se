@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/14/2020
-ms.openlocfilehash: 4955df718dcc8f169232052979ccf4a636c3be80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c81d70577c5e7b852d315bdb91993d15624a7336
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81390301"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791501"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimera Apache Hive-frågor i Azure HDInsight
 
@@ -122,7 +122,7 @@ Mer information finns i [partitionerade tabeller](https://cwiki.apache.org/confl
 
 ## <a name="use-the-orcfile-format"></a>Använd ORCFile-formatet
 
-Hive stöder olika fil format. Ett exempel:
+Hive stöder olika fil format. Exempel:
 
 * **Text**: standard fil formatet och fungerar med de flesta scenarier.
 * **Avro**: fungerar bra för samverkans scenarier.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Ett exempel:
+Sedan infogar du data i tabellen ORC från mellanlagrings tabellen. Exempel:
 
 ```sql
 INSERT INTO TABLE lineitem_orc
@@ -198,5 +198,6 @@ Det finns fler optimerings metoder som du kan överväga, till exempel:
 I den här artikeln har du lärt dig flera vanliga optimerings metoder för Hive-frågor. Mer information finns i följande artiklar:
 
 * [Använda Apache Hive i HDInsight](hadoop/hdinsight-use-hive.md)
+* [Optimera Apache Hive](./optimize-hive-ambari.md)
 * [Analysera flyg fördröjnings data med hjälp av interaktiv fråga i HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analysera Twitter-data med Apache Hive i HDInsight](hdinsight-analyze-twitter-data-linux.md)

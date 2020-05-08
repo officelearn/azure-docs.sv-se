@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 04/14/2020
+ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: b825ed513f530733d7552e32206c12422a956b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 63226089a0a87660f0796cdfef2b729070ca01e3
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81766935"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837863"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -43,7 +43,7 @@ Följande tabell innehåller en karta över Azures regioner till ExpressRoute-pl
 | **Geopolitisk region** | **Azure-regioner** | **ExpressRoute-platser** |
 | --- | --- | --- |
 | **Australiensiska myndigheter** |Australien, centrala, Australien, centrala 2 |Canberra, Canberra2 |
-| **Europa** | Frankrike, centrala, Frankrike, södra, Tyskland, norra, Tyskland, västra centrala, norra Europa, östra Norge, västra Norge, Schweiz, norra, Schweiz, västra, Storbritannien, västra, Storbritannien, södra, Västeuropa |Amsterdam, Amsterdam2, köpen hamn, Dublin, Frankfurt, Genève, London, London2, Marseille, Milano, München, Newport (Wales), Oslo, Paris, Stavanger, Stockholm, Zürich |
+| **Europa** | Frankrike, centrala, Frankrike, södra, Tyskland, norra, Tyskland, västra centrala, norra Europa, östra Norge, västra Norge, Schweiz, norra, Schweiz, västra, Storbritannien, västra, Storbritannien, södra, Västeuropa |Amsterdam, Amsterdam2, Berlin, köpen hamn, Dublin, Frankfurt, Genève, London, London2, Marseille, Milano, München, Newport (Wales), Oslo, Paris, Stavanger, Stockholm, Zürich |
 | **Nordamerika** |USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA, västra centrala; Kanada, centrala; Kanada, östra |Atlanta, Chicago, Borås, Denver, Las Vegas, Los Angeles, Miami, New York, San-Antonio, Seattle, Silicon dal, Silicon Valley2, Washington DC, Washington DC2, Montrealprotokollet, Quebec City, Toronto, Vancouver |
 | **Asien** | Asien, östra, Sydostasien | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapore, Singapore2, Taipei, |
 | **Indien** | Indien, västra, Indien, centrala, Indien, södra |Chennai, Chennai2, Mumbai, Mumbai2 |
@@ -94,6 +94,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **Kina, mobil internationell** |Stöds |Stöds | Singapore |
 | **China Telecom Global** |Stöds |Stöds |Hongkong |
 | **Kina, Unicom global** |Stöds |Stöds | Singapore2 |
+| **[Chunghwa Telecom](https://www.cht.com.tw/en/home/cht/about-cht/products-and-services/International/Cloud-Service)** |Stöds |Stöds |Taipei |
 | **[Cologix](https://www.cologix.com/hyperscale/microsoft-azure/)** |Stöds |Stöds |Chicago, Borås, Montrealprotokollet, Toronto, Vancouver, Washington DC |
 | **[Colt](https://www.colt.net/uk/en/news/colt-announces-dedicated-cloud-access-for-microsoft-azure-services-en.htm)** |Stöds |Stöds |Amsterdam, Amsterdam2, Chicago, Dublin, Frankfurt, London, London2, Newport, New York, Osaka, Paris, Silicon dal, Silicon Valley2, Singapore2, Tokyo, Washington DC |
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Stöds |Stöds |Chicago, Silicon Valley, Washington DC |
@@ -132,6 +133,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 | **[NEXTDC](https://www.nextdc.com/services/axon-ethernet/microsoft-expressroute)** |Stöds |Stöds |Melbourne, Perth, Sydney, Sydney2 |
 | **[NTT Communications](https://www.ntt.com/en/services/network/virtual-private-network.html)** |Stöds |Stöds |Amsterdam, Hongkong SAR, London, Los Angeles, Osaka, Singapore, Sydney, Tokyo, Washington DC |
 | **[NTT EAST](https://flets.com/cloudgateway/crossconnect/)** |Stöds |Stöds |Tokyo |
+| **[NTT globala data Center EMEA](https://www.ntt.com/en/services/data-center.html)** |Stöds |Stöds |Berlin |
 | **[NTT SmartConnect](https://cloud.nttsmc.com/cxc/azure.html)** |Stöds |Stöds |Osaka |
 | **[Ooredoo Cloud Connect](https://www.ooredoo.qa/portal/OoredooQatar/cloud-connect-expressroute)** |Stöds |Stöds |Marseille |
 | **[Optus](https://www.optus.com.au/enterprise/)** |Stöds |Stöds |Melbourne, Sydney |
@@ -188,7 +190,7 @@ De nationella Azure-molnen är isolerade från varandra och från globala affär
 | **Tjänstleverantör** | **Microsoft Azure** | **Office 365** | **Platser** |
 | --- | --- | --- | --- |
 | **China Telecom** |Stöds |Stöds inte |Beijing, Beijing2, Shanghai, Shanghai2 |
-| **Kina, Unicom** | Stöds | Stöds inte | Beijing2 |
+| **Kina, Unicom** | Stöds | Stöds inte | Beijing2, Shanghai2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |Stöds |Stöds inte |Beijing2, Shanghai2 |
 
 Läs mer i [ExpressRoute i Kina](http://www.windowsazure.cn/home/features/expressroute/).
@@ -211,6 +213,7 @@ Om inte din anslutningsleverantör finns med i föregående avsnitt, kan du fort
 * Fråga anslutningsleverantören om de är anslutna till något av utbytena i tabellen ovan. Du kan använda följande länkar för att samla in mer information om tjänster som erbjuds av utbytesleverantörer. Flera anslutningsleverantörer är redan ansluten till Ethernet-utbyten.
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
+  * [DE-CIX](https://www.de-cix.net/en/de-cix-service-world/cloud-exchange)
   * [Equinix Cloud Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
   * [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
   * [IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)

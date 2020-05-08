@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 1821623fbe2a22234af649934ac06e72897a19cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 14d1f042240fd045925afe1725b32ddade490dfe
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80052401"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858542"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3,0: Översätt
 
@@ -202,7 +202,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   <th>Beskrivning</th>
   <tr>
     <td>200</td>
-    <td>Lyckades.</td>
+    <td>Åtgärden lyckades.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -390,7 +390,7 @@ För <code>ProfanityMarker=Tag</code>, kommer svordomar att ord omges av &lt;XML
   </tr>
 </table> 
 
-Ett exempel:
+Exempel:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
@@ -454,6 +454,14 @@ Svaret är:
 
 ### <a name="obtain-alignment-information"></a>Hämta information om anpassning
 
+Justeringen returneras som ett sträng värde av följande format för varje ord i källan. Informationen för varje ord avgränsas med ett blank steg, inklusive för icke-separerade språk (skript) som kinesiska:
+
+[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
+
+Exempel på justerings sträng: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
+
+Kolon separerar exempelvis start-och slut index, strecket separerar språken och avståndet separerar orden. Ett ord kan justeras med noll, ett eller flera ord på det andra språket och de justerade orden kan vara icke-sammanhängande. Om ingen justerings information är tillgänglig är justerings elementet tomt. Metoden returnerar inga fel i detta fall.
+
 Om du vill ta emot information `includeAlignment=true` om anpassning anger du på frågesträngen.
 
 ```curl
@@ -483,9 +491,10 @@ Att hämta justerings information är en experimentell funktion som vi har aktiv
 
 * Justering är inte tillgängligt för text i HTML-format, dvs. textType = HTML
 * Justering returneras bara för en delmängd av språk paren:
-  - från engelska till ett annat språk.
-  - från andra språk till engelska utom förenklad kinesiska, traditionell kinesiska och lettiska till engelska,
+  - Engelska till/från andra språk än traditionell kinesiska, kantonesiska (traditionell) eller Serbiska (kyrilliska).
   - från japanska till koreanska eller från koreanska till japanska.
+  - från japanska till förenklad kinesiska och förenklad kinesiska till japanska. 
+  - från förenklad kinesiska till traditionell kinesiska och traditionell kinesiska till förenklad kinesiska. 
 * Du får ingen justering om meningen är en konserverad översättning. Exempel på en konserverad översättning är "det här är ett test", "Jag älskar dig" och andra meningar med hög frekvens.
 * Justering är inte tillgängligt när du tillämpar någon av metoderna för att förhindra översättning enligt beskrivningen [här](../prevent-translation.md)
 
@@ -515,7 +524,7 @@ Svaret är:
 
 ### <a name="translate-with-dynamic-dictionary"></a>Översätt med dynamisk ord lista
 
-Om du redan vet vilken översättning du vill använda för ett ord eller en fras kan du ange den som markering i begäran. Den dynamiska ord listan är bara säker för sammansatta substantiv som rätt namn och produkt namn.
+Om du redan vet vilken översättning du vill använda för ett ord eller en fras kan du ange den som markering i begäran. Den dynamiska ord listan är bara säker för korrekt substantiv, till exempel personliga namn och produkt namn.
 
 Den markering som ska tillhandahållas använder följande syntax.
 

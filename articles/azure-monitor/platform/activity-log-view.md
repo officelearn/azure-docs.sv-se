@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: d2423d04ead9040cce53d847d24efe75be680d94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4ea29888d4dcf589e3e5d4dfe594f5f4bff2287e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397309"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559975"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Visa och hämta Azure aktivitets logg händelser
 
@@ -71,7 +71,7 @@ Läs mer om ändrings historik i [Hämta resurs ändringar](../../governance/res
 Använd cmdleten [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) för att hämta aktivitets loggen från PowerShell. Här följer några vanliga exempel.
 
 > [!NOTE]
-> `Get-AzLog`innehåller endast 15 dagars historik. Använd parametern **-MaxEvents** för att fråga de senaste N händelserna efter 15 dagar. Använd REST API eller SDK för att få åtkomst till händelser som är äldre än 15 dagar. Om du inte inkluderar **StartTime**, är standardvärdet slut **tid** minus en timme. Om du **inte inkluderar slut tid är**standardvärdet aktuell tid. Alla tider är i UTC-tid.
+> `Get-AzLog`innehåller endast 15 dagars historik. Använd parametern **-MaxRecord** för att fråga de senaste N händelserna efter 15 dagar. Använd REST API eller SDK för att få åtkomst till händelser som är äldre än 15 dagar. Om du inte inkluderar **StartTime**, är standardvärdet slut **tid** minus en timme. Om du **inte inkluderar slut tid är**standardvärdet aktuell tid. Alla tider är i UTC-tid.
 
 
 Hämta logg poster som skapats efter en viss datum tid:
@@ -107,7 +107,7 @@ Get-AzLog -Caller 'myname@company.com'
 Hämta de senaste 1000 händelserna:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 1000
 ```
 
 

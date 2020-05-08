@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: d72a1057c359127eb70f0a82fbf2637409535dce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131173"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792045"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
 
@@ -93,7 +93,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 ### <a name="recommendations-when-configuring-akv"></a>Rekommendationer när du konfigurerar AKV
 
-- Associera högst 500 Generell användning eller 200 Affärskritisk-databaser totalt med ett nyckel valv i en enda prenumeration för att säkerställa hög tillgänglighet när servern använder TDE-skydd i nyckel valvet. Dessa siffror baseras på upplevelsen och dokumenterat i [nyckel valvs tjänstens gränser](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). Avsikten med detta är att förhindra problem efter serverns redundans, eftersom det utlöses som många viktiga åtgärder mot valvet eftersom det finns databaser på den servern.
+- Associera högst 500 Generell användning eller 200 Affärskritisk-databaser totalt med ett nyckel valv i en enda prenumeration för att säkerställa hög tillgänglighet när servern använder TDE-skydd i nyckel valvet. Dessa siffror baseras på upplevelsen och dokumenterat i [nyckel valvs tjänstens gränser](https://docs.microsoft.com/azure/key-vault/general/service-limits). Avsikten med detta är att förhindra problem efter serverns redundans, eftersom det utlöses som många viktiga åtgärder mot valvet eftersom det finns databaser på den servern.
 
 - Ange ett resurs lås i nyckel valvet för att kontrol lera vem som kan ta bort den här kritiska resursen och förhindra oavsiktlig eller obehörig borttagning. Läs mer om [resurs lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 

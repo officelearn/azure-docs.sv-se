@@ -16,6 +16,6 @@ ms.lasthandoff: 04/28/2020
 ms.locfileid: "77137672"
 ---
 > [!div class="op_single_selector"]
-> * [Portalen](../articles/iot-central/core/howto-manage-iot-central-from-portal.md)
+> * [Portal](../articles/iot-central/core/howto-manage-iot-central-from-portal.md)
 > * [CLI](../articles/iot-central/core/howto-manage-iot-central-from-cli.md)
 > * [PowerShell](../articles/iot-central/core/howto-manage-iot-central-from-powershell.md)

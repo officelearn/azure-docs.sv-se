@@ -3,14 +3,14 @@ title: Malldistribution vad-om (för hands version)
 description: Ta reda på vilka ändringar som sker i resurserna innan du distribuerar en Azure Resource Manager-mall.
 author: mumian
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 04/29/2020
 ms.author: jgao
-ms.openlocfilehash: f13789912e5b801295f1f926a12db50849cd75d8
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: HT
+ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509592"
+ms.locfileid: "82581197"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>ARM-mall för att distribuera konsekvens åtgärder (för hands version)
 
@@ -106,7 +106,7 @@ Om du vill förhandsgranska ändringar innan du distribuerar en mall `-Whatif` l
 * `New-AzResourceGroupDeployment -Whatif`för resurs grupps distributioner
 * `New-AzSubscriptionDeployment -Whatif`och `New-AzDeployment -Whatif` för distributioner på prenumerations nivå
 
-Eller så kan du använda `-Confirm` switch-parametern för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
+Du kan använda `-Confirm` switch-parametern för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
 
 * `New-AzResourceGroupDeployment -Confirm`för resurs grupps distributioner
 * `New-AzSubscriptionDeployment -Confirm`och `New-AzDeployment -Confirm` för distributioner på prenumerations nivå
@@ -123,10 +123,10 @@ Om du vill förhandsgranska ändringar innan du distribuerar en `what-if` mall a
 * `az deployment group what-if`för resurs grupps distributioner
 * `az deployment sub what-if`för distributioner på prenumerations nivå
 
-Eller så kan du använda- `--confirm-with-what-if` parametern för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
+Du kan använda `--confirm-with-what-if` växeln (eller dess kort form `-c`) för att förhandsgranska ändringarna och uppmanas att fortsätta med distributionen.
 
-* `az deployment group create --confirm-with-what-if`för resurs grupps distributioner
-* `az deployment sub create --confirm-with-what-if`för distributioner på prenumerations nivå
+* `az deployment group create --confirm-with-what-if`eller `-c` för resurs grupps distributioner
+* `az deployment sub create --confirm-with-what-if`eller `-c` för distributioner på prenumerations nivå
 
 Föregående kommandon returnerar en text sammanfattning som du kan kontrol lera manuellt. Om du vill hämta ett JSON-objekt som du kan använda program mässigt för att kontrol lera ändringar använder du:
 
@@ -340,7 +340,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 Konsekvens åtgärden stöder användning av [distributions läge](deployment-modes.md). När du har angett till slutfört läge raderas inte resurser som inte finns i mallen. I följande exempel distribueras en [mall som inte har några definierade resurser](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) i komplett läge.
 
-Om du vill förhandsgranska ändringar innan du distribuerar en mall `-Confirm` använder du parametern switch med kommandot Deployment. Om ändringarna visas som du förväntade dig, bekräftar du att du vill att distributionen ska slutföras.
+Om du vill förhandsgranska ändringar innan du distribuerar en mall använder du parametern Confirm switch med kommandot Deployment. Om ändringarna visas som du förväntade dig bekräftar du att du vill att distributionen ska slutföras.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

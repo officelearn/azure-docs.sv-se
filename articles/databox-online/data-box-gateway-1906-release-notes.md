@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 69c905176a5beb1c7d442cd5f1a69161cd520c5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f4633a3fcafcb2b3151270715036e7940eb1c91
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71099491"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561842"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1906-release-notes"></a>Viktig information om Azure Data Box Edge och Azure Data Box Gateway 1906
 
-I följande viktig information identifieras kritiska öppna problem och de lösta problemen för 1906-versionen för Azure Data Box Edge och Azure Data Box Gateway.
+I följande viktig information identifieras kritiska öppna problem och de lösta problemen för 1906-versionen för Azure Data Box Edge och Azure Data Box Gateway. 
 
 Viktig information uppdateras kontinuerligt och eftersom kritiska problem som kräver en lösning upptäcks, läggs de till. Innan du distribuerar Data Box Edge/Data Box Gateway bör du gå igenom informationen i viktig information.
 
@@ -31,8 +31,8 @@ Den här versionen motsvarar program varu versionerna:
 
 ## <a name="whats-new"></a>Nyheter
 
-- **Fel korrigering i arbets flödet för återställnings nyckel hantering** – i den tidigare versionen uppstod ett fel på grund av att återställnings nyckeln inte användes. Den här buggen har åtgärd ATS i den här versionen. Vi rekommenderar starkt att du installerar den här uppdateringen eftersom återställnings nyckeln låter dig återställa data på enheten, i händelse av att enheten inte startar. Mer information finns i så här [sparar du återställnings nyckeln när du distribuerar data Box Edge eller data Box Gateway](data-box-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
-- **Förbättringar av FPGA-loggning (fält programmerbara grind mat ris)** – starta 1905 version, loggning och aviserings förbättringar relaterade till FPGA gjordes. Detta fortsätter att vara en nödvändig uppdatering för Data Box Edge om du använder Edge Compute-funktionen med FPGA. Mer information finns i så här [omvandlar du data med Edge Compute på din data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Fel korrigering i arbets flödet för återställnings nyckel hantering** – i den tidigare versionen uppstod ett fel på grund av att återställnings nyckeln inte användes. Den här buggen har åtgärd ATS i den här versionen. Vi rekommenderar starkt att du installerar den här uppdateringen eftersom återställnings nyckeln låter dig återställa data på enheten, i händelse av att enheten inte startar. Mer information finns i så här [sparar du återställnings nyckeln när du distribuerar data Box Edge eller data Box Gateway](azure-stack-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
+- **Förbättringar av FPGA-loggning (fält programmerbara grind mat ris)** – starta 1905 version, loggning och aviserings förbättringar relaterade till FPGA gjordes. Detta fortsätter att vara en nödvändig uppdatering för Data Box Edge om du använder Edge Compute-funktionen med FPGA. Mer information finns i så här [omvandlar du data med Edge Compute på din data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## <a name="known-issues-in-ga-release"></a>Kända problem i GA-versionen
 
@@ -42,4 +42,4 @@ Inga nya problem har antecknats för den här versionen. Alla eventuella problem
 ## <a name="next-steps"></a>Nästa steg
 
 - [Förbereda distributionen av Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
-- [Förbered att distribuera Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Förbered att distribuera Azure Data Box Edge](azure-stack-edge-deploy-prep.md)

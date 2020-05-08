@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: df6d7943a5344b4288dfe369dcce9087b894984f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76166314"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580585"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Starta virtuella datorer i ett labb i ordning genom att använda Azure Automation runbooks
 Med funktionen [Autostart](devtest-lab-set-lab-policy.md#set-autostart) i DevTest Labs kan du konfigurera virtuella datorer så att de startar automatiskt vid en viss tidpunkt. Den här funktionen stöder dock inte att datorer startar i en speciell ordning. Det finns flera scenarier där den här typen av automatisering skulle vara användbar.  Ett scenario är var du måste starta en virtuell dator i ett labb innan du börjar med de andra virtuella datorerna, eftersom hoppet används som åtkomst punkt till de andra virtuella datorerna.  Den här artikeln visar hur du konfigurerar ett Azure Automation-konto med en PowerShell-Runbook som kör ett skript. Skriptet använder taggar på virtuella datorer i labbet för att kontrol lera start ordningen utan att behöva ändra skriptet.
@@ -133,7 +133,7 @@ While ($current -le 10) {
 ```
 
 ## <a name="create-a-schedule"></a>Skapa ett schema
-Om du vill att det här skriptet ska köras dagligen [skapar du ett schema](../automation/shared-resources/schedules.md#creating-a-schedule) i Automation-kontot. När schemat har skapats [länkar du det till Runbook-flödet](../automation/shared-resources/schedules.md#linking-a-schedule-to-a-runbook). 
+Om du vill att det här skriptet ska köras dagligen [skapar du ett schema](../automation/shared-resources/schedules.md#create-a-schedule) i Automation-kontot. När schemat har skapats [länkar du det till Runbook-flödet](../automation/shared-resources/schedules.md#link-a-schedule-to-a-runbook). 
 
 I en storskalig situation där det finns flera prenumerationer på flera labb, lagrar du parameter informationen i en fil för olika labb och skickar filen till skriptet i stället för de enskilda parametrarna. Skriptet skulle behöva ändras, men kärn körningen är densamma. Exemplet använder Azure Automation för att köra PowerShell-skriptet, men det finns andra alternativ som att använda en uppgift i en pipeline för build/release.
 

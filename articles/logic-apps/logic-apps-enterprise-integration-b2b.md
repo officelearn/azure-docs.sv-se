@@ -8,14 +8,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 01b2bd464db51e255930fe83a3f4321687322275
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77151198"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792368"
 ---
-# <a name="receive-and-send-b2b-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ta emot och skicka B2B-meddelanden med hjälp av Azure Logic Apps och Enterprise-integrationspaket
+# <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ta emot och bekräfta B2B AS2-meddelanden med hjälp av Azure Logic Apps och Enterprise-integrationspaket
 
 När du har ett integrations konto som definierar handels partner och avtal, kan du skapa ett automatiserat affärs-till-arbets-arbetsflöde (B2B) som utbyter meddelanden mellan handels partner med hjälp av [Azure Logic Apps](../logic-apps/logic-apps-overview.md) med [Enterprise-integrationspaket](../logic-apps/logic-apps-enterprise-integration-overview.md). Azure Logic Apps fungerar med kopplingar som stöder AS2-, X12-, EDIFACT-och RosettaNet-protokoll som är bransch standard. Du kan också kombinera dessa kopplingar med andra [anslutningar som är tillgängliga i Logic Apps](../connectors/apis-list.md), till exempel Salesforce och Office 365 Outlook.
 

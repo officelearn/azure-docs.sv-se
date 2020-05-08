@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/19/2019
 ms.author: victorh
-ms.openlocfilehash: ae80b49c3bfb40743665768622d3f4a8a6990c12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 286c9329be38055808571d8d32c724d27a61cbf3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311849"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855873"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway
 
@@ -28,6 +28,10 @@ Application Gateway stöder TLS-avslutning på gatewayen, efter vilken trafiken 
 - **Certifikat hantering** – certifikat behöver bara köpas och installeras på programgatewayen och inte på alla backend-servrar. Detta sparar både tid och pengar.
 
 Om du vill konfigurera TLS-terminering måste ett TLS/SSL-certifikat läggas till i lyssnaren för att Application Gateway ska kunna härleda en symmetrisk nyckel enligt specifikationen TLS/SSL-protokoll. Den symmetriska nyckeln används sedan för att kryptera och dekryptera trafiken som skickas till gatewayen. TLS/SSL-certifikatet måste vara i PFX-format (personal information Exchange). Med det här fil formatet kan du exportera den privata nyckeln som krävs av programgatewayen för att utföra kryptering och dekryptering av trafik.
+
+> [!IMPORTANT] 
+> Observera att certifikatet på lyssnaren kräver att hela certifikat kedjan laddas upp. 
+
 
 > [!NOTE] 
 >

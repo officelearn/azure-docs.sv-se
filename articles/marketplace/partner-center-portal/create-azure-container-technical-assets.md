@@ -1,29 +1,29 @@
 ---
-title: Skapa en teknisk till gång för Azure VM
-description: I den här artikeln beskrivs stegen och kraven för att konfigurera ett behållar erbjudande på Azure Marketplace.
+title: Tekniska begrepp för Azure Container-erbjudanden – Microsoft Commercial Marketplace
+description: Teknisk resurs och rikt linjer som hjälper dig att konfigurera ett behållar erbjudande på Azure Marketplace.
 author: anbene
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: e51b8c705533fd74a5e46eaa2570563fef485309
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3c6f88df151cc497f0de670d5d78a05c7477459
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730625"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791892"
 ---
-# <a name="create-an-azure-vm-technical-asset"></a>Skapa en teknisk till gång för Azure VM
+# <a name="create-an-azure-container-offer"></a>Skapa ett erbjudande för Azure Container
 
 > [!IMPORTANT]
 > Vi flyttar hantering av Azure Container-erbjudanden från Cloud Partner Portal till Partner Center. Innan du har migrerat dina erbjudanden följer du anvisningarna i [förbereda din behållares tekniska till gångar](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) för Cloud Partner Portal att hantera dina erbjudanden.
 
-I den här artikeln beskrivs stegen och kraven för att konfigurera ett behållar erbjudande på Azure Marketplace.
+Den här artikeln innehåller tekniska resurser och rekommendationer som hjälper dig att skapa ett behållar erbjudande på Azure Marketplace.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-För snabb starter, självstudier och exempel finns [Azure Container instances](https://docs.microsoft.com/azure/container-instances).
+Snabb starter, självstudier och exempel finns i [Azure Container instances-dokumentationen](https://docs.microsoft.com/azure/container-instances).
 
 ## <a name="fundamental-technical-knowledge"></a>Grundläggande teknisk kunskap
 
@@ -61,6 +61,6 @@ Mer information finns i följande Självstudier:
 - [Självstudie: skapa en behållar avbildning för distribution till Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
 - [Självstudie: bygga och distribuera behållar avbildningar i molnet med Azure Container Registry uppgifter](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task).
 
-## <a name="next-step"></a>Nästa steg
+## <a name="next-steps"></a>Nästa steg
 
 - [Skapa ett behållar erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-offer).

@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6334659d41ba201cfdde190ccc9bfa0d58009e3
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76264652"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891204"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuera och hantera Notification Hub med PowerShell
 
@@ -149,8 +149,8 @@ else
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Hantera Service Bus med PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-- [Så här skapar du Service Bus köer, ämnen och prenumerationer med hjälp av ett PowerShell-skript](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-- [Så här skapar du ett Service Bus-namnområde och en Event Hub med ett PowerShell-skript](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+- [Så här skapar du Service Bus köer, ämnen och prenumerationer med hjälp av ett PowerShell-skript](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+- [Så här skapar du ett Service Bus-namnområde och en Event Hub med ett PowerShell-skript](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 
 Vissa färdiga skript är också tillgängliga för nedladdning:
 
@@ -158,7 +158,7 @@ Vissa färdiga skript är också tillgängliga för nedladdning:
 
 [Köp alternativ]: https://azure.microsoft.com/pricing/purchase-options/
 [Medlems erbjudanden]: https://azure.microsoft.com/pricing/member-offers/
-[Kostnads fri utvärdering]: https://azure.microsoft.com/pricing/free-trial/
+[Kostnadsfri utvärderingsversion]: https://azure.microsoft.com/pricing/free-trial/
 [Installera och konfigurera Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET API för Notification Hubs]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

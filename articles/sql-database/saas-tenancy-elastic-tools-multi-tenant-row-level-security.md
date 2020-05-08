@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 4cf260620d4e907fdb9190a052155fa22f1c7985
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc08916967b4d64667065373cf2d0828a05069d0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398329"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890949"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Program med flera klienter med elastiska databas verktyg och säkerhet på radnivå
 
@@ -341,7 +341,7 @@ GO
 ### <a name="maintenance"></a>Underhåll
 
 - **Lägger till nya Shards**: kör T-SQL-skriptet för att aktivera RLS på alla nya Shards, annars filtreras inte frågor på dessa Shards.
-- **Nya tabeller läggs**till: Lägg till ett filter och blockera predikat i säkerhets principen på alla Shards varje gång som en ny tabell skapas. Andra frågor om den nya tabellen filtreras inte. Detta tillägg kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [tillämpa säkerhet på radnivå automatiskt för nyligen skapade tabeller (blogg)](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Nya tabeller läggs**till: Lägg till ett filter och blockera predikat i säkerhets principen på alla Shards varje gång som en ny tabell skapas. Andra frågor om den nya tabellen filtreras inte. Detta tillägg kan automatiseras med hjälp av en DDL-utlösare, enligt beskrivningen i [tillämpa säkerhet på radnivå automatiskt för nyligen skapade tabeller (blogg)](https://techcommunity.microsoft.com/t5/SQL-Server/Apply-Row-Level-Security-automatically-to-newly-created-tables/ba-p/384393).
 
 ## <a name="summary"></a>Sammanfattning
 

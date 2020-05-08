@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 05/04/2020
 tags: connectors
-ms.openlocfilehash: 1885d7f8713b3801ce0c9846b7a8509b3864032a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80656307"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900968"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
@@ -22,10 +22,13 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda be
 * Utlös ett arbets flöde när en extern webhook-händelse inträffar.
 * Ta emot och svara på ett HTTPS-anrop från en annan Logic app.
 
+Begär ande utlösare stöder [Azure Active Directory öppen autentisering](../active-directory/develop/about-microsoft-identity-platform.md) (Azure AD OAuth) för att auktorisera inkommande samtal till din Logic app. Mer information om hur du aktiverar den här autentiseringen finns i [skydda åtkomst och data i Azure Logic Apps – aktivera Azure AD OAuth-autentisering](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+
 > [!NOTE]
-> Begär ande utlösare stöder *endast* Transport Layer Security (TLS) 1,2 för inkommande anrop. Utgående samtal fortsätter att stödja TLS 1,0, 1,1 och 1,2. Mer information finns i [lösa problemet med TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
+> Begär ande utlösare stöder *endast* Transport Layer Security (TLS) 1,2 för inkommande anrop. Utgående anrop stöder TLS 1,0, 1,1 och 1,2. Mer information finns i [lösa problemet med TLS 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
 >
-> Om du ser fel i TLS-handskakning kontrollerar du att du använder TLS 1,2. För inkommande samtal är följande chiffersviter som stöds:
+> Om du får TLS-handskakning, se till att du använder TLS 1,2. 
+> För inkommande samtal är följande chiffersviter som stöds:
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -46,7 +49,7 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda be
 
 ## <a name="add-request-trigger"></a>Lägg till begär ande utlösare
 
-Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bara* får ta emot inkommande HTTPS-begäranden. När den här händelsen inträffar utlöses utlösaren och kör Logic-appen. Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i [begäran om utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med http-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
+Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bara* får ta emot inkommande HTTPS-begäranden. När den här händelsen inträffar utlöses utlösaren och kör Logic-appen.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa en tom logikapp.
 
@@ -61,7 +64,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST-URL** | alternativet | Ja | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
-   | **Begär ande text JSON-schema** | `schema` | Nej | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
+   | **Begär ande text JSON-schema** | `schema` | Inga | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
    |||||
 
 1. I rutan **begär text-JSON-schema** kan du ange ett JSON-schema som beskriver bröd texten i den inkommande begäran, till exempel:
@@ -159,8 +162,8 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **Metod** | `method` | Nej | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
-   | **Relativ sökväg** | `relativePath` | Nej | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
+   | **Metod** | `method` | Inga | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
+   | **Relativ sökväg** | `relativePath` | Inga | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
    |||||
 
    I det här exemplet läggs egenskapen **metod** till:
@@ -177,13 +180,17 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
 
-1. När du är klar sparar du din Logic app. I verktygsfältet designer väljer du **Spara**. 
+1. När du är klar sparar du din Logic app. I verktygsfältet designer väljer du **Spara**.
 
    Det här steget genererar URL: en som ska användas för att skicka begäran som utlöser Logic-appen. Om du vill kopiera den här URL: en väljer du kopierings ikonen bredvid URL: en.
 
    ![URL som ska användas för att utlösa din Logic app](./media/connectors-native-reqres/generated-url.png)
 
-1. Om du vill utlösa din Logic-App skickar du ett HTTP-inlägg till den genererade URL: en. Du kan till exempel använda ett verktyg som [Postman](https://www.getpostman.com/).
+1. Om du vill utlösa din Logic-App skickar du ett HTTP-inlägg till den genererade URL: en.
+
+   Du kan till exempel använda ett verktyg som [Postman](https://www.getpostman.com/) för att skicka http-inlägget. Om du har [aktiverat Azure Active Directory öppna autentisering](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) för att auktorisera inkommande anrop till begär ande utlösaren anropar du utlösaren med hjälp av en [URL för delad åtkomst (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) eller genom att använda en autentiseringstoken, men du kan inte använda båda. Autentiseringstoken måste ange `Bearer` typen i Authorization-huvudet. Mer information finns i [skydda åtkomst och data i Azure Logic Apps-åtkomst till begär ande-baserade-utlösare](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+
+Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i följande avsnitt, [begär utlösnings typ](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med http-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 ### <a name="trigger-outputs"></a>Utlös utdata
 
@@ -247,8 +254,8 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Fö
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **Status kod** | `statusCode` | Ja | Status koden som ska returneras i svaret |
-   | **Rubriker** | `headers` | Nej | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
-   | **Brödtext** | `body` | Nej | Svars texten |
+   | **Rubriker** | `headers` | Inga | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
+   | **Brödtext** | `body` | Inga | Svars texten |
    |||||
 
 1. Om du vill ange ytterligare egenskaper, till exempel ett JSON-schema för svars texten, öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill lägga till.

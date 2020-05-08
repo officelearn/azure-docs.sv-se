@@ -1,30 +1,30 @@
 ---
 title: Självstudie – Bygg ett program med hög tillgänglighet med Blob Storage
 titleSuffix: Azure Storage
-description: Använd Geo-redundant lagring med Läs behörighet för att göra dina program data hög tillgängliga.
+description: Använd Read-Access geo-Zone-redundant (RA-GZRS) lagring för att göra dina program data hög tillgängliga.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 04/16/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 27f90edf84fd51e5c13bc082cfaba50e26c54780
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19812ad8e8b81984bb7a314345d5fd53f917d239
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81606018"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856127"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Självstudie: Bygg ett program med hög tillgänglighet med Blob Storage
 
 Den här självstudien ingår i en serie. I den lär du dig att ge programdata hög tillgänglighet i Azure.
 
-När du har slutfört den här självstudien har du ett konsolprogram som laddar upp och hämtar en blob från ett [Read-Access Geo Redundant](../common/storage-redundancy.md)-lagringskonto (RA-GRS).
+När du har slutfört den här självstudien har du ett konsol program som laddar upp och hämtar en BLOB från ett [Read-Access geo-Zone-redundant](../common/storage-redundancy.md) (ra-GZRS) lagrings konto.
 
-Med RA-GRS replikeras transaktioner från en primär region till en sekundär region. Replikeringsprocessen garanterar att data i den sekundära regionen blir konsekventa. Programmet använder mönstret [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) (Kretsbrytare) för att avgöra vilken slutpunkt som ska anslutas till. Det växlar automatiskt mellan slutpunkter när fel och återställningar simuleras.
+GEO-redundans i Azure Storage replikerar transaktioner asynkront från en primär region till en sekundär region som är hundratals mil bort. Replikeringsprocessen garanterar att data i den sekundära regionen blir konsekventa. Konsol programmet använder [krets brytar](/azure/architecture/patterns/circuit-breaker) mönstret för att avgöra vilken slut punkt som ska användas för att ansluta till, vilket automatiskt växlar mellan slut punkter som felen och återställningar simuleras.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -58,31 +58,30 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
 Ett lagringskonto tillhandahåller en unik namnrymd där du kan lagra och få åtkomst till dina Azure-lagringdataobjekt.
 
-Följ dessa steg om du vill skapa ett RA-GRS-lagringskonto:
+Följ de här stegen om du vill skapa ett lagrings konto med Read-Access geo-Zone-redundant (RA-GZRS):
 
-1. Välj knappen **Skapa en resurs** längst upp till vänster i Azure Portal.
-2. Välj **Lagring** på sidan **Ny**.
-3. Välj **Lagringskonto – blob, fil, tabell, kö** i **Aktuellt**.
+1. Välj knappen **skapa en resurs** i Azure Portal.
+2. Välj **lagrings konto – BLOB, fil, tabell, kö** på den **nya** sidan.
 4. Fyll i formuläret för lagringskontot med följande information (se bilden nedan) och välj **Skapa**:
 
-   | Inställningen       | Föreslaget värde | Beskrivning |
+   | Inställningen       | Exempelvärde | Beskrivning |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Namn** | mystorageaccount | Ett unikt värde för lagringskontot |
-   | **Distributions modell** | Resource Manager  | Resource Manager innehåller de senaste funktionerna.|
-   | **Typ av konto** | StorageV2 | Mer information om kontotyper finns i [typer av lagringskonton](../common/storage-introduction.md#types-of-storage-accounts) |
-   | **Prestanda** | Standard | Standard är tillräckligt för exempelscenariot. |
-   | **Replikering**| Geo-redundant lagring med läsbehörighet (RA-GRS) | Detta krävs för att exemplet ska fungera. |
-   |**Prenumeration** | din prenumeration |Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
-   |**Position** | USA, östra | Välj en plats. |
+   | **Prenumeration** | *Min prenumeration* | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.azure.com/Subscriptions). |
+   | **ResourceGroup** | *myResourceGroup* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming). |
+   | **Namn** | *mystorageaccount* | Ett unikt namn för ditt lagrings konto. |
+   | **Position** | *USA, östra* | Välj en plats. |
+   | **Prestanda** | *Standard* | Standard prestanda är ett lämpligt alternativ för exempel scenariot. |
+   | **Typ av konto** | *StorageV2* | Vi rekommenderar att du använder ett lagrings konto för generell användning v2. Mer information om typer av Azure Storage-konton finns i [Översikt över lagrings konto](../common/storage-account-overview.md). |
+   | **Replikering**| *Read-Access geo-Zone-redundant lagring (RA-GZRS)* | Den primära regionen är zon-redundant och replikeras till en sekundär region, med Läs behörighet till den sekundära regionen aktive rad. |
+   | **Åtkomst nivå**| *Frekvent* | Använd frekvent nivå för data som används ofta. |
 
-![skapa lagringskonto](media/storage-create-geo-redundant-storage/createragrsstracct.png)
+    ![skapa lagringskonto](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
@@ -173,7 +172,7 @@ Installera de nödvändiga beroendena. Det gör du genom att öppna en kommando 
 
 I Visual Studio trycker du på **F5** eller väljer **Start** för att starta felsökning av programmet. Visual Studio återställer automatiskt NuGet-paket som saknas (om konfigurerat). Gå till avsnittet om hur du [installerar och ominstallerar paket med paketåterställning](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview) om du vill veta mer.
 
-Ett konsolfönster öppnas och programmet körs. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av en **P** eller en **s**. Där **P** representerar den primära slut punkten och **S** representerar den sekundära slut punkten.
+Ett konsolfönster öppnas och programmet körs. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att avbildningen har repliker ATS till den sekundära RA-GZRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av en **P** eller en **s**. Där **P** representerar den primära slut punkten och **S** representerar den sekundära slut punkten.
 
 ![Konsolprogrammet körs](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -181,7 +180,7 @@ I exempelkoden används aktiviteten `RunCircuitBreakerAsync` i filen `Program.cs
 
 # <a name="python"></a>[Python](#tab/python)
 
-Om du vill köra programmet i en terminal eller kommandotolk går du till katalogen **circuitbreaker.py** och skriver `python circuitbreaker.py`. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att bilden har replikerats till den sekundära RA-GRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av en **P** eller en **s**. Där **P** representerar den primära slut punkten och **S** representerar den sekundära slut punkten.
+Om du vill köra programmet i en terminal eller kommandotolk går du till katalogen **circuitbreaker.py** och skriver `python circuitbreaker.py`. Programmet överför bilden **HelloWorld.png** från lösningen till lagringskontot. Programmet kontrollerar att avbildningen har repliker ATS till den sekundära RA-GZRS-slutpunkten. Sedan börjar programmet ladda ned bilden upp till 999 gånger. Varje läsning representeras av en **P** eller en **s**. Där **P** representerar den primära slut punkten och **S** representerar den sekundära slut punkten.
 
 ![Konsolprogrammet körs](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -343,9 +342,9 @@ const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den första delen i serien lärde du dig hur du skapar ett program med hög tillgänglighet med RA-GRS-lagringskonton.
+I del ett av serien lärde du dig att göra ett program högt tillgängligt med RA-GZRS lagrings konton.
 
-Gå vidare till den andra delen i serien och lär dig hur du simulerar ett fel och tvingar programmet att använda den sekundära RA-GRS-slutpunkten.
+Gå vidare till del två i serien och lär dig hur du simulerar ett fel och tvingar ditt program att använda den sekundära RA-GZRS-slutpunkten.
 
 > [!div class="nextstepaction"]
-> [Simulera ett problem med att läsa från den primära regionen](storage-simulate-failure-ragrs-account-app.md)
+> [Simulera ett problem med att läsa från den primära regionen](simulate-primary-region-failure.md)

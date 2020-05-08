@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 00d5b86c8cae01d342d55b7ad20ec59c3f7530bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1de7b1412a242e1b658128ba11f482a2d9dc3107
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "67707845"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594805"
 ---
 # <a name="scaling-hpc-applications"></a>Skala HPC-program
 
@@ -37,7 +37,7 @@ Clang är en C-, C++-och mål-C-kompilator som hanterar för bearbetning, parsni
 
 ### <a name="flang"></a>FLANG
 
-FLANG-kompilatorn är ett nyare tillägg till AOCC Suite (lades till 2018 april) och är för närvarande i för hands versionen för att utvecklare ska kunna hämta och testa. Med hjälp av Fortran 2008 utökar AMD GitHub-versionen av FLANGhttps://github.com/flangcompiler/flang)(. FLANG-kompilatorn har stöd för alla clang compile-alternativ och ytterligare ett antal FLANG-angivna kompilator alternativ.
+FLANG-kompilatorn är ett nyare tillägg till AOCC Suite (lades till 2018 april) och är för närvarande i för hands versionen för att utvecklare ska kunna hämta och testa. Med hjälp av Fortran 2008 utökar AMD GitHub-versionen av FLANGhttps://github.com/flang-compiler/flang)(. FLANG-kompilatorn har stöd för alla clang compile-alternativ och ytterligare ett antal FLANG-angivna kompilator alternativ.
 
 ### <a name="dragonegg"></a>DragonEgg
 

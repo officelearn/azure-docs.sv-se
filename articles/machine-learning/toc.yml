@@ -56,12 +56,10 @@
             - name: Träna en maskininlärningsmodell automatiskt
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
-        - name: Machine Learning-pipelines (avancerat)
-          items:
-            - name: Batchbedöma en klassificeringsmodell
-              displayName: pipelines
-              href: tutorial-pipeline-batch-scoring-classification.md
-        - name: Gå från experiment till produktion
+        - name: Batchbedöma modeller med pipelines
+          displayName: pipelines
+          href: tutorial-pipeline-batch-scoring-classification.md
+        - name: Förbereda koden för produktion
           displayName: 'mlops, mlopspython, production'
           href: tutorial-convert-ml-experiment-to-production.md
     - name: R SDK
@@ -93,49 +91,58 @@
   items:
     - name: Planera och hantera kostnader
       href: concept-plan-manage-cost.md
+    - name: Designer (dra och släpp ML)
+      items:
+        - name: Designeröversikt
+          displayName: studio
+          href: concept-designer.md
+        - name: Algoritmfacit
+          href: /azure/machine-learning/algorithm-cheat-sheet
+        - name: Så här väljer du algoritmer
+          href: /azure/machine-learning/how-to-select-algorithms
+    - name: Automatisk ML
+      items:
+        - name: Översikt över automatiserad ML
+          displayName: 'automl, auto ml'
+          href: concept-automated-ml.md
+        - name: Överanpassning och obalanserade data
+          displayName: 'automl, auto ml, risks'
+          href: concept-manage-ml-pitfalls.md
     - name: Arbetsyta
       href: concept-workspace.md
     - name: Miljöer
       href: concept-environments.md
-    - name: Datainhämtning
-      href: concept-data-ingestion.md
-    - name: Dataåtkomst
-      href: concept-data.md
-    - name: Modellträning
-      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
-      href: concept-train-machine-learning-model.md
-    - name: Distribuerad träning
-      displayName: 'parallellization, deep learning, deep neural network, dnn'
-      href: concept-distributed-training.md
-    - name: Modellhantering (MLOps)
-      displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
-      href: concept-model-management-and-deployment.md
-    - name: Tolkning
-      displayName: explainability
-      href: how-to-machine-learning-interpretability.md
-    - name: 'Designer: ML utan kod'
-      displayName: studio
-      href: concept-designer.md
-    - name: Algoritmfacit
-      href: /azure/machine-learning/algorithm-cheat-sheet
-    - name: Så här väljer du algoritmer
-      href: /azure/machine-learning/how-to-select-algorithms
-    - name: Automatisk ML
-      displayName: 'automl, auto ml'
-      href: concept-automated-ml.md
-    - name: Överanpassning och obalanserade data
-      displayName: 'automl, auto ml, risks'
-      href: concept-manage-ml-pitfalls.md
     - name: Beräkninsinstans
       displayName: 'resource, dsvm, Data Science Virtual Machine'
       href: concept-compute-instance.md
     - name: Beräkningsmål
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
+    - name: Data
+      items:
+        - name: Dataåtkomst
+          href: concept-data.md
+        - name: Datainhämtning
+          href: concept-data-ingestion.md
+    - name: Modellträning
+      displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
+      href: concept-train-machine-learning-model.md
+    - name: Distribuerad träning
+      displayName: 'parallellization, deep learning, deep neural network, dnn'
+      href: concept-distributed-training.md
+    - name: Deep learning
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
+    - name: Modellhantering (MLOps)
+      displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
+      href: concept-model-management-and-deployment.md
+    - name: Modellportabilitet (ONNX)
+      href: concept-onnx.md
+    - name: Modelltolkning
+      displayName: explainability
+      href: how-to-machine-learning-interpretability.md
     - name: ML-pipelines
       href: concept-ml-pipelines.md
-    - name: ONNX
-      href: concept-onnx.md
     - name: Företagsberedskap och säkerhet
       items:
         - name: Företagssäkerhet
@@ -167,9 +174,6 @@
           href: monitor-azure-machine-learning.md
     - name: Event Grid-integrering
       href: concept-event-grid-integration.md
-    - name: Deep learning
-      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
-      href: concept-deep-learning-vs-machine-learning.md
 - name: Anvisningar
   items:
     - name: Skapa och hantera arbetsytor
@@ -188,6 +192,8 @@
         - name: Konfigurera utvecklingsmiljöer
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
+        - name: Kör Jupyter Notebooks
+          href: how-to-run-jupyter-notebooks.md
         - name: Konfigurera programvarumiljöer
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md
@@ -269,14 +275,14 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
-    - name: Förklara modeller
+    - name: Tolka och förklara modeller
       displayName: interpretability
       items:
-        - name: Förklara ML-modeller
-          displayName: 'SDK, interpret'
+        - name: Tolka ML-modeller
+          displayName: 'SDK, interpret, explain, explanability, interpretability'
           href: how-to-machine-learning-interpretability-aml.md
         - name: Förklara automatiska ML-modeller
-          displayName: 'SDK, interpret, automl'
+          displayName: 'SDK, interpret, interpret, explain, explanability, interpretability, automated ML, automl, auto ml'
           href: how-to-machine-learning-interpretability-automl.md
     - name: Azure-maskininlärning
       displayName: 'automl, auto ml'
@@ -295,6 +301,9 @@
         - name: Träna prognosmodeller automatiskt
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Använda automatiserad ML i ML-pipelines (Python)
+          displayName: machine learning automl
+          href: how-to-use-automlstep-in-pipelines.md
         - name: Förstå diagram och mått
           href: how-to-understand-automated-ml.md
     - name: Spåra och övervaka experiment
@@ -376,6 +385,9 @@
         - name: Azure-pipelines för CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Omvandla data i Designer
+          displayName: pipeline
+          href: how-to-designer-transform-data.md
         - name: Omträna med publicerade pipelines i Designer
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
@@ -391,6 +403,9 @@
         - name: Felkorrigera och felsöka parallella körningssteg
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
+        - name: Iterera och utveckla pipelines för maskininlärning
+          displayName: modularizing testing
+          href: concept-pipeline-practices-tips.md
     - name: Hantera resurskvoter
       displayName: limits
       href: how-to-manage-quotas.md

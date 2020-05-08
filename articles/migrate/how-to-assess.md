@@ -1,31 +1,21 @@
 ---
 title: Lägg till utvärderings verktyg i Azure Migrate
 description: Lär dig hur du lägger till bedömnings verktyg i Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
-ms.topic: article
-ms.manager: carmonm
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.date: 04/26/2020
+ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74185918"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901041"
 ---
 # <a name="add-assessment-tools"></a>Lägga till utvärderingsverktyg
 
-Den här artikeln beskriver hur du lägger till bedömnings verktyg i [Azure Migrate](migrate-overview.md).
+Den här artikeln beskriver hur du lägger till bedömnings verktyg i [Azure Migrate](migrate-overview.md). 
 
-Azure Migrate tillhandahåller en hubb med verktyg för utvärdering och migrering till Azure. Den innehåller Azure Migrate verktyg, samt andra verktyg och oberoende program varu leverantörer (ISV)-erbjudanden.
-
-Om du vill lägga till ett utvärderings verktyg och du inte har ett Azure Migrate projekt, följer du den här [artikeln](how-to-add-tool-first-time.md).
-
-## <a name="select-a-tool"></a>Välj ett verktyg
-
-Om du väljer ett verktyg som inte Azure Migrate för utvärdering börjar du med att skaffa en licens eller registrerar dig för en kostnads fri utvärderings version, i enlighet med verktygs principen. Det finns ett alternativ i verktyg för att ansluta till Azure Migrate. Följ anvisningarna och dokumentationen för att ansluta verktyget till Azure Migrate. [Läs mer](migrate-services-overview.md) om verktyg.
-
+- Om du vill lägga till ett bedömnings verktyg och du ännu inte har ett Azure Migrate projekt, följer du den här [artikeln](how-to-add-tool-first-time.md).
+- Om du har lagt till ett ISV-verktyg, eller om du vill ha en kontroll, [följer du stegen](prepare-isv-movere.md)för att förbereda arbetet med verktyget.
 
 ## <a name="select-an-assessment-scenario"></a>Välj ett utvärderings scenario
 

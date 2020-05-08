@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: 5134a262397676aa9b59de9b0c6de61c26d21523
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 545dbcfb1db5595ff5b2047ec44afa8a065d816d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262918"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594856"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Bädda in Video Indexer widgetar i dina appar
 
 Den här artikeln visar hur du kan bädda in Video Indexer widgetar i dina appar. Video Indexer stöder inbäddning av tre typer av widgetar i dina appar: *kognitiva insikter*, *spelare*och *redigerare*.
 
-Från och med version 2 innehåller widgeten bas-URL den region där det angivna kontot finns. Ett konto i regionen Västra USA genererar till exempel: `https://wus2.videoindexer.ai/embed/insights/...`.
+Från och med version 2 innehåller widgeten bas-URL den region där det angivna kontot finns. Ett konto i regionen Västra USA genererar till exempel: `https://www.videoindexer.ai/embed/insights/.../?location=westus2`.
 
 ## <a name="widget-types"></a>Widgettyper
 
@@ -36,6 +36,7 @@ En insiktswidget innehåller alla visuella insikter som extraherades från video
 |`language`|En kort språkkod (språk namn)|Kontrollerar insikter-språk.<br/>Exempel: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>eller`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | En kort språkkod | Styr språket för användar gränssnittet. Standardvärdet är `en`. <br/>Exempel: `locale=de`.|
 |`tab` | Den valda fliken standard | Styr fliken **insikter** som återges som standard. <br/>Exempel: `tab=timeline` återger insikter med fliken **tids linje** vald.|
+|`location` ||`location` Parametern måste inkluderas i de inbäddade länkarna, se [hur du hämtar namnet på din region](regions.md). Om ditt konto är i för hands version `trial` ska det användas för plats-värdet. `trial`är standardvärdet för `location` parametern.| 
 
 ### <a name="player-widget"></a>Spelarwidget
 
@@ -49,6 +50,7 @@ Du kan använda Player-widgeten för att strömma video med hjälp av anpassning
 |`type`| | Aktiverar ett ljuds pelar skal (video delen tas bort).<br/> Exempel: `type=audio`. |
 |`autoplay` | Ett booleskt värde | Anger om spelaren ska börja spela upp videon vid inläsning. Standardvärdet är `true`.<br/> Exempel: `autoplay=false`. |
 |`language`/`locale` | En språkkod | Kontrollerar Player-språket. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`.|
+|`location` ||`location` Parametern måste inkluderas i de inbäddade länkarna, se [hur du hämtar namnet på din region](regions.md). Om ditt konto är i för hands version `trial` ska det användas för plats-värdet. `trial`är standardvärdet för `location` parametern.| 
 
 ### <a name="editor-widget"></a>Editor-widget
 
@@ -59,24 +61,29 @@ Du kan använda Editor-widgeten för att skapa nya projekt och hantera video ins
 |`accessToken`<sup>*</sup> | Sträng | Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Editor kräver `accessToken` parametern. |
 |`language` | En språkkod | Kontrollerar Player-språket. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`. |
 |`locale` | En kort språkkod | Styr insikter-språket. Standardvärdet är `en`.<br/>Exempel: `language=de`. |
+|`location` ||`location` Parametern måste inkluderas i de inbäddade länkarna, se [hur du hämtar namnet på din region](regions.md). Om ditt konto är i för hands version `trial` ska det användas för plats-värdet. `trial`är standardvärdet för `location` paramete.| 
 
 <sup>*</sup>Ägaren bör ge `accessToken` en varning.
 
-## <a name="embedding-public-content"></a>Bädda in offentligt innehåll
+## <a name="embedding-videos"></a>Bädda in videor
+
+I det här avsnittet beskrivs hur du bäddar in offentligt och privat innehåll i appar.
+
+`location` Parametern måste inkluderas i de inbäddade länkarna, se [hur du hämtar namnet på din region](regions.md). Om ditt konto är i för hands version `trial` ska det användas för plats-värdet. `trial`är standardvärdet för `location` paramete. Till exempel: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+
+> [!IMPORTANT]
+> Om du delar en länk för **Player** -eller **Insights** -widgeten ingår åtkomsttoken och beviljar Läs behörighet till ditt konto.
+
+### <a name="public-content"></a>Offentligt innehåll
 
 1. Logga in på [video Indexer](https://www.videoindexer.ai/) webbplats.
-2. Välj den video som du vill arbeta med.
-3. Välj knappen Bädda in (**</>**) som visas under videon.
-
-    När du har valt knappen **bädda** in kan du välja den widget som du vill bädda in i din app.
-4. Välj vilken typ av widget du vill ha (**kognitiva insikter**, **spelare**eller **redigerare**).
+1. Välj den video som du vill arbeta med och tryck på **Play**.
+1. Välj vilken typ av widget du vill ha (**kognitiva insikter**, **spelare**eller **redigerare**).
+1. Klicka ** &lt; / på &gt; bädda in**.
 5. Kopiera inbäddnings koden (visas i **Kopiera den inbäddade koden** i dialog rutan **resurs & bädda in** ).
 6. Lägg till koden i din app.
 
-> [!NOTE]
-> Om du har problem med att dela dina video-URL `location` : er lägger du till parametern till länken. Parametern ska vara inställd på de [Azure-regioner där video Indexer finns](regions.md). Till exempel: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
-
-## <a name="embedding-private-content"></a>Bädda in privat innehåll
+### <a name="private-content"></a>Privat innehåll
 
 Om du vill bädda in en privat video måste du skicka en åtkomsttoken i `src` attributet för iframe:
 
@@ -186,7 +193,7 @@ Om du använder en annan Videos pelare än Azure Media Player måste du manuellt
         </video>    
 
 2. Bädda in insiktswidgeten.
-3. Implementera kommunikation för spelaren genom att lyssna på ”message”-händelsen. Ett exempel:
+3. Implementera kommunikation för spelaren genom att lyssna på ”message”-händelsen. Exempel:
 
         <script>
     
@@ -247,7 +254,7 @@ Observera att det här alternativet endast är relevant i fall när du behöver 
 
 Om du bäddar in Video Indexer-spelaren kan du välja storlek för spelaren genom att ange storlek på iframe-fönstret.
 
-Ett exempel:
+Exempel:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

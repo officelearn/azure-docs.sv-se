@@ -3,12 +3,12 @@ title: Introduktion till Azure Advisor
 description: Använd Azure Advisor för att optimera dina Azure-distributioner.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 600bda282d46f86979d0366719826c3a6c1323e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74048073677cdf0f9f57d84469959a84e78cd6c7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443084"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854429"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introduktion till Azure Advisor
 
@@ -24,7 +24,7 @@ Med Advisor kan du:
 
 Du kan komma åt Advisor via [Azure Portal](https://aka.ms/azureadvisordashboard). Logga in på [portalen](https://portal.azure.com), leta upp **Advisor** i navigerings menyn eller Sök efter den på menyn **alla tjänster** .
 
-Advisor-instrumentpanelen visar anpassade rekommendationer för alla dina prenumerationer.  Du kan använda filter för att Visa rekommendationer för vissa prenumerationer och resurs typer.  Rekommendationerna är indelade i fyra kategorier: 
+Advisor-instrumentpanelen visar anpassade rekommendationer för alla dina prenumerationer.  Du kan använda filter för att Visa rekommendationer för vissa prenumerationer och resurs typer.  Rekommendationerna är uppdelade i fem kategorier: 
 
 * **Hög tillgänglighet**: för att säkerställa och förbättra kontinuiteten för affärs kritiska program. Mer information finns i [rekommendationer för rekommendationer för hög tillgänglighet](advisor-high-availability-recommendations.md).
 * **Säkerhet**: för att identifiera hot och sårbarheter som kan leda till säkerhets överträdelser. Mer information finns i [rekommendationer för säkerhets rekommendationer](advisor-security-recommendations.md).

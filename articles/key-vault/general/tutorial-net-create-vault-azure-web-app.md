@@ -1,5 +1,5 @@
 ---
-title: Självstudie – Använda Azure Key Vault med Azure Web App i .NET | Microsoft Docs
+title: Självstudie – använda Azure Key Vault med en Azure webapp i .NET | Microsoft Docs
 description: I den här självstudien konfigurerar du ett ASP.NET Core-program för att läsa en hemlighet från ditt nyckel valv.
 services: key-vault
 author: msmbaldwin
@@ -7,209 +7,242 @@ manager: rajvijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.custom: mvc
-ms.openlocfilehash: bb907c809d411128ee799d5057379a2022144882
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 962b738d7e5f91076d17c19daad01f8dbaf92341
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422881"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888840"
 ---
-# <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Självstudie: Använda Azure Key Vault med Azure Web App i .NET
-
-Med Azure Key Vault kan du skydda hemligheter, till exempel API-nycklar och databasanslutningssträngar. Det ger dig tillgång till dina program, tjänster och IT-resurser.
-
-I den här självstudien får du lära dig hur du skapar ett Azure-webbprogram som kan läsa information från ett Azure-nyckelvalv. Processen använder hanterade identiteter för Azure-resurser. Mer information om Azure-webbprogram finns i [Azure App Service](../../app-service/overview.md).
-
-Självstudien visar hur du:
-
-> [!div class="checklist"]
-> * Skapa ett nyckelvalv.
-> * Lägg till en hemlighet i nyckelvalvet.
-> * Hämta en hemlighet från nyckelvalvet.
-> * Skapa en Azure-webbapp.
-> * Aktivera en hanterad identitet för webbappen.
-> * Tilldela behörighet för webbappen.
-> * Kör webb programmet på Azure.
-
-Läs [Key Vault grundläggande koncept](basic-concepts.md)innan du börjar. 
-
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-## <a name="prerequisites"></a>Krav
-
-* För Windows: [.net Core 2,1 SDK eller senare](https://www.microsoft.com/net/download/windows)
-* För Mac: [Visual Studio för Mac](https://visualstudio.microsoft.com/vs/mac/)
-* För Windows, Mac och Linux:
-  * [Git](https://git-scm.com/downloads)
-  * Den här självstudien kräver att du kör Azure CLI lokalt. Du måste ha Azure CLI-versionen 2.0.4 eller senare installerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera CLI kan du läsa [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
-  * [.NET Core](https://www.microsoft.com/net/download/dotnet-core/2.1)
-
-## <a name="about-managed-service-identity"></a>Om Hanterad tjänstidentitet
-
-Azure Key Vault lagrar autentiseringsuppgifterna på ett säkert sätt så att de inte visas i din kod. Men måste du autentisera till Azure Key Vault för att hämta dina nycklar. För att autentisera till Key Vault behöver du autentiseringsuppgifter. Det är ett klassiskt bootstrap-problem. Hanterad tjänstidentitet (MSI) löser problemet genom att tillhandahålla en _bootstrapidentitet_ som förenklar processen.
-
-När du aktiverar MSI för en Azure-tjänst, till exempel Azure Virtual Machines, Azure App Service eller Azure Functions, skapar Azure ett [huvud namn för tjänsten](basic-concepts.md). MSI gör detta för instansen av tjänsten i Azure Active Directory (Azure AD) och infogar autentiseringsuppgifterna för tjänstens huvud namn i den instansen.
-
-![MSI-diagram](../media/MSI.png)
-
-Sedan anropar din kod en lokal metadatatjänst som är tillgänglig på Azure-resursen för att få en åtkomsttoken. Koden använder den åtkomsttoken som den får från den lokala MSI-slutpunkt för att autentisera till en Azure Key Vault-tjänst.
-
-## <a name="log-in-to-azure"></a>Logga in på Azure
-
-Om du vill logga in i Azure med hjälp av Azure CLI anger du:
-
-```azurecli
-az login
-```
-
-## <a name="create-a-resource-group"></a>Skapa en resursgrupp
-
-En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
-
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az-group-create).
-
-Välj sedan ett resurs grupp namn och fyll i plats hållaren. I följande exempel skapas en resursgrupp i regionen USA, västra:
-
-   ```azurecli
-   # To list locations: az account list-locations --output table
-   az group create --name "<YourResourceGroupName>" --location "West US"
-   ```
-
-Du kan använda den här resursgruppen i den här självstudien.
-
-## <a name="create-a-key-vault"></a>Skapa ett nyckelvalv
-
-Ange följande information för att skapa ett nyckelvalv i resursgruppen:
-
-* Nyckel valvets namn: en sträng på 3 till 24 tecken som bara får innehålla siffror (0-9), bokstäver (a-z, A-Z) och bindestreck (-)
-* Namn på resursgrupp
-* Plats: **västra USA**
-
-Ange följande kommando i Azure CLI:
-
-```azurecli
-az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
-```
-
-I det här läget är ditt Azure-konto det enda som har behörighet att utföra åtgärder på det nya valvet.
-
-## <a name="add-a-secret-to-the-key-vault"></a>Lägga till en hemlighet i nyckelvalvet
-
-Nu kan du lägga till en hemlighet. Det kan vara en SQL-anslutningssträng eller annan information som du behöver hålla både skyddad och tillgänglig för ditt program.
-
-Om du vill skapa en hemlighet i nyckel valvet som heter **AppSecret**, anger du följande kommando: 
-
-```azurecli
-az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
-```
-
-Den här hemligheten lagrar värdet **MySecret**.
-
-Om du vill visa värdet som finns i hemligheten som oformaterad text, anger du följande kommando:
-
-```azurecli
-az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
-```
-
-Det här kommandot visar hemlig information, inklusive URI. 
-
-När du har slutfört de här stegen bör du ha en URI till en hemlighet i nyckelvalvet. Anteckna den här informationen för senare användning i den här självstudien. 
-
-## <a name="create-a-net-core-web-app"></a>Skapa en .NET Core-webbapp
-
-Om du vill skapa en .NET Core-webbapp och publicera den till Azure följer du anvisningarna i [skapa en ASP.net Core webbapp i Azure](../../app-service/app-service-web-get-started-dotnet.md). 
-
-Du kan även se den här videon:
-
->[!VIDEO https://www.youtube.com/embed/EdiiEH7P-bU]
-
-## <a name="open-and-edit-the-solution"></a>Öppna och redigera lösningen
-
-1. Gå till**About.cshtml.cs** -filen **Pages** > .
-
-1. Installera dessa Nuget-paket:
-   - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
-   - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
-
-1. Importera följande kod till *About.cshtml.cs* -filen:
-
-   ```csharp
-    using Microsoft.Azure.KeyVault;
-    using Microsoft.Azure.KeyVault.Models;
-    using Microsoft.Azure.Services.AppAuthentication;
-   ```
-
-   Koden i AboutModel-klassen bör se ut så här:
-
-   ```csharp
-    public class AboutModel : PageModel
-    {
-        public string Message { get; set; }
-
-        public async Task OnGetAsync()
-        {
-            Message = "Your application description page.";
-            int retries = 0;
-            bool retry = false;
-            try
-            {
-                /* The next four lines of code show you how to use AppAuthentication library to fetch secrets from your key vault */
-                AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                var secret = await keyVaultClient.GetSecretAsync("https://<YourKeyVaultName>.vault.azure.net/secrets/AppSecret")
-                        .ConfigureAwait(false);
-                Message = secret.Value;
-            }
-            /* If you have throttling errors see this tutorial https://docs.microsoft.com/azure/key-vault/tutorial-net-create-vault-azure-web-app */
-            /// <exception cref="KeyVaultErrorException">
-            /// Thrown when the operation returned an invalid status code
-            /// </exception>
-            catch (KeyVaultErrorException keyVaultException)
-            {
-                Message = keyVaultException.Message;
-            }
-        }
-
-        // This method implements exponential backoff if there are 429 errors from Azure Key Vault
-        private static long getWaitTime(int retryCount)
-        {
-            long waitTime = ((long)Math.Pow(2, retryCount) * 100L);
-            return waitTime;
-        }
-
-        // This method fetches a token from Azure Active Directory, which can then be provided to Azure Key Vault to authenticate
-        public async Task<string> GetAccessTokenAsync()
-        {
-            var azureServiceTokenProvider = new AzureServiceTokenProvider();
-            string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
-            return accessToken;
-        }
-    }
-    ```
-
-## <a name="run-the-web-app"></a>Kör webbappen
-
-1. På huvud menyn i Visual Studio 2019 väljer du **Felsök** > **Start**, med eller utan fel sökning. 
-1. Gå till sidan **om** i webbläsaren.  
-    Värdet för **AppSecret** visas.
-
-## <a name="enable-a-managed-identity"></a>Aktivera en hanterad identitet
+# <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp med .NET
 
 Azure Key Vault är ett sätt att lagra autentiseringsuppgifter samt andra hemligheter på ett säkert sätt, men din kod måste autentiseras till Key Vault för att kunna hämta dem. [Hanterade identiteter för Azure-resurser (översikt)](../../active-directory/managed-identities-azure-resources/overview.md) löser detta problem genom att ge Azure-tjänsterna en automatiskt hanterad identitet i Azure AD. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva Visa autentiseringsuppgifter i din kod.
 
-I Azure CLI skapar du identiteten för det här programmet genom att köra kommandot tilldela identitet:
+I den här självstudien används en hanterad identitet för att autentisera en Azure-webbapp med en Azure Key Vault. Även om stegen använder [Azure Key Vault v4-klient biblioteket för .net](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) och [Azure CLI](/cli/azure/get-started-with-azure-cli), gäller samma grundläggande principer när du använder det utvecklings språk du väljer, Azure PowerShell och/eller Azure Portal.
 
-```azurecli
-az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
+## <a name="prerequisites"></a>Krav
+
+För att slutföra den här snabbstarten behöver du:
+
+* En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [.Net Core 3,1 SDK eller senare](https://dotnet.microsoft.com/download/dotnet-core/3.1).
+* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/overview)
+
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
+En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. Skapa en resurs grupp för att House både ditt nyckel valv och din webbapp med kommandot [AZ Group Create](/cli/azure/group?view=azure-cli-latest#az-group-create) :
+
+```azurecli-interactive
+az group create --name "myResourceGroup" -l "EastUS"
 ```
 
-Ersätt \<YourAppName> med namnet på den publicerade appen på Azure.  
-    Om namnet på den publicerade appen exempelvis var **MyAwesomeapp.azurewebsites.net**ersätter \<du YourAppName> med **MyAwesomeapp**.
+## <a name="set-up-your-key-vault"></a>Konfigurera ditt nyckel valv
 
-Anteckna `PrincipalId` när du publicerar programmet till Azure. Kommandot i steg 1 ger utdata i följande format:
+Nu ska du skapa ett nyckel valv och placera en hemlighet i det, för senare användning i den här självstudien.
+
+Om du vill skapa ett nyckel valv använder du kommandot AZ-kommandot för att skapa ett nyckel [valv](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) :
+
+> [!Important]
+> Varje nyckel valv måste ha ett unikt namn. Ersätt <ditt-Key Vault-namn> med namnet på nyckel valvet i följande exempel.
+
+```azurecli-interactive
+az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
+```
+
+Anteckna den returnerade `vaultUri`, som kommer att ha formatet "https://<ditt-nyckel valv>. Vault.Azure.net/". Den kommer att användas i steget [Uppdatera kod](#update-the-code) steget.
+
+Du kan nu placera en hemlighet i ditt nyckel valv med kommandot [AZ Key Vault Secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) . Ange namnet på din hemlighet till "hemlig hemlighet" och värdet till "lyckades!".
+
+```azurecli-interactive
+az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
+```
+
+## <a name="create-a-net-web-app"></a>Skapa en .NET-webbapp
+
+### <a name="create-a-local-app"></a>Skapa en lokal app
+
+I ett terminalfönster på datorn skapar du en katalog med namnet `akvwebapp` och ändrar katalogen till den.
+
+```bash
+mkdir akvwebapp
+cd akvwebapp
+```
+
+Skapa nu en ny .NET Core-app med kommandot [dotNet New Web](/dotnet/core/tools/dotnet-new) :
+
+```bash
+dotnet new web
+```
+
+Kör programmet lokalt så att du ser hur det ska se ut när du distribuerar det till Azure. 
+
+```bash
+dotnet run
+```
+
+Öppna webbläsaren och navigera till appen på `http://localhost:5000`.
+
+Du ser **Hello World** meddelandet från exempel programmet som visas på sidan.
+
+### <a name="initialize-the-git-repository"></a>Initiera git-lagringsplatsen
+
+Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.  Initiera en Git-lagringsplats för .NET Core-projektet.
+
+```bash
+git init
+git add .
+git commit -m "first commit"
+```
+
+### <a name="configure-a-deployment-user"></a>Konfigurera en distributionsanvändare
+
+FTP och lokal git kan distribueras till en Azure-webbapp med hjälp av en *distributions användare*. När du har konfigurerat din distributions användare kan du använda den för alla dina Azure-distributioner. Ditt användar namn och lösen ord för distribution på konto nivå skiljer sig från dina autentiseringsuppgifter för Azure-prenumerationen. 
+
+Konfigurera distributions användaren genom att köra kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Välj ett användar namn och lösen ord som följer dessa rikt linjer: 
+
+- Användar namnet måste vara unikt inom Azure, och för lokala git-push-meddelanden får inte innehålla @-symbolen. 
+- Lösen ordet måste innehålla minst åtta tecken, med två av följande tre element: bokstäver, siffror och symboler. 
+
+```azurecli-interactive
+az webapp deployment user set --user-name "<username>" --password "<password>"
+```
+
+JSON-utdata visar lösen ordet som `null`. Om du ser felet `'Conflict'. Details: 409` ska du byta användarnamn. Om du ser felet `'Bad Request'. Details: 400` ska du använda ett starkare lösenord. 
+
+Registrera ditt användar namn och lösen ord som ska användas för att distribuera dina webb program.
+
+### <a name="create-an-app-service-plan"></a>Skapa en app service-plan
+
+Skapa en App Service plan med kommandot Azure CLI [AZ AppService plan Create](/cli/azure/appservice/plan?view=azure-cli-latest) . I följande exempel skapas en App Service plan med `myAppServicePlan` namnet på den **kostnads fria** pris nivån:
+
+```azurecli-interactive
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
+```
+
+När App Service-planen har skapats visas information av Azure CLI. Informationen ser ut ungefär som i följande exempel:
+
+<pre>
+{ 
+  "adminSiteName": null,
+  "appServicePlanName": "myAppServicePlan",
+  "geoRegion": "West Europe",
+  "hostingEnvironmentProfile": null,
+  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
+  "kind": "app",
+  "location": "West Europe",
+  "maximumNumberOfWorkers": 1,
+  "name": "myAppServicePlan",
+  &lt; JSON data removed for brevity. &gt;
+  "targetWorkerSizeId": 0,
+  "type": "Microsoft.Web/serverfarms",
+  "workerTierName": null
+} 
+</pre>
+
+
+### <a name="create-a-remote-web-app"></a>Skapa en fjärran sluten webbapp
+
+Skapa en [Azure-webbapp](../../app-service/containers/app-service-linux-intro.md) i `myAppServicePlan` App Service plan. 
+
+> [!Important]
+> I likhet med Key Vault måste en Azure-webbapp ha ett unikt namn. Ersätt \<ditt-webapp-namn\> med namnet på din webbapp i följande exempel.
+
+
+```azurecli-interactive
+az webapp create --resource-group "myResourceGroup" --plan "myAppServicePlan" --name "<your-webapp-name>" --deployment-local-git
+```
+
+När webbappen har skapats visar Azure CLI utdata liknande den i följande exempel:
+
+<pre>
+Local git is configured with url of 'https://&lt;username&gt;@&lt;your-webapp-name&gt;.scm.azurewebsites.net/&lt;ayour-webapp-name&gt;.git'
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "clientCertExclusionPaths": null,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "&lt;your-webapp-name&gt;.azurewebsites.net",
+  "deploymentLocalGitUrl": "https://&lt;username&gt;@&lt;your-webapp-name&gt;.scm.azurewebsites.net/&lt;your-webapp-name&gt;.git",
+  "enabled": true,
+  &lt; JSON data removed for brevity. &gt;
+}
+</pre>
+
+
+URL för fjärransluten Git visas i egenskapen `deploymentLocalGitUrl` med formatet `https://<username>@<your-webapp-name>.scm.azurewebsites.net/<your-webapp-name>.git`. Spara den här URL: en när du behöver den senare.
+
+Bläddra till appen som precis skapades. Ersätt _ &lt;ditt-webapp-namn>_ med ditt app-namn.
+
+```bash
+https://<your-webapp-name>.azurewebsites.net
+```
+
+Standard webb sidan visas för en nyligen skapad Azure-webbapp.
+
+### <a name="deploy-your-local-app"></a>Distribuera din lokala app
+
+I det lokala terminalfönstret kan du lägga till en Azure-fjärrdatabas till din lokala git-lagringsplats och ersätta * \<deploymentLocalGitUrl-från-Create-Step>* med URL: en för git-fjärrdatorn som du sparade från [skapa ett](#create-a-remote-web-app) steg i en fjärrwebbapp.
+
+```bash
+git remote add azure <deploymentLocalGitUrl-from-create-step>
+```
+
+Skicka till Azure-fjärrdatabasen för att distribuera appen med följande kommando. När git Credential Manager uppmanas att ange autentiseringsuppgifter använder du de autentiseringsuppgifter som du skapade i [Konfigurera ett steg för distributions användare](#configure-a-deployment-user) .
+
+```bash
+git push azure master
+```
+
+Det kan ett par minuter att köra kommandot. Medan det körs visas information liknande den i följande exempel:
+<pre>
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 285 bytes | 95.00 KiB/s, done.
+Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+remote: Deploy Async
+remote: Updating branch 'master'.
+remote: Updating submodules.
+remote: Preparing deployment for commit id 'd6b54472f7'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
+remote:
+remote: Oryx Version      : 0.2.20200114.13, Commit: 204922f30f8e8d41f5241b8c218425ef89106d1d, ReleaseTagName: 20200114.13
+remote: Build Operation ID: |imoMY2y77/s=.40ca2a87_
+remote: Repository Commit : d6b54472f7e8e9fd885ffafaa64522e74cf370e1
+.
+.
+.
+remote: Deployment successful.
+remote: Deployment Logs : 'https://&lt;your-webapp-name&gt;.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/d6b54472f7e8e9fd885ffafaa64522e74cf370e1/log'
+To https://&lt;your-webapp-name&gt;.scm.azurewebsites.net:443/&lt;your-webapp-name&gt;.git
+   d87e6ca..d6b5447  master -> master
+</pre>
+
+Bläddra till (eller uppdatera) det distribuerade programmet med hjälp av webbläsaren.
+
+```bash
+http://<your-webapp-name>.azurewebsites.net
+```
+
+Du kommer att se "Hello World!" meddelande som du tidigare såg när `http://localhost:5000`du besökte.
+
+## <a name="create-and-assign-a-managed-identity"></a>Skapa och tilldela en hanterad identitet
+
+I Azure CLI skapar du identiteten för det här programmet genom att köra kommandot [AZ webapp-Identity Assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) :
+
+```azurecli-interactive
+az webapp identity assign --name "<your-webapp-name>" --resource-group "myResourceGroup"
+```
+
+Åtgärden returnerar följande JSON-kodfragment:
 
 ```json
 {
@@ -219,35 +252,77 @@ Anteckna `PrincipalId` när du publicerar programmet till Azure. Kommandot i ste
 }
 ```
 
->[!NOTE]
->Kommandot i den här proceduren är detsamma som att gå till [Azure Portal](https://portal.azure.com) och växla **identitet/systemtilldelad** till **på** i egenskaperna för webb program.
+Om du vill ge ditt webb program behörighet att utföra **Get** -och **list** -åtgärder i ditt nyckel valv skickar du principalID till Azure CLI [-AZ för att ange princip](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) kommando:
 
-## <a name="assign-permissions-to-your-app"></a>Tilldela behörigheter till din app
-
-Ersätt \<YourKeyVaultName> med namnet på ditt nyckel valv och Ersätt \<PrincipalId-> med värdet för **PrincipalId** i följande kommando:
-
-```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
+```azurecli-interactive
+az keyvault set-policy --name "<your-keyvault-name>" --object-id "<principalId>" --secret-permissions get list
 ```
 
-Det här kommandot ger identiteten (MSI) för App Service-behörigheten att utföra **Get** -och **list** åtgärder i ditt nyckel valv.
 
-## <a name="publish-the-web-app-to-azure"></a>Publicera webbappen i Azure
+## <a name="modify-the-app-to-access-your-key-vault"></a>Ändra appen för åtkomst till ditt nyckel valv
 
-Publicera din webbapp på Azure en gång för att kontrol lera att din direktsända webbapp kan hämta det hemliga värdet.
+### <a name="install-the-packages"></a>Installera paketen
 
-1. I Visual Studio väljer du projektet **key-vault-dotnet-core-quickstart**.
-2. Välj **publicera** > **Start**.
-3. Välj **Skapa**.
+I terminalfönstret installerar du Azure Key Vault klient biblioteket för .NET-paket:
 
-När du kör programmet bör se att det knan hämta ditt hemliga värde.
+```console
+dotnet add package Azure.Identity
+dotnet add package Azure.Security.KeyVault.Secrets
+```
 
-Nu har du skapat en webbapp i .NET som lagrar och hämtar dess hemligheter från ditt nyckel valv.
+### <a name="update-the-code"></a>Uppdatera koden
 
-## <a name="clean-up-resources"></a>Rensa resurser
-När de inte längre behövs kan du ta bort den virtuella datorn och nyckel valvet.
+Hitta och öppna filen Startup.cs i ditt akvwebapp-projekt. 
+
+Lägg till de här två raderna i rubriken:
+
+```csharp
+using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+```
+
+Lägg till dessa tre rader före `app.UseEndpoints` anropet, och uppdatera URI: n `vaultUri` för att avspegla nyckel valvet.
+
+```csharp
+var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential());
+
+KeyVaultSecret secret = client.GetSecret("mySecret");
+
+string secretValue = secret.Value;
+```
+
+Uppdatera raden `await context.Response.WriteAsync("Hello World!");` för att läsa:
+
+```csharp
+await context.Response.WriteAsync(secretValue);
+```
+
+Var säker på att spara ändringarna innan du fortsätter till nästa steg.
+
+### <a name="redeploy-your-web-app"></a>Distribuera om din webbapp
+
+När du har uppdaterat koden kan du distribuera om den till Azure med följande git-kommandon:
+
+```bash
+git add .
+git commit -m "Updated web app to access my key vault"
+git push azure master
+```
+
+## <a name="visit-your-completed-web-app"></a>Besök din färdiga webbapp
+
+```bash
+http://<your-webapp-name>.azurewebsites.net
+```
+
+Innan du såg **Hello World**bör du nu se värdet för din hemlighet som visas: **lyckades!**
 
 ## <a name="next-steps"></a>Nästa steg
 
->[!div class="nextstepaction"]
->[Utvecklarguide för Azure Key Vault](developers-guide.md)
+- Lär dig mer om [hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md)
+- Läs mer om [hanterade identiteter för App Service](../../app-service/overview-managed-identity.md?tabs=dotnet)
+- Se [Azure Key Vault klient bibliotek för .NET API-referens](/dotnet/api/overview/azure/key-vault?view=azure-dotnet)
+- Se [Azure Key Vault klient bibliotek för .net-källkod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)
+- Se [v4-Azure Key Vault klient bibliotek för .net NuGet-paket](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+
+

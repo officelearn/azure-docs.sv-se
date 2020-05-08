@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/20/2020
-ms.openlocfilehash: 6b353967c9b9c7517f1a42581717c6394c0e6374
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 0a8864555798d3b64d675c70728ab97d191be81f
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729145"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891383"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Alter Row-transformering i mappnings data flödet
 
@@ -24,6 +24,8 @@ Använd transformeringen Alter Row för att ange INSERT-, DELETE-, Update-och up
 ![Ändra rad inställningar](media/data-flow/alter-row1.png "Ändra rad inställningar")
 
 Alter Row-transformeringar fungerar bara på databas-eller CosmosDB-mottagare i ditt data flöde. De åtgärder som du tilldelar till rader (Insert, Update, DELETE, upsert) sker inte under debug-sessioner. Kör en aktivitet för att köra data flöde i en pipeline för att införa Alter Row-principerna på dina databas tabeller.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4vJYc]
 
 ## <a name="specify-a-default-row-policy"></a>Ange en standard rads princip
 
@@ -54,6 +56,18 @@ Standard beteendet är att endast tillåta infogningar. Om du vill tillåta uppd
 > Om dina infogningar, uppdateringar eller upsertar ändrar schemat för mål tabellen i sinken kommer data flödet inte att fungera. Om du vill ändra mål schema i databasen väljer du **Återskapa tabell** som tabell åtgärd. Detta tar bort och återskapar din tabell med den nya schema definitionen.
 
 Omvandlingen av mottagare kräver antingen en enskild nyckel eller en serie nycklar för unik rad identifiering i mål databasen. För SQL-mottagare anger du nycklarna på fliken mottagar inställningar. För CosmosDB anger du partitionsnyckel i inställningarna och anger även CosmosDB system fält "ID" i mottagar mappningen. För CosmosDB är det obligatoriskt att inkludera system kolumnen "ID" för uppdateringar, upsertar och borttagningar.
+
+## <a name="merges-and-upserts-with-azure-sql-database-and-synapse"></a>Sammanslagningar och upsertar med Azure SQL Database och Synapse
+
+ADF-dataflöden stöder sammanslagningar mot Azure SQL Database och Synapse (informations lager) med alternativet upsert.
+
+Du kan dock stöta på scenarier där mål databasens schema använder identitets egenskapen för nyckel kolumner. ADF kräver att du identifierar de nycklar som ska användas för att matcha rad värden för uppdateringar och upsertar. Men om kolumnen mål har angetts som identitets egenskap och du använder upsert-principen kan inte mål databasen skriva till kolumnen.
+
+Du kan välja mellan två alternativ:
+
+1. Använd SQL-alternativet för att bearbeta Sink-omvandlingen ```SET IDENTITY_INSERT tbl_content ON```:. Stäng sedan av den med SQL-egenskapen efter bearbetning: ```SET IDENTITY_INSERT tbl_content OFF```.
+
+2. I stället för att använda upsert byter du din logik för att separera uppdaterings villkoren från INSERT-villkoren med en villkorlig delnings omvandling. På så sätt kan du ange mappningen på uppdaterings Sök vägen för att ignorera nyckel kolumn mappningen.
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 

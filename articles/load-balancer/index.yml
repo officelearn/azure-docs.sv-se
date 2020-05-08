@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: asudbring
   ms.author: allensu
-  ms.date: 12/05/2019
-  ms.openlocfilehash: 46afc139f240b46b9512360e79411a5bc8b03ec4
-  ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+  ms.date: 05/07/2020
+  ms.openlocfilehash: 73d36c795ca4be905ac6e9bab31cfe00374bfa13
+  ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/03/2020
-  ms.locfileid: "82732996"
+  ms.lasthandoff: 05/08/2020
+  ms.locfileid: "82930632"
 landingContent:
 - title: Om Load Balancer
   linkLists:
@@ -28,11 +28,13 @@ landingContent:
       url: concepts.md
     - text: Load Balancer-komponenter
       url: components.md
+    - text: Load Balancer-SKU:er
+      url: skus.md
 - title: Kom igång
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Skapa en Standard Load Balancer som lastbalanserar virtuella datorer
+    - text: Skapa en Load Balancer som lastbalanserar virtuella datorer
       url: quickstart-load-balancer-standard-public-portal.md
   - linkListType: tutorial
     links:
@@ -54,25 +56,27 @@ landingContent:
       url: load-balancer-multivip-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Konfigurera belastningsutjämning och regler för utgående trafik i Standard Load Balancer med hjälp av Azure CLI
+    - text: Konfigurera belastningsutjämning och regler för utgående trafik i Load Balancer (Azure CLI)
       url: configure-load-balancer-outbound-cli.md
-    - text: Skapa en lastbalanserare mot Internet med IPv6 med hjälp av PowerShell
+    - text: Skapa en lastbalanserare mot Internet med IPv6 (PowerShell)
       url: load-balancer-ipv6-internet-ps.md
     - text: Konfigurera distributionsläget
       url: load-balancer-distribution-mode.md
+    - text: Uppgradera till från Basic till Standard
+      url: upgrade-basic-standard.md
 - title: Distribuera
   linkLists:
   - linkListType: concept
     links:
     - text: Standard Load Balancer och tillgänglighetszoner
       url: load-balancer-standard-availability-zones.md
-    - text: Load Balancer med TCP-återställning vid inaktivitet (allmänt tillgänglig förhandsversion)
+    - text: Load Balancer med TCP-återställning vid inaktivitet
       url: load-balancer-tcp-reset.md
   - linkListType: how-to-guide
     links:
-    - text: Skapa en Standard Load Balancer med zonredundant klientdel
+    - text: Skapa en Load Balancer med zonredundant klientdel
       url: load-balancer-get-started-internet-az-portal.md
-    - text: Skapa en Standard Load Balancer med zonindelad klientdel
+    - text: Skapa en Load Balancer med zonindelad klientdel
       url: load-balancer-get-started-internet-availability-zones-zonal-portal.md
     - text: Belastningsutjämning med flera IP-konfigurationer
       url: load-balancer-multiple-ip.md
@@ -94,3 +98,7 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.network/?view=azps-2.5.0#load_balancer
     - text: Azure CLI
       url: https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest
+    - text: ARM-mallar
+      url: https://docs.microsoft.com/azure/templates/microsoft.network/loadbalancers#quickstart-templates
+    - text: Vanliga frågor och svar om Load Balancer
+      url: load-balancer-faqs.md

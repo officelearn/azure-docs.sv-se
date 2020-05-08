@@ -1,20 +1,20 @@
 ---
-title: Onboarding-API för Azure-appar på den kommersiella marknaden
-description: API-krav för Azure-appar i kommersiell marknads plats på Microsoft Partner Center.
+title: Partner Center-överförings-API för att publicera Azure-appar på Microsofts kommersiella marknads plats
+description: 'Läs om kraven för att använda Partner Center-sändnings-API: t för Azure-appar på en kommersiell Marketplace på Microsoft Partner Center.'
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: cc4d56058ce3985ec3a1d9124ef4ec73ff6be1a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279767"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744884"
 ---
-# <a name="api-for-onboarding-azure-apps-in-partner-center"></a>API för onboarding av Azure-appar i Partner Center
+# <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Partner Center-överförings-API till att publicera Azure-appar i Partner Center
 
 Använd *partner Centers överförings-API* för att skicka frågor till program mässigt, skapa bidrag för och publicera Azure-erbjudanden.  Detta API är användbart om ditt konto hanterar många erbjudanden och du vill automatisera och optimera sändnings processen för dessa erbjudanden.
 
@@ -70,3 +70,8 @@ För *tenant_id* -värdet i parametrarna `POST URI` och *client_id* och *client_
 När du har en Azure AD-åtkomsttoken kan du anropa metoder i överförings-API: et för partner Center. Om du vill skapa eller uppdatera bidrag kan du vanligt vis anropa flera metoder i överförings-API: et för partner Center i en speciell ordning. Information om varje scenario och syntaxen för varje metod finns i inmatnings-API-Swagger.
 
 https://apidocs.microsoft.com/services/partneringestion/
+
+## <a name="next-steps"></a>Nästa steg
+
+* Lär dig att skapa en [teknisk till gång för Azure VM](create-azure-container-technical-assets.md)
+* Lär dig hoe för att skapa ett [erbjudande för Azure Container](create-azure-container-offer.md)

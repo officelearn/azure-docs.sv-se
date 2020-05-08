@@ -1,6 +1,6 @@
 ---
-title: Skapa eller uppdatera anpassade Azure-roller med hjälp av Azure Portal (för hands version) – Azure RBAC
-description: Lär dig hur du skapar Azure-anpassade roller för rollbaserad åtkomst kontroll i Azure (Azure RBAC) med hjälp av Azure Portal. Detta inkluderar hur du visar, skapar, uppdaterar och tar bort anpassade roller.
+title: Skapa eller uppdatera anpassade Azure-roller med hjälp av Azure Portal – Azure RBAC
+description: Lär dig hur du skapar anpassade Azure-roller med hjälp av Azure Portal och rollbaserad åtkomst kontroll i Azure (Azure RBAC). Detta inkluderar hur du visar, skapar, uppdaterar och tar bort anpassade roller.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,23 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/26/2020
+ms.date: 04/30/2020
 ms.author: rolyon
-ms.openlocfilehash: 3204cdf51f3f37588f684f801a811f569b337d13
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9ba8fa64a9699917fe73365cb5d9aa0c858cde7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77674875"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734187"
 ---
-# <a name="create-or-update-azure-custom-roles-using-the-azure-portal-preview"></a>Skapa eller uppdatera anpassade Azure-roller med hjälp av Azure Portal (för hands version)
+# <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Skapa eller uppdatera anpassade Azure-roller med hjälp av Azure Portal
 
-> [!IMPORTANT]
-> Azures anpassade roller som använder Azure Portal är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Om de [inbyggda Azure-rollerna](built-in-roles.md) inte uppfyller organisationens specifika behov kan du skapa egna Azure-anpassade roller. Precis som inbyggda roller kan du tilldela anpassade roller till användare, grupper och tjänst huvud namn i prenumerations-och resurs grupps omfång. Anpassade roller lagras i en Azure Active Directory (Azure AD)-katalog och kan delas mellan prenumerationer. Varje katalog kan ha upp till 5000 anpassade roller. Du kan skapa anpassade roller med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. I den här artikeln beskrivs hur du skapar anpassade roller med hjälp av Azure Portal (för närvarande i för hands version).
+Om de [inbyggda Azure-rollerna](built-in-roles.md) inte uppfyller organisationens specifika behov kan du skapa egna Azure-anpassade roller. Precis som inbyggda roller kan du tilldela anpassade roller till användare, grupper och tjänst huvud namn i prenumerations-och resurs grupps omfång. Anpassade roller lagras i en Azure Active Directory (Azure AD)-katalog och kan delas mellan prenumerationer. Varje katalog kan ha upp till 5000 anpassade roller. Du kan skapa anpassade roller med hjälp av Azure Portal, Azure PowerShell, Azure CLI eller REST API. I den här artikeln beskrivs hur du skapar anpassade roller med hjälp av Azure Portal.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -77,7 +72,7 @@ Om du vill kan du följa de här stegen för att starta en anpassad roll från g
 
 1. Öppna en prenumeration eller resurs grupp i Azure Portal där du vill att den anpassade rollen ska kunna tilldelas och öppna sedan **åtkomst kontroll (IAM)**.
 
-1. Klicka på **Lägg till** och sedan på **Lägg till anpassad roll (för hands version)**.
+1. Klicka på **Lägg till** och sedan på **Lägg till anpassad roll**.
 
     ![Menyn Lägg till anpassad roll](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -109,7 +104,7 @@ Om du vill kan du ange de flesta av dina anpassade roll värden i en JSON-fil. D
     }
     ```
 
-1. I JSON-filen anger du värden för de olika egenskaperna. Här är ett exempel med vissa värden som läggs till. Information om de olika egenskaperna finns i [förstå roll definitioner](role-definitions.md).
+1. I JSON-filen anger du värden för de olika egenskaperna. Här är ett exempel med vissa värden som läggs till. Information om de olika egenskaperna finns i [förstå Azure Role definitions](role-definitions.md).
 
     ```json
     {
@@ -141,7 +136,7 @@ Om du vill kan du ange de flesta av dina anpassade roll värden i en JSON-fil. D
     
 1. Öppna sidan **åtkomst kontroll (IAM)** i Azure Portal.
 
-1. Klicka på **Lägg till** och sedan på **Lägg till anpassad roll (för hands version)**.
+1. Klicka på **Lägg till** och sedan på **Lägg till anpassad roll**.
 
     ![Menyn Lägg till anpassad roll](./media/custom-roles-portal/add-custom-role-menu.png)
 
@@ -260,7 +255,7 @@ När du undantar en behörighet läggs den till som `NotActions` eller. `NotData
 
 ## <a name="step-5-assignable-scopes"></a>Steg 5: tilldelnings bara omfång
 
-På fliken **tilldelnings bara omfattningar** anger du var den anpassade rollen är tillgänglig för tilldelning, t. ex. prenumeration eller resurs grupp. Beroende på hur du valde att starta, kan den här fliken innehålla en lista över omfattningen där du öppnade sidan åtkomst kontroll (IAM). Det finns inte stöd för att ange tilldelnings bara omfång till rot omfånget ("/"). I den här för hands versionen kan du inte lägga till en hanterings grupp som ett tilldelnings bara omfång.
+På fliken **tilldelnings bara omfattningar** anger du var den anpassade rollen är tillgänglig för tilldelning, t. ex. prenumeration eller resurs grupp. Beroende på hur du valde att starta, kan den här fliken innehålla en lista över omfattningen där du öppnade sidan åtkomst kontroll (IAM). Det finns inte stöd för att ange tilldelnings bara omfång till rot omfånget ("/"). För närvarande kan du inte lägga till en hanterings grupp som ett tilldelnings bara omfång.
 
 1. Klicka på **Lägg till tilldelnings bara omfång** för att öppna fönstret Lägg till tilldelnings bara scope.
 
@@ -352,6 +347,6 @@ Följ de här stegen om du vill visa dina anpassade roller.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: Skapa en anpassad roll med Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Anpassade roller i Azure](custom-roles.md)
+- [Självstudie: skapa en anpassad Azure-roll med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Anpassade Azure-roller](custom-roles.md)
 - [Åtgärder för Azure Resource Manager Resource Provider](resource-provider-operations.md)

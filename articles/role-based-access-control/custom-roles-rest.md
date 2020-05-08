@@ -1,6 +1,6 @@
 ---
-title: Skapa eller uppdatera anpassade roller för Azure-resurser med REST API
-description: Lär dig att visa, skapa, uppdatera eller ta bort anpassade roller med rollbaserad åtkomst kontroll (RBAC) för Azure-resurser med hjälp av REST API.
+title: Skapa eller uppdatera anpassade Azure-roller med hjälp av REST API – Azure RBAC
+description: Lär dig att visa, skapa, uppdatera eller ta bort Azure-anpassade roller med hjälp av REST API och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fda0400310f46da64322654c42af75521746d679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bc96dc9a8e541cfd827ba5f5abe35c13f2d2462
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062195"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734101"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>Skapa eller uppdatera anpassade roller för Azure-resurser med hjälp av REST API
+# <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Skapa eller uppdatera anpassade Azure-roller med hjälp av REST API
 
 > [!IMPORTANT]
 > Att lägga till en hanterings grupp i `AssignableScopes` är för närvarande en för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. Den här artikeln beskriver hur du visar, skapar, uppdaterar eller tar bort anpassade roller med hjälp av REST API.
+Om de [inbyggda Azure-rollerna](built-in-roles.md) inte uppfyller organisationens specifika behov kan du skapa dina egna anpassade roller. Den här artikeln beskriver hur du visar, skapar, uppdaterar eller tar bort anpassade roller med hjälp av REST API.
 
 ## <a name="list-custom-roles"></a>Lista anpassade roller
 
@@ -189,7 +189,7 @@ Om du vill skapa en anpassad roll använder du [roll definitionerna-skapa eller 
 
 1. I `notActions` egenskapen lägger du till de åtgärder som undantas från tillåten `actions`.
 
-1. I egenskaperna `roleName` och `description` anger du ett unikt roll namn och en beskrivning. Mer information om egenskaperna finns i [anpassade roller](custom-roles.md).
+1. I egenskaperna `roleName` och `description` anger du ett unikt roll namn och en beskrivning. Mer information om egenskaperna finns i Azure- [anpassade roller](custom-roles.md).
 
     Följande visar ett exempel på en begär ande text:
 
@@ -340,6 +340,6 @@ Om du vill ta bort en anpassad roll använder du [roll definitionerna-ta bort](/
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anpassade roller för Azure-resurser](custom-roles.md)
-- [Hantera åtkomst till Azure-resurser med RBAC och REST API](role-assignments-rest.md)
+- [Anpassade Azure-roller](custom-roles.md)
+- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av REST API](role-assignments-rest.md)
 - [Referens för Azure-REST API](/rest/api/azure/)

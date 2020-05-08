@@ -1,36 +1,37 @@
 ---
 title: Åtkomst regler för brand vägg
-description: Konfigurera regler för åtkomst till ett Azure Container Registry från bakom en brand vägg genom att tillåta åtkomst till ("vit listning") REST API-och lagrings slut punkts domän namn eller tjänstspecifika IP-adressintervall.
+description: Konfigurera regler för åtkomst till ett Azure Container Registry från bakom en brand vägg genom att tillåta åtkomst till ("vit listning") REST API-och data slut punkts domän namn eller tjänstspecifika IP-adressintervall.
 ms.topic: article
-ms.date: 02/11/2020
-ms.openlocfilehash: 06fedea2adf5e73929f5752279f2bd7e7227e570
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.openlocfilehash: b3560fe769a97c8d3a4e5a3580d42d7c0b3a3f08
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77168025"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978356"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurera regler för åtkomst till ett Azure Container Registry bakom en brand vägg
 
 Den här artikeln förklarar hur du konfigurerar regler i brand väggen för att tillåta åtkomst till ett Azure Container Registry. Till exempel kan en Azure IoT Edge enhet bakom en brand vägg eller proxyserver behöva komma åt ett behållar register för att hämta en behållar avbildning. Eller så kan en låst server i ett lokalt nätverk behöva åtkomst för att skicka en avbildning.
 
-Om du i stället vill konfigurera regler för inkommande nätverks åtkomst i ett behållar register endast inom ett virtuellt Azure-nätverk eller från ett offentligt IP-adressintervall, se [begränsa åtkomsten till ett Azure Container Registry från ett virtuellt nätverk](container-registry-vnet.md).
+Om du i stället vill konfigurera inkommande nätverks åtkomst till ett behållar register i ett virtuellt Azure-nätverk kan du läsa [Konfigurera Azure Private Link för ett Azure Container Registry](container-registry-private-link.md).
 
 ## <a name="about-registry-endpoints"></a>Om register slut punkter
 
-För att hämta eller skicka avbildningar eller andra artefakter till ett Azure Container Registry måste en klient, till exempel en Docker-daemon, interagera över HTTPS med två distinkta slut punkter.
+För att hämta eller skicka avbildningar eller andra artefakter till ett Azure Container Registry måste en klient, till exempel en Docker-daemon, interagera över HTTPS med två distinkta slut punkter. För klienter som har åtkomst till ett register från bakom en brand vägg måste du konfigurera åtkomst regler för båda slut punkterna.
 
-* **Registrets REST API slut punkt** – autentiserings-och register hanterings åtgärder hanteras via registrets offentliga REST API-slutpunkt. Den här slut punkten är inloggnings Server namnet för registret eller ett associerat IP-adressintervall. 
+* **Registrets REST API slut punkt** – autentiserings-och register hanterings åtgärder hanteras via registrets offentliga REST API-slutpunkt. Den här slut punkten är inloggnings Server namnet för registret. Exempel: `myregistry.azurecr.io`
 
-* **Lagrings slut punkt** – Azure [allokerar blob Storage](container-registry-storage.md) i Azure Storage konton för varje registers räkning för att hantera data för behållar avbildningar och andra artefakter. När en klient ansluter till avbildnings lager i ett Azure Container Registry, begär det begär Anden med hjälp av en slut punkt för lagrings kontot som tillhandahålls av registret.
+* **Lagring (data) slut punkt** – Azure [allokerar blob Storage](container-registry-storage.md) i Azure Storage konton för varje registers räkning för att hantera data för behållar avbildningar och andra artefakter. När en klient ansluter till avbildnings lager i ett Azure Container Registry, begär det begär Anden med hjälp av en slut punkt för lagrings kontot som tillhandahålls av registret.
 
-Om ditt register är [geo-replikerat](container-registry-geo-replication.md)kan en klient behöva INTERAGERA med rest-och lagrings slut punkter i en angiven region eller i flera replikerade regioner.
+Om ditt register är [geo-replikerat](container-registry-geo-replication.md)kan en klient behöva interagera med data slut punkten i en angiven region eller i flera replikerade regioner.
 
-## <a name="allow-access-to-rest-and-storage-domain-names"></a>Tillåt åtkomst till REST-och lagrings domän namn
+## <a name="allow-access-to-rest-and-data-endpoints"></a>Tillåt åtkomst till REST-och data slut punkter
 
-* **REST-slutpunkt** – Tillåt åtkomst till det fullständigt kvalificerade registrets inloggnings Server namn, till exempel`myregistry.azurecr.io`
-* **Lagring (data) slut punkt** – Tillåt åtkomst till alla Azure Blob Storage-konton med jokertecknet`*.blob.core.windows.net`
-
+* **REST-slutpunkt** – Tillåt åtkomst till det fullständigt kvalificerade registrets inloggnings `<registry-name>.azurecr.io`Server namn, eller ett associerat IP-adressintervall
+* **Lagring (data) slut punkt** – Tillåt åtkomst till alla Azure Blob Storage-konton med `*.blob.core.windows.net`hjälp av jokertecken, eller ett associerat IP-adressintervall.
+> [!NOTE]
+> Azure Container Registry introducerar [dedikerade data slut punkter](#enable-dedicated-data-endpoints-preview) (för hands version), så att du kan begränsa klient brand Väggs reglerna för din register lagring. Du kan också aktivera data slut punkter i alla regioner där registret finns eller replikeras med hjälp av formuläret `<registry-name>.<region>.data.azurecr.io`.
 
 ## <a name="allow-access-by-ip-address-range"></a>Tillåt åtkomst med IP-adressintervall
 
@@ -39,7 +40,7 @@ Om din organisation har principer som endast tillåter åtkomst till vissa IP-ad
 Du hittar IP-intervall för ACR REST-slutpunkt som du måste tillåta åtkomst genom att söka efter **AzureContainerRegistry** i JSON-filen.
 
 > [!IMPORTANT]
-> IP-adressintervall för Azure-tjänster kan ändras och uppdateringar publiceras varje vecka. Ladda ned JSON-filen regelbundet och gör nödvändiga uppdateringar i dina åtkomst regler. Om ditt scenario innefattar konfigurering av regler för nätverks säkerhets grupper i ett virtuellt Azure-nätverk för att få åtkomst till Azure Container Registry, använder du **AzureContainerRegistry** [-tjänst tag gen](#allow-access-by-service-tag) i stället.
+> IP-adressintervall för Azure-tjänster kan ändras och uppdateringar publiceras varje vecka. Ladda ned JSON-filen regelbundet och gör nödvändiga uppdateringar i dina åtkomst regler. Om ditt scenario innefattar konfigurering av regler för nätverks säkerhets grupper i ett virtuellt Azure-nätverk eller om du använder Azure-brandväggen, använder du **AzureContainerRegistry** [service tag](#allow-access-by-service-tag) i stället.
 >
 
 ### <a name="rest-ip-addresses-for-all-regions"></a>REST IP-adresser för alla regioner
@@ -116,6 +117,45 @@ I ett virtuellt Azure-nätverk använder du nätverks säkerhets regler för att
 
 Du kan till exempel skapa en regel för utgående nätverks säkerhets grupp med mål- **AzureContainerRegistry** för att tillåta trafik till ett Azure Container Registry. Om du bara vill tillåta åtkomst till tjänst tag gen i en angiven region anger du regionen i följande format: **AzureContainerRegistry**. [*regions namn*].
 
+## <a name="enable-dedicated-data-endpoints-preview"></a>Aktivera dedikerade data slut punkter (förhands granskning)
+
+> [!WARNING]
+> Om du tidigare har konfigurerat klient brand Väggs åtkomst `*.blob.core.windows.net` till befintliga slut punkter påverkar det att växlingen av dedikerade data slut punkter påverkar klient anslutningen, vilket orsakar pull-problem. För att säkerställa att klienterna har konsekvent åtkomst lägger du till de nya data slut reglerna i brand Väggs reglerna för klienter. När du är klar kan du aktivera dedikerade data slut punkter för dina register med hjälp av Azure CLI eller andra verktyg.
+
+Dedikerade data slut punkter är en valfri funktion i tjänst nivån **Premium** container Registry. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry-nivåer](container-registry-skus.md). Om du vill aktivera data slut punkter med Azure CLI använder du Azure CLI version 2.4.0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
+
+Följande [AZ ACR Update][az-acr-update] -kommando aktiverar dedikerade data slut punkter *i registrets register.* I demonstrations syfte antar vi att registret är replikerat i två regioner:
+
+```azurecli
+az acr update --name myregistry --data-endpoint-enabled
+```
+
+Data slut punkterna använder ett regionalt mönster, `<registry-name>.<region>.data.azurecr.io`. Om du vill visa data slut punkterna använder du kommandot [AZ ACR show-endpoints][az-acr-show-endpoints] :
+
+```azurecli
+az acr show-endpoints --name myregistry
+```
+
+Resultat:
+
+```
+{
+    "loginServer": "myregistry.azurecr.io",
+    "dataEndpoints": [
+        {
+            "region": "eastus",
+            "endpoint": "myregistry.eastus.data.azurecr.io",
+        },
+        {
+            "region": "westus",
+            "endpoint": "myregistry.westus.data.azurecr.io",
+        }
+    ]
+}
+```
+
+När du har konfigurerat dedikerade data slut punkter för registret kan du aktivera åtkomst regler för klient brand väggen för data slut punkterna. Aktivera åtkomst regler för data slut punkt för alla nödvändiga register områden.
+
 ## <a name="configure-client-firewall-rules-for-mcr"></a>Konfigurera brand Väggs regler för MCR
 
 Om du behöver åtkomst till Microsoft Container Registry (MCR) bakom en brand vägg kan du läsa mer i rikt linjerna för att konfigurera [brand Väggs regler för MCR](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md). MCR är det primära registret för alla Microsoft-publicerade Docker-avbildningar, till exempel Windows Server-avbildningar.
@@ -126,6 +166,8 @@ Om du behöver åtkomst till Microsoft Container Registry (MCR) bakom en brand v
 
 * Lär dig mer om [säkerhets grupper](/azure/virtual-network/security-overview) i ett virtuellt Azure-nätverk
 
+* Läs mer om [dedikerade data slut punkter](https://azure.microsoft.com/blog/azure-container-registry-mitigating-data-exfiltration-with-dedicated-data-endpoints/) för Azure Container Registry
+
 
 
 <!-- IMAGES -->
@@ -133,4 +175,7 @@ Om du behöver åtkomst till Microsoft Container Registry (MCR) bakom en brand v
 <!-- LINKS - External -->
 
 <!-- LINKS - Internal -->
+
+[az-acr-update]: /cli/azure/acr#az-acr-update
+[az-acr-show-endpoints]: /cli/azure/acr#az-acr-show-endpoints
 

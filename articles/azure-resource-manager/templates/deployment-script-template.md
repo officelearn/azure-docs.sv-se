@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/06/2020
 ms.author: jgao
-ms.openlocfilehash: 14663e71126d8c201015996e3e4dc76976128bcc
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: 5b938e2072daec56261e529ab8a2a8b15b55d143
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610810"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872336"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -304,8 +304,8 @@ Om du vill se deploymentScripts-resursen i portalen väljer du **Visa dolda type
 
 Ett lagrings konto och en behållar instans krävs för skript körning och fel sökning. Du har möjlighet att ange ett befintligt lagrings konto, annars skapas lagrings kontot tillsammans med behållar instansen automatiskt av skript tjänsten. Kraven för att använda ett befintligt lagrings konto:
 
-- De typer av lagrings konton som stöds är: allmänna-Purpose v2-konton, allmänna v1-konton och fileStorage-konton. Mer information finns i [typer av lagrings konton](../../storage/common/storage-account-overview.md).
-- Brand Väggs regler för lagrings kontot måste stängas av. Se [konfigurera Azure Storage-brandväggar och virtuella nätverk](../../storage/common/storage-network-security.md)
+- De typer av lagrings konton som stöds är: General-Purpose v2, General-Purpose v1-och FileStorage-konton. Endast FileStorage stöder Premium SKU. Mer information finns i [typer av lagrings konton](../../storage/common/storage-account-overview.md).
+- Brand Väggs regler för lagrings konto stöds inte än. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](../../storage/common/storage-network-security.md).
 - Distributions skriptets tilldelade hanterade identitet måste ha behörighet att hantera lagrings kontot, som innehåller läsa, skapa, ta bort fil resurser.
 
 Om du vill ange ett befintligt lagrings konto lägger du till följande JSON till egenskaps elementet för `Microsoft.Resources/deploymentScripts`:
@@ -316,6 +316,16 @@ Om du vill ange ett befintligt lagrings konto lägger du till följande JSON til
   "storageAccountKey": "myKey"
 },
 ```
+
+- **storageAccountName**: Ange namnet på lagrings kontot.
+- **storageAccountKey "**: Ange en av lagrings konto nycklarna. Du kan använda [`listKeys()`](./template-functions-resource.md#listkeys) funktionen för att hämta nyckeln. Exempel:
+
+    ```json
+    "storageAccountSettings": {
+        "storageAccountName": "[variables('storageAccountName')]",
+        "storageAccountKey": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2019-06-01').keys[0].value]"
+    }
+    ```
 
 Se [exempel på mallar](#sample-templates) för ett `Microsoft.Resources/deploymentScripts` komplett definitions exempel.
 
@@ -336,7 +346,7 @@ Livs cykeln för de här resurserna styrs av följande egenskaper i mallen:
 - **retentionInterval**: Ange det tidsintervall som en skript resurs kommer att behållas och därefter upphör att gälla och tas bort.
 
 > [!NOTE]
-> Vi rekommenderar inte att du använder distributions skript resurser för andra skäl.
+> Vi rekommenderar inte att du använder lagrings kontot och behållar instansen som genereras av skript tjänsten för andra skäl. De två resurserna kan tas bort beroende på skript livs cykeln.
 
 ## <a name="run-script-more-than-once"></a>Kör skript mer än en gång
 

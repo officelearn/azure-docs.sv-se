@@ -7,21 +7,22 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
-ms.custom: security-baselines
-ms.openlocfilehash: c16d7247b781fea04cfa2d53b8854cff14e039c7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: security-benchmark
+ms.openlocfilehash: 43718e992349ff9bcb3635ab1b949c2b2f2c9ec0
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77616452"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871998"
 ---
-# <a name="overview-of-azure-security-baselines"></a>Översikt över Azures säkerhets bas linjer
+# <a name="security-baselines-for-azure"></a>Säkerhetsbaslinjer för Azure
 
-Med Azures säkerhets bas linjer kan du förbättra säkerheten för våra produkter genom förbättrade verktyg, spårnings-och säkerhetsfunktioner och ger dig en enhetlig upplevelse när du skyddar din miljö.
+Säkerhets bas linjer för Azure hjälper dig att förstärka säkerheten genom förbättrade verktyg för verktyg-, spårnings-och säkerhets funktioner. De ger också en enhetlig upplevelse när du skyddar din miljö.
 
-Azure Service Security-bas linjer fokuserar på molnbaserade kontroll områden. Dessa kontroller är konsekventa med välkända säkerhets mått, till exempel de som beskrivs i Center for Internet Security (CIS). Våra bas linjer ger vägledning för de kontroll områden som anges i [Azures säkerhets benchmark](overview.md).
+Säkerhets bas linjer för Azure fokuserar på molnbaserade kontroll områden. Dessa kontroller är konsekventa med välkända säkerhets mått, till exempel de som beskrivs i Center for Internet Security (CIS). Våra bas linjer ger vägledning för de kontroll områden som anges i [Azures säkerhets benchmark](overview.md).
 
 Varje rekommendation innehåller följande information:
+
 - **Azure-ID**: det ID för Azure-säkerhetsbenchmark som motsvarar rekommendationen.
 - **Rekommendation**: följer direkt efter Azure-ID: t ger rekommendationen en övergripande beskrivning av kontrollen.
 - **Vägledning**: motiveringen till rekommendationen och länkar till vägledning om hur du implementerar den. Om rekommendationen stöds av Azure Security Center, visas även den informationen.
@@ -29,3 +30,6 @@ Varje rekommendation innehåller följande information:
 - **Azure Security Center övervakning**: om kontrollen övervakas av Azure Security Center, med länk till referens.
 
 Alla rekommendationer, inklusive rekommendationer som inte gäller för den här tjänsten, ingår i bas linjen för att ge dig en fullständig bild av hur Azures säkerhets benchmark relaterar till varje tjänst. Det kan ibland finnas kontroller som inte är tillämpliga av olika anledningar, t. ex. IaaS/Compute-inriktade kontroller (till exempel kontroller som är speciella för konfigurations hantering av operativ system) kanske inte kan tillämpas på PaaS-tjänster.
+
+
+Vi välkomnar din feedback om säkerhets bas linjerna för Azure-tjänster. Vi rekommenderar att du anger kommentarer i feedback-avsnittet nedan. Eller, om du föredrar att dela dina inloggade privat med Azures säkerhets benchmark-teamet, är du välkommen att fylla i formuläret på https://aka.ms/AzSecBenchmark.

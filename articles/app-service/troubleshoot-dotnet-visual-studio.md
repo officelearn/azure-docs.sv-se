@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: 3305cfb81980984574961b2a84a056f5d1879ead
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280058"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891060"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsöka en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -614,7 +614,7 @@ Du har sett hur Visual Studio gör det enkelt att visa loggar som skapats av en 
 Mer information om fel sökning av appar i Azure App Service finns i följande resurser:
 
 * [Övervaka appar](web-sites-monitor.md)
-* [Undersöka minnes läckor i Azure App Service med Visual Studio 2013](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM blogg inlägg om Visual Studio-funktioner för att analysera hanterade minnes problem.
+* [Undersöka minnes läckor i Azure App Service med Visual Studio 2013](https://devblogs.microsoft.com/devops/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013/). Microsoft ALM blogg inlägg om Visual Studio-funktioner för att analysera hanterade minnes problem.
 * [Azure App Service online-verktyg som du bör känna](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/)till. Blogg inlägg från Apple-Amit.
 
 Om du behöver hjälp med en detaljerad fel söknings fråga startar du en tråd i något av följande Forum:
@@ -678,7 +678,7 @@ Mer information om hur du analyserar webb server loggar finns i följande resurs
   Ett verktyg för att visa data i webb server loggar (*. log* -filer).
 * [Felsöka prestanda problem eller program fel i IIS med LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   En introduktion till logg tolks verktyget som du kan använda för att analysera webb server loggar.
-* [Blogg inlägg från Robert Mcmurrays om att använda LogParser](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [Blogg inlägg från Robert Mcmurrays om att använda LogParser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [HTTP-statuskoden i IIS 7,0, IIS 7,5 och IIS 8,0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analysera loggar för spårning av misslyckade begär Anden

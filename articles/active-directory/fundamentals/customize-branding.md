@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 05/07/2020
 ms.author: ajburnle
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 441fdd14cc2c734b6ce532f3ad1d30663b2f56c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e0fc3cb450c253882ed34a2c4f5748efe55d0ec
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80049794"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982045"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Lägg till anpassning till din organisations Azure Active Directory inloggnings sida
 Använd organisationens logo typ och egna färg scheman för att ge ett enhetligt utseende på dina Azure Active Directory-inloggnings sidor (Azure AD). Dina inloggnings sidor visas när användarna loggar in i din organisations webbaserade appar, till exempel Office 365, som använder Azure AD som identitets leverantör.
@@ -52,9 +52,9 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
 
         - **Språk.** Språket anges automatiskt som standard och kan inte ändras.
         
-        - **Bakgrunds bild på inloggnings sidan.** Välj en PNG-eller jpg-bildfil som ska visas som bakgrund för dina inloggnings sidor. 
+        - **Bakgrunds bild på inloggnings sidan.** Välj en PNG-eller jpg-bildfil som ska visas som bakgrund för dina inloggnings sidor. Bilden fästs i mitten av webbläsaren och skalas till storleken på det visnings bara utrymmet. Du kan inte välja en bild som är större än 1920x1080 bild punkter i storlek eller som har en fil storlek på över 300 KB.
         
-            Bilden får inte vara större än 1920x1080 bild punkter och måste ha en fil storlek på mindre än 300 KB.
+            Vi rekommenderar att du använder bilder utan ett starkt ämnes fokus, t. ex., en ogenomskinlig vit ruta visas i mitten av skärmen och kan ta upp vilken del som helst av bilden beroende på storleken på det visnings bara utrymmet.
 
         - **Banderoll-logotyp.** Välj en. png-eller. jpg-version av logo typen som ska visas på inloggnings sidan när användaren har angett ett användar namn och på Portal sidan **Mina appar** .
             
@@ -62,7 +62,7 @@ Din anpassade anpassning visas inte direkt när användarna går till webbplatse
 
         - **Användar tips.** Skriv tips texten som visas för användarna om de glömmer bort sitt användar namn. Den här texten måste vara Unicode, utan länkar eller kod, och får inte innehålla fler än 64 tecken. Om gäster loggar in på din app rekommenderar vi inte att du lägger till det här tipset.
 
-        - **Text på inloggnings sidan.** Skriv texten som visas längst ned på inloggnings sidan. Du kan använda den här texten för att kommunicera ytterligare information, t. ex. telefonnumret till supportavdelningen eller ett juridiskt meddelande. Den här texten måste vara Unicode och får inte överstiga 256 tecken. Vi föreslår även att inte inkludera länkar eller HTML-taggar.
+        - **Text på inloggnings sidan.** Skriv texten som visas längst ned på inloggnings sidan. Du kan använda den här texten för att kommunicera ytterligare information, t. ex. telefonnumret till supportavdelningen eller ett juridiskt meddelande. Den här texten måste vara Unicode och får inte överstiga 256 tecken.
 
     - **Avancerade inställningar**
             
@@ -127,7 +127,7 @@ Du kan inte ändra den ursprungliga konfigurationens språk från standard språ
 ## <a name="add-your-custom-branding-to-pages"></a>Lägg till anpassad anpassning till sidor
 Lägg till anpassad anpassning till sidor genom att ändra slutet på URL: en med texten `?whr=yourdomainname`. Den här ändringen fungerar på flera sidor, inklusive installations sidan Multi-Factor Authentication (MFA), installations sidan för lösen ords återställning via självbetjäning (SSPR) och inloggnings sidan.
 
-**Fler**
+**Exempel:**
 
 **Ursprunglig URL:**https://aka.ms/MFASetup<br>
 **Anpassad URL:**`https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com`

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: b707d67c88eb550d397134b2294c1c5b0e1f7f7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ff4647682f5f4d688f3b581b96715e01976a387
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80528219"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891159"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 
@@ -51,7 +51,7 @@ För en mer förenklad, men mer visuellt tilltalande prestanda demonstration fö
 
 3. Kopiera [InMemory OLTP Transact-SQL-skriptet](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skriptet skapar nödvändiga minnes objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
 
-4. Klistra in T-SQL-skriptet i SSMS och kör skriptet. `MEMORY_OPTIMIZED = ON` Satsen CREATE TABLE satser är viktiga. Ett exempel:
+4. Klistra in T-SQL-skriptet i SSMS och kör skriptet. `MEMORY_OPTIMIZED = ON` Satsen CREATE TABLE satser är viktiga. Exempel:
 
 
 ```sql
@@ -182,7 +182,7 @@ På den virtuella datorn, eller på vilken värd du väljer, installerar du RML-
 Mer information finns i:
 - Ostress. exe-diskussionen i [exempel databasen för minnes intern OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
 - [Exempel databas för minnes intern OLTP](https://msdn.microsoft.com/library/mt465764.aspx).
-- [Bloggen för att installera ostress. exe](https://blogs.msdn.com/b/psssql/archive/20../../cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+- [Bloggen för att installera ostress. exe](https://techcommunity.microsoft.com/t5/sql-server-support/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql/ba-p/317910).
 
 
 

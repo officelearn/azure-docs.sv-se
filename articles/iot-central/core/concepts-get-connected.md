@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b66f5a7d85eb91970d5f551b010dd512b216b9c6
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.openlocfilehash: 28abf6fca0933158b067dda7ab54af93dac4b7d9
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509524"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872415"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Anslut till Azure IoT Central
 
@@ -95,6 +95,14 @@ Om du vill massredigera enheter med X. 509-certifikat, registrera först enheter
 
 Generera löv certifikat för X. 509 för dina enheter med hjälp av det överförda rot-eller mellanliggande certifikatet. Använd **enhets-ID: t** som `CNAME` värde i löv certifikaten. Enhets koden behöver **ID-** värdet för ditt program, **enhets-ID**och motsvarande enhets certifikat.
 
+#### <a name="sample-device-code"></a>Exempel på enhets kod
+
+Följande exempel från [Azure IoT Node. js SDK](https://github.com/Azure/azure-iot-sdk-node/blob/master/provisioning/device/samples/register_x509.js) visar hur en Node. js-enhet använder ett X. 509 löv certifikat och DPS för att registrera sig för ett IoT Central program:
+
+:::code language="nodejs" source="~/azure-iot-sdk-node/provisioning/device/samples/register_x509.js":::
+
+Ett motsvarande C-exempel finns i [prov_dev_client_sample. C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c) i [Azure IoT C Provisioning Device client SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md).
+
 ### <a name="for-testing-purposes-only"></a>Endast i testnings syfte
 
 För testning kan du använda följande verktyg för att generera rot-, mellanliggande och enhets certifikat:
@@ -106,11 +114,6 @@ För testning kan du använda följande verktyg för att generera rot-, mellanli
   - Spara certifikaten som CER-filer som ska överföras till ditt IoT Central-program.
   - Använd verifierings koden från IoT Central programmet för att generera verifierings certifikatet.
   - Skapa löv certifikat för dina enheter med dina enhets-ID: n som en parameter till verktyget.
-
-### <a name="further-reference"></a>Ytterligare referens
-
-- [Exempel på implementering för RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases)
-- [Exempel på enhets klient i C](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)
 
 ## <a name="connect-without-registering-devices"></a>Anslut utan att registrera enheter
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: af0611e121228a587e159bd4e6529c807132d16d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 350363641056802e09eea90c85b4ccf8e33d9051
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204451"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930156"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Datavetenskap för nybörjare, video 1: Fem frågor och svar om datavetenskap
 Få en snabb introduktion till data vetenskap från *data vetenskap för nybörjare* i fem korta videor från en topp data expert. Dessa videor är grundläggande men användbara, oavsett om du är intresse rad av data vetenskap eller om du arbetar med data experter.
@@ -136,4 +136,4 @@ Så det är det – de 5 frågorna data science kan svara.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Testa ett första data vetenskaps experiment med Machine Learning Studio (klassisk)](create-experiment.md)
-* [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

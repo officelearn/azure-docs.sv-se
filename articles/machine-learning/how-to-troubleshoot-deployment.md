@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: fab46f7d7ae74ad643ce3f122b27b0dc767f5a78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78399679"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929255"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Felsöka Azure Machine Learning Azure Kubernetes service och Azure Container Instances distribution
 
@@ -24,12 +24,12 @@ Lär dig att undvika eller lösa vanliga Docker-distributions fel med Azure Cont
 
 När du distribuerar en modell i Azure Machine Learning utför systemet ett antal uppgifter.
 
-Den rekommenderade och mest aktuella metoden för modell distribution är via [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API med hjälp av ett [miljö](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) objekt som indataparameter. I det här fallet kommer tjänsten att skapa en grundläggande Docker-avbildning för dig under distributions fasen och montera de nödvändiga modellerna i ett enda anrop. De grundläggande distributions uppgifterna är:
+Den rekommenderade och mest aktuella metoden för modell distribution är via [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API med hjälp av ett [miljö](how-to-use-environments.md) objekt som indataparameter. I det här fallet kommer tjänsten att skapa en grundläggande Docker-avbildning för dig under distributions fasen och montera de nödvändiga modellerna i ett enda anrop. De grundläggande distributions uppgifterna är:
 
 1. Registrera modellen i arbets ytans modell register.
 
 2. Definiera konfiguration av härledning:
-    1. Skapa ett [miljö](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) objekt baserat på de beroenden som du anger i miljöns yaml-fil eller Använd någon av våra förhandlade miljöer.
+    1. Skapa ett [miljö](how-to-use-environments.md) objekt baserat på de beroenden som du anger i miljöns yaml-fil eller Använd någon av våra förhandlade miljöer.
     2. Skapa en konfiguration för en konfiguration (InferenceConfig-objekt) baserat på miljön och bedömnings skriptet.
 
 3. Distribuera modellen till Azure Container instance-tjänsten (ACI) eller till Azure Kubernetes service (AKS).
@@ -50,7 +50,7 @@ Läs mer om den här processen i Introduktion till [modellhantering](concept-mod
 
 Om du stöter på ett problem är det första du ska göra är att dela upp distributions aktiviteten (tidigare beskriven) i enskilda steg för att isolera problemet.
 
-Förutsatt att du använder den nya/rekommenderade distributions metoden via [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API med ett [miljö](https://docs.microsoft.com/azure/machine-learning/service/how-to-use-environments) objekt som indataparameter, kan din kod delas upp i tre viktiga steg:
+Förutsatt att du använder den nya/rekommenderade distributions metoden via [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) API med ett [miljö](how-to-use-environments.md) objekt som indataparameter, kan din kod delas upp i tre viktiga steg:
 
 1. Registrera modellen. Här följer några exempel kod:
 

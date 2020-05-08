@@ -3,15 +3,15 @@ title: Åtkomst till virtuella Azure-nätverk
 description: Översikt över hur integrerings tjänst miljöer (ISEs) hjälper Logic Apps åtkomst till Azure Virtual Networks (virtuella nätverk)
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
-ms.topic: article
-ms.date: 03/12/2020
-ms.openlocfilehash: 9d5e0c088fe773f16e1fc57f292ca812906aa09c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
+ms.date: 05/01/2020
+ms.openlocfilehash: d74303df74a1e877645b333fa0726a68055c819b
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127244"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734932"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Åtkomst till Azure Virtual Network-resurser från Azure Logic Apps med hjälp av integrerings tjänst miljöer (ISEs)
 
@@ -94,7 +94,7 @@ För lokala system som inte är anslutna till ett virtuellt nätverk eller inte 
 
 När du skapar din ISE kan du välja Developer SKU eller Premium SKU. Här följer skillnaderna mellan dessa SKU: er:
 
-* **Developer**
+* **Utvecklare**
 
   Tillhandahåller en miljö med lägre kostnad som du kan använda för experimentering, utveckling och testning, men inte för produktions-eller prestanda testning. Developer SKU: n innehåller inbyggda utlösare och åtgärder, standard anslutningar, företags anslutningar och ett enda [kostnads fritt nivå](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integrations konto för ett fast månads pris. Detta SKU omfattar dock inte något service avtal (SLA), alternativ för att skala upp kapacitet eller redundans vid återvinning, vilket innebär att du kan uppleva fördröjningar eller drift stopp.
 
@@ -111,16 +111,18 @@ Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pric
 
 ## <a name="ise-endpoint-access"></a>ISE slut punkts åtkomst
 
-När du skapar din ISE kan du välja att använda antingen interna eller externa slut punkter för åtkomst. Ditt val bestämmer om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket.
-
-De här slut punkterna påverkar också hur du kan komma åt indata och utdata i dina Logic Apps-körnings historik.
-
-* **Internt**: privata slut punkter som tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt dina Logi Kap par indata och utdata i körnings historiken endast inifrån *ditt virtuella nätverk*
-
-* **Externt**: offentliga slut punkter som tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt dina Logi Kap par indata och utdata i körnings historiken *från utanför det virtuella nätverket*. Om du använder nätverks säkerhets grupper (NSG: er) kontrollerar du att de har kon figurer ATS med regler för inkommande trafik för att tillåta åtkomst till körnings historikens indata och utdata. Mer information finns i [Aktivera åtkomst för ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+När du skapar din ISE kan du välja att använda antingen interna eller externa slut punkter för åtkomst. Ditt val bestämmer om begäran eller webhook-utlösare på Logic Apps i din ISE kan ta emot samtal utanför det virtuella nätverket. Dessa slut punkter påverkar också hur du kan komma åt indata och utdata från dina Logic Apps körnings historik.
 
 > [!IMPORTANT]
-> Alternativet åtkomst slut punkt är bara tillgängligt vid skapande av ISE och kan inte ändras senare.
+> Du kan bara välja åtkomst slut punkten under skapande av ISE och inte ändra det här alternativet senare.
+
+* **Internt**: privata slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps körnings historiken endast inifrån *det virtuella nätverket*. Kontrol lera att du har nätverks anslutning mellan de privata slut punkterna och den dator där du vill komma åt körnings historiken. Klient datorn kan till exempel finnas i ISE: s virtuella nätverk eller i ett virtuellt nätverk som är anslutet till ISE: s virtuella nätverk, till exempel via peering eller ett virtuellt privat nätverk.
+
+* **Externt**: offentliga slut punkter tillåter anrop till logi Kap par i din ISE där du kan visa och komma åt indata och utdata från Logic Apps kör historik *från utanför det virtuella nätverket*. Om du använder nätverks säkerhets grupper (NSG: er) kontrollerar du att de har kon figurer ATS med regler för inkommande trafik för att tillåta åtkomst till körnings historikens indata och utdata. Mer information finns i [Aktivera åtkomst för ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access).
+
+Du kan ta reda på om din ISE använder en intern eller extern åtkomst slut punkt genom att välja **Egenskaper**under **Inställningar**på din ISE-meny, och sedan hitta **åtkomst slut punkts** egenskapen:
+
+![Hitta åtkomst punkten för ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 
 <a name="create-integration-account-environment"></a>
 

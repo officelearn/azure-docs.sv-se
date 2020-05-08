@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 9f95677211a89c1bb2a18076741dec08e76c5d70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbb2ddaa1fb84590f9dec1c84ac4bc87a8e03022
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81390391"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738124"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka fel med Azure-till-Azure VM-replikering
 
@@ -172,8 +172,6 @@ Eftersom SUSE Linux använder symboliska länkar, eller symlinks, för att under
 ## <a name="outbound-urls-or-ip-ranges-error-code-151037-or-151072"></a>Utgående URL: er eller IP-intervall (felkod 151037 eller 151072)
 
 För att Site Recovery replikering ska fungera krävs utgående anslutning till vissa URL: er från den virtuella datorn. Om den virtuella datorn ligger bakom en brand vägg eller använder regler för nätverks säkerhets grupper (NSG) för att kontrol lera utgående anslutningar kan du stöta på något av dessa problem. Även om vi fortsätter att stödja utgående åtkomst via URL: er, stöds inte längre listan över tillåtna IP-intervall.
-
-### <a name="issue-1-failed-to-register-azure-vm-with-site-recovery-151195"></a>Problem 1: det gick inte att registrera virtuell Azure-dator med Site Recovery (151195)
 
 #### <a name="possible-causes"></a>Möjliga orsaker
 
@@ -477,7 +475,7 @@ Följande exempel är rader från GRUB-filer där enhets namn visas i stället f
 
 Ersätt varje enhets namn med motsvarande UUID:
 
-1. Hitta enhetens UUID genom att köra kommandot `blkid <device name>`. Ett exempel:
+1. Hitta enhetens UUID genom att köra kommandot `blkid <device name>`. Exempel:
 
    ```shell
    blkid /dev/sda1

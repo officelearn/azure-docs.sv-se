@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: cf9597f4a722ff9cda68e87b31db77c989afcb0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f69a3f61c288b320399d1b3abfc632c93261c540
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129852"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983371"
 ---
 # <a name="evaluate-model-module"></a>Utvärdera modell modul
 
@@ -34,9 +34,13 @@ Använd den här modulen för att mäta noggrannheten för en utbildad modell. D
 
 
 ## <a name="how-to-use-evaluate-model"></a>Använda utvärdera modell
-1. Anslut poängen för den resulterande **data uppsättningen** i [Poäng modellen](./score-model.md) till den vänstra Indataporten för **utvärdera modell**. 
+1. Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från [tilldela data till kluster](./assign-data-to-clusters.md) till den vänstra Indataporten för **utvärdera modell**. 
+  > [!NOTE] 
+  > Om du använder moduler som "Välj kolumner i data uppsättning" för att välja en del av data uppsättningen för indata, se till att kolumnen verklig etikett (används i träning), kolumnen "beräknade sannolikheter" och "score etiketter" finns för att beräkna mått som AUC, precision för binära klassificering/avvikelse identifiering.
+  > Den faktiska etikett kolumnen, kolumnen scored etiketter finns för att beräkna mått för klassificering/regression i flera klasser.
+  > Kolumnen tilldelningar, kolumnerna DistancesToClusterCenter nej. X ' (X är centroid-index, sträcker sig från 0,..., antal centroids-1) för att beräkna mått för klustring.
 
-2. Valfritt Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) för den andra modellen till den **högra** inmatningen av **utvärdera modell**. Du kan enkelt jämföra resultat från två olika modeller på samma data. De två indatavärdena ska vara av samma typ av algoritm. Eller så kan du jämföra resultat från två olika körningar över samma data med olika parametrar.
+2. Valfritt Anslut den returnerade **data uppsättningens** utdata från [Poäng modellen](./score-model.md) eller resultat data uppsättningens utdata från tilldela data till kluster för den andra modellen till den **högra** Indataporten för **utvärdera modell**. Du kan enkelt jämföra resultat från två olika modeller på samma data. De två indatavärdena ska vara av samma typ av algoritm. Eller så kan du jämföra resultat från två olika körningar över samma data med olika parametrar.
 
     > [!NOTE]
     > Algoritmen refererar till klassificeringen "dubbelriktad", "klassad klassificering", "regression", "Clustering" under Machine Learning algoritmer. 

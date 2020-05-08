@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: 45e766c624ee96f7faa06fb07d00349e620a4c0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d167c603ada885a1a4917c66bab110e4ce38cab4
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133474"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598376"
 ---
 # <a name="user-defined-functions-in-azure-stream-analytics"></a>Användardefinierade funktioner i Azure Stream Analytics
 
@@ -47,6 +47,9 @@ Azure Stream Analytics har ingen post för alla funktioner-anrop och returnerade
 
 Eventuella körnings fel betraktas som allvarliga och exponeras genom aktivitets-och resurs loggar. Vi rekommenderar att din funktion hanterar alla undantag och fel och returnerar ett giltigt resultat till din fråga. Detta förhindrar att jobbet kommer till ett [felaktigt tillstånd](job-states.md).  
 
+## <a name="exception-handling"></a>Undantagshantering
+
+Eventuella undantag under data bearbetningen betraktas som ett oåterkalleligt fel när data förbrukas i Azure Stream Analytics. Användardefinierade funktioner har högre potential för att utlösa undantag och göra att bearbetningen stoppas. Undvik det här problemet genom att använda ett *try-catch-* block i Java Script eller C# för att fånga undantag vid kod körning. Undantag som fångas kan loggas och behandlas utan att orsaka systemfel. Du uppmanas att alltid figursätta din anpassade kod i ett *try-catch-* block för att undvika att oväntade undantag från bearbetnings motorn utlöses.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -54,4 +57,3 @@ Eventuella körnings fel betraktas som allvarliga och exponeras genom aktivitets
 * [Azure Stream Analytics användardefinierade JavaScript-mängder](stream-analytics-javascript-user-defined-aggregates.md)
 * [Utveckla .NET standard-användardefinierade funktioner för Azure Stream Analytics jobb](stream-analytics-edge-csharp-udf-methods.md)
 * [Integrera Azure Stream Analytics med Azure Machine Learning](machine-learning-udf.md)
-

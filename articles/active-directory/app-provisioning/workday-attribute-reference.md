@@ -1,27 +1,25 @@
 ---
-title: Referens för Workday-attribut | Microsoft Docs
+title: Workday-attributreferens
 description: Lär dig vilka attribut från SuccessFactors som stöds av SuccessFactors-HR driven-etablering
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/19/2020
 ms.author: chmutali
-ms.openlocfilehash: 61f374c3fbc15e78784fe30c4e66ea109537727d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: b0acb058e7e58656257d55f82f5dd02a8ae7d9c3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112889"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593071"
 ---
 # <a name="workday-attribute-reference"></a>Workday-attributreferens
+
 Det här avsnittet innehåller en lista över attribut som du kan hämta från Workday med hjälp av XPATH-frågor. Baserat på den API-version för Workday-webbtjänsten som du planerar att använda, hänvisa till lämpligt avsnitt. 
 
 ## <a name="xpath-values-for-workday-web-services-wws-api-v211"></a>XPATH-värden för WWS-API (Web Services) API v 21.1
@@ -62,7 +60,7 @@ I tabellen nedan visas en lista över Workday-attribut och motsvarande XPATH-utt
 | 29 | LocationIdentifier                    | WD: Worker/WD:\_Worker-data/\_WD: anställnings data/\_WD: positions data\_/\_WD\_: sammanfattnings data för\_företags webbplats/WD:\[@wd:typeplats referens/\_WD:\]ID = ' plats-ID '/text\(\)                                                                                                                                                                                                                                            |
 | 30 | ManagerReference                      | WD: Worker/WD:\_Worker-data/\_WD\_: hanterings kedje data\_/WD\_:\_data\_\[position\(\)för hanterings\]kedja för arbets\_ledare = 1/WD:\(\)\]hanterings kedja\_\[@wd:type\_data\[sista\(\)= position/WD: Manager Reference/\]WD: ID = ' WID '/text\(\)                                                                                                                                                                            |
 | 31 | MiddleName                            | WD: Worker/WD:\_Worker-data/\_WD: personliga data/\_WD: namn data/\_WD\_: juridiska namn data/\_WD\_: namn detalj data/\_WD: mellan namn/text\(\)                                                                                                                                                                                                                                                                                |
-| 32 | Mobiltelefon                                | WD: Worker/WD:\_Worker-data/\_WD: personliga data/\_WD: kontakt data/\_WD\[:\(telefon\(data översättning sträng\_WD\_:\_Reference/@wd:Descriptor\)telefon enhets typ, ' abcdefghijklmnopqrstuvwxyz '\), ' abcdefghijklmnopqrstuvwxyz ' = '\(Mobile\(' och Översätt\_sträng WD: användnings\_data/WD: typ\_Reference/@wd:Descriptor\)data/WD: Type, ' abcdefghijklmnopqrstuvwxyz\)', ' abcdefghijklmnopqrstuvwxyz\]/@wd:Formatted\_' = ' arbets telefon    |
+| 32 | Mobil                                | WD: Worker/WD:\_Worker-data/\_WD: personliga data/\_WD: kontakt data/\_WD\[:\(telefon\(data översättning sträng\_WD\_:\_Reference/@wd:Descriptor\)telefon enhets typ, ' abcdefghijklmnopqrstuvwxyz '\), ' abcdefghijklmnopqrstuvwxyz ' = '\(Mobile\(' och Översätt\_sträng WD: användnings\_data/WD: typ\_Reference/@wd:Descriptor\)data/WD: Type, ' abcdefghijklmnopqrstuvwxyz\)', ' abcdefghijklmnopqrstuvwxyz\]/@wd:Formatted\_' = ' arbets telefon    |
 | 33 | Kommuner                          | WD: Worker/WD:\_Worker-data/\_WD: anställnings data/\_WD: positions data\_/\_WD\_: sammanfattnings data för\_företags webbplats/WD: adress data/WD: kommun/text\(\)                                                                                                                                                                                                                                                                   |
 | 34 | PositionID                            | WD: Worker/WD:\_Worker-data/\_WD: anställnings data/\_WD: positions data\_/WD: positions-ID/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 35 | PositionTitle                         | WD: Worker/WD:\_Worker-data/\_WD: anställnings data/\_WD: positions data\_/WD: positions rubrik/text\(\)                                                                                                                                                                                                                                                                                                                  |
@@ -150,7 +148,7 @@ Om du använder en WWS API v-30.0 och senare, innan du aktiverar etablerings job
 | 29 | LocationIdentifier                    | WD: Worker/WD:\_Worker-data/\_WD: anställnings data/\_WD\_:\[@wd:Primary\_jobb data jobb\]= 1/WD\_: positions data/\_WD\_:\_sammanfattnings data för företags\_webbplats/WD: plats\[@wd:typereferens/WD\_: ID\]= ' plats-ID '/text\(\)                                                                                                                                                                           |
 | 30 | ManagerReference                      | WD: Worker/WD:\_Worker-data/\_WD\_: hanterings kedje data\_/WD\_:\_data\_\[position\(\)för hanterings\]kedja för arbets\_ledare = 1/WD:\(\)\]hanterings kedja\_\[@wd:type\_data\[sista\(\)= position/WD: Manager Reference/\]WD: ID = ' WID '/text\(\)                                                                                                                                                      |
 | 31 | MiddleName                            | WD: Worker/WD:\_Worker-data/\_WD: personliga data/\_WD: namn data/\_WD\_: juridiska namn data/\_WD\_: namn detalj data/\_WD: mellan namn/text\(\)                                                                                                                                                                                                                                                          |
-| 32 | Mobiltelefon                                | WD: Worker/WD:\_Worker-data/\_WD: personliga data/\_WD: kontakt data/\_WD\[: telefon information\_Data/@wd:PublicWD: användning = 1 och\(sträng WD:\_användnings data/WD\_: typ data/WD\_: typ referens/WD\[@wd:type: ID =\_'\_kommunikations\_typ-\]\)ID ' = ' arbete '\(och sträng WD\_:\_telefon\_enhets typ referens/\[@wd:typeWD: ID\_=\_'\_telefon enhets\]\)typ-ID\]/@wd:Workday\_'\_=\_' mobil ' traditionell formaterad telefon   |
+| 32 | Mobil                                | WD: Worker/WD:\_Worker-data/\_WD: personliga data/\_WD: kontakt data/\_WD\[: telefon information\_Data/@wd:PublicWD: användning = 1 och\(sträng WD:\_användnings data/WD\_: typ data/WD\_: typ referens/WD\[@wd:type: ID =\_'\_kommunikations\_typ-\]\)ID ' = ' arbete '\(och sträng WD\_:\_telefon\_enhets typ referens/\[@wd:typeWD: ID\_=\_'\_telefon enhets\]\)typ-ID\]/@wd:Workday\_'\_=\_' mobil ' traditionell formaterad telefon   |
 | 33 | Kommuner                          | WD: Worker/WD:\_Worker-data/\_WD: anställnings data/\_WD\_:\[@wd:Primary\_jobb data jobb\]= 1/WD\_: positions data/\_WD\_:\_sammanfattnings data för företags\_webbplats/WD: adress data/WD: kommun/text\(\)                                                                                                                                                                                                  |
 | 34 | PositionID                            | WD: Worker/WD:\_Worker-data/\_WD: anställnings data/\_WD\_:\[@wd:Primary\_arbets jobb data\]jobb = 1\_/WD: positions data\_/WD: positions-ID/text\(\)                                                                                                                                                                                                                                                    |
 | 35 | PositionTitle                         | WD: Worker/WD:\_Worker-data/\_WD: anställnings data/\_WD\_:\[@wd:Primary\_arbets jobb data\]jobb = 1\_/WD: positions data\_/WD: positions rubrik/text\(\)                                                                                                                                                                                                                                                 |

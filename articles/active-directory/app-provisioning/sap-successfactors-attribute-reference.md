@@ -1,33 +1,37 @@
 ---
-title: Attribut referens för SAP SuccessFactors | Microsoft Docs
+title: Referens för SAP SuccessFactors-attribut
 description: Lär dig vilka attribut från SuccessFactors som stöds av SuccessFactors-HR driven-etablering
 services: active-directory
 author: cmmdesai
-documentationcenter: na
-manager: jodadzie
-ms.assetid: afb77f2d-5ddd-4c2e-a840-09021b0efef1
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 00b16f969525e7b802c008ba247ecba015875689
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: celested
+ms.openlocfilehash: cdd6abf5d10a529aa4c529d0364b2ba9f1df72e3
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77522364"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593192"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referens för SAP SuccessFactors-attribut
 
+I den här artikeln hittar du information om:
+
+- [SuccessFactors entiteter och attribut som stöds](#supported-successfactors-entities-and-attributes)
+- [Mappning av standardattribut](#default-attribute-mapping)
+
 ## <a name="supported-successfactors-entities-and-attributes"></a>SuccessFactors entiteter och attribut som stöds
 
-I tabellen nedan samlas listan över SuccessFactors-attribut som stöds av följande två etablerings appar: 
-* [SuccessFactors för att Active Directory användar etablering](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
-* [SuccessFactors till användar etablering i Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 
+I tabellen nedan samlas listan över SuccessFactors-attribut som stöds av följande två etablerings appar:
+
+- [SuccessFactors för att Active Directory användar etablering](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
+- [SuccessFactors till användar etablering i Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
+
 
 | \# | SuccessFactors-entitet                  | SuccessFactors-attribut     | Åtgärdstyp |
 |----|----------------------------------------|------------------------------|----------------|
@@ -111,7 +115,6 @@ I tabellen nedan samlas listan över SuccessFactors-attribut som stöds av följ
 | 77 | EmpEmploymentTermination               | activeEmploymentsCount       | Läsa           |
 | 78 | EmpEmploymentTermination               | latestTerminationDate        | Läsa           |
 
-
 ## <a name="default-attribute-mapping"></a>Mappning av standardattribut
 
 Tabellen nedan innehåller standardattributets mappning mellan SuccessFactors-attribut som anges ovan och AD/Azure AD-attribut. I bladet för Azure AD Provisioning-appen kan du ändra standard mappningen för att inkludera attribut från listan ovan. 
@@ -120,22 +123,21 @@ Tabellen nedan innehåller standardattributets mappning mellan SuccessFactors-at
 |----|----------------------------------------|--------------------------|-----------------------------------------|----------------------------------------------------------------------------------------------|
 | 1  | PerPerson                              | personIdExternal         | Anställnings                              | Används som matchande attribut                                                                   |
 | 2  | PerPerson                              | perPersonUuid            | \[Inte mappad \- används som käll ankare\] | Under den inledande synkroniseringen länkar etablerings tjänsten personUuid till befintlig objectGuid\.  |
-| 3  | PerPersonal                            | displayName              | displayName                             | Ej tillämpligt                                                                                           |
-| 4  | PerPersonal                            | firstName                | förnamn                               | Ej tillämpligt                                                                                           |
-| 5  | PerPersonal                            | lastName                 | sn                                      | Ej tillämpligt                                                                                           |
-| 6  | Användare                                   | addressLine1             | streetAddress                           | Ej tillämpligt                                                                                           |
-| 7  | Användare                                   | city                     | l                                       | Ej tillämpligt                                                                                           |
-| 8  | Användare                                   | land                  | företag                                      | Ej tillämpligt                                                                                           |
-| 9  | Användare                                   | state                    | st                                      | Ej tillämpligt                                                                                           |
-| 10 | Användare                                   | användarnamn                 | samAccountName                          | Ej tillämpligt                                                                                           |
-| 11 | Användare                                   | Postummer                  | Post nummer                              | Ej tillämpligt                                                                                           |
-| 12 | PerEmail                               | emailAddress             | e-post                                    | Ej tillämpligt                                                                                           |
-| 13 | EmpJob                                 | Befattning                 | title                                   | Ej tillämpligt                                                                                           |
-| 14 | EmpJob                                 | managerId                | manager                                 | Ej tillämpligt                                                                                           |
-| 15 | EmpJob\.Company\.CountryOfRegistration | twoCharCountryCode       | c                                       | Ej tillämpligt                                                                                           |
-| 16 | EmpJob\.-avdelning                     | avdelning               | avdelning                              | Ej tillämpligt                                                                                           |
-| 17 | EmpJob\.-avdelning                       | vändning                 | company                                 | Ej tillämpligt                                                                                           |
-| 18 | EmpJob\.-plats                       | officeLocationAddress    | streetAddress                           | Ej tillämpligt                                                                                           |
-| 19 | EmpJob\.-plats                       | officeLocationZipCode    | Post nummer                              | Ej tillämpligt                                                                                           |
+| 3  | PerPersonal                            | displayName              | displayName                             | NA                                                                                           |
+| 4  | PerPersonal                            | firstName                | förnamn                               | NA                                                                                           |
+| 5  | PerPersonal                            | lastName                 | sn                                      | NA                                                                                           |
+| 6  | Användare                                   | addressLine1             | streetAddress                           | NA                                                                                           |
+| 7  | Användare                                   | city                     | l                                       | NA                                                                                           |
+| 8  | Användare                                   | land                  | företag                                      | NA                                                                                           |
+| 9  | Användare                                   | state                    | st                                      | NA                                                                                           |
+| 10 | Användare                                   | användarnamn                 | samAccountName                          | NA                                                                                           |
+| 11 | Användare                                   | Postummer                  | Post nummer                              | NA                                                                                           |
+| 12 | PerEmail                               | emailAddress             | e-post                                    | NA                                                                                           |
+| 13 | EmpJob                                 | Befattning                 | title                                   | NA                                                                                           |
+| 14 | EmpJob                                 | managerId                | manager                                 | NA                                                                                           |
+| 15 | EmpJob\.Company\.CountryOfRegistration | twoCharCountryCode       | c                                       | NA                                                                                           |
+| 16 | EmpJob\.-avdelning                     | avdelning               | avdelning                              | NA                                                                                           |
+| 17 | EmpJob\.-avdelning                       | vändning                 | company                                 | NA                                                                                           |
+| 18 | EmpJob\.-plats                       | officeLocationAddress    | streetAddress                           | NA                                                                                           |
+| 19 | EmpJob\.-plats                       | officeLocationZipCode    | Post nummer                              | NA                                                                                           |
 | 20 | EmpEmploymentTermination               | activeEmploymentsCount   | accountEnabled                          | om activeEmploymentsCount = 0 inaktiverar du account\.                                           |
-

@@ -2,26 +2,21 @@
 title: 'Använd Microsoft Graph-API: er för att konfigurera etablering-Azure Active Directory | Microsoft Docs'
 description: 'Behöver du konfigurera etablering för flera instanser av ett program? Lär dig hur du sparar tid genom att använda Microsoft Graph API: er för att automatisera konfigurationen av automatisk etablering.'
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c72217a565071f9531281af1862ba3681e353a4d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 585cafc548b3458c6e9cc0ef91c44f163fb7fa2f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481474"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593955"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurera etablering med hjälp av Microsoft Graph API: er
 

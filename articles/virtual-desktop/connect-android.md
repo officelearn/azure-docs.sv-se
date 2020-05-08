@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d2990c82efbcdac7d453f920301787b8c83db1e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c1ffb4b1c0018cf56771d3fea56fe56d151bae3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295367"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612936"
 ---
 # <a name="connect-with-the-android-client"></a>Ansluta med Android-klienten
 
 > Gäller för: Android 4,1 och senare, Chromebooks med Chrome 53 och senare.
+
+>[!IMPORTANT]
+>Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/connect-android-2019.md).
+>
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 >[!NOTE]
 > Möjligheten att komma åt Windows-resurser för virtuella skriv bord från Android-klienten är för närvarande tillgänglig som för hands version.
@@ -36,7 +42,7 @@ Så här prenumererar du på en feed:
 
 1. I anslutnings Center trycker du på **+** och trycker sedan på **fjär resurs matning**.
 2. Ange feed-URL: en i fältet **feed URL** . Feed-URL: en kan vara antingen en URL eller en e-postadress.
-   - Om du använder en URL kan du använda den som din administratör har gett dig <https://rdweb.wvd.microsoft.com>, vanligt vis.
+   - Om du använder en URL kan du använda den som din administratör har gett dig <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>, vanligt vis.
    - Ange din e-postadress om du vill använda e-post. Klienten söker efter en URL som är kopplad till din e-postadress om din administratör har konfigurerat servern på det sättet.
 3. Tryck på **Nästa**.
 4. Ange dina autentiseringsuppgifter när du uppmanas till det.

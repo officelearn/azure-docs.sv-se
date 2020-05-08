@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: lauradolan
 ms.author: ladolan
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/13/2020
-ms.openlocfilehash: f726ca90c215c4aff3734bd8022bbc1ad4dc5f87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: d80972cd200b8f85e14d316c4c06a38f88ac81b5
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415984"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598172"
 ---
 # <a name="manage-logic-apps-in-the-azure-portal"></a>Hantera Logic Apps i Azure Portal
 
@@ -60,7 +60,7 @@ Följ dessa steg om du vill söka efter och öppna din Logic app:
    * **Position**
    * **Typ** 
    * **Prenumerations namn**
-   * **Prenumerations-ID**
+   * **Prenumerations-ID:t**
    * **Åtkomst slut punkt**
    * **Utgående IP-adresser för körning**
    * **Åtkomst till slut punktens IP-adresser**
@@ -145,6 +145,10 @@ Att ta bort din Logic app påverkar arbets flödes instanserna på följande sä
 * Alla pågående och väntande körningar fortsätter tills de är klara. Den här processen kan ta lite tid beroende på hur många körningar som körs.
 
 * Logic Appss motorn skapar eller kör inte nya arbets flödes instanser.
+
+> [!NOTE]
+> Om du tar bort och återskapar en underordnad Logic-app måste du spara om den överordnade Logic-appen. Den omskapade underordnade appen kommer att ha olika metadata.
+> Om du inte sparar om den överordnade Logic-appen när du har återskapat dess underordnade Logic-program, kommer anropen till den underordnade Logic-appen att Miss varnas med fel "obehörig". Det här beteendet gäller för över-underordnade Logic Apps, till exempel de som använder artefakter i integrations konton eller anropar Azure Functions.
 
 <a name="delete-single-logic-app"></a>
 

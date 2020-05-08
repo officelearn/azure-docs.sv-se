@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/23/2020
-ms.openlocfilehash: 8170a0190e2d322c07f8f4978a77a8171579cbfb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/24/2020
+ms.openlocfilehash: 05d057be76a1b468f892b3123080e32a948153ae
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232895"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598506"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal
 
@@ -219,13 +219,19 @@ Lösen ordet har ändrats på alla noder i klustret.
 4. På sidan **skript åtgärder** väljer du **Skicka ny**.
 5. På sidan **Skicka skript åtgärd** anger du följande information:
 
-   | Field | Värde |
+> [!NOTE]
+> SSH-lösenord får inte innehålla följande tecken:
+> ```
+> " ' ` / \ < % ~ | $ & ! 
+> ```
+
+   | Fält | Värde |
    | --- | --- |
    | Skript typ | Välj **anpassad** i list rutan.|
    | Name |"Ändra SSH-autentiseringsuppgifter" |
    | Bash-skript-URI |URI: n till changecredentials.sh-filen |
    | Nodtyp (er): (Head, Worker, Nimbus, chef eller Zookeeper.) |✓ för alla nodtyper i listan |
-   | Parametrar |Ange SSH-användarnamnet och sedan det nya lösen ordet. Det måste finnas ett blank steg mellan användar namnet och lösen ordet. Följande tecken stöds inte i SSH-lösenord: "' '/\ <% ~ | $ &
+   | Parametrar |Ange SSH-användarnamnet och sedan det nya lösen ordet. Det måste finnas ett blank steg mellan användar namnet och lösen ordet. |
    | Spara den här skript åtgärden... |Lämna fältet omarkerat. |
 
 6. Välj **skapa** för att tillämpa skriptet. När skriptet är klart kan du ansluta till klustret med hjälp av SSH med de nya autentiseringsuppgifterna.

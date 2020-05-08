@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: b0ba47ff28208bce1a6fa6ec300a261d788167de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3fae34d0bb1aaaa2471f1cc9fd55ef9b4b73dfd
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415604"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594315"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>IP-adresser i Azure Integration Runtime
 
@@ -25,7 +25,7 @@ ms.locfileid: "81415604"
 Vilka IP-adresser som Azure Integration Runtime använder beror på den region där din Azure integration runtime finns. *Alla* Azures integrerings körningar som finns i samma region använder samma IP-adressintervall.
 
 > [!IMPORTANT]  
-> Data flöden använder inte de här IP-adresserna för närvarande. 
+> Data flöden stöder inte användning av fasta IP-intervall.
 >
 > Du kan använda dessa IP-intervall för data förflyttning, pipeline och externa aktiviteter. De här IP-intervallen kan användas för vit listning i data lager/nätverks säkerhets grupper (NSG)/brand väggar för inkommande åtkomst från Azure integration Runtime. 
 

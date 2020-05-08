@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ad36547b0cf9457d7ff4fdd919a0bb1362539eb5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80522728"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82595247"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -120,7 +120,7 @@ Nej. Detta stöds inte för närvarande eftersom det finns ett lån för att fö
 Nej. Du kan inte uppdatera egenskapen dator namn. Den nya virtuella datorn ärver den från den överordnade virtuella datorn som användes för att skapa operativ system disken. 
 
 **Var kan jag hitta exempel Azure Resource Manager mallar för att skapa virtuella datorer med Managed disks?**
-* [Lista med mallar som använder Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
+* [Lista med mallar som använder Managed Disks](https://github.com/Azure/azure-quickstart-templates/)
 * https://github.com/chagarw/MDPP
 
 **Finns det någon kontinuerlig befintlig relation med den käll-bloben när du skapar en disk från en BLOB?**

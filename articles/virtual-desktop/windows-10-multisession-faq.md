@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d7ea99e2ee8e2882c211ee17acec70222dc058a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 143410f0bf0659161427f4b5391124f53f712972
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637087"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612001"
 ---
-# <a name="windows-10-enterprise-multi-session-faq"></a>Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
+# <a name="windows-10-enterprise-multi-session-faq"></a>Vanliga frågor och svar om Windows 10 Enterprise multi-session
 
 I den här artikeln besvaras vanliga frågor och rekommendationer för Windows 10 Enterprise multi-session.
  
@@ -104,4 +104,4 @@ Lär dig mer om Windows Virtual Desktop och Windows 10 Enterprise multi-session:
 
 - Läs vår [dokumentation för för hands versionen av Windows Virtual Desktop](overview.md)
 - Besök vår [TechCommunity för virtuella Windows-datorer](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
-- Konfigurera din Windows-distribution av virtuella datorer med [självstudierna för Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+- Konfigurera din Windows-distribution av virtuella datorer med [självstudierna för Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md)

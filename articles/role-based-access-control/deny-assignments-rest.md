@@ -1,6 +1,6 @@
 ---
-title: Visa lista över nekade tilldelningar för Azure-resurser med REST API
-description: Lär dig hur du visar en lista över nekade tilldelningar för användare, grupper och program med rollbaserad åtkomst kontroll (RBAC) för Azure-resurser och REST API.
+title: Visa en lista över Azure Deny-tilldelningar med hjälp av REST API – Azure RBAC
+description: Lär dig hur du visar Azure Deny-tilldelningar för användare, grupper och program med hjälp av REST API och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,25 +15,25 @@ ms.topic: conceptual
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0f648405a3d71bf27c64dacbb3fd78f3e9801137
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dae0352566e6cb4f8ed1384ca12213e2aaa07f9d
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063022"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733878"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Visa lista över nekade tilldelningar för Azure-resurser med hjälp av REST API
+# <a name="list-azure-deny-assignments-using-the-rest-api"></a>Visa en lista över Azure Deny-tilldelningar med hjälp av REST API
 
-[Neka tilldelningar](deny-assignments.md) blockera användare från att utföra vissa åtgärder för Azure-resurser även om en roll tilldelning ger dem åtkomst. Den här artikeln beskriver hur du visar en lista över nekade tilldelningar med hjälp av REST API.
+[Azure Deny-tilldelningar](deny-assignments.md) blockerar användare från att utföra vissa åtgärder för Azure-resurser även om en roll tilldelning ger åtkomst till dem. Den här artikeln beskriver hur du visar en lista över nekade tilldelningar med hjälp av REST API.
 
 > [!NOTE]
-> Du kan inte skapa egna neka-tilldelningar direkt. För information om hur neka-tilldelningar skapas, se [neka tilldelningar](deny-assignments.md).
+> Du kan inte skapa egna neka-tilldelningar direkt. För information om hur neka-tilldelningar skapas, se [Azure Deny-tilldelningar](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Krav
 
 För att få information om en neka-tilldelning måste du ha:
 
-- `Microsoft.Authorization/denyAssignments/read`behörighet, som ingår i de flesta [inbyggda roller för Azure-resurser](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read`behörighet, som ingår i de flesta [inbyggda Azure-roller](built-in-roles.md).
 
 ## <a name="list-a-single-deny-assignment"></a>Lista en enskild neka-tilldelning
 
@@ -91,7 +91,7 @@ För att få information om en neka-tilldelning måste du ha:
 
 ## <a name="list-deny-assignments-at-the-root-scope-"></a>Visa lista över neka tilldelningar i rot omfånget (/)
 
-1. Öka åtkomsten enligt beskrivningen i [öka åtkomsten för en global administratör i Azure Active Directory](elevate-access-global-admin.md).
+1. Öka åtkomsten enligt beskrivningen i [öka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](elevate-access-global-admin.md).
 
 1. Använd följande begäran:
 
@@ -111,6 +111,6 @@ För att få information om en neka-tilldelning måste du ha:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå neka-tilldelningar för Azure-resurser](deny-assignments.md)
-- [Utöka behörighet för global administratör i Azure Active Directory](elevate-access-global-admin.md)
+- [Förstå Azure Deny-tilldelningar](deny-assignments.md)
+- [Utöka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](elevate-access-global-admin.md)
 - [Referens för Azure-REST API](/rest/api/azure/)

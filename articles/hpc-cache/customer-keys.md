@@ -4,14 +4,14 @@ description: Använda Azure Key Vault med Azure HPC cache för att kontrol lera 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 04/29/2020
 ms.author: v-erkel
-ms.openlocfilehash: f8a8b8dfedd9c4ac0590dc91e5cdced50d2be6ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2d10241b8395c33767ffeeb550d9d8060bde3ce3
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195085"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597747"
 ---
 # <a name="use-customer-managed-encryption-keys-for-azure-hpc-cache"></a>Använd kund hanterade krypterings nycklar för Azure HPC cache
 
@@ -20,11 +20,7 @@ Du kan använda Azure Key Vault för att kontrol lera ägarskapet för de nyckla
 > [!NOTE]
 > Alla data som lagras i Azure, inklusive på cache-diskarna, krypteras i vila med hjälp av Microsoft-hanterade nycklar som standard. Du behöver bara följa stegen i den här artikeln om du vill hantera nycklarna som används för att kryptera dina data.
 
-Den här funktionen är endast tillgänglig i dessa Azure-regioner:
-
-* USA, östra
-* USA, södra centrala
-* USA, västra 2
+Den här funktionen är endast tillgänglig i några av de Azure-regioner där Azure HPC cache är tillgängligt. Se [region tillgänglighets](hpc-cache-overview.md#region-availability) listan för mer information.
 
 Det finns tre steg för att aktivera kundhanterad nyckel kryptering för Azure HPC cache:
 
@@ -71,7 +67,7 @@ När du skapar en cache måste du ange ett valv, en nyckel och en nyckel version
 Läs [Azure Key Vault-dokumentationen](../key-vault/key-vault-overview.md) om du vill ha mer information.
 
 > [!NOTE]
-> Azure Key Vault måste använda samma prenumeration och vara i samma region som Azure HPC-cachen. Använd en av de regioner som stöds i början av den här artikeln.
+> Azure Key Vault måste använda samma prenumeration och vara i samma region som Azure HPC-cachen. Se till att den region du väljer [stöder funktionen Kundhanterade nycklar](hpc-cache-overview.md#region-availability).
 
 ## <a name="2-create-the-cache-with-customer-managed-keys-enabled"></a>2. skapa cachen med Kundhanterade nycklar aktiverade
 

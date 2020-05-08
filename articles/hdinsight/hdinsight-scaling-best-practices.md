@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/23/2020
-ms.openlocfilehash: 64fe56ff506cf256dd7e317984551949f9ffad06
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 2dae0f662eefa7f7b1f56d057cd47f1cb92244ce
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189372"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592068"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Skala Azure HDInsight-kluster
 
@@ -74,27 +74,38 @@ Effekten av att ändra antalet datanoder varierar för varje typ av kluster som 
 
 * Apache Storm
 
-    Du kan enkelt lägga till eller ta bort datanoder medan Storm körs. Men när skalnings åtgärden har slutförts måste du balansera om topologin.
-
-    Ombalansering kan utföras på två sätt:
+    Du kan enkelt lägga till eller ta bort datanoder medan Storm körs. Men när skalnings åtgärden har slutförts måste du balansera om topologin. Med ombalansering kan topologin justera [Inställningar för parallellitet](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) baserat på det nya antalet noder i klustret. Använd något av följande alternativ för att balansera om topologier som körs:
 
   * Webb gränssnitt för Storm
+
+    Använd följande steg för att balansera om en topologi med storm-ANVÄNDARGRÄNSSNITTET.
+
+    1. Öppna `https://CLUSTERNAME.azurehdinsight.net/stormui` i webbläsaren, där `CLUSTERNAME` är namnet på ditt Storm-kluster. Om du uppmanas till det anger du namnet på HDInsight-klusterresursen (admin) och lösen ordet du angav när du skapade klustret.
+
+    1. Välj den topologi du vill balansera om och välj sedan knappen **balansera** om. Ange fördröjningen innan ombalanserings åtgärden utförs.
+
+        ![Återbalansering av HDInsight Storm-skala](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
   * Kommando rads gränssnitt (CLI)
 
-    Mer information finns i [Apache Storm-dokumentationen](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html).
+    Anslut till servern och Använd följande kommando för att balansera om en topologi:
 
-    Webb gränssnittet för Storm är tillgängligt i HDInsight-klustret:
+    ```bash
+     storm rebalance TOPOLOGYNAME
+    ```
 
-    ![Återbalansering av HDInsight Storm-skala](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    Du kan också ange parametrar för att åsidosätta de parallella tips som ursprungligen tillhandahölls av topologin. Koden nedan konfigurerar till exempel om `mytopology` topologin till 5 arbets processer, 3 körningar för Blue-kanalen-komponenten och 10 körningar för den gula-bult-komponenten.
 
-    Här är ett exempel på CLI-kommando för att balansera om Storm-topologin:
-
-    ```console
+    ```bash
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
     ## the spout "blue-spout" to use 3 executors, and
     ## the bolt "yellow-bolt" to use 10 executors
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
+
+* Kafka
+
+    Du bör balansera om partition repliker efter skalnings åtgärder. Mer information finns i dokumentet [med hög tillgänglighet för data med Apache Kafka på HDInsight](./kafka/apache-kafka-high-availability.md) -dokument.
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Så här skalar du ned ett kluster på ett säkert sätt
 
@@ -127,7 +138,7 @@ Om du vill avsluta programmet manuellt kör du följande kommando från SSH-grä
 yarn application -kill <application_id>
 ```
 
-Ett exempel:
+Exempel:
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -252,3 +263,8 @@ Region servrar bal anse ras automatiskt inom några minuter efter att en skalnin
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skala Azure HDInsight-kluster automatiskt](hdinsight-autoscale-clusters.md)
+
+För detaljerad information om skalning av HDInsight-klustret, se:
+
+* [Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure CLI](hdinsight-administer-use-command-line.md#scale-clusters)

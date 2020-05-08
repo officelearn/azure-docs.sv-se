@@ -15,7 +15,7 @@ ms.locfileid: "74224413"
 | --- | --- | --- | --- |
 | API-anrop |500 000 |1 500 000 per enhet |15 000 000 per enhet |
 | Aktiva enheter |500 |Obegränsat |Obegränsat |
-| Skala |Ej tillämpligt |Upp till 6 enheter |Obegränsade enheter |
+| Skala |E.t. |Upp till 6 enheter |Obegränsade enheter |
 | Push-meddelanden |Azure Notification Hubs kostnads fri nivå ingår, upp till 1 000 000 push-meddelanden |Notification Hubs Basic-nivån ingår, upp till 10 000 000 push-meddelanden |Notification Hubs standard nivån ingår, upp till 10 000 000 push-meddelanden |
 | Real tids meddelanden/<br/>Web Sockets |Begränsad |350 per mobil tjänst |Obegränsat |
 | Offlinesynkronisering |Begränsad |Ingår |Ingår |

@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 50ff0afe13b5b098fbc8d9fbeefba295a6217192
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 83ccc3160ed62a1ea801dd8c5795328fd2b5109f
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606075"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82584021"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Så startar och stoppar du Azure-SSIS Integration Runtime enligt ett schema
 
@@ -353,7 +353,7 @@ I följande avsnitt beskrivs hur du skapar en PowerShell-Runbook. Skriptet som �
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Skapa scheman för din Runbook för att starta/stoppa Azure-SSIS IR
 
-I föregående avsnitt har du skapat din Azure Automation Runbook som antingen kan starta eller stoppa Azure-SSIS IR. I det här avsnittet ska du skapa två scheman för din Runbook. När du konfigurerar det första schemat anger du **Start** för **åtgärd**. På samma sätt anger du **åtgärden** **stoppa** för att konfigurera den andra. Detaljerade anvisningar om hur du skapar scheman finns i [skapa en schema](../automation/shared-resources/schedules.md#creating-a-schedule) artikel.
+I föregående avsnitt har du skapat din Azure Automation Runbook som antingen kan starta eller stoppa Azure-SSIS IR. I det här avsnittet ska du skapa två scheman för din Runbook. När du konfigurerar det första schemat anger du **Start** för **åtgärd**. På samma sätt anger du **åtgärden** **stoppa** för att konfigurera den andra. Detaljerade anvisningar om hur du skapar scheman finns i [skapa en schema](../automation/shared-resources/schedules.md#create-a-schedule) artikel.
 
 1. I **Runbook** -fönstret väljer du **scheman**och sedan **+ Lägg till ett schema** i verktygsfältet. 
 

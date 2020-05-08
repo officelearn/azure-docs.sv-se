@@ -4,12 +4,12 @@ description: Lär dig hur du kodar och konfigurerar Durable Functions att köras
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d8dd0c86fbc520d0bd3ef6034891bd9871774b4a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad498bdbc4e6dc9745c6ef45b3dc601ad36c0a62
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74232741"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733421"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Köra Durable Functions som WebJobs
 
@@ -19,7 +19,7 @@ Som standard använder Durable Functions Azure Functions körning till värdbase
 
 I version 3. x av WebJobs SDK är värden en implementering av `IHost`och i version 2. x använder du `JobHost` objektet.
 
-Länknings Durable Functionss exemplet är tillgängligt i en WebJobs SDK 2. x-version: Hämta eller klona [Durable Functions-lagringsplatsen](https://github.com/azure/azure-functions-durable-extension/)och gå till mappen *\\samples webjobssdk\\Chaining* .
+Länknings Durable Functionss exemplet är tillgängligt i en WebJobs SDK 2. x-version: Hämta eller klona [Durable Functions-lagringsplatsen](https://github.com/azure/azure-functions-durable-extension/)och check *v1* -grenen och gå till mappen *samples\\webjobssdk\\Chaining* .
 
 ## <a name="prerequisites"></a>Krav
 
@@ -184,7 +184,7 @@ while (true)
 
 Du har Durable Functions konfigurerat för att köras som ett webb jobb, och du har nu en förståelse för hur detta skiljer sig från att köra Durable Functions som fristående Azure Functions. I det här läget kan det vara bra att se hur det fungerar i ett exempel.
 
-Det här avsnittet innehåller en översikt över hur du kör [exempelprojektet](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/webjobssdk/chaining). Detaljerade instruktioner som förklarar hur du kör ett WebJobs SDK-projekt lokalt och distribuerar det till ett Azure-webbjobb finns i [Kom igång med WebJobs SDK](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
+Det här avsnittet innehåller en översikt över hur du kör [exempelprojektet](https://github.com/Azure/azure-functions-durable-extension/tree/v1/samples/webjobssdk/chaining). Detaljerade instruktioner som förklarar hur du kör ett WebJobs SDK-projekt lokalt och distribuerar det till ett Azure-webbjobb finns i [Kom igång med WebJobs SDK](../../app-service/webjobs-sdk-get-started.md#deploy-as-a-webjob).
 
 ### <a name="run-locally"></a>Lokal körning
 

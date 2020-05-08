@@ -3,12 +3,12 @@ title: Använd PowerShell för att säkerhetskopiera Windows Server till Azure
 description: I den här artikeln lär du dig hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hur du hanterar säkerhets kopiering och återställning.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 3b9bcf8e777244cec11383619d145e3a99ff46d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fde81aba5a2b74ce25c8f3cd70dc24df6f566420
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82193028"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597985"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 
@@ -111,7 +111,7 @@ MARSAgentInstaller.exe /?
 
 De tillgängliga alternativen är:
 
-| Alternativ | Information | Default |
+| Alternativ | Information | Standardvärde |
 | --- | --- | --- |
 | /q |Tyst installation |- |
 | /p: "plats" |Sökväg till installationsmappen för Azure Backup agenten. |C:\Program\Microsoft Azure Recovery Services agent |
@@ -209,7 +209,12 @@ Server properties updated successfully.
 
 De säkerhets kopierings data som skickas till Azure Backup krypteras för att skydda data sekretessen. Krypterings lösen frasen är "Password" för att dekryptera data vid tidpunkten för återställningen.
 
-Du måste skapa en säkerhets-PIN-kod genom att välja **generera**under **Inställningar** > **Egenskaper** > **säkerhet PIN-kod** i avsnittet **Recovery Services Vault** i Azure Portal. Använd sedan detta som `generatedPIN` i kommandot:
+Du måste skapa en säkerhets-PIN-kod genom att välja **generera**under **Inställningar** > **Egenskaper** > **säkerhet PIN-kod** i avsnittet **Recovery Services Vault** i Azure Portal. 
+
+>[!NOTE]
+> Det går bara att skapa en säkerhets kod via Azure Portal.
+
+Använd sedan detta som `generatedPIN` i kommandot:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force

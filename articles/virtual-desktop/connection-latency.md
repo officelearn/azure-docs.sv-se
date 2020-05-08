@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a4210947d771768943775a3e62c2558fa2883bd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a60779fb045aa612a6ba0988c4635752f973f60
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79128186"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607409"
 ---
 # <a name="determine-user-connection-latency-in-windows-virtual-desktop"></a>Fastställa svars tid för användar anslutning i virtuellt Windows-skrivbord
 
@@ -29,4 +29,4 @@ Windows Virtual Desktop använder Azure-Traffic Manager, som kontrollerar platse
 
 - Om du vill kontrol lera den bästa platsen för optimal svars tid kan du läsa [verktyget Windows Virtual Desktop Experience uppskattnings verktyg](https://azure.microsoft.com/services/virtual-desktop/assessment/).
 - För pris listor, se [priser för virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-desktop/).
-- Om du vill komma igång med distributionen av virtuella Windows-datorer kan du kolla in [vår självstudie](tenant-setup-azure-active-directory.md).
+- Om du vill komma igång med distributionen av virtuella Windows-datorer kan du kolla in [vår självstudie](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

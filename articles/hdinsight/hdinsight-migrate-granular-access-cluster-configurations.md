@@ -6,13 +6,13 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.openlocfilehash: bb78d84aa0f9a2832b6599edeac9d50e0e226437
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/20/2020
+ms.openlocfilehash: 058300dca3e7eae41b7d8010e1ca5ee7d4cdcf3a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546344"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598478"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -24,14 +24,14 @@ Tidigare kunde hemligheter erhållas via HDInsight-API: t av kluster användare 
 
 Från och med den 3 september 2019 krävs `Microsoft.HDInsight/clusters/configurations/action` behörigheten för att komma åt dessa hemligheter, vilket innebär att de inte längre kan nås av användare med rollen läsare. Rollerna som har den här behörigheten är deltagare, ägare och den nya rollen för HDInsight-klustret (mer information nedan).
 
-Vi introducerar också en ny roll för [HDInsight-kluster](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) som kommer att kunna hämta hemligheter utan att ha behörighet som deltagares eller ägares administrativa behörigheter. Sammanfattning:
+Vi introducerar också en ny roll för [HDInsight-kluster](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) som kommer att kunna hämta hemligheter utan att ha behörighet som deltagares eller ägares administrativa behörigheter. Sammanfattningsvis:
 
 | Roll                                  | Tidigare                                                                                       | Gå framåt       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Läsare                                | – Läs behörighet, inklusive hemligheter                                                                   | -Läs behörighet, **förutom** hemligheter |           |   |   |
-| HDInsight-kluster operator<br>(Ny roll) | Ej tillämpligt                                                                                              | -Läs-/Skriv behörighet, inklusive hemligheter         |   |   |
-| Deltagare                           | -Läs-/Skriv behörighet, inklusive hemligheter<br>– Skapa och hantera alla typer av Azure-resurser.     | Ingen ändring |
-| Ägare                                 | -Läs-/skriv åtkomst inklusive hemligheter<br>-Fullständig åtkomst till alla resurser<br>– Delegera åtkomst till andra | Ingen ändring |
+| Läsare                                | – Läs behörighet, inklusive hemligheter.                                                                   | -Läs behörighet, **förutom** hemligheter |           |   |   |
+| HDInsight-kluster operator<br>(Ny roll) | E.t.                                                                                              | -Läs-/Skriv behörighet, inklusive hemligheter         |   |   |
+| Deltagare                           | – Läs-/skriv åtkomst, inklusive hemligheter.<br>– Skapa och hantera alla typer av Azure-resurser.<br>-Kör skript åtgärder.     | Ingen ändring |
+| Ägare                                 | – Läs-/skriv åtkomst inklusive hemligheter.<br>-Fullständig åtkomst till alla resurser<br>– Delegera åtkomst till andra.<br>-Kör skript åtgärder. | Ingen ändring |
 
 Information om hur du lägger till roll tilldelningen HDInsight-rollen till en användare för att ge dem Läs-och skriv åtkomst till kluster hemligheter finns i avsnittet nedan, [Lägg till roll tilldelningen HDInsight-kluster till en användare](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user).
 

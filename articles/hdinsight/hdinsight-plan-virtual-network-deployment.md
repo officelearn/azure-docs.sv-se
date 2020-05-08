@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
-ms.date: 04/21/2020
-ms.openlocfilehash: d421811c18ac63952432cd853a6928db7c81f3db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: e2db6d1d60026a00fa8e766fbaa1c72975fa2e99
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182437"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786622"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -44,7 +44,7 @@ Följande är de frågor som du måste besvara när du planerar att installera H
 
 * Vill du begränsa/dirigera inkommande eller utgående trafik till HDInsight?
 
-    HDInsight måste ha obegränsad kommunikation med vissa IP-adresser i Azure Data Center. Det finns också flera portar som måste tillåtas genom brand väggar för klient kommunikation. Mer information finns i avsnittet [styra nätverks trafik](#networktraffic) .
+    HDInsight måste ha obegränsad kommunikation med vissa IP-adresser i Azure Data Center. Det finns också flera portar som måste tillåtas genom brand väggar för klient kommunikation. Mer information finns i [kontrol lera nätverks trafik](./control-network-traffic.md).
 
 ## <a name="add-hdinsight-to-an-existing-virtual-network"></a><a id="existingvnet"></a>Lägg till HDInsight i ett befintligt virtuellt nätverk
 
@@ -201,57 +201,9 @@ Använd följande steg för att ansluta till Apache Ambari och andra webb sidor 
 
 2. Information om vilka noder och portar som en tjänst är tillgänglig på finns i [portarna som används av Hadoop-tjänster i HDInsight](./hdinsight-hadoop-port-settings-for-services.md) -dokument.
 
-## <a name="controlling-network-traffic"></a><a id="networktraffic"></a>Kontrol lera nätverks trafik
-
-### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Tekniker för att kontrol lera inkommande och utgående trafik till HDInsight-kluster
-
-Nätverks trafik i virtuella Azure-nätverk kan kontrol leras med hjälp av följande metoder:
-
-* Med **nätverks säkerhets grupper** (NSG) kan du filtrera inkommande och utgående trafik till nätverket. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/security-overview.md) .
-
-* **Virtuella nätverks enheter** (NVA) kan endast användas med utgående trafik. NVA replikerar funktionaliteten för enheter som brand väggar och routrar. Mer information finns i dokumentet om [nätverks](https://azure.microsoft.com/solutions/network-appliances) installationer.
-
-Som en hanterad tjänst kräver HDInsight obegränsad åtkomst till HDInsight-hälso-och hanterings tjänsterna både för inkommande och utgående trafik från det virtuella nätverket. När du använder NSG: er måste du se till att dessa tjänster fortfarande kan kommunicera med HDInsight-kluster.
-
-![Diagram över HDInsight-entiteter som skapats i Azure anpassat VNET](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
-
-### <a name="hdinsight-with-network-security-groups"></a>HDInsight med nätverks säkerhets grupper
-
-Om du planerar att använda **nätverks säkerhets grupper** för att kontrol lera nätverks trafiken utför du följande åtgärder innan du installerar HDInsight:
-
-1. Identifiera den Azure-region som du planerar att använda för HDInsight.
-
-2. Identifiera de tjänst koder som krävs av HDInsight för din region. Mer information finns i [tjänst taggar för nätverks säkerhets grupper (NSG) för Azure HDInsight](hdinsight-service-tags.md).
-
-3. Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
-
-    * __Nätverks säkerhets grupper__: Tillåt __inkommande__ trafik på port __443__ från IP-adresserna. Detta säkerställer att HDInsight Management Services kan komma åt klustret utanför det virtuella nätverket.
-
-Mer information om nätverks säkerhets grupper finns i [Översikt över nätverks säkerhets grupper](../virtual-network/security-overview.md).
-
-### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Kontrol lera utgående trafik från HDInsight-kluster
-
-Mer information om hur du styr utgående trafik från HDInsight-kluster finns i [Konfigurera begränsning av utgående nätverks trafik för Azure HDInsight-kluster](hdinsight-restrict-outbound-traffic.md).
-
-#### <a name="forced-tunneling-to-on-premises"></a>Tvingad tunnel trafik till lokalt
-
-Tvingad tunnel trafik är en användardefinierad routningstabell där all trafik från ett undernät tvingas till ett nätverk eller en viss plats, till exempel ditt lokala nätverk. HDInsight har __inte__ stöd för Tvingad tunnel trafik till lokala nätverk.
-
-## <a name="required-ip-addresses"></a><a id="hdinsight-ip"></a>IP-adresser som krävs
-
-Om du använder nätverks säkerhets grupper eller användardefinierade vägar för att styra trafiken, se [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
-
-## <a name="required-ports"></a><a id="hdinsight-ports"></a>Portar som krävs
-
-Om du planerar att använda en **brand vägg** och komma åt klustret utifrån vissa portar kan du behöva tillåta trafik på de portar som behövs för ditt scenario. Som standard behövs ingen särskild vit listning för portar så länge som den Azure-hanteringsserver som beskrivs i föregående avsnitt kan komma åt klustret på port 443.
-
-En lista över portar för vissa tjänster finns i [portarna som används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
-
-Mer information om brand Väggs regler för virtuella enheter finns i [scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) dokumentet för Virtual-installation.
-
 ## <a name="load-balancing"></a>Belastningsutjämning
 
-När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den här belastningsutjämnaren är på den [grundläggande SKU-nivån](../load-balancer/concepts-limitations.md#skus), som har vissa begränsningar. Ett av de här begränsningarna är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastnings utjämning. Mer information finns i [vanliga frågor och svar om virtuella nätverk: begränsningar för global VNet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den här belastningsutjämnaren är på den [grundläggande SKU-nivån](../load-balancer/skus.md), som har vissa begränsningar. Ett av de här begränsningarna är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastnings utjämning. Mer information finns i [vanliga frågor och svar om virtuella nätverk: begränsningar för global VNet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -260,3 +212,4 @@ När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den
 * Mer information om virtuella Azure-nätverk finns i [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
 * Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
 * Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).
+* Mer information om hur du styr trafik finns i [kontrol lera nätverks trafik](./control-network-traffic.md).

@@ -16,13 +16,166 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 545bcd1fa521b945d822b7eb69945cf381bf480a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2df092d49f2dfe9153b52be677e8ee6314dd9b60
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77918673"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982980"
 ---
+# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure
+
+> ![Windows][Logo_Windows] Windows
+>
+
+Windows Server-redundanskluster är grunden för en hög tillgänglig SAP-ASCS/SCS-installation och DBMS i Windows.
+
+Ett redundanskluster är en grupp med 1 + n oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om ett nodfel inträffar beräknar Windows Server-redundanskluster antalet fel som kan uppstå och fortfarande upprätthåller ett felfritt kluster för att tillhandahålla program och tjänster. Du kan välja mellan olika kvorumresurser för att nå redundanskluster.
+
+## <a name="prerequisites"></a>Krav
+Läs igenom den här artikeln innan du påbörjar de uppgifter som beskrivs i den här artikeln:
+
+* [Azure Virtual Machines hög tillgänglighets arkitektur och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]
+
+> [!IMPORTANT]
+> Att klustra SAP ASCS/SCS-instanser med hjälp av en fil resurs stöds för SAP NetWeaver 7,40 (och senare), med SAP kernel 7,49 (och senare).
+>
+
+
+## <a name="windows-server-failover-clustering-in-azure"></a>Kluster för växling vid fel i Windows Server i Azure
+
+Jämfört med distributioner av Bare Metal eller privata moln kräver Azure Virtual Machines ytterligare steg för att konfigurera Windows Server-redundanskluster. När du skapar ett kluster måste du ange flera IP-adresser och virtuella värdnamn för SAP ASCS/SCS-instansen.
+
+### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Namn matchning i Azure och klustrets virtuella värd namn
+
+Azure Cloud Platform erbjuder inte alternativet att konfigurera virtuella IP-adresser, till exempel flytande IP-adresser. Du behöver en alternativ lösning för att skapa en virtuell IP-adress för att komma åt kluster resursen i molnet. 
+
+Tjänsten Azure Load Balancer tillhandahåller en *intern belastningsutjämnare* för Azure. Med den interna belastningsutjämnaren når klienterna klustret via klustrets virtuella IP-adress. 
+
+Distribuera den interna belastningsutjämnaren i resurs gruppen som innehåller klusternoderna. Konfigurera sedan alla nödvändiga regler för port vidarebefordran med hjälp av avsöknings portarna för den interna belastningsutjämnaren. Klienterna kan ansluta via det virtuella värd namnet. DNS-servern matchar klustrets IP-adress. Den interna belastningsutjämnaren hanterar port vidarebefordran till klustrets aktiva nod.
+
+![Bild 1: konfiguration av redundanskluster för Windows Server i Azure utan en delad disk][sap-ha-guide-figure-1001]
+
+_**Bild 1:** Konfiguration av redundanskluster för Windows Server i Azure utan en delad disk_
+
+## <a name="sap-ascsscs-ha-with-file-share"></a>SAP ASCS/SCS HA med fil resurs
+
+SAP utvecklade en ny metod och ett alternativ till klusterdelade diskar för klustring av en SAP ASCS/SCS-instans i ett Windows-redundanskluster. I stället för att använda klusterdelade diskar kan du använda en SMB-filresurs för att distribuera globala SAP-databasfiler.
+
+> [!NOTE]
+> En SMB-filresurs är ett alternativ till att använda delade kluster diskar för klustring av SAP ASCS/SCS-instanser.  
+>
+
+Den här arkitekturen är speciell på följande sätt:
+
+* De centrala SAP-tjänsterna (med en egen fil struktur och meddelanden och köer) är åtskilda från SAP global Host-filer.
+* SAP Central Services körs under en SAP ASCS/SCS-instans.
+* SAP ASCS/SCS-instansen är klustrad och kan nås \<med hjälp av det virtuella värd\> namnet ASCS/SCS.
+* Globala SAP-filer placeras på SMB-filresursen och nås med hjälp av \<SAP global Host\> Host-värdnamn: \\ \\ &lt;SAP global Host&gt;\sapmnt\\&lt;sid&gt;\SYS\..
+* SAP ASCS/SCS-instansen är installerad på en lokal disk på båda klusternoderna.
+* Nätverks \<namnet för ASCS/SCS-\> namnet på den virtuella datorn &lt;är inte samma&gt;som SAP global-värden.
+
+![Bild 2: SAP ASCS/SCS HA-arkitektur med SMB-filresurs][sap-ha-guide-figure-8004]
+
+_**Bild 2:** Ny SAP ASCS/SCS HA-arkitektur med en SMB-filresurs_
+
+Krav för en SMB-fil resurs:
+
+* SMB 3,0-protokoll (eller senare).
+* Möjlighet att ange Active Directory åtkomst kontrol listor (ACL: er) för Active Directory användar grupper `computer$` och datorobjektet.
+* Fil resursen måste ha stöd för:
+    * Diskar som används för att lagra filer får inte vara en enskild felpunkt.
+    * Server-eller VM-stillestånd orsakar ingen stillestånds tid på fil resursen.
+
+SAP \<sid\> -klusterresursen innehåller inte klusterdelade diskar eller en allmän fil resurs kluster resurs.
+
+
+![Bild 3: resurser \<för\> SAP sid-kluster roll för användning av en fil resurs][sap-ha-guide-figure-8005]
+
+_**Bild 3:** SAP &lt;sid&gt; -kluster roll resurser för att använda en fil resurs_
+
+
+## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Skalbara fil resurser med Lagringsdirigering i Azure som en SAPMNT fil resurs
+
+Du kan använda en skalbar fil resurs för att vara värd för och skydda SAP global Hosts-filer. En skalbar fil resurs erbjuder också en SAPMNT fil resurs tjänst med hög tillgänglighet.
+
+![Bild 4: skalbar fil resurs som används för att skydda SAP global Hosts-filer][sap-ha-guide-figure-8006]
+
+_**Bild 4:** En skalbar fil resurs som används för att skydda SAP global Hosts-filer_
+
+> [!IMPORTANT]
+> Skalbara fil resurser stöds fullt ut i Microsoft Azure molnet och i lokala miljöer.
+>
+
+En skalbar fil resurs erbjuder en hög tillgänglig och vågrätt skalbar SAPMNT fil resurs.
+
+Lagringsdirigering används som en delad disk för en skalbar fil resurs. Du kan använda Lagringsdirigering för att bygga hög tillgänglig och skalbar lagring med hjälp av servrar med lokal lagring. Delad lagring som används för en skalbar fil resurs, till exempel för globala SAP-databasfiler, är inte en enskild felpunkt.
+
+Tänk på följande när du väljer Lagringsdirigering:
+
+- De virtuella datorer som används för att skapa Lagringsdirigering-klustret måste distribueras i en Azures tillgänglighets uppsättning.
+- För haveri beredskap för ett Lagringsdirigering-kluster kan du använda [Azure Site Recovery-tjänster](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- Det finns inte stöd för att sträcka ut lagrings utrymmes Dirigerings klustret mellan olika Azure-tillgänglighetszoner.
+
+### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>SAP-krav för skalbara fil resurser i Azure
+
+Om du vill använda en skalbar fil resurs måste systemet uppfylla följande krav:
+
+* Minst två klusternoder för en skalbar fil resurs.
+* Varje nod måste ha minst två lokala diskar.
+* Av prestanda skäl måste du använda *speglings återhämtning*:
+    * Dubbelriktad spegling för en skalbar fil resurs med två klusternoder.
+    * Tre-vägs spegling för en skalbar fil resurs med tre (eller fler) klusternoder.
+* Vi rekommenderar tre (eller fler) klusternoder för en skalbar fil resurs med tre vägs spegling.
+    Den här installationen ger större skalbarhet och mer lagrings återhämtning än den skalbara fil resurs konfigurationen med två klusternoder och dubbelriktad spegling.
+* Du måste använda Azure Premium-diskar.
+* Vi rekommenderar att du använder Azure Managed Disks.
+* Vi rekommenderar att du formaterar volymer med hjälp av ReFS (elastiskt fil system).
+    * Mer information finns i [SAP Note 1869038-SAP-stöd för ReFs-filsystem][1869038] och [Välj fil system][planning-volumes-s2d-choosing-filesystem] kapitlet i artikeln Planera volymer i Lagringsdirigering.
+    * Se till att du installerar den [kumulativa uppdateringen av Microsoft KB4025334][kb4025334].
+* Du kan använda VM-storlekar i DS-eller DSv2-serien.
+* Använd en VM-typ som har minst en "hög" nätverks bandbredd för bästa nätverks prestanda mellan virtuella datorer, vilket krävs för att Lagringsdirigering synkronisering av disk.
+    Mer information finns i specifikationer för [DSv2-serien][dv2-series] och [DS-serien][ds-series] .
+* Vi rekommenderar att du reserverar en del ej allokerad kapacitet i lagringspoolen. Om du lämnar en icke-allokerad kapacitet i lagringspoolen får du volym utrymme att reparera på plats. om en enhet kraschar. Detta förbättrar data säkerhet och prestanda.  Mer information finns i [välja volym storlek][choosing-the-size-of-volumes-s2d].
+* Du behöver inte konfigurera den interna Azure-belastningsutjämnaren för den skalbara fil resursens nätverks namn, t. ex. för \<SAP global-\>värd. Detta görs för det \<virtuella ASCS/SCS-värdnamnet\> för SAP ASCS/SCS-instansen eller för DBMS. En skalbar fil resurs skalar upp belastningen på alla klusternoder. \<SAP global Host\> använder den lokala IP-adressen för alla klusternoder.
+
+
+> [!IMPORTANT]
+> Du kan inte byta namn på fil resursen SAPMNT, som \<pekar på SAP\>global värd. SAP stöder endast resurs namnet "sapmnt".
+>
+> Mer information finns i [SAP Note 2492395-kan du ändra resurs namnet sapmnt?][2492395]
+
+### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Konfigurera SAP ASCS/SCS-instanser och en skalbar fil resurs i två kluster
+
+Du kan distribuera SAP ASCS/SCS-instanser i ett kluster med deras egna SAP \<sid\> -kluster roll. I det här fallet kan du konfigurera den skalbara fil resursen i ett annat kluster med en annan kluster roll.
+
+> [!IMPORTANT]
+>I det här scenariot konfigureras SAP ASCS/SCS-instansen för åtkomst till den globala SAP- \\ \\ &lt;värden med hjälp&gt;av\\&lt;UNC&gt;-sökväg SAP global Host \sapmnt sid \SYS\.
+>
+
+![Bild 5: SAP ASCS/SCS-instans och en skalbar fil resurs som distribueras i två kluster][sap-ha-guide-figure-8007]
+
+_**Figur 5:** En SAP ASCS/SCS-instans och en skalbar fil resurs som distribueras i två kluster_
+
+> [!IMPORTANT]
+> I Azure-molnet måste varje kluster som används för SAP och skalbara fil resurser distribueras i en egen Azure-tillgänglighets uppsättning eller mellan Azure-tillgänglighetszoner. Detta säkerställer distribuerad placering av de virtuella datorerna i klustret över den underliggande Azure-infrastrukturen. Distributioner av tillgänglighets zoner stöds med den här tekniken.
+>
+
+## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>Allmän fil resurs med SIOS DataKeeper som klusterdelade diskar
+
+
+En allmän fil resurs är ett annat alternativ för att uppnå en fil resurs med hög tillgänglighet.
+
+I det här fallet kan du använda en SIOS-lösning från tredje part som en klusterdelad disk.
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Förbered Azure-infrastrukturen för SAP HA genom att använda ett Windows-redundanskluster och en fil resurs för en SAP ASCS/SCS-instans][sap-high-availability-infrastructure-wsfc-file-share]
+* [Installera SAP NetWeaver HA på ett Windows-redundanskluster och en fil resurs för en SAP ASCS/SCS-instans][sap-high-availability-installation-wsfc-shared-disk]
+* [Distribuera en skalbar fil server med två noder Lagringsdirigering för UPD-lagring i Azure][deploy-sofs-s2d-in-azure]
+* [Lagringsdirigering i Windows Server 2016][s2d-in-win-2016]
+* [Djupet: volymer i Lagringsdirigering][deep-dive-volumes-in-s2d]
+
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -202,156 +355,3 @@ ms.locfileid: "77918673"
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
 [1869038]:https://launchpad.support.sap.com/#/notes/1869038 
-
-# <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Klustra en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure
-
-> ![Windows][Logo_Windows] Windows
->
-
-Windows Server-redundanskluster är grunden för en hög tillgänglig SAP-ASCS/SCS-installation och DBMS i Windows.
-
-Ett redundanskluster är en grupp med 1 + n oberoende servrar (noder) som arbetar tillsammans för att öka tillgängligheten för program och tjänster. Om ett nodfel inträffar beräknar Windows Server-redundanskluster antalet fel som kan uppstå och fortfarande upprätthåller ett felfritt kluster för att tillhandahålla program och tjänster. Du kan välja mellan olika kvorumresurser för att nå redundanskluster.
-
-## <a name="prerequisites"></a>Krav
-Läs igenom den här artikeln innan du påbörjar de uppgifter som beskrivs i den här artikeln:
-
-* [Azure Virtual Machines hög tillgänglighets arkitektur och scenarier för SAP NetWeaver][sap-high-availability-architecture-scenarios]
-
-> [!IMPORTANT]
-> Att klustra SAP ASCS/SCS-instanser med hjälp av en fil resurs stöds för SAP NetWeaver 7,40 (och senare), med SAP kernel 7,49 (och senare).
->
-
-
-## <a name="windows-server-failover-clustering-in-azure"></a>Kluster för växling vid fel i Windows Server i Azure
-
-Jämfört med distributioner av Bare Metal eller privata moln kräver Azure Virtual Machines ytterligare steg för att konfigurera Windows Server-redundanskluster. När du skapar ett kluster måste du ange flera IP-adresser och virtuella värdnamn för SAP ASCS/SCS-instansen.
-
-### <a name="name-resolution-in-azure-and-the-cluster-virtual-host-name"></a>Namn matchning i Azure och klustrets virtuella värd namn
-
-Azure Cloud Platform erbjuder inte alternativet att konfigurera virtuella IP-adresser, till exempel flytande IP-adresser. Du behöver en alternativ lösning för att skapa en virtuell IP-adress för att komma åt kluster resursen i molnet. 
-
-Tjänsten Azure Load Balancer tillhandahåller en *intern belastningsutjämnare* för Azure. Med den interna belastningsutjämnaren når klienterna klustret via klustrets virtuella IP-adress. 
-
-Distribuera den interna belastningsutjämnaren i resurs gruppen som innehåller klusternoderna. Konfigurera sedan alla nödvändiga regler för port vidarebefordran med hjälp av avsöknings portarna för den interna belastningsutjämnaren. Klienterna kan ansluta via det virtuella värd namnet. DNS-servern matchar klustrets IP-adress. Den interna belastningsutjämnaren hanterar port vidarebefordran till klustrets aktiva nod.
-
-![Bild 1: konfiguration av redundanskluster för Windows Server i Azure utan en delad disk][sap-ha-guide-figure-1001]
-
-_**Bild 1:** Konfiguration av redundanskluster för Windows Server i Azure utan en delad disk_
-
-## <a name="sap-ascsscs-ha-with-file-share"></a>SAP ASCS/SCS HA med fil resurs
-
-SAP utvecklade en ny metod och ett alternativ till klusterdelade diskar för klustring av en SAP ASCS/SCS-instans i ett Windows-redundanskluster. I stället för att använda klusterdelade diskar kan du använda en SMB-filresurs för att distribuera globala SAP-databasfiler.
-
-> [!NOTE]
-> En SMB-filresurs är ett alternativ till att använda delade kluster diskar för klustring av SAP ASCS/SCS-instanser.  
->
-
-Den här arkitekturen är speciell på följande sätt:
-
-* De centrala SAP-tjänsterna (med en egen fil struktur och meddelanden och köer) är åtskilda från SAP global Host-filer.
-* SAP Central Services körs under en SAP ASCS/SCS-instans.
-* SAP ASCS/SCS-instansen är klustrad och kan nås \<med hjälp av det virtuella värd\> namnet ASCS/SCS.
-* Globala SAP-filer placeras på SMB-filresursen och nås med hjälp av \<SAP global Host\> Host-värdnamn: \\ \\ &lt;SAP global Host&gt;\sapmnt\\&lt;sid&gt;\SYS\..
-* SAP ASCS/SCS-instansen är installerad på en lokal disk på båda klusternoderna.
-* Nätverks \<namnet för ASCS/SCS-\> namnet på den virtuella datorn &lt;är inte samma&gt;som SAP global-värden.
-
-![Bild 2: SAP ASCS/SCS HA-arkitektur med SMB-filresurs][sap-ha-guide-figure-8004]
-
-_**Bild 2:** Ny SAP ASCS/SCS HA-arkitektur med en SMB-filresurs_
-
-Krav för en SMB-fil resurs:
-
-* SMB 3,0-protokoll (eller senare).
-* Möjlighet att ange Active Directory åtkomst kontrol listor (ACL: er) för Active Directory användar grupper `computer$` och datorobjektet.
-* Fil resursen måste ha stöd för:
-    * Diskar som används för att lagra filer får inte vara en enskild felpunkt.
-    * Server-eller VM-stillestånd orsakar ingen stillestånds tid på fil resursen.
-
-SAP \<sid\> -klusterresursen innehåller inte klusterdelade diskar eller en allmän fil resurs kluster resurs.
-
-
-![Bild 3: resurser \<för\> SAP sid-kluster roll för användning av en fil resurs][sap-ha-guide-figure-8005]
-
-_**Bild 3:** SAP &lt;sid&gt; -kluster roll resurser för att använda en fil resurs_
-
-
-## <a name="scale-out-file-shares-with-storage-spaces-direct-in-azure-as-an-sapmnt-file-share"></a>Skalbara fil resurser med Lagringsdirigering i Azure som en SAPMNT fil resurs
-
-Du kan använda en skalbar fil resurs för att vara värd för och skydda SAP global Hosts-filer. En skalbar fil resurs erbjuder också en SAPMNT fil resurs tjänst med hög tillgänglighet.
-
-![Bild 4: skalbar fil resurs som används för att skydda SAP global Hosts-filer][sap-ha-guide-figure-8006]
-
-_**Bild 4:** En skalbar fil resurs som används för att skydda SAP global Hosts-filer_
-
-> [!IMPORTANT]
-> Skalbara fil resurser stöds fullt ut i Microsoft Azure molnet och i lokala miljöer.
->
-
-En skalbar fil resurs erbjuder en hög tillgänglig och vågrätt skalbar SAPMNT fil resurs.
-
-Lagringsdirigering används som en delad disk för en skalbar fil resurs. Du kan använda Lagringsdirigering för att bygga hög tillgänglig och skalbar lagring med hjälp av servrar med lokal lagring. Delad lagring som används för en skalbar fil resurs, till exempel för globala SAP-databasfiler, är inte en enskild felpunkt.
-
-Tänk på följande när du väljer Lagringsdirigering:
-
-- De virtuella datorer som används för att skapa Lagringsdirigering-klustret måste distribueras i en Azures tillgänglighets uppsättning.
-- För haveri beredskap för ett Lagringsdirigering-kluster kan du använda [Azure Site Recovery-tjänster](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
-- Det finns inte stöd för att sträcka ut lagrings utrymmes Dirigerings klustret mellan olika Azure-tillgänglighetszoner.
-
-### <a name="sap-prerequisites-for-scale-out-file-shares-in-azure"></a>SAP-krav för skalbara fil resurser i Azure
-
-Om du vill använda en skalbar fil resurs måste systemet uppfylla följande krav:
-
-* Minst två klusternoder för en skalbar fil resurs.
-* Varje nod måste ha minst två lokala diskar.
-* Av prestanda skäl måste du använda *speglings återhämtning*:
-    * Dubbelriktad spegling för en skalbar fil resurs med två klusternoder.
-    * Tre-vägs spegling för en skalbar fil resurs med tre (eller fler) klusternoder.
-* Vi rekommenderar tre (eller fler) klusternoder för en skalbar fil resurs med tre vägs spegling.
-    Den här installationen ger större skalbarhet och mer lagrings återhämtning än den skalbara fil resurs konfigurationen med två klusternoder och dubbelriktad spegling.
-* Du måste använda Azure Premium-diskar.
-* Vi rekommenderar att du använder Azure Managed Disks.
-* Vi rekommenderar att du formaterar volymer med hjälp av ReFS (elastiskt fil system).
-    * Mer information finns i [SAP Note 1869038-SAP-stöd för ReFs-filsystem][1869038] och [Välj fil system][planning-volumes-s2d-choosing-filesystem] kapitlet i artikeln Planera volymer i Lagringsdirigering.
-    * Se till att du installerar den [kumulativa uppdateringen av Microsoft KB4025334][kb4025334].
-* Du kan använda VM-storlekar i DS-eller DSv2-serien.
-* Använd en VM-typ som har minst en "hög" nätverks bandbredd för bästa nätverks prestanda mellan virtuella datorer, vilket krävs för att Lagringsdirigering synkronisering av disk.
-    Mer information finns i specifikationer för [DSv2-serien][dv2-series] och [DS-serien][ds-series] .
-* Vi rekommenderar att du reserverar en del ej allokerad kapacitet i lagringspoolen. Om du lämnar en icke-allokerad kapacitet i lagringspoolen får du volym utrymme att reparera på plats. om en enhet kraschar. Detta förbättrar data säkerhet och prestanda.  Mer information finns i [välja volym storlek][choosing-the-size-of-volumes-s2d].
-* Du behöver inte konfigurera den interna Azure-belastningsutjämnaren för den skalbara fil resursens nätverks namn, t. ex. för \<SAP global-\>värd. Detta görs för det \<virtuella ASCS/SCS-värdnamnet\> för SAP ASCS/SCS-instansen eller för DBMS. En skalbar fil resurs skalar upp belastningen på alla klusternoder. \<SAP global Host\> använder den lokala IP-adressen för alla klusternoder.
-
-
-> [!IMPORTANT]
-> Du kan inte byta namn på fil resursen SAPMNT, som \<pekar på SAP\>global värd. SAP stöder endast resurs namnet "sapmnt".
->
-> Mer information finns i [SAP Note 2492395-kan du ändra resurs namnet sapmnt?][2492395]
-
-### <a name="configure-sap-ascsscs-instances-and-a-scale-out-file-share-in-two-clusters"></a>Konfigurera SAP ASCS/SCS-instanser och en skalbar fil resurs i två kluster
-
-Du kan distribuera SAP ASCS/SCS-instanser i ett kluster med deras egna SAP \<sid\> -kluster roll. I det här fallet kan du konfigurera den skalbara fil resursen i ett annat kluster med en annan kluster roll.
-
-> [!IMPORTANT]
->I det här scenariot konfigureras SAP ASCS/SCS-instansen för åtkomst till den globala SAP- \\ \\ &lt;värden med hjälp&gt;av\\&lt;UNC&gt;-sökväg SAP global Host \sapmnt sid \SYS\.
->
-
-![Bild 5: SAP ASCS/SCS-instans och en skalbar fil resurs som distribueras i två kluster][sap-ha-guide-figure-8007]
-
-_**Figur 5:** En SAP ASCS/SCS-instans och en skalbar fil resurs som distribueras i två kluster_
-
-> [!IMPORTANT]
-> I Azure-molnet måste varje kluster som används för SAP och skalbara fil resurser distribueras i en egen Azure-tillgänglighets uppsättning eller mellan Azure-tillgänglighetszoner. Detta säkerställer distribuerad placering av de virtuella datorerna i klustret över den underliggande Azure-infrastrukturen. Distributioner av tillgänglighets zoner stöds med den här tekniken.
->
-
-## <a name="generic-file-share-with-sios-datakeeper-as-cluster-shared-disks"></a>Allmän fil resurs med SIOS DataKeeper som klusterdelade diskar
-
-
-En allmän fil resurs är ett annat alternativ för att uppnå en fil resurs med hög tillgänglighet.
-
-I det här fallet kan du använda en SIOS-lösning från tredje part som en klusterdelad disk.
-
-## <a name="next-steps"></a>Nästa steg
-
-* [Förbered Azure-infrastrukturen för SAP HA genom att använda ett Windows-redundanskluster och en fil resurs för en SAP ASCS/SCS-instans][sap-high-availability-infrastructure-wsfc-file-share]
-* [Installera SAP NetWeaver HA på ett Windows-redundanskluster och en fil resurs för en SAP ASCS/SCS-instans][sap-high-availability-installation-wsfc-shared-disk]
-* [Distribuera en skalbar fil server med två noder Lagringsdirigering för UPD-lagring i Azure][deploy-sofs-s2d-in-azure]
-* [Lagringsdirigering i Windows Server 2016][s2d-in-win-2016]
-* [Djupet: volymer i Lagringsdirigering][deep-dive-volumes-in-s2d]

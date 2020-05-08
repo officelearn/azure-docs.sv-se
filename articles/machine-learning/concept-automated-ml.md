@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f592a7f5a4af38988bcf433f0adc89d9be7579cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082017"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983473"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -130,11 +130,72 @@ Ytterligare avancerade för bearbetnings-och funktionalisering är också tillg�
 
 + Python SDK: ange `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` för [ `AutoMLConfig` klassen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
+
+
+## <a name="ensemble-models"></a><a name="ensemble"></a>Ensemble-modeller
+
+Automatisk Machine Learning stöder Ensemble-modeller som är aktiverade som standard. Ensemble-inlärningen förbättrar maskin inlärnings resultatet och förutsäger prestanda genom att kombinera flera modeller i stället för att använda enskilda modeller. Ensemble-iterationerna visas som de slutliga iterationerna av din körning. Automatiserad Machine Learning använder både röstnings-och stack-Ensemble-metoder för att kombinera modeller:
+
+* **Röstning**: förutsäger baserat på viktat medelvärde för förutsebara klass sannolikheter (för klassificerings aktiviteter) eller förutsägande Regressions mål (för Regressions aktiviteter).
+* **Stackning**: stackning kombinerar heterogena modeller och tågen en meta-modell som baseras på utdata från de enskilda modellerna. De aktuella standard-meta-modellerna är LogisticRegression för klassificerings uppgifter och ElasticNet för Regressions-/prognos uppgifter.
+
+[Caruana Ensemble-algoritmen](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) med sorterad Ensemble-initiering används för att bestämma vilka modeller som ska användas i ensemblen. På hög nivå initierar den här algoritmen ensemblen med upp till fem modeller med de bästa enskilda poängen, och kontrollerar att dessa modeller är inom tröskelvärdet 5% för att undvika en dålig inledande ensemble. För varje Ensemble-iteration läggs en ny modell till i den befintliga ensemblen och den resulterande poängen beräknas. Om en ny modell förbättrar den befintliga Ensemble-poängen uppdateras ensemblen för att inkludera den nya modellen.
+
+Se [hur du](how-to-configure-auto-train.md#ensemble) ändrar standardinställningar för ensemble i automatiserad maskin inlärning.
+
+## <a name="guidance-on-local-vs-remote-managed-ml-compute-targets"></a><a name="local-remote"></a>Vägledning om lokala kontra fjärrstyrda ML-Compute-mål
+
+Webb gränssnittet för automatisk ML använder alltid ett [fjärrberäknings mål](concept-compute-target.md).  Men när du använder python SDK väljer du antingen en lokal beräkning eller ett fjärrberäknings mål för automatisk ML-utbildning.
+
+* **Lokal beräkning**: träning sker på din lokala bärbara eller VM-beräkning. 
+* **Fjärrberäkning**: utbildning sker på Machine Learning beräknings kluster.  
+
+### <a name="choose-compute-target"></a>Välj Compute Target
+Tänk på följande faktorer när du väljer Compute-målet:
+
+ * **Välj en lokal beräkning**: om ditt scenario är om inledande utforskningar eller demonstrationer som använder små data och korta tåg (t. ex. sekunder eller ett par minuter per underordnad körning) kan utbildning på din lokala dator vara ett bättre alternativ.  Det finns ingen konfigurations tid, infrastruktur resurserna (din dator eller VM) är direkt tillgängliga.
+ * **Välj ett fjärran slutet ml-beräknings kluster**: om du tränar med större data uppsättningar som i produktions träning skapar modeller som behöver längre tåg, ger fjärrberäkningen mycket bättre prestanda för slut punkt till slut `AutoML` punkt eftersom kommer att parallellisera tågen över klustrets noder. Vid en fjärrberäkning kommer start tiden för den interna infrastrukturen att läggas till cirka 1,5 minuter per underordnad körning, plus ytterligare minuter för kluster infrastrukturen om de virtuella datorerna inte är igång ännu.
+
+### <a name="pros-and-cons"></a>-Och nack delar
+Överväg dessa tekniker och nack delar när du väljer att använda lokala kontra fjärranslutna.
+
+|  | -Proffs (fördelar)  |Nack delar (handikapp)  |
+|---------|---------|---------|---------|
+|**Lokalt beräknings mål** |  <li> Ingen miljö start tid   | <li>  Delmängd av funktioner<li>  Det går inte att parallellisera körningar <li> Sämre för stora data. <li>Ingen data strömning vid utbildning <li>  Ingen DNN-baserad funktionalisering <li> Endast python SDK |
+|**Fjärran slutet beräknings kluster**|  <li> Fullständig uppsättning funktioner <li> Parallellisera underordnade körningar <li>   Stöd för stora data<li>  DNN-baserad funktionalisering <li>  Dynamisk skalbarhet för beräknings kluster på begäran <li> Ingen kod upplevelse (webb gränssnitt) är också tillgänglig  |  <li> Start tid för klusternoder <li> Start tid för varje underordnad körning    |
+
+### <a name="feature-availability"></a>Funktionstillgänglighet 
+
+ Fler funktioner är tillgängliga när du använder fjärrberäkningen, som du ser i tabellen nedan. Vissa av dessa funktioner är endast tillgängliga i en Enterprise-arbetsyta.
+
+| Funktion                                                    | Remote | Lokal | Innebär <br>Enterprise-arbetsyta |
+|------------------------------------------------------------|--------|-------|-------------------------------|
+| Data strömning (stöd för stora data, upp till 100 GB)          | ✓      |       | ✓                             |
+| DNN – BERT text funktionalisering and Training             | ✓      |       | ✓                             |
+| Föråldrad GPU-support (utbildning och härledning)        | ✓      |       | ✓                             |
+| Stöd för bild klassificering och etikettering                  | ✓      |       | ✓                             |
+| ARIMA, Prophet och ForecastTCN modeller för Prognosticering | ✓      |       | ✓                             |
+| Flera körningar/iterationer parallellt                       | ✓      |       | ✓                             |
+| Skapa modeller med tolknings möjligheter i AutoML Studio Web Experience UI      | ✓      |       | ✓                             |
+| Anpassning av funktions teknik i gränssnittet för Studio Web Experience                        | ✓      |       | ✓                              |
+| Justering av Azure ML-min parameter                             | ✓      |       |                               |
+| Support för Azure ML pipeline-arbetsflöde                         | ✓      |       |                               |
+| Fortsätt en körning                                             | ✓      |       |                               |
+| Prognosticering                                                | ✓      | ✓     | ✓                             |
+| Skapa och köra experiment i antecknings böcker                    | ✓      | ✓     |                               |
+| Registrera och visualisera experimentets information och mått i användar gränssnittet | ✓      | ✓     |                               |
+| Data guardrails                                            | ✓      | ✓     |                               |
+
+
+## <a name="automated-ml-in-azure-machine-learning"></a>Automatiserad ML i Azure Machine Learning
+
+Azure Machine Learning erbjuder två upplevelser för att arbeta med automatiserade ML
+
+* För kod erfarna kunder [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+
+* För kunder med begränsade/inga kod upplevelser Azure Machine Learning Studio på[https://ml.azure.com](https://ml.azure.com/)  
+
 <a name="parity"></a>
-
-## <a name="the-studio-vs-sdk"></a>Studio vs SDK
-
-Lär dig mer om pariteten och skillnaderna mellan de högnivåbaserade funktionerna för automatisk ML som är tillgängliga via python SDK och Studio i Azure Machine Learning. 
 
 ### <a name="experiment-settings"></a>Experiment inställningar 
 
@@ -181,17 +242,6 @@ Med de här inställningarna kan du granska och kontrol lera experiment körning
 |Hämta guardrails| ✓|✓|
 |Pausa & återuppta körningar| ✓| |
 
-## <a name="ensemble-models"></a><a name="ensemble"></a>Ensemble-modeller
-
-Automatisk Machine Learning stöder Ensemble-modeller som är aktiverade som standard. Ensemble-inlärningen förbättrar maskin inlärnings resultatet och förutsäger prestanda genom att kombinera flera modeller i stället för att använda enskilda modeller. Ensemble-iterationerna visas som de slutliga iterationerna av din körning. Automatiserad Machine Learning använder både röstnings-och stack-Ensemble-metoder för att kombinera modeller:
-
-* **Röstning**: förutsäger baserat på viktat medelvärde för förutsebara klass sannolikheter (för klassificerings aktiviteter) eller förutsägande Regressions mål (för Regressions aktiviteter).
-* **Stackning**: stackning kombinerar heterogena modeller och tågen en meta-modell som baseras på utdata från de enskilda modellerna. De aktuella standard-meta-modellerna är LogisticRegression för klassificerings uppgifter och ElasticNet för Regressions-/prognos uppgifter.
-
-[Caruana Ensemble-algoritmen](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) med sorterad Ensemble-initiering används för att bestämma vilka modeller som ska användas i ensemblen. På hög nivå initierar den här algoritmen ensemblen med upp till fem modeller med de bästa enskilda poängen, och kontrollerar att dessa modeller är inom tröskelvärdet 5% för att undvika en dålig inledande ensemble. För varje Ensemble-iteration läggs en ny modell till i den befintliga ensemblen och den resulterande poängen beräknas. Om en ny modell förbättrar den befintliga Ensemble-poängen uppdateras ensemblen för att inkludera den nya modellen.
-
-Se [hur du](how-to-configure-auto-train.md#ensemble) ändrar standardinställningar för ensemble i automatiserad maskin inlärning.
-
 <a name="use-with-onnx"></a>
 
 ## <a name="automl--onnx"></a>AutoML & ONNX
@@ -202,20 +252,19 @@ Se så här konverterar du till ONNX-format [i det här Jupyter Notebook-exemple
 
 ONNX runtime stöder också C#, så du kan använda modellen som skapats automatiskt i dina C#-appar utan att behöva koda om eller någon av nätverks fördröjningarna som REST-slutpunkter introducerar. Lär dig mer om [INFERENCING ONNX-modeller med ONNX runtime C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-
-
 ## <a name="next-steps"></a>Nästa steg
 
 Se exempel och lär dig hur du skapar modeller med hjälp av automatisk maskin inlärning:
-
-+ Följ [själv studie kursen: träna en Regressions modell automatiskt med Azure Machine Learning](tutorial-auto-train-models.md)
 
 + Konfigurera inställningarna för automatiskt utbildnings experiment:
   + [Använd de här stegen](how-to-use-automated-ml-for-ml-models.md)i Azure Machine Learning Studio.
   + [Använd de här stegen](how-to-configure-auto-train.md)med python SDK.
 
++ Lär dig hur du använder ett [fjärrberäknings mål](how-to-auto-train-remote.md)
+
++ Följ [själv studie kursen: träna en Regressions modell automatiskt med Azure Machine Learning](tutorial-auto-train-models.md) 
+
 + Lär dig hur du automatiskt tränar använda Time Series-data med hjälp av [de här stegen](how-to-auto-train-forecast.md).
 
 + Prova [Jupyter Notebook exempel för automatisk maskin inlärning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
-
 * Automatisk ML är också tillgängligt i andra Microsoft-lösningar som, [ml.net](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) och [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)

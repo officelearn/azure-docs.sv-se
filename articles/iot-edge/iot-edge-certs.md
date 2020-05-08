@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: d3e456d57d98b796fb1aea2e82de51f9fae40c68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1b299cf21652c23451aed735b10597adb85dc3db
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733163"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982736"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Förstå hur Azure IoT Edge använder certifikat
 
@@ -36,7 +36,7 @@ Certifikat utfärdaren eller CA: n är en entitet som utfärdar digitala certifi
 
 ### <a name="root-ca-certificate"></a>Rot certifikat utfärdarens certifikat
 
-Ett rot certifikat utfärdares certifikat är roten av förtroendet för hela processen. I produktions scenarier köps det här CA-certifikatet vanligt vis från en betrodd kommersiell certifikat utfärdare som Baltimore, VeriSign eller DigiCert. Om du har fullständig kontroll över de enheter som ansluter till dina IoT Edge enheter, är det möjligt att använda en certifikat utfärdare på företags nivå. I båda fall samlar hela certifikat kedjan från IoT Edge Hub upp till den, så att noderna för löv-IoT måste ha förtroende för rot certifikatet. Du kan lagra rot certifikat utfärdarens certifikat antingen i arkivet för betrodda rot certifikat utfärdare eller ange certifikat information i program koden.
+Ett rot certifikat utfärdares certifikat är roten av förtroendet för hela processen. I produktions scenarier köps det här CA-certifikatet vanligt vis från en betrodd kommersiell certifikat utfärdare som Baltimore, VeriSign eller DigiCert. Om du har fullständig kontroll över de enheter som ansluter till dina IoT Edge enheter, är det möjligt att använda en certifikat utfärdare på företags nivå. I båda fall rullar hela certifikat kedjan från IoT Edge Hub upp till den, så att noderna på lövnivå måste ha förtroende för rot certifikatet. Du kan lagra rot certifikat utfärdarens certifikat antingen i arkivet för betrodda rot certifikat utfärdare eller ange certifikat information i program koden.
 
 ### <a name="intermediate-certificates"></a>Mellanliggande certifikat
 

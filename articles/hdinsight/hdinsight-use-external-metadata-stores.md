@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/03/2020
-ms.openlocfilehash: e53164d1e25f8a8d0a14d21c0544d95cf912fe9f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81313940"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929340"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
@@ -41,6 +41,8 @@ Som standard skapar HDInsight en metaarkiv med varje kluster typ. I stället kan
 * Standard-metaarkiv använder Basic Azure SQL DB, som har fem DTU-gränser (Database Transaction Unit).
 Den här standard metaarkiv används vanligt vis för relativt enkla arbets belastningar. Arbets belastningar som inte kräver flera kluster och som inte behöver metadata bevaras utanför klustrets livs cykel.
 
+* För produktions arbets belastningar rekommenderar vi att du migrerar till en extern metaarkiv. Mer information finns i avsnittet nedan.
+
 ## <a name="custom-metastore"></a>Anpassad metaarkiv
 
 HDInsight har också stöd för anpassade metastores, vilket rekommenderas för produktions kluster:
@@ -64,6 +66,8 @@ HDInsight har också stöd för anpassade metastores, vilket rekommenderas för 
 Skapa eller skapa en befintlig Azure SQL Database innan du konfigurerar en anpassad Hive-metaarkiv för ett HDInsight-kluster.  Mer information finns i [snabb start: skapa en enskild databas i Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal).
 
 När du skapar klustret måste HDInsight-tjänsten ansluta till den externa metaarkiv och verifiera dina autentiseringsuppgifter. Konfigurera Azure SQL Database brand Väggs regler så att Azure-tjänster och-resurser får åtkomst till servern. Aktivera det här alternativet i Azure Portal genom att välja **Ange server brand vägg**. Välj **ingen** under **neka offentlig nätverks åtkomst**och **Ja** under **Tillåt Azure-tjänster och-resurser åtkomst till den här servern** för den Azure SQL Database servern eller databasen. Mer information finns i [skapa och hantera IP-brandväggens regler](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules)
+
+Privata slut punkter för SQL-arkiv stöds inte.
 
 ![knappen Ange server brand vägg](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
 
@@ -94,6 +98,8 @@ Du kan när som helst peka klustret till en tidigare skapad Azure SQL Database. 
 * Om du delar en metaarkiv över flera kluster ser du till att alla kluster har samma HDInsight-version. Olika Hive-versioner använder olika metaarkiv-databasschemat. Du kan till exempel inte dela en metaarkiv över Hive-kluster med Hive 2,1 och Hive 3,1-versioner.
 
 * I HDInsight 4,0 använder Spark och Hive oberoende kataloger för åtkomst till SparkSQL-eller Hive-tabeller. En tabell som skapats av Spark bor i Spark-katalogen. En tabell som skapats av Hive finns i Hive-katalogen. Det här beteendet skiljer sig från HDInsight 3,6 där Hive och Spark delat gemensamt katalog. Hive-och Spark-integrering i HDInsight 4,0 förlitar sig på Hive Warehouse Connector (INSTANSEN). INSTANSEN fungerar som en brygga mellan Spark och Hive. [Lär dig mer om Hive lager koppling](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
+
+* I HDInsight 4,0 om du vill dela metaarkiv mellan Hive och Spark kan du göra det genom att ändra egenskapen metaarkiv. Catalog. default till Hive i Spark-klustret. Du kan hitta den här egenskapen i Ambari Advanced spark2-Hive-site-override. Det är viktigt att förstå att delning av metaarkiv endast fungerar för externa Hive-tabeller, men detta fungerar inte om du har interna/hanterade Hive-tabeller eller syror tabeller.  
 
 ## <a name="apache-oozie-metastore"></a>Apache Oozie-metaarkiv
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2527071aa246b34c103c2a8732d735f459977a47
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
-ms.translationtype: HT
+ms.openlocfilehash: a769b5584abbd6da89ccb6032e5f0c5ac8ea1cb1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629532"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930530"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för virtuellt Windows-skrivbord
 
@@ -46,9 +46,12 @@ I det här avsnittet visas hur du skapar en princip för villkorlig åtkomst som
    - Under **Inkludera**väljer du **Välj användare och grupper** > **användare och grupper** > väljer den grupp som skapades i förutsättnings stadiet.
    - Välj **Done** (Klar).
 6. Under **molnappar eller åtgärder** > **inkluderar**väljer du **Välj appar**.
-   - Välj **virtuellt Windows-skrivbord**, **Välj**sedan och sedan **slutfört**.
+   - Välj **Windows Virtual Desktop** (app-ID 9cdead84-a844-4324-93f2-b2e6bb768d07) och **Välj**sedan, och sedan **Slutför**.
    
      ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise.png)
+
+     >[!NOTE]
+     >Om du vill hitta app-ID: t för den app som du vill välja går du till **företags program** och väljer **Microsoft-program** i den nedrullningsbara menyn program typ.
 
 7. Under **åtkomst kontroller** > **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
 8. Under **Access Controls** > **session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och väljer sedan **Välj**.

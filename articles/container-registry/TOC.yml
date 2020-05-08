@@ -32,6 +32,11 @@
               href: container-registry-tutorial-deploy-app.md
             - name: 3 – Uppdatera webbprogrammet
               href: container-registry-tutorial-deploy-update.md
+    - name: Exempel
+      items:
+        - name: Inbyggda Azure Policy-program
+          displayName: 'samples, policies, definitions'
+          href: ./policy-samples.md
     - name: Begrepp
       expanded: false
       items:
@@ -82,10 +87,12 @@
               href: container-registry-webhook.md
         - name: Säkerhet och autentisering
           items:
-            - name: Begränsa åtkomst med virtuellt nätverk (förhandsversion)
-              href: container-registry-vnet.md
             - name: Integrera med Azure Private Link (förhandsversion)
               href: container-registry-private-link.md
+            - name: Begränsa åtkomst med virtuellt nätverk (förhandsversion)
+              href: container-registry-vnet.md
+            - name: Kryptering med kundhanterad nyckel
+              href: container-registry-customer-managed-keys.md
             - name: Åtkomst bakom en brandvägg
               href: container-registry-firewall-access-rules.md
             - name: Autentisering
@@ -110,8 +117,6 @@
               href: container-registry-content-trust.md
             - name: Avbildningsgenomsökning med Security Center
               href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
-            - name: Kryptera registerdata (förhandsversion)
-              href: container-registry-customer-managed-keys.md
         - name: Register och andra Azure-tjänster
           expanded: false
           items:

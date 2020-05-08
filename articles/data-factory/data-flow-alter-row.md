@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/06/2020
-ms.openlocfilehash: 0a8864555798d3b64d675c70728ab97d191be81f
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: c3858756a0140481c0ab249e29c95f76c4b90da5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891383"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982657"
 ---
 # <a name="alter-row-transformation-in-mapping-data-flow"></a>Alter Row-transformering i mappnings data flödet
 
@@ -61,13 +61,15 @@ Omvandlingen av mottagare kräver antingen en enskild nyckel eller en serie nyck
 
 ADF-dataflöden stöder sammanslagningar mot Azure SQL Database och Synapse (informations lager) med alternativet upsert.
 
-Du kan dock stöta på scenarier där mål databasens schema använder identitets egenskapen för nyckel kolumner. ADF kräver att du identifierar de nycklar som ska användas för att matcha rad värden för uppdateringar och upsertar. Men om kolumnen mål har angetts som identitets egenskap och du använder upsert-principen kan inte mål databasen skriva till kolumnen.
+Du kan dock stöta på scenarier där mål databasens schema använder identitets egenskapen för nyckel kolumner. ADF kräver att du identifierar de nycklar som ska användas för att matcha rad värden för uppdateringar och upsertar. Men om kolumnen mål har angetts som identitets egenskap och du använder upsert-principen kan inte mål databasen skriva till kolumnen. Du kan också stöta på fel när du försöker upsert mot en distribuerad tabells distributions kolumn.
 
-Du kan välja mellan två alternativ:
+Här följer några sätt att åtgärda detta:
 
-1. Använd SQL-alternativet för att bearbeta Sink-omvandlingen ```SET IDENTITY_INSERT tbl_content ON```:. Stäng sedan av den med SQL-egenskapen efter bearbetning: ```SET IDENTITY_INSERT tbl_content OFF```.
+1. Gå till omvandlings inställningarna för mottagare och ange "hoppa över skrivning av nyckel kolumner". Detta meddelar ADF att inte skriva kolumnen som du har valt som nyckel värde för mappningen.
 
-2. I stället för att använda upsert byter du din logik för att separera uppdaterings villkoren från INSERT-villkoren med en villkorlig delnings omvandling. På så sätt kan du ange mappningen på uppdaterings Sök vägen för att ignorera nyckel kolumn mappningen.
+2. Om den nyckel kolumnen inte är den kolumn som orsakar problemet för identitets kolumner kan du använda SQL-alternativet Sink-omvandling för förbehandling: ```SET IDENTITY_INSERT tbl_content ON```. Stäng sedan av den med SQL-egenskapen efter bearbetning: ```SET IDENTITY_INSERT tbl_content OFF```.
+
+3. För både identitets-och distributions kolumnens fall kan du växla din logik från upsert till att använda ett separat uppdaterings villkor och ett separat infognings villkor med en villkorlig delnings omvandling. På så sätt kan du ange mappningen på uppdaterings Sök vägen för att ignorera nyckel kolumn mappningen.
 
 ## <a name="data-flow-script"></a>Dataflödesskript
 

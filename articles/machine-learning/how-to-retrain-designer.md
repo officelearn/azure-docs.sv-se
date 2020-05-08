@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 04/06/2020
-ms.openlocfilehash: 77c1cc6ef5a7353d246958d1b047f054d5f49890
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: fb0122833dabe4030232efb3ca07557ce1826aff
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837166"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981909"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Omträningsmodeller med Azure Machine Learning Designer (förhandsversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Den här artikeln förutsätter också att du har grundläggande kunskaper om at
 
 ### <a name="sample-pipeline"></a>Exempel på pipeline
 
-Pipelinen som används i den här artikeln är en ändrad version av [exemplet 3: inkomst förutsägelse](samples-designer.md#classification-samples). I pipelinen används modulen [Importera data](algorithm-module-reference/import-data.md) istället för exempel data uppsättningen för att visa hur du tränar modeller med dina egna data.
+Pipelinen som används i den här artikeln är en ändrad version av [exemplet 3: inkomst förutsägelse](samples-designer.md#classification). I pipelinen används modulen [Importera data](algorithm-module-reference/import-data.md) istället för exempel data uppsättningen för att visa hur du tränar modeller med dina egna data.
 
 ![Skärm bild som visar den ändrade exempel pipelinen med en ruta som markerar modulen importera data](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 

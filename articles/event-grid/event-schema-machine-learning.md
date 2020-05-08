@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: spelluru
-ms.openlocfilehash: 7d9af420c7e2b47d2aeb4a8bf42ee138a605b305
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f77a76d6acb67c739e0adf186d23e9b16ff7e2ee
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393282"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928881"
 ---
 # <a name="azure-machine-learning-as-an-event-grid-source"></a>Azure Machine Learning som en Event Grid källa
 
@@ -224,7 +224,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesruncompleted"></a>Microsoft. MachineLearningServices. RunCompleted
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ExperimentId | sträng | ID för experimentet som körningen tillhör. |
 | ExperimentName | sträng | Namnet på experimentet som körningen tillhör. |
@@ -235,7 +235,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesdatasetdriftdetected"></a>Microsoft. MachineLearningServices. DatasetDriftDetected
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | DataDriftId | sträng | ID för data avvikelse övervakaren som utlöste händelsen. |
 | DataDriftName | sträng | Namnet på den data avvikelse Övervakare som utlöste händelsen. |
@@ -248,7 +248,7 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 ### <a name="microsoftmachinelearningservicesrunstatuschanged"></a>Microsoft. MachineLearningServices. RunStatusChanged
 
-| Egenskap | Typ | Beskrivning |
+| Egenskap | Typ | Description |
 | -------- | ---- | ----------- |
 | ExperimentId | sträng | ID för experimentet som körningen tillhör. |
 | ExperimentName | sträng | Namnet på experimentet som körningen tillhör. |
@@ -267,5 +267,5 @@ Data-objektet har följande egenskaper för varje händelse typ:
 
 * En introduktion till Azure Event Grid finns i [Vad är event Grid?](overview.md)
 * Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md)
-* En introduktion till att använda Azure Event Grid med Azure Machine Learning finns i [använda Azure Machine Learning händelser](/azure/machine-learning/service/concept-event-grid-integration)
-* Ett exempel på hur du använder Azure Event Grid med Azure Machine Learning finns i [Skapa event drived Machine Learning-arbetsflöden](/azure/machine-learning/service/how-to-use-event-grid)
+* En introduktion till att använda Azure Event Grid med Azure Machine Learning finns i [använda Azure Machine Learning händelser](/azure/machine-learning/concept-event-grid-integration)
+* Ett exempel på hur du använder Azure Event Grid med Azure Machine Learning finns i [Skapa event drived Machine Learning-arbetsflöden](/azure/machine-learning/how-to-use-event-grid)

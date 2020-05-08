@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/30/2020
-ms.openlocfilehash: f9ca75943eaec2ae018b54145d872fc09294035e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed65d69c18f2dbcd53324fe3cc18af8c51c546b2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80398185"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780121"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -57,18 +57,44 @@ Du kan skapa Azure Machine Learning beräknings instanser (för hands version) e
 
 Du kan också skapa beräknings kluster med [Machine Learning-tillägget för Azure CLI](tutorial-train-deploy-model-cli.md#create-the-compute-target-for-training).
 
-När du skapar de här beräknings resurserna sker en del av din arbets yta automatiskt till skillnad från andra typer av beräknings mål.
+När du skapar dessa beräknings resurser automatiskt en del av din arbets yta, till skillnad från andra typer av beräknings mål.
 
 ### <a name="compute-clusters"></a>Beräknings kluster
 
 Du kan använda Azure Machine Learning beräknings kluster för utbildning och för batch-inferencing (för hands version).  Med den här beräknings resursen har du:
 
 * Kluster med en eller flera noder
-* Autoskalar varje gången du skickar en körning 
+* Automatisk skalning varje gången du skickar en körning 
 * Automatisk kluster hantering och schemaläggning av jobb 
 * Stöd för både CPU-och GPU-resurser
 
+### <a name="supported-vm-series-and-sizes"></a>VM-serien och storlekar som stöds
 
+När du väljer en Node-storlek för en hanterad beräknings resurs i Azure Machine Learning kan du välja mellan Välj VM-storlekar som är tillgängliga i Azure. Azure erbjuder ett antal storlekar för Linux och Windows för olika arbets belastningar. Mer information om de olika [VM-typerna och-storlekarna](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)hittar du här.
+
+Det finns några undantag och begränsningar för att välja en VM-storlek:
+* En del VM-serien stöds inte i Azure Machine Learning.
+* En del VM-serien är begränsad. Om du vill använda en begränsad serie kontaktar du supporten och begär en kvot ökning för serien. Information om hur du kontaktar support finns i [Support alternativ för Azure](https://azure.microsoft.com/support/options/)
+
+I följande tabell finns mer information om vilka serier och begränsningar som stöds. 
+
+| **VM-serien som stöds**  | **Begränsningar** |
+|------------|------------|
+| D | Inga |
+| Dv2 | Inga |  
+| DSv2 | Inga |  
+| FSv2 | Inga |  
+| M | Godkännande krävs |
+| NC | Inga |    
+| NCsv2 | Godkännande krävs |
+| NCsv3 | Godkännande krävs |  
+| NDs | Godkännande krävs |
+| NDv2 | Godkännande krävs |
+| NV | Inga |
+| NVv3 | Godkännande krävs | 
+
+
+Även om Azure Machine Learning stöder dessa VM-serier är de inte tillgängliga i alla Azure-regioner. Du kan kontrol lera om det finns tillgängliga VM-serier här: [produkter tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).
 
 ## <a name="unmanaged-compute"></a>Ohanterad beräkning
 

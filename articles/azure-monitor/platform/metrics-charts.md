@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d15c217f2e65877ea3baa18f6ba847492bc7fa1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: e6ff33b6a23cb85649a8811a8bef27ab455ab9e6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509830"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980906"
 ---
 # <a name="advanced-features-of-azure-metrics-explorer"></a>Avancerade funktioner i Azure Metrics Explorer
 
@@ -137,9 +137,6 @@ När du har konfigurerat diagrammen tilldelas diagram linjerna automatiskt en f�
 Om du vill ändra färgen på en diagram linje klickar du på det färgade fältet i förklaringen som motsvarar diagrammet. Dialog rutan färg väljare öppnas. Använd färg väljaren för att konfigurera färg för linjen.
 
 När diagrammets färger har kon figurer ATS kommer de att förbli på det sättet när du fäster diagrammet på en instrument panel. I följande avsnitt visas hur du fäster ett diagram.
-
-> [!NOTE]
-> På grund av begränsningar i vårt utgivnings-och publicerings schema kräver att du tillfälligt ändrar färgerna i diagrammet genom att överföra en speciell parameter **? Feature. ColorPicker = True** vid start av Azure Portal [https://portal.azure.com/?feature.colorpicker=true](https://portal.azure.com/?feature.colorpicker=true). Den här begränsningen kommer snart att tas bort. 
 
 ![bild på mått](./media/metrics-charts/018.png)
 

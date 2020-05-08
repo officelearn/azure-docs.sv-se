@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: yelevin
-ms.openlocfilehash: e7629a53190433c6c331ce372476b0ed768fc5eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e1b1a4786670974a40b22d44fc219c6be5d97a3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587183"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744753"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Behörigheter i Azure Sentinel
 
@@ -44,7 +44,7 @@ Förutom Azure Sentinel-dedikerade RBAC-roller finns det Azure och Log Analytics
 > Log Analytics roller ger också Läs åtkomst för alla Azure-resurser, men tilldelar bara Skriv behörighet till Log Analytics resurser.
 
 
-Till exempel kommer en användare som är tilldelad till rollerna **Azure Sentinel Reader** och **Azure Contributor** (inte **Azure Sentinel Contributor**) att kunna redigera data i Azure Sentinel, även om de bara har behörigheten **Sentinel Reader** . Om du vill ge behörighet till en enda i Azure Sentinel bör du därför noggrant ta bort den här användarens tidigare behörigheter och se till att du inte bryter alla nödvändiga behörighets roller för en annan resurs.
+Till exempel kommer en användare som är tilldelad till rollerna **Azure Sentinel Reader** och **Azure Contributor** (inte **Azure Sentinel Contributor**) att kunna redigera data i Azure Sentinel, även om de bara har behörigheten **Sentinel Reader** . Om du vill bevilja behörigheter enbart till en användare i Azure Sentinel bör du därför noggrant ta bort den här användarens tidigare behörigheter och se till att du inte bryter alla nödvändiga behörighets roller för en annan resurs.
 
 > [!NOTE]
 >- Azure Sentinel använder spel böcker för automatiserat hot svar. Spel böcker utnyttjar Azure Logic Apps och är en separat Azure-resurs. Du kanske vill tilldela vissa medlemmar i din säkerhets åtgärds grupp med alternativet att använda Logic Apps för åtgärder för säkerhets dirigering, automation och respons (SOAR). Du kan använda [Logic app Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) -rollen eller [Logic app-operatören](../role-based-access-control/built-in-roles.md#logic-app-operator) för att tilldela uttrycklig behörighet för att använda spel böcker.

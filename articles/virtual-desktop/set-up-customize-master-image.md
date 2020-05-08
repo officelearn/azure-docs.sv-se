@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aba444e618a6ee2c6808b7f6d9d706fdf18fe546
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fc6eb22f81279003a5355993db231ffec8e31b7d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209051"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611967"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -203,7 +203,7 @@ Följande anvisningar visar hur du överför huvud avbildningen till ett Azure S
 
 Nu när du har en avbildning kan du skapa eller uppdatera värdar för pooler. Mer information om hur du skapar och uppdaterar värdbaserade pooler finns i följande artiklar:
 
-- [Skapa en värdpool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
+- [Skapa en värdpool med en Azure Resource Manager-mall](./virtual-desktop-fall-2019/create-host-pools-arm-template.md)
 - [Självstudie: skapa en värdbaserad pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Skapa en värdpool med PowerShell](create-host-pools-powershell.md)
 - [Skapa en profilcontainer för en värdpool med hjälp av en filresurs](create-host-pools-user-profile.md)

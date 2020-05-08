@@ -9,41 +9,37 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 1dcda3efe3872100100d6e85b68a36359b7eab84
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 665bb12c91c8d6a5a60fd8f60216f30131f34915
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209510"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982198"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Kom igång med Azure Machine Learning Studio (klassisk) i R
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 <!-- Stephen F Elston, Ph.D. -->
-Den här självstudien hjälper dig att börja utöka Azure Machine Learning Studio (klassisk) med hjälp av R-programmeringsspråket. Följ den här vägledningen för R-programmering för att skapa, testa och köra R-kod i Studio (klassisk). När du arbetar med självstudierna skapar du en komplett prognos lösning med hjälp av R-språket i Studio (klassisk).  
+I den här självstudien får du lära dig hur du använder ML Studio (klassisk) för att skapa, testa och köra R-kod. I slutet kommer du att ha en fullständig prognos lösning.  
 
-Azure Machine Learning Studio (klassisk) innehåller många kraftfulla moduler för maskin inlärning och data manipulation. Det kraftfulla R-språket har beskrivits som lingua-franca för analys. Happily, analys och data behandling i Studio (klassisk) kan utökas med hjälp av R. Den här kombinationen ger skalbarhet och enkel distribution av Studio (klassisk) med flexibiliteten och djup analysen av R.
+> [!div class="checklist"]
+> * Skapa kod för rengöring och transformering av data.
+> * Analysera korrelationerna mellan flera av variablerna i vår data uppsättning.
+> * Skapa en prognos modell för säsongs tids serier för mjölk produktion.
 
-### <a name="forecasting-and-the-dataset"></a>Prognoser och data uppsättningen
 
-Prognosticering är en mycket anställd och helt användbar analys metod. Vanliga användnings områden från förutsägelse försäljning av säsongs poster, fastställa optimala lager nivåer, för att förutsäga makroekonomiska variabler. Prognosticering utförs vanligt vis med tids serie modeller.
+Azure Machine Learning Studio (klassisk) innehåller många kraftfulla moduler för maskin inlärning och data manipulation. Och med R-programmeringsspråket ger den här kombinationen skalbarhet och enkel distribution av Studio (klassisk) med flexibiliteten och djup analysen av R.
 
-Tids serie data är data där värdena har ett tids index. Tids indexet kan vara vanligt, t. ex. varje månad eller varje minut, eller oregelbundet. En tids serie modell baseras på tids serie data. R-programmeringsspråket innehåller ett flexibelt ramverk och omfattande analys för Time Series-data.
+Prognosticering är en mycket anställd och helt användbar analys metod. Vanliga användnings områden från förutsägelse försäljning av säsongs poster, fastställa optimala lager nivåer, för att förutsäga makroekonomiska variabler. Prognosticering utförs vanligt vis med tids serie modeller. Tids serie data är data där värdena har ett tids index. Tids indexet kan vara vanligt, t. ex. varje månad eller varje minut, eller oregelbundet. En tids serie modell baseras på tids serie data. R-programmeringsspråket innehåller ett flexibelt ramverk och omfattande analys för Time Series-data.
 
-I den här hand boken kommer vi att arbeta med produkter för produktion och prissättning i Kalifornien. Dessa data innehåller månatlig information om produktion av flera mejeri produkter och priset på mjölk fett, en benchmark-råvara.
+## <a name="get-the-data"></a>Hämta data
+
+I den här självstudien använder du produktions-och pris data från Kalifornien, som innehåller månatlig information om produktionen av flera mejeri produkter och priset på mjölk fett, en benchmark-råvara.
 
 De data som används i den här artikeln, tillsammans med R-skript, kan hämtas från [MachineLearningSamples-Notebooks/Studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples). Data i filen `cadairydata.csv` har ursprungligen syntetiskts från information som är tillgänglig från University of Wisconsin på [https://dairymarkets.com](https://dairymarkets.com).
 
-### <a name="organization"></a>Organisation
 
-Vi går igenom flera steg för att lära dig att skapa, testa och köra analys-och data manipulation R-kod i den Azure Machine Learning Studio (klassiska) miljön.  
-
-* Först ska vi utforska grunderna för att använda R-språket i den Azure Machine Learning Studio (klassiska) miljön.
-* Sedan kommer vi att diskutera olika aspekter av I/O för data, R-kod och grafik i den Azure Machine Learning Studio (klassiska) miljön.
-* Vi skapar sedan den första delen av vår prognos lösning genom att skapa kod för data rensning och transformering.
-* Med våra data för beredd kommer vi att utföra en analys av korrelationerna mellan flera av variablerna i vår data uppsättning.
-* Slutligen kommer vi att skapa en prognos modell för säsongs tids serier för mjölk produktion.
 
 ## <a name="interact-with-r-language-in-machine-learning-studio-classic"></a><a id="mlstudio"></a>Interagera med R-språk i Machine Learning Studio (klassisk)
 
@@ -143,7 +139,7 @@ I det här avsnittet diskuterar vi hur du hämtar data till och från [köra R-s
 
 Den fullständiga koden för det här avsnittet är i [MachineLearningSamples-Notebooks/Studio-samples](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/tree/master/studio-samples).
 
-### <a name="load-and-check-data-in-machine-learning-studio-classic"></a>Läsa in och kontrol lera data i Machine Learning Studio (klassisk)
+### <a name="load-and-check-data"></a>Läsa in och kontrol lera data 
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Läs in data uppsättningen
 

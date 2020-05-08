@@ -1,18 +1,18 @@
 ---
-title: 'API: er för Marketplace avläsning av tjänst – vanliga frågor och svar | Azure Marketplace'
-description: Generera användning av ett SaaS-erbjudande på Azure Marketplace.
+title: Vanliga frågor och svar om API för avläsning av tjänst – Microsofts kommersiella marknads platser
+description: 'Vanliga frågor om API: er för mätnings tjänsten för SaaS-erbjudanden i Microsoft AppSource och Azure Marketplace.'
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 6e5b691a41ef283449f9eeeb90e9d01a91616146
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/13/2020
+ms.openlocfilehash: eb27089777baaaa7a29e020318fbc7635792af2d
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275789"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857897"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>API:er för Marketplace Metering Service – vanliga frågor och svar
 
@@ -35,7 +35,7 @@ Vi rekommenderar att du genererar användning varje timme den senaste timmen, ba
 
 Vi rekommenderar att användnings händelsen genereras varje timme för händelser som inträffat under den senaste timmen. Fördröjningar förväntas dock. Högsta tillåtna fördröjning är 24 timmar, efter vilken användnings händelser inte kommer att godkännas.
 
-Om en användnings händelse inträffar till en dag på en dag, har du till och med 1 PM på nästa dag för att generera en användnings händelse som är associerad med den här händelsen. Det innebär att den system som avger användningen har en drifts tid, kan återställas och sedan skicka användnings händelsen för det tidsintervall då användningen skedde, utan att du förlorar åter givningen.
+Om en användnings händelse inträffar till en dag på en dag, har du till och med 1 PM på nästa dag för att generera en användnings händelse som är associerad med den här händelsen. När system sändnings användningen har en tids gräns, återställs den och sedan skickas användnings händelsen för det tidsintervall då användningen skedde, utan att det går att förlora åter givningen.
 
 ### <a name="what-happens-when-you-send-more-than-one-usage-event-on-the-same-hour"></a>Vad händer när du skickar fler än en användnings händelse på samma timme?
 
@@ -49,6 +49,12 @@ All användnings händelse som släpps till Marketplace-plattform godkänns inte
 
 Ja, när du anropar `GET /saas/subscriptions` API: et innehåller en lista över alla SaaS-prenumerationer. Fältet Status i svaret för varje SaaS-prenumeration fångar om prenumerationen är aktiv eller inte prenumererad. Anropet till List-prenumerationer returnerar högst 100 prenumerationer för tillfället.
 
+### <a name="what-happens-if-the-marketplace-metering-service-has-an-outage"></a>Vad händer om marknads mätnings tjänsten har ett avbrott?
+
+Om ISV: en skickar en anpassad mätare och tar emot ett fel, ska ISV vänta och sedan försöka igen.
+
+Om felet kvarstår skickar du om den anpassade mätaren nästa timma (ackumulera antalet). Fortsätt med den här processen tills ett icke-felsvar tas emot.
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information finns i [API: er för API för avläsning av tjänst](./marketplace-metering-service-apis.md) .
+- Mer information finns i [API: er för Marketplace för avläsning av tjänst](./marketplace-metering-service-apis.md).

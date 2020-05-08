@@ -3,12 +3,12 @@ title: Fel referens för hälso kontroller
 description: Felkoder och möjliga lösningar på problem som hittas genom att köra kommandot AZ ACR check-Health Diagnostic i Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.openlocfilehash: 971b28b2bf8d9ac22cec0efe979837886762cf17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a23b95ea0eaffc053c47b70107c95d2b1cdc0645
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80289149"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978322"
 ---
 # <a name="health-check-error-reference"></a>Fel referens för hälso kontroll
 
@@ -58,7 +58,7 @@ Det här felet innebär att DNS för den registrerade inloggnings servern för r
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-Det här felet innebär att utmanings slut punkten för det aktuella registret svarade med en 403-otillåten HTTP-status. Det här felet innebär att användarna inte har åtkomst till registret, förmodligen på grund av en konfiguration av virtuellt nätverk. Kör `az acr show --query networkRuleSet --name <registry>`för att se de konfigurerade brand Väggs reglerna.
+Det här felet innebär att utmanings slut punkten för det aktuella registret svarade med en 403-otillåten HTTP-status. Det här felet innebär att användarna inte har åtkomst till registret, förmodligen på grund av en virtuell nätverks konfiguration eller att åtkomst till registrets offentliga slut punkt inte är tillåten. Kör `az acr show --query networkRuleSet --name <registry>`för att se de konfigurerade brand Väggs reglerna.
 
 *Möjliga lösningar*: ta bort regler för virtuella nätverk eller Lägg till den aktuella KLIENTens IP-adress i listan över tillåtna.
 

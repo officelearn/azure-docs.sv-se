@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4deae235ed15d02874ab5cb3470c62e934324364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 389dea74f5002cb09d7683947356d236ea8d338b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80234299"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858706"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Mjuk borttagning för Azure Storage-blobar
 
@@ -371,5 +371,5 @@ Det är möjligt att dra nytta av mjuk borttagning oavsett vilken API-version du
 * [.NET-exempel kod](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 * [Blob-tjänstens REST-API](/rest/api/storageservices/blob-service-rest-api)
 * [Azure Storage replikering](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Utforma hög tillgängliga program med RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Haveri beredskap och lagrings konto redundans (för hands version) i Azure Storage](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Använd GEO-redundans för att skapa program med hög tillgänglighet](../common/geo-redundant-design.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Haveri beredskap och redundans för lagrings konto](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/17/2020
-ms.openlocfilehash: 6cf89790ee125d8d09d9bdead2f6e34dcb73e8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 5e4f811d39c75742f11c52de5c178fbf4063000d
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188131"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864648"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -359,7 +359,7 @@ Använd följande steg om du vill använda en virtuell dator eller ett Azure HDI
 Använd följande steg för att lägga till AKS i ett virtuellt nätverk till din arbets yta:
 
 > [!IMPORTANT]
-> Innan du påbörjar följande procedur följer du kraven i avsnittet [Konfigurera avancerade nätverksfunktioner i Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/configure-advanced-networking#prerequisites) How-to och planera IP-adressering för klustret.
+> Innan du påbörjar följande procedur följer du kraven i avsnittet [Konfigurera avancerade nätverksfunktioner i Azure Kubernetes service (AKS)](https://docs.microsoft.com/azure/aks/configure-azure-cni#prerequisites) How-to och planera IP-adressering för klustret.
 >
 > AKS-instansen och det virtuella Azure-nätverket måste finnas i samma region. Om du skyddar de Azure Storage-konton som används av arbets ytan i ett virtuellt nätverk måste de finnas i samma virtuella nätverk som AKS-instansen.
 
@@ -506,7 +506,7 @@ Använd följande steg för att använda ACI i ett virtuellt nätverk på din ar
 
 
 
-## <a name="use-azure-firewall"></a>Använd Azure-brandvägg
+## <a name="use-azure-firewall"></a>Använda Azure Firewall
 
 Information om hur du använder Azure Machine Learning med Azure-brandväggen finns i [använd Azure Machine Learning arbets yta bakom Azure-brandväggen](how-to-access-azureml-behind-firewall.md).
 
@@ -557,7 +557,7 @@ Information om hur du använder Azure Machine Learning med Azure-brandväggen fi
     
     Mer information finns i metod referensen [Update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#update-friendly-name-none--description-none--tags-none--image-build-compute-none--enable-data-actions-none-) .
 
-1. Om du använder en privat länk för din Azure Machine Learning arbets yta och lägger Azure Container Registry för din arbets yta i ett virtuellt nätverk, måste du också använda följande Azure Resource Manager-mall. Med den här mallen kan din arbets yta kommunicera med ACR via den privata länken.
+1. Du måste använda följande Azure Resource Manager mall. Med den här mallen kan din arbets yta kommunicera med ACR.
 
     ```json
     {

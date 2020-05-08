@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 03/13/2020
-ms.openlocfilehash: 6bc0f002c6927cfd9a314797663e1dabbac392b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6d18a8d09749b832984872b57eec8a36abc1b2e2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416642"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857695"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera lokalt installerad integrationskörning
 
@@ -67,7 +67,7 @@ Använd följande steg för att skapa en IR med egen värd med hjälp av Azure D
 1. På sidan **installation av integration runtime** väljer du **Azure, egen värd**och väljer sedan **Fortsätt**. 
 
 1. På följande sida väljer du **egen värd** för att skapa en IR med egen värd och välj sedan **Fortsätt**.
-   ![Skapa en selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-ir.png)
+   ![Skapa en selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
 1. Ange ett namn för din IR och välj **skapa**.
 
@@ -117,7 +117,7 @@ Här följer information om programmets parametrar och egenskaper:
 | **Nyckel** "`<AuthenticationKey>`"                                 | Skriv över eller uppdatera föregående autentiseringsnyckel. Var försiktig med den här åtgärden. Din tidigare IR-nod med egen värd kan gå offline om nyckeln är en ny integrerings körning. | Nej       |
 | **GenerateBackupFile** "`<filePath>`" "`<password>`"            | Skapa en säkerhets kopierings fil för den aktuella noden. Säkerhets kopian innehåller nodens nyckel och autentiseringsuppgifter för data lagring. | Nej       |
 | **ImportBackupFile** "`<filePath>`" "`<password>`"              | Återställ noden från en säkerhets kopia.                          | Nej       |
-| **Börja**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | Nej       |
+| **Starta om**                                                     | Starta om värd tjänsten för integration runtime med egen värd.   | Nej       |
 | **Start**                                                       | Starta värd tjänsten för integration runtime med egen värd.     | Nej       |
 | **Stopp**                                                        | Stoppa värd tjänsten för integration runtime med egen värd.        | Nej       |
 | **StartUpgradeService**                                         | Starta uppgraderings tjänsten för integration runtime med egen värd.       | Nej       |

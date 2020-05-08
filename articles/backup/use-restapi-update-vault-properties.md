@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du uppdaterar valv konfiguratio
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c604fe067e73f5f9a17f4b5f810708121cff767
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252368"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744568"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>Uppdatera Azure Recovery Services Vault-konfigurationer med REST API
 
@@ -21,7 +21,7 @@ Att ta bort säkerhets kopior av ett skyddat objekt är en viktig åtgärd som m
 
 Men det finns scenarier där den här funktionen inte krävs. Det går inte att ta bort ett Azure Recovery Services-valv om det finns säkerhets kopierings objekt i det, även mjuk borttagning av dem. Detta kan innebära ett problem om valvet måste tas bort omedelbart. Till exempel: distributions åtgärder rensar ofta de skapade resurserna i samma arbets flöde. En distribution kan skapa ett valv, konfigurera säkerhets kopior för ett objekt, göra en test återställning och sedan fortsätta att ta bort säkerhets kopierings objekt och valvet. Om valvet inte kan tas bort kan hela distributionen Miss lyckas. Att inaktivera mjuk borttagning är det enda sättet att garantera omedelbar borttagning.
 
-Kunden måste därför noggrant välja om du vill inaktivera mjuk borttagning för ett visst valv beroende på scenariot. Mer information finns i artikeln om [mjuk borttagning](backup-azure-security-feature-cloud.md#soft-delete).
+Kunden måste därför noggrant välja om du vill inaktivera mjuk borttagning för ett visst valv beroende på scenariot. Mer information finns i artikeln om [mjuk borttagning](backup-azure-security-feature-cloud.md).
 
 ### <a name="fetch-soft-delete-state-using-rest-api"></a>Hämta läget för mjuk borttagning med REST API
 
@@ -86,7 +86,7 @@ Mer information finns i REST API- [dokumentationen](https://docs.microsoft.com/r
 |Name  |Krävs  |Typ  |Beskrivning  |
 |---------|---------|---------|---------|
 |eTag     |         |   Sträng      |  Valfri eTag       |
-|location     |  true       |Sträng         |   Resursplats      |
+|location     |  true       |Sträng         |   Resurs plats      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Egenskaper för valvet       |
 |tags     |         | Objekt        |     Resurstaggar    |
 

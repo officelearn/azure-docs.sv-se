@@ -1,14 +1,14 @@
 ---
 title: Distribuera CIS-Microsoft Azure grunderna exempel på benchmark-skiss
 description: Distribuera steg för exempel på benchmark-Microsoft Azure grunderna, inklusive information om skiss artefakt parameter.
-ms.date: 10/14/2019
+ms.date: 05/06/2020
 ms.topic: sample
-ms.openlocfilehash: 7476addee3d31ec355c793ab7fbe1fbb732b8013
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9f132ee47784eedf8d1ced7e0b67f957877d12ef
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74544524"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864478"
 ---
 # <a name="deploy-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Distribuera exempel på benchmark-skisser för CIS-Microsoft Azure
 
@@ -93,8 +93,8 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 |Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[För\]hands version: granska CIS Microsoft Azure grunderna benchmark-1.1.0 rekommendationer och distribuera vissa STÖDda VM-tillägg|Principtilldelning|Lista över regioner där Network Watcher ska aktive ras|En semikolonavgränsad lista med regioner. Om du vill se en fullständig lista över regioner använder du get-AzLocation. Ex: östra; eastus2|
-|\[För\]hands version: granska CIS Microsoft Azure grunderna benchmark-1.1.0 rekommendationer och distribuera vissa STÖDda VM-tillägg|Principtilldelning|Lista över tillägg för virtuella datorer som godkänns för användning|En semikolonavgränsad lista över tillägg. Om du vill se en fullständig lista över virtuella dator tillägg använder du get-AzVMExtensionImage. T: AzureDiskEncryption; IaaSAntimalware|
+|Granska CIS Microsoft Azure grunderna i 1.1.0-rekommendationer och distribuera vissa stödda VM-tillägg|Principtilldelning|Lista över regioner där Network Watcher ska aktive ras|En semikolonavgränsad lista med regioner. Om du vill se en fullständig lista över regioner använder du get-AzLocation. Ex: östra; eastus2|
+|Granska CIS Microsoft Azure grunderna i 1.1.0-rekommendationer och distribuera vissa stödda VM-tillägg|Principtilldelning|Lista över tillägg för virtuella datorer som godkänns för användning|En semikolonavgränsad lista över tillägg. Om du vill se en fullständig lista över virtuella dator tillägg använder du get-AzVMExtensionImage. T: AzureDiskEncryption; IaaSAntimalware|
 
 ## <a name="next-steps"></a>Nästa steg
 

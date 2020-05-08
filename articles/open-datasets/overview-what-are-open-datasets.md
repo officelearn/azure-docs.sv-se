@@ -6,13 +6,13 @@ ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 11/04/2019
-ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.date: 05/06/2020
+ms.openlocfilehash: aa7cbd9b213d35becd65d9335312c0468760d655
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73606161"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872041"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Vad är Azure Open-datauppsättningar och hur kan du använda dem?
 
@@ -24,6 +24,8 @@ Data uppsättningar omfattar data från offentliga domäner för väder, räknin
 
 ## <a name="curated-prepared-datasets"></a>Granskade, för beredda data uppsättningar
 Granskade öppna offentliga data uppsättningar i Azure Open-datauppsättningar är optimerade för användning i Machine Learning-arbetsflöden. 
+
+Om du vill se alla tillgängliga data uppsättningar går du till [Azures öppna data uppsättnings katalog](https://azure.microsoft.com/services/open-datasets/catalog/).
 
 Data forskare lägger ofta till majoriteten av tiden som rensas och förbereder data för avancerad analys. Öppna data uppsättningar kopieras till Azure-molnet och förbearbetas för att spara tid. Med jämna mellanrum hämtas data från källorna, t. ex. via en FTP-anslutning till National ensamt-NOAA (ensamt atmosfär administration). Därefter tolkas data i ett strukturerat format och berikas sedan som det är lämpligt med funktioner som post nummer eller plats för närmaste väder Station.
 

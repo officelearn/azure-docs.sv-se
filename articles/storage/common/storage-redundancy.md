@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f4fff7c8865a59b916755a69a98448a1684da229
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853327"
+ms.locfileid: "82872011"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -104,6 +104,18 @@ Med ett GZRS lagrings konto kan du fortsätta att läsa och skriva data om en ti
 
 Endast General-Purpose v2-lagrings konton stöder GZRS och RA-GZRS. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md). GZRS och RA-GZRS stöder block-blobbar, Page blobbar (utom för VHD-diskar), filer, tabeller och köer. GZRS och RA-GZRS är tillgängliga i alla Azure-regioner.
 
+GZRS och RA-GZRS stöds i följande regioner:
+
+- Sydostasien
+- Nordeuropa
+- Västeuropa
+- Japan, östra
+- Storbritannien, södra
+- USA, centrala
+- USA, Östra
+- USA, östra 2
+- USA, västra 2
+
 Information om priser finns i pris information för [blobbar](https://azure.microsoft.com/pricing/details/storage/blobs), [filer](https://azure.microsoft.com/pricing/details/storage/files/), [köer](https://azure.microsoft.com/pricing/details/storage/queues/)och [tabeller](https://azure.microsoft.com/pricing/details/storage/tables/).
 
 ## <a name="read-access-to-data-in-the-secondary-region"></a>Läs åtkomst till data i den sekundära regionen
@@ -131,9 +143,9 @@ I följande tabell visas hur hållbar och tillgänglig data finns i ett specifik
 | Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | En nod i ett Data Center blir otillgänglig                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                  |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Nej                              | Ja                              | Ja                                  | Ja                                  |
-| Ett områdes omfattande avbrott inträffar                                                                                     | Nej                              | Nej                               | Ja                                  | Ja                                  |
-| Läs åtkomst till data i den sekundära regionen om den primära regionen blir otillgänglig | Nej                              | Nej                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Inga                              | Ja                              | Ja                                  | Ja                                  |
+| Ett områdes omfattande avbrott inträffar                                                                                     | Inga                              | Inga                               | Ja                                  | Ja                                  |
+| Läs åtkomst till data i den sekundära regionen om den primära regionen blir otillgänglig | Inga                              | Inga                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
 | Procentuell hållbarhet för objekt under ett angivet år<sup>1</sup>                                          | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9-) | minst 99.99999999999999% (16 9) | minst 99.99999999999999% (16 9) |
 | Lagrings konto typer som stöds<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
 | Tillgänglighets-SLA för Läs begär Anden<sup>1</sup>  | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GRS | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GZRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GZRS |

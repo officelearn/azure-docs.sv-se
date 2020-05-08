@@ -29,8 +29,6 @@
       href: manage-farms-in-azure-farmbeats.md
     - name: Hämta sensordata
       href: get-sensor-data-from-sensor-partner.md
-    - name: Hämta väderdata
-      href: get-weather-data-from-weather-partner.md
     - name: Generera kartor
       href: generate-maps-in-azure-farmbeats.md
     - name: Konfigurera regler och hantera aviseringar

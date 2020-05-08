@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5921fc9038e53f34e23f6fd97111c71b29699dc5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598110"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793150"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>Uppgradera den Service Fabric version som körs i klustret 
 
@@ -162,7 +162,7 @@ Information om användning finns i PowerShell [-kommandot start-ServiceFabricClu
 ## <a name="next-steps"></a>Nästa steg
 * [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md)
 * Anpassa några [Service Fabric kluster inställningar](service-fabric-cluster-fabric-settings.md).
-* [Skala ditt kluster in och ut](service-fabric-cluster-scale-up-down.md).
+* [Skala ditt kluster in och ut](service-fabric-cluster-scale-in-out.md).
 
 <!--Image references-->
 [getfabversions]: ./media/service-fabric-cluster-upgrade-windows-server/getfabversions.PNG

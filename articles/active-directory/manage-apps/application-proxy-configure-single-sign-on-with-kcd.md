@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5948fba67d3f071d77192f9ad89bc696fdc0c3cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 521982a5cf09e0da9c52bca2fe367432a1d29e57
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253460"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583135"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos-begränsad delegering för enkel inloggning till dina appar med Application Proxy
 
@@ -100,11 +100,13 @@ Active Directory-konfigurationen varierar beroende på om din Application Proxy 
 
 ## <a name="sso-for-non-windows-apps"></a>SSO för appar som inte kommer från Windows
 
-Kerberos Delegerings flödet i Azure AD-programproxy startar när Azure AD autentiserar användaren i molnet. När begäran har mottagits lokalt utfärdar Azure AD-programproxy Connector en Kerberos-biljett åt användaren genom att interagera med den lokala Active Directory. Den här processen kallas för Kerberos-begränsad delegering (KCD). I nästa fas skickas en begäran till Server dels programmet med denna Kerberos-biljett. 
+Kerberos Delegerings flödet i Azure AD-programproxy startar när Azure AD autentiserar användaren i molnet. När begäran har mottagits lokalt utfärdar Azure AD-programproxy Connector en Kerberos-biljett åt användaren genom att interagera med den lokala Active Directory. Den här processen kallas för Kerberos-begränsad delegering (KCD). 
 
-Det finns flera protokoll som definierar hur du skickar sådana begär Anden. De flesta icke-Windows-servrar förväntar sig att förhandla med SPNEGO. Det här protokollet stöds på Azure AD-programproxy, men är inaktiverat som standard. En server kan konfigureras för SPNEGO eller standard-KCD, men inte båda.
+I nästa fas skickas en begäran till Server dels programmet med denna Kerberos-biljett. 
 
-Om du konfigurerar en anslutnings dator för SPNEGO bör du kontrol lera att alla andra anslutningar i den anslutnings gruppen också är konfigurerade med SPNEGO. Program som förväntar sig standard-KCD ska dirigeras via andra anslutningar som inte har kon figurer ATS för SPNEGO.
+Det finns flera mekanismer som definierar hur du skickar Kerberos-biljetten i sådana begär Anden. De flesta icke-Windows-servrar förväntar sig att ta emot dem i form av SPNEGO-token. Den här mekanismen stöds på Azure AD-programproxy, men är inaktive rad som standard. En anslutning kan konfigureras för SPNEGO eller standard-Kerberos-token, men inte båda.
+
+Om du konfigurerar en anslutnings dator för SPNEGO bör du kontrol lera att alla andra anslutningar i den anslutnings gruppen också är konfigurerade med SPNEGO. Program som förväntar sig Kerberos-token ska dirigeras via andra anslutningar som inte har kon figurer ATS för SPNEGO.
  
 
 Så här aktiverar du SPNEGO:

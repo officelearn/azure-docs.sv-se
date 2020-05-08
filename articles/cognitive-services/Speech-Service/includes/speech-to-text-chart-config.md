@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/15/2020
+ms.date: 05/05/2020
 ms.author: trbye
-ms.openlocfilehash: 267c2fb72b38053429019746a573c740d812c38c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 85c4e0641e1989ddea6c8aa8b8a8895a966a5ddb
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608393"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82876027"
 ---
 ### <a name="speech-to-text-sub-chart-chartsspeechtotext"></a>Tal till text (under diagram: diagram/speechToText)
 
@@ -43,7 +43,7 @@ Om du vill åsidosätta diagrammet "paraply" lägger du `speechToText.` till pre
 
 #### <a name="sentiment-analysis-sub-chart-chartsspeechtotext"></a>Sentiment-analys (under diagram: diagram/speechToText)
 
-Från och med v-2.2.0 av den tal-till-text-behållaren används följande parametrar för sentiment-analys med hjälp av API för textanalys.
+Från och med v-2.2.0 av tal-till-text-behållaren och v-0.2.0 i Helm-diagrammet används följande parametrar för sentiment analys med hjälp av API för textanalys.
 
 |Parameter|Beskrivning|Värden|Standardvärde|
 | --- | --- | --- | --- |

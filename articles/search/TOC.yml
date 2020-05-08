@@ -60,6 +60,8 @@
           href: search-semi-structured-data.md
         - name: Indexera flera Azure-datakällor
           href: tutorial-multiple-data-sources.md
+    - name: Indexera alla data
+      href: tutorial-optimize-indexing-push-api.md
     - name: Använda AI för att skapa innehåll
       items:
         - name: 'C#'
@@ -82,6 +84,9 @@
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
     - name: REST-exempel
       href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=rest'
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Fulltextsökning

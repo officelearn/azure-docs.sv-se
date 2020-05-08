@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5c37dbdc34138faab8adae6ad18252c18a75cad4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 6376d858ae5113996bf7c93a8b3054797151c6b3
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337079"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858679"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Ändra hur ett lagrings konto replikeras
 
@@ -26,7 +26,7 @@ Azure Storage erbjuder följande typer av replikering:
 - Lokalt redundant lagring (LRS)
 - Zonredundant lagring (ZRS)
 - Geo-redundant lagring (GRS) eller Geo-redundant lagring med Läs behörighet (RA-GRS)
-- Geo-Zone-redundant lagring (GZRS) eller (Read-Access geo-Zone-redundant lagring) (RA-GZRS) (för hands version)
+- Geo-Zone-redundant lagring (GZRS) eller (Read-Access geo-Zone-redundant lagring) (RA-GZRS)
 
 En översikt över vart och ett av dessa alternativ finns i [Azure Storage redundans](storage-redundancy.md).
 
@@ -38,15 +38,15 @@ Följande tabell innehåller en översikt över hur du växlar från varje typ a
 
 | Växla | ... till LRS | ... till GRS/RA-GRS | ... till ZRS | ... till GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... från LRS</b> | Ej tillämpligt | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1</sup> | Utföra en manuell migrering <br /><br />Begär en Direktmigrering | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Växla till GRS/RA-GRS först och begär sedan en Direktmigrering<sup>1</sup> |
-| <b>... från GRS/RA-GRS</b> | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna | Ej tillämpligt | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Växla till LRS först och begär sedan en Direktmigrering | Utföra en manuell migrering <br /><br /> Begär en Direktmigrering |
-| <b>... från ZRS</b> | Utföra en manuell migrering | Utföra en manuell migrering | Ej tillämpligt | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1</sup> |
-| <b>... från GZRS/RA-GZRS</b> | Utföra en manuell migrering | Utföra en manuell migrering | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna | Ej tillämpligt |
+| <b>... från LRS</b> | E.t. | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1</sup> | Utföra en manuell migrering <br /><br />Begär en Direktmigrering | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Växla till GRS/RA-GRS först och begär sedan en Direktmigrering<sup>1</sup> |
+| <b>... från GRS/RA-GRS</b> | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna | E.t. | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Växla till LRS först och begär sedan en Direktmigrering | Utföra en manuell migrering <br /><br /> Begär en Direktmigrering |
+| <b>... från ZRS</b> | Utföra en manuell migrering | Utföra en manuell migrering | E.t. | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1</sup> |
+| <b>... från GZRS/RA-GZRS</b> | Utföra en manuell migrering | Utföra en manuell migrering | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna | E.t. |
 
 <sup>1</sup> ådrar sig en engångs avgift.
 
 > [!CAUTION]
-> Om du utförde ett [konto för redundans](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance) för ditt (RA-) GRS-eller (RA-) GZRS-konto, är det konfigurerat att vara lokalt redundant i den nya primära regionen. Direktmigrering till ZRS eller GZRS för sådana LRS-konton stöds inte. Du måste utföra [manuell migrering](https://docs.microsoft.com/azure/storage/common/redundancy-migration#perform-a-manual-migration-to-zrs).
+> Om du har utfört en [konto redundansväxling](storage-disaster-recovery-guidance.md) för ditt (RA-) GRS-eller (RA-) GZRS-konto är kontot Lokalt Redundant i den nya primära regionen efter redundansväxlingen. Direktmigrering till ZRS eller GZRS för ett LRS-konto som orsakas av en redundansväxling stöds inte. Du måste utföra en [manuell migrering](#perform-a-manual-migration-to-zrs) till ZRS eller GZRS.
 
 ## <a name="change-the-replication-setting"></a>Ändra replikeringsstatus
 
@@ -195,4 +195,4 @@ Om du migrerar ditt lagrings konto från GRS till LRS finns det ingen ytterligar
 
 - [Azure Storage redundans](storage-redundancy.md)
 - [Kontrol lera den senaste synkroniseringstid-egenskapen för ett lagrings konto](last-sync-time-get.md)
-- [Utforma hög tillgängliga program med hjälp av Geo-redundant lagring med Läs behörighet](storage-designing-ha-apps-with-ragrs.md)
+- [Använd GEO-redundans för att skapa program med hög tillgänglighet](geo-redundant-design.md)

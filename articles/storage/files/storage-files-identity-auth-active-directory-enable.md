@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 04/20/2020
+ms.date: 05/04/2020
 ms.author: rogarana
-ms.openlocfilehash: b2dd501344e1ea799db58ea749395aaed05d05f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6309219b31c22f1f1d090cc9de9931609e3423f7
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106566"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792996"
 ---
 # <a name="enable-on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Aktivera lokal Active Directory Domain Services autentisering över SMB för Azure-filresurser
 
@@ -54,13 +54,11 @@ Innan du aktiverar AD DS-autentisering för Azure-filresurser måste du kontrol 
 
     För att få åtkomst till en fil resurs med hjälp av AD-autentiseringsuppgifter från en dator eller virtuell dator måste enheten vara domänansluten till AD DS. Information om hur du ansluter till en domän finns i [ansluta en dator till en domän](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain). 
 
-- Välj eller skapa ett Azure Storage-konto i [en region som stöds](#regional-availability). 
+- Välj eller skapa ett Azure Storage-konto.  För bästa prestanda rekommenderar vi att du distribuerar lagrings kontot i samma region som den virtuella dator som du planerar att komma åt resursen från.
 
     Kontrol lera att lagrings kontot som innehåller dina fil resurser inte redan har kon figurer ATS för Azure AD DS-autentisering. Om Azure Files Azure AD DS-autentisering är aktiverat på lagrings kontot måste den inaktive ras innan den kan ändras till att använda lokala AD DS. Detta innebär att befintliga ACL: er som kon figurer ATS i Azure AD DS-miljön måste konfigureras om för korrekt behörighets tillämpning.
     
     Information om hur du skapar en ny fil resurs finns [i skapa en fil resurs i Azure Files](storage-how-to-create-file-share.md).
-    
-    För bästa prestanda rekommenderar vi att du distribuerar lagrings kontot i samma region som den virtuella dator som du planerar att komma åt resursen från. 
 
 - Kontrol lera anslutningen genom att montera Azure-filresurser med hjälp av lagrings konto nyckeln. 
 
@@ -70,23 +68,23 @@ Innan du aktiverar AD DS-autentisering för Azure-filresurser måste du kontrol 
 
 Azure Files autentisering med AD DS (för hands version) är tillgänglig i [alla offentliga regioner och Azure gov-regioner](https://azure.microsoft.com/global-infrastructure/locations/).
 
-## <a name="workflow-overview"></a>Översikt över arbets flöde
-
-Innan du aktiverar AD DS-autentisering över SMB för Azure-filresurser rekommenderar vi att du läser och slutför avsnittet [förutsättning](#prerequisites) . Kraven verifierar att dina AD-, Azure AD-och Azure Storage-miljöer är korrekt konfigurerade. 
+## <a name="overview"></a>Översikt
 
 Om du planerar att aktivera alla nätverkskonfigurationer på din fil resurs, rekommenderar vi att du utvärderar [nätverks överväganden](https://docs.microsoft.com/azure/storage/files/storage-files-networking-overview) och slutför den relaterade konfigurationen innan du aktiverar AD DS-autentisering.
 
-Följ sedan stegen nedan för att konfigurera Azure Files för AD-autentisering: 
+Genom att aktivera AD DS-autentisering för dina Azure-filresurser kan du autentisera till dina Azure-filresurser med dina lokal AD DS-autentiseringsuppgifter. Dessutom kan du hantera dina behörigheter bättre genom att tillåta detaljerad åtkomst kontroll. Detta kräver att du synkroniserar identiteter från lokal AD DS till Azure AD med AD Connect. Du styr åtkomsten till delnings nivå med identiteter synkroniserade till Azure AD samtidigt som du hanterar åtkomsten för fil-/delnings nivå med lokal AD DS-autentiseringsuppgifter.
 
-1. Aktivera Azure Files AD DS-autentisering på ditt lagrings konto. 
+Följ sedan stegen nedan för att konfigurera Azure Files för AD DS-autentisering: 
 
-2. Tilldela åtkomst behörigheter för en resurs till Azure AD-identiteten (en användare, grupp eller tjänstens huvud namn) som är synkroniserad med mål-AD-identiteten. 
+1. [Aktivera Azure Files AD DS-autentisering på ditt lagrings konto](#1-enable-ad-ds-authentication-for-your-account)
 
-3. Konfigurera ACL: er över SMB för kataloger och filer. 
+1. [Tilldela åtkomst behörigheter för en resurs till Azure AD-identiteten (en användare, grupp eller tjänstens huvud namn) som är synkroniserad med mål-AD-identiteten](#2-assign-access-permissions-to-an-identity)
+
+1. [Konfigurera ACL: er över SMB för kataloger och filer](#3-configure-ntfs-permissions-over-smb)
  
-4. Montera en Azure-filresurs till en virtuell dator som är ansluten till AD DS. 
+1. [Montera en Azure-filresurs till en virtuell dator som är ansluten till AD DS](#4-mount-a-file-share-from-a-domain-joined-vm)
 
-5. Uppdatera lösen ordet för din lagrings konto identitet i AD DS.
+1. [Uppdatera lösen ordet för din lagrings konto identitet i AD DS](#5-update-the-password-of-your-storage-account-identity-in-ad-ds)
 
 Följande diagram illustrerar arbets flödet från slut punkt till slut punkt för att aktivera Azure AD-autentisering över SMB för Azure-filresurser. 
 
@@ -95,9 +93,9 @@ Följande diagram illustrerar arbets flödet från slut punkt till slut punkt f�
 > [!NOTE]
 > AD DS-autentisering över SMB för Azure-filresurser stöds endast på datorer eller virtuella datorer som körs på OS-versioner som är nyare än Windows 7 eller Windows Server 2008 R2. 
 
-## <a name="1-enable-ad-authentication-for-your-account"></a>1. Aktivera AD-autentisering för ditt konto 
+## <a name="1-enable-ad-ds-authentication-for-your-account"></a>1 aktivera AD DS-autentisering för ditt konto 
 
-Om du vill aktivera AD DS-autentisering över SMB för Azure-filresurser måste du först registrera ditt lagrings konto med AD DS och sedan ange de domän egenskaper som krävs för lagrings kontot. När funktionen är aktive rad på lagrings kontot gäller den för alla nya och befintliga fil resurser i kontot. Används `join-AzStorageAccountForAuth` för att aktivera funktionen. Du hittar den detaljerade beskrivningen av arbets flödet från slut punkt till slut punkt i skriptet i det här avsnittet. 
+Om du vill aktivera AD DS-autentisering över SMB för Azure-filresurser måste du först registrera ditt lagrings konto med AD DS och sedan ange de domän egenskaper som krävs för lagrings kontot. När funktionen är aktive rad på lagrings kontot gäller den för alla nya och befintliga fil resurser i kontot. Hämta PowerShell-modulen AzFilesHybrid och Använd `join-AzStorageAccountForAuth` för att aktivera funktionen. Du hittar den detaljerade beskrivningen av arbets flödet från slut punkt till slut punkt i skriptet i det här avsnittet. 
 
 > [!IMPORTANT]
 > `Join-AzStorageAccountForAuth` Cmdleten kommer att göra ändringar i din AD-miljö. Läs följande förklaring för att bättre förstå vad det gör för att se till att du har rätt behörighet för att köra kommandot och att de tillämpade ändringarna överensstämmer med principerna för efterlevnad och säkerhet. 
@@ -118,7 +116,7 @@ Du kan använda följande skript för att utföra registreringen och aktivera fu
 Kom ihåg att ersätta plats hållarnas värden med dina egna i parametrarna nedan innan du kör det i PowerShell.
 > [!IMPORTANT]
 > Domän kopplings-cmdleten skapar ett AD-konto som representerar lagrings kontot (fil resursen) i AD. Du kan välja att registrera ett dator konto eller tjänst inloggnings konto, se [vanliga frågor och svar](https://docs.microsoft.com/azure/storage/files/storage-files-faq#security-authentication-and-access-control) för mer information. För dator konton finns det ett standard ålder för lösen ord som anges i AD med 30 dagar. På samma sätt kan tjänst inloggnings kontot ha ett standard-ålder för lösen ord som angetts i AD-domänen eller organisationsenheten (OU).
-> För båda konto typerna rekommenderar vi starkt att du kontrollerar vad som är förfallo ålder för lösen ord som kon figurer ATS i din AD-miljö och planerar att [Uppdatera lösen ordet för din lagrings konto identitet i AD](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) för AD-kontot nedan innan det högsta tillåtna lösen ordets ålder. Om du inte uppdaterar lösen ordet för AD-kontot leder det till autentiseringsfel vid åtkomst till Azure-filresurser. Du kan [skapa en ny AD-organisationsenhet (OU) i AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) och inaktivera princip för lösen ords förfallo datum på [dator konton](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) eller tjänst inloggnings konton i enlighet med detta. 
+> För båda konto typerna rekommenderar vi starkt att du kontrollerar vad som är förfallo ålder för lösen ord som kon figurer ATS i din AD-miljö och planerar att [Uppdatera lösen ordet för din lagrings konto identitet i AD](#5-update-the-password-of-your-storage-account-identity-in-ad-ds) för AD-kontot nedan innan det högsta tillåtna lösen ordets ålder. Du kan [skapa en ny AD-organisationsenhet (OU) i AD](https://docs.microsoft.com/powershell/module/addsadministration/new-adorganizationalunit?view=win10-ps) och inaktivera princip för lösen ords förfallo datum på [dator konton](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj852252(v=ws.11)?redirectedfrom=MSDN) eller tjänst inloggnings konton i enlighet med detta. 
 
 ```PowerShell
 #Change the execution policy to unblock importing AzFilesHybrid.psm1 module
@@ -144,12 +142,12 @@ Select-AzSubscription -SubscriptionId $SubscriptionId
 # Register the target storage account with your active directory environment under the target OU (for example: specify the OU with Name as "UserAccounts" or DistinguishedName as "OU=UserAccounts,DC=CONTOSO,DC=COM"). 
 # You can use to this PowerShell cmdlet: Get-ADOrganizationalUnit to find the Name and DistinguishedName of your target OU. If you are using the OU Name, specify it with -OrganizationalUnitName as shown below. If you are using the OU DistinguishedName, you can set it with -OrganizationalUnitDistinguishedName. You can choose to provide one of the two names to specify the target OU.
 # You can choose to create the identity that represents the storage account as either a Service Logon Account or Computer Account, depends on the AD permission you have and preference. 
-#You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
+# You can run Get-Help Join-AzStorageAccountForAuth to find more details on this cmdlet.
 
 Join-AzStorageAccountForAuth `
         -ResourceGroupName $ResourceGroupName `
         -Name $StorageAccountName `
-        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` #Default set to "ComputerAccount"
+        -DomainAccountType "<ComputerAccount|ServiceLogonAccount>" ` # Default set to "ComputerAccount" if this parameter is not provided
         -OrganizationalUnitName "<ou-name-here>" #You can also use -OrganizationalUnitDistinguishedName "<ou-distinguishedname-here>" instead. If you don't provide the OU name as an input parameter, the AD identity that represents the storage account will be created under the root directory.
 
 #You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more details on the checks performed in this cmdlet, go to Azure Files FAQ.
@@ -218,7 +216,7 @@ Du har nu aktiverat funktionen på ditt lagrings konto. Nu när funktionen är a
 
 Nu har du aktiverat AD DS-autentisering över SMB och tilldelat en anpassad roll som ger åtkomst till en Azure-filresurs med en AD DS-identitet. Om du vill ge fler användare åtkomst till din fil resurs följer du anvisningarna i avsnittet [tilldela åtkomst behörigheter](#2-assign-access-permissions-to-an-identity) för att använda en identitet och [Konfigurera NTFS-behörigheter över SMB](#3-configure-ntfs-permissions-over-smb) -avsnitt.
 
-## <a name="5-update-the-password-of-your-storage-account-identity-in-ad-ds"></a>5. uppdatera lösen ordet för din lagrings konto identitet i AD DS
+## <a name="5-update-the-password-of-your-storage-account-identity-in-ad-ds"></a>5 uppdatera lösen ordet för din lagrings konto identitet i AD DS
 
 Om du har registrerat AD DS-identiteten/-kontot som representerar ditt lagrings konto under en ORGANISATIONSENHET som tillämpar lösen ordets giltighets tid, måste du rotera lösen ordet innan du anger den högsta ålder för lösen ord. Om du inte uppdaterar lösen ordet för AD DS-kontot leder det till att autentiseringsfel får åtkomst till Azure-filresurser.  
 
@@ -237,4 +235,4 @@ Update-AzStorageAccountADObjectPassword `
 Mer information om Azure Files och hur du använder AD över SMB finns i följande resurser:
 
 - [Översikt över stöd för Azure Files Identity-baserad autentisering för SMB-åtkomst](storage-files-active-directory-overview.md)
-- [VANLIGA FRÅGOR OCH SVAR](storage-files-faq.md)
+- [Vanliga frågor och svar](storage-files-faq.md)

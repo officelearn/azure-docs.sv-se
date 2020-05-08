@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 04/13/2020
+ms.date: 05/07/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ef9172ca5d0961bb6de1949a61199ce1d6c1bff
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f0f88b310bc00881e66ee8e8b5f2d40616d60315
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603422"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926941"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Självstudier: Massinbjuda Azure AD B2B-samarbetsanvändare
 
@@ -29,6 +29,27 @@ Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta 
 
 Om du inte har Azure Active Directory skapar du ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
+## <a name="understand-the-csv-template"></a>Förstå CSV-mallen
+
+Hämta och fyll i mallen för Mass uppladdning av CSV så att du kan bjuda in Azure AD-gäst användare i grupp. Den CSV-mall som du hämtar kan se ut som i det här exemplet:
+
+![Kalkyl blad för uppladdning och vidarekoppling förklarar syfte och värden för varje rad och kolumn](media/tutorial-bulk-invite/understand-template.png)
+
+### <a name="csv-template-structure"></a>Struktur för CSV-mall
+
+Raderna i en Hämtad CSV-mall är följande:
+
+- **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt*&gt;. Till exempel `Email address to invite [inviteeEmail] Required`. Vissa äldre versioner av mallen kan ha små variationer.
+- **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
+
+### <a name="additional-guidance"></a>Mer information
+
+- De två första raderna i uppladdnings mal len får inte tas bort eller ändras, eller så går det inte att bearbeta överföringen.
+- De obligatoriska kolumnerna visas först.
+- Vi rekommenderar inte att du lägger till nya kolumner i mallen. Eventuella ytterligare kolumner som du lägger till ignoreras och bearbetas inte.
+- Vi rekommenderar att du laddar ned den senaste versionen av CSV-mallen så ofta som möjligt.
+
 ## <a name="prerequisites"></a>Krav
 
 Du behöver två eller flera test-e-postkonton att skicka inbjudningar till. Kontona måste finnas utanför din organisation. Du kan använda vilken typ av konto som helst, t.ex. konton i sociala medier som gmail.com- eller outlook.com-adresser.
@@ -38,11 +59,11 @@ Du behöver två eller flera test-e-postkonton att skicka inbjudningar till. Kon
 1. Logga in på Azure Portal med ett konto som är en användar administratör i organisationen.
 2. I navigerings fönstret väljer du **Azure Active Directory**.
 3. Under **Hantera**väljer **du användare** > **Mass inbjudan**.
-4. På sidan **massredigera användare** väljer du **Hämta** för att hämta en giltig CSV-fil med Inbjudnings egenskaper.
+4. På sidan **massredigera användare** väljer du **Hämta** för att hämta en giltig CSV-mall med Inbjudnings egenskaper.
 
     ![Hämtnings knapp för Mass inbjudan](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5. Öppna CSV-filen och Lägg till en rad för varje gäst användare. Obligatoriska värden är:
+5. Öppna CSV-mallen och Lägg till en rad för varje gäst användare. Obligatoriska värden är:
 
    * **E-postadress att bjuda in** – användaren som får en inbjudan
 

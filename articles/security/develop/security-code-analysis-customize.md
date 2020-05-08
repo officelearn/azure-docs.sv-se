@@ -2,7 +2,7 @@
 title: Anpassa Microsoft Security code Analysis-uppgifter
 titleSuffix: Azure
 description: Den här artikeln beskriver hur du anpassar aktiviteterna i tillägget Microsoft Security code Analysis
-author: vharindra
+author: sukhans
 manager: sukhans
 ms.author: terrylan
 ms.date: 07/31/2019
@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d074c12f28abdc61f4d70356c2a7aa264deb44c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77499991"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871886"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>Konfigurera och anpassa Bygg aktiviteterna
 
@@ -41,7 +41,7 @@ Windows Defender använder Windows Update-klienten för att ladda ned och instal
 
 Mer information om Windows Update fel och deras lösningar finns i [Windows Update felkoder per komponent](https://docs.microsoft.com/windows/deployment/update/windows-update-error-reference) och TechNet [-artikeln Windows Update Agent-felkoder](https://social.technet.microsoft.com/wiki/contents/articles/15260.windows-update-agent-error-codes.aspx).
 
-Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du våra [yaml-alternativ för program mot skadlig kod](yaml-configuration.md#anti-malware-scanner-task)
+Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du [alternativen för yaml för program mot skadlig kod](yaml-configuration.md#anti-malware-scanner-task)
 
 ## <a name="binskim-task"></a>BinSkim-uppgift
 
@@ -82,7 +82,7 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 
 Mer information om kommando rads argument för BinSkim, regler per ID eller avslutnings koder finns i [användar handboken för BinSkim](https://github.com/Microsoft/binskim/blob/master/docs/UserGuide.md).
 
-Information om YAML-konfigurationen för den här uppgiften finns i våra [BINSKIM yaml-alternativ](yaml-configuration.md#binskim-task)
+Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du våra [BINSKIM yaml-alternativ](yaml-configuration.md#binskim-task)
 
 ## <a name="credential-scanner-task"></a>Uppgift för genomsökning av autentiseringsuppgifter
 
@@ -91,7 +91,8 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 ![Konfigurera uppgiften för att läsa in autentiseringsuppgifter](./media/security-tools/3-taskdetails.png)
 
 Tillgängliga alternativ inkluderar:
-
+  - **Visnings namn**: namnet på Azure DevOps-aktiviteten. Standardvärdet är skanner för att köra autentiseringsuppgifter
+  - **Verktygets huvud version**: tillgängliga värden är **CredScan v2**, **CredScan v1**. Vi rekommenderar att kunderna använder **CredScan v2** -versionen.
   - **Utdataformat**: tillgängliga värden är **TSV**, **CSV**, **SARIF**och för **snabbt**.
   - **Verktygs version**: Vi rekommenderar att du väljer **senaste**.
   - **Genomsök mapp**: den databasmapp som ska genomsökas.
@@ -105,7 +106,7 @@ Tillgängliga alternativ inkluderar:
   - **Kontroll alternativ** > **kör den här uppgiften**: anger när aktiviteten ska köras. Välj **anpassade villkor** för att ange mer komplexa villkor.
   - **Version**: Bygg uppgifts versionen i Azure DevOps. Det här alternativet används inte ofta.
 
-Information om YAML-konfigurationen för den här aktiviteten finns i våra [yaml alternativ för inloggnings skanner](yaml-configuration.md#credential-scanner-task)
+Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du [alternativen för yaml för autentiseringsuppgifter](yaml-configuration.md#credential-scanner-task)
 
 ## <a name="microsoft-security-risk-detection-task"></a>Uppgift om Microsofts säkerhets risk identifiering
 
@@ -181,7 +182,7 @@ Mer information om TSLint finns i [TSLint GitHub-lagrings platsen](https://githu
 >[!NOTE] 
 >Som du kanske är medveten om, kan [TSLint GitHub lagrings platsen](https://github.com/palantir/tslint) start sida säga att TSLint kommer att vara inaktuellt någon gång i 2019. Microsoft undersöker [ESLint](https://github.com/eslint/eslint) som en alternativ uppgift.
 
-Information om YAML-konfigurationen för den här uppgiften finns i våra [TSLINT yaml-alternativ](yaml-configuration.md#tslint-task)
+Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du våra [TSLINT yaml-alternativ](yaml-configuration.md#tslint-task)
 
 ## <a name="publish-security-analysis-logs-task"></a>Aktiviteten publicera säkerhets analys loggar
 
@@ -193,7 +194,7 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 - **Artefakt typ**: beroende på ditt val kan du publicera loggar till din Azure DevOps Server eller till en delad fil som är tillgänglig för build-agenten.
 - **Verktyg**: du kan välja att bevara loggar för vissa verktyg, eller så kan du välja **alla verktyg** för att bevara alla loggar.
 
-Information om YAML-konfigurationen för den här uppgiften finns i YAML-alternativen för att [publicera säkerhets loggar](yaml-configuration.md#publish-security-analysis-logs-task)
+Information om YAML-konfigurationen för den här aktiviteten finns i [yaml alternativ för publicering av säkerhets loggar](yaml-configuration.md#publish-security-analysis-logs-task)
 
 ## <a name="security-report-task"></a>Säkerhets rapports aktivitet
 
@@ -206,7 +207,7 @@ Information om konfigurationen av säkerhets rapporten visas i följande skärm 
 - **Avancerade alternativ**: om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
 - **Mappen grundläggande loggar**: du kan anpassa mappen grundläggande loggar där loggar ska hittas. Men det här alternativet används vanligt vis inte.
 
-Information om YAML-konfigurationen för den här uppgiften finns i [säkerhets rapportens yaml alternativ](yaml-configuration.md#security-report-task)
+Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du [säkerhets rapportens yaml alternativ](yaml-configuration.md#security-report-task)
 
 ## <a name="post-analysis-task"></a>Uppgift efter analys
 
@@ -218,7 +219,7 @@ Information om aktivitets konfigurationen visas i följande skärm bild och list
 - **Rapport**: du kan välja att skriva resultaten som orsakar Bygg rastet. Resultaten skrivs till Azure DevOps-konsol fönstret och logg filen.
 - **Avancerade alternativ**: om det inte finns några loggar för något av de valda verktygen kan du välja att logga en varning eller ett fel. Om du loggar ett fel, Miss lyckas uppgiften.
 
-Information om YAML-konfigurationen för den här uppgiften finns i alternativ för att [yaml för inläggs analys](yaml-configuration.md#post-analysis-task)
+Om du vill ha mer information om YAML-konfigurationen för den här aktiviteten kontrollerar du alternativen för att [publicera yaml](yaml-configuration.md#post-analysis-task)
 
 ## <a name="next-steps"></a>Nästa steg
 

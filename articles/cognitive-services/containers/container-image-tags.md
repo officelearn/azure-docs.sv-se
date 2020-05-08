@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 786fde90e1bcf47e08857c26235a27862c5b3d75
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 850d7b9732ad547d502b042e7eaad5d3b471030e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878773"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926008"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Avbildnings taggar för Azure Cognitive Services container
 
@@ -106,6 +106,7 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 | Bildtaggar            | Obs! |
 |-----------------------|:------|
 | `latest`              |       |
+| `2.2.0-amd64-preview` |       |
 | `2.1.1-amd64-preview` |       |
 | `2.1.0-amd64-preview` |       |
 | `2.0.2-amd64-preview` |       |
@@ -131,6 +132,46 @@ Den här behållar avbildningen har följande tillgängliga Taggar:
 | Bildtaggar                  | Obs!                                    |
 |-----------------------------|:-----------------------------------------|
 | `latest`                    | Behållar avbildning `en-US` med språkvarianten. |
+| `2.2.0-amd64-ar-ae-preview` | Behållar avbildning `ar-AE` med språkvarianten. |
+| `2.2.0-amd64-ar-eg-preview` | Behållar avbildning `ar-EG` med språkvarianten. |
+| `2.2.0-amd64-ar-kw-preview` | Behållar avbildning `ar-KW` med språkvarianten. |
+| `2.2.0-amd64-ar-qa-preview` | Behållar avbildning `ar-QA` med språkvarianten. |
+| `2.2.0-amd64-ar-sa-preview` | Behållar avbildning `ar-SA` med språkvarianten. |
+| `2.2.0-amd64-ca-es-preview` | Behållar avbildning `ca-ES` med språkvarianten. |
+| `2.2.0-amd64-da-dk-preview` | Behållar avbildning `da-DK` med språkvarianten. |
+| `2.2.0-amd64-de-de-preview` | Behållar avbildning `de-DE` med språkvarianten. |
+| `2.2.0-amd64-en-au-preview` | Behållar avbildning `en-AU` med språkvarianten. |
+| `2.2.0-amd64-en-ca-preview` | Behållar avbildning `en-CA` med språkvarianten. |
+| `2.2.0-amd64-en-gb-preview` | Behållar avbildning `en-GB` med språkvarianten. |
+| `2.2.0-amd64-en-in-preview` | Behållar avbildning `en-IN` med språkvarianten. |
+| `2.2.0-amd64-en-nz-preview` | Behållar avbildning `en-NZ` med språkvarianten. |
+| `2.2.0-amd64-en-us-preview` | Behållar avbildning `en-US` med språkvarianten. |
+| `2.2.0-amd64-es-es-preview` | Behållar avbildning `es-ES` med språkvarianten. |
+| `2.2.0-amd64-es-mx-preview` | Behållar avbildning `es-MX` med språkvarianten. |
+| `2.2.0-amd64-fi-fi-preview` | Behållar avbildning `fi-FI` med språkvarianten. |
+| `2.2.0-amd64-fr-ca-preview` | Behållar avbildning `fr-CA` med språkvarianten. |
+| `2.2.0-amd64-fr-fr-preview` | Behållar avbildning `fr-FR` med språkvarianten. |
+| `2.2.0-amd64-gu-in-preview` | Behållar avbildning `gu-IN` med språkvarianten. |
+| `2.2.0-amd64-hi-in-preview` | Behållar avbildning `hi-IN` med språkvarianten. |
+| `2.2.0-amd64-it-it-preview` | Behållar avbildning `it-IT` med språkvarianten. |
+| `2.2.0-amd64-ja-jp-preview` | Behållar avbildning `ja-JP` med språkvarianten. |
+| `2.2.0-amd64-ko-kr-preview` | Behållar avbildning `ko-KR` med språkvarianten. |
+| `2.2.0-amd64-mr-in-preview` | Behållar avbildning `mr-IN` med språkvarianten. |
+| `2.2.0-amd64-nb-no-preview` | Behållar avbildning `nb-NO` med språkvarianten. |
+| `2.2.0-amd64-nl-nl-preview` | Behållar avbildning `nl-NL` med språkvarianten. |
+| `2.2.0-amd64-pl-pl-preview` | Behållar avbildning `pl-PL` med språkvarianten. |
+| `2.2.0-amd64-pt-br-preview` | Behållar avbildning `pt-BR` med språkvarianten. |
+| `2.2.0-amd64-pt-pt-preview` | Behållar avbildning `pt-PT` med språkvarianten. |
+| `2.2.0-amd64-ru-ru-preview` | Behållar avbildning `ru-RU` med språkvarianten. |
+| `2.2.0-amd64-sv-se-preview` | Behållar avbildning `sv-SE` med språkvarianten. |
+| `2.2.0-amd64-ta-in-preview` | Behållar avbildning `ta-IN` med språkvarianten. |
+| `2.2.0-amd64-te-in-preview` | Behållar avbildning `te-IN` med språkvarianten. |
+| `2.2.0-amd64-th-th-preview` | Behållar avbildning `th-TH` med språkvarianten. |
+| `2.2.0-amd64-tr-tr-preview` | Behållar avbildning `tr-TR` med språkvarianten. |
+| `2.2.0-amd64-zh-cn-preview` | Behållar avbildning `zh-CN` med språkvarianten. |
+| `2.2.0-amd64-zh-hk-preview` | Behållar avbildning `zh-HK` med språkvarianten. |
+| `2.2.0-amd64-zh-tw-preview` | Behållar avbildning `zh-TW` med språkvarianten. |
+| `2.1.1-amd64-en-us-preview` | Behållar avbildning `en-US` med språkvarianten. |
 | `2.1.1-amd64-ar-ae-preview` | Behållar avbildning `ar-AE` med språkvarianten. |
 | `2.1.1-amd64-ar-eg-preview` | Behållar avbildning `ar-EG` med språkvarianten. |
 | `2.1.1-amd64-ar-kw-preview` | Behållar avbildning `ar-KW` med språkvarianten. |

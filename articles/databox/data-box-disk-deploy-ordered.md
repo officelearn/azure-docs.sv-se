@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7b27f10567816884b14a0a2c69e3bd8e85cb7a76
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 91177c67c9d24f73934381704bca8259af31adca
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81398708"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858630"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Självstudie: Beställ en Azure Data Box Disk
 
@@ -61,7 +61,7 @@ Utför följande steg för att beställa Data Box Disk.
 
     ![Välj Data Box Disk-alternativ](media/data-box-disk-deploy-ordered/select-data-box-sku-1.png)
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Prenumeration|Välj den prenumeration för vilken Data Box-tjänsten är aktiverad.<br> Prenumerationen är kopplad till ditt faktureringskonto. |
     |Överföringstyp| Importera till Azure|
@@ -75,7 +75,7 @@ Utför följande steg för att beställa Data Box Disk.
 
 6.  I **Order** (Beställa) anger du **Order details** (Beställningsinformation). Ange eller välj följande information.
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Namn|Välj ett smeknamn så att du kan spåra beställningen.<br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra. |
     |Resursgrupp| Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans. |
@@ -90,7 +90,7 @@ Utför följande steg för att beställa Data Box Disk.
 
     Om du använder Data Box Disk för att skapa hanterade diskar från lokala virtuella hård diskar måste du också ange följande information:
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Resursgrupp     | Skapa en ny resurs grupp om du tänker skapa hanterade diskar från lokala virtuella hård diskar. Använd bara en befintlig resurs grupp om den skapades för Data Box Disk ordning för hanterad disk av Data Box-enhet-tjänsten. <br> Endast en resurs grupp stöds.|
 
@@ -102,7 +102,7 @@ Utför följande steg för att beställa Data Box Disk.
 
     ![Uppge beställningsinformation](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
-14. På fliken **Shipping address** (Leveransadress) uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det. 
+14. På fliken **Shipping address** (Leveransadress) uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det. Kunder som använder tjänsten i Japan, Singapore, Korea och Västeuropa har möjlighet att välja självhanterad leverans medan ordern behålls. När ordern har placerats får du ett e-postmeddelande med instruktioner för att hämta enheten från det angivna Azure-datacenter.
 
     ![Uppge leveransadress](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
 15. Ange e-postadresser i **Notification details** (Information om meddelande). Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus. 

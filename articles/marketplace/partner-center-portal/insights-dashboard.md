@@ -1,22 +1,22 @@
 ---
-title: Instrument panel för Marketplace-insikter på kommersiell Marketplace-analys på Partner Center
-description: Få åtkomst till en sammanfattning av Marketplace Web Analytics, som gör det möjligt för utgivare att mäta kund engagemang i AppSource och butiker för Azure Marketplace.
+title: Marknads insikter – Microsoft Commercial Marketplace
+description: Få åtkomst till en sammanfattning av Marketplace Web Analytics, som gör att du kan mäta kund engagemang i Microsoft AppSource och Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 05389f0aea7e2637dd28281236e7fd7ec2b412fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cecff7347189c5e5b964e10439297bce405810b7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251715"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857916"
 ---
-# <a name="marketplace-insights-dashboard-in-commercial-marketplace-analytics"></a>Instrument panel för Marketplace-insikter på kommersiell Marketplace-analys
+# <a name="marketplace-insights-dashboard-in-partner-center"></a>Marketplace insikter-instrument panel i Partner Center
 
-Den här artikeln innehåller information om instrument panelen för marknads insikter i Partner Center. Den här instrument panelen visar en sammanfattning av Marketplace Web Analytics, som gör det möjligt för utgivare att mäta kund engagemang för sina respektive produkt informations sidor som visas på Marketplace butiker: AppSource och Azure Marketplace.
+Den här artikeln innehåller information om instrument panelen för marknads insikter i Partner Center. Den här instrument panelen visar en sammanfattning av Marketplace Web Analytics, som gör det möjligt för utgivare att mäta kund engagemang för sina respektive produkt informations sidor på Marketplace butiker: Microsoft AppSource och Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Instrumentpanelen Marknadsplatsinsikter
 

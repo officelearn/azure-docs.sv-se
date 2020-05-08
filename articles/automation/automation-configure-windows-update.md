@@ -3,14 +3,14 @@ title: Konfigurera Windows Update inställningar så att de fungerar med Azure U
 description: I den här artikeln beskrivs de Windows Update inställningar som du konfigurerar för att arbeta med Azure Uppdateringshantering.
 services: automation
 ms.subservice: update-management
-ms.date: 03/02/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f226c4d297d25644b2650d085655f70d8326927
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9b5f2b19b29eae0132ec01a9f3fb7e8355361f5
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79279031"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779458"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>Konfigurera Windows Update inställningar för Uppdateringshantering
 
@@ -22,6 +22,8 @@ Azure Uppdateringshantering använder [Windows Update klienten](https://docs.mic
 - Redigera registret direkt
 
 Uppdateringshantering respekterar många av de inställningar som anges för att kontrol lera Windows Update-klienten. Om du använder inställningar för att aktivera uppdateringar som inte kommer från Windows kan Uppdateringshantering även hantera dessa uppdateringar. Om du vill aktivera nedladdning av uppdateringar innan en uppdaterings distribution sker kan uppdaterings distributionen bli snabbare, mer effektiv och mindre troligt att överskrida underhålls perioden.
+
+Ytterligare rekommendationer för att konfigurera WSUS i din Azure-prenumeration och se till att dina virtuella Windows-datorer hålls uppdaterade genom att [Planera distributionen för uppdatering av virtuella Windows-datorer i Azure med hjälp av WSUS](https://docs.microsoft.com/azure/architecture/example-scenario/wsus/).
 
 ## <a name="pre-download-updates"></a>För nedladdning av uppdateringar
 

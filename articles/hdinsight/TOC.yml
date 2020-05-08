@@ -155,8 +155,16 @@
           items:
             - name: Hantera kluster med Apache Ambari-webbgränssnittet
               href: ./hdinsight-hadoop-manage-ambari.md
-            - name: Optimera kluster med Apache Ambari-webbgränssnittet
-              href: ./hdinsight-changing-configs-via-ambari.md
+            - name: Optimera med Apache Ambari
+              items:
+                - name: Optimera kluster
+                  href: ./hdinsight-changing-configs-via-ambari.md
+                - name: Optimera Apache HBase
+                  href: ./optimize-hbase-ambari.md
+                - name: Optimera Apache Hive
+                  href: ./optimize-hive-ambari.md
+                - name: Optimera Apache Pig
+                  href: ./optimize-pig-ambari.md
             - name: Använda Apache Ambari REST API
               href: ./hdinsight-hadoop-manage-ambari-rest-api.md
             - name: Ta bort ett kluster
@@ -221,14 +229,18 @@
               href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
             - name: Övervaka klusterprestanda
               href: ./hdinsight-key-scenarios-to-monitor.md
-            - name: Övervaka klustertillgänglighet med Ambari- och Azure Monitor-loggar
+            - name: Klustertillgänglighet – Apache Ambari
               href: ./hdinsight-cluster-availability.md
+            - name: Klustertillgänglighet – Azure Monitor-loggar
+              href: ./cluster-availability-monitor-logs.md
         - name: Felsöka
           items:
             - name: Felsöka skriptåtgärder
               href: ./troubleshoot-script-action.md
             - name: Problem med att skapa resurser
               href: ./troubleshoot-resource-creation-fails.md
+            - name: Felsöka Apache Oozie
+              href: ./troubleshoot-oozie.md
     - name: Referens
       items:
         - name: Azure PowerShell
@@ -699,6 +711,8 @@
               href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
             - name: Felsöka Apache HBase
               href: ./hbase/apache-troubleshoot-hbase.md
+            - name: REST API för frågekörning mot Apache HBase
+              href: ./hbase/troubleshoot-rest-api.md
 - name: Interaktiv fråga
   items:
     - name: Översikt
@@ -901,6 +915,8 @@
           href: ./transport-layer-security.md
         - name: Planera virtuella nätverk för HDInsight
           href: ./hdinsight-plan-virtual-network-deployment.md
+        - name: Kontrollera nätverkstrafik
+          href: ./control-network-traffic.md
         - name: IP-adresser som krävs för nätverkssäkerhetsgrupper och användardefinierade vägar
           href: ./hdinsight-management-ip-addresses.md
         - name: Tjänsttaggar för Azure-brandvägg
@@ -931,6 +947,8 @@
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Använda brandväggen för att begränsa utgående trafik
           href: ./hdinsight-restrict-outbound-traffic.md
+        - name: Konfigurera virtuell nätverksinstallation
+          href: ./network-virtual-appliance.md
         - name: Felsöka
           items:
             - name: ESP-autentiseringsproblem

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
-ms.date: 03/05/2020
-ms.openlocfilehash: e0482bac9569a834adf3e1cdef2b3f702980eac0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.date: 05/07/2020
+ms.openlocfilehash: 98f7edac5bbec7a88999c728b2e4db8be7a3d2b5
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78328671"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891351"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Så här väljer du algoritmer för Azure Machine Learning
 
@@ -40,7 +40,35 @@ Machine Learning designer innehåller en omfattande portfölj med algoritmer som
 
 Förutom rikt linjerna i lathund-bladet Azure Machine Learning algorithm, bör du tänka på andra krav när du väljer en Machine Learning-algoritm för din lösning. Följande är ytterligare faktorer att överväga, till exempel precision, inlärnings tid, linearitet, antal parametrar och antal funktioner.
 
-## <a name="additional-requirements-for-a-data-science-scenario"></a>Ytterligare krav för ett data vetenskaps scenario
+## <a name="comparison-of-machine-learning-algorithms"></a>Jämförelse av Machine Learning-algoritmer
+
+Vissa Learning-algoritmer gör särskilda antaganden om data strukturen eller önskade resultat. Om du kan hitta en som passar dina behov kan du ge dig mer användbara resultat, mer exakta förutsägelser eller snabbare inlärnings tider.
+
+I följande tabell sammanfattas några av de viktigaste egenskaperna för algoritmer från klassificerings-, Regressions-och kluster familjer:
+
+| **Integritetsalgoritm** | **Noggrannhet** | **Träningstid** | **Linearitet** | **Parametrar** | **Obs!** |
+| --- |:---:|:---:|:---:|:---:| --- |
+| **Klassificerings familj** | | | | | |
+| [Logistik regression med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-logistic-regression?WT.mc_id=docs-article-lazzeri) |Bra  |Snabbväxande |Ja |4 | |
+| [Besluts skog med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-decision-forest?WT.mc_id=docs-article-lazzeri) |Utmärkt |Moderera |Inga |5 |Visar långsamma Poäng tider. Föreslå att inte arbeta med En-mot-alla – multiklass, på grund av långsammare poängsättnings tider som orsakas av Trappstegs låsning i ackumulerade träd förutsägelser |
+| [Besluts träd med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Utmärkt |Moderera |Inga |6 |Stor minnes storlek |
+| [Neurala nätverk med två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-neural-network?WT.mc_id=docs-article-lazzeri) |Bra |Moderera |Inga |8 | |
+| [Genomsnittlig Perceptron i två klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-averaged-perceptron?WT.mc_id=docs-article-lazzeri) |Bra |Moderera |Ja |4 | |
+| [Dubbelriktad Vector-dator](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/two-class-support-vector-machine?WT.mc_id=docs-article-lazzeri) |Bra |Snabbväxande |Ja |5 |Lämpligt för stora funktions uppsättningar |
+| [Logistik regression med multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-logistic-regression?WT.mc_id=docs-article-lazzeri) |Bra |Snabbväxande |Ja |4 | |
+| [Besluts skog med flera klasser](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-decision-forest?WT.mc_id=docs-article-lazzeri) |Utmärkt |Moderera |Inga |5 |Visar långsamma Poäng tider |
+| [Besluts träd med djup klass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-boosted-decision-tree?WT.mc_id=docs-article-lazzeri) |Utmärkt |Moderera |Inga |6 | Vi vill förbättra noggrannheten med liten risk för mindre täckning |
+| [Neurala nätverk i multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/multiclass-neural-network?WT.mc_id=docs-article-lazzeri) |Bra |Moderera |Inga |8 | |
+| [En-vs-all multiklass](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/one-vs-all-multiclass?WT.mc_id=docs-article-lazzeri) | - | - | - | - |Se egenskaperna för den två klass metoden som valts |
+| **Regressions familj** | | | | | |
+| [Linjär regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/linear-regression?WT.mc_id=docs-article-lazzeri) |Bra |Snabbväxande |Ja |4 | |
+| [Besluts skogs regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/decision-forest-regression?WT.mc_id=docs-article-lazzeri)|Utmärkt |Moderera |Inga |5 | |
+| [Regressions analys av besluts träd](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/boosted-decision-tree-regression?WT.mc_id=docs-article-lazzeri) |Utmärkt |Moderera |Inga |6 |Stor minnes storlek |
+| [Neurala nätverks regression](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/neural-network-regression?WT.mc_id=docs-article-lazzeri) |Bra |Moderera |Inga |8 | |
+| **Kluster serie** | | | | | |
+| [K-innebär klustring](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/k-means-clustering?WT.mc_id=docs-article-lazzeri) |Utmärkt |Moderera |Ja |8 |En klustrad algoritm |
+
+## <a name="requirements-for-a-data-science-scenario"></a>Krav för ett data vetenskaps scenario
 
 När du vet vad du vill göra med dina data måste du fastställa ytterligare krav för din lösning. 
 
@@ -117,7 +145,6 @@ Ett stort antal funktioner kan bli rörigt ned vissa Learning-algoritmer, vilket
 Val av funktioner syftar på hur du tillämpar statistiska tester på indata, baserat på en angiven utmatning. Målet är att avgöra vilka kolumner som är mer förutsägbara för utdata. Den [filterbaserade modulen för funktions val](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/filter-based-feature-selection?WT.mc_id=docs-article-lazzeri) i Machine Learning designer innehåller flera algoritmer för val av funktioner som du kan välja mellan. Modulen innehåller korrelations metoder som Pearson-korrelation och chi2-värden.
 
 Du kan också använda [funktionen för permutations prioritet](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/permutation-feature-importance?WT.mc_id=docs-article-lazzeri) för att beräkna en uppsättning funktions resultat för din data uppsättning. Du kan sedan använda dessa Poäng för att hjälpa dig att fastställa de bästa funktionerna i en modell.
-
 
 ## <a name="next-steps"></a>Nästa steg
 

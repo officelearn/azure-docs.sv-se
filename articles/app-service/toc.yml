@@ -63,6 +63,9 @@
       href: samples-powershell.md
     - name: Mallar för Resurshanteraren
       href: samples-resource-manager-templates.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: App Service-planer

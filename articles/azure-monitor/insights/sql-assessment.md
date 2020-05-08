@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/28/2019
-ms.openlocfilehash: ceaed0800df01bf2c44fee13d98b01b6e726200d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: b6b32f9eadc6677bad591f4040981c4c95bf1f76
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662492"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871239"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimera din SQL-miljö med SQL Server Health Check-lösning i Azure Monitor
 
@@ -34,8 +34,8 @@ När du har lagt till lösningen och en utvärdering har slutförts visas samman
 ## <a name="prerequisites"></a>Krav
 
 * SQL Health-kontrollen kräver att en version av .NET Framework 4.6.2 som stöds har installerats på alla datorer där Microsoft Monitoring Agent (MMA) har installerats.  MMA-agenten används av System Center 2016-Operations Manager och Operations Manager 2012 R2 och Azure Monitor.  
-* Lösningen stöder SQL Server version 2012, 2014 och 2016.
-* En Log Analytics arbets yta för att lägga till hälso kontroll lösningen för SQL från Azure Marketplace i Azure Portal.  Du måste vara administratör eller deltagare i Azure-prenumerationen för att kunna installera lösningen.
+* Lösningen stöder SQL Server version 2012, 2014, 2016, 2017 och 2019.
+* En Log Analytics arbets yta för att lägga till hälso kontroll lösningen för SQL från Azure Marketplace i Azure Portal. Du måste vara administratör eller deltagare i Azure-prenumerationen för att kunna installera lösningen.
 
   > [!NOTE]
   > När du har lagt till lösningen läggs filen AdvisorAssessment. exe till i servrar med agenter. Konfigurations data läses och skickas sedan till Azure Monitor i molnet för bearbetning. Logik tillämpas på mottagna data och molntjänsten registrerar data.

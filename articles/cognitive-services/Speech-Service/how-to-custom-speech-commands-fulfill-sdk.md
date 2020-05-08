@@ -3,19 +3,19 @@ title: Så här uppfyller du kommandon från en klient med talet SDK
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln förklarar vi hur du hanterar anpassade kommando aktiviteter på en klient med tal-SDK.
 services: cognitive-services
-author: don-d-kim
-manager: yetian
+author: trevorbye
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2020
-ms.author: donkim
-ms.openlocfilehash: e109955774722da7f55defe1417de35ff202cce8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.author: trbye
+ms.openlocfilehash: f11f5f3c2ad4c9f0241d34edeb664f739f88d15c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79367757"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871787"
 ---
 # <a name="fulfill-commands-from-a-client-with-the-speech-sdk-preview"></a>Utföra kommandon från en klient med talet SDK (för hands version)
 
@@ -27,14 +27,11 @@ I den här artikeln får du:
 - Ta emot och visualisera det anpassade JSON-nyttolasten från ett C# UWP-program för tal-SDK
 
 ## <a name="prerequisites"></a>Krav
-
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- En Azure-prenumerations nyckel för tal service
-  - [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com)
-- En tidigare skapad app med anpassade kommandon
-  - [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
-- Ett klient program som är kompatibla med Speech SDK
-  - [Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)](./quickstart-custom-speech-commands-speech-sdk.md)
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * En Azure-prenumerations nyckel för tal service: [Hämta en kostnads fri](get-started.md) eller skapa den på [Azure Portal](https://portal.azure.com)
+> * En tidigare skapad app för anpassade kommandon: [snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
+> * Ett aktiverat klient program för tal-SDK: [snabb start: Anslut till ett anpassat kommando program med talet SDK (för hands version)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## <a name="optional-get-started-fast"></a>Valfritt: kom igång snabbt
 
@@ -42,7 +39,7 @@ I den här artikeln beskrivs steg för steg hur du gör ett klient program att p
 
 ## <a name="fulfill-with-json-payload"></a>Uppfylla med JSON-nyttolast
 
-1. Öppna ditt tidigare skapade program för anpassade kommandon från [tal Studio](https://speech.microsoft.com/)
+1. Öppna programmet anpassade kommandon som du skapade tidigare från [snabb starter: skapa ett anpassat kommando med parametrar](./quickstart-custom-speech-commands-create-parameters.md)
 1. Kontrol lera att du har den tidigare skapade regeln som svarar på användaren genom att titta i avsnittet **regler för slut för ande** .
 1. Om du vill skicka en nytto Last direkt till klienten skapar du en ny regel med åtgärden skicka aktivitet
 
@@ -55,9 +52,7 @@ I den här artikeln beskrivs steg för steg hur du gör ett klient program att p
    | Villkor | Obligatorisk parameter- `OnOff` och`SubjectDevice` | Villkor som avgör när regeln kan köras |
    | Åtgärder | `SendActivity`(se nedan) | Den åtgärd som ska vidtas när regel villkoret är sant |
 
-   > [!div class="mx-imgBorder"]
-   > ![Skicka aktivitetens nytto Last](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
-
+1. Kopiera JSON nedan till **aktivitets innehåll**
    ```json
    {
      "type": "event",
@@ -66,12 +61,14 @@ I den här artikeln beskrivs steg för steg hur du gör ett klient program att p
      "device": "{SubjectDevice}"
    }
    ```
+   > [!div class="mx-imgBorder"]
+   > ![Skicka aktivitetens nytto Last](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 
 ## <a name="create-visuals-for-device-on-or-off-state"></a>Skapa visuella objekt för enhet på eller av-tillstånd
 
-I [snabb start: Anslut till ett anpassat kommando program med talet SDK (för hands version) du har](./quickstart-custom-speech-commands-speech-sdk.md) skapat ett program för tal-SDK-klient `turn on the tv`som `turn off the fan`hanterade kommandon, till exempel,. Nu kan du lägga till visuella objekt så att du kan se resultatet av dessa kommandon.
+I [snabb start: Anslut till ett anpassat kommando program med talet SDK](./quickstart-custom-speech-commands-speech-sdk.md)har du skapat ett program för tal-SDK-klient som hanterade `turn on the tv`kommandon `turn off the fan`, till exempel,. Med vissa visuella objekt tillagda kan du se resultatet av dessa kommandon.
 
-Lägg till etiketterade rutor med text som visar **på** eller **av** med hjälp av följande XML tillagt i`MainPage.xaml.cs`
+Lägg till etiketterade rutor med text som visar **på** eller **av** med hjälp av följande XML tillagt i`MainPage.xaml`
 
 ```xml
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
@@ -91,13 +88,23 @@ Lägg till etiketterade rutor med text som visar **på** eller **av** med hjälp
 ```
 
 ## <a name="handle-customizable-payload"></a>Hantera anpassningsbar nytto Last
+### <a name="add-reference-libraries"></a>Lägg till referens bibliotek
 
-Nu när du har skapat en JSON-nyttolast kan du lägga till en referens i [JSON.net](https://www.newtonsoft.com/json) -biblioteket för att hantera deserialisering.
+Eftersom du har skapat en JSON-nyttolast måste du lägga till en referens i [JSON.net](https://www.newtonsoft.com/json) -biblioteket för att hantera deserialisering.
+- Rätt-klient din lösning.
+- Välj **Hantera NuGet-paket för lösningen**, Välj **Installera** 
+- Sök efter **Newtonsoft. JSON** i listan uppdatera, uppdatera **Microsoft. NetCore. UniversalWindowsPlatform** till senaste versionen
 
 > [!div class="mx-imgBorder"]
 > ![Skicka aktivitetens nytto Last](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
 
-I `InitializeDialogServiceConnector` Lägg till följande i `ActivityReceived` händelse hanteraren. Den ytterligare koden extraherar nytto lasten från aktiviteten och ändrar det visuella läget för TV: n eller fläkten på motsvarande sätt.
+I MainPage. XAML. CS, lägger du till
+- `using Newtonsoft.Json;` 
+- `using Windows.ApplicationModel.Core;`
+
+### <a name="handle-received-payload"></a>Referens för mottagna nytto Last
+
+I `InitializeDialogServiceConnector`ersätter du `ActivityReceived` händelse hanteraren med följande kod. Den modifierade `ActivityReceived` händelse hanteraren extraherar nytto lasten från aktiviteten och ändrar det visuella läget för TV: n eller fläkten på motsvarande sätt.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -105,22 +112,33 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
     dynamic activity = JsonConvert.DeserializeObject(activityReceivedEventArgs.Activity);
+    var name = activity?.name != null ? activity.name.ToString() : string.Empty;
 
-    if(activity?.name == "SetDeviceState")
+    if (name.Equals("UpdateDeviceState"))
     {
-        var state = activity?.state;
-        var device = activity?.device;
-        switch(device)
+        Debug.WriteLine("Here");
+        var state = activity?.device != null ? activity.state.ToString() : string.Empty;
+        var device = activity?.device != null ? activity.device.ToString() : string.Empty;
+
+        if (state.Equals("on") || state.Equals("off"))
         {
-            case "tv":
-                State_TV.Text = state;
-                break;
-            case "fan":
-                State_Fan.Text = state;
-                break;
-            default:
-                NotifyUser($"Received request to set unsupported device {device} to {state}");
-                break;
+            switch (device)
+            {
+                case "tv":
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal, () => { State_TV.Text = state; });
+                    break;
+                case "fan":
+                    await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+                        CoreDispatcherPriority.Normal, () => { State_Fan.Text = state; });
+                    break;
+                default:
+                    NotifyUser($"Received request to set unsupported device {device} to {state}");
+                    break;
+            }
+        }
+        else { 
+            NotifyUser($"Received request to set unsupported state {state}");
         }
     }
 
@@ -138,6 +156,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Välj knappen prata
 1. Berätta`turn on the tv`
 1. TV-apparatens visuella tillstånd ska ändras till "på"
+   > [!div class="mx-imgBorder"]
+   > ![Skicka aktivitetens nytto Last](media/custom-speech-commands/fulfill-sdk-turn-on-tv.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

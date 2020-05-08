@@ -4,12 +4,12 @@ description: Sammanfattar stöd för haveri beredskap för virtuella Azure-dator
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: ea0b6763f4438033a8a5a1a4044479fc00f8456c
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 2fc2a32c47991b9b3615417dfb8f50ca3e7c988f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864580"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983507"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Support mat ris för haveri beredskap för virtuella Azure-datorer mellan Azure-regioner
 
@@ -215,9 +215,9 @@ Kylning och frekvent lagring | Stöds inte | VM-diskar stöds inte på låg frek
 Lagringsutrymmen | Stöds |
 Kryptering i rest (SSE) | Stöds | SSE är standardinställningen på lagrings konton.
 Kryptering i vilo läge (CMK) | Stöds | Både program-och HSM-nycklar stöds för hanterade diskar
-Azure Disk Encryption (ADE) för Windows OS | Stöds för virtuella datorer med hanterade diskar. | Virtuella datorer med ohanterade diskar stöds inte. <br/><br/> HSM-skyddade nycklar stöds inte. |
-Azure Disk Encryption (ADE) för Linux OS | Stöds för virtuella datorer med hanterade diskar. | Virtuella datorer med ohanterade diskar stöds inte. <br/><br/> HSM-skyddade nycklar stöds inte. |
-Frekvent tillägg    | Stöds | Att aktivera replikering för en datadisk som du lägger till i en replikerad virtuell Azure-dator stöds för virtuella datorer som använder hanterade diskar.
+Azure Disk Encryption (ADE) för Windows OS | Stöds för virtuella datorer med hanterade diskar. | Virtuella datorer med ohanterade diskar stöds inte. <br/><br/> HSM-skyddade nycklar stöds inte. <br/><br/> Kryptering av enskilda volymer på en enskild disk stöds inte. |
+Azure Disk Encryption (ADE) för Linux OS | Stöds för virtuella datorer med hanterade diskar. | Virtuella datorer med ohanterade diskar stöds inte. <br/><br/> HSM-skyddade nycklar stöds inte. <br/><br/> Kryptering av enskilda volymer på en enskild disk stöds inte. |
+Frekvent tillägg    | Stöds | Att aktivera replikering för en datadisk som du lägger till i en replikerad virtuell Azure-dator stöds för virtuella datorer som använder hanterade diskar. <br/><br/> Det går bara att lägga till en hård disk i taget till en virtuell Azure-dator. Det finns inte stöd för att lägga till flera diskar parallellt. |
 Snabb borttagnings disk    | Stöds inte | Om du tar bort datadisk på den virtuella datorn måste du inaktivera replikeringen och aktivera replikeringen igen för den virtuella datorn.
 Uteslut disk | Hjälp. Du måste använda [PowerShell](azure-to-azure-exclude-disks.md) för att konfigurera. |    Temporära diskar undantas som standard.
 Lagringsutrymmen direkt  | Stöds för kraschbaserade återställnings punkter. Programmets konsekventa återställnings punkter stöds inte. |

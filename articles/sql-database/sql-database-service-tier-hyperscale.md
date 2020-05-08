@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 074a28af8c80c109dbe97306900e8f00618e435a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5512aa1a2538d3336bbcc4f65cad671d52b711a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411684"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610674"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -209,7 +209,7 @@ Detta är de aktuella begränsningarna för den storskaliga tjänst nivån från
 | Om en databas har en eller flera datafiler som är större än 1 TB, Miss lyckas migreringen | I vissa fall kan det vara möjligt att undvika det här problemet genom att minska de stora filerna till mindre än 1 TB. Om du migrerar en databas som används under migreringsprocessen ser du till att ingen fil får större än 1 TB. Använd följande fråga för att fastställa storleken på databasfilerna. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Managed Instance | Azure SQL Database hanterade instansen stöds för närvarande inte med storskaliga databaser. |
 | Elastiska pooler |  Elastiska pooler stöds för närvarande inte med SQL Database storskalig.|
-| Migrering till storskalig skalning är för närvarande en enkelriktad åtgärd | När en databas har migrerats till storskalig kan den inte migreras direkt till en icke-storskalig tjänst nivå. Det enda sättet att migrera en databas från storskalig till icke-storskalig är att exportera/importera med hjälp av en BACPAC-fil eller annan teknik för data förflyttning (Mass kopiering, Azure Data Factory, Azure Databricks, SSIS osv.)|
+| Migrering till storskalig skalning är för närvarande en enkelriktad åtgärd | När en databas har migrerats till storskalig kan den inte migreras direkt till en icke-storskalig tjänst nivå. Det enda sättet att migrera en databas från storskalig till icke-storskalig är att exportera/importera med hjälp av en BACPAC-fil eller annan teknik för data förflyttning (Mass kopiering, Azure Data Factory, Azure Databricks, SSIS osv.) BACPAC export/import från Azure Portal, från PowerShell med [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) eller [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), från Azure CLI med hjälp av [AZ SQL DB export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) och [az SQL DB-import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)och från [REST API](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) stöds inte. BACPAC import/export för mindre storskaliga databaser (upp till 200 GB) stöds med SSMS och [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) version 18,4 och senare. För större databaser kan BACPAC export/import ta lång tid och kan Miss lyckas av olika orsaker.|
 | Migrering av databaser med beständiga minnes objekt | Storskaligt stöder endast icke-beständiga minnes objekt (tabell typer, inbyggda SPs och funktioner).  Permanenta InMemory-tabeller och andra objekt måste släppas och återskapas som icke-minnesbaserade objekt innan migreringen av en databas till den storskaliga tjänst nivån.|
 | Geo-replikering  | Du kan inte konfigurera geo-replikering för Azure SQL Database storskaligt. |
 | Databas kopia | Du kan inte använda databas kopiering ännu för att skapa en ny databas i Azure SQL-skalning. |

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 404052984cb99e37f7404a47f3ac374088d32d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e4de91034de0d036cd99e265949ba85a5939180
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393478"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629335"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Använd CloudEvents v 1.0-schemat med Event Grid
 Förutom dess [standard händelse schema](event-schema.md)har Azure Event Grid inbyggt stöd för händelser i [JSON-implementeringen av CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) och [http-protokoll bindning](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) är en [öppen specifikation](https://github.com/cloudevents/spec/blob/v1.0/spec.md) för att beskriva händelse data.
@@ -139,7 +139,7 @@ New-AzureRmEventGridSubscription `
 
  ## <a name="endpoint-validation-with-cloudevents-v10"></a>Slut punkts validering med CloudEvents v 1.0
 
-Om du redan är bekant med Event Grid kan du vara medveten om Event Gridens slut punkts validerings hand skakning för att förhindra missbruk. CloudEvents v 1.0 implementerar egna [insemantiker för missbruks skydd](security-authentication.md#webhook-event-delivery) med hjälp av http-alternativ-metoden. Du kan läsa mer om det [här](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). När du använder CloudEvents-schemat för utdata använder Event Grid med CloudEvents v 1.0 missbruk-skyddet i stället för mekanismen för Event Grid validerings händelser.
+Om du redan är bekant med Event Grid kan du vara medveten om Event Gridens slut punkts validerings hand skakning för att förhindra missbruk. CloudEvents v 1.0 implementerar egna [insemantiker för missbruks skydd](webhook-event-delivery.md) med hjälp av http-alternativ-metoden. Du kan läsa mer om det [här](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). När du använder CloudEvents-schemat för utdata använder Event Grid med CloudEvents v 1.0 missbruk-skyddet i stället för mekanismen för Event Grid validerings händelser.
 
 <a name="azure-functions"></a>
 
@@ -147,7 +147,7 @@ Om du redan är bekant med Event Grid kan du vara medveten om Event Gridens slut
 
 [Bindningen för Azure Functions Event Grid](../azure-functions/functions-bindings-event-grid.md) har inte inbyggt stöd för CloudEvents, så http-utlöst funktioner används för att läsa CloudEvents-meddelanden. När du använder en HTTP-utlösare för att läsa CloudEvents, måste du skriva kod för vad den Event Grid utlösaren gör automatiskt:
 
-* Skickar ett verifierings svar till en [begäran om prenumerations verifiering](../event-grid/security-authentication.md#webhook-event-delivery).
+* Skickar ett verifierings svar till en [begäran om prenumerations verifiering](../event-grid/webhook-event-delivery.md).
 * Anropar funktionen en gång per element i händelse mat ris som finns i begär ande texten.
 
 Information om den URL som ska användas för att anropa funktionen lokalt eller när den körs i Azure finns i [referens dokumentationen för http-utlösare](../azure-functions/functions-bindings-http-webhook.md)

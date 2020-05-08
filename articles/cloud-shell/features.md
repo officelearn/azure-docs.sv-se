@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 78275211b77cb34cf9aa92e44778e5d4d81fffed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7490eef7b6203b6bb2623efa4518c7bee5400fb3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521017"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610776"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funktioner & verktyg för Azure Cloud Shell
 
@@ -72,7 +72,7 @@ Cloud Shell innehåller förkonfigurerad autentisering för verktyg med öppen k
 |Kategori   |Name   |
 |---|---|
 |Linux-verktyg            |bash<br> zsh<br> f<br> tmux<br> fram<br>               |
-|Azure-verktyg            |[Azure CLI](https://github.com/Azure/azure-cli) och [Azure klassisk CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#writing-your-first-azcopy-command)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
+|Azure-verktyg            |[Azure CLI](https://github.com/Azure/azure-cli) och [Azure klassisk CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
 |Text redigerare           |kod (Cloud Shell redigerare)<br> vim<br> nano<br> emacs    |
 |Källkontroll         |git                    |
 |Byggverktyg            |märke<br> maven<br> npm<br> –         |
@@ -80,7 +80,7 @@ Cloud Shell innehåller förkonfigurerad autentisering för verktyg med öppen k
 |Databaser              |MySQL-klient<br> PostgreSql-klient<br> [SQLCMD-verktyg](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [MSSQL – skriptare](https://github.com/Microsoft/sql-xplat-cli) |
 |Annat                  |iPython-klient<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chefs INSPEC](https://www.chef.io/inspec/)<br> [Puppet-bult](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)|
 
-## <a name="language-support"></a>Språkstöd
+## <a name="language-support"></a>Stöd för språk
 
 |Språk   |Version   |
 |---|---|

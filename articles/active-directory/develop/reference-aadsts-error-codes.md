@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/07/2020
+ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 87a962709638391887eaa275f059bf4ceae9218b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec1e7e9aa84c01cd62836f3c09f22cdb143817a
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406978"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611338"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Fel koder för Azure AD-autentisering och-auktorisering
 
@@ -72,9 +72,9 @@ Här är ett exempel på fel svar:
 | `temporarily_unavailable` | Servern är tillfälligt upptagen och kan inte hantera begäran. | Gör om begäran. Klient programmet kan förklara för användaren att dess svar är fördröjt på grund av ett tillfälligt tillstånd. |
 
 ## <a name="lookup-current-error-code-information"></a>Sök efter aktuell fel kod information
-Felkoder och meddelanden kan komma att ändras.  För den senaste informationen tar du en titt på `https://login.microsoftonline.com/error` sidan för att hitta AADSTS fel beskrivningar, korrigeringar och vissa föreslagna lösningar.  
+Felkoder och meddelanden kan komma att ändras.  För den senaste informationen tar du en titt på [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) sidan för att hitta AADSTS fel beskrivningar, korrigeringar och vissa föreslagna lösningar.  
 
-Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel har fått felkoden "AADSTS16000" gör du en sökning i `https://login.microsoftonline.com/error` för "16000".  Du kan också länka direkt till ett viss fel genom att lägga till fel kod numret till URL: `https://login.microsoftonline.com/error?code=16000`en:.
+Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel har fått felkoden "AADSTS16000" gör du en sökning i [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) för "16000".  Du kan också länka direkt till ett viss fel genom att lägga till fel kod numret till URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000)en:.
 
 ## <a name="aadsts-error-codes"></a>Felkoder för AADSTS
 
@@ -189,6 +189,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS65001 | DelegationDoesNotExist – användaren eller administratören har inte samtyckt till att använda programmet med ID X. skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. |
 | AADSTS65004 | UserDeclinedConsent – användaren avböjde ett medgivande till att få åtkomst till appen. Låt användaren logga in igen och ge samtycke till appen|
 | AADSTS65005 | MisconfiguredApplication – appens obligatoriska resurs åtkomst lista innehåller inte appar som kan upptäckas av resursen eller klient programmet har begärt åtkomst till resursen, som inte angavs i den nödvändiga resurs åtkomst listan eller diagram tjänsten returnerade en felaktig begäran eller så gick det inte att hitta resursen. Om appen har stöd för SAML kan du ha konfigurerat appen med fel identifierare (entitet). Prova lösningarna som anges för SAML med hjälp av länken nedan:[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav) |
+| AADSTS650052 | Appen behöver åtkomst till en tjänst `(\"{name}\")` som din organisation `\"{organization}\"` inte har prenumererat på eller aktiverat. Kontakta IT-administratören om du vill granska konfigurationen av dina tjänst prenumerationer. |
 | AADSTS67003 | ActorNotValidServiceIdentity |
 | AADSTS70000 | InvalidGrant – Autentiseringen misslyckades. Uppdateringstoken är ogiltig. Felet kan bero på följande orsaker:<ul><li>Token binding-huvud är tomt</li><li>Token binding hash matchar inte</li></ul> |
 | AADSTS70001 | UnauthorizedClient – programmet är inaktiverat. |
@@ -206,6 +207,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS75001 | BindingSerializationError-ett fel uppstod under SAML-meddelande bindningen. |
 | AADSTS75003 | UnsupportedBindingError – appen returnerade ett fel som är relaterat till en bindning som inte stöds (SAML-protokollets svar kan inte skickas via andra bindningar än HTTP POST). |
 | AADSTS75005 | Saml2MessageInvalid – Azure AD har inte stöd för SAML-begäran som skickats av appen för SSO. |
+| AADSTS7500514 | Det gick inte att hitta en typ av SAML-svar som stöds. Svars typerna som stöds är "svar" (i XML-namnområdet urn: Oasis: Names: TC: SAML: 2.0: Protocol) eller "Assertion" (i XML-namnområdet urn: Oasis: Names: TC: SAML: 2.0: Assertion). Program fel-utvecklaren kommer att hantera det här felet.|
 | AADSTS75008 | RequestDeniedError-begäran från appen nekades eftersom SAML-begäran hade ett oväntat mål. |
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims – autentiseringsmetoden som användaren autentiseras med tjänsten inte matchar den begärda autentiseringsmetoden. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy-SAML2-autentiseringsbegäran har ogiltig NameIdPolicy. |
@@ -311,6 +313,7 @@ Sök på den numeriska delen av den returnerade felkoden.  Om du till exempel ha
 | AADSTS700020 | InteractionRequired – åtkomst beviljande kräver interaktion. |
 | AADSTS700022 | InvalidMultipleResourcesScope-det tillhandahållna värdet för parameter området för indata är inte giltigt eftersom det innehåller fler än en resurs. |
 | AADSTS700023 | InvalidResourcelessScope-det angivna värdet för Indataparametern för indata-parametern är inte giltigt när en åtkomsttoken begärs. |
+| AADSTS7000215 | Ogiltig klient hemlighet har angetts. Utvecklarens fel-appen försöker logga in utan nödvändiga eller korrekta autentiseringsmetoder.|
 | AADSTS7000222| InvalidClientSecretExpiredKeysProvided-de angivna klientens hemliga nycklar har upphört att gälla. Besök Azure Portal om du vill skapa nya nycklar för din app eller Överväg att använda autentiseringsuppgifter för ytterligare säkerhet:https://aka.ms/certCreds |
 | AADSTS700005 | InvalidGrantRedeemAgainstWrongTenant-auktoriseringskod är avsedd att användas gentemot andra klienter, vilket avvisas. OAuth2-auktoriseringskod måste lösas in mot samma klient som den förvärvades för (/vanliga eller/{tenant-ID} efter behov) |
 | AADSTS1000000 | UserNotBoundError – bindnings-API: t kräver att Azure AD-användaren också autentiseras med en extern IDP, vilket inte har hänt än. |

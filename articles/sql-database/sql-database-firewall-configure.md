@@ -1,28 +1,27 @@
 ---
 title: Regler för IP-brandvägg
-description: Konfigurera IP-brandväggs regler på server nivå för en SQL-databas eller SQL Data Warehouse-brandvägg. Hantera åtkomst och konfigurera regler för IP-brandvägg på databas nivå för en databas med en eller flera databaser.
+description: Konfigurera brand Väggs regler på server nivå för en SQL-databas eller Azure Synapse Analytics-brandvägg. Hantera åtkomst och konfigurera regler för IP-brandvägg på databas nivå för en databas med en eller flera databaser.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
-ms.custom: ''
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.devlang: ''
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/18/2019
-ms.openlocfilehash: 12280e8a5b90c6712703fefc60ec1bfb12ba8573
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fe0881a7e6c624ea1104d1ebace307e6cf4e337
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606096"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629243"
 ---
-# <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regler för Azure SQL Database och Azure SQL Data Warehouse IP-brandvägg
+# <a name="azure-sql-database-and-azure-synapse-analytics-ip-firewall-rules"></a>Azure SQL Database-och Azure Synapse-regler för IP-brandvägg
 
 > [!NOTE]
-> Den här artikeln gäller för Azure SQL-servrar och för både Azure SQL Database-och Azure SQL Data Warehouse-databaser på en Azure SQL-Server. För enkelhetens skull används *SQL Database* för att referera till både SQL Database och SQL Data Warehouse.
+> Den här artikeln gäller för Azure SQL-servrar och för både Azure SQL Database-och Azure Synapse Analytics-databaser på en Azure SQL-Server. För enkelhetens skull används *SQL Database* för att referera till både SQL Database och Azure-Synapse.
 
 > [!IMPORTANT]
 > Den här artikeln gäller *inte* för *Azure SQL Database Hanterad instans*. Information om nätverks konfiguration finns i [ansluta ditt program till Azure SQL Database Hanterad instans](sql-database-managed-instance-connect-app.md).
@@ -30,7 +29,7 @@ ms.locfileid: "81606096"
 När du skapar en ny Azure SQL-Server med namnet *unsqlserver*blockerar SQL Database-brandväggen all åtkomst till den offentliga slut punkten för servern (som är tillgänglig på *MySQLServer.Database.Windows.net*).
 
 > [!IMPORTANT]
-> SQL Data Warehouse endast stöd för IP-brandväggs regler på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå.
+> Azure-Synapse har endast stöd för IP-brandväggs regler på server nivå. Den har inte stöd för IP-brandväggs regler på databas nivå.
 
 ## <a name="how-the-firewall-works"></a>Så här fungerar brand väggen
 Anslutnings försök från Internet och Azure måste passera brand väggen innan de når din SQL Server eller SQL-databas, som i följande diagram visas.
@@ -253,7 +252,7 @@ Tänk på följande när åtkomsten till SQL Database tjänsten inte fungerar so
 
 - **Inloggningen är inte auktoriserad eller ett felaktigt lösen ord användes:**
 
-  Om en inloggning inte har behörighet på SQL Database servern eller om lösen ordet är felaktigt nekas anslutningen till servern. Om du skapar en brand Väggs inställning får klienterna *möjlighet* att försöka ansluta till servern. Klienten måste ändå ange nödvändiga säkerhets referenser. Mer information om hur du förbereder inloggningar finns i [kontrol lera och bevilja databas åtkomst till SQL Database och SQL Data Warehouse](sql-database-manage-logins.md).
+  Om en inloggning inte har behörighet på SQL Database servern eller om lösen ordet är felaktigt nekas anslutningen till servern. Om du skapar en brand Väggs inställning får klienterna *möjlighet* att försöka ansluta till servern. Klienten måste ändå ange nödvändiga säkerhets referenser. Mer information om hur du förbereder inloggningar finns i [kontrol lera och bevilja databas åtkomst till SQL Database och Azure-Synapse](sql-database-manage-logins.md).
 
 - **Dynamisk IP-adress:**
 

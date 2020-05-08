@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 3e6cfde20d9f4d56af836e06b0c9a84010dea47b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 646254238f83166c53fe94a1821c68ff4dac8f04
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282825"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82651934"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,14 +114,14 @@ package.wait_for_creation(show_output=True)
 print(package.location)
 ```
 
-När `show_output=True`visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i `<acrinstance>.azurecr.io/package:<imagename>`formatet. Till exempel `myml08024f78fd10.azurecr.io/package:20190827151241`.
+När `show_output=True`visas utdata från Docker-build-processen. När processen har slutförts har avbildningen skapats i Azure Container Registry för din arbets yta. När avbildningen har skapats visas platsen i Azure Container Registry. Den plats som returnerades är i `<acrinstance>.azurecr.io/package@sha256:<imagename>`formatet. Till exempel `myml08024f78fd10.azurecr.io/package@sha256:20190827151241`.
 
 > [!IMPORTANT]
 > Spara plats informationen som används när avbildningen distribueras.
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuera avbildning som en webbapp
 
-1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<acrinstance>` med det e-värde som returnerades tidigare från `package.location`:
+1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<acrinstance>` med det värde som returnerades `package.location`tidigare från:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -162,7 +162,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
 1. Använd följande kommando för att skapa en webbapp. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare:
 
     ```azurecli-interactive
-    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
+    az webapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package@sha256:<imagename>
     ```
 
     Det här kommandot returnerar information som liknar följande JSON-dokument:
@@ -191,7 +191,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
 1. Använd följande kommando för att tillhandahålla webbappen med de autentiseringsuppgifter som krävs för att komma åt behållar registret. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare. Ersätt `<username>` och `<password>` med ACR-inloggnings informationen som hämtades tidigare:
 
     ```azurecli-interactive
-    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
+    az webapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package@sha256:<imagename> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
     ```
 
     Det här kommandot returnerar information som liknar följande JSON-dokument:
@@ -220,7 +220,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     },
     {
         "name": "DOCKER_CUSTOM_IMAGE_NAME",
-        "value": "DOCKER|myml08024f78fd10.azurecr.io/package:20190827195524"
+        "value": "DOCKER|myml08024f78fd10.azurecr.io/package@sha256:20190827195524"
     }
     ]
     ```

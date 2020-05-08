@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: 79dc1b188e91028a98f43dc24972228f2d2101be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 9b2114672db755efba1818505c8f399ac01aea71
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684734"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983609"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
@@ -150,6 +150,8 @@ De förinstallerade paketen är:
 import os
 os.system(f"pip install scikit-misc")
 ```
+> [!NOTE]
+> Om din pipeline innehåller flera köra Python-skript moduler och behöver samma paket som inte finns i den förinstallerade listan, måste du installera paketen i varje modul. 
 
 ## <a name="upload-files"></a>Överföra filer
 **Execute python-skriptet** stöder överföring av filer med hjälp av [Azure Machine Learning python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#upload-file-name--path-or-stream-).
@@ -218,7 +220,7 @@ När pipeline-körningen är färdig kan du förhandsgranska bilden i den högra
 5. I text rutan **Python-skript** skriver eller klistrar du in giltigt Python-skript.
 
     > [!NOTE]
-    > Var försiktig när du skriver ditt skript och se till att det inte finns något syntaxfel, till exempel att använda ett icke-deklarerat objekt eller en modul som inte importer ATS. Betala även extra uppmärksamhet till listan över förinstallerade moduler. Om du vill importera moduler som inte finns med i listan installerar du motsvarande paket i skriptet, till exempel
+    > Var noga med att skriva skriptet och se till att det inte finns några syntaxfel, till exempel att använda ej deklarerade objekt eller ej importerade moduler. Betala också extra uppmärksamhet till listan förinstallerad modul. Om du vill importera moduler som inte finns med i listan installerar du motsvarande paket i skriptet, till exempel
     >  ``` Python
     > import os
     > os.system(f"pip install scikit-misc")

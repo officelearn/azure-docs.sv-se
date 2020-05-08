@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 73118823aec9b8d4bd872986b13f19496240c0b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ee97e2a2b788d515cad5ebd75bc50c69307acad
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393447"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626283"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Händelse hanterare i Azure Event Grid
 
@@ -32,7 +32,7 @@ Använd Azure Automation för att bearbeta händelser med automatiserade Runbook
 
 Använd Azure Functions för Server lös svar på händelser.
 
-När du använder Azure Functions som hanterare kan du använda Event Grid-utlösaren i stället för allmänna HTTP-utlösare. Event Grid verifierar automatiskt Event Grid Function-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifieringssvaret](security-authentication.md#webhook-event-delivery).
+När du använder Azure Functions som hanterare kan du använda Event Grid-utlösaren i stället för allmänna HTTP-utlösare. Event Grid verifierar automatiskt Event Grid Function-utlösare. Med allmänna HTTP-utlösare måste du implementera [verifieringssvaret](webhook-event-delivery.md).
 
 |Titel  |Beskrivning  |
 |---------|---------|

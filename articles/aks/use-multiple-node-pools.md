@@ -4,12 +4,12 @@ description: Lär dig hur du skapar och hanterar flera Node-pooler för ett klus
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: f948c115b86abc532a121c68fa7a148ff15caae9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf7e767f1a7b0c657c744c96b308160393e3f326
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259093"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610929"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -722,22 +722,65 @@ az group deployment create \
 
 Det kan ta några minuter att uppdatera ditt AKS-kluster beroende på de inställningar och åtgärder för Node-poolen som du definierar i Resource Manager-mallen.
 
-## <a name="assign-a-public-ip-per-node-for-a-node-pool-preview"></a>Tilldela en offentlig IP-adress per nod för en Node-pool (förhands granskning)
+## <a name="assign-a-public-ip-per-node-for-your-node-pools-preview"></a>Tilldela en offentlig IP-adress per nod för dina Node-pooler (för hands version)
 
 > [!WARNING]
-> Under förhands granskningen av att tilldela en offentlig IP-adress per nod kan den inte användas med *standard load BALANCER SKU i AKS* på grund av eventuella regler för belastnings utjämning i konflikt med VM-etablering. Till följd av den här begränsningen stöds inte Windows agent-pooler med den här förhands gransknings funktionen. I för hands versionen måste du använda *Basic load BALANCER SKU* om du behöver tilldela en offentlig IP-adress per nod.
+> Du måste installera 0.4.43 för för hands versionen av CLI eller senare för att kunna använda funktionen offentlig IP-adress per nod.
 
 AKS-noder kräver inte sina egna offentliga IP-adresser för kommunikation. Scenarier kan dock kräva att noder i en Node-pool tar emot sina egna dedikerade offentliga IP-adresser. Ett vanligt scenario är för spel arbets belastningar, där en konsol behöver upprätta en direkt anslutning till en virtuell dator i molnet för att minimera hopp. Det här scenariot kan uppnås på AKS genom att registrera dig för en förhands gransknings funktion, offentlig IP (för hands version)
 
-Registrera dig för funktionen offentlig IP-adress för noden genom att utfärda följande Azure CLI-kommando.
+Om du vill installera och uppdatera det senaste AKS-förhands gransknings tillägget använder du följande Azure CLI-kommandon:
+
+```azurecli
+az extension add --name aks-preview
+az extension update --name aks-preview
+az extension list
+```
+
+Registrera dig för nodens offentliga IP-funktion med följande Azure CLI-kommando:
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
+Det kan ta flera minuter för funktionen att registreras.  Du kan kontrol lera statusen med följande kommando:
 
-När registreringen är klar distribuerar du en Azure Resource Manager-mall enligt samma instruktioner som [ovan](#manage-node-pools-using-a-resource-manager-template) och lägger till egenskapen `enableNodePublicIP` Boolean i agentPoolProfiles. Ange värdet `true` som standard som standard anges som `false` om det inte anges. 
+```azurecli-interactive
+ az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodePublicIPPreview')].{Name:name,State:properties.state}"
+```
 
-Den här egenskapen är endast en Create-Time-egenskap och kräver en lägsta API-version på 2019-06-01. Detta kan användas för både Linux-och Windows-adresspooler.
+När registreringen är klar skapar du en ny resurs grupp.
+
+```azurecli-interactive
+az group create --name myResourceGroup2 --location eastus
+```
+
+Skapa ett nytt AKS-kluster och koppla en offentlig IP-adress för noderna. Varje nod i Node-poolen får en unik offentlig IP-adress. Du kan kontrol lera detta genom att titta på instanserna för skalnings uppsättning för virtuella datorer.
+
+```azurecli-interactive
+az aks create -g MyResourceGroup2 -n MyManagedCluster -l eastus  --enable-node-public-ip
+```
+
+För befintliga AKS-kluster kan du också lägga till en ny Node-pool och koppla en offentlig IP-adress för noderna.
+
+```azurecli-interactive
+az aks nodepool add -g MyResourceGroup2 --cluster-name MyManagedCluster -n nodepool2 --enable-node-public-ip
+```
+
+> [!Important]
+> I för hands versionen stöder Azure Instance Metadata Service inte hämtning av offentliga IP-adresser för VM SKU: n på standard nivån. På grund av den här begränsningen kan du inte använda kubectl-kommandon för att visa de offentliga IP-adresser som tilldelats noderna. IP-adresserna är dock tilldelade och fungerar som de ska. De offentliga IP-adresserna för dina noder är kopplade till instanserna i skalnings uppsättningen för den virtuella datorn.
+
+Du kan hitta de offentliga IP-adresserna för dina noder på olika sätt:
+
+* Använda Azure CLI-kommandot [AZ VMSS List-instance-Public-IP-adresser][az-list-ips]
+* Använd [PowerShell-eller bash-kommandon][vmss-commands]. 
+* Du kan också Visa offentliga IP-adresser i Azure Portal genom att Visa instanserna i den virtuella datorns skal uppsättning.
+
+> [!Important]
+> [Resurs gruppen för noden][node-resource-group] innehåller noderna och deras offentliga IP-adresser. Använd resurs gruppen nod när du kör kommandon för att hitta de offentliga IP-adresserna för dina noder.
+
+```azurecli
+az vmss list-instance-public-ips -g MC_MyResourceGroup2_MyManagedCluster_eastus -n YourVirtualMachineScaleSetName
+```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -753,6 +796,12 @@ Ta bort själva klustret genom att använda kommandot [AZ Group Delete][az-group
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
+```
+
+Du kan också ta bort det ytterligare kluster som du skapade för den offentliga IP-adressen för ett scenario med Node-pooler.
+
+```azurecli-interactive
+az group delete --name myResourceGroup2 --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -795,3 +844,7 @@ Information om hur du skapar och använder Windows Server container Node-pooler 
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-system-pool]: use-system-pools.md
+[ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+[vmss-commands]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine
+[az-list-ips]: /cli/azure/vmss?view=azure-cli-latest.md#az-vmss-list-instance-public-ips

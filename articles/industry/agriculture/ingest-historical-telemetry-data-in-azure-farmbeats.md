@@ -5,12 +5,13 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5b50906fac613a4e7470b0e13d6f068c3872f625
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136914"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82613276"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -58,7 +59,7 @@ Följ de här stegen:
 5. Gå till din Hem Katalog.
 
     ```azurepowershell-interactive 
-    cd  
+    cd
     ```
 
 6. Kör följande kommando. Detta laddar ned ett skript till din Hem Katalog.
@@ -73,7 +74,7 @@ Följ de här stegen:
 
     ```azurepowershell-interactive 
 
-    ./generatePartnerCredentials.ps1   
+    ./generatePartnerCredentials.ps1
 
     ```
 
@@ -92,7 +93,7 @@ Följ de här stegen:
 - /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som är antingen en gateway eller en nod.
 - /**Enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen.
 - /**SensorModel**: SensorModel motsvarar sensorns metadata, till exempel tillverkaren, typen av sensor, som är antingen analog eller digital, och sensor måttet, till exempel omgivande temperatur och tryck.
-- /**Sensor**: sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.  
+- /**Sensor**: sensorn motsvarar en fysisk sensor som registrerar värden. En sensor är vanligt vis ansluten till en enhet med ett enhets-ID.
 
 
 |        DeviceModel   |  Förslag   |
@@ -108,7 +109,7 @@ Följ de här stegen:
 |   DeviceModelId     |     ID för associerad enhets modell.  |
 |  HardwareId          | Unikt ID för enheten, till exempel MAC-adressen.
 |  ReportingInterval        |   Rapport intervall i sekunder.
-|  Plats            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).   
+|  Plats            |  Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter).
 |ParentDeviceId       |    ID för den överordnade enhet som enheten är ansluten till. Till exempel en nod som är ansluten till en gateway. En nod har parentDeviceId som gateway.  |
 |    Name            | Ett namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på partner sidan. Om partner enhetens namn är användardefinierad, ska samma användardefinierade namn spridas till FarmBeats.|
 |     Beskrivning       |      Ange en meningsfull beskrivning. |
@@ -139,7 +140,7 @@ Mer information om objekt finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagg
 
 ### <a name="api-request-to-create-metadata"></a>API-begäran för att skapa metadata
 
-Om du vill göra en API-begäran kombinerar du HTTP-metoden (POST), URL: en till API-tjänsten och URI: n till en resurs att fråga, skicka data till, skapa eller ta bort en begäran. Sedan lägger du till en eller flera huvuden för HTTP-begäran. URL-adressen till API-tjänsten är API-slutpunkten, det vill säga Datahub-\<URL: en (https://yourdatahub>. azurewebsites.net).  
+Om du vill göra en API-begäran kombinerar du HTTP-metoden (POST), URL: en till API-tjänsten och URI: n till en resurs att fråga, skicka data till, skapa eller ta bort en begäran. Sedan lägger du till en eller flera huvuden för HTTP-begäran. URL-adressen till API-tjänsten är API-slutpunkten, det vill säga Datahub-\<URL: en (https://yourdatahub>. azurewebsites.net).
 
 ### <a name="authentication"></a>Autentisering
 
@@ -297,10 +298,10 @@ Mäta
 Följande exempel förfrågan skapar en enhet. Den här begäran har indataports-JSON som nytto last med begär ande texten.
 
 ```bash
-curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
+curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 "accept: application/json" -H  "Content-Type: application/json" -H
-"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",  
-\"reportingInterval\": 900,  \"name\": \"Device123\",  
+"Authorization: Bearer <Access-Token>" -d "{  \"deviceModelId\": \"ID123\",  \"hardwareId\": \"MHDN123\",
+\"reportingInterval\": 900,  \"name\": \"Device123\",
 \"description\": \"Test Device 123\"}" *
 ```
 

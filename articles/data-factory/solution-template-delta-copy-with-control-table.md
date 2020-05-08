@@ -12,15 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/24/2018
-ms.openlocfilehash: 01a6d796a9a8306da5bb707111b07786136a66cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4da54318bea21daf9ec363be61bea18adaa2ce63
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414792"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629042"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>Delta kopia från en databas med en kontroll tabell
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 I den här artikeln beskrivs en mall som är tillgänglig för att stegvis läsa in nya eller uppdaterade rader från en databas tabell till Azure med hjälp av en extern kontroll tabell som lagrar ett värde med hög vatten märket.
 

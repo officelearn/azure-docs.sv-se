@@ -1,6 +1,6 @@
 ---
 title: Konfigurera multifaktorautentisering
-description: Lär dig hur du använder multi-Factord Authentication med SSMS för SQL Database och SQL Data Warehouse.
+description: Lär dig hur du använder multi-Factord Authentication med SSMS för SQL Database och Azure Synapse Analytics
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,42 +11,42 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 5d4d410f6fca566dab14e601972952b5996c331a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38d8eba5dd451c8e8709ce4d43aba107e5346bfc
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80124891"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627372"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurera Multi-Factor Authentication för SQL Server Management Studio och Azure AD
 
-Det här avsnittet visar hur du använder Azure Active Directory Multi-Factor Authentication (MFA) med SQL Server Management Studio. Du kan använda Azure AD MFA när du ansluter SSMS eller SqlPackage. exe till Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt över Azure SQL Database Multi-Factor Authentication finns i [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md).
+Det här avsnittet visar hur du använder Azure Active Directory Multi-Factor Authentication (MFA) med SQL Server Management Studio. Azure AD MFA kan användas när du ansluter SSMS eller SqlPackage. exe till Azure [SQL Database](sql-database-technical-overview.md) och [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). En översikt över Azure SQL Database Multi-Factor Authentication finns i [Universal Authentication with SQL Database and Azure Synapse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md).
 
 > [!NOTE]
-> Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> Det här avsnittet gäller för Azure SQL Server och för både SQL Database-och Azure Synapse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure-Synapse.
 
 ## <a name="configuration-steps"></a>Konfigurationssteg
 
 1. **Konfigurera en Azure Active Directory** – mer information finns i [Administrera Azure AD-katalogen](https://msdn.microsoft.com/library/azure/hh967611.aspx), [integrera dina lokala identiteter med Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [lägga till ditt eget domän namn i Azure AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Microsoft Azure nu stöder Federation med Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)och [Hantera Azure AD med hjälp av Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx).
-2. **Konfigurera MFA** -för steg-för-steg-instruktioner, se [vad är Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [villkorlig åtkomst (MFA) med Azure SQL Database och informations lager](sql-database-conditional-access.md). (Fullständig villkorlig åtkomst kräver ett Premium-Azure Active Directory (Azure AD). Begränsad MFA är tillgängligt med en standard Azure AD.)
-3. **Konfigurera SQL Database eller SQL Data Warehouse för Azure AD-autentisering** – stegvisa anvisningar finns i [ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory autentisering](sql-database-aad-authentication.md).
+2. **Konfigurera MFA** -för steg-för-steg-instruktioner, se [vad är Azure Multi-Factor Authentication?](../active-directory/authentication/multi-factor-authentication.md), [villkorlig åtkomst (MFA) med Azure SQL Database och Azure-Synapse](sql-database-conditional-access.md). (Fullständig villkorlig åtkomst kräver ett Premium-Azure Active Directory (Azure AD). Begränsad MFA är tillgängligt med en standard Azure AD.)
+3. **Konfigurera SQL Database eller Azure-Synapse för Azure AD-autentisering** – stegvisa anvisningar finns i [ansluta till SQL Database eller Azure Synapse med hjälp av Azure Active Directory autentisering](sql-database-aad-authentication.md).
 4. **Hämta SSMS** – på klient datorn laddar du ned de senaste SSMS från [nedladdnings SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). För alla funktioner i det här avsnittet använder du minst juli 2017, version 17,2.  
 
 ## <a name="connecting-by-using-universal-authentication-with-ssms"></a>Ansluta med hjälp av Universal Authentication med SSMS
 
-Följande steg visar hur du ansluter till SQL Database eller SQL Data Warehouse med hjälp av den senaste SSMS.
+Följande steg visar hur du ansluter till SQL Database-eller SAzure-Synapse med hjälp av de senaste SSMS.
 
 1. Om du vill ansluta med Universal Authentication går du till dialog rutan **Anslut till Server** och väljer **Active Directory-Universal med MFA-stöd**. (Om du ser **Active Directory Universal Authentication** får du inte den senaste versionen av SSMS.)  
    ![1mfa – Universal-Connect][1]  
 2. Fyll i rutan **användar namn** med Azure Active Directory autentiseringsuppgifter i formatet `user_name@domain.com`.  
    ![1mfa – Universal-Connect-User](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
-3. Om du ansluter som en gäst användare behöver du inte längre fylla i fältet AD-domännamn eller klient-ID för gäst användare eftersom SSMS 18. x eller senare identifierar det automatiskt. Mer information finns i [Universal Authentication with SQL Database and SQL Data Warehouse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md).
+3. Om du ansluter som en gäst användare behöver du inte längre fylla i fältet AD-domännamn eller klient-ID för gäst användare eftersom SSMS 18. x eller senare identifierar det automatiskt. Mer information finns i [Universal Authentication with SQL Database and Azure Synapse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md).
    ![MFA-No-Tenant-SSMS](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
 
    Men om du ansluter som en gäst användare som använder SSMS 17. x eller äldre, måste du klicka på **alternativ**och i dialog rutan **anslutnings egenskaper** och fylla i rutan **AD-domännamn eller klient-ID** .
    ![MFA-Tenant-SSMS](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)
 
-4. Som vanligt för SQL Database och SQL Data Warehouse måste du klicka på **alternativ** och ange databasen i dialog rutan **alternativ** . (Om den anslutna användaren är gäst användare (d.v.s. joe@outlook.com) måste du markera kryss rutan och lägga till det aktuella AD-domännamnet eller klient-ID som en del av alternativen. Se [Universal Authentication with SQL Database och SQL Data Warehouse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md). Klicka sedan på **Anslut**.  
+4. Som vanligt för SQL Database och Azure-Synapse måste du klicka på **alternativ** och ange databasen i dialog rutan **alternativ** . (Om den anslutna användaren är gäst användare (d.v.s. joe@outlook.com) måste du markera kryss rutan och lägga till det aktuella AD-domännamnet eller klient-ID som en del av alternativen. Se [Universal Authentication with SQL Database och Azure Synapse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md). Klicka sedan på **Anslut**.  
 5. När dialog rutan **Logga in på ditt konto** visas anger du Azure Active Directory identitetens konto och lösen ord. Inget lösen ord krävs om en användare är en del av en domän som är federerad med Azure AD.  
    ![2mfa – logga in][2]  
 
@@ -65,7 +65,7 @@ När verifieringen är klar, antas SSMS-anslutningar normalt giltiga autentiseri
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En översikt över Azure SQL Database Multi-Factor Authentication finns i Universal Authentication with [SQL Database and SQL Data Warehouse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md).  
+- En översikt över Azure SQL Database Multi-Factor Authentication finns i Universal Authentication with [SQL Database and Azure Synapse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md).  
 - Ge andra åtkomst till databasen: [SQL Database autentisering och auktorisering: bevilja åtkomst](sql-database-manage-logins.md)  
 - Se till att andra kan ansluta genom brand väggen: [Konfigurera en Azure SQL Database brand Väggs regel på server nivå med hjälp av Azure Portal](sql-database-configure-firewall-settings.md)  
 - När du använder **Active Directory-universell med MFA-** autentisering, är ADAL-spårning tillgängligt från och med [SSMS 17,3](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Av som standard kan du aktivera ADAL-spårning genom att använda menyn **verktyg**, **alternativ** , under Azure- **tjänster**, **Azure Cloud**, **ADAL fönstret utmatning spårnings nivå**, och sedan aktivera **utdata** i menyn **Visa** . Spårningarna är tillgängliga i fönstret utdata när du väljer **Azure Active Directory alternativ**.   

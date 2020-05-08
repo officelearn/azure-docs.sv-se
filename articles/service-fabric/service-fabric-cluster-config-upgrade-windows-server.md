@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 8e7e01dac29cb9ba91c83270dac4e46c73b2089e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d0279cc323f7eee87feb2a596a4c2df0b4667e1
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75610137"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790855"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Uppgradera konfigurationen av ett fristående kluster 
 
@@ -75,7 +75,7 @@ Fyra alternativ stöds:
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du anpassar vissa [Service Fabric kluster inställningar](service-fabric-cluster-fabric-settings.md).
-* Lär dig hur du [skalar upp och ut ditt kluster](service-fabric-cluster-scale-up-down.md).
+* Lär dig hur du [skalar upp och ut ditt kluster](service-fabric-cluster-scale-in-out.md).
 * Lär dig mer om [program uppgraderingar](service-fabric-application-upgrade.md).
 
 <!--Image references-->

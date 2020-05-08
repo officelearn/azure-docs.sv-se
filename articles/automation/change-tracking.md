@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1208e08f7b85e893ba754bdbdf71a2da4f68c90a
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509081"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82787183"
 ---
 # <a name="overview-of-change-tracking-and-inventory"></a>Översikt över Ändringsspårning och inventering
 
@@ -23,10 +23,15 @@ I den här artikeln beskrivs hur du Ändringsspårning och inventering i Azure A
 - Microsoft-tjänster
 - Linux-daemon
 
-Ändringsspårning och inventeringen hämtar data från Azure Monitors tjänsten i molnet. Azure skickar ändringar i installerad program vara, Microsoft-tjänster, Windows-register och filer och Linux-daemonar på övervakade servrar för att Azure Monitor för bearbetning. Moln tjänsten använder logik för mottagna data, registrerar den och gör den tillgänglig. 
-
 > [!NOTE]
 > Information om hur du spårar Azure Resource Manager egenskaps ändringar finns i [ändrings historiken](../governance/resource-graph/how-to/get-resource-changes.md)för Azure Resource Graph.
+
+Ändringsspårning och lagret hämtar data från Azure Monitor. Virtuella datorer som är anslutna till Log Analytics arbets ytor använder Log Analytics agenter för att samla in data om ändringar av installerad program vara, Microsoft-tjänster, Windows-register och filer och alla Linux-daemonar på övervakade servrar. När data är tillgängliga skickar agenterna den till Azure Monitor för bearbetning. Azure Monitor använder logik för mottagna data, registrerar dem och gör dem tillgängliga. 
+
+Funktionen Ändringsspårning och inventering aktiverar både funktions områdena ändrings spårning och inventering i Azure Automation. Eftersom båda områdena använder samma Log Analytics-agent, är processen för att lägga till en virtuell dator densamma i båda funktions områdena. 
+
+> [!NOTE]
+> Om du vill använda funktionen Ändringsspårning och inventering måste du hitta alla virtuella datorer i samma prenumeration och region som Automation-kontot.
 
 Ändringsspårning och lager stöder för närvarande inte följande objekt:
 
@@ -38,7 +43,7 @@ I den här artikeln beskrivs hur du Ändringsspårning och inventering i Azure A
 Andra begränsningar:
 
 * Kolumnen **maximal fil storlek** och värden används inte i den aktuella implementeringen.
-* Om du samlar in fler än 2500 filer på en 30-minuters samlings cykel kan lösningens prestanda försämras.
+* Om du samlar in fler än 2500 filer i en 30-minuters samlings cykel kan ändrings spårning och inventerings prestanda försämras.
 * När nätverks trafiken är hög kan det ta upp till sex timmar att ändra poster.
 * Om du ändrar en konfiguration när en dator stängs av kan datorn Publicera ändringar som hör till den tidigare konfigurationen.
 
@@ -49,33 +54,7 @@ Följande problem har uppstått för Ändringsspårning och inventering:
 
 ## <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-Ändringsspårning-och inventerings-och Azure Monitors Log Analyticss agenter stöds på både Windows-och Linux-operativsystem.
-
-### <a name="windows-operating-systems"></a>Windows-operativsystem
-
-Den version av Windows operativ system som stöds officiellt är Windows Server 2008 R2 eller senare.
-
-### <a name="linux-operating-systems"></a>Linux-operativsystem
-
-Linux-distributionerna som diskuteras nedan stöds officiellt för Log Analytics agenten för Linux. Men Linux-agenten kan också köras på andra distributioner som inte visas i listan. Om inget annat anges stöds alla mindre versioner för varje huvud version som anges.
-
-#### <a name="64-bit-linux-operating-systems"></a>64-bitars Linux-operativsystem
-
-* CentOS 6 och 7
-* Amazon Linux 2017,09
-* Oracle Linux 6 och 7
-* Red Hat Enterprise Linux Server 6 och 7
-* Debian GNU/Linux 8 och 9
-* Ubuntu Linux 14,04 LTS, 16,04 LTS och 18,04 LTS
-* SUSE Linux Enterprise Server 12
-
-#### <a name="32-bit-linux-operating-systems"></a>32-bitars Linux-operativsystem
-
-* CentOS 6
-* Oracle Linux 6
-* Red Hat Enterprise Linux Server 6
-* Debian GNU/Linux 8 och 9
-* Ubuntu Linux 14,04 LTS och 16,04 LTS
+Ändringsspårning och inventering stöds på alla operativ system som uppfyller Log Analytics agent krav. De versioner av Windows operativ system som stöds officiellt är Windows Server 2008 SP1 eller senare och Windows 7 SP1 eller senare. Det finns också stöd för ett antal Linux-operativsystem. Se [Översikt över Log Analytics agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
@@ -83,14 +62,14 @@ Linux-distributionerna som diskuteras nedan stöds officiellt för Log Analytics
 
 |Azure, offentlig  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
+|*.ods.opinsights.azure.com    | *. ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*. azure-automation.us|
+|*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
+|*.azure-automation.net | *. azure-automation.us|
 
 ## <a name="change-tracking-and-inventory-user-interface"></a>Ändringsspårning-och inventerings användar gränssnitt
 
-Använd Ändringsspårning och inventering i Azure Portal för att visa sammanfattningen av ändringar för övervakade datorer. Funktionen är tillgänglig genom att välja **ändrings spårning** under **konfigurations hantering** i ditt Automation-konto. 
+Använd Ändringsspårning och inventering i Azure Portal för att visa sammanfattningen av ändringar för övervakade datorer. Funktionen är tillgänglig genom att välja någon av alternativen för att lägga till virtuella datorer för **ändrings spårning** eller **inventering** under **konfigurations hantering** i ditt Automation-konto.  
 
 ![Ändringsspårning instrument panel](./media/change-tracking/change-tracking-dash01.png)
 
@@ -186,7 +165,7 @@ I följande tabell visas gränserna för spårade objekt per dator för Ändring
 |Tjänster|250|
 |Daemons|250|
 
-Genomsnitts Log Analytics data användningen för en dator som använder Ändringsspårning och inventering är cirka 40 MB per månad. Det här värdet är bara en uppskattning och kan komma att ändras baserat på din miljö. Vi rekommenderar att du övervakar din miljö för att se den exakta användningen som du har.
+Genomsnitts Log Analytics data användningen för en dator som använder Ändringsspårning och inventering är cirka 40 MB per månad, beroende på din miljö. Med hjälp av funktionen användning och uppskattade kostnader i arbets ytan Log Analytics kan du visa data som matas in av Ändringsspårning och inventering i ett användnings diagram. Du kan använda den här datavyn för att utvärdera din data användning och ta reda på hur den påverkar din faktura. Se [förstå användningen och beräkna kostnaderna](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).  
 
 ### <a name="microsoft-service-data"></a>Microsoft-tjänstedata
 

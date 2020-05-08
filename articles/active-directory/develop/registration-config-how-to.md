@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 28d85736019a6fea6d977d813fdc1c9be6429748
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: 043dc4f6e57620f58a1cf5f76db755703421800f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883278"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778744"
 ---
 # <a name="how-to-configure-endpoints"></a>Konfigurera slut punkter
 
@@ -31,6 +31,8 @@ Du kan hitta autentiserings slut punkter för ditt program i [Azure Portal](http
 -   Då öppnas sidan **slut punkter** , som visar en lista över alla autentiserings slut punkter för din klient.
 
 -   Använd den slut punkt som är specifik för det autentiseringsprotokoll som du använder, tillsammans med program-ID: t för att skapa en autentiserings förfrågan som är specifik för ditt program.
+
+**Nationella moln** (till exempel Azure AD Kina, Tyskland och amerikanska myndigheter) har sin egen app registrerings Portal och Azure AD-autentiserings-slutpunkter. Läs mer i [Översikt över nationella moln](authentication-national-cloud.md).
 
 ## <a name="next-steps"></a>Nästa steg
 [Utvecklarhandbok för Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)

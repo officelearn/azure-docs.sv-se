@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: rogara
 ms.custom: include file
-ms.openlocfilehash: 47bd550bbd8d75a06d38babe88b5a95f3790af50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5fc106bfd97e8decd47ac7d43383907dcbbbda9c
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106565"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792995"
 ---
-## <a name="2-assign-access-permissions-to-an-identity"></a>2. tilldela åtkomst behörigheter till en identitet
+## <a name="2-assign-access-permissions-to-an-identity"></a>2 tilldela åtkomst behörigheter till en identitet
 
 För att få åtkomst till Azure Files resurser med identitets baserad autentisering måste en identitet (användare, grupp eller tjänstens huvud namn) ha nödvändig behörighet på delnings nivå. Den här processen liknar att ange behörigheter för Windows-resurs, där du anger vilken typ av åtkomst som en viss användare har till en fil resurs. Rikt linjerna i det här avsnittet visar hur du tilldelar behörigheterna läsa, skriva eller ta bort för en fil resurs till en identitet. 
 
@@ -28,7 +28,7 @@ Vi har introducerat tre inbyggda Azure-roller för att bevilja behörigheter på
 > [!IMPORTANT]
 > Fullständig administrativ kontroll av en fil resurs, inklusive möjligheten att bli ägare till en fil, kräver att du använder lagrings konto nyckeln. Administrativ kontroll stöds inte med autentiseringsuppgifter för Azure AD.
 
-Du kan använda Azure Portal, PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå.
+Du kan använda Azure Portal, PowerShell eller Azure CLI för att tilldela de inbyggda rollerna till Azure AD-identiteten för en användare för att bevilja behörigheter på resurs nivå. Tänk på att tilldelningen av RBAC-rollen resurs nivå kan ta lite tid. 
 
 > [!NOTE]
 > Kom ihåg att [Synkronisera dina AD DS-autentiseringsuppgifter till Azure AD](../articles/active-directory/hybrid/how-to-connect-install-roadmap.md) om du planerar att använda din lokala AD DS för autentisering. Password hash Sync från AD DS till Azure AD är valfritt. Behörigheten på resurs nivå beviljas den Azure AD-identitet som synkroniseras från din lokala AD DS.
@@ -70,7 +70,7 @@ Innan du kör följande exempel skript måste du komma ihåg att ersätta plats 
 az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
-## <a name="3-configure-ntfs-permissions-over-smb"></a>3. Konfigurera NTFS-behörigheter över SMB 
+## <a name="3-configure-ntfs-permissions-over-smb"></a>3 Konfigurera NTFS-behörigheter över SMB 
 När du har tilldelat behörigheter på resurs nivå med RBAC måste du tilldela rätt NTFS-behörighet på rot-, katalog-eller filnivå. Tänk på behörigheter på resurs nivå som den övergripande gatekeepern som avgör om en användare har åtkomst till resursen. NTFS-behörigheter fungerar på en mer detaljerad nivå för att avgöra vilka åtgärder användaren kan göra på katalog-eller filnivå.
 
 Azure Files stöder en fullständig uppsättning NTFS Basic-och Advanced-behörigheter. Du kan visa och konfigurera NTFS-behörigheter för kataloger och filer i en Azure-filresurs genom att montera resursen och sedan använda Utforskaren i Windows eller köra kommandot Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) eller [set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-acl) . 
@@ -119,7 +119,7 @@ icacls <mounted-drive-letter>: /grant <user-email>:(f)
 
 Mer information om hur du använder icacls för att ange NTFS-behörigheter och de olika typerna av behörigheter som stöds finns i [kommando rads referens för icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4. Montera en fil resurs från en domänansluten virtuell dator
+## <a name="4-mount-a-file-share-from-a-domain-joined-vm"></a>4 montera en fil resurs från en domänansluten virtuell dator
 
 Följande process kontrollerar att fil resursen och åtkomst behörigheterna har ställts in korrekt och att du kan komma åt en Azure-filresurs från en domänansluten virtuell dator. Tänk på att tilldelningen av RBAC-rollen resurs nivå kan ta lite tid. 
 

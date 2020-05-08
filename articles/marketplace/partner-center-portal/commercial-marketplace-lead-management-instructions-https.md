@@ -1,25 +1,27 @@
 ---
-title: Microsoft kommersiell marknads introduktions hantering med HTTPS
-description: Konfigurera Microsoft kommersiell marknads introduktions hantering för en HTTPS-slutpunkt.
+title: Hantering av leads med en HTTPS-slutpunkt – Microsoft Commercial Marketplace
+description: Lär dig hur du använder energi automatisering och en HTTPS-slutpunkt för att hantera leads från Microsoft AppSource och Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 1c3337e970fdbb22cb1ed88f105d5e7798a68f74
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133740"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790991"
 ---
-# <a name="configure-lead-management-by-using-an-https-endpoint"></a>Konfigurera hantering av leads med hjälp av en HTTPS-slutpunkt
+# <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Använd en HTTPS-slutpunkt för att hantera affärs marknads platser
+
+Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds i Partner Center för att ta emot Microsoft AppSource och Azure Marketplace-leads, kan du använda en HTTPS-slutpunkt i [energi automatisering](https://powerapps.microsoft.com/automate-processes/) för att hantera dessa leads. Med en HTTPS-slutpunkt kan leads i kommersiella marknads platser skickas ut som ett e-postmeddelande, eller så kan de skrivas till ett CRM-system som stöds av Power automatisering.
+
+I den här artikeln beskrivs hur du skapar ett nytt flöde i Energis par för att generera HTTP POST-URL: en som du använder för att konfigurera leads i Partner Center. Den innehåller också steg för att testa ditt flöde med [Postman](https://www.getpostman.com/downloads/).
 
 >[!NOTE]
->Den Energis par anslutning som används i dessa instruktioner kräver en betald prenumeration för att automatisera energi. Se till att du tar hänsyn till detta innan du följer anvisningarna i den här artikeln.
-
-Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds i Partner Center för att ta emot Microsoft AppSource och Azure Marketplace-leads, kan du använda en HTTPS-slutpunkt i energi automatisering för att hantera dessa leads. Med en HTTPS-slutpunkt kan de här leads skickas som ett e-postmeddelande eller de kan skrivas till ett CRM-system som stöds av Power automatisering. Anvisningarna i den här artikeln vägleder dig genom Basic-processen för att skapa ett nytt flöde med hjälp av Power gener, vilket genererar http post-URL: en som du ska ange i publicerings portalen för**https-slutpunkts-URL: en** för **hantering** > av https Här finns också anvisningar om hur du testar ditt flöde med hjälp av ett verktyg som kallas [Postman](https://www.getpostman.com/downloads/), som är tillgängligt online.
+>Den Energis par anslutning som används i dessa instruktioner kräver en betald prenumeration för att automatisera energi. Se till att du tar hänsyn till detta innan du konfigurerar det här flödet.
 
 ## <a name="create-a-flow-by-using-power-automate"></a>Skapa ett flöde med hjälp av energi automatisering
 
@@ -27,22 +29,24 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
 1. Logga in och välj **mina flöden** i menyn.
 
-1. Välj **+ automatiserad – från Tom**.
+    ![Logga in mina flöden](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
-    ![Mina flöden + automatiserad – från Tom](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
+1. Under **+ ny**väljer du **+ snabb – från Tom**.
 
-1. I fönstret **Bygg ett automatiserat flöde** väljer du **hoppa över**. 
+    ![Mina flöden + automatiserad – från Tom](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-create-fromblank.png)
 
-    ![Knappen för att sätta upp en automatisk flödes fönster](./media/commercial-marketplace-lead-management-instructions-https/build-automated-flow.png)
+1. Namnge ditt flöde och välj sedan **när en HTTP-begäran tas emot**under **Välj hur det här flödet ska utlösas**.
 
-1. I fältet **Sök anslutningar och utlösare** anger du **begäran** om att hitta begär ande anslutningen.
-1. Under **utlösare**väljer du **när en http-begäran tas emot**. 
+    ![Knappen för att sätta upp en automatisk flödes fönster](./media/commercial-marketplace-lead-management-instructions-https/https-myflows-pick-request-trigger.png)
 
-    ![Menyn utlösare](./media/commercial-marketplace-lead-management-instructions-https/request-connector.png)
+1. Klicka på flödes steget för att expandera det.
 
-1. I fönstret **när en HTTP-förfrågan tas emot** kopierar du och klistrar in följande JSON-schema i text rutan **JSON-schema för begär ande** text. Det här schemat används av Microsoft för att innehålla dina lead-data.
+    ![Expandera flödes steget](./media/commercial-marketplace-lead-management-instructions-https/expand-flow-step.png)
 
-    ![Text ruta för JSON-schema för begär ande text](./media/commercial-marketplace-lead-management-instructions-https/https-request-received.png)
+1. Använd någon av följande metoder för att konfigurera **begär ande texten JSON-schema**:
+
+    - Kopiera JSON-schemat till text rutan **JSON-schema för begär ande** text.
+    - Välj **Generera schemat genom att använda en exempelnyttolast**. Klistra in i JSON-exemplet i text rutan **Ange eller klistra in en JSON-nyttolast i exemplet** . Välj **färdig** för att skapa schemat.
 
     **JSON-schema**
 
@@ -103,6 +107,26 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
     }
     ```
 
+    **JSON-exempel**
+    
+    ```json
+    {
+      "UserDetails": {
+        "FirstName": "Some",
+        "LastName": "One",
+        "Email": "someone@contoso.com",
+        "Phone": "16175555555",
+        "Country": "USA",
+        "Company": "Contoso",
+        "Title": "Esquire"
+     },
+      "LeadSource": "AzureMarketplace",
+      "ActionCode": "INS",
+      "OfferTitle": "Test Microsoft",
+      "Description": "Test run through Power Automate"
+    }
+    ```
+
 >[!NOTE]
 >I det här läget i konfigurationen kan du välja att antingen ansluta till ett CRM-system eller konfigurera ett e-postmeddelande. Följ de återstående instruktionerna som du väljer.
 
@@ -157,7 +181,7 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
 ### <a name="testing"></a>Testning
 
-Du kan testa att allt fungerar som förväntat genom att använda ett verktyg som kallas [Postman](https://app.getpostman.com/app/download/win64), som kan hämtas online. Det här verktyget är tillgängligt för Windows. 
+Du kan testa konfigurationen med [Postman](https://app.getpostman.com/app/download/win64). En online-hämtning av Postman är tillgänglig för Windows. 
 
 1. Starta Postman och välj **ny** > **begäran** för att ställa in ditt test verktyg. 
 
@@ -201,10 +225,18 @@ Du kan testa att allt fungerar som förväntat genom att använda ett verktyg so
 
 När du är redo att konfigurera ledar hanterings informationen för ditt erbjudande i publicerings portalen följer du de här stegen.
 
-1. Gå till installations sidan för **erbjudandet** för ditt erbjudande.
-1. Välj **Anslut** under avsnittet **ledar hantering** .
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. Välj ditt erbjudande och gå till fliken **erbjudande konfiguration** .
+
+1. Under avsnittet **ledar hantering** väljer du **Anslut**. 
+    ![Knappen Anslut till ledar hantering](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+
 1. I popup-fönstret **anslutnings information** väljer du https- **slutpunkt** för lead- **målet**. Klistra in HTTP POST-URL: en från flödet som du skapade genom att följa tidigare steg i URL-fältet för **https-slutpunkt** .
+    ![Anslutnings information kontakta e-post](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
+
 1. Under **Kontakta e-postadress**anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
+
 1. Välj **OK**.
 
 Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappen **Verifiera** . Om det lyckas har du ett test lead i lead-målet.
@@ -213,10 +245,3 @@ Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappe
 >Du måste slutföra konfigurationen av resten av erbjudandet och publicera den innan du kan ta emot leads för erbjudandet.
 
 När leads genereras skickar Microsoft leads till flödet. Leads dirigeras till CRM-systemet eller e-postadressen som du har konfigurerat.
-
-![Knappen Anslut till ledar hantering](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
-
-![Anslutnings information för lead-destination](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
-
-![Anslutnings information kontakta e-post](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)
-

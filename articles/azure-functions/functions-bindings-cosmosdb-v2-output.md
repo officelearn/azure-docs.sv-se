@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
-ms.openlocfilehash: 636903c20e07f11a2fd919654cfaa62037171f20
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 743bd21a4fd974654760402a639c661fe086d2d5
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277770"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735019"
 ---
 # <a name="azure-cosmos-db-output-binding-for-azure-functions-2x"></a>Azure Cosmos DB utgående bindning för Azure Functions 2. x
 
@@ -527,7 +527,7 @@ I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtim
 
 # <a name="c"></a>[C #](#tab/csharp)
 
-Använd attributet [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/master/WebJobs.Extensions.CosmosDB/CosmosDBAttribute.cs) i [C#-klass bibliotek](functions-dotnet-class-library.md).
+Använd attributet [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/dev/test/WebJobs.Extensions.CosmosDB.Tests) i [C#-klass bibliotek](functions-dotnet-class-library.md).
 
 Attributets konstruktor tar databasens namn och samlings namn. Information om dessa inställningar och andra egenskaper som du kan konfigurera finns i [utdata-konfiguration](#configuration). Här är ett `CosmosDB` attribut exempel i en metodsignatur:
 
@@ -566,7 +566,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp**     | saknas | Måste anges till `cosmosDB`.        |
-|**riktning**     | saknas | Måste anges till `out`.         |
+|**position**     | saknas | Måste anges till `out`.         |
 |**Namn**     | saknas | Namnet på den bindnings parameter som representerar dokumentet i funktionen.  |
 |**Databas** | **DatabaseName**|Databasen som innehåller den samling där dokumentet skapas.     |
 |**Samling** |**CollectionName**  | Namnet på den samling där dokumentet skapas. |

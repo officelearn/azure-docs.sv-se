@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2020
+ms.date: 04/30/2020
 ms.author: b-juche
-ms.openlocfilehash: c4e7566eeb28bc5709acd60ced9fcdffb7e8a725
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668004"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625565"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -45,7 +45,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    Ej tillämpligt       |    Eko svar    |
+    |    ICMPv4             |    E.t.       |    Eko svar    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -222,6 +222,23 @@ Den här inställningen konfigureras i **Active Directory anslutningar** under *
     Volymen som du skapade visas på sidan volymer. 
  
     En volym ärver prenumeration, resursgrupp och platsattribut från kapacitetspoolen. Du kan övervaka volymdistributionsstatusen via fliken Meddelanden.
+
+## <a name="control-access-to-an-smb-volume"></a>Kontrol lera åtkomst till en SMB-volym  
+
+Åtkomst till en SMB-volym hanteras via behörigheter.  
+
+### <a name="share-permissions"></a>Resurs behörigheter  
+
+Som standard har en ny volym behörigheten **alla/fullständig behörighet** till resurs. Medlemmar i gruppen domän administratörer kan ändra resurs behörigheter genom att använda dator hantering på det dator konto som används för den Azure NetApp Files volymen.
+
+![Resurs behörigheter för](../media/azure-netapp-files/smb-mount-path.png) 
+![SMB Mount-sökväg](../media/azure-netapp-files/set-share-permissions.png) 
+
+### <a name="ntfs-file-and-folder-permissions"></a>NTFS-fil-och mappbehörigheter  
+
+Du kan ange behörigheter för en fil eller mapp genom att använda fliken **säkerhet** i objektets egenskaper i Windows SMB-klienten.
+ 
+![Ange behörigheter för filer och mappar](../media/azure-netapp-files/set-file-folder-permissions.png) 
 
 ## <a name="next-steps"></a>Nästa steg  
 

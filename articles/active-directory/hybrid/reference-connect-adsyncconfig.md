@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554bb99121190198982f64deb6ee0674aa8831ed
-ms.sourcegitcommit: f7fb9e7867798f46c80fe052b5ee73b9151b0e0b
+ms.openlocfilehash: 8159ef45dee8a2f9ace69c2a5b66a29e4948d82c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "60381203"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982011"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell-referens
 Följande dokumentation innehåller referensinformation för PowerShell-modulen ADSyncConfig. psm1 som ingår i Azure AD Connect.
@@ -59,25 +59,24 @@ Söker i AD från SearchBase-parametern och returnerar alla objekt, filtrerade e
 ### <a name="examples"></a>EXEMPEL
 
 #### <a name="example-1"></a>EXEMPEL 1
+Hitta objekt med inaktiverat arv i Contoso-domänen (som standard returnerar endast organizationalUnit-objekt)
 ```
-Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
 ```
-
-Get-ADSyncObjectsWithInheritanceDisabled-SearchBase ' contoso '
 
 #### <a name="example-2"></a>EXEMPEL 2
+Hitta User-objekt med inaktiverat arv i Contoso-domänen
 ```
-Find 'user' objects with disabled inheritance in 'Contoso' domain
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
 ```
-
-Get-ADSyncObjectsWithInheritanceDisabled-SearchBase ' contoso '-ObjectClass ' User '
 
 #### <a name="example-3"></a>EXEMPEL 3
+Hitta alla typer av objekt med inaktiverat arv i en ORGANISATIONSENHET
 ```
-Find all types of objects with disabled inheritance in a OU
+Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
 ```
 
-Get-ADSyncObjectsWithInheritanceDisabled-SearchBase OU = AzureAD, DC = contoso, DC = com-ObjectClass ' * '
+
 
 ### <a name="parameters"></a>PARAMETRAR
 

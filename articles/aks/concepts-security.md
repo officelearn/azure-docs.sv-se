@@ -3,13 +3,13 @@ title: Koncept – säkerhet i Azure Kubernetes Services (AKS)
 description: Lär dig mer om säkerhet i Azure Kubernetes service (AKS), inklusive Master-och Node-kommunikation, nätverks principer och Kubernetes hemligheter.
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 1960d18396f47b3dbdd51a50ec4241be5ebe4ff1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/08/2020
+ms.openlocfilehash: f3c4fd922ef0e4243344b34dd90f7e48f903abcd
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206637"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981399"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhets begrepp för program och kluster i Azure Kubernetes service (AKS)
 
@@ -20,14 +20,16 @@ Den här artikeln beskriver de viktigaste begreppen som skyddar dina program i A
 - [Säkerhet för huvud komponenter](#master-security)
 - [Nods säkerhet](#node-security)
 - [Kluster uppgraderingar](#cluster-upgrades)
-- [Nätverkssäkerhet](#network-security)
+- [Nätverks säkerhet](#network-security)
 - [Kubernetes-hemligheter](#kubernetes-secrets)
 
 ## <a name="master-security"></a>Huvud säkerhet
 
 I AKS är Kubernetes Master-komponenterna en del av den hanterade tjänst som tillhandahålls av Microsoft. Varje AKS-kluster har sin egen, dedikerad Kubernetes-huvudhanterare för att tillhandahålla API-servern, Scheduler osv. Den här huvud servern hanteras och underhålls av Microsoft.
 
-Som standard använder Kubernetes-API-servern en offentlig IP-adress och ett fullständigt kvalificerat domän namn (FQDN). Du kan kontrol lera åtkomsten till API-servern med hjälp av Kubernetes-rollbaserade åtkomst kontroller och Azure Active Directory. Mer information finns i [Azure AD-integrering med AKS][aks-aad].
+Som standard använder Kubernetes-API-servern en offentlig IP-adress och ett fullständigt kvalificerat domän namn (FQDN). Du kan begränsa åtkomsten till API-serverns slut punkt med hjälp av [auktoriserade IP-intervall][authorized-ip-ranges]. Du kan också skapa ett helt [privat kluster][private-clusters] om du vill begränsa åtkomsten till API-servern till ditt virtuella nätverk.
+
+Du kan kontrol lera åtkomsten till API-servern med hjälp av Kubernetes-rollbaserade åtkomst kontroller och Azure Active Directory. Mer information finns i [Azure AD-integrering med AKS][aks-aad].
 
 ## <a name="node-security"></a>Nods säkerhet
 
@@ -65,6 +67,10 @@ För anslutning och säkerhet med lokala nätverk kan du distribuera ditt AKS-kl
 ### <a name="azure-network-security-groups"></a>Azure-nätverkssäkerhetsgrupper
 
 Azure använder regler för nätverks säkerhets grupper för att filtrera trafik flödet i virtuella nätverk. Dessa regler definierar käll-och mål-IP-intervall, portar och protokoll som tillåts eller nekas åtkomst till resurser. Standard regler skapas för att tillåta TLS-trafik till Kubernetes-API-servern. När du skapar tjänster med belastningsutjämnare, Port mappningar eller ingångs vägar ändrar AKS automatiskt nätverks säkerhets gruppen för trafik så att den flödar korrekt.
+
+### <a name="kubernetes-network-policy"></a>Kubernetes nätverks princip
+
+För att begränsa nätverks trafiken mellan poddar i klustret, erbjuder AKS stöd för [Kubernetes nätverks principer][network-policy]. Med nätverks principer kan du välja att tillåta eller neka vissa nätverks Sök vägar i klustret baserat på namn områden och etikett väljare.
 
 ## <a name="kubernetes-secrets"></a>Kubernetes-hemligheter
 
@@ -104,3 +110,6 @@ Mer information om kärn Kubernetes-och AKS-koncept finns i följande artiklar:
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[authorized-ip-ranges]: api-server-authorized-ip-ranges.md
+[private-clusters]: private-clusters.md
+[network-policy]: use-network-policies.md

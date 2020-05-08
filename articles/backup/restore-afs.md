@@ -3,12 +3,12 @@ title: Återställa Azure-filresurser
 description: Lär dig hur du använder Azure Portal för att återställa en hel fil resurs eller vissa filer från en återställnings punkt som skapats av Azure Backup.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: c22078ebd89f5f6f8299e1424d4d9e21edce8b92
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5668328637ae9b5a5dd3db02085a7f15de2a2456
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77586959"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980670"
 ---
 # <a name="restore-azure-file-shares"></a>Återställa Azure-filresurser
 
@@ -50,22 +50,25 @@ Du kan använda det här alternativet för återställning för att återställa
 
    ![Välj återställnings resurs](./media/restore-afs/restore-share.png)
 
-1. När du har valt **Återställ delning**öppnas fönstret **Återställ** med en menyn återställnings **punkt** som visar en lista över återställnings punkter som är tillgängliga för den valda fil resursen.
+1. När du har valt **återställnings resurs**öppnas fönstret **Återställ** . Välj den återställnings punkt som du vill använda för att utföra återställnings åtgärden genom att klicka på text rutan **Välj** länk under text rutan **återställnings punkt** .
 
-1. Välj den återställnings punkt som du vill använda för att utföra återställnings åtgärden och välj **OK**.
+    ![Välj återställnings punkt genom att klicka på Välj](./media/restore-afs/select-restore-point.png)
+
+1. Rutan **Välj återställnings punkt** kontext öppnas till höger och visar de återställnings punkter som är tillgängliga för den valda fil resursen. Välj den återställnings punkt som du vill använda för att utföra återställnings åtgärden och välj **OK**.
 
     ![Välj återställnings punkt](./media/restore-afs/restore-point.png)
 
-1. När du har valt **OK**växlar menyn **Återställ** panel till **återställnings plats**. I **återställnings plats**anger du var du vill återställa data. Välj något av följande två alternativ:
+    >[!NOTE]
+    >Som standard listar fönstret **Välj återställnings punkt** återställnings punkter från de senaste 30 dagarna. Om du vill titta på de återställnings punkter som skapas under en angiven varaktighet anger du intervallet genom att välja lämplig **Start tid** och **slut tid** och klicka på knappen **Uppdatera** .
+
+1. Nästa steg är att välja **återställnings plats**. I avsnittet **återställnings mål** anger du var eller hur du vill återställa data. Välj något av följande två alternativ med hjälp av växlings knappen:
 
     * **Ursprunglig plats**: Återställ hela fil resursen till samma plats som den ursprungliga källan.
     * **Alternativ plats**: Återställ hela fil resursen till en annan plats och behåll den ursprungliga fil resursen som den är.
 
 #### <a name="restore-to-the-original-location"></a>Återställ till den ursprungliga platsen
 
-1. Välj den **ursprungliga platsen** som **återställnings mål**och välj om du vill hoppa över eller skriva över om det finns konflikter. När du har gjort ett lämpligt val väljer du **OK**.
-
-    ![Välj ursprunglig plats](./media/restore-afs/original-location.png)
+1. Välj den **ursprungliga platsen** som **återställnings mål**och välj om du vill hoppa över eller skriva över om det finns konflikter, genom att välja lämpligt alternativ i list rutan **i händelse av konflikter** .
 
 1. Starta återställnings åtgärden genom att välja **Återställ** .
 
@@ -78,13 +81,9 @@ Du kan använda det här alternativet för återställning för att återställa
 1. List rutan **Välj fil resurs** visar de fil resurser som finns i det lagrings konto som du valde i steg 2. Välj den fil resurs där du vill återställa det säkerhetskopierade innehållet.
 1. I rutan **mappnamn** anger du namnet på mappen som du vill skapa i mål fil resursen med det återställda innehållet.
 1. Välj om du vill hoppa över eller skriva över om det finns konflikter.
-1. När du har angett lämpliga värden i alla rutor väljer du **OK**.
+1. När du har angett lämpliga värden i alla rutor väljer du **Återställ** för att starta återställnings åtgärden.
 
     ![Välj alternativ plats](./media/restore-afs/alternate-location.png)
-
-1. Starta återställnings åtgärden genom att välja **Återställ** .
-
-    ![Välj Återställ för att starta](./media/restore-afs/click-restore.png)
 
 ### <a name="item-level-recovery"></a>Återställning på objektnivå
 
@@ -94,39 +93,35 @@ Du kan använda det här alternativet för återställning om du vill återstäl
 
     ![Välj fil återställning](./media/restore-afs/file-recovery.png)
 
-1. När du har valt **fil återställning**öppnas fönstret **Återställ** med en menyn återställnings **punkt** som visar en lista över återställnings punkter som är tillgängliga för den valda fil resursen.
+1. När du har valt **fil återställning**öppnas fönstret **Återställ** . Välj den återställnings punkt som du vill använda för att utföra återställnings åtgärden genom att klicka på text rutan **Välj** länk under text rutan **återställnings punkt** .
 
-1. Välj den återställnings punkt som du vill använda för att utföra återställnings åtgärden och välj **OK**.
+    ![Välj återställnings punkt genom att klicka på Välj](./media/restore-afs/select-restore-point.png)
+
+1. Rutan **Välj återställnings punkt** kontext öppnas till höger och visar de återställnings punkter som är tillgängliga för den valda fil resursen. Välj den återställnings punkt som du vill använda för att utföra återställnings åtgärden och välj **OK**.
 
     ![Välj återställnings punkt](./media/restore-afs/restore-point.png)
 
-1. När du har valt **OK**växlar menyn Återställ panel till **återställnings plats**. I **återställnings plats**anger du var du vill återställa data. Välj något av följande två alternativ:
+1. Nästa steg är att välja **återställnings plats**. I avsnittet **återställnings mål** anger du var eller hur du vill återställa data. Välj något av följande två alternativ med hjälp av växlings knappen:
 
     * **Ursprunglig plats**: Återställ valda filer eller mappar till samma fil resurs som den ursprungliga källan.
     * **Alternativ plats**: Återställ valda filer eller mappar till en annan plats och behåll det ursprungliga fil resurs innehållet.
 
 #### <a name="restore-to-the-original-location"></a>Återställ till den ursprungliga platsen
 
-1. Välj den **ursprungliga platsen** som **återställnings mål**och välj om du vill hoppa över eller skriva över om det finns konflikter.
+1. Välj den **ursprungliga platsen** som **återställnings mål**och välj om du vill hoppa över eller skriva över om det finns konflikter genom att välja lämpligt alternativ i list rutan **i händelse av konflikter** .
 
     ![Ursprunglig plats för återställning på objekt nivå](./media/restore-afs/original-location-item-level.png)
 
-1. Välj **Välj fil** för att välja de filer eller mappar som du vill återställa.
+1. Klicka på knappen **Lägg till fil** för att välja de filer eller mappar som du vill återställa. Då öppnas ett kontext fönster till höger som visar innehållet i fil resursens återställnings punkt som du har valt för återställning.
 
-    ![Välj Välj fil](./media/restore-afs/select-file.png)
-
-1. När du har valt **Välj fil**visas innehållet i den fil resurs återställnings punkt som du har valt för återställning i ett fil resurs fönster.
+    ![Välj Lägg till fil](./media/restore-afs/add-file.png)
 
 1. Markera kryss rutan som motsvarar den fil eller mapp som du vill återställa och välj **Välj**.
 
     ![Välj fil eller mapp](./media/restore-afs/select-file-folder.png)
 
 1. Upprepa steg 2 till 4 för att välja flera filer eller mappar som ska återställas.
-1. När du har valt alla objekt som du vill återställa väljer du **OK**.
-
-    ![När du har valt alla objekt som ska återställas väljer du OK](./media/restore-afs/after-selecting-items.png)
-
-1. Starta återställnings åtgärden genom att välja **Återställ** .
+1. När du har valt alla objekt som du vill återställa, väljer du **Återställ** för att starta återställningen.
 
     ![Välj Återställ för att starta](./media/restore-afs/click-restore.png)
 
@@ -137,21 +132,18 @@ Du kan använda det här alternativet för återställning om du vill återstäl
 1. List rutan **Välj fil resurs** visar de fil resurser som finns i det lagrings konto som du valde i steg 2. Välj den fil resurs där du vill återställa det säkerhetskopierade innehållet.
 1. I rutan **mappnamn** anger du namnet på mappen som du vill skapa i mål fil resursen med det återställda innehållet.
 1. Välj om du vill hoppa över eller skriva över om det finns konflikter.
-1. Välj **Välj fil** för att välja de filer eller mappar som du vill återställa.
+1. Klicka på knappen **Lägg till fil** för att välja de filer eller mappar som du vill återställa. Då öppnas ett kontext fönster till höger som visar innehållet i fil resursens återställnings punkt som du har valt för återställning.
 
     ![Välj objekt som ska återställas till en annan plats](./media/restore-afs/restore-to-alternate-location.png)
 
-1. När du väljer **Välj fil**visas innehållet i den fil resurs återställnings punkt som du har valt för återställning i ett fil resurs fönster.
 1. Markera kryss rutan som motsvarar den fil eller mapp som du vill återställa och välj **Välj**.
 
     ![Välj återställnings mål](./media/restore-afs/recovery-destination.png)
 
 1. Upprepa steg 6 till 8 för att välja flera filer eller mappar som ska återställas.
-1. När du har valt alla objekt som du vill återställa väljer du **OK**.
+1. När du har valt alla objekt som du vill återställa, väljer du **Återställ** för att starta återställningen.
 
     ![Välj OK när du har valt alla filer](./media/restore-afs/after-selecting-all-items.png)
-
-1. Starta återställnings åtgärden genom att välja **Återställ** .
 
 ## <a name="track-a-restore-operation"></a>Spåra en återställnings åtgärd
 

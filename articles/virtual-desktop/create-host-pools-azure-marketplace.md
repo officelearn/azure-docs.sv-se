@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: def3ed840d2886aabfce1d1081c94298083fe6d6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3195be3486aaafa91a22b6f6e9cb4fd5f4fe6de2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611687"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930003"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
@@ -40,6 +40,8 @@ Du måste också känna till följande saker:
 
 - Var källan till den avbildning du vill använda finns. Är det från Azure Gallery eller är det en anpassad avbildning?
 - Autentiseringsuppgifterna för din domän anslutning.
+
+Kontrol lera också att du har registrerat resurs leverantören för Microsoft. DesktopVirtualization. Om du inte redan har gjort det går du till **prenumerationer** , väljer namnet på din-prenumerationen och väljer sedan **Azure Resource providers**.
 
 När du skapar en Windows-pool för virtuella Skriv bords värdar med Azure Resource Manager-mallen kan du skapa en virtuell dator från Azure-galleriet, en hanterad avbildning eller en ohanterad avbildning. Mer information om hur du skapar VM-avbildningar finns i [förbereda en Windows VHD-eller VHDX-överföring till Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) och [skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../virtual-machines/windows/capture-image-resource.md).
 

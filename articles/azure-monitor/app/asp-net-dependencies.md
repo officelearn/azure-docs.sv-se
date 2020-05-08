@@ -3,12 +3,12 @@ title: Beroende spårning i Azure Application Insights | Microsoft Docs
 description: Övervaka beroende anrop från din lokala eller Microsoft Azure webb program med Application Insights.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 1e30d8036c1fc624d39f027f38e314c6c57360f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b7a20731fa5eae8313adcf07d877626fcaa4dce
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731498"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980855"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Beroende spårning i Azure Application insikter 
 
@@ -92,14 +92,14 @@ För SQL-anrop samlas och lagras alltid namnet på servern och databasen som nam
 
 För ASP.NET Core-program finns det inga ytterligare steg som krävs för att få en fullständig SQL-fråga.
 
-För ASP.NET-program samlas fullständig SQL-fråga in med hjälp av kod Instrumentation för byte, som kräver Instrumentation-motorn. Ytterligare plattforms oberoende steg, enligt beskrivningen nedan, krävs.
+För ASP.NET-program samlas fullständig SQL-fråga med hjälp av kod instrumentering i byte, som kräver Instrumentation Engine eller med [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet i stället för system. data. SqlClient-biblioteket. Ytterligare plattforms oberoende steg, enligt beskrivningen nedan, krävs.
 
 | Plattform | Steg som krävs för att få en fullständig SQL-fråga |
 | --- | --- |
 | Azure Web App |På kontroll panelen i din webbapp [öppnar du bladet Application Insights](../../azure-monitor/app/azure-web-apps.md) och aktiverar SQL-kommandon under .net |
-| IIS-server (virtuell Azure-dator, lokal och så vidare) | Använd Statusövervakare PowerShell-modulen för att [Installera Instrumentation-motorn](../../azure-monitor/app/status-monitor-v2-api-reference.md) och starta om IIS. |
+| IIS-server (virtuell Azure-dator, lokal och så vidare) | Använd antingen [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet eller Använd statusövervakare PowerShell-modulen för att [Installera Instrumentation-motorn](../../azure-monitor/app/status-monitor-v2-api-reference.md) och starta om IIS. |
 | Azure Cloud Service | Lägg till [Start aktivitet för att installera StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) <br> Din app ska kunna integreras med ApplicationInsights SDK i bygg tid genom att installera NuGet-paket för [ASP.net](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) eller [ASP.net Core program](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) |
-| IIS Express | Stöds inte
+| IIS Express | Använd [Microsoft. data. SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) NuGet-paketet
 
 I ovanstående fall är det korrekta sättet att verifiera instrument motorn korrekt installerat genom att verifiera att SDK-versionen av insamlad `DependencyTelemetry` är "rddp". "rdddsd" eller "rddf" anger att beroenden samlas in via DiagnosticSource eller EventSource-återanrop, och därför kommer full SQL-frågan inte att fångas.
 

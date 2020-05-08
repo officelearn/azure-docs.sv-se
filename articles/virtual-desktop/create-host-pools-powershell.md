@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c003af296b10037505e6d6006b6bfc788e641dc3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 474eb4f5247aeb77edce0ebfde1611bf2deef493
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731465"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930411"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
@@ -37,7 +37,7 @@ Kör följande cmdlet för att logga in på Windows-miljön för virtuella skriv
 New-AzWvdHostPool -ResourceGroupName <resourcegroupname> -Name <hostpoolname> -WorkspaceName <workspacename> -HostPoolType <Pooled|Personal> -LoadBalancerType <BreadthFirst|DepthFirst|Persistent> -Location <region> -DesktopAppGroupName <appgroupname> 
 ```
 
-Den här cmdleten skapar den värdbaserade poolen, arbets ytan och skriv bords gruppen. Dessutom registrerar den Skriv bords gruppen på arbets ytan. Du kan bara skapa en arbets yta med denna cmdlet, inte använda en befintlig arbets yta i denna cmdlet. 
+Den här cmdleten skapar den värdbaserade poolen, arbets ytan och skriv bords gruppen. Dessutom registrerar den Skriv bords gruppen på arbets ytan. Du kan antingen skapa en arbets yta med denna cmdlet eller använda en befintlig arbets yta. 
 
 Kör nästa cmdlet för att skapa en registrerings-token för att auktorisera en sessions värd att ansluta till värddatorn och spara den till en ny fil på din lokala dator. Du kan ange hur länge registrerings-token är giltig med hjälp av parametern-ExpirationHours.
 

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 04/30/2020
+ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 438edd88b3699f3811d8bd32170b62569971c2e9
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: ab1d0318464f6b44e1f46bd30dc76272584fde64
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837404"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929833"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -67,8 +67,8 @@ Vi planerar att lägga till stöd för följande operativ system, så se till at
 
 |Operativsystem|Nödvändig licens|
 |---|---|
-|Windows 10 Enterprise multi-session eller Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, företag<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, företag<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise multi-session eller Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F3, Business Premium<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|Klient åtkomst licens för fjärr skrivbords tjänster med Software Assurance|
 
 Infrastrukturen behöver följande saker för att stödja Windows Virtual Desktop:
@@ -101,9 +101,9 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |wvdportalstorageblob.blob.core.windows.net|443|Azure Portal support|AzureCloud|
 
 >[!IMPORTANT]
->Vi rekommenderar att du använder tjänst Taggar i stället för URL: er i de flesta fall för att förhindra tjänst problem. Att avblockera dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure Active Directory.
->
 >Windows Virtual Desktop stöder nu FQDN-taggen. Mer information finns i [använda Azure Firewall för att skydda fönster distributioner av virtuella skriv bord](../firewall/protect-windows-virtual-desktop.md).
+>
+>Vi rekommenderar att du använder FQDN-taggar eller tjänst Taggar i stället för URL: er för att förhindra tjänst problem. URL: er och taggar i listan motsvarar endast Windows virtuella Skriv bords webbplatser och resurser. De omfattar inte URL: er för andra tjänster som Azure Active Directory.
 
 I följande tabell visas valfria URL: er som dina virtuella Azure-datorer kan ha åtkomst till:
 
@@ -186,13 +186,13 @@ Tillgängliga alternativ för Automation och distribution beror på vilket opera
 |Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
 |Windows 10 multi-session, version 1903|Ja|Ja|Ja|Ja|
-|Windows 10 multi-session, version 1809|Ja|Ja|Nej|Nej|
+|Windows 10 multi-session, version 1809|Ja|Ja|Inga|Inga|
 |Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|
-|Windows 10 Enterprise, version 1809|Ja|Ja|Nej|Nej|
-|Windows 7 Enterprise|Ja|Ja|Nej|Nej|
-|Windows Server 2019|Ja|Ja|Nej|Nej|
+|Windows 10 Enterprise, version 1809|Ja|Ja|Inga|Inga|
+|Windows 7 Enterprise|Ja|Ja|Inga|Inga|
+|Windows Server 2019|Ja|Ja|Inga|Inga|
 |Windows Server 2016|Ja|Ja|Ja|Ja|
-|Windows Server 2012 R2|Ja|Ja|Nej|Nej|
+|Windows Server 2012 R2|Ja|Ja|Inga|Inga|
 
 ## <a name="next-steps"></a>Nästa steg
 

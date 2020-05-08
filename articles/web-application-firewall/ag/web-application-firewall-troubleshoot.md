@@ -7,18 +7,20 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: 9cfb44fbf84ad85f3e2684dfec21cc83d4aaa666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6fa959b1c9ed021a97031ba03822ae89fbbb7bbb
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131261"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983082"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Felsöka brand vägg för webbaserade program (WAF) för Azure Application Gateway
 
 Det finns några saker du kan göra om förfrågningar som ska passera genom brand väggen för webbaserade program (WAF) är blockerade.
 
 Se först till att du har läst [WAF-översikten](ag-overview.md) och [WAF-konfigurations](application-gateway-waf-configuration.md) dokumenten. Kontrol lera också att du har aktiverat [WAF övervakning](../../application-gateway/application-gateway-diagnostics.md) av de här artiklarna förklarar hur WAF-funktionerna fungerar, hur WAF regel uppsättningar fungerar och hur du kommer åt WAF-loggar.
+
+OWASP-rulesets är utformade för att vara mycket strikt och kunna anpassas efter de specifika behoven hos programmet eller organisationen som använder WAF. Den är helt normal och förväntas i många fall, för att skapa undantag, anpassade regler och till och med inaktivera regler som kan orsaka problem eller falska positiva identifieringar. Principer per plats och per URI tillåter att dessa ändringar endast påverkar specifika platser/URI: er, så att ändringar inte behöver påverka andra platser som kanske inte körs på samma problem. 
 
 ## <a name="understanding-waf-logs"></a>Förstå WAF-loggar
 

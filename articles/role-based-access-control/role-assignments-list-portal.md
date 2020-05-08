@@ -1,6 +1,6 @@
 ---
-title: Lista roll tilldelningar med hjälp av Azure RBAC och Azure Portal
-description: Lär dig hur du avgör vilka resurser användare, grupper, tjänstens huvud namn eller hanterade identiteter har åtkomst till med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure Portal.
+title: Visa en lista med Azures roll tilldelningar med Azure Portal – Azure RBAC
+description: Lär dig hur du avgör vilka resurser användare, grupper, tjänstens huvud namn eller hanterade identiteter har åtkomst till med hjälp av Azure Portal och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 03a3d3c7d572d7ec5b8d3ac3d527d0d59e649bc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062247"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983031"
 ---
-# <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista roll tilldelningar med hjälp av Azure RBAC och Azure Portal
+# <a name="list-azure-role-assignments-using-the-azure-portal"></a>Visa en lista med Azures roll tilldelningar med hjälp av Azure Portal
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)]Den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure Portal.
 
@@ -32,7 +32,9 @@ ms.locfileid: "80062247"
 
 Det enklaste sättet att se de roller som har tilldelats en användare eller grupp i en prenumeration är att använda fönstret **Azure-resurser** .
 
-1. I Azure Portal klickar du på **alla tjänster** och väljer sedan **användare** eller **grupper**.
+1. I Azure Portal väljer du **alla tjänster** på Azure Portal-menyn.
+
+1. Välj **Azure Active Directory** och välj sedan **användare** eller **grupper**.
 
 1. Klicka på den användare eller grupp som du vill visa en lista över roll tilldelningarna för.
 
@@ -138,5 +140,5 @@ Om du får nära det högsta antalet och du försöker lägga till fler roll til
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal](role-assignments-portal.md)
-- [Felsöka RBAC för Azure-resurser](troubleshooting.md)
+- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](role-assignments-portal.md)
+- [Felsöka Azure RBAC](troubleshooting.md)

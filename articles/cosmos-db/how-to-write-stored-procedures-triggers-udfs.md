@@ -1,17 +1,17 @@
 ---
 title: 'Skriv lagrade procedurer, utlösare och UDF: er i Azure Cosmos DB'
 description: Lär dig hur du definierar lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 4dee017323bda5fc08598a9b24cadd11516807cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.author: tisande
+ms.openlocfilehash: 3c0ac8ac419b3cdd2b154974d3ccbcce6896e847
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441724"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982300"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Skriva lagrade procedurer, utlösare och användardefinierade funktioner i Azure Cosmos DB
 
@@ -21,15 +21,12 @@ Innan du kan anropa en lagrad procedur, utlösare eller användardefinierad funk
 
 > [!NOTE]
 > När du kör en lagrad procedur med partitionerade containrar måste ett partitionsnyckelvärde anges i alternativen för begäran. Lagrade procedurer är alltid begränsade till en partitionsnyckel. Objekt som har ett annan partitionsnyckelvärde visas inte för den lagrade proceduren. Detta gäller även för utlösare.
-
 > [!Tip]
 > Cosmos stöder distribution av behållare med lagrade procedurer, utlösare och användardefinierade funktioner. Mer information finns i [skapa en Azure Cosmos DB behållare med Server sidans funktioner.](manage-sql-with-resource-manager.md#create-sproc)
 
 ## <a name="how-to-write-stored-procedures"></a><a id="stored-procedures"></a>Skriva lagrade procedurer
 
 Lagrade procedurer skrivs med JavaScript och kan skapa, uppdatera, läsa, fråga och ta bort objekt i en Azure Cosmos-container. Lagrade procedurer registreras per samling och kan användas med alla dokument eller bifogade filer i den samlingen.
-
-**Exempel**
 
 Här är en enkel lagrad procedur som returnerar svaret ”Hello World”.
 
@@ -51,7 +48,7 @@ När den har skrivits måste den lagrade proceduren registreras med en samling. 
 
 ### <a name="create-an-item-using-stored-procedure"></a><a id="create-an-item"></a>Skapa ett objekt med hjälp av en lagrad procedur
 
-När du skapar ett objekt med hjälp av den lagrade proceduren, infogas objektet i Azure Cosmos-behållaren och ett ID för det nyligen skapade objektet returneras. Genereringen av ett objekt är en asynkron åtgärd och är beroende av JavaScript-motringningsfunktionerna. Motringningsfunktionerna har två parametrar – en för felobjektet om åtgärden misslyckas och en annan för ett returvärde; i detta fall objektet som skapats. I motringningen kan du antingen hantera undantaget eller utlösa ett fel. Om ingen motringning har definierats och det uppstår ett fel, genererar Azure Cosmos DB-körningen ett fel. 
+När du skapar ett objekt med hjälp av den lagrade proceduren, infogas objektet i Azure Cosmos-behållaren och ett ID för det nyligen skapade objektet returneras. Genereringen av ett objekt är en asynkron åtgärd och är beroende av JavaScript-motringningsfunktionerna. Motringningsfunktionerna har två parametrar – en för felobjektet om åtgärden misslyckas och en annan för ett returvärde; i detta fall objektet som skapats. I motringningen kan du antingen hantera undantaget eller utlösa ett fel. Om ingen motringning har definierats och det uppstår ett fel, genererar Azure Cosmos DB-körningen ett fel.
 
 Den lagrade proceduren innehåller också en parameter som ställer in beskrivningen. Det är ett booleskt värde. Om parametern har värdet true och beskrivningen saknas, genererar den lagrade proceduren ett undantag. I annat fall fortsätter resten av den lagrade proceduren att köras.
 
@@ -73,7 +70,7 @@ function createToDoItem(itemToCreate) {
 }
 ```
 
-### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matriser som indataparametrar för lagrade procedurer 
+### <a name="arrays-as-input-parameters-for-stored-procedures"></a>Matriser som indataparametrar för lagrade procedurer
 
 När du definierar en lagrad procedur på Azure Portal skickas alltid indataparametrar som en sträng till den lagrade proceduren. Även om du skickar en matris med strängar som indata, konverteras matrisen till en sträng och skickas till den lagrade proceduren. Du kan undvika detta genom att definiera en funktion i den lagrade proceduren som parsar strängen som en matris. Följande kod visar hur du parsar en strängindataparameter som en matris:
 
@@ -102,12 +99,12 @@ function tradePlayers(playerId1, playerId2) {
     var player1Document, player2Document;
 
     // query for players
-    var filterQuery = 
-    {     
+    var filterQuery =
+    {
         'query' : 'SELECT * FROM Players p where p.id = @playerId1',
         'parameters' : [{'name':'@playerId1', 'value':playerId1}] 
     };
-            
+
     var accept = container.queryDocuments(container.getSelfLink(), filterQuery, {},
         function (err, items, responseOptions) {
             if (err) throw new Error("Error" + err.message);
@@ -115,10 +112,10 @@ function tradePlayers(playerId1, playerId2) {
             if (items.length != 1) throw "Unable to find both names";
             player1Item = items[0];
 
-            var filterQuery2 = 
-            {     
+            var filterQuery2 =
+            {
                 'query' : 'SELECT * FROM Players p where p.id = @playerId2',
-                'parameters' : [{'name':'@playerId2', 'value':playerId2}] 
+                'parameters' : [{'name':'@playerId2', 'value':playerId2}]
             };
             var accept2 = container.queryDocuments(container.getSelfLink(), filterQuery2, {},
                 function (err2, items2, responseOptions2) {
@@ -208,6 +205,56 @@ function bulkImport(items) {
             tryCreate(items[count], callback);
         }
     }
+}
+```
+
+### <a name="async-await-with-stored-procedures"></a><a id="async-promises"></a>Asynkron väntan med lagrade procedurer
+
+Följande är ett exempel på en lagrad procedur som använder async-await med löfte med hjälp av en hjälp funktion. Den lagrade proceduren frågar efter ett objekt och ersätter det.
+
+```javascript
+function async_sample() {
+    const ERROR_CODE = {
+        NotAccepted: 429
+    };
+
+    const asyncHelper = {
+        queryDocuments(sqlQuery, options) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.queryDocuments(__.getSelfLink(), sqlQuery, options, (err, feed, options) => {
+                    if (err) reject(err);
+                    resolve({ feed, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        },
+
+        replaceDocument(doc) {
+            return new Promise((resolve, reject) => {
+                const isAccepted = __.replaceDocument(doc._self, doc, (err, result, options) => {
+                    if (err) reject(err);
+                    resolve({ result, options });
+                });
+                if (!isAccepted) reject(new Error(ERROR_CODE.NotAccepted, "replaceDocument was not accepted."));
+            });
+        }
+    };
+
+    async function main() {
+        let continuation;
+        do {
+            let { feed, options } = await asyncHelper.queryDocuments("SELECT * from c", { continuation });
+
+            for (let doc of feed) {
+                doc.newProp = 1;
+                await asyncHelper.replaceDocument(doc);
+            }
+
+            continuation = options.continuation;
+        } while (continuation);
+    }
+
+    main().catch(err => getContext().abort(err));
 }
 ```
 

@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: dech
-ms.custom: seodec18
-ms.openlocfilehash: 914551bab47ad9db4e0bca4d53226fbae74b92f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.custom: seodec18, has-adal-ref
+ms.openlocfilehash: d2fe231dce26311268e578a495fb2ba7076651e0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411677"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608038"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Arbeta med data med hjälp av Azure Storage Explorer
 
@@ -30,9 +30,9 @@ Installera den senaste versionen av Azure Storage Explorer här: [Azure Storage 
 ## <a name="connect-to-an-azure-subscription"></a>Ansluta till en Azure-prenumeration
 
 1. När du har installerat **Azure Storage Explorer**klickar du på **plugin-** ikonen till vänster som visas i följande bild:
-       
+
    ![Plugin-ikon](./media/storage-explorer/plug-in-icon.png)
- 
+
 2. Välj **Lägg till ett Azure-konto** och klicka sedan på **Logga in**.
 
    ![Ansluta till Azure-prenumerationen](./media/storage-explorer/connect-to-azure-subscription.png)
@@ -100,27 +100,27 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 * Du kan också lägga till Azure Cosmos DB-konto, databas och samling i **Snabbåtkomst**.
 * **Sök härifrån** aktiverar nyckelordssökning under den valda sökvägen.
 
-    ![sök härifrån](./media/storage-explorer/search-from-here.png) 
+    ![sök härifrån](./media/storage-explorer/search-from-here.png)
 
 ### <a name="database-and-collection-management"></a>Databas- och samlingshantering
-#### <a name="create-a-database"></a>Skapa en databas 
+#### <a name="create-a-database"></a>Skapa en databas
 -   Högerklicka Azure Cosmos DB-kontot, välj **Skapa databas** ange databasnamnet och slutför genom att trycka på **Retur**.
-       
-    ![Skapa databas](./media/storage-explorer/create-database.png) 
+
+    ![Skapa databas](./media/storage-explorer/create-database.png)
 
 #### <a name="delete-a-database"></a>Ta bort en databas
 - Högerklicka på databasen, klicka på **Ta bort databas** och klicka på **Ja** i popup-fönstret. Databasnoden tas bort och Azure Cosmos DB-konto uppdateras automatiskt.
 
-    ![Ta bort databas1](./media/storage-explorer/delete-database1.png)  
+    ![Ta bort databas1](./media/storage-explorer/delete-database1.png)
 
-    ![Ta bort databas2](./media/storage-explorer/delete-database2.png) 
+    ![Ta bort databas2](./media/storage-explorer/delete-database2.png)
 
 #### <a name="create-a-collection"></a>Skapa en samling
-1. Högerklicka på din databas, Välj **skapa samling**och ange sedan följande information, t. ex. **samlings-ID**, **lagrings kapacitet**osv. Klicka på **OK** för att slutföra. 
+1. Högerklicka på din databas, Välj **skapa samling**och ange sedan följande information, t. ex. **samlings-ID**, **lagrings kapacitet**osv. Klicka på **OK** för att slutföra.
 
     ![Skapa samling1](./media/storage-explorer/create-collection.png)
 
-    ![Skapa samling2](./media/storage-explorer/create-collection2.png) 
+    ![Skapa samling2](./media/storage-explorer/create-collection2.png)
 
 2. Välj **obegränsad** för att kunna ange partitionsnyckel och klicka sedan på **OK** för att slutföra.
 
@@ -129,11 +129,11 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
     ![Partitionsnyckeln](./media/storage-explorer/partitionkey.png)
 
 #### <a name="delete-a-collection"></a>Ta bort en samling
-- Högerklicka på samlingen, klicka på **Ta bort samling** och klicka sedan på **Ja** i popup-fönstret. 
+- Högerklicka på samlingen, klicka på **Ta bort samling** och klicka sedan på **Ja** i popup-fönstret.
 
     Samlingsnoden tas bort och databasen uppdateras automatiskt.
 
-    ![Ta bort samling](./media/storage-explorer/delete-collection.png) 
+    ![Ta bort samling](./media/storage-explorer/delete-collection.png)
 
 ### <a name="document-management"></a>Dokumenthantering
 
@@ -155,8 +155,8 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
 ### <a name="graph-management"></a>Graph-hantering
 
 #### <a name="create-and-modify-vertex"></a>Skapa och ändra brytpunkt
-1. Om du vill skapa en ny brytpunkt, öppnar du **Graph** från det vänstra fönstret, klickar på **Ny brytpunkt**, redigerar innehållet och klickar sedan på **OK**.    
-2. Om du vill ändra en befintlig brytpunkt, klickar du på pennikonen i den högra rutan.   
+1. Om du vill skapa en ny brytpunkt, öppnar du **Graph** från det vänstra fönstret, klickar på **Ny brytpunkt**, redigerar innehållet och klickar sedan på **OK**.
+2. Om du vill ändra en befintlig brytpunkt, klickar du på pennikonen i den högra rutan.
 
     ![Graph](./media/storage-explorer/vertex.png)
 
@@ -193,7 +193,7 @@ Genom att högerklicka på en prenumeration i Explorer-fönstret kan du utföra 
     ![Tabellfråga](./media/storage-explorer/table-query.png)
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Hantera lagrade procedurer, utlösare och UDF:er
-* Skapa en lagrad procedur genom att i vänster träd högerklicka på **Lagrad procedur**, välj **Skapa lagrad procedur**, ange ett namn i vänstra fönstret, ange skripten för den lagrade proceduren i det högra fönstret och klicka sedan på **Skapa**. 
+* Skapa en lagrad procedur genom att i vänster träd högerklicka på **Lagrad procedur**, välj **Skapa lagrad procedur**, ange ett namn i vänstra fönstret, ange skripten för den lagrade proceduren i det högra fönstret och klicka sedan på **Skapa**.
 * Du kan också redigera befintliga, lagrade procedurer genom att dubbelklicka, göra uppdateringen och sedan klicka på **Uppdatera** om du vill spara eller på **Ignorera** om du vill avbryta ändringen.
 
     ![Lagrad procedur](./media/storage-explorer/stored-procedure.png)
@@ -248,7 +248,7 @@ Om det inte går att hämta dina prenumerationer när du har loggat in:
 
 ![konsol](./media/storage-explorer/console.png)
 
-#### <a name="unable-to-see-the-authentication-page"></a>Det gick inte att visa autentiseringssidan 
+#### <a name="unable-to-see-the-authentication-page"></a>Det gick inte att visa autentiseringssidan
 
 Om du inte kan se autentiseringssidan:
 
@@ -273,7 +273,7 @@ Om du inte kan ta bort ett konto, eller återautentiseringslänken inte gör nå
 
 ### <a name="httphttps-proxy-issue"></a>HTTP-/HYYPS-proxyproblem
 
-Du kan inte visa Microsoft Azure Cosmos DB-noder i det vänstra trädet när du konfigurerar HTTP-/HTTPS-proxy i ASE. Det är ett känt problem och korrigeras i nästa version. Du kan använda Microsoft Azure Cosmos DB-datautforskare i Azure Portal som en temporär lösning för tillfället. 
+Du kan inte visa Microsoft Azure Cosmos DB-noder i det vänstra trädet när du konfigurerar HTTP-/HTTPS-proxy i ASE. Det är ett känt problem och korrigeras i nästa version. Du kan använda Microsoft Azure Cosmos DB-datautforskare i Azure Portal som en temporär lösning för tillfället.
 
 ### <a name="development-node-under-local-and-attached-node-issue"></a>Problem med ”Utvecklingsnod” under ”Lokala och kopplade” noder
 
@@ -289,7 +289,7 @@ Om du ser nedanstående fel när du har kopplat Microsoft Azure DB som Cosmos-ko
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Nodfel vid expandera Microsoft Azure Cosmos DB
 
-Du kan se nedanstående fel vid försök att expandera noderna i vänster träd. 
+Du kan se nedanstående fel vid försök att expandera noderna i vänster träd.
 
 ![Expanderingsfel](./media/storage-explorer/expand-error.png)
 
@@ -306,4 +306,3 @@ Om ingen av lösningarna fungerar för dig kan du skicka e-post till Azure Cosmo
 
 * Titta på följande videoklipp om du vill se hur du använder Azure Cosmos DB i Azure Storage Explorer: [Använda Azure Cosmos-DB i Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Läs mer om Storage Explorer och om att ansluta fler tjänster i [Kom igång med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
-

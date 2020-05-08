@@ -3,12 +3,12 @@ title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: fcdfc5b1c4333a0d7eeec80a09ad85579a1f8b77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460270"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930071"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
 
@@ -19,6 +19,7 @@ När din organisation är vuxen kan du behöva definiera och tilldela [principer
 Du kan distribuera följande resurs typer på klient nivå:
 
 * [distributioner](/azure/templates/microsoft.resources/deployments) – för kapslade mallar som distribueras till hanterings grupper eller prenumerationer.
+* managementGroups
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -103,13 +104,13 @@ För klient distributioner finns det några viktiga saker att tänka på när du
 * Använd funktionen [tenantResourceId ()](template-functions-resource.md#tenantresourceid) för att hämta resurs-ID för resurser som distribueras på klient nivå.
 
   Om du till exempel vill hämta resurs-ID för en princip definition använder du:
-  
+
   ```json
   tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
   ```
-  
+
   Det returnerade resurs-ID: t har följande format:
-  
+
   ```json
   /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```

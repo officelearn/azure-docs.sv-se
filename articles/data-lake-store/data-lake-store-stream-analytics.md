@@ -1,23 +1,17 @@
 ---
-title: Strömma data från Stream Analytics till Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Använd Azure Stream Analytics för att strömma data till Azure Data Lake Storage Gen1
-services: data-lake-store,stream-analytics
-documentationcenter: ''
+title: Strömma data från Stream Analytics till Data Lake Storage Gen1 – Azure
+description: Använd Azure Stream Analytics för att strömma data till Azure Data Lake Storage Gen1.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: edb58e0b-311f-44b0-a499-04d7e6c07a90
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: d3dbacd58b3bda3fbf8ee8ad5f175eccc2cb2a24
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: f1740d167bedd20f51ad5bf24a56b7e7e787f754
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60194951"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690984"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Strömma data från Azure Storage Blob till Azure Data Lake Storage Gen1 med Azure Stream Analytics
 I den här artikeln får du lära dig hur du använder Azure Data Lake Storage Gen1 som utdata för ett Azure Stream Analytics jobb. Den här artikeln visar ett enkelt scenario som läser data från en Azure Storage BLOB (indata) och skriver data till Data Lake Storage Gen1 (utdata).
@@ -34,7 +28,7 @@ Innan du påbörjar de här självstudierna måste du ha:
 ## <a name="create-a-stream-analytics-job"></a>Skapa ett Stream Analytics-jobb
 Du börjar med att skapa ett Stream Analytics jobb som innehåller en indatakälla och ett utgående mål. I den här självstudien är källan en Azure Blob-behållare och målet är Data Lake Storage Gen1.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Klicka på **Stream Analytics jobb**i den vänstra rutan och klicka sedan på **Lägg till**.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 9593d60f76802cd515ca85616bce028cf3aa0d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7591f22286f9ac451a15dd926adab0212adb190e
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77589325"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691288"
 ---
 # <a name="configure-a-shared-image-gallery-in-azure-devtest-labs"></a>Konfigurera ett delat bildgalleri i Azure DevTest Labs
 DevTest Labs stöder nu funktionen för [delad bild galleri](../virtual-machines/windows/shared-image-galleries.md) . Det gör det möjligt för labb användare att komma åt bilder från en delad plats när du skapar labb resurser. Det hjälper dig också att bygga struktur och organisation runt dina anpassade avbildningar av virtuella datorer. Funktionen för delad bild galleri stöder:
@@ -91,9 +91,21 @@ Om du använder en Azure Resource Manager mall för att koppla ett delat avbildn
 
 Ett exempel på en fullständig Resource Manager-mall finns i exemplen för Resource Manager-mallar i vår offentliga GitHub-lagringsplats: [Konfigurera ett delat avbildnings Galleri när du skapar ett labb](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-lab-shared-gallery-configured).
 
-## <a name="use-api"></a>Använd API
+## <a name="use-rest-api"></a>Använda REST-API
 
-### <a name="shared-image-galleries---create-or-update"></a>Delade avbildnings gallerier – skapa eller uppdatera
+### <a name="get-a-list-of-labs"></a>Hämta en lista över labb 
+
+```rest
+GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs?api-version= 2018-10-15-preview
+```
+
+### <a name="get-the-list-of-shared-image-galleries-associated-with-a-lab"></a>Hämta listan över delade avbildnings gallerier som är associerade med ett labb
+
+```rest
+GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries?api-version= 2018-10-15-preview
+   ```
+
+### <a name="create-or-update-shared-image-gallery"></a>Skapa eller uppdatera delade avbildnings Galleri
 
 ```rest
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version= 2018-10-15-preview
@@ -107,12 +119,11 @@ Body:
 
 ```
 
-### <a name="shared-image-galleries-images---list"></a>Delade avbildnings Galleri bilder – lista 
+### <a name="list-images-in-a-shared-image-gallery"></a>Lista bilder i ett delat avbildnings Galleri
 
 ```rest
 GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview
 ```
-
 
 
 

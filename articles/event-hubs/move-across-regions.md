@@ -9,12 +9,12 @@ ms.custom: subject-moving-resources
 ms.date: 04/14/2020
 ms.author: spelluru
 ms.reviewer: shvija
-ms.openlocfilehash: 2dfc9c517605bbb48bee0b306fb275464cfebe39
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b96bf1c538b3c5589a1993a0353292fadd0936d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606813"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690492"
 ---
 # <a name="move-an-azure-event-hubs-namespace-to-another-region"></a>Flytta ett Azure Event Hubs-namnområde till en annan region
 Det finns olika scenarier där du vill flytta ditt befintliga Event Hubs-namnområde från en region till en annan. Du kanske till exempel vill skapa ett namn område med samma konfiguration för testning. Du kanske också vill skapa ett sekundärt namn område i en annan region som en del av [Disaster Recovery-planeringen](event-hubs-geo-dr.md#setup-and-failover-flow).
@@ -27,7 +27,7 @@ Det finns olika scenarier där du vill flytta ditt befintliga Event Hubs-namnomr
 - Kontrol lera att tjänsterna och funktionerna som ditt konto använder stöds i mål regionen.
 - För för hands versions funktioner ser du till att din prenumeration är vit listas för mål regionen.
 - Om du har aktiverat **funktionen** för händelse hubbar i namn området flyttar du [Azure Storage eller Azure Data Lake Store gen 2](../storage/common/storage-account-move.md) eller [Azure Data Lake Store gen 1](../data-lake-store/data-lake-store-migration-cross-region.md) -konton innan du flyttar Event Hubs namn området. Du kan också flytta resurs gruppen som innehåller både lagrings utrymmet och Event Hubs namn områden till den andra regionen genom att följa stegen som beskrivs i den här artikeln. 
-- Om Event Hubs namn området finns i ett **Event Hubs kluster** [skapar du ett dedikerat kluster](event-hubs-dedicated-cluster-create-portal.md) i **mål regionen** innan du går igenom stegen i den här artikeln. 
+- Om Event Hubs namn området finns i ett **Event Hubs kluster** [skapar du ett dedikerat kluster](event-hubs-dedicated-cluster-create-portal.md) i **mål regionen** innan du går igenom stegen i den här artikeln. Du kan också använda [snabb starts mal len på GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-cluster-namespace-eventhub/) för att skapa ett Event Hubs-kluster. I mallen tar du bort namn områdes delen av JSON-filen för att endast skapa klustret. 
 
 ## <a name="prepare"></a>Förbereda
 Kom igång genom att exportera en Resource Manager-mall. Den här mallen innehåller inställningar som beskriver ditt Event Hubs namn område.

@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ta bort roll tilldelningar med RBAC och Azure PowerShell
-description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure PowerShell.
+title: Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell-Azure RBAC
+description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av Azure PowerShell och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 68a73f622dc69b70870ddc1db16edcf406b63800
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db6b38f142254fa1812f34674e6a870629713d7e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283217"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735665"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure PowerShell
+# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Lägga till eller ta bort Azure Role-tilldelningar med Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]I den här artikeln beskrivs hur du tilldelar roller med hjälp av Azure PowerShell.
 
@@ -67,7 +67,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 
 ## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
 
-I RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
+I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
 
 ### <a name="user-at-a-resource-group-scope"></a>Användare vid en resurs grupps omfång
 
@@ -112,7 +112,7 @@ Om du vill lägga till en roll tilldelning med det unika roll-ID: t i stället f
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *\@Alain example.com* -användare i resurs grupps omfånget *Pharma-Sales* . Om du vill hämta det unika roll-ID: t kan du använda [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller se [inbyggda roller för Azure-resurser](built-in-roles.md).
+I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *\@Alain example.com* -användare i resurs grupps omfånget *Pharma-Sales* . Om du vill hämta det unika roll-ID: t kan du använda [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) eller se [inbyggda Azure-roller](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -205,7 +205,7 @@ CanDelegate        : False
 
 ## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
 
-I RBAC för att ta bort åtkomst tar du bort en roll tilldelning genom att använda [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
+I Azure RBAC tar du bort en roll tilldelning genom att använda [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment)för att ta bort åtkomst.
 
 I följande exempel tas roll tilldelningen för *virtuell dator deltagare* bort *från\@Alain example.com* -användaren på resurs gruppen *Pharma-Sales* :
 
@@ -225,11 +225,11 @@ I följande exempel tar du bort <role_name> rollen från <object_id> i hantering
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Om du får fel meddelandet "den tillhandahållna informationen inte mappas till en roll tilldelning", se till att du även anger parametrarna `-Scope` eller. `-ResourceGroupName` Mer information finns i [FELSÖKA RBAC för Azure-resurser](troubleshooting.md#role-assignments-with-unknown-security-principal).
+Om du får fel meddelandet "den tillhandahållna informationen inte mappas till en roll tilldelning", se till att du även anger parametrarna `-Scope` eller. `-ResourceGroupName` Mer information finns i [Felsöka Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lista roll tilldelningar med hjälp av Azure RBAC och Azure PowerShell](role-assignments-list-powershell.md)
-- [Självstudie: bevilja en grupp åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Självstudie: skapa en anpassad roll för Azure-resurser med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md)
+- [Visa en lista med Azure Role-tilldelningar med Azure PowerShell](role-assignments-list-powershell.md)
+- [Självstudie: bevilja en grupp åtkomst till Azure-resurser med hjälp av Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Självstudie: skapa en anpassad Azure-roll med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Hantera resurser med Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

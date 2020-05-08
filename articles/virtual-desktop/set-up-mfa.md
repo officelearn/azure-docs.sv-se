@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/22/2020
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 069d2a153e307ed94032ce1d980f26521969fc56
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
-ms.translationtype: MT
+ms.openlocfilehash: 2527071aa246b34c103c2a8732d735f459977a47
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508351"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629532"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Aktivera Azure Multi-Factor Authentication för virtuellt Windows-skrivbord
 
@@ -39,19 +39,21 @@ Det här behöver du för att komma igång:
 I det här avsnittet visas hur du skapar en princip för villkorlig åtkomst som kräver Multi-Factor Authentication när du ansluter till det virtuella Windows-skrivbordet.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
-1. Välj **ny princip**.
-1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
-1. Under **Tilldelningar** väljer du **Användare och grupper**.
-   1. Under **Inkludera**väljer du **Välj användare och grupper** > **användare och grupper** > väljer den grupp som skapades i förutsättnings stadiet.
-   1. Välj **Klar**.
-1. Under **molnappar eller åtgärder** > **inkluderar**väljer du **Välj appar**.
-   1. Välj **Windows Virtual Desktop** och **Windows Virtual Desktop Client**och välj sedan **Välj** . **Done**
-   ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise-selected.png)
-1. Under **åtkomst kontroller** > **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
-1. Under **Access Controls** > **session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och **väljer**sedan.
-1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
-1. Välj **skapa** för att aktivera principen.
+2. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+3. Välj **ny princip**.
+4. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
+5. Under **Tilldelningar** väljer du **Användare och grupper**.
+   - Under **Inkludera**väljer du **Välj användare och grupper** > **användare och grupper** > väljer den grupp som skapades i förutsättnings stadiet.
+   - Välj **Done** (Klar).
+6. Under **molnappar eller åtgärder** > **inkluderar**väljer du **Välj appar**.
+   - Välj **virtuellt Windows-skrivbord**, **Välj**sedan och sedan **slutfört**.
+   
+     ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise.png)
+
+7. Under **åtkomst kontroller** > **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
+8. Under **Access Controls** > **session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och väljer sedan **Välj**.
+9. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
+10. Välj **skapa** för att aktivera principen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,29 +1,25 @@
 ---
-title: 'Autentisering med slutanvändare: Azure Data Lake Storage Gen1 med Azure Active Directory | Microsoft Docs'
+title: Autentisering med slutanvändare – Data Lake Storage Gen1 med Azure AD
 description: Lär dig hur du uppnår autentisering för slutanvändare med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: mtillman
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.custom: has-adal-ref
+ms.openlocfilehash: 5a0c3e1df5cd283ad08f905ed0bd4f329dcfcc7e
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "66234063"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688242"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med hjälp av Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Slutanvändarautentisering](data-lake-store-end-user-authenticate-using-active-directory.md)
 > * [Tjänst-till-tjänst-autentisering](data-lake-store-service-to-service-authenticate-using-active-directory.md)
-> 
-> 
+>
+>
 
 Azure Data Lake Storage Gen1 använder Azure Active Directory för autentisering. Innan du redigerar ett program som fungerar med Data Lake Storage Gen1 eller Azure Data Lake Analytics måste du bestämma hur du vill autentisera ditt program med Azure Active Directory (Azure AD). De två tillgängliga huvud alternativen är:
 
@@ -38,11 +34,11 @@ Den här artikeln handlar om hur du skapar ett **internt Azure AD-program för**
 * En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * Ditt prenumerations-ID. Du kan hämta den från Azure Portal. Till exempel är det tillgängligt från bladet Data Lake Storage Gen1 konto.
-  
+
     ![Hämta prenumerations-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/get-subscription-id.png)
 
-* Ditt Azure AD-domännamn. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. I skärm bilden nedan är domän namnet **contoso.onmicrosoft.com**och GUID inom hakparenteser är klient-ID: t. 
-  
+* Ditt Azure AD-domännamn. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. I skärm bilden nedan är domän namnet **contoso.onmicrosoft.com**och GUID inom hakparenteser är klient-ID: t.
+
     ![Hämta AAD-domän](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
 * Ditt Azure-klient-ID. Instruktioner för hur du hämtar klient-ID finns i [Hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
@@ -53,12 +49,12 @@ Den här autentiseringsmetoden är den rekommenderade metoden om du vill att en 
 Resultatet av att slut användar inloggningen är att ditt program får en åtkomsttoken och en uppdateringstoken. Åtkomsttoken bifogas till varje begäran som görs till Data Lake Storage Gen1 eller Data Lake Analytics, och den är giltig i en timme som standard. Uppdateringstoken kan användas för att hämta en ny åtkomsttoken och den är giltig i upp till två veckor som standard. Du kan använda två olika metoder för slut användar inloggning.
 
 ### <a name="using-the-oauth-20-pop-up"></a>Använda OAuth 2,0-popup-fönster
-Ditt program kan utlösa ett popup-fönster för OAuth 2,0-auktorisering där slutanvändaren kan ange sina autentiseringsuppgifter. Det här popup-fönstret fungerar också med 2FA-processen (Azure AD tvåfaktorautentisering) om det behövs. 
+Ditt program kan utlösa ett popup-fönster för OAuth 2,0-auktorisering där slutanvändaren kan ange sina autentiseringsuppgifter. Det här popup-fönstret fungerar också med 2FA-processen (Azure AD tvåfaktorautentisering) om det behövs.
 
 > [!NOTE]
 > Den här metoden stöds ännu inte i Azure AD Authentication Library (ADAL) för python eller Java.
-> 
-> 
+>
+>
 
 ### <a name="directly-passing-in-user-credentials"></a>Skicka autentiseringsuppgifter direkt i användare
 Ditt program kan ange användarautentiseringsuppgifter direkt för Azure AD. Den här metoden fungerar bara med organisations-ID-användarkonton. den är inte kompatibel med användar kontona personliga/"Live ID", inklusive de konton som @outlook.com slutar @live.comi eller. Den här metoden är dessutom inte kompatibel med användar konton som kräver Azure AD tvåfaktorautentisering (2FA).
@@ -106,7 +102,7 @@ Utför följande steg för att hämta omdirigerings-URI: n.
 3. Klicka på **Välj ett API**i bladet **Lägg till API-åtkomst** , klicka på **Azure Data Lake**och klicka sedan på **Välj**.
 
     ![klient-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
- 
+
 4.  I bladet **Lägg till API-åtkomst** klickar du på **Välj behörigheter**, markerar kryss rutan för att ge **fullständig åtkomst till data Lake Store**och klickar sedan på **Välj**.
 
     ![klient-ID](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
@@ -114,7 +110,7 @@ Utför följande steg för att hämta omdirigerings-URI: n.
     Klicka på **Klar**.
 
 5. Upprepa de senaste två stegen för att bevilja behörigheter för **Windows Azure-Service Management-API** också.
-   
+
 ## <a name="next-steps"></a>Nästa steg
 I den här artikeln har du skapat ett internt Azure AD-program och samlat in den information du behöver i dina klient program som du skapar med .NET SDK, Java SDK, REST API osv. Nu kan du fortsätta till följande artiklar som talar om hur du använder Azure AD-webbprogrammet för att först autentisera med Data Lake Storage Gen1 och sedan utföra andra åtgärder i butiken.
 
@@ -122,4 +118,3 @@ I den här artikeln har du skapat ett internt Azure AD-program och samlat in den
 * [Autentisering med slutanvändare med Data Lake Storage Gen1 med .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 * [Autentisering med slutanvändare med Data Lake Storage Gen1 med python](data-lake-store-end-user-authenticate-python.md)
 * [Autentisering med slutanvändare med Data Lake Storage Gen1 med hjälp av REST API](data-lake-store-end-user-authenticate-rest-api.md)
-

@@ -1,6 +1,6 @@
 ---
-title: Förstå roll definitioner i RBAC för Azure-resurser | Microsoft Docs
-description: Lär dig mer om roll definitioner i rollbaserad åtkomst kontroll (RBAC) för detaljerad åtkomst hantering av Azure-resurser.
+title: Förstå roll definitioner i Azure – Azure RBAC
+description: Lär dig mer om definitioner av Azure-roller i rollbaserad åtkomst kontroll i Azure (Azure RBAC) för detaljerade åtkomst hantering av Azure-resurser.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 777ea7cc29679a3819e94d39913f167ea1cb3453
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03edb8e5c58f0fe746921d50ab3f657f291d16da
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641382"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735546"
 ---
-# <a name="understand-role-definitions-for-azure-resources"></a>Förstå roll definitioner för Azure-resurser
+# <a name="understand-azure-role-definitions"></a>Förstå roll definitioner för Azure
 
-Om du försöker förstå hur en roll fungerar eller om du skapar en egen [anpassad roll för Azure-resurser](custom-roles.md), är det bra att förstå hur roller definieras. I den här artikeln beskrivs information om roll definitioner och några exempel.
+Om du försöker förstå hur en Azure-roll fungerar eller om du skapar en egen Azure- [anpassad roll](custom-roles.md), är det bra att förstå hur roller definieras. I den här artikeln beskrivs information om roll definitioner och några exempel.
 
 ## <a name="role-definition"></a>Rolldefinition
 
@@ -170,7 +170,7 @@ Bobs behörigheter begränsas till bara `Actions` och `DataActions` anges i roll
 
 Mer information om hantering och data Plans säkerhet för lagring finns i [säkerhets guiden för Azure Storage](../storage/blobs/security-recommendations.md).
 
-### <a name="what-tools-support-using-rbac-for-data-operations"></a>Vilka verktyg stöder användning av RBAC för data åtgärder?
+### <a name="what-tools-support-using-azure-roles-for-data-operations"></a>Vilka verktyg stöder användning av Azure-roller för data åtgärder?
 
 Om du vill visa och arbeta med data åtgärder måste du ha rätt versioner av verktygen eller SDK: erna:
 
@@ -245,10 +245,10 @@ Inbyggda roller har `AssignableScopes` angetts till rot omfånget (`"/"`). Rot o
 > | Hanterings grupp och en prenumeration | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
 > | Alla omfattningar (gäller endast inbyggda roller) | `"/"` |
 
-Information om `AssignableScopes` anpassade roller finns i [anpassade roller för Azure-resurser](custom-roles.md).
+För information om `AssignableScopes` anpassade roller, se [Azure-anpassade roller](custom-roles.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Inbyggda roller för Azure-resurser](built-in-roles.md)
-* [Anpassade roller för Azure-resurser](custom-roles.md)
+* [Inbyggda Azure-roller](built-in-roles.md)
+* [Anpassade Azure-roller](custom-roles.md)
 * [Åtgärder för Azure Resource Manager Resource Provider](resource-provider-operations.md)

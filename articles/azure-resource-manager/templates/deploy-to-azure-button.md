@@ -2,17 +2,17 @@
 title: Knappen Distribuera till Azure
 description: Använd knappen för att distribuera Azure Resource Manager mallar från en GitHub-lagringsplats.
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 88436eac970b252d7b0bc7bccee4131e06e9e0cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77109044"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744098"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Använd en distributions knapp för att distribuera mallar från GitHub-lagringsplatsen
 
-Den här artikeln beskriver hur du använder knappen **distribuera till Azure** för att distribuera mallar från en GitHub-lagringsplats. Du kan lägga till knappen direkt i README.md-filen i din GitHub-lagringsplats eller på en webb sida som hänvisar till lagrings platsen.
+Den här artikeln beskriver hur du använder knappen **distribuera till Azure** för att distribuera mallar från en GitHub-lagringsplats. Du kan lägga till knappen direkt i README.md-filen i din GitHub-lagringsplats eller på en webb sida som hänvisar till lagrings platsen. Den här metoden stöder endast resurs grupp nivå distribution.
 
 ## <a name="use-common-image"></a>Använd gemensam avbildning
 

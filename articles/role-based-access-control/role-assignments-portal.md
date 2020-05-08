@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ta bort roll tilldelningar med RBAC och Azure Portal
-description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll i Azure (RBAC) och Azure Portal.
+title: Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal – Azure RBAC
+description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av Azure Portal och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e2458b07602bca3b6f12b2f486b509c11d705461
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88cb1e9893e0ca058e57ce12f00747a59248fb19
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246362"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735699"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal
+# <a name="add-or-remove-azure-role-assignments-using-the-azure-portal"></a>Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]I den här artikeln beskrivs hur du tilldelar roller med hjälp av Azure Portal.
 
@@ -143,7 +143,7 @@ I Azure RBAC tar du bort åtkomsten från en Azure-resurs genom att ta bort en r
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lista roll tilldelningar med hjälp av Azure RBAC och Azure Portal](role-assignments-list-portal.md)
-- [Självstudie: ge en användare åtkomst till Azure-resurser med RBAC och Azure Portal](quickstart-assign-role-user-portal.md)
-- [Felsöka RBAC för Azure-resurser](troubleshooting.md)
+- [Visa en lista med Azures roll tilldelningar med hjälp av Azure Portal](role-assignments-list-portal.md)
+- [Självstudie: ge en användare åtkomst till Azure-resurser med hjälp av Azure Portal](quickstart-assign-role-user-portal.md)
+- [Felsöka Azure RBAC](troubleshooting.md)
 - [Organisera dina resurser med Azures hanterings grupper](../governance/management-groups/overview.md)

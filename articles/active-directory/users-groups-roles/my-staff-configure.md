@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/01/2020
 ms.author: curtand
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 282946a023e4e79ee79b05cc2a317efc5a4056e4
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b88f4aad650d77fea12677e61d3f249a77367e6f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165881"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690690"
 ---
 # <a name="manage-your-users-with-my-staff-preview"></a>Hantera dina användare med min personal (förhands granskning)
 
@@ -26,9 +26,28 @@ Med min personal kan du delegera till en bild av auktoriteten, till exempel en b
 
 Innan du konfigurerar min personal för din organisation rekommenderar vi att du läser igenom den här dokumentationen och [användar dokumentationen](../user-help/my-staff-team-manager.md) för att se till att du förstår funktionerna och effekten av den här funktionen på användarna. Du kan använda användar dokumentationen för att träna och förbereda dina användare för den nya upplevelsen och hjälpa till att se till att distributionen lyckas.
 
+SMS-baserad autentisering för användare är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versionerna
+
 ## <a name="how-my-staff-works"></a>Så här fungerar min personal
 
 Min personal är baserad på administrativa enheter (Australien), som är en behållare med resurser som kan användas för att begränsa omfattningen av en roll tilldelnings administrativ kontroll. I min personal används Australien för att definiera en delmängd av en organisations användare, till exempel en butik eller avdelning. Till exempel kan en team ansvarig tilldelas till en roll vars omfång är en eller flera Australien. I exemplet nedan har användaren beviljats den administrativa rollen för autentisering och de tre centrala mapparna är rollens omfattning. Mer information om administrativa enheter finns [i hantering av administrativa enheter i Azure Active Directory](directory-administrative-units.md).
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+För att slutföra den här artikeln behöver du följande resurser och behörigheter:
+
+* En aktiv Azure-prenumeration.
+
+  * [Skapa ett konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)om du inte har någon Azure-prenumeration.
+* En Azure Active Directory klient som är associerad med din prenumeration.
+
+  * Om det behövs kan du [skapa en Azure Active Directory klient](../fundamentals/sign-up-organization.md) eller [associera en Azure-prenumeration med ditt konto](../fundamentals/active-directory-how-subscriptions-associated-directory.md).
+* Du behöver *Global administratörs* behörighet i Azure AD-klienten för att aktivera SMS-baserad autentisering.
+* Varje användare som är aktive rad i principen för autentiseringsmetoden för SMS måste vara licensierad, även om de inte använder den. Varje aktive rad användare måste ha någon av följande Azure AD-eller Microsoft 365-licenser:
+
+  * [Azure AD Premium P1 eller P2](https://azure.microsoft.com/pricing/details/active-directory/)
+  * [Microsoft 365 (M365) F1 eller F3](https://www.microsoft.com/licensing/news/m365-firstline-workers)
+  * [Enterprise Mobility + Security (EMS) E3 eller E5](https://www.microsoft.com/microsoft-365/enterprise-mobility-security/compare-plans-and-pricing) eller [Microsoft 365 (M365) E3 eller E5](https://www.microsoft.com/microsoft-365/compare-microsoft-365-enterprise-plans)
 
 ## <a name="how-to-enable-my-staff"></a>Så här aktiverar du min personal
 
@@ -47,7 +66,7 @@ Du kan skydda min personal Portal med hjälp av principen för villkorlig åtkom
 
 Vi rekommenderar starkt att du skyddar min personal med [villkorliga åtkomst principer för Azure AD](https://docs.microsoft.com/azure/active-directory/conditional-access/). Om du vill tillämpa en princip för villkorlig åtkomst för min personal måste du skapa tjänstens huvud namn för min personal manuellt med hjälp av PowerShell.
 
-### <a name="apply-a-----conditional-access-policy-to-my-staff"></a>Tillämpa en princip för villkorlig åtkomst för min personal
+### <a name="apply-a-conditional-access-policy-to-my-staff"></a>Tillämpa en princip för villkorlig åtkomst för min personal
 
 1. Installera [PowerShell-cmdletarna för Microsoft Graph beta](https://github.com/microsoftgraph/msgraph-sdk-powershell/blob/dev/samples/0-InstallModule.ps1).
 1. Kör följande kommandon:
@@ -62,13 +81,6 @@ Vi rekommenderar starkt att du skyddar min personal med [villkorliga åtkomst pr
 ## <a name="using-my-staff"></a>Använda min personal
 
 När en användare går till min personal visas namnen på de [administrativa enheter](directory-administrative-units.md) som de har administratörs behörighet för. I [användar dokumentationen för min personal](../user-help/my-staff-team-manager.md)använder vi termen "plats" för att referera till administrativa enheter. Om en administratörs behörighet inte har någon AU-omfattning gäller behörigheterna i hela organisationen. När min personal har Aktiver ATS kan de användare som är aktiverade och har tilldelats en administrativ roll komma åt den via [https://mystaff.microsoft.com](https://mystaff.microsoft.com). De kan välja en AU för att visa användarna i den AU och välja en användare för att öppna profilen.
-
-## <a name="licenses"></a>Licenser
-
-Varje användare som är aktive rad i min personal måste vara licensierad, även om de inte använder min personal Portal. Varje aktive rad användare måste ha någon av följande Azure AD-eller Microsoft 365-licenser:
-
-- Azure AD Premium P1 eller P2
-- Microsoft 365 F1 eller F3
 
 ## <a name="reset-a-users-password"></a>Återställa ett användarlösenord
 
@@ -106,7 +118,7 @@ Om du vill hantera en användares telefonnummer måste du ha tilldelats någon a
 - [Administratör för privilegie rad autentisering](directory-assign-admin-roles.md#privileged-authentication-administrator)
 - [Global administratör](directory-assign-admin-roles.md#global-administrator--company-administrator)
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
 Du kan söka efter Australien och användare i din organisation med hjälp av Sök fältet i min personal. Du kan söka i alla Australien och användare i din organisation, men du kan bara göra ändringar i användare som är i en AU som du har fått administratörs behörighet för.
 

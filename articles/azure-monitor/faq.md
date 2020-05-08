@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/26/2020
-ms.openlocfilehash: db63ce2d56eb78bf6b361d530511b6902c1cb6d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 728c8605dca183d8eb733b5e674868592d920d03
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637775"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82732044"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -255,6 +255,10 @@ Se [viktig information](app/release-notes.md) om SDK: n som passar din typ av pr
 ### <a name="how-can-i-change-which-azure-resource-my-project-sends-data-to"></a><a name="update"></a>Hur kan jag ändra vilken Azure-resurs mitt projekt skickar data till?
 I Solution Explorer högerklickar du på `ApplicationInsights.config` och väljer **Uppdatera Application Insights**. Du kan skicka data till en befintlig eller ny resurs i Azure. Uppdaterings guiden ändrar Instrumentation-nyckeln i ApplicationInsights. config, som avgör var serverns SDK skickar dina data. Om du inte avmarkerar kryss rutan uppdatera alla, ändras även nyckeln där den visas på dina webb sidor.
 
+### <a name="can-i-use-providersmicrosoftinsights-componentsapiversions0-in-my-azure-resource-manager-deployments"></a>Kan jag använda `providers('Microsoft.Insights', 'components').apiVersions[0]` i mina Azure Resource Manager-distributioner?
+
+Vi rekommenderar inte att du använder den här metoden för att fylla i API-versionen. Den senaste versionen kan representera för hands versioner som kan innehålla viktiga ändringar. Även om det finns nyare versioner som inte är för hands versioner är API-versionerna inte alltid bakåtkompatibla med befintliga mallar, eller i vissa fall kan API-versionen inte vara tillgänglig för alla prenumerationer.
+
 ### <a name="what-is-status-monitor"></a>Vad är Statusövervakaren?
 
 En Skriv bords app som du kan använda i IIS-webbservern för att konfigurera Application Insights i Web Apps. Den samlar inte in telemetri: du kan stoppa det när du inte konfigurerar en app. 
@@ -412,7 +416,7 @@ Detta är inte beroende av var Application Insights resursen finns. Det beror ba
 
 ### <a name="can-i-send-telemetry-to-the-application-insights-portal"></a>Kan jag skicka telemetri till Application Insights-portalen?
 
-Vi rekommenderar att du använder våra SDK [: er](app/api-custom-events-metrics.md)och använder SDK-API: et. Det finns varianter av SDK för olika [plattformar](app/platforms.md). Dessa SDK: er hanterar buffring, komprimering, begränsning, nya försök och så vidare. Men inmatnings [schema](https://github.com/Microsoft/ApplicationInsights-dotnet/tree/develop/Schema/PublicSchema) och [slut punkts protokoll](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentliga.
+Vi rekommenderar att du använder våra SDK [: er](app/api-custom-events-metrics.md)och använder SDK-API: et. Det finns varianter av SDK för olika [plattformar](app/platforms.md). Dessa SDK: er hanterar buffring, komprimering, begränsning, nya försök och så vidare. Men inmatnings [schema](https://github.com/microsoft/ApplicationInsights-dotnet/tree/master/BASE/Schema/PublicSchema) och [slut punkts protokoll](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/ENDPOINT-PROTOCOL.md) är offentliga.
 
 ### <a name="can-i-monitor-an-intranet-web-server"></a>Kan jag övervaka en intranät webb server?
 

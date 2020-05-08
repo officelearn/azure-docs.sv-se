@@ -10,14 +10,16 @@ ms.technology: integration-services
 author: swinarko
 ms.author: sawinark
 ms.reviewer: maghan
-ms.openlocfilehash: 0c4cdc3481fb58efd8eaa4cd83e1d6167f203a4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f2983b375e3eeb73a0372e123d4d2763b3c65ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81760191"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629396"
 ---
 # <a name="access-data-stores-and-file-shares-with-windows-authentication-from-ssis-packages-in-azure"></a>Komma åt datalager och filresurser med Windows-autentisering från SSIS-paket i Azure
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Du kan använda Windows-autentisering för att komma åt data lager, till exempel SQL-servrar, fil resurser, Azure Files osv. från SSIS-paket som körs på din Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF). Dina data lager kan finnas lokalt, som finns på Azure Virtual Machines (VM) eller som körs i Azure som hanterade tjänster. Om de är lokalt måste du ansluta till din Azure-SSIS IR till en Virtual Network (Microsoft Azure Virtual Network) som är ansluten till ditt lokala nätverk, se [ansluta Azure-SSIS IR till en Microsoft Azure Virtual Network](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Det finns fyra metoder för att komma åt data lager med Windows-autentisering från SSIS-paket som körs på din Azure-SSIS IR:
 

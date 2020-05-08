@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b9b27bb142cb729536a3b7a561ed8b8ff5e0ccf5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2c2a1d817dbe88bebc36f66b441e609b5faea2a
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731307"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629362"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>Azure IoT-enhetens SDK för C
 
@@ -88,7 +88,7 @@ Device Explorer-verktyget använder Azure IoT-tjänstebibliotek för att utföra
 
 Om du inte är bekant med verktyget enhets Utforskaren beskriver följande procedur hur du använder det för att lägga till en enhet och hämta en anslutnings sträng för enheten.
 
-1. Information om hur du installerar verktyget Device Explorer finns i [så här använder du Device Explorer för IoT Hub enheter](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+1. Information om hur du installerar verktyget Device Explorer finns i [så här använder du Device Explorer för IoT Hub enheter](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/).
 
 1. När du kör programmet visas följande gränssnitt:
 

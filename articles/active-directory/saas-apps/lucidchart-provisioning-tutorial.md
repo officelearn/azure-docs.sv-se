@@ -1,10 +1,11 @@
 ---
-title: 'Självstudie: användar etablering för LucidChart – Azure AD'
-description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till LucidChart.
+title: 'Självstudie: Konfigurera Lucidchart för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+description: Lär dig hur du automatiskt etablerar och avetablerar användar konton från Azure AD till Lucidchart.
 services: active-directory
 documentationcenter: ''
-author: ArvindHarinder1
-manager: CelesteDG
+author: zchia
+writer: zchia
+manager: beatrizd
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -12,88 +13,161 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
-ms.author: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d946c6e257c7676178f9bc3c234f66ba6fe622
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 01/13/2020
+ms.author: Zhchia
+ms.openlocfilehash: 0c7c1f5f633554a88b74694ed2aeafcd30c13a89
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77057336"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690547"
 ---
-# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Självstudie: Konfigurera LucidChart för automatisk användar etablering
+# <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Lucidchart för automatisk användar etablering
 
-Syftet med den här självstudien är att visa de steg du behöver utföra i LucidChart och Azure AD för att automatiskt etablera och avetablera användar konton från Azure AD till LucidChart. 
+I den här självstudien beskrivs de steg du behöver utföra i både Lucidchart och Azure Active Directory (Azure AD) för att konfigurera automatisk användar etablering. När Azure AD konfigureras, etablerar och avetablerar Azure AD automatiskt användare och grupper i [Lucidchart](https://www.lucidchart.com/user/117598685#/subscriptionLevel) med hjälp av Azure AD Provisioning-tjänsten. Viktig information om vad den här tjänsten gör, hur det fungerar och vanliga frågor finns i [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](../manage-apps/user-provisioning.md). 
+
+
+## <a name="capabilities-supported"></a>Funktioner som stöds
+> [!div class="checklist"]
+> * Skapa användare i Lucidchart
+> * Ta bort användare i Lucidchart när de inte behöver åtkomst längre
+> * Behåll användarattribut synkroniserade mellan Azure AD och Lucidchart
+> * Etablera grupper och grupp medlemskap i Lucidchart
+> * [Enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/lucidchart-tutorial) till Lucidchart (rekommenderas)
 
 ## <a name="prerequisites"></a>Krav
 
-Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande objekt:
+Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
-* En Azure Active Directory-klient
-* En LucidChart-klient med [företags planen](https://www.lucidchart.com/user/117598685#/subscriptionLevel) eller bättre aktive rad
-* Ett användar konto i LucidChart med administratörs behörighet
+* [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
+* Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör). 
+* En LucidChart-klient med [företags planen](https://www.lucidchart.com/user/117598685#/subscriptionLevel) eller bättre aktive rad.
+* Ett användar konto i LucidChart med administratörs behörighet.
 
-## <a name="assigning-users-to-lucidchart"></a>Tilldela användare till LucidChart
+## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen
+1. Läs om [hur etablerings tjänsten fungerar](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Ta reda på vem som kommer att vara inom [omfånget för etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+3. Ta reda på vilka data som ska [mappas mellan Azure AD och Lucidchart](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-Azure Active Directory använder ett begrepp som kallas "tilldelningar" för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar konto etablering synkroniseras endast de användare och grupper som har tilldelats till ett program i Azure AD.
+## <a name="step-2-configure-lucidchart-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Lucidchart för att ge stöd för etablering med Azure AD
 
-Innan du konfigurerar och aktiverar etablerings tjänsten måste du bestämma vilka användare och/eller grupper i Azure AD som representerar de användare som behöver åtkomst till LucidChart-appen. När du har bestämt dig kan du tilldela dessa användare till LucidChart-appen genom att följa anvisningarna här:
+1. Logga in på [Lucidchart-administratörskonsolen](https://www.lucidchart.com). Gå till **Team > app integration**.
 
-[Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
+      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/team1.png)
 
-### <a name="important-tips-for-assigning-users-to-lucidchart"></a>Viktiga tips för att tilldela användare till LucidChart
+2. Navigera till **scim**.
 
-* Vi rekommenderar att en enda Azure AD-användare tilldelas LucidChart för att testa etablerings konfigurationen. Ytterligare användare och/eller grupper kan tilldelas senare.
+      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/scim.png)
 
-* När du tilldelar en användare till LucidChart måste du välja antingen **användar** rollen eller en annan giltig programspecifik roll (om tillgänglig) i tilldelnings dialog rutan. **Standard åtkomst** rollen fungerar inte för etablering, och dessa användare hoppas över.
+3. Rulla nedåt för att se **Bearer-token** och **LUCIDCHART bas-URL**. Kopiera och spara **Bearer-token**. Det här värdet anges i fältet **hemlig token** * på fliken etablering i ditt Lucidchart-program i Azure Portal. 
 
-## <a name="configuring-user-provisioning-to-lucidchart"></a>Konfigurera användar etablering till LucidChart
+      ![Lucidchart-token](./media/lucidchart-provisioning-tutorial/token.png)
 
-Det här avsnittet vägleder dig genom att ansluta din Azure AD till LucidChart-API för användar konto och konfigurera etablerings tjänsten för att skapa, uppdatera och inaktivera tilldelade användar konton i LucidChart baserat på användar-och grupp tilldelning i Azure AD.
+## <a name="step-3-add-lucidchart-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till Lucidchart från Azure AD-programgalleriet
 
-> [!TIP]
-> Du kan också välja att aktivera SAML-baserad enkel inloggning för LucidChart enligt anvisningarna i [Azure Portal](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av automatisk etablering, även om dessa två funktioner är gemensamt.
+Lägg till Lucidchart från Azure AD-programgalleriet för att börja hantera etablering till Lucidchart. Om du tidigare har konfigurerat Lucidchart för SSO kan du använda samma program. Vi rekommenderar dock att du skapar en separat app när du testar integreringen från början. Lär dig mer om att lägga till ett program från galleriet [här](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
 
-### <a name="configure-automatic-user-account-provisioning-to-lucidchart-in-azure-ad"></a>Konfigurera automatisk etablering av användar konton till LucidChart i Azure AD
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Steg 4. Definiera vem som ska finnas inom omfånget för etablering 
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till avsnittet **Azure Active Directory > Enterprise-appar > alla program** .
+Med Azure AD Provisioning-tjänsten kan du definiera omfång som ska tillhandahållas baserat på tilldelning till programmet och eller baserat på attribut för användaren/gruppen. Om du väljer att omfånget som ska tillhandahållas till din app baserat på tilldelning kan du använda följande [steg](../manage-apps/assign-user-or-group-access-portal.md) för att tilldela användare och grupper till programmet. Om du väljer att omfånget som endast ska tillhandahållas baserat på attribut för användaren eller gruppen kan du använda ett omfångs filter enligt beskrivningen [här](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-2. Om du redan har konfigurerat LucidChart för enkel inloggning söker du efter din instans av LucidChart med hjälp av Sök fältet. Annars väljer du **Lägg till** och söker efter **Lucidchart** i program galleriet. Välj LucidChart från Sök resultaten och Lägg till den i listan över program.
+* När du tilldelar användare och grupper till Lucidchart måste du välja en annan roll än **standard åtkomst**. Användare med standard åtkomst rollen undantas från etablering och markeras som inte faktiskt berättigade i etablerings loggarna. Om den enda rollen som är tillgänglig i programmet är standard åtkomst rollen kan du [Uppdatera applikations manifestet](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) för att lägga till ytterligare roller. 
 
-3. Välj din instans av LucidChart och välj sedan fliken **etablering** .
+* Starta litet. Testa med en liten uppsättning användare och grupper innan de distribueras till alla. När omfång för etablering har angetts till tilldelade användare och grupper kan du styra detta genom att tilldela en eller två användare eller grupper till appen. När omfång är inställt på alla användare och grupper kan du ange ett [omfångs filter för attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+
+
+## <a name="step-5-configure-automatic-user-provisioning-to-lucidchart"></a>Steg 5. Konfigurera automatisk användar etablering till Lucidchart 
+
+Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Provisioning-tjänsten för att skapa, uppdatera och inaktivera användare och/eller grupper i TestApp baserat på användar-och/eller grupp tilldelningar i Azure AD.
+
+### <a name="to-configure-automatic-user-provisioning-for-lucidchart-in-azure-ad"></a>Konfigurera automatisk användar etablering för Lucidchart i Azure AD:
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**och välj sedan **alla program**.
+
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
+
+2. I listan program väljer du **Lucidchart**.
+
+    ![Lucidchart-länken i program listan](common/all-applications.png)
+
+3. Välj fliken **etablering** .
+
+    ![Fliken etablering](common/provisioning.png)
 
 4. Ställ in **etablerings läget** på **automatiskt**.
 
-    ![LucidChart-etablering](./media/lucidchart-provisioning-tutorial/LucidChart1.png)
+    ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet **admin credentials** måste du skriva in den **hemliga token** som genererats av ditt Lucidchart-konto (du kan hitta token under ditt konto: **team** > **app integration** > **scim**).
+5. Under avsnittet **admin credentials** kan du mata in värdet för **Bearer-token** som hämtades tidigare i fältet **hemligt token** . Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till Lucidchart. Om anslutningen Miss lyckas kontrollerar du att Lucidchart-kontot har administratörs behörighet och försöker igen.
 
-    ![LucidChart-etablering](./media/lucidchart-provisioning-tutorial/LucidChart2.png)
+      ![etablerings](./media/Lucidchart-provisioning-tutorial/lucidchart1.png)
 
-6. I Azure Portal klickar du på **Testa anslutning** för att se till att Azure AD kan ansluta till din Lucidchart-app. Om anslutningen Miss lyckas kontrollerar du att LucidChart-kontot har administratörs behörighet och försöker sedan steg 5 igen.
+6. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan **Skicka ett e-postmeddelande när ett fel inträffar** .
 
-7. Ange e-postadressen till en person eller grupp som ska få etablerings fel meddelanden i fältet **e-postavisering** och markera kryss rutan "Skicka ett e-postmeddelande när ett fel inträffar".
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
-8. Klicka på **Spara**.
+7. Välj **Spara**.
 
-9. Under avsnittet mappningar väljer du **synkronisera Azure Active Directory användare till Lucidchart**.
+8. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory användare till Lucidchart**.
 
-10. I avsnittet **mappningar för attribut** granskar du de användarattribut som synkroniseras från Azure AD till Lucidchart. Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Lucidchart för uppdaterings åtgärder. Välj knappen Spara för att spara ändringarna.
+9. Granska de användarattribut som synkroniseras från Azure AD till Lucidchart i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha användar kontona i Lucidchart för uppdaterings åtgärder. Om du väljer att ändra [matchande målattribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)måste du se till att Lucidchart-API: et stöder filtrering av användare baserat på det attributet. Välj knappen **Spara** för att spara ändringarna.
 
-11. Om du vill aktivera Azure AD Provisioning-tjänsten för LucidChart ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar**
+   |Attribut|Typ|
+   |---|---|
+   |userName|Sträng|
+   |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|
+   |aktiv|Boolesk|
+   |Name. givenName|Sträng|
+   |Name. familyName|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: avdelning|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Division|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: costCenter|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: organisation|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: employeeNumber|Sträng|
+   |urn: IETF: params: scim: schemas: tillägg: Enterprise: 2.0: användare: Manager|Referens|
+   |urn: IETF: params: scim: schemas: tillägg: Lucidchart: 1.0: användare: canEdit|Boolesk|
 
-12. Klicka på **Spara**.
+10. Under avsnittet **mappningar** väljer du **Synkronisera Azure Active Directory grupper till Lucidchart**.
 
-Den här åtgärden startar den första synkroniseringen av alla användare och/eller grupper som har tilldelats LucidChart i avsnittet användare och grupper. Den inledande synkroniseringen tar längre tid att utföra än efterföljande synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs. Du kan använda avsnittet **synkroniseringsinformation** om du vill övervaka förloppet och följa länkar till etablering av aktivitets loggar, som beskriver alla åtgärder som utförs av etablerings tjänsten.
+11. Granska gruppattributen som synkroniseras från Azure AD till Lucidchart i avsnittet **attribut-mappning** . Attributen som väljs som **matchande** egenskaper används för att matcha grupperna i Lucidchart för uppdaterings åtgärder. Välj knappen **Spara** för att spara ändringarna.
 
-Mer information om hur du läser etablerings loggarna i Azure AD finns i [rapportering om automatisk etablering av användar konton](../app-provisioning/check-status-user-account-provisioning.md).
+      |Attribut|Typ|
+      |---|---|
+      |displayName|Sträng|
+      |medlemmar|Referens|
+
+12. Information om hur du konfigurerar omfångs filter finns i följande instruktioner i [kursen omfångs filter](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Om du vill aktivera Azure AD Provisioning-tjänsten för Lucidchart ändrar du **etablerings statusen** till **på** i avsnittet **Inställningar** .
+
+    ![Etablerings status växlad på](common/provisioning-toggle-on.png)
+
+14. Definiera de användare och/eller grupper som du vill etablera till Lucidchart genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+
+    ![Etablerings omfång](common/provisioning-scope.png)
+
+15. När du är redo att etablera klickar du på **Spara**.
+
+    ![Etablerings konfigurationen sparas](common/provisioning-configuration-save.png)
+
+Den här åtgärden startar den första synkroniseringen av alla användare och grupper som definierats i **omfånget** i avsnittet **Inställningar** . Den första cykeln tar längre tid att utföra än efterföljande cykler, vilket inträffar ungefär var 40: e minut, förutsatt att Azure AD Provisioning-tjänsten körs. 
+
+## <a name="step-6-monitor-your-deployment"></a>Steg 6. Övervaka distributionen
+När du har konfigurerat etableringen använder du följande resurser för att övervaka distributionen:
+
+1. Använd [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att avgöra vilka användare som har etablerats eller har misslyckats
+2. Kontrol lera [förlopps indikatorn](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) för att se status för etablerings cykeln och hur nära den är att slutföras
+3. Om etablerings konfigurationen verkar vara i ett ohälsosamt tillstånd, kommer programmet att placeras i karantän. Lär dig mer om karantän tillstånd [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+
+## <a name="change-log"></a>Ändringslogg
+
+* 04/30/2020 – stöd för Enterprise Extension-attributet och det anpassade attributet "CanEdit" för användare har lagts till.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Hantera användar konto etablering för företags program](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Hantera användar konto etablering för företags program](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../app-provisioning/check-status-user-account-provisioning.md)
+* [Lär dig hur du granskar loggar och hämtar rapporter om etablerings aktivitet](../manage-apps/check-status-user-account-provisioning.md)

@@ -3,12 +3,12 @@ title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för migrering av VMware VM i Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: eee16b244ae4f9d517bdd42a0b7f37b1494ac480
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 666fcc3771dfd4adadeab30fa5d1ec51da5bc038
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81538145"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743673"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Support mat ris för VMware-migrering
 
@@ -69,7 +69,7 @@ Vid migrering utan agent används [Azure Migrate-enheten](migrate-appliance.md).
 
 - Lär dig mer om installations [krav](migrate-appliance.md#appliance---vmware) för VMware.
 - Lär dig mer om webb adresser som behövs för att få åtkomst till [offentliga](migrate-appliance.md#public-cloud-urls) [och offentliga](migrate-appliance.md#government-cloud-urls) moln.
-- I Azure Government måste du distribuera enheten med hjälp av skriptet.
+- I Azure Government måste du distribuera enheten [med hjälp av skriptet](deploy-appliance-script-government.md).
 
 ## <a name="agentless-ports"></a>Agenter-portar
 

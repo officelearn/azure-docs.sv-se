@@ -3,12 +3,12 @@ title: Identifiera appar, roller och funktioner på lokala servrar med Azure Mig
 description: Lär dig hur du identifierar appar, roller och funktioner på lokala servrar med Azure Migrate Server bedömning.
 ms.topic: article
 ms.date: 03/12/2020
-ms.openlocfilehash: e8ce279afc845ebf37ad4ab8b2ce7236cb18137a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff9f5489b513cd1405e6b093d7537e4cbcead041
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79453590"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744620"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Identifiera appar, roller och funktioner i datorn
 
@@ -30,17 +30,47 @@ Identifiering av app med Azure Migrate: Server utvärderingen är agent lös. In
 5. Kontrol lera [kraven](migrate-appliance.md) för att distribuera Azure Migrate-enheten.
 6. [Verifiera support och krav](migrate-support-matrix-vmware.md#application-discovery) för program identifiering.
 
-## <a name="prepare-for-app-discovery"></a>Förbered för identifiering av appar
 
-1. [Förbered för distribution av installationer](tutorial-prepare-vmware.md). Förberedelsen omfattar att verifiera inställningar för enheten och att konfigurera ett konto som ska användas för att få åtkomst till vCenter Server.
-2. Se till att du har ett användar konto (ett för Windows-och Linux-servrar) med administratörs behörighet för datorer där du vill identifiera appar, roller och funktioner.
-3. [Distribuera Azure Migrate-apparaten](how-to-set-up-appliance-vmware.md) för att starta identifieringen. För att distribuera installationen kan du hämta och importera en ägg-mall till VMware för att skapa installationen som en virtuell VMware-dator. Du konfigurerar installationen och registrerar den sedan med Azure Migrate.
-2. När du distribuerar installationen kan du starta kontinuerlig identifiering genom att ange följande:
+
+## <a name="deploy-the-azure-migrate-appliance"></a>Distribuera Azure Migrate-enheten
+
+1. [Granska](migrate-appliance.md#appliance---vmware) kraven för att distribuera Azure Migrate-enheten.
+2. Granska de Azure-URL: er som krävs för att få åtkomst till [molnet](migrate-appliance.md#government-cloud-urls) [offentliga](migrate-appliance.md#public-cloud-urls) och myndigheter.
+3. [Granska data](migrate-appliance.md#collected-data---vmware) som samlas in under identifiering och bedömning.
+4. [Antecknings](migrate-support-matrix-vmware.md#port-access) portens åtkomst krav för produkten.
+5. [Distribuera Azure Migrate-apparaten](how-to-set-up-appliance-vmware.md) för att starta identifieringen. För att distribuera installationen kan du hämta och importera en ägg-mall till VMware för att skapa installationen som en virtuell VMware-dator. Du konfigurerar installationen och registrerar den sedan med Azure Migrate.
+6. När du distribuerar installationen kan du starta kontinuerlig identifiering genom att ange följande:
     - Namnet på vCenter Server som du vill ansluta till.
     - Autentiseringsuppgifter som du har skapat för installationen av för att ansluta till vCenter Server.
     - De kontoautentiseringsuppgifter som du skapade för installationen av för att ansluta till virtuella Windows-och Linux-datorer.
 
 När installationen har distribuerats och du har angett autentiseringsuppgifter, startar installationen kontinuerlig identifiering av VM-metadata och prestanda data, tillsammans med och identifiering av appar, funktioner och roller.  Längden på appens identifiering är beroende av hur många virtuella datorer du har. Det tar vanligt vis en timme för app-identifiering av 500 virtuella datorer.
+
+## <a name="prepare-a-user-account"></a>Förbereda ett användar konto
+
+Skapa ett konto som ska användas för identifiering och Lägg till det i enheten.
+
+### <a name="create-a-user-account-for-discovery"></a>Skapa ett användar konto för identifiering
+
+Konfigurera ett användar konto så att Server utvärderingen kan komma åt den virtuella datorn för identifiering. [Läs mer](migrate-support-matrix-vmware.md#application-discovery) om konto krav.
+
+
+### <a name="add-the-user-account-to-the-appliance"></a>Lägg till användar kontot till enheten
+
+Lägg till användar kontot till enheten.
+
+1. Öppna appen för hantering av appar. 
+2. Navigera till panelen **Tillhandahåll vCenter-information** .
+3. I **identifiera program och beroenden på virtuella datorer**klickar du på **Lägg till autentiseringsuppgifter**
+3. Välj **operativ system**, ange ett eget namn för kontot och**lösen ordet** för **användar namn**/
+6. Klicka på **Spara**.
+7. Klicka på **Spara och starta identifiering**.
+
+    ![Lägg till användar konto för virtuell dator](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
+
+
+
+
 
 ## <a name="review-and-export-the-inventory"></a>Granska och exportera inventeringen
 

@@ -4,12 +4,12 @@ description: Lär dig hur du definierar en anpassad utgående väg i Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 3780680c485aebf1ffc654d31c577821a9b96fff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80676512"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733506"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Anpassa utgående kluster med en användardefinierad väg (förhands granskning)
 
@@ -73,7 +73,7 @@ Nedan är en nätverkstopologi som distribueras i AKS-kluster som standard, som 
 
 Om `userDefinedRouting` är inställt konfigureras inte AKS automatiskt utgående sökvägar. Följande förväntas göras av **användaren**.
 
-Klustret måste distribueras i ett befintligt virtuellt nätverk med ett undernät som har kon figurer ATS. En giltig användardefinierad väg (UDR) måste finnas i under nätet med utgående anslutning.
+AKS-klustret måste distribueras till ett befintligt virtuellt nätverk med ett undernät som har kon figurer ATS. När du använder en belastnings Utjämnings arkitektur (SLB) måste du upprätta explicit utgående. Detta kräver att utgående begär Anden skickas till en installation, till exempel en brand vägg, Gateway, på lokal eller att utgående trafik kan göras av en offentlig IP-adress som tilldelats till standard belastnings utjämningen eller en specifik nod.
 
 AKS Resource Provider kommer att distribuera en standard Load Balancer (SLB). Belastningsutjämnaren har inte kon figurer ATS med några regler och [debiteras inte förrän en regel har lagts](https://azure.microsoft.com/pricing/details/load-balancer/)till. AKS etablerar **inte** automatiskt en offentlig IP-adress för SLB-klient. AKS konfigurerar **inte** backend-poolen för belastningsutjämnare automatiskt.
 

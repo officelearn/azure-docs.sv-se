@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 6baa83037d51e850a9f3535be3cc365e7c35e0a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131438"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735579"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -57,7 +57,7 @@ $ras.Count
 
 - Om du behöver steg för att skapa en anpassad roll kan du läsa självstudierna för den anpassade rollen med hjälp av [Azure Portal](custom-roles-portal.md) (för närvarande i för hands version), [Azure POWERSHELL](tutorial-custom-role-powershell.md)eller [Azure CLI](tutorial-custom-role-cli.md).
 - Om du inte kan uppdatera en befintlig anpassad roll kontrollerar du att du är inloggad med en användare som har tilldelats en roll med `Microsoft.Authorization/roleDefinition/write` behörighet som [ägare](built-in-roles.md#owner) eller administratör för [användar åtkomst](built-in-roles.md#user-access-administrator).
-- Om du inte kan ta bort en anpassad roll och få fel meddelandet "det finns befintliga roll tilldelningar som refererar till rollen (kod: RoleDefinitionHasAssignments)", finns det fortfarande roll tilldelningar som använder den anpassade rollen. Ta bort dessa rolltilldelningar och försök att ta bort den anpassade rollen igen.
+- Om du inte lyckas ta bort en anpassad roll och får felmeddelandet om att det finns befintliga rolltilldelningar som refererar till rollen (kod: RoleDefinitionHasAssignments), så finns det rolltilldelningar som fortfarande använder den anpassade rollen. Ta bort dessa rolltilldelningar och försök att ta bort den anpassade rollen igen.
 - Om du får felmeddelandet ”Det högsta tillåtna antalet rolldefinitioner har överskridits. Inga fler roll definitioner kan skapas (kod: RoleDefinitionLimitExceeded) "när du försöker skapa en ny anpassad roll, tar du bort alla anpassade roller som inte används. Azure har stöd för upp till **5000** anpassade roller i en katalog. (För Azure Germany och Azure Kina är gränsen 2000 anpassade roller.)
 - Om du får ett fel som liknar "klienten har behörighet att utföra åtgärden" Microsoft. Authorization/roleDefinitions/Write "i omfånget"/Subscriptions/{subscriptionId} ", gick det inte att hitta den länkade prenumerationen när du försöker uppdatera en anpassad roll, kontrol lera om ett eller flera [tilldelnings bara scope](role-definitions.md#assignablescopes) har tagits bort i katalogen. Om omfånget har tagits bort ska du skapa en supportbegäran eftersom det inte finns någon självbetjäningslösning tillgänglig just nu.
 
@@ -76,20 +76,29 @@ $ras.Count
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problem med tjänstadministratörer eller medadministratörer
 
-- Om du har problem med tjänst administratören eller medadministratörer kan du läsa mer i [lägga till eller ändra Azure-prenumerations administratörer](../cost-management-billing/manage/add-change-subscription-administrator.md) och [klassiska prenumerations administratörs roller, Azure-roller och Azure AD](rbac-and-directory-admin-roles.md)-administratörer.
+- Om du har problem med tjänst administratören eller medadministratörer kan du läsa mer i [lägga till eller ändra Azure-prenumerations administratörer](../cost-management-billing/manage/add-change-subscription-administrator.md) och [klassiska prenumerations administratörs roller, Azure-roller och Azure AD-roller](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Åtkomst nekad eller behörighets fel
 
-- Om du får behörighets felet "klienten med objekt-ID har inte behörighet att utföra åtgärden över omfattning (kod: AuthorizationFailed)" när du försöker skapa en resurs kontrollerar du att du är inloggad med en användare som har tilldelats en roll som har Skriv behörighet till resursen i det valda omfånget. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista med behörigheter för alla inbyggda roller finns i [Inbyggda roller för Azure-resurser](built-in-roles.md).
+- Om du får behörighetsfelet ”Klienten med objekt-ID har inte behörighet att utföra åtgärden över område (kod: AuthorizationFailed)” när du försöker skapa en resurs kan du kontrollera att du är inloggad med en användare med en roll som har skrivbehörighet till resursen i det valda omfånget. Om du vill hantera virtuella datorer i en resursgrupp ska du till exempel ha rollen [Virtuell datordeltagare](built-in-roles.md#virtual-machine-contributor) på den resursgruppen (eller ett överordnat område). En lista över behörigheter för varje inbyggd roll finns i [inbyggda roller i Azure](built-in-roles.md).
 - Om du får behörighets fel "du har inte behörighet att skapa en supportbegäran" när du försöker skapa eller uppdatera ett support ärende, kontrollerar du att du är inloggad med en användare som har behörighet, till exempel deltagare i `Microsoft.Support/supportTickets/write` [support förfrågan](built-in-roles.md#support-request-contributor).
 
-## <a name="role-assignments-with-unknown-security-principal"></a>Roll tilldelningar med okänt säkerhets objekt
+## <a name="role-assignments-with-identity-not-found"></a>Roll tilldelningar med identitet hittades inte
 
-Om du tilldelar en roll till ett säkerhets objekt (användare, grupp, tjänstens huvud namn eller hanterad identitet) och senare tar bort säkerhets objekt utan att ta bort roll tilldelningen, visas säkerhets objekt typen för roll tilldelningen som **okänd**. Följande skärmbild visar ett exempel i Azure-portalen. Säkerhetsobjektets namn anges som en **borttagen identitet** och **identiteten finns inte längre**. 
+I listan över roll tilldelningar för Azure Portal kan du märka att säkerhetsobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) anges som **identitet inte hittas** med en **okänd** typ.
 
 ![Resurs grupp för webb program](./media/troubleshooting/unknown-security-principal.png)
 
-Om du anger den här roll tilldelningen med hjälp av Azure PowerShell visas en `DisplayName` Tom och `ObjectType` en angiven som okänd. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande:
+Identiteten kanske inte hittas av två skäl:
+
+- Du har nyligen bjudit in en användare när du skapade en roll tilldelning
+- Du har tagit bort ett säkerhets objekt som hade en roll tilldelning
+
+Om du nyligen har bjudit in en användare när du skapade en roll tilldelning, kan det här säkerhets objekt fortfarande finnas i replikeringen över flera regioner. I så fall kan du vänta en stund och uppdatera listan roll tilldelningar.
+
+Men om detta säkerhets objekt inte är en nyligen inbjuden användare kan det vara ett borttaget säkerhets objekt. Om du tilldelar en roll till ett säkerhets objekt och sedan tar bort säkerhetsobjektet utan att först ta bort roll tilldelningen visas säkerhets objekt listan som **identitet inte hittas** och en **okänd** typ.
+
+Om du anger den här roll tilldelningen med Azure PowerShell kan du se att `DisplayName` en tom `ObjectType` och en uppsättning är **okänd**. [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returnerar till exempel en roll tilldelning som liknar följande utdata:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -103,7 +112,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-Om du anger den här roll tilldelningen med hjälp av Azure CLI visas en tom `principalName`lista. Till exempel returnerar [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list) en roll tilldelning som liknar följande:
+På samma sätt kan det hända att du ser en tom `principalName`lista om du anger den här roll tilldelningen med hjälp av Azure CLI. Till exempel returnerar [AZ roll tilldelnings lista](/cli/azure/role/assignment#az-role-assignment-list) en roll tilldelning som liknar följande utdata:
 
 ```
 {
@@ -119,9 +128,9 @@ Om du anger den här roll tilldelningen med hjälp av Azure CLI visas en tom `pr
 }
 ```
 
-Det är inte ett problem att lämna roll tilldelningarna, men du kan ta bort dem med hjälp av steg som liknar andra roll tilldelningar. Information om hur du tar bort roll tilldelningar finns i [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure POWERSHELL](role-assignments-powershell.md#remove-a-role-assignment)eller [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+Det är inte ett problem att lämna roll tilldelningarna där säkerhets objekt har tagits bort. Om du vill kan du ta bort roll tilldelningarna med hjälp av steg som liknar andra roll tilldelningar. Information om hur du tar bort roll tilldelningar finns i [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure POWERSHELL](role-assignments-powershell.md#remove-a-role-assignment)eller [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
 
-Om du försöker ta bort roll tilldelningarna med objekt-ID: t och roll definitions namnet i PowerShell och fler än en roll tilldelning matchar dina parametrar visas följande fel meddelande: "den angivna informationen mappas inte till en roll tilldelning". Följande visar ett exempel på fel meddelandet:
+Om du försöker ta bort roll tilldelningarna med objekt-ID: t och roll definitions namnet i PowerShell och fler än en roll tilldelning matchar dina parametrar visas följande fel meddelande: "den angivna informationen mappas inte till en roll tilldelning". Följande utdata visar ett exempel på fel meddelandet:
 
 ```
 PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -RoleDefinitionName "Storage Blob Data Contributor"
@@ -217,5 +226,5 @@ En läsare kan klicka på fliken **plattforms funktioner** och sedan klicka på 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Felsöka för gäst användare](role-assignments-external-users.md#troubleshoot)
-- [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
-- [Visa aktivitets loggar för RBAC-ändringar till Azure-resurser](change-history-report.md)
+- [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](role-assignments-portal.md)
+- [Visa aktivitets loggar för Azure RBAC-ändringar](change-history-report.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: e5f9762533dc2ad47f855714822ba39c645bf847
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79fc74cc946578ffe91629065ddd03e43aa76957
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76045465"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629481"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Kom igång med att skapa en belastningsutjämnare mot Internet med IPv6 med hjälp av PowerShell för Resource Manager
 
@@ -61,7 +61,7 @@ Om du vill distribuera en belastningsutjämnare skapar och konfigurerar du följ
 * NAT-regler för inkommande trafik – innehåller regler för mappning av en offentlig port i lastbalanseraren till en port för en specifik virtuell dator i backend-adresspoolen.
 * Avsökningar – innehåller hälsoavsökningar som används för att kontrollera tillgängligheten av instanser av virtuella datorer i backend-adresspoolen.
 
-Mer information finns i [Azure Load Balancer-komponenter](./concepts-limitations.md#load-balancer-components).
+Mer information finns i [Azure Load Balancer-komponenter](./components.md).
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Konfigurera PowerShell för användning med Resource Manager
 

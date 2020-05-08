@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 3010ee7b996c9d3e96082edeb9447c960da321bd
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0fb5da965a9b13667b8a128e83a5a4cd2c2b28d7
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509807"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691847"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
 
@@ -30,8 +30,8 @@ Du kan visa två typer av loggar för Azure Event Hubs:
 * **[Aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md)**: loggarna innehåller information om åtgärder som utförs i ett jobb. Loggarna är alltid aktiverade. Du kan se aktivitets logg poster genom att välja **aktivitets logg** i det vänstra fönstret för ditt Event Hub-namnområde i Azure Portal. Exempel: "skapa eller uppdatera namn område", "skapa eller uppdatera Event Hub".
 
     ![Aktivitets logg för ett Event Hubs-namnområde](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md)**: du kan konfigurera diagnostikloggar för en mer omfattande vy av allt som händer med ett jobb. Diagnostikloggar behandlar aktiviteter från den tidpunkt då jobbet skapas tills jobbet tas bort, inklusive uppdateringar och aktiviteter som inträffar när jobbet körs.
-
+* **[Diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md)**: diagnostikloggar ger mer utförlig information om åtgärder och åtgärder som utförs mot ditt namn område med hjälp av API: et, eller via hanterings klienter på språk-SDK: n. 
+    
     I följande avsnitt visas hur du aktiverar diagnostikloggar för ett Event Hubs namn område.
 
 ## <a name="enable-diagnostic-logs"></a>Aktivera diagnostikloggar
@@ -55,16 +55,18 @@ Diagnostikloggar är inaktiverade som standard. Följ dessa steg om du vill akti
 
 Event Hubs fångar diagnostikloggar för följande kategorier:
 
-- **Arkiv loggar**: loggar som är relaterade till Event Hubs Arkiv, särskilt loggar som rör Arkiv fel.
-- **Drift loggar**: information om vad som händer under Event Hubs åtgärder, närmare bestämt åtgärds typen, inklusive skapande av händelsehubben, använda resurser och status för åtgärden.
-- **Automatiska skalnings loggar**: information om automatiska skalnings åtgärder som utförs på ett Event Hubs-namnområde. 
-- **Kafka-koordinator loggar** – information om Kafka koordinator åtgärder relaterade till Event Hubs. 
-- **Kafka-användar loggar**: information om Kafka användar åtgärder som är relaterade till Event Hubs. 
-- **Anslutnings händelse för Event Hubs virtuellt nätverk (VNet)**: information om Event Hubs virtuella nätverks anslutnings händelser. 
-- **Kund hanterade nyckel användar loggar**: information om åtgärder relaterade till kundhanterad nyckel. 
+| Kategori | Beskrivning | 
+| -------- | ----------- | 
+| Arkiv loggar | Samlar in information om [Event Hubs avbildnings](event-hubs-capture-overview.md) åtgärder, särskilt loggar som rör avbildnings fel. |
+| Drift loggar | Avbilda alla hanterings åtgärder som utförs på Azure Event Hubs-namnrymden. Data åtgärder samlas inte in på grund av den stora mängden data åtgärder som utförs på Azure Event Hubs. |
+| Automatisk skalnings loggar | Fångar upp automatiska öknings åtgärder som utförs på ett Event Hubs-namnområde. |
+| Kafka koordinator loggar | Samlar in Kafka Coordinator-åtgärder relaterade till Event Hubs. |
+| Kafka användar fel loggar | Samlar in information om Kafka-API: er som anropas på Event Hubs. |
+| Anslutnings händelse för Event Hubs virtuellt nätverk (VNet) | Samlar in information om IP-adresser och virtuella nätverk som skickar trafik till Event Hubs. |
+| Kund hanterade nyckel användar loggar | Fångar åtgärder relaterade till kundhanterad nyckel. |
 
 
-    Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post innehåller sträng fält som använder det format som beskrivs i följande avsnitt.
+Alla loggar lagras i JavaScript Object Notation (JSON)-format. Varje post innehåller sträng fält som använder det format som beskrivs i följande avsnitt.
 
 ## <a name="archive-logs-schema"></a>Schema för Arkiv loggar
 
@@ -72,17 +74,17 @@ Arkiv loggens JSON-strängar innehåller element som anges i följande tabell:
 
 Name | Beskrivning
 ------- | -------
-/TN | Beskrivning av uppgiften som misslyckades.
-ActivityId | Internt ID som används för spårning.
-trackingId | Internt ID som används för spårning.
-resourceId | Azure Resource Manager resurs-ID.
-eventHub | Event Hub fullständigt namn (innehåller namn rymds namn).
-Partition | Den Event Hub-partition som skrivs till.
-archiveStep | ArchiveFlushWriter
-startTime | Start tid för startfel.
-fel | Antal inträffade tids fel.
-durationInSeconds | Varaktighet för felet.
-meddelande | Fel meddelande.
+/TN | Beskrivning av uppgiften som misslyckades
+ActivityId | Internt ID som används för spårning
+trackingId | Internt ID som används för spårning
+resourceId | Resurs-ID för Azure Resource Manager
+eventHub | Event Hub fullständigt namn (innehåller namn rymds namn)
+Partition | Event Hub-partition som skrivs till
+archiveStep | möjliga värden: ArchiveFlushWriter, DestinationInit
+startTime | Start tid för startfel
+fel | Antal gånger som felet inträffade
+durationInSeconds | Varaktighet för felet
+meddelande | Felmeddelande
 category | ArchiveLogs
 
 Följande kod är ett exempel på en logg-JSON-sträng för Arkiv logg:
@@ -90,10 +92,10 @@ Följande kod är ett exempel på en logg-JSON-sträng för Arkiv logg:
 ```json
 {
    "TaskName": "EventHubArchiveUserError",
-   "ActivityId": "21b89a0b-8095-471a-9db8-d151d74ecf26",
-   "trackingId": "21b89a0b-8095-471a-9db8-d151d74ecf26_B7",
-   "resourceId": "/SUBSCRIPTIONS/854D368F-1828-428F-8F3C-F2AFFA9B2F7D/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
-   "eventHub": "fbettati-opera-eventhub:eventhub:eh123~32766",
+   "ActivityId": "000000000-0000-0000-0000-0000000000000",
+   "trackingId": "0000000-0000-0000-0000-00000000000000000",
+   "resourceId": "/SUBSCRIPTIONS/000000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs Namespace Name>",
+   "eventHub": "<Event Hub full name>",
    "partitionId": "1",
    "archiveStep": "ArchiveFlushWriter",
    "startTime": "9/22/2016 5:11:21 AM",
@@ -110,27 +112,27 @@ I den operativa loggens JSON-strängar ingår element som anges i följande tabe
 
 Name | Beskrivning
 ------- | -------
-ActivityId | Internt ID som används för att spåra syfte.
-EventName | Åtgärdsnamn.  
-resourceId | Azure Resource Manager resurs-ID.
-SubscriptionId | Prenumerations-ID.
-EventTimeString | Åtgärds tid.
-EventProperties | Egenskaper för åtgärd.
-Status | Åtgärds status.
-Anropare | Uppringnings åtgärd (Azure Portal-eller hanterings klient).
-category | OperationalLogs
+ActivityId | Internt ID, används i spårnings syfte |
+EventName | Åtgärdsnamn |
+resourceId | Resurs-ID för Azure Resource Manager |
+SubscriptionId | Prenumerations-ID:t |
+EventTimeString | Åtgärds tid |
+EventProperties | Egenskaper för åtgärd |
+Status | Åtgärdsstatus |
+Anropare | Uppringnings åtgärd (Azure Portal-eller hanterings klient) |
+Kategori | OperationalLogs |
 
 Följande kod är ett exempel på en fungerande logg-JSON-sträng:
 
 ```json
 Example:
 {
-   "ActivityId": "6aa994ac-b56e-4292-8448-0767a5657cc7",
+   "ActivityId": "00000000-0000-0000-0000-00000000000000",
    "EventName": "Create EventHub",
-   "resourceId": "/SUBSCRIPTIONS/1A2109E3-9DA0-455B-B937-E35E36C1163C/RESOURCEGROUPS/DEFAULT-SERVICEBUS-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/SHOEBOXEHNS-CY4001",
-   "SubscriptionId": "1a2109e3-9da0-455b-b937-e35e36c1163c",
+   "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-0000000000000/RESOURCEGROUPS/<Resource Group Name>/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/<Event Hubs namespace name>",
+   "SubscriptionId": "000000000-0000-0000-0000-000000000000",
    "EventTimeString": "9/28/2016 8:40:06 PM +00:00",
-   "EventProperties": "{\"SubscriptionId\":\"1a2109e3-9da0-455b-b937-e35e36c1163c\",\"Namespace\":\"shoeboxehns-cy4001\",\"Via\":\"https://shoeboxehns-cy4001.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
+   "EventProperties": "{\"SubscriptionId\":\"0000000000-0000-0000-0000-000000000000\",\"Namespace\":\"<Namespace Name>\",\"Via\":\"https://<Namespace Name>.servicebus.windows.net/f8096791adb448579ee83d30e006a13e/?api-version=2016-07\",\"TrackingId\":\"5ee74c9e-72b5-4e98-97c4-08a62e56e221_G1\"}",
    "Status": "Succeeded",
    "Caller": "ServiceBus Client",
    "category": "OperationalLogs"
@@ -142,36 +144,51 @@ Autoskalning log JSON innehåller element som anges i följande tabell:
 
 | Name | Beskrivning |
 | ---- | ----------- | 
-| trackingId | Internt ID, som används för spårnings syfte |
-| resourceId | Internt ID, som innehåller ID för Azure-prenumeration och namn område |
-| meddelande | Informations meddelande som innehåller information om åtgärder för automatisk ökning. Meddelandet innehåller det tidigare och aktuella värdet för data flödes enheten för en specifik namnrymd och vad som utlöste data flödes enheter. |
+| TrackingId | Internt ID, som används för spårnings syfte |
+| ResourceId | Azure Resource Manager resurs-ID. |
+| Meddelande | Informations meddelande som innehåller information om åtgärder för automatisk ökning. Meddelandet innehåller det tidigare och aktuella värdet för data flödes enheten för en specifik namnrymd och vad som utlöste data flödes enheter. |
 
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka-koordinator loggar schema
 Kafka Coordinator log JSON innehåller element som anges i följande tabell:
 
 | Name | Beskrivning |
 | ---- | ----------- | 
-| requestId | ID för begäran som används för spårnings syfte |
-| resourceId | Internt ID, som innehåller ID för Azure-prenumeration och namn område |
-| operationName | Namnet på åtgärden som utförs under grupp samordningen |
-| ClientID | Klientorganisations-ID |
-| namespaceName | Namn på namnområde | 
-| subscriptionId | ID för Azure-prenumeration |
-| meddelande | Informations meddelande som innehåller information om åtgärder som utförs under samordningen av konsument grupper. |
+| RequestId | ID för begäran som används för spårnings syfte |
+| ResourceId | Resurs-ID för Azure Resource Manager |
+| Åtgärd | Namnet på åtgärden som utförs under grupp samordningen |
+| ClientId | Klientorganisations-ID |
+| NamespaceName | Namn på namnområde | 
+| SubscriptionId | ID för Azure-prenumeration |
+| Meddelande | Informations-eller varnings meddelande som innehåller information om åtgärder som utförs under grupp samordningen. |
+
+### <a name="example"></a>Exempel
+
+```json
+{
+    "RequestId": "FE01001A89E30B020000000304620E2A_KafkaExampleConsumer#0",
+    "Operation": "Join.Start",
+    "ClientId": "KafkaExampleConsumer#0",
+    "Message": "Start join group for new member namespace-name:c:$default:I:KafkaExampleConsumer#0-cc40856f7f3c4607915a571efe994e82, current group size: 0, API version: 2, session timeout: 10000ms, rebalance timeout: 300000ms.",
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "KafkaCoordinatorLogs"
+}
+```
 
 ## <a name="kafka-user-error-logs-schema"></a>Schema för Kafka-användar fel loggar
 Kafka user error log JSON innehåller element som anges i följande tabell:
 
 | Name | Beskrivning |
 | ---- | ----------- |
-| trackingId | spårnings-ID, som används för spårnings syfte. |
-| namespaceName | Namn på namnområde |
-| eventhub | Namn på händelsehubb |
+| TrackingId | Spårnings-ID, som används för spårnings syfte. |
+| NamespaceName | Namn på namnområde |
+| Eventhub | Namn på händelsehubb |
 | Partition | Partitions-ID |
-| groupId | Grupp-ID |
+| GroupId | Grupp-ID |
 | ClientId | Klientorganisations-ID |
-| resourceId | Internt ID, som innehåller ID för Azure-prenumeration och namn område |
-| meddelande | Informations meddelande som innehåller information om ett fel |
+| ResourceId | Azure Resource Manager resurs-ID. |
+| Meddelande | Informations meddelande som innehåller information om ett fel |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Händelse schema för Event Hubs virtuell nätverks anslutning
 
@@ -179,27 +196,42 @@ Event Hubs virtuellt nätverk (VNet) Connection Event JSON innehåller element s
 
 | Name | Beskrivning |
 | ---  | ----------- | 
-| subscriptionId | ID för Azure-prenumeration |
-| namespaceName | Namn på namnområde |
-| Adresser | IP-adress för en klient som ansluter till Event Hubs tjänsten |
-| åtgärd | Åtgärd som utförs av den Event Hubs tjänsten vid utvärdering av anslutnings begär Anden. De åtgärder som stöds är **AcceptConnection** och **RejectConnection**. |
-| orsak | Innehåller en orsak till varför åtgärden utfördes |
-| count | Antal förekomster för den aktuella åtgärden |
-| resourceId | Internt resurs-ID som innehåller prenumerations-ID och namn områdes namn. |
+| SubscriptionId | ID för Azure-prenumeration |
+| NamespaceName | Namn på namnområde |
+| IP-adress | IP-adress för en klient som ansluter till Event Hubs tjänsten |
+| Action | Åtgärd som utförs av den Event Hubs tjänsten vid utvärdering av anslutnings begär Anden. Åtgärder som stöds **accepterar anslutning** och **neka anslutning**. |
+| Orsak | Innehåller en orsak till varför åtgärden utfördes |
+| Antal | Antal förekomster för den aktuella åtgärden |
+| ResourceId | Azure Resource Manager resurs-ID. |
+
+### <a name="example"></a>Exempel
+
+```json
+{
+    "SubscriptionId": "0000000-0000-0000-0000-000000000000",
+    "NamespaceName": "namespace-name",
+    "IPAddress": "1.2.3.4",
+    "Action": "Deny Connection",
+    "Reason": "IPAddress doesn't belong to a subnet with Service Endpoint enabled.",
+    "Count": "65",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name",
+    "Category": "EventHubVNetConnectionEvent"
+}
+```
 
 ## <a name="customer-managed-key-user-logs"></a>Kund hanterade nyckel användar loggar
 Kund hanterad nyckel användar logg JSON innehåller element som anges i följande tabell:
 
 | Name | Beskrivning |
 | ---- | ----------- | 
-| category | Typ av kategori för ett meddelande. Det är ett av följande värden: **fel** och **information** |
-| resourceId | Internt resurs-ID, som innehåller ID för Azure-prenumeration och namn område |
-| keyVault | Namnet på Key Vault resursen |
-| key | Namnet på den Key Vault nyckeln. |
-| version | Key Vault nyckelns version |
-| reparation | Namnet på en åtgärd som utförs för att betjäna förfrågningar |
-| kod | Statuskod |
-| meddelande | Meddelande, som innehåller information om ett fel eller informations meddelande |
+| Kategori | Typ av kategori för ett meddelande. Det är ett av följande värden: **fel** och **information** |
+| ResourceId | Internt resurs-ID, som innehåller ID för Azure-prenumeration och namn område |
+| KeyVault | Namnet på Key Vault resursen |
+| Tangent | Namnet på den Key Vault nyckeln. |
+| Version | Key Vault nyckelns version |
+| Åtgärd | Namnet på en åtgärd som utförs för att betjäna förfrågningar |
+| Kod | Statuskod |
+| Meddelande | Meddelande, som innehåller information om ett fel eller informations meddelande |
 
 
 

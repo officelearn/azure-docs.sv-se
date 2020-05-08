@@ -6,16 +6,16 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e7f1b70aca50b4e42d056beb0b17795430091c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78273572"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690712"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Service Bus utlösare för Azure Functions
 
-Använd Service Bus-utlösaren för att svara på meddelanden från en Service Bus kö eller ett ämne.
+Använd Service Bus-utlösaren för att svara på meddelanden från en Service Bus kö eller ett ämne. Från och med Extension version 3.1.0 kan du aktivera en kö eller ett ämne som är i kö.
 
 Information om konfiguration och konfigurations information finns i [översikten](functions-bindings-service-bus-output.md).
 
@@ -222,7 +222,7 @@ Använd följande attribut i [C#-klass bibliotek](functions-dotnet-class-library
   }
   ```
 
-  Du kan ange `Connection` egenskapen för att ange namnet på en app-inställning som innehåller Service Bus anslutnings strängen som ska användas, som du ser i följande exempel:
+  Eftersom `Connection` egenskapen inte är definierad söker Functions efter en app-inställning `AzureWebJobsServiceBus`med namnet, som är standard namnet för Service Bus anslutnings strängen. Du kan också ange `Connection` egenskapen för att ange namnet på en program inställning som innehåller den Service Bus anslutnings sträng som ska användas, som du ser i följande exempel:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -291,7 +291,7 @@ I följande tabell förklaras de egenskaper för bindnings konfiguration som du 
 |function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
 |**bastyp** | saknas | Måste vara inställd på "serviceBusTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
-|**riktning** | saknas | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**position** | saknas | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
 |**Namn** | saknas | Namnet på variabeln som representerar kön eller ämnes meddelandet i funktions koden. |
 |**queueName**|**QueueName**|Namnet på kön som ska övervakas.  Ange endast om övervakning av en kö, inte för ett ämne.
 |**topicName**|**TopicName**|Namn på det ämne som ska övervakas. Ange endast om du övervakar ett ämne, inte för en kö.|
@@ -354,21 +354,24 @@ Kan konfigureras i *Host. JSON*, som mappar till [OnMessageOptions. MaxAutoRenew
 
 ## <a name="message-metadata"></a>Metadata för meddelande
 
-Service Bus utlösaren innehåller flera [Egenskaper för metadata](./functions-bindings-expressions-patterns.md#trigger-metadata). Dessa egenskaper kan användas som en del av bindnings uttryck i andra bindningar eller som parametrar i koden. De här egenskaperna är medlemmar i klassen [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) .
+Service Bus utlösaren innehåller flera [Egenskaper för metadata](./functions-bindings-expressions-patterns.md#trigger-metadata). Dessa egenskaper kan användas som en del av bindnings uttryck i andra bindningar eller som parametrar i koden. De här egenskaperna är medlemmar i [meddelande](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet) klassen.
 
 |Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
-|`DeliveryCount`|`Int32`|Antalet leveranser.|
-|`DeadLetterSource`|`string`|Källan för obeställbara meddelanden.|
-|`ExpiresAtUtc`|`DateTime`|Förfallo tiden i UTC.|
-|`EnqueuedTimeUtc`|`DateTime`|Den köade tiden i UTC.|
-|`MessageId`|`string`|Ett användardefinierat värde som Service Bus kan använda för att identifiera duplicerade meddelanden, om det är aktiverat.|
 |`ContentType`|`string`|En innehålls typ identifierare som används av avsändaren och mottagaren för programspecifik logik.|
-|`ReplyTo`|`string`|Svar på Queue-adress.|
-|`SequenceNumber`|`Int64`|Det unika nummer som tilldelas ett meddelande av Service Bus.|
-|`To`|`string`|Skicka till-adressen.|
-|`Label`|`string`|Den programspecifika etiketten.|
 |`CorrelationId`|`string`|Korrelations-ID: t.|
+|`DeadLetterSource`|`string`|Källan för obeställbara meddelanden.|
+|`DeliveryCount`|`Int32`|Antalet leveranser.|
+|`EnqueuedTimeUtc`|`DateTime`|Den köade tiden i UTC.|
+|`ExpiresAtUtc`|`DateTime`|Förfallo tiden i UTC.|
+|`Label`|`string`|Den programspecifika etiketten.|
+|`MessageId`|`string`|Ett användardefinierat värde som Service Bus kan använda för att identifiera duplicerade meddelanden, om det är aktiverat.|
+|`MessageReceiver`|`MessageReceiver`|Service Bus meddelande mottagare. Kan användas för att överge, slutföra eller obeställbara meddelanden kön meddelandet.|
+|`MessageSession`|`MessageSession`|En meddelande mottagare som är specifikt för sessionsbaserade köer och ämnen.|
+|`ReplyTo`|`string`|Svar på Queue-adress.|
+|`SequenceNumber`|`long`|Det unika nummer som tilldelas ett meddelande av Service Bus.|
+|`To`|`string`|Skicka till-adressen.|
+|`UserProperties`|`IDictionary<string, object>`|Egenskaper som anges av avsändaren.|
 
 Se [kod exempel](#example) som använder dessa egenskaper tidigare i den här artikeln.
 

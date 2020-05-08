@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: ff8dc58b9122e5173a9a6065e2efdbc5697be0d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81727221"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692248"
 ---
 # <a name="known-issues"></a>Kända problem #
 
@@ -46,9 +46,10 @@ Den aktuella versionen har följande kända problem:
 
 - När innehållet är klart i DVR-fönstret i Live-innehåll fortsätter tids linjen att växa tills den söker efter det eller når slutet av presentationen.
 - Live-presentationer i Firefox med MSE aktiverat har problem
-- Till gångar som endast är ljud eller video spelas inte tillbaka via AzureHtml5JS-Tech.
-  - Om du vill spela upp till gångar utan ljud eller video kan du göra det genom att infoga tom ljud eller video med hjälp av [verktyget Azure Media Services Explorer](https://aka.ms/amse)
-    - Anvisningar om hur du infogar tyst ljud finns [här](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
+
+- Till gångar som endast är ljud spelas bara tillbaka via AzureHtml5JS-Tech.
+  - Om du vill spela upp till gångar utan ljud kan du göra det genom att infoga ett tomt ljud med [verktyget Azure Media Services Explorer](https://aka.ms/amse)
+  - Anvisningar om hur du infogar tyst ljud finns [här](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio)
 
 ## <a name="flash"></a>Utvecklingsverktyget ##
 
@@ -91,7 +92,7 @@ Den aktuella versionen har följande kända problem:
 ## <a name="apple"></a>Apple ##
 
 - Safari på Mac aktiverar ofta energi spar läge som standard med inställningen "stoppa plugin-program för att spara energi", vilket blockerar plugin-program som Flash och Silverlight när de tror att de inte prioriteras för användaren. Det här blocket blockerar inte plugin-programmets befintliga funktioner. Med den här standard techOrder kan detta orsaka problem vid försök att spela upp igen
-  - Minskning 1: om Videos pelaren är "framtill" eller "centrera" (inom en ram på 3000 x 3000 pixlar som börjar i det övre vänstra hörnet av dokumentet) ska det fortfarande spelas upp.
+  - Minskning 1: om Videos pelaren är "framtill" eller "centrera" (inom en ram på 3000 x 3000 pixlar som börjar i det övre vänstra hörnet av dokumentet) bör det fortfarande spelas upp.
   - Minskning 2: ändra techOrder för Safari till ["azureHtml5JS", "HTML5"]. Den här lösningen har indirekt inte alla funktioner som är tillgängliga i Flash-Tech.
 - PlayReady-innehåll via Silverlight kan ha problem som spelas upp i Safari.
 - Innehåll för AES och begränsad token spelas inte upp med iOS och äldre Android-enheter.

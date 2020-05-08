@@ -7,18 +7,18 @@ manager: carmonm
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d62fa84711bd8cba57d07f3464c21344bc5c32c6
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658412"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731753"
 ---
 # <a name="programmatically-manage-workbooks"></a>Hantera arbets böcker program mässigt
 
-Resurs ägare har möjlighet att skapa och hantera sina arbets böcker via programmering via Resource Manager-mallar. 
+Resurs ägare har möjlighet att skapa och hantera sina arbets böcker via programmering via Resource Manager-mallar.
 
 Detta kan vara användbart i scenarier som:
 * Distribuera organisations-eller domänbaserade analys rapporter tillsammans med distributioner av resurser. Du kan till exempel distribuera org-/regionsspecifika prestanda-och arbets böcker för dina nya appar eller virtuella datorer.
@@ -26,7 +26,98 @@ Detta kan vara användbart i scenarier som:
 
 Arbets boken kommer att skapas i önskad under-eller resurs grupp och med det innehåll som anges i Resource Manager-mallarna.
 
-## <a name="azure-resource-manager-template-for-deploying-workbooks"></a>Azure Resource Manager mall för distribution av arbets böcker
+Det finns två typer av arbets boks resurser som kan hanteras program mässigt:
+* [Mallar för arbets böcker](#azure-resource-manager-template-for-deploying-a-workbook-template)
+* [Arbets boks instanser](#azure-resource-manager-template-for-deploying-a-workbook-instance)
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-template"></a>Azure Resource Manager mall för att distribuera en mall för arbets böcker
+
+1. Öppna en arbets bok som du vill distribuera program mässigt.
+2. Ändra arbets boken till redigerings läge genom att klicka på objektet _Redigera_ verktygsfält.
+3. Öppna _avancerad redigerare_ med _</>_ knappen i verktygsfältet.
+4. Se till att du är på fliken _Galleri mal len_ .
+
+    ![Fliken Galleri mal len](./media/workbooks-automate/gallery-template.png)
+1. Kopiera JSON i Galleri mal len till Urklipp.
+2. Nedan visas ett exempel på en Azure Resource Manager mall som distribuerar en arbetsboksmall till Azure Monitor arbets boks galleriet. Klistra in JSON-filen som du kopierade i stället för `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. En referens Azure Resource Manager mall som skapar en mall för arbets böcker finns [här](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
+
+    ```json
+          {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "resourceName": {
+                "type": "string",
+                "defaultValue": "my-workbook-template",
+                "metadata": {
+                    "description": "The unique name for this workbook template instance"
+                }
+            }
+        },
+        "resources": [
+            {
+                "name": "[parameters('resourceName')]",
+                "type": "microsoft.insights/workbooktemplates",
+                "location": "[resourceGroup().location]",
+                "apiVersion": "2019-10-17-preview",
+                "dependsOn": [],
+                "properties": {
+                    "galleries": [
+                        {
+                            "name": "A Workbook Template",
+                            "category": "Deployed Templates",
+                            "order": 100,
+                            "type": "workbook",
+                            "resourceType": "Azure Monitor"
+                        }
+                    ],
+                    "templateData": <PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>
+                }
+            }
+        ]
+    }
+    ```
+1. I- `galleries` objektet fyller du `name` i och `category` -nycklarna med dina värden. Läs mer om [parametrar](#parameters) i nästa avsnitt.
+2. Distribuera denna Azure Resource Manager-mall med hjälp av antingen [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), [kommando rads gränssnittet](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)osv.
+3. Öppna Azure Portal och navigera till galleriet för arbets boken som valts i Azure Resource Manager-mallen. I exempel mal len navigerar du till galleriet Azure Monitor arbets bok:
+    1. Öppna Azure Portal och navigera till Azure Monitor
+    2. Öppna `Workbooks` i innehålls förteckningen
+    3. Hitta din mall i galleriet under kategori `Deployed Templates` (är ett av de lila objekten).
+
+### <a name="parameters"></a>Parametrar
+
+|Parametrar                |Förklaring                                                                                             |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------|
+| `name`                   | Namnet på arbets boks mal len resurs i Azure Resource Manager.                                  |
+|`type`                    | Always Microsoft. Insights/workbooktemplates                                                            |
+| `location`               | Den Azure-plats som arbets boken ska skapas i.                                               |
+| `apiVersion`             | 2019-10-17 för hands version                                                                                     |
+| `type`                   | Always Microsoft. Insights/workbooktemplates                                                            |
+| `galleries`              | Uppsättningen gallerier som ska visa den här arbets boks mal len i.                                                |
+| `gallery.name`           | Det egna namnet på arbets boks mal len i galleriet.                                             |
+| `gallery.category`       | Gruppen i galleriet där mallen ska placeras.                                                     |
+| `gallery.order`          | Ett tal som bestämmer ordningen för att Visa mallen i en kategori i galleriet. Lägre ordning innebär högre prioritet. |
+| `gallery.resourceType`   | Den resurs typ som motsvarar galleriet. Detta är vanligt vis den resurs typs sträng som motsvarar resursen (till exempel Microsoft. operationalinsights/arbets ytor). |
+|`gallery.type`            | Kallas för arbets boks typ, detta är en unik nyckel som särskiljer galleriet i en resurs typ. Application Insights kan till exempel ha typer `workbook` och `tsg` som motsvarar olika arbets boks gallerier. |
+
+### <a name="galleries"></a>Gallerier
+
+| Galleri                                        | Resurstyp                                      | Arbets boks typ |
+| :--------------------------------------------- |:---------------------------------------------------|:--------------|
+| Arbets böcker i Azure Monitor                     | `Azure Monitor`                                    | `workbook`    |
+| VM Insights i Azure Monitor                   | `Azure Monitor`                                    | `vm-insights` |
+| Arbets böcker i Log Analytics-arbetsyta           | `microsoft.operationalinsights/workspaces`         | `workbook`    |
+| Arbets böcker i Application Insights              | `microsoft.insights/component`                     | `workbook`    |
+| Fel söknings guider i Application Insights | `microsoft.insights/component`                     | `tsg`         |
+| Användning i Application Insights                  | `microsoft.insights/component`                     | `usage`       |
+| Arbets böcker i Kubernetes-tjänsten                | `Microsoft.ContainerService/managedClusters`       | `workbook`    |
+| Arbets böcker i resurs grupper                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
+| Arbets böcker i Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
+| VM-insikter på virtuella datorer                | `microsoft.compute/virtualmachines`                | `insights`    |
+| VM Insights i skalnings uppsättningar för virtuella datorer                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+
+## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Azure Resource Manager mall för att distribuera en arbets boks instans
+
 1. Öppna en arbets bok som du vill distribuera program mässigt.
 2. Ändra arbets boken till redigerings läge genom att klicka på objektet _Redigera_ verktygsfält.
 3. Öppna _avancerad redigerare_ med _</>_ knappen i verktygsfältet.
@@ -124,4 +215,3 @@ Av teknisk anledning kan den här mekanismen inte användas för att skapa arbet
 ## <a name="next-steps"></a>Nästa steg
 
 Utforska hur arbets böcker används för att sätta nya [Azure Monitor för lagrings upplevelsen](../insights/storage-insights-overview.md).
-

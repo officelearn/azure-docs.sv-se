@@ -1,23 +1,17 @@
 ---
-title: Rikt linjer för prestanda justering Azure Data Lake Storage Gen1 Storm | Microsoft Docs
-description: Rikt linjer för prestanda justering Azure Data Lake Storage Gen1 Storm
-services: data-lake-store
-documentationcenter: ''
+title: Prestanda justering – Storm med Azure Data Lake Storage Gen1
+description: Lär dig mer om prestanda justerings rikt linjer för ett Storm-kluster på Azure Data Lake Storage Gen1.
 author: stewu
-manager: amitkul
-editor: stewu
-ms.assetid: ebde7b9f-2e51-4d43-b7ab-566417221335
 ms.service: data-lake-store
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 8066a759cf80be6e9ca232bcd3693a5fa4d2f2f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 85a38a4da65d1b4a669a41eba902b39508e9216c
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "61436485"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691649"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Prestanda justerings vägledning för storm på HDInsight och Azure Data Lake Storage Gen1
 
@@ -42,7 +36,7 @@ Du kanske kan förbättra prestandan genom att öka samtidigheten för I/O till 
 
 Till exempel, i ett kluster med 4 virtuella datorer och 4 arbets processer, 32 kanalen-körningar och 32 kanalen-uppgifter, samt 256 bult-körningar och 512 bult-uppgifter, bör du tänka på följande:
 
-Varje ansvarig, som är en arbetsnod, har en enda Worker Java Virtual Machine (JVM)-process. Den här JVM-processen hanterar 4 kanalen-trådar och 64 bult-trådar. I varje tråd körs aktiviteter sekventiellt. Med föregående konfiguration har varje kanalen-tråd 1 uppgift och varje bult-tråd har två uppgifter.
+Varje ansvarig, som är en arbetsnod, har en enda Worker Java Virtual Machine (JVM)-process. Den här JVM-processen hanterar 4 kanalen-trådar och 64 bult-trådar. I varje tråd körs aktiviteter sekventiellt. Med föregående konfiguration har varje kanalen-tråd en uppgift och varje bult-tråd har två aktiviteter.
 
 I storm är här de olika komponenterna som berörs och hur de påverkar graden av parallellitet som du har:
 * Head-noden (kallas Nimbus i Storm) används för att skicka och hantera jobb. Dessa noder påverkar inte graden av parallellitet.
@@ -59,15 +53,15 @@ När du arbetar med Data Lake Storage Gen1 får du bästa möjliga prestanda om 
 
 ### <a name="example-topology"></a>Exempel sto pol Ogin
 
-Vi antar att du har ett 8 Work Node-kluster med en D13v2 Azure VM. Den här virtuella datorn har 8 kärnor, så mellan de 8 arbetsnoderna har du 64 total kärnor.
+Vi antar att du har ett åtta arbets nods kluster med en D13v2 Azure VM. Den här virtuella datorn har åtta kärnor, så mellan de åtta arbetsnoderna har du 64 total kärnor.
 
-Låt oss säga att vi har åtta bult-trådar per kärna. Med 64 kärnor innebär det att vi vill ha 512 totalt utförar-instanser för bult (det vill säga trådar). I det här fallet antar vi att vi börjar med en JVM per virtuell dator och använder i huvudsak tråd samtidigheten i JVM för att uppnå samtidighet. Det innebär att vi behöver 8 arbets uppgifter (en per virtuell Azure-dator) och 512 bult-körningar. Med hänsyn till den här konfigurationen försöker Storm att distribuera arbets tagarna jämnt över arbetsnoderna (även kallade tillsynsmyndigheter), vilket ger varje arbetsnod 1-JVM. Storm försöker nu att distribuera körningarna jämnt mellan supervisor, vilket ger varje ansvarig (det vill säga JVM) 8 trådar var som helst.
+Låt oss säga att vi använder åtta bult-trådar per kärna. Med 64 kärnor innebär det att vi vill ha 512 totalt utförar-instanser för bult (det vill säga trådar). I det här fallet antar vi att vi börjar med en JVM per virtuell dator och använder i huvudsak tråd samtidigheten i JVM för att uppnå samtidighet. Det innebär att vi behöver åtta arbets uppgifter (en per virtuell Azure-dator) och 512 bult-körningar. Med den här konfigurationen försöker Storm distribuera arbets tagarna jämnt över arbetsnoderna (även kallade tillsynsmyndigheter), vilket ger varje arbetsnode en JVM. Storm försöker nu att distribuera körningarna jämnt mellan supervisor, vilket ger varje ansvarig (det vill säga JVM) åtta trådar var som helst.
 
 ## <a name="tune-additional-parameters"></a>Justera ytterligare parametrar
 När du har en grundläggande topologi kan du fundera över om du vill ändra någon av parametrarna:
 * **Antal JVMs per arbets nod.** Om du har en stor data struktur (till exempel en uppslags tabell) som du är värd för i minnet, kräver varje JVM en separat kopia. Du kan också använda data strukturen för många trådar om du har färre JVMs. För bultens I/O gör antalet JVMs inte lika mycket av skillnaden som antalet trådar som har lagts till i JVMs. För enkelhetens skull är det en bra idé att ha en JVM per arbets tagare. Du kan behöva ändra det här värdet, beroende på vad din bult gör eller vilken program bearbetning du behöver.
 * **Antal kanalen-körningar.** Eftersom föregående exempel använder bultar för att skriva till Data Lake Storage Gen1, är antalet kanaler inte direkt relevant för bultens prestanda. Beroende på mängden bearbetning eller I/O-åtgärder i kanalen är det dock en bra idé att justera kanaler för bästa prestanda. Se till att du har tillräckligt många kanaler för att kunna hålla bultarna upptagna. De utgående frekvenserna för kanaler bör matcha bultens data flöde. Den faktiska konfigurationen beror på kanalen.
-* **Antal aktiviteter.** Varje bult körs som en enda tråd. Ytterligare aktiviteter per bult ger ingen ytterligare samtidighet. Den enda tiden de är av förmånen är om din process att bekräfta att tuppeln tar en stor del av din bult-körnings tid. Det är en bra idé att gruppera många tupler i ett större tillägg innan du skickar ett bekräftelse från bulten. I de flesta fall ger flera aktiviteter ingen ytterligare förmån.
+* **Antal aktiviteter.** Varje bult körs som en enda tråd. Ytterligare aktiviteter per bult ger ingen ytterligare samtidighet. Den enda tiden de är av förmånen är om din process att bekräfta att tuppeln tar en stor del av din bult-körnings tid. Det är en bra idé att gruppera många tupler i ett större tillägg innan du skickar en bekräftelse från bulten. I de flesta fall ger flera aktiviteter ingen ytterligare förmån.
 * **Lokal eller blandad gruppering.** När den här inställningen är aktive rad skickas tupler till bultar inom samma arbets process. Detta minskar kommunikation mellan processer och nätverks anrop. Detta rekommenderas för de flesta topologier.
 
 Det här grundläggande scenariot är en lämplig start punkt. Testa med dina egna data för att justera föregående parametrar för att uppnå optimala prestanda.
@@ -76,7 +70,7 @@ Det här grundläggande scenariot är en lämplig start punkt. Testa med dina eg
 
 Du kan ändra följande inställningar för att finjustera kanalen.
 
-- **Tupel-timeout: topologi. Message. timeout. sekunder**. Den här inställningen anger hur lång tid ett meddelande tar att slutföra och får bekräftelse innan det betraktas som misslyckat.
+- **Tupel-timeout: topologi. Message. timeout. sekunder**. Den här inställningen avgör hur lång tid ett meddelande tar att slutföra och får bekräftelse innan det betraktas som misslyckat.
 
 - **Högsta mängd minne per arbets process: Worker. childopts**. Med den här inställningen kan du ange ytterligare kommando rads parametrar för Java-arbetarna. Den vanligaste inställningen här är XmX, som avgör den maximala mängd minne som allokerats till en JVM-heap.
 
@@ -85,7 +79,7 @@ Du kan ändra följande inställningar för att finjustera kanalen.
   En lämplig beräkning är att beräkna storleken på varje tupel. Räkna sedan upp hur mycket minne en kanalen tråd har. Det totala minne som allokerats till en tråd, dividerat med det här värdet, ska ge dig den övre bindningen för den maximala kanalen-parametern som väntar.
 
 ## <a name="tune-the-bolt"></a>Justera bulten
-När du skriver till Data Lake Storage Gen1 anger du en princip för synkronisering av storlek (buffert på klient sidan) till 4 MB. En tömning eller HSync () utförs sedan endast när buffertstorleken är i det här värdet. Den Data Lake Storage Gen1 driv rutinen för den virtuella datorn i arbets gruppen utför automatiskt denna buffring, om du inte uttryckligen utför en HSync ().
+När du skriver till Data Lake Storage Gen1 anger du en princip för synkronisering av storlek (buffert på klient sidan) till 4 MB. En tömning eller HSync () utförs sedan endast när buffertstorleken är på det här värdet. Den Data Lake Storage Gen1 driv rutinen för den virtuella datorn i arbets gruppen utför automatiskt denna buffring, om du inte uttryckligen utför en HSync ().
 
 Standard Data Lake Storage Gen1 Storm bult har en princip parameter för fileBufferSize (size) som kan användas för att finjustera den här parametern.
 
@@ -95,7 +89,7 @@ I i/O-intensiva topologier är det en bra idé att låta varje bult-tråd skriva
 
 I storm innehåller en kanalen till en tupel tills den uttryckligen bekräftas av bulten. Om en tupel har lästs av en bult men ännu inte har bekräftats, kanske kanalen inte har bearbetats i Data Lake Storage Gen1 Server del. När en tupel har bekräftats kan kanalen garanteras av bulten och kan sedan ta bort käll data från den källa som den läser från.  
 
-För bästa prestanda på Data Lake Storage Gen1 måste du ha bult-buffert 4 MB av tuple-data. Skriv sedan till Data Lake Storage Gen1 Server delen som en 4 MB-skrivning. När data har skrivits till butiken (genom att anropa hflush ()) kan bulten bekräfta data tillbaka till kanalen. Det här är den exempel bult som anges här. Det är också acceptabelt att innehålla ett större antal tupler innan hflush ()-anropet görs och tupelarna har bekräftats. Detta ökar dock antalet tupler som kanalen måste hålla och ökar därför mängden minne som krävs per JVM.
+För bästa prestanda på Data Lake Storage Gen1 måste du ha bult-buffert 4 MB av tuple-data. Skriv sedan till den Data Lake Storage Gen1 Server delen som en 4 MB skrivning. När data har skrivits till butiken (genom att anropa hflush ()) kan bulten bekräfta data tillbaka till kanalen. Det här är den exempel bult som anges här. Det är också acceptabelt att innehålla ett större antal tupler innan hflush ()-anropet görs och tupelarna har bekräftats. Detta ökar dock antalet tupler som kanalen måste hålla och ökar därför mängden minne som krävs per JVM.
 
 > [!NOTE]
 > Program kan ha ett krav på att bekräfta tupler oftare (vid data storlekar som är mindre än 4 MB) för andra icke-prestandarelaterade orsaker. Men det kan påverka i/O-dataflödet till lagrings platsens Server del. Väg in den här kompromissen mot bultens I/O-prestanda.
@@ -104,7 +98,7 @@ Om den inkommande mängden tupler inte är hög, så det tar lång tid att fylla
 * Minska antalet bultar, så det finns färre buffertar att fylla i.
 * Att ha en tidsbaserad eller räknad princip, där en hflush () utlöses varje x-tömning eller varje y millisekunder, och de tupler som har samlats in så länge, kommer att bekräftas igen.
 
-Observera att data flödet i det här fallet är lägre, men med en låg frekvens händelser är det maximala data flödet som inte är det största målet ändå. Dessa lösningar hjälper dig att minska den totala tiden det tar för en tupel att flöda genom till butiken. Detta kan vara en fråga om du vill ha en pipeline i real tid, även med låg händelse frekvens. Observera också att om inkommande tuple-frekvenser är låg, bör du justera topologin. Message. timeout_secs parameter, så att tuplerna inte har nått sin tids gräns när de buffras eller bearbetas.
+Data flödet i det här fallet är lägre, men med låg frekvens händelser är det maximala data flödet inte det största målet ändå. Dessa lösningar hjälper dig att minska den totala tiden det tar för en tupel att flöda genom till butiken. Detta kan vara en fråga om du vill ha en pipeline i real tid, även med låg händelse frekvens. Observera också att om inkommande tuple-frekvenser är låg, bör du justera topologin. Message. timeout_secs parameter, så att tuplerna inte har nått sin tids gräns när de buffras eller bearbetas.
 
 ## <a name="monitor-your-topology-in-storm"></a>Övervaka din topologi i storm  
 När topologin körs kan du övervaka den i storm-användargränssnittet. Följande är de viktigaste parametrarna för att titta på:

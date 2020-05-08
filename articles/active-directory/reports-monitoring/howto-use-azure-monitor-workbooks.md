@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74014368"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690617"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Använda Azure Monitor-arbetsböcker för Azure Active Directory rapporter
 
@@ -42,7 +42,7 @@ Vill du:
 
 - Få djupare insikter om inloggnings logg frågor, arbets boken rapporterar hur många användare som har beviljats eller nekats åtkomst, samt hur många användare som ignorerade principer för villkorlig åtkomst vid åtkomst till resurser.
 
-- För att hjälpa dig att åtgärda de här frågorna innehåller Active Directory arbets böcker för övervakning. [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) kombinerar text, analys frågor, mått och parametrar till omfattande interaktiva rapporter.
+- För att hjälpa dig att åtgärda de här frågorna innehåller Azure Active Directory arbets böcker för övervakning. [Azure Monitor arbets böcker](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) kombinerar text, analys frågor, mått och parametrar till omfattande interaktiva rapporter.
 
 
 
@@ -58,7 +58,7 @@ Den här artikeln:
 
 Om du vill använda övervaknings arbets böcker behöver du:
 
-- En Active Directory klient med en Premium-licens (P1 eller P2). Lär dig hur du [skaffar en Premium-licens](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- En Azure Active Directory klient med en Premium-licens (P1 eller P2). Lär dig hur du [skaffar en Premium-licens](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - En [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
@@ -116,7 +116,7 @@ Du kan filtrera varje trend enligt följande kategorier:
 
 För varje trend får du en uppdelning med följande kategorier:
 
-- Location
+- Plats
 
     ![Inloggningar efter plats](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -203,10 +203,10 @@ Effekt sammanfattningen visar antalet användare eller inloggningar för vilka d
 
 I den här arbets boken visas även effekten av de valda principerna uppdelade efter vart och ett av sex villkor: 
 - **Enhets tillstånd**
-- **Enhets plattform**
-- **Klient program**
+- **Enhetsplattform**
+- **Klientappar**
 - **Inloggnings risk**
-- **Location**
+- **Position**
 - **Program**
 
 ![Status för villkorlig åtkomst](./media/howto-use-azure-monitor-workbooks/device-platform.png)
@@ -225,7 +225,7 @@ Om du vill komma åt arbets boken för inloggningar genom att [bevilja kontrolle
 
 Den här arbets boken visar följande inaktiverade inloggnings trender:
 
-- Kräv MFA
+- Krav på MFA
  
 - Kräva användningsvillkor
 

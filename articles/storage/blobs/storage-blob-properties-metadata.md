@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: b4abd7e29dec67ddc1be50a2a6703da2a25551d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74c023c06e7b28183a53772be6798419c91dd37a
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79137670"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692451"
 ---
 # <a name="manage-blob-properties-and-metadata-with-net"></a>Hantera BLOB-egenskaper och metadata med .NET
 
@@ -24,6 +24,11 @@ Förutom de data som de innehåller, stöder blobbar system egenskaper och anvä
 - **System egenskaper**: system egenskaper finns på varje Blob Storage-resurs. En del av dem kan läsas eller anges, medan andra är skrivskyddade. Under försättsblad motsvarar vissa system egenskaper vissa standard-HTTP-huvuden. Azure Storage klient bibliotek för .NET underhåller dessa egenskaper åt dig.
 
 - **Användardefinierade metadata**: användardefinierade metadata består av ett eller flera namn-värdepar som du anger för en Blob Storage-resurs. Du kan använda metadata för att lagra ytterligare värden med resursen. Metadata-värden är enbart för egna behov och påverkar inte hur resursen beter sig.
+
+> [!NOTE]
+> BLOB index-Taggar ger också möjlighet att lagra godtyckliga användardefinierade nyckel/värde-attribut tillsammans med en Blob Storage-resurs. Även om det liknar metadata indexeras bara BLOB-taggar automatiskt och de görs i fråga om den interna Blob-tjänsten. Det går inte att indexera och fråga metadata internt om du inte använder en separat tjänst, till exempel Azure Search.
+>
+> Mer information om den här funktionen finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
 Hämtning av metadata och egenskaps värden för en Blob Storage-resurs är en två stegs process. Innan du kan läsa dessa värden måste du explicit hämta dem genom att `FetchAttributes` anropa metoden eller `FetchAttributesAsync` . Undantaget till den här regeln är att metoderna `Exists` och `ExistsAsync` anropar lämplig `FetchAttributes` metod under försättsblad. När du anropar någon av dessa metoder behöver du inte också anropa `FetchAttributes`.
 

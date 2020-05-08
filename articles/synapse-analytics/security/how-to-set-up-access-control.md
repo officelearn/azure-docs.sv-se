@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ae8be848b5d12e01865fe6bd3b394b460252aa3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606010"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692634"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
 
@@ -165,9 +165,22 @@ Synapse Studio fungerar olika beroende på användar roller. Vissa objekt kan va
 | Hantera hubb/länkade tjänster | JA | JA | JA |
 | Hantera hubb/Access Control (tilldela användare till Synapse-arbetsytans roller) | JA | NO | NO |
 | Hantera nav/integrerings körningar | JA | JA | JA |
+| Använd Monitor Hub | JA | JA | JA |
+| Övervaka hubb/dirigering/pipeline-körningar  | JA | NO | NO |
+| Övervaka hubb/dirigering/Utlös ande körningar  | JA | NO | NO |
+| Övervaka hubb/Orchestration/integrerings körningar  | JA | JA | JA |
+| Övervaka nav/aktiviteter/Spark-program | JA | JA | NO  |
+| Övervaka hubb/aktiviteter/SQL-begäranden | JA | NO | JA |
+| Övervaka hubb/aktiviteter/Spark-pooler | JA | JA | NO  |
+| Övervaka hubb/utlösare | JA | NO | NO |
+| Hantera hubb/länkade tjänster | JA | JA | JA |
+| Hantera hubb/Access Control (tilldela användare till Synapse-arbetsytans roller) | JA | NO | NO |
+| Hantera nav/integrerings körningar | JA | JA | JA |
+
 
 > [!NOTE]
-> [1] åtkomst till data i behållare är beroende av åtkomst kontrollen i ADLSGen2 [2] SQL OD-tabeller och Spark-tabeller lagrar sina data i ADLSGen2 och åtkomst kräver rätt behörigheter på ADLSGen2.
+> [1] åtkomst till data i behållare beror på åtkomst kontrollen i ADLSGen2. </br>
+> [2] SQL-OD-tabeller och Spark-tabeller lagrar sina data i ADLSGen2 och Access kräver rätt behörighet för ADLSGen2.
 
 ## <a name="next-steps"></a>Nästa steg
 

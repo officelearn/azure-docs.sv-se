@@ -5,14 +5,14 @@ author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/01/2020
 ms.author: banders
-ms.openlocfilehash: 10f1052f9acf9bf91c1d7fb0b64a1d3285487cf3
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3aaf2a949d5b3e6670e7885adea4579ac2802428
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200735"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692325"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>Få faktureringsägarskap för Azure-prenumerationer från andra konton
 
@@ -26,9 +26,9 @@ För att kunna begära faktureringsägarskap måste du vara **fakturaavsnittsäg
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) som fakturaavsnittsägare eller -deltagare för ett faktureringskonto för Microsoft-kundavtal.
 
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök efter **Kostnadshantering + fakturering**.
 
-    ![Skärmbild som visar sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
+    ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
 3. På sidan för faktureringsomfång väljer du det faktureringskonto som ska användas för att betala för användningen av prenumerationerna. Faktureringskontot bör vara ett **Microsoft-kundavtal**.
 
@@ -74,9 +74,9 @@ För att kunna begära faktureringsägarskap måste du vara **fakturaavsnittsäg
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Sök efter **Kostnadshantering och fakturering**.
+2. Sök efter **Kostnadshantering + fakturering**.
 
-    ![Skärmbild som visar sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
+    ![Skärmbild som visar en sökning i Azure-portalen efter kostnadshantering och fakturering](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
 3. På sidan för faktureringsomfång väljer du det faktureringskonto som överföringsbegäran skickades för.
 
@@ -177,7 +177,7 @@ Azure Marketplace-produkter överförs tillsammans med sina respektive prenumera
 
 ### <a name="azure-reservations-transfer"></a>Överföring av Azure-reservationer
 
-Azure-reservationer flyttas inte automatiskt med prenumerationer. [Kontakta Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att flytta reservationer.
+Om du överför EA-prenumerationer (Enterprise-avtal) flyttas inte Azure-reservationerna automatiskt med prenumerationerna. [Kontakta Azure-supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att flytta reservationer.
 
 ### <a name="access-to-azure-services"></a>Åtkomst till Azure-tjänster
 

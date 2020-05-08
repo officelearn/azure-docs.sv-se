@@ -1,23 +1,17 @@
 ---
-title: Azure Data Lake Storage Gen1 jämförelse med Azure Storage Blob | Microsoft Docs
-description: Azure Data Lake Storage Gen1 jämförelse med Azure Storage Blob
-services: data-lake-store
-documentationcenter: ''
+title: Jämförelse av Azure Data Lake Storage Gen1 med Blob Storage
+description: Innehåller en sammanfattning av skillnaderna mellan Azure Data Lake Storage Gen1 och Azure Blob Storage.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 7c958c3ed4d6ddaabd87f053005fcfc1eba8c842
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3565af1f3e0a002cf3852faef9c2853ff88d46e9
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75438726"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691728"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Jämföra Azure Data Lake Storage Gen1 och Azure Blob Storage
 
@@ -37,10 +31,10 @@ I tabellen i den här artikeln sammanfattas skillnaderna mellan Azure Data Lake 
 | Data åtgärder-autentisering |Baserat på [Azure Active Directory identiteter](../active-directory/develop/authentication-scenarios.md) |Baserat på delade hemligheter – [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md) och [signaturer för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Data åtgärder – autentiseringsprotokoll |OAuth 2.0. Anrop måste innehålla en giltig JWT (JSON Web Token) som utfärdats av Azure Active Directory |Hash-baserad Message Authentication Code (HMAC). Anrop måste innehålla en Base64-kodad SHA-256-hash över en del av HTTP-begäran. |
 | Data åtgärder-auktorisering |POSIX Access Control listor (ACL: er).  ACL: er baserade på Azure Active Directory identiteter kan ställas in på fil-och mappnivå. |För auktorisering på konto nivå – Använd [konto åtkomst nycklar](../storage/common/storage-account-keys-manage.md)<br>För konto-, container-eller BLOB-auktorisering – Använd [signatur nycklar för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
-| Data åtgärder – granskning |Få. Mer information finns [här](data-lake-store-diagnostic-logs.md) . |Tillgängligt |
+| Data åtgärder – granskning |Få. Mer information finns [här](data-lake-store-diagnostic-logs.md) . |Tillgänglig |
 | Vilande data kryptering |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv</li></ul></ul> |<ul><li>Transparent, Server sida</li> <ul><li>Med tjänst nycklar som hanteras</li><li>Med Kundhanterade nycklar i Azure-valv (för hands version)</li></ul><li>Kryptering av klientsidan</li></ul> |
-| Hanterings åtgärder (t. ex. konto skapande) |[Rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för konto hantering |[Rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för konto hantering |
-| SDK: er för utvecklare |.NET, Java, python, Node. js |.Net, Java, python, Node. js, C++, ruby, PHP, go, Android, iOS |
+| Hanterings åtgärder (till exempel konto skapa) |[Rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för konto hantering |[Rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för konto hantering |
+| SDK: er för utvecklare |.NET, Java, python, Node. js |.NET, Java, python, Node. js, C++, ruby, PHP, go, Android, iOS |
 | Analys arbets belastnings prestanda |Optimerade prestanda för arbets belastningar med parallell analys. Högt data flöde och IOPS. |Optimerade prestanda för arbets belastningar med parallell analys. |
 | Storleks begränsningar |Inga begränsningar för konto storlekar, fil storlekar eller antal filer |För vissa gränser, se [skalbarhets mål för standard lagrings konton](../storage/common/scalability-targets-standard-account.md) och [skalbarhets-och prestanda mål för Blob Storage](../storage/blobs/scalability-targets.md). Större konto gränser tillgängliga genom att kontakta [Azure-supporten](https://azure.microsoft.com/support/faq/) |
 | GEO-redundans |Lokalt redundant (flera kopior av data i en Azure-region) |Lokalt redundant (LRS), zon redundant (ZRS), globalt redundant (GRS), Läs åtkomst globalt redundant (RA-GRS). Mer information finns [här](../storage/common/storage-redundancy.md) |

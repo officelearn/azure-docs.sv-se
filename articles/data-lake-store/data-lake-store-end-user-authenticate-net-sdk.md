@@ -1,29 +1,24 @@
 ---
-title: 'Autentisering med slutanvändare: .NET SDK med Azure Data Lake Storage Gen1 som använder Azure Active Directory | Microsoft Docs'
+title: Autentisering med slutanvändare – .NET med Data Lake Storage Gen1 – Azure
 description: Lär dig hur du uppnår autentisering för slutanvändare med Azure Data Lake Storage Gen1 att använda Azure Active Directory med .NET SDK
-services: data-lake-store
-documentationcenter: ''
 author: twooley
-manager: cgronlun
-editor: cgronlun
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 215b839c21c2590c08ac2f4250086eaf97914ce1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37507f686ad2cf3fc66087b89ae77242ec79afdd
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "66243715"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688163"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Autentisering med slutanvändare med Azure Data Lake Storage Gen1 med .NET SDK
 > [!div class="op_single_selector"]
 > * [Använda Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Använda .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md)
 > * [Använda Python](data-lake-store-end-user-authenticate-python.md)
-> * [Använda REST-API](data-lake-store-end-user-authenticate-rest-api.md)
+> * [Använda REST-API:et](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
 

@@ -3,12 +3,12 @@ title: Snabb körning av uppgift med mall
 description: Köa en ACR-uppgift köra för att skapa en avbildning med hjälp av en Azure Resource Manager mall
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: 6e85e4a3d10ea34d71efde959aa7d179eba69e3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ad40d2e925d5e1443af9bce4115d45b0e8c06e1
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196535"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927776"
 ---
 # <a name="run-acr-tasks-using-resource-manager-templates"></a>Köra ACR-uppgifter med Resource Manager-mallar
 
@@ -139,7 +139,7 @@ I demonstrations syfte skapar du ett separat behållar register som grundläggan
 
 ### <a name="create-new-dockerfile"></a>Skapa ny Dockerfile
 
-Skapa en Dockerfile som hämtar bas avbildningen från bas registret. Utför följande steg i din lokala förgrening av GitHub-lagrings platsen, till exempel https://github.com/myGitHubID/acr-build-helloworld-node.git*.
+Skapa en Dockerfile som hämtar bas avbildningen från bas registret. Utför följande steg i din lokala förgrening av GitHub-lagrings platsen, till exempel `https://github.com/myGitHubID/acr-build-helloworld-node.git`.
 
 1. I GitHub-ANVÄNDARGRÄNSSNITTET väljer du **Skapa ny fil**.
 1. Ge filen namnet *Dockerfile-test* och klistra in följande innehåll. Ersätt ditt register namn för *mybaseregistry*.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: ef715ed7df1cc203e66bb33cd1493a7f7a713327
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b96547b841c26f12aff2db781ce55c49ef9cde4
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82081616"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790634"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -294,7 +294,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 |**Åtkomst från en Tor-nod till ett lagrings konto**|Anger att det här kontot har öppnats från en IP-adress som kallas en aktiv stängningsmodul för Tor (en maskera proxy). Allvarlighets graden för den här aviseringen tar hänsyn till den autentiseringstyp som används (om det finns någon) och om detta är första fallet för sådan åtkomst. Potentiella orsaker kan vara en angripare som har åtkomst till ditt lagrings konto med hjälp av Tor eller en legitim användare som har åtkomst till ditt lagrings konto med hjälp av Tor.|Avsökning/utnyttjande|Hög|
 |**Åtkomst från en ovanlig plats till ett lagrings konto**|Anger att åtkomst mönstret har ändrats till ett Azure Storage-konto. Någon har åtkomst till det här kontot från en IP-adress som ansågs okänd vid jämförelse med senaste aktivitet. Antingen har en angripare fått åtkomst till kontot eller så har en legitim användare anslutits från en ny eller ovanlig geografisk plats. Ett exempel på den senare är fjärrunderhåll från ett nytt program eller en ny utvecklare.|Utnyttjande|Låg|
 |**Anonym åtkomst till ett lagrings konto**|Indikerar att det finns en ändring i åtkomst mönstret till ett lagrings konto. Till exempel har kontot åtkomst till anonymt (utan autentisering), vilket är oväntat jämfört med det senaste åtkomst mönstret för det här kontot. En möjlig orsak är att en angripare har utnyttjat offentlig Läs behörighet för en behållare som innehåller Blob Storage.|Utnyttjande|Hög|
-|**Potentiell skadlig kod som laddats upp till ett lagrings konto**|Anger att en blob som innehåller potentiell skadlig kod har överförts till ett lagrings konto. Potentiella orsaker kan vara en avsiktlig överföring av skadlig kod av en angripare eller en oavsiktlig uppladdning av en legitim användare av en potentiellt skadlig blob.|LateralMovement|Hög|
+|**Potentiell skadlig kod som laddats upp till ett lagrings konto**|Anger att en blob som innehåller potentiell skadlig kod har överförts till ett lagrings konto. Den här aviseringen är baserad på hash-ryktes analys som utnyttjar kraften i Microsoft Threat Intelligence, som innehåller hash-värden för virus, trojanska hästar, spionprogram och utpressnings tro Jan. Potentiella orsaker kan vara en avsiktlig överföring av skadlig kod av en angripare, eller en oavsiktlig överföring av en potentiellt skadlig blob av en legitim användare. Lär dig mer om Microsofts hot intelligens-funktioner här:https://go.microsoft.com/fwlink/?linkid=2128684 |LateralMovement|Hög|
 |**Ovanlig åtkomst kontroll i ett lagrings konto**|Anger att åtkomst behörigheterna för ett lagrings konto har inspekterats på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har genomfört rekognosering för framtida angrepp.|Samling|Medel|
 |**Ovanlig mängd data som extraheras från ett lagrings konto**|Anger att en ovanligt stor mängd data har extraherats jämfört med senaste aktivitet på den här lagrings behållaren. En möjlig orsak är att en angripare har extraherat en stor mängd data från en behållare som innehåller blob-lagring.|Exfiltrering|Medel|
 |**Ovanligt program har åtkomst till ett lagrings konto**|Indikerar att ett ovanligt program har åtkomst till det här lagrings kontot. En möjlig orsak är att en angripare har åtkomst till ditt lagrings konto med hjälp av ett nytt program.|Utnyttjande|Medel|

@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 03/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 40885e1de4ff4c16d2a50399c654d8596396ab53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac0a795c98673eba30531f586ff634c62673cdd6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366373"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980957"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ansluta hybrid datorer till Azure från Azure Portal
 
@@ -73,7 +73,7 @@ Du kan till exempel köra installations programmet med `/?` parametern för att 
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-Kör följande kommando för att installera agenten tyst och skapa en installations logg `C:\Support\Logs` fil i mappen.
+Kör följande kommando för att installera agenten tyst och skapa en installations logg `C:\Support\Logs` fil i den mapp som finns.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
@@ -109,7 +109,7 @@ Restart-Service -Name himds
 
 När du har installerat agenten måste du konfigurera agenten att kommunicera med Azure Arc-tjänsten genom att köra följande kommando:
 
-`%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`"%ProgramFiles%\AzureConnectedMachineAgent\azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## <a name="install-and-validate-the-agent-on-linux"></a>Installera och verifiera agenten på Linux
 
@@ -146,7 +146,7 @@ bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
 
 När du har installerat agenten konfigurerar du den för att kommunicera med Azure Arc-tjänsten genom att köra följande kommando:
 
-`/opt/azcmagent/bin/azcmagent.exe" connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
+`azcmagent connect --resource-group "<resourceGroupName>" --tenant-id "<tenantID>" --location "<regionName>" --subscription-id "<subscriptionID>"`
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Kontrol lera anslutningen till Azure-bågen
 

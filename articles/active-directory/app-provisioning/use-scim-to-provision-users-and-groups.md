@@ -2,28 +2,23 @@
 title: Utveckla en SCIM-slutpunkt för användar etablering till appar från Azure AD
 description: System för SCIM (Cross-Domain Identity Management) standardiserar automatisk användar etablering. Lär dig att utveckla en SCIM-slutpunkt, integrera ditt SCIM-API med Azure Active Directory och börja automatisera etableringen av användare och grupper i dina moln program.
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.custom: aaddev;it-pro;seohack1
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a54bc3cfa67330fb0056ccd1898d9ab3de2b0ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65bbb35d041a48e68d01a50e88e42fbeb73f2ea6
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229926"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864291"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure Active Directory (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Bygg en SCIM-slutpunkt och konfigurera användar etablering med Azure AD
 
 Som programutvecklare kan du använda systemet för användar hanterings-API: et för SCIM (Cross-Domain Identity Management) för att aktivera automatisk etablering av användare och grupper mellan ditt program och Azure AD. Den här artikeln beskriver hur du skapar en SCIM-slutpunkt och integrerar med Azure AD Provisioning-tjänsten. SCIM-specifikationen innehåller ett gemensamt användar schema för etablering. När det används tillsammans med Federations standarder som SAML eller OpenID Connect ger SCIM administratörer en heltäckande lösning för åtkomst hantering från slut punkt till slut punkt.
 
@@ -1200,8 +1195,8 @@ SCIM-specifikationen definierar inte ett SCIM schema för autentisering och aukt
 [!NOTE] Vi rekommenderar inte att du lämnar fältet token tomt i konfigurations gränssnittet för Azure AD-etablering av anpassade appar. Den token som genereras är primärt tillgänglig i test syfte.
 
 **Utfärdande flöde för OAuth-auktoriseringskod:** Etablerings tjänsten har stöd för [beviljande av auktoriseringskod](https://tools.ietf.org/html/rfc6749#page-24). När du har skickat din begäran om att publicera din app i galleriet, kommer vårt team att samar beta med dig för att samla in följande information:
-*  URL för auktorisering: en URL som klienten kan använda för att få behörighet från resurs ägaren via omdirigering av användar agent. Användaren omdirigeras till denna URL för att ge åtkomst. 
-*  URL för token Exchange: en URL till klienten som utbyter en auktorisering för en åtkomsttoken, vanligt vis med klientautentisering.
+*  URL för auktorisering: en URL som klienten kan använda för att få behörighet från resurs ägaren via omdirigering av användar agent. Användaren omdirigeras till denna URL för att ge åtkomst. Observera att denna URL för närvarande inte kan konfigureras per klient.
+*  URL för token Exchange: en URL till klienten som utbyter en auktorisering för en åtkomsttoken, vanligt vis med klientautentisering. Observera att denna URL för närvarande inte kan konfigureras per klient.
 *  Klient-ID: auktoriseringsservern utfärdar den registrerade klienten ett klient-ID, vilket är en unik sträng som representerar den registrerings information som tillhandahålls av klienten.  Klient-ID: n är inte en hemlighet. den exponeras för resurs ägaren och **får inte** användas separat för klientautentisering.  
 *  Klient hemlighet: klient hemligheten är en hemlighet som genereras av auktoriseringsservern. Det bör vara ett unikt värde som endast är känt för auktoriseringsservern. 
 

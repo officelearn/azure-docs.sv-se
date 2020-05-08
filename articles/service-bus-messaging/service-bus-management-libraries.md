@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1531d9b70860f498a3e38305f26eb862c9513f3
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76756274"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901502"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus-hanteringsbibliotek
 
@@ -40,7 +40,7 @@ För att komma igång med Service Bus hanterings bibliotek måste du autentisera
 * [Använd Azure PowerShell för att skapa ett huvudnamn för tjänsten för resursåtkomst](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Använd Azure CLI för att skapa tjänstens huvudnamn för att få åtkomst till resurser](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
 
-De här självstudierna ger `AppId` dig ett (klient- `TenantId`ID) `ClientSecret` , och (autentiseringsnyckel) som används för autentisering av hanterings biblioteken. Du måste ha **ägar** behörigheter för den resurs grupp som du vill köra.
+De här självstudierna ger `AppId` dig ett (klient- `TenantId`ID) `ClientSecret` , och (autentiseringsnyckel) som används för autentisering av hanterings biblioteken. Du måste ha minst [**Azure Service Bus data ägare**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) eller [**deltagar**](/azure/role-based-access-control/built-in-roles#contributor) behörighet för resurs gruppen som du vill köra.
 
 ## <a name="programming-pattern"></a>Programmerings mönster
 

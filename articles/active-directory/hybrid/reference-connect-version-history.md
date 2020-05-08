@@ -12,12 +12,12 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7704a758f53b6ba26b1c9cf9e9e2811f533601f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112209"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981994"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -47,6 +47,17 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 >Om du har aktiverat Azure AD Connect för synkronisering börjar du snart att automatiskt få hälso aviseringar som varnar dig om kommande inläsningar när du kör någon av de äldre versionerna.
 >
 >Mer information om hur du uppgraderar Azure AD Connect till den senaste versionen finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) .
+
+## <a name="15300"></a>1.5.30.0
+
+### <a name="release-status"></a>Versionsstatus
+05/07/2020: har släppts för nedladdning
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+- Ett problem har åtgärd ATS där omarkerade domäner skulle bli felaktigt valt i guidens användar gränssnitt.
+- Ett problem har åtgärd ATS i ADSyncConfig PowerShell-modulen, där DSACLS-kommandot som används i alla cmdletar för set-ADSync *-behörighet skulle orsaka något av följande fel:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -105,6 +116,7 @@ Den här snabb korrigeringen löser ett problem med build-1.5.18.0 om du har gru
 - Ett problem har åtgärd ATS när Azure Active Directory Sync-kontot som aktiverar katalog tillägg eller PHS Miss lyckas på grund av att kontot inte har spridits över alla tjänst repliker före försöket att använda. 
 - Ett fel har åtgärd ATS i komprimerings verktyget för synkroniseringsfel som inte hanterade surrogat tecken korrekt. 
 - En bugg har åtgärd ATS i den automatiska uppgradering som gjorde att servern avbröts av Scheduler. 
+- Ett fel har åtgärd ATS på sidan domän-/OU-filtrering som skulle ta bort körnings profilerna för en domän genom att helt enkelt expandera domän trädet utan att göra några ändringar.
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Versionsstatus

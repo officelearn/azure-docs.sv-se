@@ -4,20 +4,20 @@ description: Det är praktiskt att kunna konfigurera det användar konto som du 
 ms.topic: article
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22827a1a1406be7cb6ea0bd6e19f6ce316598a48
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111750"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980294"
 ---
+# <a name="run-tasks-under-user-accounts-in-batch"></a>Kör uppgifter under användar konton i batch
+
 > [!NOTE] 
 > Användar kontona som beskrivs i den här artikeln skiljer sig från användar konton som används för Remote Desktop Protocol (RDP) eller Secure Shell (SSH) av säkerhets skäl. 
 >
 > Om du vill ansluta till en nod som kör konfigurationen för virtuella Linux-datorer via SSH, se [Använd fjärr skrivbord till en virtuell Linux-dator i Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Information om hur du ansluter till noder som kör Windows via RDP finns i [ansluta till en virtuell Windows Server-dator](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Om du vill ansluta till en nod som kör moln tjänst konfigurationen via RDP, se [aktivera anslutning till fjärrskrivbord för en roll i Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
-
-# <a name="run-tasks-under-user-accounts-in-batch"></a>Kör uppgifter under användar konton i batch
 
 En aktivitet i Azure Batch körs alltid under ett användar konto. Som standard körs aktiviteter under standard användar konton utan administratörs behörighet. Dessa standardinställningar för användar konton är vanligt vis tillräckligt. I vissa fall är det dock bra att kunna konfigurera det användar konto som du vill att en aktivitet ska köras under. I den här artikeln beskrivs olika typer av användar konton och hur du kan konfigurera dem för ditt scenario.
 

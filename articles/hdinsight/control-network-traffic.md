@@ -1,0 +1,74 @@
+---
+title: Kontrol lera nätverks trafik i Azure HDInsight
+description: Lär dig mer om tekniker för att kontrol lera inkommande och utgående trafik till Azure HDInsight-kluster.
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.date: 05/04/2020
+ms.openlocfilehash: 031dbb0e8c9b9fb8dc37b264f9ba8e1186efc832
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82783596"
+---
+# <a name="control-network-traffic-in-azure-hdinsight"></a>Kontrol lera nätverks trafik i Azure HDInsight
+
+Nätverks trafik i virtuella Azure-nätverk kan kontrol leras med hjälp av följande metoder:
+
+* Med **nätverks säkerhets grupper** (NSG) kan du filtrera inkommande och utgående trafik till nätverket. Mer information finns i dokumentet [filtrera nätverks trafik med nätverks säkerhets grupper](../virtual-network/security-overview.md) .
+
+* **Virtuella nätverks enheter** (NVA) kan endast användas med utgående trafik. NVA replikerar funktionaliteten för enheter som brand väggar och routrar. Mer information finns i dokumentet om [nätverks](https://azure.microsoft.com/solutions/network-appliances) installationer.
+
+Som en hanterad tjänst kräver HDInsight obegränsad åtkomst till HDInsight-hälso-och hanterings tjänsterna både för inkommande och utgående trafik från det virtuella nätverket. När du använder NSG: er måste du se till att dessa tjänster fortfarande kan kommunicera med HDInsight-kluster.
+
+![Diagram över HDInsight-entiteter som skapats i Azure anpassat VNET](./media/control-network-traffic/hdinsight-vnet-diagram.png)
+
+## <a name="hdinsight-with-network-security-groups"></a>HDInsight med nätverks säkerhets grupper
+
+Om du planerar att använda **nätverks säkerhets grupper** för att kontrol lera nätverks trafiken utför du följande åtgärder innan du installerar HDInsight:
+
+1. Identifiera den Azure-region som du planerar att använda för HDInsight.
+
+2. Identifiera de tjänst koder som krävs av HDInsight för din region. Mer information finns i [tjänst taggar för nätverks säkerhets grupper (NSG) för Azure HDInsight](hdinsight-service-tags.md).
+
+3. Skapa eller ändra nätverks säkerhets grupper för det undernät som du planerar att installera HDInsight i.
+
+    * __Nätverks säkerhets grupper__: Tillåt __inkommande__ trafik på port __443__ från IP-adresserna. Detta säkerställer att HDInsight Management Services kan komma åt klustret utanför det virtuella nätverket.
+
+Mer information om nätverks säkerhets grupper finns i [Översikt över nätverks säkerhets grupper](../virtual-network/security-overview.md).
+
+## <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Kontrol lera utgående trafik från HDInsight-kluster
+
+Mer information om hur du styr utgående trafik från HDInsight-kluster finns i [Konfigurera begränsning av utgående nätverks trafik för Azure HDInsight-kluster](hdinsight-restrict-outbound-traffic.md).
+
+### <a name="forced-tunneling-to-on-premises"></a>Tvingad tunnel trafik till lokalt
+
+Tvingad tunnel trafik är en användardefinierad routningstabell där all trafik från ett undernät tvingas till ett nätverk eller en viss plats, t. ex. ditt lokala nätverk eller brand vägg. Tvingad tunnel trafik av all data överföring tillbaka till lokalt rekommenderas _inte_ på grund av stora mängder data överföring och potentiell prestanda påverkan.
+
+Kunder som är intresserade av att konfigurera Tvingad tunnel trafik bör använda [anpassade metastores](./hdinsight-use-external-metadata-stores.md) och konfigurera lämplig anslutning från klustrets undernät eller lokalt nätverk till dessa anpassade metastores.
+
+Om du vill se ett exempel på UDR-installationen med Azure Firewall, se [Konfigurera begränsning av utgående nätverks trafik för Azure HDInsight-kluster](hdinsight-restrict-outbound-traffic.md).
+
+## <a name="required-ip-addresses"></a>IP-adresser som krävs
+
+Om du använder nätverks säkerhets grupper eller användardefinierade vägar för att styra trafiken, se [hanterings-IP-adresser för HDInsight](hdinsight-management-ip-addresses.md).
+
+## <a name="required-ports"></a>Portar som krävs
+
+Om du planerar att använda en **brand vägg** och komma åt klustret utifrån vissa portar kan du behöva tillåta trafik på de portar som behövs för ditt scenario. Som standard behövs ingen särskild vit listning för portar så länge som den Azure-hanteringsserver som beskrivs i föregående avsnitt kan komma åt klustret på port 443.
+
+En lista över portar för vissa tjänster finns i [portarna som används av Apache Hadoop Services i HDInsight](hdinsight-hadoop-port-settings-for-services.md) -dokument.
+
+Mer information om brand Väggs regler för virtuella enheter finns i [scenario](../virtual-network/virtual-network-scenario-udr-gw-nva.md) dokumentet för Virtual-installation.
+
+## <a name="next-steps"></a>Nästa steg
+
+* Kod exempel och exempel på hur du skapar virtuella Azure-nätverk finns i [skapa virtuella nätverk för Azure HDInsight-kluster](hdinsight-create-virtual-network.md).
+* Ett slut punkt till slut punkts exempel på hur du konfigurerar HDInsight för att ansluta till ett lokalt nätverk finns i [ansluta HDInsight till ett lokalt nätverk](./connect-on-premises-network.md).
+* Mer information om virtuella Azure-nätverk finns i [Översikt över Azure-Virtual Network](../virtual-network/virtual-networks-overview.md).
+* Mer information om nätverks säkerhets grupper finns i [nätverks säkerhets grupper](../virtual-network/security-overview.md).
+* Mer information om användardefinierade vägar finns i [användardefinierade vägar och IP-vidarebefordring](../virtual-network/virtual-networks-udr-overview.md).
+* Mer information om virtuella nätverk finns i [Planera virtuella nätverk för HDInsight](./hdinsight-plan-virtual-network-deployment.md).

@@ -1,22 +1,22 @@
 ---
-title: Konfigurera ledar hantering för Salesforce | Azure Marketplace
-description: Konfigurera ledar hantering på Salesforce för Azure Marketplace-kunder.
+title: Hantering av lead i Salesforce – Microsofts kommersiella marknads platser
+description: Lär dig hur du använder Salesforce för att konfigurera leads för Microsoft AppSource och Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: e0fbb09370e198772b4fc485b3c0fe8a56da4226
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d64b8914fa0b109dfc662a97a7f84d94e3491ec
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133634"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789716"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Konfigurera ledar hantering för Salesforce
 
-Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att bearbeta försäljnings leads från ditt kommersiella Marketplace-erbjudande.
+Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att bearbeta försäljnings leads från dina erbjudanden i Microsoft AppSource och Azure Marketplace.
 
 > [!NOTE]
 > Azure Marketplace har inte stöd för förifyllda listor, till exempel en lista över värden för fältet **land** . Se till att inga listor har kon figurer ATS innan du fortsätter. Alternativt kan du konfigurera en [https-slutpunkt](./commercial-marketplace-lead-management-instructions-https.md) eller en [Azure-tabell](./commercial-marketplace-lead-management-instructions-azure-table.md) för att ta emot leads.
@@ -24,7 +24,9 @@ Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att 
 ## <a name="set-up-your-salesforce-system"></a>Konfigurera ditt Salesforce-system
 
 1. Logga in på Salesforce.
-1. Om du använder Salesforce-belysningen:
+1. Navigera till inställningarna för **webb-till-lead** . 
+    
+    Om du använder Salesforce-belysningen
     1. Välj **Inställningar** på Start sidan för Salesforce.
 
        ![Salesforce-installation](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
@@ -33,7 +35,7 @@ Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att 
 
         ![Salesforce webb-till-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
-1. Om du använder den klassiska Salesforce-miljön:
+    Om du använder den klassiska Salesforce-miljön:
 
     1. Välj **Inställningar** på Start sidan för Salesforce.
 
@@ -43,7 +45,7 @@ Den här artikeln beskriver hur du konfigurerar ditt Salesforce-system för att 
 
         ![Salesforce-klassiskt webb-till-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-classic-web-to-lead.png)
 
-Resten av anvisningarna är desamma oavsett vilken Salesforce-upplevelse du använder.
+   De återstående stegen är desamma för båda Salesforce-upplevelserna.
 
 1. På sidan **konfiguration av webb-till-lead** väljer du knappen **skapa webb-till-lead-formulär** .
 1. Välj **skapa ett webb-till-lead-formulär**på **webb-till-plats-konfiguration**.
@@ -64,22 +66,23 @@ Resten av anvisningarna är desamma oavsett vilken Salesforce-upplevelse du anv�
 
 När du är redo att konfigurera ledar hanterings informationen för ditt erbjudande i publicerings portalen följer du de här stegen.
 
-1. Gå till installations sidan för **erbjudandet** för ditt erbjudande.
-1. Välj **Anslut** under avsnittet **ledar hantering** .
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+
+1. Välj ditt erbjudande och gå till fliken **erbjudande konfiguration** .
+
+1. Under avsnittet **ledar hantering** väljer du **Anslut**. 
 
     ![Knappen Anslut till hanterings avsnitt för lead](./media/commercial-marketplace-lead-management-instructions-salesforce/lead-management-connect.png)
 
 1. I popup-fönstret **anslutnings information** väljer du **Salesforce** som **lead-mål** och klistrar in `oid` värdet från det webb-till-lead-formulär som du skapade i fältet **organisations-ID** .
 
+    ![Popup-fönster för anslutnings information verifiera kontaktens e-ruta](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)
+
 1. Under **Kontakta e-postadress**anger du e-postadresser för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
 
 1. Välj **OK**.
 
-Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappen **Verifiera** . Om det lyckas har du ett test lead i lead-målet.
+Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du **Verifiera**. Om det lyckas har du ett test lead i lead-målet.
 
 >[!NOTE]
 >Du måste slutföra konfigurationen av resten av erbjudandet och publicera den innan du kan ta emot leads för erbjudandet.
-
-![Anslutnings information, popup-fönster Välj ett mål för lead-rutan](./media/commercial-marketplace-lead-management-instructions-salesforce/choose-lead-destination.png)
-
-![Popup-fönster för anslutnings information verifiera kontaktens e-ruta](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)

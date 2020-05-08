@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 160898f8535d3dad4811af016ebca779b7ef43a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2b9cc0c69f0c559c9561a02de4192974ee7f521
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189625"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926195"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Konfigurera tokens i Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ I den här artikeln får du lära dig hur du konfigurerar [livs längd och kompa
 
 [Skapa ett användar flöde](tutorial-create-user-flows.md) så att användarna kan registrera sig och logga in i programmet.
 
-## <a name="configure-token-lifetime"></a>Konfigurera livs längd för token
+## <a name="configure-jwt-token-lifetime"></a>Konfigurera livs längd för JWT-token
 
 Du kan konfigurera livs längden för token för ett användar flöde.
 
@@ -41,7 +41,7 @@ Du kan konfigurera livs längden för token för ett användar flöde.
 
 8. Klicka på **Spara**.
 
-## <a name="configure-token-compatibility"></a>Konfigurera token-kompatibilitet
+## <a name="configure-jwt-token-compatibility"></a>Konfigurera kompatibilitet med JWT-token
 
 1. Välj **användar flöden (principer)**.
 2. Öppna det användar flöde som du skapade tidigare.

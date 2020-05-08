@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: ddd24eb510405d49465ca4e0e0f326f7260e2ed1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14c3dde4a86e36a4015a319e608ab8543302932f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416229"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791297"
 ---
 # <a name="continuous-integration-and-deployment-for-data-warehousing"></a>Kontinuerlig integrering och distribution för data lager
 
@@ -46,7 +46,7 @@ Nu har du en enkel miljö där all incheckning av huvud grenen för käll kontro
 
 ## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Kontinuerlig distribution med distributions aktiviteten Azure SQL Data Warehouse (eller databas)
 
-1. Lägg till en ny aktivitet med [Azure SQL Database distributions uppgift](/devops/pipelines/targets/azure-sqldb?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) och fyll i de obligatoriska fälten för att ansluta till mål informations lagret. När den här aktiviteten körs distribueras DACPAC som genererades från den tidigare Bygg processen till mål informations lagret. Du kan också använda [aktiviteten för Azure SQL Data Warehouse distribution](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
+1. Lägg till en ny aktivitet med [Azure SQL Database distributions uppgift](/azure/devops/pipelines/targets/azure-sqldb) och fyll i de obligatoriska fälten för att ansluta till mål informations lagret. När den här aktiviteten körs distribueras DACPAC som genererades från den tidigare Bygg processen till mål informations lagret. Du kan också använda [aktiviteten för Azure SQL Data Warehouse distribution](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment).
 
       ![Distributions aktivitet](./media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "Distributions aktivitet")
 

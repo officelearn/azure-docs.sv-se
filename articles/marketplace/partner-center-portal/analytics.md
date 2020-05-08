@@ -1,20 +1,20 @@
 ---
-title: Analys för den kommersiella marknads platsen i Partner Center
-description: Översikt över åtkomst till analys rapporter för att övervaka försäljning, utvärdera prestanda och optimera dina Marketplace-erbjudanden.
+title: Analys för Microsofts kommersiella marknads plats i Partner Center
+description: Lär dig hur du får åtkomst till analys rapporter för att övervaka försäljning, utvärdera prestanda och optimera dina Marketplace-erbjudanden i Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 41b9c5244ce9d468d9bf0fb7bafa719b4e6f55ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c406efd30e891c8ca69481299801e7309cdff81
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262289"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744912"
 ---
-# <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analys för den kommersiella marknads platsen i Partner Center
+# <a name="access-analytic-reports-for-the-commercial-marketplace-in-partner-center"></a>Få åtkomst till analys rapporter för den kommersiella marknads platsen i Partner Center
 
 Lär dig hur du får åtkomst till analys rapporter i Microsoft Partner Center för att övervaka försäljning, utvärdera prestanda och optimera dina erbjudanden på Marketplace. Som partner kan du övervaka dina erbjudande listor med hjälp av diagrammet data visualisering och insikter som stöds av Partner Center och hitta sätt att maximera din försäljning. Med de förbättrade analys verktygen kan du arbeta med prestanda resultat och upprätthålla bättre relationer med dina kunder och åter försäljare.
 

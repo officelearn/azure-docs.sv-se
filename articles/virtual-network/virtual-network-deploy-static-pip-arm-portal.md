@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 0de28fc75d5eb1b0867e4ba6d8eda9f0f42c8498
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ef96c83b460346ba49051f6f5c4fd0dd5df34ab
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82148009"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790175"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure Portal
 
@@ -34,7 +34,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 2. Välj **Compute (beräkna**) och välj sedan **Windows Server 2016 VM**eller något annat operativ system som du väljer.
 3. Ange eller Välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
-    |Inställning|Värde|
+    |Inställningen|Värde|
     |---|---|
     |Namn|myVM|
     |Användarnamn| Ange ett valfritt användarnamn.|
@@ -49,7 +49,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
    ![Välj statisk](./media/virtual-network-deploy-static-pip-arm-portal/select-static.png)
 
-   Om den offentliga IP-adressen måste vara en standard-SKU väljer du **standard** under **SKU**. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/concepts-limitations.md#skus).
+   Om den offentliga IP-adressen måste vara en standard-SKU väljer du **standard** under **SKU**. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/skus.md).
 
 6. Välj en port eller inga portar under **Välj offentliga inkommande portar**. Portal 3389 är markerad, för att aktivera fjärråtkomst till den virtuella Windows Server-datorn från Internet. Det rekommenderas inte att öppna port 3389 från Internet för produktions arbets belastningar.
 

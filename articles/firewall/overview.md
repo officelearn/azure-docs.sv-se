@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/23/2020
+ms.date: 05/06/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: a0bd89a2ffdc15e192e51660c58c1d66efa1284a
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9d5fc95c5845b9a75666860ce8900676972a16bc
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598461"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864104"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -83,12 +83,12 @@ Inkommande Internet nätverks trafik till din offentliga brand Väggs IP-adress 
 
 ## <a name="multiple-public-ip-addresses"></a>Flera offentliga IP-adresser
 
-Du kan associera flera offentliga IP-adresser (upp till 100) med brand väggen.
+Du kan associera flera offentliga IP-adresser (upp till 250) med brand väggen.
 
 Detta möjliggör följande scenarier:
 
 - **DNAt** – du kan översätta flera standard port instanser till backend-servrarna. Om du till exempel har två offentliga IP-adresser kan du översätta TCP-port 3389 (RDP) för båda IP-adresserna.
-- **SNAT** -ytterligare portar är tillgängliga för utgående SNAT-anslutningar, vilket minskar risken för SNAT-port överbelastning. För tillfället väljer Azure Firewall slumpmässigt den offentliga IP-adress som ska användas för en anslutning. Om du har filtrering av underordnade i nätverket måste du tillåta alla offentliga IP-adresser som är kopplade till din brand vägg.
+- **SNAT** -ytterligare portar är tillgängliga för utgående SNAT-anslutningar, vilket minskar risken för SNAT-port överbelastning. För tillfället väljer Azure Firewall slumpmässigt den offentliga IP-adress som ska användas för en anslutning. Om du har filtrering av underordnade i nätverket måste du tillåta alla offentliga IP-adresser som är kopplade till din brand vägg. Överväg att använda ett [offentligt IP](../virtual-network/public-ip-address-prefix.md) -adressprefix för att förenkla den här konfigurationen.
 
 ## <a name="azure-monitor-logging"></a>Azure Monitor-loggning
 

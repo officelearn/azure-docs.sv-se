@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: acf49c4247c8084a3afd3c2046003ee1b20d2f67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80da8d2880509a8ed6a2af8cb181b3bc2c281c09
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393110"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930581"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -40,7 +40,7 @@ Det finns flera [utgående scenarier](#scenarios). Du kan kombinera dessa scenar
 
 Azure Load Balancer och relaterade resurser definieras explicit när du använder [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).  Azure tillhandahåller för närvarande tre olika metoder för att uppnå utgående anslutning för Azure Resource Manager-resurser. 
 
-| SKU: er | Scenario | Metod | IP-protokoll | Beskrivning |
+| SKU:er | Scenario | Metod | IP-protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
 | Standard, Basic | [1. virtuell dator med en offentlig IP-adress på instans nivå (med eller utan Load Balancer)](#ilpip) | SNAT, Port maskerad, används inte | TCP, UDP, ICMP, ESP | Azure använder den offentliga IP-adress som tilldelats IP-konfigurationen av instansens nätverkskort. Instansen har alla tillfälliga portar tillgängliga. När du använder Standard Load Balancer stöds inte [utgående regler](load-balancer-outbound-rules-overview.md) om en offentlig IP-adress tilldelas den virtuella datorn. |
 | Standard, Basic | [2. offentlig Load Balancer associerad med en virtuell dator (ingen offentlig IP-adress på instansen)](#lb) | SNAT med port maskerad (PAT) med hjälp av Load Balancer-frontend | TCP, UDP |Azure delar den offentliga IP-adressen för offentliga Load Balancer-frontend med flera privata IP-adresser. Azure använder tillfälliga portar för frontend-PAT. Du bör använda [utgående regler](load-balancer-outbound-rules-overview.md) för att uttryckligen definiera utgående anslutningar. |
@@ -119,7 +119,7 @@ När du använder [standard Load Balancer med Tillgänglighetszoner](load-balanc
 
 ### <a name="port-masquerading-snat-pat"></a><a name="pat"></a>Port maskerad SNAT (PAT)
 
-När en offentlig Load Balancer-resurs är kopplad till virtuella dator instanser skrivs varje utgående anslutnings källa om. Källan skrivs från det virtuella nätverkets privata IP-adressutrymme till belastningsutjämnarens offentliga IP-adress för klient delen. I det offentliga IP-adressutrymmet måste en 5-tupel i flödet (Källans IP-adress, källport, IP-transportläge, målets IP-adress, målport) vara unik.  Port maskerade SNAT kan användas med TCP-eller UDP IP-protokoll.
+När en offentlig Load Balancer-resurs är kopplad till virtuella dator instanser, som inte har dedikerade offentliga IP-adresser, skrivs varje utgående anslutnings källa om. Källan skrivs från det virtuella nätverkets privata IP-adressutrymme till belastningsutjämnarens offentliga IP-adress för klient delen. I det offentliga IP-adressutrymmet måste en 5-tupel i flödet (Källans IP-adress, källport, IP-transportläge, målets IP-adress, målport) vara unik. Port maskerade SNAT kan användas med TCP-eller UDP IP-protokoll.
 
 Tillfälliga portar (SNAT-portar) används för att uppnå detta när den privata Källans IP-adress har skrivits om, eftersom flera flöden härstammar från en enda offentlig IP-adress. Porten som maskerade SNAT-algoritmen allokerar SNAT-portar på olika sätt för UDP jämfört med TCP.
 
@@ -147,7 +147,7 @@ För mönster för att minska de villkor som ofta leder till SNAT-portens belast
 
 ### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a><a name="preallocatedports"></a>Förallokering av tillfällig port för port maskerad SNAT (PAT)
 
-Azure använder en algoritm för att fastställa antalet förallokerade SNAT-portar som är tillgängliga baserat på storleken på backend-poolen när du använder port maskerad SNAT ([Pat](#pat)). SNAT-portar är tillfälliga portar som är tillgängliga för en viss offentlig IP-datakälla.
+Azure använder en algoritm för att fastställa antalet förallokerade SNAT-portar som är tillgängliga baserat på storleken på backend-poolen när du använder port maskerad SNAT ([Pat](#pat)). SNAT-portar är tillfälliga portar som är tillgängliga för en viss offentlig IP-datakälla. För varje offentlig IP-adress som är associerad med en belastningsutjämnare finns 64 000-portar som är tillgängliga som SNAT-portar för varje IP-protokoll för transport.
 
 Samma antal SNAT-portar är förallokerade för UDP respektive TCP och konsumeras oberoende av varje IP-protokoll för transport.  Men användning av SNAT-porten skiljer sig åt beroende på om flödet är UDP eller TCP.
 
@@ -193,11 +193,14 @@ SNAT-portar tilldelningar är särskilda IP-protokoll (TCP och UDP underhålls s
 Det här avsnittet är avsett för att hjälpa till att minska SNAT-belastningen och som kan ske med utgående anslutningar i Azure.
 
 ### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Hantera SNAT (PAT) port överbelastning
-[Tillfälliga portar](#preallocatedports) som används för [Pat](#pat) är en exhaustible-resurs, som beskrivs i [en fristående virtuell dator utan en offentlig IP-adress](#defaultsnat) och [belastningsutjämnad virtuell dator utan en offentlig IP-adress](#lb). Du kan övervaka användningen av tillfälliga portar och jämföra med din nuvarande allokering för att fastställa risken för eller bekräfta SNAT-exhuastion med hjälp av [den här](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guiden.
+[Tillfälliga portar](#preallocatedports) som används för [Pat](#pat) är en exhaustible-resurs, som beskrivs i [en fristående virtuell dator utan en offentlig IP-adress](#defaultsnat) och [belastningsutjämnad virtuell dator utan en offentlig IP-adress](#lb). Du kan övervaka användningen av tillfälliga portar och jämföra med din nuvarande allokering för att fastställa risken för eller för att bekräfta SNAT-uttömden med hjälp av [den här](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) guiden.
 
 Om du vet att du initierar flera utgående TCP-eller UDP-anslutningar till samma mål-IP-adress och port, och du ser att det inte går att använda utgående anslutningar eller om du får hjälp av stöd för att du tar slut på SNAT-portar (förallokerade [tillfälliga portar](#preallocatedports) som används av [Pat](#pat)) har du flera allmänna alternativ för att minska. Granska de här alternativen och Bestäm vad som är tillgängligt och bäst för ditt scenario. Det är möjligt att en eller flera kan hjälpa dig att hantera det här scenariot.
 
 Om du har problem med att förstå beteendet för utgående anslutning kan du använda IP stack-statistik (netstat). Eller så kan det vara bra att följa anslutnings beteenden med hjälp av paket insamlingar. Du kan utföra dessa paket avbildningar i gäst operativ systemet på din instans eller använda [Network Watcher för paket fångst](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
+
+#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>Allokera manuellt SNAT-portar för att maximera SNAT-portar per virtuell dator
+Som definieras i [förallokerade portar](#preallocatedports)allokerar belastningsutjämnaren automatiskt portar baserat på antalet virtuella datorer i Server delen. Som standard är det bättre att garantera skalbarhet. Om du vet det maximala antalet virtuella datorer som du kommer att ha i Server delen kan du manuellt allokera SNAT-portar genom att konfigurera detta i varje utgående regel. Om du till exempel vet att du har högst 10 virtuella datorer kan du allokera 6 400 SNAT-portar per virtuell dator i stället för standardvärdet 1 024. 
 
 #### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Ändra programmet för att återanvända anslutningar 
 Du kan minska efter frågan för tillfälliga portar som används för SNAT genom att återanvända anslutningar i ditt program. Detta gäller särskilt för protokoll som HTTP/1.1, där åter användning av anslutningar är standard. Och andra protokoll som använder HTTP som transport (till exempel REST) kan ha nytta av turn. 

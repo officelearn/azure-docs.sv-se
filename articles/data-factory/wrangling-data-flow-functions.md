@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7235e95e5b33fb931411a51796a8dbec96c46355
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a0947a5e2b57f728023b0f923428814b3e439ec
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417665"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626708"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Omvandlings funktioner i datatransformering Data Flow
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Med datatransformering data flöde i Azure Data Factory kan du göra kod fria smidiga data förberedelser och datatransformering i moln skala. Datatransformering data flöde integreras med [Power Query online](https://docs.microsoft.com/powerquery-m/power-query-m-reference) och gör Power Query M-funktioner tillgängliga för data datatransformering via Spark-körning. 
 

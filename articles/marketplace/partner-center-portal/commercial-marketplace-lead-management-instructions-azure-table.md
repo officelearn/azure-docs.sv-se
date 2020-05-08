@@ -1,24 +1,24 @@
 ---
-title: Konfigurera Microsoft kommersiell marknads introduktions hantering med en Azure-tabell
-description: Lär dig hur du använder en Azure-tabell för att hantera leads från Microsoft AppSource och Azure Marketplace.
+title: Ledande hantering med Azure Table Storage – Microsoft Commercial Marketplace
+description: Lär dig hur du använder Azure Table Storage för att konfigurera leads för Microsoft AppSource och Azure Marketplace
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 9814b03e348fc807c04364afbf027369f917670a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131130"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791025"
 ---
-# <a name="configure-lead-management-by-using-an-azure-table"></a>Konfigurera ledar hantering med hjälp av en Azure-tabell
+# <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Använd Azure Table Storage för att hantera leads på kommersiella marknads platser
 
-Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds i Partner Center för att ta emot Microsoft AppSource och Azure Marketplace-leads, kan du använda en Azure-tabell för att hantera dessa leads. Du kan sedan välja att exportera data och importera dem till ditt CRM-system. Anvisningarna i den här artikeln beskriver hur du skapar ett Azure Storage-konto och en Azure-tabell under det kontot. Dessutom kan du skapa ett nytt flöde med hjälp av funktionen för automatisk start för att skicka ett e-postmeddelande när ditt erbjudande tar emot ett lead.
+Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds i Partner Center för att ta emot Microsoft AppSource och Azure Marketplace-leads, kan du använda Azure Table Storage för att hantera dessa leads. Du kan sedan välja att exportera data och importera dem till ditt CRM-system. Den här artikeln beskriver hur du skapar ett Azure Storage-konto och en tabell under det kontot. Dessutom kan du skapa ett nytt flöde med hjälp av funktionen för automatisk start för att skicka ett e-postmeddelande när ditt erbjudande tar emot ett lead.
 
-## <a name="configure-an-azure-table"></a>Konfigurera en Azure-tabell
+## <a name="configure-an-azure-storage-account"></a>Konfigurera ett Azure Storage-konto
 
 1. Om du inte har ett Azure-konto kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/pricing/free-trial/).
 1. När ditt Azure-konto är aktivt loggar du in på [Azure Portal](https://portal.azure.com).
@@ -32,7 +32,11 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
         Mer information om lagrings konton finns i [snabb starts guide](https://docs.microsoft.com/azure/storage/). Mer information om lagrings priser finns i [Storage-priser](https://azure.microsoft.com/pricing/details/storage/).
 
-1. Vänta tills ditt lagrings konto har tillhandahållits. Den här processen tar vanligt vis några minuter. Kom sedan åt ditt lagrings konto från **Start** sidan för Azure Portal genom att välja **Visa alla dina resurser**. Du kan också välja **alla resurser** i den vänstra meny raden i Azure Portal.
+1. Vänta tills ditt lagrings konto har tillhandahållits. Den här processen tar vanligt vis några minuter. 
+
+## <a name="create-a-table-in-your-storage-account"></a>Skapa en tabell i ditt lagrings konto
+
+1. På **Start** sidan för Azure Portal väljer du **Visa alla resurser** för att komma åt ditt lagrings konto. Du kan också välja **alla resurser** i den vänstra meny raden i Azure Portal.
 
     ![Åtkomst till ditt Azure Storage-konto](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-access.png)
 
@@ -52,13 +56,13 @@ Om ditt CRM-system (Customer Relations hip Management) inte uttryckligen stöds 
 
     Du kan använda [Azure Storage Explorer](https://archive.codeplex.com/?p=azurestorageexplorer) eller andra verktyg för att se data i lagrings tabellen. Du kan också exportera data i Azure-tabellen. 
 
-## <a name="optional-use-power-automate-with-an-azure-table"></a>Valfritt Använda energi automatisering med en Azure-tabell 
+## <a name="optional-use-power-automate-to-get-lead-notifications"></a>Valfritt Använd energi automatisering för att få aviseringar om lead
 
-Du kan använda automatisk [Energis par](https://docs.microsoft.com/flow/) för att automatisera meddelanden varje gång ett lead läggs till i en Azure-tabell. Om du inte har ett konto kan du [Registrera dig för ett kostnads fritt konto](https://flow.microsoft.com/).
+Du kan använda automatisk [Energis par](https://docs.microsoft.com/flow/) för att automatisera meddelanden varje gång ett lead läggs till i Azure Storages tabellen. Om du inte har ett konto kan du [Registrera dig för ett kostnads fritt konto](https://flow.microsoft.com/).
 
 ### <a name="lead-notification-example"></a>Exempel på lead-avisering
 
-Använd det här exemplet som en guide för att skapa ett enkelt flöde som automatiskt skickar ett e-postmeddelande när ett nytt lead läggs till i en Azure-tabell. Det här exemplet ställer in en upprepning för att skicka lead-information varje timme om tabell lagringen uppdateras.
+Exemplet skapar ett flöde som automatiskt skickar ett e-postmeddelande när ett nytt lead läggs till i Azure Table Storage. Det här exemplet ställer in en upprepning för att skicka lead-information varje timme om tabell lagringen uppdateras.
 
 1. Logga in på ditt energi automatiserade konto.
 1. I det vänstra fältet väljer du **mina flöden**.
@@ -89,21 +93,21 @@ Använd det här exemplet som en guide för att skapa ett enkelt flöde som auto
    >[!TIP] 
    >Du kan när som helst kontrol lera ditt flöde för att kontrol lera att varje steg har kon figurer ATS korrekt. Om du vill kontrol lera flödet väljer du **flödes kontroll** från **Flow** -meny raden.
 
-   I nästa uppsättning steg ansluter du till Azure-tabellen och konfigurerar bearbetnings logiken för att hantera nya leads.
+   I nästa uppsättning steg ansluter du till din tabell och konfigurerar bearbetnings logiken för att hantera nya leads.
 
-1. Välj **+ nytt steg**efter steg 8. Sök sedan efter **Hämta entiteter** i fönstret **Välj en åtgärd** .
+1. Välj **+ Nytt steg**. Sök sedan efter **Hämta entiteter** i fönstret **Välj en åtgärd** .
 1. Under **åtgärder**väljer du **Hämta entiteter (Azure Table Storage)**.
 1. I fönstret **Azure Table Storage** anger du information för följande rutor och väljer **skapa**:
 
-    * **Anslutnings namn**: Ange ett beskrivande namn för anslutningen som du etablerar mellan det här flödet och Azure-tabellen.
-    * **Lagrings konto namn**: Ange namnet på lagrings kontot för Azure-tabellen. Du kan hitta det här namnet på lagrings kontots **åtkomst nycklar** sida.
-    * **Delad lagrings nyckel**: Ange nyckelvärdet för ditt lagrings konto för Azure-tabellen. Du hittar det här värdet på sidan **åtkomst nycklar** för lagrings kontot.
+    * **Anslutnings namn**: Ange ett beskrivande namn för anslutningen som du etablerar mellan det här flödet och tabellen.
+    * **Lagrings konto namn**: Ange namnet på lagrings kontot för din tabell. Du kan hitta det här namnet på lagrings kontots **åtkomst nycklar** sida.
+    * **Delad lagrings nyckel**: Ange nyckel värdet för ditt lagrings konto för din tabell. Du hittar det här värdet på sidan **åtkomst nycklar** för lagrings kontot.
 
       ![Fönstret Azure Table Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
    När du har valt **skapa**visas fönstret **Hämta enheter** . Här väljer du **Visa avancerade alternativ**och ange information för följande rutor:
 
-   * **Tabell**: Välj namnet på din Azure Table Storage (från steg 6 i instruktionerna i avsnittet "Konfigurera en Azure-tabell"). Följande bild visar prompten när tabellen "marketplaceleads" är markerad för det här exemplet.
+   * **Tabell**: Välj namnet på din tabell (från [skapa en tabell](#create-a-table-in-your-storage-account)). Följande bild visar prompten när tabellen "marketplaceleads" är markerad för det här exemplet.
 
      ![Fönstret Hämta entiteter](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
@@ -177,9 +181,18 @@ Om du inte får några e-postaviseringar om leads innebär det att nya leads int
 När du är redo att konfigurera ledar hanterings informationen för ditt erbjudande i publicerings portalen följer du de här stegen.
 
 1. Gå till installations sidan för **erbjudandet** för ditt erbjudande.
+
 1. Välj **Anslut** under avsnittet **ledar hantering** .
-1. I popup-fönstret **anslutnings information** väljer du Azure- **tabell** för lead- **målet**. Klistra in anslutnings strängen från Azure Storage-kontot som du skapade genom att följa de tidigare stegen i rutan **anslutnings sträng för lagrings konto** .
+     ![Leadhantering](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+
+1. I popup-fönstret **anslutnings information** väljer du Azure- **tabell** för lead- **målet**. 
+     ![Lead-hantering, anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
+
+1. Klistra in anslutnings strängen från Azure Storage-kontot som du skapade genom att följa de tidigare stegen i rutan **anslutnings sträng för lagrings konto** .
+     ![Hantering av leads, anslutnings information lagrings konto](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
+
 1. **Kontakta e-post**: Ange e-postmeddelanden för personer i företaget som ska få e-postaviseringar när ett nytt lead tas emot. Du kan ange flera e-postmeddelanden genom att avgränsa dem med semikolon.
+
 1. Välj **OK**.
 
 Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappen **Verifiera** . Om det lyckas har du ett test lead i lead-målet.
@@ -188,10 +201,3 @@ Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappe
 >Du måste slutföra konfigurationen av resten av erbjudandet och publicera den innan du kan ta emot leads för erbjudandet.
 
 När leads skapas skickar Microsoft leads till Azure-tabellen. Om du har konfigurerat ett flöde skickas även ett e-postmeddelande till den e-postadress som du har konfigurerat.
-
-![Leadhantering](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
-
-![Lead-hantering, anslutnings information](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
-
-![Hantering av leads, anslutnings information lagrings konto](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
-

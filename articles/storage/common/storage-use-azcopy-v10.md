@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 8701fe6857e95334a5e1d24bfe70feb130d5512c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e6bd55fbb73113dfbcd01e94753c4fb21219c14
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756022"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780886"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -65,7 +65,7 @@ Använd den här tabellen som en guide:
 
 | Lagringstyp | För närvarande stöds metoden för auktorisering |
 |--|--|
-|**Blob Storage** | Azure AD & SAS |
+|**Blob-lagring** | Azure AD & SAS |
 |**Blob Storage (hierarkiskt namn område)** | Azure AD & SAS |
 |**Fil lagring** | Endast SAS |
 
@@ -84,7 +84,7 @@ Om du bara vill hämta filer kontrollerar du att [lagrings-BLOB-dataläsaren](ht
 
 Om du vill ladda upp filer kontrollerar du att någon av dessa roller har tilldelats ditt säkerhets objekt:
 
-- [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
+- [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 - [Storage BLOB data-ägare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 De här rollerna kan tilldelas till säkerhets objekt i alla dessa omfattningar:
@@ -273,8 +273,8 @@ Hämta länken genom att köra det här kommandot:
 
 | Operativsystem  | Kommando |
 |--------|-----------|
-| **Linux** | `curl -v https://aka.ms/downloadazcopy-v10-linux` |
-| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).RawContent` |
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
+| **Windows** | `(curl https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue).headers.location` |
 
 > [!NOTE]
 > För Linux tar `--strip-components=1` `tar` kommandot bort den översta mappen som innehåller versions namnet för Linux och extraherar i stället binärfilen direkt till den aktuella mappen. Detta gör att skriptet kan uppdateras med en ny version av `azcopy` genom att `wget` bara uppdatera URL: en.

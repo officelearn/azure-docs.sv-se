@@ -1,18 +1,17 @@
 ---
-title: Metod tips för Pod-säkerhet
-titleSuffix: Azure Kubernetes Service
+title: Bästa praxis för utvecklare – Pod Security i Azure Kubernetes Services (AKS)
 description: Lär dig metod tips för utvecklare för att skydda poddar i Azure Kubernetes service (AKS)
 services: container-service
 author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1f093b5276ee7ab334043e57f97a108267c32c87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d97ae5692a4cdc328833ce4c01a8114506a960a
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804392"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779083"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metod tips för Pod-säkerhet i Azure Kubernetes service (AKS)
 
@@ -75,7 +74,7 @@ Undvik att använda fasta eller delade autentiseringsuppgifter om du vill begrä
 Med följande [associerade AKS-projekt med öppen källkod][aks-associated-projects] kan du automatiskt autentisera poddar eller begära autentiseringsuppgifter och nycklar från ett digitalt valv:
 
 * Hanterade identiteter för Azure-resurser och
-* Azure Key Vault FlexVol-drivrutin
+* [Azure Key Vault Provider för hemligheter Store CSI-drivrutin](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
 
 Associerade AKS-projekt med öppen källkod stöds inte av teknisk support för Azure. De erbjuds att samla in feedback och buggar från vår community. Dessa projekt rekommenderas inte för produktions användning.
 
@@ -89,28 +88,28 @@ Med en hanterad identitet behöver program koden inte innehålla autentiseringsu
 
 Mer information om Pod-identiteter finns i [Konfigurera ett AKS-kluster för att använda Pod hanterade identiteter och med dina program][aad-pod-identity]
 
-### <a name="use-azure-key-vault-with-flexvol"></a>Använda Azure Key Vault med FlexVol
+### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Använda Azure Key Vault med hemligheter Store CSI-drivrutin
 
-Hanterade Pod-identiteter fungerar bra för att autentisera mot stöd för Azure-tjänster. För dina egna tjänster eller program utan hanterade identiteter för Azure-resurser kan du fortfarande autentisera med hjälp av autentiseringsuppgifter eller nycklar. Ett digitalt valv kan användas för att lagra dessa autentiseringsuppgifter.
+Med Pod Identity Project kan du autentisera mot stöd för Azure-tjänster. För dina egna tjänster eller program utan hanterade identiteter för Azure-resurser kan du fortfarande autentisera med hjälp av autentiseringsuppgifter eller nycklar. Ett digitalt valv kan användas för att lagra dessa hemliga innehåll.
 
-När program behöver en autentiseringsuppgift kommunicerar de med det digitala valvet, hämtar de senaste autentiseringsuppgifterna och ansluter sedan till den tjänst som krävs. Azure Key Vault kan vara det här digitala valvet. Det förenklade arbets flödet för att hämta autentiseringsuppgifter från Azure Key Vault med Pod-hanterade identiteter visas i följande diagram:
+När program behöver en autentiseringsuppgift kommunicerar de med det digitala valvet, hämtar det senaste hemliga innehållet och ansluter sedan till den tjänst som krävs. Azure Key Vault kan vara det här digitala valvet. Det förenklade arbets flödet för att hämta autentiseringsuppgifter från Azure Key Vault med Pod-hanterade identiteter visas i följande diagram:
 
-![Förenklat arbets flöde för att hämta autentiseringsuppgifter från Key Vault med en POD-hanterad identitet](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
+![Förenklat arbets flöde för att hämta autentiseringsuppgifter från Key Vault med en POD-hanterad identitet](media/developer-best-practices-pod-security/basic-key-vault.png)
 
-Med Key Vault kan du lagra och regelbundet rotera hemligheter som autentiseringsuppgifter, lagrings konto nycklar eller certifikat. Du kan integrera Azure Key Vault med ett AKS-kluster med hjälp av en FlexVolume. Med FlexVolume-drivrutinen kan AKS-klustret Hämta autentiseringsuppgifter från Key Vault och på ett säkert sätt förse dem med den begär ande pod. Arbeta med kluster operatören för att distribuera Key Vault FlexVol-drivrutinen till AKS-noderna. Du kan använda en POD-hanterad identitet för att begära åtkomst till Key Vault och hämta de autentiseringsuppgifter du behöver via FlexVolume-drivrutinen.
+Med Key Vault kan du lagra och regelbundet rotera hemligheter som autentiseringsuppgifter, lagrings konto nycklar eller certifikat. Du kan integrera Azure Key Vault med ett AKS-kluster med hjälp av [Azure Key Vault providern för hemligheter från CSI-drivrutinen](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage). Med hemligheter för att lagra CSI-drivrutinen kan AKS-klustret Hämta hemligt innehåll från Key Vault och på ett säkert sätt tillhandahålla dem till den begär ande pod. Samar beta med din kluster operatör för att distribuera hemligheter för att lagra CSI-drivrutinen på AKS Worker-noder. Du kan använda en POD-hanterad identitet för att begära åtkomst till Key Vault och hämta det hemliga innehåll som behövs via filen CSI-driv rutinen för hemligheter.
 
-Azure Key Vault med FlexVol är avsedd för användning med program och tjänster som körs på Linux-poddar och-noder.
+Azure Key Vault med hemligheter för att lagra CSI-drivrutinen kan användas för Linux-noder och poddar som kräver en Kubernetes-version på 1,16 eller senare. För Windows-noder och poddar krävs en Kubernetes-version på 1,18 eller högre.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Den här artikeln fokuserar på hur du skyddar din poddar. Information om hur du implementerar vissa av dessa områden finns i följande artiklar:
 
 * [Använda hanterade identiteter för Azure-resurser med AKS][aad-pod-identity]
-* [Integrera Azure Key Vault med AKS][aks-keyvault-flexvol]
+* [Integrera Azure Key Vault med AKS][aks-keyvault-csi-driver]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity#demo
-[aks-keyvault-flexvol]: https://github.com/Azure/kubernetes-keyvault-flexvol
+[aks-keyvault-csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage
 [linux-capabilities]: http://man7.org/linux/man-pages/man7/capabilities.7.html
 [selinux-labels]: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.12/#selinuxoptions-v1-core
 [aks-associated-projects]: https://github.com/Azure/AKS/blob/master/previews.md#associated-projects

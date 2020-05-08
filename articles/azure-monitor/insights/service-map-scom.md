@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 112413720f969474369555a74bc89846666e2ef9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a20884c33d5232661e858e0b3ec722f139825aea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663461"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928014"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrera System Center Operations Manager med Azure Monitor for VMs kart funktion
 
@@ -108,8 +108,8 @@ Mappen Tjänstkarta innehåller fyra noder:
 
 Du kan redigera eller ta bort den konfigurerade arbets ytan via **tjänstkarta översikts** fönstret (**administrations** fönstret > **Operations Management Suite** > **tjänstkarta**).
 
->[!NOTE]
->[Operations Management Suite var en samling tjänster](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) som innehöll Log Analytics, som nu ingår i [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
+> [!NOTE]
+> [Operations Management Suite var en samling tjänster](../terminology.md#april-2018---retirement-of-operations-management-suite-brand) som innehöll Log Analytics, som nu ingår i [Azure Monitor](../overview.md).
 
 Du kan bara konfigurera en Log Analytics arbets yta i den här versionen.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: ac111b06d578a0e9af8581ef2e8caeccfc4a291e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b712148b9e619cbf5c6886bf0510b4015183d018
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536895"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883352"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Ändra stöd för feed i Azure Blob Storage (för hands version)
 
@@ -57,19 +57,19 @@ Här är några saker att tänka på när du aktiverar ändrings flödet.
 > [!IMPORTANT]
 > Ändrings flödet finns i en offentlig för hands version och är tillgängligt i regionerna **westcentralus** och **westus2** . Se avsnittet [villkor](#conditions) i den här artikeln. Information om hur du registrerar i för hands versionen finns i avsnittet [Registrera prenumerationen](#register) i den här artikeln. Du måste registrera din prenumeration innan du kan aktivera ändra feed på dina lagrings konton.
 
-### <a name="portal"></a>[Portalen](#tab/azure-portal)
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Aktivera ändra feed på ditt lagrings konto genom att använda Azure Portal:
 
-1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto. 
+1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto.
 
 2. Navigera till alternativet för **data skydd** under **BLOB service**.
 
-3. Klicka på **aktive rad** under **BLOB Change feed**
+3. Klicka på **aktive rad** under **BLOB Change feed**.
 
-4. Välj knappen **Spara** för att bekräfta dina data skydds inställningar
+4. Välj knappen **Spara** för att bekräfta dina **data skydds** inställningar.
 
-![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
+    ![](media/soft-delete-enable/storage-blob-soft-delete-portal-configuration.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

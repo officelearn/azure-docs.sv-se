@@ -3,12 +3,12 @@ title: Python Developer-referens för Azure Functions
 description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 936d6455f448e0243c7d4de2b9f1b88673a32798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea128fc7c68b49fc14d796e9a3b91a9dbddd9b26
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185990"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780053"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -22,7 +22,7 @@ Azure Functions förväntar sig att en funktion är en tillstånds lös metod i 
 
 Data från utlösare och bindningar binds till funktionen via method-attribut `name` med hjälp av egenskapen som definierats i *Function. JSON* -filen. _Funktionen. JSON_ nedan beskriver till exempel en enkel funktion som utlöses av en http-begäran med `req`namnet:
 
-:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
 Baserat på den här definitionen kan `__init__.py` den fil som innehåller funktions koden se ut som i följande exempel:
 
@@ -77,6 +77,7 @@ Den rekommenderade mappstrukturen för ett python Functions-projekt ser ut som i
  | | - my_second_helper_function.py
  | - host.json
  | - requirements.txt
+ | - Dockerfile
  tests
 ```
 Huvudprojektmappen (\_\_app\_\_) kan innehålla följande filer:
@@ -86,6 +87,7 @@ Huvudprojektmappen (\_\_app\_\_) kan innehålla följande filer:
 * *Host. JSON*: innehåller globala konfigurations alternativ som påverkar alla funktioner i en Function-app. Den här filen publiceras i Azure. Alla alternativ stöds inte när du kör lokalt. Läs mer i [Host. JSON](functions-host-json.md).
 * *. funcignore*: (valfritt) deklarerar filer som inte ska publiceras i Azure.
 * *. gitignore*: (valfritt) deklarerar filer som är exkluderade från en git-lagrings platsen, t. ex. local. Settings. JSON.
+* *Dockerfile*: (valfritt) används vid publicering av ditt projekt i en [anpassad behållare](functions-create-function-linux-custom-image.md).
 
 Varje funktion har sin egen kod fil och bindnings konfigurations fil (Function. JSON). 
 
@@ -334,7 +336,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT gäller för varje värd som fungerar när du ska
 
 Om du vill hämta anrops kontexten för en funktion under körningen [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) ska du inkludera argumentet i signaturen. 
 
-Ett exempel:
+Exempel:
 
 ```python
 import azure.functions

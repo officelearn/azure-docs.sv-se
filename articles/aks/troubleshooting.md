@@ -6,12 +6,12 @@ author: sauryadas
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 7bdabf2ec109fe96c28185bd1a2a680ce19c2650
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8460f4f2a66a1f545bea767cccf3aa77c9d3bff3
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79368340"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778965"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -58,7 +58,7 @@ Orsaken till varningarna på instrument panelen är att klustret nu är aktivera
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Det går inte att ansluta till instrumentpanelen. Vad ska jag göra?
 
-Det enklaste sättet att komma åt din tjänst utanför klustret är att köra `kubectl proxy`, vilka proxyservrar som begär att skickas till din localhost port 8001 till KUBERNETES-API-servern. Därifrån kan API-servern proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+Det enklaste sättet att komma åt din tjänst utanför klustret är att köra `kubectl proxy`, vilka proxyservrar som begär att skickas till din localhost port 8001 till KUBERNETES-API-servern. Därifrån kan API-servern proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
 
 Om du inte ser Kubernetes-instrumentpanelen kontrollerar du om `kube-proxy` Pod körs i `kube-system` namn området. Om den inte är i ett körnings tillstånd tar du bort Pod så att den startas om.
 
@@ -172,14 +172,14 @@ Kontrol lera att inställningarna inte står i konflikt med några av de obligat
 
 I Kubernetes version 1,10 kan MountVolume. WaitForAttach Miss lyckas med en ommontering av Azure-disken.
 
-I Linux kan du se ett felaktigt format fel för DevicePath. Ett exempel:
+I Linux kan du se ett felaktigt format fel för DevicePath. Exempel:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-I Windows kan du se fel numret för DevicePath (LUN). Ett exempel:
+I Windows kan du se fel numret för DevicePath (LUN). Exempel:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -192,7 +192,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | -- | :--: |
 | 1,10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | Ej tillämpligt |
+| 1,12 och senare | E.t. |
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
 
@@ -225,7 +225,7 @@ spec:
   >[!NOTE]
   > Eftersom GID och UID monteras som rot eller 0 som standard. Om GID eller UID anges som icke-rot, till exempel 1000, används `chown` Kubernetes för att ändra alla kataloger och filer under den disken. Den här åtgärden kan ta lång tid och kan göra det mycket långsamt att montera disken.
 
-* Använd `chown` i initContainers för att ange GID och UID. Ett exempel:
+* Använd `chown` i initContainers för att ange GID och UID. Exempel:
 
 ```yaml
 initContainers:
@@ -239,7 +239,7 @@ initContainers:
 
 ### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Fel vid borttagning av Azure-PersistentVolumeClaim som används av en POD
 
-Om du försöker ta bort en Azure-PersistentVolumeClaim som används av en POD kan du se ett fel meddelande. Ett exempel:
+Om du försöker ta bort en Azure-PersistentVolumeClaim som används av en POD kan du se ett fel meddelande. Exempel:
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -266,7 +266,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1,11 | 1.11.5 eller senare |
 | 1.12 | 1.12.3 eller senare |
 | 1.13 | 1.13.0 eller senare |
-| 1,14 och senare | Ej tillämpligt |
+| 1,14 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att vänta några minuter och försöka igen.
 
@@ -287,7 +287,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1,11 | 1.11.6 eller senare |
 | 1.12 | 1.12.4 eller senare |
 | 1.13 | 1.13.0 eller senare |
-| 1,14 och senare | Ej tillämpligt |
+| 1,14 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att försöka nedan:
 
@@ -295,7 +295,7 @@ Om du använder en version av Kubernetes som inte har korrigeringen för det hä
 
 ### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Azure-disk väntar på att frånkopplas under obestämd tid
 
-I vissa fall, om en Azure disk-startåtgärd Miss lyckas vid det första försöket, kommer den inte att försöka koppla från igen och förblir kopplad till den ursprungliga virtuella noden. Det här felet kan inträffa när du flyttar en disk från en nod till en annan. Ett exempel:
+I vissa fall, om en Azure disk-startåtgärd Miss lyckas vid det första försöket, kommer den inte att försöka koppla från igen och förblir kopplad till den ursprungliga virtuella noden. Det här felet kan inträffa när du flyttar en disk från en nod till en annan. Exempel:
 
 ```console
 [Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
@@ -308,7 +308,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1,11 | 1.11.9 eller senare |
 | 1.12 | 1.12.7 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | Ej tillämpligt |
+| 1,14 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att manuellt koppla från disken.
 
@@ -323,7 +323,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | Ej tillämpligt |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och din nod-VM har en lista över föråldrade diskar kan du åtgärda problemet genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en enda Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
@@ -343,7 +343,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | Ej tillämpligt |
+| 1,15 och senare | E.t. |
 
 Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och den virtuella noden är i ett felaktigt tillstånd kan du undvika problemet genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
@@ -460,7 +460,7 @@ Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 | -- | :--: |
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | Ej tillämpligt |
+| 1,14 och senare | E.t. |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 
@@ -468,13 +468,13 @@ Om din lagrings konto nyckel har ändrats kan du se Azure Files Mount-felen.
 
 Du kan åtgärda problemet genom att manuellt uppdatera fältet *azurestorageaccountkey* manuellt i Azure File Secret med din base64-kodade lagrings konto nyckel.
 
-Du kan använda `base64`för att koda lagrings konto nyckeln i base64. Ett exempel:
+Du kan använda `base64`för att koda lagrings konto nyckeln i base64. Exempel:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Om du vill uppdatera din Azure-hemlig `kubectl edit secret`fil använder du. Ett exempel:
+Om du vill uppdatera din Azure-hemlig `kubectl edit secret`fil använder du. Exempel:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

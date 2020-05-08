@@ -9,36 +9,39 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: dadfe0022cfb99703222ba7a91ca3ec6f5fce645
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836639"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927980"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Felsök problem med Linux-uppdaterings agent
 
-Det kan finnas många orsaker till att datorn inte visas som klar (felfri) i Azure Automation Uppdateringshantering-lösningen. I Uppdateringshantering kan du kontrol lera hälso tillståndet för en Hybrid Runbook Worker agent för att fastställa det underliggande problemet. Den här artikeln beskriver hur du kör fel sökaren för Azure-datorer från Azure Portal och datorer som inte är Azure-datorer i [scenariot offline](#troubleshoot-offline). 
+Det kan finnas många orsaker till att datorn inte visas som klar (felfri) i Uppdateringshantering. Du kan kontrol lera hälso tillståndet för en Linux Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. Följande är tre beredskaps tillstånd för en dator:
 
-En dator kan vara i tre beredskaps tillstånd:
-
-* **Klart**: hybrid Runbook Worker har distribuerats och setts senast för en timme sedan.
-* **Frånkopplad**: hybrid Runbook Worker distribueras och lästes senast en timme sedan.
-* **Inte konfigurerad**: det hybrid Runbook Worker inte att hitta eller slutföra registreringen.
+* Klart: Hybrid Runbook Worker har distribuerats och setts senast för en timme sedan.
+* Frånkopplad: Hybrid Runbook Worker distribueras och lästes senast en timme sedan.
+* Inte konfigurerad: det Hybrid Runbook Worker inte att hitta eller slutföra registreringen.
 
 > [!NOTE]
 > Det kan finnas en liten fördröjning mellan det Azure Portal visar och datorns aktuella tillstånd.
 
+Den här artikeln beskriver hur du kör fel sökaren för Azure-datorer från Azure Portal och datorer som inte är Azure-datorer i [scenariot offline](#troubleshoot-offline). 
+
+> [!NOTE]
+> Fel söknings skriptet dirigerar för närvarande inte trafik via en proxyserver om en sådan har kon figurer ATS.
+
 ## <a name="start-the-troubleshooter"></a>Starta fel sökaren
 
-För Azure-datorer väljer du **fel söknings** länken under kolumnen **Uppdatera agent beredskap** i portalen för att öppna sidan **Felsök uppdaterings agent** . För datorer som inte är Azure-datorer går länken till den här artikeln. Information om hur du felsöker en icke-Azure-dator finns i anvisningarna i avsnittet "Felsöka offline".
+För Azure-datorer väljer du **fel söknings** länken under kolumnen **Uppdatera agent beredskap** i portalen för att öppna sidan Felsök uppdaterings agent. För datorer som inte är Azure-datorer går länken till den här artikeln. Information om hur du felsöker en icke-Azure-dator finns i anvisningarna i avsnittet "Felsöka offline".
 
 ![Sidan VM-lista](../media/update-agent-issues-linux/vm-list.png)
 
 > [!NOTE]
 > Kontrollerna kräver att den virtuella datorn körs. Om den virtuella datorn inte körs visas **starta den virtuella datorn** .
 
-På sidan **Felsök uppdaterings agent** väljer du **Kör kontroller** för att starta fel sökaren. Fel sökaren använder [Kör-kommandot](../../virtual-machines/linux/run-command.md) för att köra ett skript på datorn för att verifiera beroenden. När fel sökaren är färdig returneras resultatet av kontrollerna.
+På sidan Felsök uppdaterings agent väljer du **Kör kontroller** för att starta fel sökaren. Fel sökaren använder [Kör-kommandot](../../virtual-machines/linux/run-command.md) för att köra ett skript på datorn för att verifiera beroenden. När fel sökaren är färdig returneras resultatet av kontrollerna.
 
 ![Fel söknings sida](../media/update-agent-issues-linux/troubleshoot-page.png)
 
@@ -52,7 +55,7 @@ När kontrollerna är klara returneras resultatet i fönstret. Kryss avsnitten i
 
 Operativ system kontrollen verifierar om Hybrid Runbook Worker kör något av följande operativ system.
 
-|Operativsystem  |Obs!  |
+|Operativsystem  |Anteckningar  |
 |---------|---------|
 |CentOS 6 (x86/x64) och 7 (x64)      | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats. Klassificerings baserad uppdatering kräver "yum" för att returnera säkerhets data, vilket CentOS inte har gjort.         |
 |Red Hat Enterprise 6 (x86/x64) och 7 (x64)     | Linux-agenter måste ha åtkomst till en uppdateringslagringsplats.        |
@@ -84,6 +87,9 @@ Den här kontrollen kontrollerar om Log Analytics-agenten för Linux har Hybrid 
 ### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker status
 
 Den här kontrollen säkerställer att Hybrid Runbook Worker körs på datorn. Följande processer bör finnas om Hybrid Runbook Worker körs på rätt sätt. Mer information finns i [felsöka Log Analytics agent för Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+
+> [!NOTE]
+> Om Hybrid Runbook Worker inte körs och drift slut punkten har misslyckats kan uppdateringen Miss lyckas. Uppdateringshantering laddar ned hybrid Worker-paketen från slut punkten för åtgärder.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

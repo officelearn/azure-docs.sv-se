@@ -3,12 +3,12 @@ title: Självstudie – distribuera vSphere-kluster i Azure
 description: Lär dig att distribuera ett vSphere-kluster i Azure med hjälp av Azure VMWare-lösning (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 712be25acf5984a4bcdf95ad70e0ccfa660c06bc
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
-ms.translationtype: MT
+ms.openlocfilehash: a11928dd936c29b8be0816257a64deadacda4578
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838813"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928558"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Självstudie: Distribuera ett privat AVS-moln i Azure
 
@@ -40,13 +40,13 @@ Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource pr
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="create-a-private-cloud"></a>Skapa ett privat moln
 
 Du kan skapa ett privat AVS-moln med hjälp av [Azure Portal](#azure-portal) eller med hjälp av [Azure CLI](#azure-cli).
 
-### <a name="azure-portal"></a>Azure-portalen
+### <a name="azure-portal"></a>Azure Portal
 
 I Azure Portal väljer du **+ skapa en ny resurs**. I text rutan **Sök i Marketplace** och välj `Azure VMware Solution` **Azure VMware-lösning** i listan. I fönstret **Azure VMware-lösning** väljer du **skapa**
 
@@ -58,7 +58,7 @@ Ange värden för fälten på fliken **grundläggande** . I följande tabell vis
 | **Resursgrupp** | Resurs gruppen för dina privata moln resurser. |
 | **Position** | Välj en plats, t. ex. **USA, östra**.|
 | **Resurs namn** | Namnet på ditt AVS-privata moln. |
-| **SKU** | Välj lämplig SKU, tillgängliga värden är: |
+| **SKU** | Välj followng SKU-värde: AV36 |
 | **Lagras** | Detta är antalet värdar som ska läggas till i det privata moln klustret. Standardvärdet är 3. Det här värdet kan höjas eller sänkas efter distributionen.  |
 | **administratörs lösen ord för vCenter** | Ange ett lösen ord för moln administratören. |
 | **Lösen ord för NSX-T Manager** | Ange ett NSX-T-administratörs lösen ord. |

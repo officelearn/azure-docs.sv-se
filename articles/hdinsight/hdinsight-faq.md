@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 392329d254615406204d67a4e135b6857e13a57d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a69cb83492fabc692886fe6966a147de3bcbb04
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192560"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780852"
 ---
-# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: vanliga frågor och svar
+# <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Vanliga frågor och svar
 
 Den här artikeln innehåller svar på några av de vanligaste frågorna om hur du kör [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -133,7 +133,7 @@ Ja, du kan distribuera en ytterligare virtuell dator i samma undernät som ett H
 
 - Edge-noder: du kan lägga till en annan Edge-nod i klustret, enligt beskrivningen i [använda tomma Edge-noder i Apache Hadoop kluster i HDInsight](hdinsight-apps-use-edge-node.md).
 
-- Fristående noder: du kan lägga till en fristående virtuell dator i samma undernät och komma åt klustret från den virtuella datorn med hjälp av den privata slut `https://<CLUSTERNAME>-int.azurehdinsight.net`punkten. Mer information finns i [kontrol lera nätverks trafik](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+- Fristående noder: du kan lägga till en fristående virtuell dator i samma undernät och komma åt klustret från den virtuella datorn med hjälp av den privata slut `https://<CLUSTERNAME>-int.azurehdinsight.net`punkten. Mer information finns i [kontrol lera nätverks trafik](./control-network-traffic.md).
 
 ### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>Ska jag lagra data på den lokala hård disken på en Edge-nod?
 

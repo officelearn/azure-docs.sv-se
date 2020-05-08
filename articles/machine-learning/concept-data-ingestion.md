@@ -1,5 +1,5 @@
 ---
-title: Alternativ för data inmatning
+title: Data inmatning & Automation
 titleSuffix: Azure Machine Learning
 description: Lär dig mer om alternativen för data inmatning för att träna dina Machine Learning-modeller.
 services: machine-learning
@@ -10,25 +10,27 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 6b1c671d2079c7d8ab59e9afe981ccef3f58ef27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 475c4fd6b34996c83035c4f7ef93b9fa02ded11f
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79086886"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789869"
 ---
-# <a name="data-ingestion-in-azure-machine-learning"></a>Data inmatning i Azure Machine Learning
+# <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Alternativ för data inmatning för Azure Machine Learning arbets flöden
 
-I den här artikeln får du lära dig om för-och nack delar med följande data inmatnings alternativ som är tillgängliga med Azure Machine Learning. 
+I den här artikeln får du lära dig om de tillgängliga alternativen för data inmatning i Azure Machine Learning. 
 
-1. [Azure Data Factory](#use-azure-data-factory) pipelines
-2. [Azure Machine Learning python SDK](#use-the-python-sdk)
+Välj mellan:
++ [Azure Data Factory](#azure-data-factory) pipelines, specifikt utformade för att extrahera, läsa in och transformera data
+
++ [Azure Machine Learning python SDK](#azure-machine-learning-python-sdk)och tillhandahålla en anpassad kod lösning för grundläggande uppgifter för data inmatning.
+
++ en kombination av båda
 
 Data inmatning är den process i vilken ostrukturerade data extraheras från en eller flera källor och sedan förbereds för utbildning av maskin inlärnings modeller. Det är också tids krävande, särskilt om du gör det manuellt, och om du har stora mängder data från flera källor. Att automatisera den här ansträngningen frigör resurser och ser till att dina modeller använder de senaste och aktuella data.
 
-Azure Data Factory (ADF) är särskilt utformat för att extrahera, läsa in och transformera data, men med python SDK kan du utveckla en anpassad kod för grundläggande uppgifter. Om inget är det du behöver kan du även använda ADF och python SDK för att skapa ett sammanfattande arbets flöde för data inmatning som uppfyller dina behov. 
-
-## <a name="use-azure-data-factory"></a>Använda Azure Data Factory
+## <a name="azure-data-factory"></a>Azure Data Factory
 
 [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) erbjuder inbyggt stöd för övervakning av data källor och utlösare för data inmatnings pipeliner.  
 
@@ -55,7 +57,7 @@ De här stegen och följande diagram illustrerar Azure Data Factory data inmatni
     
 Lär dig hur du skapar en pipeline för data inmatning för Machine Learning med [Azure Data Factory](how-to-data-ingest-adf.md).
 
-## <a name="use-the-python-sdk"></a>Använda Python SDK 
+## <a name="azure-machine-learning-python-sdk"></a>Azure Machine Learning python SDK 
 
 Med [python SDK](https://docs.microsoft.com/python/api/overview/azure/ml)kan du inkludera data inmatnings uppgifter i ett [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md) -steg.
 
@@ -73,5 +75,7 @@ I följande diagram består Azure Machine Learning pipelinen av två steg: data 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig hur du skapar en pipeline för data inmatning för Machine Learning med [Azure Data Factory](how-to-data-ingest-adf.md)
-* Lär dig hur du automatiserar och hanterar utvecklings livs cykeln för dina data inmatnings pipeliner med [Azure-pipelines](how-to-cicd-data-ingestion.md).
+Följ de här instruktions artiklarna:
+* [Bygg en pipeline för data inmatning med Azure Data Factory](how-to-data-ingest-adf.md)
+
+* [Automatisera och hantera pipeliner för data inmatning med Azure-pipeliner](how-to-cicd-data-ingestion.md).

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 426ba4c0ac84799b4d0e6bf9330508f928437fd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f5494b1a7590e87bac9f8ffeaeef8f1da791fd6e
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060184"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791144"
 ---
 # <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>Självstudie: Konfigurera tillgänglighets grupp på Azure SQL Server VM manuellt
 
@@ -348,7 +348,7 @@ Nu har du en tillgänglighets grupp med repliker på två instanser av SQL Serve
 
 På Azure Virtual Machines kräver en belastnings utjämning för en SQL Server tillgänglighets grupp. Belastningsutjämnaren innehåller IP-adresserna för tillgänglighets gruppens lyssnare och Windows Server-redundansklustret. I det här avsnittet sammanfattas hur du skapar belastningsutjämnaren i Azure Portal.
 
-En Azure Load Balancer kan vara antingen en Standard Load Balancer eller en grundläggande Load Balancer. Standard Load Balancer har fler funktioner än de grundläggande Load Balancer. För en tillgänglighets grupp krävs Standard Load Balancer om du använder en tillgänglighets zon (i stället för en tillgänglighets uppsättning). Mer information om skillnaden mellan belastnings Utjämnings typerna finns i [load BALANCER SKU-jämförelse](../../../load-balancer/concepts-limitations.md#skus).
+En Azure Load Balancer kan vara antingen en Standard Load Balancer eller en grundläggande Load Balancer. Standard Load Balancer har fler funktioner än de grundläggande Load Balancer. För en tillgänglighets grupp krävs Standard Load Balancer om du använder en tillgänglighets zon (i stället för en tillgänglighets uppsättning). Mer information om skillnaden mellan belastningsutjämnarens SKU: er finns i [load BALANCER SKU-jämförelse](../../../load-balancer/skus.md).
 
 1. Gå till resurs gruppen där dina SQL-servrar finns i Azure Portal och klicka på **+ Lägg till**.
 1. Sök efter **Load Balancer**. Välj belastningsutjämnaren som publicerats av Microsoft.
@@ -358,7 +358,7 @@ En Azure Load Balancer kan vara antingen en Standard Load Balancer eller en grun
 1. Klicka på **Skapa**.
 1. Konfigurera följande parametrar för belastningsutjämnaren.
 
-   | Inställningen | Field |
+   | Inställningen | Fält |
    | --- | --- |
    | **Namn** |Använd ett text namn för belastningsutjämnaren, till exempel **sqlLB**. |
    | **Typ** |Intern |
@@ -405,7 +405,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
    | Inställningen | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointProbe |
-   | **Protokollhanterare** | Välj TCP | TCP |
+   | **Protokoll** | Välj TCP | TCP |
    | **Lastning** | Oanvänd port | 59999 |
    | **Intervall**  | Tiden mellan avsöknings försök i sekunder |5 |
    | **Tröskelvärde för ej felfri** | Antalet avsöknings fel i följd som måste inträffa för att en virtuell dator ska anses vara ohälsosam  | 2 |
@@ -422,7 +422,7 @@ Om du vill konfigurera belastningsutjämnaren måste du skapa en backend-pool, e
    | --- | --- |---
    | **Namn** | Text | SQLAlwaysOnEndPointListener |
    | **IP-adress för klient del** | Välj en adress |Använd adressen som du skapade när du skapade belastningsutjämnaren. |
-   | **Protokollhanterare** | Välj TCP |TCP |
+   | **Protokoll** | Välj TCP |TCP |
    | **Lastning** | Använd porten för tillgänglighets gruppens lyssnare | 1433 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 1433 |
    | **Avsökning** |Det namn som du har angett för avsökningen | SQLAlwaysOnEndPointProbe |
@@ -448,7 +448,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
    | Inställningen | Beskrivning | Exempel
    | --- | --- |---
    | **Namn** | Text | WSFCEndPointProbe |
-   | **Protokollhanterare** | Välj TCP | TCP |
+   | **Protokoll** | Välj TCP | TCP |
    | **Lastning** | Oanvänd port | 58888 |
    | **Intervall**  | Tiden mellan avsöknings försök i sekunder |5 |
    | **Tröskelvärde för ej felfri** | Antalet avsöknings fel i följd som måste inträffa för att en virtuell dator ska anses vara ohälsosam  | 2 |
@@ -463,7 +463,7 @@ WSFC-IP-adressen måste också finnas i belastningsutjämnaren.
    | --- | --- |---
    | **Namn** | Text | WSFCEndPoint |
    | **IP-adress för klient del** | Välj en adress |Använd adressen som du skapade när du konfigurerade WSFC-IP-adressen. Detta skiljer sig från IP-adressen för lyssnaren |
-   | **Protokollhanterare** | Välj TCP |TCP |
+   | **Protokoll** | Välj TCP |TCP |
    | **Lastning** | Använd porten för klustrets IP-adress. Det här är en tillgänglig port som inte används för avsöknings porten för lyssnaren. | 58888 |
    | **Backend-port** | Det här fältet används inte när flytande IP anges för direkt Server retur | 58888 |
    | **Avsökning** |Det namn som du har angett för avsökningen | WSFCEndPointProbe |

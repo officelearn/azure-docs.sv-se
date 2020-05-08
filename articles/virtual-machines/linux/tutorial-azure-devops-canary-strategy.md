@@ -1,6 +1,6 @@
 ---
 title: Självstudie – konfigurera Kanarie-distributioner för Azure Virtuella Linux-datorer
-description: I den här självstudien får du lära dig hur du konfigurerar en pipeline för kontinuerlig distribution (CD) som uppdaterar en grupp av Azure-Virtuella Linux-datorer med hjälp av Kanarie-distributions strategin
+description: I den här självstudien får du lära dig hur du konfigurerar en pipeline för kontinuerlig distribution (CD). Den här pipelinen uppdaterar en grupp med virtuella Azure Linux-datorer med hjälp av strategin för Kanarie-distribution.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -12,65 +12,80 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: b51b4aed85f737e436565ce8ba1ab4a295714734
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0fb26896b79fb23bb0f784c0f23aa3af0593c22
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82120480"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871854"
 ---
-# <a name="tutorial---configure-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Självstudie – konfigurera en strategi för Kanarie-distribution för Azure Virtuella Linux-datorer
+# <a name="tutorial---configure-the-canary-deployment-strategy-for-azure-linux-virtual-machines"></a>Självstudie – konfigurera strategin för Kanarie-distribution för Azure Virtuella Linux-datorer
 
+## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>IaaS (Infrastructure as a Service) – Konfigurera CI/CD
 
-## <a name="iaas---configure-cicd"></a>IaaS – konfigurera CI/CD 
-Azure-pipeliner innehåller en komplett uppsättning CI/CD Automation-verktyg för distributioner till virtuella datorer. Du kan konfigurera en pipeline för kontinuerlig leverans för en virtuell Azure-dator direkt från Azure Portal. Det här dokumentet innehåller stegen för att konfigurera en CI/CD-pipeline som använder Kanarie strategin för distributioner av flera datorer. Du kan också ta en titt på andra strategier, t. ex. [rullande](https://aka.ms/AA7jlh8) och [blå grönt](https://aka.ms/AA83fwu), som stöds direkt från Azure Portal. 
+Azure-pipeliner ger en helt aktuell uppsättning CI/CD Automation-verktyg för distribution till virtuella datorer. Du kan konfigurera en pipeline för kontinuerlig leverans för en virtuell Azure-dator från Azure Portal.
 
+Den här artikeln visar hur du konfigurerar en CI/CD-pipeline som använder Kanarie strategin för MultiMachine-distributioner. Azure Portal stöder också andra strategier som [rullande](https://aka.ms/AA7jlh8) och [blå – grönt](https://aka.ms/AA83fwu).
 
-**Konfigurera CI/CD på Virtual Machines**
+### <a name="configure-cicd-on-virtual-machines"></a>Konfigurera CI/CD på virtuella datorer
 
-Virtuella datorer kan läggas till som mål i en [distributions grupp](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) och kan användas för uppdateringar av flera datorer. När **distributions historiken** i distributions gruppen har distribuerats ger det möjlighet att spåra från virtuell dator till pipelinen och sedan till commit. 
- 
-  
-**Kanarie-distributioner**: en Kanarie-distribution minskar riskerna genom att sakta ner ändringen till en liten del av användarna. När du blir mer säker i den nya versionen kan du börja släppa den på fler servrar i infrastrukturen och dirigera fler användare till den. Du kan konfigurera Kanarie-distributioner till dina virtuella datorer med Azure Portal med alternativet för kontinuerlig leverans. Här är steg för steg-beskrivningen. 
-1. Logga in på Azure Portal och navigera till en virtuell dator 
-2. I det vänstra fönstret i den virtuella datorn navigerar du till menyn för **kontinuerlig leverans** . Klicka på **Konfigurera**. 
+Du kan lägga till virtuella datorer som mål i en [distributions grupp](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Du kan sedan rikta dem till MultiMachine-uppdateringar. När du har distribuerat till datorer, Visa **distributions historik** i en distributions grupp. I den här vyn kan du spåra från virtuell dator till pipelinen och sedan till commit.
 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
-3. I konfigurations panelen klickar du på **Azure DevOps Organization** för att välja ett befintligt konto eller skapa ett. Välj sedan det projekt som du vill konfigurera pipelinen för.  
+### <a name="canary-deployments"></a>Kanarie-distributioner
 
+En Kanarie-distribution minskar riskerna genom att sakta ner ändringar av en liten del av användarna. När du får förtroende för den nya versionen kan du släppa den på fler servrar i infrastrukturen och dirigera fler användare till den.
 
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
-4. En distributions grupp är en logisk uppsättning distributions mål datorer som representerar de fysiska miljöerna. till exempel "dev", "test", "UAT" och "produktion". Du kan skapa en ny distributions grupp eller välja en befintlig distributions grupp. 
-5. Välj den build-pipeline som publicerar paketet som ska distribueras till den virtuella datorn. Observera att det publicerade paketet måste ha ett distributions skript _distribuera. ps1_ eller _Deploy.sh_ i `deployscripts` mappen på paket roten. Det här distributions skriptet körs av Azure DevOps pipeline vid körning.
-6. Välj den distributions strategi du önskar. Välj **Kanarie**.
-7. Lägg till en "Kanarie"-tagg till de virtuella datorer som ska ingå i Kanarie-distributioner och en "Prod"-tagg till de virtuella datorer som är en del av distributionerna när Kanarie-distributionen har slutförts. Med taggar kan du rikta virtuella datorer som har specifika roller.
-![AzDevOps_configure_canary](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
+Med alternativet för kontinuerlig leverans kan du konfigurera Kanarie-distributioner till dina virtuella datorer från Azure Portal. Här är stegvisa steg-för-steg-anvisningar:
 
-8. Klicka på **OK** i dialog rutan för att konfigurera pipeline för kontinuerlig leverans. Nu har du en pipeline för kontinuerlig leverans som kon figurer ATS för distribution till den virtuella datorn.
-![AzDevOps_canary_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
+1. Logga in på Azure Portal och navigera till en virtuell dator.
+1. I rutan längst till vänster i VM-inställningarna väljer du **kontinuerlig leverans**. Välj sedan **Konfigurera**.
 
+   ![Fönstret kontinuerlig leverans med knappen Konfigurera](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
-9. Klicka på **Redigera** release pipeline i Azure DevOps för att se pipeline-konfigurationen. Pipelinen består av tre faser. Den första fasen är en distributions grupps fas och distribueras till virtuella datorer som är märkta som _Kanarie_. Den andra fasen pausar pipelinen och väntar på manuell åtgärd för att återuppta körningen. När en användare är nöjd med att Kanarie-distributionen är stabil kan de återuppta pipelinen och sedan köra den tredje fasen som distribueras till virtuella datorer som är märkta som _Prod_. ![AzDevOps_canary_task](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
+1. I konfigurations panelen väljer du **Azure DevOps-organisation** för att välja ett befintligt konto eller skapa ett nytt. Välj sedan det projekt som du vill konfigurera pipelinen för.  
 
-10. Innan du återupptar pipeline-körningen måste du kontrol lera att minst en virtuell dator är märkt som _Prod_. I den tredje fasen av pipelinen distribueras programmet enbart till de virtuella datorer som har en _Prod_ -tagg.
+   ![Panelen kontinuerlig leverans](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-11. Kör skript för att distribuera skript kör som standard distributions skriptet _Deploy. ps1_ eller _Deploy.sh_ i mappen deployscripts i rot katalogen för det publicerade paketet. Kontrol lera att den valda Bygg pipelinen publicerar detta i rotmappen för paketet. 
-![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
+1. En distributions grupp är en logisk uppsättning distributions mål datorer som representerar de fysiska miljöerna. Utveckling, testning, UAT och produktion är exempel. Du kan skapa en ny distributions grupp eller välja en befintlig.
+1. Välj den build-pipeline som publicerar paketet som ska distribueras till den virtuella datorn. Det publicerade paketet måste ha ett distributions skript med namnet Deploy. ps1 eller deploy.sh i mappen deployscripts i paketets rotmapp. Pipelinen kör det här distributions skriptet.
+1. I **distributions strategi**väljer du **Kanarie**.
+1. Lägg till en "Kanarie"-tagg till virtuella datorer som ska ingå i Kanarie-distributioner. Lägg till en "Prod"-tagg till virtuella datorer som är en del av distributioner gjorda efter att Kanarie-distributionen lyckades. Med taggar kan du bara rikta in virtuella datorer som har en speciell roll.
 
+   ![Panelen kontinuerlig leverans med det valda Kanarie-värdet för distributions strategin](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure-canary.png)
 
+1. Välj **OK** om du vill konfigurera en pipeline för kontinuerlig leverans som ska distribueras till den virtuella datorn.
 
+   ![Kanarie-pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-pipeline.png)
+
+1. Distributions informationen för den virtuella datorn visas. Du kan välja länken för att gå till versions pipelinen i Azure DevOps. I versions pipeline väljer du **Redigera** för att Visa pipeline-konfigurationen. Pipelinen har följande tre faser:
+
+   1. Den här fasen är en distributions grupps fas. Program distribueras till virtuella datorer som är märkta som "Kanarie".
+   1. I den här fasen pausar och väntar på manuella åtgärder för att återuppta körningen.
+   1. Detta är en distributions grupps fas. Uppdateringen distribueras nu till virtuella datorer som märkts som "Prod".
+
+      ![Fönstret distributions grupp för aktiviteten distribuera Kanarie](media/tutorial-devops-azure-pipelines-classic/azure-devops-canary-task.png)
+
+1. Innan du återupptar pipeline-körningen bör du se till att minst en virtuell dator är märkt som "Prod". I den tredje fasen av pipelinen distribueras program endast till de virtuella datorer som har taggen "Prod".
+
+1. Åtgärden kör distribuera skript kör som standard distributions skriptet Deploy. ps1 eller deploy.sh. Skriptet finns i mappen deployscripts i rotmappen för det publicerade paketet. Se till att den valda Bygg pipelinen publicerar distributionen i paketets rotmapp.
+
+   ![Fönster rutan artefakter som visar deploy.sh i mappen deployscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Andra distributions strategier
-- [Konfigurera strategi för löpande distribution](https://aka.ms/AA7jlh8)
-- [Konfigurera en blå-grön distributions strategi](https://aka.ms/AA83fwu)
+- [Konfigurera strategin för löpande distribution](https://aka.ms/AA7jlh8)
+- [Konfigurera den blå gröna distributions strategin](https://aka.ms/AA83fwu)
 
-## <a name="azure-devops-project"></a>Azure DevOps-projekt 
-Kom igång med Azure enklare än någonsin.
- 
-Med DevOps Projects börjar du köra ditt program på valfri Azure-tjänst i tre steg: Välj ett program språk, en körning och en Azure-tjänst.
- 
-[Läs mer](https://azure.microsoft.com/features/devops-projects/ ).
- 
-## <a name="additional-resources"></a>Ytterligare resurser 
-- [Distribuera till Azure Virtual Machines med DevOps-projekt](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
+## <a name="azure-devops-projects"></a>Azure DevOps Projects
+
+Du kan enkelt komma igång med Azure. Med Azure DevOps Projects börjar du köra ditt program på valfri Azure-tjänst i tre steg genom att välja:
+
+- Ett program språk
+- En körning
+- En Azure-tjänst
+
+[Läs mer](https://azure.microsoft.com/features/devops-projects/).
+
+## <a name="additional-resources"></a>Ytterligare resurser
+
+- [Distribuera till virtuella Azure-datorer med hjälp av Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
 - [Implementera en kontinuerlig distribution av din app till en skalnings uppsättning för en virtuell Azure-dator](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 509f9557a8128df12353ad02a7c7db02b7b42631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6e85ba5aafaad973d28f799a251b6f3aae548e3
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158491"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871936"
 ---
 # <a name="configure-rules"></a>Konfigurera regler
-
-
 
 *Den här artikeln gäller för operatörer, kompilerare och administratörer.*
 
@@ -36,6 +34,12 @@ Villkoren är vilka regler som utlöses på. När du lägger till flera villkor 
 I följande skärm bild kontrollerar villkoren när temperaturen är större än 70&deg; F och att fuktigheten är mindre än 10. När båda dessa instruktioner är uppfyllda utvärderas regeln till sant och utlöser en åtgärd.
 
 ![Villkor](media/howto-configure-rules/conditions.png)
+
+### <a name="use-a-cloud-property-in-a-value-field"></a>Använd en moln egenskap i ett värde fält
+
+Du kan referera till en moln egenskap från enhets mal len i fältet **värde** för ett villkor. Moln egenskapen och telemetri-värdet måste ha liknande typer. Om **temperaturen** t. ex. är en dubbel, visas endast moln egenskaper av typen dubbelt som alternativ i list rutan **värde** .
+
+Om du väljer ett telemetri värde för händelse typ innehåller **värdet** List rutan värde **alla**. **Alla** alternativ innebär att regeln utlöses när ditt program får en händelse av den typen, oavsett nytto Last.
 
 ## <a name="use-aggregate-windowing"></a>Använd agg regerings fönster
 

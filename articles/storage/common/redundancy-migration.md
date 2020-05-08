@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6376d858ae5113996bf7c93a8b3054797151c6b3
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 5d047aa3c5c937e3b84b8fa672101bc801221067
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858679"
+ms.locfileid: "82871357"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Ändra hur ett lagrings konto replikeras
 
@@ -40,10 +40,11 @@ Följande tabell innehåller en översikt över hur du växlar från varje typ a
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>... från LRS</b> | E.t. | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1</sup> | Utföra en manuell migrering <br /><br />Begär en Direktmigrering | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Växla till GRS/RA-GRS först och begär sedan en Direktmigrering<sup>1</sup> |
 | <b>... från GRS/RA-GRS</b> | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna | E.t. | Utföra en manuell migrering <br /><br /> ELLER <br /><br /> Växla till LRS först och begär sedan en Direktmigrering | Utföra en manuell migrering <br /><br /> Begär en Direktmigrering |
-| <b>... från ZRS</b> | Utföra en manuell migrering | Utföra en manuell migrering | E.t. | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1</sup> |
+| <b>... från ZRS</b> | Utföra en manuell migrering | Utföra en manuell migrering | E.t. | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna<sup>1, 2</sup> |
 | <b>... från GZRS/RA-GZRS</b> | Utföra en manuell migrering | Utföra en manuell migrering | Använd Azure Portal, PowerShell eller CLI för att ändra replikeringsinställningarna | E.t. |
 
-<sup>1</sup> ådrar sig en engångs avgift.
+<sup>1</sup> ådrar sig en engångs avgift.<br />
+<sup>2</sup> konvertering från ZRS till GZRS/ra-GZRS eller vice versa stöds inte i följande regioner: USA, östra 2, östra USA, västra Europa.
 
 > [!CAUTION]
 > Om du har utfört en [konto redundansväxling](storage-disaster-recovery-guidance.md) för ditt (RA-) GRS-eller (RA-) GZRS-konto är kontot Lokalt Redundant i den nya primära regionen efter redundansväxlingen. Direktmigrering till ZRS eller GZRS för ett LRS-konto som orsakas av en redundansväxling stöds inte. Du måste utföra en [manuell migrering](#perform-a-manual-migration-to-zrs) till ZRS eller GZRS.
@@ -54,7 +55,7 @@ Du kan använda Azure Portal, PowerShell eller Azure CLI för att ändra replike
 
 Att ändra hur ditt lagrings konto replikeras resulterar inte i drift tid för dina program.
 
-# <a name="portal"></a>[Portalen](#tab/portal)
+# <a name="portal"></a>[Portal](#tab/portal)
 
 Följ dessa steg om du vill ändra alternativet för redundans för ditt lagrings konto i Azure Portal:
 
@@ -156,7 +157,7 @@ Om du vill migrera ZRS-Datadata till eller från ett LRS, GRS, RA-GRS eller ZRS 
 
 Du kan också uppgradera ditt ZRS klassiska lagrings konto till ZRS med hjälp av Azure Portal, PowerShell eller Azure CLI i regioner där ZRS är tillgängligt.
 
-# <a name="portal"></a>[Portalen](#tab/portal)
+# <a name="portal"></a>[Portal](#tab/portal)
 
 Om du vill uppgradera till ZRS i Azure Portal navigerar du till **konfigurations** inställningarna för kontot och väljer **uppgradering**:
 

@@ -12,12 +12,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 12a38b08fd429280f34b4eb02d4b72187b622261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0938888b7343b441725faace7a5f20d8f50674c8
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79078408"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872063"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Var du ska spara och skriva filer för Azure Machine Learning experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Lös problemet genom att lagra dina experiment-filer på ett data lager. Om du i
 Experiment&nbsp;Beskrivning|Lösning för lagrings gräns
 ---|---
 Mindre än 2000 filer & kan inte använda ett data lager| Åsidosätt storleks gräns för ögonblicks bild med <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> Detta kan ta flera minuter beroende på antalet filer och filernas storlek.
-Måste använda en speciell skript katalog| Skapa en `.amlignore` fil för att undanta filer från din ögonblicks bild av experimentet som inte ingår i käll koden. Lägg till fil namnen i `.amlignore` filen och placera den i samma katalog som ditt utbildnings skript. `.amlignore` Filen använder samma [syntax och mönster](https://git-scm.com/docs/gitignore) som en `.gitignore` fil.
+Måste använda en speciell skript katalog| [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 Pipeline|Använd en annan under katalog för varje steg
 Jupyter Notebooks| Skapa en `.amlignore` fil eller flytta din antecknings bok till en ny, tom, under katalog och kör koden igen.
 

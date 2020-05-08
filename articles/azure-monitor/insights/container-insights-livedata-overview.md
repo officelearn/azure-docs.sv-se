@@ -3,12 +3,12 @@ title: Visa real tids data (för hands version) med Azure Monitor för behållar
 description: Den här artikeln beskriver real tids visningen av Kubernetes-loggar, händelser och Pod mått utan att använda kubectl i Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 9e7c7a7b7bf276b3451cee1d289b8b07ac0f40ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216549"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872108"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Så här visar du Kubernetes-loggar, händelser och Pod-mått i real tid
 
@@ -42,7 +42,7 @@ Om du vill pausa autorullningen och kontrol lera beteendet för fönstret, så a
 >Vi rekommenderar att du bara pausar eller pausar den här snabb rullningen under en kort tids period när du felsöker ett problem. Dessa förfrågningar kan påverka tillgängligheten och begränsningen av Kubernetes-API: et i klustret. 
 
 >[!IMPORTANT]
->Inga data lagras permanent under den här funktionens funktion. All information som registreras under sessionen tas bort när du stänger webbläsaren eller navigerar bort från den. Data är bara tillgängliga för visualisering i fönstret med måtten 5 minuter i mått funktionen. alla mått som är äldre än fem minuter tas också bort. Bufferten för Live data (förhands granskning) med en rimlig minnes användnings gräns (måste vara mer detaljerad här, vilket är lämpligt?). 
+>Inga data lagras permanent under den här funktionens funktion. All information som registreras under sessionen tas bort när du stänger webbläsaren eller navigerar bort från den. Data är bara tillgängliga för visualisering i fönstret med måtten 5 minuter i mått funktionen. alla mått som är äldre än fem minuter tas också bort. Bufferten för Live data (förhands granskning) inom rimlig minnes användnings gränser.
 
 ## <a name="view-logs"></a>Visa loggar
 

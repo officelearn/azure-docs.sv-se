@@ -6,12 +6,12 @@ ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 7908b168adcaa00819990d7ced04ba4888d67d63
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572354"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871311"
 ---
 # <a name="refresh-with-azure-automation"></a>Uppdatera med Azure Automation
 
@@ -173,7 +173,7 @@ En virtuell Azure-dator med en statisk offentlig IP-adress kan användas som en 
 > [!IMPORTANT]
 > Se till att den offentliga IP-adressen för den virtuella datorn är konfigurerad som statisk.
 >
->Mer information om hur du konfigurerar Azure Automation hybrid Worker finns i [automatisera resurser i ditt data Center eller i molnet med hjälp av hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker).
+>Mer information om hur du konfigurerar Azure Automation hybrid Worker finns i [hybrid Runbook Worker installation](../automation/automation-hybrid-runbook-worker.md#hybrid-runbook-worker-installation).
 
 När en Hybrid Worker har kon figurer ATS skapar du en webhook enligt beskrivningen i avsnittet [förbruka med Data Factory](#consume-with-data-factory).  Den enda skillnaden är att välja alternativet **kör på** > **hybrid Worker** när du konfigurerar webhooken.
 

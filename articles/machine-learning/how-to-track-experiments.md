@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0c77e9d0aa4f44f33b1345a6021fc0378459ee85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dcd5668fa2c6e1840eed13a9ee0cbd30d8d8a25a
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79296973"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983252"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Övervaka körningar och mått för Azure ML-experiment
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,13 +34,13 @@ Förbättra skapande processen för modeller genom att spåra experiment och öv
 
 Du kan lägga till följande mått i en körning medan du tränar ett experiment. Om du vill visa en mer detaljerad lista över vad som kan spåras i en körning, se [referens dokumentationen för körnings klassen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py).
 
-|Typ| Python-funktionen | Obs!|
+|Typ| Python-funktionen | Anteckningar|
 |----|:----|:----|
 |Skalära värden |Funktioner<br>`run.log(name, value, description='')`<br><br>Exempel:<br>Kör. log ("noggrannhet", 0,95) |Logga ett numeriskt värde eller sträng värde för körningen med det tilldelade namnet. Att logga ett mått på en körning gör att måttet lagras i körnings posten i experimentet.  Du kan logga samma mått flera gånger i en körning, och resultatet betraktas som en Vector för det måttet.|
 |Listor|Funktioner<br>`run.log_list(name, value, description='')`<br><br>Exempel:<br>Kör. log_list ("noggrannhet", [0,6, 0,7, 0,87]) | Logga en lista med värden som ska köras med det aktuella namnet.|
 |Rad|Funktioner<br>`run.log_row(name, description=None, **kwargs)`<br>Exempel:<br>Kör. log_row ("Y över X", X = 1, Y = 0.4) | Om du använder *log_row* skapas ett mått med flera kolumner enligt beskrivningen i kwargs. Varje namngiven parameter genererar en kolumn med det angivna värdet.  *log_row* kan anropas en gång för att logga en godtycklig tupel eller flera gånger i en slinga för att generera en fullständig tabell.|
 |Tabell|Funktioner<br>`run.log_table(name, value, description='')`<br><br>Exempel:<br>Kör. log_table ("Y över X", {"X": [1, 2, 3], "Y": [0.6, 0,7, 0,89]}) | Logga ett Dictionary-objekt i körningen med det aktuella namnet. |
-|Avbildningar|Funktioner<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>`run.log_image("ROC", plot=plt)` | Logga en bild i körnings posten. Använd log_image för att logga en bildfil eller en matplotlib-rityta till körningen.  De här bilderna visas och är jämförbara i körnings posten.|
+|Avbildningar|Funktioner<br>`run.log_image(name, path=None, plot=None)`<br><br>Exempel:<br>`run.log_image("ROC", plot=plt)` | Logga en bild i körnings posten. Använd log_image för att logga en. PNG-bildfil eller en matplotlib-rityta till körningen.  De här bilderna visas och är jämförbara i körnings posten.|
 |Tagga en körning|Funktioner<br>`run.tag(key, value=None)`<br><br>Exempel:<br>Kör. tag ("vald", "Ja") | Tagga körningen med en sträng nyckel och ett valfritt sträng värde.|
 |Ladda upp fil eller katalog|Funktioner<br>`run.upload_file(name, path_or_stream)`<br> <br> Exempel:<br>Kör. upload_file ("best_model. PKL", "./Model.PKL") | Ladda upp en fil till körnings posten. Kör automatiskt avbilda fil i den angivna utdatakatalogen som är "./outputs" som standard för de flesta körnings typer.  Använd upload_file endast när ytterligare filer behöver överföras eller om ingen utmatnings katalog har angetts. Vi föreslår att `outputs` du lägger till namnet så att det överförs till katalogen utdata. Du kan visa en lista över alla filer som är associerade med den här körnings posten genom att anropa`run.get_file_names()`|
 

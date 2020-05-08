@@ -1,24 +1,22 @@
 ---
-title: Stöd för den kommersiella Marketplace | Azure Marketplace
-description: Support information och länkar för Azure Marketplace och AppSource
+title: Microsofts support för kommersiella marknads platser – Azure Marketplace
+description: Support information och länkar för Azure Marketplace och AppSource i Partner Center
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 3871ef232d9a2315ece632f6f764f8377a8435c5
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 9dacbbac1caad33a6ab2f5f09d3f6c9d31c32bb7
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159923"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871547"
 ---
-# <a name="support-for-the-marketplace"></a>Support för Marketplace
+# <a name="support-for-microsoft-commercial-marketplace"></a>Support för Microsofts kommersiella marknads platser
 
-Här är en lista över support alternativ för Marketplace.  
-
-Dessutom kan du få många av dina frågor besvarade på [Marketplace-kanalen för C + AI community-forumet](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
+Har du frågor om att komma igång som Microsoft-utgivare för extern Marketplace? Här är en lista över support alternativ för den kommersiella Marketplace. Förutom följande resurser kan du också få många av dina frågor besvarade på [Marketplace-kanalen för C + AI community-forumet](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## <a name="onboarding"></a>Publicering
 

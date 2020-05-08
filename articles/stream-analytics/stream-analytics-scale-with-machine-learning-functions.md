@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 5b08625d055063b3804a35a3344ff01c7edb79de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e2c99274df90d232754c862f3174b5767392cec
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80067009"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929051"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skala ditt Stream Analytics jobb med Azure Machine Learning Studio (klassiska) funktioner
 
@@ -58,7 +58,7 @@ I allmänhet, ***b*** för batchstorlek, ***L*** för webb tjänstens svars tid 
 
 Du kan också konfigurera "maximalt antal samtidiga anrop" i Machine Learning-webbtjänsten. Vi rekommenderar att du anger den här parametern till det maximala värdet (200 för närvarande).
 
-Mer information om den här inställningen finns i [artikeln om skalning för Machine Learning-webbtjänster](../machine-learning/studio/scaling-webservice.md).
+Mer information om den här inställningen finns i [artikeln om skalning för Machine Learning-webbtjänster](../machine-learning/studio/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Exempel – Attitydanalys
 I följande exempel finns ett Stream Analytics jobb med sentiment Analysis Machine Learning-funktionen som beskrivs i [själv studie kursen Stream Analytics Machine Learning integration](stream-analytics-machine-learning-integration-tutorial.md).

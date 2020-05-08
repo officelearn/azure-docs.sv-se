@@ -1,5 +1,5 @@
 ---
-title: Översikt över Power BI skapande av appar – Azure Marketplace
+title: Översikt över Power BI skapande av appar – Microsoft AppSource
 description: Den här artikeln beskriver de övergripande stegen för att publicera en Power BI-app till Microsoft AppSource. De tekniska och affärs kraven som Power BI appen måste uppfylla för att publiceras på den kommersiella marknaden tillhandahålls också.
 author: anbene
 ms.author: mingshen
@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 8f050a43cbdf4ab29df55cd5526eb231c301b271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c40ea07fc4224052aa2474ebd61ef7838ba2cedf
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732666"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82837846"
 ---
 # <a name="power-bi-app-creation-overview"></a>Översikt över skapande av Power BI app
-
-> [!IMPORTANT]
-> Vi flyttar hantering av Power BI-appens erbjudanden från Cloud Partner Portal till Partner Center. Följ anvisningarna i [Power BI app-erbjudandet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/power-bi/cpp-power-bi-offer) för Cloud Partner Portal för att hantera dina erbjudanden förrän dina erbjudanden har migrerats.
 
 Den här artikeln beskriver hur du publicerar en Power BI-app till Microsoft [AppSource](https://appsource.microsoft.com/). Ett Power BI-appaket för att anpassa innehåll, inklusive data uppsättningar, rapporter och instrument paneler. Du kan sedan använda appen med andra Power BI plattformar med AppSource, utföra de justeringar och anpassningar som tillåts av utvecklaren och ansluta den till dina egna data.
 
@@ -39,7 +36,7 @@ Dessa är viktiga publicerings steg:
 1. Skapa ditt program i Power BI. Du får en paket installations länk, som är den viktigaste tekniska till gången för erbjudandet. Skicka test paketet till för produktion innan du skapar erbjudandet i Partner Center. Mer information finns i [Vad är Power BI appar?](https://docs.microsoft.com/power-bi/service-template-apps-overview).
 2. Lägg till marknadsförings material, till exempel officiellt namn, beskrivning och logo typer.
 3. Ta med erbjudandena juridiska och stöd dokument, till exempel användnings villkor, sekretess policy, support princip och användar hjälp.
-4. Skapa erbjudandet: Använd partner Center för att redigera informationen, inklusive erbjudande beskrivning, marknadsförings material, juridisk information, supportinformation och till gångs uppgifter.
+4. Skapa erbjudandet – Använd partner Center för att redigera informationen, inklusive erbjudande beskrivning, marknadsförings material, juridisk information, supportinformation och till gångs uppgifter.
 5. Skicka den för publicering.
 6. Övervaka processen i Partner Center där AppSource onboarding-teamet testar, validerar och certifierar appen.
 7. När det är certifierat granskar du appen i dess test miljö och släpper den. Detta visar den på AppSource (den "är Live").
@@ -79,6 +76,6 @@ Affärs kraven omfattar procedur mässiga, avtals liga och juridiska skyldighete
 - Ange innehåll som uppfyller kriterierna för ditt erbjudande som ska listas på AppSource. Mer information finns i [ha en app för att visa en lista på AppSource? Så här gör](https://appsource.microsoft.com/blogs/have-an-app-to-list-on-appsource-here-s-how)du.
 - Godkänn och följ [Microsofts sekretess policy](https://privacy.microsoft.com/privacystatement).
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-step"></a>Nästa steg
 
 - [Skapa ett erbjudande för Power BI app i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-power-bi-app-offer)

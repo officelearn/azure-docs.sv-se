@@ -7,20 +7,17 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: spelluru
-ms.openlocfilehash: 97f08bf0f89fdb65f0ffef7d18557f210e45a8d3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b72462334fa2311b017be49860ed422dfa35430c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101016"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890816"
 ---
-# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains-preview"></a>Konfigurera privata slut punkter för Azure Event Grid ämnen eller domäner (förhands granskning)
+# <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Konfigurera privata slut punkter för Azure Event Grid ämnen eller domäner
 Du kan använda [privata slut punkter](../private-link/private-endpoint-overview.md) för att tillåta ingress av händelser direkt från ditt virtuella nätverk till dina ämnen och domäner på ett säkert sätt över en [privat länk](../private-link/private-link-overview.md) utan att gå via det offentliga Internet. Den privata slut punkten använder en IP-adress från VNet-adressutrymmet för ditt ämne eller din domän. Mer konceptuell information finns i [nätverks säkerhet](network-security.md).
 
 I den här artikeln beskrivs hur du konfigurerar privata slut punkter för ämnen eller domäner.
-
-> [!IMPORTANT]
-> Funktionen för privata slut punkter är endast tillgänglig för ämnen och domäner i Premium-nivån. Information om hur du uppgraderar från Basic-nivån till Premium-nivån finns i artikeln [Uppdatera pris nivå](update-tier.md) . 
 
 ## <a name="use-azure-portal"></a>Använda Azure-portalen 
 Det här avsnittet visar hur du använder Azure Portal för att skapa en privat slut punkt för ett ämne eller en domän.
@@ -205,7 +202,7 @@ Här är ett exempel skript som skapar följande Azure-resurser:
 - Resursgrupp
 - Virtuellt nätverk
 - Undernät i det virtuella nätverket
-- Azure Event Grid ämne (Premium-nivå)
+- Azure Event Grid ämne
 - Ämnets privata slut punkt
 
 > [!NOTE]
@@ -254,8 +251,7 @@ az network vnet subnet update \
 az eventgrid topic create \
     --resource-group $resourceGroupName \
     --name $topicName \
-    --location $location \
-    --sku "Premium" 
+    --location $location
 
 # verify that the topic was created.
 az eventgrid topic show \
@@ -369,7 +365,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 
 ```azurepowershell-interactive
-$body = @{"location"="<LOCATION>"; "sku"= @{"name"="premium"}; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
+$body = @{"location"="<LOCATION>"; "properties"=@{"publicNetworkAccess"="disabled"}} | ConvertTo-Json
 
 # create topic
 Invoke-RestMethod -Method 'Put'  `

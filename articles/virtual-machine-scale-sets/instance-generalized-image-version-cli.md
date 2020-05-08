@@ -1,6 +1,6 @@
 ---
-title: Skapa en skalnings uppsättning från en specialiserad avbildnings version med hjälp av Azure CLI
-description: Skapa en skalnings uppsättning med hjälp av en specialiserad avbildnings version i ett galleri för delade avbildningar med hjälp av Azure CLI.
+title: Skapa en skalnings uppsättning från en generaliserad avbildning
+description: Skapa en skalnings uppsättning med en generaliserad avbildning i ett delat avbildnings Galleri.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 05/01/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 5de9fe7c81059c56c99a55ca066e186cbf83c50f
+ms.openlocfilehash: 59e29be2aade993c8aeae64b4aa4918b36a26b26
 ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796985"
+ms.locfileid: "82797141"
 ---
-# <a name="create-a-scale-set-using-a-specialized-image-version-with-the-azure-cli"></a>Skapa en skalnings uppsättning med hjälp av en specialiserad avbildnings version med Azure CLI
+# <a name="create-a-scale-set-from-a-generalized-image"></a>Skapa en skalnings uppsättning från en generaliserad avbildning
 
-Skapa en skalnings uppsättning från en [specialiserad avbildnings version](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images) som lagras i ett delat avbildnings Galleri. Om du vill skapa en skalnings uppsättning med en generaliserad avbildnings version, se [skapa en virtuell dator från en generaliserad avbildnings version](instance-generalized-image-version-cli.md).
+Skapa en skalnings uppsättning från en generaliserad avbildnings version som lagras i ett [delat avbildnings Galleri](shared-image-galleries.md) med hjälp av Azure CLI. Om du vill skapa en skalnings uppsättning med hjälp av en specialiserad avbildnings version, se [skapa skalnings uppsättnings instanser från en specialiserad avbildning](instance-specialized-image-version-cli.md).
 
 Om du väljer att installera och använda CLI lokalt kräver den här självstudien att du kör Azure CLI-version 2.4.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -36,7 +36,7 @@ az sig image-definition list \
    --output tsv
 ```
 
-Skapa en skalnings uppsättning [`az vmss create`](/cli/azure/vmss#az-vmss-create) med hjälp `--specialized` av parametern för att ange att avbildningen är en specialiserad bild.
+Skapa skalnings uppsättningen med [`az vmss create`](/cli/azure/vmss#az-vmss-create)hjälp av. 
 
 Använd bild Definitions-ID `--image` : t för för att skapa skalnings uppsättnings instanserna från den senaste versionen av avbildningen som är tillgänglig. Du kan också skapa skalnings uppsättnings instanser från en speciell version genom att ange avbildningens versions `--image`-ID för. Tänk på att om du använder en angiven avbildnings version kan Automation inte köras om den angivna avbildnings versionen inte är tillgänglig eftersom den har tagits bort eller tagits bort från regionen. Vi rekommenderar att du använder bild Definitions-ID: t för att skapa din nya virtuella dator, om inte en speciell avbildnings version krävs.
 
@@ -47,10 +47,12 @@ az group create --name myResourceGroup --location eastus
 az vmss create \
    --resource-group myResourceGroup \
    --name myScaleSet \
-   --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" \
-   --Specialized
+   --image "/subscriptions/<Subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition" 
+   --admin-username azureuser \
+   --generate-ssh-keys
 ```
 
+Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorer.
 
 ## <a name="next-steps"></a>Nästa steg
 [Azure Image Builder (för hands version)](../virtual-machines/linux/image-builder-overview.md) kan hjälpa dig att automatisera avbildnings versionen, du kan även använda den för att uppdatera och [skapa en ny avbildnings version från en befintlig avbildnings version](../virtual-machines/linux/image-builder-gallery-update-image-version.md). 
@@ -61,5 +63,4 @@ Du kan också skapa en delad resurs för avbildnings galleriet med hjälp av mal
 - [Skapa en avbildningsdefinition i ett Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Skapa en avbildningsversion i ett Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-
-
+Mer information om delade avbildnings gallerier finns i [översikten](shared-image-galleries.md). Om du stöter på problem, se [Felsöka delade avbildnings gallerier](troubleshooting-shared-images.md).

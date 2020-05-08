@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: b71384e0a42af5481af7b17b91cd0b1d0ed82ee8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082602"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901286"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Vanliga frågor och svar om Azure Disk Encryption för virtuella Windows-datorer
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om Azure Disk En
 
 ## <a name="what-is-azure-disk-encryption-for-windows-vms"></a>Vad är Azure Disk Encryption för virtuella Windows-datorer?
 
-Azure Disk Encryption för virtuella Windows-datorer använder BitLocker-funktionen i Windows för att tillhandahålla fullständig disk kryptering av OS-disken och data diskar. Dessutom innehåller den kryptering av den tillfälliga resurs disken när [VolumeType-parametern är all](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Innehållet flödar från den virtuella datorn till lagrings Server delen. Därmed kan du tillhandahålla kryptering från slut punkt till slut punkt med en kundhanterad nyckel.
+Azure Disk Encryption för virtuella Windows-datorer använder BitLocker-funktionen i Windows för att tillhandahålla fullständig disk kryptering av OS-disken och data diskar. Dessutom ger den en kryptering av den temporära disken när [VolumeType-parametern är all](disk-encryption-windows.md#enable-encryption-on-a-newly-added-data-disk).  Innehållet flödar från den virtuella datorn till lagrings Server delen. Därmed kan du tillhandahålla kryptering från slut punkt till slut punkt med en kundhanterad nyckel.
  
 Se [virtuella datorer och operativ system som stöds](disk-encryption-overview.md#supported-vms-and-operating-systems).
  
@@ -61,7 +61,7 @@ Kryptering av lagring på Server sidan krypterar Azure Managed disks i Azure Sto
  
 ## <a name="how-is-azure-disk-encryption-different-from-storage-server-side-encryption-with-customer-managed-key-and-when-should-i-use-each-solution"></a>Hur skiljer sig Azure Disk Encryption från lagrings Server sidans kryptering med kundhanterad nyckel och när ska jag använda varje lösning?
 
-Azure Disk Encryption tillhandahåller kryptering från slut punkt till slut punkt för OS-disken, data diskarna och den tillfälliga resurs disken med en kundhanterad nyckel.
+Azure Disk Encryption tillhandahåller kryptering från slut punkt till slut punkt för OS-disken, data diskarna och den tillfälliga disken med en kundhanterad nyckel.
 
 - Om dina krav omfattar kryptering av alla ovanstående och kryptering från slut punkt till slut punkt använder du Azure Disk Encryption. 
 - Om dina krav inkluderar kryptering av endast data i vila med kundhanterad nyckel använder du [kryptering på Server sidan med Kundhanterade nycklar](disk-encryption.md). Det går inte att kryptera en disk med både Azure Disk Encryption-och kryptering av lagring på Server sidan med Kundhanterade nycklar.
@@ -129,9 +129,6 @@ Azure Disk Encryption väljer krypterings metoden i BitLocker baserat på Window
 \*AES 256-bitar med diffuser stöds inte i Windows 2012 och senare.
 
 Du fastställer Windows OS-versionen genom att köra verktyget winver på den virtuella datorn.
-
-## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Om jag använder EncryptFormatAll och anger alla volym typer, kommer den att radera data på de data enheter som vi redan har krypterat?
-Nej, data raderas inte från data enheter som redan är krypterade med Azure Disk Encryption. På liknande sätt som EncryptFormatAll inte krypterade om OS-enheten, krypterar den inte om den redan krypterade data enheten. 
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>Kan jag säkerhetskopiera och återställa en krypterad virtuell dator? 
 

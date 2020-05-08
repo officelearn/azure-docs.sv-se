@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 78a6e7fa8d030185f537136a3a2124d8bc59d808
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 945a27da874071d22952207b7be5add79ce7e2ec
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79037631"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872616"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning Designer (förhandsversion)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -82,7 +82,7 @@ En modul kan ha en uppsättning parametrar som du kan använda för att konfigur
 
 ![Egenskaper för modul](./media/concept-designer/properties.png)
 
-För viss hjälp att navigera genom biblioteket med Machine Learning-algoritmer tillgängliga, se [algoritmen & modul referens översikt](algorithm-module-reference/module-reference.md)
+För viss hjälp att navigera genom biblioteket med Machine Learning-algoritmer tillgängliga, se [algoritmen & module Reference Overview](algorithm-module-reference/module-reference.md). Information om hur du väljer en algoritm finns i [lathund-bladet Azure Machine Learning algorithm](algorithm-cheat-sheet.md).
 
 ## <a name="compute-resources"></a><a name="compute"></a>Beräknings resurser
 
@@ -91,9 +91,10 @@ Använd beräknings resurser från din arbets yta för att köra din pipeline oc
 | Beräkningsmål | Utbildning | Distribution |
 | ---- |:----:|:----:|
 | Azure Machine Learning Compute | ✓ | |
+| Azure Machine Learning beräknings instans | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-Compute-målen är kopplade till din [Azure Machine Learning-arbetsyta](concept-workspace.md). Du hanterar dina beräknings mål i din arbets yta i [Azure Machine Learning Studio (klassisk)](https://ml.azure.com).
+Compute-målen är kopplade till din [Azure Machine Learning-arbetsyta](concept-workspace.md). Du hanterar dina beräknings mål i din arbets yta i [Azure Machine Learning Studio](https://ml.azure.com).
 
 ## <a name="deploy"></a>Distribuera
 

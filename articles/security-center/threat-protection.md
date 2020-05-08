@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 79638f584f1c65b33f23a68f01dbe82878460cc2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234085"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606899"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -34,7 +34,9 @@ Om en avisering genereras av Security Center eller tas emot av Security Center f
 > [!TIP]
 > Om du vill aktivera Security Center hot skydds funktioner måste du använda standard pris nivån för prenumerationen som innehåller de aktuella arbets belastningarna.
 >
-> Security Center s skydd för lagrings konton och PaaS SQL/MySQL/PG-servrar är för närvarande de enda arbets belastningar som kan aktive ras på resurs nivå för att skydda enskilda lagrings-/SQL-arbetsbelastningar.
+> Du kan aktivera skydd av hot för **Azure Storage konton** på prenumerations nivå eller resurs nivå.
+> Du kan aktivera skydd mot hot för **Azure SQL Database SQL-servrar** på prenumerations nivå eller resurs nivå.
+> Du kan aktivera skydd mot hot för **Azure Database for MariaDB/MySQL/postgresql** endast på resurs nivå.
 
 
 

@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: fe9ae8997e05e4ab99dba66de88976342fbabe56
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 960897abca67bf2a43c4c056b8dfa8cce0119faa
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858364"
+ms.locfileid: "82871578"
 ---
 # <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Uppgradera Azure Internal Load Balancer – ingen utgående anslutning krävs
 [Azure standard Load Balancer](load-balancer-overview.md) erbjuder en omfattande uppsättning funktioner och hög tillgänglighet genom zon redundans. Mer information om Load Balancer SKU finns i [jämförelse tabell](https://docs.microsoft.com/azure/load-balancer/skus#skus).
@@ -31,6 +31,7 @@ Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
 * Skript stöder endast intern Load Balancer uppgradering där ingen utgående anslutning krävs. Om du behöver [utgående anslutning](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) för några av dina virtuella datorer kan du gå till den här [sidan](upgrade-InternalBasic-To-PublicStandard.md) för instruktioner. 
+* Basic-Load Balancer måste finnas i samma resurs grupp som de virtuella datorerna och nätverkskorten.
 * Om standard belastnings utjämning skapas i en annan region kan du inte associera de virtuella datorerna i den gamla regionen med den nya Standard Load Balancer. Du kan undvika den här begränsningen genom att skapa en ny virtuell dator i den nya regionen.
 * Om din Load Balancer inte har någon IP-konfiguration för klient delen eller en backend-pool, kommer du förmodligen att träffa ett fel som kör skriptet. Se till att de inte är tomma.
 
@@ -47,7 +48,7 @@ Det finns ett Azure PowerShell-skript tillgängligt som gör följande:
 
 ## <a name="download-the-script"></a>Hämta skriptet
 
-Hämta migrerings skriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureILBUpgrade/2.0).
+Hämta migrerings skriptet från [PowerShell-galleriet](https://www.powershellgallery.com/packages/AzureILBUpgrade/3.0).
 ## <a name="use-the-script"></a>Använd skriptet
 
 Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös konfiguration och inställningar:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 9595ee87801fa4ce187a50197fc58d6c448eac24
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09dd4ea3cd039bcb91acc877e51fee7e40168ac3
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78303230"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612766"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster med Premium-filresurs på virtuella Azure-datorer
 
@@ -47,7 +47,7 @@ Du bör också ha en allmän förståelse för dessa tekniker:
 > [!IMPORTANT]
 > För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med [läget för förenklad hantering](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) i [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Om du vill ändra från fullständigt tillägg till Lightweight tar du bort den **virtuella SQL-datorns** resurs för motsvarande virtuella datorer och registrerar dem sedan med resurs leverantören för SQL-VM i Lightweight-läge. När du tar bort den **virtuella SQL-datorns** resurs med hjälp av Azure Portal **avmarkerar du kryss rutan bredvid rätt virtuell dator**. Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för virtuella SQL-datorer när agenten har installerats om i läget för förenklad hantering.
 
-Premium-filresurser ger IOPS och alla kapaciteter som uppfyller behoven hos många arbets belastningar. För i/o-intensiva arbets belastningar kan du överväga att [SQL Server instanser av redundanskluster med Lagringsdirigering](virtual-machines-windows-portal-sql-create-failover-cluster.md), baserat på hanterade Premium diskar eller Ultra disks.  
+Premium-filresurser ger IOPS och data flödes kapacitet som uppfyller behoven hos många arbets belastningar. För i/o-intensiva arbets belastningar kan du överväga att [SQL Server instanser av redundanskluster med Lagringsdirigering](virtual-machines-windows-portal-sql-create-failover-cluster.md), baserat på hanterade Premium diskar eller Ultra disks.  
 
 Kontrol lera din miljös IOPS-aktivitet och kontrol lera att Premium-filresurser kommer att ge den IOPS du behöver innan du påbörjar en distribution eller migrering. Använd disk räknare i Windows prestanda övervakaren för att övervaka total antalet IOPS (disk överföringar/sekund) och data flöde (Disk-byte/sekund) som krävs för att SQL Server data, logg och tillfälliga DB-filer.
 

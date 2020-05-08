@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 008058e42dfeb84cb2812ac4e8378cb5a8b5913a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db6b8b2ff199b7b26d0c641ded31a5c1417468b9
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422601"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901267"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll
 
@@ -60,10 +60,10 @@ ObjectId för ett program motsvarar dess associerade tjänst huvud namn. Fullst�
 
 Det finns två sätt att hämta ett objectId för ett program.  Det första är att registrera ditt program med Azure Active Directory. Det gör du genom att följa stegen i snabb starten [Registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md). När registreringen är klar visas objectID som "program-ID" (klient).
 
-Det andra är att skapa ett huvud namn för tjänsten i ett terminalfönster. Med Azure CLI använder du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) .
+Det andra är att skapa ett huvud namn för tjänsten i ett terminalfönster. Med Azure CLI använder du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) och anger ett unikt tjänst princip namn för flaggan-n i formatet "http://<My-Unique-service-princip-Name>".
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n "http://mySP"
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
 ```
 
 ObjectId visas i utdata som `clientID`.
@@ -72,7 +72,7 @@ Med Azure PowerShell använder du cmdleten [New-AzADServicePrincipal](/powershel
 
 
 ```azurepowershell-interactive
-New-AzADServicePrincipal -DisplayName mySP
+New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
 ```
 
 ObjectId visas i utdata som `Id` (inte `ApplicationId`).

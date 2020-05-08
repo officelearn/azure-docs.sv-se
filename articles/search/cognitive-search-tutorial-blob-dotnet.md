@@ -7,13 +7,13 @@ author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 02/27/2020
-ms.openlocfilehash: 51e1b24f9080d102dee234fa1ca6d460c400ba78
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 05/05/2020
+ms.openlocfilehash: 57cb68726adf8818f9ef0c8804be9c388ea39ff5
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780682"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872289"
 ---
 # <a name="tutorial-ai-generated-searchable-content-from-azure-blobs-using-the-net-sdk"></a>Självstudie: AI-genererat sökbart innehåll från Azure-blobbar med .NET SDK
 
@@ -43,7 +43,9 @@ Om du inte har någon Azure-prenumeration kan du öppna ett [kostnads fritt kont
 
 1. Öppna den här [OneDrive-mappen](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) och klicka på **Ladda ned** i det övre vänstra hörnet för att kopiera filerna till datorn. 
 
-1. Högerklicka på zip-filen och välj **extrahera alla**. Det finns 14 filer av olika typer. Använd dem i den här självstudien.
+1. Högerklicka på zip-filen och välj **extrahera alla**. Det finns 14 filer av olika typer. Du använder 7 för den här övningen.
+
+Du kan också ladda ned käll koden för den här självstudien. Käll koden finns i självstudien – mappen AI-anrikning i [Azure-Search-dotNet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) -lagringsplatsen.
 
 ## <a name="1---create-services"></a>1 – skapa tjänster
 
@@ -75,22 +77,22 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 1. Klicka på **blobs** -tjänsten.
 
-1. Klicka på **+ container** för att skapa en behållare och ge den namnet *Basic-demo-data-PR*.
+1. Klicka på **+ container** för att skapa en behållare och ge den namnet *kugg hjuls-search-demo*.
 
-1. Välj *Basic-demo-data-PR* och klicka sedan på **överför** för att öppna mappen där du sparade nedladdnings filerna. Välj alla fjorton filer och klicka på **OK** för att ladda upp.
+1. Välj *kugg hjuls-search-demo* och klicka sedan på **Ladda upp** för att öppna mappen där du sparade nedladdnings filerna. Välj alla fjorton filer och klicka på **OK** för att ladda upp.
 
    ![Ladda upp exempelfiler](media/cognitive-search-quickstart-blob/sample-data.png "Ladda upp exempelfiler")
 
 1. Innan du lämnar Azure Storage får du en anslutnings sträng så att du kan formulera en anslutning i Azure Kognitiv sökning. 
 
-   1. Gå tillbaka till sidan Översikt för ditt lagrings konto (vi använde *blobstragewestus* som exempel). 
+   1. Gå tillbaka till sidan Översikt för ditt lagrings konto (vi använde *blobstoragewestus* som exempel). 
    
    1. I det vänstra navigerings fönstret väljer du **åtkomst nycklar** och kopierar en av anslutnings strängarna. 
 
    Anslutnings strängen är en URL som liknar följande exempel:
 
       ```http
-      DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
+      DefaultEndpointsProtocol=https;AccountName=blobstoragewestus;AccountKey=<your account key>;EndpointSuffix=core.windows.net
       ```
 
 1. Spara anslutnings strängen i anteckningar. Du behöver det senare när du konfigurerar anslutningen till data källan.
@@ -99,7 +101,7 @@ Skapa om möjligt både i samma region och resurs grupp för närhet och hanterb
 
 AI-berikning backas upp av Cognitive Services, inklusive Textanalys och Visuellt innehåll för naturligt språk och bild bearbetning. Om målet var att slutföra en faktisk prototyp eller ett projekt, skulle du i den här punkten etablera Cognitive Services (i samma region som Azure Kognitiv sökning) så att du kan koppla den till indexerings åtgärder.
 
-I den här övningen kan du hoppa över resurs etableringen eftersom Azure Kognitiv sökning kan ansluta till Cognitive Services bakom kulisserna och ge dig 20 kostnads fria transaktioner per indexerare. Eftersom den här självstudien använder 7 transaktioner är den kostnads fria fördelningen tillräckligt. För större projekt bör du planera för etablering Cognitive Services på S0-nivån betala per användning. Mer information finns i [bifoga Cognitive Services](cognitive-search-attach-cognitive-services.md).
+I den här övningen kan du hoppa över resurs etableringen eftersom Azure Kognitiv sökning kan ansluta till Cognitive Services bakom kulisserna och ge dig 20 kostnads fria transaktioner per indexerare. Eftersom den här självstudien använder 14 transaktioner är den kostnads fria fördelningen tillräckligt. För större projekt bör du planera för etablering Cognitive Services på S0-nivån betala per användning. Mer information finns i [bifoga Cognitive Services](cognitive-search-attach-cognitive-services.md).
 
 ### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
@@ -129,15 +131,15 @@ Börja med att öppna Visual Studio och skapa ett nytt konsol program som kan k�
 
 För det här projektet installerar du `Microsoft.Azure.Search` version 9 eller senare av NuGet-paketet.
 
-1. Öppna Package Manager-konsolen. Välj **verktyg** > **NuGet Package Manager** > **Package**Manager-konsolen. 
-
-1. Gå till [sidan för Microsoft. Azure. search NuGet-paket](https://www.nuget.org/packages/Microsoft.Azure.Search).
+1. I en webbläsare går du till [sidan Microsoft. Azure. search NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Search).
 
 1. Välj den senaste versionen (9 eller senare).
 
 1. Kopiera Package Manager-kommandot.
 
-1. Gå tillbaka till Package Manager-konsolen och kör kommandot som du kopierade i föregående steg.
+1. Öppna Package Manager-konsolen. Välj **verktyg** > **NuGet Package Manager** > **Package**Manager-konsolen. 
+
+1. Klistra in och kör kommandot som du kopierade i föregående steg.
 
 Installera sedan det senaste `Microsoft.Extensions.Configuration.Json` NuGet-paketet.
 
@@ -167,8 +169,10 @@ Installera sedan det senaste `Microsoft.Extensions.Configuration.Json` NuGet-pak
       "AzureBlobConnectionString": "Put your Azure Blob connection string here",
     }
     ```
-
+    
 Lägg till din Sök tjänst och information om Blob Storage-kontot. Kom ihåg att du kan hämta den här informationen från tjänst etablerings stegen som anges i föregående avsnitt.
+
+För **SearchServiceName**anger du det korta tjänst namnet och inte den fullständiga URL: en.
 
 ### <a name="add-namespaces"></a>Lägg till namn områden
 
@@ -246,7 +250,7 @@ private static DataSource CreateOrUpdateDataSource(SearchServiceClient serviceCl
     DataSource dataSource = DataSource.AzureBlobStorage(
         name: "demodata",
         storageConnectionString: configuration["AzureBlobConnectionString"],
-        containerName: "basic-demo-data-pr",
+        containerName: "cog-search-demo",
         description: "Demo files to demonstrate cognitive search capabilities.");
 
     // The data source does not need to be deleted if it was already created
@@ -281,34 +285,6 @@ public static void Main(string[] args)
     Console.WriteLine("Creating or updating the data source...");
     DataSource dataSource = CreateOrUpdateDataSource(serviceClient, configuration);
 ```
-
-
-<!-- 
-```csharp
-DataSource dataSource = DataSource.AzureBlobStorage(
-    name: "demodata",
-    storageConnectionString: configuration["AzureBlobConnectionString"],
-    containerName: "basic-demo-data-pr",
-    deletionDetectionPolicy: new SoftDeleteColumnDeletionDetectionPolicy(
-        softDeleteColumnName: "IsDeleted",
-        softDeleteMarkerValue: "true"),
-    description: "Demo files to demonstrate cognitive search capabilities.");
-```
-
-Now that you have initialized the `DataSource` object, create the data source. `SearchServiceClient` has a `DataSources` property. This property provides all the methods you need to create, list, update, or delete Azure Cognitive Search data sources.
-
-For a successful request, the method will return the data source that was created. If there is a problem with the request, such as an invalid parameter, the method will throw an exception.
-
-```csharp
-try
-{
-    serviceClient.DataSources.CreateOrUpdate(dataSource);
-}
-catch (Exception e)
-{
-    // Handle the exception
-}
-``` -->
 
 Skapa och kör lösningen. Eftersom det här är din första förfrågan kontrollerar du Azure Portal för att bekräfta att data källan har skapats i Azure Kognitiv sökning. På söktjänstens instrumentpanelsida verifierar du att panelen Datakällor har ett nytt objekt. Du kan behöva vänta några minuter medan portalsidan uppdateras.
 
@@ -630,33 +606,6 @@ namespace EnrichwithAI
 }
 ```
 
-<!-- Add the below model class definition to `DemoIndex.cs` and include it in the same namespace where you'll create the index.
-
-```csharp
-// The SerializePropertyNamesAsCamelCase attribute is defined in the Azure Cognitive Search .NET SDK.
-// It ensures that Pascal-case property names in the model class are mapped to camel-case
-// field names in the index.
-[SerializePropertyNamesAsCamelCase]
-public class DemoIndex
-{
-    [System.ComponentModel.DataAnnotations.Key]
-    [IsSearchable, IsSortable]
-    public string Id { get; set; }
-
-    [IsSearchable]
-    public string Content { get; set; }
-
-    [IsSearchable]
-    public string LanguageCode { get; set; }
-
-    [IsSearchable]
-    public string[] KeyPhrases { get; set; }
-
-    [IsSearchable]
-    public string[] Organizations { get; set; }
-}
-``` -->
-
 Nu när du har definierat en modell klass kan du skapa `Program.cs` en index definition på ett ganska enkelt sätt i igen. Namnet på det här indexet kommer `demoindex`att vara. Om det redan finns ett index med det namnet tas det bort.
 
 ```csharp
@@ -696,27 +645,14 @@ Lägg till följande rader i `Main`.
 ```csharp
     // Create the index
     Console.WriteLine("Creating the index...");
-    Index demoIndex = CreateDemoIndex(serviceClient);
+    Microsoft.Azure.Search.Models.Index demoIndex = CreateDemoIndex(serviceClient);
 ```
 
-<!-- ```csharp
-try
-{
-    bool exists = serviceClient.Indexes.Exists(index.Name);
+Lägg till följande using-instruktion för att lösa disambiguate-referensen.
 
-    if (exists)
-    {
-        serviceClient.Indexes.Delete(index.Name);
-    }
-
-    serviceClient.Indexes.Create(index);
-}
-catch (Exception e)
-{
-    // Handle exception
-}
+```csharp
+using Index = Microsoft.Azure.Search.Models.Index;
 ```
- -->
 
 Mer information om hur du definierar ett index finns i [skapa index (Azure Kognitiv sökning REST API)](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
@@ -799,7 +735,7 @@ Lägg till följande rader i `Main`.
 
 ```csharp
     // Create the indexer, map fields, and execute transformations
-    Console.WriteLine("Creating the indexer...");
+    Console.WriteLine("Creating the indexer and executing the pipeline...");
     Indexer demoIndexer = CreateDemoIndexer(serviceClient, dataSource, skillset, demoIndex);
 ```
 

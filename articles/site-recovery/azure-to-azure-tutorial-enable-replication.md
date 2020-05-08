@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c5d2bbe920f87421550fadf30a7e7e9d23931bfd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 145ae5f6f9204366052d9a182c61d76ff7ffa715
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80292474"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871506"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Konfigurera katastrof återställning för virtuella Azure-datorer
 
@@ -38,7 +38,7 @@ För att slutföra den här kursen behöver du:
 
 Skapa valvet i valfri region, utom i källregionen.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Välj sedan **den & hanterings verktyg** > **säkerhets kopiering och Site Recovery**.
 1. I **namn**anger du ett eget namn som identifierar valvet. Om du har mer än en prenumeration väljer du den lämpligaste.
 1. Skapa en resursgrupp eller välj en befintlig. Ange en Azure-region. Information om vilka regioner som stöds finns under Geografisk tillgänglighet i avsnittet med [Azure Site Recovery-prisinformation](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -66,7 +66,7 @@ Site Recovery kräver att vissa ändringar görs i utgående nätverksanslutning
 
 Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutning ger du åtkomst till följande URL: er:
 
-| **ADRESSER** | **Information** |
+| **URL** | **Information** |
 | ------- | ----------- |
 | `*.blob.core.windows.net` | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
 | `login.microsoftonline.com` | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |
@@ -170,8 +170,8 @@ Om den virtuella käll datorn har Azure Disk Encryption (ADE) aktiverat, granska
    1. **Nyckel valv för nyckel kryptering**: som standard skapar Site Recovery ett nytt nyckel valv i mål regionen. Namnet har ett `asr` suffix och baseras på den virtuella käll nyckelns krypterings nycklar. Om nyckel valvet som skapats av Site Recovery redan finns återanvänds det.
 1. Välj **Anpassa** för att välja anpassade nyckel valv.
 
-> [!NOTE]
-> Endast virtuella Azure-datorer som kör Windows-operativsystem och är [aktiverade för kryptering med Azure AD-appen](https://aka.ms/ade-aad-app) stöds för närvarande av Azure Site Recovery.
+>[!NOTE]
+> Site Recovery stöder för närvarande ADE, med och utan Azure Active Directory (AAD) för virtuella datorer som kör Windows operativ system. För Linux-operativsystem stöder vi bara ADE utan AAD. För datorer som kör ADE 1,1 (utan AAD) måste dessutom de virtuella datorerna använda hanterade diskar. Virtuella datorer med ohanterade diskar stöds inte. Om du växlar från ADE 0,1 (med AAD) till 1,1 måste du inaktivera replikering och aktivera replikering för en virtuell dator efter att ha aktiverat 1,1.
 
 ### <a name="track-replication-status"></a>Spåra replikeringsstatus
 

@@ -13,16 +13,16 @@ ms.date: 11/8/2019
 ms.author: marsma
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
-ms.openlocfilehash: 50c88dd1785bd9177219054fed3800ca725a5274
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a954167dc0698389680a92511621fb6acf4b12b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154601"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889983"
 ---
 # <a name="the-new-azure-portal-app-registration-experience"></a>Den nya Azure Portal appens registrerings upplevelse
 
-Det finns många förbättringar i den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön i Azure Portal. Om du är mer bekant med program registrerings portalen (apps.dev.microsoft.com) för att registrera eller hantera konvergerade program, som kallas tidigare erfarenhet, kommer den här utbildnings guiden att hjälpa dig att komma igång med den nya upplevelsen.
+Det finns många förbättringar i den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön i Azure Portal. Om du är mer bekant med program registrerings portalen (apps.dev.microsoft.com) för att registrera eller hantera program, som kallas "gammal upplevelse", kommer den här guiden att hjälpa dig att komma igång med den nya upplevelsen.
 
 ## <a name="whats-not-changing"></a>Vad ändras inte?
 
@@ -37,7 +37,7 @@ Det finns många förbättringar i den nya [Appregistreringars](https://go.micro
 
 ## <a name="key-changes"></a>Nyckel ändringar
 
--   I den tidigare versionen registrerades appar som standard som konvergerade appar som stöder alla organisations konton (flera innehavare) och personliga Microsoft-konton. Detta kunde inte ändras genom den gamla upplevelsen, vilket gör det svårt att skapa appar som endast stöder organisations konton (antingen flera innehavare eller en enskild klient).
+-   I den tidigare versionen registrerades appar som standard som *konvergerade* appar – appar som stöder alla organisations konton (flera innehavare) samt personliga Microsoft-konton. Detta kunde inte ändras genom den gamla upplevelsen, vilket gör det svårt att skapa appar som endast stöder organisations konton (antingen flera innehavare eller en enskild klient).
     Med den nya upplevelsen kan du registrera appar som stöder alla dessa alternativ. [Läs mer om app-typer](active-directory-v2-registration-portal.md).
 
 -   I den nya upplevelsen, om din personliga Microsoft-konto också finns i en Azure AD-klient, ser du tre flikar – alla program i klienten, ägda program i klienten och program från ditt personliga konto. Om du tror att appar som registrerats med din personliga Microsoft-konto saknas, kontrollerar du **programmen från fliken personligt konto** .
@@ -52,28 +52,23 @@ Det finns många förbättringar i den nya [Appregistreringars](https://go.micro
 
 ## <a name="new-app-registration"></a>Ny appregistrering
 
-För att registrera en konvergerad app var du bara tvungen att ange ett namn i den tidigare versionen. De appar som har skapats har registrerats som konvergerade appar som stöder all organisations katalog (flera innehavare) samt personliga Microsoft-konton.  Detta kunde inte ändras genom den gamla upplevelsen, vilket gör det svårt att skapa appar som endast stöder organisations konton (antingen flera innehavare eller en enskild klient). [Läs mer om konto typer som stöds](v2-supported-account-types.md)
+För att registrera en app var du bara tvungen att ange ett namn i den tidigare versionen. De appar som har skapats registrerades som *konvergerade* appar – appar som stöder alla organisations kataloger (flera innehavare) samt personliga Microsoft-konton.  Detta kunde inte ändras genom den gamla upplevelsen, vilket gör det svårt att skapa appar som endast stöder organisations konton (antingen en eller flera innehavare). [Läs mer om konto typer som stöds](v2-supported-account-types.md)
 
 I den nya upplevelsen måste du ange ett namn för appen och välja de konto typer som stöds. Du kan också ange en omdirigerings-URI.
 Om du anger en omdirigerings-URI måste du ange om den är webb/offentlig (inbyggd/mobil och stationär). Mer information om hur du registrerar en app med hjälp av den nya program registrerings upplevelsen finns i [den här snabb](quickstart-register-app.md)starten.
 
 ## <a name="app-management-page"></a>Sidan hantering av appar
 
-Den gamla upplevelsen hade en enda hanterings sida för appar för konvergerade appar med följande avsnitt: egenskaper, program hemligheter, plattformar, ägare, Microsoft Graph behörigheter, profil och avancerade alternativ.
+Den gamla upplevelsen hade en enda program hanterings sida för appar med följande avsnitt: egenskaper, program hemligheter, plattformar, ägare, Microsoft Graph behörigheter, profil och avancerade alternativ.
 
-Den nya upplevelsen i Azure Portal representerar dessa funktioner i separata sidor. Här kan du hitta motsvarande funktioner:
+Den nya upplevelsen i Azure Portal presenterar dessa funktioner på separata sidor. Här kan du hitta motsvarande funktioner:
 
--   Egenskaper – namn och program-ID finns på översikts sidan.
-
--   Program hemligheter finns på sidan certifikat & hemligheter
-
--   Plattforms konfiguration finns på sidan autentisering
-
--   Microsoft Graph behörigheter finns på sidan API-behörigheter tillsammans med andra behörigheter
-
--   Profilen är på varumärkes Sidan
-
--   Avancerat alternativ – Live SDK-stöd finns på sidan autentisering.
+- Egenskaper – namn och program-ID finns på översikts sidan.
+- Program hemligheter finns på sidan certifikat & hemligheter
+- Plattforms konfiguration finns på sidan autentisering
+- Microsoft Graph behörigheter finns på sidan API-behörigheter tillsammans med andra behörigheter
+- Profilen är på varumärkes Sidan
+- Avancerat alternativ – Live SDK-stöd finns på sidan autentisering.
 
 ## <a name="application-secretscertificates--secrets"></a>Program hemligheter/certifikat & hemligheter
 
@@ -111,7 +106,7 @@ Det finns ett nytt gränssnitt för egenskaper som tidigare endast kunde anges m
 
 -   Omfattningar som definieras av denna API (oauth2Permissions) och auktoriserade klient program (preAuthorizedApplications) kan konfigureras via sidan exponera en API. Mer information om hur du konfigurerar en app så att den är ett webb-API och visar behörigheter/omfattningar finns i [den här snabb](quickstart-configure-app-expose-web-apis.md)starten.
 
--   Publisher-domän (som visas för användare på [begäran om\'program s medgivande](application-consent-experience.md)) finns på bladet varumärkes sida. Mer information om hur du konfigurerar en Publisher-domän finns i [den här instruktionen](howto-configure-publisher-domain.md).
+-   Publisher-domän (som visas för användare på [begäran om\'program s medgivande](application-consent-experience.md)) hittar du på sidan varumärkes dialog. Mer information om hur du konfigurerar en Publisher-domän finns i [den här instruktionen](howto-configure-publisher-domain.md).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -125,3 +120,7 @@ Den nya upplevelsen har följande begränsningar:
 
    > [!NOTE]
    > Om du är en personlig Microsoft-konto användare i Azure AD-klienten och klient administratören har begränsat åtkomsten till Azure Portal kan du få åtkomst nekad. Men om du kommer genom genvägen genom att skriva Appregistreringar i Sök fältet eller fästa det, kommer du att kunna komma åt den nya upplevelsen.
+
+## <a name="next-steps"></a>Nästa steg
+
+För att komma igång med den nya appens registrerings upplevelse, se [snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md).

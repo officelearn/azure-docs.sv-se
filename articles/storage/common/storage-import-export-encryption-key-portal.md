@@ -5,15 +5,15 @@ services: storage
 author: alkohli
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: d3e4535c05ef077d14ef74310459a84af0f02fd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71426d131cdd46b176c387a31e3dc2ca66ae3761
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176336"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871159"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-importexport-service"></a>Använda Kundhanterade nycklar i Azure Key Vault för import/export-tjänsten
 
@@ -90,9 +90,8 @@ Det är valfritt att konfigurera kundhanterad nyckel för import/export-tjänste
 
 På bladet **kryptering** kan du se nyckel valvet och nyckeln som valts för din kund hanterade nyckel.
 
-## <a name="disable-keys"></a>Inaktivera nycklar
-
-Du kan bara inaktivera Microsoft-hanterade nycklar och flytta till kundens hanterade nycklar i alla steg i import/export-jobbet. Du kan dock inte inaktivera kundens hanterade nyckel när du har skapat den.
+> [!IMPORTANT]
+> Du kan bara inaktivera Microsoft-hanterade nycklar och flytta till kundens hanterade nycklar i alla steg i import/export-jobbet. Du kan dock inte inaktivera kundens hanterade nyckel när du har skapat den.
 
 ## <a name="troubleshoot-customer-managed-key-errors"></a>Felsöka kund hanterade nyckel fel
 

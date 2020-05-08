@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 01b2f3baefc2320ec11f9cb7f29392ebb0841289
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: 09fd5326c2532e115dbab0752af31a809488f04c
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207487"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559684"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -199,7 +199,7 @@ När du skapar ett AKS-kluster skapas en nätverks säkerhets grupp och en routn
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med ett AKS-kluster som distribueras i ditt befintliga undernät för virtuella nätverk kan du nu använda klustret som vanligt. Kom igång med att [Skapa appar med hjälp av Azure dev Spaces][dev-spaces] eller genom att [använda Draft][use-draft]eller [distribuera appar med Helm][use-helm].
+Med ett AKS-kluster som distribueras i ditt befintliga undernät för virtuella nätverk kan du nu använda klustret som vanligt. Kom igång med att [Skapa appar med hjälp av Azure dev Spaces][dev-spaces], [distribuera befintliga appar med Helm][use-helm]eller [skapa nya appar med hjälp av Helm][develop-helm].
 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
@@ -217,8 +217,8 @@ Med ett AKS-kluster som distribueras i ditt befintliga undernät för virtuella 
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[develop-helm]: quickstart-helm.md
 [use-helm]: kubernetes-helm.md
-[use-draft]: kubernetes-draft.md
 [virtual-nodes]: virtual-nodes-cli.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md

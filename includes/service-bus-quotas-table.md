@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging

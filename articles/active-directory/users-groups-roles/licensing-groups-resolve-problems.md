@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddfc4bf7ed3bdf214a44a5dfe03259d32b2f3f94
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43eba1b2f3373555e871b586ae633dcb64abfd9b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025701"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582694"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licens tilldelnings problem för en grupp i Azure Active Directory
 
@@ -100,7 +100,7 @@ Lös problemet genom att ta bort användare från platser som inte stöds från 
 
 ## <a name="duplicate-proxy-addresses"></a>Dubbla proxyadresser
 
-Om du använder Exchange Online kan vissa användare i klient organisationen vara felaktigt konfigurerade med samma proxy-adress värde. När gruppbaserad licensiering försöker tilldela en licens till en sådan användare Miss lyckas den och visar att "proxy-adressen redan används".
+Om du använder Exchange Online kan vissa användare i din organisation vara felaktigt konfigurerade med samma proxy-adress värde. När gruppbaserad licensiering försöker tilldela en licens till en sådan användare Miss lyckas den och visar att "proxy-adressen redan används".
 
 > [!TIP]
 > Om du vill se om det finns en dubblett av proxyservern kör du följande PowerShell-cmdlet mot Exchange Online:

@@ -5,23 +5,25 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 33d058f028b7032f296ffcf82f0e5fe2c993e6fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad535dd18b89cbe2fceab90f73789180ad332b57
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127915"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612376"
 ---
 # <a name="windows-virtual-desktop-environment"></a>Windows Virtual Desktop-miljö
 
+>[!IMPORTANT]
+>Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/environment-setup-2019.md).
+>
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Windows Virtual Desktop är en tjänst som ger användare enkel och säker åtkomst till sina virtualiserade skriv bord och RemoteApp-datorer. I det här avsnittet får du veta mer om den allmänna strukturen i Windows Virtual Desktop-miljön.
-
-## <a name="tenants"></a>Klientorganisationer
-
-Windows Virtual Desktop-klienten är det primära gränssnittet för att hantera din Windows-miljö för virtuella datorer. Varje Windows-klient för virtuella skriv bord måste vara kopplad till Azure Active Directory som innehåller de användare som ska logga in på miljön. Från Windows-klienten för virtuella skriv bord kan du börja skapa värdar för att köra användarnas arbets belastningar.
 
 ## <a name="host-pools"></a>Värdar för pooler
 
@@ -45,12 +47,12 @@ Som standard skapas en Skriv bords grupp (med namnet "Skriv bords program grupp"
 
 Om du vill publicera resurser till användare måste du tilldela dem till app-grupper. Tänk på följande när du tilldelar användare till app-grupper:
 
-- En användare kan inte tilldelas både en Skriv bords grupp och en RemoteApp-app i samma adresspool.
+- En användare kan tilldelas både en Skriv bords grupp och en RemoteApp-app grupp i samma adresspool. Användare kan dock bara starta en typ av app-grupp per session. Användare kan inte starta båda typerna av app-grupper samtidigt i en enda session.
 - En användare kan tilldelas flera app-grupper inom samma adresspool och deras flöde är en ackumulering av båda app-grupperna.
 
-## <a name="tenant-groups"></a>Klient grupper
+## <a name="workspaces"></a>Arbetsytor
 
-I Windows Virtual Desktop är den virtuella Windows-klienten där det mesta av konfigurationen och konfigurationen sker. Windows-klienten för virtuella skriv bord innehåller värd grupper, app-grupper och användar tilldelningar för app Group. Det kan dock finnas vissa situationer där du behöver hantera flera virtuella Windows-klienter samtidigt, särskilt om du är en moln tjänst leverantör (CSP) eller en värd partner. I dessa fall kan du använda en anpassad Windows-grupp för virtuella skriv bord för att placera var och en av de kundernas Windows virtuella Skriv bords klienter och hantera åtkomsten centralt. Men om du bara hanterar en enda Windows-klient för virtuella datorer, gäller inte klient grupps konceptet och du kan fortsätta att använda och hantera din klient som finns i standard klient gruppen.
+En arbets yta är en logisk gruppering av program grupper i Windows Virtual Desktop. Varje Windows-programgrupp för virtuella skriv bord måste vara kopplad till en arbets yta för att användarna ska kunna se de fjärrappar och skriv bord som publicerats till dem.  
 
 ## <a name="end-users"></a>Slutanvändare
 
@@ -60,9 +62,12 @@ När du har tilldelat användare till sina app-grupper kan de ansluta till en Wi
 
 Lär dig mer om delegerad åtkomst och hur du tilldelar roller till användare i [delegerad åtkomst i Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
-Information om hur du konfigurerar en Windows Virtual Desktop-klient finns i [skapa en klient i Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+Information om hur du konfigurerar en Windows-pool för virtuella skriv bord finns i [skapa en adresspool med Azure Portal](create-host-pools-azure-marketplace.md).
 
 Information om hur du ansluter till virtuella Windows-datorer finns i någon av följande artiklar:
 
-- [Ansluta från Windows 10 eller Windows 7](connect-windows-7-and-10.md)
-- [Ansluta från en webbläsare](connect-web.md)
+- [Anslut med Windows 10 eller Windows 7](connect-windows-7-and-10.md)
+- [Ansluta till en webbläsare](connect-web.md)
+- [Ansluta med Android-klienten](connect-android.md)
+- [Ansluta med macOS-klienten](connect-macos.md)
+- [Ansluta med iOS-klienten](connect-ios.md)

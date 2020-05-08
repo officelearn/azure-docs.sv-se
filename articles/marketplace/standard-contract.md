@@ -1,22 +1,22 @@
 ---
-title: Standard kontrakt | Azure Marketplace
-description: Standard kontrakt för Azure Marketplace och AppSource
+title: Standard kontrakt för Microsoft Commercial Marketplace
+description: Standard kontrakt för Azure Marketplace och AppSource i Partner Center
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: facb500299f7196e0e1387c3a7267a917d13a3a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3886b29a47edcfb36114cedf8b8edb3799e0c345
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681452"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871429"
 ---
-# <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsofts kommersiella marknads plats
+# <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsoft Commercial Marketplace
 
-För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft ett standard kontrakt för Microsofts handels marknads plats för att under lätta transaktioner i Marketplace. I stället för att utforma anpassade villkor, kan kommersiella Marketplace-utgivare välja att erbjuda sin program vara under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång. Du hittar standard kontraktet här: [https://go.microsoft.com/fwlink/?linkid=2041178](https://go.microsoft.com/fwlink/?linkid=2041178).
+Microsoft erbjuder ett standard kontrakt för Microsofts kommersiella marknads platser. Detta bidrar till att förenkla inköps processen för kunder, minska den juridiska komplexiteten för program varu leverantörer och under lätta transaktioner i Marketplace. I stället för att utforma anpassade villkor, som en kommersiell Marketplace-utgivare, kan du välja att erbjuda program varan under [standard kontraktet](https://go.microsoft.com/fwlink/?linkid=2041178)som kunderna bara behöver Undersök och godkänna en gång.
 
 Villkoret för ett erbjudande definieras när du skapar erbjudandet i Partner Center. Du kan välja att använda standard kontraktet för Microsofts kommersiella marknads plats i stället för att tillhandahålla egna allmänna villkor.
 

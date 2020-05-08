@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 103e19d6e299956b5ee1ad45b577e25f9f2de1c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdb9e346b8deea71ef2af9f9f271ffa446be624e
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78164040"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594346"
 ---
 # <a name="lsv2-series"></a>Lsv2-serien
 
@@ -27,6 +27,8 @@ Lsv2-serien har högt data flöde, låg latens, direkt mappad lokal NVMe-lagring
 
 ACU: 150-175
 
+Bursting: stöds
+
 Premium Storage: stöds
 
 Premium Storage caching: stöds inte
@@ -35,14 +37,14 @@ Direktmigrering: stöds inte
 
 Minnes bebetjänings uppdateringar: stöds inte
 
-| Storlek | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GIB) | NVMe-diskar<sup>2</sup> | NVMe-disk data flöde<sup>3</sup> (läsa IOPS/Mbit/s) | Högsta data flöde för ej cachelagrade data diskar (IOPs/Mbit/s)<sup>4</sup> | Maximalt antal data diskar | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x 1.92 TB  | 400000/2000  | 8000/160   | 16 | 2 / 3200   |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x 1.92 TB  | 800000/4000  | 16000/320  | 32 | 4 / 6400   |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x 1.92 TB  | 1,5 meter per 8000    | 32000/640  | 32 | 8 / 12800  |
-| Standard_L48s_v2  | 48 | 384 | 480 |  6x 1.92 TB  | 2,2 m/14000   | 48000/960  | 32 | 8/16000 + |
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x 1.92 TB  | 2.9 m/16000   | 64000/1280 | 32 | 8/16000 + |
-| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10X 1.92 TB | 3.8 m/20000 | 80000/1400 | 32 | 8/16000 + |
+| Storlek | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GIB) | NVMe-diskar<sup>2</sup> | NVMe-disk data flöde<sup>3</sup> (läsa IOPS/Mbit/s) | Data flöde för datadisk i cacheminnet (IOPs/Mbit/s)<sup>4</sup> | Högsta burst-genomflöde (IOPs/Mbit/s) för burst-överföring<sup>5</sup>| Maximalt antal data diskar | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+|---|---|---|---|---|---|---|---|---|---|
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x 1.92 TB  | 400000/2000  | 8000/160   | 8000/1280 | 16 | 2 / 3200   |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x 1.92 TB  | 800000/4000  | 16000/320  | 16000/1280 | 32 | 4 / 6400   |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x 1.92 TB  | 1,5 meter per 8000    | 32000/640  | 32000/1280 | 32 | 8 / 12800  |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x 1.92 TB  | 2,2 m/14000   | 48000/960  | 48000/2000 | 32 | 8/16000 + |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x 1.92 TB  | 2.9 m/16000   | 64000/1280 | 64000/2000 | 32 | 8/16000 + |
+| Standard_L80s_v2<sup>6</sup> | 80 | 640 | 800 | 10X 1.92 TB | 3.8 m/20000 | 80000/1400 | 80000/2000 | 32 | 8/16000 + |
 
 <sup>1</sup> virtuella datorer i Lsv2-serien har en SCSI-baserad temporär resurs disk för växlings-/växlings fil för operativ system (D: i Windows,/dev/SDB på Linux). Den här disken ger 80 GiB lagring, 4 000 IOPS och 80 MBps-överförings takt för varje 8-virtuella processorer (t. ex. Standard_L80s_v2 tillhandahåller 800 GiB vid 40 000 IOPS och 800 MBIT/s). Detta säkerställer att NVMe-enheter kan användas fullt ut för användning av program. Den här disken är tillfällig och alla data går förlorade vid stopp/frigörning.
 
@@ -52,7 +54,9 @@ Minnes bebetjänings uppdateringar: stöds inte
 
 <sup>4</sup> virtuella datorer i Lsv2-serien tillhandahåller inte värd-cache för datadisk eftersom den inte drar nytta av Lsv2-arbetsbelastningar.  Virtuella Lsv2-datorer kan dock hantera Azures alternativ för den tillfälliga virtuella datorns OS-disk (upp till 30 GiB).
 
-<sup>5</sup> virtuella datorer med mer än 64 virtuella processorer kräver ett av de gäst operativ system som stöds:
+Virtuella datorer med <sup>5</sup> Lsv2- [serien kan överföra](linux/disk-bursting.md) disk prestanda i upp till 30 minuter i taget. 
+
+<sup>6</sup> virtuella datorer med mer än 64 virtuella processorer kräver ett av de gäst operativ system som stöds:
 
 - Windows Server 2016 eller senare
 - Ubuntu 16,04 LTS eller senare med Azures justerade kernel (4,15 kernel eller senare)

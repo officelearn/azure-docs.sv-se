@@ -3,34 +3,29 @@ title: Öka Sök rankningen med hjälp av bedömnings profiler
 titleSuffix: Azure Cognitive Search
 description: Höj Sök ranknings poängen för Azure Kognitiv sökning resultat genom att lägga till bedömnings profiler.
 manager: nitinme
-author: Brjohnstmsft
-ms.author: brjohnst
+author: shmed
+ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/28/2019
-translation.priority.mt:
-- de-de
-- es-es
-- fr-fr
-- it-it
-- ja-jp
-- ko-kr
-- pt-br
-- ru-ru
-- zh-cn
-- zh-tw
-ms.openlocfilehash: c702ce72492201413d6c72af9dbf37347e49afdd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 56757d1c2810efe608601c231946b2242df82b19
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231109"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890179"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Lägga till rankningsprofiler i ett Azure Cognitive Search-index
 
 *Poängsättning* beräknar en Sök Poäng för varje objekt i en rangordnad resultat uppsättning. Varje objekt i en Sök Resultat uppsättning tilldelas en Sök Poäng och rangordnas sedan högst till lägsta.
 
  Azure Kognitiv sökning använder standard poängsättning för att beräkna en första poäng, men du kan anpassa beräkningen genom en *bedömnings profil*. Med bedömnings profiler får du bättre kontroll över rankningen av objekt i Sök resultaten. Du kanske till exempel vill öka objekt baserat på deras intäkts potential, befordra nya objekt eller kanske förbättra objekt som har varit i lager för länge.  
+
+ Följande video segment spolas framåt och hur Poäng profilerna fungerar i Azure Kognitiv sökning.
+ 
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=463&end=970]
+
+## <a name="scoring-profile-definitions"></a>Definitioner av bedömnings profiler
 
  En bedömnings profil är en del av index definitionen, som består av viktade fält, funktioner och parametrar.  
 

@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: 8140fc4286ac97260e0b23ea700a70303ec69e2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5428f24ea5ab780c4b51e0af37908077ddc32232
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81411201"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891372"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Konfigurera en privat Azure-länk för en Azure Machine Learning arbets yta (förhands granskning)
 
@@ -118,7 +118,7 @@ Information om hur du placerar lagrings kontot i det virtuella nätverket finns 
 
 Om du vill skydda Azure Key Vault som används av din arbets yta kan du antingen flytta den i det virtuella nätverket eller aktivera en privat länk.
 
-Information om hur du placerar nyckel valvet i det virtuella nätverket finns i [använda en nyckel valv instans med din arbets yta](how-to-enable-virtual-network.md#use-a-key-vault-instance-with-your-workspace).
+Information om hur du placerar nyckel valvet i det virtuella nätverket finns i [använda en nyckel valv instans med din arbets yta](how-to-enable-virtual-network.md#key-vault-instance).
 
 Information om hur du aktiverar privat länk för nyckel valvet finns i [integrera Key Vault med Azure privat länk](/azure/key-vault/private-link-service).
 
@@ -131,7 +131,7 @@ Om du vill skydda de Azure Kubernetes-tjänster som används av din arbets yta, 
 
 ## <a name="azure-container-registry"></a>Azure Container Registry
 
-Information om hur du skyddar Azure Container Registry i det virtuella nätverket finns i [använd Azure Container Registry](how-to-enable-virtual-network.md#use-azure-container-registry).
+Information om hur du skyddar Azure Container Registry i det virtuella nätverket finns i [använd Azure Container Registry](how-to-enable-virtual-network.md#azure-container-registry).
 
 > [!IMPORTANT]
 > Om du använder en privat länk för din Azure Machine Learning arbets yta och lägger Azure Container Registry för din arbets yta i ett virtuellt nätverk, måste du också använda följande Azure Resource Manager-mall. Med den här mallen kan din arbets yta kommunicera med ACR via den privata länken.

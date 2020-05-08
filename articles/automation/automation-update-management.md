@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 24befd6e5d90c7c3fffd2049bae3bee392e6e0e0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: ca5d8c35aea06143e058aade473282a038212605
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855665"
+ms.locfileid: "82872164"
 ---
 # <a name="update-management-in-azure-automation"></a>Uppdateringshantering i Azure Automation
 
@@ -197,7 +197,7 @@ För Windows-datorer måste du också tillåta trafik till alla slut punkter som
 
 För Red Hat Linux-datorer, se [IP-adresser för RHUI Content Delivery servers](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) för obligatoriska slut punkter. Andra Linux-distributioner finns i leverantörens dokumentation.
 
-Mer information om vilka portar som krävs för Hybrid Runbook Worker finns i [hybrid Worker roll portar](automation-hybrid-runbook-worker.md#hybrid-worker-role).
+Mer information om vilka portar som krävs för Hybrid Runbook Worker finns i [uppdateringshantering adresser för Hybrid Runbook Worker](automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
 Vi rekommenderar att du använder de adresser som anges när du definierar undantag. För IP-adresser kan du hämta [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653). Den här filen uppdateras varje vecka och den återspeglar de för tillfället distribuerade intervallen och eventuella kommande ändringar i IP-intervallen.
 

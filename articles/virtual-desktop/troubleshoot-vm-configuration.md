@@ -5,17 +5,23 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/03/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c7d9a5d576ceec301eba7436c1e0af34412ae854
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cada61f8fa1dfd163062ce22527f41e65291b3f8
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127597"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607256"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
+
+>[!IMPORTANT]
+>Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
+>
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Använd den här artikeln för att felsöka problem som du har med när du konfigurerar virtuella Windows-sessioner för fjärrskrivbordssessioner värd för virtuella datorer (VM).
 
@@ -25,10 +31,10 @@ Besök [Windows-Tech-communityn för Windows](https://techcommunity.microsoft.co
 
 ## <a name="vms-are-not-joined-to-the-domain"></a>Virtuella datorer är inte anslutna till domänen
 
-Följ dessa instruktioner om du har problem med att ansluta till virtuella datorer till domänen.
+Följ dessa instruktioner om du har problem med att ansluta till virtuella datorer (VM) till domänen.
 
 - Anslut den virtuella datorn manuellt med processen i [koppla en virtuell Windows Server-dator till en hanterad domän](../active-directory-domain-services/join-windows-vm.md) eller Använd [domän kopplings mal len](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).
-- Försök att pinga domän namnet från kommando raden på den virtuella datorn.
+- Försök att pinga domän namnet från en kommando rad på den virtuella datorn.
 - Granska listan över domän anslutnings fel meddelanden i fel [sökning av fel meddelanden för domän anslutning](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
 ### <a name="error-incorrect-credentials"></a>Fel: Felaktiga autentiseringsuppgifter
@@ -77,7 +83,7 @@ Följ dessa instruktioner om du har problem med att ansluta till virtuella dator
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Windows Virtual Desktop-agenten och start inläsaren för virtuella Windows-datorer har inte installerats
 
-Det rekommenderade sättet att etablera virtuella datorer med hjälp av Azure Resource Manager **skapa och etablera Windows-mall för värd för virtuella skriv bord** . Mallen installerar automatiskt Windows Virtual Desktop-agenten och start inläsaren för Windows Virtual Desktop agent.
+Det rekommenderade sättet att etablera virtuella datorer är att använda mallen för att skapa Azure Portal. Mallen installerar automatiskt Windows Virtual Desktop-agenten och start inläsaren för Windows Virtual Desktop agent.
 
 Följ de här anvisningarna för att bekräfta att komponenterna är installerade och för att söka efter fel meddelanden.
 
@@ -96,8 +102,8 @@ Följ de här anvisningarna för att bekräfta att komponenterna är installerad
 **Korrigera 2:** Bekräfta objekten i följande lista.
 
 - Kontrol lera att kontot inte har MFA.
-- Bekräfta att klient organisationens namn är korrekt och att klient organisationen finns i det virtuella Windows-skrivbordet.
-- Bekräfta att kontot har minst behörighet för RDS-deltagare.
+- Bekräfta att värddatorns namn är korrekt och att poolen finns i Windows Virtual Desktop.
+- Bekräfta att kontot har minst deltagar behörighet för Azure-prenumerationen eller resurs gruppen.
 
 ### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>Fel: Autentiseringen misslyckades, fel i C:\Windows\Temp\ScriptLog.log
 
@@ -106,16 +112,16 @@ Följ de här anvisningarna för att bekräfta att komponenterna är installerad
 **KORRIGERA:** Bekräfta objekten i följande lista.
 
 - Registrera de virtuella datorerna manuellt med Windows Virtual Desktop-tjänsten.
-- Bekräfta att kontot som används för att ansluta till det virtuella Windows-skrivbordet har behörighet på klienten för att skapa värdar för pooler.
+- Bekräfta att kontot som används för att ansluta till Windows Virtual Desktop har behörighet för Azure-prenumerationen eller resurs gruppen för att skapa värdar för pooler.
 - Bekräfta att kontot inte har MFA.
 
 ## <a name="windows-virtual-desktop-agent-is-not-registering-with-the-windows-virtual-desktop-service"></a>Windows Virtual Desktop-agenten registreras inte med Windows Virtual Desktop-tjänsten
 
-När Windows-agenten för virtuella skriv bord installeras på en virtuell dator i Session Host (antingen manuellt eller via Azure Resource Manager-mallen och PowerShell DSC), innehåller den en registreringsbegäran. I följande avsnitt beskrivs fel söknings problem som är tillämpliga för Windows Virtual Desktop-agenten och token.
+När Windows-agenten för virtuella skriv bord installeras på en virtuell dator i Session Host (antingen manuellt eller via Azure Resource Manager-mallen och PowerShell DSC), innehåller den en registreringsbegäran. I följande avsnitt beskrivs fel söknings problem som gäller för Windows Virtual Desktop-agenten och token.
 
-### <a name="error-the-status-filed-in-get-rdssessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: statusen som har arkiverats i get-RdsSessionHost-cmdlet: en visar status som otillgänglig
+### <a name="error-the-status-filed-in-get-azwvdsessionhost-cmdlet-shows-status-as-unavailable"></a>Fel: statusen som har arkiverats i get-AzWvdSessionHost-cmdlet: en visar status som otillgänglig
 
-![Get-RdsSessionHost-cmdlet: en visar status som ej tillgänglig.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Get-AzWvdSessionHost-cmdlet: en visar status som ej tillgänglig.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Orsak:** Agenten kan inte uppdatera sig själv till en ny version.
 
@@ -128,17 +134,17 @@ När Windows-agenten för virtuella skriv bord installeras på en virtuell dator
 5. Slutför installations guiden.
 6. Öppna aktivitets hanteraren och starta RDAgentBootLoader-tjänsten.
 
-## <a name="error--windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Fel: register posten Windows Virtual Desktop agent IsRegistered visar värdet 0
+## <a name="error-windows-virtual-desktop-agent-registry-entry-isregistered-shows-a-value-of-0"></a>Fel: register posten Windows Virtual Desktop agent IsRegistered visar värdet 0
 
 **Orsak:** Registrerings-token har upphört att gälla eller har genererats med ett förfallo värde på 999999.
 
 **KORRIGERA:** Följ de här anvisningarna för att åtgärda agentens register fel.
 
-1. Om det redan finns en Registration-token tar du bort den med Remove-RDSRegistrationInfo.
-2. Generera en ny token med RDS-NewRegistrationInfo.
-3. Bekräfta att parametern-ExpriationHours är inställd på 72 (max värdet är 99999).
+1. Om det redan finns en Registration-token tar du bort den med Remove-AzWvdRegistrationInfo. 
+2. Kör cmdleten **New-AzWvdRegistrationInfo** för att generera en ny token. 
+3. Bekräfta att parametern *-ExpriationTime* har angetts till 3 dagar.
 
-### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-rdssessionhost"></a>Fel: Windows Virtual Desktop-agenten rapporterar inget pulsslag vid körning av Get-RdsSessionHost
+### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Fel: Windows Virtual Desktop-agenten rapporterar inget pulsslag vid körning av Get-AzWvdSessionHost
 
 **Orsak 1:** RDAgentBootLoader-tjänsten har stoppats.
 
@@ -180,7 +186,7 @@ Windows Virtual Desktop sida-vid-sida-stacken installeras automatiskt med Window
 
 Det finns tre sätt att placera stacken sida vid sida som är installerad eller aktive rad på virtuella datorer för fjärrskrivbordssessioner:
 
-- Med Azure Resource Manager **skapa och etablera nya Windows-mallar för värdar för virtuella skriv bord**
+- Med mallen för att skapa Azure Portal
 - Genom att inkluderas och aktive ras på huvud avbildningen
 - Installerad eller aktive rad manuellt på varje virtuell dator (eller med tillägg/PowerShell)
 
@@ -209,13 +215,7 @@ Granska register posterna i listan nedan och bekräfta att värdena stämmer öv
 **KORRIGERA:** Följ de här anvisningarna för att installera stacken sida vid sida på den virtuella datorns Session Host.
 
 1. Använd Remote Desktop Protocol (RDP) för att komma direkt till den virtuella datorns värd för sessionen som lokal administratör.
-2. Hämta och importera [Windows Virtual Desktop PowerShell-modulen](/powershell/windows-virtual-desktop/overview/) som ska användas i din PowerShell-session, om du inte redan har gjort det, kör denna cmdlet för att logga in på ditt konto:
-
-    ```powershell
-    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-    ```
-
-3. Installera stacken sida vid sida med hjälp av [skapa en värdbaserad pool med PowerShell](create-host-pools-powershell.md).
+2. Installera stacken sida vid sida med hjälp av [skapa en värdbaserad pool med PowerShell](create-host-pools-powershell.md).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Så här åtgärdar du en virtuell Windows-sida vid sida-stack som inte fungerar
 
@@ -339,7 +339,7 @@ Distribuera om värd operativ systemet med den senaste versionen av Windows 10, 
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt över fel sökning av virtuella Windows-datorer och eskalerade spår finns i [fel söknings översikt, feedback och support](troubleshoot-set-up-overview.md).
-- Information om hur du felsöker problem när du skapar en klient och en adresspool i en Windows Virtual Desktop-miljö finns i [skapa innehavare och skapa värdar för pooler](troubleshoot-set-up-issues.md).
+- Information om hur du felsöker problem när du skapar en adresspool i en Windows Virtual Desktop-miljö finns i avsnittet om att [skapa en miljö och en värddator](troubleshoot-set-up-issues.md).
 - Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
 - Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [Windows Virtual Desktop Service Connections](troubleshoot-service-connection.md).
 - Information om hur du felsöker problem med fjärr skrivbords klienter finns i [Felsöka fjärr skrivbords klienten](troubleshoot-client.md)

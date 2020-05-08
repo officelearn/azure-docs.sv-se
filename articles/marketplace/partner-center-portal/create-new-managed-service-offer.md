@@ -1,5 +1,5 @@
 ---
-title: Skapa ett nytt hanterat tjänst erbjudande på den kommersiella Marketplace
+title: Skapa ett hanterat tjänst erbjudande på Microsofts kommersiella marknads platser
 description: Så här skapar du ett nytt hanterat tjänst erbjudande för List på Azure Marketplace med hjälp av den kommersiella Marketplace-portalen i Partner Center.
 author: JnHs
 ms.author: jenhayes
@@ -8,56 +8,60 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: c82c3e0b6e6d11ccc33bf8556b06aeb04a6d37b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41b2e12a94f5751e31f482c913c71b4731b1cf6c
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147912"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871906"
 ---
-# <a name="create-a-new-managed-service-offer"></a>Skapa ett nytt hanterat tjänst erbjudande
+# <a name="create-a-managed-service-offer"></a>Skapa ett erbjudande för hanterad tjänst
 
-> [!IMPORTANT]
-> Vi håller på att flytta hanteringen av dina hanterade tjänst erbjudanden från Cloud Partner Portal till Partner Center. Innan du har migrerat dina erbjudanden följer du anvisningarna i [publicera ett hanterat tjänst erbjudande på Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md) för att hantera dina erbjudanden i Cloud Partner Portal.
+I den hanterade tjänsten får du hjälp att aktivera [Azure Lighthouse](../../lighthouse/overview.md) -scenarier. När en kund accepterar ett hanterat tjänst erbjudande kan de publicera resurser för [Azure-delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md). Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
-I den hanterade tjänsten får du hjälp att aktivera [Azure Lighthouse](../../lighthouse/overview.md) -scenarier. När en kund accepterar ett hanterat tjänst erbjudande kan de publicera resurser för [Azure-delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md).
-
-För att börja skapa hanterade tjänst erbjudanden måste du först [skapa ett partner Center-konto](./create-account.md) och öppna [instrument panelen för instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)med **översikts** sidan vald. Du måste ha en [silver eller Gold-plattform för moln plattform](https://partner.microsoft.com/membership/cloud-platform-competency) eller vara en [Azure expert-MSP](https://partner.microsoft.com/membership/azure-expert-msp) för att publicera ett hanterat tjänst erbjudande.
-
-![Instrument panel för extern Marketplace på Partner Center](./media/new-offer-overview.png)
-
->[!Note]
-> När ett erbjudande har publicerats uppdateras bara ändringar i erbjudandet som gjorts i Partner Center i systemet och Store-frontend efter ompubliceringen. Kontrol lera att du har skickat in erbjudandet för publicering när du har gjort ändringar.
+Du måste ha en [silver eller Gold-plattform för moln plattform](https://partner.microsoft.com/membership/cloud-platform-competency) eller vara en [Azure expert-MSP](https://partner.microsoft.com/membership/azure-expert-msp) för att publicera ett hanterat tjänst erbjudande.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
-Välj knappen **+ ny erbjudande** och välj sedan meny alternativet **hanterad tjänst** . Dialog rutan **nytt erbjudande** visas.
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
+3. På sidan Översikt väljer du **+ ny erbjud** > **hanterad tjänst**.
 
-### <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
+    ![Visar menyn till vänster-navigering.](./media/new-offer-managed-service.png)
 
-- **Erbjudande-ID**: unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet. Detta ID får bara innehålla gemena alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg), begränsat till 50 tecken och kan inte ändras när du har valt **skapa**.  Om du till exempel anger *test-erbjudandet-1* här, är erbjudande-URL: en `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+>[!NOTE]
+>När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
-- **Erbjudande Ali Aset**: namnet som används för att referera till erbjudandet i Partner Center. Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som ska visas för kunderna. Det går inte att ändra det här värdet när du har valt **skapa**.
+## <a name="new-offer"></a>Nytt erbjudande
 
-När du har angett ditt **erbjudande-ID** och **erbjud alias**väljer du **skapa**. Du kommer sedan att kunna arbeta med alla olika delar av ditt erbjudande.
+Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
+
+* Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
+* Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+* Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
+
+Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
+
+* Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
+* Det går inte att ändra aliaset för erbjudandet när du har valt **skapa**.
+
+Välj **skapa** för att generera erbjudandet och fortsätt.
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
-
-På sidan **erbjudande konfiguration** ber vi om följande information. Se till att välja **Spara** när du är klar med fälten.
 
 ## <a name="connect-lead-management"></a>Anslut lead-hantering
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-Observera att det krävs ett **lead-mål** enligt [certifierings principerna för hanterade tjänster](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services). Då skapas en post i ditt CRM-system varje gång en kund distribuerar ditt erbjudande.
+Enligt [certifierings principerna för hanterade tjänster](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)krävs ett **lead-mål** . Då skapas en post i ditt CRM-system varje gång en kund distribuerar ditt erbjudande.
 
 Mer information finns i [Översikt över hantering av leads](./commercial-marketplace-get-customer-leads.md).
 
-Kom ihåg att **Spara** sidan innan du går vidare till nästa avsnitt.
+Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="properties"></a>Egenskaper
 
-På sidan **Egenskaper** kan du definiera de kategorier som används för att gruppera ditt erbjudande på Marketplace och de juridiska avtal som stöder ditt erbjudande. Välj **Spara** när du är klar med den här sidan.
+På den här sidan kan du definiera de kategorier som används för att gruppera ditt erbjudande på Marketplace och de juridiska kontrakt som stöder erbjudandet.
 
 ### <a name="category"></a>Kategori
 
@@ -67,12 +71,14 @@ Välj minst en och högst fem kategorier som ska användas för att placera ditt
 
 Ange dina egna juridiska villkor i fältet **allmänna** villkor. Du kan också ange URL: en där du hittar dina villkor. Kunder måste acceptera dessa villkor innan de kan testa ditt erbjudande.
 
+Välj **Spara utkast** innan du fortsätter.
+
 ## <a name="offer-listing"></a>Erbjudande lista
 
-På sidan **erbjudande lista** kan du definiera Marketplace-information (erbjudande namn, beskrivning, bilder osv.) för ditt erbjudande.
+På den här sidan kan du definiera Marketplace-information (t. ex. namn, beskrivning och avbildningar för erbjudandet) för ditt erbjudande.
 
 > [!NOTE]
-> Erbjudande för List innehåll (till exempel beskrivning, dokument, skärm bilder, användnings villkor osv.) behöver inte vara på engelska, förutsatt att beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det är också acceptabelt att tillhandahålla en *användbar länk-URL* för att erbjuda innehåll på ett annat språk än det som används i innehålls förteckningen för erbjudandet.
+> Erbjudande för List innehåll (till exempel beskrivning, dokument, skärm bilder och användnings villkor) behöver inte vara på engelska, förutsatt att beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det är också acceptabelt att tillhandahålla en *användbar länk-URL* för att erbjuda innehåll på ett annat språk än det som används i innehålls förteckningen för erbjudandet.
 
 ### <a name="name"></a>Name
 
@@ -100,23 +106,13 @@ Några tips för att skriva din beskrivning:
 - Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar.  
 - Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt.
 
-Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att formatera beskrivningen.
+Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
 
-![Använda Rich Text Editor](./media/text-editor2.png)
+![Använda Rich Text Editor](./media/rich-text-editor.png)
 
-Använd följande instruktioner för att använda Rich Text Editor:
-
-- Om du vill ändra formatet på ditt innehåll markerar du den text som du vill formatera och väljer ett text format enligt nedan:
-
-     ![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png)
-
-- Om du vill lägga till en punkt lista eller numrerad lista i texten använder du alternativen nedan:
-
-     ![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png)
-
-- Om du vill lägga till eller ta bort indrag i texten använder du alternativen nedan:
-
-     ![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png)
+| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
+| --- | --- | --- |
+| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
 
 ### <a name="privacy-policy-link"></a>Länk till sekretess policy
 
@@ -138,12 +134,19 @@ Om du har support webbplatser för **globala Azure-kunder** och/eller **Azure Go
 
 I det här avsnittet kan du ange logo typer och avbildningar som ska användas när du visar ditt erbjudande för kunden. Alla bilder måste vara i PNG-format.
 
->[!Note]
+>[!NOTE]
 >Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
 
 #### <a name="marketplace-logos"></a>Marketplace-logotyper
 
-Fyra logo typer krävs: **liten (40x40)**, **medium (90x90)**, **Large (115x115)** och **wide (255x115)**. Följ dessa rikt linjer för dina logo typer:
+Ange ditt erbjudandes logo typ i fyra pixel storlekar:
+
+- **Liten** (40 x 40)
+- **Medel** (90 x 90)
+- **Stor** (115 x 115)
+- **Bred** (255 x 115)
+
+Följ dessa rikt linjer för dina logo typer:
 
 - Azure-designen har en enkel färgpalett. Begränsa antalet primära och sekundära färger i logotypen.
 - Portalens temafärger är svart och vitt. Använd inte de färgerna som bakgrundsfärg för logotypen. Använd en färg som gör att logotyp framträder tydligt i portalen. Vi rekommenderar enkla primärfärger.
@@ -164,13 +167,17 @@ Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. 
 
 - [Metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-## <a name="preview"></a>Förhandsversion
+Välj **Spara utkast** innan du fortsätter.
+
+## <a name="preview"></a>Förhandsgranskning
 
 Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet måste du först göra det tillgängligt för en begränsad förhands gransknings publik. På så sätt kan du kontrol lera hur du erbjuder den på Azure Marketplace innan du gör den tillgänglig för kunderna. Microsofts support-och teknik team kommer också att kunna se ditt erbjudande under för hands perioden.
 
 Du kan definiera förhands gransknings mål genom att ange Azures prenumerations-ID i avsnittet för **hands version** . Du kan ange upp till 10 prenumerations-ID: n manuellt eller ladda upp en CSV-fil med upp till 100 prenumerations-ID.
 
 Alla kunder som är kopplade till dessa prenumerationer kan se erbjudandet på Azure Marketplace innan det blir Live. Se till att ta med dina egna prenumerationer här så att du kan förhandsgranska ditt erbjudande.
+
+Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="plan-overview"></a>Plan översikt
 
@@ -237,18 +244,20 @@ För varje **auktorisering**måste du ange följande. Du kan sedan välja **+ L�
 
 När du har slutfört alla avsnitt för din plan kan du välja **+ skapa en ny plan** så många gånger som du behöver för att skapa ytterligare planer. När du är klar väljer du **Spara**.
 
+Välj **Spara utkast** innan du fortsätter.
+
 ## <a name="publish"></a>Publicera
 
 ### <a name="submit-offer-to-preview"></a>Skicka erbjudande till för hands version
 
-När du har slutfört alla obligatoriska avsnitt i erbjudandet väljer du **publicera** i det övre högra hörnet i portalen. Du kommer att omdirigeras till sidan **Granska och publicera** .
+När du har slutfört alla obligatoriska avsnitt i erbjudandet väljer du **Granska och publicera** i det övre högra hörnet i portalen.
 
 Om det är första gången du publicerar det här erbjudandet kan du:
 
 - Se slut för ande status för varje avsnitt i erbjudandet.
-  - *Inte startad* – innebär att avsnittet inte har vidrör ATS och måste slutföras.
-  - *Uncompleted* – innebär att avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
-  - *Complete* – innebär att avsnittet har slutförts, att alla nödvändiga data har angetts och att det inte finns några fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
+  - **Inte startad** – avsnittet har inte vidrörts och måste slutföras.
+  - **Ofullständig** – avsnittet innehåller fel som behöver åtgärdas eller som kräver mer information. Gå tillbaka till avsnitten och uppdatera det.
+  - **Slutfört** -avsnittet är slutfört, alla data som krävs har angetts och det finns inga fel. Alla avsnitt i erbjudandet måste vara i ett komplett tillstånd innan du kan skicka in erbjudandet.
 - I avsnittet **Obs!-certifiering** anger du test instruktioner till certifierings teamet för att kontrol lera att appen är korrekt testad, förutom eventuella kompletterande anteckningar som hjälper dig att förstå din app.
 - Skicka in erbjudandet om publicering genom att välja **Skicka**. Vi kommer att skicka ett e-postmeddelande till dig när en för hands version av erbjudandet är tillgänglig för att granska och godkänna. Gå tillbaka till Partner Center och välj **Go-Live** för erbjudandet att publicera ditt erbjudande till allmänheten (eller om ett privat erbjudande till den privata mål gruppen).
 

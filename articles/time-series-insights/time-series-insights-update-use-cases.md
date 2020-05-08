@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 50ac2a728750c6b01dfc57fa7e20df25c856395a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93813dfaecf40fcb5cab0856d013fb890118886c
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77087386"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580678"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Användarsituationer i förhandsversionen av Azure Time Series Insights
 
@@ -42,13 +42,13 @@ Utforska och analysera miljard tals händelser för att upptäcka avvikelser och
 
 De flesta kunder samtycker till att den minsta tiden som krävs för att få insikter är en av främsta-funktionerna i Time Series Insights:
 
-* Time Series Insights kräver ingen förberedelse av första data. 
-* Det fungerar snabbt för att ansluta dig till miljarder händelser i Azure IoT Hub eller Azure Event Hubs-instanser på några minuter. 
+* Time Series Insights kräver ingen förberedelse av första data.
+* Det fungerar snabbt för att ansluta dig till miljarder händelser i Azure IoT Hub eller Azure Event Hubs-instanser på några minuter.
 * När du är ansluten kan du visualisera och analysera miljarder händelser för att upptäcka avvikelser och identifiera dolda trender i dina data.
 
 Time Series Insights är intuitivt och enkelt att använda. Du kan interagera med dina data utan att behöva skriva en enda rad kod. Det finns inte heller något nytt språk som du behöver lära dig, men Time Series Insights tillhandahåller ett detaljerat textbaserade frågespråk för avancerade användare som är bekanta med SQL. Du kan också välja att välja och klicka på utforskning för nybörjare.
 
-Kunder kan dra nytta av hastigheten för att snabbt diagnostisera problem med till gångs problem. De kan utföra DevOps analys för att komma till rotor saken till en bugg i en IoT-lösning. De kan också identifiera områden för att flagga för ytterligare undersökning som en del av deras initiativ för data vetenskap. 
+Kunder kan dra nytta av hastigheten för att snabbt diagnostisera problem med till gångs problem. De kan utföra DevOps analys för att komma till rotor saken till en bugg i en IoT-lösning. De kan också identifiera områden för att flagga för ytterligare undersökning som en del av deras initiativ för data vetenskap.
 
 Det finns tre huvudsakliga sätt att interagera med data som lagras i Time Series Insights:
 

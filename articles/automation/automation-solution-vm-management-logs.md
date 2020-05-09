@@ -1,20 +1,20 @@
 ---
-title: Så här frågar du efter loggar från lösningen starta/stoppa virtuella datorer
-description: 'Den här artikeln beskriver hur du frågar logg data som genererats av lösningen starta/stoppa VM: ar från Azure Monitor.'
+title: Så här frågar du efter loggar från Starta/stoppa virtuella datorer när de inte används
+description: Den här artikeln beskriver hur du frågar logg data som genereras av Starta/stoppa virtuella datorer när de inte används lösning från Azure Monitor.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472f3762ca18f71ba95053576daf025d8477fee9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604729"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864240"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-solution"></a>Så här frågar du efter loggar från lösningen starta/stoppa virtuella datorer
+# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>Så här frågar du efter loggar från Starta/stoppa virtuella datorer när de inte används
 
-Azure Automation vidarebefordrar två typer av poster till den länkade Log Analytics arbets ytan: jobb loggar och jobb strömmar. Dessa data är tillgängliga för [fråga](../azure-monitor/log-query/log-query-overview.md) i Azure Monitor.
+Azure Automation vidarebefordrar två typer av poster till den länkade Log Analytics arbets ytan: jobb loggar och jobb strömmar. Den här artikeln granskar de data som är tillgängliga för [fråga](../azure-monitor/log-query/log-query-overview.md) i Azure Monitor.
 
 ## <a name="job-logs"></a>Jobbloggar
 

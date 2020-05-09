@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -23,4 +23,4 @@ ms.locfileid: "80385171"
 | Max burst-IOPS per disk | 3 500 | 3 500 | 3 500 | 3 500 | 3 500 | 3 500 | 3 500 | 3 500 |
 | Maximalt burst-genomflöde per disk | 170 MiB/SEK | 170 MiB/SEK | 170 MiB/SEK | 170 MiB/SEK | 170 MiB/SEK | 170 MiB/SEK | 170 MiB/SEK | 170 MiB/SEK |
 | Maximal längd på burst | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  |
-| Berättigad till reservation | Nej  | Nej  | Nej  | Nej  | Nej  | Nej  | Nej  | Nej  | Ja, upp till ett år | Ja, upp till ett år | Ja, upp till ett år | Ja, upp till ett år | Ja, upp till ett år | Ja, upp till ett år |
+| Berättigad till reservation | Inga  | Inga  | Inga  | Inga  | Inga  | Inga  | Inga  | Inga  | Ja, upp till ett år | Ja, upp till ett år | Ja, upp till ett år | Ja, upp till ett år | Ja, upp till ett år | Ja, upp till ett år |

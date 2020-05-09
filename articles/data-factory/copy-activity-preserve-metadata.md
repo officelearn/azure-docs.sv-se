@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 5ce1b85394a7bb604841f7fb941bdebf12c0bca2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a1527195296237eb8c9c309f8ac4a5911136cf77
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414156"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891757"
 ---
 #  <a name="preserve-metadata-and-acls-using-copy-activity-in-azure-data-factory"></a>Bevara metadata och ACL: er med kopierings aktivitet i Azure Data Factory
 
@@ -32,6 +32,8 @@ Kopierings aktiviteten har stöd för att bevara följande attribut under data k
 
 - **Alla angivna metadata för kunden** 
 - Och följande **fem inbyggda system egenskaper för data lagring** `contentType`:, `contentLanguage` (förutom Amazon S3), `contentEncoding`, `contentDisposition`,. `cacheControl`
+
+**Hantera skillnader i metadata:** Amazon S3 och Azure Storage tillåta olika teckenuppsättningar i nycklarna för kundens angivna metadata. När du väljer att bevara metadata med Copy aktivitets ersätter ADF automatiskt de ogiltiga tecknen med "_".
 
 När du kopierar filer som de är från Amazon S3/Azure Data Lake Storage Gen2/Azure blob till Azure Data Lake Storage Gen2/Azure Blob med binärformat kan du hitta alternativet **bevara** på fliken **Kopiera aktivitets** > **Inställningar** för aktivitets redigering eller sidan **Inställningar** i kopiera data verktyget.
 

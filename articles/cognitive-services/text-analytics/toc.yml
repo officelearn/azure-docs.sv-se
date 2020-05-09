@@ -44,7 +44,7 @@
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
     - name: Extrahera information i Excel med hjälp av Power Automate
       href: tutorials/extract-excel-information.md
-- name: Begrepp
+- name: Koncept
   items:
     - name: Namngivna entitetstyper
       href: named-entity-types.md
@@ -52,13 +52,15 @@
       href: language-support.md
     - name: Offsets för text
       href: concepts/text-offsets.md
-- name: Anvisningar
+    - name: Databegränsningar
+      href: concepts/data-limits.md
+- name: Instruktionsguider
   items:
     - name: 'Anropa API:t för textanalys'
       href: How-tos/text-analytics-how-to-call-api.md
     - name: Språkidentifiering
       href: How-tos/text-analytics-how-to-language-detection.md
-    - name: Sentimentanalys
+    - name: Attitydanalys
       href: How-tos/text-analytics-how-to-sentiment-analysis.md
     - name: Extrahering av nyckelfraser
       href: How-tos/text-analytics-how-to-keyword-extraction.md
@@ -116,7 +118,7 @@
       href: text-analytics-resource-external-community.md
     - name: VANLIGA FRÅGOR OCH SVAR
       href: text-analytics-resource-faq.md
-    - name: Prissättning
+    - name: Priser
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

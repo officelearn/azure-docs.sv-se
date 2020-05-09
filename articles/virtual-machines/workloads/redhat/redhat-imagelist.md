@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 028c30fced14a60af9f5683e6c6e087b15591735
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 089858c789bb11245e98f32047cabb4117ece904
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605483"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838594"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux-avbildningar (RHEL) som är tillgängliga i Azure
 Azure erbjuder en rad olika RHEL-avbildningar för olika användnings fall.
@@ -27,6 +27,9 @@ Azure erbjuder en rad olika RHEL-avbildningar för olika användnings fall.
 
 ## <a name="list-of-rhel-images"></a>Lista över RHEL-avbildningar
 Det här är en lista över RHEL-avbildningar som är tillgängliga i Azure. Om inget annat anges är alla avbildningar LVM och är kopplade till vanliga RHEL-databaser (inte EUS, inte E4S). Följande bilder är för närvarande tillgängliga för allmänt bruk:
+
+> [!NOTE]
+> RAW-avbildningar skapas inte längre i förmån för LVM-partitionerade avbildningar. LVM ger flera fördelar jämfört med den äldre RAW-partitionen (icke-LVM), inklusive avsevärt mer flexibla alternativ för att ändra storlek på partitioner.
 
 Erbjudande| SKU | Partitionering | Etablering | Obs!
 :----|:----|:-------------|:-------------|:-----
@@ -47,6 +50,9 @@ RHEL          | 6.7      | OUTSPÄDD    | Linux-agent |
 |             | 7,6      | OUTSPÄDD    | Linux-agent | Bifogad till EUS-databaser som standard från maj 2019.
 |             | 76 – Gen2  | OUTSPÄDD    | Linux-agent | Ansluten till EUS-databaser som standard.
 |             | 7,7      | LVM    | Linux-agent | Ansluten till EUS-databaser som standard.
+|             | 77 – Gen2  | LVM    | Linux-agent | Ansluten till EUS-databaser som standard.
+|             | 7,8      | LVM    | Linux-agent | Anslutet till vanliga databaser (EUS är inte tillgängliga för RHEL 7,8)
+|             | 78 – Gen2  | LVM    | Linux-agent | Anslutet till vanliga databaser (EUS är inte tillgängliga för RHEL 7,8)
 |             | 8-LVM    | LVM    | Linux-agent | RHEL 8. x-serien med bilder. Anslutet till vanliga databaser.
 |             | 8-LVM-Gen2| LVM    | Linux-agent | Hyper-V generation 2-RHEL 8. x-serien med bilder. Anslutet till vanliga databaser.
 |             | 8        | LVM    | Linux-agent | RHEL 8,0-bilder

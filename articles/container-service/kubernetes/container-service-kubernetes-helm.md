@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a3423b908ac5e089faa30b19914d3b74ae9a547
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76271089"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735427"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>FÖRÅLDRAD Använda Helm för att distribuera behållare i ett Kubernetes-kluster
 
@@ -34,7 +34,7 @@ Helm har två komponenter:
 
 * [Installera och konfigurera `kubectl` ](../container-service-connect.md) på en lokal dator
 
-* [Installera Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) på en lokal dator
+* [Installera Helm](https://helm.sh/docs/intro/quickstart/) på en lokal dator
 
 ## <a name="helm-basics"></a>Grundläggande om Helm 
 
@@ -149,5 +149,5 @@ Nu kan du använda standard-SQL-kommandon för att skapa databaser, tabeller osv
  
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du hanterar Kubernetes-diagram finns i [Helm-dokumentationen](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
+* Mer information om hur du hanterar Kubernetes-diagram finns i [Helm-dokumentationen](https://helm.sh/docs/). 
 

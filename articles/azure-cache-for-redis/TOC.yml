@@ -27,11 +27,14 @@
   items:
     - name: Exempel för Azure Cache for Redis
       href: cache-redis-samples.md
-    - name: Azure PowerShell
+    - name: Azure
       href: cache-how-to-manage-redis-cache-powershell.md
     - name: Azure CLI
       href: cli-samples.md
-- name: Koncept
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
+- name: Begrepp
   items:
     - name: Säkerhet
       items:
@@ -43,7 +46,7 @@
       href: cache-best-practices.md
     - name: Metodtips för cachelagring på arkitektur
       href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Planera
       items:
@@ -63,7 +66,7 @@
           href: cache-migrate-to-redis.md
     - name: Automatisera
       items:
-        - name: Distribuera och hantera med Azure Powershell
+        - name: Distribuera och hantera med Azure PowerShell
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Distribuera och hantera med Azure CLI
           href: cli-samples.md
@@ -130,7 +133,7 @@
     - name: .NET
       href: /dotnet/api/microsoft.azure.management.redis
     - name: Java
-      href: /java/api/com.microsoft.azure.management.redis._redis_cache
+      href: /java/api/com.microsoft.azure.management.redis.rediscache
     - name: Redis-klienter
       href: 'https://redis.io/clients'
     - name: Redis-kommandon
@@ -141,11 +144,11 @@
       href: /azure/templates/microsoft.cache/allversions
 - name: Resurser
   items:
-    - name: Utveckla din kompetens med Microsoft Learn
+    - name: Utveckla dina färdigheter med Microsoft Learn
       href: /learn/browse/?products=azure-redis-cache
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Vanliga frågor och svar om Azure Cache for Redis
       href: cache-faq.md

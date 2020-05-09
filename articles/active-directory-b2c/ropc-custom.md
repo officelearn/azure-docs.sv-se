@@ -251,7 +251,7 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 - Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
 - Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
 
-| Nyckel | Värde |
+| Tangent | Värde |
 | --- | ----- |
 | användarnamn | `user-account` |
 | password | `password1` |
@@ -296,7 +296,7 @@ Skapa ett POST samtal som det som visas här. Använd informationen i följande 
 - Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
 - Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
 
-| Nyckel | Värde |
+| Tangent | Värde |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

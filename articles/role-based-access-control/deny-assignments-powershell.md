@@ -1,6 +1,6 @@
 ---
-title: Visa lista över nekade tilldelningar för Azure-resurser med Azure PowerShell
-description: Lär dig hur du visar en lista över användare, grupper, tjänstens huvud namn och hanterade identiteter som har nekats åtkomst till specifika Azure-resurs åtgärder vid specifika omfång med hjälp av Azure PowerShell.
+title: Visa en lista över Azure neka-tilldelningar med Azure PowerShell-Azure RBAC
+description: Lär dig hur du visar en lista över användare, grupper, tjänstens huvud namn och hanterade identiteter som har nekats åtkomst till specifika Azure-resurs åtgärder i vissa områden med hjälp av Azure PowerShell och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5ba18b89bd37dbd55350321c503e37ab0590ab87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd852d19b284f97995855fe06c97ea0ea69be293
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137399"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733970"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-azure-powershell"></a>Visa lista över nekade tilldelningar för Azure-resurser med Azure PowerShell
+# <a name="list-azure-deny-assignments-using-azure-powershell"></a>Visa en lista över Azure neka-tilldelningar med Azure PowerShell
 
-[Neka tilldelningar](deny-assignments.md) blockera användare från att utföra vissa åtgärder för Azure-resurser även om en roll tilldelning ger dem åtkomst. I den här artikeln beskrivs hur du visar en lista över nekade tilldelningar med Azure PowerShell.
+[Azure Deny-tilldelningar](deny-assignments.md) blockerar användare från att utföra vissa åtgärder för Azure-resurser även om en roll tilldelning ger åtkomst till dem. I den här artikeln beskrivs hur du visar en lista över nekade tilldelningar med Azure PowerShell.
 
 > [!NOTE]
-> Du kan inte skapa egna neka-tilldelningar direkt. För information om hur neka-tilldelningar skapas, se [neka tilldelningar](deny-assignments.md).
+> Du kan inte skapa egna neka-tilldelningar direkt. För information om hur neka-tilldelningar skapas, se [Azure Deny-tilldelningar](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Krav
 
 För att få information om en neka-tilldelning måste du ha:
 
-- `Microsoft.Authorization/denyAssignments/read`behörighet, som ingår i de flesta [inbyggda roller för Azure-resurser](built-in-roles.md)
+- `Microsoft.Authorization/denyAssignments/read`behörighet, som ingår i de flesta [inbyggda Azure-roller](built-in-roles.md)
 - [PowerShell i Azure Cloud Shell](/azure/cloud-shell/overview) eller [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-deny-assignments"></a>Visa lista över nekade tilldelningar
@@ -125,6 +125,6 @@ PS C:\> Get-AzDenyAssignment -Scope /subscriptions/11111111-1111-1111-1111-11111
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förstå neka-tilldelningar för Azure-resurser](deny-assignments.md)
-- [Visa lista över nekade tilldelningar för Azure-resurser med hjälp av Azure Portal](deny-assignments-portal.md)
-- [Visa lista över nekade tilldelningar för Azure-resurser med hjälp av REST API](deny-assignments-rest.md)
+- [Förstå Azure Deny-tilldelningar](deny-assignments.md)
+- [Visa en lista över Azure Deny-tilldelningar med hjälp av Azure Portal](deny-assignments-portal.md)
+- [Visa en lista över Azure Deny-tilldelningar med hjälp av REST API](deny-assignments-rest.md)

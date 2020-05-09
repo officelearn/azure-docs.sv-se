@@ -8,21 +8,18 @@ ms.subservice: studio
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
-ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 11/29/2017
-ms.openlocfilehash: 9a0b855f48085138b28e02e0a5d01c5dd0f666be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23a201ef63a9a1a6bb5bd078867ccc1200893049
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218071"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982028"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Tolka modell resultat i Azure Machine Learning Studio (klassisk)
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 I det här avsnittet beskrivs hur du visualiserar och tolkar förutsägelse resultat i Azure Machine Learning Studio (klassisk). När du har tränat en modell och gjort förutsägelser ovanpå den ("score modellen"), måste du förstå och tolka resultatet av förutsägelsen.
-
-
 
 Det finns fyra viktiga typer av maskin inlärnings modeller i Azure Machine Learning Studio (klassisk):
 
@@ -37,11 +34,11 @@ Modulerna som används för förutsägelser ovanpå dessa modeller är:
 * [Tilldela till kluster][assign-to-clusters] -modul för klustring
 * [Poäng matchbox rekommenderar][score-matchbox-recommender] för rekommendations system
 
-Det här dokumentet beskriver hur du tolkar förutsägelse resultat för var och en av dessa moduler. En översikt över dessa moduler finns i [så här väljer du parametrar för att optimera algoritmerna i Azure Machine Learning Studio (klassisk)](algorithm-parameters-optimize.md).
+Lär dig hur du [väljer parametrar för att optimera algoritmerna i ml Studio (klassisk)](algorithm-parameters-optimize.md).
 
-Det här avsnittet beskriver förutsägelse tolkning men inte modell utvärdering. Mer information om hur du utvärderar din modell finns [i så här utvärderar du modell prestanda i Azure Machine Learning Studio (klassisk)](evaluate-model-performance.md).
+Information om hur du utvärderar modeller finns i [så här utvärderar du modell prestanda](evaluate-model-performance.md).
 
-Om du inte har använt Azure Machine Learning Studio (klassisk) och behöver hjälp med att skapa ett enkelt experiment för att komma igång, se [skapa ett enkelt experiment i Azure Machine Learning Studio (klassisk)](create-experiment.md).
+Om du är nybörjare på ML Studio (klassisk) [lär du dig hur du skapar ett enkelt experiment](create-experiment.md).
 
 ## <a name="classification"></a>Klassificering
 Det finns två under Kategorier med klassificerings problem:

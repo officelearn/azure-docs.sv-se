@@ -5,13 +5,13 @@ author: deborahc
 ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 1a760b4cedad5e43a2ef9f186162675aaf6d5ea5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: a9368e67abf3c45981cf1f85fe46a2a2799a6877
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234187"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864342"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Partitionering i Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Men om din behållare är liten har du förmodligen inte tillräckligt med fysis
 Om din behållare kan växa till fler än ett fåtal fysiska partitioner, bör du se till att du väljer en partitionsnyckel som minimerar frågor om flera partitioner. Din behållare kräver mer än några få fysiska partitioner när något av följande stämmer:
 
 * Din behållare kommer att ha över 30 000 RU-etableringen
-* Behållaren kommer att lagra över 100 GB data
+* Din behållare kommer att lagra över 100 GB data
 
 ## <a name="using-item-id-as-the-partition-key"></a>Använda objekt-ID som partitionsnyckel
 

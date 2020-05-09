@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/10/2020
+ms.date: 05/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e10908a3ce0ad372ab7d05fda9a15481d0efc5a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15bfb1e4d21e4f91cb37fed6e43b4e03f5643b13
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127572"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692206"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -82,6 +82,16 @@ När det används med Windows Virtual Desktop tillhandahåller ControlUp ytterli
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Gå till partner webbplatsen](https://www.controlup.com/solutions/ms_wvd/).
 
+## <a name="dell"></a>Dells
+
+![Dell-logotyp](./media/partners/dell.png)
+
+Dell Technologies "tunna klienter" är optimerade för att få åtkomst till Microsoft Azure och Windows-tjänster för virtuella skriv bord. För att kunna uppfylla behoven från samarbets kunskaps arbetare upp till grafik intensiva privilegierade användare ger Wyse tunna klienter en högkvalitativ dator upplevelse för att dra full nytta av det växande antalet appar och innehåll. Perfekt för miljöer med begränsat utrymme, Wyse tunna klienter anpassa sig till hur människor arbetar med flexibla form faktorer och en mängd olika alternativ för monterings alternativ.
+
+Wyse tunna klienter är utformade med säkerhet i åtanke med begränsad attack yta, stöd för säkerhetsefterlevnads standarder och avancerade Multi-Factor Authentication-lösningar. Distribuera mycket säkra tunna klienter med Dell-Exclusive Wyse tunt eller Upplev säker åtkomst till moln program och virtuella arbets ytor från skärpta Wyse-ThinLinux med en kommersiell beprövad design och Windows 10 IoT Enterprise med Dell-extra säkerhetsfunktioner. Med säker, HTTPS-baserad kommunikation och Active Directory-autentisering för rollbaserad administration behåller Wyse Management Suite Wyse-slutpunkter alltid uppdaterade och mobilappen för WMS Pro gör det möjligt att Visa kritiska aviseringar och skicka real tids kommandon med en tryckning när som helst.
+
+- [Gå till partner webbplatsen](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf).
+
 ## <a name="devicetrust"></a>deviceTRUST
 
 ![deviceTRUST-logotyp](./media/partners/devicetrust.png)
@@ -110,6 +120,7 @@ IGEL är en godkänd och verifierad partner av Microsoft Azure-och Windows-tjän
  
 IGEL OS stöder alla populära virtuella appar, Station ära datorer och klient protokoll för moln arbets ytor från Citrix, Microsoft och VMware. Den innehåller integrerad teknik från 85-kring utrustning, gränssnitt och protokoll för att hjälpa organisationer att snabbt använda Windows-tjänster för virtuella skriv bord i sina egna unika användar miljöer. IGEL OS är ett skrivskyddat, modulärt slut punkts operativ system som hjälper till att skydda det från manipulering. Nu finns det också en fullständig "förtroende kedja" som verifierar integriteten för alla viktiga huvud processer som körs på slut punkten, från slut punkts maskin varan (vissa valda modeller) eller UEFI-processen hela vägen till Azure-molnet och Windows-tjänster för virtuella skriv bord. Med IGEL OS kan företag prenumerera på virtuella Windows-datorer från Azure-molnet med fullt förtroende för integritet, säkerhet och hanterbarhet för användarnas slut punkts enheter.
 
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviO).
 - [Gå till partner webbplatsen](https://www.igel.com/igel-os-universal-desktop-operating-system/).
 
 ## <a name="ivanti"></a>Ivanti
@@ -191,6 +202,7 @@ PolicyPak-programvaran är en Windows-partner för virtuella datorer som utför 
 
 De vanligaste användnings fallen för PolicyPak är att ta bort lokala administratörs rättigheter och lösa UAC-prompter, blockera utpressnings bara filer, hantera flera webbläsare, hantera Internet Explorers företags-och kompatibilitetsläge, minska antalet grup princip objekt, hantera Windows 10-filassociationer, hantera Windows 10-startmenyer och aktivitets fältet och hantera Windows 10-funktioner och valfria funktioner.  
 
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vviN).
 - [Gå till partner webbplatsen](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
 
 ## <a name="printerlogic"></a>PrinterLogic
@@ -211,8 +223,8 @@ Printix är ett Windows-tillägg för mervärdes tjänst leverantör för virtue
 
 Utskrift är en grundläggande uppgift om alla Office-och Small Business-miljöer. För att kunna dra full nytta av Windows Virtual Desktop och ge en bra användar upplevelse är det viktigt att se till att användarna kan ansluta till skrivare med minsta möjliga ansträngning och maximal tillförlitlighet. Med Printix kan du få ut mesta möjliga av Windows Virtual Desktop via enkel inloggning (SSO), tyst konfiguration, regelbundna uppdateringar och kontinuerlig övervakning av utskrifts miljön.
 
-- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
-- [Gå till partner webbplatsen](https://www.printix.net/printix-for-windows-virtual-desktop)
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2).
+- [Gå till partner webbplatsen](https://www.printix.net/printix-for-windows-virtual-desktop).
 
 ## <a name="rdpsoft"></a>RDPSoft
 
@@ -222,7 +234,7 @@ RDPSoft är en Windows-partner för virtuella datorer som tillhandahåller kraft
  
 RDPSoft för fjärr skrivbords tjänster förbättrar Windows-administrationen för virtuella skriv bord. Premium Management-funktioner fören klar delegering av Windows hanterings uppgifter för virtuella skriv bord till support personal genom att tillhandahålla Fjärrhjälp, användarsessionen och process hantering. På samma gång samlar Remote Desktop Commander-sviten omfattande statistik om prestanda och belastning för varje användare, användar aktivitet och granskning, Windows anslutning för virtuella Skriv bords anslutningar (latens och bandbredd), licensiering och säkerhet till en central Azure SQL Database-instans för granskning. Med RDPSoft är utförlig historisk rapportering och omfattande instrument paneler bara ett klick bort.
 
-- [Gå till partner webbplatsen](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+- [Gå till partner webbplatsen](https://www.rdpsoft.com/products/remote-desktop-commander/suite/).
 
 ## <a name="sepago"></a>sepago
 
@@ -232,7 +244,8 @@ sepago grundades 2002 av fyra vänner i Cologne. Idag är sepago en IT-organisat
 
 sepagos innovations-och utvecklings labb bygger smarta lösningar med hjälp av Big data och AI-teknik. Dessa lösningar fokuserar på att förbättra verksamheten, användar upplevelsen och administrationerna av partner produkter som Windows Virtual Desktop.
 
-- [Gå till partner webbplatsen](https://www.sepago.de/wvd-value-add-tools/)
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
+- [Gå till partner webbplatsen](https://www.sepago.de/wvd-value-add-tools/).
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -263,7 +276,18 @@ stora gränser, uberAgent-företaget, ger insyn i distributioner av virtuella Wi
 
 uberAgent är en övervaknings-och analys produkt som är avsedd för slut användar bearbetning som inte bara samlar in data – den ger kunderna den information som är viktig för dem. uberAgent har sina egna mått, täcker viktiga aspekter av användar upplevelse, program prestanda och slut punkts säkerhet, vilket ger dig allt du behöver veta om dina virtuella Windows-datorer utan att påverka systemets användar täthet. uberAgent fören klar fel sökning, hjälper till med storleks ändring och ger omfattande information som är viktig för informations säkerhet.
 
-- [Gå till partner webbplatsen](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop)
+- [Gå till partner webbplatsen](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop).
+
+## <a name="workspace-365"></a>Arbets yta 365
+
+![Logo yta 365-logotyp](./media/partners/workspace-365.png)
+
+Arbets ytan 365 bevarar all din information (affärs data, dokument, kommunikation och Micro Apps) och ger åtkomst till alla lokala, webb-eller värdbaserade program på en arbets yta. Den anpassas automatiskt till din roll, plats, enhet, webbläsare och mer för att tillhandahålla en anpassad arbets yta. Användarna får en förenklad och konsekvent upplevelse, oavsett vilken teknik som ligger under ytan. Du kan integrera dina aktuella lösningar, till exempel RDP, Citrix och äldre program, och flytta dem till Windows Virtual Desktop samtidigt som du behåller samma användar upplevelse. Dessutom kan du integrera alla dina fil platser, till exempel SharePoint, OneDrive, team och fil servrar, i en app för dokument hantering.
+
+På arbets ytan 365 kan IT-administratörer göra Windows-aktiverade program med virtuella skriv bord tillgängliga för personer baserat på behörigheter. Administratören kan sedan lägga till dessa program i en delad program grupp. När det virtuella Windows-programmet är synligt på arbets ytan 365 kan användare öppna dem från deras arbets yta utan att behöva logga in igen. 
+
+- [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4vARh).
+- [Gå till partner webbplatsen](https://workspace365.net/product-tour/hybrid-workspace-365/).
 
 ## <a name="workspot"></a>Workspot
 
@@ -279,4 +303,4 @@ Workspot utökar värdet för virtuella Windows-datorer genom att förenkla etab
 ## <a name="next-steps"></a>Nästa steg
 
 - [Läs mer om virtuella Windows-datorer](overview.md).
-- [Skapa en klient i det virtuella Windows-skrivbordet](tenant-setup-azure-active-directory.md).
+- [Skapa en klient i det virtuella Windows-skrivbordet](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).

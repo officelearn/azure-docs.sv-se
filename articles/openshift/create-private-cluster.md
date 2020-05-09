@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: a0f726d32f2f63cf85101254fded005fc0b5a1db
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfc28577f089ef22457e9f66ff08106969a5a4b2
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233558"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857388"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Skapa ett privat kluster i Azure Red Hat OpenShift 4
 
@@ -65,15 +65,21 @@ aro                                1.0.0
 ...
 ```
 
-### <a name="obtain-a-red-hat-pull-secret-optional"></a>Skaffa en Red Hat pull-hemlighet (valfritt)
+### <a name="get-a-red-hat-pull-secret-optional"></a>Hämta en Red Hat pull-hemlighet (valfritt)
 
 Med en Red Hat pull-hemlighet kan ditt kluster få åtkomst till Red Hat container-register tillsammans med ytterligare innehåll. Det här steget är valfritt men rekommenderas.
 
-Hämta din pull-hemlighet genom att gå https://cloud.redhat.com/openshift/install/azure/aro-provisioned till och klicka på *Hämta pull-hemlighet*.
+1. **[Gå till Red Hat OpenShift Cluster Manager-portalen](https://cloud.redhat.com/openshift/install/azure/aro-provisioned) och logga in.**
 
-Du måste logga in på ditt Red Hat-konto eller skapa ett nytt Red Hat-konto med ditt företags-e-post och godkänna de allmänna villkoren.
+   Du måste logga in på ditt Red Hat-konto eller skapa ett nytt Red Hat-konto med ditt företags-e-post och godkänna de allmänna villkoren.
+
+2. **Klicka på Hämta pull-hemlighet.**
 
 Behåll den sparade `pull-secret.txt` filen någonstans säkert – den kommer att användas i varje kluster som skapas.
+
+När du kör `az aro create` kommandot kan du referera till din pull-hemlighet med `--pull-secret @pull-secret.txt` hjälp av parametern. Kör `az aro create` från den katalog där du sparade `pull-secret.txt` filen. Annars ersätter `@pull-secret.txt` du med `@<path-to-my-pull-secret-file`.
+
+Om du kopierar din pull-hemlighet eller refererar till den i andra skript, ska din pull-hemlighet formateras som en giltig JSON-sträng.
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Skapa ett virtuellt nätverk som innehåller två tomma undernät
 
@@ -177,7 +183,10 @@ Härnäst ska du skapa ett virtuellt nätverk som innehåller två tomma undern�
 
 ## <a name="create-the-cluster"></a>Skapa klustret
 
-Kör följande kommando för att skapa ett kluster. Observera `ingress-visibility` parametrarna `apiserver-visibility` och. Alternativt kan du skicka en pull-hemlighet som gör det möjligt för ditt kluster att få åtkomst till Red Hat container-register tillsammans med ytterligare innehåll. Få åtkomst till din pull-hemlighet genom att gå till den [Red Hat OpenShift-klusterresursen](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) och klicka på Kopiera pull-hemlighet.
+Kör följande kommando för att skapa ett kluster. Du kan också [skicka din Red Hat pull-hemlighet](#get-a-red-hat-pull-secret-optional) som gör det möjligt för ditt kluster att komma åt Red Hat container-register tillsammans med ytterligare innehåll.
+
+>[!NOTE]
+> Om du kopierar/klistrar in kommandon och använder en av de valfria parametrarna, se till att ta bort de inledande hashtagg-objekten och den avslutande kommentars texten. Stäng också argumentet på den föregående raden i kommandot med ett avslutande omvänt snedstreck.
 
 ```azurecli-interactive
 az aro create \
@@ -185,15 +194,12 @@ az aro create \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
-  --worker-subnet worker-subnet \
-  --apiserver-visibility Private \
-  --ingress-visibility Private
-  # --domain aro.example.com # [OPTIONAL] custom domain
-  # --pull-secret 'Pull secret from https://cloud.redhat.com/openshift/install/azure/installer-provisioned/' # [OPTIONAL]
+  --worker-subnet worker-subnet
+  # --domain foo.example.com # [OPTIONAL] custom domain
+  # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
->[!NOTE]
-> Det tar normalt cirka 35 minuter att skapa ett kluster.
+När du `az aro create` har kört kommandot tar det vanligt vis cirka 35 minuter att skapa ett kluster.
 
 >[!IMPORTANT]
 > Om du väljer att ange en anpassad domän, till exempel **foo.example.com**, blir OpenShift-konsolen tillgänglig på en URL, till exempel `https://console-openshift-console.apps.foo.example.com`, i stället för den inbyggda domänen `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.

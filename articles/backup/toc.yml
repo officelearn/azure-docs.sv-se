@@ -44,6 +44,11 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: Hantera säkerhetskopierade SAP HANA-databaser – CLI
           href: tutorial-sap-hana-manage-cli.md
+- name: Exempel
+  items:
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Stödmatriser
@@ -342,10 +347,18 @@
           href: security-overview.md
         - name: Rollbaserad Access Control
           href: backup-rbac-rs-vault.md
-        - name: Säkerhet för molnarbetsbelastningar
-          href: backup-azure-security-feature-cloud.md
+        - name: Mjuk borttagning
+          items:
+            - name: Översikt
+              href: backup-azure-security-feature-cloud.md
+            - name: För virtuella datorer
+              href: soft-delete-virtual-machines.md
+            - name: För SQL Server och SAP HANA på virtuella datorer
+              href: soft-delete-sql-saphana-in-azure-vm.md
         - name: Säkerhet för hybridsäkerhetskopieringar
           href: backup-azure-security-feature.md
+        - name: Kryptering
+          href: backup-encryption.md
         - name: Inbyggda säkerhetskontroller
           href: backup-security-controls.md
         - name: Säkerhetsbaslinje

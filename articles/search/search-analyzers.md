@@ -8,16 +8,21 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 2e4a6ab8825982969ffa4654c2418f7a9d168d2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7be56fa48887e2ee500f1b253c078bde16d91e6
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75460710"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891235"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analys verktyg för text bearbetning i Azure Kognitiv sökning
 
 En *Analyzer* är en komponent i den [fullständiga texts öknings motorn](search-lucene-query-architecture.md) som ansvarar för bearbetning av text i frågesträngar och indexerade dokument. Olika analys verktyg ändrar text på olika sätt beroende på scenariot. Språk analys verktyg bearbetar text med språkliga regler för att förbättra Sök kvaliteten, medan andra analyserare utför mer grundläggande uppgifter som att konvertera tecken till gemener, till exempel. 
+
+Följande video segment snabb Spolar framåt till en förklaring av hur text bearbetning fungerar i Azure Kognitiv sökning.
+
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=132&end=189]
+
 
 Språk analys verktyg är de vanligaste och det finns standard språk analys som tilldelats alla sökbara fält i ett Azure Kognitiv sökning-index. Följande språk omvandlingar är typiska under text analys:
 

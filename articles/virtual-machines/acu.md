@@ -13,16 +13,22 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
-ms.openlocfilehash: e344d09497a30dec546dfaedd3d78f30c7d214d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 738ce8dad7237f9703d3ccb998c221ffec29dc17
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535705"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629107"
 ---
 # <a name="azure-compute-unit-acu"></a>Azure Compute Unit (ACU)
 
-Konceptet för Azure Compute Unit (ACU) är ett sätt att jämföra beräknings prestanda (CPU) i Azure SKU: er. På så sätt blir det lättare att identifiera vilken SKU som bäst uppfyller dina behov. ACU är för närvarande standardiserat på en liten virtuell dator (Standard_A1) och är 100, och alla andra SKU:er representerar ungefär hur mycket snabbare den SKU:n kan köra ett benchmark-standardtest.
+Konceptet för Azure Compute Unit (ACU) är ett sätt att jämföra beräknings prestanda (CPU) i Azure SKU: er. På så sätt blir det lättare att identifiera vilken SKU som bäst uppfyller dina behov. ACU är för närvarande standardiserad på en liten (Standard_A1) virtuell dator som 100 och alla andra SKU: er representerar ungefär hur mycket snabbare som SKU: n kan köra en standard-benchmark
+
+* ACUs använder Intel® Turbo teknik för att öka CPU-frekvensen och ge en bättre prestanda.  Mängden prestanda ökning kan variera beroende på storleken på den virtuella datorn, arbets belastningen och andra arbets belastningar som körs på samma värd.
+
+* * ACUs använder AMD® Boost-teknik för att öka CPU-frekvensen och ge en bättre prestanda.  Mängden prestanda ökning kan variera beroende på storleken på den virtuella datorn, arbets belastningen och andra arbets belastningar som körs på samma värd.
+
+Hyper-threaded och kan köra kapslad virtualisering
 
 > [!IMPORTANT]
 > ACU är endast en riktlinje. Resultatet med din arbetsbelastning kan variera.
@@ -55,10 +61,6 @@ Konceptet för Azure Compute Unit (ACU) är ett sätt att jämföra beräknings 
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2-L80s_v2](lsv2-series.md) |150 – 175 * * | 2:1 |
 | [M](m-series.md) | 160 – 180 | 2:1\*\*\* |
-
-* ACUs använder Intel® Turbo teknik för att öka CPU-frekvensen och ge en bättre prestanda.  Mängden prestanda ökning kan variera beroende på storleken på den virtuella datorn, arbets belastningen och andra arbets belastningar som körs på samma värd.
-* * ACUs använder AMD® Boost-teknik för att öka CPU-frekvensen och ge en bättre prestanda.  Mängden prestanda ökning kan variera beroende på storleken på den virtuella datorn, arbets belastningen och andra arbets belastningar som körs på samma värd.
-Hyper-threaded och kan köra kapslad virtualisering
 
 Här finns länkar till mer information om de olika storlekarna:
 

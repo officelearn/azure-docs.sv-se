@@ -1,28 +1,24 @@
 ---
-title: Använd Azure CLI för att komma igång med Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Använd Azure CLI för att skapa ett Data Lake Storage Gen1 konto och utföra grundläggande åtgärder
-services: data-lake-store
-documentationcenter: ''
+title: Hantera Azure Data Lake Storage Gen1 konto – Azure CLI
+description: Använd Azure CLI för att skapa ett Data Lake Storage Gen1 konto och utföra grundläggande åtgärder.
 author: twooley
-manager: mtillman
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 9431cc7fa12b86371ce6b2325aca8e13d264442e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e278981ce7647a53d2e80c5b835c8ed666db541
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60885354"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82688177"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli"></a>Kom igång med Azure Data Lake Store med Azure CLI
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-cli"></a>Kom igång med Azure Data Lake Storage Gen1 med Azure CLI
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
 > [!div class="op_single_selector"]
-> * [Portalen](data-lake-store-get-started-portal.md)
+> * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >

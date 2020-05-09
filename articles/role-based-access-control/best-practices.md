@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: dc86dd488ff9e8649ae80f4768941791dd37fce6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 053e86f3493c7a11a3cbbaad0871e45345697878
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81726779"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735342"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Metod tips för Azure RBAC
 
@@ -26,13 +26,13 @@ I den här artikeln beskrivs några metod tips för hur du använder rollbaserad
 
 ## <a name="only-grant-the-access-users-need"></a>Bevilja endast åtkomst användare behov
 
-Med hjälp av Azure RBAC kan du åtskilja uppgifter i teamet och endast bevilja den åtkomst till användare som de behöver för att utföra sina jobb. I stället för att ge alla obegränsad behörighet i din Azure-prenumeration eller dina resurser kan du tillåta enbart vissa åtgärder i ett visst omfång.
+Med hjälp av Azure RBAC kan du hålla isär uppgifter i ditt team och bevilja endast den omfattning av åtkomst till användare som de behöver för att utföra sitt arbete. I stället för att ge alla obegränsad behörighet i din Azure-prenumeration eller dina resurser kan du tillåta enbart vissa åtgärder i ett visst omfång.
 
-När du planerar din strategi för åtkomstkontroll är det en bra idé att bevilja användare den lägsta behörighet som krävs för att de ska kunna utföra sitt arbete. I följande diagram visas ett föreslaget mönster för att använda RBAC.
+När du planerar din strategi för åtkomstkontroll är det en bra idé att bevilja användare den lägsta behörighet som krävs för att de ska kunna utföra sitt arbete. Följande diagram visar ett föreslaget mönster för att använda Azure RBAC.
 
-![RBAC och lägsta behörighet](./media/best-practices/rbac-least-privilege.png)
+![Azure RBAC och minsta behörighet](./media/best-practices/rbac-least-privilege.png)
 
-Information om hur du lägger till roll tilldelningar finns i [lägga till eller ta bort roll tilldelningar](role-assignments-portal.md).
+Information om hur du lägger till roll tilldelningar finns i [lägga till eller ta bort Azure roll tilldelningar med hjälp av Azure Portal](role-assignments-portal.md).
 
 ## <a name="limit-the-number-of-subscription-owners"></a>Begränsa antalet prenumerations ägare
 

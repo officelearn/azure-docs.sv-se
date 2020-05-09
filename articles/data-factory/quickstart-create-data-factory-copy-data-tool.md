@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 03/18/2020
-ms.openlocfilehash: 8a05ae29d62a5afacbc0007850266688e989b62b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e61bc750a06fb041e97def842e81fd62b614fcf6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419433"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982164"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Snabb start: Använd Kopiera data-verktyget för att kopiera data
 
@@ -29,7 +29,7 @@ ms.locfileid: "81419433"
 I den här snabbstarten använder du Azure-portalen för att skapa en datafabrik. Sedan använder du verktyget Kopiera data för att skapa en pipeline som kopierar data från en mapp i en Azure Blob Storage till en annan mapp. 
 
 > [!NOTE]
-> Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](data-factory-introduction.md). 
+> Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md). 
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 

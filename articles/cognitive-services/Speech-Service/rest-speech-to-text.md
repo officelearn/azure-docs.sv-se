@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: yinhew
-ms.openlocfilehash: 005824b0953be741f47c027d121dbe073adca3ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2f102199c14ba9611a83e3ed3b31ebcd189624d6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82131285"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978628"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -52,7 +52,7 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 | Parameter | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `language` | Identifierar det talade språk som identifieras. Se [vilka språk som stöds](language-support.md#speech-to-text). | Krävs |
-| `format` | Anger resultat formatet. Godkända värden är `simple` och `detailed`. Enkla resultat inkluderar `RecognitionStatus`, `DisplayText`, `Offset`och `Duration`. Detaljerade svar innehåller flera resultat med konfidens värden och fyra olika representationer. Standardinställningen är `simple`. | Valfri |
+| `format` | Anger resultat formatet. Godkända värden är `simple` och `detailed`. Enkla resultat inkluderar `RecognitionStatus`, `DisplayText`, `Offset`och `Duration`. Detaljerade svar innehåller fyra olika representationer av visnings text. Standardinställningen är `simple`. | Valfri |
 | `profanity` | Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `masked`, som ersätter svordomar med asterisker, `removed`som tar bort alla svordomar från resultatet, eller `raw`som innehåller svordomarna i resultatet. Standardinställningen är `masked`. | Valfri |
 | `pronunciationScoreParams` | Anger parametrar för visning av uttal i igenkännings resultat, som utvärderar uttal av tal ingångar, med indikatorer på precision, Fluency, fullständighet osv. Den här parametern är en Base64-kodad JSON som innehåller flera detaljerade parametrar. Se [uttal av bedömnings parametrar](#pronunciation-assessment-parameters) för hur du skapar den här parametern. | Valfri |
 | `cid` | När du använder [Custom Speech Portal](how-to-custom-speech.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slut punkts-ID** som finns på **distributions** sidan. Använd **slut punkts-ID** som argument för `cid` parametern frågesträng. | Valfri |
@@ -74,10 +74,10 @@ I den här tabellen listas obligatoriska och valfria sidhuvuden för begäran om
 
 Ljud skickas i bröd texten i HTTP- `POST` begäran. Det måste vara i något av formaten i den här tabellen:
 
-| Format | ADPCM | Hastigheten | Samplings frekvens  |
-|--------|-------|---------|--------------|
-| WAV    | PCM   | 16 bitar  | 16 kHz, mono |
-| OGG    | OPUS  | 16 bitar  | 16 kHz, mono |
+| Format | ADPCM | Bit hastighet | Samplings frekvens  |
+|--------|-------|----------|--------------|
+| WAV    | PCM   | 256 kbps | 16 kHz, mono |
+| OGG    | OPUS  | 256 Kpbs | 16 kHz, mono |
 
 >[!NOTE]
 >Ovanstående format stöds via REST API och WebSocket i tal-tjänsten. [Talet SDK](speech-sdk.md) stöder för närvarande WAV-formatet med PCM-kodek och [andra format](how-to-use-codec-compressed-audio-input-streams.md).
@@ -200,9 +200,10 @@ Resultat tillhandahålls som JSON. `simple` Formatet innehåller dessa fält på
 > [!NOTE]
 > Om ljudet bara består av svordomar och `profanity` frågeparametern är inställt på `remove`, returnerar inte tjänsten ett tal resultat.
 
-`detailed` Formatet innehåller samma data som `simple` formatet, tillsammans med `NBest`en lista över alternativa tolkningar av samma igenkännings resultat. De här resultaten rangordnas från de mest sannolikaste sannolika. Den första posten är samma som det huvudsakliga igenkännings resultatet.  När du använder `detailed` formatet `DisplayText` anges det som `Display` för varje resultat i `NBest` listan.
+`detailed` Formatet innehåller ytterligare former av identifierade resultat.
+När du använder `detailed` formatet `DisplayText` anges det som `Display` för varje resultat i `NBest` listan.
 
-Varje objekt i `NBest` listan innehåller:
+Objektet i `NBest` listan kan innehålla:
 
 | Parameter | Beskrivning |
 |-----------|-------------|
@@ -244,13 +245,6 @@ Ett typiskt svar för `detailed` igenkänning:
         "ITN" : "remind me to buy 5 pencils",
         "MaskedITN" : "remind me to buy 5 pencils",
         "Display" : "Remind me to buy 5 pencils.",
-      },
-      {
-        "Confidence" : "0.54",
-        "Lexical" : "rewind me to buy five pencils",
-        "ITN" : "rewind me to buy 5 pencils",
-        "MaskedITN" : "rewind me to buy 5 pencils",
-        "Display" : "Rewind me to buy 5 pencils.",
       }
   ]
 }

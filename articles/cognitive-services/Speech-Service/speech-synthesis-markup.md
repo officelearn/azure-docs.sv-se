@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: eb3db23189cbfd07362b1bd5be9aaa181064a2d6
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b1c19ed556a55dec8c84686e80ec988bc593a7a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583217"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996038"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -109,7 +109,7 @@ I- `speak` elementet kan du ange flera röster för text till tal-utdata. Dessa 
 
 Beroende på språket Speech SDK anger du `"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"` egenskapen till `false` på en instans av `SpeechConfig` objektet.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Mer information finns i <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
@@ -258,7 +258,7 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
 
 | Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `strength` | Anger den relativa varaktigheten för en paus med något av följande värden:<ul><li>ingen</li><li>x-svaga</li><li>svaga</li><li>medel (standard)</li><li>kraftfull</li><li>x – stark</li></ul> | Valfri |
+| `strength` | Anger den relativa varaktigheten för en paus med något av följande värden:<ul><li>inget</li><li>x-svaga</li><li>svaga</li><li>medel (standard)</li><li>kraftfull</li><li>x – stark</li></ul> | Valfri |
 | `time` | Anger den absoluta varaktigheten för en paus på några sekunder eller millisekunder. Exempel på giltiga värden är `2s` och`500` | Valfri |
 
 | Styrka                      | Beskrivning |
@@ -359,7 +359,10 @@ Fonetiska alfabet består av telefoner, som består av bokstäver, siffror eller
 
 ## <a name="use-custom-lexicon-to-improve-pronunciation"></a>Använd anpassat lexikon för att förbättra uttal
 
-Ibland kan inte TTS uttala ett ord, till exempel ett företags-eller främmande namn. Utvecklare kan definiera läsningen av dessa entiteter i SSML `phoneme` med `sub` och tagga eller definiera läsningen av flera entiteter genom att referera till en anpassad lexikon `lexicon` fil med hjälp av taggen.
+Ibland kan inte text till tal-tjänsten uttala ett ord. Till exempel namnet på ett företag eller en medicinsk term. Utvecklare kan definiera hur enkla entiteter ska läsas i SSML med `phoneme` taggarna och `sub` . Men om du behöver definiera hur flera entiteter ska läsas, kan du skapa ett anpassat lexikon med `lexicon` taggen.
+
+> [!NOTE]
+> Anpassat lexikon stöder UTF-8-kodning för närvarande. 
 
 **Syntax**
 
@@ -375,14 +378,10 @@ Ibland kan inte TTS uttala ett ord, till exempel ett företags-eller främmande 
 
 **Användning**
 
-Steg 1: definiera anpassat lexikon 
-
-Du kan definiera hur entiteter ska läsas av en lista med anpassade lexikon objekt, lagrade som en XML-eller pls-fil.
-
-**Exempel**
+Om du vill definiera hur flera entiteter ska läsas kan du skapa ett anpassat lexikon, som lagras som en XML-eller pls-fil. Följande är en exempel-XML-fil.
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
@@ -400,39 +399,61 @@ Du kan definiera hur entiteter ska läsas av en lista med anpassade lexikon obje
 </lexicon>
 ```
 
-Varje `lexeme` element är ett lexikon objekt. `grapheme`innehåller text som beskriver orthograph för `lexeme`. Utskicks form kan anges `alias`som. Det går att ange telefon sträng `phoneme` i elementet.
+`lexicon` Elementet innehåller minst ett `lexeme` -element. Varje `lexeme` -element innehåller minst ett `grapheme` element och ett eller flera `grapheme`element `alias`, och `phoneme` . `grapheme` Elementet innehåller text som beskriver <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">Orthography. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a> `alias` Elementen används för att ange uttal av en akronym eller en förkortad term. `phoneme` Elementet innehåller text som beskriver hur `lexeme` uttalas.
 
-`lexicon` Elementet innehåller minst ett `lexeme` -element. Varje `lexeme` -element innehåller minst ett `grapheme` element och ett eller flera `grapheme`element `alais`, och `phoneme` . `grapheme` Elementet innehåller text som beskriver <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">Orthography. <span class="docon docon-navigate-external x-hidden-focus"> </span> </a> `alias` Elementen används för att ange uttal av en akronym eller en förkortad term. `phoneme` Elementet innehåller text som beskriver hur `lexeme` uttalas.
+Det är viktigt att Observera att du inte kan ange uttal av ett ord direkt med hjälp av det anpassade lexikonet. Om du behöver ange uttal för ett, måste du `alias` `phoneme` först ange ett och sedan associera med det. `alias` Ett exempel:
 
-Mer information om den anpassade lexikon filen finns i avsnittet uttal av ord listan [(pls) Version 1,0](https://www.w3.org/TR/pronunciation-lexicon/) på W3C-webbplatsen.
+```xml
+  <lexeme>
+    <grapheme>Scotland MV</grapheme> 
+    <alias>ScotlandMV</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme>ScotlandMV</grapheme> 
+    <phoneme>ˈskɒtlənd.ˈmiːdiəm.weɪv</phoneme>
+  </lexeme>
+```
 
-Steg 2: Ladda upp den anpassade lexikon filen som skapades i steg 1 online kan du lagra den var som helst, och vi föreslår att du lagrar den i Microsoft Azure, till exempel [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+> [!IMPORTANT]
+> `phoneme` Elementet får inte innehålla blank steg när du använder IPA.
 
-Steg 3: referera till den anpassade lexikon filen i SSML
+Mer information om den anpassade lexikon filen finns i avsnittet uttal av ord [lexikons specifikation (pls) Version 1,0](https://www.w3.org/TR/pronunciation-lexicon/).
+
+Publicera sedan din anpassade lexikon fil. Även om det inte finns några begränsningar för var filen kan lagras rekommenderar vi att du använder [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+
+När du har publicerat ditt anpassade lexikon kan du referera till det från din SSML.
+
+> [!NOTE]
+> `lexicon` Elementet måste finnas i `voice` elementet.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
           xmlns:mstts="http://www.w3.org/2001/mstts" 
           xml:lang="en-US">
-<lexicon uri="http://www.example.com/customlexicon.xml"/>
-BTW, we will be there probably 8:00 tomorrow morning.
-Could you help leave a message to Robert Benigni for me?
+    <voice name="en-US-AriaRUS">
+        <lexicon uri="http://www.example.com/customlexicon.xml"/>
+        BTW, we will be there probably at 8:00 tomorrow morning.
+        Could you help leave a message to Robert Benigni for me?
+    </voice>
 </speak>
 ```
-"BTW" kommer att läsas som "på väg". "Oskadligi" kommer att läsas med den tillhandahållna IPA "bɛ ˈ ni ː Nji".  
 
-**Begränsning**
+När du använder det här anpassade lexikonet kommer "BTW" att läsas som "på väg". "Oskadligi" kommer att läsas med den tillhandahållna IPA "bɛ ˈ ni ː Nji".  
+
+**Begränsningar**
 - Fil storlek: den maximala storleks gränsen för den anpassade fil storleken är 100 KB, om den överskrider den här storleken kommer syntes förfrågan att Miss förväntas.
 - Uppdatering av lexikon-cache: anpassat lexikon cachelagras med URI som nyckel på TTS-tjänst när den läses in första gången. Det går inte att läsa in ett lexikon med samma URI inom 15 minuter, så den anpassade lexikon ändringen måste vänta högst 15 minuter innan den börjar gälla.
 
 **Fonetiska uppsättningar för tal tjänst**
 
-I exemplet ovan använder vi det internationella fonetiska alfabetet, även kallat IPA telefon uppsättning. Vi rekommenderar att utvecklare använder IPA, eftersom det är den internationella standarden. Med tanke på att IPA inte är lätt att komma ihåg definierar tal tjänsten en fonetisk uppsättning för sju språk (`en-US`, `fr-FR`, `de-DE` `es-ES` `ja-JP` `zh-CN`,,, och `zh-TW`).
+I exemplet ovan använder vi det internationella fonetiska alfabetet, även kallat IPA telefon uppsättning. Vi rekommenderar att utvecklare använder IPA, eftersom det är den internationella standarden. För vissa IPA-tecken har de "fördelade" och "desammansatt"-versionen när de representeras med Unicode. Anpassat lexikon har endast stöd för uppdelade Unicode.
+
+Med tanke på att IPA inte är lätt att komma ihåg definierar tal tjänsten en fonetisk uppsättning för sju språk (`en-US`, `fr-FR`, `de-DE` `es-ES` `ja-JP` `zh-CN`,,, och `zh-TW`).
 
 Du kan använda `sapi` as-Vale för `alphabet` attributet med anpassade lexikon som visas nedan:
 
 ```xml
-<?xml version="1.0" encoding="UTF-16"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <lexicon version="1.0" 
       xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

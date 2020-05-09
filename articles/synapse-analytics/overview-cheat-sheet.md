@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: aa93a816fc11158d928978bdec2dbf42119fa149
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7ae76128e90dbd9328c4bc5adcbddc334ab11cc
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424659"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983167"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Lathund-blad för Azure Synapse Analytics
 
@@ -30,7 +30,7 @@ Azure Synapse Analytics lathund-bladet hjälper dig genom de grundläggande begr
 ## <a name="concepts"></a>Begrepp
 | Substantiv och verb                         | Vad läget gör       |
 |:---                                 |:---                 |
-| **Synapse-arbetsyta (för hands version)** | En skydds bara samarbets gränser för att utföra molnbaserad företags analys i Azure. En arbets yta distribueras i en angiven region och har ett associerat ADLSg2-konto och fil system (för lagring av temporära data). En arbets yta är under en resurs grupp. |
+| **Synapse-arbetsyta (för hands version)** | En skydds bara samarbets gränser för att utföra molnbaserad företags analys i Azure. En arbets yta distribueras i en angiven region och har ett associerat ADLS Gen2-konto och fil system (för lagring av temporära data). En arbets yta är under en resurs grupp. |
 | **SQL-analys**   | Kör analyser med pooler eller med funktioner på begäran.  |
 | **SQL-pool**   | 0-till-N SQL-etablerade resurser med motsvarande databaser kan distribueras i en arbets yta. Varje SQL-pool har en associerad databas. En SQL-pool kan skalas, pausas och återupptas manuellt eller automatiskt. En SQL-pool kan skalas från 100 DWU upp till 30 000 DWU.       |
 | **SQL på begäran (för hands version)**   | Distribuerat data bearbetnings system som skapats för storskaliga data som gör att du kan köra T-SQL-frågor över data i data Lake. Den är Server lös så du behöver inte hantera infrastrukturen.       |

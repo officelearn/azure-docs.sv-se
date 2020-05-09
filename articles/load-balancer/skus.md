@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/01/2020
 ms.author: allensu
-ms.openlocfilehash: c7ca630b4a6a1bedeab21feacc22cd27a1a3ee7e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: faf77411abca63516b00ac953bc7203da69f3ca9
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82794156"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854088"
 ---
 # <a name="azure-load-balancer-skus"></a>Azure Load Balancer SKU: er
 
@@ -49,6 +49,12 @@ Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsup
 | SLA | [99,99 %](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Inte tillgängligt | 
 
 Mer information finns i [gränser för belastnings utjämning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Information om Standard Load Balancer finns i [översikt](load-balancer-standard-overview.md), [prissättning](https://aka.ms/lbpricing) och [serviceantal](https://aka.ms/lbsla).
+
+## <a name="limitations"></a>Begränsningar
+
+- SKU: er är inte föränderligt. Du kan inte ändra SKU för en befintlig resurs.
+- En fristående virtuell dator resurs, tillgänglighets uppsättnings resurs eller en resurs för skalnings uppsättning för virtuell dator kan referera till en SKU, aldrig båda.
+- [Flytt av prenumerations åtgärder](../azure-resource-manager/management/move-resource-group-and-subscription.md) stöds inte för standard Load Balancer-och standard-offentliga IP-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -112,8 +112,6 @@
           href: platform/alerts-unified-log.md
         - name: Aktivitetsloggaviseringar
           href: platform/activity-log-alerts.md
-        - name: Ändra analys
-          href: app/change-analysis.md
     - name: Visualisera data
       href: visualizations.md
     - name: Partnerintegrering
@@ -528,6 +526,8 @@
               href: platform/resource-logs-blob-format.md
         - name: Strömma data till Event Hubs
           href: platform/stream-monitoring-data-event-hubs.md
+        - name: Ändra analys
+          href: app/change-analysis.md
     - name: Övervaka virtuella datorer och gästoperativsystem
       items:
         - name: Övervaka virtuella Azure-datorer

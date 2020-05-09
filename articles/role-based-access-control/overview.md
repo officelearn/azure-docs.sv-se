@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d186fd2182603709921f876d0bc212762cb8586b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 3846a4669cc2a77862e73dbb8e7743b19740e8a4
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735869"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996499"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>Vad är Azure rollbaserad åtkomst kontroll (Azure RBAC)?
 
@@ -90,7 +90,7 @@ Följande diagram visar ett exempel på en rolltilldelning. I det här exemplet 
 
 ![Rolltilldelning för att kontrollera åtkomst](./media/overview/rbac-overview.png)
 
-Du kan skapa rolltilldelningar med hjälp av Azure-portalen, Azure CLI, Azure PowerShell, Azure-SDK:er eller REST-API:er. Du kan ha upp till **2000** roll tilldelningar i varje prenumeration och **500** roll tilldelningar i varje hanterings grupp. För att kunna skapa och ta bort rolltilldelningar behöver du ha `Microsoft.Authorization/roleAssignments/*`-behörighet. Den här behörigheten beviljas via rollerna [Ägare](built-in-roles.md#owner) eller [Administratör för användaråtkomst](built-in-roles.md#user-access-administrator).
+Du kan skapa rolltilldelningar med hjälp av Azure-portalen, Azure CLI, Azure PowerShell, Azure-SDK:er eller REST-API:er. Du kan ha upp till **2000** roll tilldelningar i varje prenumeration. Den här gränsen omfattar roll tilldelningar i prenumerations-, resurs grupps-och resurs omfång. Du kan ha upp till **500** roll tilldelningar i varje hanterings grupp. För att kunna skapa och ta bort rolltilldelningar behöver du ha `Microsoft.Authorization/roleAssignments/*`-behörighet. Den här behörigheten beviljas via rollerna [Ägare](built-in-roles.md#owner) eller [Administratör för användaråtkomst](built-in-roles.md#user-access-administrator).
 
 ## <a name="multiple-role-assignments"></a>Flera rolltilldelningar
 

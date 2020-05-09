@@ -1,6 +1,6 @@
 ---
-title: Visa lista över nekade tilldelningar för Azure-resurser med Azure Portal
-description: Lär dig hur du visar en lista över användare, grupper, tjänstens huvud namn och hanterade identiteter som har nekats åtkomst till specifika Azure-resurs åtgärder vid särskilda omfång med hjälp av Azure Portal.
+title: Visa en lista över Azure Deny-tilldelningar med hjälp av Azure Portal – Azure RBAC
+description: Lär dig hur du visar en lista över användare, grupper, tjänstens huvud namn och hanterade identiteter som har nekats åtkomst till specifika Azure-resurs åtgärder i vissa områden med hjälp av Azure Portal och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,25 +14,25 @@ ms.workload: identity
 ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4db76e5c6191457346ca1f95678cf73843334d3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97c03d417f8bf123de3332142344f292de00e3b2
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137426"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734118"
 ---
-# <a name="list-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visa lista över nekade tilldelningar för Azure-resurser med hjälp av Azure Portal
+# <a name="list-azure-deny-assignments-using-the-azure-portal"></a>Visa en lista över Azure Deny-tilldelningar med hjälp av Azure Portal
 
-[Neka tilldelningar](deny-assignments.md) blockera användare från att utföra vissa åtgärder för Azure-resurser även om en roll tilldelning ger dem åtkomst. Den här artikeln beskriver hur du visar en lista över nekade tilldelningar med hjälp av Azure Portal.
+[Azure Deny-tilldelningar](deny-assignments.md) blockerar användare från att utföra vissa åtgärder för Azure-resurser även om en roll tilldelning ger åtkomst till dem. Den här artikeln beskriver hur du visar en lista över nekade tilldelningar med hjälp av Azure Portal.
 
 > [!NOTE]
-> Du kan inte skapa egna neka-tilldelningar direkt. För information om hur neka-tilldelningar skapas, se [neka tilldelningar](deny-assignments.md).
+> Du kan inte skapa egna neka-tilldelningar direkt. För information om hur neka-tilldelningar skapas, se [Azure Deny-tilldelningar](deny-assignments.md).
 
 ## <a name="prerequisites"></a>Krav
 
 För att få information om en neka-tilldelning måste du ha:
 
-- `Microsoft.Authorization/denyAssignments/read`behörighet, som ingår i de flesta [inbyggda roller för Azure-resurser](built-in-roles.md).
+- `Microsoft.Authorization/denyAssignments/read`behörighet, som ingår i de flesta [inbyggda Azure-roller](built-in-roles.md).
 
 ## <a name="list-deny-assignments"></a>Visa lista över nekade tilldelningar
 
@@ -109,5 +109,5 @@ Följ dessa steg om du vill visa mer information om en neka-tilldelning.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förstå neka-tilldelningar för Azure-resurser](deny-assignments.md)
-* [Visa lista över nekade tilldelningar för Azure-resurser med Azure PowerShell](deny-assignments-powershell.md)
+* [Förstå Azure Deny-tilldelningar](deny-assignments.md)
+* [Visa en lista över Azure neka-tilldelningar med Azure PowerShell](deny-assignments-powershell.md)

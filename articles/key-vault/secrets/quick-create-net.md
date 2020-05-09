@@ -7,12 +7,12 @@ ms.date: 03/12/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: be612c1e28c0d07228a0f9a183a82edd1ed70753
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: 46ffcfbe382a974b2e8cf465f35bf9eff77dbb7e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901542"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983184"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>Snabb start: Azure Key Vault klient bibliotek för .NET (SDK v4)
 
@@ -97,12 +97,12 @@ New-AzKeyVault -Name <your-unique-keyvault-name> -ResourceGroupName myResourceGr
 
 Det enklaste sättet att autentisera ett molnbaserad .NET-program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](../general/managed-identity.md) . 
 
-För enkelhetens skull skapar den här snabb starten ett .NET-konsol program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Tjänst principen kräver ett unikt namn i formatet "http://<My-Unique-service-Name>".
+För enkelhetens skull skapar den här snabb starten ett .NET-konsol program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Din tjänst princip kräver ett unikt namn i formatet "http://&lt;My-Unique-service-name&gt;".
 
 Skapa en tjänst princip med Azure CLI [-AZ AD SP Create-for-RBAC-](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommando:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name>" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 Den här åtgärden returnerar en serie med nyckel/värde-par. 
@@ -125,7 +125,7 @@ Skapa ett huvud namn för tjänsten med kommandot Azure PowerShell [New-AzADServ
 
 ```azurepowershell
 # Create a new service principal
-$spn = New-AzADServicePrincipal -DisplayName "http://<my-unique-service-principle-name>"
+$spn = New-AzADServicePrincipal -DisplayName "http://&lt;my-unique-service-principle-name&gt;"
 
 # Get the tenant ID and subscription ID of the service principal
 $tenantId = (Get-AzContext).Tenant.Id

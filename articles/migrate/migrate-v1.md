@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c9cea52e04a991e6e3ac64426f0443939f8aaa3a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b02560d1e7b7c34a4d87dbdc468a85362aca4f7
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77914389"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993812"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Arbeta med den tidigare versionen av Azure Migrate
 
@@ -92,7 +92,7 @@ Beredskapen tar hänsyn till ett antal VM-egenskaper, för att identifiera om de
 --- | --- | ---
 **Start typ** | BIOS stöds. UEFI stöds inte. | Villkoret klart om start typen är UEFI.
 **Kärnor** | Datorer Core <= det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna.<br/>Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor, utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
-**Minnesoptimerade** | Datorns minnes storlek <= högsta mängd minne (3892 GB i Azure M-serien&nbsp;Standard_M128m<sup>2</sup>) för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
+**Minne** | Datorns minnes storlek <= högsta mängd minne (3892 GB i Azure M-serien&nbsp;Standard_M128m<sup>2</sup>) för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig Azure Migrate anses det använda minnet.<br/><br/>Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne, utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
 **Lagrings disk** | Den allokerade storleken på en disk måste vara 4 TB (4096 GB) eller mindre.<br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Redo om det är inom gränserna.
 **Nätverk** | En dator måste ha 32 eller färre nätverkskort kopplade till sig. | Redo om det är inom gränserna.
 
@@ -216,7 +216,7 @@ När du har konfigurerat en arbets yta laddar du ned och installerar agenter på
 4. Kopiera arbetsytans ID och nyckel. Du behöver dessa när du installerar MMA på den lokala datorn.
 
 > [!NOTE]
-> Om du vill automatisera installationen av agenter kan du använda ett distributions verktyg som Configuration Manager eller ett partner verktyg, till exempel en [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), som tillhandahåller en agent distributions lösning för Azure Migrate.
+> Om du vill automatisera installationen av agenter kan du använda ett distributions verktyg som Configuration Manager eller ett partner verktyg, till exempel en [Intigua](https://www.intigua.com/intigua-for-azure-migration), som tillhandahåller en agent distributions lösning för Azure Migrate.
 
 
 #### <a name="install-the-mma-agent-on-a-windows-machine"></a>Installera MMA-agenten på en Windows-dator

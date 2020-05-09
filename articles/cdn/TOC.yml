@@ -8,10 +8,10 @@
       href: cdn-features.md
 - name: Snabbstarter
   items:
-    - name: Skapa en profil och en slutpunkt
-      href: cdn-create-new-endpoint.md
     - name: Integrera ett lagringskonto
       href: cdn-create-a-storage-account-with-cdn.md
+    - name: Skapa en profil och en slutpunkt
+      href: cdn-create-new-endpoint.md
     - name: Skapa en profil med hjälp av en Azure Resource Manager-mall
       href: create-profile-resource-manager-template.md
 - name: Självstudier
@@ -32,7 +32,7 @@
   items:
     - name: Kodexempel
       href: 'https://azure.microsoft.com/resources/samples/?service=cdn'
-- name: Koncept
+- name: Begrepp
   items:
     - name: Så här fungerar cachelagring
       href: cdn-how-caching-works.md
@@ -46,7 +46,7 @@
       href: cdn-migrate.md
     - name: DDoS-skydd
       href: cdn-ddos.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Optimera innehåll
       href: cdn-optimization-overview.md
@@ -185,7 +185,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -1,24 +1,24 @@
 ---
-title: Lista över inbyggda princip definitioner för Azure Data Lake Analytics
-description: Visar Azure Policy inbyggda princip definitioner för Azure Data Lake Analytics. De här inbyggda programmen ger vanliga metoder för att hantera dina Azure-resurser.
+title: Inbyggda princip definitioner för Azure Data Lake Analytics
+description: Visar Azure Policy inbyggda princip definitioner för Azure Data Lake Analytics. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
 ms.date: 04/30/2020
 ms.topic: sample
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: data-lake-analytics
 ms.custom: subject-policy-samples
-ms.openlocfilehash: ea969b167773df4ebd75352c2652cc7d665a27e2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 54af0e831357af37284e3d57cbfbe15721cfdda9
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966332"
+ms.locfileid: "82982572"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-data-lake-analytics"></a>Azure Policy inbyggda princip definitioner för Azure Data Lake Analytics
 
 Den här sidan är ett index över [Azure policy](../governance/policy/overview.md) inbyggda princip definitioner för Azure Data Lake Analytics. Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../governance/policy/samples/built-in-policies.md).
 
-Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Använd länken i kolumnen **källa** för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
+Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i **GitHub** -kolumnen för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 

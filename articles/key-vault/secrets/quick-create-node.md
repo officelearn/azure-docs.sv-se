@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 63feea2cf672c197e51c1c8a2195076f456f4f66
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: d21ec8d025070bd748550cdfbc2aca5ae1f55c08
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901527"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983150"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Snabb start: Azure Key Vault klient bibliotek för Node. js (v4)
 
@@ -69,12 +69,12 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 Det enklaste sättet att autentisera ett molnbaserad program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](../general/managed-identity.md) .
 
-För enkelhetens skull skapar den här snabb starten ett Skriv bords program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Tjänst principen kräver ett unikt namn i formatet "http://<My-Unique-service-Name>".
+För enkelhetens skull skapar den här snabb starten ett Skriv bords program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Din tjänst princip kräver ett unikt namn i formatet "http://&lt;My-Unique-service-name&gt;".
 
 Skapa en tjänst princip med Azure CLI [-AZ AD SP Create-for-RBAC-](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommando:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://<my-unique-service-principle-name>" --sdk-auth
+az ad sp create-for-rbac -n "http://&lt;my-unique-service-principle-name&gt;" --sdk-auth
 ```
 
 Den här åtgärden returnerar en serie med nyckel/värde-par. 

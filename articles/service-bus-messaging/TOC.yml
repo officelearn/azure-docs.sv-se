@@ -72,6 +72,9 @@
   items:
     - name: Service Bus-exempel
       href: service-bus-samples.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Premium-meddelandetjänster

@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: badd8ba676ef25c33a5034bb04d616faeb4ef1b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0b0ee75c39ba87503f150ffb72b7ab95aaf83999
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392101"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996053"
 ---
-# <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar
+# <a name="forward-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra rapportdata från State Configuration till Azure Monitor-loggar
 
 Azure Automation tillstånds konfiguration behåller nodernas status data i 30 dagar. Du kan skicka nodernas status data till din Log Analytics arbets yta om du vill behålla dessa data under en längre period. Kompatibilitetsstatus visas i Azure Portal eller med PowerShell för noder och för enskilda DSC-resurser i nodkonfigurationer. 
 
@@ -30,8 +30,6 @@ Azure Monitor-loggar ger bättre drifts insyn i konfigurations data för Automat
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Krav
 

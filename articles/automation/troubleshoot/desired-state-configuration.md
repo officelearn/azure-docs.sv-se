@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0801bb44fc0c08df1adee1f817e8fccab166fb5
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 4c9e7b6d93fb4bbc3e3b05d9346ec84197665a55
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652814"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995296"
 ---
-# <a name="troubleshoot-issues-with-azure-automation-state-configuration"></a>Felsöka problem med konfiguration av Azure Automation tillstånd
+# <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Felsöka konfigurations problem med Azure Automation tillstånd
 
 Den här artikeln innehåller information om fel sökning av problem som uppstår när du kompilerar eller distribuerar konfigurationer i Azure Automation tillstånds konfiguration.
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen genom att följa stegen i [så här uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="diagnose-an-issue"></a>Diagnostisera ett problem
 
@@ -112,7 +109,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### <a name="cause"></a>Orsak
 
-Det här problemet orsakas av ett felaktigt eller utgånget certifikat. Se [förfallo datum för certifikat och omregistrering](../automation-dsc-onboarding.md#re-registering-a-node).
+Det här problemet orsakas av ett felaktigt eller utgånget certifikat. Se [Omregistrera en nod](../automation-dsc-onboarding.md#re-register-a-node).
 
 Det här problemet kan även bero på att en proxykonfiguration inte tillåter åtkomst till ***. Azure-Automation.net**. Mer information finns i [konfiguration av privata nätverk](../automation-dsc-overview.md#network-planning). 
 
@@ -239,11 +236,11 @@ Du har använt en autentiseringsuppgift i en konfiguration men angav inte korrek
 
 Kontrol lera `ConfigurationData` att du har angett `PSDscAllowPlainTextPassword` till true för varje nods konfiguration som nämns i konfigurationen. Mer information finns [i kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](../automation-dsc-compile.md).
 
-## <a name="scenario-failure-processing-extension-error-when-onboarding-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenario: fel vid registrering från ett DSC-tillägg
+## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenario: fel vid bearbetning av "fel bearbetnings tillägg" vid aktivering av en dator från ett DSC-tillägg
 
 ### <a name="issue"></a>Problem
 
-När du registrerar med hjälp av ett DSC-tillägg uppstår ett fel som innehåller felet:
+När du aktiverar en dator med hjälp av ett DSC-tillägg uppstår ett fel som innehåller felet:
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -256,7 +253,7 @@ Det här felet uppstår vanligt vis när noden tilldelas ett konfigurations namn
 ### <a name="resolution"></a>Lösning
 
 * Kontrol lera att du har tilldelats noden med ett namn som exakt matchar namnet i tjänsten.
-* Du kan välja att inte inkludera konfigurations namnet för noden, vilket leder till att du registrerar noden men inte tilldelar en konfiguration av en nod.
+* Du kan välja att inte inkludera konfigurations namnet för noden, vilket innebär att du aktiverar noden men inte tilldelar en konfiguration av en nod.
 
 ## <a name="scenario-one-or-more-errors-occurred-error-when-registering-a-node-by-using-powershell"></a><a name="cross-subscription"></a>Scenario: ett eller flera fel inträffade när en nod registrerades med hjälp av PowerShell
 
@@ -274,10 +271,10 @@ Felet uppstår när du försöker registrera en nod i en separat prenumeration s
 
 ### <a name="resolution"></a>Lösning
 
-Behandlar noden över prenumerationer som om den har definierats för ett separat moln eller lokalt. Registrera noden genom att använda något av följande onboarding-alternativ:
+Behandlar noden över prenumerationer som om den har definierats för ett separat moln eller lokalt. Registrera noden genom att använda något av följande alternativ för att aktivera datorer:
 
-* Windows: [fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure/AWS](../automation-dsc-onboarding.md#onboarding-physicalvirtual-windows-machines).
-* Linux: [fysiska/virtuella Linux-datorer lokalt eller i ett annat moln än Azure](../automation-dsc-onboarding.md#onboarding-physicalvirtual-linux-machines).
+* Windows: [fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure/AWS](../automation-dsc-onboarding.md#enable-physicalvirtual-windows-machines).
+* Linux: [fysiska/virtuella Linux-datorer lokalt eller i ett annat moln än Azure](../automation-dsc-onboarding.md#enable-physicalvirtual-linux-machines).
 
 ## <a name="scenario-provisioning-has-failed-error-message"></a><a name="agent-has-a-problem"></a>Scenario: fel meddelandet "etableringen misslyckades"
 

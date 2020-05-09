@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 19aee9d5fdf3f4a3d74484bb7cb2e609bc2807b4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 949b07a16b2c2b08891d721e46948481cfe572b2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927878"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996106"
 ---
 # <a name="create-an-automation-account-by-using-an-azure-resource-manager-template"></a>Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall
 
@@ -22,7 +22,7 @@ Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/templa
 * Automatiserar skapandet av ett Azure Automation-konto.
 * Länkar Automation-kontot till Log Analytics-arbetsytan.
 
-Mallen automatiserar inte onboarding av virtuella datorer eller lösningar från Azure eller icke-Azure. 
+Mallen automatiserar inte aktiveringen av virtuella datorer i Azure eller icke-Azure. 
 
 >[!NOTE]
 >Det går inte att skapa Automation-kör som-kontot när du använder en Azure Resource Manager-mall. Information om hur du skapar ett Kör som-konto manuellt från portalen eller med PowerShell finns i [Hantera kör som-konton](manage-runas-account.md).

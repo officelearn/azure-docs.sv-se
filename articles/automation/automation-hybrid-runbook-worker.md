@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0b36651a40267ec3ea8bfe7285c5f6c5d5c31562
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: c02a61366b05fa2750c581a1dedefb0d6239dada
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871655"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994767"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Översikt över Hybrid Runbook Worker
 
@@ -42,7 +42,7 @@ Processen för att installera en Hybrid Runbook Worker är beroende av operativ 
 
 Den rekommenderade installations metoden är att använda en Azure Automation Runbook för att helt automatisera processen med att konfigurera en Windows-dator. Den andra metoden är att följa en steg-för-steg-procedur för att manuellt installera och konfigurera rollen. För Linux-datorer kör du ett Python-skript för att installera agenten på datorn.
 
-## <a name="network-configuration"></a><a name="network-planning"></a>Konfiguration av nätverk
+## <a name="network-planning"></a><a name="network-planning"></a>Planera för nätverk
 
 För att Hybrid Runbook Worker ska kunna ansluta till och registrera med Azure Automation måste den ha åtkomst till port numret och URL-adresserna som beskrivs i det här avsnittet. Arbets tagaren måste också ha åtkomst till de [portar och URL: er som krävs för att Log Analytics agenten](../azure-monitor/platform/agent-windows.md) ska kunna ansluta till Azure Monitor Log Analytics-arbetsytan.
 

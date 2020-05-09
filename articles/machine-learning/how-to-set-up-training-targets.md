@@ -11,17 +11,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0ac0352fbca73aca7cc8c19a851dad9149af14a1
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: fc5d2b8f7673488169ee3ae393efcb74ef0a27a2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872096"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996455"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Med Azure Machine Learning kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Beräkningsmål kan vara en lokal dator eller en molnresurs, till exempel en Azure Machine Learning-beräkning, Azure HDInsight eller en fjärransluten virtuell dator.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
+Med Azure Machine Learning kan du träna din modell på en mängd olika resurser eller miljöer, som sammankallas för [__beräknings mål__](concept-azure-machine-learning-architecture.md#compute-targets). Ett beräknings mål kan vara en lokal dator eller en moln resurs, t. ex. en Azure Machine Learning Compute, Azure HDInsight eller en virtuell dator.  Du kan också skapa beräknings mål för modell distribution enligt beskrivningen i ["var och hur du distribuerar dina modeller"](how-to-deploy-and-where.md).
 
 Du kan skapa och hantera ett beräknings mål med hjälp av Azure Machine Learning SDK, Azure Machine Learning Studio, Azure CLI eller Azure Machine Learning VS Code Extension. Om du har beräknings mål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster) kan du använda dem genom att koppla dem till din Azure Machine Learning-arbetsyta.
  
@@ -36,7 +36,7 @@ I den här artikeln får du lära dig hur du använder olika beräknings mål f�
 
 ## <a name="compute-targets-for-training"></a>Compute-mål för utbildning
 
-Azure Machine Learning har varierande stöd för olika beräknings mål. En typisk modell utvecklings livs cykel börjar med utveckling/experiment på en liten mängd data. I det här skedet rekommenderar vi att du använder en lokal miljö. Till exempel din lokala dator eller en molnbaserad virtuell dator. När du skalar din utbildning på större data uppsättningar, eller utför distribuerad utbildning, rekommenderar vi att du använder Azure Machine Learning Compute för att skapa ett kluster med en eller flera noder som autoskalar varje gång du skickar en körning. Du kan också koppla din egen beräknings resurs, även om stöd för olika scenarier kan variera enligt beskrivningen nedan:
+Azure Machine Learning har varierande stöd för olika beräknings mål. En typisk modell utvecklings livs cykel börjar med utveckling/experiment på en liten mängd data. I det här skedet rekommenderar vi att du använder en lokal miljö. Till exempel din lokala dator eller en molnbaserad virtuell dator. När du skalar din utbildning på större data uppsättningar eller utför distribuerad träning rekommenderar vi att du använder Azure Machine Learning Compute för att skapa ett kluster med en eller flera noder som autoskalar varje gång du skickar en körning. Du kan också koppla din egen beräknings resurs, även om stöd för olika scenarier kan variera enligt beskrivningen nedan:
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
@@ -64,7 +64,7 @@ Mer information finns i [träna ml-modeller med uppskattningar](how-to-train-ml-
 
 Med ML-pipelines kan du optimera arbets flödet med enkelhet, hastighet, portabilitet och åter användning. När du skapar pipeliner med Azure Machine Learning kan du fokusera på din expertis, maskin inlärning i stället för infrastruktur och automatisering.
 
-ML pipelines skapas från flera **steg**, som är distinkta beräknings enheter i pipelinen. Varje steg kan köras oberoende och använda isolerade beräknings resurser. Detta gör det möjligt för flera data forskare att arbeta med samma pipeline samtidigt utan beskattnings beräknings resurser och gör det också enkelt att använda olika beräknings typer/storlekar för varje steg.
+ML pipelines skapas från flera **steg**, som är distinkta beräknings enheter i pipelinen. Varje steg kan köras oberoende och använda isolerade beräknings resurser. Den här metoden gör det möjligt för flera data experter att arbeta med samma pipeline samtidigt utan beskattnings beräknings resurser och gör det också enkelt att använda olika beräknings typer/storlekar för varje steg.
 
 > [!TIP]
 > ML pipelines kan använda kör konfiguration eller uppskattningar när du tränar modeller.
@@ -100,10 +100,11 @@ Du kan använda Azure Machine Learning Compute för att distribuera inlärnings 
 Azure Machine Learning Compute har standard gränser, till exempel antalet kärnor som kan allokeras. Mer information finns i [Hantera och begära kvoter för Azure-resurser](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
 
 > [!TIP]
-> Kluster kan i allmänhet skala upp till 100 noder så länge du har tillräcklig kvot för antalet kärnor som krävs. Som standard konfigureras kluster för kommunikation mellan noder mellan noderna i klustret som stöd för MPI-jobb till exempel. Du kan dock skala dina kluster till tusentals noder genom att bara [höja ett support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)och begära att vitlista din prenumeration eller arbets yta eller ett särskilt kluster för att inaktivera kommunikation mellan noder. 
->
+> Kluster kan i allmänhet skala upp till 100 noder så länge som du har tillräckligt med kvot för antalet kärnor som krävs. Som standard konfigureras kluster för kommunikation mellan noder mellan noderna i klustret som stöd för MPI-jobb till exempel. Du kan dock skala dina kluster till tusentals noder genom att bara [höja ett support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)och begära att vitlista din prenumeration eller arbets yta eller ett särskilt kluster för att inaktivera kommunikation mellan noder. 
 
-Azure Machine Learning Compute kan återanvändas över körningar. Beräkningen kan delas med andra användare på arbets ytan och bevaras mellan körningar och automatiskt skalar noderna uppåt eller nedåt baserat på antalet körningar som skickats och max_nodes som angetts i klustret.
+Azure Machine Learning Compute kan återanvändas över körningar. Beräkningen kan delas med andra användare på arbets ytan och bevaras mellan körningar och automatiskt skalar noderna uppåt eller nedåt baserat på antalet körningar som skickats och max_nodes som angetts i klustret. Inställningen min_nodes styr de minsta tillgängliga noderna.
+
+[!INCLUDE [min-nodes-note](../../includes/machine-learning-min-nodes.md)]
 
 1. **Skapa och koppla**: om du vill skapa en beständig Azure Machine Learning beräknings resurs i python anger du **vm_size** och **max_nodes** egenskaper. Azure Machine Learning använder sedan smarta standardinställningar för de andra egenskaperna. Beräkningen skalas ned till noll noder när den inte används.   Dedikerade virtuella datorer skapas för att köra jobben efter behov.
     
@@ -483,7 +484,7 @@ az ml run submit-hyperdrive -e <experiment> -c <runconfig> --hyperdrive-configur
 
 Observera avsnittet *argument* i runconfig och *parameter utrymme* i HyperDrive config. De innehåller kommando rads argument som ska skickas till övnings skriptet. Värdet i runconfig förblir detsamma för varje iteration, medan intervallet i HyperDrive-config upprepas. Ange inte samma argument i båda filerna.
 
-Mer information om dessa ```az ml``` CLI-kommandon och en fullständig uppsättning argument finns i [referens dokumentationen](reference-azure-machine-learning-cli.md).
+Mer information om dessa ```az ml``` CLI-kommandon finns i [referens dokumentationen](reference-azure-machine-learning-cli.md).
 
 <a id="gitintegration"></a>
 

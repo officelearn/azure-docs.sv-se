@@ -15,12 +15,12 @@ ms.date: 05/01/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 9eabd6d2a8f3179c5553bc6ca6d59407388c4d42
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 58e7a46633b7bbdd6074fa7e511569ff9e2aebdf
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735579"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996597"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Felsöka Azure RBAC
 
@@ -28,7 +28,7 @@ Den här artikeln ger svar på några vanliga frågor om rollbaserad åtkomst ko
 
 ## <a name="azure-role-assignments-limit"></a>Gräns för Azure Role-tilldelningar
 
-Azure har stöd för upp till **2000** rolltilldelningar per prenumeration. Om du får fel meddelandet "det går inte att skapa fler roll tilldelningar (kod: RoleAssignmentLimitExceeded)" när du försöker tilldela en roll kan du försöka minska antalet roll tilldelningar i prenumerationen.
+Azure har stöd för upp till **2000** rolltilldelningar per prenumeration. Den här gränsen omfattar roll tilldelningar i prenumerations-, resurs grupps-och resurs omfång. Om du får fel meddelandet "det går inte att skapa fler roll tilldelningar (kod: RoleAssignmentLimitExceeded)" när du försöker tilldela en roll kan du försöka minska antalet roll tilldelningar i prenumerationen.
 
 > [!NOTE]
 > Gränsen för **2000** roll tilldelningar per prenumeration är fast och går inte att öka.

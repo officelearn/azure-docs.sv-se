@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 19457dc7324c509f54a58a2cdaa39561bfc71b4d
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 9d7476b2bb64c9ed45d543345107008c4cedfb66
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853338"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996633"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -99,7 +99,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Frankfurt** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Tyskland, västra centrala | 10G, 100G | PÅ&T netobligation, CenturyLink Cloud Connect, Colt, L'-CIX, Equinix, GEANT, Interxion, Megaport, orange, Telia Carrier |
 | **Genèvekonventionen** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Schweiz, västra | 10G, 100G | Equinix, Megaport |
 | **Hong Kong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asien, östra | saknas | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, Kina, Storbritannien global, Equinix, intercloud, Megaport, NTT Communications, orange, PCCW global Limited, Tata Communications, Telia Carrier, Verizon |
-| **Hong Kong2** | [MEGAPIXLAR-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | saknas | 10 G | |
+| **Hong Kong2** | Kina, telekom, [megapixlar, megapixlar-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | saknas | 10 G | |
 | **Jakarta** | Telkom Indonesien | 4 | saknas | 10 G | |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | Sydafrika, norra | 10 G | BCX, British Telecom, Internet Solutions – Cloud Connect, flytande telekom, orange, Teraco |
 | **Kuala Lumpur** | [TID för dotCom Menara-mål](https://www.aims.com.my/co-location/points-of-presence.html) | 2 | saknas | saknas | TIME dotCom |

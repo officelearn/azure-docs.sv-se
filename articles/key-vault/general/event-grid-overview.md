@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cc12cc9a4828404e960aee239bd388af5b1ea3b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 854a489f6381514f80f16665f89042a0e8ed7470
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431909"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995767"
 ---
 # <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Övervaka Key Vault med Azure Event Grid (förhands granskning)
 
@@ -30,8 +30,6 @@ Mer information finns i [händelse schema för Key Vault](../../event-grid/event
 
 > [!WARNING]
 > Meddelande händelser utlöses bara på nya versioner av hemligheter, nycklar och certifikat, och du måste först prenumerera på händelsen i nyckel valvet för att kunna ta emot dessa meddelanden.
-> 
-> Du får bara meddelande händelser för certifikat när certifikatet förnyas automatiskt enligt principen som du har angett för ditt certifikat.
 
 ## <a name="practices-for-consuming-events"></a>Metoder för att konsumera händelser
 

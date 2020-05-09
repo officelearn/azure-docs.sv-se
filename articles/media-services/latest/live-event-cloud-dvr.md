@@ -12,18 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 4c7618b60e5fd86a9b8b3f22fb3333c00cfdfa61
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74899785"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995810"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Använd tids växling och Live-utdata för att skapa video uppspelning på begäran
 
-I Azure Media Services är ett [Live-utmatnings](https://docs.microsoft.com/rest/api/media/liveoutputs) objekt som en digital videobandspelare som fångar upp och registrerar din Live-dataström till en till gång i ditt Media Services-konto. Det inspelade innehållet sparas i den behållare som definieras av [resurs resursen (](https://docs.microsoft.com/rest/api/media/assets) behållaren är i det Azure Storage konto som är kopplat till ditt konto). Med Live-utdata kan du också styra vissa egenskaper för utgående Live-dataström, t. ex. hur mycket av data strömmen som behålls i Arkiv registreringen (till exempel kapaciteten för moln-DVR) eller när läsarna kan börja titta på den aktiva strömmen. Arkivet på disken är ett cirkulärt Arkiv "fönster" som endast innehåller den mängd innehåll som anges i egenskapen **archiveWindowLength** för Live-utdata. Innehåll som faller utanför det här fönstret tas automatiskt bort från lagrings behållaren och går inte att återskapa. ArchiveWindowLength-värdet representerar en varaktighet för ISO-8601 TimeSpan (till exempel PTHH: MM: SS), som anger kapaciteten för DVR. Värdet kan anges från minst tre minuter till högst 25 timmar.
+I Azure Media Services är ett [Live-utmatnings](https://docs.microsoft.com/rest/api/media/liveoutputs) objekt som en digital videobandspelare som fångar upp och registrerar din Live-dataström till en till gång i ditt Media Services-konto. Det inspelade innehållet sparas i den behållare som definieras av [resurs resursen (](https://docs.microsoft.com/rest/api/media/assets) behållaren är i det Azure Storage konto som är kopplat till ditt konto). Med Live-utdata kan du också styra vissa egenskaper för utgående Live-dataström, t. ex. hur mycket av data strömmen som behålls i Arkiv registreringen (till exempel kapaciteten för moln-DVR) eller när läsarna kan börja titta på den aktiva strömmen. Arkivet på disken är ett cirkulärt Arkiv "fönster" som endast innehåller den mängd innehåll som anges i egenskapen **archiveWindowLength** för Live-utdata. Innehåll som faller utanför det här fönstret tas automatiskt bort från lagrings behållaren och går inte att återskapa. ArchiveWindowLength-värdet representerar en varaktighet för ISO-8601 TimeSpan (till exempel PTHH: MM: SS), som anger kapaciteten för DVR. Värdet kan anges från minst en minut till högst 25 timmar.
 
 Förhållandet mellan en Live-händelse och dess direktsända utdata liknar traditionell TV-sändning, i så att en kanal (live event) representerar en konstant ström med video och en inspelning (direktsända utdata) är begränsad till ett särskilt tids segment (till exempel kvälls nyheter från 6:17.30 till 7:12:00). När strömmen flödar in i Live-evenemanget kan du starta den strömmande händelsen genom att skapa en till gång, en Live-utgång och en strömmande positionerare. Live-utdata kommer att arkivera strömmen och göra den tillgänglig för användare via [slut punkten för direkt uppspelning](https://docs.microsoft.com/rest/api/media/streamingendpoints). Du kan skapa flera Live-utdata (högst tre) för en Live-händelse med olika arkiv längder och inställningar. Information om Live streaming-arbetsflödet finns i avsnittet [allmänna steg](live-streaming-overview.md#general-steps) .
 

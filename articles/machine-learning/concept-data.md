@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/24/2020
-ms.openlocfilehash: 614cc866529cd4ead8a6ea798526d59aff13d4d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e41d00a31a0065e2923259cbb0bb36986cbb2ec8
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144476"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995070"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Skydda data åtkomst i Azure Machine Learning
 
@@ -73,7 +73,7 @@ Data uppsättningar kan skapas från lokala filer, offentliga URL: er, [öppna d
 Vi stöder 2 typer av data uppsättningar: 
 + En [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representerar data i tabell format genom att parsa den angivna filen eller listan med filer. Du kan läsa in en TabularDataset i en Pandas eller Spark-DataFrame för ytterligare manipulering och rengöring. En fullständig lista över data format som du kan skapa TabularDatasets från finns i [TabularDatasetFactory-klassen](https://aka.ms/tabulardataset-api-reference).
 
-+ En [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Du kan [Ladda ned eller montera filer](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) som FileDatasets refererar till i ditt beräknings mål.
++ En [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) refererar till en eller flera filer i dina data lager eller offentliga URL: er. Du kan [Ladda ned eller montera filer](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) som FileDatasets refererar till i ditt beräknings mål.
 
 Ytterligare data uppsättnings funktioner finns i följande dokumentation:
 

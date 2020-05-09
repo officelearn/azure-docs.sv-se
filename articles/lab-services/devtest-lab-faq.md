@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8697c7a82e271919f8d5aaa48160aa93c833809b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270789"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996904"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -209,6 +209,9 @@ Så här kopierar du befintliga virtuella datorer till DevTest Labs:
 ### <a name="can-i-attach-multiple-disks-to-my-vms"></a>Kan jag koppla flera diskar till mina virtuella datorer?
 
 Ja, du kan koppla flera diskar till dina virtuella datorer.
+
+### <a name="are-gen-2-images-supported-by-devtest-labs"></a>Stöds generation 2-avbildningar av DevTest Labs?
+Nej. Tjänsten DevTest Labs stöder inte [gen 2-avbildningar](../virtual-machines/windows/generation-2.md). Om både gen 1-och generation 2-versioner är tillgängliga för en avbildning, visar DevTest Labs bara generation 1-versionen av avbildningen när du skapar en virtuell dator. Du ser ingen bild om det bara finns en enda version av den tillgänglig. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Behöver jag köpa en MSDN-prenumeration om jag vill använda en Windows OS-avbildning för min testning?
 Gör något av följande om du vill använda Windows Client OS-avbildningar (Windows 7 eller en senare version) för utveckling eller testning i Azure:

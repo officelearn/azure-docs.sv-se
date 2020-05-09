@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 70fa66a96291e0c2a638bf69bdce7da531d32bb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 644d1094ec57e148804941297d50398e36b1b068
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80637474"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996432"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Anslut Windows-datorer till Azure Monitor
 
@@ -92,7 +92,7 @@ Den hämtade filen för agenten är ett fristående installations paket.  Instal
 
 I följande tabell visas de olika parametrarna som stöds av installations programmet för agenten, inklusive när du distribuerar med hjälp av Automation DSC.
 
-|MMA alternativ                   |Obs!         |
+|MMA alternativ                   |Anteckningar         |
 |---------------------------------------|--------------|
 | NOAPM=1                               | Valfri parameter. Installerar agenten utan prestanda övervakning av .NET-program.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Konfigurera agenten att rapportera till en arbets yta                |
@@ -176,8 +176,8 @@ Configuration MMAgent
 ```
 
 4. Uppdatera `ProductId` värdet i skriptet med produkt koden som extraherats från den senaste versionen av agent installations paketet med hjälp av de metoder som rekommenderas tidigare. 
-5. [Importera konfigurations skriptet MMAgent. ps1](../../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) till ditt Automation-konto. 
-5. [Tilldela en Windows-dator eller-nod](../../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) till konfigurationen. Inom 15 minuter kontrollerar noden konfigurationen och agenten flyttas till noden.
+5. [Importera konfigurations skriptet MMAgent. ps1](../../automation/automation-dsc-getting-started.md#import-a-configuration-into-azure-automation) till ditt Automation-konto. 
+6. [Tilldela en Windows-dator eller-nod](../../automation/automation-dsc-getting-started.md#enable-an-azure-resource-manager-vm-for-management-with-state-configuration) till konfigurationen. Inom 15 minuter kontrollerar noden konfigurationen och agenten flyttas till noden.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Verifiera agent anslutningen till Log Analytics
 

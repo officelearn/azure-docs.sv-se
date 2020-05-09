@@ -1,5 +1,5 @@
 ---
-title: Administratörer för klassisk Azure-prenumeration | Microsoft Docs
+title: Klassiska Azure-prenumerationsadministratörer
 description: Beskriver hur du lägger till eller ändrar Azure-rollen som medadministratör och tjänst administratör och hur du visar konto administratören.
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.workload: identity
 ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cacdeee4512c512b058be96c4fe3a829c2933f06
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79243489"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734866"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Klassiska Azure-prenumerationsadministratörer
 
-Microsoft rekommenderar att du hanterar åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll (RBAC). Men om du fortfarande använder den klassiska distributions modellen måste du använda en klassisk prenumerations administratörs roll: tjänst administratör och delad administratör. Mer information finns i [Azure Resource Manager vs. Classic-distribution](../azure-resource-manager/management/deployment-models.md).
+Microsoft rekommenderar att du hanterar åtkomst till Azure-resurser med hjälp av rollbaserad åtkomst kontroll i Azure (Azure RBAC). Men om du fortfarande använder den klassiska distributions modellen måste du använda en klassisk prenumerations administratörs roll: tjänst administratör och delad administratör. Mer information finns i [Azure Resource Manager vs. Classic-distribution](../azure-resource-manager/management/deployment-models.md).
 
 I den här artikeln beskrivs hur du lägger till eller ändrar rollen som medadministratör och tjänst administratör och hur du visar konto administratören.
 
@@ -71,9 +71,9 @@ Gäst användare som har tilldelats rollen som medadministratör kan se vissa sk
 
 Du förväntar dig att användare B kan hantera allt. Orsaken till den här skillnaden är att Microsoft-konto läggs till i prenumerationen som gäst användare i stället för en medlems användare. Gäst användare har olika standard behörigheter i Azure AD jämfört med medlems användare. Medlems användare kan till exempel läsa andra användare i Azure AD och gäst användare kan inte. Medlems användare kan registrera nya tjänst huvud namn i Azure AD-och gäst användare kan inte.
 
-Om en gäst användare behöver kunna utföra dessa uppgifter, är en möjlig lösning att tilldela de Azure AD-administratörer som gäst användaren behöver. I det föregående scenariot kan du till exempel tilldela rollen [katalog läsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) för att läsa andra användare och tilldela rollen [programutvecklare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) att kunna skapa tjänstens huvud namn. Mer information om medlemmar och gäst användare och deras behörigheter finns i [Vad är standard användar behörigheter i Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Mer information om hur du beviljar åtkomst för gäst användare finns i [Hantera åtkomst till Azure-resurser för externa gäst användare som använder RBAC](role-assignments-external-users.md).
+Om en gäst användare behöver kunna utföra dessa uppgifter, är en möjlig lösning att tilldela de Azure AD-roller som gäst användaren behöver. I det föregående scenariot kan du till exempel tilldela rollen [katalog läsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) för att läsa andra användare och tilldela rollen [programutvecklare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) att kunna skapa tjänstens huvud namn. Mer information om medlemmar och gäst användare och deras behörigheter finns i [Vad är standard användar behörigheter i Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). Mer information om hur du beviljar åtkomst för gäst användare finns i [lägga till eller ta bort Azure Role-tilldelningar för externa gäst användare med hjälp av Azure Portal](role-assignments-external-users.md).
 
-Observera att de [inbyggda rollerna för Azure-resurser](../role-based-access-control/built-in-roles.md) skiljer sig från [Administratörs rollerna för Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md). De inbyggda rollerna beviljar inte åtkomst till Azure AD. Mer information finns i [förstå de olika rollerna](../role-based-access-control/rbac-and-directory-admin-roles.md).
+Observera att de [inbyggda Azure-rollerna](../role-based-access-control/built-in-roles.md) skiljer sig från [Azure AD-rollerna](../active-directory/users-groups-roles/directory-assign-admin-roles.md). De inbyggda rollerna beviljar inte åtkomst till Azure AD. Mer information finns i [förstå de olika rollerna](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Information som jämför medlems användare och gäst användare finns i [Vad är standard användar behörigheter i Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
 
@@ -125,8 +125,8 @@ Det kan bara finnas en tjänst administratör per Azure-prenumeration. Att ändr
 
 | Konto administratörs konto | Kan du ändra tjänst administratör till en annan Microsoft-konto? | Kan du ändra tjänst administratör till ett Azure AD-konto i samma katalog? | Kan du ändra tjänst administratör till ett Azure AD-konto i en annan katalog? |
 | --- | --- | --- | --- |
-| Microsoft-konto | Ja | Nej | Nej |
-| Azure AD-konto | Ja | Ja | Nej |
+| Microsoft-konto | Ja | Inga | Inga |
+| Azure AD-konto | Ja | Ja | Inga |
 
 Om konto administratören är ett Azure AD-konto kan du ändra tjänst administratören till ett Azure AD-konto i samma katalog, men inte i en annan katalog. abby@contoso.com Kan till exempel ändra tjänst administratören till bob@contoso.com, men kan inte ändra tjänst administratören till john@notcontoso.com om john@notcontoso.com den inte har en närvaro i contoso.com-katalogen.
 
@@ -150,6 +150,6 @@ Följ dessa steg om du vill visa konto administratören.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Hantera åtkomst till Azure-resurser med hjälp av RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md)
+* [Förstå de olika rollerna](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Lägga till eller ta bort roll tilldelningar i Azure med hjälp av Azure Portal](../role-based-access-control/role-assignments-portal.md)
 * [Lägg till eller ändra Azure-prenumerations administratörer](../cost-management-billing/manage/add-change-subscription-administrator.md)

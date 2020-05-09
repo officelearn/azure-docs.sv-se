@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54e3821d269d11397ec4f9f5833e33ac6b555abc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faa80bf09113786e35a6ce98157f18639e30d210
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755115"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582641"
 ---
 # <a name="integrate-linkedin-account-connections-in-azure-active-directory"></a>Integrera LinkedIn-konto anslutningar i Azure Active Directory
 
@@ -30,8 +30,8 @@ Du kan ge användare i organisationen åtkomst till sina LinkedIn-anslutningar i
 > Undantag
 >
 > * Inställningen är inte tillgänglig för kunder som använder Microsoft Cloud för amerikanska myndigheter, Microsoft Cloud Tyskland eller Azure och Office 365 som drivs av 21Vianet i Kina.
-> * Inställningen är inaktive rad som standard för klienter etablerade i Tyskland. Observera att inställningen inte är tillgänglig för kunder som använder Microsoft Cloud Tyskland.
-> * Inställningen är inaktive rad som standard för klienter etablerade i Frankrike.
+> * Inställningen är inaktive rad som standard för Azure AD-organisationer etablerade i Tyskland. Observera att inställningen inte är tillgänglig för kunder som använder Microsoft Cloud Tyskland.
+> * Inställningen är inaktive rad som standard för organisationer etablerade i Frankrike.
 >
 > När LinkedIn-konton har Aktiver ATS för din organisation fungerar konto anslutningarna efter att de har gett appar till gång till företags data för deras räkning. Information om inställningen för användar medgivande finns i [så här tar du bort en användares åtkomst till ett program](https://docs.microsoft.com/azure/active-directory/application-access-assignment-how-to-remove-assignment).
 
@@ -96,8 +96,8 @@ Om du vill använda gruppen från steg två som den valda gruppen i inställning
   
    Status | Verkan
    ------ | ------
-   **Aktiva** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är aktive rad. Användare i din organisation kan använda LinkedIn-funktioner i sina Office 2016-program.
-   **Inaktiverats** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är inaktive rad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktioner i sina Office 2016-program.
+   **Aktiverad** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är aktive rad. Användare i din organisation kan använda LinkedIn-funktioner i sina Office 2016-program.
+   **Inaktiverad** | Inställningen **Visa LinkedIn-funktioner i Office-program** i alternativ för Office 2016 är inaktive rad och slutanvändare kan inte ändra den här inställningen. Användare i din organisation kan inte använda LinkedIn-funktioner i sina Office 2016-program.
 
 Den här grup principen påverkar endast Office 2016-appar för en lokal dator. Om användarna inaktiverar LinkedIn i sina Office 2016-appar kan de fortfarande se LinkedIn-funktioner i Office 365.
 

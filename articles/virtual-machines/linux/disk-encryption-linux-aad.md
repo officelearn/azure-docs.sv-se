@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee365d37a957350fa8a68da0f34149d3210d6238
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ce3afb533aa33b88b15510eacc88c0884811cc6
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970613"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792606"
 ---
 # <a name="enable-azure-disk-encryption-with-azure-ad-on-linux-vms-previous-release"></a>Aktivera Azure Disk Encryption med Azure AD på virtuella Linux-datorer (tidigare version)
 
@@ -158,7 +158,7 @@ I följande tabell visas parametrar för Resource Manager-mallar för befintliga
 ## <a name="use-the-encryptformatall-feature-for-data-disks-on-linux-iaas-vms"></a><a name="bkmk_EFA"> </a>Använda funktionen EncryptFormatAll för data diskar på virtuella Linux-IaaS-datorer
 Parametern EncryptFormatAll minskar tiden för att Linux-datadiskarna ska krypteras. Partitioner som uppfyller vissa kriterier formateras (med deras aktuella fil system). De monteras sedan tillbaka till där de var innan kommando körningen. Om du vill undanta en datadisk som uppfyller villkoren kan du Demontera den innan du kör kommandot.
 
- När du har kört det här kommandot formateras alla enheter som monterats tidigare. Sedan börjar krypterings lagret ovanpå den nu tomma enheten. När det här alternativet är markerat krypteras även den tillfälliga resurs disken som är ansluten till den virtuella datorn. Om den tillfälliga enheten återställs, formateras den om och krypteras om för den virtuella datorn med Azure Disk Encryption lösning vid nästa tillfälle.
+ När du har kört det här kommandot formateras alla enheter som monterats tidigare. Sedan börjar krypterings lagret ovanpå den nu tomma enheten. När det här alternativet är markerat krypteras även den temporära disken som är ansluten till den virtuella datorn. Om den tillfälliga enheten återställs, formateras den om och krypteras om för den virtuella datorn med Azure Disk Encryption lösning vid nästa tillfälle.
 
 >[!WARNING]
 > EncryptFormatAll bör inte användas när det behövs data på en virtuell dators data volymer. Du kan utesluta diskar från kryptering genom att demontera dem. Testa EncryptFormatAll-parametern på en test-VM först för att förstå funktions parametern och dess indirekt innan du provar den på den virtuella produktions datorn. Alternativet EncryptFormatAll formaterar data disken så att alla data på den går förlorade. Innan du fortsätter bör du kontrol lera att alla diskar som du vill undanta är korrekt demonterade. </br></br>

@@ -22,5 +22,5 @@ Du kan använda något av följande verktyg eller SDK: er för att använda kopi
 - [Python SDK](../articles/data-factory/quickstart-create-data-factory-python.md)
 - [Azure PowerShell](../articles/data-factory/quickstart-create-data-factory-powershell.md)
 - [REST-API](../articles/data-factory/quickstart-create-data-factory-rest-api.md)
-- [Azure Resource Manager mall](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md)
+- [Azure Resource Manager-mall](../articles/data-factory/quickstart-create-data-factory-resource-manager-template.md)
 

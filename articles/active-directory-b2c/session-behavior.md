@@ -7,44 +7,31 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 249b9bb282024431d0ecd38c62d8d780602e6709
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f5400b47c1e0b4657e40d2c57f8212711bbdaf3f
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229977"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927079"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Konfigurera sessionens beteende i Azure Active Directory B2C
 
-Den här funktionen ger dig detaljerad kontroll över [varje användares flöde](user-flow-overview.md)av:
-
-- Livs längd för webbappens sessioner som hanteras av Azure AD B2C.
-- Beteende för enkel inloggning (SSO) i flera appar och användar flöden i din Azure AD B2C klient.
-
-De här inställningarna är inte tillgängliga för användar flöden för lösen ords återställning.
-
-Azure AD B2C stöder [OpenID Connect-autentiseringsprotokollet](openid-connect.md) för att aktivera säker inloggning till webb program. Du kan använda följande egenskaper för att hantera WebApplication-sessioner:
+Hantering av [enkel inloggning (SSO)](session-overview.md) i Azure Active Directory B2C (Azure AD B2C) gör det möjligt för en administratör att styra interaktionen med en användare när användaren redan har autentiserats. Administratören kan till exempel kontrol lera om valet av identitets leverantörer visas eller om konto information måste anges igen. I den här artikeln beskrivs hur du konfigurerar SSO-inställningarna för Azure AD B2C.
 
 ## <a name="session-behavior-properties"></a>Egenskaper för sessionens beteende
+
+Du kan använda följande egenskaper för att hantera WebApplication-sessioner:
 
 - **Web App session livs längd (minuter)** – livs längden för Azure AD B2C's-sessionens cookie som lagras i användarens webbläsare vid lyckad autentisering.
     - Standard = 1440 minuter.
     - Minst (inklusive) = 15 minuter.
     - Max (inklusive) = 1440 minuter.
-- **Timeout för webbapp** – om den här växeln är inställd på **absolut**tvingas användaren att autentisera igen när den tids period som anges av **Web App-sessionens livs längd (minuter)** förflutit. Om den här växeln är inställd på **rullande** (standardinställning) förblir användaren inloggad så länge användaren alltid är aktiv i ditt webb program.
-- **Konfiguration av enkel inloggning** Om du har flera program och användar flöden i B2C-klienten kan du hantera användar interaktioner mellan dem med hjälp av **konfigurations egenskapen för enkel inloggning** . Du kan ställa in egenskapen på någon av följande inställningar:
-    - **Klient** – den här inställningen är standard. Med den här inställningen kan flera program och användare flöda i B2C-klienten för att dela med sig av samma användarsession. När en användare till exempel loggar in på ett program, kan användaren också sömlöst logga in på en annan, contoso apotek, vid åtkomst till den.
-    - **Program** – med den här inställningen kan du underhålla en användarsession exklusivt för ett program, oberoende av andra program. Om du till exempel vill att användaren ska logga in på Contoso apotek (med samma autentiseringsuppgifter), även om användaren redan har loggat in på Contoso shopping, ett annat program på samma B2C-klient.
-    - **Princip** – med den här inställningen kan du underhålla en användarsession exklusivt för ett användar flöde, oberoende av de program som använder den. Om användaren till exempel redan har loggat in och slutfört ett Multi Factor Authentication-steg (MFA), kan användaren få åtkomst till högre säkerhets delar av flera program så länge sessionen som är kopplad till användar flödet inte upphör att gälla.
-    - **Disabled** – inställningen tvingar användaren att köra genom hela användar flödet vid varje körning av principen.
+- **Timeout för webbapp** – [sessionens utgångs typ](session-overview.md#session-expiry-type), *rullande*eller *absolut*. 
+- **Konfiguration av enkel inloggning** – [sessionens omfång](session-overview.md#session-scope) för beteendet enkel inloggning (SSO) i flera appar och användar flöden i din Azure AD B2C klient. 
 
-Följande användnings fall är aktiverade med följande egenskaper:
-
-- Uppfylla din branschs krav på säkerhet och efterlevnad genom att ange lämpliga livs längder för webbappens sessioner.
-- Tvinga autentisering efter en angiven tids period under en användares interaktion med en hög säkerhets del av ditt webb program.
 
 ## <a name="configure-the-properties"></a>Konfigurera egenskaperna
 

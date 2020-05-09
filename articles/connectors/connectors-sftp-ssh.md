@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: d7fafdd5830ec2825771d4d611a5f4bd5d87260a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7635d98bb48543dd07f05f34ea854af870876cc3
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81393641"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927453"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH och Azure Logic Apps
 
@@ -34,7 +34,7 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
 * SFTP – SSH-åtgärder som stöder [segment](../logic-apps/logic-apps-handle-large-messages.md) hantering kan hantera filer på upp till 1 GB, medan SFTP-SSH-åtgärder som inte stöder segment hantering kan hantera filer upp till 50 MB. Även om standard segment storleken är 15 MB, kan den här storleken dynamiskt ändra, med start från 5 MB och gradvis öka till 50 MB, baserat på faktorer som nätverks fördröjning, Server svars tid och så vidare.
 
   > [!NOTE]
-  > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
+  > För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)kräver den här anslutningens ISE-märkta version segment för att använda [meddelande gränserna för ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
 
   Du kan åsidosätta det här anpassade beteendet när du [anger en konstant segment storlek](#change-chunk-size) som ska användas i stället. Den här storleken kan vara mellan 5 och 50 MB. Anta till exempel att du har en 45 MB-fil och ett nätverk som har stöd för fil storlek utan svars tid. Anpassningsbar segment resultat i flera anrop, i stället för ett anrop. Om du vill minska antalet anrop kan du prova att ange en segment storlek på 50 MB. Om din Logi Kap par tids gräns inträffar i olika scenarier, till exempel när du använder 15 MB-segment, kan du försöka minska storleken till 5 MB.
 
@@ -42,7 +42,7 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
 
   | Action | Segment stöd | Åsidosätt stöd för segment storlek |
   |--------|------------------|-----------------------------|
-  | **Kopiera fil** | Nej | Inte tillämpligt |
+  | **Kopiera fil** | Inga | Inte tillämpligt |
   | **Skapa fil** | Ja | Ja |
   | **Skapa mapp** | Inte tillämpligt | Inte tillämpligt |
   | **Ta bort panel** | Inte tillämpligt | Inte tillämpligt |
@@ -53,7 +53,7 @@ Mer skillnader mellan SFTP-SSH-anslutningsprogrammet och SFTP-anslutningen finns
   | **Hämta metadata för fil med hjälp av sökväg** | Inte tillämpligt | Inte tillämpligt |
   | **Lista filer i mappen** | Inte tillämpligt | Inte tillämpligt |
   | **Byt namn på fil** | Inte tillämpligt | Inte tillämpligt |
-  | **Uppdatera fil** | Nej | Inte tillämpligt |
+  | **Uppdatera fil** | Inga | Inte tillämpligt |
   ||||
 
 * SFTP – SSH-utlösare stöder inte meddelande segment. När du begär fil innehåll väljer utlösare endast filer som är 15 MB eller mindre. Om du vill hämta filer som är större än 15 MB följer du detta mönster i stället:
@@ -248,7 +248,7 @@ Om du inte kan undvika eller försena flyttningen av filen kan du hoppa över at
 Mer teknisk information om den här anslutningen, till exempel utlösare, åtgärder och begränsningar som beskrivs av kopplingens Swagger-fil finns på [kopplingens referens sida](https://docs.microsoft.com/connectors/sftpwithssh/).
 
 > [!NOTE]
-> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)använder den här anslutningens ISE-märkta version [ISE-meddelandets gränser](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
+> För logi Kap par i en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)måste den här anslutningens ISE-märkta version innehålla segment för att använda [meddelande gränserna för ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) i stället.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du skapar Recovery Services val
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 439f102e8f13bff63ab388be8f10df07ab2dc7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ac1c7e887f80767d6ff1819476e91cb4b06bf1b
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80672852"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744947"
 ---
 # <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
@@ -121,7 +121,7 @@ Vi rekommenderar starkt att du granskar standardinställningarna för typ och **
 
 - **Typen av lagringsprovider** är som standard inställd på **Geo-redundant**. När du har konfigurerat säkerhets kopieringen inaktive ras alternativet att ändra. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) om du vill granska och ändra inställningarna.
 
-- **Mjuk borttagning** är **aktiverat** som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) om du vill granska och ändra inställningarna.
+- **Mjuk borttagning** är **aktiverat** som standard på nyligen skapade valv för att skydda säkerhets kopierings data från oavsiktliga eller skadliga borttagningar. Följ dessa [steg](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete) om du vill granska och ändra inställningarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,7 +1,6 @@
 ---
-title: Vad är ML-pipelines
-titleSuffix: Azure Machine Learning
-description: I den här artikeln får du lära dig fördelarna med dator inlärnings-pipelinen (ML) som du kan bygga med Azure Machine Learning SDK för python. Maskin inlärnings pipeliner används av data forskare för att bygga, optimera och hantera sina Machine Learning-arbetsflöden.
+title: Vad är Azure Machine Learning pipelines
+description: Lär dig mer om hur du skapar, optimerar och hanterar arbets flöden för Machine Learning med hjälp av en dator inlärnings-pipelines (ML).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +8,16 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 04/01/2020
-ms.openlocfilehash: 0cefa78b6f52cc67df8817f68a9b793ab86b2a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79e9551650866e5f5fc28b123c1259e2a5fb6f20
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878586"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983456"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
-Med Azure Machine Learning pipelines kan du skapa arbets flöden i dina Machine Learning-projekt. De här arbets flödena har ett antal fördelar: 
+I den här artikeln får du lära dig hur Azure Machine Learning pipelines hjälper dig att bygga, optimera och hantera arbets flöden för Machine Learning. De här arbets flödena har ett antal fördelar: 
 
 + Syfte
 + Hastighet
@@ -45,7 +44,6 @@ Azure-molnet tillhandahåller flera andra pipelines, var och en med olika ändam
 | Modell dirigering (maskin inlärning) | Data Scientist | Azure Machine Learning pipelines | Kubeflow-pipeline | Data > modell | Distribution, cachelagring, kod-första, återanvänd | 
 | Data dirigering (Förbered data) | Datatekniker | [Azure Data Factory-pipelines](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Apache-luft flöde | Data-> data | Starkt förskriven rörelse. Datacentrerade aktiviteter. |
 | Code & app Orchestration (CI/CD) | App-utvecklare/OPS | [Azure DevOps-pipeline](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Kod + modell-> App/Service | Det mest öppna och flexibla aktivitets stödet, godkännande köer, faser med hantera | 
-
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Vad kan Azure ML-pipeliner göra?
 

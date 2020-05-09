@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
+ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662084"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82738090"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktur för Azure Monitor loggar
 Möjligheten att snabbt få insikter om dina data med hjälp av en [logg fråga](log-query-overview.md) är en kraftfull funktion i Azure Monitor. Om du vill skapa effektiva och användbara frågor bör du förstå några grundläggande begrepp, till exempel var de data du söker finns och hur de struktureras. Den här artikeln innehåller grundläggande begrepp som du behöver för att komma igång.
@@ -54,16 +54,17 @@ Till skillnad från en Log Analytics arbets yta har ett Application Insights-pro
 
 | Tabell | Beskrivning | 
 |:---|:---|
-| availabilityResults | Sammanfattnings data från tillgänglighets test. |
-| browserTimings      | Data om klient prestanda, till exempel hur lång tid det tar att bearbeta inkommande data. |
-| customEvents        | Anpassade händelser som skapats av ditt program. |
-| customMetrics       | Anpassade mått som skapats av ditt program. |
-| relation        | Anropar från programmet till externa komponenter. |
-| undantag          | Undantag som har utlösts av program körningen. |
-| pageViews           | Data om varje webbplats-vy med webb läsar information. |
-| performanceCounters | Prestanda mått från beräknings resurserna som stöder programmet. |
-| autentiseringsbegäran            | Information om varje program förfrågan.  |
-| Anden              | Resultat från distribuerad spårning. |
+| availabilityResults   | Sammanfattnings data från tillgänglighets test.
+| browserTimings      |     Data om klient prestanda, till exempel hur lång tid det tar att bearbeta inkommande data.
+| customEvents        | Anpassade händelser som skapats av ditt program.
+| customMetrics       | Anpassade mått som skapats av ditt program.
+| relation        | Anropar från programmet till andra komponenter (inklusive externa komponenter) som registrerats via TrackDependency () – till exempel anrop till REST API, databas eller ett fil system. 
+| undantag            | Undantag som har utlösts av program körningen och fångar både server sidans och klient sidans undantag.
+| pageViews           | Data om varje webbplats-vy med webb läsar information.
+| performanceCounters   | Prestanda mått från beräknings resurserna som stöder programmet, till exempel Windows prestanda räknare.
+| autentiseringsbegäran            | Förfrågningar som tagits emot av ditt program. En separat post för begäran loggas till exempel för varje HTTP-begäran som din webbapp tar emot. 
+| Anden                | Detaljerade loggar (spår) har genererats via program kod/loggnings ramverk som registrerats via TrackTrace ().
+
 
 Du kan visa schemat för varje tabell på fliken **schema** i Log Analytics för programmet.
 

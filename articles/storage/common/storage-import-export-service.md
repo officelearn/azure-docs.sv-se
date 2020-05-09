@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: eee0fc2797fbe0666a6b848fde574c7807f47cc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 120dbe9c4b79755105ba634c68606edfbfdc4ad2
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282451"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872429"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är Azure import/export-tjänsten?
 
@@ -41,7 +41,7 @@ Import/export-tjänsten använder följande komponenter:
 * **WAImportExport-verktyg**: det här är ett kommando rads verktyg som gör följande:
   * Förbereder disk enheterna som levereras för import.
   * Underlättar kopiering av data till enheten.
-  * Krypterar data på enheten med AES 128-bitars BitLocker. Du kan använda ett externt nyckel skydd för att skydda din BitLocker-nyckel.
+  * Krypterar data på enheten med AES 256-bitars BitLocker. Du kan använda ett externt nyckel skydd för att skydda din BitLocker-nyckel.
   * Genererar de enhets Journals-filer som används när importen skapas.
   * Hjälper till att identifiera antalet enheter som krävs för export jobb.
 
@@ -131,7 +131,7 @@ Tjänsten Azure import/export stöder kopiering av data till och från alla Azur
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 
-Data på enheten krypteras med AES 128-bitars BitLocker-diskkryptering. Den här krypteringen skyddar dina data när de överförs.
+Data på enheten krypteras med AES 256-bitars BitLocker-diskkryptering. Den här krypteringen skyddar dina data när de överförs.
 
 För import jobb krypteras enheter på två sätt.  
 

@@ -1,29 +1,30 @@
 ---
-title: Referens för Microsoft Identity Platform-åtkomsttoken | Azure
+title: Åtkomst-token för Microsoft Identity Platform | Azure
+titleSuffix: Microsoft identity platform
 description: Läs om åtkomsttoken som har spridits av Azure AD v 1.0 och Microsoft Identity Platform (v 2.0) slut punkter.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/27/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ed583abc8f60f3d367bf75254807e3f28cd0f1c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dedaf5214305003bf302c7c74466adb84c42b2f4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309714"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926807"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
-Åtkomsttoken gör att klienter säkert kan anropa API: er som skyddas av Azure. Microsoft Identity Platform-åtkomsttoken är [JWTs](https://tools.ietf.org/html/rfc7519), base64-KODAde JSON-objekt som signerats av Azure. Klienter ska behandla åtkomsttoken som täckande strängar, eftersom innehållet i token endast är avsett för resursen. I validerings-och fel söknings syfte kan utvecklare avkoda JWTs med en plats som [JWT.MS](https://jwt.ms). Klienten kan få en åtkomsttoken från antingen v 1.0-slutpunkten eller v 2.0-slutpunkten med en mängd olika protokoll.
+Åtkomsttoken gör att klienter kan anropa skyddade API: er på ett säkert sätt. Microsoft Identity Platform-åtkomsttoken är [JWTs](https://tools.ietf.org/html/rfc7519), base64-KODAde JSON-objekt som signerats av Microsoft Identity Platform. Klienter ska behandla åtkomsttoken som täckande strängar, eftersom innehållet i token endast är avsett för resursen. För validerings-och fel söknings syfte kan utvecklare avkoda JWTs (JSON Web tokens) med en plats som [JWT.MS](https://jwt.ms). Klienten kan få en åtkomsttoken från antingen v 1.0-slutpunkten eller v 2.0-slutpunkten med en mängd olika protokoll.
 
-När klienten begär en åtkomsttoken, returnerar Azure AD även vissa metadata om åtkomsttoken för appens förbrukning. Den här informationen omfattar förfallo tiden för åtkomsttoken och de omfattningar som den är giltig för. Med den här informationen kan din app utföra intelligent cachelagring av åtkomsttoken utan att behöva parsa åtkomsttoken.
+När klienten begär en åtkomsttoken, returnerar Microsoft Identity Platform även vissa metadata om åtkomsttoken för appens förbrukning. Den här informationen omfattar förfallo tiden för åtkomsttoken och de omfattningar som den är giltig för. Med den här informationen kan din app utföra intelligent cachelagring av åtkomsttoken utan att behöva parsa åtkomsttoken.
 
 Om ditt program är en resurs (webb-API) som klienter kan begära åtkomst till, ger åtkomst till tokens värdefull information för användning vid autentisering och auktorisering, till exempel användare, klient, utfärdare, behörigheter med mera.
 
@@ -55,7 +56,7 @@ Visa den här v 2.0-token i [JWT.MS](https://jwt.ms/#access_token=eyJ0eXAiOiJKV1
 
 ## <a name="claims-in-access-tokens"></a>Anspråk i åtkomsttoken
 
-JWTs delas upp i tre delar:
+JWTs (JSON Web tokens) delas upp i tre delar:
 
 * **Header** – innehåller information om hur du [validerar token](#validating-tokens) inklusive information om typen av token och hur den signerades.
 * **Nytto Last** – innehåller alla viktiga data om användaren eller appen som försöker anropa tjänsten.

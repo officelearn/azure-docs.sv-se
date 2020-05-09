@@ -4,6 +4,8 @@
   items:
     - name: Vad är Azure Load Balancer?
       href: load-balancer-overview.md
+    - name: Vanliga frågor och svar
+      href: load-balancer-faqs.md
 - name: Snabbstart
   items:
     - name: Skapa lastbalanserare – portalen

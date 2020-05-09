@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 3e0f6c78b6e5dd066cbfbac6805bb3c42068e66a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28870a197af07e964a50a06ffeef08f3b71451f4
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729602"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891715"
 ---
 # <a name="service-fabric-releases"></a>Service Fabric versioner
 
@@ -36,8 +36,8 @@ Vi har också publicerat uppdateringar till slutet av support datumet för stör
 Vi är glada över att kunna presentera nästa version av Service Fabric. Den här versionen har lästs in med viktiga funktioner och förbättringar. Några av huvud funktionerna är markerade nedan:
 ## <a name="key-announcements"></a>Viktiga meddelanden
 - **Allmän tillgänglighet** för [ **Service Fabric hanterade identiteter för Service Fabric program**](https://docs.microsoft.com/azure/service-fabric/concepts-managed-identity)
-- [**Stöd för Ubuntu 1804**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
- - För [**hands version: VMSS för tillfällig OS-disk**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)* *: de tillfälliga OS-diskarna har skapats på den lokala virtuella datorn och sparas inte i fjärr Azure Storage. De rekommenderas för alla Service Fabric Node-typer (primär och sekundär), på grund av traditionella beständiga OS-diskar, tillfälliga OS-diskar:
+- [**Stöd för Ubuntu 18,04**](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-create-vnet-and-linux-cluster)
+ - För [**hands version: stöd för virtuell dator med den virtuella datorns skalnings uppsättning**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-azure-deployment-preparation#use-ephemeral-os-disks-for-virtual-machine-scale-sets)* *: de tillfälliga OS-diskarna skapas på den lokala virtuella datorn och sparas inte på fjärrAzure Storage. De rekommenderas för alla Service Fabric Node-typer (primär och sekundär), på grund av traditionella beständiga OS-diskar, tillfälliga OS-diskar:
       -  Minska svars tiden för Läs/skriv till OS-disk
       -  Aktivera snabbare återställnings-och avbildnings hanterings åtgärder
       -  Minska totalkostnaden (diskarna är kostnads fria och debiteras inga ytterligare lagrings kostnader)
@@ -54,7 +54,7 @@ Vi är glada över att kunna presentera nästa version av Service Fabric. Den h�
 - **[Automatisk identifiering och balansering av under kluster](https://docs.microsoft.com/azure/service-fabric/cluster-resource-manager-subclustering )**: under kluster sker när tjänster med olika placerings begränsningar har ett gemensamt [belastnings mått](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-metrics). Om belastningen på de olika uppsättningarna med noder skiljer sig avsevärt, anser Service Fabric Cluster Resource Manager att klustret är obalanserat, även om det har det bästa möjliga saldot på grund av placerings begränsningarna. Därför försöker det att balansera om klustret, vilket kan orsaka onödiga tjänst transporter (eftersom "obalans" inte kan förbättras avsevärt). Från och med den här versionen försöker kluster resurs hanteraren nu att automatiskt identifiera de här sorteringen av konfigurationer och förstå när obalansen kan åtgärdas genom flyttningen, och i stället bör den lämna saker som är ensamma eftersom ingen avsevärd förbättring kan göras.  
 - [**Olika flytt kostnader för sekundära repliker**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost): vi har lanserat ett nytt flytt kostnads värde VeryHigh som ger ytterligare flexibilitet i vissa scenarier för att definiera om en separat flytt kostnad ska användas för sekundära repliker.
 - Aktive rad [**direktmigreringens avsöknings**](https://docs.microsoft.com/azure/service-fabric/probes-codepackage ) funktion för program i behållare. Med hjälp av direktmigreringens avsökning kan du meddela om liveheten för det behållar programmet och när de inte svarar inom rimlig tid, vilket leder till en omstart.
-- [**Kör till-slutförning/en gång för tjänster**](https://docs.microsoft.com/azure/service-fabric/run-to-completion)**
+- [**Kör till slut för ande/en gång för tjänster**](https://docs.microsoft.com/azure/service-fabric/run-to-completion)**
 
 ### <a name="image-store-improvements"></a>Avbildningsarkiv förbättringar
  - Service Fabric 7,1 använder **anpassad transport för att skydda fil överföring mellan noder som standard**. Beroendet av SMB-filresursen tas bort från version 7,1. De skyddade SMB-filresurserna är fortfarande befintliga på noder som innehåller Avbildningsarkiv tjänst replik för kundens val att välja från standard och för att uppgradera och nedgradera till gammal version.
@@ -89,9 +89,9 @@ Det här är den senaste versionen av Service Fabric och har lästs in med vikti
   
 - [**Resurs gränser för användar tjänster**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance#enforcing-the-resource-limits-for-user-services): användare kan konfigurera resurs gränser för användar tjänsterna på en nod för att förhindra scenarier som resurs utbelastning av Service Fabric system tjänster. 
   
-- [**Mycket hög service flytt kostnad**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) för en replik typ. Repliker med mycket hög flytt kostnad kommer bara att flyttas om det finns en begränsnings överträdelse i klustret som inte kan åtgärdas på något annat sätt. I dokumentationen finns mer information om när användningen av en "mycket hög" flytt kostnad är rimlig och ytterligare överväganden.
+- [**Mycket hög service flytt kostnad**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-movement-cost) för en replik typ. Repliker med mycket hög flytt kostnad kommer bara att flyttas om det finns en begränsnings överträdelse i klustret som inte kan åtgärdas på något annat sätt. I det länkade dokumentet finns mer information om när användningen av en "mycket hög" flytt kostnad är rimlig och ytterligare överväganden.
   
--  **Ytterligare säkerhets kontroller för klustret**: i den här versionen introducerade vi en konfigurerbar säkerhets kontroll för Dirigerings-nods kvorum. På så sätt kan du anpassa hur många startnoder som måste vara tillgängliga under kluster livs cykel-och hanterings scenarier. Åtgärder som tar klustret lägre än det konfigurerade värdet blockeras. I dag är standardvärdet alltid ett kvorum för startnoderna, till exempel om du har sju startnoder, kommer en åtgärd som tar dig under 5 startnoder att blockeras som standard. Med den här ändringen kan du göra det lägsta säkra värdet 6, vilket innebär att endast en Seed-nod kan vara nere i taget.
+-  **Ytterligare säkerhets kontroller för klustret**: i den här versionen har vi infört en konfigurerbar säkerhets kontroll för Dirigerings-nods kvorum. På så sätt kan du anpassa hur många startnoder som måste vara tillgängliga under kluster livs cykel-och hanterings scenarier. Åtgärder som tar klustret lägre än det konfigurerade värdet blockeras. I dag är standardvärdet alltid ett kvorum för startnoderna, till exempel om du har sju startnoder, kommer en åtgärd som tar dig under 5 startnoder att blockeras som standard. Med den här ändringen kan du göra det lägsta säkra värdet 6, vilket innebär att endast en Seed-nod kan vara nere i taget.
    
 - Stöd har lagts till för [**att hantera säkerhets kopierings-och återställnings tjänsten i Service Fabric Explorer**](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-quickstart-azurecluster). Detta gör följande aktiviteter möjligt direkt från SFX: identifiera säkerhets kopierings-och återställnings tjänsten, skapa en säkerhets kopierings princip, aktivera automatisk säkerhets kopiering, använda adhoc-säkerhetskopiering, utlösa återställnings åtgärder och söka efter befintliga säkerhets kopior.
 

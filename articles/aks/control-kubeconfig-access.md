@@ -3,13 +3,13 @@ title: Begränsa åtkomsten till kubeconfig i Azure Kubernetes service (AKS)
 description: Lär dig hur du styr åtkomsten till konfigurations filen för Kubernetes (kubeconfig) för kluster administratörer och kluster användare
 services: container-service
 ms.topic: article
-ms.date: 01/28/2020
-ms.openlocfilehash: 25c710cce2855d6af985d3f46082f47573bbc101
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 87f4dc18fc595242117e10233d4fecd77e66373f
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259557"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890882"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Använd Azures rollbaserade åtkomst kontroller för att definiera åtkomst till konfigurations filen Kubernetes i Azure Kubernetes service (AKS)
 
@@ -40,7 +40,8 @@ De två inbyggda rollerna är:
 
 Dessa RBAC-roller kan tillämpas på en Azure Active Directory (AD) användare eller grupp.
 
-> ! Lägg I kluster som använder Azure AD har användare med rollen *clusterUser* en tom *kubeconfig* -fil som efterfrågar en inloggning. När användaren har loggat in har användarna åtkomst baserat på deras inställningar för Azure AD-användare eller grupper. Användare med rollen *clusterAdmin* har administratörs åtkomst.
+> [!NOTE]
+> I kluster som använder Azure AD har användare med rollen *clusterUser* en tom *kubeconfig* -fil som efterfrågar en inloggning. När användaren har loggat in har användarna åtkomst baserat på deras inställningar för Azure AD-användare eller grupper. Användare med rollen *clusterAdmin* har administratörs åtkomst.
 >
 > Kluster som inte använder Azure AD använder bara *clusterAdmin* -rollen.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: cf9fa48019ab88190175131b27f4a40e29eb5ed0
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 0db91f3c661ebd3087a4389f4112a7214c992227
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801730"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82925957"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 <p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=fb23185b-6c56-d9f1-7ce1-758c978e08e1" target='_blank'>Börja</a></span><span class="has-padding-small">lösa problemet snabbt genom att använda vår virtuella agent för att köra <b>automatiserad diagnostik.</b> </span> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <sub>Privacy Statement</sub> Sekretess <div align="right">policy</div></a></span></p>
@@ -132,11 +132,15 @@ Om ett internt Load Balancer har kon figurer ATS i ett virtuellt nätverk och en
 ### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Orsak: Server dels porten kan inte ändras för en belastnings Utjämnings regel som används av en hälso avsökning för belastningsutjämnaren som refereras till av en skalnings uppsättning för virtuella datorer.
 **Lösning** För att kunna ändra porten kan du ta bort hälso avsökningen genom att uppdatera den virtuella datorns skalnings uppsättning, uppdatera porten och sedan konfigurera hälso avsökningen igen.
 
+## <a name="symptom-small-traffic-is-still-going-through-load-balancer-after-removing-vms-from-backend-pool-of-the-load-balancer"></a>Symptom: liten trafik går fortfarande igenom belastningsutjämnaren när de virtuella datorerna har tagits bort från belastningsutjämnaren. 
+### <a name="cause--vms-removed-from-backend-pool-should-no-longer-receive-traffic-the-small-amount-of-network-traffic-could-be-related-to-storage-dns-and-other-functions-within-azure"></a>Orsak: virtuella datorer som har tagits bort från backend-poolen bör inte längre ta emot trafik. Den lilla mängden nätverks trafik kan vara relaterad till lagring, DNS och andra funktioner i Azure. 
+För att verifiera kan du utföra en nätverks spårning. FQDN som används för Blob Storage-konton visas i egenskaperna för varje lagrings konto.  Från en virtuell dator i din Azure-prenumeration kan du utföra en nslookup för att avgöra vilken Azure-IP-adress som tilldelats det lagrings kontot.
+
 ## <a name="additional-network-captures"></a>Ytterligare nätverks avbildningar
 Om du väljer att öppna ett support ärende samlar du in följande information för en snabbare lösning. Välj en enskild virtuell dator för att utföra följande tester:
 - Använd Psping från en av de virtuella datorerna i det virtuella nätverket för att testa avsöknings portens svar (exempel: Psping 10.0.0.4:3389) och registrera resultat. 
 - Om inget svar tas emot i de här ping-testerna kör du en samtidig netsh-spårning på den virtuella datorns VM och VNet-testets VM medan du kör PsPing och stoppar sedan netsh-spårningen. 
-  
+ 
 ## <a name="next-steps"></a>Nästa steg
 
 Om föregående steg inte löser problemet öppnar du ett [support ärende](https://azure.microsoft.com/support/options/).

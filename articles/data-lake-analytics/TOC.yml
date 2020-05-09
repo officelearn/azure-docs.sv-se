@@ -6,21 +6,26 @@
       href: data-lake-analytics-overview.md
 - name: Kom igång
   items:
-    - name: Azure-portalen
+    - name: Azure Portal
       href: data-lake-analytics-get-started-portal.md
     - name: Visual Studio
       href: data-lake-analytics-data-lake-tools-get-started.md
-    - name: Visual Studio Code
+    - name: Visual Studio-koden
       href: data-lake-analytics-data-lake-tools-for-vscode.md
     - name: Azure PowerShell
       href: data-lake-analytics-get-started-powershell.md
     - name: Azure CLI
       href: data-lake-analytics-get-started-cli.md
+- name: Exempel
+  items:
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Gör så här för att
   items:
     - name: Hantera Data Lake Analytics
       items:
-        - name: Azure-portalen
+        - name: Azure Portal
           href: data-lake-analytics-manage-use-portal.md
         - name: Kommandorad
           items:
@@ -96,7 +101,7 @@
               href: data-lake-analytics-data-lake-tools-data-skew-solutions.md
             - name: Övervaka och felsöka jobb
               href: data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md
-        - name: Visual Studio Code
+        - name: Visual Studio-koden
           items:
             - name: Redigering
               href: data-lake-analytics-data-lake-tools-for-vscode.md
@@ -158,7 +163,7 @@
       href: 'https://feedback.azure.com/forums/327234-data-lake'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataLake'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/data-lake-analytics/'
     - name: Priskalkylator
       href: 'https://azure.microsoft.com/pricing/calculator/'

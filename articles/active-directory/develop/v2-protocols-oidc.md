@@ -1,5 +1,6 @@
 ---
-title: OpenID Connect-protokoll – Microsoft Identity Platform | Azure
+title: Microsoft Identity Platform och OpenID Connect-protokollet | Azure
+titleSuffix: Microsoft identity platform
 description: Bygg webb program med hjälp av Microsoft Identity Platform-implementeringen av OpenID Connect Authentication Protocol.
 services: active-directory
 author: hpsin
@@ -8,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: be24c4cfd255b33a38acc1e62763350d3d7e989b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 88f647bbb72c92db194407b677e533a867261ce4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82688218"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926501"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Microsoft Identity Platform och OpenID Connect-protokoll
 
-OpenID Connect är ett autentiseringsprotokoll som skapats på OAuth 2,0 som du kan använda för att på ett säkert sätt logga in en användare i ett webb program. När du använder Microsoft Identity Platform-slutpunktens implementering av OpenID Connect kan du lägga till inloggnings-och API-åtkomst till dina webbaserade appar. Den här artikeln visar hur du gör detta oberoende av språk och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda några Microsoft-bibliotek med öppen källkod.
+OpenID Connect (OIDC) är ett autentiseringsprotokoll som skapats på OAuth 2,0 som du kan använda för att på ett säkert sätt logga in en användare i ett webb program. När du använder Microsoft Identity Platform-slutpunktens implementering av OpenID Connect kan du lägga till inloggnings-och API-åtkomst till dina webbaserade appar. Den här artikeln visar hur du gör detta oberoende av språk och beskriver hur du skickar och tar emot HTTP-meddelanden utan att använda några Microsoft-bibliotek med öppen källkod.
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) utökar *autentiseringsprotokollet OAuth 2,0 som* ska användas som *autentiseringsprotokoll* , så att du kan utföra enkel inloggning med OAuth. OpenID Connect introducerar konceptet med en *ID-token*, vilket är en säkerhetstoken som gör att klienten kan verifiera användarens identitet. ID-token hämtar även grundläggande profil information om användaren. Eftersom OpenID Connect utökar OAuth 2,0 kan appar säkert Hämta *åtkomsttoken*, som kan användas för att få åtkomst till resurser som skyddas av en [Authorization Server](active-directory-v2-protocols.md#the-basics). Microsoft Identity Platform-slutpunkten tillåter också att appar från tredje part som är registrerade med Azure AD kan utfärda åtkomsttoken för skyddade resurser, till exempel webb-API: er. Mer information om hur du konfigurerar ett program för att utfärda åtkomsttoken finns i [så här registrerar du en app med slut punkten för Microsoft Identity Platform](quickstart-register-app.md). Vi rekommenderar att du använder OpenID Connect om du skapar ett [webb program](v2-app-types.md#web-apps) som finns på en server och har åtkomst till via en webbläsare.
 
@@ -83,7 +84,7 @@ När din webbapp behöver autentisera användaren kan den dirigera användaren t
 > [!IMPORTANT]
 > För att kunna begära en ID-token från/Authorization-slutpunkten måste appens registrering på [registrerings portalen](https://portal.azure.com) ha implicit beviljande av id_tokens aktiverat på fliken autentisering (som anger `oauth2AllowIdTokenImplicitFlow` flaggan i [applikations manifestet](reference-app-manifest.md) till `true`). Om den inte är aktive `unsupported_response` rad returneras ett fel: "det tillhandahållna värdet för Indataparametern response_type tillåts inte för den här klienten. Förväntat värde är ' Code '
 
-Exempel:
+Ett exempel:
 
 ```HTTP
 // Line breaks are for legibility only.

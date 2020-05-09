@@ -3,20 +3,20 @@ title: Använd Azurite-emulatorn för lokal Azure Storage utveckling
 description: Azurite-emulatorn med öppen källkod (för hands version) tillhandahåller en kostnads fri lokal miljö för att testa dina Azure Storage-program.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/31/2019
+ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 5e1fce0852a4e820d7ee0af626ce3fddf6773750
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e20271e381f2e7023dca3c3382c9f329a5149a62
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76029917"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872568"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Använd Azurite-emulatorn för lokal Azure Storage utveckling och testning (för hands version)
 
-Azurite-versionen 3,2 med öppen källkod (för hands version) är en kostnads fri lokal miljö för att testa dina Azure blob-och Queue Storage-program. När du är nöjd med hur ditt program fungerar lokalt växlar du till att använda ett Azure Storage konto i molnet. Emulatorn ger plattforms oberoende stöd för Windows, Linux och MacOS. Azurite v3 stöder API: er som implementeras av Azure-Blob Service.
+Azurite-versionen 3,2 med öppen källkod (för hands version) är en kostnads fri lokal miljö för att testa dina Azure blob-och Queue Storage-program. När du är nöjd med hur ditt program fungerar lokalt växlar du till att använda ett Azure Storage konto i molnet. Emulatorn ger plattforms oberoende stöd för Windows, Linux och macOS. Azurite v3 stöder API: er som implementeras av Azure-Blob Service.
 
 Azurite är den framtida Storage mula-plattformen. Azurite ersätter Azure Storage- [emulatorn](storage-use-emulator.md). Azurite kommer fortfarande att uppdateras för att stödja de senaste versionerna av Azure Storage-API: er.
 
@@ -33,39 +33,44 @@ I Visual Studio Code väljer du rutan **tillägg** och söker efter *Azurite* i 
 
 ![Visual Studio Code Extensions Marketplace](media/storage-use-azurite/azurite-vs-code-extension.png)
 
-Du kan också navigera till [vs Code Extension marknad](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) i din webbläsare. Välj knappen **Installera** för att öppna Visual Studio Code och gå direkt till Azurite-tilläggs sidan.
+Du kan också gå till [Visual Studio Code Extension marknad](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) i webbläsaren. Välj knappen **Installera** för att öppna Visual Studio Code och gå direkt till Azurite-tilläggs sidan.
 
-Du kan snabbt starta eller stänga Azurite genom att klicka på **[Azurite BLOB service]** eller **[Azurite Queue Service]** i fältet vs Code eller utfärda följande kommandon i vs Code-kommando paletten. Öppna kommando paletten genom att trycka på **F1** i vs Code.
+Du kan snabbt starta eller stänga Azurite i statusfältet i Visual Studio Code. Klicka på **[Azurite BLOB service]** eller **[Azurite Queue Service]**.
 
-Tillägget har stöd för följande Visual Studio Code-kommandon:
+Tillägget har stöd för följande Visual Studio Code-kommandon. Öppna kommando paletten genom att trycka på F1 i Visual Studio Code. 
 
-   * **Azurite: starta** – starta alla Azurite-tjänster
-   * **Azurite: Stäng** alla Azurite-tjänster
-   * **Azurite: Rensa** -Återställ alla Azurite Services persistency-data
-   * **Azurite: starta BLOB service** – starta BLOB service
-   * **Azurite: Stäng BLOB service** – Stäng BLOB service
-   * **Azurite: Rensa BLOB** service-rensad BLOB service
-   * **Azurite: starta Queue Service** – starta Queue Service
-   * **Azurite: Stäng Queue Service** -Stäng Queue Service
-   * **Azurite: Rensa Queue Service** -rensa Queue Service
+   - **Azurite: Rensa** -Återställ alla Azurite Services persistency-data
+   - **Azurite: Rensa BLOB** service-rensad BLOB service
+   - **Azurite: Rensa Queue Service** -rensa Queue Service
+   - **Azurite: Stäng** alla Azurite-tjänster
+   - **Azurite: Stäng BLOB service** – Stäng BLOB service
+   - **Azurite: Stäng Queue Service** -Stäng Queue Service
+   - **Azurite: starta** – starta alla Azurite-tjänster
+   - **Azurite: starta BLOB service** – starta BLOB service
+   - **Azurite: starta Queue Service** – starta Queue Service
 
-Välj fönstret tillägg om du vill konfigurera Azurite i Visual Studio Code. Välj ikonen **Hantera** (kugg hjul) för **Azurite**. Välj **Konfigurera tilläggs inställningar**.
+Välj fönstret tillägg om du vill konfigurera Azurite i Visual Studio Code. Välj ikonen **Hantera** (kugg hjul) för **Azurite**. Välj **Inställningar för tillägg**.
 
-![Azurite konfigurera tilläggs inställningar](media/storage-use-azurite/azurite-configure-extension-settings.png)
+![Azurites konfigurera tilläggs inställningar](media/storage-use-azurite/azurite-configure-extension-settings.png)
 
 Följande inställningar stöds:
 
-   * **Azurite: BLOB Host** – slut punkten för BLOB service lyssning. Standardvärdet är 127.0.0.1.
-   * **Azurite: BLOB-port** – BLOB service lyssnings port. Standard porten är 10000.
-   * **Azurite: Felsök** – mata ut fel söknings loggen till Azurite-kanalen. Standardvärdet är **falskt**.
-   * **Azurite: plats** – sökvägen till arbets ytans plats. Standardvärdet är Visual Studio Code-arbetsmappen.
-   * **Azurite: köa värd** -den kötjänst lyssnar slut punkten. Standardvärdet är 127.0.0.1.
-   * **Azurite: Queue port** -den kötjänst lyssnings porten. Standard porten är 10001.
-   * **Azurite: tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **falskt**.
+   - **Azurite: BLOB Host** – slut punkten för BLOB service lyssning. Standardvärdet är 127.0.0.1.
+   - **Azurite: BLOB-port** – BLOB service lyssnings port. Standard porten är 10000.
+   - **Azurite: cert** -Path till en lokalt betrodd PEM eller PFX-certifikat fil Sök väg för att aktivera https-läge.
+   - **Azurite: Felsök** – mata ut fel söknings loggen till Azurite-kanalen. Standardvärdet är **falskt**.
+   - **Azurite: nyckel** Sök väg till en lokalt betrodd PEM-nyckel fil som krävs när **Azurite: cert** pekar på en PEM-fil.
+   - **Azurite: plats** – sökvägen till arbets ytans plats. Standardvärdet är Visual Studio Code-arbetsmappen.
+   - **Azurite:** löst – aktivera löst läge, vilket ignorerar huvuden och parametrar som inte stöds.
+   - **Azurite:** OAuth-valfri OAuth-nivå.
+   - **Azurite: PWD** -Password för PFX-fil. Krävs när **Azurite: cert** pekar på en PFX-fil.
+   - **Azurite: köa värd** -den kötjänst lyssnar slut punkten. Standardvärdet är 127.0.0.1.
+   - **Azurite: Queue port** -den kötjänst lyssnings porten. Standard porten är 10001.
+   - **Azurite: tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **falskt**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installera och kör Azurite med NPM
 
-Den här installations metoden kräver att du har [Node. js version 8,0 eller senare](https://nodejs.org) installerad. **NPM** är paket hanterings verktyget som ingår i varje Node. js-installation. När du har installerat Node. js kör du följande **NPM** -kommando för att installera Azurite.
+Den här installations metoden kräver att du har [Node. js version 8,0 eller senare](https://nodejs.org) installerad. Node Package Manager (NPM) är paket hanterings verktyget som ingår i varje Node. js-installation. När du har installerat Node. js kör du `npm` följande kommando för att installera Azurite.
 
 ```console
 npm install -g azurite
@@ -86,7 +91,8 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 Följande kommando kör Azurite Docker-avbildningen. `-p 10000:10000` Parametern omdirigerar begär Anden från värd datorns port 10000 till Docker-instansen.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 \
+    mcr.microsoft.com/azure-storage/azurite
 ```
 
 **Ange arbets ytans plats**:
@@ -94,33 +100,18 @@ docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 I följande exempel anger `-v c:/azurite:/data` parametern *c:/Azurite* som den Azurite sparade data platsen. Katalogen, *c:/Azurite*, måste skapas innan du kör Docker-kommandot.
 
 ```console
-docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 \
+    -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
 ```
 
 **Kör bara BLOB service**
 
 ```console
-docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite \
     azurite-blob --blobHost 0.0.0.0 --blobPort 10000
 ```
 
-**Ange alla Azurite-parametrar**:
-
-Det här exemplet visar hur du ställer in alla kommando rads parametrar. Alla parametrar nedan ska placeras på en enda kommando rad.
-
-```console
-docker run -p 8888:8888
-           -p 9999:9999
-           -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite
-           -l /workspace
-           -d /workspace/debug.log
-           --blobPort 8888
-           --blobHost 0.0.0.0
-           --queuePort 9999
-           --queueHost 0.0.0.0
-```
-
-Se [kommando rads alternativ](#command-line-options) för mer information om hur du konfigurerar Azurite vid start.
+Mer information om hur du konfigurerar Azurite vid start finns i [kommando rads alternativ](#command-line-options).
 
 ## <a name="clone-build-and-run-azurite-from-the-github-repository"></a>Klona, skapa och köra Azurite från GitHub-lagringsplatsen
 
@@ -143,32 +134,32 @@ När du har installerat och skapat Azurite kan du läsa [Kör Azurite från en k
 ## <a name="run-azurite-from-a-command-line"></a>Köra Azurite från en kommando rad
 
 > [!NOTE]
-> Azurite kan inte köras från kommando raden om du bara har installerat Visual Studio Code-tillägget. Använd i stället VS Code-kommando paletten. Mer information finns i [Installera och köra Azurite Visual Studio Code Extension](#install-and-run-the-azurite-visual-studio-code-extension).
+> Azurite kan inte köras från kommando raden om du bara har installerat Visual Studio Code-tillägget. Använd i stället kommando paletten Visual Studio Code. Mer information finns i [Installera och köra Azurite Visual Studio Code Extension](#install-and-run-the-azurite-visual-studio-code-extension).
 
-Kom igång direkt med kommando raden genom att skapa en katalog med namnet **c:\azurite**och sedan starta Azurite genom att utfärda följande kommando:
+Kom igång direkt med kommando raden genom att skapa en katalog med namnet *c:\azurite*och sedan starta Azurite genom att utfärda följande kommando:
 
 ```console
 azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 ```
 
-Det här kommandot instruerar Azurite att lagra alla data i en viss katalog, **c:\azurite**. Om alternativet **--location** utelämnas, används den aktuella arbets katalogen.
+Det här kommandot instruerar Azurite att lagra alla data i en viss katalog, *c:\azurite*. Om `--location` alternativet utelämnas används den aktuella arbets katalogen.
 
 ## <a name="command-line-options"></a>Kommandoradsalternativ
 
-Det här avsnittet innehåller information om kommando rads växlar som är tillgängliga när du startar Azurite. Alla kommando rads växlar är valfria.
+Det här avsnittet innehåller information om kommando rads växlar som är tillgängliga när du startar Azurite.
+
+### <a name="help"></a>Hjälp
+
+**Valfritt** -Hämta kommando rads hjälp med växeln `-h` eller. `--help`
 
 ```console
-C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>] 
-    [-d | --debug <log file path>] [-l | --location <workspace path>]
-    [--queueHost <IP address>] [--queuePort <port address>]
-    [-s | --silent] [-h | --help]
+azurite -h
+azurite --help
 ```
-
-**-D** är en genväg för **--Debug**, **-l-** växel är en genväg för **--location**, **-s** är en genväg för- **-Silent**och **-h** är en genväg till **--Hjälp**.
 
 ### <a name="blob-listening-host"></a>BLOB-lyssnings värd
 
-**Valfritt** Som standard lyssnar Azurite till 127.0.0.1 som den lokala servern. Använd växeln **--blobHost** för att ange adressen till dina krav.
+**Valfritt** – Azurite lyssnar som standard till 127.0.0.1 som den lokala servern. Använd `--blobHost` växeln för att ange adressen till dina krav.
 
 Acceptera endast begär Anden på den lokala datorn:
 
@@ -187,7 +178,7 @@ azurite --blobHost 0.0.0.0
 
 ### <a name="blob-listening-port-configuration"></a>Konfiguration av BLOB-lyssnings port
 
-**Valfritt** Som standard lyssnar Azurite efter Blob Service på port 10000. Använd växeln **--blobPort** för att ange den lyssnings port som du behöver.
+**Optional** Som standard kommer Azurite att lyssna efter BLOB service på port 10000. Använd `--blobPort` växeln för att ange den lyssnings port som du behöver.
 
 > [!NOTE]
 > När du har använt en anpassad port måste du uppdatera anslutnings strängen eller motsvarande konfiguration i Azure Storage verktyg eller SDK: er.
@@ -208,7 +199,7 @@ Porten som används visas vid start av Azurite.
 
 ### <a name="queue-listening-host"></a>Köa avlyssnings värd
 
-**Valfritt** Som standard lyssnar Azurite till 127.0.0.1 som den lokala servern. Använd växeln **--queueHost** för att ange adressen till dina krav.
+**Valfritt** – Azurite lyssnar som standard till 127.0.0.1 som den lokala servern. Använd `--queueHost` växeln för att ange adressen till dina krav.
 
 Acceptera endast begär Anden på den lokala datorn:
 
@@ -227,7 +218,7 @@ azurite --queueHost 0.0.0.0
 
 ### <a name="queue-listening-port-configuration"></a>Köa lyssnings port konfiguration
 
-**Valfritt** Som standard lyssnar Azurite efter Kötjänst på port 10001. Använd växeln **--queuePort** för att ange den lyssnings port som du behöver.
+**Optional** Som standard kommer Azurite att lyssna efter kötjänst på port 10001. Använd `--queuePort` växeln för att ange den lyssnings port som du behöver.
 
 > [!NOTE]
 > När du har använt en anpassad port måste du uppdatera anslutnings strängen eller motsvarande konfiguration i Azure Storage verktyg eller SDK: er.
@@ -248,79 +239,90 @@ Porten som används visas vid start av Azurite.
 
 ### <a name="workspace-path"></a>Sökväg till arbets ytan
 
-**Valfritt** Azurite lagrar data till den lokala disken under körningen. Använd växeln **--location** för att ange en sökväg som arbets ytans plats. Som standard används den aktuella process arbets katalogen.
-
-```console
-azurite --location c:\azurite
-```
+**Valfri** -Azurite lagrar data till den lokala disken under körningen. Använd växeln `-l` eller `--location` för att ange en sökväg som arbets ytans plats. Som standard används den aktuella process arbets katalogen. Observera gemenen "l".
 
 ```console
 azurite -l c:\azurite
+azurite --location c:\azurite
 ```
 
 ### <a name="access-log"></a>Åtkomst logg
 
-**Valfritt** Som standard visas åtkomst loggen i konsol fönstret. Inaktivera visningen av åtkomst loggen med hjälp av **--Silent-** växeln.
-
-```console
-azurite --silent
-```
+**Valfritt** – åtkomst loggen visas som standard i konsol fönstret. Inaktivera visningen av åtkomst loggen med hjälp av `-s` eller `--silent` -växeln.
 
 ```console
 azurite -s
+azurite --silent
 ```
-
 ### <a name="debug-log"></a>Fel söknings logg
 
-**Valfritt** Fel söknings loggen innehåller detaljerad information om varje begäran och stack spårning för undantag. Aktivera fel söknings loggen genom att ange en giltig lokal fil Sök väg till växeln **--Debug** .
-
-```console
-azurite --debug path/debug.log
-```
+**Valfri** – fel söknings loggen innehåller detaljerad information om varje begäran och stack spårning för undantag. Aktivera fel söknings loggen genom att ange en giltig lokal fil `-d` Sök `--debug` väg till växeln eller.
 
 ```console
 azurite -d path/debug.log
+azurite --debug path/debug.log
 ```
 
 ### <a name="loose-mode"></a>Löst läge
 
-**Valfritt** Som standard tillämpar Azurite strikt läge för att blockera begärandehuvuden och parametrar som inte stöds. Inaktivera strikt läge genom att använda **--Lös** växeln.
-
-```console
-azurite --loose
-```
-
-Notera "L" gen vägs växel för versaler:
+**Valfritt** – Azurite använder strikt läge för att blockera begärandehuvuden och parametrar som inte stöds. Inaktivera strikt läge genom att `-L` använda växeln `--loose` eller. Notera kapitalet "L".
 
 ```console
 azurite -L
+azurite --loose
 ```
+### <a name="version"></a>Version
+
+**Valfritt** – Visa det installerade Azurite-versions numret med `-v` växeln `--version` eller.
+
+```console
+azurite -v
+azurite --version
+```
+
+### <a name="certificate-configuration-https"></a>Certifikat konfiguration (HTTPS)
+
+**Valfritt** – Azurite använder http-protokollet. Aktivera HTTPS-läge genom att ange en sökväg till en Privacy Enhanced Mail (. pem) eller [personal information Exchange (. pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) -certifikat `--cert` fil till växeln.
+
+När `--cert` har angetts för en PEM-fil måste du ange en motsvarande `--key` växel.
+
+```console
+azurite --cert path/server.pem --key path/key.pem
+```
+
+När `--cert` har angetts för en PFX-fil måste du ange en motsvarande `--pwd` växel.
+
+```console
+azurite --cert path/server.pfx --pwd pfxpassword
+```
+
+Detaljerad information om hur du skapar PEM-och PFX-filer finns i [https-installation](https://github.com/Azure/Azurite/blob/master/README.md#https-setup).
+
+### <a name="oauth-configuration"></a>OAuth-konfiguration
+
+**Valfri** – Aktivera OAuth-autentisering för Azurite med hjälp `--oauth` av växeln.
+
+```console
+azurite --oauth basic --cert path/server.pem --key path/key.pem
+```
+
+> [!NOTE]
+> OAuth kräver en HTTPS-slutpunkt. Kontrol lera att HTTPS har Aktiver `--cert` ATS genom att tillhandahålla `--oauth` en växel tillsammans med växeln.
+
+Azurite stöder grundläggande autentisering genom att ange `basic` parametern till `--oauth` växeln. Azurite kommer att utföra grundläggande autentisering, t. ex. validera inkommande Bearer-token, kontrol lera utfärdare, mål grupp och förfallo datum. Azurite kontrollerar inte signaturen eller behörigheterna för token.
 
 ## <a name="authorization-for-tools-and-sdks"></a>Auktorisering för verktyg och SDK: er
 
-Anslut till Azurite från Azure Storage SDK: er eller verktyg, t. ex. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), genom att använda valfri strategi för autentisering. Autentisering krävs. Azurite stöder auktorisering med delad nyckel och signaturer för delad åtkomst (SAS). Azurite stöder även anonym åtkomst till offentliga behållare.
+Anslut till Azurite från Azure Storage SDK: er eller verktyg, t. ex. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), genom att använda valfri strategi för autentisering. Autentisering krävs. Azurite stöder auktorisering med OAuth, delad nyckel och signaturer för delad åtkomst (SAS). Azurite stöder även anonym åtkomst till offentliga behållare.
+
+Om du använder Azure-SDK: er startar du Azurite med `--oauth basic and --cert --key/--pwd` alternativen.
 
 ### <a name="well-known-storage-account-and-key"></a>Välkänt lagrings konto och nyckel
 
-Du kan använda följande konto namn och nyckel med Azurite. Detta är samma välkända konto och nyckel som används av den äldre Azure Storage-emulatorn.
+Azurite accepterar samma välkända konto och nyckel som används av den äldre Azure Storage-emulatorn.
 
-* Konto namn:`devstoreaccount1`
-* Konto nyckel:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
-
-> [!NOTE]
-> Förutom SharedKey-autentisering stöder Azurite konto-och tjänstens SAS-autentisering. Anonym åtkomst är också tillgängligt när en behållare är inställd att tillåta offentlig åtkomst.
-
-### <a name="connection-string"></a>Anslutningssträng
-
-Det enklaste sättet att ansluta till Azurite från ditt program är att konfigurera en anslutnings sträng i programmets konfigurations fil som refererar till genvägen *UseDevelopmentStorage = True*. Här är ett exempel på en anslutnings sträng i en *app. config* -fil:
-
-```xml
-<appSettings>
-  <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
-</appSettings>
-```
-
-Mer information finns i [Konfigurera anslutnings strängar för Azure Storage](storage-configure-connection-string.md).
+- Konto namn:`devstoreaccount1`
+- Konto nyckel:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 ### <a name="custom-storage-accounts-and-keys"></a>Anpassade lagrings konton och nycklar
 
@@ -332,10 +334,18 @@ Använd till exempel ett anpassat lagrings konto som har en nyckel:
 set AZURITE_ACCOUNTS="account1:key1"
 ```
 
-Eller Använd flera lagrings konton med 2 nycklar vardera:
+```bash
+export AZURITE_ACCOUNTS="account1:key1"
+```
+
+Eller Använd flera lagrings konton med två nycklar vardera:
 
 ```cmd
 set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+```bash
+export AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
 ```
 
 Azurite uppdaterar anpassade konto namn och nycklar från miljö variabeln varje minut som standard. Med den här funktionen kan du rotera konto nyckeln dynamiskt eller lägga till nya lagrings konton utan att starta om Azurite.
@@ -343,15 +353,159 @@ Azurite uppdaterar anpassade konto namn och nycklar från miljö variabeln varje
 > [!NOTE]
 > Standard `devstoreaccount1` lagrings kontot är inaktiverat när du anger anpassade lagrings konton.
 
-> [!NOTE]
-> Uppdatera anslutnings strängen enligt detta när du använder anpassade konto namn och nycklar.
+### <a name="connection-strings"></a>Anslutningssträngar
 
-> [!NOTE]
-> Använd `export` nyckelordet för att ange miljövariabler i en Linux-miljö `set` som används i Windows.
+Det enklaste sättet att ansluta till Azurite från ditt program är att konfigurera en anslutnings sträng i programmets konfigurations fil som refererar till genvägen *UseDevelopmentStorage = True*. Här är ett exempel på en anslutnings sträng i en *app. config* -fil:
 
-### <a name="storage-explorer"></a>Storage Explorer
+```xml
+<appSettings>
+  <add key="StorageConnectionString" value="UseDevelopmentStorage=true" />
+</appSettings>
+```
 
-I Azure Storage Explorer ansluter du till Azurite genom att klicka på ikonen **Lägg till konto** och väljer sedan Anslut **till en lokal emulator** och klickar på **Anslut**.
+#### <a name="http-connection-strings"></a>HTTP-anslutningssträngar
+
+Du kan skicka följande anslutnings strängar till [Azure SDK](https://aka.ms/azsdk) : er eller verktyg, till exempel azure CLI 2,0 eller Storage Explorer.
+
+Den fullständiga anslutnings strängen är:
+
+`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;`
+
+Om du bara vill ansluta till Blob-tjänsten är anslutnings strängen:
+
+`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;`
+
+Om du bara vill ansluta till Queue Service är anslutnings strängen:
+
+`DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;`
+
+#### <a name="https-connection-strings"></a>HTTPS-anslutningssträngar
+
+Den fullständiga HTTPS-anslutnings strängen är:
+
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
+
+Om du bara vill använda Blob-tjänsten är HTTPS-anslutnings strängen:
+
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;`
+
+Om du bara vill använda Queue Service är HTTPS-anslutningssträngen:
+
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
+
+Använd följande anslutnings `dotnet dev-certs` sträng om du använde för att generera ett självsignerat certifikat.
+
+`DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;`
+
+Uppdatera anslutnings strängen när du använder [anpassade lagrings konton och nycklar](#custom-storage-accounts-and-keys).
+
+Mer information finns i [Konfigurera anslutnings strängar för Azure Storage](storage-configure-connection-string.md).
+
+### <a name="azure-sdks"></a>Azure-SDK:er
+
+Använd alternativen OAuth och HTTPS för att använda Azurite med [Azure SDK](https://aka.ms/azsdk): er:
+
+```console
+azurite --oauth basic --cert certname.pem --key certname-key.pem
+```
+
+#### <a name="azure-blob-storage"></a>Azure Blob Storage
+
+Du kan sedan instansiera en BlobContainerClient, BlobServiceClient eller BlobClient.
+
+```csharp
+// With container URL and DefaultAzureCredential
+var client = new BlobContainerClient(
+    new Uri("https://127.0.0.1:10000/devstoreaccount1/container-name"), new DefaultAzureCredential()
+  );
+
+// With connection string
+var client = new BlobContainerClient(
+    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "container-name"
+  );
+
+// With account name and key
+var client = new BlobContainerClient(
+    new Uri("https://127.0.0.1:10000/devstoreaccount1/container-name"),
+    new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==")
+  );
+```
+
+#### <a name="azure-queue-storage"></a>Azure Queue Storage
+
+Du kan också skapa en instans av en QueueClient eller QueueServiceClient.
+
+```csharp
+// With queue URL and DefaultAzureCredential
+var client = new QueueClient(
+    new Uri("https://127.0.0.1:10001/devstoreaccount1/queue-name"), new DefaultAzureCredential()
+  );
+
+// With connection string
+var client = new QueueClient(
+    "DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://127.0.0.1:10000/devstoreaccount1;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;", "queue-name"
+  );
+
+// With account name and key
+var client = new QueueClient(
+    new Uri("https://127.0.0.1:10001/devstoreaccount1/queue-name"),
+    new StorageSharedKeyCredential("devstoreaccount1", "Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==")
+  );
+```
+
+### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
+
+Du kan använda Storage Explorer för att visa de data som lagras i Azurite.
+
+#### <a name="connect-to-azurite-using-http"></a>Ansluta till Azurite med HTTP
+
+I Storage Explorer ansluter du till Azurite genom att följa dessa steg:
+
+ 1. Välj **Lägg till en konto** ikon
+ 1. Välj **Anslut till en lokal emulator**
+ 1. Välj **Nästa**
+ 1. Välj **Nästa** igen
+ 1. Välj **Anslut**
+
+#### <a name="connect-to-azurite-using-https"></a>Ansluta till Azurite med HTTPS
+
+Som standard öppnas Storage Explorer inte en HTTPS-slutpunkt som använder ett självsignerat certifikat. Om du kör Azurite med HTTPS använder du förmodligen ett självsignerat certifikat. I Storage Explorer importerar du SSL-certifikat via dialog rutan **Redigera** -> **SSL Certificates** -> **import certifikat** för SSL-certifikat.
+
+##### <a name="import-certificate-to-storage-explorer"></a>Importera certifikat till Storage Explorer
+
+1. Hitta certifikatet på den lokala datorn.
+1. I Storage Explorer går du till **Redigera** -> **SSL-certifikat** -> **Importera certifikat** och importerar ditt certifikat.
+
+Om du inte importerar ett certifikat får du ett fel meddelande:
+
+`unable to verify the first certificate` eller `self signed certificate in chain`
+
+##### <a name="add-azurite-via-https-connection-string"></a>Lägg till Azurite via HTTPS-anslutningssträng
+
+Följ dessa steg om du vill lägga till Azurite HTTPS i Storage Explorer:
+
+1. Välj **Växla Utforskaren**
+1. Välj **lokal & ansluten**
+1. Högerklicka på **lagrings konton** och välj **Anslut till Azure Storage**.
+1. Välj **Använd en anslutnings sträng**
+1. Välj **Nästa**.
+1. Ange ett värde i fältet **visnings namn** .
+1. Ange [https-anslutningssträngen](#https-connection-strings) från föregående avsnitt i det här dokumentet
+1. Välj **Nästa**
+1. Välj **Anslut**
+
+## <a name="workspace-structure"></a>Arbets ytans struktur
+
+Följande filer och mappar kan skapas på arbets ytans plats vid initiering av Azurite.
+
+- `__blobstorage__`– Katalog som innehåller Azurite BLOB service bestående binära data
+- `__queuestorage__`– Katalog som innehåller binära data för Azurite Queue Service
+- `__azurite_db_blob__.json`-Azurite BLOB service-metadatafil
+- `__azurite_db_blob_extent__.json`-Azurite BLOB service allokeringsutrymmet metadata-fil
+- `__azurite_db_queue__.json`-Azurite Queue Service-metadatafil
+- `__azurite_db_queue_extent__.json`-Azurite Queue Service allokeringsutrymmet metadata-fil
+
+Om du vill rensa Azurite tar du bort över filer och mappar och startar om emulatorn.
 
 ## <a name="differences-between-azurite-and-azure-storage"></a>Skillnader mellan Azurite och Azure Storage
 
@@ -379,7 +533,7 @@ Följande adress kan användas för att få åtkomst till en BLOB i Azurite:
 
 ### <a name="scaling-and-performance"></a>Skalning och prestanda
 
-Azurite är inte en skalbar lagrings tjänst och har inte stöd för ett stort antal samtidiga klienter. Det finns ingen garanti för prestanda. Azurite är avsett för utvecklings-och testnings ändamål.
+Azurite har inte stöd för ett stort antal anslutna klienter. Det finns ingen garanti för prestanda. Azurite är avsett för utvecklings-och testnings ändamål.
 
 ### <a name="error-handling"></a>Felhantering
 
@@ -387,7 +541,7 @@ Azurite justeras med logik för Azure Storage fel hantering, men det finns skill
 
 ### <a name="ra-grs"></a>RA-GRS
 
-Azurite stöder Geo-redundant replikering med Läs åtkomst (RA-GRS). För lagrings resurser går du till den sekundära platsen genom att lägga till **-sekundär** till konto namnet. Följande adress kan till exempel användas för att få åtkomst till en blob med hjälp av den skrivskyddade sekundära Azurite:
+Azurite stöder Geo-redundant replikering med Läs åtkomst (RA-GRS). För lagrings resurser går du till den sekundära platsen genom `-secondary` att lägga till i konto namnet. Följande adress kan till exempel användas för att få åtkomst till en blob med hjälp av den skrivskyddade sekundära Azurite:
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
 
@@ -397,5 +551,5 @@ Bidrag och förslag för Azurite är välkommen. Gå till Azurite [GitHub Projec
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd Azure Storage-emulatorn för utveckling och testning](storage-use-emulator.md) av dokument i den äldre Azure Storage-emulatorn, som ersätts av Azurite.
-* [Konfigurera Azure Storage anslutnings strängar](storage-configure-connection-string.md) förklarar hur du sätter samman en giltig Azure Storage-anslutningssträng.
+- [Använd Azure Storage-emulatorn för utveckling och testning](storage-use-emulator.md) av dokument i den äldre Azure Storage-emulatorn, som ersätts av Azurite.
+- [Konfigurera Azure Storage anslutnings strängar](storage-configure-connection-string.md) förklarar hur du sätter samman en giltig Azure Storage-anslutningssträng.

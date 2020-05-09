@@ -2,13 +2,13 @@
 title: Automatisera Azure Application insikter med PowerShell | Microsoft Docs
 description: Automatisera att skapa och hantera resurser, aviseringar och tillgänglighets test i PowerShell med hjälp av en Azure Resource Manager mall.
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/02/2020
+ms.openlocfilehash: fba85981f32611164c328945e45de4032ad949eb
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275885"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780512"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Hantera Application Insights-resurser med hjälp av PowerShell
 
@@ -229,7 +229,21 @@ Ytterligare egenskaper är tillgängliga via cmdletarna:
 
 Se den [detaljerade dokumentationen](https://docs.microsoft.com/powershell/module/az.applicationinsights) för parametrarna för dessa cmdletar.  
 
-## <a name="set-the-data-retention"></a>Ange data kvarhållning 
+## <a name="set-the-data-retention"></a>Ange data kvarhållning
+
+Nedan finns tre metoder för att program mässigt ange datakvarhållning för en Application Insights-resurs.
+
+### <a name="setting-data-retention-using-a-powershell-commands"></a>Ställa in data kvarhållning med hjälp av PowerShell-kommandon
+
+Här är en enkel uppsättning PowerShell-kommandon för att ange datakvarhållning för din Application Insights-resurs:
+
+```PS
+$Resource = Get-AzResource -ResourceType Microsoft.Insights/components -ResourceGroupName MyResourceGroupName -ResourceName MyResourceName
+$Resource.Properties.RetentionInDays = 365
+$Resource | Set-AzResource -Force
+```
+
+### <a name="setting-data-retention-using-rest"></a>Ställa in data kvarhållning med REST
 
 Om du vill hämta aktuell datakvarhållning för din Application Insights-resurs kan du använda OSS-verktyget [ARMClient](https://github.com/projectkudu/ARMClient).  (Läs mer om ARMClient från artiklar av [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) och [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Här är ett exempel som `ARMClient`använder för att hämta aktuell kvarhållning:
 
@@ -251,6 +265,8 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
        -retentionInDays 365 `
        -appName myApp
 ```
+
+### <a name="setting-data-retention-using-a-powershell-script"></a>Ställa in data kvarhållning med ett PowerShell-skript
 
 Följande skript kan även användas för att ändra kvarhållning. Kopiera skriptet till Spara som `Set-ApplicationInsightsRetention.ps1`.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 86b68b794928900717bea25623e7eb833c23e86c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92b3fd2453a4fb121c97f8f25f1d3ca129826092
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655357"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926977"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 
@@ -91,6 +91,7 @@ Ja. Varje Azure AD Domain Services hanterad domän innehåller två domänkontro
 * [Kan jag ändra eller lägga till DNS-poster i min hanterade domän?](#can-i-modify-or-add-dns-records-in-my-managed-domain)
 * [Vad är en princip för lösen ords livs längd på en hanterad domän?](#what-is-the-password-lifetime-policy-on-a-managed-domain)
 * [Tillhandahåller Azure AD Domain Services AD-konto utelåsnings skydd?](#does-azure-ad-domain-services-provide-ad-account-lockout-protection)
+* [Kan jag konfigurera Distributed File System (DFS) och replikering i Azure AD Domain Services?](#can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services)
 
 ### <a name="can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop"></a>Kan jag ansluta till domänkontrollanten för min hanterade domän med hjälp av fjärr skrivbord?
 Nej. Du har inte behörighet att ansluta till domänkontrollanter för den hanterade domänen med hjälp av fjärr skrivbord. Medlemmar i gruppen *AAD DC-administratörer* kan administrera den hanterade domänen med hjälp av administrations verktyg för AD, till exempel Active Directory administrations Center (ADAC) eller AD PowerShell. De här verktygen installeras med hjälp av funktionen *verktyg för fjärrserveradministration* på en Windows Server som är ansluten till den hanterade domänen. Mer information finns i [skapa en virtuell hanterings dator för att konfigurera och administrera en Azure AD Domain Services hanterad domän](tutorial-create-management-vm.md).
@@ -118,6 +119,9 @@ Standard livstiden för lösen ord för en Azure AD Domain Services hanterad dom
 
 ### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Tillhandahåller Azure AD Domain Services AD-konto utelåsnings skydd?
 Ja. Fem ogiltiga lösen ords försök inom 2 minuter på den hanterade domänen gör att ett användar konto blir utelåst i 30 minuter. Efter 30 minuter låses användar kontot automatiskt upp. Ogiltiga lösen ords försök i den hanterade domänen låser inte användar kontot i Azure AD. Användar kontot är bara utelåst i din Azure AD Domain Services hanterade domän. Mer information finns i [principer för lösen ord och konto utelåsning på hanterade domäner](password-policy.md).
+
+### <a name="can-i-configure-distributed-file-system-and-replication-within-azure-ad-domain-services"></a>Kan jag konfigurera Distributed File System och replikering inom Azure AD Domain Services?
+Nej. Distributed File System (DFS) och replikering är inte tillgängligt när du använder Azure AD Domain Services.
 
 ## <a name="billing-and-availability"></a>Fakturering och tillgänglighet
 

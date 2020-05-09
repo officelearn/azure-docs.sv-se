@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8f32f574a4ff7be0cc3cc7915b8203b53824c63
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279143"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792334"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Haveri beredskap för Azure våren Cloud
 
@@ -31,4 +31,33 @@ Att säkerställa hög tillgänglighet och skydd från katastrofer kräver att d
 
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) tillhandahåller DNS-baserad belastnings utjämning för trafiken och kan distribuera nätverks trafik över flera regioner.  Använd Azure Traffic Manager för att dirigera kunder till den närmaste Azure våren Cloud Service-instansen till dem.  För bästa prestanda och redundans ska du dirigera all program trafik via Azure Traffic Manager innan du skickar den till din Azure våren Cloud-tjänst.
 
-Om du har Azure våren Cloud-program i flera regioner använder du Azure-Traffic Manager för att styra trafik flödet till dina program i varje region.  Definiera en Azure Traffic Manager-slutpunkt för varje tjänst som använder tjänstens IP-adress. Kunder bör ansluta till ett Azure Traffic Manager DNS-namn som pekar på moln tjänsten Azure våren.  Azure Traffic Manager belastnings Utjämnings trafik mellan de definierade slut punkterna.  Om en katastrof träffar ett Data Center dirigerar Azure Traffic Manager trafiken från den regionen till dess par, vilket garanterar tjänste kontinuiteten.
+Om du har Azure våren Cloud-program i flera regioner använder du Azure-Traffic Manager för att kontrol lera flödet av trafik till dina program i varje region.  Definiera en Azure Traffic Manager-slutpunkt för varje tjänst som använder tjänstens IP-adress. Kunder bör ansluta till ett Azure Traffic Manager DNS-namn som pekar på moln tjänsten Azure våren.  Azure Traffic Manager belastnings Utjämnings trafik mellan de definierade slut punkterna.  Om en katastrof träffar ett Data Center dirigerar Azure Traffic Manager trafiken från den regionen till dess par, vilket garanterar tjänste kontinuiteten.
+
+## <a name="create-azure-traffic-manager-for-azure-spring-cloud"></a>Skapa Azure-Traffic Manager för Azure våren Cloud
+
+1. Skapa ett Azure våren-moln i två olika regioner.
+Du behöver två tjänst instanser av Azure våren Cloud som distribueras i två olika regioner (USA, östra och Västeuropa). Starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal för att skapa två tjänst instanser. Var och en fungerar som primär och misslyckad slut punkt för trafik. 
+
+**Två tjänst instans uppgifter:**
+
+| Tjänstnamn | Plats | Program |
+|--|--|--|
+| service – exempel – a | USA, östra | Gateway/auth-service/account-service |
+| service – exempel-b | Europa, västra | Gateway/auth-service/account-service |
+
+2. Konfigurera anpassad domän för tjänst följ det [anpassade domän dokumentet](spring-cloud-tutorial-custom-domain.md) för att konfigurera en anpassad domän för dessa två befintliga tjänst instanser. När den har kon figurer ATS kommer båda tjänst instanserna att bindas till den anpassade domänen: bcdr-test.contoso.com
+
+3. Skapa en Traffic Manager och två slut punkter: [skapa en Traffic Manager profil med hjälp av Azure Portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
+
+Här är Traffic Manager-profilen:
+* Traffic Manager DNS-namn:http://asc-bcdr.trafficmanager.net
+* Slut punkts profiler: 
+
+| Profil | Typ | Mål | Prioritet | Anpassade huvud inställningar |
+|--|--|--|--|--|
+| Slut punkt för en profil | Extern slut punkt | service-sample-a.asc-test.net | 1 | värd: bcdr-test.contoso.com |
+| Slut punkt B-profil | Extern slut punkt | service-sample-b.asc-test.net | 2 | värd: bcdr-test.contoso.com |
+
+4. Skapa en CNAME-post i DNS-zonen: bcdr-test.contoso.com CNAME asc-bcdr.trafficmanager.net. 
+
+5. Nu är miljön helt konfigurerad. Kunderna ska kunna komma åt appen via: bcdr-test.contoso.com

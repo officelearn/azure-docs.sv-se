@@ -9,29 +9,29 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2b3bf6706e977bdb6915335dee59da3c250e7895
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 6d734c910cc966cfd83f1e1c7f9cbd728643fbc4
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679340"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836520"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Felsöka hybrid Runbook Worker
 
-Den här artikeln innehåller information om fel sökning av problem med hybrid Runbook Worker.
+Den här artikeln innehåller information om fel sökning av problem med Azure Automation hybrid Runbook Worker.
 
 >[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
+>Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Azure Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell modulerna i Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="general"></a>Allmänt
 
-Hybrid Runbook Worker är beroende av en agent för att kommunicera med ditt Automation-konto för att registrera arbetaren, ta emot Runbook-jobb och rapportera status. För Windows är den här agenten Log Analytics agent för Windows. För Linux är det Log Analytics-agenten för Linux.
+Hybrid Runbook Worker är beroende av en agent för att kommunicera med ditt Azure Automation-konto för att registrera arbetaren, ta emot Runbook-jobb och rapportera status. För Windows är den här agenten Log Analytics agent för Windows. För Linux är det Log Analytics-agenten för Linux.
 
 ### <a name="scenario-runbook-execution-fails"></a><a name="runbook-execution-fails"></a>Scenario: Runbook-körningen Miss lyckas
 
 #### <a name="issue"></a>Problem
 
-Runbook-körningen Miss lyckas och följande fel meddelande visas.
+Runbook-körningen Miss lyckas och följande fel meddelande visas:
 
 ```error
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
@@ -55,13 +55,13 @@ Datorer som kör Hybrid Runbook Worker bör uppfylla minimi kraven för maskin v
 
 Bekräfta att datorn som ska köra Hybrid Runbook Worker funktionen uppfyller minimi kraven för maskin vara. Om det gör det kan du övervaka processor-och minnes användning för att fastställa eventuella korrelationer mellan prestandan för Hybrid Runbook Worker processer och Windows. Eventuell minnes-eller processor belastning kan indikera att du behöver uppgradera resurser. Du kan också välja en annan beräknings resurs som uppfyller minimi kraven och skala när arbets belastningen kräver att en ökning är nödvändig.
 
-Kontrol lera händelse loggen för **Microsoft-SMA** för en motsvarande händelse `Win32 Process Exited with code [4294967295]`med beskrivning. Orsaken till det här felet är att du inte har konfigurerat autentisering i dina runbooks eller angett kör som-autentiseringsuppgifterna för Hybrid Runbook Worker gruppen. Granska Runbook-behörigheter i [köra Runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md) för att bekräfta att du har konfigurerat autentisering för dina runbooks korrekt.
+Kontrol lera händelse loggen för **Microsoft-SMA** för en motsvarande händelse med `Win32 Process Exited with code [4294967295]`beskrivningen. Orsaken till det här felet är att du inte har konfigurerat autentisering i dina runbooks eller angett kör som-autentiseringsuppgifterna för Hybrid Runbook Worker gruppen. Granska Runbook-behörigheter i [köra Runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md) för att bekräfta att du har konfigurerat autentisering för dina runbooks korrekt.
 
-### <a name="scenario-event-15011-in-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>Scenario: händelse 15011 i Hybrid Runbook Worker
+### <a name="scenario-event-15011-in-the-hybrid-runbook-worker"></a><a name="cannot-connect-signalr"></a>Scenario: händelse 15011 i Hybrid Runbook Worker
 
 #### <a name="issue"></a>Problem
 
-Hybrid Runbook Worker tar emot händelse 15011, vilket indikerar att ett frågeresultat är ogiltigt. Följande fel visas när arbets tagaren försöker öppna en anslutning med [signal servern](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
+Hybrid Runbook Worker tar emot händelse 15011, vilket indikerar att ett frågeresultat inte är giltigt. Följande fel visas när arbets tagaren försöker öppna en anslutning med [signal servern](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.1).
 
 ```error
 [AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
@@ -73,7 +73,7 @@ Hybrid Runbook Worker tar emot händelse 15011, vilket indikerar att ett fråger
 
 #### <a name="cause"></a>Orsak
 
-Hybrid Runbook Worker har inte kon figurer ATS korrekt för den automatiserade distributions lösningen. Den här lösningen innehåller en del som ansluter den virtuella datorn till Log Analytics-arbetsytan. PowerShell-skriptet söker efter arbets ytan i prenumerationen med det angivna namnet. I det här fallet är Log Analytics arbets ytan i en annan prenumeration. Skriptet kan inte hitta arbets ytan och försöker skapa en, men namnet är redan upptaget. Distributionen Miss lyckas därför.
+Hybrid Runbook Worker har inte kon figurer ATS korrekt för den automatiserade distributions lösningen. Den här lösningen innehåller en del som ansluter den virtuella datorn till Log Analytics-arbetsytan. PowerShell-skriptet söker efter arbets ytan i prenumerationen med det angivna namnet. I det här fallet är Log Analytics arbets ytan i en annan prenumeration. Skriptet kan inte hitta arbets ytan och försöker skapa en, men namnet är redan upptaget. Därför Miss lyckas distributionen.
 
 #### <a name="resolution"></a>Lösning
 
@@ -83,7 +83,7 @@ Det finns två alternativ för att lösa problemet:
 
 * Konfigurera arbets datorn manuellt så att den körs i ett Orchestrator-läge. Kör sedan en Runbook som skapats i Azure Automation kontot på arbets tagaren för att testa funktionen.
 
-### <a name="scenario-windows-azure-vms-automatically-dropped-from-hybrid-worker-group"></a><a name="vm-automatically-dropped"></a>Scenario: virtuella Windows Azure-datorer som har tagits bort automatiskt från hybrid Worker-gruppen
+### <a name="scenario-windows-azure-vms-automatically-dropped-from-a-hybrid-worker-group"></a><a name="vm-automatically-dropped"></a>Scenario: virtuella Windows Azure-datorer tas automatiskt bort från en hybrid Worker-grupp
 
 #### <a name="issue"></a>Problem
 
@@ -95,13 +95,13 @@ Den Hybrid Runbook Worker datorn har inte Pingat Azure Automation i mer än 30 d
 
 #### <a name="resolution"></a>Lösning
 
-Starta arbets datorn och rereregister den med Azure Automation. Se anvisningar för att installera Runbook-miljön och ansluta till Azure Automation i [distribuera en Windows-hybrid Runbook Worker](../automation-windows-hrw-install.md).
+Starta arbets datorn och rereregister den med Azure Automation. Instruktioner för hur du installerar Runbook-miljön och ansluter till Azure Automation finns i [distribuera en Windows-hybrid Runbook Worker](../automation-windows-hrw-install.md).
 
-### <a name="scenario-no-certificate-was-found-in-the-certificate-store-on-hybrid-runbook-worker"></a><a name="no-cert-found"></a>Scenario: det gick inte att hitta något certifikat i certifikat arkivet på Hybrid Runbook Worker
+### <a name="scenario-no-certificate-was-found-in-the-certificate-store-on-the-hybrid-runbook-worker"></a><a name="no-cert-found"></a>Scenario: det gick inte att hitta något certifikat i certifikat arkivet på Hybrid Runbook Worker
 
 #### <a name="issue"></a>Problem
 
-En Runbook som körs på en Hybrid Runbook Worker Miss lyckas med följande fel meddelande.
+En Runbook som körs på en Hybrid Runbook Worker Miss lyckas med följande fel meddelande:
 
 ```error
 Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
@@ -113,17 +113,17 @@ At line:3 char:1
 ```
 #### <a name="cause"></a>Orsak
 
-Det här felet uppstår när du försöker använda ett [Kör som-konto](../manage-runas-account.md) i en Runbook som körs på en hybrid Runbook Worker där kör som-konto-certifikatet inte finns. Hybrid Runbook Worker har inte certifikat till gången lokalt som standard. Kör som-kontot kräver att den här till gången fungerar korrekt.
+Felet uppstår när du försöker använda ett [Kör som-konto](../manage-runas-account.md) i en Runbook som körs på en hybrid Runbook Worker där certifikatet för kör som-kontot inte finns. Hybrid Runbook Worker har inte certifikat till gången lokalt som standard. Kör som-kontot kräver att den här till gången fungerar korrekt.
 
 #### <a name="resolution"></a>Lösning
 
-Om din Hybrid Runbook Worker är en virtuell Azure-dator kan du i stället använda [hanterade identiteter för Azure-resurser](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) . Det här scenariot fören klar autentiseringen genom att du kan autentisera till Azure-resurser med hjälp av den hanterade identiteten för den virtuella Azure-datorn i stället för kör som-kontot När Hybrid Runbook Worker är en lokal dator måste du installera kör som-användarkontot på datorn. Information om hur du installerar certifikatet finns i stegen för att köra PowerShell Runbook **export-RunAsCertificateToHybridWorker** i [köra runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
+Om din Hybrid Runbook Worker är en virtuell Azure-dator kan du i stället använda [Runbook-autentisering med hanterade identiteter](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities) . Det här scenariot fören klar autentiseringen genom att du kan autentisera till Azure-resurser med hjälp av den hanterade identiteten för den virtuella Azure-datorn i stället för kör som-kontot När Hybrid Runbook Worker är en lokal dator måste du installera kör som-användarkontot på datorn. Information om hur du installerar certifikatet finns i stegen för att köra PowerShell Runbook **export-RunAsCertificateToHybridWorker** i [köra runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-### <a name="scenario-error-403-during-registration-of-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>Scenario: fel 403 vid registrering av Hybrid Runbook Worker
+### <a name="scenario-error-403-during-registration-of-a-hybrid-runbook-worker"></a><a name="error-403-on-registration"></a>Scenario: fel 403 vid registrering av en Hybrid Runbook Worker
 
 #### <a name="issue"></a>Problem
 
-Arbetarens inledande registrerings fas Miss lyckas och du får följande fel (403).
+Det går inte att arbeta med den första registrerings fasen och du får följande fel meddelande (403):
 
 ```error
 "Forbidden: You don't have permission to access / on this server."
@@ -131,32 +131,47 @@ Arbetarens inledande registrerings fas Miss lyckas och du får följande fel (40
 
 #### <a name="cause"></a>Orsak
 
-Följande är möjliga orsaker:
+Följande problem är möjliga orsaker:
 
 * Det finns ett felangett arbetsyte-ID eller en nyckel för arbets ytan (primär) i agentens inställningar. 
-
-* Hybrid Runbook Worker kan inte ladda ned konfigurationen, vilket leder till ett konto länknings fel. När Azure aktiverar lösningar stöder den bara vissa regioner för länkning av en Log Analytics-arbetsyta och ett Automation-konto. Det är också möjligt att ett felaktigt datum och/eller tid har angetts på datorn. Om tiden är +/-15 minuter från den aktuella tiden, Miss lyckas onboarding.
+* Hybrid Runbook Worker kan inte ladda ned konfigurationen, vilket leder till ett konto länknings fel. När Azure aktiverar lösningar stöder den bara vissa regioner för länkning av en Log Analytics-arbetsyta och ett Automation-konto. Det är också möjligt att ett felaktigt datum eller tid har angetts på datorn. Om tiden är plus eller minus 15 minuter från den aktuella tiden, Miss lyckas onboarding.
 
 #### <a name="resolution"></a>Lösning
 
-##### <a name="mistyped-workspace-idkey"></a>Felangett arbetsyte-ID/nyckel
-För att kontrol lera att agentens arbetsyte-ID eller arbets ytans nyckel har skrivits in, se [lägga till eller ta bort en arbets yta – Windows-agent](../../azure-monitor/platform/agent-manage.md#windows-agent) för Windows-agenten eller [lägga till eller ta bort en arbets yta – Linux-Agent](../../azure-monitor/platform/agent-manage.md#linux-agent) för Linux-agenten.  Se till att välja hela strängen från Azure Portal och kopiera och klistra in den noggrant.
+##### <a name="mistyped-workspace-id-or-key"></a>Felangett arbetsyte-ID eller nyckel
+För att kontrol lera att agentens arbetsyte-ID eller arbets ytans nyckel skrevs in, se [lägga till eller ta bort en arbets yta – Windows-agent](../../azure-monitor/platform/agent-manage.md#windows-agent) för Windows-agenten eller [lägga till eller ta bort en arbets yta – Linux-Agent](../../azure-monitor/platform/agent-manage.md#linux-agent) för Linux-agenten Se till att välja hela strängen från Azure Portal och kopiera och klistra in den noggrant.
 
 ##### <a name="configuration-not-downloaded"></a>Konfigurationen laddas inte ned
 
 Din Log Analytics arbets yta och Automation-konto måste vara i en länkad region. En lista över regioner som stöds finns i [Azure Automation och Log Analytics mappningar för arbets ytor](../how-to/region-mappings.md).
 
-Du kan också behöva uppdatera datum och/eller tidszon på datorn. Om du väljer ett anpassat tidsintervall kontrollerar du att intervallet är UTC, vilket kan skilja sig från den lokala tids zonen.
+Du kan också behöva uppdatera datum-eller tids zonen på din dator. Om du väljer ett anpassat tidsintervall kontrollerar du att intervallet är UTC, vilket kan skilja sig från den lokala tids zonen.
 
 ## <a name="linux"></a>Linux
 
-Linux-Hybrid Runbook Worker är beroende av [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md) för att kunna kommunicera med ditt Automation-konto för att registrera arbetaren, ta emot Runbook-jobb och rapportera status. Om registreringen av arbets processen Miss lyckas kan du göra det här för att göra något av följande:
+Linux-Hybrid Runbook Worker är beroende av [Log Analytics-agenten för Linux](../../azure-monitor/platform/log-analytics-agent.md) för att kunna kommunicera med ditt Automation-konto för att registrera arbetaren, ta emot Runbook-jobb och rapportera status. Om registreringen av arbets processen Miss lyckas kan det hända att det finns några möjliga orsaker till felet.
+
+### <a name="scenario-linux-hybrid-runbook-worker-receives-prompt-for-a-password-when-signing-a-runbook"></a><a name="prompt-for-password"></a>Scenario: Linux Hybrid Runbook Worker tar emot ett lösen ord när en Runbook signeras
+
+#### <a name="issue"></a>Problem
+
+Om du `sudo` kör kommandot för ett Linux-hybrid Runbook Worker hämtas en oväntad prompt för ett lösen ord.
+
+#### <a name="cause"></a>Orsak
+
+**Nxautomationuser** -kontot för Log Analytics agent för Linux har inte kon figurer ATS korrekt i **sudoers** -filen. Hybrid Runbook Worker behöver lämplig konfiguration av konto behörigheter och andra data så att de kan signera Runbooks på Linux Runbook Worker.
+
+#### <a name="resolution"></a>Lösning
+
+* Kontrol lera att den Hybrid Runbook Worker har den körbara filen GnuPG (GPG) på datorn.
+
+* Verifiera konfigurationen av **nxautomationuser** -kontot i **sudoers** -filen. Se [köra Runbooks på en hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
 ### <a name="scenario-the-log-analytics-agent-for-linux-isnt-running"></a><a name="oms-agent-not-running"></a>Scenario: Log Analytics agent för Linux körs inte
 
 #### <a name="issue"></a>Problem
 
-Log Analytics agenten för Linux körs inte
+Log Analytics agenten för Linux körs inte.
 
 #### <a name="cause"></a>Orsak
 
@@ -164,7 +179,7 @@ Om agenten inte körs förhindrar Linux-Hybrid Runbook Worker att kommunicera me
 
 #### <a name="resolution"></a>Lösning
 
- Kontrol lera att agenten körs genom att ange `ps -ef | grep python`kommandot. Du bör se utdata som liknar följande, python-processerna med **nxautomation** -användarkonto. Om Uppdateringshantering-eller Azure Automation-lösningen inte är aktive rad körs ingen av följande processer.
+ Kontrol lera att agenten körs genom att ange `ps -ef | grep python`kommandot. Du bör se utdata som liknar följande. Python-processerna med **nxautomation** -användarkontot. Om Uppdateringshantering-eller Azure Automation-lösningen inte är aktive rad körs ingen av följande processer.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -172,19 +187,17 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-I följande lista visas de processer som startas för en Linux-Hybrid Runbook Worker. De finns i **/var/opt/Microsoft/omsagent/State/automationworker/** -katalogen.
+I följande lista visas de processer som startas för en Linux-Hybrid Runbook Worker. De finns i/var/opt/Microsoft/omsagent/State/automationworker/-katalogen.
 
-* **OMS. conf** – Worker Manager-processen. Den startas direkt från DSC.
-
-* **Worker. conf** – den automatiskt registrerade hybrid arbets processen. Den startas av Worker Manager. Den här processen används av Uppdateringshantering och är transparent för användaren. Den här processen är inte tillgänglig om Uppdateringshantering-lösningen inte är aktive rad på datorn.
-
-* **gör det själv/Worker. conf** – gör det själv hybrid Worker-processen. GÖR det själv hybrid Worker-processen används för att köra användar-Runbooks på Hybrid Runbook Worker. Det skiljer sig bara från den automatiskt registrerade hybrid Worker-processen i den nyckel information som den använder en annan konfiguration. Den här processen är inte tillgänglig om Azure Automation-lösningen är inaktive rad och gör det själv Linux Hybrid Worker inte är registrerad.
+* **OMS. conf**: Worker Manager-processen. Den startas direkt från DSC.
+* **Worker. conf**: den automatiskt registrerade hybrid Worker-processen. Den startas av Worker Manager. Den här processen används av Uppdateringshantering och är transparent för användaren. Den här processen är inte tillgänglig om Uppdateringshantering-lösningen inte är aktive rad på datorn.
+* **gör det själv/Worker. conf**: gör det själv hybrid Worker-processen. GÖR det själv hybrid Worker-processen används för att köra användar-Runbooks på Hybrid Runbook Worker. Det skiljer sig bara från den automatiskt registrerade hybrid Worker-processen i den nyckel information som den använder en annan konfiguration. Den här processen är inte tillgänglig om Azure Automation-lösningen är inaktive rad och gör det själv Linux Hybrid Worker inte är registrerad.
 
 Om agenten inte körs kör du följande kommando för att starta tjänsten: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="scenario-the-specified-class-doesnt-exist"></a><a name="class-does-not-exist"></a>Scenario: den angivna klassen finns inte
 
-Om du ser felet `The specified class does not exist..` i **/var/opt/Microsoft/omsconfig/omsconfig.log**måste Log Analytics-agenten för Linux uppdateras. Kör följande kommando för att installera om agenten:
+Om du ser fel meddelandet `The specified class does not exist..` i **/var/opt/Microsoft/omsconfig/omsconfig.log**måste Log Analytics-agenten för Linux uppdateras. Kör följande kommando för att installera om agenten.
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -208,19 +221,19 @@ Om Log Analytics för Windows-tjänsten inte körs kan Hybrid Runbook Worker int
 
 Kontrol lera att agenten körs genom att ange följande kommando i PowerShell: `Get-Service healthservice`. Om tjänsten har stoppats anger du följande kommando i PowerShell för att starta tjänsten: `Start-Service healthservice`.
 
-### <a name="scenario-event-4502-in-operations-manager-log"></a><a name="event-4502"></a>Scenario: händelse 4502 i Operations Manager logg
+### <a name="scenario-event-4502-in-the-operations-manager-log"></a><a name="event-4502"></a>Scenario: händelse 4502 i Operations Manager loggen
 
 #### <a name="issue"></a>Problem
 
-I händelse loggen **program-och tjänst loggar \ Operations Manager** visas händelse 4502 och EventMessage som innehåller `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` följande beskrivning:<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
+I händelse loggen **program-och tjänst loggar \ Operations Manager** visas händelse 4502 och ett händelse meddelande som innehåller `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` följande beskrivning:<br>`The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.`
 
 #### <a name="cause"></a>Orsak
 
-Det här problemet kan bero på att proxyn eller nätverks brand väggen blockerar kommunikationen till Microsoft Azure. Kontrol lera att datorn har utgående åtkomst till ***. Azure-Automation.net** på port 443. 
+Det här problemet kan bero på att proxyn eller nätverks brand väggen blockerar kommunikationen till Microsoft Azure. Kontrol lera att datorn har utgående åtkomst till ***. Azure-Automation.net** på port 443.
 
 #### <a name="resolution"></a>Lösning
 
-Loggar lagras lokalt på varje hybrid Worker på **C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes**. Du kan kontrol lera om det finns några varnings-eller fel händelser i händelse loggarna **program och tjänster Logs\Microsoft-SMA\Operations** och **program-och tjänst loggar \ Operations Manager** . Dessa loggar indikerar en anslutning eller någon annan typ av problem som påverkar onboarding av rollen för att Azure Automation, eller ett problem som uppstått under normal drift. Mer hjälp fel söknings problem med Log Analytics agent finns i [Felsöka problem med Log Analytics Windows-agenten](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Loggar lagras lokalt på varje hybrid Worker på C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Du kan kontrol lera om det finns några varnings-eller fel händelser i händelse loggarna **program och tjänster Logs\Microsoft-SMA\Operations** och **program-och tjänst loggar \ Operations Manager** . Dessa loggar indikerar en anslutning eller någon annan typ av problem som påverkar onboarding av rollen för att Azure Automation, eller ett problem som uppstått under normal drift. Mer hjälp fel söknings problem med Log Analytics agent finns i [Felsöka problem med Log Analytics Windows-agenten](../../azure-monitor/platform/agent-windows-troubleshoot.md).
 
 Hybrid Worker skickar [Runbook-utdata och meddelanden](../automation-runbook-output-and-messages.md) till Azure Automation på samma sätt som Runbook-jobb som körs i molnet skickar utdata och meddelanden. Du kan aktivera utförlig och förlopps strömmar precis som du gör för Runbooks.
 
@@ -234,11 +247,11 @@ Om du ändrar **Orchestrator. sandbox. exe. config** för att ange proxyservern 
 
 #### <a name="cause"></a>Orsak
 
-Anslutningen till Active Directory Federation Services (AD FS) (ADFS) på servern kan inte kringgå proxyn. Kom ihåg att en PowerShell-sandbox körs som den loggade användaren. En Orchestrator-Sandbox är dock mycket anpassad och kan ignorera fil inställningarna för **Orchestrator. sandbox. exe. config** . Den har särskild kod för hantering av inställningar för dator-eller MMA, men inte för hantering av andra anpassade proxyinställningar. 
+Anslutningen till Active Directory Federation Services (AD FS) (AD FS) på servern kan inte kringgå proxyn. Kom ihåg att en PowerShell-sandbox körs som den loggade användaren. En Orchestrator-Sandbox är dock mycket anpassad och kan ignorera fil inställningarna för **Orchestrator. sandbox. exe. config** . Den har särskild kod för hantering av dator-eller Log Analytics-Gent, men inte för hantering av andra anpassade proxyinställningar. 
 
 #### <a name="resolution"></a>Lösning
 
-Du kan lösa problemet för Orchestrator sandbox genom att migrera skriptet till att använda Azure AD-modulerna i stället för MSOnline-modulen för PowerShell-cmdletar. Se [Migrera från Orchestrator till Azure Automation (beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
+Du kan lösa problemet för Orchestrator sandbox genom att migrera skriptet så att det använder Azure Active Directory moduler i stället för MSOnline-modulen för PowerShell-cmdletar. Mer information finns i [Migrera från Orchestrator till Azure Automation (beta)](https://docs.microsoft.com/azure/automation/automation-orchestrator-migration).
 
 Om du vill fortsätta att använda MSOnline-modulens cmdlets ändrar du skriptet för att använda [Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7). Ange värden för parametrarna `ComputerName` och `Credential` . 
 
@@ -257,7 +270,7 @@ Den här kod ändringen startar en helt ny PowerShell-session under kontexten f�
 
 #### <a name="issue"></a>Problem
 
-Din Hybrid Runbook Worker dator körs, men inga pulsslags data visas för datorn i arbets ytan.
+Hybrid Runbook Worker datorn körs, men inga pulsslags data visas för datorn i arbets ytan.
 
 I följande exempel fråga visas datorerna i en arbets yta och deras senaste pulsslag:
 
@@ -287,7 +300,7 @@ Start-Service -Name HealthService
 
 #### <a name="issue"></a>Problem
 
-Följande meddelande visas när du försöker lägga till en Hybrid Runbook Worker med hjälp av `Add-HybridRunbookWorker` cmdleten.
+Följande meddelande visas när du försöker lägga till en Hybrid Runbook Worker med hjälp av `Add-HybridRunbookWorker` cmdleten:
 
 ```error
 Machine is already registered
@@ -295,7 +308,7 @@ Machine is already registered
 
 #### <a name="cause"></a>Orsak
 
-Det här problemet kan uppstå om datorn redan har registrerats med ett annat Automation-konto eller om du försöker läsa Hybrid Runbook Worker efter att ha tagit bort den från en dator.
+Det här problemet kan uppstå om datorn redan har registrerats med ett annat Automation-konto eller om du försöker lägga till Hybrid Runbook Worker igen efter att ha tagit bort den från en dator.
 
 #### <a name="resolution"></a>Lösning
 
@@ -305,8 +318,8 @@ Lös problemet genom att ta bort följande register nyckel, starta om `HealthSer
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet ovan eller inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support:
+Om du inte ser problemet här eller om du inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support:
 
 * Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-* Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Azure-support ansluter Azure-communityn till svar, support och experter.
+* Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support**.

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: 1f2051addfa1266b754d230c3804834c63f89002
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7e164420b02be35069103ac06238d56449eb7ef
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78274074"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996737"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudie: utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
 
@@ -189,15 +189,27 @@ Först lägger vi till en klass som innehåller logiken för att ansluta till oc
 
    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
-1. Öppna filen *startup.cs* i din lösning och Ersätt `ConfigureServices` metoden med:
+1. Öppna filen *startup.cs* i lösningen och Lägg till följande metod **InitializeCosmosClientInstanceAsync**, som läser konfigurationen och initierar klienten.
 
-    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync" :::
 
-    Koden i det här steget initierar klienten baserat på konfigurationen som en singleton-instans som ska matas [in via beroende insprutning i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+1. På samma fil ersätter du `ConfigureServices` metoden med:
 
-1. I samma fil lägger du till följande metod **InitializeCosmosClientInstanceAsync**, som läser konfigurationen och initierar klienten.
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="ConfigureServices":::
 
-   [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+   Koden i det här steget initierar klienten baserat på konfigurationen som en singleton-instans som ska matas [in via beroende insprutning i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+
+   Och se till att ändra standard MVC-kontrollanten `Item` till genom att redigera vägarna i `Configure` metoden för samma fil:
+
+   ```csharp
+    app.UseEndpoints(endpoints =>
+          {
+                endpoints.MapControllerRoute(
+                   name: "default",
+                   pattern: "{controller=Item}/{action=Index}/{id?}");
+          });
+   ```
+
 
 1. Definiera konfigurationen i projektets *appSettings. JSON* -fil som visas i följande kodfragment:
 

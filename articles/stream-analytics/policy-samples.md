@@ -1,24 +1,24 @@
 ---
-title: Lista över inbyggda princip definitioner för Azure Stream Analytics
-description: Visar Azure Policy inbyggda princip definitioner för Azure Stream Analytics. De här inbyggda programmen ger vanliga metoder för att hantera dina Azure-resurser.
+title: Inbyggda princip definitioner för Azure Stream Analytics
+description: Visar Azure Policy inbyggda princip definitioner för Azure Stream Analytics. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
 ms.date: 05/01/2020
 ms.topic: sample
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 36ebb65d4d7bebf7ebfd1db059735456ef82f7e3
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 476610256f34bf565426c1454c89a880a09db342
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966276"
+ms.locfileid: "82983524"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-stream-analytics"></a>Azure Policy inbyggda princip definitioner för Azure Stream Analytics
 
 Den här sidan är ett index över [Azure policy](../governance/policy/overview.md) inbyggda princip definitioner för Azure Stream Analytics. Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../governance/policy/samples/built-in-policies.md).
 
-Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Använd länken i kolumnen **källa** för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
+Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i **GitHub** -kolumnen för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 962b738d7e5f91076d17c19daad01f8dbaf92341
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: dca7392c35c398ae3d9da62114c991ee4c0e57ca
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888840"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997011"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Självstudie: Använd en hanterad identitet för att ansluta Key Vault till en Azure-webbapp med .NET
 
@@ -102,7 +102,7 @@ FTP och lokal git kan distribueras till en Azure-webbapp med hjälp av en *distr
 
 Konfigurera distributions användaren genom att köra kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Välj ett användar namn och lösen ord som följer dessa rikt linjer: 
 
-- Användar namnet måste vara unikt inom Azure, och för lokala git-push-meddelanden får inte innehålla @-symbolen. 
+- Användar namnet måste vara unikt inom Azure, och för lokala git-push-meddelanden får inte innehålla symbolen @. 
 - Lösen ordet måste innehålla minst åtta tecken, med två av följande tre element: bokstäver, siffror och symboler. 
 
 ```azurecli-interactive
@@ -281,10 +281,20 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 ```
 
-Lägg till dessa tre rader före `app.UseEndpoints` anropet, och uppdatera URI: n `vaultUri` för att avspegla nyckel valvet.
+Lägg till de här raderna `app.UseEndpoints` före anropet, och uppdatera URI: `vaultUri` n för att avspegla nyckel valvet. I koden nedan används ["DefaultAzureCredential ()"](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet) för autentisering till Key Vault, som använder token från Programhanterad identitet för att autentisera. Den använder också exponentiell backoff för återförsök om nyckel valvet begränsas.
 
 ```csharp
-var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential());
+SecretClientOptions options = new SecretClientOptions()
+    {
+        Retry =
+        {
+            Delay= TimeSpan.FromSeconds(2),
+            MaxDelay = TimeSpan.FromSeconds(16),
+            MaxRetries = 5,
+            Mode = RetryMode.Exponential
+         }
+    };
+var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(),options);
 
 KeyVaultSecret secret = client.GetSecret("mySecret");
 

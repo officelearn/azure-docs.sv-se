@@ -1,21 +1,21 @@
 ---
-title: Lista över inbyggda princip definitioner för Azure Resource Manager
-description: Visar Azure Policy inbyggda princip definitioner för Azure Resource Manager. De här inbyggda programmen ger vanliga metoder för att hantera dina Azure-resurser.
+title: Inbyggda princip definitioner för Azure Resource Manager
+description: Visar Azure Policy inbyggda princip definitioner för Azure Resource Manager. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
 ms.date: 04/30/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 677b250ab6cdbedaf019e0c0dfe9696ffd646b52
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 18f130f53e3a593f52c16f4d54876bcd2f5f3d50
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966395"
+ms.locfileid: "82980464"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-resource-manager"></a>Azure Policy inbyggda princip definitioner för Azure Resource Manager
 
 Den här sidan är ett index över [Azure policy](../../governance/policy/overview.md) inbyggda princip definitioner för Azure Resource Manager. Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../../governance/policy/samples/built-in-policies.md).
 
-Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Använd länken i kolumnen **källa** för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
+Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i **GitHub** -kolumnen för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 

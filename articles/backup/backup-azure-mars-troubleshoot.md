@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker installation
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: a15f8a4531bc31dab5b99e125454b0d9c4fd4521
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1d1397519b39ffbc439cdd0d3e78d9b553ea302e
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80421276"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598019"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Felsöka Microsoft Azure Recovery Services (MARS)-agenten
 
@@ -24,6 +24,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 - Se till att MARS körs (i tjänst konsolen). Om du behöver startar du om och försöker igen.
 - [Se till att det finns 5% till 10% ledigt volym utrymme på platsen för den tillfälliga mappen](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#whats-the-minimum-size-requirement-for-the-cache-folder).
 - [Kontrol lera om en annan process eller ett antivirus program stör Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup).
+- Om säkerhets kopierings jobbet slutfördes med varningar, se [säkerhets kopierings jobb slutförda med varning](#backup-jobs-completed-with-warning)
 - Om schemalagd säkerhets kopiering Miss lyckas men manuell säkerhets kopiering fungerar, se [säkerhets kopieringar körs inte enligt schema](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#backups-dont-run-according-to-schedule).
 - Se till att operativ systemet har de senaste uppdateringarna.
 - [Se till att enheter och filer som inte stöds med attribut som inte stöds undantas från säkerhets kopieringen](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup).
@@ -42,7 +43,7 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 | Orsak | Rekommenderade åtgärder |
 | ---     | ---    |
 | **Autentiseringsuppgifterna för valvet är ogiltiga** <br/> <br/> Valvets autentiseringsuppgifter kan vara skadade eller kan ha upphört att gälla. (Till exempel kan de ha hämtats mer än 48 timmar före registrerings tiden.)| Hämta nya autentiseringsuppgifter från Recovery Services Vault på Azure Portal. (Se steg 6 i avsnittet [Ladda ned mars-agenten](https://docs.microsoft.com/azure/backup/install-mars-agent#download-the-mars-agent) .) Utför sedan dessa steg efter behov: <ul><li> Om du redan har installerat och registrerat MARS öppnar du MMC-konsolen för Microsoft Azure Backup Agent och väljer sedan **Registrera Server** i **Åtgärds** fönstret för att slutföra registreringen med de nya autentiseringsuppgifterna. <br/> <li> Om den nya installationen Miss lyckas kan du försöka med att installera om med de nya autentiseringsuppgifterna.</ul> **Obs!** om filer med flera valv har hämtats är det bara den senaste filen som är giltig för de kommande 48 timmarna. Vi rekommenderar att du hämtar en ny fil med autentiseringsuppgifter för valvet.
-| **Proxyservern eller brand väggen blockerar registreringen** <br/>eller <br/>**Ingen Internet anslutning** <br/><br/> Om din dator eller proxyserver har begränsad Internet anslutning och du inte ser till att du har åtkomst till de nödvändiga URL: erna, Miss söker registreringen.| Gör så här:<br/> <ul><li> Arbeta med IT-teamet för att säkerställa att systemet är ansluten till Internet.<li> Om du inte har en proxyserver, se till att alternativet proxy inte är markerat när du registrerar agenten. [Kontrol lera proxyinställningarna](#verifying-proxy-settings-for-windows).<li> Om du har en brand vägg/proxyserver arbetar du med nätverks teamet för att se till att dessa URL: er och IP-adresser har åtkomst:<br/> <br> **Webbadresser**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adresser**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Försök att registrera igen när du har slutfört föregående fel söknings steg.<br></br> Om du är ansluten via Azure ExpressRoute kontrollerar du att inställningarna är konfigurerade enligt beskrivningen i [Azure ExpressRoute-supporten](backup-support-matrix-mars-agent.md#azure-expressroute-support).
+| **Proxyservern eller brand väggen blockerar registreringen** <br/>eller <br/>**Ingen Internet anslutning** <br/><br/> Om din dator eller proxyserver har begränsad Internet anslutning och du inte ser till att du har åtkomst till de nödvändiga URL: erna, Miss söker registreringen.| Gör så här:<br/> <ul><li> Arbeta med IT-teamet för att säkerställa att systemet är ansluten till Internet.<li> Om du inte har en proxyserver, se till att alternativet proxy inte är markerat när du registrerar agenten. [Kontrol lera proxyinställningarna](#verifying-proxy-settings-for-windows).<li> Om du har en brand vägg/proxyserver arbetar du med nätverks teamet för att se till att dessa URL: er och IP-adresser har åtkomst:<br/> <br> **Webbadresser**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP-adresser**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Försök att registrera igen när du har slutfört föregående fel söknings steg.<br></br> Om din anslutning är via Azure ExpressRoute kontrollerar du att inställningarna är konfigurerade enligt beskrivningen i [Azure ExpressRoute-supporten](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **Antivirus programmet blockerar registreringen** | Om du har installerat antivirus program på servern lägger du till nödvändiga undantags regler i Antivirus genomsökningen för dessa filer och mappar: <br/><ul> <li> CBengine. exe <li> CSC. exe<li> Mappen scratch. Standard platsen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
 
 ### <a name="additional-recommendations"></a>Ytterligare rekommendationer
@@ -74,6 +75,32 @@ Vi rekommenderar att du kontrollerar följande innan du börjar felsöka Microso
 | Fel  | Möjlig orsak | Rekommenderade åtgärder |
 | ---     | ---     | ---    |
 | <br /><ul><li>Microsoft Azure återställnings tjänst agenten kunde inte ansluta till Microsoft Azure Backup. (ID: 100050) Kontrol lera nätverks inställningarna och se till att du kan ansluta till Internet.<li>(407) Proxyautentisering krävs. |En proxyserver blockerar anslutningen. |  <ul><li>I Internet Explorer går du till **verktyg** > **Internet alternativ** > **säkerhet** > **Internet**. Välj **Anpassad nivå** och rulla ned till **fil hämtnings** avsnittet. Välj **Aktivera**.<p>Du kan också behöva lägga till [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access) till dina betrodda platser i Internet Explorer.<li>Ändra inställningarna för att använda en proxyserver. Ange sedan information om proxyservern.<li> Om datorn har begränsad Internet åtkomst kontrollerar du att brand Väggs inställningarna på datorn eller proxyservern tillåter dessa [URL: er och IP-adresser](install-mars-agent.md#verify-internet-access). <li>Om du har installerat antivirus program på servern kan du undanta dessa filer från AntiVirus genomsökningen: <ul><li>CBEngine. exe (i stället för DPMRA. exe).<li>CSC. exe (relaterad till .NET Framework). Det finns en CSC. exe för alla .NET Framework-versioner som är installerade på servern. Undanta CSC. exe-filer för alla versioner av .NET Framework på den berörda servern. <li>Den tillfälliga mappen eller cacheplatsen. <br>Standard platsen för mappen scratch eller sökvägen är C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch.<li>Bin-mappen i C:\Program\Microsoft Azure Recovery Services Agent\Bin.
+
+## <a name="backup-jobs-completed-with-warning"></a>Säkerhets kopierings jobb slutfördes med varning
+
+- När MARS-agenten itererar över filer och mappar under säkerhets kopieringen kan det uppstå olika villkor som kan orsaka att säkerhets kopian markeras som slutförd med varningar. Under dessa förhållanden visas ett jobb som slutfört med varningar. Det är bra, men det innebär att minst en fil inte kunde säkerhets kopie ras. Jobbet hoppades därför över den filen, men säkerhetskopierade alla andra filer som finns i den aktuella data källan.
+
+  ![Säkerhets kopierings jobbet slutfördes med varningar](./media/backup-azure-mars-troubleshoot/backup-completed-with-warning.png)
+
+- Villkor som kan orsaka att säkerhets kopieringarna hoppar över filer är:
+  - Filattribut som inte stöds (t. ex. i en OneDrive-mapp, komprimerad data ström, referens punkter). En fullständig lista finns i [support mat ris](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent#supported-file-types-for-backup).
+  - Ett fil Systems problem
+  - En annan process som stör (till exempel: antivirus program som innehåller referenser till filer kan hindra MARS-agenten från att komma åt filerna)
+  - Filer som låsts av ett program  
+
+- Säkerhets kopierings tjänsten markerar de här filerna som misslyckade i logg filen, med följande namngivnings konvention: *LastBackupFailedFilesxxxx. txt* under mappen *C:\Program Files\Microsoft Azure Recovery Service Agent\temp* .
+- Lös problemet genom att granska logg filen för att förstå problemets typ:
+
+  | Felkod             | Orsaker                                             | Rekommendationer                                              |
+  | ---------------------- | --------------------------------------------------- | ------------------------------------------------------------ |
+  | 0x80070570             | Filen eller katalogen är skadad och kan inte läsas. | Kör **chkdsk** på käll volymen.                             |
+  | 0x80070002, 0x80070003 | Det går inte att hitta den angivna filen i systemet.         | [Se till att mappen Scratch inte är full](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#manage-the-backup-cache-folder)  <br><br>  Kontrol lera om volymen där det finns ett tomt utrymme har kon figurer ATS (tas inte bort)  <br><br>   [Se till att MARS-agenten är exkluderad från det antivirus program som är installerat på datorn](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)  |
+  | 0x80070005             | Åtkomst nekas                                    | [Kontrol lera om antivirus program eller andra program från tredje part blockerar åtkomst](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-slow-backup-performance-issue#cause-another-process-or-antivirus-software-interfering-with-azure-backup)     |
+  | 0x8007018b             | Åtkomst till moln filen nekas.                | OneDrive-filer, git-filer eller andra filer som kan försättas i offline-läge på datorn |
+
+- Du kan använda [Lägg till undantags regler i en befintlig princip](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#add-exclusion-rules-to-existing-policy) för att utesluta saknade eller borttagna filer från säkerhets kopierings principen för att säkerställa att säkerhets kopieringen har slutförts.
+
+- Undvik att ta bort och återskapa skyddade mappar med samma namn i mappen på den översta nivån. Detta kan leda till att säkerhets kopieringen slutförs med varningar med felet *en kritisk inkonsekvens upptäcktes, och ändringarna kan därför inte replikeras.*  Om du behöver ta bort och återskapa mappar kan du göra det i undermappar under den skyddade mappen på översta nivån.
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Det gick inte att ange krypteringsnyckeln för säker säkerhetskopiering
 
@@ -121,7 +148,7 @@ Om schemalagda säkerhets kopieringar inte aktive ras automatiskt, men manuella 
  Get-ExecutionPolicy -List
 
 Set-ExecutionPolicy Unrestricted
-```
+ ```
 
 - Se till att det inte finns några saknade eller skadade MSOnlineBackup-filer för PowerShell-modulen. Gör så här om det finns saknade eller skadade filer:
 
@@ -138,7 +165,6 @@ Set-ExecutionPolicy Unrestricted
 Fel | Möjliga orsaker | Rekommenderade åtgärder
 --- | --- | ---
 Den aktuella åtgärden kunde inte utföras på grund av ett internt tjänst fel "resursen har inte tillhandahållits i tjänst stämpeln". Försök igen om en stund. (ID: 230006) | Den skyddade servern har bytt namn. | <li> Byt namn på servern till det ursprungliga namnet enligt vad som har registrerats för valvet. <br> <li> Registrera servern på nytt i valvet med det nya namnet.
-
 
 ## <a name="troubleshoot-restore-problems"></a>Felsöka återställnings problem
 
@@ -206,25 +232,25 @@ I det här avsnittet beskrivs vanliga fel som uppstår när du använder MARS-ag
 
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
-Felmeddelande | Rekommenderad åtgärd |
+Felmeddelande | Rekommenderad åtgärd
 -- | --
 Microsoft Azure Recovery Services-agenten kunde inte komma åt kontrollsumman för säkerhetskopian på den tillfälliga platsen | Lös problemet genom att utföra följande och starta om servern <br/> - [Kontrol lera om det finns ett antivirus program eller andra processer som låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för mars-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
-Felmeddelande | Rekommenderad åtgärd |
+Felmeddelande | Rekommenderad åtgärd
 -- | --
 Microsoft Azure Recovery Services-agenten kunde inte komma åt den tillfälliga platsen för att initiera VHD | Lös problemet genom att utföra följande och starta om servern <br/> - [Kontrol lera om det finns ett antivirus program eller andra processer som låser den virtuella platsens filer](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Kontrol lera om arbets platsen är giltig och tillgänglig för mars-agenten.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
-Felmeddelande | Rekommenderad åtgärd |
+Felmeddelande | Rekommenderad åtgärd
 -- | --
 Det gick inte att säkerhetskopiera eftersom det inte finns tillräckligt med lagrings utrymme i volymen där mappen Scratch finns | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/>- [Se till att MARS-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Verifiera och lös lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
-Felmeddelande | Rekommenderad åtgärd |
+Felmeddelande | Rekommenderad åtgärd
 -- | --
 Det går inte att hitta ändringar i en fil. Detta kan bero på olika orsaker. Försök att utföra åtgärden igen. | Lös problemet genom att kontrol lera stegen nedan och försök igen:<br/> - [Se till att MARS-agenten är senaste](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Verifiera och lös lagrings problem som påverkar säkerhets kopieringens arbets yta](#prerequisites)
 

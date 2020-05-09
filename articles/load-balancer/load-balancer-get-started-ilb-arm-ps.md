@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 485afaa4b7009731784cf5da6f8c28e0a787c1d9
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76045484"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629430"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Skapa en intern lastbalanserare med hjälp av Azure PowerShell-modulen
 
@@ -48,7 +48,7 @@ Om du vill kunna distribuera en lastbalanserare måste du först skapa följande
 * Avsökningskonfiguration: Avsökningar som kontrollerar hälsotillståndet för virtuella datorer.
 * Regler för ingående NAT: Portregler för direkt åtkomst till virtuella datorer.
 
-Mer information om komponenter för belastnings utjämning finns i [Azure Load Balancer-komponenter](concepts-limitations.md#load-balancer-components).
+Mer information om komponenter för belastnings utjämning finns i [Azure Load Balancer-komponenter](components.md).
 
 Följande steg beskriver hur du konfigurerar en lastbalanserare mellan två virtuella datorer.
 

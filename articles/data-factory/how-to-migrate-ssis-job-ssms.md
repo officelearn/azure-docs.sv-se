@@ -11,14 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: 6e357e98d6c5190c6dfef675dc1ab9cf30a717c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81455095"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627593"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrera SQL Server Agent jobb till ADF med SSMS
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 När du migrerar [lokala SQL Server Integration Services (SSIS) arbets belastningar till SSIS i ADF](scenario-ssis-migration-overview.md), kan du utföra satsvis migrering av SQL Server Agent jobb med jobb stegs typ SQL Server Integration Services paket till Azure Data Factory (ADF) pipeline/aktiviteter/schema utlösare via SQL Server Management Studio (SSMS) SSIS-guide för **migrering av jobb**.
 

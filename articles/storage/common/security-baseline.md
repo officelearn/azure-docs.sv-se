@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184b60f6147089cbdfd855b473b3346d021f7fbc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f2102d8d6353da2002a4ee9d5bfbe57a774e10
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176608"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792079"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Azures säkerhets bas linje för Azure Storage
 
@@ -82,7 +82,7 @@ Observera att om du har privata slut punkter som är kopplade till ditt lagrings
 
 **Vägledning**: med Network Watcher paket insamling kan du skapa avbildnings sessioner för att spåra trafiken mellan lagrings kontot och en virtuell dator. Filter tillhandahålls för insamlingsbufferten för att se till att du bara fångar den trafik som du vill använda. Med paket fångst kan du diagnostisera nätverks avvikelser, både återaktivt och proaktivt. Andra användnings områden är insamling av nätverks statistik, insamling av information om nätverks intrång, fel sökning av klient server kommunikation och mycket mer. Att kunna fjärrutlös paket fångster, underlättar belastningen på att köra en paket registrering manuellt på en önskad virtuell dator, vilket sparar värdefull tid. 
 
-- [Hantera paket fångster med Azure Network Watcher med hjälp av portalen](https://docs.microsoft.comazure/network-watcher/network-watcher-packet-capture-manage-portal)
+- [Hantera paket fångster med Azure Network Watcher med hjälp av portalen](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal)
 
 **Azure Security Center övervakning**: Ja
 
@@ -240,7 +240,7 @@ Aktivera också Avancerat skydd för ditt Azure Storage-konto. Avancerat skydd f
 
 - [Så här aviserar du om Log Analytics-loggdata](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
 
-- [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Analysloggning i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Azure Security Center övervakning**: Ja
 
@@ -428,7 +428,7 @@ Ett effektivt sätt att minska risken för obehörig åtkomst till användar kon
 
 Skapa diagnostikinställningar för Azure Active Directory användar konton, skicka gransknings loggar och inloggnings loggar till en Log Analytics arbets yta. Du kan konfigurera önskade aviseringar i Log Analytics arbets ytan. Om du vill övervaka autentiseringsfel mot Azure Storage-konton kan du skapa aviseringar som meddelar dig när vissa tröskelvärden har nåtts för lagrings resurs mått. Använd dessutom Azure Monitor för att varna vid anonym åtkomst för lagrings konton med anonymt autentiserings villkor.
 
-- [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Analysloggning i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Så här integrerar du Azures aktivitets loggar i Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
 
@@ -574,7 +574,7 @@ Använd dessutom tjänst slut punkts principer för virtuella nätverk för att 
 
 - [Så här skapar du aviseringar för Azure aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Loggning med Azure-lagringsanalys](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+- [Analysloggning i Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 - [Konfigurera mått varningar för Azure Storage konton](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account)
 
@@ -887,7 +887,7 @@ Använd rekommendationer från Azure Security Center som en säker konfiguration
 
 Dessutom kan du rotera lagrings konto nycklar regelbundet för att begränsa effekten av förlust eller avslöjande av lagrings konto nycklar.
 
-- [Azure Storage kryptering för vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Azure Storage-kryptering av vilande data](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
 
 - [Hantera åtkomst nycklar för lagrings konton](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage)
 

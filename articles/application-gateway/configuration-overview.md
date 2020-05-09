@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 89d894a5125a16f95e6ef8a15c2503d48f3a8e55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632179"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856069"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -101,18 +101,18 @@ I det här scenariot använder du NSG: er i under nätet Application Gateway. L�
 
    Du kan skapa en UDR för att skicka 0.0.0.0/0-trafik direkt till Internet. 
 
-  **Scenario 3**: UDR för Azure Kubernetes service Kubernetes
+  **Scenario 3**: UDR för Azure Kubernetes service med Kubernetes
 
-  Om du använder Kubernetes med Azure Kubernetes service (AKS) och Application Gateway ingress (AGIC) måste du konfigurera en routningstabell för att tillåta trafik som skickas till poddar att dirigeras till rätt nod. Detta behövs inte om du använder Azure-CNI. 
+  Om du använder Kubernetes med Azure Kubernetes service (AKS) och Application Gateway ingress (AGIC) behöver du en routningstabell för att tillåta trafik som skickas till poddar från Application Gateway att dirigeras till rätt nod. Detta behövs inte om du använder Azure-CNI. 
 
-   Gör så här om du vill ställa in routningstabellen så att Kubernetes fungerar:
+  Följ stegen nedan om du vill använda routningstabellen för att Kubernetes ska fungera:
 
-  1. Skapa en väg tabell resurs i Azure. 
-  2. När den har skapats går du till sidan **vägar** . 
-  3. Lägg till en ny väg:
+  1. Gå till resurs gruppen som skapats av AKS (namnet på resurs gruppen måste börja med "MC_")
+  2. Hitta routningstabellen som skapats av AKS i den resurs gruppen. Routningstabellen ska vara ifylld med följande information:
      - Adressprefixet ska vara IP-intervallet för de poddar som du vill uppnå i AKS. 
-     - Nästa hopp typ ska vara **virtuell**installation. 
-     - Nästa hopp adress ska vara IP-adressen för noden som är värd för poddar i det IP-intervall som definierats i fältet adressprefix. 
+     - Nästa hopp typ ska vara virtuell installation. 
+     - Nästa hopp adress ska vara IP-adressen för noden som är värd för poddar.
+  3. Koppla den här routningstabellen till Application Gateway under nätet. 
     
   **scenarier som inte stöds i v2**
 

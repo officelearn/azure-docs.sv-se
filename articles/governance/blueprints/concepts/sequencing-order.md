@@ -1,14 +1,14 @@
 ---
 title: Förstå ordningen för distributions ordningen
 description: Lär dig mer om standard ordningen som skiss artefakter distribueras i under en skiss tilldelning och hur du anpassar distributions ordningen.
-ms.date: 08/22/2019
+ms.date: 05/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: 41b1b1ada5b7c6c919f227927001570332eeccbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91e11f8127ba2532ad48362de1689f4be2b6f935
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80677566"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864529"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå distributions ordningen i Azure-ritningar
 
@@ -47,8 +47,7 @@ När du skapar stora skiss definitioner kan det vara nödvändigt att resurser s
 Ordningen utförs genom att definiera en `dependsOn` egenskap i JSON. Skiss definitionen, för resurs grupper och artefakt objekt stöder den här egenskapen. `dependsOn`är en sträng mat ris med artefakt namn som den specifika artefakten måste skapas innan den skapas.
 
 > [!NOTE]
-> När du skapar skiss objekt hämtar varje artefakt resurs sitt namn från fil namnet, om du använder [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), eller URL-slutpunkten om du använder [REST API](/rest/api/blueprints/artifacts/createorupdate).
-> _resourceGroup_ -referenser i artefakter måste matcha de som definierats i skiss definitionen.
+> När du skapar skiss objekt hämtar varje artefakt resurs sitt namn från fil namnet, om du använder [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), eller URL-slutpunkten om du använder [REST API](/rest/api/blueprints/artifacts/createorupdate). _resourceGroup_ -referenser i artefakter måste matcha de som definierats i skiss definitionen.
 
 ### <a name="example---ordered-resource-group"></a>Exempel på ordnad resurs grupp
 
@@ -137,7 +136,8 @@ Mallen för prenumerations nivåns artefakt beroende på resurs gruppen **vänta
 
 Under skapandet används en Top ologiska sortering för att skapa ett beroende diagram över ritningens artefakter. Kontrollen säkerställer att varje nivå av beroendet mellan resurs grupper och artefakter stöds.
 
-Om ett artefakt beroende deklareras som inte ändrar standard ordningen görs ingen ändring. Ett exempel är en resurs grupp som är beroende av en princip för en prenumerations nivå. Ett annat exempel är en resurs grupps "standard-RG"-princip tilldelning som är beroende av den underordnade roll tilldelningen standard-RG för resurs gruppen. I båda fallen har inte `dependsOn` den förändrade standard ordningen och inga ändringar görs.
+Om ett artefakt beroende deklareras som inte ändrar standard ordningen görs ingen ändring.
+Ett exempel är en resurs grupp som är beroende av en princip för en prenumerations nivå. Ett annat exempel är en resurs grupps "standard-RG"-princip tilldelning som är beroende av den underordnade roll tilldelningen standard-RG för resurs gruppen. I båda fallen har inte `dependsOn` den förändrade standard ordningen och inga ändringar görs.
 
 ## <a name="next-steps"></a>Nästa steg
 

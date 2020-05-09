@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: anhoang
-ms.openlocfilehash: b0ecbc4dc030fa8e7fbe362c1304c3c97278bdf5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2b9b4d51e89975d988ed94bf85695bd8a1cc770
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75456414"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872458"
 ---
 # <a name="quickstart-use-custom-commands-with-custom-voice-preview"></a>Snabb start: Använd anpassade kommandon med anpassad röst (förhands granskning)
 
@@ -35,7 +35,8 @@ I den här artikeln väljer vi en anpassad röst för utdata för det program so
 > ![Exempel på meningar med parametrar](media/custom-speech-commands/select-custom-voice.png)
 
 > [!NOTE]
-> Du kan skapa anpassade röster från sidan anpassat röst projekt. Välj **tal Studio** -länken och sedan **anpassad röst** för att komma igång.
+> - För **offentliga röster**är **neurala-typer** bara tillgängliga för vissa regioner. För att kontrol lera tillgängligheten, se [standard-och neurala röster efter region/slut punkt](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+> - För **anpassade röster**kan de skapas från sidan anpassat röst projekt. Se [Kom igång med anpassad röst](./how-to-custom-voice.md).
 
 Programmet kommer nu att svara i den valda rösten i stället för standard rösten.
 

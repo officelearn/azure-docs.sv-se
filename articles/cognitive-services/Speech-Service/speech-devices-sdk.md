@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: erhopf
-ms.openlocfilehash: add0d27ae6a612fed0320b5329d19236b7bbbd01
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3fb5f1df0eb4473483c9298cdbf36909b75065e7
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79370652"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927215"
 ---
 # <a name="what-is-the-speech-devices-sdk"></a>Vad är det för tal enheter SDK?
 
@@ -49,7 +49,7 @@ Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) p
 För Linux tillhandahålls exempel programmet som ett plattforms oberoende Java-program. Ladda ned den senaste versionen av [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
 Programmet har skapats med tal-SDK-paketet och Sol förmörkelse Java IDE (v4) på 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8). Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
-Det finns ytterligare binärfiler som stöder kommande enheter, [Roobo v2-DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter)och [GGEC-högtalare](https://aka.ms/sdsdk-download-speaker).
+Ytterligare binärfiler tillhandahålls för att stödja kommande enheter, [Roobo v2-DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter), [GGEC-högtalare](https://aka.ms/sdsdk-download-speaker), [Linux-ARM32](https://aka.ms/sdsdk-download-linux-arm32)och [Linux arm64](https://aka.ms/sdsdk-download-linux-arm64).
 
 ## <a name="next-steps"></a>Nästa steg
 

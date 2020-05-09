@@ -11,15 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: 383b70bbb02e7a200c7ec0a994f7cf11e9b9520e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73560c49e10ab96c934d4dd3cea9395093a26420
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414825"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629056"
 ---
 # <a name="copy-files-from-multiple-containers-with-azure-data-factory"></a>Kopiera filer från flera behållare med Azure Data Factory
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Den här artikeln beskriver en lösnings mall som du kan använda för att kopiera filer från flera behållare mellan fil arkiv. Du kan till exempel använda den för att migrera data Lake från AWS S3 till Azure Data Lake Store. Eller så kan du använda mallen för att replikera allt från ett Azure Blob Storage-konto till ett annat.
 

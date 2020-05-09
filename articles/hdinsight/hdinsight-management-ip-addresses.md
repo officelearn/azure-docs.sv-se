@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 03/03/2020
-ms.openlocfilehash: 5e8f39b58f258742108fe323d9395efd87bc288f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78271824"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778268"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Hanterings-IP-adresser för HDInsight
 
@@ -82,7 +82,7 @@ Tillåt trafik från IP-adresserna som anges för Azure HDInsight-hälso-och han
 
 Information om vilka IP-adresser som ska användas för Azure Government finns i dokumentet [Azure Government information + analys](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) .
 
-Mer information finns i avsnittet [styra nätverks trafik](hdinsight-plan-virtual-network-deployment.md#networktraffic) .
+Mer information finns i [kontrol lera nätverks trafik](./control-network-traffic.md).
 
 Om du använder användardefinierade vägar (UDR) ska du ange en väg och tillåta utgående trafik från det virtuella nätverket till ovanstående IP-adresser med nästa hopp inställt på "Internet".
 

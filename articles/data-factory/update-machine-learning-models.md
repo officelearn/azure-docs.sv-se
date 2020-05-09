@@ -11,23 +11,23 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 4488c174ba5ff35ec2709d7c1b9f3093b4ee90a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8fb39e8762d31f00029a0eeea33f1e630fb15a6
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81409075"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927419"
 ---
-# <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Uppdatera Azure Machine Learning-modeller med hjälp av aktiviteten Uppdatera resurs
+# <a name="update-ml-studio-classicv-models-by-using-update-resource-activity"></a>Uppdatera ML Studio (klassiska) v-modeller genom att använda uppdatering av resurs aktivitet
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Den här artikeln kompletterar den huvudsakliga Azure Data Factory-Azure Machine Learning-integrerings artikeln: [skapa förutsägbara pipelines med hjälp av Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Läs igenom huvud artikeln innan du läser igenom den här artikeln, om du inte redan gjort det.
+Den här artikeln kompletterar huvud artikeln Azure Data Factory-ML Studio (klassisk): [skapa förutsägbara pipelines med hjälp av Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Läs igenom huvud artikeln innan du läser igenom den här artikeln, om du inte redan gjort det.
 
 ## <a name="overview"></a>Översikt
-Som en del av processen med att använda Azure Machine Learning modeller, tränas modellen och sparas. Sedan kan du använda den för att skapa en förutsägbar webb tjänst. Webb tjänsten kan sedan förbrukas på webbplatser, instrument paneler och mobila appar.
+Som en del av processen att använda ML Studio (klassiska) modeller, tränas modellen och sparas. Sedan kan du använda den för att skapa en förutsägbar webb tjänst. Webb tjänsten kan sedan förbrukas på webbplatser, instrument paneler och mobila appar.
 
-Modeller som du skapar med hjälp av Machine Learning är vanligt vis inte statiska. När nya data blir tillgängliga eller när klienten för API: et har sina egna data måste modellen omtränas. Mer information om hur du kan träna en modell i Azure Machine Learning finns i avsnittet om att [träna en Machine Learning modell](../machine-learning/machine-learning-retrain-machine-learning-model.md) .
+Modeller som du skapar med hjälp av Machine Learning är vanligt vis inte statiska. När nya data blir tillgängliga eller när klienten för API: et har sina egna data måste modellen omtränas. 
 
 Omskolning kan ske ofta. Med aktivitet för batch-körning och uppdatering av resurser kan du operationalisera Azure Machine Learning modell omträningen och uppdatera den förutsägbara webb tjänsten med hjälp av Data Factory.
 
@@ -35,9 +35,9 @@ Följande bild illustrerar förhållandet mellan utbildning och förutsägbara w
 
 ![Webbtjänster](./media/update-machine-learning-models/web-services.png)
 
-## <a name="azure-machine-learning-update-resource-activity"></a>Azure Machine Learning uppdatera resurs aktivitet
+## <a name="ml-studio-classic-update-resource-activity"></a>ML Studio (klassisk) uppdatera resurs aktivitet
 
-Följande JSON-kodfragment definierar en Azure Machine Learning batch execution-aktivitet.
+Följande JSON-kodfragment definierar en ML Studio (klassisk) batch execution-aktivitet.
 
 ```json
 {
@@ -61,7 +61,7 @@ Följande JSON-kodfragment definierar en Azure Machine Learning batch execution-
 
 | Egenskap                      | Beskrivning                              | Krävs |
 | :---------------------------- | :--------------------------------------- | :------- |
-| namn                          | Namn på aktiviteten i pipelinen     | Ja      |
+| name                          | Namn på aktiviteten i pipelinen     | Ja      |
 | description                   | Text som beskriver vad aktiviteten gör.  | Inga       |
 | typ                          | För Azure Machine Learning uppdatera resurs aktivitet är aktivitets typen **AzureMLUpdateResource**. | Ja      |
 | linkedServiceName             | Azure Machine Learning länkad tjänst som innehåller egenskapen updateResourceEndpoint. | Ja      |
@@ -99,7 +99,7 @@ Den nya typen av resurs slut punkt för uppdateringar kräver tjänstens huvud n
 
 - Program-ID:t
 - Program nyckel
-- Klient-ID:t
+- Klientorganisations-ID
 
 Här är en exempel på en länkad tjänst definition:
 

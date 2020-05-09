@@ -1,21 +1,27 @@
 ---
 title: Windows Virtual Desktop PowerShell – Azure
-description: Så här felsöker du problem med PowerShell när du konfigurerar en Windows-klient för virtuella skriv bord.
+description: Så här felsöker du problem med PowerShell när du konfigurerar en Windows Virtual Desktop-miljö.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3fb5436c2b5c30c5336385792d0597bdcea2b538
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce19c670df5062a11bf86e9c383a322f9033818d
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127465"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612018"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
+
+>[!IMPORTANT]
+>Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
+>
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Använd den här artikeln för att lösa fel och problem när du använder PowerShell med Windows Virtual Desktop. Mer information om Fjärrskrivbordstjänster PowerShell finns i [Windows Virtual Desktop PowerShell](/powershell/module/windowsvirtualdesktop/).
 
@@ -27,71 +33,57 @@ Besök [Windows-Tech-communityn för Windows](https://techcommunity.microsoft.co
 
 Det här avsnittet innehåller PowerShell-kommandon som vanligt vis används när du konfigurerar Windows Virtual Desktop och ger möjlighet att lösa problem som kan uppstå när du använder dem.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-is-already-assigned-to-a-remoteapp-app-group-in-the-specified-host-pool"></a>Fel: Add-RdsAppGroupUser-kommandot--angivet UserPrincipalName har redan kopplats till en RemoteApp-app-grupp i den angivna poolen
+### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Fel: New-AzRoleAssignment: den tillhandahållna informationen mappas inte till ett AD-objekt-ID
 
-```Powershell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
+```powershell
+AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
 ```
 
-**Orsak:** Det användar namn som används har redan tilldelats en app-grupp av en annan typ. Användare kan inte tilldelas både till en fjärr skrivbord och en fjärran sluten program grupp under samma sessions värd pool.
+**Orsak:** Användaren som anges av parametern *-SignInName* går inte att hitta i den Azure Active Directory som är kopplad till den virtuella Windows-miljön. 
 
-**KORRIGERA:** Om användaren behöver både fjärrappar och fjärr skrivbord, kan du skapa olika lagringspooler eller bevilja användar åtkomst till fjärr skrivbordet, vilket innebär att alla program kan användas på den virtuella datorn för sessionen.
+**KORRIGERA:** Kontrol lera följande saker.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>Fel: Add-RdsAppGroupUser-kommandot--angivet UserPrincipalName finns inte i den Azure Active Directory som är kopplad till fjärr skrivbords klienten
+- Användaren ska synkroniseras med Azure Active Directory.
+- Användaren bör inte vara knuten till B2C (Business-to-Consumer) eller B2B-handel (Business-to-Business).
+- Windows Virtual Desktop-miljön bör vara knuten till rätt Azure Active Directory.
 
-```PowerShell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
-```
+### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Fel: New-AzRoleAssignment: klienten med objekt-ID har inte behörighet att utföra åtgärden över omfattning (kod: AuthorizationFailed)
 
-**Orsak:** Användaren som anges av-UserPrincipalName går inte att hitta i den Azure Active Directory som är kopplad till den virtuella Windows-klienten för fjärr skrivbord.
+**Orsak 1:** Kontot som används saknar ägar behörighet för prenumerationen. 
 
-**KORRIGERA:** Bekräfta objekten i följande lista.
+**Korrigering 1:** En användare med ägar behörighet måste köra roll tilldelningen. Alternativt måste användaren tilldelas rollen administratör för användar åtkomst för att tilldela en användare till en program grupp.
 
-- Användaren är synkroniserad med Azure Active Directory.
-- Användaren är inte knuten till B2C-eller Business-to-Business-handel (B2B).
-- Windows-klienten för virtuella skriv bord är kopplad till rätt Azure Active Directory.
-
-### <a name="error-get-rdsdiagnosticactivities----user-isnt-authorized-to-query-the-management-service"></a>Fel: get-RdsDiagnosticActivities – användaren har inte behörighet att fråga hanterings tjänsten
-
-```PowerShell
-Get-RdsDiagnosticActivities -ActivityId <ActivityId>
-```
-
-**Orsak:** -TenantName-parameter
-
-**KORRIGERA:** Utfärda get-RdsDiagnosticActivities med-TenantName \<TenantName>.
-
-### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>Fel: get-RdsDiagnosticActivities – användaren har inte behörighet att fråga hanterings tjänsten
-
-```PowerShell
-Get-RdsDiagnosticActivities -Deployment -username <username>
-```
-
-**Orsak:** Använd växeln-Deployment.
-
-**KORRIGERA:** -distributions växeln kan endast användas av distributions administratörer. Dessa administratörer är vanligt vis medlemmar i den virtuella Skriv bords gruppen Fjärrskrivbordstjänster/Windows. Ersätt växeln-Deployment med-TenantName \<TenantName>.
-
-### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>Fel: New-RdsRoleAssignment – användaren har inte behörighet att fråga hanterings tjänsten
-
-**Orsak 1:** Kontot som används har inte Fjärrskrivbordstjänster ägar behörighet till klienten.
-
-**Korrigering 1:** En användare med Fjärrskrivbordstjänster ägar behörighet måste köra roll tilldelningen.
-
-**Orsak 2:** Kontot som används har Fjärrskrivbordstjänster ägar behörighet men är inte en del av klientens Azure Active Directory eller har inte behörighet att fråga den Azure Active Directory där användaren finns.
+**Orsak 2:** Kontot som används har ägar behörigheter, men är inte en del av miljöns Azure Active Directory eller har inte behörighet att fråga den Azure Active Directory där användaren finns.
 
 **Korrigera 2:** En användare med Active Directory behörigheter måste köra roll tilldelningen.
 
->[!Note]
->New-RdsRoleAssignment kan inte ge behörighet till en användare som inte finns i Azure Active Directory (AD).
+### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Fel: New-AzWvdHostPool--platsen är inte tillgänglig för resurs typen
+
+```powershell
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+```
+
+Orsak: Windows Virtual Desktop stöder val av plats för värdar, program grupper och arbets ytor som lagrar metadata för tjänsten på vissa platser. Dina alternativ är begränsade till där den här funktionen är tillgänglig. Det här felet innebär att funktionen inte är tillgänglig på den plats som du har valt.
+
+KORRIGERA: en lista över regioner som stöds kommer att publiceras i fel meddelandet. Använd en av de regioner som stöds i stället.
+
+### <a name="error-new-azwvdapplicationgroup-must-be-in-same-location-as-host-pool"></a>Fel: New-AzWvdApplicationGroup måste finnas på samma plats som poolen för värdar
+
+```powershell
+New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e423b8b7d168 Error: ApplicationGroup must be in same location as associated HostPool
+```
+
+**Orsak:** Det finns ett matchnings fel för platsen. Alla värdar, program grupper och arbets ytor har en plats där du kan lagra tjänstens metadata. Alla objekt som du skapar som är associerade med varandra måste finnas på samma plats. Om en adresspool till exempel finns i `eastus`måste du också skapa program grupperna i. `eastus` Om du skapar en arbets yta för att registrera dessa program grupper i, måste även den arbets `eastus` ytan finnas med.
+
+**KORRIGERA:** Hämta platsen som värd poolen skapades i och tilldela sedan den program grupp som du skapar till samma plats.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - En översikt över fel sökning av virtuella Windows-datorer och eskalerade spår finns i [fel söknings översikt, feedback och support](troubleshoot-set-up-overview.md).
-- Information om hur du felsöker problem när du skapar en klient och en adresspool i en Windows Virtual Desktop-miljö finns i [skapa innehavare och skapa värdar för pooler](troubleshoot-set-up-issues.md).
+- Information om hur du felsöker problem när du konfigurerar Windows-miljön för virtuella skriv bord och värdar finns i [skapa miljö-och värddatorer](troubleshoot-set-up-issues.md).
 - Information om hur du felsöker problem när du konfigurerar en virtuell dator (VM) i Windows Virtual Desktop finns i [konfiguration av Session Host-dator](troubleshoot-vm-configuration.md).
 - Information om hur du felsöker problem med klient anslutningar för virtuella Windows-datorer finns i [Windows Virtual Desktop Service Connections](troubleshoot-service-connection.md).
 - Information om hur du felsöker problem med fjärr skrivbords klienter finns i [Felsöka fjärr skrivbords klienten](troubleshoot-client.md)
 - Mer information om tjänsten finns i [Windows Virtual Desktop-miljö](environment-setup.md).
-- Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka distributioner av Resource Manager-mallar](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
 - Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 - Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](../azure-resource-manager/templates/deployment-history.md).

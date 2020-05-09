@@ -3,12 +3,12 @@ title: Självstudie – distribuera vSphere-kluster i Azure
 description: Lär dig att distribuera ett vSphere-kluster i Azure med hjälp av Azure VMWare-lösning (AVS)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: a11928dd936c29b8be0816257a64deadacda4578
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: 6a192454367f2e6ca071e9cfe0a9f1a94868cbdb
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928558"
+ms.locfileid: "82977715"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Självstudie: Distribuera ett privat AVS-moln i Azure
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 För att kunna använda Azure VMWare-lösningen måste du först registrera resurs leverantören. I följande exempel registreras resurs leverantören med din prenumeration.
 
 ```azurecli-interactive
-az provider register -n Microsoft.VMwareVirtustream --subscription <your subscription ID>
+az provider register -n Microsoft.AVS --subscription <your subscription ID>
 ```
 
 Ytterligare sätt att registrera resurs leverantören finns i [Azure Resource providers och-typer](../azure-resource-manager/management/resource-providers-and-types.md).

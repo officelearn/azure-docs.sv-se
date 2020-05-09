@@ -5,17 +5,17 @@ description: Lär dig hur du startar ett konto vid fel i händelse av att den pr
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8de5290c41e6213e61b7b5b09cffba1f4638df30
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2d07195e28c964a540eafdfba94a958e6c9f6981
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857039"
+ms.locfileid: "82871356"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Initiera redundans för lagrings konto
 
@@ -39,7 +39,7 @@ Mer information om Azure Storage redundans finns [Azure Storage redundans](stora
 
 ## <a name="initiate-the-failover"></a>Initiera redundansväxlingen
 
-## <a name="portal"></a>[Portalen](#tab/azure-portal)
+## <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Följ dessa steg om du vill starta en redundansväxling av ett konto från Azure Portal:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: e45d5393833973889b28a95ec86b89593a091f99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d59a2fe32742c2d1d50b9ed33ccace5d377c59c2
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79244815"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791994"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ) om Azure Virtual Network
 
@@ -88,7 +88,7 @@ Ja. Du kan skapa en routningstabell och koppla den till ett undernät. Mer infor
 Nej. Multicast och broadcast stöds inte.
 
 ### <a name="what-protocols-can-i-use-within-vnets"></a>Vilka protokoll kan jag använda i virtuella nätverk?
-Du kan använda TCP-, UDP-och ICMP TCP/IP-protokoll i virtuella nätverk. Unicast stöds i virtuella nätverk, med undantag för Dynamic Host Configuration Protocol (DHCP) via unicast (käll port UDP/68/målport/67). Multicast-, broadcast-, IP-in-IP-inkapslade paket och GRE-paket (Generic Routing Encapsulation) blockeras i virtuella nätverk. 
+Du kan använda TCP-, UDP-och ICMP TCP/IP-protokoll i virtuella nätverk. Unicast stöds i virtuella nätverk, med undantag för Dynamic Host Configuration Protocol (DHCP) via unicast (källport UDP/68/målport/målport) och UDP-65330 källport som är reserverad för värden. Multicast-, broadcast-, IP-in-IP-inkapslade paket och GRE-paket (Generic Routing Encapsulation) blockeras i virtuella nätverk. 
 
 ### <a name="can-i-ping-my-default-routers-within-a-vnet"></a>Kan jag pinga mina standardrouters i ett virtuellt nätverk?
 Nej.

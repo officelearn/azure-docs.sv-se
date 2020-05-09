@@ -5,17 +5,17 @@ description: Lär dig mer om de data och resurser som samlats in för Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: reference
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
-ms.openlocfilehash: 1abd52c98cb1fa6ebe1014fc7a65e756d038d683
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187604"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82856028"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Data referens för Azure Machine Learning-övervakning
 
@@ -126,7 +126,7 @@ I följande tabell visas egenskaperna för Azure Machine Learning resurs loggar 
 
 I följande tabeller visas de plattforms mått som samlas in för Azure Machine Learning alla mått lagras i namn området **Azure Machine Learning-arbetsyta**.
 
-**Förlag**
+**Modell**
 
 | Mått | Enhet | Beskrivning |
 | ----- | ----- | ----- |

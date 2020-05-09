@@ -9,13 +9,13 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: b777e6a45bdfe78889366982a6c28e10e21c4fbc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/08/2020
+ms.openlocfilehash: 2161a9e4460526113aaf89609b72250a09fc6af3
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856993"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891206"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planera och hantera kostnader för Azure Machine Learning
 
@@ -63,7 +63,7 @@ Visa kostnader i diagram och tabeller för olika tidsintervall. Några exempel �
 
 Du kan inte se ett separat tjänst utrymme för Machine Learning.  I stället ser du de olika resurser som du har lagt till i dina Machine Learning-arbetsytor.
 
-## <a name="use-amlcompute"></a>Använd AmlCompute
+## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Använda Azure Machine Learning Compute Cluster (AmlCompute)
 
 Med ständigt föränderliga data behöver du snabb och strömlinjeformad modell utbildning och omträning för att upprätthålla korrekta modeller. Kontinuerlig utbildning kommer dock till en kostnad, särskilt för djup inlärnings modeller på GPU: er. 
 
@@ -138,5 +138,7 @@ Azure Machine Learning Compute har stöd för reserverade instanser. Så om du h
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att hantera kostnader med [kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Läs mer om [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute).
+Läs mer om:
+* [Hantera och öka resurs kvoter](how-to-manage-quotas.md)
+* [Hantera kostnader med [kostnads analys](../cost-management-billing/costs/quick-acm-cost-analysis.md).
+* [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute).

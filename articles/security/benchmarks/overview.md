@@ -7,17 +7,17 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
-ms.custom: security-baselines
-ms.openlocfilehash: 2f4b034948605b0a53a0320863608d284719a96d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: security-benchmark
+ms.openlocfilehash: f2cdaafddb14d8b69fd708e4c89a578b60e53317
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587540"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82606882"
 ---
 # <a name="overview-of-the-azure-security-benchmark"></a>Översikt över Azures säkerhets benchmark
 
-Azures säkerhets benchmark innehåller rekommendationer som hjälper dig att förbättra säkerheten för dina program och data på Azure.
+Azure Security Benchmark innehåller rekommendationer som hjälper dig att förbättra säkerheten för dina program och data i Azure.
 
 Detta riktmärke fokuserar på molnbaserade kontroll områden. Dessa kontroller är konsekventa med välkända säkerhets mått, till exempel de som beskrivs av CIS-kontroller (Center for Internet Security) version 7,1.
 
@@ -33,7 +33,7 @@ Följande kontroller används i Azures säkerhets benchmark:
 - [Skydd mot skadlig kod](security-control-malware-defense.md)
 - [Dataåterställning](security-control-data-recovery.md)
 - [Incidenthantering](security-control-incident-response.md)
-- [Intrångstester och Red Team-övningar (rött lag)](security-control-penetration-tests-red-team-exercises.md)
+- [Penetrationstester och Red Team-tester](security-control-penetration-tests-red-team-exercises.md)
 
 Du kan också hämta [Azure Security-prestandatest v1 Excel-kalkylbladet](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets).
 
@@ -46,7 +46,7 @@ Varje rekommendation innehåller följande information:
 - **Ansvar**: om kunden eller tjänst leverantören (eller båda) är (är) ansvarig för att implementera den här rekommendationen. Säkerhets ansvars områden delas i det offentliga molnet. Vissa säkerhets kontroller är bara tillgängliga för moln tjänst leverantören och därför ansvarar leverantören för att adressera dem. Detta är allmänna observationer – för vissa enskilda tjänster skiljer sig ansvaret från det som anges i Azures säkerhets benchmark. Skillnaderna beskrivs i grundläggande rekommendationer för den enskilda tjänsten. 
 - **Information**: motiveringen till rekommendationen och länkar till vägledning om hur du implementerar den. Om rekommendationen stöds av Azure Security Center, visas även den informationen.
 
-Vi välkomnar din detaljerade feedback och aktivt deltagande i Azures säkerhets benchmark-ansträngning. Om du vill ange benchmark-teamets direkta inmatade fyller du i formuläret på [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
+Vi välkomnar din detaljerade feedback och aktivt deltagande i Azures säkerhets benchmark-ansträngning. Om du vill ge Azures prestandatest för Azure-säkerhet kan du fylla i formuläret på [https://aka.ms/AzSecBenchmark](https://aka.ms/AzSecBenchmark).
 
 ## <a name="next-steps"></a>Nästa steg
 

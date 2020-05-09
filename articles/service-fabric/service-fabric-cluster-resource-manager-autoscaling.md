@@ -5,12 +5,12 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: edcf2774873cc23a74a47cc1c9a12e2daa2ed419
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984545"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793099"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduktion till automatisk skalning
 Automatisk skalning är en ytterligare funktion i Service Fabric för att dynamiskt skala dina tjänster baserat på den belastning som tjänsterna rapporterar, eller baserat på deras användning av resurser. Automatisk skalning ger bra elastiskhet och möjliggör etablering av ytterligare instanser eller partitioner för din tjänst på begäran. Hela processen för automatisk skalning automatiseras och är transparent, och när du har konfigurerat dina principer på en tjänst behöver du inte heller manuella skalnings åtgärder på service nivå. Automatisk skalning kan aktive ras antingen när tjänsten skapas, eller när som helst genom att uppdatera tjänsten.
@@ -130,7 +130,7 @@ Samma som med en mekanism som använder skalning genom att lägga till eller ta 
 * _Lägsta instans antal_ definierar den nedre gränsen för skalning. Om antalet partitioner för tjänsten når den här gränsen kommer tjänsten inte att skalas i oberoende av belastningen.
 
 > [!WARNING] 
-> När AddRemoveIncrementalNamedPartitionScalingMechanism används med tillstånds känsliga tjänster, kommer Service Fabric att lägga till eller ta bort partitioner **utan meddelande eller varning**. Ompartitionering av data utförs inte när skalnings metoden utlöses. Vid skalnings åtgärder är nya partitioner tomma och i händelse av en skalnings åtgärd **kommer partitionen att tas bort tillsammans med alla data som den innehåller**.
+> När AddRemoveIncrementalNamedPartitionScalingMechanism används med tillstånds känsliga tjänster, kommer Service Fabric att lägga till eller ta bort partitioner **utan meddelande eller varning**. Ompartitionering av data utförs inte när skalnings metoden utlöses. I händelse av en skalbar åtgärd är nya partitioner tomma och i händelse av skalning i drift, tas **partitionen bort tillsammans med alla data som den innehåller**.
 
 ## <a name="setting-auto-scaling-policy"></a>Ange princip för automatisk skalning
 

@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 4/29/2020
+ms.date: 05/06/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d069df0a095cc0356cd61155dde875a5d92ed18d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: aa9b090627b6f27a54b67c361b45b6f99e3a6338
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594159"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982385"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändringsflödesprocessorn i Azure Cosmos DB
 
@@ -100,6 +100,7 @@ Du debiteras för ru: er som förbrukas, eftersom data förflyttning in och ut u
 Nu kan du fortsätta med att lära dig mer om att ändra flödes processor i följande artiklar:
 
 * [Översikt över ändra feed](change-feed.md)
+* [Ändra feed-pull-modell](change-feed-pull-model.md)
 * [Så här migrerar du från biblioteket Change feed processor](how-to-migrate-from-change-feed-library.md)
 * [Använda ändringsflödesövervakaren](how-to-use-change-feed-estimator.md)
 * [Starttid för ändringsflödesprocessor](how-to-configure-change-feed-start-time.md)

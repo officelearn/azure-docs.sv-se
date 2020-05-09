@@ -5,27 +5,27 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7dc218416e3b91998a6f06a62670ff8d2158d533
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509163"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82779305"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Hantera ändringsspårning och inventering
 
 När du lägger till en ny fil eller register nyckel som ska spåras aktiverar Azure Automation det för funktionen [ändringsspårning och inventering](change-tracking.md) . Den här artikeln innehåller procedurer för att arbeta med den här funktionen.
 
-## <a name="enable-the-full-change-tracking-and-inventory-solution"></a>Aktivera fullständig Ändringsspårning-och inventerings lösning
+## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Aktivera fullständig Ändringsspårning-och inventerings funktion
 
-Om du har aktiverat [Azure Security Center fil integritets övervakning (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)kan du använda den fullständiga ändringsspårning och inventerings lösningen enligt beskrivningen nedan. Inställningarna tas inte bort av den här processen.
+Om du har aktiverat [Azure Security Center fil integritets övervakning (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)kan du använda den fullständiga ändringsspårning och inventerings funktionen enligt beskrivningen nedan. Inställningarna tas inte bort av den här processen.
 
 > [!NOTE]
-> Att aktivera hela Ändringsspårning-och inventerings lösningen kan orsaka ytterligare kostnader. Se [Automation-prissättning](https://azure.microsoft.com/pricing/details/automation/).
+> Aktivering av funktionen fullständig Ändringsspårning och inventering kan orsaka ytterligare kostnader. Se [Automation-prissättning](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Ta bort övervaknings lösningen genom att gå till arbets ytan och hitta den i [listan över installerade övervaknings lösningar](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Klicka på namnet på lösningen för att öppna sammanfattnings sidan och klicka sedan på **ta bort**, enligt beskrivningen i [ta bort en övervaknings lösning](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Om du vill aktivera lösningen igen går du till Automation-kontot och väljer **ändrings spårning** under **konfigurations hantering**.
+3. Om du vill återaktivera Ändringsspårning och inventering navigerar du till Automation-kontot och väljer **ändrings spårning** under **konfigurations hantering**.
 4. Välj Log Analytics arbets yta och Automation-konto, bekräfta inställningarna för arbets ytan och klicka på **Aktivera**.
 
 ## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Publicera datorer till Ändringsspårning och inventering

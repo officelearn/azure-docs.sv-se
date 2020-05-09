@@ -15,16 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 662619e101b45d1dd8b34ea97e31f214b254124a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20580edb84a8c983c2342e6a5904c75a0986a3d7
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521874"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801577"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Felsöka problem med peering i virtuella nätverk
+<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=457b3ba7-7ac5-93be-981c-677553ad39dd" target='_blank'>Börja</a></span><span class="has-padding-small">lösa problemet snabbt genom att använda vår virtuella agent för att köra <b>automatiserad diagnostik.</b> </span> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <sub>Privacy Statement</sub> Sekretess <div align="right">policy</div></a></span></p>
 
-Den här fel söknings guiden innehåller steg som hjälper dig att lösa de flesta problem med [peering i virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) .
+Den här fel söknings guiden innehåller steg som hjälper dig att lösa de flesta problem med [peering i virtuella nätverk](virtual-network-peering-overview.md) .
 
 ![Diagram över peering för virtuellt nätverk](./media/virtual-network-troubleshoot-peering-issues/4489538_en_1.png)
 

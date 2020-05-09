@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 889d0d1e98f5c9947588011774d02e54f05edca1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0dab5f3dcdfb6ddabbd94960dcf8a8bf2bce98af
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257767"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890775"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Konfigurera ett labb som fokuserar på djup inlärning i naturlig språk bearbetning med hjälp av Azure Lab Services
 Den här artikeln visar hur du konfigurerar ett labb som fokuserar på djup inlärning i naturlig språk bearbetning (NLP) med hjälp av Azure Lab Services. NLP (Natural Language Processing) är en form av artificiell intelligens (AI) som gör det möjligt för datorer med översättning, tal igenkänning och andra funktioner för språk förståelse.  
@@ -40,7 +40,7 @@ Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa e
 | ------------ | ------------------ |
 | Storlek för virtuell dator (VM) | Liten GPU (Compute). Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärning. |
 | Avbildning av virtuell dator | [Data science Virtual Machine för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Den här avbildningen innehåller ramverk för djup inlärning och verktyg för maskin inlärning och data vetenskap. Om du vill visa en fullständig lista över installerade verktyg på den här avbildningen kan du läsa följande artikel: [Vad ingår i DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
-| Aktivera anslutning till fjärr skrivbord | Aktivera. <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina Virtual Machines (VM) med hjälp av fjärr skrivbord (RDP).</p><p>**Viktigt**: RDP har redan installerats och kon figurer ats på data science Virtual Machine för Linux-avbildningen. Därför kan lärare/studenter ansluta till virtuella datorer via RDP utan ytterligare åtgärder. Om du behöver ansluta till det grafiska Skriv bordet har den här avbildningen redan [X2Go Server](https://wiki.x2go.org/doku.php/doc:newtox2go) installerad på den virtuella datorn. Studenter måste installera X2Go-klienten på sina lokala datorer och måste använda klienten för att ansluta. Mer information finns i följande guider: <ul><li>[Så här får du åtkomst till Data Science Virtual Machine för Linux](../../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)</li><li>[Ansluta till den virtuella dator mal len för att installera RDP-och GUI-paket](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)</li></ul></p>   |
+| Aktivera anslutning till fjärr skrivbord | <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina Virtual Machines (VM) med hjälp av fjärr skrivbord (RDP).</p><p>**Viktigt**: om du aktiverar den här inställningen öppnas endast **RDP** -porten på Linux-datorer. Om RDP redan har installerats och kon figurer ATS på avbildningen av den virtuella datorn kan du/studenter ansluta till virtuella datorer via RDP utan att följa ytterligare steg. <p>Om den virtuella dator avbildningen inte har RDP installerat och konfigurerad, måste du ansluta till Linux-datorn med SSH för första gången och installera RDP-och GUI-paket så att du/studenter kan ansluta till Linux-datorn med RDP senare. Mer information finns i [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md). Sedan publicerar du avbildningen så att eleverna kan RDP i de virtuella student Linux-datorerna.  |
 
 Data Science Virtual Machine för Linux-avbildningen ger de nödvändiga djup inlärnings ramverk och verktyg som krävs för den här typen av klass. När du har skapat mallen behöver du alltså inte anpassa den ytterligare. Det kan publiceras för studenter att använda. Klicka på knappen **publicera** på mallsida för att publicera mallen i labbet.  
 

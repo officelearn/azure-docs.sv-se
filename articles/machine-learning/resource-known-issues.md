@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 2760033cd66e99a7a7f6d331e03c6f98c486d286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93015da810f163a48529704e69e1747ac1aec401
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231976"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889399"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -39,7 +39,7 @@ Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjä
 Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på när du arbetar med Azure Machine Learning.
 
 ## <a name="installation-and-import"></a>Installation och import
-
+                           
 * **Pip-installation: beroenden är inte garanterat konsekventa med en enskild rad installation**: 
 
    Detta är en känd begränsning i PIP, eftersom den inte har en fungerande beroende lösare när du installerar som en enskild rad. Det första unika beroendet är det enda som det ser ut. 
@@ -56,7 +56,29 @@ Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på n
         pip install azure-ml-datadrift
         pip install azureml-train-automl 
      ```
-
+     
+* **Förklarings paketet är inte guarateed som ska installeras när du installerar azureml-träna-automl-client:** 
+   
+   När du kör en fjärran sluten automl med modell förklaring aktive rad visas ett fel meddelande om att "" installera azureml-deklarning-Model-paketet för modell förklaringar ". Detta är ett känt problem och som en lösning följer du ett av stegen nedan:
+  
+  1. Installera azureml – förklara-Model lokalt.
+   ```
+      pip install azureml-explain-model
+   ```
+  2. Inaktivera funktionen för välklare ring helt genom att skicka model_explainability = falskt i automl-konfigurationen.
+   ```
+      automl_config = AutoMLConfig(task = 'classification',
+                             path = '.',
+                             debug_log = 'automated_ml_errors.log',
+                             compute_target = compute_target,
+                             run_configuration = aml_run_config,
+                             featurization = 'auto',
+                             model_explainability=False,
+                             training_data = prepped_data,
+                             label_column_name = 'Survived',
+                             **automl_settings)
+    ``` 
+    
 * **Panda-fel: visas vanligt vis under AutoML experiment:**
    
    När du manuellt konfigurerar din Environmnet med hjälp av pip kommer du att märka felkoder (särskilt från Pandas) på grund av att paket versioner som inte stöds installeras. För att förhindra sådana fel måste du [Installera AUTOML SDK med hjälp av automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):

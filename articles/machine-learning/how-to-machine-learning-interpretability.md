@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: Luis.Quintanilla
 ms.date: 04/02/2020
-ms.openlocfilehash: fcb837af85a54102e8c9eafc33249af9dba6b5ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4210352a9d8cd3cd9cb9afda7d9a4798d96f44b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631399"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982895"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Modell tolkning i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -74,17 +74,17 @@ Lär dig mer om tolknings tekniker som stöds, maskin inlärnings modeller som s
 
 |Tolknings teknik|Beskrivning|Typ|
 |--|--|--------------------|
-|1. SHAP Tree-förklaring| [SHAP](https://github.com/slundberg/shap): s träd förklaring, som fokuserar på polynomed Time fast SHAP för värde uppskattning som är speciell för träd **och ensembler för träd**.|Modell-/regionsspecifika|
-|2. SHAP djup förklaring| Baserat på förklaringen från [SHAP](https://github.com/slundberg/shap)är djupgående förklaring en algoritm för hög hastighet för SHAP värden i djup inlärnings modeller som bygger på en anslutning med DeepLIFT som beskrivs i [SHAP Nips-papper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** -modeller och **keras** -modeller med TensorFlow-backend stöds (det finns även stöd för PyTorch) ".|Modell-/regionsspecifika|
-|3. SHAP linjära förklaring| [SHAP](https://github.com/slundberg/shap)är en linjär uppskattning som beräknar SHAP-värden för en **linjär modell**, vilket kan vara att redovisa mellan funktions korrelationer.|Modell-/regionsspecifika|
-|4. SHAP kernel-förklaring| [SHAPs](https://github.com/slundberg/shap)kernel-förklaring använder en särskilt viktad lokal linjär regression för att beräkna SHAP-värden för **alla modeller**.|Modell – oberoende|
-|5. härmar förklaring (globalt surrogat)| Härma förklarar vad som är baserat på idén med [globala surrogat modeller](https://christophm.github.io/interpretable-ml-book/global.html) för att efterlikna blackbox-modeller. En global surrogat modell är en modell med en inbyggd tolkning som är utbildad för att approximera förutsägelserna för **en svart Box-modell** så exakt som möjligt. Data forskare kan tolka surrogat modellen för att rita slut satser om den svarta Box-modellen. Du kan använda någon av följande tolknings bara modeller som surrogat modell: LightGBM (LGBMExplainableModel), linjär regression (LinearExplainableModel), Stochastic gradient brantaste-förklarande modell (SGDExplainableModel) och besluts träd (DecisionTreeExplainableModel).|Modell – oberoende|
-|6. permutations förklaring för funktions prioritet (PFI)| Permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av [Breiman-bladet för slumpmässiga skogar](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måtten för räntan förändras. Ju större ändringen är, desto viktigare är funktionen. PFI kan förklara det övergripande beteendet för **en underliggande modell** men förklarar inte enskilda förutsägelser. |Modell – oberoende|
+|SHAP Tree-förklaring| [SHAP](https://github.com/slundberg/shap): s träd förklaring, som fokuserar på polynomed Time fast SHAP för värde uppskattning som är speciell för träd **och ensembler för träd**.|Modell-/regionsspecifika|
+|SHAP djup förklaring| Baserat på förklaringen från SHAP är djupgående förklaring en algoritm för hög hastighet för SHAP värden i djup inlärnings modeller som bygger på en anslutning med DeepLIFT som beskrivs i [SHAP Nips-papper](https://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions). **TensorFlow** -modeller och **keras** -modeller med TensorFlow-backend stöds (det finns även stöd för PyTorch) ".|Modell-/regionsspecifika|
+|SHAP linjär förklara| SHAP är en linjär uppskattning som beräknar SHAP-värden för en **linjär modell**, vilket kan vara att redovisa mellan funktions korrelationer.|Modell-/regionsspecifika|
+|SHAP kernel-förklaring| SHAPs kernel-förklaring använder en särskilt viktad lokal linjär regression för att beräkna SHAP-värden för **alla modeller**.|Modell – oberoende|
+|Imitera förklaring (globalt surrogat)| Härma förklarar vad som är baserat på idén med [globala surrogat modeller](https://christophm.github.io/interpretable-ml-book/global.html) för att efterlikna blackbox-modeller. En global surrogat modell är en modell med en inbyggd tolkning som är utbildad för att approximera förutsägelserna för **en svart Box-modell** så exakt som möjligt. Data forskare kan tolka surrogat modellen för att rita slut satser om den svarta Box-modellen. Du kan använda någon av följande tolknings bara modeller som surrogat modell: LightGBM (LGBMExplainableModel), linjär regression (LinearExplainableModel), Stochastic gradient brantaste-förklarande modell (SGDExplainableModel) och besluts träd (DecisionTreeExplainableModel).|Modell – oberoende|
+|Förklaring av permutations-funktions prioritet (PFI)| Permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av [Breiman-bladet för slumpmässiga skogar](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måtten för räntan förändras. Ju större ändringen är, desto viktigare är funktionen. PFI kan förklara det övergripande beteendet för **en underliggande modell** men förklarar inte enskilda förutsägelser. |Modell – oberoende|
 
 
 
 
-Förutom de tolknings tekniker som beskrivs ovan har vi stöd för en annan [SHAP-baserad förklaring](https://github.com/slundberg/shap), som kallas `TabularExplainer`. Beroende på modellen använder en av `TabularExplainer` de SHAP-förklaringar som stöds:
+Förutom de tolknings tekniker som beskrivs ovan har vi stöd för en annan SHAP-baserad förklaring `TabularExplainer`, som kallas. Beroende på modellen använder en av `TabularExplainer` de SHAP-förklaringar som stöds:
 
 * TreeExplainer för alla trädbaserade modeller
 * DeepExplainer för DNN-modeller
@@ -120,4 +120,6 @@ Du kan köra förklaringen via fjärr anslutning på Azure Machine Learning ber�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [anvisningar för att](how-to-machine-learning-interpretability-aml.md) aktivera tolkning för modell utbildning både lokalt och på Azure Machine Learning fjärrstyrda beräknings resurser. Se [exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) för ytterligare scenarier.
+- Se [anvisningar för att](how-to-machine-learning-interpretability-aml.md) aktivera tolkning för modell utbildning både lokalt och på Azure Machine Learning fjärrstyrda beräknings resurser. 
+- Se [exempel antecknings böcker](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) för ytterligare scenarier. 
+- Om du är intresse rad av att tolka text scenarier, se [tolka text](https://github.com/interpretml/interpret-text), en relaterad öppen källkod lagrings platsen till [tolkning – community](https://github.com/interpretml/interpret-community/), för tolknings tekniker för NLP. `azureml.interpret`paketet stöder för närvarande inte dessa tekniker, men du kan komma igång med en [exempel antecknings bok i text klassificeringen](https://github.com/interpretml/interpret-text/blob/master/notebooks/text_classification/text_classification_classical_text_explainer.ipynb).

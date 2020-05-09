@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68fe7da136d744e1efa76a89061afe6995a75051
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 920755e128f10a79a056d47813b1b65d8633c937
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133260"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628750"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
 
@@ -51,9 +51,18 @@ Om meddelandets nytto Last är större än 32 KB eller är i binärformat, kör 
 
 En bra idé att använda Event Hubs är att använda flera konsument grupper för jobb skalbarhet. Antalet läsare i Stream Analytics jobb för en viss ineffekt påverkar antalet läsare i en enda konsument grupp. Det exakta antalet mottagare baseras på intern implementerings information för logiken för skalbar topologi och exponeras inte externt. Antalet läsare kan ändras när ett jobb startas eller vid jobb uppgraderingar.
 
-Felet som visas när antalet mottagare överskrider det högsta värdet är: 
+Följande fel meddelanden visas när antalet mottagare överskrider max gränsen. Fel meddelandet innehåller en lista över befintliga anslutningar som har gjorts till Event Hub under en konsument grupp. Taggen `AzureStreamAnalytics` indikerar att anslutningarna kommer från tjänsten Azure streaming.
 
-`The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
+```
+The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.
+
+The following information may be helpful in identifying the connected receivers: Exceeded the maximum number of allowed receivers per partition in a consumer group which is 5. List of connected receivers – 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1, 
+AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
+```
 
 > [!NOTE]
 > När antalet läsare ändras under en jobb uppgradering skrivs tillfälliga varningar till gransknings loggar. Stream Analytics-jobb återställs automatiskt från de här tillfälliga problemen.
@@ -62,7 +71,7 @@ Felet som visas när antalet mottagare överskrider det högsta värdet är:
 
 Följ dessa steg om du vill lägga till en ny konsument grupp i Event Hubs-instansen:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 
 2. Leta upp Händelsehubben.
 

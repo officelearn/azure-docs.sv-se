@@ -1,5 +1,6 @@
 ---
-title: Referens för Microsoft Identity Platform-ID-token
+title: Microsoft Identity Platform ID-token | Azure
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du använder id_tokens som har spridits av Azure AD v 1.0 och Microsoft Identity Platform (v 2.0) slut punkter.
 services: active-directory
 author: hpsin
@@ -8,21 +9,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 0d1a5ee3ae56e8b5c4886308624159853c52b52c
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690186"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926722"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
-`id_tokens`skickas till klient programmet som en del av ett [OpenID Connect](v2-protocols-oidc.md) -flöde. De kan skickas på sidan eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren.
+`id_tokens`skickas till klient programmet som en del av ett [OpenID Connect](v2-protocols-oidc.md) -flöde (OIDC). De kan skickas på sidan eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren.
 
 ## <a name="using-the-id_token"></a>Använda id_token
 
@@ -30,7 +31,7 @@ ID-token ska användas för att verifiera att en användare är den som han elle
 
 ## <a name="claims-in-an-id_token"></a>Anspråk i en id_token
 
-`id_tokens`för en Microsoft-identitet är [JWTs](https://tools.ietf.org/html/rfc7519), vilket innebär att de består av en rubrik, en nytto last och en signatur. Du kan använda rubriken och signaturen för att verifiera tokens äkthet, medan nytto lasten innehåller information om användaren som begärdes av din klient. Om inget annat anges visas alla anspråk som anges här i både v 1.0-och v 2.0-token.
+`id_tokens`för en Microsoft-identitet är [JWTs](https://tools.ietf.org/html/rfc7519) (JSON Web tokens), vilket innebär att de består av en rubrik, en nytto last och en signatur. Du kan använda rubriken och signaturen för att verifiera tokens äkthet, medan nytto lasten innehåller information om användaren som begärdes av din klient. Om inget annat anges visas alla JWT-anspråk som anges här i både v 1.0-och v 2.0-token.
 
 ### <a name="v10"></a>V1.0
 
@@ -52,14 +53,14 @@ Visa denna v 2.0-exempel-token i [JWT.MS](https://jwt.ms/#id_token=eyJ0eXAiOiJKV
 
 |Begär | Format | Beskrivning |
 |-----|--------|-------------|
-|`typ` | Sträng-Always-JWT | Anger att token är en JWT.|
+|`typ` | Sträng-Always-JWT | Anger att token är en JWT-token.|
 |`alg` | Sträng | Anger algoritmen som användes för att signera token. Exempel: "RS256" |
 |`kid` | Sträng | Tumavtryck för den offentliga nyckel som används för att signera denna token. Genereras i både v 1.0 och v 2.0 `id_tokens`. |
 |`x5t` | Sträng | Samma (används och värdet) som `kid`. Detta är dock ett äldre anspråk som endast har genererats i `id_tokens` v 1.0 för kompatibilitet. |
 
 ### <a name="payload-claims"></a>Nytto Last anspråk
 
-I den här listan visas de anspråk som finns i de flesta id_tokens som standard (förutom där antecknas).  Din app kan dock använda [valfria anspråk](active-directory-optional-claims.md) för att begära ytterligare anspråk i id_token.  Detta kan vara ett `groups` intervall från anspråk till information om användarens namn.
+I den här listan visas de JWT-anspråk som är i de flesta id_tokens som standard (utom där antecknas).  Din app kan dock använda [valfria anspråk](active-directory-optional-claims.md) för att begära ytterligare JWT-anspråk i id_token.  Detta kan vara ett `groups` intervall från anspråk till information om användarens namn.
 
 |Begär | Format | Beskrivning |
 |-----|--------|-------------|
@@ -85,23 +86,23 @@ I den här listan visas de anspråk som finns i de flesta id_tokens som standard
 |`uti` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure för att omverifiera token. Ignoreras. |
 |`ver` | Sträng, antingen 1,0 eller 2,0 | Anger versionen för id_token. |
 
-
 > [!NOTE]
-> V1-och v2-id_token har skillnader i mängden information som de kommer att ha som visas i exemplen ovan. Versionen anger i princip slut punkten för Azure AD-plattformen varifrån den utfärdades. [Azure AD OAuth-implementeringen](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) har utvecklats genom åren. För närvarande har vi två olika oAuth-slutpunkter för AzureAD-program. Du kan använda någon av de nya slut punkterna som är kategoriserade som v2 eller den gamla som är v1. OAuth-slutpunkterna för båda är olika. V2-slutpunkten är den nyare där vi försöker migrera alla funktioner i v1-slutpunkt och rekommendera nya utvecklare att använda v2-slutpunkten. 
+> V1-och v2-id_token har skillnader i mängden information som de kommer att ha som visas i exemplen ovan. Versionen anger i princip slut punkten för Azure AD-plattformen varifrån den utfärdades. [Azure AD OAuth-implementeringen](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) har utvecklats genom åren. För närvarande har vi två olika oAuth-slutpunkter för AzureAD-program. Du kan använda någon av de nya slut punkterna som är kategoriserade som v2 eller den gamla som är v1. OAuth-slutpunkterna för båda är olika. V2-slutpunkten är den nyare där vi försöker migrera alla funktioner i v1-slutpunkt och rekommendera nya utvecklare att använda v2-slutpunkten.
+>
 > - V1: Azure Active Directory slut punkter:`https://login.microsoftonline.com/common/oauth2/authorize`
 > - V2: slut punkter för Microsoft Identity Platform:`https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>Verifiera en id_token
 
-Verifiering av `id_token` en liknar det första steget i att [Verifiera en åtkomsttoken](access-tokens.md#validating-tokens) – klienten bör verifiera att rätt utfärdare har skickat tillbaka token och att den inte har manipulerats. Eftersom `id_tokens` är alltid en JWT finns det många bibliotek för att validera dessa tokens – vi rekommenderar att du använder någon av dessa i stället för att göra det själv.
+Verifiering av `id_token` en liknar det första steget i att [Verifiera en åtkomsttoken](access-tokens.md#validating-tokens) – klienten bör verifiera att rätt utfärdare har skickat tillbaka token och att den inte har manipulerats. Eftersom `id_tokens` är alltid en JWT-token finns det många bibliotek för att validera dessa tokens – vi rekommenderar att du använder någon av dessa i stället för att göra det själv.
 
-Information om hur du validerar token manuellt finns i avsnittet om hur du [verifierar en](access-tokens.md#validating-tokens)åtkomsttoken. När signaturen för token har verifierats ska följande anspråk val IDE ras i id_token (de kan också utföras av ditt verifierings bibliotek för token):
+Information om hur du validerar token manuellt finns i avsnittet om hur du [verifierar en](access-tokens.md#validating-tokens)åtkomsttoken. När signaturen för token har verifierats ska följande JWT-anspråk val IDE ras i id_token (de kan också utföras av ditt verifierings bibliotek för token):
 
-* Tidsstämplar: `iat`-, `nbf`-och `exp` -tidsstämplar bör alla falla före eller efter den aktuella tiden, efter behov. 
+* Tidsstämplar: `iat`-, `nbf`-och `exp` -tidsstämplar bör alla falla före eller efter den aktuella tiden, efter behov.
 * Mål grupp: `aud` anspråket ska matcha app-ID för ditt program.
 * Nonce: `nonce` anspråk i nytto lasten måste matcha nonce-parametern som överförts till/Authorize-slutpunkten under den första begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs mer [om åtkomsttoken](access-tokens.md)
-* Anpassa anspråk i id_token med [valfria anspråk](active-directory-optional-claims.md).
+* Anpassa JWT-anspråk i id_token med [valfria anspråk](active-directory-optional-claims.md).

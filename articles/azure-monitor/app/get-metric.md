@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/28/2020
-ms.openlocfilehash: 6d0d05f13f592fc981d3df52d107b385bdbbb21e
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 94525ce901a89935c4ee7800ada44a9dff84b27a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82515292"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927912"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Anpassad mått samling i .NET och .NET Core
 
@@ -20,7 +20,7 @@ Azure Monitor Application Insights .NET-och .NET Core SDK: er har två olika met
 
 ## <a name="trackmetric-versus-getmetric"></a>TrackMetric jämfört med GetMetric
 
-`TrackMetric()`skickar RAW-telemetri som anger ett mått. Det är ineffektivt att skicka ett enda telemetri objekt för varje värde. `TrackMetric()`skickar RAW-telemetri som anger ett mått. Det är ineffektivt att skicka ett enda telemetri objekt för varje värde. `TrackMetric()`är också ineffektiv i förhållande till prestanda eftersom varje `TrackMetric(item)` går genom den fullständiga SDK-pipelinen för telemetri-initierare och processorer. Till skillnad `TrackMetric()`från `GetMetric()` , hanterar lokal församling för dig och skickar sedan bara ett sammanställt Summary-mått till ett fast intervall på en minut. Så om du behöver övervaka vissa anpassade mått på den andra eller till och med millisekundnivå kan du göra det samtidigt som du bara kommer att kosta lagrings-och nätverks trafiken varje minut. Detta minskar också risken för begränsning som inträffar eftersom det totala antalet telemetridata som måste skickas för ett sammanställt mått minskar avsevärt.
+`TrackMetric()`skickar RAW-telemetri som anger ett mått. Det är ineffektivt att skicka ett enda telemetri objekt för varje värde. `TrackMetric()`är också ineffektiv i förhållande till prestanda eftersom varje `TrackMetric(item)` går genom den fullständiga SDK-pipelinen för telemetri-initierare och processorer. Till skillnad `TrackMetric()`från `GetMetric()` , hanterar lokal församling för dig och skickar sedan bara ett sammanställt Summary-mått till ett fast intervall på en minut. Så om du behöver övervaka vissa anpassade mått på den andra eller till och med millisekundnivå kan du göra det samtidigt som du bara kommer att kosta lagrings-och nätverks trafiken varje minut. Detta minskar också risken för begränsning som inträffar eftersom det totala antalet telemetridata som måste skickas för ett sammanställt mått minskar avsevärt.
 
 I Application Insights är anpassade mått som samlas in `TrackMetric()` via `GetMetric()` och inte föremål för [sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling). Sampling av viktiga mått kan leda till scenarier där aviseringar som du kan ha byggt runt dessa mått kan bli otillförlitliga. Genom att aldrig sampla in dina anpassade mått, kan du vanligt vis vara säker på att när aviserings tröskelvärdena har brutits, utlöses en avisering.  Men eftersom anpassade mått inte samplas, finns det några möjliga problem.
 
@@ -186,23 +186,11 @@ Du kommer dock att märka att du inte kan dela upp måttet med den nya anpassade
 
 ![Delar upp support](./media/get-metric/splitting-support.png)
 
-Som standard är flerdimensionella mått i Metric Explorer-upplevelsen inte aktiverade i Application Insights-resurser. Om du vill aktivera det här beteendet går du till fliken användning och uppskattad kostnad genom [att markera Aktivera aviseringar för anpassade mått dimensioner](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
-
-### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Så här använder du metricIdentifier när det finns fler än tre dimensioner
-
-För närvarande stöds 10 dimensioner men större än tre dimensioner kräver att användaren av `metricIdentifier`:
-
-```csharp
-// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
-// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
-MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
-Metric computersSold  = _telemetryClient.GetMetric(id);
-computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
-```
+Som standard är flerdimensionella mått i Metric Explorer-upplevelsen inte aktiverade i Application Insights-resurser.
 
 ### <a name="enable-multi-dimensional-metrics"></a>Aktivera flerdimensionella mått
 
-Om du vill aktivera flerdimensionella mått för en Application Insights resurs väljer du **användning och uppskattade kostnader** > **anpassade mått** > **aktiverar aviseringar för anpassade mått dimensioner** > **OK**.
+Om du vill aktivera flerdimensionella mått för en Application Insights resurs väljer du **användning och uppskattade kostnader** > **anpassade mått** > **aktiverar aviseringar för anpassade mått dimensioner** > **OK**. Mer information om detta hittar du [här](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
 
 När du har gjort den här ändringen och skickat ny multi-dimensionell telemetri, kan du **tillämpa delning**.
 
@@ -214,6 +202,18 @@ När du har gjort den här ändringen och skickat ny multi-dimensionell telemetr
 Och Visa dina mått agg regeringar för varje _FormFactor_ -dimension:
 
 ![Form faktorer](./media/get-metric/formfactor.png)
+
+### <a name="how-to-use-metricidentifier-when-there-are-more-than-three-dimensions"></a>Så här använder du MetricIdentifier när det finns fler än tre dimensioner
+
+För närvarande stöds 10 dimensioner men större än tre dimensioner kräver användning av `MetricIdentifier`:
+
+```csharp
+// Add "using Microsoft.ApplicationInsights.Metrics;" to use MetricIdentifier
+// MetricIdentifier id = new MetricIdentifier("[metricNamespace]","[metricId],"[dim1]","[dim2]","[dim3]","[dim4]","[dim5]");
+MetricIdentifier id = new MetricIdentifier("CustomMetricNamespace","ComputerSold", "FormFactor", "GraphicsCard", "MemorySpeed", "BatteryCapacity", "StorageCapacity");
+Metric computersSold  = _telemetryClient.GetMetric(id);
+computersSold.TrackValue(110,"Laptop", "Nvidia", "DDR4", "39Wh", "1TB");
+```
 
 ## <a name="custom-metric-configuration"></a>Anpassad mått konfiguration
 

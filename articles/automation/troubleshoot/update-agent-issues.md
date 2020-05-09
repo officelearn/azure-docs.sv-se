@@ -9,25 +9,28 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 25f3734a2a12ddf87862cc1d127f88f175225e07
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: 1b4467128fae3fd71a6e588e3c05d287c153e168
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900294"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927895"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Felsök problem med Windows Update-agenten
 
-Det kan finnas många orsaker till att datorn inte visas som klar (felfri) i Uppdateringshantering. I Uppdateringshantering kan du kontrol lera hälso tillståndet för en Hybrid Runbook Worker agent för att fastställa det underliggande problemet. Den här artikeln beskriver hur du kör fel sökaren för Azure-datorer från Azure Portal och datorer som inte är Azure-datorer i [scenariot offline](#troubleshoot-offline).
+Det kan finnas många orsaker till att datorn inte visas som klar (felfri) i Uppdateringshantering. Du kan kontrol lera hälso tillståndet för en Windows Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. Följande är tre beredskaps tillstånd för en dator:
 
-Följande är tre beredskaps tillstånd för en dator:
-
-* Klar: Hybrid Runbook Worker distribueras och granskades senast för 1 timme sedan.
-* Frånkopplad: Hybrid Runbook Worker distribueras och lästes senast för 1 timme sedan.
+* Klart: Hybrid Runbook Worker har distribuerats och setts senast för en timme sedan.
+* Frånkopplad: Hybrid Runbook Worker distribueras och lästes senast en timme sedan.
 * Inte konfigurerad: det Hybrid Runbook Worker inte att hitta eller slutföra registreringen.
 
 > [!NOTE]
 > Det kan finnas en liten fördröjning mellan det Azure Portal visar och datorns aktuella tillstånd.
+
+Den här artikeln beskriver hur du kör fel sökaren för Azure-datorer från Azure Portal och datorer som inte är Azure-datorer i [scenariot offline](#troubleshoot-offline). Fel sökaren innehåller nu kontroller för Windows Server Update Services (WSUS) och för nycklarna hämta och installera automatiskt.
+
+> [!NOTE]
+> Fel söknings skriptet dirigerar för närvarande inte trafik via en proxyserver om en sådan har kon figurer ATS.
 
 ## <a name="start-the-troubleshooter"></a>Starta fel sökaren
 
@@ -52,7 +55,7 @@ Resultaten visas på sidan när de är klara. I avsnittet kontroller visas vad s
 
 Operativ system kontrollen verifierar om Hybrid Runbook Worker kör något av följande operativ system:
 
-|Operativsystem  |Obs!  |
+|Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2012 och senare |.NET Framework 4,6 eller senare krävs. ([Hämta .NET Framework](/dotnet/framework/install/guide-for-developers).)<br/> Windows PowerShell 5,1 krävs.  ([Ladda ned Windows Management Framework 5,1](https://www.microsoft.com/download/details.aspx?id=54616).)        |
 

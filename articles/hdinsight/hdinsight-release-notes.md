@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: e76c75e172e48866565cc292ac673f7bbddabf1f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/08/2020
+ms.openlocfilehash: 458925dd9f7f7386a9159256fdb024d027f7016c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232827"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929323"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -48,17 +48,20 @@ Inga beteende ändringar för den här versionen. För att komma igång med komm
 ## <a name="upcoming-changes"></a>Kommande ändringar
 Följande ändringar sker i kommande versioner. 
 
-### <a name="deprecate-spark-21-and-22-for-hdinsight-36-spark-cluster"></a>Föråldra Spark 2,1 och 2,2 för HDInsight 3,6 Spark-kluster
-Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Spark-kluster med Spark 2,1 och 2,2 på HDInsight 3,6. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att gå vidare till Spark 2,3 på HDInight 3,6 och 30 2020 för att undvika potentiell system/support-avbrott.
+### <a name="deprecate-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Föråldra Spark 2,1 och 2,2 i HDInsight 3,6 Spark-kluster
+Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Spark-kluster med Spark 2,1 och 2,2 på HDInsight 3,6. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att gå vidare till Spark 2,3 i HDInsight 3,6 och 30 2020 för att undvika potentiell system/support-avbrott.
 
-### <a name="deprecate-spark-23-for-hdinsight-40-spark-cluster"></a>Inaktuell Spark 2,3 för HDInsight 4,0 Spark-kluster
-Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Spark-kluster med Spark 2,3 på HDInsight 4,0. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att gå vidare till Spark 2,4 på HDInight 4,0 och 30 2020 för att undvika potentiell system/support-avbrott.
+### <a name="deprecate-spark-23-in-hdinsight-40-spark-cluster"></a>Inaktuell Spark 2,3 i HDInsight 4,0 Spark-kluster
+Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Spark-kluster med Spark 2,3 på HDInsight 4,0. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att flytta till Spark 2,4 på HDInsight 4,0 senast i juni 30 2020 för att undvika system/support-avbrott.
 
-### <a name="deprecate-kafka-11-for-hdinsight-40-kafka-cluster"></a>Föråldrad Kafka 1,1 för HDInsight 4,0 Kafka-kluster
-Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Kafka-kluster med Kafka 1,1 på HDInsight 4,0. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att flytta till Kafka 2,1 på HDInight 4,0 och 30 2020 för att undvika potentiell system/support-avbrott.
+### <a name="deprecate-kafka-11-in-hdinsight-40-kafka-cluster"></a>Föråldrad Kafka 1,1 i HDInsight 4,0 Kafka-kluster
+Från och med juli 1 2020 kommer kunderna inte att kunna skapa nya Kafka-kluster med Kafka 1,1 på HDInsight 4,0. Befintliga kluster kommer att köras i befintligt skick utan support från Microsoft. Överväg att flytta till Kafka 2,1 på HDInsight 4,0 senast i juni 30 2020 för att undvika system/support-avbrott.
 
-### <a name="hbase-20-to-21"></a>HBase 2,0 till 2,1
-I den kommande HDInsight 4,0-versionen kommer HBase-versionen att uppgraderas från version 2,0 till 2,1.
+### <a name="hbase-20-to-216"></a>HBase 2,0 till 2.1.6
+I den kommande HDInsight 4,0-versionen kommer HBase-versionen att uppgraderas från version 2,0 till 2.1.6
+
+### <a name="spark-240-to-244"></a>Spark-2.4.0 till 2.4.4
+I den kommande HDInsight 4,0-versionen kommer Spark-versionen att uppgraderas från version 2.4.0 till 2.4.4
 
 ### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>En minsta 4-kärn virtuell dator krävs för Head-noden 
 En minsta 4-kärn virtuell dator krävs för Head-noden för att säkerställa hög tillgänglighet och tillförlitlighet för HDInsight-kluster. Från och med april 6 2020 kan kunder bara välja 4 kärnor eller över VM som Head-nod för de nya HDInsight-klustren. Befintliga kluster kommer att fortsätta köras som förväntat. 

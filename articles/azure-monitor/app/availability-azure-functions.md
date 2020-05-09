@@ -2,15 +2,15 @@
 title: Skapa och kör anpassade tillgänglighets test med Azure Functions
 description: Det här dokumentet beskriver hur du skapar en Azure-funktion med TrackAvailability () som körs regelbundet enligt konfigurationen i funktionen TimerTrigger. Resultatet av det här testet skickas till din Application Insights-resurs, där du kan fråga efter och Avisera om tillgänglighets resultat data. Med anpassade tester kan du skriva mer komplexa tillgänglighets test än vad som är möjligt med hjälp av Portal gränssnittet, övervaka en app inuti ditt Azure VNET, ändra slut punkts adressen eller skapa ett tillgänglighets test om det inte är tillgängligt i din region.
 ms.topic: conceptual
-author: morgangrobin
-ms.author: mogrobin
-ms.date: 11/22/2019
-ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+author: mrbullwinkle
+ms.author: mbullwin
+ms.date: 05/04/2020
+ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77665807"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791125"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Skapa och kör anpassade tillgänglighets test med Azure Functions
 
@@ -160,12 +160,10 @@ public async static Task RunAvailbiltyTestAsync(ILogger log)
 För att se till att allt fungerar kan du titta på diagrammet på fliken tillgänglighet i din Application Insights-resurs.
 
 > [!NOTE]
-> Om du har implementerat din egen affärs logik i runAvailabilityTest. CSX visas lyckade resultat som i skärm bilderna nedan, om du inte gjorde det visas misslyckade resultat.
+> Om du har implementerat din egen affärs logik i runAvailabilityTest. CSX visas lyckade resultat som i skärm bilderna nedan, om du inte gjorde det visas misslyckade resultat. Test som skapas `TrackAvailability()` med visas med **anpassad** bredvid test namnet.
 
 >[!div class="mx-imgBorder"]
->![Fliken tillgänglighet med lyckade resultat](media/availability-azure-functions/availtab.png)
-
-När du ställer in testet med Azure Functions kan du se att namnet på testet inte visas och att du inte kan interagera med det om du vill använda **Lägg till test** på fliken tillgänglighet. Resultaten visualiseras men du får en sammanfattningsvy i stället för samma detaljerade vy som du får när du skapar ett tillgänglighets test via portalen.
+>![Fliken tillgänglighet med lyckade resultat](media/availability-azure-functions/availability-custom.png)
 
 Om du vill se en transaktions information från slut punkt till slut punkt väljer du **lyckades** eller **misslyckades** under detalj granskning till och väljer sedan ett exempel. Du kan också komma till transaktions informationen från slut punkt till slut punkt genom att välja en data punkt i diagrammet.
 

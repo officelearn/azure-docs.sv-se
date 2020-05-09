@@ -1,18 +1,18 @@
 ---
-title: 'API: er för Marketplace-avläsning | Azure Marketplace'
-description: Användnings händelse för SaaS-erbjudanden på Azure Marketplace.
+title: 'API: er för avläsning av tjänst – Microsoft Commercial Marketplace'
+description: Med API för användnings händelser kan du generera användnings händelser för SaaS-erbjudanden i Microsoft AppSource och Azure Marketplace.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 315f36e5aed9dee0a89e1f9f504b18a6bed806e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 159d2c60fc1fc5ad1f21f2b948208eaae0d06208
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275755"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857861"
 ---
 # <a name="marketplace-metering-service-apis"></a>API:er för Marketplace Metering Service
 
@@ -194,7 +194,7 @@ OK
 
 Beskrivning av status kod som refereras `BatchUsageEvent` i API-svar:
 
-| Statuskod  | Beskrivning |
+| Statuskod  | Description |
 | ---------- | -------------------- |
 | `Accepted` | Godkänd kod. |
 | `Expired` | Användning har gått ut. |

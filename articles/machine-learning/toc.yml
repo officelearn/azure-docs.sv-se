@@ -86,7 +86,7 @@
     - name: MLOps-exempel från slutpunkt till slutpunkt
       href: 'https://github.com/microsoft/MLOps'
     - name: Open Datasets (offentlig version)
-      href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
+      href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Begrepp
   items:
     - name: Planera och hantera kostnader
@@ -172,6 +172,8 @@
           href: how-to-setup-authentication.md
         - name: Övervaka Azure Machine Learning
           href: monitor-azure-machine-learning.md
+    - name: Event Grid-integrering
+      href: concept-event-grid-integration.md
 - name: Anvisningar
   items:
     - name: Skapa och hantera arbetsytor
@@ -341,7 +343,7 @@
               displayName: functions app
               href: how-to-deploy-functions.md
             - name: Azure IoT Edge-enheter
-              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/context/ml-context
+              href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
             - name: FPGA-inferens
               href: how-to-deploy-fpga-web-service.md
             - name: Anpassade Docker-avbildningar
@@ -382,7 +384,7 @@
           href: how-to-debug-pipelines-application-insights.md
         - name: Azure-pipelines för CI/CD
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
+          href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
         - name: Omvandla data i Designer
           displayName: pipeline
           href: how-to-designer-transform-data.md
@@ -454,7 +456,7 @@
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning-service'
     - name: Jämför våra ML-produkter
-      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/context/ml-context
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
     - name: Vad har hänt med Workbench?
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md

@@ -1,24 +1,24 @@
 ---
-title: Lista över inbyggda princip definitioner för Azure Database for PostgreSQL
-description: Visar Azure Policy inbyggda princip definitioner för Azure Database for PostgreSQL. De här inbyggda programmen ger vanliga metoder för att hantera dina Azure-resurser.
+title: Inbyggda princip definitioner för Azure Database for PostgreSQL
+description: Visar Azure Policy inbyggda princip definitioner för Azure Database for PostgreSQL. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
 ms.date: 04/30/2020
 ms.topic: sample
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 7eedae20a03a0c25c4fe6161e491cb443c9883b2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 206403e8ad9f6ad14a11996694a2ec24224cbe70
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966164"
+ms.locfileid: "82983558"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-database-for-postgresql"></a>Azure Policy inbyggda princip definitioner för Azure Database for PostgreSQL
 
 Den här sidan är ett index över [Azure policy](../governance/policy/overview.md) inbyggda princip definitioner för Azure Database for PostgreSQL. Ytterligare Azure Policy inbyggda program för andra tjänster finns i [Azure policy inbyggda definitioner](../governance/policy/samples/built-in-policies.md).
 
-Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Använd länken i kolumnen **källa** för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
+Namnet på varje inbyggd princip definition länkar till princip definitionen i Azure Portal. Använd länken i **GitHub** -kolumnen för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy).
 
 ## <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
 

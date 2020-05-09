@@ -1,46 +1,46 @@
 ---
-title: Sänk dina SQL Data Warehouse-kostnader med reserverad kapacitet i Azure
-description: Lär dig hur du kan sänka dina SQL Data Warehouse-kostnader med reserverad kapacitet.
+title: Spara pengar på Azure Synapse Analytics-avgifter med reserverad kapacitet i Azure
+description: Läs om hur du kan sänka dina kostnader för Azure Synapse Analytics med reserverad kapacitet.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: c428472d5564393e9f9fcdc3103bb1506dc50936
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3706493f0132cd4cc57af589e0d2935c31d6657e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200375"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629158"
 ---
-# <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Sänk dina SQL Data Warehouse-kostnader med reserverad kapacitet
+# <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Spara pengar på Azure Synapse Analytics-avgifter med reserverad kapacitet
 
-Du kan spara pengar med Azure SQL Data Warehouse genom att köpa en reservation för din cDWU-användning under ett eller tre år. Om du vill köpa reserverad kapacitet för SQL Data Warehouse måste du välja Azure-region och period. Sedan lägger du till SKU:er för SQL Data Warehouse i kundvagnen och väljer hur många cDWU-enheter du vill köpa.
+Du kan spara pengar med Azure Synapse Analytics genom att köpa en reservation för din cDWU-användning under ett eller tre år. Om du vill köpa reserverad kapacitet för Azure Synapse Analytics måste du välja Azure-region och period. Sedan lägger du SKU:n för Azure Synapse Analytics i kundvagnen och väljer hur många cDWU-enheter du vill köpa.
 
-När du köper en reservation används inte längre Betala per användning-priser för SQL Data Warehouse-användning som matchar reservationsattributen.
+När du köper en reservation används inte längre Betala per användning-priser för den Azure Synapse Analytics-användning som matchar reservationsattributen.
 
-En reservation täcker inte avgifter för lagrings eller nätverk kopplade till SQL Data Warehouse-användningen.
+En reservation omfattar inte lagrings- eller nätverksavgifter som är kopplade till Azure Synapse Analytics-användningen.
 
-När den reserverade kapaciteten löper ut fortsätter SQL Data Warehouse-instanserna att köras men debiteras då enligt Betala per användning-priser. Reservationer förnyas inte automatiskt.
+När den reserverade kapaciteten löper ut fortsätter Azure Synapse Analytics-instanserna att köras men debiteras då enligt Betala per användning-priser. Reservationer förnyas inte automatiskt.
 
-Du hittar prisinformation i [Erbjudanden om reserverad kapacitet för SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/).
+Du hittar prisinformation i [Erbjudanden om reserverad kapacitet för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/).
 
-Du kan köpa reserverad kapacitet för Azure SQL Data Warehouse i [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Betala för reservationen [i förväg eller via månadsbetalningar](monthly-payments-reservations.md). Så här köper du reserverad kapacitet:
+Du kan köpa reserverad kapacitet för Azure Synapse Analytics i [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade). Betala för reservationen [i förväg eller via månadsbetalningar](monthly-payments-reservations.md). Så här köper du reserverad kapacitet:
 
 - Du måste ha rollen ägare för minst en Enterprise-prenumeration eller Betala per användning-prenumeration.
 - För Enterprise-prenumerationer måste alternativet **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Om inställningen är inaktiverad måste du vara EA-administratör.
-- I CSP-programmet (Cloud Solution Provider) är det bara administratörsagenter eller säljagenter som kan köpa reserverad SQL Data Warehouse-kapacitet.
+- I CSP-programmet (Cloud Solution Provider) är det bara administratörsagenter och säljagenter som kan köpa reserverad kapacitet för Azure Synapse Analytics.
 
 Mer information om hur Enterprise-kunder och Betala per användning-kunder debiteras för reservationsköp finns i [Förstå hur Azure-reservationer tillämpas för din Enterprise-registrering](understand-reserved-instance-usage-ea.md) och [Förstå hur Azure-reservationer tillämpas för din Betala per användning-prenumeration](understand-reserved-instance-usage.md).
 
 ## <a name="choose-the-right-size-before-purchase"></a>Välj rätt storlek innan köpet
 
-Storleken på SQL Data Warehouse-reservationen bör baseras på den totala mängden cDWU-enheter du förbrukar. Inköp görs i steg om 100 cDWU.
+Storleken på Azure Synapse Analytics-reservationen bör baseras på den totala mängden cDWU-enheter du förbrukar. Inköp görs i steg om 100 cDWU.
 
-Anta till exempel att din totala förbrukning av SQL Data Warehouse är DW3000c. Du vill köpa reserverad kapacitet för hela mängden. Då bör du köpa 30 enheter av reserverad cDWU-kapacitet.
+Anta till exempel att din totala förbrukning av Azure Synapse Analytics är DW3000c. Du vill köpa reserverad kapacitet för hela mängden. Då bör du köpa 30 enheter av reserverad cDWU-kapacitet.
 
-## <a name="buy-sql-data-warehouse-reserved-capacity"></a>Köpa reserverad kapacitet för SQL Data Warehouse
+## <a name="buy-azure-synapse-analytics-reserved-capacity"></a>Köp reserverad kapacitet för Azure Synapse Analytics
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Alla tjänster** > **Reservationer**.
@@ -56,7 +56,7 @@ Anta till exempel att din totala förbrukning av SQL Data Warehouse är DW3000c.
 5. Välj en region som den reserverade kapaciteten ska täcka.
 6. Välj en kvantitet. Ange hur många 100 cDWU-enheter du vill köpa.    
    Kvantiteten 30 skulle till exempel ge dig 3 000 cDWU reserverad kapacitet i timmen.
-7. Du kan se kostnaderna för reserverad SQL Data Warehouse-kapacitet i avsnittet **Kostnader**.
+7. Du kan se kostnaderna för reserverad kapacitet för Azure Synapse Analytics i avsnittet **Kostnader**.
 8. Välj **Köp**.
 9. Välj **Visa den här reservationen** om du vill se inköpsstatusen.
 
@@ -64,7 +64,7 @@ Anta till exempel att din totala förbrukning av SQL Data Warehouse är DW3000c.
 
 Du kan avbryta, byta ut och återbetala reservationer med vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](exchange-and-refund-azure-reservations.md).
 
-Reservationsrabatter tillämpas automatiskt för de SQL Data Warehouse-instanser som matchar den reserverade SQL Data Warehouse-kapacitetens omfång och region. Du kan uppdatera den reserverade SQL Data Warehouse-kapacitetens omfång i [Azure-portalen](https://portal.azure.com/), med PowerShell, CLI eller via API:et.
+Reservationsrabatter tillämpas automatiskt för de Azure Synapse Analytics-instanser som matchar den reserverade Azure Synapse Analytics-kapacitetens omfång och region. Du kan uppdatera den reserverade Azure Synapse Analytics-kapacitetens omfång i [Azure-portalen](https://portal.azure.com/), med PowerShell, CLI eller via API:et.
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss
 
@@ -72,7 +72,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du vill veta mer om hur reservationsrabatter tillämpas för Azure SQL Data Warehouse kan du läsa [Så tillämpas reservationsrabatter för Azure SQL Data Warehouse](prepay-sql-data-warehouse-charges.md).
+- Om du vill veta mer om hur reservationsrabatter tillämpas för Azure Synapse Analytics kan du läsa [Så tillämpas reservationsrabatter för Azure Synapse Analytics](prepay-sql-data-warehouse-charges.md).
 
 - Du kan läsa mer om Azure-reservationer i följande artiklar:
   - [Vad är Azure-reservationer?](save-compute-costs-reservations.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: f4379a5149fff020eb532f0e17cc1c37fbdcd694
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2eb302462e402e701cc5ae664239c457c90ab1b9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232435"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612800"
 ---
 # <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Uppgradera till standard nivån för förbättrad säkerhet
 
@@ -49,9 +49,12 @@ Så här hämtar du standard nivån:
 [![Security Center priser](media/security-center-pricing/pricing-tier-page.png)](media/security-center-pricing/pricing-tier-page.png#lightbox)
 
 > [!NOTE]
-> Om du vill aktivera alla Security Center funktioner, inklusive avancerade hot skydds funktioner, måste du använda standard pris nivån för prenumerationen som innehåller de aktuella arbets belastningarna. Om du konfigurerar priser för en arbets yta aktive ras inte just-in-Time VM-åtkomst, anpassningsbara program kontroller och nätverks identifieringar för Azure-resurser. 
+> Om du vill aktivera alla Security Center funktioner, inklusive hot skydds funktioner, måste du använda standard pris nivån för prenumerationen som innehåller de aktuella arbets belastningarna. Om du konfigurerar priser för en arbets yta aktive ras inte just-in-Time VM-åtkomst, anpassningsbara program kontroller och nätverks identifieringar för Azure-resurser. 
 >
-> Security Center s skydd för lagrings konton och PaaS SQL/MySQL/PG-servrar är för närvarande de enda arbets belastningar som kan aktive ras på resurs nivå för att skydda enskilda lagrings-/SQL-arbetsbelastningar.
+> Du kan aktivera skydd av hot för **Azure Storage konton** på prenumerations nivå eller resurs nivå.
+> Du kan aktivera skydd mot hot för **Azure SQL Database SQL-servrar** på prenumerations nivå eller resurs nivå.
+> Du kan aktivera skydd mot hot för **Azure Database for MariaDB/MySQL/postgresql** endast på resurs nivå.
+
 
 ## <a name="why-upgrade-to-standard"></a>Varför uppgradera till standard?
 Security Center erbjuder förbättrat skydd mot säkerhet och hot för dina hybrid moln arbets belastningar, inklusive:

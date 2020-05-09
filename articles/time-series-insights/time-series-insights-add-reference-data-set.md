@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 05/05/2020
 ms.custom: seodec18~~~~
-ms.openlocfilehash: 79628ed44753577023464ef6208027e1b7996d30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77087259"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82838526"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Time Series Insights-miljö med hjälp av Azure Portal
 
@@ -34,7 +34,7 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 ## <a name="add-a-reference-data-set"></a>Lägg till en referens data uppsättning
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj Time Series Insights-miljö.
 
@@ -78,7 +78,7 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
    [![Välj data typer i kolumn rubrikerna.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. Byt namn på kolumn rubrikerna om det behövs. Nyckel kolumn namnet är nödvändigt för att kunna ansluta till motsvarande egenskap i din händelse källa. 
+1. Byt namn på kolumn rubrikerna om det behövs. Nyckel kolumn namnet är nödvändigt för att kunna ansluta till motsvarande egenskap i din händelse källa.
 
    > [!IMPORTANT]
    > Se till att kolumn namnen för referens data matchar exakt händelse namnet för inkommande data, inklusive Skift läges känslighet. Kolumn namn som inte är nyckel används för att utöka inkommande data med motsvarande referens data värden.

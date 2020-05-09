@@ -10,12 +10,12 @@ ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: cd630acfd65f0a79c186ba35bc15627bf7ccfdbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 84cf12aa91de72ae54e63f2cfe7a61586b6bf457
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686198"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857078"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Tjänst-till-tjänst-autentisering för Azure Key Vault med .NET
 
@@ -272,7 +272,7 @@ Använd Azure CLI och Ställ in standard prenumerationen på en som har det kont
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>Obehörig åtkomst, åtkomst nekad, förbjuden eller liknande fel
 
-Huvudkontot som används har inte åtkomst till resursen som det försöker få åtkomst till. Bevilja antingen ditt användar konto eller App Services MSI "Contributor"-åtkomst till en resurs. Vilken som är beroende av om du kör exemplet på din lokala dator eller distribuerat i Azure till din App Service. Vissa resurser, som nyckel valv, har också sina egna [åtkomst principer](https://docs.microsoft.com/azure/key-vault/secure-your-key-vault#data-plane-and-access-policies) som du använder för att ge åtkomst till huvud konton, till exempel användare, appar och grupper.
+Huvudkontot som används har inte åtkomst till resursen som det försöker få åtkomst till. Bevilja antingen ditt användar konto eller App Services MSI "Contributor"-åtkomst till en resurs. Vilken som är beroende av om du kör exemplet på din lokala dator eller distribuerat i Azure till din App Service. Vissa resurser, som nyckel valv, har också sina egna [åtkomst principer](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) som du använder för att ge åtkomst till huvud konton, till exempel användare, appar och grupper.
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Vanliga problem vid distribution till Azure App Service
 

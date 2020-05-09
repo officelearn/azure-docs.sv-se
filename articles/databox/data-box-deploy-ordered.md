@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 46dd89694857138d28255d5b1a86a8c947680520
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb4d2faafacf8ba4d8bbe519d92c950cd56e32fd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81398676"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857066"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudie: Beställa Azure Data Box
 
@@ -54,7 +54,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
 4. Kontrollera om Data Box-tjänsten är tillgänglig i din region. Ange eller välj följande information och klicka på **Tillämpa**. 
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Prenumeration     | Välj en prenumeration för EA, CSP eller Azure-sponsring för Data Box-tjänsten. <br> Prenumerationen är kopplad till ditt faktureringskonto.       |
     |Överföringstyp     | Välj **Importera till Azure**.        |
@@ -67,7 +67,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
 6. I **Order** (Beställa) anger du **Order details** (Beställningsinformation). Ange eller välj följande information och klicka på **Nästa**.
     
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Namn     |  Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.      |
     |Resursgrupp     |   Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans.         |
@@ -80,7 +80,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
     Om du använder Data Box-enhet för att skapa hanterade diskar från lokala virtuella hård diskar måste du också ange följande information:
 
-    |Inställning  |Värde  |
+    |Inställningen  |Värde  |
     |---------|---------|
     |Resursgrupper     | Skapa nya resursgrupper om du planerar att skapa hanterade diskar från lokala virtuella hårddiskar. Du kan bara använda en befintlig resurs grupp om resurs gruppen skapades tidigare när du skapade en Data Box-enhets ordning för den hanterade disken av Data Box-enhet-tjänsten. <br> Ange flera resursgrupper avgränsade med semikolon. Högst 10 resursgrupper stöds.|
 
@@ -88,7 +88,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
     Det angivna lagringskontot för hanterade diskar används som ett mellanlagringskonto. Data Box-tjänsten laddar upp de virtuella hårddiskarna som sidblobar till mellanlagringskontot innan de konverteras till hanterade diskar och flyttas till resursgrupperna. Mer information finns i [Verifiera dataöverföring till Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
 
-7. I **Leveransadress** uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det. Klicka på **Nästa**.
+7. I **Leveransadress** uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det. Kunder som använder tjänsten i Japan, Singapore, Korea och Västeuropa har möjlighet att välja självhanterad leverans medan ordern behålls. När ordern har placerats får du ett e-postmeddelande med instruktioner för att hämta enheten från det angivna Azure-datacenter. Klicka på **Nästa** när leverans informationen har verifierats.
 
 8. Ange e-postadresser i **Notification details** (Information om meddelande). Tjänsten skickar e-postmeddelanden om alla uppdateringar rörande orderstatus.
 

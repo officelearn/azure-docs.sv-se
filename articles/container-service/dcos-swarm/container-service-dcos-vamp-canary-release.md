@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 2af20a1ddf4239b7eec6cceabf2ff9711959c128
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dfdf6e1f8edfb4dafaf93e62090ed51878f9b2aa
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77189117"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734832"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>FÖRÅLDRAD Kanarie release-mikrotjänster med vamp på ett Azure Container Service DC/OS-kluster
 
@@ -129,7 +129,7 @@ Nu när vamp är igång kan du distribuera en tjänst från en skiss.
 
 I sin enklaste form beskriver en [vamp skiss](https://docs.vamp.io/how-vamp-works/vamp-and-kubernetes#vamp-deployments) vilka slut punkter (gateways), kluster och tjänster som ska distribueras. Vamp använder kluster för att gruppera olika varianter av samma tjänst i logiska grupper för kontroll av Kanarie-eller A-B-test.  
 
-I det här scenariot används ett exempel på ett monolitisk-program som kallas [**Sava**](https://github.com/magneticio/sava), som är i version 1,0. Monolit paketeras i en Docker-behållare, som finns i Docker Hub under magneticio/Sava: 1.0.0. Appen körs normalt på Port 8080, men du vill visa den under port 9050 i det här fallet. Distribuera appen via vamp med hjälp av en enkel skiss.
+I det här scenariot används ett exempel på ett monolitisk-program som kallas [**Sava**](https://github.com/magneticio/sava-product), som är i version 1,0. Monolit paketeras i en Docker-behållare, som finns i Docker Hub under magneticio/Sava: 1.0.0. Appen körs normalt på Port 8080, men du vill visa den under port 9050 i det här fallet. Distribuera appen via vamp med hjälp av en enkel skiss.
 
 1. Gå till **distributioner**.
 

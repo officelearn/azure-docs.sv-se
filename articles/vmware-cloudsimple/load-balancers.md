@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2fec54c19b9040e7cb44f1a5d2b7909510ab7313
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77014886"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734611"
 ---
 # <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>Välj en lösning för belastnings utjämning för CloudSimple privata moln
 
@@ -37,7 +37,7 @@ Mer information om hur du konfigurerar den här lösningen finns i lösnings gui
 
 Om du väljer att köra programmet i en hybrid distribution där front webb nivån körs i ett Azure vNet i din Azure-prenumeration och databas nivån för programmet körs i virtuella VMware-datorer i CloudSimple privata moln kan du använda Azures interna belastningsutjämnare (L4 Load Balancer) framför dina virtuella datorer i DB-nivån för trafik hantering.
 
-Mer information finns i dokumentationen till Azure [intern Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer) .
+Mer information finns i dokumentationen till Azure [intern Load Balancer](../load-balancer/components.md#frontend-ip-configurations) .
 
 ## <a name="global-server-load-balancer"></a>Global Server belastnings utjämning
 

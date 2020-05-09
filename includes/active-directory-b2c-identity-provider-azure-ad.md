@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/07/2020
 ms.author: mimart
-ms.openlocfilehash: 31a6d116ae1afce9afdd3786747490980963d823
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 818f33abfdb0655d96c0a8873a43903ee972b3bf
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678049"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82925393"
 ---
 ## <a name="register-an-azure-ad-app"></a>Registrera en Azure AD-app
 
@@ -36,7 +36,7 @@ Om du vill aktivera inloggning för användare från en specifik Azure AD-organi
 
 ### <a name="configuring-optional-claims"></a>Konfigurera valfria anspråk
 
-Om du vill hämta `family_name` och `given_name` anspråk från Azure AD kan du konfigurera valfria anspråk för programmet i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](/active-directory/develop/active-directory-optional-claims.md).
+Om du vill hämta `family_name` och `given_name` anspråk från Azure AD kan du konfigurera valfria anspråk för programmet i Azure Portal användar gränssnitt eller applikations manifest. Mer information finns i [så här ger du valfria anspråk till din Azure AD-App](/azure/active-directory/develop/active-directory-optional-claims).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Sök efter och välj **Azure Active Directory**.
 1. I avsnittet **Hantera** väljer du **Appregistreringar**.

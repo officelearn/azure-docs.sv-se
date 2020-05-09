@@ -5,17 +5,17 @@ author: mimckitt
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 01/30/2019
+ms.date: 05/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: cb5f1d48bb1a95db004d9da553e19a35071c73b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30f68d22a228e6de596e6999490ea7789ab21547
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273740"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864376"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Använda tillägget för programmets hälsotillstånd med VM-skalningsuppsättningar
-Övervakning av din program hälsa är en viktig signal för att hantera och uppgradera distributionen. Skalnings uppsättningar för virtuella Azure-datorer ger stöd för [rullande uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , inklusive [automatiska uppgraderingar av operativ system avbildningar](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälso övervakning av de enskilda instanserna för att uppgradera distributionen.
+Övervakning av din program hälsa är en viktig signal för att hantera och uppgradera distributionen. Skalnings uppsättningar för virtuella Azure-datorer ger stöd för [rullande uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , inklusive [automatiska uppgraderingar av operativ system avbildningar](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälso övervakning av de enskilda instanserna för att uppgradera distributionen. Du kan också använda hälso tillägg för att övervaka program hälsan för varje instans i din skalnings uppsättning och utföra instans reparationer med [automatiska instans reparationer](virtual-machine-scale-sets-automatic-instance-repairs.md).
 
 I den här artikeln beskrivs hur du kan använda tillägget för program hälsa för att övervaka hälso tillståndet för dina program som distribueras på virtuella datorers skalnings uppsättningar.
 
@@ -31,7 +31,7 @@ När tillägget rapporterar hälso tillstånd från en virtuell dator kan tillä
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för program hälso tillägget. Tillägget kräver minst en "TCP"-eller http-begäran med en associerad port eller begär ande sökväg.
+Följande JSON visar schemat för program hälso tillägget. Tillägget kräver minst en TCP-, http-eller https-begäran med en associerad port eller begär ande sökväg.
 
 ```json
 {
@@ -57,7 +57,7 @@ Följande JSON visar schemat för program hälso tillägget. Tillägget kräver 
 
 | Name | Värde/exempel | Datatyp
 | ---- | ---- | ---- 
-| apiVersion | `2018-10-01` | date |
+| apiVersion | `2018-10-01` | datum |
 | utgivare | `Microsoft.ManagedServices` | sträng |
 | typ | `ApplicationHealthLinux`(Linux), `ApplicationHealthWindows` (Windows) | sträng |
 | typeHandlerVersion | `1.0` | int |
@@ -66,9 +66,9 @@ Följande JSON visar schemat för program hälso tillägget. Tillägget kräver 
 
 | Name | Värde/exempel | Datatyp
 | ---- | ---- | ----
-| protokollhanterare | `http` eller `tcp` | sträng |
-| port | Valfritt om protokollet är `http`obligatoriskt när protokollet är`tcp` | int |
-| requestPath | Obligatoriskt när protokollet är `http`, tillåts inte när protokollet är`tcp` | sträng |
+| protokollhanterare | `http`eller `https` eller`tcp` | sträng |
+| port | Valfritt när protokollet är `http` eller `https`, obligatoriskt när protokollet är`tcp` | int |
+| requestPath | Obligatoriskt när protokollet är `http` eller `https`, tillåts inte när protokollet är`tcp` | sträng |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuera program hälso tillägget
 Det finns flera sätt att distribuera program hälso tillägget till dina skalnings uppsättningar enligt beskrivningen i exemplen nedan.

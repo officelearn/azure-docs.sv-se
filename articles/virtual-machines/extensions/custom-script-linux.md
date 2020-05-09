@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 959e473cb52e23c9d04586f0b24da34537f4e660
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115609"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594737"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använda version 2 av Azures tillägg för anpassat skript med virtuella Linux-datorer
 Det anpassade skript tillägget version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, program varu installation eller andra konfigurations-och hanterings åtgärder. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internet plats, eller så kan du ange dem till tilläggets körnings miljö. 
@@ -112,11 +112,11 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 | Name | Värde/exempel | Datatyp | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | date |
+| apiVersion | 2019-03-01 | datum |
 | utgivare | Microsoft. Compute. Extensions | sträng |
 | typ | CustomScript | sträng |
 | typeHandlerVersion | 2.1 | int |
-| fileUris (t. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
+| fileUris (t. ex.) | `https://github.com/MyProject/Archive/MyPythonScript.py` | matris |
 | commandToExecute (t. ex.) | python MyPythonScript.py \<My-param1> | sträng |
 | -skriptet | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo = | sträng |
 | skipDos2Unix (t. ex.) | falskt | boolean |

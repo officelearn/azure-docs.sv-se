@@ -8,18 +8,18 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f4ee3a5bd754335ab1c7f124671e9c37307a6a28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a8a9840cc6e1f3627c5fbd30e0b7432db0f16e4
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265407"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561046"
 ---
 # <a name="azure-data-box-edgeazure-data-box-gateway-general-availability-release-notes"></a>Viktig information om Azure Data Box Edge/Azure Data Box Gateway för allmän tillgänglighet
 
 ## <a name="overview"></a>Översikt
 
-I följande versions information identifieras kritiska öppnings problem och lösta problem för allmän tillgänglighet (GA) för Azure Data Box Edge och Azure Data Box Gateway.
+I följande versions information identifieras kritiska öppnings problem och lösta problem för allmän tillgänglighet (GA) för Azure Data Box Edge och Azure Data Box Gateway. 
 
 Viktig information uppdateras kontinuerligt och eftersom kritiska problem som kräver en lösning upptäcks, läggs de till. Innan du distribuerar Data Box Edge/Data Box Gateway bör du gå igenom informationen i viktig information.
 
@@ -50,4 +50,4 @@ Följande tabell innehåller en sammanfattning av kända problem för den Data B
 ## <a name="next-steps"></a>Nästa steg
 
 - [Förbered för att distribuera Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
-- [Förbered för att distribuera Azure Data Box Edge](data-box-edge-deploy-prep.md).
+- [Förbered för att distribuera Azure Data Box Edge](azure-stack-edge-deploy-prep.md).

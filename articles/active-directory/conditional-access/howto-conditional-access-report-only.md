@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/01/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d9bec829d7fb3e76eb243bda73423303670585e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295120"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82690361"
 ---
-# <a name="configure-a-conditional-access-policy-in-report-only-mode-preview"></a>Konfigurera en princip för villkorlig åtkomst i enbart rapport läge (förhands granskning)
+# <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Konfigurera en princip för villkorlig åtkomst i endast rapport läge
 
 Så här konfigurerar du en princip för villkorlig åtkomst i endast rapport läge:
 
@@ -42,7 +42,7 @@ Så här visar du resultatet av en rapport princip för en viss inloggning:
 1. Logga in på **Azure Portal** som en rapport läsare, säkerhets läsare, säkerhets administratör eller global administratör.
 1. Bläddra till **Azure Active Directory** > **inloggningar**.
 1. Välj en inloggning eller Lägg till filter för att begränsa resultaten.
-1. I **informations** lådan väljer du fliken **endast rapporter (för hands version)** om du vill visa de principer som utvärderas under inloggningen.
+1. I **informations** lådan väljer du fliken **endast rapporter** för att visa de principer som utvärderas under inloggningen.
 
 > [!NOTE]
 > När du laddar ned inloggnings loggar väljer du JSON-format för att inkludera endast resultat data för rapporten villkorlig åtkomst.
@@ -62,7 +62,7 @@ När du har integrerat dina Azure AD-loggar med Azure Monitor kan du övervaka e
 
 1. Logga in på **Azure Portal** som säkerhets administratör eller global administratör.
 1. Bläddra till **Azure Active Directory** > **arbets böcker**.
-1. Välj **insikter för villkorlig åtkomst (för hands version)**.
+1. Välj **insikter för villkorlig åtkomst**.
 1. Välj en eller flera principer i list rutan för **villkorlig åtkomst princip** . Alla aktiverade principer är markerade som standard.
 1. Välj ett tidsintervall (om tidsintervallet överskrider den tillgängliga data mängden visas alla tillgängliga data) i rapporten. När du har angett **principer för villkorlig åtkomst** och **tidsintervalls** parametrar kommer rapporten att läsas in.
    1. Du kan också söka efter enskilda **användare** eller **appar** för att begränsa rapportens omfattning.

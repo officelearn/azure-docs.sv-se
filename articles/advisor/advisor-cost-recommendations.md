@@ -3,12 +3,12 @@ title: Minska tjänste kostnaderna med Azure Advisor
 description: Använd Azure Advisor för att optimera kostnaden för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0237feab59551ecab87d78b0d4d66b9fc7b47e90
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13e7b1d7c6b0fe342020c40e1bb4abeba97d18bb
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259700"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788101"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Minska tjänste kostnaderna med Azure Advisor
 
@@ -49,6 +49,9 @@ Vi rekommenderar att du lagrar ögonblicksbilder i Standard Storage, oavsett den
 
 ## <a name="utilize-lifecycle-management"></a>Använda livscykelhantering
 Azure Advisor använder intelligens för Azure Blob Storage-objekt antal, Total storlek och transaktioner för att identifiera om ett eller flera av dina lagrings konton passar bäst för att aktivera livs cykel hantering för att hantera data på nivån. Du uppmanas att skapa livs cykel hanterings regler för att automatiskt anpassa dina data till häftig eller arkivera för att optimera dina lagrings kostnader samtidigt som dina data lagras i Azure Blob Storage för programkompatibilitet.
+
+## <a name="create-an-ephemeral-os-disk-recommendation"></a>Skapa en rekommendation för en tillfällig operativ system disk
+Med en [tillfällig OS-disk](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks)får kunderna följande förmåner: Spara pengar på lagrings kostnaden för operativ system disken. Få en lägre Läs-/skriv fördröjning till en OS-disk. Snabbare avbildnings återställning av virtuella datorer genom att återställa OS (och temporär disk) till dess ursprungliga tillstånd. Det är mer skalbart att använda en tillfällig OS-disk för IaaS virtuella datorer eller virtuella datorer med tillstånds lösa. Advisor har rekommendationer för resurser som kan dra nytta av den tillfälliga OS-disken. 
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Få åtkomst till kostnads rekommendationer i Azure Advisor
 

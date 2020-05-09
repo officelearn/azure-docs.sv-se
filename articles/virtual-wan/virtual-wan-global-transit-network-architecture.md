@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 02/06/2020
+ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: c32d42de5290bff63a897e7b9d5c8a2b1bf04ce4
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
-ms.translationtype: HT
+ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82786979"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82928286"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring av nätverks arkitektur och virtuellt WAN
 
@@ -114,6 +114,15 @@ Med sökvägen för fjärran sluten användare kan fjärran vändare som använd
 
 VNet-till-VNet-överföringen gör att virtuella nätverk kan ansluta till varandra för att koppla samman flera nivåer som implementeras över flera virtuella nätverk. Alternativt kan du ansluta virtuella nätverk till varandra via VNet-peering och detta kan vara lämpligt för vissa scenarier där överföring via VWAN Hub inte är nödvändigt.
 
+
+## <a name="force-tunneling-and-default-route-in-azure-virtual-wan"></a><a name="DefaultRoute"></a>Tvingad tunnel trafik och standard väg i Azure Virtual WAN
+
+Tvingad tunnel trafik kan aktive ras genom att konfigurera Aktivera standard väg på en VPN-, ExpressRoute-eller Virtual Network anslutning i virtuellt WAN-nätverk.
+
+En virtuell hubb sprider en förväntad standard väg till en virtuell nätverk-eller plats-till-plats-VPN/ExpressRoute-anslutning om Aktivera standard flagga är "aktive rad" på anslutningen. 
+
+Den här flaggan visas när användaren redigerar en virtuell nätverks anslutning, en VPN-anslutning eller en ExpressRoute-anslutning. Som standard inaktive ras den här flaggan när en plats eller en ExpressRoute-krets är ansluten till en hubb. Den aktive ras som standard när en virtuell nätverks anslutning läggs till för att ansluta ett VNet till en virtuell hubb. Standard vägen kommer inte från den virtuella WAN-hubben. standard vägen sprids om den redan har belärts av den virtuella WAN-hubben som ett resultat av distributionen av en brand vägg i hubben, eller om en annan ansluten plats har Tvingad tunnel trafik aktive rad.
+
 ## <a name="security-and-policy-control"></a><a name="security"></a>Säkerhet och princip kontroll
 
 Azures virtuella WAN-hubbar sammankopplar alla nätverks slut punkter i hybrid nätverket och kan eventuellt se all trafik i överförings nätverket. Virtuella WAN-hubbar kan konverteras till säkra virtuella hubbar genom att distribuera Azure-brandväggen inuti VWAN-hubbar för att aktivera molnbaserad säkerhet, åtkomst och princip kontroll. Dirigering av Azure-brandväggar i virtuella WAN-hubbar kan utföras av Azure Firewall Manager.
@@ -140,6 +149,24 @@ Den skyddade överföringen från virtuella nätverk till Internet eller från t
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Lokal-till-Internet eller säkerhets tjänst från tredje part (j)
 Med en säker transit från gren till Internet eller från tredje part kan grenar ansluta till Internet eller en säkerhets tjänst från tredje part som stöds via Azure-brandväggen i den virtuella WAN-hubben.
+
+### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Hur gör jag för att aktivera standard väg (0.0.0.0/0) i en säker virtuell hubb
+
+Azure-brandväggen som distribueras i en virtuell WAN-hubb (säker virtuell hubb) kan konfigureras som standard-router till Internet eller betrodd säkerhets leverantör för alla grenar (anslutna via VPN eller Express Route), ekrar virtuella nätverk och användare (anslutna via P2S VPN). Den här konfigurationen måste utföras med hjälp av Azure Firewall Manager.  Se dirigera trafik till hubben för att konfigurera all trafik från grenar (inklusive användare) samt virtuella nätverk till Internet via Azure-brandväggen. 
+
+Detta är en konfiguration i två steg:
+
+1. Konfigurera routning av Internet trafik med hjälp av en säker väg inställnings meny för virtuell hubb. Konfigurera virtuella nätverk och grenar som kan skicka trafik till Internet via brand väggen.
+
+2. Konfigurera vilka anslutningar (VNet och gren) som kan dirigera trafik till Internet (0.0.0.0/0) via Azure-VB i hubben eller den betrodda säkerhets leverantören. Det här steget ser till att standard vägen sprids till valda grenar och virtuella nätverk som är kopplade till den virtuella WAN-hubben via anslutningarna. 
+
+### <a name="force-tunneling-traffic-to-on-premises-firewall-in-a-secured-virtual-hub"></a>Tvinga tunnel trafik till lokal brand vägg i en säker virtuell hubb
+
+Om det redan finns en standard väg som har lärts (via BGP) av den virtuella hubben från en av grenarna (VPN eller ER-platser), åsidosätts den här standard vägen av standard vägen från Azure Firewall Manager-inställningen. I det här fallet kommer all trafik som anger hubben från virtuella nätverk och grenar som är avsedd för Internet att dirigeras till Azure Firewall eller den betrodda säkerhets leverantören.
+
+> [!NOTE]
+> För närvarande finns det inget alternativ för att välja lokal brand vägg eller Azure-brandvägg (och betrodd säkerhetsprovider) för Internet bindnings trafik som härstammar från virtuella nätverk, grenar eller användare. Standard vägen som har lärts från Azure Firewall Manager-inställningen prioriteras alltid över standard vägen som lärts från en av grenarna.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

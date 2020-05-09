@@ -4,20 +4,20 @@ description: Application Performance Management och användningsspårning av dit
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 2dbebf13b8674ba4aa0c578e1138a5e279b54355
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0ffa9e38d0ffbca41e4f4a8f3d27015ebe4b8bae
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536938"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891746"
 ---
 # <a name="what-is-application-insights"></a>Vad är Application Insights?
-Application Insights är en funktion i [Azure Monitor](../overview.md), är en utöknings bar APM-tjänst (Application Performance Management) för utvecklare och DevOps-proffs. Använd den för att övervaka dina Live-program. Prestanda avvikelser identifieras automatiskt och det finns kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå vad användare faktiskt gör med din app.  Den hjälper dig att kontinuerligt förbättra prestanda och användbarhet. Den fungerar för appar på en rad olika plattformar såsom .NET, Node.js och Java EE i lokala infrastrukturer, hybridkonfigurationer och offentliga moln. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg. Den kan övervaka och analysera telemetri från mobilappar genom integrering med Visual Studio App Center.
+Application Insights är en funktion i [Azure Monitor](../overview.md), är en utöknings bar APM-tjänst (Application Performance Management) för utvecklare och DevOps-proffs. Använd den för att övervaka dina Live-program. Prestanda avvikelser identifieras automatiskt och det finns kraftfulla analys verktyg som hjälper dig att diagnostisera problem och förstå vad användare faktiskt gör med din app.  Den hjälper dig att kontinuerligt förbättra prestanda och användbarhet. Det fungerar för appar på en mängd olika plattformar, inklusive .NET, Node. js, Java och python lokalt, hybrid eller offentligt moln. Den integrerar med din DevOps-process och kan användas med en rad olika utvecklingsverktyg. Den kan övervaka och analysera telemetri från mobilappar genom integrering med Visual Studio App Center.
 
 ## <a name="how-does-application-insights-work"></a>Hur fungerar Application Insights?
-Du installerar ett litet instrumentationspaket i ditt program och konfigurerar en Application Insights-resurs på Microsoft Azure Portal. Instrumentation övervakar din app och skickar telemetridata till Azure Monitor. (Programmet kan köras överallt – det behöver inte finnas i Azure.)
+Du installerar ett litet instrumentande paket (SDK) i programmet eller aktiverar Application Insights codelessly när det [stöds](../../azure-monitor/app/platforms.md). Instrumentation övervakar din app och dirigerar telemetri-data till en Azure Application Insights-resurs med hjälp av ett unikt GUID som vi refererar till som en Instrumentation-nyckel.
 
-Förutom att instrumentera webbtjänstprogrammet kan du även instrumentera bakgrundskomponenter och JavaScript-koden på själva webbsidorna. 
+Förutom att instrumentera webbtjänstprogrammet kan du även instrumentera bakgrundskomponenter och JavaScript-koden på själva webbsidorna. Programmet och dess komponenter kan köras var som helst – det behöver inte vara värd i Azure.
 
 ![Application Insights-instrumentationen i appen skickar telemetri till Application Insights-resursen.](./media/app-insights-overview/diagram.png)
 
@@ -101,7 +101,7 @@ Det finns flera sätt att komma igång. Börja på det sätt som passar dig bäs
   * [ASP.NET Core program](../../azure-monitor/app/asp-net-core.md)
   * [.NET-konsol program](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
-  * [Node.js](../../azure-monitor/app/nodejs.md)
+  * [Node. js](../../azure-monitor/app/nodejs.md)
   * [Python](../../azure-monitor/app/opencensus-python.md)
   * [Andra plattformar](../../azure-monitor/app/platforms.md)
 * **[Instrumentera dina webbplatser](../../azure-monitor/app/javascript.md)** för sidvisning, AJAX och annan telemetri på klientsidan.
@@ -120,7 +120,7 @@ Kom igång under utvecklingsfasen med:
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
+* [Node. js](../../azure-monitor/app/nodejs.md)
 * [Python](../../azure-monitor/app/opencensus-python.md)
 
 

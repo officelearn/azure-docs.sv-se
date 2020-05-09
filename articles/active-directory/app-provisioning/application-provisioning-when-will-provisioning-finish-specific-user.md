@@ -2,26 +2,21 @@
 title: Ta reda på när en speciell användare kan komma åt en app
 description: Så här tar du reda på när en viktig användare kan komma åt ett program som du har konfigurerat för användar etablering med Azure AD
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48370e2806b70d550bce95ceff3857a79561f247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d976785340e1a032aa4484dd2e8fd6cb2915129
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264146"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593921"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Kontrol lera status för användar etablering
 
@@ -35,7 +30,7 @@ När du först konfigurerar automatisk etablering visas statusen för den inleda
 - Typ av etablerings cykel (initial eller stegvis) som körs för tillfället eller som senast slutfördes.
 - En **förlopps indikator** som visar procent andelen av etablerings cykeln som har slutförts. Procent andelen visar antalet sidor som har allokerats. Observera att varje sida kan innehålla flera användare eller grupper, så att procent andelen inte direkt korreleras med antalet användare, grupper eller roller som tillhandahålls.
 - En **uppdaterings** knapp som du kan använda för att hålla vyn uppdaterad.
-- Antalet **användare** och **grupper** i data lagret för anslutningen. Antalet ökar när som helst ett objekt läggs till i omfånget för etableringen. Antalet går inte nedåt om en användare är mjuk raderad eller hårt borttagen eftersom detta inte tar bort objektet från anslutnings data lagret. Antalet kommer att recaculated den första synkroniseringen när CD-skivorna har [återställts](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
+- Antalet **användare** och **grupper** i data lagret för anslutningen. Antalet ökar när som helst ett objekt läggs till i omfånget för etableringen. Antalet går inte nedåt om en användare är mjuk raderad eller hårt borttagen eftersom detta inte tar bort objektet från anslutnings data lagret. Antalet beräknas om den första synkroniseringen när CD-skivorna har [återställts](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
 - En länk för **gransknings loggar** som öppnar Azure AD-etablerings loggar för information om alla åtgärder som körs av användar etablerings tjänsten, inklusive etablerings status för enskilda användare (se avsnittet [använda etablerings loggar](#use-provisioning-logs-to-check-a-users-provisioning-status) nedan).
 
 När en etablerings cykel är klar visar **statistik till datum** avsnittet det ackumulerade antalet användare och grupper som har etablerats till datum, tillsammans med slutdatum och varaktighet för den senaste cykeln. **Aktivitets-ID: t** identifierar unikt den senaste etablerings cykeln. **Jobb-ID: t** är en unik identifierare för etablerings jobbet och är särskilt för appen i din klient organisation.

@@ -2,31 +2,27 @@
 title: Förstå hur Azure AD-etablering fungerar | Microsoft Docs
 description: Förstå hur Azure AD-etablering fungerar
 services: active-directory
-documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-provisioning
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 241d90981ed9ba54d253e6c22c00f9e5a9197863
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884893"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82593734"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
 Automatisk etablering syftar på att skapa användar identiteter och roller i de moln program som användare behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Innan du påbörjar en distribution kan du läsa den här artikeln för att lära dig hur Azure AD etablerar fungerar och hur du får konfigurations rekommendationer. 
 
-**Azure AD Provisioning-tjänsten** tillhandahåller användare till SaaS-appar och andra system genom att ansluta till ett system för scim (Cross-Domain Identity Management) 2,0 användar hanterings-API: n som tillhandahålls av program leverantören. Den här SCIM-slutpunkten låter Azure AD program mässigt skapa, uppdatera och ta bort användare. För valda program kan etablerings tjänsten också skapa, uppdatera och ta bort ytterligare ID-relaterade objekt, till exempel grupper och roller. Den kanal som används för etablering mellan Azure AD och programmet krypteras med hjälp av HTTPS TLS-kryptering.
+**Azure AD Provisioning-tjänsten** tillhandahåller användare till SaaS-appar och andra system genom att ansluta till ett system för scim (Cross-Domain Identity Management) 2,0 användar hanterings-API: n som tillhandahålls av program leverantören. Den här SCIM-slutpunkten låter Azure AD program mässigt skapa, uppdatera och ta bort användare. För valda program kan etablerings tjänsten också skapa, uppdatera och ta bort ytterligare ID-relaterade objekt, till exempel grupper och roller. Den kanal som används för etablering mellan Azure AD och programmet krypteras med HTTPS TLS 1,2-kryptering.
 
 
 ![Azure AD Provisioning service](./media/how-provisioning-works/provisioning0.PNG)
@@ -190,7 +186,7 @@ Om någon av ovanstående fyra händelser inträffar och mål programmet inte st
 
 Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för att fastställa användarens tillstånd och om du vill skicka en uppdateringsbegäran med aktiv = falskt för att ta bort användaren. 
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 [Planera en distribution med automatisk användaretablering](../app-provisioning/plan-auto-user-provisioning.md)
 

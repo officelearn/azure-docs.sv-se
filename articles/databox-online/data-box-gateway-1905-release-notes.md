@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 345666b53336cc6959a65eefd4b0f2475bea8c80
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2843623061e39e8c9c0ebc35b4916bf9bd3b186
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67078617"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82561856"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Viktig information om Azure Data Box Edge och Azure Data Box Gateway 1905
 
@@ -21,7 +21,7 @@ ms.locfileid: "67078617"
 
 I följande viktig information identifieras kritiska öppna problem och de lösta problemen för 1905-versionen för Azure Data Box Edge och Azure Data Box Gateway.
 
-Viktig information uppdateras kontinuerligt och eftersom kritiska problem som kräver en lösning upptäcks, läggs de till. Innan du distribuerar Data Box Edge/Data Box Gateway bör du gå igenom informationen i viktig information.
+Viktig information uppdateras kontinuerligt och eftersom kritiska problem som kräver en lösning upptäcks, läggs de till. Innan du distribuerar Data Box Edge/Data Box Gateway bör du gå igenom informationen i viktig information. 
 
 Den här versionen motsvarar program varu versionerna:
 
@@ -33,7 +33,7 @@ Den här versionen motsvarar program varu versionerna:
 
 ## <a name="whats-new"></a>Nyheter
 
-- **Förbättringar av FPGA-loggning (fält programmerbara grind mat ris)** – i den här versionen har vi gjort loggnings-och aviserings förbättringar relaterade till FPGA. Detta är en obligatorisk uppdatering för Data Box Edge om du använder Edge Compute-funktionen med FPGA. Mer information finns i så här [omvandlar du data med Edge Compute på din data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
+- **Förbättringar av FPGA-loggning (fält programmerbara grind mat ris)** – i den här versionen har vi gjort loggnings-och aviserings förbättringar relaterade till FPGA. Detta är en obligatorisk uppdatering för Data Box Edge om du använder Edge Compute-funktionen med FPGA. Mer information finns i så här [omvandlar du data med Edge Compute på din data Box Edge](azure-stack-edge-deploy-configure-compute-advanced.md).
 
 ## <a name="known-issues-in-ga-release"></a>Kända problem i GA-versionen
 
@@ -43,4 +43,4 @@ Inga nya problem har antecknats för den här versionen. Alla eventuella problem
 ## <a name="next-steps"></a>Nästa steg
 
 - [Förbereda distributionen av Azure Data Box Gateway](data-box-gateway-deploy-prep.md)
-- [Förbered att distribuera Azure Data Box Edge](data-box-edge-deploy-prep.md)
+- [Förbered att distribuera Azure Data Box Edge](azure-stack-edge-deploy-prep.md)

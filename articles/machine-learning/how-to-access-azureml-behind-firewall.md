@@ -1,7 +1,7 @@
 ---
-title: Använda Azure Machine Learning bakom en brand vägg
+title: Använd en brand vägg
 titleSuffix: Azure Machine Learning
-description: Använd Azure Machine Learning på ett säkert sätt bakom Azure-brandväggen. Läs om de värdar som du måste tillåta genom brand väggen för att Azure Machine Learning ska fungera korrekt.
+description: Kontrol lera åtkomsten till Azure Machine Learning arbets ytor med Azure-brandväggar. Läs om de värdar som du måste tillåta genom brand väggen för att Azure Machine Learning ska fungera korrekt.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 04/27/2020
-ms.openlocfilehash: 2c5fe9d46ef408775cc4b99d4820a652a91683c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40c25dda3fefa9c54df832e16149a68a4aa5a33b
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196327"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981973"
 ---
-# <a name="use-azure-machine-learning-workspace-behind-azure-firewall"></a>Använd Azure Machine Learning arbets yta bakom Azure-brandväggen
+# <a name="use-workspace-behind-azure-firewall-for-azure-machine-learning"></a>Använd arbets ytan bakom Azure-brandväggen för Azure Machine Learning
 
-Den här artikeln innehåller information om hur du konfigurerar Azure-brandväggen för användning med Azure Machine Learning.
+I den här artikeln lär du dig hur du konfigurerar Azure-brandväggen för användning med en Azure Machine Learning-arbetsyta.
 
 Azure-brandväggen kan användas för att styra åtkomsten till din Azure Machine Learning-arbetsyta och det offentliga Internet. Om konfigurationen inte är korrekt konfigurerad kan brand väggen orsaka problem med din arbets yta.
 

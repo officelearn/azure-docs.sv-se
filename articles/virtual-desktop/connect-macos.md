@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6ac3ee8d44d68f5c7929c2f93f1a1182c7f6083b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca54c60d424722d31d195d10eb15751a2ec6c0eb
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80891262"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612919"
 ---
 # <a name="connect-with-the-macos-client"></a>Ansluta med macOS-klienten
 
 > Gäller för: macOS 10,12 eller senare
+
+>[!IMPORTANT]
+>Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/connect-macos-2019.md).
+>
+> Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
+> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Du kan komma åt Windows virtuella Skriv bords resurser från dina macOS-enheter med vår nedladdnings bara klient. I den här guiden får du lära dig hur du konfigurerar-klienten.
 
@@ -33,7 +39,7 @@ Så här prenumererar du på en feed:
 
 1. Välj **Lägg till arbets yta** på huvud sidan för att ansluta till tjänsten och hämta dina resurser.
 2. Ange feed-URL: en. Detta kan vara en URL eller en e-post adress:
-   - Om du använder en URL kan du använda den som din administratör fick. Normalt är <https://rdweb.wvd.microsoft.com>URL: en.
+   - Om du använder en URL kan du använda den som din administratör fick. Normalt är <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>URL: en.
    - Ange din e-postadress om du vill använda e-post. Detta instruerar klienten att söka efter en URL som är kopplad till din e-postadress om administratören har konfigurerat servern på det sättet.
 3. Välj **Lägg till**.
 4. Logga in med ditt användar konto när du uppmanas till det.

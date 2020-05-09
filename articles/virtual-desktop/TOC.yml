@@ -122,8 +122,6 @@
       href: remotefx-graphics-performance-counters.md
 - name: Referens
   items:
-    - name: Metodtips för säkerhet
-      href: security-guide.md
     - name: Linux-support
       href: linux-overview.md
     - name: RDP-filinställningar som stöds

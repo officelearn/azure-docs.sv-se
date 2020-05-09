@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 00a98fdeb4b8febbcb9d1183fabffc7298cc9e4c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 083bad1aa9abd2cb8efe3520b0acecc9ab00853c
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81770729"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983881"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Synapse Analytics (förhandsgranska arbets yta)
 
@@ -94,9 +94,9 @@ A: data flödet gör det möjligt för data tekniker att utveckla grafisk data o
 
 A: slut punkt till slut punkt för enkel inloggning är en viktig autentiseringsprocess i Synapse Analytics. Att hantera och skicka identiteten via via en fullständig AAD-integrering måste vara en.
 
-### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adlsg2"></a>F: Hur gör jag för att få åtkomst till filer och mappar i mappen ADLSg2
+### <a name="q-how-do-i-get-access-to-files-and-folders-in-the-adls-gen2"></a>F: Hur gör jag för att få åtkomst till filer och mappar i ADLS Gen2
 
-A: åtkomst till filer och mappar hanteras för närvarande via ADLSg2. Mer information finns i [data Lake Storage Access Control](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+A: åtkomst till filer och mappar hanteras för närvarande via ADLS Gen2. Mer information finns i [data Lake Storage Access Control](../storage/blobs/data-lake-storage-access-control.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="q-can-i-use-third-party-business-intelligence-tools-to-access-azure-synapse-analytics"></a>F: kan jag använda Business Intelligence-verktyg från tredje part för att få åtkomst till Azure Synapse Analytics
 

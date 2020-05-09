@@ -1,5 +1,5 @@
 ---
-title: Snabbstart – Skapa en Azure CDN-profil och -slutpunkt | Microsoft Docs
+title: Snabb start – skapa en profil och slut punkt för Azure CDN
 description: Den här snabbstarten visar hur du aktiverar Azure CDN genom att skapa en ny CDN-profil och CDN-slutpunkt.
 services: cdn
 documentationcenter: ''
@@ -12,82 +12,76 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/24/2018
+ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: e11e6e4cc0194991b322d591049d7156b9979c45
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: af90166b688dee104e7bda18a88a2fe7c98f657b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254061"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996291"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt
-I den här snabbstarten aktiverar du Azure Content Delivery Network (CDN) genom att skapa en ny CDN-profil och CDN-slutpunkt. När du har skapat en profil och en slutpunkt kan du börja leverera innehåll till dina kunder.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+I den här snabb starten aktiverar du Azure Content Delivery Network (CDN) genom att skapa en ny CDN-profil, som är en samling av en eller flera CDN-slutpunkter. När du har skapat en profil och en slutpunkt kan du börja leverera innehåll till dina kunder.
 
 ## <a name="prerequisites"></a>Krav
-För den här snabbstarten måste du ha skapat ett lagringskonto med namnet *mystorageacct123*, som du använder för ursprungets värdnamn. Mer information finns i [integrera ett Azure Storage-konto med Azure CDN](cdn-create-a-storage-account-with-cdn.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Logga in på Azure Portal
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure Storage-konto med namnet *cdnstorageacct123*som du använder för ursprungs värd namnet. För att slutföra det här kravet, se [integrera ett Azure Storage-konto med Azure CDN](cdn-create-a-storage-account-with-cdn.md).
+
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+
 Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 [!INCLUDE [cdn-create-profile](../../includes/cdn-create-profile.md)]
 
 ## <a name="create-a-new-cdn-endpoint"></a>Skapa en ny CDN-slutpunkt
 
-När du har skapat en CDN-profil kan använda du den för att skapa en slutpunkt.
+När du har skapat en CDN-profil använder du den för att skapa en slut punkt.
 
-1. På instrumentpanelen i Azure Portal väljer du den CDN-profil som du skapade. Om du inte hittar den väljer du **Alla tjänster** och sedan **CDN-profiler**. På sidan **CDN-profiler** markerar du den profil som du vill använda. 
+1. På instrumentpanelen i Azure Portal väljer du den CDN-profil som du skapade. Om du inte hittar det kan du antingen öppna resurs gruppen där du skapade den eller använda Sök fältet längst upp i portalen, ange profil namnet och välja profilen från resultaten.
    
-    CDN-profilsidan visas.
-
-2. Välj **slut punkt**.
+1. På sidan CDN-profil väljer du **+ slut punkt**.
    
     ![CDN-profil](./media/cdn-create-new-endpoint/cdn-select-endpoint.png)
    
     Fönstret **Lägg till slutpunkt** visas.
 
-3. Använd värdena som anges i följande tabell som slutpunktsinställningar:
+3. Ange följande inställnings värden:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
-    | **Namn** | Ange *my-endpoint-123* som slutpunktens värdnamn. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. Det här namnet används för att komma åt dina cachelagrade resurser på domänens _ &lt;slut punkts namn&gt;_. azureedge.net.|
+    | **Namn** | Ange *CDN-Endpoint-123* för slut punktens värdnamn. Det här namnet måste vara globalt unikt i Azure. Ange ett annat namn om det redan används. Det här namnet används för att komma åt dina cachelagrade resurser på domänen _ &lt;slut&gt;punkt-Name_. azureedge.net.|
     | **Ursprungstyp** | Välj **lagring**. | 
-    | **Ursprungets värdnamn** | Ange *mystorageacct123.blob.core.windows.net* som värdnamn. Det här namnet måste vara globalt unikt. Om det redan används kan du ange ett annat namn. |
+    | **Ursprungets värdnamn** | Välj värd namnet för det Azure Storage konto som du använder i list rutan, till exempel *cdnstorageacct123.blob.Core.Windows.net*. |
     | **Sökväg till ursprung** | Lämna tomt. |
-    | **Ursprungsvärdadress** | Använd det standardgenererade värdet. |  
-    | **Protokollhanterare** | Använd de valda standardalternativen för **HTTP** och **HTTPS**. |
+    | **Ursprungsvärdadress** | Lämna standardvärdet (vilket är värd namnet för lagrings kontot). |  
+    | **Protokoll** | Använd de valda standardalternativen för **HTTP** och **HTTPS**. |
     | **Ursprungsport** | Använd standardportvärdena. | 
     | **Optimerat för** | Använd standardvalet **Allmän webbleverans**. |
 
     ![Fönstret Lägg till slutpunkt](./media/cdn-create-new-endpoint/cdn-add-endpoint.png)
 
-3. Välj **Lägg till** för att skapa den nya slutpunkten.
-   
-   När slutpunkten har skapats, visas den i en lista över slutpunkter för profilen.
+3. Välj **Lägg till** för att skapa den nya slutpunkten. När slutpunkten har skapats, visas den i en lista över slutpunkter för profilen.
     
    ![CDN-slutpunkt](./media/cdn-create-new-endpoint/cdn-endpoint-success.png)
     
-   Slutpunkten kan inte användas direkt, eftersom det tar tid för registreringen att sprida sig: 
-   - För **Azure CDN Standard från Microsoft**-profiler slutförs spridningen vanligtvis inom 10 minuter. 
-   - För **Azure CDN Standard från Akamai**-profiler slutförs spridningen vanligtvis inom en minut. 
-   - För **Azure CDN Standard från Verizon**- och **Azure CDN Premium från Verizon**-profiler slutförs spridningen vanligtvis inom 90 minuter. 
+   Hur lång tid det tar att sprida slut punkten beror på vilken pris nivå som väljs när du skapade profilen. **Standard Akamai** slutförs vanligt vis inom en minut, **standard Microsoft** på 10 minuter och **standard** Verizon och **Premium Verizon** på upp till 90 minuter.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
+
 I föregående steg skapade du en CDN-profil och en CDN-slutpunkt i en resursgrupp. Spara dessa resurser om du vill gå till [Nästa steg](#next-steps) och lära dig hur du lägger till en anpassad domän i din slutpunkt. Men om du inte tänker använda de här resurserna i framtiden kan du ta bort dem genom att ta bort resursgruppen (på så sätt undviker du ytterligare kostnader):
 
-1. På den vänstra menyn i Azure Portal väljer du **Resursgrupper** och sedan **my-resource-group-123**.
+1. Välj **resurs grupper** på den vänstra menyn i Azure Portal och välj sedan **CDNQuickstart-RG**.
 
-2. På sidan **Resursgrupp** väljer du **Ta bort resursgrupp**, skriver *my-resource-group-123* i textrutan och väljer **Ta bort**.
-
-    Den här åtgärden tar bort resursgruppen, profilen och slutpunkten som du skapade i den här snabbstarten.
+2. Välj **ta bort resurs grupp**på sidan **resurs grupp** , ange *CDNQuickstart-RG* i text rutan och välj sedan **ta bort**. Den här åtgärden tar bort resurs gruppen, profilen och slut punkten som du skapade i den här snabb starten.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om hur du lägger till en anpassad domän i din CDN-slutpunkt finns i följande självstudiekurs:
+
+> [!div class="nextstepaction"]
+> [Självstudie: Använd CDN till Server statiskt innehåll från en webbapp](cdn-add-to-web-app.md)
 
 > [!div class="nextstepaction"]
 > [Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
-
-

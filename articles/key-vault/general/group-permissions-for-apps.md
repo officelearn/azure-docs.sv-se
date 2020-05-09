@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: db6b8b2ff199b7b26d0c641ded31a5c1417468b9
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 9ba568f3a6b6e85ce90db7d6b4d72c2c0d958da1
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901267"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982742"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll
 
@@ -60,7 +60,7 @@ ObjectId för ett program motsvarar dess associerade tjänst huvud namn. Fullst�
 
 Det finns två sätt att hämta ett objectId för ett program.  Det första är att registrera ditt program med Azure Active Directory. Det gör du genom att följa stegen i snabb starten [Registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md). När registreringen är klar visas objectID som "program-ID" (klient).
 
-Det andra är att skapa ett huvud namn för tjänsten i ett terminalfönster. Med Azure CLI använder du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) och anger ett unikt tjänst princip namn för flaggan-n i formatet "http://<My-Unique-service-princip-Name>".
+Det andra är att skapa ett huvud namn för tjänsten i ett terminalfönster. Med Azure CLI använder du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) och anger ett unikt tjänst princip namn för flaggan-n i formatet "http://&lt;My-Unique-service-name&gt;".
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"

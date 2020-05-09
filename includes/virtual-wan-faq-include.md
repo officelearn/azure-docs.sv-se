@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5d2d33dc2ef135fde0955336a40f851d6ed4e0e7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cde644b821b8c9233c9a79c2c5e9fe8478850a65
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204646"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82997724"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -49,7 +49,7 @@ Det finns två alternativ för att lägga till DNS-servrar för P2S-klienter.
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>För användar-VPN (punkt-till-plats) – hur många klienter stöds?
 
-Varje användares VPN-P2S Gateway har två instanser och varje instans har stöd för upp till vissa användare när skalnings enheten ändras. Skalnings enhet 1-3 har stöd för 500-anslutningar, skalnings enhet 4-6 har stöd för 1000-anslutningar, skalnings enhet 7-12 har stöd för 5000-anslutningar och skalnings enhets 13-20 har Till exempel låter användaren välja 1 skalen het. Varje skalnings enhet innebär att en aktiv-aktiv Gateway distribueras och var och en av instanserna (i det här fallet 2) har stöd för upp till 500 anslutningar. Eftersom du kan få 500 anslutningar * 2 per Gateway, innebär det inte att du planerar för 1000 i stället för 500 för den här skalnings enheten eftersom instanser kan behöva servas under vilken anslutningen för den extra 500 kan avbrytas om du överskrider det rekommenderade antalet anslutningar.
+Varje användares VPN-P2S Gateway har två instanser och varje instans har stöd för upp till vissa användare när skalnings enheten ändras. Skalnings enhet 1-3 har stöd för 500-anslutningar, skalnings enhet 4-6 har stöd för 1000-anslutningar, skalnings enhet 7-12 har stöd för 5000-anslutningar och skalnings enhets 13-20 har Till exempel låter användaren välja 1 skalen het. Varje skalnings enhet innebär att en aktiv-aktiv Gateway distribueras och var och en av instanserna (i det här fallet 2) har stöd för upp till 500 anslutningar. Eftersom du kan få 500 anslutningar * 2 per Gateway, innebär det inte att du planerar för 1000 i stället för 500 för den här skalnings enheten eftersom instanser kan behöva servas under vilken anslutningen för den extra 500 kan avbrytas om du överskrider det rekommenderade antalet anslutningar. Se också till att planera för stillestånds tid om du väljer att skala upp eller ned i skalnings enheten eller ändra punkt-till-plats-konfigurationen på VPN-gatewayen.
 
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Vad är skillnaden mellan en virtuell Azure-nätverksgateway (VPN Gateway) och en virtuell WAN-gateway i Azure?
 

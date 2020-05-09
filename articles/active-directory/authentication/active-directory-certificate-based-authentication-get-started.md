@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a6c44a8253c81b44d02351b2df9c943d9f358f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9c3ea7596e589431412489bea4ac9a23fa604540
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80654343"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610657"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Komma igång med certifikatbaserad autentisering i Azure Active Directory
 
@@ -45,7 +46,7 @@ Följande uttryck måste vara uppfyllda för att du ska kunna konfigurera certif
 - Ett klient certifikat för klientautentisering måste ha utfärdats till klienten.
 
 >[!IMPORTANT]
->Den maximala storleken för en lista över återkallade certifikat för att Azure Active Directory hämta och cachelagra är 20 MB och den tid det tar att hämta listan över återkallade certifikat får inte överstiga 10 sekunder.  Om Azure Active Directory inte kan hämta en lista över återkallade certifikat, kommer certifikatbaserade autentiseringar som använder certifikat som utfärdats av motsvarande CA att Miss Miss Metod tips för att se till att CRL-filer är inom storleks begränsningarna är att behålla certifikat livs längderna inom rimliga gränser och rensa ut certifikat som har upphört att gälla. 
+>Den maximala storleken för en lista över återkallade certifikat för att Azure Active Directory hämta och cachelagra är 20 MB och den tid det tar att hämta listan över återkallade certifikat får inte överstiga 10 sekunder.  Om Azure Active Directory inte kan hämta en lista över återkallade certifikat, kommer certifikatbaserade autentiseringar som använder certifikat som utfärdats av motsvarande CA att Miss Miss Metod tips för att se till att CRL-filer är inom storleks begränsningarna är att behålla certifikat livs längderna inom rimliga gränser och rensa ut certifikat som har upphört att gälla.
 
 ## <a name="step-1-select-your-device-platform"></a>Steg 1: Välj din enhets plattform
 

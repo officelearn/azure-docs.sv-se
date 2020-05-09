@@ -1,6 +1,6 @@
 ---
-title: Lägga till eller ta bort roll tilldelningar med Azure RBAC och Azure CLI
-description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med hjälp av rollbaserad åtkomst kontroll (RBAC) och Azure CLI i Azure.
+title: Lägga till eller ta bort Azure Role-tilldelningar med Azure CLI – Azure RBAC
+description: Lär dig hur du beviljar åtkomst till Azure-resurser för användare, grupper, tjänstens huvud namn eller hanterade identiteter med Azure CLI och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b32df50715d5e7276861e0696df1bd6ceb3f684e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a66482aeee7832baa91fe98357b870e2a280912
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245673"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735784"
 ---
-# <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-cli"></a>Lägga till eller ta bort roll tilldelningar med Azure RBAC och Azure CLI
+# <a name="add-or-remove-azure-role-assignments-using-azure-cli"></a>Lägga till eller ta bort roll tilldelningar i Azure med Azure CLI
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Den här artikeln beskriver hur du tilldelar roller med hjälp av Azure CLI.
 
@@ -62,7 +62,7 @@ az ad sp list --display-name "{name}" --query [].objectId --output tsv
 
 ## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
 
-I RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
+I Azure RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
 
 ### <a name="user-at-a-resource-group-scope"></a>Användare vid en resurs grupps omfång
 
@@ -97,7 +97,7 @@ Om du vill lägga till en roll tilldelning med det unika roll-ID: t i stället f
 az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *\@patlong contoso.com* -användaren i resurs grupps omfånget *Pharma-Sales* . Om du vill hämta det unika roll-ID: t kan du använda [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list) eller se [inbyggda roller för Azure-resurser](built-in-roles.md).
+I följande exempel tilldelas rollen [virtuell dator deltagare](built-in-roles.md#virtual-machine-contributor) till *\@patlong contoso.com* -användaren i resurs grupps omfånget *Pharma-Sales* . Om du vill hämta det unika roll-ID: t kan du använda [AZ roll definitions lista](/cli/azure/role/definition#az-role-definition-list) eller se [inbyggda Azure-roller](built-in-roles.md).
 
 ```azurecli
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
@@ -187,7 +187,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
 
-I RBAC för att ta bort åtkomst tar du bort en roll tilldelning genom att använda [AZ roll tilldelning ta bort](/cli/azure/role/assignment#az-role-assignment-delete):
+För att ta bort åtkomst i Azure RBAC tar du bort en roll tilldelning genom att använda [AZ roll tilldelning ta bort](/cli/azure/role/assignment#az-role-assignment-delete):
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role_name_or_id> --resource-group <resource_group>
@@ -213,5 +213,5 @@ az role assignment delete --assignee alain@example.com --role "Billing Reader" -
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lista roll tilldelningar med Azure RBAC och Azure CLI](role-assignments-list-cli.md)
+- [Visa en lista med Azures roll tilldelningar med Azure CLI](role-assignments-list-cli.md)
 - [Använd Azure CLI för att hantera Azure-resurser och resurs grupper](../azure-resource-manager/cli-azure-resource-manager.md)

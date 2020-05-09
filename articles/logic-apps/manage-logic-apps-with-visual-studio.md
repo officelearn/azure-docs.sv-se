@@ -3,16 +3,16 @@ title: Redigera och hantera Logic Apps med hjälp av Visual Studio med Cloud Exp
 description: Redigera, uppdatera, hantera, lägga till i käll kontroll och distribuera Logi Kap par med hjälp av Visual Studio med Cloud Explorer
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: article
 ms.custom: mvc
-ms.date: 10/29/2019
-ms.openlocfilehash: 73df5b7f10e038b6894996eb83dec7b6914a4536
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: 62807ef25fe6ee70844e72c90751eb383d0ece7c
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80803198"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82598444"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera Logic Apps i Visual Studio
 
@@ -65,7 +65,7 @@ I Visual Studio kan du hitta alla Logic Apps som är associerade med din Azure-p
 
 1. Öppna Visual Studio. I menyn **Visa** väljer du **Cloud Explorer**.
 
-1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Ett exempel:
+1. Välj **konto hantering**i Cloud Explorer. Välj den Azure-prenumeration som är associerad med dina Logi Kap par och välj sedan **Använd**. Exempel:
 
    ![Välj "konto hantering"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
@@ -228,7 +228,7 @@ Om du vill kontrol lera statusen och diagnostisera problem med att Logic App kö
 
    ![Öppna körnings historiken för din Logic app](./media/manage-logic-apps-with-visual-studio/open-run-history-for-logic-app.png)
 
-1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Ett exempel:
+1. Om du vill visa information om en speciell körning dubbelklickar du på en körning. Exempel:
 
    ![Visa information om en speciell körning](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
@@ -259,7 +259,11 @@ För att ta bort din Logic app från Azure Portal, i Cloud Explorer, öppnar du 
 ![Ta bort din Logic app från Azure Portal](./media/manage-logic-apps-with-visual-studio/delete-logic-app-from-azure-portal.png)
 
 > [!NOTE]
-> När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem. 
+> När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.
+
+> [!NOTE]
+> Om du tar bort och återskapar en underordnad Logic-app måste du spara om den överordnade Logic-appen. Den omskapade underordnade appen kommer att ha olika metadata.
+> Om du inte sparar om den överordnade Logic-appen när du har återskapat dess underordnade Logic-program, kommer anropen till den underordnade Logic-appen att Miss varnas med fel "obehörig". Det här beteendet gäller för över-underordnade Logic Apps, till exempel de som använder artefakter i integrations konton eller anropar Azure Functions.
 
 ## <a name="troubleshooting"></a>Felsökning
 

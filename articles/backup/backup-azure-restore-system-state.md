@@ -4,12 +4,12 @@ description: Steg för steg-förklaringar för återställning av Windows Server
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39cac84c4a33c1da209d0a0cc7b0f8ac8ee390a0
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77602464"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610793"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Återställa system tillstånd till Windows Server
 
@@ -124,7 +124,7 @@ När du har återställt system tillstånd som filer med Azure Recovery Services
 
 2. Starta snapin-modulen Windows Server Backup efter omstart. Om du inte vet var snapin-modulen har installerats söker du efter **Windows Server Backup**i datorn eller servern.
 
-    Skriv bords appen visas i Sök resultaten.
+    Skriv bords appen visas i Sök resultaten. Om den inte visas, eller om du stöter på fel när du öppnar programmet, måste du installera **Windows Server Backup funktioner**, och beroende komponenter under den, som är tillgängliga i **guiden Lägg till funktioner** i **Serverhanteraren**.
 
 3. I snapin-modulen väljer du **lokal säkerhets kopiering**.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 300f44daeeea5e8a774575dabcb00686906bb5de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b212316970b77d325552956cfacded2dc570234f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80804375"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82778982"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Skydda ett API med hjälp av OAuth 2.0 med Azure Active Directory och API Management
 
@@ -79,7 +79,7 @@ Varje klient program som anropar API: et måste registreras som ett program i Az
     - I avsnittet **namn** anger du ett meningsfullt program namn som ska visas för användarna av appen, t. ex. *klient-app*. 
     - I avsnittet **konto typer som stöds** väljer du **konton i valfri organisations katalog (alla Azure AD-kataloger – flera klienter)**. 
 
-1. I avsnittet **omdirigerings** -URI `Web` väljer du och anger `https://contoso5.portal.azure-api.net/signin`URL: en.
+1. I avsnittet **omdirigerings** -URI `Web` väljer du och lämnar URL-fältet tomt för tillfället.
 
 1. Välj **Registrera** för att skapa programmet. 
 
@@ -149,9 +149,9 @@ I det här exemplet är Developer-konsolen klient-app. I följande steg beskrivs
 
 1. Välj **Skapa**.
 
-1. Gå tillbaka till din klient-app och välj **autentisering**.
+1. Gå tillbaka till din klient-app-registrering i Azure Active Directory och välj **autentisering**.
 
-1. Under **omdirigerings-URI: er**väljer du typ som **webb**, klistrar in **redirect_url** under **omdirigerings-URI**och sparar sedan.
+1. Under **plattforms konfiguration** klickar du på **Lägg till en plattform**och väljer typen **som webb**, klistrar in **redirect_url** under **omdirigerings-URI**, och klickar sedan på knappen **Konfigurera** för att spara.
 
 Nu när du har konfigurerat en OAuth 2,0-Authorization-Server kan Developer-konsolen Hämta åtkomsttoken från Azure AD. 
 

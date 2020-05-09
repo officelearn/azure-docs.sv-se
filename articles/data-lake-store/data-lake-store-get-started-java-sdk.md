@@ -1,23 +1,17 @@
 ---
-title: 'Java SDK: fil Systems åtgärder på Azure Data Lake Storage Gen1 | Microsoft Docs'
-description: Använd Azure Data Lake Storage Gen1 Java SDK för att utföra fil Systems åtgärder på Data Lake Storage Gen1 till exempel skapa mappar osv.
-services: data-lake-store
-documentationcenter: ''
+title: Java SDK – fil Systems åtgärder på Data Lake Storage Gen1 – Azure
+description: Använd Java SDK för Azure Data Lake Storage Gen1 för att utföra fil Systems åtgärder på Data Lake Storage Gen1, till exempel skapa mappar, och ladda upp och ladda ned filer.
 author: twooley
-manager: mtillman
-editor: cgronlun
-ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 6f97443e4bcf6689f0bf49917774f662d5462566
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60877472"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691780"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Fil Systems åtgärder på Azure Data Lake Storage Gen1 med Java SDK
 > [!div class="op_single_selector"]
@@ -58,7 +52,7 @@ Kodavsnittet som finns tillgängligt [på GitHub](https://azure.microsoft.com/do
           </dependency>
         </dependencies>
    
-    Det första beroendet är att använda Data Lake Storage Gen1 SDK ()`azure-data-lake-store-sdk`från maven-lagringsplatsen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. I Data Lake Storage Gen1 SDK används [slf4j](https://www.slf4j.org/) Logging fasad, vilket gör att du kan välja mellan ett antal populära loggnings ramverk, t. ex. log4j, Java-loggning, logback osv. eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
+    Det första beroendet är att använda Data Lake Storage Gen1 SDK ()`azure-data-lake-store-sdk`från maven-lagringsplatsen. Det andra beroendet är för att ange vilket loggningsramverk (`slf4j-nop`) som ska användas för programmet. I Data Lake Storage Gen1 SDK används [SLF4J](https://www.slf4j.org/) Logging fasad, vilket gör att du kan välja mellan ett antal populära loggnings ramverk, t. ex. log4j, Java-loggning, logback osv. eller ingen loggning. I det här exemplet inaktiverar vi loggning, därför använder vi **slf4j-nop** bindning. Om du vill använda andra alternativ för loggning i din app, se [här](https://www.slf4j.org/manual.html#projectDep).
 
 3. Lägg till följande importuttryck i programmet.
 

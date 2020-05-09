@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 16cb512d3f8f8afcc199cb52c13e09b12107576f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 264b2803774bcec000fc767693cf96d15e684790
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062429"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628409"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Konfigurera Microsoft Authenticator-appen som din verifierings metod
 
@@ -48,7 +48,7 @@ Beroende på din organisations inställningar kan du kanske använda en app för
 
 ### <a name="to-set-up-the-microsoft-authenticator-app"></a>Konfigurera Microsoft Authenticator-appen
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myaccount.microsoft.com/ din sida.
 
     ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 

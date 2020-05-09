@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77662527"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691118"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring (för hands version)
 
@@ -46,7 +46,7 @@ Från Azure Monitor kan du Visa information om transaktion, svars tid och kapaci
 
 Utför följande steg för att visa användning och tillgänglighet för dina lagrings konton för alla dina prenumerationer.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 2. Välj **övervaka** i rutan till vänster i Azure Portal och välj **lagrings konton (förhands granskning)** under avsnittet **insikter** .
 
@@ -67,7 +67,7 @@ Panelen räknare under List rutorna slår upp det totala antalet lagrings konton
 Välj ett värde i kolumn **tillgänglighet**, **E2E-latens**, **Server svars tid**och **transaktions fel typ/fel** för att dirigera dig till en rapport som är anpassad till den angivna typen av lagrings mått som matchar den valda kolumnen för det lagrings kontot. Mer information om arbets böckerna för varje kategori finns i avsnittet [detaljerade lagrings arbets böcker](#detailed-storage-workbooks) nedan. 
 
 >[!NOTE]
->Information om vilka fel som kan visas i rapporten finns i schema för [svars typ](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) och Sök efter svars typer som **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Beroende på vilka lagrings konton som valts, om det finns fler än tre typer av fel som rapporter ATS, visas **alla andra fel i kategorin.**
+>Information om vilka fel som kan visas i rapporten finns i schema för [svars typ](../../storage/common/monitor-storage-reference.md#metrics-dimensions) och Sök efter svars typer som **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Beroende på vilka lagrings konton som valts, om det finns fler än tre typer av fel som rapporter ATS, visas **alla andra fel i kategorin.**
 
 Standard tröskelvärdet för **tillgänglighet** är:
 

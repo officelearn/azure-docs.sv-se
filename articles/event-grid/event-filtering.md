@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: spelluru
-ms.openlocfilehash: ab5dd716253875e4a992b94a4e143cb3e806a4b0
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 0f503b21d5a7d0fdfbee79354c198775789c0b91
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509660"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82888788"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Förstå händelse filtrering för Event Grid prenumerationer
 
@@ -121,7 +121,7 @@ Tillgängliga operatorer för **strängar** är:
 
 Alla sträng jämförelser är **inte** Skift läges känsliga.
 
-### <a name="key"></a>Nyckel
+### <a name="key"></a>Tangent
 
 För händelser i Event Grid schemat använder du följande värden för nyckeln:
 
@@ -158,6 +158,7 @@ Avancerad filtrering har följande begränsningar:
 * Fem avancerade filter per Event Grid-prenumeration
 * 512 tecken per sträng värde
 * Fem värden för **in** -och **not** -operatorer
+* Nycklar med ** `.` (punkt)** -tecknen i dem. Till exempel: `http://schemas.microsoft.com/claims/authnclassreference` eller `john.doe@contoso.com`. För närvarande finns det inget stöd för escape-tecken i nycklar. 
 
 Samma nyckel kan användas i mer än ett filter.
 

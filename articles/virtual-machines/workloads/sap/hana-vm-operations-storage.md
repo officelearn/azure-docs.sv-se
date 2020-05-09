@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c4e8b544ea3daeb23b22f3864beb21ba9d3f342f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0d8228586c0e20e4314331339aa2f2c46a38c9a
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81255625"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792164"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -247,7 +247,7 @@ Azure NetApp Files tillhandahåller interna NFS-resurser som kan användas för/
 > [!IMPORTANT]
 > Det NFS v3-protokoll som implementeras på Azure NetApp Files stöds **inte** för användning för/Hana/data och/Hana/log. Användningen av NFS 4,1 är obligatorisk för/Hana/data-och/Hana/log-volymer från en funktionell punkt i vyn. För/Hana/Shared-volymen kan NFS v3 eller NFS v 4.1-protokollet användas från en funktionell punkt i vyn.
 
-### <a name="important-considerations"></a>Att tänka på
+### <a name="important-considerations"></a>Viktiga överväganden
 Tänk på följande viktiga överväganden när du överväger Azure NetApp Files för SAP-NetWeaver och SAP HANA:
 
 - Den minsta kapacitets poolen är 4 TiB.  
@@ -281,7 +281,7 @@ När du designar infrastrukturen för SAP i Azure bör du vara medveten om någr
 - Ultra Storage-nivå – 128 MiB/s  
 
 > [!IMPORTANT]
-> Oberoende av kapaciteten som du distribuerar på en enskild NFS-volym förväntas data flödet till platå i intervallet 1.2 – 1,4 GB/SEK som används av en konsument i en virtuell dator. Detta måste göra med den underliggande arkitekturen i ANF-erbjudandet och relaterade Linux-sessionsgränser runt NFS. Prestanda-och data flödes numren som dokumenteras i artikeln prestandatest [resultat för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-performance-benchmarks) utfördes mot en delad NFS-volym med flera virtuella klient datorer och på grund av flera sessioner. Det scenariot är annorlunda för det scenario vi mäter i SAP. Där vi mäter data flödet från en enskild virtuell dator mot en NFS-volym. finns på ANF.
+> Oberoende av kapaciteten som du distribuerar på en enskild NFS-volym förväntas data flödet till platå i intervallet 1.2 – 1,4 GB/SEK som används av en konsument i en virtuell dator. Detta måste göra med den underliggande arkitekturen i ANF-erbjudandet och relaterade Linux-sessionsgränser runt NFS. Prestanda-och data flödes numren som dokumenteras i artikeln prestandatest [resultat för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) utfördes mot en delad NFS-volym med flera virtuella klient datorer och på grund av flera sessioner. Det scenariot är annorlunda för det scenario vi mäter i SAP. Där vi mäter data flödet från en enskild virtuell dator mot en NFS-volym. finns på ANF.
 
 För att uppfylla de lägsta data flödes kraven för SAP för data och logg, och enligt `/hana/shared`rikt linjerna för, skulle de rekommenderade storlekarna se ut så här:
 

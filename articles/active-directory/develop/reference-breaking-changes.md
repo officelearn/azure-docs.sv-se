@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/13/2020
+ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a60b927f7239818b582ffcd85ddb4b7d69594482
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09f27c922df4a15858236b2635b962f4bc92811b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535969"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871532"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering?
 
@@ -37,13 +37,31 @@ Autentiserings systemet ändrar och lägger till funktioner kontinuerligt för a
 
 Inget schemalagt för tillfället.  Se nedan för de ändringar som finns i eller som kommer till produktion.
 
+## <a name="may-2020"></a>Maj 2020
+
+### <a name="azure-government-endpoints-are-changing"></a>Azure Government-slutpunkter ändras
+
+**Start datum**: 5 maj (slutar gälla juni 2020) 
+
+**Påverkade slut punkter**: alla
+
+**Protokoll som påverkas**: alla flöden
+
+Den 1 juni 2018, den officiella Azure Active Directory (AAD) som Azure Government ändrats från `https://login-us.microsoftonline.com` till. `https://login.microsoftonline.us` Den här ändringen gäller också för Microsoft 365 GCC hög och DoD, som även Azure Government AAD. Om du äger ett program inom en amerikansk myndighets klient måste du uppdatera ditt program för att logga in användare i `.us` slut punkten.  
+
+Från och med den 5 maj kommer Azure AD att börja verkställa slut punkts ändringen, vilket hindrar myndighets användare från att logga in på appar som finns i amerikanska myndighets`microsoftonline.com`klienter med hjälp av den offentliga slut punkten ().  Påverkade appar påbörjar ett fel `AADSTS900439`  -  `USGClientNotSupportedOnPublicEndpoint`. Det här felet indikerar att appen försöker logga in hos en amerikansk myndighets användare på den offentliga moln slut punkten. Om din app finns i en offentlig moln klient och är avsedd att stödja användare av amerikanska myndigheter, måste du [Uppdatera din app så att den stöder dem uttryckligen](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Detta kan kräva att du skapar en ny app-registrering i det amerikanska myndighets molnet. 
+
+Verkställighet av den här ändringen görs med hjälp av en gradvis distribution baserat på hur ofta användare från molnet för amerikanska myndigheter loggar in på program-appar som loggar in i amerikanska myndighets användare som inte ofta ser tvångs tvång och appar som ofta används av amerikanska myndighets användare kommer att ha tillämpat tvång. Vi förväntar oss att tvång är slutfört för alla appar i juni 2020. 
+
+Mer information finns i [blogg inlägget Azure Government för migreringen](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/). 
+
 ## <a name="march-2020"></a>Mars 2020
 
 ### <a name="user-passwords-will-be-restricted-to-256-characters"></a>Användar lösen ord är begränsade till 256 tecken.
 
 **Effektivt datum**: 13 mars 2020
 
-**Påverkade slut punkter**: både v 1.0 och v 2.0
+**Påverkade slut punkter**: alla
 
 **Protokoll som påverkas**: alla användar flöden.
 

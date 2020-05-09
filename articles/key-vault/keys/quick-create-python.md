@@ -7,12 +7,12 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.openlocfilehash: e6120d5961dc31845c1322d052d46b52f4d2be6c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 7414bd656f21e65288a06f26095a29b2d9cc27f8
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424183"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900724"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Snabb start: Azure Key Vault klient bibliotek för python
 
@@ -67,12 +67,14 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Det enklaste sättet att autentisera ett molnbaserad .NET-program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](../general/managed-identity.md) . För enkelhetens skull skapar den här snabb starten ett .NET-konsol program. Autentisering av ett Skriv bords program med Azure kräver att tjänstens huvud namn och en princip för åtkomst kontroll används.
+Det enklaste sättet att autentisera ett molnbaserad .NET-program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](../general/managed-identity.md) . 
+
+För enkelhetens skull skapar den här snabb starten ett Skriv bords program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Tjänst principen kräver ett unikt namn i formatet "http://<My-Unique-service-Name>".
 
 Skapa en tjänst princip med Azure CLI [-AZ AD SP Create-for-RBAC-](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommando:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name>" --sdk-auth
 ```
 
 Den här åtgärden returnerar en serie med nyckel/värde-par. 

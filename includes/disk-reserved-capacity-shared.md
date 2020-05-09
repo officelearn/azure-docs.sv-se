@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -71,7 +71,7 @@ Följ dessa steg för att köpa reserverad kapacitet:
    |**Omfång**   |  Hur många prenumerationer kan använda fakturerings förmånen som är associerad med reservationen. Det här värdet anger även hur reservationen tillämpas på vissa prenumerationer. <br/><br/> Om du väljer **delad**tillämpas reservations rabatten på Azure Storage kapacitet i varje prenumeration i din fakturerings kontext. Fakturerings kontexten baseras på hur du registrerade dig för Azure. För företags kunder är det delade omfånget registreringen och innehåller alla prenumerationer i registreringen. För kunder som betalar per användning inkluderar det delade omfånget alla enskilda prenumerationer med priser enligt principen betala per användning som har skapats av konto administratören.  <br/><br/>  Om du väljer **enskild prenumeration**tillämpas reservations rabatten på Azure Storage kapacitet i den valda prenumerationen. <br/><br/> Om du väljer **enskild resurs grupp**tillämpas reservations rabatten på Azure Storage kapacitet i den valda prenumerationen och i den valda resurs gruppen för den aktuella prenumerationen. <br/><br/> Du kan ändra reservations omfånget när du har köpt reservationen.  |
    |**Prenumeration**  | Den prenumeration som du använder för att betala för Azure Storage reservationen. Betalnings metoden för den valda prenumerationen används för att debitera kostnaderna. Prenumerationen måste vara någon av följande typer:<br/><ul><li> Enterprise-avtal (erbjudande nummer MS-AZR-0017P och MS-AZR-0148P). För en företags prenumeration dras avgifterna från registreringen av betalnings åtagandet eller debiteras som överanvändning.</li><br/><li>Enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer MS-AZR-0003P och MS-AZR-0023P). För en enskild prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.</li></ul>    |
    | **Disk** | Den SKU som du vill skapa. |
-   | **Region** | Den region där reservationen gäller. |
+   | **Nationella** | Den region där reservationen gäller. |
    | **Fakturerings frekvens** | Hur ofta kontot debiteras för reservationen. Alternativen omfattar **varje månad** och **längst fram**. |
 
     ![För att välja den produkt som du vill köpa. png](media/disks-reserved-capacity/premium-ssd-reserved-purchase-selection.png)
@@ -88,7 +88,7 @@ När du har köpt en reservation tillämpas den automatiskt på alla befintliga 
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Avbryta, byta ut eller återbetala reservationer
 
-Du kan avbryta, byta ut eller återbetala reservationer i vissa begränsningar. Mer information finns i [självbetjänings utbyten och åter betalningar för Azure reservations](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Du kan avbryta, byta ut eller återbetala reservationer i vissa begränsningar. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
 
 ## <a name="expiration-of-a-reservation"></a>Förfallo datum för en reservation
 
@@ -102,5 +102,5 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vad är Azure Reservations?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Vad är Azure-reservationer?](../articles/cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Förstå hur reservationsrabatten tillämpas på Azure-disklagring](../articles/cost-management-billing/reservations/understand-disk-reservations.md)

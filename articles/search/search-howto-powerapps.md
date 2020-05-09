@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 04/25/2020
-ms.openlocfilehash: e4afa3c122fa6e21b29b6ad52a386096b20aa055
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2a2e292390b2f060bf31d739605d7506203a5619
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82184505"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901402"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Självstudie: fråga ett Kognitiv sökning-index från Power Apps
 
@@ -82,7 +82,7 @@ En anslutning i Power Apps är en anslutning till data källan. I det här stege
 
        :::image type="content" source="./media/search-howto-powerapps/1-8-1-import-from-sample.png" alt-text="Importera från exempel" border="true":::
 
-1. Klicka på **Importera** för att fylla begäran automatiskt. Slutför inställningen för parameter-metadata genom att klicka på **...** symbol bredvid var och en av parametrarna. Klicka på **tillbaka** för att återgå till sidan för begäran efter varje parameter uppdatering.
+1. Klicka på **Importera** för att fylla begäran automatiskt. Slutför inställningen av parameter-metadata genom att klicka på **...** -symbolen bredvid var och en av parametrarna. Klicka på **tillbaka** för att återgå till sidan för begäran efter varje parameter uppdatering.
 
    :::image type="content" source="./media/search-howto-powerapps/1-8-2-import-from-sample.png" alt-text="Importera från exempel dialog" border="true":::
 

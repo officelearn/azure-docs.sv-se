@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 712e7bcf513592f97950902faff2f7754093b9fc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9e44aecc5015986079afb3190101cdaabc4a6874
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76549299"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981977"
 ---
+# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Självstudie: Azure Active Directory integrering med SmarterU
+
 > [!NOTE]
 > Processen för att integrera SmarterU med Azure Active Directory dokumenteras och underhålls också i [SmarterU-hjälpsystemet](https://help.smarteru.com/ID2053086).
-
-# <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Självstudie: Azure Active Directory integrering med SmarterU
 
 I den här självstudien får du lära dig hur du integrerar SmarterU med Azure Active Directory (Azure AD).
 Genom att integrera SmarterU med Azure AD får du följande fördelar:

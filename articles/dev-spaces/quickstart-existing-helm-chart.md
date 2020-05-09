@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och kommando raden för att utveckla ett program med ett befintligt Helm-diagram på Azure Kubernetes-tjänsten
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: e767b1ade2a80882ee33ff1fdd718c691dcefcf3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c37ea0b04e99cf1bba555e098bdf33b8a8558cfa
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82033566"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996687"
 ---
 # <a name="quickstart-develop-an-application-with-an-existing-helm-chart-on-kubernetes---azure-dev-spaces"></a>Snabb start: utveckla ett program med ett befintligt Helm-diagram på Kubernetes – Azure dev Spaces
 I den här guiden får du lära dig hur du:
@@ -96,7 +96,7 @@ Press Ctrl+C to detach
 ...
 ```
 
-Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata `azds up` från kommandot. I det här exemplet är *http://dev.service.1234567890abcdef1234.eus.azds.io/* den offentliga URL: en.
+Du kan se den tjänst som körs genom att öppna den offentliga URL: en, som visas i utdata `azds up` från kommandot. I det här exemplet är `http://dev.service.1234567890abcdef1234.eus.azds.io/`den offentliga URL: en.
 
 > [!NOTE]
 > När du navigerar till tjänsten när du `azds up`kör, visas även spårningen av HTTP-begäranden i `azds up` kommandots utdata. De här spårningarna kan hjälpa dig att felsöka och felsöka tjänsten. Du kan inaktivera dessa spårningar `--disable-http-traces` med när `azds up`du kör.

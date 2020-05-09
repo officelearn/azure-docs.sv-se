@@ -38,6 +38,8 @@
           href: relay-authentication-and-authorization.md
         - name: Inbyggda säkerhetskontroller
           href: service-bus-relay-security-controls.md
+        - name: Nätverkssäkerhet
+          href: network-security.md
     - name: Hybridanslutningsprotokoll
       href: relay-hybrid-connections-protocol.md
 - name: Gör så här för att
@@ -59,6 +61,12 @@
               href: relay-hybrid-connections-dotnet-api-overview.md
             - name: Node
               href: relay-hybrid-connections-node-ws-api-overview.md
+    - name: Skydda
+      items:
+        - name: Konfigurera IP-brandvägg (förhandsversion)
+          href: ip-firewall-virtual-networks.md
+        - name: Konfigurera privata slutpunkter (förhandsversion)
+          href: private-link-service.md
     - name: Hantera och övervaka
       items:
         - name: Övervaka Azure Relay med Azure Monitor

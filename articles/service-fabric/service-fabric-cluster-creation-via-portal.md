@@ -3,12 +3,12 @@ title: Skapa ett Service Fabric-kluster i Azure-portalen
 description: Lär dig hur du konfigurerar ett säkert Service Fabric kluster i Azure med hjälp av Azure Portal och Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: e0cd3d5e5a37720134a5bce596bba211b375f19d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 64a4c430cc7402419d64b77fdcc9a6389cf9de6d
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81458325"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792487"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Skapa ett Service Fabric kluster i Azure med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ Konfigurera klusternoderna. Nodtyper definierar VM-storlekar, antalet virtuella 
 2. Minimi **storleken** på virtuella datorer för den primära nodtypen styrs av den **hållbarhets nivå** som du väljer för klustret. Standardvärdet för hållbarhets nivån är brons. Mer information om hållbarhet finns i [så här väljer du Service Fabric klustrets hållbarhet][service-fabric-cluster-durability].
 3. Välj **storlek på virtuell dator**. Virtuella datorer i D-serien har SSD-enheter och rekommenderas för tillstånds känsliga program. Använd inte några VM-SKU: er som har delar av kärnor eller färre än 10 GB ledigt disk utrymme. Mer information om hur du väljer VM-storlek hittar du i [planerings dokumentet för Service Fabric-kluster][service-fabric-cluster-capacity] .
 4.  **Kluster med en nod och tre nod kluster** är avsedda för endast test användning. De stöds inte för produktions arbets belastningar som körs.
-5. Välj den **första kapaciteten för skalnings uppsättningen för virtuella datorer** för nodtypen. Du kan skala upp eller ned antalet virtuella datorer i en nodtyp senare, men på den primära nodtypen är minimivärdet fem för produktions arbets belastningar. Andra nodtyper kan ha minst en virtuell dator. Det minsta **antalet** virtuella datorer för den primära nodtypen styr klustrets **tillförlitlighet** .  
+5. Välj den **första kapaciteten för skalnings uppsättningen för virtuella datorer** för nodtypen. Du kan skala in eller ut antalet virtuella datorer i en nodtyp senare, men på den primära nodtypen är minimivärdet fem för produktions arbets belastningar. Andra nodtyper kan ha minst en virtuell dator. Det minsta **antalet** virtuella datorer för den primära nodtypen styr klustrets **tillförlitlighet** .  
 6. Konfigurera **anpassade slut punkter**. Med det här fältet kan du ange en kommaavgränsad lista med portar som du vill exponera genom Azure Load Balancer till det offentliga Internet för dina program. Om du till exempel planerar att distribuera ett webb program till klustret anger du "80" här för att tillåta trafik på port 80 till klustret. Mer information om slut punkter finns i [kommunicera med program][service-fabric-connect-and-communicate-with-services]
 7. **Aktivera omvänd proxy**.  [Service Fabric omvänd proxy](service-fabric-reverseproxy.md) hjälper mikrotjänster som körs i ett Service Fabric-kluster att identifiera och kommunicera med andra tjänster som har http-slutpunkter.
 8. Gå tillbaka till bladet **kluster konfiguration** under **+ Visa valfria inställningar**, konfigurera kluster **diagnos**. Som standard är diagnostik aktiverat på klustret för att hjälpa till med fel söknings problem. Om du vill inaktivera diagnostik ändrar du **statusen** växla till **av**. Du rekommenderas **inte** att stänga av diagnostik. Om du redan har skapat Application Insights projekt kan du ge dess nyckel, så att program spårningarna dirigeras till den.

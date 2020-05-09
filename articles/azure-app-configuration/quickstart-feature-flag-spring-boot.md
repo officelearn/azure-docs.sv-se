@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: e6dc51250987e0282530209ffa13e52d6e75aa9c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cc040fe2c9e0686844c8609b9682d757595b9dbf
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81687370"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981076"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
@@ -62,7 +62,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
         <version>1.1.2</version>
     </dependency>
     <dependency>
@@ -81,7 +81,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
     ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-azure-appconfiguration-config</artifactId>
+        <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
         <version>1.2.2</version>
     </dependency>
     <dependency>
@@ -289,7 +289,7 @@ Använd [vår Initializr](https://start.spring.io/) för att skapa ett nytt fjä
 
 1. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
 
-    | Nyckel | Status |
+    | Tangent | Status |
     |---|---|
     | Beta | På |
 

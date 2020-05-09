@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: ace701a6c19f4fe3af1c9ae6f5e63097dd59d405
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 1a9a503fd566c9b50f1503e0955bf12f69ac9960
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871686"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927929"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -46,7 +46,7 @@ Du kan också använda en [hybrid Runbook Worker](automation-hybrid-runbook-work
 
 I följande tabell visas några aktiviteter för Runbook-körningar med den rekommenderade körnings miljön som visas för var och en.
 
-|Uppgift|Rekommendation|Obs!|
+|Uppgift|Rekommendation|Anteckningar|
 |---|---|---|
 |Integrera med Azure-resurser|Sand box för Azure|Azure är värd för Azure och det är enklare att autentisera. Om du använder en Hybrid Runbook Worker på en virtuell Azure-dator kan du [använda Runbook-autentisering med hanterade identiteter](automation-hrw-run-runbooks.md#runbook-auth-managed-identities).|
 |Få optimala prestanda för att hantera Azure-resurser|Sand box för Azure|Skriptet körs i samma miljö, vilket har mindre latens.|
@@ -86,7 +86,7 @@ Azure Automation använder [Azure Monitor](https://docs.microsoft.com/azure/azur
 
 ### <a name="log-analytics-agent-for-windows"></a>Log Analytics agent för Windows
 
-[Log Analytics agenten för Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windowsmonitor) fungerar med Azure Monitor för att hantera virtuella Windows-datorer och fysiska datorer. Datorerna kan köras antingen i Azure eller i en miljö som inte är en Azure-miljö, till exempel ett lokalt Data Center. Du måste konfigurera agenten så att den rapporterar till en eller flera Log Analytics arbets ytor. 
+[Log Analytics agenten för Windows](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows) fungerar med Azure Monitor för att hantera virtuella Windows-datorer och fysiska datorer. Datorerna kan köras antingen i Azure eller i en miljö som inte är en Azure-miljö, till exempel ett lokalt Data Center. Du måste konfigurera agenten så att den rapporterar till en eller flera Log Analytics arbets ytor. 
 
 >[!NOTE]
 >Log Analytics agent för Windows kallades tidigare för Microsoft Monitoring Agent (MMA).

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: förutsäga Automobile-priset med designern'
+title: 'Självstudie: förutsäga bil priser med designern'
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du tränar, poängs ätter och distribuerar en maskin inlärnings modell med hjälp av ett dra-och-släpp-gränssnitt. Den här självstudien är en del av en serie i två delar om förutsägelse av bil priser med hjälp av linjär regression.
 author: peterclu
@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 03/12/2020
-ms.openlocfilehash: 47288c5da5b32a9f9640b1ee65c646885bf5cbab
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.date: 05/12/2020
+ms.openlocfilehash: d730eb64f5025daa740e4fad0fce0a95300363e1
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653227"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983405"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]

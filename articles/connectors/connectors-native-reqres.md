@@ -3,20 +3,20 @@ title: Ta emot och svara på anrop med hjälp av HTTPS
 description: Hantera inkommande HTTPS-begäranden från externa tjänster med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewers: klam, logicappspm
+ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 8137bea37c25554d814e237380ba5c57c5b24d57
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: c6d8dc087e6306173fc4d55368cd3c4c624d5302
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900968"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978577"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
-Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda begär ande utlösare eller svars åtgärd kan du skapa automatiserade uppgifter och arbets flöden som tar emot och svarar på inkommande HTTPS-begäranden. Du kan till exempel ha din Logic-app:
+Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda åtgärden begär ande utlösare och svar kan du skapa automatiserade uppgifter och arbets flöden som tar emot och svarar på inkommande HTTPS-begäranden. Du kan till exempel ha din Logic-app:
 
 * Ta emot och svara på en HTTPS-begäran om data i en lokal databas.
 * Utlös ett arbets flöde när en extern webhook-händelse inträffar.
@@ -49,11 +49,11 @@ Begär ande utlösare stöder [Azure Active Directory öppen autentisering](../a
 
 ## <a name="add-request-trigger"></a>Lägg till begär ande utlösare
 
-Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bara* får ta emot inkommande HTTPS-begäranden. När den här händelsen inträffar utlöses utlösaren och kör Logic-appen.
+Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bara* får ta emot inkommande HTTPS-begäranden. När den här händelsen inträffar utlöses utlösaren och kör Logic-appen. Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i [begäran om utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med https-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa en tom logikapp.
 
-1. När Logic App Designer öppnas i sökrutan anger du "http-förfrågan" som filter. I listan utlösare väljer du alternativet **när en HTTP-begäran tas emot** , vilket är det första steget i ditt Logic app-arbetsflöde.
+1. När Logic App Designer öppnas går du till rutan Sök och anger `http request` som filter. I listan utlösare väljer du alternativet **när en HTTP-begäran tas emot** , vilket är det första steget i ditt Logic app-arbetsflöde.
 
    ![Välj begär utlösare](./media/connectors-native-reqres/select-request-trigger.png)
 

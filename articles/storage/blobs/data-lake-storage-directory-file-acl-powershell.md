@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: db098210d6de28d9dc1db7e264459f57bc0f4d86
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c859176857f64559b9a2994c9cfc2d4ec5f61e57
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82161031"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691083"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Använd PowerShell för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2
 
@@ -351,15 +351,25 @@ I det här exemplet har ägande användare och ägande grupp bara Läs-och Skriv
 
 ### <a name="set-acls-on-all-items-in-a-file-system"></a>Ange ACL: er för alla objekt i ett fil system
 
-Du kan använda `Get-AzDataLakeGen2Item` `-Recurse` parametern och tillsammans med `Update-AzDataLakeGen2Item` cmdleten för att rekursivt ange ACL för alla kataloger och filer i ett fil system. 
+Du kan använda `Get-AzDataLakeGen2Item` `-Recurse` parametern och tillsammans med `Update-AzDataLakeGen2Item` cmdleten för att rekursivt ange ACL för kataloger och filer i ett fil system. 
 
 ```powershell
 $filesystemName = "my-file-system"
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rw- 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType group -Permission rw- -InputObject $acl 
 $acl = set-AzDataLakeGen2ItemAclObject -AccessControlType other -Permission -wx -InputObject $acl
-Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse | Update-AzDataLakeGen2Item -Acl $acl
+
+$Token = $Null
+do
+{
+     $items = Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse -ContinuationToken $Token    
+     if($items.Length -le 0) { Break;}
+     $items | Update-AzDataLakeGen2Item -Acl $acl
+     $Token = $items[$items.Count -1].ContinuationToken;
+}
+While ($Token -ne $Null) 
 ```
+
 ### <a name="add-or-update-an-acl-entry"></a>Lägga till eller uppdatera en ACL-post
 
 Hämta först ACL: en. Använd sedan `set-AzDataLakeGen2ItemAclObject` cmdleten för att lägga till eller uppdatera en ACL-post. Använd `Update-AzDataLakeGen2Item` cmdleten för att genomföra ACL: en.
@@ -401,7 +411,7 @@ Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirna
 
 I följande tabell visas hur cmdletarna som används för Data Lake Storage Gen1 mappas till-cmdletarna för Data Lake Storage Gen2.
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Anteckningar |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Obs! |
 |--------|---------|-----|
 |Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|Som standard listar get-AzDataLakeGen2ChildItem-cmdlet endast den första nivån underordnade objekt. Parametern-rekursivt listar underordnade objekt rekursivt. |
 |Get-AzDataLakeStoreItem<br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission|Get-AzDataLakeGen2Item|Utgående objekt i get-AzDataLakeGen2Item-cmdleten har följande egenskaper: ACL, ägare, grupp, behörighet.|

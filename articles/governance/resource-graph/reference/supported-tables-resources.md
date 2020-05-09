@@ -1,14 +1,14 @@
 ---
 title: Resource Manager-resurs typer som stöds
 description: Ange en lista över resurs typer för resurs hanteraren som stöds av Azure Resource Graph och ändrings historik.
-ms.date: 04/24/2020
+ms.date: 04/29/2020
 ms.topic: reference
-ms.openlocfilehash: 7092a6dccc2870c7fd7b6dc6feb3af16f0fd3b7a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ab079bcd1e7e8558d754a413068ca9f0ae276c6
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82141900"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594261"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Resurs diagram tabell och referens för resurs typ i Azure
 
@@ -62,6 +62,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. appconfiguration/configurationstores
 - Microsoft. appplatform/våren
 - Microsoft. Archive/Collections
+- Microsoft. attestering/attestationproviders
 - Microsoft. Automation/automationaccounts
 - Microsoft. Automation/automationaccounts/konfigurationer
 - Microsoft. Automation/automationaccounts/Runbooks
@@ -75,6 +76,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. azuredata/sqlinstances
 - Microsoft. azuredata/sqlserverregistrations
 - Microsoft. azurestack/-registreringar
+- Microsoft. azurestackhci/kluster
 - Microsoft. baremetal/consoleconnections
 - Microsoft. baremetal/crayservers
 - Microsoft. baremetal/monitoringservers
@@ -146,6 +148,7 @@ Azure Resource Graph stöder följande **resurs typer** av [Azure Resource Manag
 - Microsoft. databricks/arbets ytor
 - Microsoft. datacatalog/kataloger
 - Microsoft. datacatalog/datacatalogs
+- Microsoft. Datadog/övervakare
 - Microsoft. DataFactory/datafactories
 - Microsoft. DataFactory/fabriker
 - Microsoft. datalakeanalytics/konton

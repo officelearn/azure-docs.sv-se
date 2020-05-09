@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Resource Manager mallar för att skapa Automation-konto | Microsoft Docs
+title: Använd Azure Resource Manager mallar för att skapa ett Automation-konto | Microsoft Docs
 description: Du kan använda en Azure Resource Manager-mall för att skapa ett Azure Automation-konto.
 ms.service: automation
 ms.subservice: update-management
@@ -7,25 +7,25 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 431b89df0ce06736a2e76e58797ded65751bb404
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
-ms.translationtype: MT
+ms.openlocfilehash: 19aee9d5fdf3f4a3d74484bb7cb2e609bc2807b4
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165832"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927878"
 ---
-# <a name="create-automation-account-using-azure-resource-manager-template"></a>Skapa Automation-konto med Azure Resource Manager mall
+# <a name="create-an-automation-account-by-using-an-azure-resource-manager-template"></a>Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall
 
-Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md) för att skapa ett Azure Automation konto i din resurs grupp. Den här artikeln innehåller en exempel mall som automatiserar följande:
+Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md) för att skapa ett Azure Automation konto i din resurs grupp. Den här artikeln innehåller en exempel-mall som:
 
-* Skapa en Azure Monitor Log Analytics-arbetsyta.
-* Skapa ett Azure Automation-konto.
+* Automatiserar skapandet av en Azure Monitor Log Analytics-arbetsyta.
+* Automatiserar skapandet av ett Azure Automation-konto.
 * Länkar Automation-kontot till Log Analytics-arbetsytan.
 
-Mallen automatiserar inte onboarding av en eller flera virtuella Azure-eller icke-Azure-datorer eller lösningar. 
+Mallen automatiserar inte onboarding av virtuella datorer eller lösningar från Azure eller icke-Azure. 
 
 >[!NOTE]
->Det finns inte stöd för att skapa Automation-kör som-kontot när du använder en Azure Resource Manager-mall. Information om hur du skapar ett Kör som-konto manuellt från portalen eller med PowerShell finns i [Hantera kör som-konto](manage-runas-account.md).
+>Det går inte att skapa Automation-kör som-kontot när du använder en Azure Resource Manager-mall. Information om hur du skapar ett Kör som-konto manuellt från portalen eller med PowerShell finns i [Hantera kör som-konton](manage-runas-account.md).
 
 ## <a name="api-versions"></a>API-versioner
 
@@ -36,40 +36,40 @@ I följande tabell visas API-versionen för de resurser som används i det här 
 | Arbetsyta | arbetsytor | 2017-03-15 – för hands version |
 | Automation-konto | automation | 2015-10-31 | 
 
-## <a name="before-using-the-template"></a>Innan du använder mallen
+## <a name="before-you-use-the-template"></a>Innan du använder mallen
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell AZ-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure. Med Azure PowerShell använder distributionen [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln Azure PowerShell AZ-modulen. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure. Med PowerShell använder distributionen [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment).
 
-Om du väljer att installera och använda CLI lokalt kräver den här artikeln att du kör Azure CLI-version 2.1.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Med Azure CLI använder den här distributionen [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
+Om du väljer att installera och använda Azure CLI lokalt, kräver den här artikeln att du kör version 2.1.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Med Azure CLI använder den här distributionen [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). 
 
 JSON-mallen har kon figurer ATS för att uppmana dig att:
 
-* Namnet på arbets ytan
-* Regionen som arbets ytan ska skapas i
-* Namnet på Automation-kontot
-* Regionen som kontot ska skapas i
+* Namnet på arbets ytan.
+* Regionen som arbets ytan ska skapas i.
+* Namnet på Automation-kontot.
+* Regionen som kontot ska skapas i.
 
 Följande parametrar i mallen anges med ett standardvärde för Log Analytics arbets ytan:
 
-* SKU – standardvärdet för den nya pris nivån per GB som lanseras i pris sättnings modellen från april 2018
-* data kvarhållning – standardvärdet är trettio dagar
-* kapacitets reservation – standardvärdet är 100 GB
+* *SKU: n* är som standard den pris nivå per GB som lanserades i pris sättnings modellen april 2018.
+* *dataRetention* är som standard 30 dagar.
+* *capacityReservationLevel* är som standard 100 GB.
 
 >[!WARNING]
->Om du skapar eller konfigurerar en Log Analytics arbets yta i en prenumeration som har valt att ha en ny pris modell på april 2018 är den enda giltiga Log Analytics pris nivån **PerGB2018**.
+>Om du vill skapa eller konfigurera en Log Analytics arbets yta i en prenumeration som har valt att använda pris sättnings modellen från april 2018 är den enda giltiga Log Analytics pris nivån *PerGB2018*.
 >
 
 JSON-mallen anger ett standardvärde för de andra parametrarna som sannolikt används som standard konfiguration i din miljö. Du kan lagra mallen i ett Azure Storage-konto för delad åtkomst i din organisation. Mer information om hur du arbetar med mallar finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
-Det är viktigt att förstå följande konfigurations information om du är nybörjare på Azure Automation och Azure Monitor, för att undvika fel vid försök att skapa, konfigurera och använda en Log Analytics arbets yta som är länkad till det nya Automation-kontot.
+Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att du förstår följande konfigurations information. De kan hjälpa dig att undvika fel när du försöker skapa, konfigurera och använda en Log Analytics arbets yta som är länkad till det nya Automation-kontot. 
 
 * Granska [Ytterligare information](../azure-monitor/platform/template-workspace-configuration.md#create-a-log-analytics-workspace) för att helt förstå konfigurations alternativ för arbets ytor, till exempel åtkomst kontrol läge, pris nivå, kvarhållning och kapacitets reservations nivå.
 
-* Eftersom bara vissa regioner stöds för att länka en Log Analytics-arbetsyta och ett Automation-konto i din prenumeration, kan du granska [mappningar för arbets ytor](how-to/region-mappings.md) för att ange de regioner som stöds infogade eller i en parameter fil.
+* Granska [mappningar för arbets ytor](how-to/region-mappings.md) för att ange de regioner som stöds infogade eller i en parameter fil. Endast vissa regioner stöds för att länka en Log Analytics-arbetsyta och ett Automation-konto i din prenumeration.
 
-* Om du inte har använt Azure Monitor loggar och inte har distribuerat en arbets yta redan, bör du gå igenom design vägledningen för [arbets ytan](../azure-monitor/platform/design-logs-deployment.md) för att lära dig mer om åtkomst kontroll och förstå de design implementerings strategier som vi rekommenderar för din organisation.
+* Om du inte har använt Azure Monitor loggar och inte har distribuerat en arbets yta redan, bör du gå igenom [rikt linjerna för design av arbets ytor](../azure-monitor/platform/design-logs-deployment.md). Det hjälper dig att lära dig mer om åtkomst kontroll och förstå de design implementerings strategier som vi rekommenderar för din organisation.
 
-## <a name="deploy-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 1. Kopiera och klistra in följande JSON-syntax i filen:
 
@@ -96,7 +96,7 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
             ],
             "defaultValue": "pergb2018",
             "metadata": {
-                "description": "Pricing tier: perGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+                "description": "Pricing tier: perGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium), which are not available to all customers."
             }
         },
         "dataRetention": {
@@ -105,14 +105,14 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
             "minValue": 7,
             "maxValue": 730,
             "metadata": {
-                "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
+                "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can have only 7 days."
             }
         },
         "immediatePurgeDataOn30Days": {
             "type": "bool",
             "defaultValue": "[bool('false')]",
             "metadata": {
-                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
+                "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This applies only when retention is being set to 30 days."
             }
         },
         "location": {
@@ -139,7 +139,7 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
             },
             "sampleGraphicalRunbookDescription": {
                 "type": "String",
-                "defaultValue": " An example runbook which gets all the ARM resources using the Run As Account (Service Principal)."
+                "defaultValue": " An example runbook that gets all the Resource Manager resources by using the Run As account (service principal)."
             },
             "sampleGraphicalRunbookContentUri": {
                 "type": "String",
@@ -151,7 +151,7 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
             },
             "samplePowerShellRunbookDescription": {
                 "type": "String",
-                "defaultValue": " An example runbook which gets all the ARM resources using the Run As Account (Service Principal)."
+                "defaultValue": " An example runbook that gets all the Resource Manager resources by using the Run As account (service principal)."
             },
             "samplePowerShellRunbookContentUri": {
                 "type": "String",
@@ -163,7 +163,7 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
             },
             "samplePython2RunbookDescription": {
                 "type": "String",
-                "defaultValue": " An example runbook which gets all the ARM resources using the Run As Account (Service Principal)."
+                "defaultValue": " An example runbook that gets all the Resource Manager resources by using the Run As account (service principal)."
             },
             "samplePython2RunbookContentUri": {
                 "type": "String",
@@ -286,11 +286,11 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
     }
     ```
 
-2. Redigera mallen så att den uppfyller dina krav. Överväg att skapa en [Resource Manager-parameter fil](../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden.
+2. Redigera mallen så att den uppfyller dina krav. Överväg att skapa en [parameter fil i Resource Manager](../azure-resource-manager/templates/parameter-files.md) i stället för att skicka parametrar som infogade värden.
 
 3. Spara filen som deployAzAutomationAccttemplate. json i en lokal mapp.
 
-4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller Azure CLI. När du uppmanas att ange ett namn på en arbets yta och ett Automation-konto anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
+4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller Azure CLI. När du uppmanas att ange ett namn på en arbets yta och ett Automation-konto anger du ett namn som är globalt unikt för alla dina Azure-prenumerationer.
 
     **PowerShell**
 
@@ -304,10 +304,14 @@ Det är viktigt att förstå följande konfigurations information om du är nyb�
     az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deployAzAutomationAccttemplate.json
     ```
 
-    Det kan ta några minuter att slutföra distributionen. När det är klart visas ett meddelande som liknar följande som innehåller resultatet:
+    Det kan ta några minuter att slutföra distributionen. När du gör det visas ett meddelande som liknar resultatet.
 
     ![Exempel på resultat när distributionen är klar](media/automation-create-account-template/template-output.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har ett Automation-konto kan du skapa Runbooks och automatisera manuella processer.
+
+* Information om hur du kommer igång med PowerShell-Runbooks finns i [skapa en PowerShell-Runbook](automation-first-runbook-textual-powershell.md).
+* Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [skapa en PowerShell Workflow-Runbook](automation-first-runbook-textual.md).
+* För att komma igång med python 2-Runbooks, se [skapa en python-Runbook](automation-first-runbook-textual-python2.md).

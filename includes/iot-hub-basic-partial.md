@@ -1,6 +1,6 @@
 ---
-title: ta med fil
-description: ta med fil
+title: inkludera fil
+description: inkludera fil
 services: iot-hub
 author: kgremban
 ms.service: iot-hub

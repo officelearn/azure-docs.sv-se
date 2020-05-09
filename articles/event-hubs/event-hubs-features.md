@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ea4bfadd55935712a292355dc25fb778b1523c75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c16dd4345e62fa9e826e657cce9a752186ec1b82
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261915"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628665"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funktioner och terminologi i Azure Event Hubs
 
@@ -112,9 +112,9 @@ Om en läsare kopplar från en partition och den sedan återansluts kan han bör
 > [!NOTE]
 > Om du använder Azure Blob Storage som kontroll punkts Arkiv i en miljö som har stöd för en annan version av Storage BLOB SDK än vad som normalt är tillgängligt på Azure, måste du använda kod för att ändra Storage Service API-versionen till den version som stöds av den aktuella miljön. Om du till exempel kör [Event Hubs på en Azure Stack hubb version 2002](https://docs.microsoft.com/azure-stack/user/event-hubs-overview)är den högsta tillgängliga versionen för lagrings tjänsten version 2017-11-09. I så fall måste du använda kod för att rikta Storage Service API-versionen till 2017-11-09. Ett exempel på hur du riktar in en speciell Storage API-version finns i följande exempel på GitHub: 
 > - [.Net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/Sample10_RunningWithDifferentStorageVersion.cs). 
-> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/EventProcessorWithOlderStorageVersion.java)
-> - [Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.js) eller [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/receiveEventsWithDownleveledStorage.ts)
-> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/event_processor_blob_storage_example_with_storage_api_version.py)
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs-checkpointstore-blob/src/samples/java/com/azure/messaging/eventhubs/checkpointstore/blob/)
+> - [Java Script](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/javascript) eller [typescript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/eventhubs-checkpointstore-blob/samples/typescript)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub-checkpointstoreblob-aio/samples/)
 
 ### <a name="common-consumer-tasks"></a>Vanliga konsumentuppgifter
 

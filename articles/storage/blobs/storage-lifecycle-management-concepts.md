@@ -3,17 +3,17 @@ title: Hantera Azure Storage livs cykeln
 description: Lär dig hur du skapar policy regler för livs cykeln för att överföra ålders data från frekvent till låg frekvent lagring och Arkiv lag ring.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 05/21/2019
+ms.date: 04/24/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 255e440586af2a5c9115023f45fbf02e25c57ab6
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77598314"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692135"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -24,7 +24,7 @@ Med policyn för livs cykel hantering kan du:
 - Över gångs blobbar till en låg frekvent lagrings nivå (frekvent till låg frekvent, frekvent till arkiv eller låg frekvent att arkivera) för att optimera prestanda och kostnad
 - Ta bort blobbar i slutet av deras livscykler
 - Definiera regler som ska köras en gång per dag på lagrings konto nivå
-- Tillämpa regler på behållare eller en delmängd av blobbar (med prefix som filter)
+- Tillämpa regler på behållare eller en delmängd av blobbar (med hjälp av prefix för namn eller [BLOB-index](storage-manage-find-blobs.md) som filter)
 
 Tänk dig ett scenario där data får frekvent åtkomst under de tidiga faserna i livs cykeln, men bara ibland efter två veckor. Utöver den första månaden kommer data uppsättningen sällan att användas. I det här scenariot är frekvent lagring bäst i de tidiga faserna. Låg frekvent lagring är lämplig för tillfällig åtkomst. Arkiv lag ring är det bästa alternativet på nivån efter att data har funnits under en månad. Genom att justera lagrings nivåer avseende ålder på data kan du utforma de billigaste lagrings alternativen för dina behov. För att uppnå den här över gången är policy regler för livs cykel hantering tillgängliga för att flytta ålders data till låg frekventa nivåer.
 
@@ -58,7 +58,7 @@ En princip kan läsas eller skrivas fullständigt. Del uppdateringar stöds inte
 
 Den här artikeln visar hur du hanterar principer med hjälp av Portal-och PowerShell-metoder.  
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Det finns två sätt att lägga till en princip via Azure Portal. 
 
@@ -235,7 +235,7 @@ Varje regel i principen har flera parametrar:
 | Parameternamn | Parameter typ | Obs! | Krävs |
 |----------------|----------------|-------|----------|
 | `name`         | Sträng |Ett regel namn kan innehålla upp till 256 alfanumeriska tecken. Regel namnet är Skift läges känsligt.  Det måste vara unikt inom en princip. | Sant |
-| `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | Falskt | 
+| `enabled`      | Boolesk | En valfri boolesk för att tillåta att en regel är tillfälligt inaktive rad. Standardvärdet är true om det inte har angetts. | False | 
 | `type`         | Ett uppräknings värde | Den aktuella giltiga typen är `Lifecycle`. | Sant |
 | `definition`   | Ett objekt som definierar livs cykel regeln | Varje definition består av en filter uppsättning och en åtgärds uppsättning. | Sant |
 
@@ -292,7 +292,11 @@ Filtren är:
 | Filternamn | Filtertyp | Obs! | Krävs |
 |-------------|-------------|-------|-------------|
 | blobTypes   | En matris med fördefinierade uppräknings värden. | Den aktuella versionen stöder `blockBlob`. | Ja |
-| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är `container1/foo`prefixMatch. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | Nej |
+| prefixMatch | En matris med strängar för prefix som ska matchas. Varje regel kan definiera upp till tio prefix. En prefixlängd måste börja med ett behållar namn. Om du till exempel vill matcha alla blobbar under `https://myaccount.blob.core.windows.net/container1/foo/...` för en regel är `container1/foo`prefixMatch. | Om du inte definierar prefixMatch gäller regeln för alla blobbar i lagrings kontot.  | Inga |
+| blobIndexMatch | En matris med ordboks värden som består av BLOB index tag gen nyckel och värde villkor som ska matchas. Varje regel kan definiera upp till 10 tagg villkor för BLOB-index. Om du till exempel vill matcha alla blobbar med `Project = Contoso` under `https://myaccount.blob.core.windows.net/` för en regel är `{"name": "Project","op": "==","value": "Contoso"}`blobIndexMatch. | Om du inte definierar blobIndexMatch gäller regeln för alla blobbar i lagrings kontot. | Inga |
+
+> [!NOTE]
+> BLOB-indexet finns i en offentlig för hands version och är tillgängligt i regionerna **Frankrike, centrala** och **Frankrike, södra** . Mer information om den här funktionen tillsammans med kända problem och begränsningar finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Regel åtgärder
 
@@ -405,6 +409,42 @@ Vissa data förväntas gå ut dagar eller månader efter att de har skapats. Du 
 }
 ```
 
+### <a name="delete-data-with-blob-index-tags"></a>Ta bort data med BLOB-Taggar
+Vissa data bör bara upphöra att gälla om de uttryckligen har marker ATS för borttagning. Du kan konfigurera en princip för livs cykel hantering så att den upphör att gälla data som är taggade med attribut för BLOB index nyckel/värde. I följande exempel visas en princip som tar bort alla block blobbar taggade med `Project = Contoso`. Mer information om BLOB-indexet finns i [Hantera och hitta data på Azure Blob Storage med BLOB index (för hands version)](storage-manage-find-blobs.md).
+
+```json
+{
+    "rules": [
+        {
+            "enabled": true,
+            "name": "DeleteContosoData",
+            "type": "Lifecycle",
+            "definition": {
+                "actions": {
+                    "baseBlob": {
+                        "delete": {
+                            "daysAfterModificationGreaterThan": 0
+                        }
+                    }
+                },
+                "filters": {
+                    "blobIndexMatch": [
+                        {
+                            "name": "Project",
+                            "op": "==",
+                            "value": "Contoso"
+                        }
+                    ],
+                    "blobTypes": [
+                        "blockBlob"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 ### <a name="delete-old-snapshots"></a>Ta bort gamla ögonblicks bilder
 
 För data som ändras och används regelbundet under hela livs längden används ögonblicks bilder ofta för att spåra äldre versioner av data. Du kan skapa en princip som tar bort gamla ögonblicks bilder baserat på ögonblicks bildens ålder. Ögonblicks bildens ålder bestäms genom utvärdering av ögonblicks bildens skapande tid. Den här princip regeln tar bort block BLOB-ögonblicksbilder i behållare `activedata` som är 90 dagar eller äldre efter att ögonblicks bilden har skapats.
@@ -448,3 +488,7 @@ När en BLOB flyttas från en åtkomst nivå till en annan ändras inte den sena
 Lär dig hur du återställer data efter en oavsiktlig borttagning:
 
 - [Mjuk borttagning för Azure Storage-blobar](../blobs/storage-blob-soft-delete.md)
+
+Lär dig hur du hanterar och hittar data med BLOB-index:
+
+- [Hantera och hitta data på Azure Blob Storage med BLOB-index](storage-manage-find-blobs.md)

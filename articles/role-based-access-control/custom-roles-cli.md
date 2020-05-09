@@ -1,6 +1,6 @@
 ---
-title: Skapa eller uppdatera anpassade roller för Azure-resurser med hjälp av Azure CLI | Microsoft Docs
-description: Lär dig att visa, skapa, uppdatera eller ta bort anpassade roller med rollbaserad åtkomst kontroll (RBAC) för Azure-resurser med hjälp av Azure CLI.
+title: Skapa eller uppdatera anpassade Azure-roller med Azure CLI – Azure RBAC
+description: Lär dig att visa, skapa, uppdatera eller ta bort Azure-anpassade roller med Azure CLI och rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,23 +14,23 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 44676f7b92c2bcd30612295840054ab2f0c0cf12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cac0116cf7a068e63cb54698f7273b8c063ff854
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062217"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734849"
 ---
-# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Skapa eller uppdatera anpassade roller för Azure-resurser med Azure CLI
+# <a name="create-or-update-azure-custom-roles-using-azure-cli"></a>Skapa eller uppdatera anpassade Azure-roller med Azure CLI
 
 > [!IMPORTANT]
 > Att lägga till en hanterings grupp i `AssignableScopes` är för närvarande en för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Om de [inbyggda rollerna för Azure-resurser](built-in-roles.md) inte uppfyller organisationens specifika krav, kan du skapa egna anpassade roller. Den här artikeln beskriver hur du visar, skapar, uppdaterar eller tar bort anpassade roller med Azure CLI.
+Om de [inbyggda Azure-rollerna](built-in-roles.md) inte uppfyller organisationens specifika behov kan du skapa dina egna anpassade roller. Den här artikeln beskriver hur du visar, skapar, uppdaterar eller tar bort anpassade roller med Azure CLI.
 
-En stegvis själv studie kurs om hur du skapar en anpassad roll finns i [Självstudier: skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI](tutorial-custom-role-cli.md).
+En stegvis själv studie kurs om hur du skapar en anpassad roll finns i [Självstudier: skapa en anpassad Azure-roll med hjälp av Azure CLI](tutorial-custom-role-cli.md).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -244,6 +244,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudie: skapa en anpassad roll för Azure-resurser med hjälp av Azure CLI](tutorial-custom-role-cli.md)
-- [Anpassade roller för Azure-resurser](custom-roles.md)
+- [Självstudie: skapa en anpassad Azure-roll med hjälp av Azure CLI](tutorial-custom-role-cli.md)
+- [Anpassade Azure-roller](custom-roles.md)
 - [Åtgärder för Azure Resource Manager Resource Provider](resource-provider-operations.md)

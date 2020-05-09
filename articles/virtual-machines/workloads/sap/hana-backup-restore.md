@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4384d29811d29f06422802abba5d3eb1ea5737e9
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 9cb2647cc5ac2dc60f5ae7327ee39ed2ff625193
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72430089"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901380"
 ---
 # <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
@@ -162,7 +162,7 @@ I det här steget godkänner du SAP HANA användar konto som du skapade så att 
 
 ### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Steg 6: Hämta ögonblicks bild skript, konfigurera ögonblicks bilderna och testa konfigurationen och anslutningen
 
-Hämta den senaste versionen av skripten från [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1). Hur skripten installeras ändras med version 4,1 av skripten. Mer information finns i "Aktivera kommunikation med SAP HANA" i [Microsoft Snapshot-verktyg för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
+Hämta den senaste versionen av skripten från [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). Hur skripten installeras ändras med version 4,1 av skripten. Mer information finns i "Aktivera kommunikation med SAP HANA" i [Microsoft Snapshot-verktyg för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 De exakta kommando serierna finns i "enkel installation av verktyg för ögonblicks bilder (standard)" i [Microsoft Snapshot Tools för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). Vi rekommenderar att du använder standard installationen. 
 

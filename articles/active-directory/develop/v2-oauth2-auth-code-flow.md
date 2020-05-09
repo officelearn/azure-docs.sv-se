@@ -1,23 +1,24 @@
 ---
-title: OAuth-auktoriseringskod för kod – Microsoft Identity Platform | Azure
+title: Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow | Azure
+titleSuffix: Microsoft identity platform
 description: Bygg webb program med hjälp av Microsoft Identity Platform-implementeringen av autentiseringsprotokollet OAuth 2,0.
 services: active-directory
-author: rwike77
+author: hpsin
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/31/2020
+ms.date: 05/06/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: fcd80c052edf659f93f97800da3112c1f11309cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29720b338326a29e65af1b6564cb0b59a976c62c
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868493"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926450"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft Identity Platform och OAuth 2,0 Authorization Code Flow
 
@@ -25,11 +26,11 @@ OAuth 2,0 Authorization Code Grant kan användas i appar som är installerade p�
 
 Den här artikeln beskriver hur du programmerar direkt mot protokollet i ditt program.  När det är möjligt rekommenderar vi att du använder MSAL (Microsoft Authentication Libraries) i stället för att [Hämta tokens och anropa säkra webb-API: er](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Ta också en titt på de [exempel appar som använder MSAL](sample-v2-code.md).
 
-OAuth 2,0 Authorization Code Flow beskrivs i [avsnittet 4,1 i oauth 2,0-specifikationen](https://tools.ietf.org/html/rfc6749). Den används för att utföra autentisering och auktorisering i de flesta app-typer, inklusive [webbappar](v2-app-types.md#web-apps) och [internt installerade appar](v2-app-types.md#mobile-and-native-apps). Flödet gör det möjligt för appar att säkert förvärva access_tokens som kan användas för att få åtkomst till resurser som skyddas av Microsoft Identity Platform-slutpunkten.
+OAuth 2,0 Authorization Code Flow beskrivs i [avsnittet 4,1 i oauth 2,0-specifikationen](https://tools.ietf.org/html/rfc6749). Den används för att utföra autentisering och auktorisering i de flesta app-typer, inklusive [webbappar](v2-app-types.md#web-apps) och [internt installerade appar](v2-app-types.md#mobile-and-native-apps). Detta OAuth-flöde gör det möjligt för appar att säkert förvärva access_tokens som kan användas för att få åtkomst till resurser som skyddas av Microsoft Identity Platform-slutpunkten.
 
 ## <a name="protocol-diagram"></a>Protokoll diagram
 
-På hög nivå ser hela autentiserings flödet för ett internt/mobilt program ut ungefär så här:
+På hög nivå ser hela OAuth2-autentiseringsschemat för ett internt/mobilt program ut ungefär så här:
 
 ![Kod flöde för OAuth-auth](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
@@ -148,7 +149,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`      | krävs   | En blankstegsavgränsad lista över omfång. De omfattningar som begärs i den här delen måste vara likvärdiga med eller en delmängd av de omfattningar som begärts i det första benet. Omfattningarna måste allt från en enda resurs, tillsammans med OIDC-scope (`profile`, `openid`, `email`). En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). |
 | `code`          | krävs  | Authorization_code som du har köpt i den första delen av flödet. |
 | `redirect_uri`  | krävs  | Samma redirect_uri värde som användes för att hämta authorization_code. |
-| `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Du bör inte använda program hemligheten i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan.  Klient hemligheten måste vara URL-kodad innan den kan skickas. Klicka [här](https://tools.ietf.org/html/rfc3986#page-12)om du vill ha mer information. |
+| `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Du bör inte använda program hemligheten i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan.  Klient hemligheten måste vara URL-kodad innan den kan skickas. Mer information finns i [specifikationen för URI-generisk syntax](https://tools.ietf.org/html/rfc3986#page-12). |
 | `code_verifier` | valfri  | Samma code_verifier som användes för att hämta authorization_code. Krävs om PKCE användes i begäran om beviljande av auktoriseringskod. Mer information finns i [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 ### <a name="successful-response"></a>Lyckat svar
@@ -260,7 +261,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | krävs    | Måste vara `refresh_token` för den här delen av Authorization Code Flow. |
 | `scope`         | krävs    | En blankstegsavgränsad lista över omfång. De omfattningar som begärs i den här delen måste vara likvärdiga med eller en delmängd av de omfattningar som begärts i det ursprungliga authorization_code begär ande benet. Om de omfattningar som anges i denna begäran sträcker sig över flera resurs servrar, returnerar Microsoft Identity Platform-slutpunkten en token för den resurs som anges i det första omfånget. En mer detaljerad förklaring av omfattningar finns i [behörigheter, medgivande och omfattningar](v2-permissions-and-consent.md). |
 | `refresh_token` | krävs    | Refresh_token som du har köpt i det andra benet i flödet. |
-| `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan. Den här hemligheten måste vara URL-kodad. Klicka [här](https://tools.ietf.org/html/rfc3986#page-12)om du vill veta mer. |
+| `client_secret` | krävs för Web Apps | Den program hemlighet som du skapade i appens registrerings Portal för din app. Den bör inte användas i en intern app eftersom client_secrets inte kan lagras på ett tillförlitligt sätt på enheter. Det krävs för webbappar och webb-API: er, som kan lagra client_secret säkert på Server sidan. Den här hemligheten måste vara URL-kodad. Mer information finns i [specifikationen för URI-generisk syntax](https://tools.ietf.org/html/rfc3986#page-12). |
 
 #### <a name="successful-response"></a>Lyckat svar
 

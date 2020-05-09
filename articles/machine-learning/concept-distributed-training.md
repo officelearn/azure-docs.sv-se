@@ -9,18 +9,18 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: a0d5bf795e4759a105b9a235770f37aa10bd6751
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52716e070437dd7a6b3b880a5a7f3a4afafe8738
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80385550"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995019"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Distribuerad utbildning med Azure Machine Learning
 
 I den här artikeln lär du dig om distribuerad utbildning och hur Azure Machine Learning stöder den för djup inlärnings modeller. 
 
-I distribuerad utbildning är arbets belastningen för att träna en modell att delas upp och delas mellan flera olika mini-processorer, som kallas arbetsnoder. Dessa arbetsnoder fungerar parallellt för att påskynda modell träningen. Distribuerad utbildning kan användas för traditionella ML-modeller, men passar bättre för beräknings-och tids krävande uppgifter, t. ex. [djup inlärning](concept-deep-learning-vs-machine-learning.md) för inlärnings djup neurala nätverk.
+I distribuerad utbildning är arbets belastningen för att träna en modell att delas upp och delas mellan flera olika mini-processorer, som kallas arbetsnoder. Dessa arbetsnoder fungerar parallellt för att påskynda modell träningen. Distribuerad utbildning kan användas för traditionella ML-modeller, men passar bättre för beräknings-och tids krävande uppgifter, t. ex. [djup inlärning](concept-deep-learning-vs-machine-learning.md) för inlärnings djup neurala nätverk. 
 
 ## <a name="deep-learning-and-distributed-training"></a>Djup inlärning och distribuerad utbildning 
 
@@ -36,7 +36,9 @@ För ML-modeller som inte kräver distribuerad utbildning, se [träna modeller m
 
 Data Parallel är det enklaste sättet att implementera de två metoderna för distribuerad utbildning och är tillräckligt för de flesta användnings fall.
 
-I den här metoden är data indelade i partitioner, där antalet partitioner motsvarar det totala antalet tillgängliga noder, i beräknings klustret. Modellen kopieras i var och en av dessa arbetsnoder och varje anställd arbetar på sin egen del av data. Tänk på att varje nod måste ha kapacitet att stödja den modell som har tränats, vilket är att modellen helt måste anpassas på varje nod.
+I den här metoden är data indelade i partitioner, där antalet partitioner motsvarar det totala antalet tillgängliga noder, i beräknings klustret. Modellen kopieras i var och en av dessa arbetsnoder och varje anställd arbetar på sin egen del av data. Tänk på att varje nod måste ha kapacitet att stödja den modell som har tränats, vilket är att modellen helt måste anpassas på varje nod. Följande diagram innehåller en visuell demonstration av den här metoden.
+
+![Data-parallelation-Concept-diagram](./media/concept-distributed-training/distributed-training.svg)
 
 Varje nod beräknar oberoende fel mellan sina förutsägelser för dess utbildnings exempel och etiketterade utdata. I sin tur uppdaterar varje nod sin modell baserat på felen och måste kommunicera alla ändringar i de andra noderna för att uppdatera deras motsvarande modeller. Det innebär att arbetsnoderna måste synkronisera modell parametrarna eller toningarna i slutet av batch-beräkningen för att se till att de tränar en konsekvent modell. 
 

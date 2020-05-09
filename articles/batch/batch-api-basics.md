@@ -4,12 +4,12 @@ description: Lär dig mer om funktionerna i Batch-tjänsten och dess API:er ur e
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 590ce6d6804c25ea9a3c1104f8fea2ea00c66356
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: c983588bd3d135729541bf6bf51e5dc9d979ca84
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509201"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994272"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -67,7 +67,7 @@ Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuer
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-## <a name="azure-storage-account"></a>Azure Storage-konto
+## <a name="azure-storage-account"></a>Azure-lagringskonto
 
 De flesta Batch-lösningar använder Azure Storage för lagring av resursfiler och utdatafiler. Till exempel brukar Batch-aktiviteterna (inklusive standardaktiviteter, startaktiviteter, jobbförberedelse- och jobbpubliceringsaktiviteter) definiera resursfiler som finns i ett lagringskonto.
 
@@ -429,7 +429,7 @@ En skalningsformel kan baseras på följande mått:
 * **Resursmått** baseras på processoranvändning, bandbreddsanvändning, minnesanvändning och antalet noder.
 * **Aktivitetsmått** baseras på aktivitetens tillstånd, t.ex. *Aktiv* (köad), *Körs* eller *Slutförd*.
 
-Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. Batch tillhandahåller ett [*alternativ för noden*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) som du kan inkludera i dina formler. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen. Observera att om du anger alternativet för nodens `taskcompletion` tilldelning `retaineddata` som eller kommer att förhindra åtgärder för att ändra storlek på poolen förrän alla aktiviteter har slutförts, eller om alla aktivitets bevarande perioder har förfallit.
+Om den automatiska skalningen minskar antalet beräkningsnoder i en pool måste du bestämma hur pågående aktiviteter ska hanteras vid nedskalningen. Batch tillhandahåller ett [*alternativ för noden*](https://docs.microsoft.com/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) som du kan inkludera i dina formler. Du kan till exempel ange att pågående aktiviteter ska stoppas direkt och sedan placeras i kö för att köras på en annan nod eller att de ska slutföras innan noden tas bort från poolen. Observera att om du anger alternativet för nodens `taskcompletion` tilldelning `retaineddata` som eller kommer att förhindra åtgärder för att ändra storlek på poolen förrän alla aktiviteter har slutförts, eller om alla aktiviteter för kvarhållning av aktiviteter har gått ut.
 
 Mer information om automatisk skalning av program finns i [Skala beräkningsnoder automatiskt i en Azure Batch-pool](batch-automatic-scaling.md).
 
@@ -586,4 +586,4 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
 [rest_offline]: https://msdn.microsoft.com/library/azure/mt637904.aspx
 [rest_online]: https://msdn.microsoft.com/library/azure/mt637907.aspx
 
-[vm_marketplace]: https://azure.microsoft.com/marketplace/virtual-machines/
+[vm_marketplace]: https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1

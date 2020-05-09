@@ -1,19 +1,20 @@
 ---
-title: Betala på kommersiell Marketplace | Azure Marketplace
-description: Lär dig mer om att få betalningar för dina intäkter på den kommersiella marknads platsen.
+title: Betala på Microsofts kommersiella marknads platser
+description: Lär dig mer om att få betalningar för dina intäkter på Microsofts kommersiella marknads plats.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 3c75d5ccdd2d632fbc31d1be3faf6cbc6d3fb223
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80275840"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780505"
 ---
-# <a name="getting-paid"></a>Få betalt
+# <a name="getting-paid-in-commercial-marketplace"></a>Få betalt på kommersiell marknads plats
+
 Här är några viktiga uppgifter om att erhålla betalning för dina erbjudanden, tillägg och marknadsförings intäkter.
 
 > [!IMPORTANT]
@@ -40,18 +41,17 @@ Varje pris nivå har ett motsvarande värde i varje valuta som erbjuds av butike
 
 Du kan också välja att ange ett kostnads fritt pris som du väljer på en bestämd marknads lokala valuta. När du gör detta kommer priset inte att justeras (även om konverterings takten ändras) om du inte skickar en uppdatering med ett nytt pris. 
 
-Tänk på att det pris du väljer kan omfatta försäljning eller mervärdes skatt som kunderna måste betala. Mer information finns i [skatte information för betalat erbjudande](tax-details-paid-transactions.md) .
+Tänk på att det pris du väljer kan omfatta försäljning eller mervärdes skatt som kunderna måste betala. Mer information finns i [skatte information för betalat erbjudande](tax-details-paid-transactions.md).
 
 
 ## <a name="payout-reporting"></a>Utbetalningsrapporter
 
-Du kan komma åt information om din betalnings information och hämta rapporter i **utbetalnings sammanfattningen** av [partner Center](https://partner.microsoft.com/dashboard). Mer information om den information som visas här och hur vi kategoriserar de pengar du får finns i [utbetalnings Sammanfattning](payout-summary.md).
+Du kan komma åt information om din betalnings information och hämta rapporter i **utbetalnings sammanfattningen** av [partner Center](https://partner.microsoft.com/dashboard). Mer information om den information som visas här och hur vi kategoriserar de pengar du får finns i [Översikt över utbetalnings översikt](payout-summary-overview.md).
 
 
-## <a name="payout-timeframe"></a>Utbetalnings tidsram
+## <a name="payout-time-frame"></a>Tidsram för utbetalning
 
 Betalningar görs varje månad (förutsatt att det tillämpliga betalnings tröskelvärdet har uppfyllts och du inte har lagt till ditt utbetalnings belopp enligt beskrivningen nedan). Vi skickar vanligt vis alla betalningar som förfaller under en månad med den 15: e dagen i den månaden. Observera att betalningar i allmänhet tar mellan 3 och 10 ytterligare arbets dagar för att uppnå ditt utbetalnings konto. Mer information finns i [betalnings trösklar, metoder och tids ramar](payment-thresholds-methods-timeframes.md).
-
 
 ##  <a name="payout-hold-status"></a>Status för utbetalning
 
@@ -63,12 +63,3 @@ När du har angett statusen för din utbetalnings spärr till **på**, är alla 
 
 > [!NOTE]
 > Din **utbetalnings status** gäller för varje program individuellt (Microsoft Store, annonsering, Azure Marketplace osv.). Om du vill lagra betalningar på alla dina program måste du hålla betalningarna på varje program individuellt.
-
-
- 
-
- 
-
-
-
-

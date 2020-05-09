@@ -7,12 +7,12 @@ ms.date: 10/20/2019
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.openlocfilehash: 609076cd204457bb7c952c91cd249b1aece58022
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
-ms.translationtype: MT
+ms.openlocfilehash: 63feea2cf672c197e51c1c8a2195076f456f4f66
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81425016"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82901527"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Snabb start: Azure Key Vault klient bibliotek för Node. js (v4)
 
@@ -67,12 +67,14 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Det enklaste sättet att autentisera ett molnbaserad program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](../general/managed-identity.md) . För enkelhetens skull skapar den här snabb starten ett konsol program. Autentisering av ett Skriv bords program med Azure kräver att tjänstens huvud namn och en princip för åtkomst kontroll används.
+Det enklaste sättet att autentisera ett molnbaserad program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](../general/managed-identity.md) .
+
+För enkelhetens skull skapar den här snabb starten ett Skriv bords program som kräver användning av ett huvud namn för tjänsten och en princip för åtkomst kontroll. Tjänst principen kräver ett unikt namn i formatet "http://<My-Unique-service-Name>".
 
 Skapa en tjänst princip med Azure CLI [-AZ AD SP Create-for-RBAC-](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommando:
 
 ```azurecli
-az ad sp create-for-rbac -n "http://mySP" --sdk-auth
+az ad sp create-for-rbac -n "http://<my-unique-service-principle-name>" --sdk-auth
 ```
 
 Den här åtgärden returnerar en serie med nyckel/värde-par. 

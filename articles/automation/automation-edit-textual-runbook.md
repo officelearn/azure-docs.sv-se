@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2ef7db244057bc8b3b2e4d938b9f3bdd11c7940a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aef6a58d18c0d9c1b18915786dd6e3359c31eda0
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406031"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855790"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Redigera text-Runbooks i Azure Automation
 
@@ -22,7 +22,7 @@ Text redigeraren i Azure Automation kan användas för att redigera [PowerShell-
 
 Text redigeraren innehåller en funktion för att infoga kod för cmdlets, till gångar och underordnade Runbooks i en Runbook. I stället för att skriva in koden själv kan du välja från en lista över tillgängliga resurser och redigeraren infogar lämplig kod i runbooken.
 
-Varje Runbook i Azure Automation har två versioner, utkast och publicerat. Du redigerar utkast versionen av runbooken och publicerar den så att den kan köras. Den publicerade versionen kan inte redigeras. Mer information finns i [publicera en Runbook](manage-runbooks.md#publishing-a-runbook).
+Varje Runbook i Azure Automation har två versioner, utkast och publicerat. Du redigerar utkast versionen av runbooken och publicerar den så att den kan köras. Den publicerade versionen kan inte redigeras. Mer information finns i [publicera en Runbook](manage-runbooks.md#publish-a-runbook).
 
 Den här artikeln innehåller detaljerade anvisningar för hur du utför olika funktioner i den här redigeraren. Dessa gäller inte för [grafiska runbooks](automation-runbook-types.md#graphical-runbooks). Information om hur du arbetar med dessa Runbooks finns i [grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
 
@@ -84,7 +84,7 @@ Export-AzAutomationRunbook -Name $runbookName -AutomationAccountName $automation
 
 ### <a name="change-the-contents-of-a-runbook-using-windows-powershell"></a>Ändra innehållet i en Runbook med hjälp av Windows PowerShell
 
-Följande exempel kommandon visar hur du ersätter det befintliga innehållet i en Runbook med innehållet i en skript fil. Det här är samma exempel procedur som i [för att importera en Runbook från en skript fil med Windows PowerShell](manage-runbooks.md#importing-a-runbook).
+Följande exempel kommandon visar hur du ersätter det befintliga innehållet i en Runbook med innehållet i en skript fil. 
 
 ```powershell-interactive
 $resourceGroupName = "MyResourceGroup"

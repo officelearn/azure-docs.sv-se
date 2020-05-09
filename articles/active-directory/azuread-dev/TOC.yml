@@ -4,7 +4,7 @@
   href: v1-overview.md
 - name: Exempel
   href: sample-v1-code.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Varför du bör uppdatera till v2.0
       href: azure-ad-endpoint-comparison.md
@@ -81,7 +81,7 @@
       href: conditional-access-dev-guide.md
     - name: Nationella moln
       href: ../develop/authentication-national-cloud.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Autentisering
       items:
@@ -158,7 +158,7 @@
     - name: Använda Microsoft Graph API
       href: ../develop/microsoft-graph-intro.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
     - name: AD FS För utvecklare
-      href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers'
+      href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/ad-fs-overview'
 - name: Referenser
   items:
     - name: Autentiseringsbibliotek

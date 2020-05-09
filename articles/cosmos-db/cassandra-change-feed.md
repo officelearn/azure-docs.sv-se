@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 167d9fc68cb075a2cf96d9079131be9e5a510c08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43743f62b08bb00403f5dac88682d06daab757a4
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137424"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872555"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Ändra feed i Azure Cosmos DB API för Cassandra
 
@@ -21,6 +21,8 @@ ms.locfileid: "82137424"
 I följande exempel visas hur du hämtar en ändrings-feed på alla rader i en API för Cassandra i tabellen med .NET. Predikatet COSMOS_CHANGEFEED_START_TIME () används direkt i CQL för att skicka frågor till objekt i ändrings flödet från en angiven start tid (i det här fallet aktuell datetime). Du kan hämta hela exemplet, för C# [här](https://docs.microsoft.com/samples/azure-samples/azure-cosmos-db-cassandra-change-feed/cassandra-change-feed/) och för Java [här](https://github.com/Azure-Samples/cosmos-changefeed-cassandra-java).
 
 I varje iteration fortsätter frågan vid de senaste punkt ändringarna lästes, med hjälp av växlings status. Vi kan se en kontinuerlig ström med nya ändringar i tabellen i utrymmet. Vi kommer att se ändringar av rader som infogas eller uppdateras. Att titta efter borttagnings åtgärder med hjälp av Change feed i API för Cassandra stöds inte för närvarande.
+
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```C#
     //set initial start time for pulling the change feed
@@ -70,6 +72,9 @@ I varje iteration fortsätter frågan vid de senaste punkt ändringarna lästes,
     }
 
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
 ```java
         Session cassandraSession = utils.getSession();
 
@@ -104,7 +109,11 @@ I varje iteration fortsätter frågan vid de senaste punkt ändringarna lästes,
         }
 
 ```
+---
+
 Du kan lägga till primär nyckeln i frågan för att få ändringarna till en enskild rad efter primär nyckel. I följande exempel visas hur du spårar ändringar för raden där "user_id = 1"
+
+# <a name="c"></a>[C #](#tab/csharp)
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1
@@ -112,11 +121,15 @@ Du kan lägga till primär nyckeln i frågan för att få ändringarna till en e
     $"SELECT * FROM uprofile.user where user_id = 1 AND COSMOS_CHANGEFEED_START_TIME() = '{timeBegin.ToString("yyyy-MM-ddTHH:mm:ss.fffZ", CultureInfo.InvariantCulture)}'");
 
 ```
+
+# <a name="java"></a>[Java](#tab/java)
+
 ```java
     String query="SELECT * FROM uprofile.user where user_id=1 and COSMOS_CHANGEFEED_START_TIME()='" 
                     + dtf.format(now)+ "'";
     SimpleStatement st=new  SimpleStatement(query);
 ```
+---
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 Följande begränsningar gäller när du använder ändra feed med API för Cassandra:

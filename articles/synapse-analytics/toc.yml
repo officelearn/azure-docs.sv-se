@@ -26,6 +26,10 @@
           href: quickstart-create-apache-spark-pool.md
         - name: Skapa SQL-pool
           href: quickstart-create-sql-pool.md
+    - name: Läs in data med SQL-pooler
+      items:
+        - name: COPY-instruktion
+          href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Använda SQL på begäran
       href: quickstart-sql-on-demand.md
 - name: Självstudier

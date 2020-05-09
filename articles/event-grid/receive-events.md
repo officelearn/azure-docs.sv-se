@@ -8,16 +8,16 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: cb38fd17c0c1bfbe3e5957d8f432f0a43b285c93
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 2c34a9e1463c49ab1822d1de6bf33e81f19cf003
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "60803792"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629600"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 
-Den här artikeln beskriver hur du [verifierar en HTTP-slutpunkt](security-authentication.md#webhook-event-delivery) för att ta emot händelser från en händelse prenumeration och sedan ta emot och deserialisera händelser. I den här artikeln används en Azure-funktion i demonstrations syfte, men samma koncept gäller oavsett var programmet finns.
+Den här artikeln beskriver hur du [verifierar en HTTP-slutpunkt](webhook-event-delivery.md) för att ta emot händelser från en händelse prenumeration och sedan ta emot och deserialisera händelser. I den här artikeln används en Azure-funktion i demonstrations syfte, men samma koncept gäller oavsett var programmet finns.
 
 > [!NOTE]
 > Vi rekommenderar **starkt** att du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) när du utlöser en Azure-funktion med event Grid. Användning av en allmän webhook-utlösare här är demonstrerad.
@@ -50,7 +50,7 @@ Klicka på länken "Visa filer" i din Azure-funktion (den högra rutan i Azure F
 
 ## <a name="endpoint-validation"></a>Slut punkts validering
 
-Det första du vill göra är att hantera `Microsoft.EventGrid.SubscriptionValidationEvent` händelser. Varje gång någon prenumererar på en händelse skickar Event Grid en validerings händelse till slut punkten med en `validationCode` i data nytto lasten. Slut punkten krävs för att ekona tillbaka i svars texten för att [bevisa att slut punkten är giltig och ägs av dig](security-authentication.md#webhook-event-delivery). Om du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) i stället för en webhook-utlöst funktion, hanteras slut punkts verifieringen åt dig. Om du använder en API-tjänst från tredje part (t. ex. [Zapier](https://zapier.com) eller [ifttt](https://ifttt.com/)) kanske du inte kan program mässigt ekoa verifierings koden. För dessa tjänster kan du verifiera prenumerationen manuellt genom att använda en verifierings-URL som skickas i prenumerations validerings händelsen. Kopiera URL: en i `validationUrl` egenskapen och skicka en get-begäran antingen via en rest-klient eller webbläsaren.
+Det första du vill göra är att hantera `Microsoft.EventGrid.SubscriptionValidationEvent` händelser. Varje gång någon prenumererar på en händelse skickar Event Grid en validerings händelse till slut punkten med en `validationCode` i data nytto lasten. Slut punkten krävs för att ekona tillbaka i svars texten för att [bevisa att slut punkten är giltig och ägs av dig](webhook-event-delivery.md). Om du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) i stället för en webhook-utlöst funktion, hanteras slut punkts verifieringen åt dig. Om du använder en API-tjänst från tredje part (t. ex. [Zapier](https://zapier.com) eller [ifttt](https://ifttt.com/)) kanske du inte kan program mässigt ekoa verifierings koden. För dessa tjänster kan du verifiera prenumerationen manuellt genom att använda en verifierings-URL som skickas i prenumerations validerings händelsen. Kopiera URL: en i `validationUrl` egenskapen och skicka en get-begäran antingen via en rest-klient eller webbläsaren.
 
 I C# deserialiserar `DeserializeEventGridEvents()` funktionen Event Grid händelser. Den deserialiserar händelse data till lämplig typ, till exempel StorageBlobCreatedEventData. Använd- `Microsoft.Azure.EventGrid.EventTypes` klassen för att hämta händelse typer och namn som stöds.
 

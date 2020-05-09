@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/29/2020
+ms.openlocfilehash: e9f8fe17fa28cc5fcc4543bfb5e194bd3e7b837d
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79272466"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594105"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -95,21 +95,21 @@ Du hittar exempel data och JAR-filer på Hadoop Distributed File System på `/ex
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage och Data Lake Storage
 
-I de flesta Hadoop-distributioner lagras data i HDFS, som backas upp av lokal lagring på datorerna i klustret. Användning av lokala lagrings enheter kan vara kostsamt för en molnbaserad lösning där du debiteras per timme eller per minut för beräknings resurser.
+I de flesta Hadoop-distributioner lagras data i HDFS. HDFS backas upp av lokal lagring på datorerna i klustret. Användning av lokala lagrings enheter kan vara kostsamt för en molnbaserad lösning där du debiteras per timme eller per minut för beräknings resurser.
 
-När du använder HDInsight lagras datafilerna på ett skalbart och flexibelt sätt i molnet med hjälp av Azure Blob Storage och eventuellt Azure Data Lake Storage. Dessa tjänster ger följande fördelar:
+När du använder HDInsight lagras datafilerna på ett anpassningsbart och flexibelt sätt i molnet med hjälp av Azure Blob Storage och eventuellt Azure Data Lake Storage. Dessa tjänster ger följande fördelar:
 
 * Korttids långsiktig lagring.
 * Hjälpmedel från externa tjänster som webbplatser, verktyg för fil uppladdning/hämtning, olika språk-SDK: er och webbläsare.
-* Stor fil kapacitet och stort skalbart lagrings utrymme.
+* Stor fil kapacitet och stort anpassningsbart lagrings utrymme.
 
 Mer information finns i [förstå blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) och [data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-När du använder antingen Azure Storage eller Data Lake Storage behöver du inte göra något särskilt från HDInsight för att komma åt data. Till exempel visar följande kommando filer i `/example/data` mappen oavsett om de lagras på Azure Storage eller data Lake Storage:
+När du använder antingen Azure Storage eller Data Lake Storage behöver du inte göra något särskilt från HDInsight för att komma åt data. Följande kommando listar till exempel filer i `/example/data` mappen, oavsett om de lagras på Azure Storage eller data Lake Storage:
 
     hdfs dfs -ls /example/data
 
-I HDInsight frigörs data lagrings resurserna (Azure Blob Storage och Azure Data Lake Storage) från beräknings resurser. Därför kan du skapa HDInsight-kluster för att utföra beräkningarna efter behov, och senare ta bort klustret när arbetet är klart, samtidigt som dina datafiler sparas säkert i moln lagringen så länge du behöver.
+I HDInsight frigörs data lagrings resurserna (Azure Blob Storage och Azure Data Lake Storage) från beräknings resurser. Du kan skapa HDInsight-kluster för beräkning efter behov och senare ta bort klustret när arbetet är klart. Samtidigt behåller dina datafiler säkert i moln lagring så länge du behöver.
 
 ### <a name="uri-and-scheme"></a><a name="URI-and-scheme"></a>URI och schema
 
@@ -190,7 +190,7 @@ Om du använder __Azure Storage__, se följande länkar för hur du kan komma å
 * Olika SDK: er:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
-    * [Node.js](https://github.com/Azure/azure-sdk-for-node)
+    * [Node. js](https://github.com/Azure/azure-sdk-for-node)
     * [PHP](https://github.com/Azure/azure-sdk-for-php)
     * [Python](https://github.com/Azure/azure-sdk-for-python)
     * [Ruby](https://github.com/Azure/azure-sdk-for-ruby)
@@ -210,46 +210,11 @@ Om du använder __Azure Data Lake Storage__, se följande länkar för hur du ka
 
 ## <a name="scaling-your-cluster"></a><a name="scaling"></a>Skala klustret
 
-Med funktionen för kluster skalning kan du dynamiskt ändra antalet datanoder som används av ett kluster. Du kan utföra skalnings åtgärder medan andra jobb eller processer körs i ett kluster.  Se även [skala HDInsight-kluster](./hdinsight-scaling-best-practices.md)
-
-De olika kluster typerna påverkas av skalning enligt följande:
-
-* **Hadoop**: vid skalning av antalet noder i ett kluster startas vissa av tjänsterna i klustret om. Skalnings åtgärder kan orsaka att jobb körs eller väntar på att gå sönder vid slutförandet av skalnings åtgärden. Du kan skicka jobben igen när åtgärden har slutförts.
-* **HBase**: regionala servrar bal anse ras automatiskt inom några minuter, när skalnings åtgärden har slutförts. Använd följande steg för att balansera regionala servrar manuellt:
-
-    1. Anslut till HDInsight-klustret med SSH. Mer information finns i [använda SSH med HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-    2. Använd följande för att starta HBase-gränssnittet:
-
-            hbase shell
-
-    3. När HBase-gränssnittet har lästs in använder du följande för att balansera de regionala servrarna manuellt:
-
-            balancer
-
-* **Storm**: du bör balansera om alla Storm-topologier som körs när en skalnings åtgärd har utförts. Med ombalansering kan topologin justera inställningar för parallellitet baserat på det nya antalet noder i klustret. Använd något av följande alternativ för att balansera om topologier som körs:
-
-    * **SSH**: Anslut till servern och Använd följande kommando för att balansera om en topologi:
-
-            storm rebalance TOPOLOGYNAME
-
-        Du kan också ange parametrar för att åsidosätta de parallella tips som ursprungligen tillhandahölls av topologin. Till exempel `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10` omkonfigureras topologin till 5 arbets processer, 3 körningar för Blue-kanalen-komponenten och 10 körningar för den gula-bult-komponenten.
-
-    * **Storm-gränssnitt**: Använd följande steg för att balansera om en topologi med storm-användargränssnittet.
-
-        1. Öppna `https://CLUSTERNAME.azurehdinsight.net/stormui` i webbläsaren, där `CLUSTERNAME` är namnet på ditt Storm-kluster. Om du uppmanas till det anger du namnet på HDInsight-klusterresursen (admin) och lösen ordet du angav när du skapade klustret.
-        2. Välj den topologi du vill balansera om och välj sedan knappen **balansera** om. Ange fördröjningen innan ombalanserings åtgärden utförs.
-
-* **Kafka**: du bör balansera om partition repliker efter skalnings åtgärder. Mer information finns i dokumentet [med hög tillgänglighet för data med Apache Kafka på HDInsight](./kafka/apache-kafka-high-availability.md) -dokument.
-
-För detaljerad information om skalning av HDInsight-klustret, se:
-
-* [Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure Portal](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Hantera Apache Hadoop kluster i HDInsight med hjälp av Azure CLI](hdinsight-administer-use-command-line.md#scale-clusters)
+Med funktionen för kluster skalning kan du dynamiskt ändra antalet datanoder som används av ett kluster. Du kan göra skalnings åtgärder medan andra jobb eller processer körs i ett kluster.  Se [skala HDInsight-kluster](./hdinsight-scaling-best-practices.md)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hur gör jag för att installera nyans (eller en annan Hadoop-komponent)?
 
-HDInsight är en hanterad tjänst. Om Azure identifierar ett problem med klustret kan det ta bort noden som Miss lyckas och skapa en nod för att ersätta den. Om du installerar saker manuellt i klustret är de inte kvar när den här åtgärden utförs. Använd i stället [HDInsight-skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md). En skript åtgärd kan användas för att göra följande ändringar:
+HDInsight är en hanterad tjänst. Om Azure identifierar ett problem med klustret kan det ta bort noden som Miss lyckas och skapa en nod för att ersätta den. När du installerar saker manuellt i klustret behålls de inte när den här åtgärden utförs. Använd i stället [HDInsight-skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md). En skript åtgärd kan användas för att göra följande ändringar:
 
 * Installera och konfigurera en tjänst eller webbplats.
 * Installera och konfigurera en komponent som kräver konfigurations ändringar på flera noder i klustret.
@@ -258,7 +223,7 @@ Skript åtgärder är Bash-skript. Skripten körs när klustret skapas och anvä
 
 ### <a name="jar-files"></a>Jar-filer
 
-Vissa Hadoop-tekniker tillhandahålls i fristående jar-filer som innehåller funktioner som används som en del av ett MapReduce-jobb eller inifrån gris eller Hive. De kräver ofta inte några inställningar och kan laddas upp till klustret när de har skapats och använts direkt. Om du vill vara säker på att komponenten överleva en åter avbildning av klustret kan du lagra jar-filen i standard lagrings utrymmet för klustret (WASB eller ADL).
+Vissa Hadoop-tekniker tillhandahåller fristående jar-filer. De här filerna innehåller funktioner som används som en del av ett MapReduce-jobb eller inifrån gris eller Hive. De kräver ofta inte några inställningar och kan laddas upp till klustret när de har skapats och använts direkt. Om du vill se till att komponenten överleva avbildningen av klustret lagrar du jar-filen i klustrets standard lagring.
 
 Om du till exempel vill använda den senaste versionen av [Apache DataFu](https://datafu.incubator.apache.org/)kan du ladda ned en jar-fil som innehåller projektet och ladda upp den till HDInsight-klustret. Följ sedan DataFu-dokumentationen om hur du använder den från gris eller Hive.
 

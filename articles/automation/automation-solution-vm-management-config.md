@@ -1,20 +1,20 @@
 ---
-title: Azure Automation konfigurera starta/stoppa virtuella datorer under låg tid
+title: Azure Automation konfigurera Starta/stoppa virtuella datorer när de inte används-lösning
 description: I den här artikeln beskrivs hur du konfigurerar Starta/stoppa virtuella datorer när de inte används-lösningen så att den stöder olika användnings fall eller scenarier.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9842a736cf922e0490f2b0c8acb1d2e5833f3d6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 4cceb0d5ada82de73bc74c0ed408f8eb988ea8ec
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81604767"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864274"
 ---
-# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Så här konfigurerar du en lösning för att starta/stoppa virtuella datorer under låg tid
+# <a name="how-to-configure-startstop-vms-during-off-hours-solution"></a>Så här konfigurerar du Starta/stoppa virtuella datorer när de inte används lösning
 
-Med lösningen **Starta/stoppa virtuella datorer under låg tid** kan du:
+Med **Starta/stoppa virtuella datorer när de inte används** -lösningen kan du:
 
 - [Schemalägg virtuella datorer för start och stopp](#schedule).
 - Schemalägg virtuella datorer att starta och stoppa i stigande ordning med [hjälp av Azure-Taggar](#tags) (stöds inte för klassiska virtuella datorer).
@@ -125,7 +125,7 @@ När du kör **AutoStop_CreateAlert_Parent** Runbook verifierar den att mål pre
 
 ### <a name="to-target-the-autostop-action-to-a-list-of-vms"></a>Så här riktar du in åtgärden för autostoppa till en lista över virtuella datorer
 
-1. Skapa ett nytt [schema](shared-resources/schedules.md#creating-a-schedule) och länka det till **AutoStop_CreateAlert_Parent** Runbook och Lägg till en kommaavgränsad lista över namn på virtuella datorer i `VMList` parametern.
+1. Skapa ett nytt [schema](shared-resources/schedules.md#create-a-schedule) och länka det till **AutoStop_CreateAlert_Parent** Runbook och Lägg till en kommaavgränsad lista över namn på virtuella datorer i `VMList` parametern.
 
 2. Om du vill undanta vissa virtuella datorer från den automatiska avstängningen kan du lägga till en kommaavgränsad lista över namn på virtuella datorer i `External_ExcludeVMNames` variabeln.
 
@@ -180,7 +180,7 @@ Det finns stöd för att konfigurera lösningen till att bara stoppa virtuella d
 
 4. Välj **parametrar och kör inställningar** och Ställ in **Åtgärds** fältet på **stoppa**.
 
-5. Spara ändringarna genom att välja **OK**.
+5. Klicka på **OK** för att spara ändringarna.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 186b684cc7e4442d1a8ce14f06e16c839e117a26
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76156785"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872484"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)
 
@@ -24,19 +24,20 @@ När du har skapat ett program med anpassade kommandon kan du börja prata med d
 I den här artikeln får du:
 
 - Publicera ett program för anpassade kommandon och hämta ett program-ID (app-ID)
-- Skapa ett klient program med hjälp av tal-SDK så att du kan prata med dina anpassade kommandon i programmet
+- Skapa en Universell Windows-plattform-klientsession (UWP) med hjälp av tal-SDK så att du kan prata med dina anpassade kommandon i programmet
 
 ## <a name="prerequisites"></a>Krav
 
 Det krävs ett program med anpassade kommandon för att kunna slutföra den här artikeln. Om du inte har skapat ett program för anpassade kommandon än kan du göra det i dessa tidigare snabb starter:
-
-- [Snabb start: skapa ett anpassat kommando (förhands granskning)](./quickstart-custom-speech-commands-create-new.md)
-- [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
+> [!div class = "checklist"]
+> * [Snabb start: skapa ett anpassat kommando (förhands granskning)](./quickstart-custom-speech-commands-create-new.md)
+> * [Snabb start: skapa ett anpassat kommando med parametrar (förhands granskning)](./quickstart-custom-speech-commands-create-parameters.md)
 
 Du behöver också:
-
-- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com)
+> [!div class = "checklist"]
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+> * En Azure-prenumerations nyckel för tal tjänster. [Hämta ett kostnads fritt](get-started.md) eller skapa det på [Azure Portal](https://portal.azure.com)
+> * [Gör det möjligt för din enhet att utveckla](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="optional-get-started-fast"></a>Valfritt: kom igång snabbt
 
@@ -44,12 +45,13 @@ I den här snabb starten beskrivs steg för steg hur du gör ett klient program 
 
 ## <a name="step-1-publish-custom-commands-application"></a>Steg 1: publicera anpassade kommandon-program
 
-1. Öppna dina [tidigare skapade program för anpassade kommandon](./quickstart-custom-speech-commands-create-new.md) och välj **publicera**
+1. Öppna ditt [tidigare skapade Custom commands-program (för hands version)](./quickstart-custom-speech-commands-create-new.md) och välj **publicera**
 
    > [!div class="mx-imgBorder"]
    > ![Publicera programmet](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Kopiera app-ID: t från publicerings meddelandet för senare användning
+1. Kopiera tal resurs nyckeln för senare användning
 
 ## <a name="step-2-create-a-visual-studio-project"></a>Steg 2: skapa ett Visual Studio-projekt
 
@@ -129,7 +131,7 @@ Lägg till koden bakom källan enligt följande:
 
 1. Öppna **Solution Explorer**käll filen `MainPage.xaml.cs` bakomliggande kod i Solution Explorer (grupperad under `MainPage.xaml`)
 
-1. Ersätt filens innehåll med följande kod:
+1. Ersätt filens innehåll med följande kod: 
 
    ```csharp
    using Microsoft.CognitiveServices.Speech;
@@ -298,6 +300,11 @@ Lägg till koden bakom källan enligt följande:
        }
    }
    ```
+    > [!NOTE]
+    > Om du ser fel: "typen ' object ' har definierats i en sammansättning som inte är refererad"
+    > 1. Rätt-klient din lösning.
+    > 1. Välj **Hantera NuGet-paket för lösningen**, Välj **uppdateringar** 
+    > 1. Om du ser **Microsoft. NetCore. UniversalWindowsPlatform** i uppdaterings listan uppdaterar du **Microsoft. NetCore. UniversalWindowsPlatform** till den senaste versionen
 
 1. Lägg till följande kod i metod texten i`InitializeDialogServiceConnector`
 
@@ -419,3 +426,6 @@ Lägg till koden bakom källan enligt följande:
 > [!div class="nextstepaction"]
 > [Gör så här: utföra kommandon på klienten med talet SDK (för hands version)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > gör så[här: Lägg till valideringar i anpassade kommando parametrar (för hands version)](./how-to-custom-speech-commands-validations.md)
+
+## <a name="sample-source-code"></a>Exempel käll kod
+Kolla våra klient exempel koder på [GitHub-VoiceAssistant](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant)

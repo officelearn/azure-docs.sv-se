@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
-ms.openlocfilehash: e0042960c25d58b72bc0ab884de5a2db62e566d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81413436"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890878"
 ---
 # <a name="data-flow-script-dfs"></a>Data flödes skript (DFS)
 
@@ -177,6 +177,21 @@ Använd den här koden i ditt data flödes skript för att skapa en ny ```DWhash
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
+```
+
+Du kan också använda det här skriptet nedan för att generera en rad-hash med alla kolumner som finns i data strömmen, utan att behöva namnge varje kolumn:
+
+```
+derive(DWhash = sha1(columns()))
+```
+
+### <a name="string_agg-equivalent"></a>String_agg motsvarande
+Den här koden fungerar som T-SQL ```string_agg()``` -funktionen och kommer att aggregera sträng värden till en matris. Du kan sedan omvandla matrisen till en sträng som ska användas med SQL-mål.
+
+```
+source1 aggregate(groupBy(year),
+    string_agg = collect(title)) ~> Aggregate1
+Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
 ```
 
 ## <a name="next-steps"></a>Nästa steg

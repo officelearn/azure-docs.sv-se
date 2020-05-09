@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e756258bb92d7def195959d909068e87e765c0f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74849198"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562074"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Arbeta med Azure Functions-proxyservrar
 
@@ -184,8 +184,8 @@ Proxyservrar läser alla strängar från en JSON-fil med hjälp av \ som en Esca
 RequestOverrides-objektet definierar ändringar som gjorts i begäran när backend-resursen anropas. Objektet definieras av följande egenskaper:
 
 * **Server del. Request.-metod**: http-metoden som används för att anropa Server delen.
-* **backend. Request. QueryString. ParameterName\>: en frågesträngparametern som kan anges för anropet till Server \<** delen. Ersätt * \<ParameterName\> * med namnet på den parameter som du vill ange. Observera att om den tomma strängen anges, inkluderas parametern fortfarande i backend-begäran.
-* **backend. Request. header. Huvud\>: en rubrik som kan anges för anropet till Server \<** delen. Ersätt * \<huvud\> * med namnet på rubriken som du vill ange. Om du anger en tom sträng tas inte rubriken med i backend-begäran.
+* **backend. Request. QueryString. ParameterName\>: en frågesträngparametern som kan anges för anropet till Server \<** delen. Ersätt * \<ParameterName\> * med namnet på den parameter som du vill ange. Observera att om en tom sträng anges, inkluderas parametern fortfarande i backend-begäran.
+* **backend. Request. header. Huvud\>: en rubrik som kan anges för anropet till Server \<** delen. Ersätt * \<huvud\> * med namnet på rubriken som du vill ange. Observera att om en tom sträng anges, inkluderas parametern fortfarande i backend-begäran.
 
 Värden kan referera till program inställningar och parametrar från den ursprungliga klient förfrågan.
 

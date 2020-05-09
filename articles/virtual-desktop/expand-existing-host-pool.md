@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: be76c665e1f5319b3e1ff1976e44fee9cd90ea6b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
-ms.translationtype: HT
+ms.openlocfilehash: d46d5618d7e3dc26775401f4a90d0c98d75ea31a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607206"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929221"
 ---
 # <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expandera en befintlig adresspool med nya värdbaserade sessioner
 
@@ -58,7 +58,7 @@ Expandera din värddator genom att lägga till virtuella datorer:
 
 7. Välj den resurs grupp som du vill skapa de virtuella datorerna under och välj sedan regionen. Du kan välja den aktuella region som du använder eller en ny region.
    
-8. Ange det nya totala antalet värdar för sessionen som du vill ha i **antalet virtuella datorer**. Om du till exempel expanderar din värddator från fem värdar till åtta, anger du **8**. 
+8. Ange antalet värdar för sessionen som du vill lägga till i din värddator i **antal virtuella datorer**. Om du till exempel expanderar din värd-pool med fem värdar anger du **5**.
    
     >[!NOTE]
     >Du kan inte redigera storleken eller avbildningen av de virtuella datorerna eftersom det är viktigt att se till att alla virtuella datorer i poolen har samma storlek.

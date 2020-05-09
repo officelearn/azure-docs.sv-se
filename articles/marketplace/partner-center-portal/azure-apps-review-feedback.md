@@ -1,20 +1,20 @@
 ---
-title: Hantera gransknings feedback för Azure Apps-erbjudandet på den kommersiella marknaden
-description: Så här hanterar du gransknings feedback för Azure Apps-erbjudandet för att visa eller sälja på Azure Marketplace, AppSource eller via program varan för Cloud Solution Provider (CSP) med hjälp av den kommersiella Marketplace-portalen på Microsoft Partner Center.
+title: Hantera gransknings feedback för Azure Apps-erbjudande på Microsofts kommersiella marknads plats
+description: Hur du hanterar gransknings feedback för Azure apps erbjuder att lista eller sälja på Azure Marketplace, AppSource eller via program varan för Cloud Solution Provider (CSP) med hjälp av den kommersiella Marketplace-portalen på Microsoft Partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 3932f3fc71dc6427b6cdf93d3a7bc58534a9981c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 464f4d5434c8c0b8615e24eb1a323ae66a52273c
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80279801"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744873"
 ---
-# <a name="handling-review-feedback"></a>Hantera feedback från granskning
+# <a name="handling-review-feedback-for-azure-apps-offer-before-publishing-in-the-azure-marketplace"></a>Hantera gransknings feedback för Azure Apps-erbjudande innan du publicerar på Azure Marketplace
 
 Den här artikeln förklarar hur du får åtkomst till Azure DevOps-miljön som används av Microsoft Azure Marketplace gransknings teamet. Om det finns kritiska problem i ditt erbjudande om Azure-program under **Microsoft gransknings** steg kan du logga in på systemet för att visa detaljerad information om de här problemen (granska feedback). När du har åtgärdat alla dessa problem måste du skicka erbjudandet igen för att fortsätta att publicera det på Azure Marketplace. Följande diagram illustrerar hur den här återställnings processen relaterar till publicerings processen.
 

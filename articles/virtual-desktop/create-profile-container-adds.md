@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: dd01b950435fadb96a961b6bb1c6b28ff436907a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 916d34abfaf8223e3cf29977e13dfddf15a3fbf9
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81265777"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607290"
 ---
 # <a name="create-an-fslogix-profile-container-with-azure-files"></a>Skapa en FSLogix profil behållare med Azure Files
 
@@ -108,7 +108,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<share-name>` med namnet på resursen som du skapade tidigare.
     - Ersätt `<storage-account-key>` med lagrings konto nyckeln från Azure.
 
-    Ett exempel:  
+    Exempel:  
   
      ```cmd
      net use y: \\fsprofile.file.core.windows.net\share HDZQRoFP2BBmoYQ=(truncated)= /user:Azure\fsprofile)
@@ -123,7 +123,7 @@ Så här hämtar du åtkomst nyckeln för lagrings kontot:
     - Ersätt `<mounted-drive-letter>` med bokstaven för den enhet som du vill att användaren ska använda.
     - Ersätt `<user-email>` med UPN för den användare som ska använda profilen för att få åtkomst till de virtuella datorerna i sessionen.
 
-    Ett exempel:
+    Exempel:
      
      ```cmd
      icacls y: /grant john.doe@contoso.com:(f)
@@ -199,7 +199,7 @@ Så här tilldelar du användare:
 
     Precis som de tidigare cmdletarna, se till att `<your-wvd-tenant>`ersätta `<wvd-pool>`, och `<user-principal>` med relevanta värden.
 
-    Ett exempel:
+    Exempel:
 
      ```powershell
      $pool1 = "contoso"
@@ -219,7 +219,7 @@ Nu behöver du bara se till att profilen du skapade finns och fungerar som den s
 
 Så här verifierar du din profil:
 
-1. Öppna en webbläsare och gå till [Windows-webbklienten för virtuella skriv bord](https://rdweb.wvd.microsoft.com/webclient/index.html).
+1. Öppna en webbläsare och gå till [Windows-webbklienten för virtuella skriv bord](https://rdweb.wvd.microsoft.com/arm/webclient).
 
 2. Logga in med det användar konto som har tilldelats till fjärr skrivbords gruppen.
 

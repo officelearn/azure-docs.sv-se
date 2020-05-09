@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 60032677594537f1e7791b7108eebd5d4cfad5b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8af33e95c92cf51bdabe3325bd9249b4662b7d28
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75430353"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583766"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slut punkt med hjälp av Azure PowerShell
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. 
@@ -137,7 +137,7 @@ $subnet = $virtualNetwork `
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
   -Name "myPrivateEndpoint" `
   -Location "westcentralus" `
-  -Subnet  $subnet`
+  -Subnet  $subnet `
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
@@ -198,9 +198,10 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Åtkomst SQL Database Server privat från den virtuella datorn
 
 1. Öppna PowerShell i fjärr skrivbordet för myVM.
-2. Ange `nslookup myserver.database.windows.net`. 
+2. Ange `nslookup myserver.database.windows.net`. Kom ihåg att `myserver` ersätta med ditt SQL Server-namn.
 
     Du får ett meddelande som liknar detta:
+    
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -209,14 +210,21 @@ mstsc /v:<publicIpAddress>
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
     ```
-3. Installera SQL Server Management Studio
-4. I Anslut till server anger eller väljer du den här informationen: Ange värde Server Typ Välj databas motor.
-      Server namn Välj myserver.database.windows.net användar namn Ange ett användar namn som angavs vid skapandet.
-      Lösen ord ange ett lösen ord som angavs när det skapas.
-      Kom ihåg lösen ord Välj Ja.
-5. Välj Anslut.
-6. Bläddra bland databaser från menyn till vänster. 
-7. Du kan också Skapa eller fråga efter information från en databas
+    
+3. Installera SQL Server Management Studio.
+4. I **Anslut till Server**anger eller väljer du den här informationen:
+
+    | Inställningen | Värde |
+    | --- | --- |
+    | Servertyp | Databasmotor |
+    | servernamn | myserver.database.windows.net |
+    | Användarnamn | Ange det användar namn som angavs vid skapandet |
+    | lösenordsinställning | Ange lösen ordet som angavs när det skapas |
+    | Kom ihåg lösen ord | Ja |
+    
+5. Välj **Anslut**.
+6. Bläddra bland **databaser** på den vänstra menyn. 
+7. Du kan också Skapa eller fråga efter information från databasen.
 8. Stäng fjärr skrivbords anslutningen till *myVM*. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 

@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: seodec18
-ms.openlocfilehash: cb68860af56914acede6c9cbf04d3e8ad3edbe04
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: 516c7f50f7ff9fe947475b12120a527fc69353bc
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891060"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926858"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Felsöka en app i Azure App Service med Visual Studio
 ## <a name="overview"></a>Översikt
@@ -634,7 +634,7 @@ Mer information om fjärrfelsökning för App Service appar och WebJobs finns i 
 * [Introduktion till fjärrfelsökning på Azure App Service del 3 – miljö med flera instanser och GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [Fel sökning av WebJobs (video)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-Om din app använder ett Azure webb-API eller Mobile Services server del och du behöver felsöka, se [fel sökning av .NET-Server delen i Visual Studio](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
+Om din app använder ett Azure webb-API eller Mobile Services server del och du behöver felsöka, se [fel sökning av .NET-Server delen i Visual Studio](/archive/blogs/azuremobile/debugging-net-backend-in-visual-studio).
 
 ### <a name="tracing-in-aspnet-applications"></a>Spårning i ASP.NET-program
 Det finns inga ingående och aktuella introduktioner till ASP.NET-spårning på Internet. Det bästa du kan göra är att komma igång med det gamla introduktions materialet som är skrivet för webb formulär eftersom MVC ännu inte fanns och kompletterar med nyare blogg inlägg som fokuserar på specifika problem. Några lämpliga platser för att starta är följande resurser:
@@ -647,7 +647,7 @@ Det finns inga ingående och aktuella introduktioner till ASP.NET-spårning på 
   Information om spårnings lyssnare, men nämner inte [WebPageTraceListener](/dotnet/api/system.web.webpagetracelistener).
 * [Genom gång: integrera ASP.NET-spårning med system. Diagnostics-spårning](/previous-versions/b0ectfxd(v=vs.140))<br/>
   Den här artikeln är också gammal, men innehåller ytterligare information som den inledande artikeln inte behandlar.
-* [Spårning i ASP.NET MVC kniv-vyer](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+* [Spårning i ASP.NET MVC kniv-vyer](https://devblogs.microsoft.com/aspnet/tracing-in-asp-net-mvc-razor-views/)<br/>
   Förutom att spåra i kniva vyer förklarar inlägget även hur du skapar ett fel filter för att logga alla ohanterade undantag i ett MVC-program. Information om hur du loggar alla ohanterade undantag i ett webb formulär program finns i exemplet global. asax i [fullständigt exempel för fel hanterare](/previous-versions/bb397417(v=vs.140)) på MSDN. Om du vill logga vissa undantag i design-eller webb formulär, men låta standard Ramverks hanteringen verkställas, kan du fånga och återanvända som i följande exempel:
 
     ```csharp

@@ -5,12 +5,12 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2f6dd455024aba184cbb16b5b9c7cfffd032dc70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 143317cd424428d7f480f4880d3aab750853890b
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811728"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82592374"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurera ömsesidig TLS-autentisering för Azure App Service
 
@@ -24,7 +24,7 @@ Du kan begränsa åtkomsten till Azure App Service-appen genom att aktivera olik
 
 ## <a name="enable-client-certificates"></a>Aktivera klient certifikat
 
-Om du vill konfigurera din app så att den kräver klient certifikat måste du ställa `clientCertEnabled` in appens inställning på `true`. Ange inställningen genom att köra följande kommando i [Cloud Shell](https://shell.azure.com).
+Om du vill konfigurera din app så att den kräver klient certifikat, **kan du växla till** Kräv inkommande certifikat genom att välja **konfiguration** > av**allmänna inställningar** från Azure Portal eller så måste `clientCertEnabled` du ange inställningen för din `true`app till. Ange inställningen genom att köra följande kommando i [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>

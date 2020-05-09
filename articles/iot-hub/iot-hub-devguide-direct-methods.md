@@ -10,12 +10,12 @@ ms.author: rezas
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 13936a55baed59d5b6257f13f69305a1ce72927a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 9fb2242f6e3f8ce78a0e5043a53ce3055819725b
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730389"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82583677"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Förstå och anropa direktmetoder från IoT Hub
 
@@ -83,11 +83,19 @@ Värdet som anges som `connectTimeoutInSeconds` i begäran är tiden då det tar
 
 #### <a name="example"></a>Exempel
 
-Se nedan för ett Barebone-exempel `curl`som använder. 
+I det här exemplet kan du på ett säkert sätt initiera en begäran om att anropa en direkt metod på en IoT-enhet som är registrerad på en Azure-IoT Hub.
+
+Börja med att använda [Microsoft Azure IoT-tillägget för Azure CLI för](https://github.com/Azure/azure-iot-cli-extension) att skapa en SharedAccessSignature. 
+
+```bash
+az iot hub generate-sas-token -n <iothubName> -du <duration>
+```
+
+Ersätt `iothubName`sedan Authorization-huvudet med den nyligen skapade SharedAccessSignature och ändra sedan parametrarna, `deviceId` `methodName` och `payload` för att matcha din implementering i exempel `curl` kommandot nedan.  
 
 ```bash
 curl -X POST \
-  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  https://<iothubName>.azure-devices.net/twins/<deviceId>/methods?api-version=2018-06-30 \
   -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -100,6 +108,14 @@ curl -X POST \
 }'
 ```
 
+Kör det ändrade kommandot för att anropa den angivna direkta metoden. Lyckade förfrågningar returnerar en status kod för HTTP 200.
+
+> [!NOTE]
+> Exemplet ovan visar hur du anropar en direkt metod på en enhet.  Om du vill anropa en direkt metod i en IoT Edge modul måste du ändra URL-begäran enligt nedan:
+
+```bash
+https://<iothubName>.azure-devices.net/twins/<deviceId>/modules/<moduleName>/methods?api-version=2018-06
+```
 ### <a name="response"></a>Svar
 
 Backend-appen tar emot ett svar som består av följande objekt:

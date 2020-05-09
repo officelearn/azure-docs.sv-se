@@ -11,13 +11,13 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 11/20/2019
-ms.openlocfilehash: c891cb4eca2c286b3ac636e5995714accd591772
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 255c39eac2285a23403da2db893d9de8835f7d2c
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417345"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891535"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Kopiera data från och till Dynamics 365 (Common Data Service) eller Dynamics CRM genom att använda Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -60,6 +60,10 @@ Den här Dynamics Connector bygger på [Dynamics XRM-verktyg](https://docs.micro
 
 >[!TIP]
 >Om du vill kopiera data från **ekonomi och åtgärder i dynamics 365**kan du använda [Dynamics AX-anslutningen](connector-dynamics-ax.md).
+
+## <a name="prerequisites"></a>Krav
+
+Om du vill använda den här anslutningen med AAD-tjänstens huvud namns autentisering måste du ställa in server-till-Server-autentisering (S2S) i Common Data Service eller Dynamics. Läs [den här artikeln](https://docs.microsoft.com/powerapps/developer/common-data-service/build-web-applications-server-server-s2s-authentication) om detaljerade anvisningar.
 
 ## <a name="get-started"></a>Kom igång
 
@@ -320,7 +324,7 @@ För att kunna kopiera data till Dynamics stöds följande egenskaper i avsnitte
 |:--- |:--- |:--- |
 | typ | Egenskapen Type för kopierings aktivitetens Sink måste anges till **DynamicsSink**, **DynamicsCrmSink**eller **CommonDataServiceForAppsSink**. | Ja |
 | writeBehavior | Åtgärdens Skriv funktion.<br/>Tillåtet värde är **"upsert"**. | Ja |
-| alternateKeyName | Ange det alternativa nyckel namnet som definierats i entiteten för att utföra "upsert". | Nej |
+| alternateKeyName | Ange det alternativa nyckel namnet som definierats i entiteten för att utföra "upsert". | Inga |
 | writeBatchSize | Rad antalet data som skrivs till Dynamics i varje batch. | Nej (standard är 10) |
 | ignoreNullValues | Anger om null-värden ska ignoreras från indata (förutom nyckel fält) under en Skriv åtgärd.<br/>Tillåtna värden är **True** och **false**.<br>- **True**: lämna kvar data i målobjektet oförändrade när du gör en upsert/uppdatering-åtgärd. Infoga ett definierat standardvärde när du infogar en åtgärd.<br/>- **False**: uppdatera data i MÅLOBJEKTET till null när du gör en upsert/uppdatering-åtgärd. Infoga ett NULL-värde när du gör en infognings åtgärd. | Nej (standard är falskt) |
 

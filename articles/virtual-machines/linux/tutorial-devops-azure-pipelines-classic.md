@@ -1,6 +1,6 @@
 ---
-title: Självstudie – konfigurera löpande distributioner för Azure Virtuella Linux-datorer
-description: I den här självstudien får du lära dig hur du konfigurerar en pipeline för kontinuerlig distribution (CD) som stegvis uppdaterar en grupp med Azure Virtuella Linux-datorer med hjälp av strategin för löpande distribution
+title: Självstudie – konfigurera löpande distributioner för virtuella Azure Linux-datorer
+description: I den här självstudien får du lära dig hur du konfigurerar en pipeline för kontinuerlig distribution (CD). Den här pipelinen uppdaterar en grupp med virtuella Azure Linux-datorer med hjälp av strategin för rullande distribution.
 author: moala
 manager: jpconnock
 tags: azure-devops-pipelines
@@ -12,75 +12,86 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: 75888b1ebbda33891296fe0b54c5d204955e32a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 28f093bc464a45862d3b253d628b7ae03810f81a
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113499"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82871230"
 ---
-# <a name="tutorial---configure-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Självstudie – konfigurera strategi för löpande distribution för Azure Virtuella Linux-datorer
+# <a name="tutorial---configure-the-rolling-deployment-strategy-for-azure-linux-virtual-machines"></a>Självstudie – konfigurera strategin för rullande distribution för virtuella Azure Linux-datorer
 
-Azure DevOps är en inbyggd Azure-tjänst som automatiserar varje del av DevOps-processen med kontinuerlig integrering och kontinuerlig leverans för alla Azure-resurser.
-Oavsett om din app använder virtuella datorer, webbappar, Kubernetes eller någon annan resurs, kan du implementera infrastruktur som kod, kontinuerlig integrering, kontinuerlig testning, kontinuerlig leverans och kontinuerlig övervakning med Azure och Azure DevOps.  
+Azure DevOps är en inbyggd Azure-tjänst som automatiserar varje del av DevOps-processen för alla Azure-resurser. Oavsett om din app använder virtuella datorer, webbappar, Kubernetes eller någon annan resurs, kan du implementera infrastruktur som kod (IaaC), kontinuerlig integrering, kontinuerlig testning, kontinuerlig leverans och kontinuerlig övervakning med Azure och Azure DevOps.
 
-![AzDevOps_portalView](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png) 
+![Azure Portal med Azure-DevOps valt under tjänster](media/tutorial-devops-azure-pipelines-classic/azdevops-view.png)
 
+## <a name="infrastructure-as-a-service-iaas---configure-cicd"></a>IaaS (Infrastructure as a Service) – Konfigurera CI/CD
 
-## <a name="iaas---configure-cicd"></a>IaaS – konfigurera CI/CD 
-Azure-pipeliner innehåller en komplett uppsättning CI/CD Automation-verktyg för distributioner till virtuella datorer. Du kan konfigurera en pipeline för kontinuerlig leverans för en virtuell Azure-dator direkt från Azure Portal. Det här dokumentet innehåller stegen som associeras med att ställa in en CI/CD-pipeline för att återställa distributioner av flera datorer från Azure Portal. Du kan också ta en titt på andra strategier, t. ex. [Kanarie](https://aka.ms/AA7jdrz) och [blå – grönt](https://aka.ms/AA83fwu), som stöds direkt från Azure Portal. 
+Azure-pipeliner ger en helt aktuell uppsättning CI/CD Automation-verktyg för distribution till virtuella datorer. Du kan konfigurera en pipeline för kontinuerlig leverans för en virtuell Azure-dator från Azure Portal.
 
+Den här artikeln visar hur du konfigurerar en CI/CD-pipeline för rullande MultiMachine-distributioner från Azure Portal. Azure Portal stöder också andra strategier som [Kanarie](https://aka.ms/AA7jdrz) och [blå – grönt](https://aka.ms/AA83fwu).
 
-**Konfigurera CI/CD på Virtual Machines**
+### <a name="configure-cicd-on-virtual-machines"></a>Konfigurera CI/CD på virtuella datorer
 
-Virtuella datorer kan läggas till som mål i en [distributions grupp](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups) och kan användas för uppdatering av flera datorer. När **distributions historiken** i en distributions grupp har distribuerats ger det möjlighet att spåra från virtuell dator till pipelinen och sedan till commit. 
- 
+Du kan lägga till virtuella datorer som mål i en [distributions grupp](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Du kan sedan rikta dem till MultiMachine-uppdateringar. När du har distribuerat till datorer, Visa **distributions historik** i en distributions grupp. I den här vyn kan du spåra från virtuell dator till pipelinen och sedan till commit.
 
-**Löpande distributioner**: en rullande distribution ersätter instanser av den tidigare versionen av ett program med instanser av den nya versionen av programmet på en fast uppsättning datorer (rullande uppsättning) i varje iteration. Nu ska vi göra en genom gång av hur du kan konfigurera en rullande uppdatering på virtuella datorer.  
-Du kan konfigurera rullande uppdateringar till dina "**virtuella datorer**" i Azure Portal med alternativet för kontinuerlig leverans. 
+### <a name="rolling-deployments"></a>Löpande distributioner
 
-Här är steg för steg-beskrivningen. 
-1. Logga in på Azure Portal och navigera till en virtuell dator. 
-2. I det vänstra fönstret i den virtuella datorn navigerar du till menyn för **kontinuerlig leverans** . Klicka sedan på **Konfigurera**. 
+I varje iteration ersätter en rullande distribution instanser av ett programs tidigare version. Den ersätter dem med instanser av den nya versionen på en fast uppsättning datorer (rullande uppsättning). I följande genom gång visas hur du konfigurerar en rullande uppdatering på virtuella datorer.
 
-   ![AzDevOps_configure](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png) 
-3. I konfigurations panelen klickar du på "Azure DevOps Organization" för att välja ett befintligt konto eller skapa ett. Välj sedan det projekt som du vill konfigurera pipelinen för.  
+Med alternativet för kontinuerlig leverans kan du konfigurera rullande uppdateringar av de virtuella datorerna i Azure Portal. Här är stegvisa steg-för-steg-anvisningar:
 
+1. Logga in på Azure Portal och navigera till en virtuell dator.
+1. I rutan längst till vänster i VM-inställningarna väljer du **kontinuerlig leverans**. Välj sedan **Konfigurera**.
 
-   ![AzDevOps_project](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png) 
-4. En distributions grupp är en logisk uppsättning distributions mål datorer som representerar de fysiska miljöerna. till exempel "dev", "test", "UAT" och "produktion". Du kan skapa en ny distributions grupp eller välja en befintlig distributions grupp. 
-5. Välj den build-pipeline som publicerar paketet som ska distribueras till den virtuella datorn. Observera att det publicerade paketet måste ha ett distributions skript _distribuera. ps1_ eller _Deploy.sh_ i `deployscripts` mappen vid paket roten. Det här distributions skriptet kommer att köras av Azure DevOps pipeline vid körning.
-6. Välj den distributions strategi du önskar. I det här fallet kan du välja "rullande".
-7. Du kan också tagga datorn med rollen. Till exempel "Web", "DB" osv. Detta hjälper dig att rikta virtuella datorer som har specifika roller.
-8. Klicka på **OK** i dialog rutan för att konfigurera pipeline för kontinuerlig leverans. 
-9. När du är färdig har du en pipeline för kontinuerlig leverans som är konfigurerad för distribution till den virtuella datorn.  
+   ![Fönstret kontinuerlig leverans med knappen Konfigurera](media/tutorial-devops-azure-pipelines-classic/azure-devops-configure.png)
 
+1. I konfigurations panelen väljer du **Azure DevOps-organisation** för att välja ett befintligt konto eller skapa ett nytt. Välj sedan det projekt som du vill konfigurera pipelinen för.  
 
-   ![AzDevOps_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
-10. Du kommer att se att distributionen till den virtuella datorn pågår. Du kan klicka på länken för att navigera till pipelinen. Klicka på **Release-1** om du vill visa distributionen. Du kan också klicka på **Redigera** om du vill ändra definitionen för release pipeline. 
-11. Om du har flera virtuella datorer som ska konfigureras upprepar du steg 2-4 för andra virtuella datorer som ska läggas till i distributions gruppen. Observera att om du väljer en distributions grupp för en pipeline-körning som redan finns, läggs den virtuella datorn bara till i distributions gruppen utan att skapa några nya pipeliner. 
-12. När du är färdig klickar du på pipeline-definitionen, navigerar till Azure DevOps-organisationen och klickar på **Redigera** versions pipeline. 
-   ![AzDevOps_edit_pipeline](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
-13. Klicka på länk **1-jobbet, 1 uppgift** i **dev** -fasen. Klicka på **distributions** fasen.
-   ![AzDevOps_deploymentGroup](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
-14. I konfigurations rutan till höger kan du ange antalet datorer som du vill distribuera parallellt i varje iteration. Om du vill distribuera till flera datorer i taget kan du ange den i procent med hjälp av skjutreglaget.  
+   ![Panelen kontinuerlig leverans](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling.png)
 
-15. Kör skript för att distribuera skript kör som standard distributions skriptet _Deploy. ps1_ eller _Deploy.sh_ i mappen deployscripts i rot katalogen för det publicerade paketet.  
-![AzDevOps_publish_package](media/tutorial-deployment-strategy/package.png)
+1. En distributions grupp är en logisk uppsättning distributions mål datorer som representerar de fysiska miljöerna. Utveckling, testning, UAT och produktion är exempel. Du kan skapa en ny distributions grupp eller välja en befintlig.
+1. Välj den build-pipeline som publicerar paketet som ska distribueras till den virtuella datorn. Det publicerade paketet måste ha ett distributions skript med namnet Deploy. ps1 eller deploy.sh i mappen deployscripts i paketets rotmapp. Pipelinen kör det här distributions skriptet.
+1. I **distributions strategi**väljer du **rullande**.
+1. Du kan också tagga varje dator med dess roll. Taggarna "Web" och "DB" är exempel. Med de här taggarna kan du bara rikta in virtuella datorer som har en speciell roll.
+1. Välj **OK** för att konfigurera pipeline för kontinuerlig leverans.
+1. När konfigurationen är klar har du en pipeline för kontinuerlig leverans som har kon figurer ATS för distribution till den virtuella datorn.  
+
+   ![Panelen för kontinuerlig leverans visar distributions historik](media/tutorial-devops-azure-pipelines-classic/azure-devops-deployment-history.png)
+
+1. Distributions informationen för den virtuella datorn visas. Du kan välja länken för att gå till pipelinen, **Release-1** om du vill visa distributionen eller **Redigera** för att ändra definitionen för release-pipeline.
+
+1. Om du konfigurerar flera virtuella datorer upprepar du steg 2 till och med 4 för andra virtuella datorer som ska läggas till i distributions gruppen. Om du väljer en distributions grupp som redan har en pipeline-körning, läggs de virtuella datorerna bara till i distributions gruppen. Inga nya pipeliner skapas.
+1. När konfigurationen är färdig väljer du pipeline-definitionen, navigerar till Azure DevOps-organisationen och väljer **Redigera** för versions pipelinen.
+
+   ![Redigera den rullande pipelinen](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline.png)
+
+1. Välj **1 jobb, 1 aktivitet** i **dev** -fasen. Välj **distributions** fas.
+
+   ![Löpande pipeline-uppgifter med uppgiften distribuera vald](media/tutorial-devops-azure-pipelines-classic/azure-devops-rolling-pipeline-tasks.png)
+
+1. I konfigurations fönstret längst till höger kan du ange antalet datorer som du vill distribuera parallellt i varje iteration. Om du vill distribuera till flera datorer i taget kan du ange antalet datorer i procent med hjälp av skjutreglaget.  
+
+1. Med skript aktiviteten kör distribution som standard körs distributions skriptet Deploy. ps1 eller deploy.sh. Skriptet finns i mappen deployscripts i rotmappen för det publicerade paketet.
+
+   ![Fönster rutan artefakter som visar deploy.sh i mappen deployscripts](media/tutorial-deployment-strategy/package.png)
 
 ## <a name="other-deployment-strategies"></a>Andra distributions strategier
 
 - [Konfigurera strategin för Kanarie-distribution](https://aka.ms/AA7jdrz)
-- [Konfigurera en blå-grön distributions strategi](https://aka.ms/AA83fwu)
+- [Konfigurera den blå gröna distributions strategin](https://aka.ms/AA83fwu)
 
+## <a name="azure-devops-projects"></a>Azure DevOps Projects
+
+Du kan enkelt komma igång med Azure. Med Azure DevOps Projects börjar du köra ditt program på valfri Azure-tjänst i tre steg genom att välja:
+
+- Ett program språk
+- En körning
+- En Azure-tjänst
  
-## <a name="azure-devops-project"></a>Azure DevOps-projekt 
-Kom igång med Azure enklare än någonsin.
+[Läs mer](https://azure.microsoft.com/features/devops-projects/).
  
-Med DevOps Projects börjar du köra ditt program på valfri Azure-tjänst i tre steg: Välj ett program språk, en körning och en Azure-tjänst.
- 
-[Läs mer](https://azure.microsoft.com/features/devops-projects/ ).
- 
-## <a name="additional-resources"></a>Ytterligare resurser 
-- [Distribuera till Azure Virtual Machines med DevOps-projekt](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
+## <a name="additional-resources"></a>Ytterligare resurser
+
+- [Distribuera till virtuella Azure-datorer med hjälp av Azure DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
 - [Implementera en kontinuerlig distribution av din app till en skalnings uppsättning för en virtuell Azure-dator](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

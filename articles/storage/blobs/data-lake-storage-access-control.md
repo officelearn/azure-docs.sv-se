@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 93c21656a768ae458572e0b4917412c8103b2f2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd23745f811cf67aa5e7ef7aa96b877b5980c270
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80992223"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793133"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -287,7 +287,7 @@ Om HNS är inaktiverat används fortfarande Azure RBAC-auktoriseringsregler.
 
 ### <a name="what-is-the-best-way-to-apply-acls"></a>Vad är det bästa sättet att tillämpa ACL: er?
 
-Använd alltid Azure AD-säkerhetsgrupper som tilldelat objekt i ACL: er. Motstå möjligheten att direkt tilldela enskilda användare eller tjänst huvud namn. Med den här strukturen kan du lägga till och ta bort användare eller tjänstens huvud namn utan att behöva tillämpa ACL: er på en hel katalog struktur. ) I stället behöver du bara lägga till eller ta bort dem från rätt Azure AD-säkerhetsgrupp. Tänk på att ACL: er inte ärvs och att återanvända ACL: er måste uppdatera ACL: en på alla filer och under kataloger. 
+Använd alltid Azure AD-säkerhetsgrupper som tilldelat objekt i ACL: er. Motstå möjligheten att direkt tilldela enskilda användare eller tjänst huvud namn. Med den här strukturen kan du lägga till och ta bort användare eller tjänstens huvud namn utan att behöva tillämpa ACL: er på en hel katalog struktur. I stället behöver du bara lägga till eller ta bort dem från rätt Azure AD-säkerhetsgrupp. Tänk på att ACL: er inte ärvs och att återanvända ACL: er måste uppdatera ACL: en på alla filer och under kataloger. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Vilka behörigheter krävs för att rekursivt ta bort en katalog och dess innehåll?
 

@@ -1,22 +1,22 @@
 ---
-title: Konfigurera ledar hantering i Marketo | Azure Marketplace
-description: Konfigurera ledar hantering för Marketo för Azure Marketplace-kunder.
+title: Ledande hantering i Marketo – Microsofts kommersiella marknads platser
+description: Lär dig hur du använder ett Marketo CRM-system för att hantera leads från Microsoft AppSource och Azure Marketplace.
 author: qianw211
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: b142e0ab1aaa242157e207ceecf958be51bb1721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133645"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789886"
 ---
-# <a name="configure-lead-management-in-marketo"></a>Konfigurera ledar hantering i Marketo
+# <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Använd Marketo för att hantera affärs marknads platser
 
-Den här artikeln beskriver hur du konfigurerar ett Marketo CRM-system för att bearbeta försäljnings leads från ditt kommersiella Marketplace-erbjudande.
+Den här artikeln beskriver hur du konfigurerar ett Marketo CRM-system för att bearbeta försäljnings leads från dina erbjudanden i Microsoft AppSource och Azure Marketplace.
 
 ## <a name="set-up-your-marketo-crm-system"></a>Konfigurera ditt Marketo CRM-system
 
@@ -67,9 +67,11 @@ Den här artikeln beskriver hur du konfigurerar ett Marketo CRM-system för att 
 
 När du är redo att konfigurera ledar hanterings informationen för ditt erbjudande i publicerings portalen följer du de här stegen. 
 
-1. Gå till installations sidan för **erbjudandet** för ditt erbjudande.
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. Välj **Anslut** under avsnittet **ledar hantering** . 
+1. Välj ditt erbjudande och gå till fliken **erbjudande konfiguration** .
+
+1. Under avsnittet **ledar hantering** väljer du **Anslut**. 
 
     ![Knappen Anslut till hanterings avsnitt för lead](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
 
@@ -86,6 +88,6 @@ När du är redo att konfigurera ledar hanterings informationen för ditt erbjud
 
 1. Välj **OK**.
 
-   Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du knappen **Verifiera** . Om det lyckas har du ett test lead i lead-målet.
+   Om du vill kontrol lera att du har anslutit till ett lead-mål väljer du **Verifiera**. Om det lyckas har du ett test lead i lead-målet.
 
    ![Anslutnings information, popup-fönster](./media/commercial-marketplace-lead-management-instructions-marketo/marketo-connection-details.png)

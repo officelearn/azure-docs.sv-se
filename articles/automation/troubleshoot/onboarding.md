@@ -1,6 +1,6 @@
 ---
 title: Felsöka onboarding av Azure Automation hanterings lösningar
-description: Lär dig hur du felsöker fel vid lösnings registrering.
+description: Lär dig hur du felsöker fel i Azure Automation lösning.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,16 +8,16 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: da5152b459f54cbaae5ec168f103f23a237edebd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 371094ecba5168fd32a7af9fb81a71eb722efc91
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679238"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82836537"
 ---
 # <a name="troubleshoot-solution-onboarding"></a>Felsöka lösnings registrering
 
-Du kan få fel meddelanden när du registrerar Uppdateringshantering-lösningen eller Ändringsspårning-och inventerings lösningen. I den här artikeln beskrivs de olika fel som kan uppstå och hur du kan lösa dem.
+Du kan få fel meddelanden när du registrerar Azure Automation Uppdateringshantering-lösningen eller Ändringsspårning-och inventerings lösningen. I den här artikeln beskrivs de olika fel som kan uppstå och hur du kan lösa dem.
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -35,11 +35,11 @@ Att byta namn på registrerade noder uppdaterar inte nodnamnet i Azure Automatio
 
 Avregistrera noden från Azure Automation tillstånds konfiguration och registrera den sedan igen. Rapporter som publicerats till tjänsten innan den tiden kommer inte längre att vara tillgängliga.
 
-### <a name="scenario-re-signing-certificates-via-https-proxy-is-not-supported"></a><a name="resigning-cert"></a>Scenario: det finns inte stöd för att signera om certifikat via https-proxy
+### <a name="scenario-re-signing-certificates-via-https-proxy-isnt-supported"></a><a name="resigning-cert"></a>Scenario: att signera om certifikat via HTTPS-proxy stöds inte
 
 #### <a name="issue"></a>Problem
 
-När du ansluter via en proxyserver som avslutar HTTPS-trafik och sedan krypterar om trafiken med hjälp av ett nytt certifikat, tillåter inte-tjänsten anslutningen.
+När du ansluter via en proxyserver som avslutar HTTPS-trafik och sedan krypterar om trafiken med ett nytt certifikat tillåts inte anslutningen av tjänsten.
 
 #### <a name="cause"></a>Orsak
 
@@ -51,7 +51,7 @@ Det finns för närvarande ingen lösning på problemet.
 
 ## <a name="general-errors"></a>Allmänna fel
 
-### <a name="scenario-onboarding-fails-with-the-message---the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenario: onboarding Miss lyckas med meddelandet-lösningen kan inte aktive ras
+### <a name="scenario-onboarding-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenario: onboarding Miss lyckas med meddelandet "lösningen kan inte aktive ras"
 
 #### <a name="issue"></a>Problem
 
@@ -71,9 +71,9 @@ Felet beror på felaktig eller saknas behörighet på den virtuella datorn eller
 
 #### <a name="resolution"></a>Lösning
 
-Se till att du har rätt [behörigheter som krävs för att publicera datorer](../automation-role-based-access-control.md#onboarding-permissions) och försök sedan att publicera lösningen igen. Om du får ett fel `The solution cannot be enabled on this VM because the permission to read the workspace is missing`meddelande måste du kontrol lera att `Microsoft.OperationalInsights/workspaces/read` du har behörighet att kunna hitta om den virtuella datorn har publicerats i en arbets yta.
+Se till att du har rätt [behörigheter som krävs för att publicera datorer](../automation-role-based-access-control.md#onboarding-permissions)och försök sedan att publicera lösningen igen. Om du får fel meddelandet `The solution cannot be enabled on this VM because the permission to read the workspace is missing`kontrollerar du att du har `Microsoft.OperationalInsights/workspaces/read` behörighet att kunna hitta om den virtuella datorn har publicerats i en arbets yta.
 
-### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: onboarding Miss lyckas med meddelandet: det gick inte att konfigurera Automation-konto för diagnostisk loggning
+### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: onboarding Miss lyckas med meddelandet "Det gick inte att konfigurera Automation-konto för diagnostisk loggning"
 
 #### <a name="issue"></a>Problem
 
@@ -85,7 +85,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Orsak
 
-Felet kan bero på att pris nivån inte matchar prenumerationens fakturerings modell. Se [övervakning av användning och uppskattade kostnader i Azure Monitor](https://aka.ms/PricingTierWarning).
+Felet kan bero på att pris nivån inte matchar prenumerationens fakturerings modell. Mer information finns i [övervaka användning och uppskattade kostnader i Azure Monitor](https://aka.ms/PricingTierWarning).
 
 #### <a name="resolution"></a>Lösning
 
@@ -103,7 +103,7 @@ Du kan ha ändrat frågan, eller så kan systemet ha ändrat det.
 
 #### <a name="resolution"></a>Lösning
 
-Du kan ta bort frågan för lösningen och sedan publicera lösningen igen, som återskapar frågan. Du hittar frågan i din arbets yta under **sparade sökningar**. Namnet på frågan är **MicrosoftDefaultComputerGroup**och frågans kategori är namnet på den associerade lösningen. Om flera lösningar är aktiverade visar **MicrosoftDefaultComputerGroup** -frågan flera gånger under **sparade sökningar**.
+Du kan ta bort frågan för lösningen och sedan publicera lösningen igen, vilket skapar frågan igen. Du hittar frågan på din arbets yta under **sparade sökningar**. Namnet på frågan är **MicrosoftDefaultComputerGroup**och frågans kategori är namnet på den associerade lösningen. Om flera lösningar är aktiverade visar **MicrosoftDefaultComputerGroup** -frågan flera gånger under **sparade sökningar**.
 
 ### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Scenario: PolicyViolation
 
@@ -117,14 +117,14 @@ En princip blockerar åtgärden från att slutföras.
 
 #### <a name="resolution"></a>Lösning
 
-För att kunna distribuera lösningen måste du överväga att ändra den angivna principen. Eftersom det finns många olika typer av principer som kan definieras beror ändringarna som krävs på den princip som har överskridits. Om en princip exempelvis definieras i en resurs grupp som nekar behörighet att ändra innehållet i vissa resurser, kan du välja någon av följande korrigeringar:
+Om du vill distribuera lösningen måste du överväga att ändra den angivna principen. Eftersom det finns många olika typer av principer som kan definieras beror ändringarna som krävs på den princip som överträds. Om en princip exempelvis definieras i en resurs grupp som nekar behörighet att ändra innehållet i vissa resurser, kan du välja någon av följande korrigeringar:
 
 * Ta bort principen helt.
 * Försök att publicera lösningen till en annan resurs grupp.
-* Rikta in principen till en speciell resurs, till exempel ett Automation-konto.
+* Ommålering av principen till en speciell resurs, till exempel ett Automation-konto.
 * Ändra den uppsättning resurser som principen är konfigurerad att neka.
 
-Kontrol lera meddelandena i det övre högra hörnet av Azure Portal eller navigera till den resurs grupp som innehåller ditt Automation-konto och välj **distributioner** under **Inställningar** för att visa den misslyckade distributionen. Mer information om Azure Policy finns i [Översikt över Azure policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Kontrol lera meddelandena i det övre högra hörnet av Azure Portal eller gå till resurs gruppen som innehåller ditt Automation-konto och välj **distributioner** under **Inställningar** för att visa den misslyckade distributionen. Mer information om Azure Policy finns i [Översikt över Azure policy](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ### <a name="scenario-errors-trying-to-unlink-a-workspace"></a><a name="unlink"></a>Scenario: fel vid försök att ta bort länken till en arbets yta
 
@@ -148,10 +148,10 @@ Ta bort följande lösningar från arbets ytan om du använder dem:
 * Ändringsspårning och inventering
 * Starta/stoppa virtuella datorer utanför arbetstid
 
-När du har tagit bort lösningarna kan du ta bort länken till arbets ytan. Det är viktigt att du rensar befintliga artefakter från dessa lösningar från din arbets yta och ditt Automation-konto 
+När du har tagit bort lösningarna kan du ta bort länken till arbets ytan. Det är viktigt att du rensar befintliga artefakter från dessa lösningar från din arbets yta och ditt Automation-konto:
 
-* För Uppdateringshantering tar du bort uppdaterings distributioner (scheman) från ditt Automation-konto.
-* För starta/stoppa virtuella datorer när de inte används tar du bort eventuella lås på lösnings komponenter i Automation-kontot under **Inställningar** > **Lås**. Se [ta bort starta/stoppa virtuella datorer när de inte används-lösningen](../automation-solution-vm-management.md#remove-the-solution).
+* För Uppdateringshantering tar du bort **uppdaterings distributioner (scheman)** från ditt Automation-konto.
+* För starta/stoppa virtuella datorer när de inte används tar du bort eventuella lås på lösnings komponenter i Automation-kontot under **Inställningar** > **Lås**. Mer information finns i [ta bort starta/stoppa virtuella datorer när de inte används-lösningen](../automation-solution-vm-management.md#remove-the-solution).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics för Windows-tilläggsbegäranden
 
@@ -189,9 +189,9 @@ Några möjliga orsaker till det här felet är:
 
 Kontrol lera att du har rätt portar och adresser öppna för kommunikation. En lista över portar och adresser finns i [Planera nätverket](../automation-hybrid-runbook-worker.md#network-planning).
 
-### <a name="scenario-install-failed-because-of-a-transient-environment-issues"></a><a name="transient-environment-issue"></a>Scenario: installationen misslyckades på grund av ett tillfälligt miljö problem
+### <a name="scenario-install-failed-because-of-transient-environment-issues"></a><a name="transient-environment-issue"></a>Scenario: installationen misslyckades på grund av tillfälliga miljö problem
 
-Installationen av Log Analytics för Windows-tillägget misslyckades under distributionen på grund av en annan installation eller åtgärd som blockerar installationen
+Installationen av Log Analytics för Windows-tillägget misslyckades under distributionen på grund av en annan installation eller åtgärd som blockerar installationen.
 
 #### <a name="issue"></a>Problem
 
@@ -242,8 +242,8 @@ Försök att installera Log Analytics agent för Windows-tillägg när den virtu
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du inte ser problemet ovan eller inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support:
+Om du inte ser problemet här eller om du inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support:
 
 * Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
-* Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Azure-support ansluter Azure-communityn till svar, support och experter.
+* Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support**.

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 363dc4d469d912c14f5f89ef6ff433a2243587e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6a0a84050cb8f1b3ad0c04aa66c5b3797282f2e
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428906"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983235"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Skapa en hanterad privat slut punkt för din data källa (förhands granskning)
 
@@ -30,17 +30,17 @@ I Azure Synapse Studio väljer du fliken **Hantera** i det vänstra navigerings 
 
 ## <a name="step-3-select-the-data-source-type"></a>Steg 3: Välj typ av data Källa
 
-Välj typ av data källa. I det här fallet är mål data källan ett ADLS Gen2-konto. Välj **Fortsätt**.
+Välj typ av data källa. I det här fallet är mål data källan ett ADLS Gen2 konto. Välj **Fortsätt**.
 ![Välj en typ av mål data Källa](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-3.png)
 
 ## <a name="step-4-enter-information-about-the-data-source"></a>Steg 4: Ange information om data källan
 
-I nästa fönster anger du information om data källan. I det här exemplet ska vi skapa en hanterad privat slut punkt för ett ADLS Gen2-konto. Ange ett **namn** för den hanterade privata slut punkten. Ange en **Azure-prenumeration** och ett **lagrings konto namn**. Välj **Skapa**.
+I nästa fönster anger du information om data källan. I det här exemplet skapar vi en hanterad privat slut punkt för ett ADLS Gen2-konto. Ange ett **namn** för den hanterade privata slut punkten. Ange en **Azure-prenumeration** och ett **lagrings konto namn**. Välj **Skapa**.
 ![Ange information om mål data Källa](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-4.png)
 
 ## <a name="step-5-verify-that-your-managed-private-endpoint-was-successfully-created"></a>Steg 5: kontrol lera att den hanterade privata slut punkten har skapats
 
-När du har skickat begäran visas dess status. För att kontrol lera att den hanterade privata slut punkten har skapats, kontrollerar du *etablerings statusen*. Du kan behöva vänta 1 minut och välja **Uppdatera** för att uppdatera etablerings statusen. Du kan se att den hanterade privata slut punkten till ADLS Gen2-kontot har skapats.
+När du har skickat begäran visas dess status. För att kontrol lera att den hanterade privata slut punkten har skapats, kontrollerar du *etablerings statusen*. Du kan behöva vänta 1 minut och välja **Uppdatera** för att uppdatera etablerings statusen. Du kan se att den hanterade privata slut punkten till ADLS Gen2 kontot har skapats.
 
 Du kan också se att *godkännande tillstånd* *väntar*. Ägaren till mål resursen kan godkänna eller neka anslutnings förfrågan för privat slut punkt. Om ägaren godkänner den privata slut punkts anslutningsbegäran, upprättas en privat länk. Om den nekas, upprättas ingen privat länk.
 ![Status för att skapa begäran om hanterad privat slut punkt](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-5.png)

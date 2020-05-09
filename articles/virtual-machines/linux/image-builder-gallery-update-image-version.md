@@ -3,17 +3,17 @@ title: Skapa en ny version av VM-avbildningen från en befintlig avbildnings ver
 description: Skapa en ny version av VM-avbildningen från en befintlig avbildnings version med hjälp av Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
-ms.topic: article
+ms.date: 05/05/2020
+ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
-manager: gwallace
-ms.openlocfilehash: 5766e91dc6a17d50c46d396dd8a68d17081e0926
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: danis
+ms.openlocfilehash: 2b65dee27bf31a3cf49b59ddf982834b86dca4de
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80246814"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872126"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>För hands version: skapa en ny version av VM-avbildning från en befintlig avbildnings version med hjälp av Azure Image Builder
 
@@ -39,7 +39,8 @@ Kontrol lera registreringen.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
-
+az provider show -n Microsoft.KeyVault | grep registrationState
+az provider show -n Microsoft.Compute | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
@@ -47,7 +48,8 @@ Om de inte säger att de är registrerade kör du följande:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
-
+az provider register -n Microsoft.Compute
+az provider register -n Microsoft.KeyVault
 az provider register -n Microsoft.Storage
 ```
 
@@ -55,8 +57,6 @@ az provider register -n Microsoft.Storage
 ## <a name="set-variables-and-permissions"></a>Ange variabler och behörigheter
 
 Om du har använt [skapa en avbildning och distribuerar till ett delat avbildnings Galleri](image-builder-gallery.md) för att skapa ditt delade avbildnings Galleri har du redan skapat några av de variabler vi behöver. Om inte, måste du konfigurera vissa variabler som ska användas i det här exemplet.
-
-För för hands versionen stöder Image Builder bara att skapa anpassade avbildningar i samma resurs grupp som den hanterade avbildningen. Uppdatera resurs grupp namnet i det här exemplet så att det blir samma resurs grupp som din käll hanterade avbildning.
 
 
 ```console
@@ -90,16 +90,15 @@ sigDefImgVersionId=$(az sig image-version list \
    --subscription $subscriptionID --query [].'id' -o json | grep 0. | tr -d '"' | tr -d '[:space:]')
 ```
 
-
-Om du redan har ett eget galleri för delad avbildning, och inte har följt det tidigare exemplet, måste du tilldela behörigheter för Image Builder för att få åtkomst till resurs gruppen, så att den kan komma åt galleriet.
-
+## <a name="create-a-user-assigned-identity-and-set-permissions-on-the-resource-group"></a>Skapa en användardefinierad identitet och ange behörigheter för resurs gruppen
+När du har ställt in användar identiteten i föregående exempel behöver du bara hämta resurs-ID: t för den, så läggs det till i mallen.
 
 ```azurecli-interactive
-az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup
+#get identity used previously
+imgBuilderId=$(az identity list -g $sigResourceGroup --query "[?contains(name, 'aibBuiUserId')].id" -o tsv)
 ```
+
+Om du redan har ett eget galleri för delad avbildning, och inte har följt det tidigare exemplet, måste du tilldela behörigheter för Image Builder för att få åtkomst till resurs gruppen, så att den kan komma åt galleriet. Granska stegen i exemplet [skapa en avbildning och distribuera till ett delat avbildnings Galleri](image-builder-gallery.md) .
 
 
 ## <a name="modify-helloimage-example"></a>Ändra helloImage-exempel
@@ -118,6 +117,7 @@ sed -i -e "s%<sigDefImgVersionId>%$sigDefImgVersionId%g" helloImageTemplateforSI
 sed -i -e "s/<region1>/$location/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<region2>/$additionalregion/g" helloImageTemplateforSIGfromSIG.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromSIG.json
+sed -i -e "s%<imgBuilderId>%$imgBuilderId%g" helloImageTemplateforSIGfromSIG.json
 ```
 
 ## <a name="create-the-image"></a>Skapa avbildningen

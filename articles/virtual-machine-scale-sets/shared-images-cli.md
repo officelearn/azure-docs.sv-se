@@ -9,57 +9,25 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 83b3d5c904a65b28482acf8b685c939493c8c03b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 30a376755bf0041d5d6f5cb289f5aecd1a734dc5
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76276273"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792810"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Skapa och Använd delade avbildningar för skalnings uppsättningar för virtuella datorer med Azure CLI 2,0
 
-När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. [Delade avbildnings gallerier](shared-image-galleries.md) fören klar anpassningen av anpassade bilder i hela organisationen. Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för startkonfigurationer, till exempel förinläsning av program, programkonfigurationer och andra OS-konfigurationer. Med galleriet för delade avbildningar kan du dela dina anpassade VM-avbildningar med andra i din organisation, inom eller mellan regioner, inom en AAD-klient. Välj vilka bilder du vill dela, vilka regioner du vill göra tillgängliga i och vilka du vill dela dem med. Du kan skapa flera gallerier så att du kan gruppera delade avbildningar logiskt. Galleriet är en resurs på den översta nivån som ger fullständig rollbaserad åtkomst kontroll (RBAC). Avbildningar kan vara versioner och du kan välja att replikera varje avbildnings version till en annan uppsättning Azure-regioner. Galleriet fungerar bara med hanterade bilder. 
+När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Ett [delat bild galleri](shared-image-galleries.md) fören klar en anpassad bild delning i hela organisationen. Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för startkonfigurationer, till exempel förinläsning av program, programkonfigurationer och andra OS-konfigurationer. 
 
->[!NOTE]
-> Den här artikeln vägleder dig genom processen med att använda en generaliserad hanterad avbildning. Det går inte att skapa en skalningsuppsättning från en särskild VM-avbildning.
+Med galleriet för delade avbildningar kan du dela dina avbildningar med andra. Välj vilka bilder du vill dela, vilka regioner du vill göra tillgängliga i och vilka du vill dela dem med. 
 
 
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../includes/virtual-machines-common-shared-images-cli.md)]
 
-## <a name="create-a-scale-set-from-the-custom-vm-image"></a>Skapa en skalningsuppsättning från den anpassad virtuella datoravbildningen
-Skapa en skalnings uppsättning [`az vmss create`](/cli/azure/vmss#az-vmss-create)med. Istället för en plattformsavbildning som *UbuntuLTS* eller *CentOS*, anger du namnet på din anpassade virtuella datoravbildning. Följande exempel skapar en skalningsuppsättning med namnet *myScaleSet* som använder den anpassade avbildningen med namnet *myImage* från föregående steg:
-
-```azurecli-interactive
-az vmss create \
-  -g myGalleryRG \
-  -n myScaleSet \
-  --image "/subscriptions/<subscription ID>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0" \
-  --admin-username azureuser \
-  --generate-ssh-keys
-```
-
-Det tar några minuter att skapa och konfigurera alla skalningsuppsättningsresurser och virtuella datorer.
-
-
-[!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
-
-
-## <a name="clean-up-resources"></a>Rensa resurser
-Ta bort din skalnings uppsättning och ytterligare resurser genom att ta bort resurs gruppen och alla dess resurser med [AZ Group Delete](/cli/azure/group). Parametern `--no-wait` återför kontrollen till kommandotolken utan att vänta på att uppgiften slutförs. Parametern `--yes` bekräftar att du vill ta bort resurserna utan att tillfrågas ytterligare en gång.
-
-```azurecli-interactive
-az group delete --name myResourceGroup --no-wait --yes
-```
-
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan också skapa en delad resurs för avbildnings galleriet med hjälp av mallar. Det finns flera tillgängliga Azure snabb starts mallar: 
+Skapa en avbildnings version från en [virtuell dator](../virtual-machines/image-version-vm-cli.md)eller en [hanterad avbildning](../virtual-machines/image-version-managed-image-cli.md).
 
-- [Skapa ett galleri för delad avbildning](https://azure.microsoft.com/resources/templates/101-sig-create/)
-- [Skapa en avbildnings definition i ett galleri för delade avbildningar](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
-- [Skapa en avbildnings version i ett galleri för delad avbildning](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
-- [Skapa en virtuell dator från avbildnings version](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
-
-
-Om du stöter på problem kan du [Felsöka delade avbildnings gallerier](troubleshooting-shared-images.md).
+Mer information om delade avbildnings gallerier finns i [översikten](shared-image-galleries.md). Om du stöter på problem, se [Felsöka delade avbildnings gallerier](troubleshooting-shared-images.md).

@@ -8,21 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 03/16/2020
+ms.date: 04/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 648578563a0e53d3ed5bda6ab47f85c3c6a2a24e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1487cbb7885711beca969604316fd151defb114a
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476662"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82580598"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Tids serie modell i Azure Time Series Insights för hands version
 
 I den här artikeln beskrivs tids serie modellen, funktionerna och hur du börjar skapa och uppdatera dina egna modeller i Azure Time Series Insights Preview-miljön.
 
 > [!TIP]
->  * Gå till [Contosos demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö för en real tids serie modell exempel.
+>
+> * Gå till [Contosos demonstrations](https://insights.timeseries.azure.com/preview/samples) miljö för en real tids serie modell exempel.
 > * Läs om [Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md) och lär dig hur du navigerar i tids serie modellens gränssnitt.
 > * Lär dig [hur du arbetar med tids serie modellen](time-series-insights-update-how-to-tsm.md) med hjälp av Time Series Insights Web Explorer.
 
@@ -51,9 +52,9 @@ De här begränsningarna visar vikten av Smart data agg regering och visualiseri
 
 [![Exempel på Smart ugns diagram modell med tids serier](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* Time Series-modellen spelar en viktig roll i frågor och navigering eftersom den contextualizes data genom att tillåta att jämförelser ritas över tidsintervall och mellan sensor-och enhets typer. (**A**) 
+* Time Series-modellen spelar en viktig roll i frågor och navigering eftersom den contextualizes data genom att tillåta att jämförelser ritas över tidsintervall och mellan sensor-och enhets typer. (**A**)
 * Data är ytterligare sammanhangsbaserade eftersom data som behålls i Time Series-modellen bevarar Time Series-frågans beräkningar som variabler och återanvänder dem vid tidpunkten för frågan.
-* Time Series-modellen ordnar och samlar data för förbättrade visualiserings-och hanterings funktioner. (**B**) 
+* Time Series-modellen ordnar och samlar data för förbättrade visualiserings-och hanterings funktioner. (**B**)
 
 ### <a name="key-capabilities"></a>De viktigaste funktionerna
 
@@ -290,7 +291,7 @@ Time Series Insights typer kan ha många variabler som anger formel-och beräkni
 
 Varje variabel kan vara en av tre *typer*: *numeric*, *kategoriska*och *aggregation*.
 
-* **Numeriska** typer fungerar med kontinuerliga värden. 
+* **Numeriska** typer fungerar med kontinuerliga värden.
 * **Kategoriska** -typer fungerar med en definierad uppsättning diskreta värden.
 * **Aggregerade** värden kombinerar flera variabler av samma typ (antingen alla numeriska eller alla kategoriska).
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: ee64f26d0ff685a83718c5d5e3d6f6eaf9230807
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
-ms.translationtype: HT
+ms.openlocfilehash: 2c8cc4c01b172cd11c13558cd195673d21499b41
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691804"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983915"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Klass rums labb i Azure Lab Services – vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Services. 
@@ -67,7 +67,7 @@ Nej. Det går inte att koppla ytterligare diskar till en virtuell dator i ett kl
 Du kan lägga till upp till 400 användare i ett klass rums labb. 
 
 ## <a name="blog-post"></a>Blogg inlägg
-Prenumerera på [Azure Lab Services blogg](https://azure.microsoft.com/blog/tag/azure-lab-services/).
+Prenumerera på [Azure Lab Services blogg](https://aka.ms/azlabs-blog).
 
 ## <a name="update-notifications"></a>Uppdatera meddelanden
 Prenumerera på [labb tjänst uppdateringar](https://azure.microsoft.com/updates/?product=lab-services) för att hålla dig informerad om nya funktioner i labb tjänster.

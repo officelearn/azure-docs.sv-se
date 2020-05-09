@@ -6,16 +6,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: thvankra
-ms.openlocfilehash: 9b771a82d88f9902aeb6022f07811ded8a6e0e62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d4618382c31f0b1f2efa42fe87a6efe4bc85319
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192841"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608259"
 ---
-# <a name="frequently-asked-questions-about-the-cassandra-api-for-azure-cosmos-db"></a>Vanliga frågor och svar om API för Cassandra för Azure Cosmos DB
+# <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Vanliga frågor och svar om API för Cassandra i Azure Cosmos DB
 
-## <a name="what-are-some-key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Vilka är några viktiga skillnader mellan Apache Cassandra och API för Cassandra?
+I den här artikeln beskrivs skillnaderna mellan Apache Cassandra och API för Cassandra i Azure Cosmos DB. Den innehåller också svar på vanliga frågor om API för Cassandra i Azure Cosmos DB.
+
+## <a name="key-differences-between-apache-cassandra-and-the-cassandra-api"></a>Viktiga skillnader mellan Apache Cassandra och API för Cassandra
 
 - Apache Cassandra rekommenderar en gräns på 100 MB för storleken på en partitionsnyckel. API för Cassandra för Azure Cosmos DB tillåter upp till 20 GB per partition.
 - Med Apache Cassandra kan du inaktivera varaktiga incheckningar. Du kan hoppa över skrivningen till inchecknings loggen och gå direkt till memtables. Detta kan leda till data förlust om noden slutar innan memtables töms till SSTables på disk. Azure Cosmos DB alltid varaktiga genomförande för att förhindra data förlust.

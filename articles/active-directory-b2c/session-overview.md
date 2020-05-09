@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/28/2019
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1f7be4d01dd930e9ff421b2a163f1648f1793da9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82230917"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927045"
 ---
 # <a name="azure-ad-b2c-session"></a>Azure AD B2C session
 
@@ -99,22 +99,20 @@ Vid en inloggningsbegäran Azure AD B2C:
    - SAML – om identitets leverantörens metadata innehåller `SingleLogoutService` platsen.
 1. Du kan också logga ut från andra program. Mer information finns i avsnittet om [enkel inloggning](#single-sign-out) .
 
-> [!NOTE]
-> Utloggningen rensar användarens läge för enkel inloggning med Azure AD B2C, men det är inte säkert att användaren kan logga ut från sin session med social identitetsprovider. Om användaren väljer samma identitetsprovider vid en efterföljande inloggning, kan de autentiseras igen utan att ange sina autentiseringsuppgifter. Om en användare vill logga ut från programmet betyder det inte nödvändigt vis att de vill logga ut från sitt Facebook-konto. Men om lokala konton används avslutas användarens session korrekt.
+Utloggningen rensar användarens läge för enkel inloggning med Azure AD B2C, men det är inte säkert att användaren kan logga ut från sin session med social identitetsprovider. Om användaren väljer samma identitetsprovider vid en efterföljande inloggning, kan de autentiseras igen utan att ange sina autentiseringsuppgifter. Om en användare vill logga ut från programmet betyder det inte nödvändigt vis att de vill logga ut från sitt Facebook-konto. Men om lokala konton används avslutas användarens session korrekt.
 
-### <a name="single-sign-out"></a>Enkel utloggning
+### <a name="single-sign-out"></a>Enkel utloggning 
+
+
+> [!NOTE]
+> Den här funktionen är begränsad till [anpassade principer](custom-policy-overview.md).
 
 När du omdirigerar användaren till Azure AD B2C utloggnings slut punkt (för både OAuth2-och SAML-protokoll) rensar Azure AD B2C användarens session från webbläsaren. Användaren kan dock fortfarande vara inloggad i andra program som använder Azure AD B2C för autentisering. Om du vill att dessa program ska kunna signera användaren samtidigt, skickar Azure AD B2C en HTTP GET-begäran till `LogoutUrl` registrerade för alla program som användaren för närvarande är inloggad på.
 
-Program måste svara på den här begäran genom att rensa alla sessioner som identifierar användaren och returnera `200` ett svar. Om du vill stödja enkel utloggning i ditt program måste du implementera en `LogoutUrl` i program koden. Du kan ställa in `LogoutUrl` från Azure Portal:
 
-1. Navigera till [Azure Portal](https://portal.azure.com).
-1. Välj din Active B2C-katalog genom att klicka på ditt konto i det övre högra hörnet på sidan.
-1. Från den vänstra navigerings panelen väljer du **Azure AD B2C**, väljer **Appregistreringar**och väljer sedan ditt program.
-1. Välj **Inställningar**, Välj **Egenskaper**och leta upp text rutan **utloggnings-URL** . 
-
+Program måste svara på den här begäran genom att rensa alla sessioner som identifierar användaren och returnera `200` ett svar. Om du vill stödja enkel utloggning i ditt program måste du implementera en `LogoutUrl` i program koden. 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [konfigurerar sessionens beteende i användar flödet](session-behavior.md).
-- Lär dig hur du [konfigurerar sessionens beteende i en anpassad princip](custom-policy-manage-sso-and-token-config.md#session-behavior-and-sso).
+- Lär dig hur du [konfigurerar sessionens beteende i anpassade principer](session-behavior-custom-policy.md).

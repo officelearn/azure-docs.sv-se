@@ -972,10 +972,14 @@
               href: sql-api-query-metrics.md
             - name: Prestandatips för .NET SDK
               href: performance-tips.md
-            - name: Prestandatips för Java SDK
-              href: performance-tips-java.md
-            - name: Prestandatips för Async Java SDK
-              href: performance-tips-async-java.md
+            - name: Prestandatips för Java SDK v4
+              href: performance-tips-java-sdk-v4-sql.md
+            - name: 'Prestandatips för äldre Java-SDK:er'
+              items:
+                - name: Asynkron Java-SDK v2
+                  href: performance-tips-async-java.md
+                - name: Synkron Java-SDK v2
+                  href: performance-tips-java.md
             - name: Prestandatest – exempelapp
               href: performance-testing.md
         - name: Kostnadseffektiva läsningar och skrivningar
@@ -984,8 +988,12 @@
       items:
         - name: Felsöka frågeprestanda
           href: troubleshoot-query-performance.md
-        - name: Felsöka Java Async SDK
-          href: troubleshoot-java-async-sdk.md
+        - name: Felsöka Java-SDK v4
+          href: troubleshoot-java-sdk-v4-sql.md
+        - name: 'Felsöka äldre Java-SDK:er'
+          items:
+            - name: Asynkron Java-SDK v2
+              href: troubleshoot-java-async-sdk.md
         - name: Felsöka .NET SDK
           href: troubleshoot-dot-net-sdk.md
     - name: Ändringsflöde

@@ -1,18 +1,18 @@
 ---
 title: Översikt över Azure Blueprint
 description: Förstå hur tjänsten Azure-ritningar ger dig möjlighet att skapa, definiera och distribuera artefakter i din Azure-miljö.
-ms.date: 11/21/2019
+ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 4787f2d559daffcbf5d4057ac381f0f7e1ae0c57
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 68baeb8030caa17a9880cb0846688f1db6a15c87
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80677416"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82864512"
 ---
 # <a name="what-is-azure-blueprints"></a>Vad är Azure Blueprint?
 
-Precis som en skiss tillåter en tekniker eller arkitekt att skissa designparametrarna för ett projekt kan Azure Blueprint göra det möjligt för molnarkitekter och centrala IT-grupper att definiera en upprepningsbar uppsättning med Azure-resurser som implementerar och tillämpar en organisations standarder, mönster och krav. Med Azure Blueprint kan utvecklingsteam snabbt skapa nya miljöer med vetskapen om att de är skapade med organisatorisk efterlevnad och innehåller en uppsättning inbyggda komponenter – som nätverk – för att påskynda utveckling och leverans.
+Precis som en skiss tillåter en tekniker eller arkitekt att skissa designparametrarna för ett projekt kan Azure Blueprint göra det möjligt för molnarkitekter och centrala IT-grupper att definiera en upprepningsbar uppsättning med Azure-resurser som implementerar och tillämpar en organisations standarder, mönster och krav. Azure-ritningar gör det möjligt för utvecklings grupper att snabbt bygga och sätta igång nya miljöer med förtroende som de skapar inom organisationens kompatibilitet med en uppsättning inbyggda komponenter, till exempel nätverk, för att påskynda utvecklingen och leveransen.
 
 Skisser är en deklarativ metod för att dirigera distribution av flera resursmallar och andra artefakter som:
 
@@ -21,12 +21,11 @@ Skisser är en deklarativ metod för att dirigera distribution av flera resursma
 - Azure Resource Manager-mallar
 - Resursgrupper
 
-Azure Blueprints-tjänsten backas av det globalt distribuerade [Azure Cosmos DB](../../cosmos-db/introduction.md).
-Skissobjekt replikeras till flera Azure-regioner. Den här replikeringen ger låg latens, hög tillgänglighet och konsekvent åtkomst till dina skiss objekt, oavsett vilken region Azure-ritningar distribuerar dina resurser till.
+Azure Blueprints-tjänsten backas av det globalt distribuerade [Azure Cosmos DB](../../cosmos-db/introduction.md). Skissobjekt replikeras till flera Azure-regioner. Den här replikeringen ger låg latens, hög tillgänglighet och konsekvent åtkomst till dina skiss objekt, oavsett vilken region Azure-ritningar distribuerar dina resurser till.
 
 ## <a name="how-its-different-from-resource-manager-templates"></a>Så här skiljer de sig från Resource Manager-mallar
 
-Tjänsten är utformad för att hjälpa till med att _konfigurera miljön_. Den här konfigurationen består ofta av en uppsättning resursgrupper, principer, rolltilldelningar och Resource Manager-malldistributioner. En skiss är ett paket som ska sammanföra var och en av dessa _artefakttyper_ och gör att du kan skriva och skapa en version för paketet – inklusive via en CI/CD-pipeline. Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
+Tjänsten är utformad för att hjälpa till med att _konfigurera miljön_. Den här konfigurationen består ofta av en uppsättning resursgrupper, principer, rolltilldelningar och Resource Manager-malldistributioner. En skiss är ett paket för att ta med var och en av dessa _artefakt_ typer och låter dig skapa och version av paketet, inklusive via en CI/CD-pipeline. Slutligen tilldelas varje skiss till en prenumeration i en enda åtgärd som kan granskas och spåras.
 
 Nästan allt som du vill inkludera för distribution i Azure-ritningar kan utföras med en Resource Manager-mall. Men en Resource Manager-mall är ett dokument som inte finns inbyggt i Azure – var och en är lagrad lokalt eller i källkontrollen. Mallen används för distribution av en eller flera Azure-resurser, men när resurserna har distribuerats finns det ingen aktiv anslutning eller relation till mallen.
 
@@ -122,7 +121,7 @@ Om dessa inbyggda roller inte motsvarar dina behov kan du skapa en [anpassad rol
 
 Följande begränsningar finns för vissa fält:
 
-|Objekt|Field|Tillåtna tecken|Max. Längd|
+|Objekt|Fält|Tillåtna tecken|Max. Längd|
 |-|-|-|-|
 |Skiss|Name|bokstäver, siffror, bindestreck och punkter|48|
 |Skiss|Version|bokstäver, siffror, bindestreck och punkter|20|

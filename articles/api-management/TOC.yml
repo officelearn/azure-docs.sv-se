@@ -53,6 +53,8 @@
           href: api-management-policies.md
     - name: Säkerhet
       items:
+        - name: Säkerhetsbaslinje
+          href: security-baseline.md
         - name: Inbyggda säkerhetskontroller
           href: api-management-security-controls.md
     - name: Prenumerationer

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: e85be9140aabe5b66e63d3ccdd4a3ea907a1d6fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 63774f2f6b600b1f60aefea84e1d5ea0abd63cbb
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062412"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628392"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Konfigurera ett telefonnummer som din verifierings metod
 
@@ -53,7 +53,7 @@ Beroende på din organisations inställningar kanske du kan använda telefonsamt
 
 ### <a name="to-set-up-phone-calls"></a>Konfigurera telefonsamtal
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myaccount.microsoft.com/ din sida.
 
     ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 

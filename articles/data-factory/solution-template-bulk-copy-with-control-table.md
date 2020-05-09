@@ -11,15 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: d6d634d9a32ae1728e1122d863ddabd94f73ee27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46e81242c1fba463f547015a244650ae6e574580
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414834"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629090"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>Mass kopiering från en databas med en kontroll tabell
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Om du vill kopiera data från ett informations lager i Oracle server, Netezza, Teradata eller SQL Server till Azure SQL Data Warehouse måste du läsa in stora mängder data från flera tabeller. Normalt måste data partitioneras i varje tabell så att du kan läsa in rader med flera trådar parallellt från en enda tabell. I den här artikeln beskrivs en mall som du kan använda i dessa scenarier.
 

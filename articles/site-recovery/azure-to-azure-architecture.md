@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 94da1639b5398a03b36fba3ff88877468a97ec36
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9468f437a89a85f28b6ce869b948ca2a4aff7bf
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80294120"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983337"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -55,8 +55,7 @@ När du aktiverar replikering för en virtuell dator ger Site Recovery dig möjl
 Du kan hantera mål resurser på följande sätt:
 
 - Du kan ändra mål inställningarna när du aktiverar replikering.
-- Du kan ändra mål inställningarna när replikeringen redan fungerar. Undantaget är tillgänglighets typ (enskild instans, uppsättning eller zon). Om du vill ändra den här inställningen måste du inaktivera replikering, ändra inställningen och sedan aktivera igen.
-
+- Du kan ändra mål inställningarna när replikeringen redan fungerar. Observera att standard-SKU: n för den virtuella mål regionen är samma som SKU: n för den virtuella käll datorn (eller nästa tillgängliga SKU som är mest tillgängligt i jämförelse med den virtuella käll datorn SKU). På samma sätt som för andra resurser, till exempel mål resurs grupp, målnamn och andra, kan den virtuella datorns SKU: n också uppdateras efter att replikeringen pågår. En resurs som inte kan uppdateras är tillgänglighets typ (enskild instans, uppsättning eller zon). Om du vill ändra den här inställningen måste du inaktivera replikering, ändra inställningen och sedan aktivera igen. 
 
 
 ## <a name="replication-policy"></a>Replikeringsprincip 
@@ -129,7 +128,7 @@ När du aktiverar replikering för en virtuell Azure-dator händer följande:
 
 Om utgående åtkomst för virtuella datorer styrs med URL: er, Tillåt dessa URL: er.
 
-| **ADRESSER** | **Information** |
+| **URL** | **Information** |
 | ------- | ----------- |
 | *.blob.core.windows.net | Gör att data kan skrivas från den virtuella datorn till cachelagringskontot i källregionen. |
 | login.microsoftonline.com | Tillhandahåller auktorisering och autentisering för Site Recovery-tjänstens webbadresser. |

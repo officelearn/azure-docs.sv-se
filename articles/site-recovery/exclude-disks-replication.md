@@ -3,12 +3,12 @@ title: Undanta diskar från replikering med Azure Site Recovery
 description: Så här undantar du diskar från replikering till Azure med Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 57bf06f0fde85714530c06cbd008db08de7460d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abecc19cac57a4a95d01b7a7ec076259088b101b
+ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281852"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82900288"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Exkludera diskar från haveri beredskap
 
@@ -26,7 +26,7 @@ Du kan undanta diskar från replikeringen som sammanfattas i tabellen.
 
 **Azure till Azure** | **VMware till Azure** | **Hyper-V till Azure** 
 --- | --- | ---
-Ja (med PowerShell) | Ja | Ja 
+Ja | Ja | Ja 
 
 ## <a name="exclude-limitations"></a>Uteslut begränsningar
 
@@ -35,7 +35,7 @@ Ja (med PowerShell) | Ja | Ja
 **Disk typer** | Du kan undanta grundläggande diskar från replikering.<br/><br/> Du kan inte undanta operativ system diskar eller dynamiska diskar. Temporära diskar undantas som standard. | Du kan undanta grundläggande diskar från replikering.<br/><br/> Du kan inte undanta operativ system diskar eller dynamiska diskar. | Du kan undanta grundläggande diskar från replikering.<br/><br/> Du kan inte undanta operativsystemdiskar. Vi rekommenderar att du inte undantar dynamiska diskar. Site Recovery kan inte identifiera vilken VHS som är grundläggande eller dynamisk i den virtuella gäst datorn. Om alla beroende dynamiska volym diskar inte undantas blir den skyddade dynamiska disken en felaktig disk på en virtuell dator med redundans och data på disken är inte tillgängliga.
 **Replikera disk** | Du kan inte utesluta en disk som replikeras.<br/><br/> Inaktivera och återaktivera replikering för den virtuella datorn. |  Du kan inte utesluta en disk som replikeras. |  Du kan inte utesluta en disk som replikeras.
 **Mobilitets tjänst (VMware)** | Inte relevanta | Du kan endast utesluta diskar på virtuella datorer som har mobilitets tjänsten installerad.<br/><br/> Det innebär att du måste installera mobilitets tjänsten manuellt på de virtuella datorer som du vill exkludera diskar för. Du kan inte använda metoden för push-installation eftersom den bara installerar mobilitets tjänsten när replikering har Aktiver ATS. | Inte relevant.
-**Lägg till/ta bort** | Du kan lägga till och ta bort diskar på virtuella Azure-datorer med hanterade diskar. | Du kan inte lägga till eller ta bort diskar när replikering har Aktiver ATS. Inaktivera och återaktivera replikering för att lägga till en disk. | Du kan inte lägga till eller ta bort diskar när replikering har Aktiver ATS. Inaktivera och aktivera sedan replikering igen.
+**Lägg till/ta bort** | Du kan lägga till hanterade diskar på replikerings-aktiverade virtuella Azure-datorer med hanterade diskar. Du kan inte ta bort diskar på replikerings-aktiverade virtuella Azure-datorer. | Du kan inte lägga till eller ta bort diskar när replikering har Aktiver ATS. Inaktivera och återaktivera replikering för att lägga till en disk. | Du kan inte lägga till eller ta bort diskar när replikering har Aktiver ATS. Inaktivera och aktivera sedan replikering igen.
 **Redundans** | Om en app behöver en disk som du har exkluderat, efter redundansväxlingen måste du skapa disken manuellt så att den replikerade appen kan köras.<br/><br/> Du kan också skapa disken vid redundansväxling av den virtuella datorn genom att integrera Azure Automation i en återställnings plan. | Om du undantar en disk som en app behöver skapar du den manuellt i Azure efter redundansväxlingen. | Om du undantar en disk som en app behöver skapar du den manuellt i Azure efter redundansväxlingen.
 **Lokal återställning efter fel – diskar som skapats manuellt** | Inte relevanta | **Virtuella Windows-datorer**: diskar som skapats manuellt i Azure kunde inte återställas. Om du till exempel växlar över tre diskar och skapar två diskar direkt på en virtuell Azure-dator, återställs bara de tre diskar som växlades över sedan tillbaka.<br/><br/> **Virtuella Linux-datorer**: diskar som skapats manuellt i Azure återställs inte. Om du till exempel växlar över tre diskar och skapar två diskar på en virtuell Azure-dator återställs inte alla fem. Du kan inte undanta diskar som har skapats manuellt från återställningen. | Diskar som skapats manuellt i Azure kunde inte återställas. Om du till exempel växlar över tre diskar och skapar två diskar direkt på en virtuell Azure-dator kommer endast tre diskar som växlades över att växlas tillbaka.
 **Lokal återställning efter fel – exkluderade diskar** | Inte relevanta | Om du växlar tillbaka till den ursprungliga datorn inkluderar inte disk konfigurationen för återställning av virtuella datorer de exkluderade diskarna. Diskar som har uteslutits från VMware till Azure-replikering är inte tillgängliga på den virtuella datorn för återställning efter fel. | När återställningen är till den ursprungliga Hyper-V-platsen, är disk konfigurationen för den virtuella datorn densamma som för den ursprungliga käll dator disken. Diskar som har uteslutits från Hyper-V-platsen till Azure-replikering är tillgängliga på den virtuella datorn för återställning efter fel.

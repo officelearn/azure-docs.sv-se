@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ae03a655347d7be7372bae93eb0c3aaf75a8ea29
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721344"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891691"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Bygg och optimera tabeller för snabb parallell import av data till en SQL Server på en virtuell Azure-dator
 
@@ -99,7 +99,7 @@ Mer information finns i [skapa partitionerade tabeller och index](https://msdn.m
 * Ändra [databasen](https://msdn.microsoft.com/library/bb522682.aspx) för att ändra transaktions loggnings schema till BULK_LOGGED för att minimera kostnaderna för loggning, till exempel:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Starta Mass import åtgärderna parallellt för att påskynda inläsningen av data. Tips om hur du påskyndar Mass import av Big data i SQL Server-databaser finns [i load 1 TB på mindre än 1 timme](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Starta Mass import åtgärderna parallellt för att påskynda inläsningen av data. Tips om hur du påskyndar Mass import av Big data i SQL Server-databaser finns [i load 1 TB på mindre än 1 timme](https://docs.microsoft.com/archive/blogs/sqlcat/load-1tb-in-less-than-1-hour).
 
 Följande PowerShell-skript är ett exempel på en parallell data inläsning med BCP.
 

@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: sstein
-ms.openlocfilehash: aa8d1634c015f338053a4d167db34ef0b5a83505
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
-ms.translationtype: HT
+ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
+ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801696"
+ms.locfileid: "82838492"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -93,12 +93,12 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
 |[@queryparametern stöds inte i sp_send_db_mail](#-parameter-not-supported-in-sp_send_db_mail)|Apr 2019|Ingen lösning| |
 |[Transaktionsreplikering måste konfigureras om efter GEO-redundans](#transactional-replication-must-be-reconfigured-after-geo-failover)|Mar 2019|Ingen lösning| |
 |[Tillfällig databas används under återställnings åtgärden](#temporary-database-is-used-during-restore-operation)||Har en lösning| |
-|[TEMPDB-strukturen och innehållet har skapats på nytt](#tempdb-structure-and-content-is-re-created)||Ingen lösning| |
-|[Överskrida lagrings utrymme med små databasfiler](#exceeding-storage-space-with-small-database-files)||Har en lösning| |
-|[GUID-värden som visas i stället för databas namn](#guid-values-shown-instead-of-database-names)||Har en lösning| |
+|[TEMPDB-strukturen och innehållet har skapats på nytt](#tempdb-structure-and-content-is-re-created)| |Ingen lösning| |
+|[Överskrida lagrings utrymme med små databasfiler](#exceeding-storage-space-with-small-database-files)| |Har en lösning| |
+|[GUID-värden som visas i stället för databas namn](#guid-values-shown-instead-of-database-names) ||Har en lösning| |
 |[Fel loggarna är inte beständiga](#error-logs-arent-persisted)||Ingen lösning| |
-|[Transaktions omfånget på två databaser inom samma instans stöds inte](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)||Har en lösning|Mar 2020|
-|[CLR-moduler och länkade servrar kan ibland inte referera till en lokal IP-adress](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)||Har en lösning| |
+|[CLR-moduler och länkade servrar kan ibland inte referera till en lokal IP-adress](#clr-modules-and-linked-servers-sometimes-cant-reference-a-local-ip-address)| |Har en lösning| |
+|[Transaktions omfånget på två databaser inom samma instans stöds inte](#transaction-scope-on-two-databases-within-the-same-instance-isnt-supported)| |Matchat|Mar 2020|
 |Databasens konsekvens kontrol leras inte med DBCC CHECKDB efter återställningen av databasen från Azure Blob Storage.| |Matchat|Nov 2019|
 |Det går inte att återställa punkt-i-tid från Affärskritisk nivå till Generell användning nivå om käll databasen innehåller minnesbaserade OLTP-objekt.| |Matchat|Okt 2019|
 |Database Mail funktion med externa (icke-Azure) e-postservrar som använder säker anslutning| |Matchat|Okt 2019|

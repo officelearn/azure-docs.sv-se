@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 11/28/2019
-ms.openlocfilehash: add55c29bb93d8dce9ad69bd9850a1db02ea5afe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 371c00fd63f7a89f4d50ce130e89f10e2a7a38bd
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74687772"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891094"
 ---
 # <a name="fix-an-apache-hive-out-of-memory-error-in-azure-hdinsight"></a>Åtgärda ett Apache Hive slut på minnes fel i Azure HDInsight
 
@@ -101,7 +101,7 @@ Våra support-och teknik team hittade ett av de problem som orsakade att minnet 
 </property>
 ```
 
-Det är troligt att kopplings koppling var orsaken till minnes felet i Java-heap. Som förklaras i blogg inlägget [Hadoop garn Memory Settings i HDInsight](https://blogs.msdn.com/b/shanyu/archive/2014/07/31/hadoop-yarn-memory-settings-in-hdinsigh.aspx), när Tez körnings motor används, hör det heap-utrymme som används faktiskt till Tez-behållaren. Se följande avbildning som beskriver Tez container Memory.
+Det är troligt att kopplings koppling var orsaken till minnes felet i Java-heap. Som förklaras i blogg inlägget [Hadoop garn Memory Settings i HDInsight](https://docs.microsoft.com/archive/blogs/shanyu/hadoop-yarn-memory-settings-in-hdinsight), när Tez körnings motor används, hör det heap-utrymme som används faktiskt till Tez-behållaren. Se följande avbildning som beskriver Tez container Memory.
 
 ![Minnes diagram för Tez container: Hive-slut på minnes fel](./media/hdinsight-hadoop-hive-out-of-memory-error-oom/hive-out-of-memory-error-oom-tez-container-memory.png)
 

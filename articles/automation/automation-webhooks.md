@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8cb641f95e7327e80f42df86a56eba8c34e7e598
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbe43b298c57d266f0b031b5192f25fe3df07c05
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367031"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582446"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starta en Azure Automation-runbook med en webhook
 
@@ -88,7 +88,7 @@ Du kan inkludera logik i en Runbook för att avgöra om den anropas av en webhoo
 
 En annan strategi är att låta Runbook utföra en del validering av ett externt villkor när den får en webhook-begäran. Anta till exempel att en Runbook som anropas av GitHub när som helst är en ny incheckning av en GitHub-lagringsplats. Runbooken kan ansluta till GitHub för att kontrol lera att ett nytt genomförande har skett innan du fortsätter.
 
-## <a name="creating-a-webhook"></a>Skapa en webhook
+## <a name="create-a-webhook"></a>Skapa en webhook
 
 Använd följande procedur för att skapa en ny webhook som är länkad till en Runbook i Azure Portal.
 
@@ -106,7 +106,7 @@ Använd följande procedur för att skapa en ny webhook som är länkad till en 
 1. Klicka på **parametrar** för att ange värden för Runbook-parametrarna. Om runbooken har obligatoriska parametrar kan du inte skapa webhooken om du inte anger värden.
 1. Skapa webhooken genom att klicka på **Skapa**.
 
-## <a name="using-a-webhook"></a>Använda en webhook
+## <a name="use-a-webhook"></a>Använda en webhook
 
 Om du vill använda en webhook när den har skapats måste klienten utfärda en HTTP- `POST` begäran med URL: en för webhooken. Syntax:
 
@@ -131,7 +131,7 @@ Förutsatt att begäran lyckas innehåller webhook-svaret jobb-ID i JSON-format 
 
 Klienten kan inte avgöra när Runbook-jobbet har slutförts eller om dess slut för ande status från webhooken är slutförd. Den här informationen kan ta reda på den här informationen med jobb-ID: t med en annan mekanism, till exempel [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) eller [Azure Automation-API](/rest/api/automation/job).
 
-## <a name="renewing-a-webhook"></a><a name="renew-webhook"></a>Förnyar en webhook
+## <a name="renew-a-webhook"></a>Förnya en webhook
 
 När en webhook skapas, har den en giltighets tid på tio år, efter vilken den upphör att gälla automatiskt. När en webhook har gått ut kan du inte återaktivera den. Du kan bara ta bort och sedan återskapa den. 
 
@@ -200,7 +200,7 @@ else {
 }
 ```
 
-## <a name="testing-the-sample"></a>Testa exemplet
+## <a name="test-the-sample"></a>Testa exemplet
 
 I följande exempel används Windows PowerShell för att starta en Runbook med en webhook. Alla språk som kan göra en HTTP-begäran kan använda en webhook. Windows PowerShell används här som ett exempel.
 

@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 4f87f2de3747f55562d3f683e1738595624940dd
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
-ms.translationtype: HT
+ms.openlocfilehash: 3ee84c0c868f47dca1aee0401865563a326df3db
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854628"
+ms.locfileid: "82864410"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -44,6 +44,8 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Orsak 3: [ögonblicks bilds status kan inte hämtas eller så går det inte att hämta ögonblicks bilder](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **Orsak 4: [konfigurations alternativ för virtuella dator agenter har inte angetts (för virtuella Linux-datorer)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+
+**Orsak 5: [program kontroll lösning blockerar IaaSBcdrExtension. exe](#application-control-solution-is-blocking-iaasbcdrextensionexe)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-den virtuella datorn är i ett misslyckat etablerings tillstånd
 
@@ -202,6 +204,14 @@ Följ dessa steg om du behöver utförlig loggning för waagent:
 
 En konfigurations fil (/etc/waagent.conf) styr åtgärder för waagent. Alternativ för konfigurations fil **tillägg. Aktivera** måste anges till **y** och **etableringen. agenten** måste vara inställd på **Automatisk** för att säkerhets kopieringen ska fungera.
 Fullständig lista över alternativ för konfigurations filen för virtuella datorer finns i<https://github.com/Azure/WALinuxAgent#configuration-file-options>
+
+### <a name="application-control-solution-is-blocking-iaasbcdrextensionexe"></a>Program kontroll lösningen blockerar IaaSBcdrExtension. exe
+
+Om du kör [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/what-is-applocker) (eller någon annan lösning för program kontroll) och reglerna är utgivare eller sökväg baserade, kan de blockera den körbara filen **IaaSBcdrExtension. exe** från att köras.
+
+#### <a name="solution"></a>Lösning
+
+Undanta `/var/lib` sökvägen eller den körbara filen **IaaSBcdrExtension. exe** från AppLocker (eller annan program vara för program kontroll.)
 
 ### <a name="the-snapshot-status-cant-be-retrieved-or-a-snapshot-cant-be-taken"></a><a name="the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Det går inte att hämta ögonblicks bild status, eller så kan en ögonblicks bild inte tas
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/30/2020
-ms.openlocfilehash: 664178c058265961b4d660874359c1b238b100ab
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
-ms.translationtype: HT
+ms.openlocfilehash: 14d4a3616a1be0964029ddfd8d2697df8e4e8031
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901314"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929340"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Använda extern metadatalagring i Azure HDInsight
 
@@ -98,6 +98,8 @@ Du kan när som helst peka klustret till en tidigare skapad Azure SQL Database. 
 * Om du delar en metaarkiv över flera kluster ser du till att alla kluster har samma HDInsight-version. Olika Hive-versioner använder olika metaarkiv-databasschemat. Du kan till exempel inte dela en metaarkiv över Hive-kluster med Hive 2,1 och Hive 3,1-versioner.
 
 * I HDInsight 4,0 använder Spark och Hive oberoende kataloger för åtkomst till SparkSQL-eller Hive-tabeller. En tabell som skapats av Spark bor i Spark-katalogen. En tabell som skapats av Hive finns i Hive-katalogen. Det här beteendet skiljer sig från HDInsight 3,6 där Hive och Spark delat gemensamt katalog. Hive-och Spark-integrering i HDInsight 4,0 förlitar sig på Hive Warehouse Connector (INSTANSEN). INSTANSEN fungerar som en brygga mellan Spark och Hive. [Lär dig mer om Hive lager koppling](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
+
+* I HDInsight 4,0 om du vill dela metaarkiv mellan Hive och Spark kan du göra det genom att ändra egenskapen metaarkiv. Catalog. default till Hive i Spark-klustret. Du kan hitta den här egenskapen i Ambari Advanced spark2-Hive-site-override. Det är viktigt att förstå att delning av metaarkiv endast fungerar för externa Hive-tabeller, men detta fungerar inte om du har interna/hanterade Hive-tabeller eller syror tabeller.  
 
 ## <a name="apache-oozie-metastore"></a>Apache Oozie-metaarkiv
 

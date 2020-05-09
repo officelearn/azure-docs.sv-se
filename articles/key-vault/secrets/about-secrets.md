@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: eabfa03aa70f54a967fe256f694ef59ad0fe7ebe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7aa2feba5a2b2fa47bbb0c055a2f556b8997ab34
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81685443"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930479"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Om Azure Key Vault hemligheter
 
@@ -26,6 +26,10 @@ I ett utvecklings perspektiv kan Key Vault API: er acceptera och returnera hemli
 För data som är mycket känsliga bör klienter överväga ytterligare skyddslager för data. Ett exempel är kryptering av data med hjälp av en separat skyddsnyckel före lagring i Key Vault.  
 
 Key Vault stöder också ett contentType-fält för hemligheter. Klienter kan ange innehålls typen för en hemlighet för att under lätta tolkningen av hemliga data när den hämtas. Den maximala längden för det här fältet är 255 tecken. Det finns inga fördefinierade värden. Den föreslagna användningen är som ett tips för att tolka hemliga data. Till exempel kan en implementering lagra både lösen ord och certifikat som hemligheter, och sedan använda det här fältet för att skilja. Det finns inga fördefinierade värden.  
+
+## <a name="encryption"></a>Kryptering
+
+Alla hemligheter i Key Vault lagras krypterade. Den här krypteringen är transparent och ingen åtgärd krävs från användaren. Tjänsten Azure Key Vault krypterar dina hemligheter när du lägger till dem och dekrypterar dem automatiskt när du läser dem. Krypterings nyckeln är unik för varje nyckel valv.
 
 ## <a name="secret-attributes"></a>Hemliga attribut
 

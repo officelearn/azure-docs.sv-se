@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för utvärdering av virtuella VMware-datorer med Azure Migrate Server-utvärdering.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: d378ece1eda906a30ec33e2cf27ad59df473b5c7
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: a0d05c56670c54aca25232a86b5a0e89d2f0bcfd
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779917"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983660"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -53,7 +53,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **vCenter Server** | Datorer som du vill identifiera och utvärdera måste hanteras av vCenter Server version 5,5, 6,0, 6,5 eller 6,7.
 **Behörigheter (utvärdering)** | vCenter Server skrivskyddat konto.
 **Behörigheter (app-Discovery)** | vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för **virtuella datorer > gäst åtgärder**.
-**Behörigheter (beroende visualisering)** | Center Server-konto med skrivskyddad åtkomst och privilegier som är aktiverade för **virtuella datorer** > med**gäst verksamhet**.
+**Behörigheter (beroende visualisering)** | vCenter Server konto med skrivskyddad åtkomst och privilegier som är aktiverade för **virtuella datorer** > med**gäst verksamhet**.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 7f0c4da7caf71670746e84d5cfaa457ebae57156
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9091d3bd6b57f14bd12083319595cb855a0d42ee
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755042"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82858722"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 och 8600-migrering till Azure File Sync
 
@@ -23,7 +23,7 @@ StorSimple 8000-serien kommer att uppnå [livs längd](https://support.microsoft
 ## <a name="azure-file-sync"></a>Azure File Sync
 
 > [!IMPORTANT]
-> Microsoft strävar efter att hjälpa kunder i sin migrering. E AzureFilesMigration@microsoft -post. com för en anpassad migrations plan samt hjälp vid migreringen.
+> Microsoft strävar efter att hjälpa kunder i sin migrering. E AzureFiles@microsoft.com -post för en anpassad migrations plan samt hjälp vid migreringen.
 
 Azure File Sync är en moln tjänst från Microsoft, baserat på två huvud komponenter:
 

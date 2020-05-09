@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: e85e41796d0fc4fb9ac72b4032de3143b26d890f
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: 658543dc96f23fc86ea50f64d7a3265ba64150e7
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871065"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982215"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics-agenten har utvecklats för omfattande hantering av virtuella datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Windows-och Linux-agenterna skickar insamlade data från olika källor till din Log Analytics arbets yta i Azure Monitor, samt alla unika loggar eller mått som definierats i en övervaknings lösning. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/)och [Azure Automation](../../automation/automation-intro.md).
@@ -43,7 +43,7 @@ I följande tabell visas de typer av data som du kan konfigurera en Log Analytic
 | --- | --- |
 | [Händelse loggar i Windows](data-sources-windows-events.md) | Information som skickas till händelse loggnings systemet i Windows. |
 | [Syslog](data-sources-syslog.md)                     | Information som skickas till händelse loggnings systemet i Linux. |
-| [Prestanda](data-sources-performance-counters.md)  | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
+| [Historik](data-sources-performance-counters.md)  | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
 | [IIS-loggar](data-sources-iis-logs.md)                 | Användnings information för IIS-webbplatser som körs på gäst operativ systemet. |
 | [Anpassade loggar](data-sources-custom-logs.md)           | Händelser från textfiler på både Windows-och Linux-datorer. |
 
@@ -174,7 +174,6 @@ I följande tabell visas den konfigurations information för proxy och brand vä
 |*.oms.opinsights.azure.com |Port 443 |Inkommande och utgående|Ja |  
 |*.blob.core.windows.net |Port 443 |Inkommande och utgående|Ja |
 |*.azure-automation.net |Port 443 |Inkommande och utgående|Ja |
-|*.azure.com |Port 443|Inkommande och utgående|Ja |
 
 För brand Väggs information som krävs för Azure Government, se [Azure Government hantering](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 

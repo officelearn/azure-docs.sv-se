@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: ccc422dfb3105fd1e12569a84a4ebfd22182b225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8eb9c5a182c17815d4efcf171cc99b1e9f5bc89e
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73837807"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930173"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>Är dina data klara för datavetenskap?
 ## <a name="video-2-data-science-for-beginners-series"></a>Video 2: data vetenskap för nybörjare-serien
@@ -104,4 +104,4 @@ Se till att ta en titt på de andra fyra videor i *data vetenskap för nybörjar
 
 ## <a name="next-steps"></a>Nästa steg
 * [Testa ett första data vetenskaps experiment med Machine Learning Studio (klassisk)](create-experiment.md)
-* [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)
+* [Få en introduktion till Machine Learning på Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)

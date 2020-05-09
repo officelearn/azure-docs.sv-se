@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: fbd8e03b1f8af7802133c35ae4860116aaea0c3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab25b2e300f9fe9b0b1d077a42538c69fa543af2
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430570"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982708"
 ---
 # <a name="ingesting-data-into-a-sql-pool"></a>Mata in data i en SQL-pool
 
@@ -39,7 +39,7 @@ I Azure Synapse Analytics är en länkad tjänst där du definierar din anslutni
 
 ## <a name="create-pipeline"></a>Skapa pipeline
 
-En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från ADLS gen 2 i en SQL-pool.
+En pipeline innehåller det logiska flödet för en körning av en uppsättning aktiviteter. I det här avsnittet ska du skapa en pipeline som innehåller en kopierings aktivitet som matar in data från ADLS Gen2 i en SQL-pool.
 
 1. Gå till fliken **dirigera** . Klicka på plus ikonen bredvid pipelinens huvud och välj **pipeline**.
 1. Under **flytta och transformera** i fönstret aktiviteter drar du **Kopiera data** till pipeline-arbetsytan.

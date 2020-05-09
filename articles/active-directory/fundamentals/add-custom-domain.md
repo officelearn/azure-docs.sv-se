@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de91bd7e1e4c5f9909213f663dd3ede0f979d4de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 69c96d123ebe97ba4a7a6df0395efe698924fef1
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262157"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734747"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt anpassade domän namn med hjälp av Azure Active Directory portalen
 
@@ -37,7 +37,7 @@ Skapa din nya katalog genom att följa stegen i [skapa en ny klient organisation
 >[!IMPORTANT]
 >Den person som skapar klienten är automatiskt den globala administratören för den klienten. Den globala administratören kan lägga till ytterligare administratörer till klienten.
 
-Mer information om prenumerations roller finns i [Azure RBAC-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+Mer information om prenumerations roller finns i [Azure-roller](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles).
 
 >[!TIP]
 > Om du planerar att federera din lokala Windows Server AD med Azure AD måste du välja **Jag planerar att konfigurera den här domänen för enkel inloggning med min lokala Active Directory** när du kör Azure AD Connect-verktyget för att synkronisera dina kataloger.

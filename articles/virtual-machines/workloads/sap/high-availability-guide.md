@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa0810818bf7cfea21f925ee639b4b5a50dcb23b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9cf3d739054422d219bb6536129c5eb22a2994a
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246128"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594890"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer
 
@@ -452,7 +452,7 @@ För att förenkla distribution och konfiguration i den här artikeln använder 
 ## <a name="prerequisites"></a><a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a>Krav
 Innan du börjar ska du kontrol lera att du uppfyller de krav som beskrivs i följande avsnitt. Se också till att kontrol lera alla resurser som anges i avsnittet [resurser][sap-ha-guide-2] .
 
-I den här artikeln använder vi Azure Resource Manager mallar för [SAP-NetWeaver på tre nivåer](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image/). En användbar översikt över mallar finns i [SAP Azure Resource Manager-mallar](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
+I den här artikeln använder vi Azure Resource Manager mallar för [SAP-NetWeaver på tre nivåer](https://github.com/Azure/azure-quickstart-templates/). En användbar översikt över mallar finns i [SAP Azure Resource Manager-mallar](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
 ## <a name="resources"></a><a name="42b8f600-7ba3-4606-b8a5-53c4f026da08"></a>Resurser
 De här artiklarna avser SAP-distributioner i Azure:
@@ -677,8 +677,8 @@ Mallarna på tre nivåer i Azure Resource Manager också stöd för scenarier me
 
 Här kan du få Azure Resource Manager mallar för exempel scenariot som vi beskriver i den här artikeln:
 
-* [Azure Marketplace-avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image)  
-* [Anpassad bild](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image)
+* [Azure Marketplace-avbildning](https://github.com/Azure/azure-quickstart-templates/)  
+* [Anpassad bild](https://github.com/Azure/azure-quickstart-templates/)
 
 Förbereda infrastrukturen för arkitektur mal len 1:
 
@@ -768,8 +768,8 @@ Du kan använda den här Azure Resource Manager mallen för SAP för att förenk
 
 Här kan du hämta Azure Resource Manager mallar för det här distributions scenariot:
 
-* [Azure Marketplace-avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
-* [Anpassad bild](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+* [Azure Marketplace-avbildning](https://github.com/Azure/azure-quickstart-templates/)  
+* [Anpassad bild](https://github.com/Azure/azure-quickstart-templates/)
 
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Förbered infrastrukturen för arkitektur mal len 3

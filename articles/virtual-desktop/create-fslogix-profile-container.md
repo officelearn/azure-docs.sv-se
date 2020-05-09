@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 149fb5818ee360c7333997655ea9eb8d7ded346c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 294a59ed94344ecf590eb9b34f991deaaa10db69
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270901"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82607392"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files
 
@@ -23,7 +23,7 @@ Du kan skapa FSLogix profil behållare med hjälp av [Azure NetApp Files](https:
 
 I den här guiden visas hur du konfigurerar ett Azure NetApp Files konto och skapar FSLogix profil behållare i Windows Virtual Desktop.
 
-Den här artikeln förutsätter att du redan har konfigurerat [lagringspooler](create-host-pools-azure-marketplace.md) och grupper ATS i en eller flera klienter i din Windows-miljö för virtuella datorer. Information om hur du konfigurerar klient organisationer finns i [skapa en klient i det virtuella Windows-skrivbordet](tenant-setup-azure-active-directory.md) och [vårt tekniska blogg](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054)inlägg.
+Den här artikeln förutsätter att du redan har konfigurerat [lagringspooler](create-host-pools-azure-marketplace.md) och grupper ATS i en eller flera klienter i din Windows-miljö för virtuella datorer. Information om hur du konfigurerar klient organisationer finns i [skapa en klient i det virtuella Windows-skrivbordet](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) och [vårt tekniska blogg](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054)inlägg.
 
 Anvisningarna i den här hand boken är specifika för användare av virtuella Windows-datorer. Om du vill ha mer allmän vägledning om hur du konfigurerar Azure NetApp Files och skapar FSLogix profil behållare utanför Windows Virtual Desktop, kan du läsa snabb starten för att [skapa Azure NetApp Files och skapa en NFS-volym](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -210,7 +210,7 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Se till att användarna kan komma åt Azure-NetApp fil resurs
 
-1. Öppna webbläsaren och gå till <https://rdweb.wvd.microsoft.com/webclient/index.html>.
+1. Öppna webbläsaren och gå till <https://rdweb.wvd.microsoft.com/arm/webclient>.
 
 2. Logga in med autentiseringsuppgifterna för en användare som har tilldelats till fjärr skrivbords gruppen.
 

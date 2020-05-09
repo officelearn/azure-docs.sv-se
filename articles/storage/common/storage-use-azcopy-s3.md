@@ -51,7 +51,7 @@ Samla in din AWS-åtkomst nyckel och den hemliga åtkomst nyckeln och ställ sed
 AzCopy använder plats [blocket från URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) -API, så data kopieras direkt mellan AWS S3-och lagrings servrar. Dessa kopierings åtgärder använder inte datorns nätverks bandbredd.
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en förhandsversion. Om du bestämmer dig för att ta bort data från S3-buckets efter en kopierings åtgärd, kontrollerar du att data har kopierats korrekt till ditt lagrings konto innan du tar bort data.
+> Den här funktionen finns för närvarande som en förhandsversion. Om du bestämmer dig för att ta bort data från S3-buckets efter en kopierings åtgärd, kontrollerar du att data har kopierats korrekt till ditt lagrings konto innan du tar bort data.
 
 > [!TIP]
 > Exemplen i det här avsnittet omger Sök vägs argument med enkla citat tecken (' '). Använd enkla citat tecken i alla kommando gränssnitt utom Windows Command Shell (cmd. exe). Om du använder ett Windows Command Shell (cmd. exe), omger Sök vägs argument med dubbla citat tecken ("") i stället för enkla citat tecken ().

@@ -3,20 +3,18 @@ title: Skapa din första beständiga funktion i Azure med hjälp av JavaScript
 description: Skapa och publicera en beständig Azure-funktion med hjälp av Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 55098daa69d3e878140b20095b0a3e08811269e1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6544cd115dbae2268492a8775a780d2f045f4e4a
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80257656"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82889682"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
 *Durable Functions* är en utökning av [Azure Functions](../functions-overview.md) som gör att du kan skriva tillståndskänsliga funktioner i en serverlös miljö. Tillägget hanterar tillstånd, kontrollpunkter och omstarter.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 I den här artikeln får du lära dig hur du använder Azure Functions-tillägget för Visual Studio Code för att skapa och testa en beständig ”Hello World”-funktion lokalt.  Den här funktionen orkestrerar och kedjar samman anrop till andra funktioner. Du publicerar sedan funktionskoden till Azure.
 
@@ -61,7 +59,7 @@ Visual Studio Code installerar Azure Functions Core Tools, om det behövs. Det s
 
 En Package. JSON-fil skapas också i rotmappen.
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Aktivera Azure Functions v2-kompatibilitetsläge
+### <a name="enable-compatibility-mode"></a>Aktivera kompatibilitetsläge
 
 Java Script Durable Functions kräver för närvarande att ett Azure Functions v2-kompatibilitetsläge är aktiverat.
 
@@ -165,7 +163,7 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
     | Välj ett lagrings konto | Skapa ett nytt lagringskonto |  |
     | Ange namnet på det nya lagrings kontot | *unikt namn* | Namn på det lagrings konto som ska skapas |
     | Välj en resursgrupp | *unikt namn* | Namnet på den resurs grupp som ska skapas |
-    | Välja en plats | *nationella* | Välj en region nära dig |
+    | Välja en plats | *regionen* | Välj en region nära dig |
 
 1. På panelen **Terminal** kopierar du URL-slutpunkten för den HTTP-utlösta funktionen.
 
@@ -204,7 +202,7 @@ När du har kontrollerat att funktionen körs korrekt på den lokala datorn är 
 
 [!INCLUDE [functions-publish-project-vscode](../../../includes/functions-publish-project-vscode.md)]
 
-### <a name="enable-azure-functions-v2-compatibility-mode"></a>Aktivera Azure Functions v2-kompatibilitetsläge
+### <a name="enable-compatibility-mode"></a>Aktivera kompatibilitetsläge
 
 Samma Azure Functions v2-kompatibilitet som du har aktiverat lokalt måste vara aktive rad i appen i Azure.
 

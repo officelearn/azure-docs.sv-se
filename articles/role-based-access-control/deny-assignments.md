@@ -1,6 +1,6 @@
 ---
-title: Förstå neka-tilldelningar för Azure-resurser
-description: Lär dig mer om att neka tilldelningar i rollbaserad åtkomst kontroll (RBAC) för Azure-resurser.
+title: Förstå Azure Deny-tilldelningar – Azure RBAC
+description: Lär dig mer om Azure Deny-tilldelningar i rollbaserad åtkomst kontroll i Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: db249ccde1026cd468a1c30942891119482697ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5f17f009caa9306631debf511f2c890f8f2a450
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80372487"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733783"
 ---
-# <a name="understand-deny-assignments-for-azure-resources"></a>Förstå neka-tilldelningar för Azure-resurser
+# <a name="understand-azure-deny-assignments"></a>Förstå Azure Deny-tilldelningar
 
 I likhet med en roll tilldelning bifogar en *neka-tilldelning* en uppsättning neka-åtgärder till en användare, grupp eller tjänstens huvud namn i ett visst omfång för att neka åtkomst. Neka tilldelningar blockera användare från att utföra vissa åtgärder för Azure-resurser även om en roll tilldelning ger dem åtkomst.
 
@@ -57,18 +57,18 @@ Neka tilldelningar följer ett liknande mönster som roll tilldelningar, men har
 > | Egenskap | Krävs | Typ | Beskrivning |
 > | --- | --- | --- | --- |
 > | `DenyAssignmentName` | Ja | Sträng | Visnings namnet för neka-tilldelningen. Namn måste vara unika för ett angivet omfång. |
-> | `Description` | Nej | Sträng | Beskrivningen av neka-tilldelningen. |
+> | `Description` | Inga | Sträng | Beskrivningen av neka-tilldelningen. |
 > | `Permissions.Actions` | Minst en åtgärd eller en DataActions | Sträng [] | En sträng mat ris som anger vilka hanterings åtgärder som neka tilldelning blockerar åtkomsten till. |
-> | `Permissions.NotActions` | Nej | Sträng [] | En sträng mat ris som anger vilka hanterings åtgärder som ska undantas från neka-tilldelningen. |
+> | `Permissions.NotActions` | Inga | Sträng [] | En sträng mat ris som anger vilka hanterings åtgärder som ska undantas från neka-tilldelningen. |
 > | `Permissions.DataActions` | Minst en åtgärd eller en DataActions | Sträng [] | En sträng mat ris som anger de data åtgärder som neka tilldelning blockerar åtkomsten till. |
-> | `Permissions.NotDataActions` | Nej | Sträng [] | En sträng mat ris som anger de data åtgärder som ska undantas från neka-tilldelningen. |
-> | `Scope` | Nej | Sträng | En sträng som anger omfattningen som neka-tilldelningen gäller för. |
-> | `DoNotApplyToChildScopes` | Nej | Boolesk | Anger om neka-tilldelningen gäller för underordnade omfång. Standardvärdet är false. |
+> | `Permissions.NotDataActions` | Inga | Sträng [] | En sträng mat ris som anger de data åtgärder som ska undantas från neka-tilldelningen. |
+> | `Scope` | Inga | Sträng | En sträng som anger omfattningen som neka-tilldelningen gäller för. |
+> | `DoNotApplyToChildScopes` | Inga | Boolesk | Anger om neka-tilldelningen gäller för underordnade omfång. Standardvärdet är false. |
 > | `Principals[i].Id` | Ja | Sträng [] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen gäller. Ange ett tomt GUID `00000000-0000-0000-0000-000000000000` som representerar alla huvud konton. |
-> | `Principals[i].Type` | Nej | Sträng [] | En matris med objekt typer som representeras av huvud konton [i]. ID `SystemDefined` . anges till som representerar alla huvud konton. |
-> | `ExcludePrincipals[i].Id` | Nej | Sträng [] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen inte gäller för. |
-> | `ExcludePrincipals[i].Type` | Nej | Sträng [] | En matris med objekt typer som representeras av ExcludePrincipals [i]. ID. |
-> | `IsSystemProtected` | Nej | Boolesk | Anger om den här nekande tilldelningen skapades av Azure och inte kan redige ras eller tas bort. För närvarande är alla nekade tilldelningar skyddade av systemet. |
+> | `Principals[i].Type` | Inga | Sträng [] | En matris med objekt typer som representeras av huvud konton [i]. ID `SystemDefined` . anges till som representerar alla huvud konton. |
+> | `ExcludePrincipals[i].Id` | Inga | Sträng [] | En matris med objekt-ID: n för Azure AD-huvudobjektet (användare, grupp, tjänstens huvud namn eller hanterad identitet) som neka-tilldelningen inte gäller för. |
+> | `ExcludePrincipals[i].Type` | Inga | Sträng [] | En matris med objekt typer som representeras av ExcludePrincipals [i]. ID. |
+> | `IsSystemProtected` | Inga | Boolesk | Anger om den här nekande tilldelningen skapades av Azure och inte kan redige ras eller tas bort. För närvarande är alla nekade tilldelningar skyddade av systemet. |
 
 ## <a name="the-all-principals-principal"></a>Huvudobjektet alla huvud konton
 
@@ -90,4 +90,4 @@ Alla huvud konton kan kombineras med `ExcludePrincipals` för att neka alla huvu
 ## <a name="next-steps"></a>Nästa steg
 
 * [Självstudie: skydda nya resurser med resurs lås för Azure-ritningar](../governance/blueprints/tutorials/protect-new-resources.md)
-* [Visa lista över nekade tilldelningar för Azure-resurser med hjälp av Azure Portal](deny-assignments-portal.md)
+* [Visa en lista över Azure Deny-tilldelningar med hjälp av Azure Portal](deny-assignments-portal.md)

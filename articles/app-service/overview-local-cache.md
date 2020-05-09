@@ -1,17 +1,17 @@
 ---
 title: Lokal cache
-description: Lär dig hur den lokala cachen fungerar i Azure App Service och hur du aktiverar, ändrar storlek på och frågar statusen för appens lokala cacheminne.
+description: Lär dig hur lokal cache fungerar i Azure App Service och hur du aktiverar, ändrar storlek på och frågar statusen för appens lokala cacheminne.
 tags: optional
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1945730acaddb0c1c7ee1b28eeb926635efad643
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a1fc4de572fbb8634f8f58452ce5f9b632023a5
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78227889"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628801"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Översikt över Azure App Service lokal cache
 
@@ -19,7 +19,7 @@ ms.locfileid: "78227889"
 > Local cache stöds inte i Function Apps eller i behållare App Service appar, t. ex. i [Windows-behållare](app-service-web-get-started-windows-container.md) eller på [App Service i Linux](containers/app-service-linux-intro.md).
 
 
-Azure App Service innehåll lagras på Azure Storage och placeras på ett hållbart sätt som en innehålls resurs. Den här designen är avsedd att användas med en mängd olika appar och har följande attribut:  
+Azure App Service innehåll lagras på Azure Storage och finns på ett hållbart sätt som en innehålls resurs. Den här designen är avsedd att användas med en mängd olika appar och har följande attribut:  
 
 * Innehållet delas mellan flera virtuella dator instanser (VM) i appen.
 * Innehållet är hållbart och kan ändras genom att appar körs.
@@ -36,7 +36,7 @@ Den Azure App Service Local cache-funktionen tillhandahåller en webbrolls visni
 
 ## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Hur den lokala cachen ändrar beteendet för App Service
 * _D:\home_ pekar på det lokala cacheminnet som skapas på den virtuella dator instansen när appen startas. _D:\Local_ fortsätter att peka på den temporära VM-angivna lagringen.
-* Den lokala cachen innehåller en engångs kopia av _/installation_ -och _/siteextensions_ -mapparna i det delade innehålls arkivet, på _D:\home\site_ respektive _D:\home\siteextensions_. Filerna kopieras till den lokala cachen när appen startas. Storleken på de två mapparna för varje app är begränsad till 300 MB som standard, men du kan öka upp till 2 GB. Om de kopierade filerna överskrider storleken på den lokala cachen, ignorerar App Service i tysthet den lokala cachen och läser från fjär fil resursen.
+* Den lokala cachen innehåller en engångs kopia av _/installation_ -och _/siteextensions_ -mapparna i det delade innehålls arkivet, på _D:\home\site_ respektive _D:\home\siteextensions_. Filerna kopieras till den lokala cachen när appen startar. Storleken på de två mapparna för varje app är begränsad till 1 GB som standard, men den kan ökas till 2 GB. Observera att om cachestorleken ökar, tar det längre tid att läsa in cacheminnet. Om de kopierade filerna överskrider storleken på den lokala cachen, ignorerar App Service i tysthet den lokala cachen och läser från fjär fil resursen.
 * Den lokala cachen har Läs-och Skriv behörighet. Alla ändringar tas dock bort när appen flyttar virtuella datorer eller startas om. Använd inte det lokala cacheminnet för appar som lagrar verksamhets kritiska data i innehålls lagringen.
 * _D:\home\LogFiles_ och _D:\home\Data_ innehåller loggfiler och appdata. De två undermapparna lagras lokalt på den virtuella dator instansen och kopieras till den delade innehålls lagringen med jämna mellanrum. Appar kan spara loggfiler och data genom att skriva dem till dessa mappar. Kopieringen till den delade innehålls lagringen är dock bästa möjliga, så det är möjligt att loggfiler och data går förlorade på grund av en plötslig krasch i en VM-instans.
 * [Logg strömning](troubleshoot-diagnostic-logs.md#stream-logs) påverkas av den bästa kopieringen. Du kan se en fördröjning på en minut i strömmarna loggar.
@@ -75,7 +75,7 @@ Du aktiverar lokal cache per webb-app genom att använda den här inställningen
 
     "properties": {
         "WEBSITE_LOCAL_CACHE_OPTION": "Always",
-        "WEBSITE_LOCAL_CACHE_SIZEINMB": "300"
+        "WEBSITE_LOCAL_CACHE_SIZEINMB": "1000"
     }
 }
 
@@ -83,7 +83,7 @@ Du aktiverar lokal cache per webb-app genom att använda den här inställningen
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Ändra storleks inställningen i lokalt cacheminne
-Som standard är den lokala cachestorleken **300 MB**. Detta omfattar de/installation-och/siteextensions-mappar som kopieras från innehålls arkivet, samt alla lokalt skapade loggar och datamappar. Använd appens inställning `WEBSITE_LOCAL_CACHE_SIZEINMB`för att öka den här gränsen. Du kan öka storleken upp till **2 GB** (2000 MB) per app.
+Som standard är den lokala cachestorleken **1 GB**. Detta omfattar de/installation-och/siteextensions-mappar som kopieras från innehålls arkivet, samt alla lokalt skapade loggar och datamappar. Använd appens inställning `WEBSITE_LOCAL_CACHE_SIZEINMB`för att öka den här gränsen. Du kan öka storleken upp till **2 GB** (2000 MB) per app. Observera att det tar längre tid att läsa in den lokala cachen när storleken ökar.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Metod tips för att använda App Service lokal cache
 Vi rekommenderar att du använder lokal cache tillsammans med funktionen för [mellanlagrings miljöer](../app-service/deploy-staging-slots.md) .

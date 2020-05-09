@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: rohink
-ms.openlocfilehash: acdac6e3eafc5251ebd31a34bcb9a4db34f0ebbe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: ad6acbad57df24e5cd78c72c9d00bcd32a83219a
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254370"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82731585"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -29,7 +29,7 @@ Som förklaras i [hur Traffic Manager fungerar](../traffic-manager/traffic-manag
 Därför tillhandahåller Traffic Manager inte någon slut punkt eller IP-adress som klienterna kan ansluta till. Om du vill ha en statisk IP-adress för din tjänst måste den konfigureras på tjänsten, inte i Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Vilka typer av trafik kan dirigeras med hjälp av Traffic Manager?
-Som förklaras i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md)kan en Traffic Manager-slutpunkt vara vilken Internet tjänst som helst som finns i eller utanför Azure. Därför kan Traffic Manager dirigera trafik som härstammar från det offentliga Internet till en uppsättning slut punkter som också är riktade mot Internet. Om du har slut punkter som finns i ett privat nätverk (till exempel en intern version av [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)) eller har användare som gör DNS-begäranden från sådana interna nätverk, kan du inte använda Traffic Manager för att dirigera trafiken.
+Som förklaras i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md)kan en Traffic Manager-slutpunkt vara vilken Internet tjänst som helst som finns i eller utanför Azure. Därför kan Traffic Manager dirigera trafik som härstammar från det offentliga Internet till en uppsättning slut punkter som också är riktade mot Internet. Om du har slut punkter som finns i ett privat nätverk (till exempel en intern version av [Azure Load Balancer](../load-balancer/components.md#frontend-ip-configurations)) eller har användare som gör DNS-begäranden från sådana interna nätverk, kan du inte använda Traffic Manager för att dirigera trafiken.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Stöder Traffic Manager "tröga" sessioner?
 

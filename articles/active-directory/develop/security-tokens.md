@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/06/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: faaf4a9c4fe37bc184b9860390f1eb99eede035c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584290"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926586"
 ---
 # <a name="security-tokens"></a>Säkerhetstoken
 
@@ -29,6 +29,9 @@ En **åtkomsttoken är en säkerhetstoken som** utfärdas av en [Authorization-S
 Åtkomst-token är bara giltiga under en kort tids period, så att auktoriseringsdata ibland utfärdar en **uppdateringstoken** på samma gång som åtkomsttoken utfärdas. Klient programmet kan sedan byta ut denna uppdateringstoken för en ny åtkomsttoken vid behov. Mer information om hur Microsoft Identity Platform använder Refresh tokens för att återkalla behörigheter finns i återkalla [token](access-tokens.md#token-revocation).
 
 **ID-token** skickas till klient programmet som en del av ett [OpenID Connect](v2-protocols-oidc.md) -flöde. De kan skickas på sidan eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren. Mer information om hur Microsoft Identity Platform utfärdar ID-token finns i [ID-token](id-tokens.md).
+
+> [!NOTE]
+> Den här artikeln beskriver säkerhetstoken för OAuth2-och OpenID Connect-protokollen. Många företags program använder SAML för att autentisera användare. Se [referens för Azure AD SAML-token](reference-saml-tokens.md) för information om SAML-kontroller.
 
 ## <a name="validating-security-tokens"></a>Verifierar säkerhetstoken
 
@@ -45,7 +48,7 @@ Tokens är bara giltiga under en begränsad tid. STS tillhandahåller vanligt vi
 
 Microsoft Identity Platform implementerar säkerhetstoken som **JSON-Webbtoken (JWTs)** som innehåller **anspråk**.
 
-Ett [anspråk](developer-glossary.md#claim) ger intyg om en entitet, till exempel ett klient program eller en [resurs ägare](developer-glossary.md#resource-owner), till en annan entitet, till exempel en resurs Server.
+Ett [anspråk](developer-glossary.md#claim) ger intyg om en entitet, till exempel ett klient program eller en [resurs ägare](developer-glossary.md#resource-owner), till en annan entitet, till exempel en resurs Server. Ett anspråk kan också kallas för ett JWT-anspråk eller JSON Web Token-anspråk.
 
 Anspråk är namn/värde-par som vidarebefordrar fakta om ämnets token. Ett anspråk kan till exempel innehålla fakta om säkerhets objekt som autentiserats av auktoriseringsservern. De anspråk som förekommer i en specifik token är beroende av många saker, inklusive typen av token, vilken typ av autentiseringsuppgift som används för att autentisera ämnet, program konfigurationen och så vidare.
 

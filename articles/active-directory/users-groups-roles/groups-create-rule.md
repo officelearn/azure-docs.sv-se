@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c685fa231bc1f40a78aae0d4fa89569ec146eea
+ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266382"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82582914"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Skapa eller uppdatera en dynamisk grupp i Azure Active Directory
 
@@ -46,7 +46,7 @@ Exempel på syntax, stödda egenskaper, operatorer och värden för en medlemska
 
 ## <a name="to-create-a-group-membership-rule"></a>Så här skapar du en grupp medlemskaps regel
 
-1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som finns i rollen global administratör, Intune-administratör eller användar administratör i klienten.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som finns i rollen global administratör, Intune-administratör eller användar administratör i Azure AD-organisationen.
 1. Sök efter och välj **grupper**.
 1. Välj **alla grupper**och välj sedan **ny grupp**.
 
@@ -66,7 +66,7 @@ Om regeln du angav inte är giltig visas en förklaring av varför regeln inte k
 
 ## <a name="to-update-an-existing-rule"></a>Så här uppdaterar du en befintlig regel
 
-1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som finns i rollen global administratör, grupp administratör, Intune-administratör eller användar administratör i klienten.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett konto som finns i rollen global administratör, grupp administratör, Intune-administratör eller användar administratör i Azure AD-organisationen.
 1. Välj **grupper** > **alla grupper**.
 1. Välj en grupp för att öppna dess profil.
 1. På sidan profil för gruppen väljer du regler för **dynamiskt medlemskap**. Regel verktyget stöder upp till fem uttryck. Om du vill lägga till fler än fem uttryck måste du använda text rutan.
@@ -102,7 +102,7 @@ Följande status meddelanden kan visas för **medlemskapets senast uppdaterade**
 - **Pågår**: uppdateringar pågår just nu.
 - **Okänd**: det går inte att hämta den senaste uppdaterings tiden. Gruppen kan vara ny.
 
-Om ett fel inträffar när medlemskaps regeln för en grupp bearbetas visas en avisering överst på **sidan Översikt** för gruppen. Om inga väntande dynamiska medlemskaps uppdateringar kan bearbetas för alla grupper i klienten i mer än 24 timmar visas en avisering överst i **alla grupper**.
+Om ett fel inträffar när medlemskaps regeln för en grupp bearbetas visas en avisering överst på **sidan Översikt** för gruppen. Om inga väntande dynamiska medlemskaps uppdateringar kan bearbetas för alla grupper inom organisationen i mer än 24 timmar visas en avisering överst i **alla grupper**.
 
 ![bearbetar aviseringar om fel meddelande](./media/groups-create-rule/processing-error.png)
 

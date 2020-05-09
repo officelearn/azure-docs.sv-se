@@ -1,10 +1,10 @@
 ---
 title: Nätverks åtkomst kontroller
-description: Översikt över nätverks åtkomst kontroller för Azure SQL Database och informations lager för att hantera åtkomst och konfigurera en databas med en eller flera databaser.
+description: Översikt över nätverks åtkomst kontroller för Azure SQL Database och Azure Synapse Analytics för att hantera åtkomst och konfigurera en enskild databas eller en databas i pooler.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-titleSuffix: Azure SQL Database and SQL Data Warehouse
+titleSuffix: Azure SQL Database and Azure Synapse Analytics
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,17 +12,17 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 8b4ee679b21d904f997f727f5f26275c86acc9c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fdeb8ee3fbb01ea007205e02eb247925fb3baea1
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414416"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629583"
 ---
-# <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Kontroll av nätverks åtkomst för Azure SQL Database och informations lager
+# <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Azure SQL Database och Azure Synapse Analytics Network Access Controls
 
 > [!NOTE]
-> Den här artikeln gäller för Azure SQL Server och för både SQL Database och SQL Data Warehouse databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
+> Den här artikeln gäller för Azure SQL Server och för både SQL Database-och Azure Synapse Analytics-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när du refererar till både SQL Database-och Azure Synapse-analys.
 
 > [!IMPORTANT]
 > Den här artikeln gäller *inte* för **Azure SQL Database Hanterad instans**. Mer information om nätverks konfigurationen finns i [ansluta till en hanterad instans](sql-database-managed-instance-connect-app.md) .

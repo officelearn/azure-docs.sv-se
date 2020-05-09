@@ -1,33 +1,33 @@
 ---
-title: Skapa ett Azure Container-erbjudande i Partner Center – Azure Marketplace
-description: Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande för Azure Marketplace.
+title: Skapa ett Azure Container-erbjudande – Azure Marketplace
+description: Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande på Azure Marketplace.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/07/2020
-ms.openlocfilehash: 3170849955485c0d098ed9f39c22332456e46fe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f2a3b6355fdaa8cd90525fac9d29324270dfad02
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81867366"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791943"
 ---
-# <a name="create-an-azure-container-offer"></a>Skapa ett Azure Container-erbjudande
+# <a name="create-an-azure-container-offer"></a>Skapa ett erbjudande för Azure Container
 
 > [!IMPORTANT]
 > Vi flyttar hantering av Azure Container-erbjudanden från Cloud Partner Portal till Partner Center. Innan du har migrerat dina erbjudanden följer du anvisningarna i [behållare](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) för Cloud Partner Portal att hantera dina erbjudanden.
 
-Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande för Azure Marketplace. [Skapa ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)innan du börjar.
+Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande för Azure Marketplace. Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
-1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home)och välj **instrument panel**i den översta menyn.
-2. På den vänstra menyn väljer du **kommersiell Marketplace**och sedan **Översikt**.
-3. På sidan **Översikt** väljer du **+ nytt erbjudande**, sedan **Azure Container**. Dialog rutan **nytt erbjudande** visas.
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
+3. På sidan Översikt väljer du **+ nytt erbjudande** > för**Azure-behållare**.
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-new-container.png" alt-text="Illustrerar översikts sidan i Partner Center. Den nya erbjudande knappen och konsult tjänst erbjudandet markeras.":::
+    ![Visar menyn till vänster-navigering.](./media/new-offer-azure-container.png)
 
 > [!TIP]
 > När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
@@ -36,22 +36,22 @@ Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudand
 
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
-- Detta ID kan ses av kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
+- Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
 - Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
-**Ange ett** **erbjudande alias**. Detta är det namn som används för att referera till erbjudandet i Partner Center.
+Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
 
 - Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
 - Detta kan inte ändras när du har valt **skapa**.
 
-Välj **skapa** innan du fortsätter.
+Välj **skapa** för att generera erbjudandet och fortsätt.
 
 ## <a name="offer-overview"></a>Erbjudande översikt
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Ett exempel:
+Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -64,7 +64,7 @@ Följ dessa steg för att konfigurera erbjudandet.
 
 ### <a name="connect-lead-management--optional"></a>Anslut lead management – valfritt
 
-När du publicerar ditt erbjudande till Marketplace med partner Center kan du ansluta det till ditt CRM-system (Customer Relations hip Management). På så sätt kan du ta emot kund kontakt information så snart någon uttrycker intresse för eller använder produkten.
+När du publicerar erbjudandet till den kommersiella marknads platsen med partner Center kan du ansluta det till ditt CRM-system (Customer Relations hip Management). På så sätt kan du ta emot kund kontakt information så snart någon uttrycker intresse för eller använder produkten.
 
 1. **Välj ett mål för lead där du vill att vi ska skicka kund leads**. Partner Center stöder följande CRM-system:
 
@@ -83,10 +83,10 @@ Här följer några ytterligare resurser för ledar hantering:
 
 - [Översikt över ledar hantering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-get-customer-leads)
 - [Leadhantering – vanliga frågor och svar](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Vanliga fel för leadkonfiguration](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#publishing-config-errors)
 - [Översikt över ledar hantering](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (kontrol lera att blockeringen av popup-fönster är inaktive rad)
 
-Välj **Spara utkast** innan du fortsätter till nästa avsnitt, egenskaper.
+Välj **Spara utkast** innan du fortsätter.
 
 ### <a name="properties"></a>Egenskaper
 
@@ -257,7 +257,7 @@ Detta visar Sök resultat i Azure Portal:
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Visar Sök resultatet i Azure Portal.":::
 
-## <a name="preview"></a>Förhandsversion
+## <a name="preview"></a>Förhandsgranskning
 
 På fliken förhands granskning kan du välja en begränsad **förhands gransknings grupp** för att verifiera ditt erbjudande innan du publicerar det Live.
 
@@ -434,4 +434,4 @@ Om du vill publicera erbjudandet till allmänheten (eller om ett privat erbjudan
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Uppdatera ett befintligt erbjudande i Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)
+- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer)

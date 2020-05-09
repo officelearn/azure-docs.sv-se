@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 02/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d73a1a3ce23817d9d6f742a4a8c730afb58ee0c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 189343888d2856a6945723c030485e58394c912f
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78226995"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82559594"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -64,7 +64,7 @@ Om du vill ange den sorterade listan över Orchestration-steg läggs ett **Orche
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | `Order` | Ja | Ordningen för Orchestration-stegen. |
-| `Type` | Ja | Typ av Orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** – anger att Orchestration-steget presenterar olika anspråks leverantörer för användaren att välja ett.</li><li>**CombinedSignInAndSignUp** – anger att Orchestration-steget presenterar en kombinerad registrering av sociala leverantörs inloggnings sidor och lokalt konto.</li><li>**ClaimsExchange** – anger att Orchestration-steget utbyter anspråk med en anspråks leverantör.</li><li>**GetClaims** – anger att Orchestration-steget läser de inloggade anspråken.</li><li>**SendClaims** – anger att Orchestration-steget skickar anspråk till den förlitande parten med en token som utfärdats av en anspråks utfärdare.</li></ul> |
+| `Type` | Ja | Typ av Orchestration-steg. Möjliga värden: <ul><li>**ClaimsProviderSelection** – anger att Orchestration-steget presenterar olika anspråks leverantörer för användaren att välja ett.</li><li>**CombinedSignInAndSignUp** – anger att Orchestration-steget presenterar en kombinerad registrering av sociala leverantörs inloggnings sidor och lokalt konto.</li><li>**ClaimsExchange** – anger att Orchestration-steget utbyter anspråk med en anspråks leverantör.</li><li>**GetClaims** – anger att Orchestration-steget ska bearbeta anspråks data som skickas till Azure AD B2C från den förlitande `InputClaims` parten via dess konfiguration.</li><li>**SendClaims** – anger att Orchestration-steget skickar anspråk till den förlitande parten med en token som utfärdats av en anspråks utfärdare.</li></ul> |
 | ContentDefinitionReferenceId | Inga | Identifieraren för den [innehålls definition](contentdefinitions.md) som är associerad med det här Orchestration-steget. Vanligt vis definieras referens identifieraren för innehålls definitionen i den självkontrollerade tekniska profilen. Men det finns vissa fall då Azure AD B2C behöver visa något utan en teknisk profil. Det finns två exempel – om typen av Orchestration-steg är något av följande: `ClaimsProviderSelection` eller `CombinedSignInAndSignUp`så måste Azure AD B2C Visa valet av identitetsprovider utan att ha en teknisk profil. |
 | CpimIssuerTechnicalProfileReferenceId | Inga | Typen av Orchestration-steg är `SendClaims`. Den här egenskapen definierar den tekniska profil identifieraren för den anspråks leverantör som utfärdar token för den förlitande parten.  Om inget används skapas ingen förlitande parts-token. |
 
@@ -100,7 +100,7 @@ Elementet **villkor** innehåller följande element:
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
 | Värde | 1: n | En ClaimTypeReferenceId som ska frågas efter. Ett annat värde element innehåller det värde som ska kontrol leras.</li></ul>|
-| Åtgärd | 1:1 | Den åtgärd som ska utföras om villkors kontrollen i ett Orchestration-steg är sann. Om värdet för `Action` är inställt på `SkipThisOrchestrationStep`, ska den `OrchestrationStep` associerade inte utföras. |
+| Action | 1:1 | Den åtgärd som ska utföras om villkors kontrollen i ett Orchestration-steg är sann. Om värdet för `Action` är inställt på `SkipThisOrchestrationStep`, ska den `OrchestrationStep` associerade inte utföras. |
 
 #### <a name="preconditions-examples"></a>Exempel på villkor
 

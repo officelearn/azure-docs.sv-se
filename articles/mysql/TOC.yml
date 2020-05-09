@@ -68,6 +68,9 @@
       href: sample-scripts-azure-cli.md
     - name: Java-anslutningspool
       href: sample-scripts-java-connection-pooling.md
+    - name: Inbyggda Azure Policy-program
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Begrepp
   items:
     - name: Databas och servrar

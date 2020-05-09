@@ -10,13 +10,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: mimart
-ms.reviewer: arvinh
-ms.openlocfilehash: ceba22e9289e0a10211ee26a7758238a8b1f06c7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.reviewer: arvinh, celested
+ms.openlocfilehash: 0b2c8e6bb71e00ccb6eda33ecb1b087d09ce5de7
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201694"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626198"
 ---
 # <a name="using-scim-and-microsoft-graph-together-to-provision-users-and-enrich-your-application-with-the-data-it-needs"></a>Använda SCIM och Microsoft Graph tillsammans för att etablera användare och förbättra ditt program med de data som krävs
 
@@ -103,8 +103,8 @@ Mitt program är inbyggt i Microsoft Teams och förlitar sig på meddelande data
 Jag behöver kunna spåra ändringar i team och Outlook-meddelanden och reagera på dem i real tid. Hur kan jag få dessa ändringar att skickas till mitt program?
 
 **Rekommendation:** Microsoft Graph tillhandahåller [ändrings meddelanden](https://docs.microsoft.com/graph/webhooks) och [ändrings spårning](https://docs.microsoft.com/graph/delta-query-overview) för olika resurser. Observera följande begränsningar i ändrings meddelanden:
-- Om en händelse mottagare bekräftar en händelse, men inte agerar på den av någon anledning, kan händelsen gå förlorad
-- Om en händelse mottagare bekräftar en händelse, men inte agerar på den av någon anledning, kan händelsen gå förlorad
+- Om en händelse mottagare bekräftar en händelse, men inte agerar på den av någon anledning, kan händelsen gå förlorad.
+- Ordningen i vilken ändringar tas emot är inte garanterat kronologisk.
 - Ändrings meddelanden innehåller inte alltid [resurs data](https://docs.microsoft.com/graph/webhooks-with-resource-data) för orsakerna ovan. utvecklare använder ofta ändrings meddelanden tillsammans med ändrings spårning för synkroniseringskonflikter. 
 
 ## <a name="scenario-6-provision-users-and-groups-in-azure-ad"></a>Scenario 6: etablera användare och grupper i Azure AD

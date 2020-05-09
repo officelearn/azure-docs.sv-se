@@ -655,7 +655,7 @@
             - name: Skala
               items:
                 - name: Skala ut manuellt
-                  href: service-fabric-cluster-scale-up-down.md
+                  href: service-fabric-cluster-scale-in-out.md
                 - name: Skala ut programmässigt
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Skala upp primär nodtyp

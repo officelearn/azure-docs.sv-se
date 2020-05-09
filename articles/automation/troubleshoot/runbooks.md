@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08325c8163073c083e927f84fecbde9a9d104572
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
-ms.translationtype: HT
+ms.openlocfilehash: 70f3c52adc10556c358ed75a75fd023ffb21a813
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652800"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82855088"
 ---
 # <a name="troubleshoot-runbook-errors"></a>Felsöka Runbook-fel
 
@@ -49,7 +49,7 @@ När du får fel meddelanden under Runbook-körningen i Azure Automation kan du 
     * [Förnya webhooken](../automation-webhooks.md#renew-a-webhook) om du försöker använda en upphört webhook för att starta runbooken.
     * [Kontrol lera jobb status](../automation-runbook-execution.md#job-statuses) för att fastställa aktuella Runbook-statusar och vissa möjliga orsaker till problemet.
     * [Lägg till ytterligare utdata](../automation-runbook-output-and-messages.md#message-streams) till runbooken för att identifiera vad som händer innan runbooken pausas.
-    * [Hantera eventuella undantag](../automation-runbook-execution.md#handling-exceptions) som genereras av ditt jobb.
+    * [Hantera eventuella undantag](../automation-runbook-execution.md#exceptions) som genereras av ditt jobb.
 
 1. Gör det här steget om Runbook-jobbet eller miljön på Hybrid Runbook Worker inte svarar.
 
@@ -234,7 +234,7 @@ Runbooken använder inte rätt kontext vid körning.
 
 ### <a name="resolution"></a>Lösning
 
-Prenumerations kontexten kan gå förlorad när en Runbook anropar flera Runbooks. För att säkerställa att prenumerations kontexten skickas till runbooks, måste klientens Runbook skicka kontexten till `Start-AzureRmAutomationRunbook` cmdlet: en i `AzureRmContext` parametern. Använd `Disable-AzureRmContextAutosave` cmdleten med `Scope` parametern inställd på `Process` för att säkerställa att de angivna autentiseringsuppgifterna endast används för den aktuella runbooken. Mer information finns i [arbeta med flera prenumerationer](../automation-runbook-execution.md#working-with-multiple-subscriptions).
+Prenumerations kontexten kan gå förlorad när en Runbook anropar flera Runbooks. För att säkerställa att prenumerations kontexten skickas till runbooks, måste klientens Runbook skicka kontexten till `Start-AzureRmAutomationRunbook` cmdlet: en i `AzureRmContext` parametern. Använd `Disable-AzureRmContextAutosave` cmdleten med `Scope` parametern inställd på `Process` för att säkerställa att de angivna autentiseringsuppgifterna endast används för den aktuella runbooken. Mer information finns i [prenumerationer](../automation-runbook-execution.md#subscriptions).
 
 ```azurepowershell-interactive
 # Ensures that any credentials apply only to the execution of this runbook
@@ -634,7 +634,7 @@ Det här problemet kan uppstå eftersom Azure-sand lådor förhindrar åtkomst t
 
 ### <a name="resolution"></a>Lösning
 
-Mer information om hur du använder Azure-sandbox finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md#where-to-run-your-runbooks).
+Mer information om hur du använder Azure-sand lådor finns i [Runbook Execution Environment](../automation-runbook-execution.md#runbook-execution-environment).
 
 ## <a name="scenario-invalid-forbidden-status-code-when-using-key-vault-inside-a-runbook"></a>Scenario: ogiltig status kod för förbjuden användning av Key Vault i en Runbook
 

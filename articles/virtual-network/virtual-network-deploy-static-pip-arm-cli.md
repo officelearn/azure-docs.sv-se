@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 4b8f91d7d9fc414ed0ae6387c25f71b1601e0b6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e3e37347c8c23ccc9746bbb98ef6a822743848b
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76043407"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790294"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-cli"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av Azure CLI
 
@@ -50,7 +50,7 @@ Du kan utföra följande steg från din lokala dator eller med hjälp av Azure C
      --public-ip-address-allocation static
    ```
 
-   Om den offentliga IP-adressen måste vara en standard-SKU `--public-ip-sku Standard` , lägger du till föregående kommando. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/concepts-limitations.md#skus).
+   Om den offentliga IP-adressen måste vara en standard-SKU `--public-ip-sku Standard` , lägger du till föregående kommando. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/skus.md).
 
 4. Visa den offentliga IP-adress som tilldelats och bekräfta att den har skapats som en statisk, grundläggande SKU-adress med [AZ Network Public-IP show](/cli/azure/network/public-ip#az-network-public-ip-show):
 

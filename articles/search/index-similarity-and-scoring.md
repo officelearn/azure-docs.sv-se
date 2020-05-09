@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9f9cc4c29b117c83595a36c4e28b1edb428c3cde
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4b02039c86f43e6bebed58dfff475816f09a3da1
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82254127"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82890148"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Likhet och bedömning i Azure Kognitiv sökning
 
@@ -59,16 +59,9 @@ Azure Kognitiv sökning har stöd för två olika algoritmer för rangordning av
 
 Nu kan du ange vilken algoritm för rangordning av likheter som du vill använda. Mer information finns i [rangordning av algoritmer](index-ranking-similarity.md).
 
-## <a name="watch-this-video"></a>Titta på den här videon
+Följande video segment snabb Spolar framåt till en förklaring av de rangordnings algoritmer som används i Azure Kognitiv sökning. Du kan se hela videon om du vill ha mer bakgrund.
 
-I den här 16-minuters videon förklarar program varu teknikern Raouf Merouche processen med att indexera, fråga och skapa bedömnings profiler. Det ger dig en bra uppfattning om vad som händer under huven när dokumenten indexeras och hämtas.
-
->[!VIDEO https://channel9.msdn.com/Shows/AI-Show/Similarity-and-Scoring-in-Azure-Cognitive-Search/player]
-
-+ 2-3 minuter beläggnings indexering: text behandling och lexikal analys.
-+ 3-4 minuter omslag-indexering: inverterade index.
-+ 4-6 minuter för frågor: hämtning och rangordning.
-+ 7-16 minuter omfattar bedömnings profiler.
+> [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
 ## <a name="see-also"></a>Se även
 

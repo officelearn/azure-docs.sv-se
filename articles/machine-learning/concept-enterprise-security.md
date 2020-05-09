@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/13/2020
-ms.openlocfilehash: d5edfab0963ec3fca24969d7a54038066ba08765
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3aecaf45a04c1428968791a71abece783c7eb7c0
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188403"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891321"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -44,7 +44,7 @@ Azure Machine Learning stöder två typer av autentisering för webb tjänster: 
 
 |Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
 |---|---|---|---|
-|Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
+|Tangent|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
@@ -105,29 +105,9 @@ Azure Machine Learning skapar ett ytterligare program (namnet börjar med `aml-`
 
 Azure Machine Learning använder andra Azure-tjänster för beräknings resurser. Beräknings resurser (beräknings mål) används för att träna och distribuera modeller. Du kan skapa dessa beräknings mål i ett virtuellt nätverk. Du kan till exempel använda Azure Data Science Virtual Machine för att träna en modell och sedan distribuera modellen till AKS.  
 
-Mer information finns i [så här kör du experiment och härledning i ett virtuellt nätverk](how-to-enable-virtual-network.md).
+Mer information finns i [så här kör du experiment och härledning i ett isolerat virtuellt nätverk på ett säkert sätt](how-to-enable-virtual-network.md).
 
 Du kan också aktivera Azures privata länk för din arbets yta. Med privat länk kan du begränsa kommunikationen till din arbets yta från en Azure-Virtual Network. Mer information finns i [så här konfigurerar du en privat länk](how-to-configure-private-link.md).
-
-> [!TIP]
-> Du kan kombinera virtuella nätverk och privata länkar tillsammans för att skydda kommunikationen mellan arbets ytan och andra Azure-resurser. Vissa kombinationer kräver dock en Enterprise Edition-arbetsyta. Använd följande tabell för att ta reda på vilka scenarier som kräver Enterprise Edition:
->
-> | Scenario | Enterprise</br>Edition | Basic</br>Edition |
-> | ----- |:-----:|:-----:| 
-> | Inget virtuellt nätverk eller en privat länk | ✔ | ✔ |
-> | Arbets yta utan privat länk. Andra resurser (utom Azure Container Registry) i ett virtuellt nätverk | ✔ | ✔ |
-> | Arbets yta utan privat länk. Andra resurser med privat länk | ✔ | |
-> | Arbets yta med privat länk. Andra resurser (utom Azure Container Registry) i ett virtuellt nätverk | ✔ | ✔ |
-> | Arbets yta och andra resurser med privat länk | ✔ | |
-> | Arbets yta med privat länk. Andra resurser utan privat länk eller virtuellt nätverk | ✔ | ✔ |
-> | Azure Container Registry i ett virtuellt nätverk | ✔ | |
-> | Kundhanterade nycklar för arbets ytan | ✔ | |
-> 
-
-> [!WARNING]
-> För hands versionen av Azure Machine Learning Compute instances stöds inte i en arbets yta där privat länk är aktive rad.
-> 
-> Azure Machine Learning stöder inte användning av en Azure Kubernetes-tjänst som har privat länk aktive rad. I stället kan du använda Azure Kubernetes-tjänsten i ett virtuellt nätverk. Mer information finns i [skydda Azure ml-experimentering och härlednings jobb i en Azure-Virtual Network](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Datakryptering
 
@@ -265,7 +245,7 @@ Varje arbets yta har en associerad systemtilldelad hanterad identitet som har sa
 
 Microsoft kan samla in information om icke-användare, t. ex. resurs namn (till exempel data uppsättningens namn eller namnet på Machine Learning-experimentet) eller jobbets miljövariabler för diagnostisk användning. Alla sådana data lagras med Microsoft-hanterade nycklar i lagring som finns i Microsofts ägda prenumerationer och följer [Microsofts standard sekretess policy och data hanterings standarder](https://privacy.microsoft.com/privacystatement).
 
-Microsoft rekommenderar även att inte lagra känslig information (till exempel konto nyckel hemligheter) i miljövariabler. Miljövariabler loggas, krypteras och lagras av oss. Undvik att inkludera känslig information som användar namn eller namn på hemliga projekt på samma sätt som när du namnger [RunId](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py). Den här informationen kan visas i telemetri loggar som är tillgängliga för Microsoft Support tekniker.
+Microsoft rekommenderar även att inte lagra känslig information (till exempel konto nyckel hemligheter) i miljövariabler. Miljövariabler loggas, krypteras och lagras av oss. Undvik att använda känslig information som användar namn eller namn på hemliga projekt på samma sätt som när du namnger [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py). Den här informationen kan visas i telemetri loggar som är tillgängliga för Microsoft Support tekniker.
 
 Du kan välja att inte använda diagnostikdata som samlas in genom att `hbi_workspace` ange parametern `TRUE` till medan du konfigurerar arbets ytan. Den här funktionen stöds när du använder AzureML python SDK, CLI, REST API: er eller Azure Resource Manager mallar.
 

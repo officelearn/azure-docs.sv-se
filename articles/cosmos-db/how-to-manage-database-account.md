@@ -4,14 +4,14 @@ description: Lär dig hur du hanterar Azure Cosmos DB-resurser med hjälp av mal
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247389"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82745032"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Hantera ett Azure Cosmos-konto
 
@@ -31,9 +31,9 @@ Information om hur du [skapar ett Azure Cosmos DB konto med Azure CLI](manage-wi
 
 Information om hur du [skapar ett Azure Cosmos DB konto med PowerShell](manage-with-powershell.md#create-account)
 
-### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Azure Resource Manager mall
+### <a name="azure-resource-manager-template"></a><a id="create-database-account-via-arm-template"></a>Azure Resource Manager-mall
 
-Den här Azure Resource Manager-mallen skapar ett Azure Cosmos-konto för SQL-API som kon figurer ATS med två regioner och alternativ för att välja konsekvens nivå, automatisk redundans och flera huvud servrar. Om du vill distribuera den här mallen klickar du på distribuera till Azure på sidan viktigt och [skapar ett Azure Cosmos-konto](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)
+Information om hur du [skapar Azure Cosmos DB konto med Azure Resource Manager mallar](manage-sql-with-resource-manager.md)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Lägga till/ta bort regioner från ditt databaskonto
 

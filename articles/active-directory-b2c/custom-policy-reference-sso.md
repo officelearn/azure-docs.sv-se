@@ -8,23 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f2887ab23dd89f1a3e1e3112ce3713ef1139de8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4aa9f4839c8bfc04cee4bb03ea0eac98cb8b25c0
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229688"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926127"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Hantering av enkel inloggning i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Hantering av [enkel inloggning (SSO)](session-overview.md) i Azure Active Directory B2C (Azure AD B2C) gör det möjligt för en administratör att styra interaktionen med en användare när användaren redan har autentiserats. Administratören kan till exempel kontrol lera om valet av identitets leverantörer visas eller om konto information måste anges igen. I den här artikeln beskrivs hur du konfigurerar SSO-inställningarna för Azure AD B2C.
-
-Hantering av SSO-sessioner använder samma semantik som andra tekniska profiler i anpassade principer. När ett Orchestration-steg körs, frågas den tekniska profilen som är associerad med steget för en `UseTechnicalProfileForSessionManagement` referens. Om det finns en sådan, kontrol leras den refererade SSO-replikeringsprovidern sedan för att se om användaren är en session-deltagare. I så fall, används SSO-replikeringsprovidern för att fylla i sessionen igen. När körningen av ett Dirigerings steg har slutförts används providern för att lagra information i sessionen om en SSO-replikeringsprovider har angetts.
+Hantering av [enkel inloggning (SSO)](session-overview.md) använder samma semantik som andra tekniska profiler i anpassade principer. När ett Orchestration-steg körs, frågas den tekniska profilen som är associerad med steget för en `UseTechnicalProfileForSessionManagement` referens. Om det finns en sådan, kontrol leras den refererade SSO-replikeringsprovidern sedan för att se om användaren är en session-deltagare. I så fall, används SSO-replikeringsprovidern för att fylla i sessionen igen. När körningen av ett Dirigerings steg har slutförts används providern för att lagra information i sessionen om en SSO-replikeringsprovider har angetts.
 
 Azure AD B2C har definierat ett antal SSO-användarsessioner som kan användas:
 
@@ -125,7 +123,7 @@ Den här providern används för att utelämna skärmen "Välj identitetsprovide
 
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | Nej | Används inte för närvarande, kan ignoreras. |
+| AlwaysFetchClaimsFromProvider | Inga | Används inte för närvarande, kan ignoreras. |
 
 ### <a name="oauthssosessionprovider"></a>OAuthSSOSessionProvider
 
@@ -167,10 +165,11 @@ Följande `SM-Saml-issuer` tekniska profil används av den [tekniska profilen f�
 
 | Attribut | Krävs | Beskrivning|
 | --- | --- | --- |
-| IncludeSessionIndex | Nej | Används inte för närvarande, kan ignoreras.|
-| RegisterServiceProviders | Nej | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. Möjliga värden: `true` (standard) eller `false`.|
+| IncludeSessionIndex | Inga | Används inte för närvarande, kan ignoreras.|
+| RegisterServiceProviders | Inga | Anger att leverantören ska registrera alla SAML-tjänstleverantörer som har utfärdat en kontroll. Möjliga värden: `true` (standard) eller `false`.|
 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Läs mer om [Azure AD B2C-sessionen](session-overview.md).
+- Lär dig hur du [konfigurerar sessionens beteende i anpassade principer](session-behavior-custom-policy.md).

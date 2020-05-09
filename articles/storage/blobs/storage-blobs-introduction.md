@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/18/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 084b364f4a1414febb7b6f11c9cf70958ee823c4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f28b660a2afc97cf9faf0f601e247a97e99098cd
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176677"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82853357"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introduktion till Azure Blob storage
 
@@ -65,7 +65,7 @@ Mer information om de olika typerna av blobbar finns i [Förstå blockblobbar, s
 
 Det finns flera olika lösningar för att migrera befintliga data till blobblagring:
 
-- **AzCopy** är ett lättanvänt kommandoradsverktyg för Windows och Linux som kopierar data till och från blobblagringen, mellan containrar eller mellan lagringskonton. Mer information om AzCopy finns i [Överföra data med AzCopy v10 (förhandsversion)](../common/storage-use-azcopy-v10.md).
+- **AzCopy** är ett lättanvänt kommandoradsverktyg för Windows och Linux som kopierar data till och från blobblagringen, mellan containrar eller mellan lagringskonton. Mer information om AzCopy finns i [överföra data med AZCopy-v10](../common/storage-use-azcopy-v10.md).
 - **Azure Storages dataflyttbibliotek** är ett .NET-bibliotek som används till att flytta data mellan Azure Storage-tjänster. AzCopy-verktyget skapas med dataflyttbiblioteket. Mer information finns i [referensdokumentationen](/dotnet/api/microsoft.azure.storage.datamovement) för dataflyttbiblioteket.
 - **Azure Data Factory** stöder kopiering av data till och från Blob Storage med hjälp av konto nyckeln, en signatur för delad åtkomst, ett huvud namn för tjänsten eller hanterade identiteter för Azure-resurser. Mer information finns i [Kopiera data till och från Azure-blobblagring med hjälp av Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 - **Blobfuse** är en virtuell filsystemsdrivrutin för Azure-blobblagring. Du kan använda blobfuse för att få åtkomst till dina befintliga blockblobbdata på ditt lagringskonto via filsystemet Linux. Mer information finns i [Montera blobblagring som ett filsystem med blobfuse](storage-how-to-mount-container-linux.md).

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: fee7c8eb73fe0bb7c9fd0bd9de9aa57bd8c40215
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: df970ad31c3fd132f9081b90aa8877f0e29e195b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77580659"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891560"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Vad är Azure Cognitive Search?
 
@@ -154,11 +154,6 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 
 Sökmotorer är vanliga för informationshämtning i mobilappar, på webben och i företags datalager. Med Azure Kognitiv sökning får du verktyg för att skapa en Sök upplevelse som liknar dem på stora kommersiella webbplatser.
 
-I den här 9-minutersvideon från programansvarige Liam Cavanagh får du reda på hur integrering av en sökmotor kan vara till nytta för din app. Kort demonstrationer kompletterar viktiga funktioner i Azure Kognitiv sökning och hur ett typiskt arbets flöde ser ut. 
+I den här 15 minuter långa videon introducerar program hanteraren Luis Cabrera Azure Kognitiv sökning. 
 
->[!VIDEO https://channel9.msdn.com/Events/Connect/2016/138/player]
- 
-+ 0-3 minuter omfattar viktiga funktioner och användningsfall.
-+ 3-4 minuter omfattar tjänstetablering. 
-+ 4-6 minuter omfattar guiden Importera data som används för att skapa ett index med hjälp av den inbyggda datamängden för fastigheter.
-+ 6-9 minuter omfattar Sökutforskaren och olika frågor.
+>[!VIDEO https://www.youtube.com/embed/kOJU0YZodVk?version=3]

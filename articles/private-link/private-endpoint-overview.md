@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: a4117acb2fada5c4422e177e9e6b84d7a0a51b69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82129323"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82744396"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -35,7 +35,7 @@ Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och s�
 Här följer några viktiga uppgifter om privata slut punkter: 
 - Med privat slut punkt kan du ansluta mellan konsumenter från samma VNet, regionalt peer-virtuella nätverk, globalt peered virtuella nätverk och lokalt med hjälp av [VPN](https://azure.microsoft.com/services/vpn-gateway/) eller [Express Route](https://azure.microsoft.com/services/expressroute/) och tjänster som drivs av en privat länk.
  
-- När du skapar en privat slut punkt skapas även ett nätverks gränssnitt för resursens livs cykel. Gränssnittet tilldelas en privat IP-adress från det undernät som mappar till den privata länk tjänsten.
+- När du skapar en privat slut punkt skapas även ett skrivskyddat nätverks gränssnitt för resursens livs cykel. Gränssnittet tilldelas en privat IP-adress från det undernät som mappar till den privata länk resursen.
  
 - Den privata slut punkten måste distribueras i samma region som det virtuella nätverket. 
  
@@ -60,7 +60,7 @@ En privat länk resurs är mål målet för en specifik privat slut punkt. Följ
 |**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts    | SQL, MongoDB, Cassandra, Gremlin, Table|
 |**Azure Database for PostgreSQL-enskild server** | Microsoft. DBforPostgreSQL/servers    | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft. DBforMySQL/servers    | mysqlServer |
-|**Azure-databas för MariaDB** | Microsoft. DBforMariaDB/servers    | mariadbServer |
+|**Azure Database för MariaDB** | Microsoft. DBforMariaDB/servers    | mariadbServer |
 |**Azure Key Vault** | Microsoft. nyckel valv/-valv    | valv |
 |**Azure Kubernetes-tjänst – Kubernetes-API** | Microsoft. container service/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft. search/searchService| searchService|  

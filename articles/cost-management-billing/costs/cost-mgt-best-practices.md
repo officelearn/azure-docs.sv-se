@@ -3,17 +3,17 @@ title: Optimera din molninvestering med Azure Cost Management
 description: Den här artikeln hjälper dig att få ut det mesta möjliga av dina molninvesteringar, minska kostnaderna och utvärdera var pengarna spenderas.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/07/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8df98514545a2670ea18a2b4b131a097244d7b46
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 759c69544c083e95cbd5198eecf9f7bb0e882aa8
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80874593"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82791620"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Så här optimerar du din molninvestering med Azure Cost Management
 
@@ -104,6 +104,12 @@ Mer information om de olika alternativen finns i [Så köper du Azure Stack](htt
 
 - Alternativ för ekonomiska åtaganden i förskott
 - Åtkomst till reducerad Azure-prissättning
+
+#### <a name="azure-in-csp"></a>[Azure i CSP](https://azure.microsoft.com/offers/ms-azr-0145p/)
+
+- CSP-partner är den första kontaktpunkten för kundernas behov och centrum för kundrelationen
+- CSP-partner etablerar nya kunder, beställer och hanterar prenumerationer samt utför administrativa uppgifter för kundernas räkning
+- CSP-partner kombinerar tjänster med unika lösningar som ett paket eller är återförsäljare av Azure samtidigt som de styr prissättning, villkor och fakturering
 
 ## <a name="estimate-the-cost-of-your-solution"></a>Uppskatta kostnaden för din lösning
 

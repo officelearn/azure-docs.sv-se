@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: c65e3ad7ed02ddd4e6ed1d60628a738d333e9a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eaf51f6778d38d236808c3fd809082bc3b2d54b2
+ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189389"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82863441"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Konfigurera utgående nätverks trafik för Azure HDInsight-kluster med hjälp av brand vägg
 
@@ -65,17 +65,17 @@ Skapa en program regel samling som gör det möjligt för klustret att skicka oc
     |---|---|
     |Namn| FwAppRule|
     |Prioritet|200|
-    |Åtgärd|Tillåt|
+    |Action|Tillåt|
 
     **Avsnittet FQDN-Taggar**
 
-    | Name | Käll adress | FQDN-tagg | Anteckningar |
+    | Name | Käll adress | FQDN-tagg | Obs! |
     | --- | --- | --- | --- |
     | Rule_1 | * | WindowsUpdate och HDInsight | Krävs för HDI-tjänster |
 
     **Avsnittet mål-FQDN**
 
-    | Name | Käll adresser | `Protocol:Port` | Mål-FQDN | Anteckningar |
+    | Name | Käll adresser | `Protocol:Port` | Mål-FQDN | Obs! |
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https: 443 | login.windows.net | Tillåt Windows inloggnings aktivitet |
     | Rule_3 | * | https: 443 | login.microsoftonline.com | Tillåt Windows inloggnings aktivitet |
@@ -99,11 +99,11 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
     |---|---|
     |Namn| FwNetRule|
     |Prioritet|200|
-    |Åtgärd|Tillåt|
+    |Action|Tillåt|
 
     **Avsnittet IP-adresser**
 
-    | Name | Protokoll | Käll adresser | Mål adresser | Målportar | Anteckningar |
+    | Name | Protokoll | Käll adresser | Mål adresser | Målportar | Obs! |
     | --- | --- | --- | --- | --- | --- |
     | Rule_1 | UDP | * | * | 123 | Tids tjänst |
     | Rule_2 | Alla | * | DC_IP_Address_1 DC_IP_Address_2 | * | Om du använder Enterprise Security Package (ESP) lägger du till en nätverks regel i avsnittet IP-adresser som tillåter kommunikation med AAD-DS för ESP-kluster. Du hittar IP-adresserna för domän kontrol Lanterna i AAD-DS-avsnittet i portalen |
@@ -112,7 +112,7 @@ Skapa nätverks reglerna för att konfigurera HDInsight-klustret på rätt sätt
 
     **Avsnittet service Tags**
 
-    | Name | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Anteckningar |
+    | Name | Protokoll | Källadresser | Tjänsttaggar | Mål portar | Obs! |
     | --- | --- | --- | --- | --- | --- |
     | Rule_7 | TCP | * | SQL | 1433 | Konfigurera en nätverks regel i avsnittet service märken för SQL som gör att du kan logga och granska SQL-trafik. Om du inte har konfigurerat tjänst slut punkter för SQL Server i HDInsight-undernätet, vilket kringgår brand väggen. |
 
@@ -140,12 +140,12 @@ Om du till exempel vill konfigurera routningstabellen för ett kluster som skapa
 
 | Vägnamn | Adressprefix | Nexthop-typ | Nexthop-adress |
 |---|---|---|---|
-| 168.61.49.99 | 168.61.49.99/32 | Internet | Ej tillämpligt |
-| 23.99.5.239 | 23.99.5.239/32 | Internet | Ej tillämpligt |
-| 168.61.48.131 | 168.61.48.131/32 | Internet | Ej tillämpligt |
-| 138.91.141.162 | 138.91.141.162/32 | Internet | Ej tillämpligt |
-| 13.82.225.233 | 13.82.225.233/32 | Internet | Ej tillämpligt |
-| 40.71.175.99 | 40.71.175.99/32 | Internet | Ej tillämpligt |
+| 168.61.49.99 | 168.61.49.99/32 | Internet | NA |
+| 23.99.5.239 | 23.99.5.239/32 | Internet | NA |
+| 168.61.48.131 | 168.61.48.131/32 | Internet | NA |
+| 138.91.141.162 | 138.91.141.162/32 | Internet | NA |
+| 13.82.225.233 | 13.82.225.233/32 | Internet | NA |
+| 40.71.175.99 | 40.71.175.99/32 | Internet | NA |
 | 0.0.0.0 | 0.0.0.0/0 | Virtuell installation | 10.0.2.4 |
 
 Slutför konfigureringen av routningstabellen:
@@ -188,61 +188,7 @@ När brand väggen har kon figurer ATS kan du använda den interna slut punkten 
 
 Om du vill använda den offentliga`https://CLUSTERNAME.azurehdinsight.net`slut punkten () eller`CLUSTERNAME-ssh.azurehdinsight.net`SSH-slutpunkten () kontrollerar du att du har rätt vägar i routningstabellen och NSG-regler för att undvika problemet med asymmetrisk routning som beskrivs [här](../firewall/integrate-lb.md). I detta fall måste du tillåta klientens IP-adress i reglerna för inkommande NSG och även lägga till den i den användardefinierade routningstabellen med nästa hopp uppsättning som `internet`. Om routningen inte är korrekt konfigurerad visas ett tids gräns fel.
 
-## <a name="configure-another-network-virtual-appliance"></a>Konfigurera en annan virtuell nätverks installation
-
-> [!Important]
-> Följande information krävs **bara** om du vill konfigurera en annan virtuell nätverks installation (NVA) än Azure Firewall.
-
-I föregående instruktioner kan du konfigurera Azure-brandväggen för att begränsa utgående trafik från HDInsight-klustret. Azure-brandväggen konfigureras automatiskt för att tillåta trafik för många av de vanliga viktiga scenarierna. Om du använder en annan virtuell nätverks installation måste du konfigurera ett antal ytterligare funktioner. Tänk på följande faktorer när du konfigurerar din virtuella nätverks installation:
-
-* Tjänst slut punkts tjänster som stöder tjänster måste konfigureras med tjänst slut punkter.
-* IP-adress beroenden är för trafik som inte är HTTP/S (både TCP-och UDP-trafik).
-* FQDN HTTP/HTTPS-slutpunkter kan placeras i din NVA-enhet.
-* HTTP/HTTPS-slutpunkter med jokertecken är beroenden som kan variera beroende på ett antal kvalificerare.
-* Tilldela den routningstabell som du skapar till ditt HDInsight-undernät.
-
-### <a name="service-endpoint-capable-dependencies"></a>Tjänst slut punkt kompatibla beroenden
-
-| **Endpoint** |
-|---|
-| Azure SQL |
-| Azure Storage |
-| Azure Active Directory |
-
-#### <a name="ip-address-dependencies"></a>IP-adress beroenden
-
-| **Endpoint** | **Information** |
-|---|---|
-| \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
-| IP-adresser publicerade [här](hdinsight-management-ip-addresses.md) | De här IP-adresserna är HDInsight-tjänsten |
-| AAD – DS privata IP-adresser för ESP-kluster |
-| \*: 16800 för Windows-aktivering i KMS |
-| \*12000 för Log Analytics |
-
-#### <a name="fqdn-httphttps-dependencies"></a>FQDN HTTP/HTTPS-beroenden
-
-> [!Important]
-> Listan nedan innehåller bara några av de viktigaste FQDN-namnen. Du kan hämta ytterligare FQDN (Azure Storage och Azure Service Bus) för att konfigurera din NVA [i den här filen](https://github.com/Azure-Samples/hdinsight-fqdn-lists/blob/master/HDInsightFQDNTags.json).
-
-| **Endpoint**                                                          |
-|---|
-| azure.archive.ubuntu.com:80                                           |
-| security.ubuntu.com:80                                                |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
-| registry-1.docker.io:443                                              |
-| auth.docker.io:443                                                    |
-| production.cloudflare.docker.com:443                                  |
-| download.docker.com:443                                               |
-| us.archive.ubuntu.com:80                                              |
-| download.mono-project.com:80                                          |
-| packages.treasuredata.com:80                                          |
-| security.ubuntu.com:80                                                |
-| azure.archive.ubuntu.com:80                                           |
-| ocsp.msocsp.com:80                                                    |
-| ocsp.digicert.com:80                                                  |
-
 ## <a name="next-steps"></a>Nästa steg
 
 * [Azure HDInsight Virtual Network-arkitektur](hdinsight-virtual-network-architecture.md)
+* [Konfigurera virtuell nätverks installation](./network-virtual-appliance.md)

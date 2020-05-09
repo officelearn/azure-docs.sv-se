@@ -1,7 +1,7 @@
 ---
-title: Azure AD B2C (MSAL.NET) | Azure
+title: Azure AD B2C och MSAL.NET
 titleSuffix: Microsoft identity platform
-description: Lär dig mer om att tänka på när du använder Azure AD B2C med Microsoft Authentication Library för .NET (MSAL.NET).
+description: Att tänka på när du använder Azure AD B2C med Microsoft Authentication Library för .NET (MSAL.NET).
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -9,39 +9,39 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/29/2019
+ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: d31cf3a4e024dc59b865d096cbd0829d50f61a1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
+ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81533963"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82883234"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
 
 Du kan använda MSAL.NET för att logga in användare med sociala identiteter genom att använda [Azure Active Directory B2C (Azure AD B2C)](https://aka.ms/aadb2c). Azure AD B2C är byggd runt begreppet principer. I MSAL.NET anger du en princip som översätter för att tillhandahålla en utfärdare.
 
-- När du instansierar det offentliga klient programmet måste du ange principen i auktoritet.
-- När du vill tillämpa en princip måste du anropa en åsidosättning av `AcquireTokenInteractive` som innehåller en `authority` parameter.
+- När du instansierar det offentliga klient programmet måste du ange principen som en del av utfärdaren.
+- När du vill tillämpa en princip anropar du en åsidosättning av `AcquireTokenInteractive` som accepterar `authority` parametern.
 
-Den här sidan är för MSAL 3. x. Om du är intresse rad av MSAL 2. x kan du se [Azure AD B2C information i MSAL 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x).
+Den här artikeln gäller MSAL.NET 3. x. För MSAL.NET 2. x, se [Azure AD B2C information i MSAL 2. x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-Specifics-MSAL-2.x) i MSAL.net wiki på GitHub.
 
-## <a name="authority-for-a-azure-ad-b2c-tenant-and-policy"></a>Auktoritet för en Azure AD B2C klient och princip
+## <a name="authority-for-an-azure-ad-b2c-tenant-and-policy"></a>Auktoritet för en Azure AD B2C klient och princip
 
-Den myndighet som ska använda `https://{azureADB2CHostname}/tfp/{tenant}/{policyName}` är där:
+Auktoritets formatet för Azure AD B2C är:`https://{azureADB2CHostname}/tfp/{tenant}/{policyName}`
 
-- `azureADB2CHostname`är namnet på Azure AD B2C klient organisationen plus värden (till exempel `{your-tenant-name}.b2clogin.com`)
-- `tenant`är det fullständiga namnet på Azure AD B2C klient organisation (till exempel `{your-tenant-name}.onmicrosoft.com`) eller klientens GUID,
-- `policyName`namnet på den princip eller det användar flöde som ska användas (till exempel "b2c_1_susi" för registrering/inloggning).
+- `azureADB2CHostname`– Namnet på Azure AD B2C klient organisationen plus värden. Till exempel *contosob2c.b2clogin.com*.
+- `tenant`– Domän namnet eller klient-ID: t för Azure AD B2C klient organisationen. Till exempel *contosob2c.onmicrosoft.com* eller ett GUID.
+- `policyName`– Namnet på det användar flöde eller den anpassade principen som ska användas. Till exempel en registrerings-/inloggnings princip som *b2c_1_susi*.
 
-Mer information om Azure AD B2C myndigheter finns i den här [dokumentationen](/azure/active-directory-b2c/b2clogin).
+Mer information om Azure AD B2C-myndigheter finns i [Ange omdirigerings-URL: er till b2clogin.com](../../active-directory-b2c/b2clogin.md).
 
 ## <a name="instantiating-the-application"></a>Instansiera programmet
 
-När du skapar programmet måste du ange utfärdaren.
+Ange utfärdaren genom att `WithB2CAuthority()` anropa när du skapar programobjektet:
 
 ```csharp
 // Azure AD B2C Coordinates
@@ -64,74 +64,80 @@ application = PublicClientApplicationBuilder.Create(ClientID)
 
 ## <a name="acquire-a-token-to-apply-a-policy"></a>Hämta en token för att tillämpa en princip
 
-Att hämta en token för ett Azure AD B2C skyddat API i ett offentligt klient program kräver att du använder åsidosättningarna med en utfärdare:
+Att skaffa en token för ett Azure AD B2C-skyddat API i ett offentligt klient program kräver att du använder åsidosättningarna med en utfärdare:
 
 ```csharp
 IEnumerable<IAccount> accounts = await application.GetAccountsAsync();
-AuthenticationResult ar = await application .AcquireTokenInteractive(scopes)
-                                            .WithAccount(GetAccountByPolicy(accounts, policy))
-                                            .WithParentActivityOrWindow(ParentActivityOrWindow)
-                                            .ExecuteAsync();
+AuthenticationResult ar = await application.AcquireTokenInteractive(scopes)
+                                           .WithAccount(GetAccountByPolicy(accounts, policy))
+                                           .WithParentActivityOrWindow(ParentActivityOrWindow)
+                                           .ExecuteAsync();
 ```
 
-med:
+I föregående kodfragment:
 
-- `policy`vara en av de föregående strängarna (till `PolicySignUpSignIn`exempel).
-- `ParentActivityOrWindow`krävs för Android (aktiviteten) och valfritt för andra plattformar som har stöd för det överordnade användar gränssnittet, t. ex. Windows i Windows och UIViewController i iOS. Mer information finns [här i dialog rutan UI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow).
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`är en metod som söker efter ett konto för en specifik princip. Ett exempel:
+- `policy`är en sträng som innehåller namnet på ditt Azure AD B2C användar flöde eller en anpassad princip (till exempel `PolicySignUpSignIn`).
+- `ParentActivityOrWindow`krävs för Android (aktiviteten) och är valfritt för andra plattformar som har stöd för ett överordnat användar gränssnitt som Windows på Microsoft Windows och UIViewController i iOS. Mer information om UI-dialogrutan finns i [WithParentActivityOrWindow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow) på MSAL-wikin.
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`är en metod som söker efter ett konto för en specifik princip. Exempel:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
   {
-   foreach (var account in accounts)
-   {
-    string userIdentifier = account.HomeAccountId.ObjectId.Split('.')[0];
-    if (userIdentifier.EndsWith(policy.ToLower()))
-     return account;
-   }
-   return null;
+      foreach (var account in accounts)
+      {
+          string userIdentifier = account.HomeAccountId.ObjectId.Split('.')[0];
+          if (userIdentifier.EndsWith(policy.ToLower()))
+              return account;
+      }
+      return null;
   }
   ```
 
-Att tillämpa en princip eller ett användar flöde (t. ex. genom att låta användaren redigera sin profil eller återställa sitt lösen ord) utförs `AcquireTokenInteractive`för tillfället genom att anropa. Om dessa två principer används använder du inte resultatet för returnerat token/autentisering.
+Att använda ett användar flöde eller en anpassad princip (till exempel att låta användaren redigera sin profil eller återställa sina lösen ord) utförs för tillfället `AcquireTokenInteractive`genom att anropa. För de här två principerna använder du inte resultatet för returnerat token/autentisering.
 
-## <a name="special-case-of-editprofile-and-resetpassword-policies"></a>Specialfall av EditProfile-och ResetPassword-principer
+## <a name="profile-edit-policies"></a>Profil redigerings principer
 
-När du vill ge en upplevelse där dina slutanvändare loggar in med en social identitet och sedan redigera profilen, vill du tillämpa principen för Azure AD B2C Redigera profil. Sättet att göra detta är genom att anropa `AcquireTokenInteractive` med den angivna behörigheten för principen och en prompt har angetts till `Prompt.NoPrompt` för att förhindra att dialog rutan konto val visas (eftersom användaren redan är inloggad och har en aktiv cookie-session).
+Om du vill göra det möjligt för användarna att logga in med en social identitet och sedan redigera profilen, använder du Azure AD B2C Redigera profil princip.
+
+Gör detta genom att `AcquireTokenInteractive` anropa med behörigheten för principen. Eftersom användaren redan är inloggad och har en aktiv cookie-session, `Prompt.NoPrompt` använder du för att förhindra att dialog rutan konto val visas.
 
 ```csharp
 private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 {
- IEnumerable<IAccount> accounts = await app.GetAccountsAsync();
- try
- {
-  var authResult = await app.AcquireToken(scopes:App.ApiScopes)
-                               .WithAccount(GetUserByPolicy(accounts, App.PolicyEditProfile)),
-                               .WithPrompt(Prompt.NoPrompt),
-                               .WithB2CAuthority(App.AuthorityEditProfile)
-                               .ExecuteAsync();
-  DisplayBasicTokenInfo(authResult);
- }
- catch
- {
-  . . .
- }
+    IEnumerable<IAccount> accounts = await app.GetAccountsAsync();
+    try
+    {
+        var authResult = await app.AcquireToken(scopes:App.ApiScopes)
+                            .WithAccount(GetUserByPolicy(accounts, App.PolicyEditProfile)),
+                            .WithPrompt(Prompt.NoPrompt),
+                            .WithB2CAuthority(App.AuthorityEditProfile)
+                            .ExecuteAsync();
+        DisplayBasicTokenInfo(authResult);
+    }
+    catch
+    {
+    }
 }
 ```
-## <a name="resource-owner-password-credentials-ropc-with-azure-ad-b2c"></a>Autentiseringsuppgifter för resurs ägar lösen ord (ROPC) med Azure AD B2C
-Mer information om ROPC-flödet finns i den här [dokumentationen](v2-oauth-ropc.md).
 
-Det här flödet **rekommenderas inte** eftersom ditt program som ber användaren om lösen ordet inte är säkert. Mer information om det här problemet finns i [den här artikeln](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
+## <a name="resource-owner-password-credentials-ropc"></a>Autentiseringsuppgifter för resurs ägar lösen ord (ROPC)
 
-Genom att använda användar namn/lösen ord ger du ett antal saker:
-- Kärn Tenets av modern identitet: lösen ordet blir bevarat och spelas upp. Eftersom vi har det här begreppet en resurs hemlighet som kan fångas upp. Detta är inte kompatibelt med lösen ord.
+Mer information om ROPC-flödet finns i [Logga in med autentiseringsuppgifter för resurs ägarens lösen ord](v2-oauth-ropc.md).
+
+ROPC-flödet **rekommenderas inte** eftersom det inte är säkert att fråga användaren om lösen ordet i ditt program. Mer information om det här problemet finns i [Vad är lösningen på det växande problemet med lösen ord?](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/).
+
+Genom att använda användar namn/lösen ord i ett ROPC-flöde kan du offra flera saker:
+
+- Kärn Tenets av modern identitet: lösen ordet kan behållas eller spelas upp eftersom den delade hemligheten kan fångas upp. Efter definition är ROPC inkompatibelt med lösen flöden utan lösen ord.
 - Användare som behöver göra MFA kan inte logga in (eftersom det inte finns någon interaktion).
-- Användare kan inte utföra enkel inloggning.
+- Användare kan inte använda enkel inloggning (SSO).
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Konfigurera ROPC-flödet i Azure AD B2C
-Skapa ett nytt användar flöde i Azure AD B2C klient och välj Logga in **med ROPC**. Då aktive ras ROPC-principen för din klient. Mer information finns i [Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord](/azure/active-directory-b2c/configure-ropc) .
 
-`IPublicClientApplication`innehåller en metod:
+Skapa ett nytt användar flöde i Azure AD B2C klient och välj Logga in **med ROPC** för att aktivera ROPC för användar flödet. Mer information finns i [Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord](/azure/active-directory-b2c/configure-ropc).
+
+`IPublicClientApplication`innehåller `AcquireTokenByUsernamePassword` metoden:
+
 ```csharp
 AcquireTokenByUsernamePassword(
             IEnumerable<string> scopes,
@@ -139,44 +145,50 @@ AcquireTokenByUsernamePassword(
             SecureString password)
 ```
 
-Den här metoden tar som parametrar:
-- *Omfattningarna* som begär en åtkomsttoken för.
+Den `AcquireTokenByUsernamePassword` här metoden använder följande parametrar:
+
+- De *omfattningar* som en åtkomsttoken ska hämtas för.
 - Ett *användar namn*.
 - Ett SecureString- *lösenord* för användaren.
 
-Kom ihåg att använda den myndighet som innehåller ROPC-principen.
-
 ### <a name="limitations-of-the-ropc-flow"></a>Begränsningar för ROPC-flödet
- - ROPC-flödet **fungerar bara för lokala konton** (där du registrerar dig med Azure AD B2C med hjälp av ett e-postmeddelande eller användar namn). Det här flödet fungerar inte om federering till någon av de identitets leverantörer som stöds av Azure AD B2C (Facebook, Google osv.).
+
+ROPC-flödet **fungerar bara för lokala konton**där dina användare har registrerats med Azure AD B2C med hjälp av en e-postadress eller ett användar namn. Det här flödet fungerar inte när du federerar till en extern identitetsprovider som stöds av Azure AD B2C (Facebook, Google osv.).
 
 ## <a name="google-auth-and-embedded-webview"></a>Google auth och Embedded webbvy
 
-Om du är en Azure AD B2C utvecklare som använder Google som en identitetsprovider, kan du använda system webbläsaren som Google tillåter inte [autentisering från inbäddade webviews](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). För närvarande `login.microsoftonline.com` är en betrodd utfärdare med Google. Att använda den här utfärdaren fungerar med inbäddad webbvy. Att använda `b2clogin.com` är dock inte en betrodd utfärdare med Google, så användarna kan inte autentisera sig.
+Om du använder Google som en identitets leverantör rekommenderar vi att du använder system läsaren som Google tillåter inte [autentisering från inbäddade webviews](https://developers.googleblog.com/2016/08/modernizing-oauth-interactions-in-native-apps.html). För närvarande `login.microsoftonline.com` är en betrodd utfärdare med Google och fungerar med inbäddad webbvy. Men `b2clogin.com` är inte en betrodd utfärdare med Google, så användarna kan inte autentisera sig.
 
-Vi kommer att tillhandahålla en uppdatering av det här [problemet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) om saker ändras.
+Vi tillhandahåller en uppdatering av det här [problemet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/688) om saker ändras.
 
-## <a name="caching-with-azure-ad-b2c-in-msalnet"></a>Cachelagring med Azure AD B2C i MSAL.Net
+## <a name="token-caching-in-msalnet"></a>Cachelagring av token i MSAL.NET
 
 ### <a name="known-issue-with-azure-ad-b2c"></a>Känt problem med Azure AD B2C
 
-MSAL.Net stöder [token cache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). Nyckeln för cachelagring av token baseras på de anspråk som returneras av identitets leverantören. För närvarande behöver MSAL.Net två anspråk för att bygga en token cache-nyckel:
-- `tid`vilket är Azure AD-klient-ID: t och
+MSAL.NET stöder [token cache](/dotnet/api/microsoft.identity.client.tokencache?view=azure-dotnet). Nyckeln för cachelagring av token baseras på de anspråk som returneras av identitets leverantören (IdP).
+
+För närvarande behöver MSAL.NET två anspråk för att bygga en nyckel för token-cache:
+
+- `tid`(klient-ID för Azure AD)
 - `preferred_username`
 
-Båda dessa anspråk saknas i många av de Azure AD B2C scenarierna.
+Båda dessa anspråk kan saknas i Azure AD B2C scenarier eftersom inte alla sociala identitets leverantörer (Facebook, Google och andra) returnerar dem i de tokens som de returnerar till Azure AD B2C.
 
-Kund effekten är att när du försöker visa fältet username får du "saknas från" token Response "som värdet? I så fall beror det på att Azure AD B2C inte returnerar ett värde i IdToken för preferred_username på grund av begränsningar med sociala konton och externa identitets leverantörer (IDP: er). Azure AD returnerar ett värde för preferred_username eftersom det vet vem användaren är, men för Azure AD B2C, eftersom användaren kan logga in med ett lokalt konto, Facebook, Google, GitHub osv. det finns inget konsekvent värde för Azure AD B2C som används för preferred_username. För att avblockera MSAL från att ta bort cache-kompatibilitet med ADAL, bestämde vi att du använder "saknas svar från token" i vårt slut när du hanterar Azure AD B2C-konton när IdToken returnerar inget för preferred_username. MSAL måste returnera ett värde för preferred_username för att bevara cache-kompatibiliteten mellan bibliotek.
+Ett symtom på ett sådant scenario är att MSAL.NET returnerar `Missing from the token response` när du har åtkomst `preferred_username` till anspråks värdet i tokens som utfärdats av Azure AD B2C. MSAL använder `Missing from the token response` värdet för `preferred_username` för att bevara cache-mellan-kompatibilitet mellan bibliotek.
 
 ### <a name="workarounds"></a>Provisoriska lösningar
 
-#### <a name="mitigation-for-the-missing-tenant-id"></a>Minskning av klient-ID som saknas
+#### <a name="mitigation-for-missing-tenant-id"></a>Minskning av klient-ID som saknas
 
-Den föreslagna lösningen är att använda [cachelagring efter princip](#acquire-a-token-to-apply-a-policy)
+Den föreslagna lösningen är att använda [cachelagring enligt princip](#acquire-a-token-to-apply-a-policy) som beskrivs ovan.
 
-Du kan också använda `tid` anspråket om du använder [anpassade principer för B2C](https://aka.ms/ief), eftersom det ger möjlighet att returnera ytterligare anspråk till programmet. Läs mer om [anspråks omvandling](/azure/active-directory-b2c/claims-transformation-technical-profile)
+Du kan också använda `tid` anspråket om du använder [anpassade principer](../../active-directory-b2c/custom-policy-get-started.md) i Azure AD B2C. Anpassade principer kan returnera ytterligare anspråk till ditt program genom att använda [anspråks omvandling](/azure/active-directory-b2c/claims-transformation-technical-profile).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Minskning av "saknas från" token Response "
-Ett alternativ är att använda anspråket "namn" som önskat användar namn. Processen beskrivs i den här [B2C dokument](../../active-directory-b2c/user-flow-overview.md) -> "i kolumnen retur anspråk väljer du de anspråk som du vill ska returneras i de token som skickas tillbaka till programmet efter en lyckad profil redigerings upplevelse. Välj till exempel visnings namn, post nummer. "
+
+Ett alternativ är att använda `name` anspråket i `preferred_username`stället för. Om du vill `name` inkludera anspråk i ID-token som utfärdats av Azure AD B2C väljer du **visnings namn** när du konfigurerar ditt användar flöde.
+
+Mer information om hur du anger vilka anspråk som returneras av dina användar flöden finns i [Självstudier: skapa användar flöden i Azure AD B2C](../../active-directory-b2c/tutorial-create-user-flows.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -184,4 +196,4 @@ Mer information om hur du hämtar token interaktivt med MSAL.NET för Azure AD B
 
 | Exempel | Plattform | Beskrivning|
 |------ | -------- | -----------|
-|[Active-Directory-B2C-Xamarin-Native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | En enkel Xamarin Forms-app som demonstrerar hur du använder MSAL.NET för att autentisera användare via Azure AD B2C och åtkomst till ett webb-API med de resulterande tokens.|
+|[Active-Directory-B2C-Xamarin-Native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | En Xamarin Forms-app som använder MSAL.NET för att autentisera användare via Azure AD B2C och sedan få åtkomst till ett webb-API med de token som returneras.|

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/24/2019
+ms.date: 04/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 51935516e26f263e44a926bf9b7d7ec24a5eeb9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12ca4df6e5dd4ba86ece8469255195e2fa1c155e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77560073"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628903"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Felsöka problem som rör Azure Data Box och Azure Data Box Heavy
 
@@ -92,6 +92,17 @@ Detta är fel som rör behållare och resurs namn.
     - Exempel på namn som inte är giltiga `my-folder_1`: `my`, `--myfolder`, `myfolder--`,,`myfolder!`
 
     Mer information finns i namngivnings konventionerna i Azure för [behållar namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) och [resurs namn](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
+    
+### <a name="error_file_or_directory_name_illegal"></a>ERROR_FILE_OR_DIRECTORY_NAME_ILLEGAL
+
+**Fel Beskrivning**: katalogen eller behållar namnen innehåller ogiltiga tecken.
+
+**Rekommenderad lösning**: katalogen eller de behållar namn som du har kopierat innehåller tecken som inte stöds.
+
+- På sidan Anslut och kopiera i det lokala webb gränssnittet laddar du ned och granskar felfilerna för att identifiera mappnamnen med problem. 
+- Byt namn på katalogen eller behållare för att säkerställa att de är kompatibla med namngivnings konventionerna i Azure.
+
+Mer information finns i namngivnings konventionerna för [kataloger](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names) och [behållare](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names)i Azure.
 
 ## <a name="container-or-share-size-limit-errors"></a>Gräns fel för behållare eller resurs storlek
 

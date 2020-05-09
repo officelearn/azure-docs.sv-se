@@ -7,16 +7,16 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 71df574602518fdc252d9d86859ed772a17be443
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b8632eaf7662d705235adaad7cd03d2e7e4904b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408991"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626885"
 ---
 # <a name="what-are-wrangling-data-flows"></a>Vad är datatransformering data flöden?
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Organisationer behöver utföra förberedelse av data och datatransformering för korrekt analys av komplexa data som fortsätter att växa varje dag. Förberedelse av data krävs så att organisationer kan använda data i olika affärs processer och minska tiden till värde.
 
@@ -44,7 +44,7 @@ Genomsök data visuellt i ett kod fritt sätt för att ta bort eventuella avvika
 
 | Anslutningsprogram | Dataformat | Autentiseringstyp |
 | -- | -- | --|
-| [Azure-Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Konto nyckel |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | Konto nyckel |
 | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | Tjänstens huvudnamn |
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | Konto nyckel, tjänstens huvud namn |
 | [Azure SQL Database](connector-azure-sql-database.md) | - | SQL-autentisering |

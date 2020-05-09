@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: c718daa4bc99bffd6fcfeb084299bed6682fe884
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2aed3a66f70864b3445418a51b0e79280e6884bd
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75780514"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82629209"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Migrera din SQLite-databas till Azure SQL Database Server lös
-För många användare ger SQLite sin första upplevelse av databaser och SQL-programmering. Den ingår i många operativ system och populära program gör SQLite till en mest distribuerad och använda databas motorer i världen. Och eftersom det är troligt att den första databas motorn många användare använder, kan den ofta bli en central del av projekt eller program. I sådana fall där projektet eller programmet ökar den inledande SQLite-implementeringen, kan utvecklare behöva migrera sina data till ett tillförlitligt centraliserat data lager.
+För många användare ger SQLite sin första upplevelse av databaser och SQL-programmering. Den ingår i många operativ system och populära program gör SQLite till en av de mest distribuerade och använda databas motorerna i världen. Och eftersom det är troligt att den första databas motorn många användare använder, kan den ofta bli en central del av projekt eller program. I sådana fall där projektet eller programmet ökar den inledande SQLite-implementeringen, kan utvecklare behöva migrera sina data till ett tillförlitligt centraliserat data lager.
 
 Azure SQL Database utan server är en beräknings nivå för enskilda databaser som automatiskt skalar beräkning baserat på arbets belastnings behov och fakturerar för mängden data bearbetning som används per sekund. Server lös beräknings nivån pausar också automatiskt databaser under inaktiva perioder när endast lagring faktureras och återupptar automatiskt databaser när aktiviteten returnerar.
 

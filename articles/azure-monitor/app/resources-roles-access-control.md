@@ -3,12 +3,12 @@ title: Resurser, roller och åtkomst kontroll i Azure Application Insights | Mic
 description: Ägare, deltagare och läsare av organisationens insikter.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 1e57af269c4052d0dcd4a8f7970ca23017024299
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee14fee66e3aa6f4e8d999f6f98debe361387515
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473140"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628251"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Resurser, roller och åtkomst kontroll i Application Insights
 
@@ -40,11 +40,6 @@ För det första, vissa definitioner:
 ## <a name="control-access-in-the-resource-group"></a><a name="access"></a>Kontrol lera åtkomst i resurs gruppen
 
 Det är viktigt att förstå att förutom den resurs som du skapade för ditt program, finns det också separata dolda resurser för aviseringar och webbtester. De är kopplade till samma [resurs grupp](#resource-group) som din Application Insights-resurs. Du kanske också har lagt till andra Azure-tjänster i dit, t. ex. webbplatser eller lagring.
-
-För att kontrol lera åtkomsten till de här resurserna rekommenderar vi därför att:
-
-* Kontrol lera åtkomsten i **resurs gruppen eller prenumerations** nivån.
-* Tilldela rollen **Application Insights komponent deltagare** till användare. Detta gör att de kan redigera webbtester, aviseringar och Application Insights resurser, utan att ge åtkomst till andra tjänster i gruppen.
 
 ## <a name="to-provide-access-to-another-user"></a>Ge åtkomst till en annan användare
 

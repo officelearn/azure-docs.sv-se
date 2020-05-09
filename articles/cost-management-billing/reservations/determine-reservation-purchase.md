@@ -5,20 +5,20 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/22/2020
+ms.date: 04/30/2020
 ms.author: banders
-ms.openlocfilehash: 1b639da3494c0527141347ca61e77980d29a59ea
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: feee7475dcadc6d06693d9e60020097f8dc9149c
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80135563"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628613"
 ---
 # <a name="determine-what-reservation-to-purchase"></a>Välja rätt reservation
 
 Alla reservationer, förutom Azure Databricks, tillämpas per timme. Reservationsköp bör göras utifrån en konsekvent basanvändning. Det finns flera sätt att avgöra vad du bör köpa, och i den här artikeln får du hjälp med att välja rätt reservation för dina behov.
 
-Om du köper mer kapacitet än vad du historiskt sett förbrukat, leder det till en underutnyttjad reservation. Underutnyttjad kapacitet bör undvikas i möjligaste mån. Outnyttjad reserverad kapacitet överförs inte från en timme till nästa.  Användning som överskrider den reserverade kvantiteten debiteras med dyrare ”betala per användning”-priser.
+Om du köper mer kapacitet än vad du historiskt sett förbrukat, leder det till en underutnyttjad reservation. Underutnyttjad kapacitet bör undvikas i möjligaste mån. Outnyttjad reserverad kapacitet överförs inte från en timme till nästa. Användning som överskrider den reserverade kvantiteten debiteras med dyrare ”betala per användning”-priser.
 
 ## <a name="analyze-usage-data"></a>Analysera användningsdata
 
@@ -40,11 +40,11 @@ Ignorera resurser som har mindre än 24 timmars användning per dag.
 
 Om du vill analysera på nivån för instansstorleksfamilj kan du hämta de olika värdena för instansstorlekarna från [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Kombinera värdena med dina data för att utföra analysen. Mer information om flexibel instansstorlek finns i artikeln om [flexibel storlek för virtuella datorer med reserverade VM-instanser](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-### <a name="analyze-usage-for-a-sql-database-reserved-instance-purchase"></a>Analysera användningen för köp av en reserverad SQL Database-instans
+### <a name="analyze-usage-for-an-azure-synapse-analytics-reserved-instance-purchase"></a>Analysera användning för ett köp av reserverade instanser i Azure Synapse Analytics
 
-Reserverad kapacitet gäller vCore-beräkningspriser för SQL-databaser. Den gäller inte för DTU-baserade priser, SQL-licenskostnader eller andra kostnader än beräkning.
+Reserverad kapacitet gäller för Azure Synapse Analytics DWU-priser. Reserverad kapacitet gäller inte för Azure Synapse Analytics-licenskostnader eller andra kostnader än beräkning.
 
-Tillämpa följande filter på dina användningsdata för att filtrera fram kvalificerad SQL-användning:
+Tillämpa följande filter på dina användningsdata för att filtrera fram kvalificerad användning:
 
 
 - Filtrera **MeterCategory** till **SQL Database**.
@@ -60,22 +60,22 @@ Informationen visar den konsekventa användningen för:
 - Generation. Till exempel Generation 5.
 - Resursplats
 
-### <a name="analysis-for-sql-data-warehouse"></a>Analys för SQL Data Warehouse
+### <a name="analysis-for-azure-synapse-analytics"></a>Analys för Azure Synapse Analytics
 
-Reserverad kapacitet gäller SQL Data Warehouse DWU-användning och köps i steg om 100 DWU. Tillämpa följande filter på dina användningsdata för att filtrera fram kvalificerad SQL-användning:
+Reserverad kapacitet gäller Azure Synapse Analytics DWU-användning och köps i steg om 100 DWU. Tillämpa följande filter på dina användningsdata för att filtrera fram kvalificerad användning:
 
 - Filtrera **MeterName** till **100 DWU:er**.
 - Filtrera **Meter Sub-Category** till **Compute Optimized Gen2**.
 
-Använd fältet **Resursplats** för att avgöra SQL DW-användningen i en region.
+Använd fältet **Resursplats** för att avgöra användningen för Azure Synapse Analytics i en region.
 
-SQL Data Warehouse-användningen kan skalas upp och ned under dagen. Prata med teamet som hanterade SQL Data Warehouse-instansen och lär dig mer om basanvändningen.
+Azure Synapse Analytics-användningen kan skalas upp och ned under dagen. Prata med teamet som hanterade Azure Synapse Analytics-instansen och lär dig mer om basanvändningen.
 
-Gå till Reservationer på Azure-portalen och köp reserverad SQL Data Warehouse-kapacitet i multiplar om 100 DWU:er.
+Gå till Reservationer i Azure-portalen och köp reserverad kapacitet för Azure Synapse Analytics i multiplar om 100 DWU:er.
 
 ## <a name="reservation-purchase-recommendations"></a>Rekommendationer för reservationsköp
 
-Rekommendationer för reservationsköp beräknas genom att dina användningsdata per timme under de senaste 7, 30 och 60 dagarna analyseras. Azure beräknar vad dina kostnader skulle ha varit om du hade en reservation och jämför dem med dina kostnader med användningsbaserad betalning under tidsperioden. Beräkningen utförs för all kvantitet som du använde under tidsperioden. Den kvantitet som maximerar dina besparingar rekommenderas. 
+Rekommendationer för reservationsköp beräknas genom att dina användningsdata per timme under de senaste 7, 30 och 60 dagarna analyseras. Azure beräknar vad dina kostnader skulle ha varit om du hade en reservation och jämför dem med dina kostnader med användningsbaserad betalning under tidsperioden. Beräkningen utförs för all kvantitet som du använde under tidsperioden. Den kvantitet som maximerar dina besparingar rekommenderas.
 
 Du kanske till exempel använder 500 virtuella datorer merparten av tiden, men ibland går användningen upp till 700 virtuella datorer. I det här exemplet beräknar Azure dina besparingar för både 500 och 700 virtuella datorer. Eftersom användningen av 700 virtuella datorer är sporadisk avgör beräkningen att besparingarna maximeras med ett reservationsköp för 500 virtuella datorer och rekommendationen ges för en kvantitet på 500.
 

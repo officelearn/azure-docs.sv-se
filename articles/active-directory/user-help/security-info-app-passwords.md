@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: curtand
-ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77619f7bc24943b2b7051ff51f92cf96d439775e
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77064078"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628426"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Skapa applösenord från sidan säkerhets information (förhands granskning)
 
@@ -45,7 +45,7 @@ Om du använder tvåstegsverifiering med ditt arbets-eller skol konto och din ad
 
 ### <a name="to-create-a-new-app-password"></a>Skapa ett nytt applösenord
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myprofile.microsoft.com/ din sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till https://myaccount.microsoft.com/ din sida.
 
     ![Sidan min profil, som visar markerade länkar för säkerhets information](media/security-info/securityinfo-myprofile-page.png)
 

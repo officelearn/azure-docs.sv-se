@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 04/06/2020
+ms.date: 04/30/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: c56db99b056d4b1e9b7dd75bc2f21bf582ee2ab7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d039a7e21ac1ef6415cc363201c9754b47503add
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756836"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82627780"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Vanliga frågor och svar om Microsoft Authenticator-appen
 
@@ -27,8 +27,9 @@ Microsoft Authenticator-appen ersatte Azure Authenticator-appen och är den reko
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
-| Fråga | Lösning |
-| -------- | -------- |
+| Fråga | Svar |
+| -------- | ------ |
+| Är registreringen av en enhet som håller på att ge företaget eller tjänst åtkomst till min enhet? | När du registrerar en enhet får enheten åtkomst till din organisations tjänster och ger inte din organisation åtkomst till din enhet. |
 | Kan jag ta skärm bilder av mina eng ång slö sen ord från Android-Microsoft Authenticator? | Från och med Microsoft Authenticator Android-6.2003.1704, som standard, när en skärm bild av autentiseraren görs, är alla koder för eng ång slö sen ord dolda för att bättre skydda våra användare. Om en användare vill se sina eng ång slö sen ord i skärm bilder eller tillåta andra appar att avbilda verifierings skärmen, kan de göra det genom att aktivera inställningen "skärmdump" i sin Authenticator-app och sedan starta om appen. |
 | Vilka data autentiserar autentiseraren för mig och hur kan jag ta bort det? | Microsoft Authenticator-appen samlar in tre typer av information:<ul><li>Konto information som du anger när du lägger till ditt konto. Du kan ta bort dessa data genom att ta bort ditt konto.</li><li>Diagnostiska loggdata som bara finns i appen tills du väljer **skicka loggar** appens **Hjälp** meny för att skicka loggar till Microsoft. Loggfilerna innehåller personliga data, t. ex. dina e-postadresser ( alain@contoso.comt. ex.,), server-eller IP-adresser och enhets data (till exempel enhets namn och operativ system version) med personlig data begränsad till nödvändig information för att hjälpa till att felsöka problem med appen. Du kan när som helst Visa loggfilerna i appen om du vill se information som samlas in. Om du skickar loggfilerna kan du använda den för att felsöka problem som har rapporter ATS av appen.</li><li>Icke-personligt identifierbara användnings data, t. ex. "starta Lägg till konto flöde/lade till konto", "eller" meddelandet har godkänts. " Dessa data är en del av de tekniska besluten och hjälper oss att avgöra vilka funktioner som är viktiga för dig och var förbättringarna måste göras i form av uppdateringar av apparna. Som en app-användare kan du se ett meddelande om den här data insamlingen vid första lanseringen av appen och informeras om att den kan stängas av på appens **inställnings** sida. Du kan aktivera eller inaktivera den här inställningen när du vill.</li></ul> |
 | Vilka är koderna i appen? | När du öppnar Microsoft Authenticator-appen visas de konton som har lagts till som paneler.<li>På en iOS-enhet kommer ditt arbets-eller skol konto och dina personliga Microsoft-konton att ha sex eller åtta siffror som visas i hela skärm visningen av kontot (nås genom att trycka på konto panelen).<br><br>![Skärmen konton i appen](./media/user-help-auth-app-faq/auth-app-accounts.png)<li>För andra konton på en iOS-enhet och alla konton på en Android-enhet visas ett nummer på sex eller åtta siffror på sidan konton i appen. Du använder dessa koder som verifierade att du är den du är. När du har loggat in med ditt användar namn och lösen ord skriver du in verifierings koden som är kopplad till det kontot. Om du till exempel vill logga in på ditt Contoso-konto och du använder en iOS-enhet kan du trycka på konto panelen och sedan använda verifierings koden för att verifiera din identitet. Om du Katy logga in på ditt Outlook-konto följer du samma steg.<br><br>![När du har tryckt på konto panelen i appen](./media/user-help-auth-app-faq/katy-signin.png)<br><br>När du har tryckt på panelen Contoso-konto ser Katy verifierings koden i hel skärms läge och anger 895823 för att slutföra inloggningen.<br><br>![verifierings kod skärmen i appen](./media/user-help-auth-app-faq/verification-code.png) |

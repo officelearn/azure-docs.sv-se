@@ -3,13 +3,12 @@ title: Övervaka Azure App Services-prestanda | Microsoft Docs
 description: Övervakning av program prestanda för Azure App Services. Diagrammets inläsnings-och svars tid, beroende information och ange aviseringar för prestanda.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.custom: fasttrack-edit
-ms.openlocfilehash: dd0d3be6ed7e5185183618cc2bdeff5ee8d749f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0f4d4dedab30839db56cb47ac7ac103413f2d4be
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729795"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82733472"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service-prestanda
 
@@ -71,7 +70,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
     * Om du till exempel vill ändra den inledande samplings procenten kan du skapa en program inställning `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` av: och värdet `100`.
 
-    * Om du vill visa en lista över stödda alternativ för adaptiva typer av telemetri för telemetri, kan du läsa igenom [koden](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) och [tillhör ande dokumentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
+    * Om du vill visa en lista över stödda alternativ för adaptiva typer av telemetri för telemetri, kan du läsa igenom [koden](https://github.com/microsoft/ApplicationInsights-dotnet/blob/master/BASE/Test/ServerTelemetryChannel.Test/TelemetryChannel.Tests/AdaptiveSamplingTelemetryProcessorTest.cs) och [tillhör ande dokumentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
@@ -94,7 +93,7 @@ Det finns för närvarande **inte stöd** för att rikta in hela ramverket från
 
     ![Välj alternativ per plattform](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node. js](#tab/nodejs)
 
 I App Service webbapp under **Inställningar** > **väljer du Application Insights** > **Aktivera**. Node. js-agent baserad övervakning är för närvarande en för hands version.
 
@@ -144,7 +143,7 @@ Om du av någon anledning vill inaktivera övervakning på klient sidan:
 
 ![Skärm bild av användar gränssnittet för program inställningar](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejs"></a>[Node.js](#tab/nodejs)
+# <a name="nodejs"></a>[Node. js](#tab/nodejs)
 
 Om du vill aktivera övervakning på klient sidan för Node. js-programmet måste du [manuellt lägga till SDK SDK för klient sidan till ditt program](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
 
@@ -399,7 +398,11 @@ Den senaste informationen om Application Insights agent/tillägg finns i [viktig
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP och WordPress stöds inte
 
-PHP-och WordPress-platser stöds inte. Det finns för närvarande inget officiellt stöd för SDK/agent för övervakning på Server sidan av dessa arbets belastningar. Du kan dock utföra manuell instrumentering av transaktioner på klient sidan på en PHP-eller WordPress-webbplats genom att lägga till Java Script på klient sidan på dina webb sidor med hjälp av [Java Script SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript). 
+PHP-och WordPress-platser stöds inte. Det finns för närvarande inget officiellt stöd för SDK/agent för övervakning på Server sidan av dessa arbets belastningar. Du kan dock utföra manuell instrumentering av transaktioner på klient sidan på en PHP-eller WordPress-webbplats genom att lägga till Java Script på klient sidan på dina webb sidor med hjälp av [Java Script SDK](https://docs.microsoft.com/azure/azure-monitor/app/javascript).
+
+### <a name="connection-string-and-instrumentation-key"></a>Anslutnings sträng och Instrumentation-nyckel
+
+När kod enbart övervakning används krävs bara anslutnings strängen. Vi rekommenderar dock fortfarande att ställa in Instrumentation-nyckeln för att bevara bakåtkompatibilitet med äldre versioner av SDK när manuell Instrumentation utförs.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kör profileraren för din live-app](../app/profiler.md).

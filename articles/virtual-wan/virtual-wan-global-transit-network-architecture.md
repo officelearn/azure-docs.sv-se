@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9515058bc78a2d56dc1734c046dac5d5b04f68d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: MT
+ms.openlocfilehash: c32d42de5290bff63a897e7b9d5c8a2b1bf04ce4
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113166"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82786979"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring av nätverks arkitektur och virtuellt WAN
 
@@ -98,6 +98,9 @@ I den här modellen kan varje gren som är ansluten till den virtuella WAN-hubbe
 Grenar kan anslutas till ett virtuellt Azure-nav med ExpressRoute-kretsar och/eller plats-till-plats-VPN-anslutningar. Du kan ansluta grenar till det virtuella WAN-hubben i den region som ligger närmast grenen.
 
 Med det här alternativet kan företag utnyttja Azures stamnät för att ansluta grenar. Men även om den här funktionen är tillgänglig bör du väga fördelarna med att ansluta grenar över Azure Virtual WAN jämfört med ett privat WAN.  
+
+> [!NOTE]
+> Inaktive ring av anslutningar mellan olika förgreningar i virtuella WAN-nätverk kan konfigureras för att inaktivera anslutningar mellan olika grenar. Den här konfigurations kommer att blockera väg spridning mellan VPN (S2S och P2S) och ExpressRoute-anslutna platser. Den här konfigurationen påverkar inte gren-till-VNet-och VNET-till-VNet-routning propogation och anslutning. Om du vill konfigurera den här inställningen med hjälp av Azure Portal väljer du inställning: gren-till-gren-inaktive rad på konfigurations menyn för virtuellt WAN. 
 
 ### <a name="remote-user-to-vnet-c"></a>Fjärran vändare till VNet (c)
 

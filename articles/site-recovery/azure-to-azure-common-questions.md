@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: b6f665c5b0f2fbd291d20ef21d0a447d20f7c2da
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.openlocfilehash: bc2acc4303a270a2bf71f0c9ff249b60a0328a09
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738056"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983286"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
@@ -100,6 +100,10 @@ Nej, Site Recovery kräver ingen Internet anslutning. Men det krävs åtkomst ti
 Ja, du kan replikera programmet och behålla haveri beredskaps konfigurationen i en separat resurs grupp också.
 
 Om ditt program till exempel har varje nivås program, databas och webb i en separat resurs grupp, måste du välja [guiden replikering](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) tre gånger för att skydda alla nivåer. Site Recovery kommer att replikera dessa tre nivåer till tre olika resurs grupper.
+
+### <a name="can-i-move-storage-accounts-across-resource-groups"></a>Kan jag flytta lagrings konton över resurs grupper?
+
+Nej, det här är ett scenario som inte stöds. Men om du av misstag flyttar lagrings konton till en annan resurs grupp och tar bort den ursprungliga resurs gruppen kan du skapa en ny resurs grupp med samma namn som den gamla resurs gruppen och sedan flytta lagrings kontot till resurs gruppen.
 
 ## <a name="replication-policy"></a>Replikeringsprincip
 

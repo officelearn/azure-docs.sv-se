@@ -5,17 +5,17 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6e56c5e528a17d42a75da54158f00857a917645c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a93f4ff2ddc0737692de9e5619cf7a7521936224
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248455"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82980821"
 ---
 # <a name="createuidefinition-functions"></a>CreateUiDefinition-funktioner
 Det här avsnittet innehåller signaturerna för alla funktioner som stöds i en CreateUiDefinition.
 
-Om du vill använda en funktion omger du deklarationen med hakparenteser. Ett exempel:
+Om du vill använda en funktion omger du anropet med hakparenteser. Ett exempel:
 
 ```json
 "[function()]"
@@ -485,6 +485,45 @@ Antag `element1` och `element2` är odefinierade. Följande exempel returnerar `
 "[coalesce(steps('foo').element1, steps('foo').element2, 'foobar')]"
 ```
 
+Den här funktionen är särskilt användbar i samband med valfritt anrop som inträffar på grund av användar åtgärd efter att sidan har lästs in. Ett exempel är om begränsningarna som placeras på ett fält i användar gränssnittet är beroende av det valda värdet för ett annat, **från början icke-synligt** fält. I det här fallet `coalesce()` kan användas för att tillåta funktionen att vara syntaktiskt giltig vid sid inläsning och ha önskad påverkan när användaren interagerar med fältet.
+
+Överväg detta `DropDown`, vilket gör att användaren kan välja mellan flera olika databas typer:
+
+```
+{
+    "name": "databaseType",
+    "type": "Microsoft.Common.DropDown",
+    "label": "Choose database type",
+    "toolTip": "Choose database type",
+    "defaultValue": "Oracle Database",
+    "visible": "[bool(steps('section_database').connectToDatabase)]"
+    "constraints": {
+        "allowedValues": [
+            {
+                "label": "Azure Database for PostgreSQL",
+                "value": "postgresql"
+            },
+            {
+                "label": "Oracle Database",
+                "value": "oracle"
+            },
+            {
+                "label": "Azure SQL",
+                "value": "sqlserver"
+            }
+        ],
+        "required": true
+    },
+```
+
+Om du vill ange ett annat fälts åtgärd på det aktuella valda värdet för det här `coalesce()`fältet använder du, som visas här:
+
+```
+"regex": "[concat('^jdbc:', coalesce(steps('section_database').databaseConnectionInfo.databaseType, ''), '.*$')]",
+```
+
+Detta är nödvändigt eftersom `databaseType` är inlednings vis inte visas och därför inte har något värde. Detta gör att hela uttrycket inte utvärderas korrekt.
+
 ## <a name="conversion-functions"></a>Konverterings funktioner
 Dessa funktioner kan användas för att konvertera värden mellan JSON-datatyper och-kodningar.
 
@@ -545,7 +584,7 @@ Följande exempel returnerar `"{"foo":"bar"}"`:
 "[string({\"foo\":\"bar\"})]"
 ```
 
-### <a name="bool"></a>boolesk
+### <a name="bool"></a>bool
 Konverterar parametern till ett booleskt värde. Den här funktionen stöder parametrar av typen Number, String och Boolean. Liknar booleska värden i Java Script, alla värden utom `0` eller `'false'` returnerar `true`.
 
 Följande exempel returnerar `true`:

@@ -11,12 +11,12 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 28abf6fca0933158b067dda7ab54af93dac4b7d9
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: ddbb1c6fd705e658867c0d594981e87bc8cd6afe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872415"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930496"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Anslut till Azure IoT Central
 
@@ -146,11 +146,11 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
 ### <a name="connect-devices-that-use-x509-certificates-without-registering"></a>Anslut enheter som använder X. 509-certifikat utan registrering
 
-1. [Lägg till och verifiera ett rot-eller mellanliggande X. 509-certifikat](#connect-devices-using-x509-certificates) till ditt IoT Central-program. (#connect-enheter-använder-x509-certifikat)
+1. [Lägg till och verifiera ett rot-eller mellanliggande X. 509-certifikat](#connect-devices-using-x509-certificates) till ditt IoT Central-program.
 
 1. Generera löv certifikat för dina enheter med hjälp av rot-eller mellanliggande certifikat som du har lagt till i ditt IoT Central-program. Använd lägre enhets-ID: n `CNAME` som i blad certifikaten.
 
-1. OEM: en kommer att blinka varje enhet med ett enhets-ID, ett genererat vänster X. 509-certifikat och värdet för programmets **ID-omfång** .
+1. OEM: en blinkar varje enhet med ett enhets-ID, ett genererat löv-X. 509-certifikat och värdet för programmets **ID-omfång** .
 
 1. När du växlar på en enhet ansluter den först till DPS för att hämta IoT Central registrerings information.
 

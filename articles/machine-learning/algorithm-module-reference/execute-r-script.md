@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 03/10/2020
-ms.openlocfilehash: eb778c8d24639320b60927438de76a29de724ac2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/27/2020
+ms.openlocfilehash: 7b72d83740e0e2b02ef9d2ea3cd1cbf04a4c99cc
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684717"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983575"
 ---
 # <a name="execute-r-script"></a>Köra R-skript
 
@@ -42,6 +42,8 @@ azureml_main <- function(dataframe1, dataframe2){
   return(list(dataset1=dataframe1, dataset2=dataframe2))
 }
 ```
+> [!NOTE]
+> Om pipelinen innehåller flera exekvera R-skript moduler och behöver samma paket som inte finns i den förinstallerade listan, måste du installera paketen i varje modul. 
 
 ## <a name="installing-r-packages"></a>Installera R-paket
 Om du vill installera ytterligare R-paket `install.packages()` använder du-metoden. Paket installeras för varje **execute r-skript** -modul och delas inte mellan andra **Kör r-skript** moduler.
@@ -140,7 +142,7 @@ Data uppsättningar som lagras i designern konverteras automatiskt till en R dat
 1. I text rutan **R-skript** skriver eller klistrar du in giltigt R-skript.
 
     > [!NOTE]
-    > Var noga med att skriva skriptet och se till att det inte finns något syntaxfel, till exempel att använda en icke-deklarerad variabel eller en icke-importerad modul eller funktion. Betala även extra uppmärksamhet till listan förinstallerat paket i slutet av det här dokumentet. Om du vill använda paket som inte finns i listan installerar du dem i skriptet, till exempel`install.packages("zoo",repos = "http://cran.us.r-project.org")`
+    > Var noga med att skriva skriptet och se till att det inte finns något syntaxfel, till exempel att använda variabler som inte har deklarerats eller som inte har importer ATS eller som inte har importer ATS. Betala också extra uppmärksamhet för listan förinstallerat paket i slutet av det här dokumentet. Om du vill använda paket som inte finns i listan installerar du dem i skriptet, till exempel`install.packages("zoo",repos = "http://cran.us.r-project.org")`
     
     > [!NOTE]
     > Funktioner som är beroende av begäran om x11-biblioteket som "View" stöds inte eftersom begäran om x11-biblioteket inte är förinstallerat.

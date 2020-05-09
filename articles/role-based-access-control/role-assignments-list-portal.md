@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ed7f2b57df97a99a73ad191e45fb900a04f8021f
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
-ms.translationtype: MT
+ms.openlocfilehash: a4c02369f44255dfa472202215496378d41f8c6c
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983031"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735733"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Visa en lista med Azures roll tilldelningar med hjälp av Azure Portal
 
@@ -32,9 +32,7 @@ ms.locfileid: "82983031"
 
 Det enklaste sättet att se de roller som har tilldelats en användare eller grupp i en prenumeration är att använda fönstret **Azure-resurser** .
 
-1. I Azure Portal väljer du **alla tjänster** på Azure Portal-menyn.
-
-1. Välj **Azure Active Directory** och välj sedan **användare** eller **grupper**.
+1. I Azure Portal klickar du på **alla tjänster** och väljer sedan **användare** eller **grupper**.
 
 1. Klicka på den användare eller grupp som du vill visa en lista över roll tilldelningarna för.
 

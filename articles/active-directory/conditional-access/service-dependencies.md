@@ -11,18 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b0d7816dc83a7c3536e44ff2461d85ea6178ff1
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
-ms.translationtype: HT
+ms.openlocfilehash: a108c952c4f1f9b8298e57c8fd94c767bb065f00
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778489"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82981781"
 ---
 # <a name="what-are-service-dependencies-in-azure-active-directory-conditional-access"></a>Vad är tjänst beroenden i Azure Active Directory villkorlig åtkomst? 
 
 Med principer för villkorlig åtkomst kan du ange åtkomst krav för webbplatser och tjänster. Åtkomst kraven kan till exempel innefatta krav på Multi-Factor Authentication (MFA) eller [hanterade enheter](require-managed-devices.md). 
 
 När du ansluter till en webbplats eller tjänst direkt är effekten av en relaterad princip vanligt vis lätt att utvärdera. Om du till exempel har en princip som kräver Multi-Factor Authentication (MFA) för SharePoint Online har kon figurer ATS, tillämpas MFA för varje inloggning till SharePoint-webbportalen. Det är dock inte alltid rakt framåt för att bedöma effekten av en princip eftersom det finns molnappar med beroenden till andra molnappar. Microsoft Teams kan till exempel ge åtkomst till resurser i SharePoint Online. När du har åtkomst till Microsoft Teams i vårt nuvarande scenario, omfattas du också av SharePoint MFA-principen. 
+
+> [!TIP]
+> Med hjälp av [office 365-appen (för hands version)](concept-conditional-access-cloud-apps.md#office-365-preview) är alla Office-appar riktade till att undvika problem med tjänst beroenden i Office-stacken.
 
 ## <a name="policy-enforcement"></a>Policyframtvingande 
 

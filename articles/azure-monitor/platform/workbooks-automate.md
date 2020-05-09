@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mbullwin
-ms.openlocfilehash: d62fa84711bd8cba57d07f3464c21344bc5c32c6
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 76ecc3ee17353ebd0bbead1bba959f85d521d0df
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731753"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982147"
 ---
 # <a name="programmatically-manage-workbooks"></a>Hantera arbets böcker program mässigt
 
@@ -42,7 +42,7 @@ Det finns två typer av arbets boks resurser som kan hanteras program mässigt:
 2. Nedan visas ett exempel på en Azure Resource Manager mall som distribuerar en arbetsboksmall till Azure Monitor arbets boks galleriet. Klistra in JSON-filen som du kopierade i stället för `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. En referens Azure Resource Manager mall som skapar en mall för arbets böcker finns [här](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
 
     ```json
-          {
+    {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -114,7 +114,7 @@ Det finns två typer av arbets boks resurser som kan hanteras program mässigt:
 | Arbets böcker i resurs grupper                   | `microsoft.resources/subscriptions/resourcegroups` | `workbook`    |
 | Arbets böcker i Azure Active Directory            | `microsoft.aadiam/tenant`                          | `workbook`    |
 | VM-insikter på virtuella datorer                | `microsoft.compute/virtualmachines`                | `insights`    |
-| VM Insights i skalnings uppsättningar för virtuella datorer                   | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
+| VM Insights i skalnings uppsättningar för virtuella datorer      | `microsoft.compute/virtualmachinescalesets`        | `insights`    |
 
 ## <a name="azure-resource-manager-template-for-deploying-a-workbook-instance"></a>Azure Resource Manager mall för att distribuera en arbets boks instans
 

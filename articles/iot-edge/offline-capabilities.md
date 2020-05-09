@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 55512491121aee28404ab5f85b4223c67a2f0e1e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 588926a90d9a40c00bca4914dc1d5ed08301ff75
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80236063"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780801"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Förstå utökade offline-funktioner för IoT Edge enheter, moduler och underordnade enheter
 
@@ -108,7 +108,7 @@ Ett sätt att skapa den här förtroende relationen beskrivs i detalj i följand
 
 ## <a name="specify-dns-servers"></a>Ange DNS-servrar
 
-För att förbättra stabiliteten rekommenderar vi starkt att du anger de DNS-serveradresser som används i din miljö. Om du vill ställa in DNS-servern för IoT Edge kan du läsa mer i lösningen för [Edge-agenten i kontinuerlig rapport ' Tom konfigurations fil ' och inga moduler startar på enheten](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) i fel söknings artikeln.
+För att förbättra stabiliteten rekommenderar vi starkt att du anger de DNS-serveradresser som används i din miljö. Om du vill ställa in DNS-servern för IoT Edge kan du läsa mer i lösningen för [Edge-agenten i kontinuerlig rapport ' Tom konfigurations fil ' och inga moduler startar på enheten](troubleshoot-common-errors.md#edge-agent-module-reports-empty-config-file-and-no-modules-start-on-the-device) i fel söknings artikeln.
 
 ## <a name="optional-offline-settings"></a>Valfria offline-inställningar
 

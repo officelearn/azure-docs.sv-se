@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03804229221c2b1deb94f6c32a5be9defd304ff6
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77921419"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628290"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Felsöka problem med distribution av virtuella Windows-datorer i Azure
 
@@ -82,13 +82,13 @@ Möjligheten att skapa prenumerationer som baseras på Enterprise Dev/Test erbju
 
 ## <a name="my-drivers-are-missing-for-my-windows-n-series-vm"></a>Mina driv rutiner saknas för den virtuella Windows N-serien
 
-Driv rutiner för Windows-baserade virtuella datorer finns [här](../windows/n-series-driver-setup.md).
+Instruktioner för att installera driv rutiner för Windows-baserade virtuella datorer finns [här](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
 ## <a name="i-cant-find-a-gpu-instance-within-my-n-series-vm"></a>Jag kan inte hitta en GPU-instans i min virtuella dator i N-serien
 
-Om du vill dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien som kör Windows Server 2016 eller Windows Server 2012 R2 måste du installera NVIDIA Graphics-drivrutiner på varje virtuell dator efter distributionen. Det finns information om driv rutins installation för virtuella [Windows-datorer](../windows/n-series-driver-setup.md) och [virtuella Linux-datorer](../linux/n-series-driver-setup.md).
+Om du vill dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien måste du installera grafik driv rutiner på varje virtuell dator efter distributionen. Information om driv rutins installation finns [här](../sizes-gpu.md#supported-operating-systems-and-drivers).
 
-## <a name="is-n-series-vms-available-in-my-region"></a>Är virtuella datorer i N-serien tillgängliga i min region?
+## <a name="are-n-series-vms-available-in-my-region"></a>Är virtuella datorer i N-serien tillgängliga i min region?
 
 Du kan kontrol lera tillgängligheten från [tabellen produkter som är tillgängliga per region](https://azure.microsoft.com/regions/services)och prissättning [här](https://azure.microsoft.com/pricing/details/virtual-machines/series/#n-series).
 

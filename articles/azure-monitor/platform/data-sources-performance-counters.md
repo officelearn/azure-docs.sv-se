@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 446beca9b8491fb252a1e3284a9ec9a0e6dabef5
+ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274767"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82739372"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Prestanda data källor för Windows och Linux i Azure Monitor
 Prestanda räknare i Windows och Linux ger inblick i prestanda för maskin varu komponenter, operativ system och program.  Azure Monitor kan samla in prestanda räknare med frekventa intervall för analys i nära real tid (NRT), förutom att samla in prestanda data för analys och rapportering på längre sikt.
@@ -175,7 +175,7 @@ Följande är standard konfigurationen för prestanda mått.
     </source>
 
 ## <a name="data-collection"></a>Datainsamling
-Azure Monitor samlar in alla angivna prestanda räknare med angivet exempel intervall på alla agenter som har den räknaren installerad.  Data sammanställs inte och rå data är tillgängliga i alla logg frågor för den varaktighet som anges av din prenumeration.
+Azure Monitor samlar in alla angivna prestanda räknare med angivet exempel intervall på alla agenter som har den räknaren installerad.  Data sammanställs inte och rå data är tillgängliga i alla logg frågor för den varaktighet som anges i Log Analytics-arbetsytan.
 
 ## <a name="performance-record-properties"></a>Egenskaper för prestanda post
 Prestanda poster har en typ av **prestanda** och har egenskaperna i följande tabell.

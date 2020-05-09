@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 01/22/2020
-ms.openlocfilehash: 6dd4db999cb130c9816ad023888a4333e968c224
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1fb5b78f210a9bd817a2987dcb30fa25d156d5d2
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720392"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780444"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Det går inte att skapa kluster med InvalidNetworkConfigurationErrorCode i Azure HDInsight
 
@@ -54,7 +54,7 @@ Fel beskrivningen innehåller "Det gick inte att ansluta till Azure Storage kont
 
 ### <a name="cause"></a>Orsak
 
-Azure Storage och SQL har inte fasta IP-adresser, så vi måste tillåta utgående anslutningar till alla IP-adresser för att få åtkomst till dessa tjänster. De exakta lösnings stegen beror på om du har konfigurerat en nätverks säkerhets grupp (NSG) eller användardefinierade regler (UDR). Mer information om dessa konfigurationer finns i avsnittet om att [kontrol lera nätverks trafik med HDInsight med nätverks säkerhets grupper och användardefinierade vägar](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) .
+Azure Storage och SQL har inte fasta IP-adresser, så vi måste tillåta utgående anslutningar till alla IP-adresser för att få åtkomst till dessa tjänster. De exakta lösnings stegen beror på om du har konfigurerat en nätverks säkerhets grupp (NSG) eller användardefinierade regler (UDR). Mer information om dessa konfigurationer finns i avsnittet om att [kontrol lera nätverks trafik med HDInsight med nätverks säkerhets grupper och användardefinierade vägar](../control-network-traffic.md) .
 
 ### <a name="resolution"></a>Lösning
 

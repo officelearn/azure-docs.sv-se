@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 45045cb1360658d394e5469d022ac03033d11aff
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: dd8706c1e95e6b1e4ca4a38d4a336f6186464696
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82165798"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872199"
 ---
 # <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Publicera Uppdateringshantering-lösning med Azure Resource Manager-mall
 
@@ -26,6 +26,9 @@ Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/templa
 Mallen automatiserar inte onboarding av en eller flera virtuella Azure-eller icke-Azure-datorer.
 
 Om du redan har en Log Analytics arbets yta och ett Automation-konto som har distribuerats i en region som stöds i din prenumeration är de inte länkade. Den Uppdateringshantering-lösningen har inte distribuerats på arbets ytan. Genom att använda den här mallen skapas länken och distribuerar Uppdateringshantering-lösningen. 
+
+>[!NOTE]
+>**Nxautomation** -användaren som ingår i uppdateringshantering på Linux kör bara signerade Runbooks.
 
 >[!NOTE]
 >Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).

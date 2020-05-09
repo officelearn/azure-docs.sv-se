@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 934cf854b0c526ed994c7dc91763f65de64fd14b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 780f2774cb37e3d6d43ed5137c29119c0f63fd0a
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617516"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82743700"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>TLS-avslutning med Key Vault certifikat
 
@@ -50,7 +50,21 @@ Application Gateway-integrering med Key Vault kräver en konfigurations process 
    Du kan antingen importera ett befintligt certifikat eller skapa ett nytt i ditt nyckel valv. Certifikatet kommer att användas av program som körs via programgatewayen. I det här steget kan du också använda en nyckel valvs hemlighet som lagras som en lösen ords fri, bas-64-kodad PFX-fil. Vi rekommenderar att du använder en certifikat typ på grund av den funktion för förnyad förnyelse som är tillgänglig med certifikat typs objekt i nyckel valvet. När du har skapat ett certifikat eller en hemlighet definierar du åtkomst principer i nyckel valvet för att ge identiteten behörighet att *få* åtkomst till hemligheten.
    
    > [!NOTE]
-   > Om du distribuerar programgatewayen via en ARM-mall, antingen med hjälp av Azure CLI eller PowerShell, eller via en Azure Application som distribueras från Azure Portal, måste SSL-certifikatet som lagras i nyckel valvet som en Base-64-kodad PFX-fil **vara lösenordsskyddad**. Du måste också utföra stegen i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](../azure-resource-manager/templates/key-vault-parameter.md). Det är särskilt viktigt att ställa `enabledForTemplateDeployment` in `true`på.
+   > Om du distribuerar programgatewayen via en ARM-mall, antingen med hjälp av Azure CLI eller PowerShell eller via ett Azure-program som distribueras från Azure Portal, lagras SSL-certifikatet i nyckel valvet som en Base64-kodad PFX-fil. Du måste slutföra stegen i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](../azure-resource-manager/templates/key-vault-parameter.md). 
+   >
+   > Det är särskilt viktigt att ställa `enabledForTemplateDeployment` in `true`på. Certifikatet kan vara ett lösen ord eller ha ett lösen ord. Om det gäller ett certifikat med ett lösen ord visar följande exempel en möjlig konfiguration för `sslCertificates` posten i `properties` för konfigurationen av arm-mal len för en app-Gateway. Värdena för `appGatewaySSLCertificateData` och `appGatewaySSLCertificatePassword` slås upp från nyckel valvet, enligt beskrivningen i avsnittet [referens hemligheter med dynamiskt ID](../azure-resource-manager/templates/key-vault-parameter.md#reference-secrets-with-dynamic-id). Följ referenserna bakåt från `parameters('secretName')` för att se hur sökningen sker. Om certifikatet är lösenordsskyddat utelämnar du `password` posten.
+   >   
+   > ```
+   > "sslCertificates": [
+   >     {
+   >         "name": "appGwSslCertificate",
+   >         "properties": {
+   >             "data": "[parameters('appGatewaySSLCertificateData')]",
+   >             "password": "[parameters('appGatewaySSLCertificatePassword')]"
+   >         }
+   >     }
+   > ]
+   > ```
 
 1. **Konfigurera progamgatewayen**
 

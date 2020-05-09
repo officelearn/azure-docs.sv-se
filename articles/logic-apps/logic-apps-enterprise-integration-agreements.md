@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c8cbfb619c9eed325161503f705bf5c4c0746265
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74790733"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612341"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Skapa och hantera handels partner avtal i Azure Logic Apps
 
@@ -68,6 +68,14 @@ På huvud menyn i Azure väljer du **alla tjänster**. I rutan Sök anger du "in
    | **Ta emot inställningar** | Varierar | Varierar | Dessa egenskaper anger hur värd partner tar emot alla inkommande meddelanden från gäst partnern i avtalet. Mer information finns i respektive avtals typ: <p>- [AS2 meddelande inställningar](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT meddelande inställningar](logic-apps-enterprise-integration-edifact.md) <br>- [X12 meddelande inställningar](logic-apps-enterprise-integration-x12.md) |
    | **Skicka inställningar** | Varierar | Varierar | De här egenskaperna anger hur värd partner skickar alla utgående meddelanden till gäst partnern i avtalet. Mer information finns i respektive avtals typ: <p>- [AS2 meddelande inställningar](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT meddelande inställningar](logic-apps-enterprise-integration-edifact.md) <br>- [X12 meddelande inställningar](logic-apps-enterprise-integration-x12.md) |
    |||||
+
+   > [!IMPORTANT]
+   > Upplösningen för ett avtal beror på matchning av de objekt som har definierats i partnern och inkommande meddelande:
+   >
+   > * Avsändarens kvalificerare och identifierare
+   > * Mottagarens kvalificerare och identifierare
+   >
+   > Om dessa värden ändras för din partner, se till att du uppdaterar avtalet.
 
 1. När du är klar med att skapa ditt avtal går du **till sidan Lägg till** och väljer **OK**och återgår till ditt integrations konto.
 

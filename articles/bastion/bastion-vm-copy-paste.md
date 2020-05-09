@@ -5,20 +5,24 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: 0af0fdfa1b0bcbb06d9424390e7ca8c8f406bcb3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8580b7e28c8a4860739efa0763ebb7c20a80585e
+ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619305"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82780291"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Kopiera och klistra in på en virtuell dator: Azure skydds
 
 Den här artikeln hjälper dig att kopiera och klistra in text till och från virtuella datorer när du använder Azure-skydds. Innan du arbetar med en virtuell dator bör du kontrol lera att du har följt stegen för att [skapa en skydds-värd](bastion-create-host-portal.md). Anslut sedan till den virtuella dator som du vill arbeta med via [RDP](bastion-connect-vm-rdp.md) eller [SSH](bastion-connect-vm-ssh.md).
 
 För webbläsare som har stöd för den avancerade API-åtkomsten till Urklipp, kan du kopiera och klistra in text mellan den lokala enheten och fjärrsessionen på samma sätt som du kopierar och klistrar in mellan program på din lokala enhet. För andra webbläsare kan du använda skydds urklipps Access verktyg-paletten.
+
+>[!NOTE]
+>Endast text kopiering/inklistring stöds för närvarande.
+>
 
    ![Tillåt Urklipp](./media/bastion-vm-manage/allow.png)
 

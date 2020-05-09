@@ -8,37 +8,31 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 729e757c69887bbdce324e2d8383c970995dc94a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0d5947f669b600b544cd7e5265e2cce8de118374
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73903671"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82789016"
 ---
-## <a name="sign-in-to-azure"></a>Logga in på Azure 
-
-Logga in på Azure Portal på https://portal.azure.com.
-
-> [!NOTE]
-> Om du har registrerat dig för att använda delade avbildnings gallerier under för hands versionen kan du behöva `Microsoft.Compute` registrera providern igen. Öppna [Cloud Shell](https://shell.azure.com/bash) och skriv:`az provider register -n Microsoft.Compute`
-
 ## <a name="create-an-image-gallery"></a>Skapa ett bild galleri
 
 Ett avbildnings galleri är den primära resurs som används för att aktivera avbildnings delning. Tillåtna tecken för Galleri namn är versaler eller gemener, siffror, punkter och punkter. Galleri namnet får inte innehålla bindestreck.  Galleri namn måste vara unika inom din prenumeration. 
 
 I följande exempel skapas ett galleri med namnet min *Galleri* i resurs gruppen *myGalleryRG* .
 
-1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
+1. Logga in på Azure Portal på https://portal.azure.com.
 1. Använd **galleriet** för typ av delad avbildning i sökrutan och välj **Galleri för delade avbildningar** i resultatet.
-1. På sidan **delad avbildnings Galleri** klickar du på **skapa**.
-1. Välj rätt prenumeration.
+1. Klicka på **Lägg till**på sidan **delad avbildnings Galleri** .
+1. På sidan **skapa Galleri för delad avbildning** väljer du rätt prenumeration.
 1. I **resurs grupp**väljer du **Skapa ny** och skriver *myGalleryRG* som namn.
 1. I **namn**skriver du *galleriet* för galleriets namn.
 1. Lämna standardvärdet för **region**.
 1. Du kan ange en kort beskrivning av galleriet, t *. ex. min bild galleri för testning.* och klicka sedan på **Granska + skapa**.
 1. När verifieringen har godkänts väljer du **skapa**.
 1. När distributionen är färdig väljer **du gå till resurs**.
-   
+
+
 ## <a name="create-an-image-definition"></a>Skapa en avbildnings definition 
 
 Bild definitioner skapa en logisk gruppering för avbildningar. De används för att hantera information om de avbildnings versioner som skapas i dem. Namn på bild definitioner kan bestå av versaler eller gemener, siffror, punkter, streck och punkter. Mer information om de värden som du kan ange för en bild definition finns i [bild definitioner](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
@@ -46,8 +40,9 @@ Bild definitioner skapa en logisk gruppering för avbildningar. De används för
 Skapa Galleri avbildnings definitionen i galleriet. I det här exemplet heter Galleri bilden *myImageDefinition*.
 
 1. På sidan för det nya bild galleriet väljer du **Lägg till en ny bild definition** överst på sidan. 
+1. I området **Lägg till ny avbildnings definition till delad avbildning**för **region**väljer du *östra USA*.
 1. För **bild definitions namn**skriver du *myImageDefinition*.
-1. För **operativ system**väljer du rätt alternativ baserat på den virtuella käll datorn.
+1. För **operativ system**väljer du rätt alternativ baserat på den virtuella käll datorn.  
 1. För **generering av virtuella datorer**väljer du alternativet baserat på den virtuella käll datorn. I de flesta fall kommer detta att vara *gen 1*. Mer information finns i [stöd för virtuella datorer i generation 2](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 1. För **operativ systemets tillstånd**väljer du alternativet baserat på den virtuella käll datorn. Mer information finns i [generaliserad och specialiserad](../articles/virtual-machines/linux/shared-image-galleries.md#generalized-and-specialized-images).
 1. För **utgivare**skriver du in *unpublisher*. 
@@ -58,7 +53,7 @@ Skapa Galleri avbildnings definitionen i galleriet. I det här exemplet heter Ga
 1. När distributionen är färdig väljer **du gå till resurs**.
 
 
-## <a name="create-an-image-version"></a>Skapa en avbildnings version
+## <a name="create-an-image-version"></a>Skapa en avbildningsversion
 
 Skapa en avbildnings version från en hanterad avbildning. I det här exemplet är avbildnings versionen *1.0.0* och replikeras till både *västra centrala* USA och *södra centrala* Data Center. Kom ihåg att du även måste inkludera *käll* regionen som mål för replikering när du väljer mål regioner för replikering.
 

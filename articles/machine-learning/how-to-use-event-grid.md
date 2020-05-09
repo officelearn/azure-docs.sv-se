@@ -1,7 +1,7 @@
 ---
-title: Skapa händelse drivna Machine Learning-arbetsflöden
+title: Utlös händelser i ML-arbetsflöden
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du använder Event Grid med Azure Machine Learning för att aktivera händelse drivna lösningar.
+description: Lär dig hur du utlöser en händelse driven program, processer eller CI/CD-arbetsflöden baserat på Azure Machine Learning händelser för att förenkla din ML-livscykel.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,21 +10,20 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
-ms.openlocfilehash: 2a1440dcda27a487c89be4ac63e624a2bb6b393a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 236cc46bb6f9e5ed95e4a49068ac41ae77a736f5
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111886"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82982878"
 ---
-# <a name="create-event-driven-machine-learning-workflows-preview"></a>Skapa händelse drivna Machine Learning-arbetsflöden (för hands version)
+# <a name="trigger-event-driven-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Utlös händelse drivna program, processer eller CI/CD-arbetsflöden som baseras på Azure Machine Learning händelser (för hands version)
 
-[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/) stöder Azure Machine Learning händelser. Du kan prenumerera på och använda händelser, t. ex. körnings status ändrad, körnings slut, modell registrering, modell distribution och data avkänning i en arbets yta.
+I den här artikeln får du lära dig hur du konfigurerar händelse drivna program, processer eller CI/CD-arbetsflöden som baseras på Azure Machine Learning händelser, till exempel e-postmeddelanden för fel meddelanden eller ML pipelines, när vissa villkor upptäcks av [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
 
-Mer information om händelse typer finns i [Azure Machine Learning integration med event Grid](concept-event-grid-integration.md) och [Azure Machine Learning Event Grid-schemat](/azure/event-grid/event-schema-machine-learning).
+Azure Machine Learning hanterar hela livs cykeln för maskin inlärnings processen, inklusive modell utbildning, modell distribution och övervakning. Du kan använda Event Grid för att reagera på Azure Machine Learning händelser, t. ex. slut för ande av inlärnings körningar, registrering och distribution av modeller och identifiering av data genom att använda moderna serverbaserade arkitekturer. Du kan sedan Prenumerera på och använda händelser som t. ex. körnings status ändrad, körnings slut för ande, modell registrering, modell distribution och data avkänning i en arbets yta.
 
-Använd Event Grid för att aktivera vanliga scenarier som:
-
+När du ska använda Event Grid för händelse drivna åtgärder:
 * Skicka e-postmeddelanden vid körnings problem och kör slut för ande
 * Använd en Azure-funktion när en modell har registrerats
 * Strömma händelser från Azure Machine Learning till olika slut punkter
@@ -32,12 +31,87 @@ Använd Event Grid för att aktivera vanliga scenarier som:
 
 > [!NOTE] 
 > För närvarande utlöses endast runStatusChanged-händelser när körnings statusen **misslyckades**
->
 
 ## <a name="prerequisites"></a>Krav
-* Deltagar-eller ägar åtkomst till Azure Machine Learning arbets ytan du skapar händelser för.
+Om du vill använda Event Grid behöver du deltagar-eller ägar åtkomst till arbets ytan Azure Machine Learning du skapar händelser för.
 
-### <a name="configure-eventgrid-using-the-azure-portal"></a>Konfigurera EventGrid med hjälp av Azure Portal
+## <a name="the-event-model--types"></a>Händelse modell & typer
+
+Azure Event Grid läser händelser från källor, till exempel Azure Machine Learning och andra Azure-tjänster. Dessa händelser skickas sedan till händelse hanterare som Azure Event Hubs, Azure Functions, Logic Apps och andra. Följande diagram visar hur Event Grid ansluter källor och hanterare, men är inte en omfattande lista över stödda integreringar.
+
+![Azure Event Grid funktionell modell](./media/concept-event-grid-integration/azure-event-grid-functional-model.png)
+
+Mer information om händelse källor och händelse hanterare finns i [Vad är event Grid?](/azure/event-grid/overview).
+
+### <a name="event-types-for-azure-machine-learning"></a>Händelse typer för Azure Machine Learning
+
+Azure Machine Learning innehåller händelser i olika punkter av Machine Learning-livscykel: 
+
+| Händelsetyp | Beskrivning |
+| ---------- | ----------- |
+| `Microsoft.MachineLearningServices.RunCompleted` | Utlöses när en körning av Machine Learning-experiment har slutförts |
+| `Microsoft.MachineLearningServices.ModelRegistered` | Utlöses när en maskin inlärnings modell registreras i arbets ytan |
+| `Microsoft.MachineLearningServices.ModelDeployed` | Utlöses när en distribution av en tjänst med en eller flera modeller har slutförts |
+| `Microsoft.MachineLearningServices.DatasetDriftDetected` | Utlöses när ett jobb för data avvikelse identifiering för två data uppsättningar har slutförts |
+| `Microsoft.MachineLearningServices.RunStatusChanged` | Aktive ras när en körnings status ändrades, för närvarande endast när körnings statusen är "misslyckades" |
+
+### <a name="filter--subscribe-to-events"></a>Filtrera & prenumerera på händelser
+
+Dessa händelser publiceras via Azure Event Grid. Med hjälp av Azure Portal, PowerShell eller Azure CLI kan kunder enkelt prenumerera på händelser genom att [Ange en eller flera händelse typer och filtrerings villkor](/azure/event-grid/event-filtering). 
+
+När du konfigurerar dina händelser kan du använda filter för att endast utlösa för vissa händelse data. I exemplet nedan kan du filtrera efter körnings status ändrade händelser med körnings typer. Händelsen utlöses endast när villkoret är uppfyllt. Se det [Azure Machine Learning Event Grid-schemat](/azure/event-grid/event-schema-machine-learning) för att lära dig mer om händelse data som du kan filtrera efter. 
+
+Prenumerationer för Azure Machine Learning händelser skyddas av rollbaserad åtkomst kontroll (RBAC). Endast [deltagare eller ägare](how-to-assign-roles.md#default-roles) av en arbets yta kan skapa, uppdatera och ta bort händelse prenumerationer.  Filter kan tillämpas på händelse prenumerationer antingen under [skapandet](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) av händelse prenumerationen eller vid ett senare tillfälle. 
+
+
+1. Gå till Azure Portal, Välj en ny prenumeration eller en befintlig. 
+
+1. Välj fliken filter och rulla ned till avancerade filter. För **nyckeln** och **värdet**anger du de egenskaps typer som du vill filtrera efter. Här kan du se att händelsen endast utlöses när körnings typen är en pipeline-körning eller pipeline-steg körs.  
+
+    :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="Filtrera händelser":::
+
+
++ **Filtrera efter händelse typ:** En händelse prenumeration kan ange en eller flera Azure Machine Learning händelse typer.
+
++ **Filtrera efter händelse ämne:** Azure Event Grid stöder ämnes filter som baseras på __börjar med__ och __slutar med__ matchningar, så att händelser med ett matchande ämne levereras till prenumeranten. Olika Machine Learning-händelser har olika ämnes format.
+
+  | Händelsetyp | Ämnes format | Exempel ämne |
+  | ---------- | ----------- | ----------- |
+  | `Microsoft.MachineLearningServices.RunCompleted` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` |
+  | `Microsoft.MachineLearningServices.ModelRegistered` | `models/{modelName}:{modelVersion}` | `models/sklearn_regression_model:3` |
+  | `Microsoft.MachineLearningServices.ModelDeployed` | `endpoints/{serviceId}` | `endpoints/my_sklearn_aks` |
+  | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
+  | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
+
++ **Avancerad filtrering**: Azure Event Grid stöder även avancerad filtrering baserat på ett publicerat händelse schema. Azure Machine Learning händelse schema information finns i [Azure Event Grid händelse schema för Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Några exempel på avancerade filter som du kan utföra är:
+
+  För `Microsoft.MachineLearningServices.ModelRegistered` event, för att filtrera modellens taggvärde:
+
+  ```
+  --advanced-filter data.ModelTags.key1 StringIn ('value1')
+  ```
+
+  Mer information om hur du använder filter finns i [Filtrera händelser för Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+
+## <a name="consume-machine-learning-events"></a>Använda Machine Learning händelser
+
+Program som hanterar Machine Learning händelser bör följa några rekommenderade metoder:
+
+> [!div class="checklist"]
+> * Eftersom flera prenumerationer kan konfigureras för att dirigera händelser till samma händelse hanterare, är det viktigt att inte anta att händelser kommer från en viss källa, men för att kontrol lera ämnet i meddelandet för att se till att det kommer från Machine Learning-arbetsytan som du förväntar dig.
+> * På samma sätt kan du kontrol lera att eventType är att du är för beredd att bearbeta och inte förutsätter att alla händelser som du tar emot är de typer som du förväntar dig.
+> * När meddelanden kan komma in i rätt ordning och efter en viss fördröjning använder du etag-fälten för att förstå om din information om objekt fortfarande är uppdaterad.  Använd också sekvenserare-fälten för att förstå ordningen på händelser för ett visst objekt.
+> * Ignorera fält som du inte förstår. Den här övningen hjälper dig att hålla dig flexibel till nya funktioner som kan läggas till i framtiden.
+> * Misslyckade eller avbrutna Azure Machine Learning åtgärder utlöser inte en händelse. Om en modell distribution till exempel Miss lyckas, utlöses inte Microsoft. MachineLearningServices. ModelDeployed. Tänk på detta felläge när du utformar dina program. Du kan alltid använda Azure Machine Learning SDK, CLI eller portal för att kontrol lera status för en åtgärd och förstå de detaljerade orsakerna till problemet.
+
+Azure Event Grid gör det möjligt för kunderna att bygga ut de sammankopplade meddelande hanteringarna, som kan utlösas av Azure Machine Learning händelser. Några viktiga exempel på Meddelande hanterare är:
+* Azure Functions
+* Azure Logic Apps
+* Azure Event Hubs
+* Azure Data Factory pipeline
+* Allmänna webhookar som kan finnas på Azure-plattformen eller någon annan stans
+
+## <a name="set-up-in-azure-portal"></a>Konfigurera i Azure Portal
 
 1. Öppna [Azure Portal](https://portal.azure.com) och gå till arbets ytan Azure Machine Learning.
 
@@ -56,7 +130,7 @@ Använd Event Grid för att aktivera vanliga scenarier som:
 När du har bekräftat ditt val klickar du på __skapa__. Efter konfigurationen skickas de här händelserna till din slut punkt.
 
 
-### <a name="configure-eventgrid-using-the-cli"></a>Konfigurera EventGrid med CLI
+### <a name="set-up-with-the-cli"></a>Konfigurera med CLI
 
 Du kan antingen installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)eller använda Azure Cloud Shell som tillhandahålls som en del av din Azure-prenumeration.
 
@@ -81,17 +155,9 @@ az eventgrid event-subscription create \
   --subject-begins-with "models/mymodelname"
 ```
 
-## <a name="filter-events"></a>Filtrera händelser
+## <a name="examples"></a>Exempel
 
-När du konfigurerar dina händelser kan du använda filter för att endast utlösa för vissa händelse data. I exemplet nedan kan du filtrera efter körnings status ändrade händelser med körnings typer. Händelsen utlöses endast när villkoret är uppfyllt. Se det [Azure Machine Learning Event Grid-schemat](/azure/event-grid/event-schema-machine-learning) för att lära dig mer om händelse data som du kan filtrera efter. 
-
-1. Gå till Azure Portal, Välj en ny prenumeration eller en befintlig. 
-
-1. Välj fliken filter och rulla ned till avancerade filter. För **nyckeln** och **värdet**anger du de egenskaps typer som du vill filtrera efter. Här kan du se att händelsen endast utlöses när körnings typen är en pipeline-körning eller pipeline-steg körs.  
-
-    :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="Filtrera händelser":::
-
-## <a name="sample-send-email-alerts"></a>Exempel: skicka e-postaviseringar
+### <a name="example-send-email-alerts"></a>Exempel: skicka e-postaviseringar
 
 Använd [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) för att konfigurera e-post för alla dina händelser. Anpassa med villkor och ange mottagare för att möjliggöra samarbete och medvetenhet mellan team som arbetar tillsammans.
 
@@ -124,7 +190,7 @@ Använd [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) för at
     ![bekräfta – Logic-app-Create](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
-## <a name="sample-trigger-retraining-when-data-drift-occurs"></a>Exempel: Utlös omträning när data avvikelser uppstår
+### <a name="example-data-drift-triggers-retraining"></a>Exempel: omskolning av data utlösare
 
 Modeller föråldras över tid och är inte användbara i den kontext som den körs i. Ett sätt att avgöra om det är dags att omträna modellen är att identifiera data drift. 
 
@@ -171,7 +237,7 @@ Nu utlöses Data Factory-pipelinen när en avvikelse inträffar. Visa informatio
 
 ![Visa-in-arbetsyte](./media/how-to-use-event-grid/view-in-workspace.png)
 
-## <a name="sample-deploy-a-model-based-on-tags"></a>Exempel: Distribuera en modell baserat på Taggar
+### <a name="example-deploy-a-model-based-on-tags"></a>Exempel: Distribuera en modell baserat på Taggar
 
 Ett Azure Machine Learning Model-objekt innehåller parametrar som du kan pivotera distributioner på, till exempel modell namn, version, tagg och egenskap. Modell registrerings händelsen kan utlösa en slut punkt och du kan använda en Azure-funktion för att distribuera en modell baserat på värdet för dessa parametrar.
 
@@ -179,4 +245,9 @@ Se till exempel [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeD
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om tillgängliga händelser finns i [Azure Machine Learning händelse schema](/azure/event-grid/event-schema-machine-learning)
+Läs mer om Event Grid och ge Azure Machine Learning händelser ett försök:
+
+- [Om Event Grid](../event-grid/overview.md)
+
+- [Händelse schema för Azure Machine Learning](../event-grid/event-schema-machine-learning.md)
+

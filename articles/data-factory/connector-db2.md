@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/17/2020
+ms.date: 05/07/2020
 ms.author: jingwang
-ms.openlocfilehash: 2c2071e4b2a3daa528c7d01f64e38247b063e6f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f705a0a56975860cf07d8a9b09de9999a923501
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417424"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891428"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -70,19 +70,70 @@ Följande egenskaper stöds för DB2-länkad tjänst:
 | Egenskap | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Egenskapen Type måste anges till: **DB2** | Ja |
+| Begär | Ange information som krävs för att ansluta till DB2-instansen.<br/> Du kan också ställa in lösen ord i Azure Key Vault och `password` Hämta konfigurationen från anslutnings strängen. Se följande exempel och [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md) artikel med mer information. | Ja |
+| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Inga |
+
+Typiska egenskaper i anslutnings strängen:
+
+| Egenskap | Beskrivning | Krävs |
+|:--- |:--- |:--- |
 | server |Namnet på DB2-servern. Du kan ange port numret som följer Server namnet avgränsat med kolon, t `server:port`. ex.. |Ja |
 | databas |Namnet på DB2-databasen. |Ja |
 | authenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtet värde är: **Basic**. |Ja |
 | användarnamn |Ange användar namnet för att ansluta till DB2-databasen. |Ja |
 | password |Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som SecureString för att lagra det på ett säkert sätt i Data Factory eller [referera till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| packageCollection | Ange under där de nödvändiga paketen skapas automatiskt av ADF när du frågar databasen. | Nej |
-| certificateCommonName | När du använder Secure Sockets Layer (SSL) eller Transport Layer Security kryptering (TLS) måste du ange ett värde för certifikatets egna namn. | Nej |
-| connectVia | Den [integration runtime](concepts-integration-runtime.md) som ska användas för att ansluta till data lagret. Läs mer från avsnittet [krav](#prerequisites) . Om inget värde anges används standard Azure Integration Runtime. |Nej |
+| packageCollection | Ange under där de nödvändiga paketen skapas automatiskt av ADF när du frågar databasen. | Inga |
+| certificateCommonName | När du använder Secure Sockets Layer (SSL) eller Transport Layer Security kryptering (TLS) måste du ange ett värde för certifikatets egna namn. | Inga |
 
 > [!TIP]
 > Om du får ett fel meddelande om att `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`det finns ett fel meddelande, är orsaken till att ett nödvändigt paket inte skapas för användaren. Som standard försöker ADF skapa ett paket under samlingen med namnet som den användare som du använde för att ansluta till DB2. Ange egenskapen för paket samling för att ange under var du vill att ADF ska skapa nödvändiga paket när du frågar databasen.
 
 **Exempel:**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; password=<password>; packageCollection=<packagecollection>;certificateCommonName=<certname>;"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+**Exempel: lagra lösen ord i Azure Key Vault**
+
+```json
+{
+    "name": "Db2LinkedService",
+    "properties": {
+        "type": "Db2",
+        "typeProperties": {
+            "connectionString": "server=<server:port>; database=<database>; authenticationType=Basic;username=<username>; packageCollection=<packagecollection>;certificateCommonName=<certname>;",
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+Om du använder DB2-länkad tjänst med följande nytto Last, stöds den fortfarande som den är, medan du föreslås att du vill använda den nya som skickas.
+
+**Föregående nytto last:**
 
 ```json
 {
@@ -204,13 +255,13 @@ När du kopierar data från DB2 används följande mappningar från DB2-datatype
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
-| Float (Flyttal) |Double |
+| Float |Double |
 | Infoga |Sträng |
 | Integer |Int32 |
 | LongVarBinary |Byte [] |
 | LongVarChar |Sträng |
 | LongVarGraphic |Sträng |
-| Numerisk |Decimal |
+| Numeriskt |Decimal |
 | Verkligen |Enkel |
 | SmallInt |Int16 |
 | Tid |TimeSpan |

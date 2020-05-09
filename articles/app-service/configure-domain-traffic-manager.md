@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: f8322c12669e41fc7c9aa88e99f95cf1b26ea87d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944133"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82610249"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Konfigurera ett anpassat domän namn i Azure App Service med Traffic Manager-integrering
 
@@ -66,12 +66,18 @@ När App Service-appen har en pris nivå som stöds visas den i listan över til
 
 [!INCLUDE [Access DNS records with domain provider](../../includes/app-service-web-access-dns-records-no-h.md)]
 
-Även om de olika domän leverantörernas information varierar kan du mappa *från* det anpassade domän namnet (t. ex. **contoso.com**) *till* det Traffic Manager domän namn (**contoso.trafficmanager.net**) som är integrerat med din app.
+Även om de olika domän leverantörernas information är beroende av varandra, mappar du *från* ett [icke-rot-anpassat domän namn](#what-about-root-domains) (t. ex. **www.contoso.com**) *till* det Traffic Manager domän namn (**contoso.trafficmanager.net**) som är integrerat med din app. 
 
 > [!NOTE]
 > Om en post redan används och du behöver förebyggande syfte för att binda dina appar till den, kan du skapa ytterligare en CNAME-post. Om du till exempel vill förebyggande syfte **BIND\.www-contoso.com** till din app skapar du en CNAME-post från **awverify. www** till **contoso.trafficmanager.net**. Du kan sedan lägga till "\.www-contoso.com" i appen utan att behöva ändra "www" CNAME-posten. Mer information finns i [Migrera ett aktivt DNS-namn till Azure App Service](manage-custom-dns-migrate-domain.md).
 
 När du har lagt till eller ändrat DNS-poster i din domän leverantör sparar du ändringarna.
+
+### <a name="what-about-root-domains"></a>Vad är om rot domäner?
+
+Eftersom Traffic Manager endast stöder anpassad domän mappning med CNAME-poster och eftersom DNS-standarder inte stöder CNAME-poster för mappning av rot domäner (t. ex. **contoso.com**), stöder Traffic Manager inte mappning till rot domäner. Undvik det här problemet genom att använda en URL-omdirigering från på App-nivå. I ASP.NET Core kan du till exempel använda URL- [omskrivning](/aspnet/core/fundamentals/url-rewriting). Använd Traffic Manager för att belastningsutjämna under domänen (**www.contoso.com**).
+
+I scenarier med hög tillgänglighet kan du implementera en feltolerant DNS-installation utan att Traffic Manager genom att skapa flera *poster* som pekar från rot domänen till varje app-kopias IP-adress. Mappa sedan [samma rot domän till alla app-kopior](app-service-web-tutorial-custom-domain.md#map-an-a-record). Eftersom samma domän namn inte kan mappas till två olika appar i samma region fungerar den här konfigurationen endast när din app kopieras i olika regioner.
 
 ## <a name="enable-custom-domain"></a>Aktivera anpassad domän
 När posterna för ditt domän namn har spridits använder du webbläsaren för att kontrol lera att ditt anpassade domän namn matchar din App Service-app.

@@ -3,12 +3,12 @@ title: Säkerhetskopiera Azure-filresurser i Azure Portal
 description: Lär dig hur du använder Azure Portal för att säkerhetskopiera Azure-filresurser i Recovery Services-valvet
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: da2c7fa4cc5c3b7b948604a6f6d3999671cb3697
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a77f7fd0ec21eae60a7313a9ffa889fbef4372c6
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101337"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82978036"
 ---
 # <a name="back-up-azure-file-shares-in-a-recovery-services-vault"></a>Säkerhetskopiera Azure-filresurser i ett Recovery Services valv
 
@@ -50,35 +50,70 @@ Så här ändrar du typen av lagrings replikering:
 
 ## <a name="discover-file-shares-and-configure-backup"></a>Identifiera fil resurser och konfigurera säkerhets kopiering
 
-1. I [Azure Portal](https://portal.azure.com/)öppnar du Recovery Services-valvet som du vill använda för att säkerhetskopiera fil resursen.
+1. I [Azure Portal](https://portal.azure.com/)öppnar du Recovery Services-valvet som du vill använda för att konfigurera säkerhets kopiering för fil resursen.
 
-1. I instrument panelen för **Recovery Services valv** väljer du **+ säkerhetskopiera**.
+1. I fönstret **Recovery Services valv** väljer du **+ säkerhetskopiera** på menyn högst upp.
 
    ![Recovery Services-valv](./media/backup-afs/recovery-services-vault.png)
 
-    a. I **säkerhets kopierings mål**anger **du var din arbets belastning körs?** till **Azure**.
+    1. I fönstret **säkerhets kopierings mål** anger **du var arbets belastningen körs?** till **Azure** genom att välja alternativet **Azure** i list rutan.
 
-    ![Välj Azure-filresurs som säkerhets kopierings mål](./media/backup-afs/backup-goal.png)
+          ![Välj Azure som arbets belastning](./media/backup-afs/backup-goal.png)
 
-    b.  I **vad vill du säkerhetskopiera? väljer du** **Azure-filresurs** i list rutan.
+    2. I **vad vill du säkerhetskopiera? väljer du** **Azure-filresurs** i list rutan.
 
-    c.  Välj **säkerhets kopiering** för att registrera tillägget Azure File Share i valvet.
+          ![Välj Azure-FileShare](./media/backup-afs/select-azure-file-share.png)
 
-    ![Välj säkerhets kopiering för att associera Azure-filresursen med valvet](./media/backup-afs/register-extension.png)
+    3. Välj **säkerhets kopiering** för att registrera tillägget Azure File Share i valvet.
 
-1. När du har valt **säkerhets kopiering**öppnas fönstret **säkerhets kopiering** där du kan välja ett lagrings konto från en lista över identifierade lagrings konton som stöds. De är antingen associerade med det här valvet eller finns i samma region som valvet, men har ännu inte kopplats till något Recovery Services-valv.
+          ![Välj säkerhets kopiering för att associera Azure-filresursen med valvet](./media/backup-afs/register-extension.png)
 
-1. I listan över identifierade lagrings konton väljer du ett konto och väljer **OK**. Azure söker i lagrings kontot efter fil resurser som kan säkerhets kopie ras. Om du nyligen har lagt till dina fil resurser och inte ser dem i listan, kan det vara en tid för fil resurserna att visas.
+1. När du har valt **säkerhets kopiering**öppnas fönstret **säkerhets kopiering** . Välj det lagrings konto som är värd för den fil resurs som du vill skydda genom att klicka på länken **Välj** länk under **lagrings kontots** text ruta.
 
-    ![Identifiera fil resurser](./media/backup-afs/discovering-file-shares.png)
+   ![Välj länken Välj](./media/backup-afs/choose-select-link.png)
 
-1. I listan **fil resurser** väljer du en eller flera av de fil resurser som du vill säkerhetskopiera. Välj **OK**.
+1. **Rutan Välj lagrings konto** öppnas till höger och listar en uppsättning identifierade lagrings konton som stöds. De är antingen associerade med det här valvet eller finns i samma region som valvet, men har ännu inte kopplats till något Recovery Services-valv.
+
+1. I listan över identifierade lagrings konton väljer du ett konto och väljer **OK**.
+
+   ![Välj bland de identifierade lagrings kontona](./media/backup-afs/select-discovered-storage-account.png)
+
+1. Nästa steg är att välja de fil resurser som du vill säkerhetskopiera. Klicka på knappen **Lägg till** i avsnittet **fil resurser to backup** .
+
+   ![Välj de fil resurser som ska säkerhets kopie ras](./media/backup-afs/select-file-shares-to-back-up.png)
+
+1. Fönstret **Välj fildelnings** kontext öppnas till höger. Azure söker i lagrings kontot efter fil resurser som kan säkerhets kopie ras. Om du nyligen har lagt till dina fil resurser och inte ser dem i listan, kan det vara en tid för fil resurserna att visas.
+
+1. I listan **Välj fil resurser** väljer du en eller flera av de fil resurser som du vill säkerhetskopiera. Välj **OK**.
 
    ![Välj fil resurser](./media/backup-afs/select-file-shares.png)
 
-1. När du har valt fil resurserna växlar **säkerhets kopierings** menyn till **säkerhets kopierings principen**. Från den här menyn väljer du antingen en befintlig säkerhets kopierings princip eller skapar en ny. Välj sedan **Aktivera säkerhets kopiering**.
+1. Du kan välja en säkerhets kopierings princip för fil resursen med tre alternativ:
 
-    ![Välja säkerhetskopieringspolicy](./media/backup-afs/select-backup-policy.png)
+   * Välj standard principen.<br>
+   Med det här alternativet kan du aktivera daglig säkerhets kopiering som ska behållas i 30 dagar. Om du inte har en befintlig säkerhets kopierings princip i valvet öppnas säkerhets kopierings fönstret med standard princip inställningarna. Om du vill välja standardinställningar kan du klicka direkt på **Aktivera säkerhets kopiering**.
+
+   * Skapa en ny policy <br>
+
+      1. Om du vill skapa en ny säkerhets kopierings princip för fil resursen klickar du på länk texten under List rutan i avsnittet **säkerhets kopierings princip** .<br>
+
+         ![Skapa ny princip](./media/backup-afs/create-new-policy.png)
+
+      1. Kontext fönstret för **säkerhets kopierings principen** öppnas till höger. Ange ett princip namn i text rutan och välj kvarhållningsperioden enligt ditt krav. Endast alternativet för daglig kvarhållning är aktiverat som standard. Om du vill ha veckovis, månatlig eller årlig kvarhållning markerar du motsvarande kryss ruta och anger önskat kvarhållningsintervall.
+
+      1. När du har angett värdena för kvarhållning och ett giltigt princip namn klickar du på OK.<br>
+
+         ![Ange princip namn och bevarande värden](./media/backup-afs/policy-name.png)
+
+   * Välj en av de befintliga säkerhets kopierings principerna <br>
+
+   Om du vill välja en av de befintliga säkerhets kopierings principerna för att konfigurera skydd väljer du önskad princip i list rutan **säkerhets kopierings princip** .<br>
+
+   ![Välj en befintlig princip](./media/backup-afs/choose-existing-policy.png)
+
+1. Klicka på **Aktivera säkerhets kopiering** för att börja skydda fil resursen.
+
+   ![Välj Aktivera säkerhets kopiering](./media/backup-afs/enable-backup.png)
 
 När du har angett en säkerhets kopierings princip tas en ögonblicks bild av fil resurserna vid den schemalagda tiden. Återställnings punkten behålls även för den valda perioden.
 

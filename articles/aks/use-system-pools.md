@@ -3,13 +3,13 @@ title: Använda pooler för system-noder i Azure Kubernetes service (AKS)
 description: Lär dig hur du skapar och hanterar system-nodkonfigurationer i Azure Kubernetes service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 04/06/2020
-ms.openlocfilehash: b567d9e618877463e1e659f368d35fbb787a4ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/28/2020
+ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259076"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82790566"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera system-nodkonfigurationer i Azure Kubernetes service (AKS)
 
@@ -29,6 +29,8 @@ Följande begränsningar gäller när du skapar och hanterar AKS-kluster som st�
 * Se [kvoter, storleks begränsningar för virtuella datorer och regions tillgänglighet i Azure Kubernetes service (AKS)][quotas-skus-regions].
 * AKS-klustret måste ha skapats med skalnings uppsättningar för virtuella datorer som VM-typ.
 * Namnet på en Node-pool får bara innehålla gemena alfanumeriska tecken och måste börja med en gemen bokstav. För Linux-Node-pooler måste längden vara mellan 1 och 12 tecken. För Windows Node-pooler måste längden vara mellan 1 och 6 tecken.
+* En API-version på 2020-03-01 eller större måste användas för att ange ett läge för Node-poolen.
+* Läget för en Node-pool är en obligatorisk egenskap och måste anges explicit när du använder ARM-mallar eller direkta API-anrop.
 
 ## <a name="system-and-user-node-pools"></a>Pooler för system-och användar-noder
 
@@ -175,4 +177,4 @@ I den här artikeln har du lärt dig hur du skapar och hanterar system-nodkonfig
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
 [vm-sizes]: ../virtual-machines/linux/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
-[maximum-pods]: faq.md#why-cant-i-set-maxpods-below-30
+[maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

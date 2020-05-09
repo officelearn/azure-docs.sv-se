@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5eab523dde2a13a85b0c8ff5bcbb3ecb5912e78e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c74ec73eb06c43110747d87e6fecd12183527759
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80586703"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82872541"
 ---
 # <a name="tutorial---an-end-to-end-async-java-sql-api-application-sample-with-change-feed"></a>Självstudie – ett asynkront Java SQL API-exempel från slut punkt till slut punkt med ändrings flöde
 
@@ -89,8 +89,8 @@ mvn clean package
 
     Tryck på RETUR. Nu kommer följande kodblock att köra och initiera processorn för ändrings flöden i en annan tråd: 
 
+   # <a name="java-sdk-40"></a>[Java SDK 4,0](#tab/v4sdk)
 
-    **Java SDK 4,0**
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
     changeFeedProcessorInstance.start()
@@ -103,7 +103,8 @@ mvn clean package
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start
     ```
 
-    **Java SDK-3.7.0**
+   # <a name="java-sdk-370"></a>[Java SDK-3.7.0](#tab/v3sdk)
+
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
     changeFeedProcessorInstance.start()
@@ -115,6 +116,7 @@ mvn clean package
 
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start    
     ```
+   ---
 
     ```"SampleHost_1"```är namnet på den ändrade flödes processorns arbetare. ```changeFeedProcessorInstance.start()```är vad som faktiskt startar bearbetningen av Change feeds.
 
@@ -124,7 +126,8 @@ mvn clean package
 
 1. Tryck på RETUR igen i terminalen. Detta kommer att utlösa 10 dokument som ska infogas i **InventoryContainer**. Varje dokument infogning visas i ändra feed som JSON. följande callback-kod hanterar dessa händelser genom att spegla JSON-dokumenten till en materialiserad vy:
 
-    **Java SDK 4,0**
+   # <a name="java-sdk-40"></a>[Java SDK 4,0](#tab/v4sdk)
+
     ```java
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosAsyncContainer feedContainer, CosmosAsyncContainer leaseContainer) {
         ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
@@ -150,7 +153,8 @@ mvn clean package
     }
     ```
 
-    **Java SDK-3.7.0**
+   # <a name="java-sdk-370"></a>[Java SDK-3.7.0](#tab/v3sdk)
+
     ```java
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosContainer feedContainer, CosmosContainer leaseContainer) {
         ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
@@ -175,6 +179,7 @@ mvn clean package
         typeContainer.upsertItem(document).subscribe();
     }    
     ```
+   ---
 
 1. Tillåt att koden kör 5-10sec. Gå sedan tillbaka till Azure Portal Datautforskaren och navigera till **InventoryContainer > objekt**. Du bör se att objekten infogas i lager behållaren. Anteckna partitionsnyckel (```id```).
 
@@ -190,7 +195,8 @@ mvn clean package
 
     Tryck på RETUR igen för att anropa ```deleteDocument()``` funktionen i exempel koden. Den här funktionen, som visas nedan, upsertar en ny version av dokumentet ```/ttl == 5```med, som anger TTL-värdet (Time-to-Live) till 5Sec. 
     
-    **Java SDK 4,0**
+   # <a name="java-sdk-40"></a>[Java SDK 4,0](#tab/v4sdk)
+
     ```java
     public static void deleteDocument() {
 
@@ -217,8 +223,8 @@ mvn clean package
         feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
     }    
     ```
+   # <a name="java-sdk-370"></a>[Java SDK-3.7.0](#tab/v3sdk)
 
-    **Java SDK-3.7.0**
     ```java
     public static void deleteDocument() {
 
@@ -245,6 +251,7 @@ mvn clean package
         feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
     }    
     ```
+   ---
 
     Ändrings flödet ```feedPollDelay``` är inställt på 100 MS; därför svarar ändra feed på den här uppdateringen nästan omedelbart och samtal ```updateInventoryTypeMaterializedView()``` som visas ovan. Det senaste funktions anropet kommer att upsert det nya dokumentet med TTL för 5Sec till **InventoryContainer-pktype**.
 

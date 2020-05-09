@@ -3,19 +3,19 @@ title: Konfigurera en offentlig utgående IP-adress för ISEs
 description: Lär dig hur du konfigurerar en enskild offentlig IP-adress för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 619c68b84291bc35b8216194ac4534393fde454c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/06/2020
+ms.openlocfilehash: 2132dc464ee404339d9de03c0c797426aea04ce2
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77191513"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927147"
 ---
 # <a name="set-up-a-single-ip-address-for-one-or-more-integration-service-environments-in-azure-logic-apps"></a>Konfigurera en enskild IP-adress för en eller flera integrerings tjänst miljöer i Azure Logic Apps
 
-När du arbetar med Azure Logic Apps kan du konfigurera en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) för att vara värd för logi Kap par som behöver åtkomst till resurser i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du har flera ISE-instanser som behöver åtkomst till andra slut punkter som har IP-begränsningar distribuerar du en [Azure-brandvägg](../firewall/overview.md) eller en [virtuell nätverks](../virtual-network/virtual-networks-overview.md#filter-network-traffic) installation till det virtuella nätverket och dirigerar utgående trafik via brand väggen eller den virtuella nätverks installationen. Du kan sedan ha alla ISE-instanser i det virtuella nätverket använda en enda, offentlig, statisk och förutsägbar IP-adress för att kommunicera med mål systemen. På så sätt behöver du inte konfigurera ytterligare brand Väggs öppningar på dessa mål system för varje ISE.
+När du arbetar med Azure Logic Apps kan du konfigurera en [ *integrerings tjänst miljö* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) för att vara värd för logi Kap par som behöver åtkomst till resurser i ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du har flera ISE-instanser som behöver åtkomst till andra slut punkter som har IP-begränsningar distribuerar du en [Azure-brandvägg](../firewall/overview.md) eller en [virtuell nätverks](../virtual-network/virtual-networks-overview.md#filter-network-traffic) installation till det virtuella nätverket och dirigerar utgående trafik via brand väggen eller den virtuella nätverks installationen. Du kan sedan ha alla ISE-instanser i det virtuella nätverket använda en enda, offentlig, statisk och förutsägbar IP-adress för att kommunicera med de mål system som du vill använda. På så sätt behöver du inte konfigurera ytterligare brand Väggs öppningar i mål systemen för varje ISE.
 
 Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvägg, men du kan använda liknande begrepp för en virtuell nätverks installation, till exempel en brand vägg från en tredje part från Azure Marketplace. Det här avsnittet fokuserar på installations programmet för flera ISE-instanser, men du kan också använda den här metoden för en enskild ISE när ditt scenario kräver att du begränsar antalet IP-adresser som behöver åtkomst. Överväg om ytterligare kostnader för brand väggen eller den virtuella nätverks enheten passar ditt scenario. Läs mer om [priser för Azure-brandvägg](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
@@ -52,10 +52,12 @@ Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvä
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
    | **Vägnamn** | <*unikt flöde-namn*> | Ett unikt namn för vägen i routningstabellen |
-   | **Adressprefix** | <*mål adress*> | Mål systemets adress dit du vill att trafiken ska gå. Se till att du använder [CIDR-notering (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) för den här adressen. |
+   | **Adressprefix** | <*mål adress*> | Adressprefixet för ditt mål system där du vill att utgående trafik ska gå. Se till att du använder [CIDR-notering (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) för den här adressen. I det här exemplet är detta adressprefix för en SFTP-server, som beskrivs i avsnittet [Konfigurera nätverks regel](#set-up-network-rule). |
    | **Nexthop-typ** | **Virtuell installation** | [Hopp typen](../virtual-network/virtual-networks-udr-overview.md#next-hop-types-across-azure-tools) som används av utgående trafik |
    | **Nexthop-adress** | <*brand vägg – privat IP-adress*> | Den privata IP-adressen för din brand vägg |
    |||
+
+<a name="set-up-network-rule"></a>
 
 ## <a name="set-up-network-rule"></a>Konfigurera nätverks regel
 
@@ -65,7 +67,7 @@ Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvä
 
 1. I samlingen lägger du till en regel som tillåter trafik till mål systemet.
 
-   Anta till exempel att du har en Logic-app som körs i en ISE och som måste kommunicera med ett SFTP-system. Du skapar en nätverks regel samling som har namnet `LogicApp_ISE_SFTP_Outbound`, som innehåller en nätverks regel med `ISE_SFTP_Outbound`namnet. Den här regeln tillåter trafik från IP-adressen för ett undernät där ISE körs i det virtuella nätverket till målets SFTP-system med hjälp av brand väggens privata IP-adress.
+   Anta till exempel att du har en Logic-app som körs i en ISE och som måste kommunicera med en SFTP-server. Du skapar en nätverks regel samling som har namnet `LogicApp_ISE_SFTP_Outbound`, som innehåller en nätverks regel med `ISE_SFTP_Outbound`namnet. Den här regeln tillåter trafik från IP-adressen för ett undernät där ISE körs i det virtuella nätverket till målets SFTP-server genom att använda brand väggens privata IP-adress.
 
    ![Konfigurera nätverks regel för brand vägg](./media/connect-virtual-network-vnet-set-up-single-ip-address/set-up-network-rule-for-firewall.png)
 
@@ -83,9 +85,9 @@ Det här avsnittet visar hur du dirigerar utgående trafik via en Azure-brandvä
    | Egenskap | Värde | Beskrivning |
    |----------|-------|-------------|
    | **Namn** | <*nätverks regel-namn*> | Nätverks regelns namn |
-   | **Protokollhanterare** | <*anslutnings protokoll*> | Anslutnings protokollen som ska användas. Om du till exempel använder NSG-regler, väljer du både **TCP** och **UDP**, inte bara **TCP**. |
+   | **Protokoll** | <*anslutnings protokoll*> | Anslutnings protokollen som ska användas. Om du till exempel använder NSG-regler, väljer du både **TCP** och **UDP**, inte bara **TCP**. |
    | **Käll adresser** | <*ISE-undernät-adresser*> | IP-adresserna för under nätet där ISE körs och varifrån trafik från din Logic app kommer |
-   | **Mål adresser** | <*mål-IP-adress*> | IP-adressen för ditt mål system där du vill att trafiken ska gå |
+   | **Mål adresser** | <*mål-IP-adress*> | IP-adressen för ditt mål system där du vill att utgående trafik ska gå. I det här exemplet är den här IP-adressen för SFTP-servern. |
    | **Mål portar** | <*mål portar*> | Alla portar som mål systemet använder för inkommande kommunikation |
    |||
 

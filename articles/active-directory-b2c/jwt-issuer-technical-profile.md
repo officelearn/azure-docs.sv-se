@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/28/2020
+ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 676b54e1d22712ac41534b67206e6d6931bcc9b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fbadfb63b9f575053feca87bda2c3ad2e64e91eb
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229705"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82926042"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk profil för en JWT-token-utfärdare i en Azure Active Directory B2C anpassad princip
 
@@ -33,7 +33,7 @@ I följande exempel visas en teknisk profil för `JwtIssuer`:
 ```XML
 <TechnicalProfile Id="JwtIssuer">
   <DisplayName>JWT Issuer</DisplayName>
-  <Protocol Name="None" />
+  <Protocol Name="OpenIdConnect" />
   <OutputTokenFormat>JWT</OutputTokenFormat>
   <Metadata>
     <Item Key="client_id">{service:te}</Item>
@@ -57,15 +57,15 @@ I följande exempel visas en teknisk profil för `JwtIssuer`:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Ja | Det anspråk som ska användas som användar identitets anspråk i OAuth2-auktoriseringskod och uppdateringstoken. Som standard bör du ställa in det på `objectId`, om du inte anger en annan SubjectNamingInfo-anspråks typ. |
-| SendTokenResponseBodyWithJsonNumbers | Nej | Ställ alltid in `true`på. För äldre format där numeriska värden anges som strängar i stället för JSON-tal, anges `false`till. Det här attributet krävs för klienter som har tagit ett beroende på en tidigare implementering som returnerade sådana egenskaper som strängar. |
-| token_lifetime_secs | Nej | Livstid för åtkomsttoken. Livs längden för OAuth 2,0 Bearer-token som används för att få åtkomst till en skyddad resurs. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Det största (inklusive) är 86 400 sekunder (24 timmar). |
-| id_token_lifetime_secs | Nej | Livstid för ID-token. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Max (inklusive) är sekunder 86 400 (24 timmar). |
-| refresh_token_lifetime_secs | Nej | Livstid för token för uppdatering. Den längsta tids period innan en uppdateringstoken kan användas för att hämta en ny åtkomsttoken, om ditt program har beviljats offline_access omfattning. Standardvärdet är 120, 9600 sekunder (14 dagar). Minimivärdet (inklusive) är 86 400 sekunder (24 timmar). Det största (inklusive) är 7 776 000 sekunder (90 dagar). |
-| rolling_refresh_token_lifetime_secs | Nej | Uppdatera token glidande fönster livs längd. När den här tids perioden har förflutit måste användaren autentiseras på nytt, oberoende av giltighets perioden för den senaste uppdateringstoken som hämtats av programmet. Om du inte vill framtvinga en glidande fönster livs längd ställer du in värdet för allow_infinite_rolling_refresh_token `true`. Standardvärdet är 7 776 000 sekunder (90 dagar). Minimivärdet (inklusive) är 86 400 sekunder (24 timmar). Det största (inklusive) är 31 536 000 sekunder (365 dagar). |
-| allow_infinite_rolling_refresh_token | Nej | Om det är `true`inställt på, förfaller den glidande tidsintervallen för uppdateringstoken aldrig. |
-| IssuanceClaimPattern | Nej | Styr utfärdaren (ISS)-anspråket. Ett av värdena:<ul><li>AuthorityAndTenantGuid – IIS-anspråket inkluderar ditt domän namn, `login.microsoftonline` till `tenant-name.b2clogin.com`exempel eller, och din klient-\/ID https:/login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp – IIS-anspråket inkluderar ditt domän namn, `login.microsoftonline` till `tenant-name.b2clogin.com`exempel eller, ditt klient-ID och namnet på den förlitande partens princip. https:\//login.microsoftonline.com/TFP/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-Sign-in/v2.0/</li></ul> Standardvärde: AuthorityAndTenantGuid |
-| AuthenticationContextReferenceClaimPattern | Nej | Kontrollerar `acr` anspråk svärdet.<ul><li>Ingen-Azure AD B2C utfärdar inte ACR-anspråket</li><li>PolicyId- `acr` anspråket innehåller princip namnet</li></ul>Alternativen för att ange det här värdet är TFP (Trust Framework policy) och ACR (Authentication context Reference). Vi rekommenderar att du ställer in värdet på TFP, för att ange värdet, se `<Item>` till att `Key="AuthenticationContextReferenceClaimPattern"` det finns och att värdet `None`är. Lägg till `<OutputClaims>` objekt i principen för den förlitande parten, Lägg `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`till det här elementet. Kontrol lera också att principen innehåller anspråks typen`<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
-|RefreshTokenUserJourneyId| Nej | Identifieraren för en användar resa som ska utföras under [uppdateringen av en åtkomstbegäran](authorization-code-flow.md#4-refresh-the-token) post till `/token` slut punkten. |
+| SendTokenResponseBodyWithJsonNumbers | Inga | Ställ alltid in `true`på. För äldre format där numeriska värden anges som strängar i stället för JSON-tal, anges `false`till. Det här attributet krävs för klienter som har tagit ett beroende på en tidigare implementering som returnerade sådana egenskaper som strängar. |
+| token_lifetime_secs | Inga | Livstid för åtkomsttoken. Livs längden för OAuth 2,0 Bearer-token som används för att få åtkomst till en skyddad resurs. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Det största (inklusive) är 86 400 sekunder (24 timmar). |
+| id_token_lifetime_secs | Inga | Livstid för ID-token. Standardvärdet är 3 600 sekunder (1 timme). Minimivärdet (inklusive) är 300 sekunder (5 minuter). Max (inklusive) är sekunder 86 400 (24 timmar). |
+| refresh_token_lifetime_secs | Inga | Livstid för token för uppdatering. Den längsta tids period innan en uppdateringstoken kan användas för att hämta en ny åtkomsttoken, om ditt program har beviljats offline_access omfattning. Standardvärdet är 120, 9600 sekunder (14 dagar). Minimivärdet (inklusive) är 86 400 sekunder (24 timmar). Det största (inklusive) är 7 776 000 sekunder (90 dagar). |
+| rolling_refresh_token_lifetime_secs | Inga | Uppdatera token glidande fönster livs längd. När den här tids perioden har förflutit måste användaren autentiseras på nytt, oberoende av giltighets perioden för den senaste uppdateringstoken som hämtats av programmet. Om du inte vill framtvinga en glidande fönster livs längd ställer du in värdet för allow_infinite_rolling_refresh_token `true`. Standardvärdet är 7 776 000 sekunder (90 dagar). Minimivärdet (inklusive) är 86 400 sekunder (24 timmar). Det största (inklusive) är 31 536 000 sekunder (365 dagar). |
+| allow_infinite_rolling_refresh_token | Inga | Om det är `true`inställt på, förfaller den glidande tidsintervallen för uppdateringstoken aldrig. |
+| IssuanceClaimPattern | Inga | Styr utfärdaren (ISS)-anspråket. Ett av värdena:<ul><li>AuthorityAndTenantGuid – IIS-anspråket inkluderar ditt domän namn, `login.microsoftonline` till `tenant-name.b2clogin.com`exempel eller, och din klient-\/ID https:/login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp – IIS-anspråket inkluderar ditt domän namn, `login.microsoftonline` till `tenant-name.b2clogin.com`exempel eller, ditt klient-ID och namnet på den förlitande partens princip. https:\//login.microsoftonline.com/TFP/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-Sign-in/v2.0/</li></ul> Standardvärde: AuthorityAndTenantGuid |
+| AuthenticationContextReferenceClaimPattern | Inga | Kontrollerar `acr` anspråk svärdet.<ul><li>Ingen-Azure AD B2C utfärdar inte ACR-anspråket</li><li>PolicyId- `acr` anspråket innehåller princip namnet</li></ul>Alternativen för att ange det här värdet är TFP (Trust Framework policy) och ACR (Authentication context Reference). Vi rekommenderar att du ställer in värdet på TFP, för att ange värdet, se `<Item>` till att `Key="AuthenticationContextReferenceClaimPattern"` det finns och att värdet `None`är. Lägg till `<OutputClaims>` objekt i principen för den förlitande parten, Lägg `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`till det här elementet. Kontrol lera också att principen innehåller anspråks typen`<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` |
+|RefreshTokenUserJourneyId| Inga | Identifieraren för en användar resa som ska utföras under [uppdateringen av en åtkomstbegäran](authorization-code-flow.md#4-refresh-the-token) post till `/token` slut punkten. |
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 

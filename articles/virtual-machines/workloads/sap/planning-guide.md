@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c2e3219cebcc5e989059c02fec86ba242e1c31cc
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: b8f6691eab7da42c1f82952b3a20df95ab28d97b
+ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853871"
+ms.lasthandoff: 05/07/2020
+ms.locfileid: "82891595"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planera och implementera SAP-NetWeaver
 
@@ -487,7 +487,7 @@ Som pris modell har du flera olika pris alternativ som en lista som:
 
 Prissättningen av var och en av de olika erbjudandena med olika tjänst erbjudanden kring operativ system och olika regioner finns på webbplatsen [virtuella Linux-datorer priser](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) och [virtuella Windows-datorer prissättning](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). Mer information och flexibilitet för ett år och tre års reserverade instanser finns i följande artiklar:
 
-- [Vad är Azure Reservations?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
+- [Vad är Azure-reservationer?](https://docs.microsoft.com/azure/cost-management-billing/reservations/save-compute-costs-reservations)
 - [Flexibel storlek för virtuella datorer med reserverade VM-instanser](https://docs.microsoft.com/azure/virtual-machines/windows/reserved-vm-instance-size-flexibility)
 - [Så tillämpas rabatten för Azure-reservation på virtuella datorer](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-vm-reservation-charges) 
 
@@ -1240,7 +1240,7 @@ Erfarenhet av SAP-distributioner under de senaste två åren är några lektione
 >
 > * [Konfigurera programvaru-RAID på Linux][virtual-machines-linux-configure-raid]
 > * [Konfigurera LVM på en virtuell Linux-dator i Azure][virtual-machines-linux-configure-lvm]
-> * [Azure Storage hemligheter och I/O-optimeringar I Linux](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+> * [Azure Storage hemligheter och I/O-optimeringar I Linux](https://docs.microsoft.com/archive/blogs/igorpag/azure-storage-secrets-and-linux-io-optimizations)
 >
 >
 

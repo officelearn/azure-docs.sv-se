@@ -3,12 +3,12 @@ title: Förbättra tillgängligheten för ditt program med Azure Advisor
 description: Använd Azure Advisor för att förbättra hög tillgänglighet för dina Azure-distributioner.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 997681ed62fa9985e3122ece22565dbae0e65b53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e38a1fb5e07e3811c53e24a5e324575d6774a75
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443115"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82788033"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Förbättra tillgängligheten för ditt program med Azure Advisor
 
@@ -28,6 +28,10 @@ För att ge ditt program redundans rekommenderar vi att du grupperar två eller 
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Använd Managed Disks för ökad datatillförlitlighet
 
 Virtuella datorer som finns i en tillgänglighets uppsättning med diskar som delar antingen lagrings konton eller lagrings skalnings enheter är inte elastiska till enskilda lagrings enhets enheter vid avbrott. Advisor identifierar dessa tillgänglighets uppsättningar och rekommenderar att du migrerar till Azure Managed Disks. På så sätt ser du till att diskarna för de olika virtuella datorerna i tillgänglighets uppsättningen är tillräckligt isolerade för att undvika en enskild felpunkt. 
+
+## <a name="known-issue-with-check-point-network-virtual-appliance-image-version"></a>Känt problem med avbildningsversionen för en virtuell nätverksinstallation (NVA) i Check Point
+
+Advisor kan identifiera om den virtuella datorn kan köra en version av kontroll punkts avbildningen som har visat sig bryta mot nätverks anslutningen vid en plattforms underhålls åtgärd. Advisor-rekommendationen hjälper dig att uppgradera till en nyare version av avbildningen som åtgärdar problemet. Detta säkerställer affärs kontinuiteten genom en bättre nätverks anslutning.
 
 ## <a name="ensure-application-gateway-fault-tolerance"></a>Säkerställ fel tolerans för Application Gateway
 
@@ -83,7 +87,7 @@ Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner 
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Uppgradera Azure Cosmos DB Java-SDK till den senaste versionen från Maven
 
-Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner av Java SDK och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestanda förbättringar och nya funktioner. [Läs mer om Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor identifierar Azure Cosmos DB konton som använder gamla versioner av Java SDK och rekommenderar att du uppgraderar till den senaste versionen från Maven för de senaste korrigeringarna, prestanda förbättringar och nya funktioner. [Läs mer om Cosmos DB Java SDK](https://aka.ms/cosmosdb/sql-api-sdk-async-java)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Uppgradera Azure Cosmos DB Spark-anslutningsprogrammet till den senaste versionen från Maven
 

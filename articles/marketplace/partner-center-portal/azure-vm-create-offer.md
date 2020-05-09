@@ -1,25 +1,25 @@
 ---
-title: Skapa ett erbjudande för virtuell Azure-dator – Azure Marketplace
-description: Lär dig hur du skapar ett erbjudande för virtuella datorer på den kommersiella marknads platsen.
+title: Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
+description: 'Lär dig hur du skapar ett erbjudande för virtuella datorer på Azure Marketplace med den nödvändiga SKU: n.'
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/10/2020
-ms.openlocfilehash: d598f741c5add58a89aa2b7aa01802a7e35f9a19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 31b8960f5617566a72545510cf03771f7a3bfcbd
+ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869065"
+ms.lasthandoff: 05/04/2020
+ms.locfileid: "82745010"
 ---
-# <a name="create-an-azure-virtual-machine-offer"></a>Skapa ett erbjudande för virtuell Azure-dator
+# <a name="create-an-azure-virtual-machine-offer-in-the-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
 > [!IMPORTANT]
 > Vi flyttar hanteringen av dina virtuella Azure-erbjudanden från Cloud Partner Portal till Partner Center. Fortsätt att följa anvisningarna i [Skapa virtuell dator](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) i Cloud Partner Portal för att hantera dina erbjudanden innan du migrerar dina erbjudanden.
 
-Den här artikeln beskriver hur du skapar och publicerar ett erbjudande för virtuella Azure-datorer på [Azure Marketplace](https://azuremarketplace.microsoft.com/). Den behandlar både Windows-och Linux-baserade virtuella datorer som innehåller ett operativ system, en virtuell hård disk (VHD) och upp till 16 data diskar.
+Den här artikeln beskriver hur du skapar och publicerar ett erbjudande för virtuella Azure-datorer på [Azure Marketplace](https://azuremarketplace.microsoft.com/). Den behandlar både Windows-och Linux-baserade virtuella datorer som innehåller ett operativ system, en virtuell hård disk (VHD) och upp till 16 data diskar. Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 ## <a name="introduction"></a>Introduktion
 
@@ -58,17 +58,18 @@ Teknik teamet bör förstå följande Microsoft-tekniker:
 - Så här [utformar och skapar du Azure-program](https://azure.microsoft.com/solutions/architecture/)
 - Arbeta med kunskaper om [azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)och [Azure-nätverk](https://azure.microsoft.com/services/?filter=networking#networking)
 
-## <a name="create-an-azure-virtual-machine-offer"></a>Skapa ett erbjudande för virtuell Azure-dator
+## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
-Innan du kan skapa ett erbjudande för virtuella Azure-datorer måste du ha ett kommersiellt marknads plats konto i Partner Center. Om du inte har skapat en ännu, se [skapa ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
+3. På sidan Översikt väljer du **+ nytt erbjud** > **Azure Virtual Machine**.
 
-1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home)och välj **instrument panel**på den översta menyn.
-2. I det vänstra navigerings fältet väljer du **kommersiell Marketplace**och sedan **Översikt**.
-3. På sidan **Översikt** väljer du **+ nytt erbjudande**, sedan **virtuell Azure-dator**. Dialog rutan **nytt erbjudande** visas.
+    ![Visar menyn till vänster-navigering.](./media/new-offer-azure-vm.png)
 
-    ![Visar översikts sidan i Partner Center med den nya erbjudande knappen och erbjudandet för virtuella Azure-datorer valda.](media/avm-create7.png)
+> [!NOTE]
+> När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
-## <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
+## <a name="new-offer"></a>Nytt erbjudande
 
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
@@ -76,7 +77,9 @@ Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudand
 - Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudandet-1** här, är `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`webb adressen för erbjudandet.
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
-Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center. Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
+Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
+
+- Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
 
 Välj **skapa** för att generera erbjudandet och fortsätt.
 
@@ -84,15 +87,15 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 ### <a name="test-drive"></a>Test enhet
 
-Konfigurera en demonstration (test enhet) som låter kunderna testa ditt erbjudande innan du köper det. Om du vill skapa en demonstrations miljö som gör det möjligt för kunder att testa ditt erbjudande under en viss tids period, se [testköra ditt erbjudande på den kommersiella Marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
+En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-Om du vill aktivera en testen het markerar du kryss rutan **Aktivera en testenhet** . Avmarkera den här kryss rutan om du vill ta bort test enheten från erbjudandet.
+Om du vill aktivera en testenhet under en fast tids period markerar du kryss rutan **Aktivera en testenhet** . Avmarkera den här kryss rutan om du vill ta bort test enheten från erbjudandet.
 
 Ytterligare resurser för test enheter:
 
 - [Rekommenderade tekniska metoder](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Metodtips för marknadsföring](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Översikt över test enheter](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (se till att blockering av popup-fönster är inaktiverat).
+- [Översikt över test enheter](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (se till att blockering av popup-fönster är inaktiverat)
 
 ### <a name="lead-management"></a>Leadhantering
 
@@ -213,9 +216,13 @@ Här följer några tips om hur du skriver beskrivningen:
 - Förlita dig inte på funktioner och funktioner för att sälja erbjudandet. I stället fokuserar du på det värde som erbjudandet erbjuder.
 - Använd branschspecifika eller förmåns baserade ord.
 
-Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att formatera beskrivningen. Med RTF-redigeraren kan du lägga till siffror, punkter, fet, kursiv stil och indrag för att göra beskrivningen mer lättläst.
+Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
 
-![Visar översikts sidan i Partner Center med den nya erbjudande knappen och konsult tjänst erbjudandet valt.](media/power-bi-rich-text-editor.png)
+![Använda Rich Text Editor](./media/rich-text-editor.png)
+
+| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
+| --- | --- | --- |
+| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
 
 #### <a name="privacy-policy-link"></a>Länk till sekretess policy
 
@@ -271,17 +278,17 @@ Alla fyra logo typer krävs och används på olika platser i Marketplace-listan.
 
 #### <a name="screenshots"></a>Skärmbilder
 
-Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Du måste också lägga till en beskrivning som beskriver skärm bilden.
+Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
 #### <a name="videos"></a>Videoklipp
 
-Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar i storlek.
+Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar.
 
 Mer information om resurser för Marketplace finns i [metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
 
 Välj **Spara utkast** innan du fortsätter.
 
-## <a name="preview"></a>Förhandsversion
+## <a name="preview"></a>Förhandsgranskning
 
 På fliken förhands granskning väljer du en begränsad **förhands visning** för att verifiera ditt erbjudande innan du publicerar den Live till den bredare Marketplace-publiken.
 
@@ -331,7 +338,7 @@ Välj **Skapa**.
 
 Ange den avancerade konfigurationen för typen av plan, oavsett om den återanvänder teknisk konfiguration från ett annat avtal och i vilka Azure-regioner som planen ska vara tillgänglig. Dina val här avgör vilka fält som visas på andra flikar för samma plan.
 
-#### <a name="reuse-technical-configuration"></a>Återanvänd teknisk konfiguration
+#### <a name="re-use-technical-configuration"></a>Använd teknisk konfiguration igen
 
 Om du har mer än en plan av samma typ och paketen är identiska mellan dem, kan du välja **den här prenumerationen Återanvänd teknisk konfiguration från ett annat abonnemang**. Med det här alternativet kan du välja något av de andra planerna av samma typ för det här erbjudandet och återanvända den tekniska konfigurationen.
 
@@ -342,7 +349,7 @@ Om du har mer än en plan av samma typ och paketen är identiska mellan dem, kan
 
 Din plan måste göras tillgänglig i minst en Azure-region.
 
-Välj det **globala Azure** -alternativet för att göra ditt abonnemang tillgängligt för kunder i alla offentliga Azure-regioner som har kommersiell Marketplace-integration. Mer information finns i [stöd för geografisk tillgänglighet och valuta](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
+Välj det **globala Azure** -alternativet för att göra ditt abonnemang tillgängligt för kunder i alla globala Azure-regioner med marknads plats integrering. Mer information finns i [stöd för geografisk tillgänglighet och valuta](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies).
 
 Välj alternativet **Azure Government** för att göra planen tillgängligt i [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome) region. Den här regionen ger till gång till kontrollerad åtkomst för kunder från amerikanska federala, statliga, lokala eller stambaserad entiteter, samt partner som är berättigade att betjäna dem. Du, som utgivare, är ansvariga för alla kontroller, säkerhets åtgärder och bästa praxis. Azure Government använder fysiskt isolerade Data Center och nätverk (som finns i USA).
 
@@ -353,7 +360,7 @@ Innan du publicerar till [Azure Government](https://docs.microsoft.com/azure/azu
 
 #### <a name="azure-government-certifications"></a>Azure Government certifieringar
 
-Det här alternativet visas bara om du väljer **Azure Government** under **Azure-regioner**.
+Det här alternativet visas bara om du har valt **Azure Government**.
 
 Azure Government Services hanterar data som omfattas av vissa myndighets bestämmelser och krav. Till exempel FedRAMP, NIST 800,171 (DIB), ITAR, IRS 1075, DoD L4 och CJIS. För att få kännedom om dina certifieringar för dessa program kan du ge upp till 100 länkar som beskriver dem. De kan antingen vara länkar till din lista över programmet direkt eller länkar till beskrivningar av dina efterlevnad med dem på dina egna webbplatser. Dessa länkar är bara synliga för Azure Government kunder.
 
@@ -488,9 +495,9 @@ Om du vill aktivera en testen het markerar du kryss rutan Aktivera en testenhet 
 
 Ytterligare resurser för test enheter:
 
-- Rekommenderade tekniska metoder
-- Metodtips för marknadsföring
-- Översikt över test enheter (PDF, se till att blockering av popup-fönster är inaktiverat).
+- [Metodtips för marknadsföring](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Rekommenderade tekniska metoder](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Översikt](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, se till att blockering av popup-fönster är inaktiverat)
 
 Välj **Spara utkast** innan du fortsätter.
 
@@ -520,7 +527,7 @@ Det **manuella validerings** steget i publicerings processen representerar en om
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och pågående) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Ett exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)

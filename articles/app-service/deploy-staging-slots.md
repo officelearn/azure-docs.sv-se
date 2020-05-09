@@ -3,14 +3,14 @@ title: Konfigurera mellanlagrings miljöer
 description: Lär dig hur du distribuerar appar till en icke-produktions plats och en Autobyte till produktion. Öka tillförlitligheten och ta bort avbrott i appen från distributioner.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 21e025088e59c7f65f848b332ecb393b05918261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11e133a24ff728cc864e50e898e9db982b186337
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78300879"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597932"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagringsmiljöer i Azure App Service
 <a name="Overview"></a>
@@ -58,11 +58,11 @@ Appen måste köras på nivån **standard**, **Premium**eller **isolerad** för 
    
     ![Rubrik för distributions plats](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    Mellanlagringsplatsen har en hanterings sida precis som andra App Service-appar. Du kan ändra platsens konfiguration. Namnet på facket visas längst upp på sidan för att påminna dig om att du visar distributions platsen.
+    Mellanlagringsplatsen har en hanterings sida precis som andra App Service-appar. Du kan ändra platsens konfiguration. För att påminna dig om att du visar distributions facket visas appens namn som ** \<App-Name>/\<plats namn>** och app-typen är **App Service (plats)**. Du kan också se facket som en separat app i resurs gruppen med samma utformningar.
 
 6. Välj appens URL på platsens resurs sida. Distributions platsen har sitt eget värdnamn och är även en Live-app. Information om hur du begränsar offentlig åtkomst till distributions platsen finns i [Azure App Service IP-begränsningar](app-service-ip-restrictions.md).
 
-Den nya distributions platsen har inget innehåll, även om du klonar inställningarna från en annan plats. Du kan till exempel [Publicera till den här platsen med git](app-service-deploy-local-git.md). Du kan distribuera till platsen från en annan databas gren eller en annan lagrings plats. 
+Den nya distributions platsen har inget innehåll, även om du klonar inställningarna från en annan plats. Du kan till exempel [Publicera till den här platsen med git](app-service-deploy-local-git.md). Du kan distribuera till platsen från en annan databas gren eller en annan lagrings plats.
 
 <a name="AboutConfiguration"></a>
 
@@ -272,7 +272,7 @@ Som standard tilldelas nya platser en regel för `0%`routning, som visas i gråt
 
 ## <a name="delete-a-slot"></a>Ta bort en plats
 
-Sök efter och välj din app. Välj plats för **distributions fack** > *\<för att ta bort>*  >  **Översikt**. Välj **ta bort** i kommando fältet.  
+Sök efter och välj din app. Välj plats för **distributions fack** > *\<för att ta bort>*  >  **Översikt**. Appens typ visas som **App Service (plats)** för att påminna dig om att du visar en distributions plats. Välj **ta bort** i kommando fältet.  
 
 ![Ta bort ett distributions fack](./media/web-sites-staged-publishing/DeleteStagingSiteButton.png)
 

@@ -2,20 +2,20 @@
 title: Metod tips för SQL på begäran (för hands version) i Azure Synapse Analytics
 description: Rekommendationer och metod tips du bör känna till när du arbetar med SQL på begäran (för hands version).
 services: synapse-analytics
-author: mlee3gsd
+author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: martinle
-ms.reviewer: igorstan
-ms.openlocfilehash: 1d4203141973c10fe7673f6ab9dedbc3bfdc8999
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.author: fipopovi
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429075"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82692153"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Metod tips för SQL på begäran (för hands version) i Azure Synapse Analytics
 
@@ -50,11 +50,73 @@ Om möjligt kan du förbereda filer för bättre prestanda:
 - Det är bättre att ha lika stora filer för en enskild OpenRowSet-sökväg eller en extern tabell plats.
 - Partitionera dina data genom att lagra partitioner i olika mappar eller fil namn – kontrol lera [Använd fil namn och fil Sök väg funktioner för att ange specifika partitioner](#use-fileinfo-and-filepath-functions-to-target-specific-partitions).
 
+## <a name="push-wildcards-to-lower-levels-in-path"></a>Jokertecken för push-meddelanden till lägre nivåer i sökvägen
+
+Du kan använda jokertecken i din sökväg för att [fråga flera filer och mappar](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL på begäran visar en lista över filer på ditt lagrings konto som börjar från första * med Storage API och eliminerar filer som inte matchar den angivna sökvägen. Att minska den inledande listan över filer kan förbättra prestanda om det finns många filer som matchar den angivna sökvägen upp till det första jokertecknet.
+
+## <a name="use-appropriate-data-types"></a>Använd lämpliga data typer
+
+Data typer som används i frågan påverkar prestanda. Du kan få bättre prestanda om du: 
+
+- Använd den minsta data storlek som ska hantera det största möjliga värdet.
+  - Om max längden för tecken värde är 30 tecken, använder du tecken data typen 30.
+  - Om alla tecken kolumn värden har fast storlek använder du char eller nchar. Annars använder du varchar eller nvarchar.
+  - Om värdet för högsta heltals kolumn är 500 använder du smallint eftersom det är den minsta data typen som kan hantera det här värdet. Du kan hitta data typs intervall för heltal [här](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
+- Använd om möjligt VARCHAR och Char i stället för nvarchar och nchar.
+- Använd Integer-baserade data typer om möjligt. Sorterings-, Join-och Group by-åtgärder utförs snabbare på heltal än på tecken data.
+- Om du använder schema härledning, [kontrol lera data typen härledd](#check-inferred-data-types).
+
+## <a name="check-inferred-data-types"></a>Kontrol lera härledda data typer
+
+[Schema härledning](query-parquet-files.md#automatic-schema-inference) hjälper dig att snabbt skriva frågor och utforska data utan att känna till filschemat. Den här bekvämligheten är till för kostnad av härledda data typer som är större än de faktiskt är. Det inträffar när det inte finns tillräckligt med information i källfilerna för att säkerställa att lämplig datatyp används. Parquet-filer innehåller till exempel inte metadata om maximal tecken kolumn längd och SQL on-demand härleds som varchar (8000). 
+
+Du kan kontrol lera resulterande data typer i din fråga med hjälp av [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15).
+
+I följande exempel visas hur du kan optimera härledda data typer. Proceduren används för att Visa härledda data typer. 
+```sql  
+EXEC sp_describe_first_result_set N'
+    SELECT
+        vendor_id, pickup_datetime, passenger_count
+    FROM 
+        OPENROWSET(
+            BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*'',
+            FORMAT=''PARQUET''
+        ) AS nyc';
+```
+
+Här är resultatuppsättningen.
+
+|is_hidden|column_ordinal|name|system_type_name|max_length|
+|----------------|---------------------|----------|--------------------|-------------------||
+|0|1|vendor_id|varchar (8000)|8000|
+|0|2|pickup_datetime|datetime2 (7)|8|
+|0|3|passenger_count|int|4|
+
+När vi känner till härledda data typer för frågor kan vi ange lämpliga data typer:
+
+```sql  
+SELECT
+    vendor_id, pickup_datetime, passenger_count
+FROM 
+    OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+        FORMAT='PARQUET'
+    ) 
+    WITH (
+        vendor_id varchar(4), -- we used length of 4 instead of inferred 8000
+        pickup_datetime datetime2,
+        passenger_count int
+    ) AS nyc;
+```
+
 ## <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Använda fileinfo-och fil Sök vägar för att fokusera på specifika partitioner
 
 Data är ofta ordnade i partitioner. Du kan instruera SQL på begäran att fråga specifika mappar och filer. Funktionen kommer att minska antalet filer och mängden data som frågan behöver läsa och bearbeta. En extra bonus är att du får bättre prestanda.
 
 Mer information finns i funktioner för [fil namn](develop-storage-files-overview.md#filename-function) och fil [Sök väg](develop-storage-files-overview.md#filepath-function) och exempel på hur du [frågar efter vissa filer](query-specific-files.md).
+
+> [!TIP]
+> Omvandla alltid resultatet av fil Sök väg och fileinfo-funktioner till lämpliga data typer. Om du använder tecken data typer ser du till att lämplig längd används.
 
 Om dina lagrade data inte är partitionerade bör du överväga att partitionera dem så att du kan använda dessa funktioner för att optimera frågor som riktar sig mot dessa filer. När du [frågar partitionerade Spark-tabeller](develop-storage-files-spark-tables.md) från SQL på begäran, kommer frågan automatiskt att rikta in sig på de filer som behövs.
 

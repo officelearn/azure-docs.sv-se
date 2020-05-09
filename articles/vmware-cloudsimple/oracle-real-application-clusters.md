@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b945beaa7497e1ad19315bacf1284dd0cbc24d6a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f657e18d7185d6b3c63ac8f1424da9d36d4189e9
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868080"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82793048"
 ---
 # <a name="optimize-your-cloudsimple-private-cloud-for-installing-oracle-rac"></a>Optimera ditt CloudSimple privata moln för att installera Oracle RAC
 
@@ -46,10 +46,10 @@ I följande exempel används diskarna som definierats i tabellen nedan.
 
 | Disk                                      | Syfte                                       | Delad disk |
 |-------------------------------------------|-----------------------------------------------|-------------|
-| Operativsystem                                        | Operativsystemdisk                         | Nej          |
-| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | Nej          |
-| DATABASE                                  | Installations plats för Oracle Database-programvara | Nej          |
-| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | Nej          |
+| Operativsystem                                        | Operativsystemdisk                         | Inga          |
+| STÖDRASTRET                                      | Installations plats för Oracle Grid-programvara     | Inga          |
+| DATABASE                                  | Installations plats för Oracle Database-programvara | Inga          |
+| ORAHOME                                   | Bas plats för binärfiler för Oracle-databasen    | Inga          |
 | DATA1, DATA2, DATA3, DATA4                | Disk där Oracle-databasfiler lagras   | Ja         |
 | REDO1, REDO2, REDO3, REDO4, REDO5, REDO6  | Gör om logg diskar                                | Ja         |
 | OCR1, OCR2, OCR3, OCR4, OCR5              | Röstnings diskar                                  | Ja         |
@@ -244,7 +244,7 @@ Upprepa steg 2 – 7 för alla nya diskar som krävs för Oracle-data, loggar oc
 Regler för VM-till-värd-tillhörighet kontrollerar att den virtuella datorn körs på önskad värd.  Du kan definiera regler på vCenter för att se till att den virtuella Oracle-datorn körs på värden med tillräckliga resurser och uppfyller eventuella särskilda licensierings krav.
 
 1. I CloudSimple-portalen [eskalerar du behörigheterna](escalate-private-cloud-privileges.md) för cloudowner-användaren.
-2. [Logga in på vSphere-klienten](https://docs.azure.cloudsimple.com/vsphere-access) för ditt privata moln.
+2. Logga in på vSphere-klienten för ditt privata moln.
 3. I vSphere-klienten väljer du det kluster där de virtuella Oracle-datorerna ska distribueras och klickar på **Konfigurera**.
 4. Under Konfigurera väljer du **VM/värd grupper**.
 5. Klicka **+** på.

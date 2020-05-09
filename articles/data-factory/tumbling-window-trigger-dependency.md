@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 39ea8dda0fd823d3061b2cb29e1c548f99281c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
+ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418804"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82870032"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Skapa ett beroende för utlösare för rullande fönster
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -24,6 +24,10 @@ ms.locfileid: "81418804"
 Den här artikeln innehåller steg för att skapa ett beroende på en utlösare för rullande fönster. Allmän information om utlösare för rullande fönster finns i [så här skapar du utlösare för rullande Window](how-to-create-tumbling-window-trigger.md).
 
 För att skapa en beroende kedja och se till att en utlösare körs endast när en annan utlösare har körts i data fabriken, använder du den här avancerade funktionen för att skapa ett rullande fönster beroende.
+
+En demonstration om hur du skapar beroende pipelines i Azure Data Factory med utlösare för rullande fönster finns på följande video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="create-a-dependency-in-the-data-factory-ui"></a>Skapa ett beroende i Data Factory gränssnittet
 
@@ -79,14 +83,17 @@ Följande tabell innehåller en lista med attribut som behövs för att definier
 |---|---|---|---|
 | typ  | Alla befintliga rullande fönster-utlösare visas i den här List rutan. Välj utlösaren att ta beroende av.  | TumblingWindowTriggerDependencyReference eller SelfDependencyTumblingWindowTriggerReference | Ja |
 | offset | Förskjutning av beroende utlösare. Ange ett värde i intervall format och både negativa och positiva förskjutningar tillåts. Den här egenskapen är obligatorisk om utlösaren är beroende av sig själv och i alla andra fall är den valfri. Self-Dependency måste alltid vara en negativ förskjutning. Om inget värde anges är fönstret detsamma som själva utlösaren. | Tidsintervall<br/>(hh: mm: SS) | Själv-beroende: Ja<br/>Övrigt: Nej |
-| size | Storlek på fönstret beroende rullande. Ange ett positivt TimeSpan-värde. Den här egenskapen är valfri. | Tidsintervall<br/>(hh: mm: SS) | Inga  |
+| ikoner | Storlek på fönstret beroende rullande. Ange ett positivt TimeSpan-värde. Den här egenskapen är valfri. | Tidsintervall<br/>(hh: mm: SS) | Inga  |
 
 > [!NOTE]
-> En utlösare för rullande fönster kan bero på högst två andra utlösare.
+> En utlösare för rullande fönster kan vara beroende av högst fem andra utlösare.
 
 ## <a name="tumbling-window-self-dependency-properties"></a>Rullande-fönster egenskaper för Self-Dependency
 
-I scenarier där utlösaren inte ska fortsätta till nästa fönster förrän det föregående fönstret har slutförts, skapar du ett självtestat. En självberoende utlösare som är beroende av att de tidigare körningarna av sig själv i föregående HR har följande egenskaper:
+I scenarier där utlösaren inte ska fortsätta till nästa fönster förrän föregående fönster har slutförts, skapar du ett självtestat. En självberoende utlösare som är beroende av att de tidigare körningarna av sig själv inom den gångna timmen har de egenskaper som anges i följande kod.
+
+> [!NOTE]
+> Om den utlösta pipelinen är beroende av utdata från pipelines i tidigare utlösta fönster rekommenderar vi att du endast använder rullande Window trigger Self-Dependency. Om du vill begränsa parallell utlösare, anger du maximimum-utlösaren samtidighet.
 
 ```json
 {
@@ -147,10 +154,6 @@ En daglig telemetri bearbetnings jobb beroende på ett annat dagligt jobb som sa
 Ett dagligt jobb utan luckor i jobbets utdata:
 
 ![Självbetjänings exempel](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Självbetjänings exempel")
-
-En demonstration om hur du skapar beroende pipelines i Azure Data Factory med utlösare för rullande fönster finns på följande video:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Create-dependent-pipelines-in-your-Azure-Data-Factory/player]
 
 ## <a name="monitor-dependencies"></a>Övervaka beroenden
 

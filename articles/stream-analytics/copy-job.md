@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 5c8f770855dd8d19a9d313f1b79f9bf8da4b2393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 258fc30f3e4a4ba374ada89c03b824ff5e27718e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75771503"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612273"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Kopiera eller säkerhetskopiera Azure Stream Analytics-jobb
 
-Du kan kopiera eller säkerhetskopiera de distribuerade Azure Stream Analytics jobben med Visual Studio Code eller Visual Studio. 
+Du kan kopiera eller säkerhetskopiera de distribuerade Azure Stream Analytics jobben med Visual Studio Code eller Visual Studio. När du kopierar ett jobb till en annan region kopieras inte den senaste utdata-tiden. Därför kan du inte använda [**när det senast slutade**](https://docs.microsoft.com/azure/stream-analytics/start-job#start-options) alternativet när du startade det kopierade jobbet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).

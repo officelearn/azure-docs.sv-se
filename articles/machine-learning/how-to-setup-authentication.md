@@ -10,12 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6b2cfa85ea412a5ef8bda47a7ff6e99970ba6b0e
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283542"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611848"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -125,7 +126,7 @@ Följande är ett förenklat exempel på JSON-utdata från kommandot. Anteckna `
 }
 ```
 
-Använd sedan följande kommando för att tilldela tjänstens huvud namn åtkomst till din Machine Learning-arbetsyta. Du behöver namnet på din arbets yta och dess resurs grupps namn för `-w` `-g` parametrarna respektive. För `--user` parametern använder du `objectId` värdet från föregående steg. `--role` Parametern låter dig ange åtkomst rollen för tjänstens huvud namn, och i allmänhet kommer du att använda antingen **ägare** eller **deltagare**. Båda har skriv åtkomst till befintliga resurser som beräknings kluster och data lager, men endast **ägare** kan etablera dessa resurser. 
+Använd sedan följande kommando för att tilldela tjänstens huvud namn åtkomst till din Machine Learning-arbetsyta. Du behöver namnet på din arbets yta och dess resurs grupps namn för `-w` `-g` parametrarna respektive. För `--user` parametern använder du `objectId` värdet från föregående steg. `--role` Parametern låter dig ange åtkomst rollen för tjänstens huvud namn, och i allmänhet kommer du att använda antingen **ägare** eller **deltagare**. Båda har skriv åtkomst till befintliga resurser som beräknings kluster och data lager, men endast **ägare** kan etablera dessa resurser.
 
 ```azurecli-interactive
 az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
@@ -148,7 +149,7 @@ sp = ServicePrincipalAuthentication(tenant_id="your-tenant-id", # tenantID
 `sp` Variabeln innehåller nu ett autentiseringscertifikat som du använder direkt i SDK. I allmänhet är det en bra idé att lagra de ID/hemligheter som används ovan i miljövariabler som du ser i följande kod.
 
 ```python
-import os 
+import os
 
 sp = ServicePrincipalAuthentication(tenant_id=os.environ['AML_TENANT_ID'],
                                     service_principal_id=os.environ['AML_PRINCIPAL_ID'],
@@ -160,7 +161,7 @@ För automatiserade arbets flöden som körs i python och använder SDK: n främ
 ```python
 from azureml.core import Workspace
 
-ws = Workspace.get(name="ml-example", 
+ws = Workspace.get(name="ml-example",
                    auth=sp,
                    subscription_id="your-sub-id")
 ws.get_details()
@@ -168,7 +169,7 @@ ws.get_details()
 
 ## <a name="azure-machine-learning-rest-api-auth"></a>Azure Machine Learning REST API auth
 
-Tjänstens huvud namn som skapades i stegen ovan kan också användas för att autentisera till Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/). Du använder den Azure Active Directory [tilldelningen av autentiseringsuppgifter för klient](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow), som tillåter tjänst-till-tjänst-anrop för konsol lös autentisering i automatiserade arbets flöden. Exemplen implementeras med [ADAL-biblioteket](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) i både python och Node. js, men du kan också använda alla bibliotek med öppen källkod som stöder OpenID Connect 1,0. 
+Tjänstens huvud namn som skapades i stegen ovan kan också användas för att autentisera till Azure Machine Learning [REST API](https://docs.microsoft.com/rest/api/azureml/). Du använder den Azure Active Directory [tilldelningen av autentiseringsuppgifter för klient](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow), som tillåter tjänst-till-tjänst-anrop för konsol lös autentisering i automatiserade arbets flöden. Exemplen implementeras med [ADAL-biblioteket](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) i både python och Node. js, men du kan också använda alla bibliotek med öppen källkod som stöder OpenID Connect 1,0.
 
 > [!NOTE]
 > MSAL. js är ett nyare bibliotek än ADAL, men du kan inte utföra tjänst-till-tjänst-autentisering med hjälp av klientautentiseringsuppgifter med MSAL. js, eftersom det i huvudsak är ett bibliotek på klient sidan som är avsett för interaktivt/UI-autentisering som är kopplat till en speciell användare. Vi rekommenderar att du använder ADAL så som visas nedan för att bygga automatiserade arbets flöden med REST API.
@@ -206,7 +207,7 @@ context.acquireTokenWithClientCredentials(
 Variabeln `tokenResponse` är ett objekt som inkluderar token och associerade metadata som till exempel förfallo tid. Token är giltiga i 1 timme och kan uppdateras genom att köra samma anrop igen för att hämta en ny token. Följande är ett exempel svar.
 
 ```javascript
-{ 
+{
     tokenType: 'Bearer',
     expiresIn: 3599,
     expiresOn: 2019-12-17T19:15:56.326Z,
@@ -214,13 +215,13 @@ Variabeln `tokenResponse` är ett objekt som inkluderar token och associerade me
     accessToken: "random-oauth-token",
     isMRRT: true,
     _clientId: 'your-client-id',
-    _authority: 'https://login.microsoftonline.com/your-tenant-id' 
+    _authority: 'https://login.microsoftonline.com/your-tenant-id'
 }
 ```
 
 Använd `accessToken` egenskapen för att hämta auth-token. I [REST API-dokumentationen](https://github.com/microsoft/MLOps/tree/master/examples/AzureML-REST-API) hittar du exempel på hur du använder token för att göra API-anrop.
 
-### <a name="python"></a>Python 
+### <a name="python"></a>Python
 
 Använd följande steg för att generera en auth-token med python. Kör `pip install adal`i din miljö. Använd `tenantId` `clientId`sedan, och `clientSecret` från tjänstens huvud namn som du skapade i stegen ovan som värden för lämpliga variabler i följande skript.
 
@@ -242,13 +243,13 @@ Variabeln `token_response` är en ord lista som inkluderar token och associerade
 
 ```python
 {
-    'tokenType': 'Bearer', 
-    'expiresIn': 3599, 
-    'expiresOn': '2019-12-17 19:47:15.150205', 
-    'resource': 'https://management.azure.com/', 
-    'accessToken': 'random-oauth-token', 
-    'isMRRT': True, 
-    '_clientId': 'your-client-id', 
+    'tokenType': 'Bearer',
+    'expiresIn': 3599,
+    'expiresOn': '2019-12-17 19:47:15.150205',
+    'resource': 'https://management.azure.com/',
+    'accessToken': 'random-oauth-token',
+    'isMRRT': True,
+    '_clientId': 'your-client-id',
     '_authority': 'https://login.microsoftonline.com/your-tenant-id'
 }
 ```
@@ -314,9 +315,9 @@ print(token)
 > [!IMPORTANT]
 > Du måste begära en ny token efter det att token `refresh_by` har uppnåtts. Om du behöver uppdatera token utanför python SDK är ett alternativ att använda REST API med tjänstens huvudsakliga autentisering för att regelbundet `service.get_token()` anropa anropet, enligt beskrivningen ovan.
 >
-> Vi rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster. 
+> Vi rekommenderar starkt att du skapar din Azure Machine Learning arbets yta i samma region som ditt Azure Kubernetes service-kluster.
 >
-> För att autentisera med en token kommer webb tjänsten att ringa till den region där din Azure Machine Learning arbets yta skapas. Om arbets ytans region inte är tillgänglig kan du inte hämta en token för din webb tjänst, även om klustret finns i en annan region än din arbets yta. Resultatet är att Azure AD-autentisering inte är tillgängligt förrän arbets ytans region är tillgänglig igen. 
+> För att autentisera med en token kommer webb tjänsten att ringa till den region där din Azure Machine Learning arbets yta skapas. Om arbets ytans region inte är tillgänglig kan du inte hämta en token för din webb tjänst, även om klustret finns i en annan region än din arbets yta. Resultatet är att Azure AD-autentisering inte är tillgängligt förrän arbets ytans region är tillgänglig igen.
 >
 > Dessutom ökar avståndet mellan klustrets region och arbets ytans region, desto längre tid tar det att hämta en token.
 

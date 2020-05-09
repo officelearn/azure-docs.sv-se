@@ -1,21 +1,25 @@
 ---
-title: Avbilda en avbildning av en virtuell Linux-dator med Azure CLI
-description: Avbilda en avbildning av en virtuell Azure-dator som ska användas för Mass distributioner med hjälp av Azure CLI.
+title: Avbilda en hanterad avbildning av en virtuell Linux-dator med Azure CLI
+description: Avbilda en hanterad avbildning av en virtuell Azure-dator som ska användas för Mass distributioner med hjälp av Azure CLI.
 author: cynthn
-ms.service: virtual-machines-linux
-ms.topic: article
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 77f6244651551763f5460432655d66267775a256
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: legacy
+ms.openlocfilehash: 70282879b64054d48d904b5ada9284f844448851
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250405"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792691"
 ---
-# <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en avbildning av en virtuell dator eller VHD
+# <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en hanterad avbildning av en virtuell dator eller virtuell hård disk
 
-För att skapa flera kopior av en virtuell dator (VM) för användning i Azure, avbilda du en avbildning av den virtuella datorn eller OS-VHD: n. Om du vill skapa en avbildning för distribution måste du ta bort personlig konto information. I följande steg avetablerar du en befintlig virtuell dator, frigör den och skapar en avbildning. Du kan använda den här avbildningen för att skapa virtuella datorer i alla resurs grupper i din prenumeration.
+Om du vill skapa flera kopior av en virtuell dator (VM) för användning i Azure för utveckling och testning kan du avbilda en hanterad avbildning av den virtuella datorn eller OS-VHD: n. Information om hur du skapar, lagrar och delar bilder i skala finns i [delade avbildnings gallerier](../shared-images-cli.md).
+
+Om du vill skapa en hanterad avbildning måste du ta bort personlig konto information. I följande steg avetablerar du en befintlig virtuell dator, frigör den och skapar en avbildning. Du kan använda den här avbildningen för att skapa virtuella datorer i alla resurs grupper i din prenumeration.
 
 Om du vill skapa en kopia av din befintliga virtuella Linux-dator för säkerhets kopiering eller fel sökning eller ladda upp en specialiserad Linux-VHD från en lokal virtuell dator, se [Ladda upp och skapa en virtuell Linux-dator från anpassad disk avbildning](upload-vhd.md).  
 
@@ -131,11 +135,4 @@ az vm show \
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan skapa flera virtuella datorer från din virtuella käll avbildning. Så här gör du ändringar i din avbildning: 
-
-- Skapa en virtuell dator från avbildningen.
-- Gör uppdateringar eller konfigurations ändringar.
-- Följ stegen igen för att avetablera, frigöra, generalisera och skapa en avbildning.
-- Använd den här nya avbildningen för framtida distributioner. Du kan ta bort den ursprungliga avbildningen.
-
-Mer information om hur du hanterar virtuella datorer med CLI finns i [Azure CLI](/cli/azure).
+Information om hur du skapar, lagrar och delar bilder i skala finns i [delade avbildnings gallerier](shared-images.md).

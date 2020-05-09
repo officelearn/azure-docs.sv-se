@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: ced807b25cd1e829988a1e6b7621a5f73e0edfc2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: HT
+ms.openlocfilehash: 421c1f4d1abe9be5f5081235e78ebe77b1813e6e
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202455"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562244"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Skriv om HTTP-huvuden med Application Gateway
 
@@ -157,6 +157,8 @@ Du kan utvärdera en HTTP-begäran eller ett svars huvud för förekomst av en h
 ## <a name="limitations"></a>Begränsningar
 
 - Om ett svar har fler än en rubrik med samma namn, kommer de andra rubrikerna att tas bort om du skriver om värdet för en av dessa huvuden. Detta kan vanligt vis inträffa med set-cookie-sidhuvudet eftersom du kan ha fler än en uppsättning-cookie-huvud i ett svar. Ett sådant scenario är när du använder en app service med en Application Gateway och har konfigurerat cookie-baserad mappning mellan sessioner på Application Gateway. I det här fallet kommer svaret att innehålla två uppsättningar-cookie-huvuden: en som används av App Service, till `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` exempel: och en annan för Application Gateway-tillhörighet, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`till exempel. Om du skriver om en av Set-cookie-huvudena i det här scenariot kan det leda till att du tar bort den andra uppsättningen av cookie-huvud från svaret.
+
+- Omskrivningar stöds inte när Application Gateway har kon figurer ATS för att omdirigera begär Anden eller för att visa en anpassad felsida.
 
 - Det finns för närvarande inte stöd för att skriva om anslutningen, uppgradera och värdhuvuden.
 

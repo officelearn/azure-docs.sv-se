@@ -9,18 +9,18 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
-ms.openlocfilehash: b424361f318504f96a57ee67722e725fbafc6561
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: cb2d5c43b8c04829dd6830126b7bc01bee07133b
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944565"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628200"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på virtuella datorer i N-serien som kör Linux
 
-För att kunna dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien som kör Linux måste NVIDIA GPU-drivrutiner vara installerade. [NVidia GPU-drivrutinen](../extensions/hpccompute-gpu-linux.md) installerar lämpliga NVIDIA-CUDA eller rutnäts driv rutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure CLI eller Azure Resource Manager mallar. Se [dokumentationen för NVIDIA GPU-drivrutin](../extensions/hpccompute-gpu-linux.md) för distributioner som stöds och distributions steg.
+Om du vill dra nytta av GPU-funktionerna i Azure N-seriens virtuella datorer som backas upp av NVIDIA GPU: er måste du installera NVIDIA GPU-drivrutiner. [NVidia GPU-drivrutinen](../extensions/hpccompute-gpu-linux.md) installerar lämpliga NVIDIA-CUDA eller rutnäts driv rutiner på en virtuell dator i N-serien. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure CLI eller Azure Resource Manager mallar. Se [dokumentationen för NVIDIA GPU-drivrutin](../extensions/hpccompute-gpu-linux.md) för distributioner som stöds och distributions steg.
 
-Om du väljer att installera GPU-drivrutiner manuellt tillhandahåller den här artikeln distributioner, driv rutiner och installations-och verifierings steg som stöds. Det finns även information om manuell driv rutins installation för [virtuella Windows-datorer](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Om du väljer att installera NVIDIA GPU-drivrutiner manuellt innehåller den här artikeln distributioner, driv rutiner och installations-och verifierings steg som stöds. Det finns även information om manuell driv rutins installation för [virtuella Windows-datorer](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 För specifikationer för virtuella datorer i N-serien, lagrings kapacitet och disk information, se [storlekar för virtuella GPU Linux-datorer](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
@@ -151,7 +151,7 @@ Om driv rutinen är installerad visas utdata som liknar följande. Observera att
 
 ## <a name="rdma-network-connectivity"></a>RDMA-nätverksanslutning
 
-RDMA-nätverksanslutning kan aktive ras på virtuella datorer med RDMA-kapacitet, till exempel NC24r som distribuerats i samma tillgänglighets uppsättning eller i en enda placerings grupp i en skalnings uppsättning för virtuella datorer. RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med Intel MPI 5. x eller en senare version. Ytterligare krav följer:
+RDMA-Nätverksanslutningar kan aktive ras på virtuella datorer med RDMA-kapacitet, till exempel NC24r som distribuerats i samma tillgänglighets uppsättning eller i en enda placerings grupp i en virtuell machiine-uppsättning (VM). RDMA-nätverket stöder MPI-trafik (Message Passing Interface) för program som körs med Intel MPI 5. x eller en senare version. Ytterligare krav följer:
 
 ### <a name="distributions"></a>Distributioner
 
@@ -356,7 +356,7 @@ Skapa sedan en post för ditt uppdaterings skript i `/etc/rc.d/rc3.d` så att sk
 ## <a name="troubleshooting"></a>Felsökning
 
 * Du kan ställa in persistence- `nvidia-smi` läge med så att kommandots utdata går snabbare när du behöver fråga kort. Kör `nvidia-smi -pm 1`om du vill ställa in persistence-läge. Observera att om den virtuella datorn startas om så går läges inställningen bort. Du kan alltid skripta läges inställningen så att den körs vid start.
-* Om du har uppdaterat NVIDIA CUDA-drivrutinerna till den senaste versionen och hittar RDMA-connectivcity fungerar inte längre, [installerar du om RDMA-drivrutinerna](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) för att reistablish anslutningen. 
+* Om du har uppdaterat NVIDIA CUDA-drivrutinerna till den senaste versionen och inte längre kan hitta RDMA-anslutningen kan du [installera om RDMA-drivrutinerna](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) för att återupprätta anslutningen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

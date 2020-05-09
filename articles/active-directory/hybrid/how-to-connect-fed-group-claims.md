@@ -12,22 +12,22 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: b8708aec1137836516852135412c4c7cec2feba4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a89c5e3fb84f797d9ad7f81626fb7185ce3e076
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408410"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854147"
 ---
-# <a name="configure-group-claims-for-applications-with-azure-active-directory-public-preview"></a>Konfigurera grupp anspråk för program med Azure Active Directory (offentlig för hands version)
+# <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Konfigurera grupp anspråk för program med Azure Active Directory
 
 Azure Active Directory kan ge en användare grupp medlemskaps information i tokens för användning i program.  Två huvud mönster stöds:
 
-- Grupper som identifieras av sina Azure Active Directory objekt identifierare (OID)-attribut (allmänt tillgängliga)
-- Grupper som identifieras av sAMAccountName eller GroupSID-attribut för Active Directory (AD) synkroniserade grupper och användare (offentlig för hands version)
+- Grupper som identifieras med ett OID-attribut (Azure Active Directory Object Identifier)
+- Grupper som identifieras av sAMAccountName-eller GroupSID-attribut för Active Directory (AD) synkroniserade grupper och användare
 
 > [!IMPORTANT]
-> Det finns ett antal varningar att notera för den här för hands versions funktionen:
+> Det finns ett antal varningar att notera för den här funktionen:
 >
 >- Stöd för användning av sAMAccountName-och säkerhets identifierare (SID) attribut som synkroniseras från lokalt är utformat för att kunna flytta befintliga program från AD FS och andra identitets leverantörer. Grupper som hanteras i Azure AD innehåller inte de attribut som krävs för att generera dessa anspråk.
 >- I större organisationer kan antalet grupper som en användare är medlem i överskrida gränsen som Azure Active Directory kommer att läggas till i en token. 150 grupper för en SAML-token och 200 för ett JWT. Detta kan leda till oväntade resultat. Om användarna har ett stort antal grupp medlemskap rekommenderar vi att du använder alternativet för att begränsa grupper som genereras i anspråk till relevanta grupper för programmet.  
@@ -147,7 +147,7 @@ Giltiga värden är:
 | **"DirectoryRole** | Om användaren har tilldelats katalog roller genereras de som ett ' wids '-anspråk (grupp anspråk genereras inte) |
 | **"Variabeln applicationgroup** | Genererar bara de grupper som uttryckligen tilldelas till programmet och användaren är medlem i |
 
-   Ett exempel:
+   Exempel:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"

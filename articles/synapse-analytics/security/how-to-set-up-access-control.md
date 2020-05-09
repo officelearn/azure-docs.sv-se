@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 383a28e90c093c0885c34af03371608261ece110
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
+ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692634"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82983218"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
 
@@ -145,7 +145,7 @@ Synapse Studio fungerar olika beroende på användar roller. Vissa objekt kan va
 | Öppna Synapse Studio | JA | JA | JA |
 | Visa Home Hub | JA | JA | JA |
 | Visa data hubb | JA | JA | JA |
-| Data Hub/se länkade ADLSGen2-konton och behållare | JA [1] | JA [1] | JA [1] |
+| Data Hub/se länkade ADLS Gen2 konton och behållare | JA [1] | JA [1] | JA [1] |
 | Data Hub/se databaser | JA | JA | JA |
 | Data Hub/se objekt i databaser | JA | JA | JA |
 | Data Hub/Access-data i SQL-poolens databaser | JA   | NO   | JA   |
@@ -179,8 +179,8 @@ Synapse Studio fungerar olika beroende på användar roller. Vissa objekt kan va
 
 
 > [!NOTE]
-> [1] åtkomst till data i behållare beror på åtkomst kontrollen i ADLSGen2. </br>
-> [2] SQL-OD-tabeller och Spark-tabeller lagrar sina data i ADLSGen2 och Access kräver rätt behörighet för ADLSGen2.
+> [1] åtkomst till data i behållare beror på åtkomst kontrollen i ADLS Gen2. </br>
+> [2] SQL-OD-tabeller och Spark-tabeller lagrar sina data i ADLS Gen2 och åtkomst kräver rätt behörighet för ADLS Gen2.
 
 ## <a name="next-steps"></a>Nästa steg
 

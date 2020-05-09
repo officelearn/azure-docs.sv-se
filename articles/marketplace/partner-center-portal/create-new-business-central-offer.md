@@ -1,45 +1,54 @@
 ---
-title: Skapa ett nytt Dynamics 365 Business Central-erbjudande på Microsofts kommersiella marknads plats
-description: Så här skapar du ett nytt Dynamics 365 Business Central-erbjudande för att visa eller sälja på Azure Marketplace, Microsoft AppSource eller via program varan för Cloud Solution Provider (CSP) med hjälp av den kommersiella Marketplace-portalen på Microsoft Partner Center.
+title: Skapa ett Dynamics 365 Business Central-erbjudande – Microsoft Commercial Marketplace
+description: Lär dig mer om steg och överväganden för att skapa ett nytt Dynamics 365 Business Central-erbjudande i den kommersiella Marketplace-portalen i Partner Center. Du kan visa eller sälja ditt erbjudande på Azure Marketplace eller via program varan för Cloud Solution Provider (CSP).
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 1c99af1927f39e2dc6fecd7a6cae43e3d4f4503f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c7618bd4408f07b70e2f9fffe23e38ba968e7210
+ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208456"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82792402"
 ---
-# <a name="create-a-new-dynamics-365-business-central-offer"></a>Skapa ett nytt Dynamics 365 Business Central-erbjudande
+# <a name="create-a-dynamics-365-business-central-offer"></a>Skapa ett erbjudande för Dynamics 365 for Business Central
 
 Den här artikeln beskriver hur du skapar ett nytt Dynamics 365 Business Central-erbjudande. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) är ett ERP-system (Enterprise Resource Planning) som hanterar ett brett utbud av affärs processer, inklusive ekonomi, åtgärder, leverans kedja, CRM och projekt hantering och elektronisk handel. Premium-paket stöder även klassisk distributions modell och tillverkning. Alla erbjudanden för Dynamics 365 Business Central måste gå igenom vår certifierings process.
 
-För att börja skapa Dynamics 365 Business Central-erbjudanden måste du först [skapa ett partner Center-konto](./create-account.md) och öppna [instrument panelen för instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)med **översikts** sidan vald.
-
-![Instrument panel för extern Marketplace på Partner Center](./media/new-offer-overview.png)
-
->[!Note]
-> När ett erbjudande har publicerats uppdateras bara ändringar i erbjudandet som gjorts i Partner Center i systemet och Store-frontend efter ompubliceringen. Kontrol lera att du har skickat in erbjudandet för publicering när du har gjort ändringar.
+Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
-Välj knappen **+ ny erbjudande** och välj sedan **Dynamics 365 Business Central** meny objekt. Dialog rutan **nytt erbjudande** visas.
+1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
+3. På sidan Översikt väljer du **+ nytt erbjudande** > **Dynamics 365 Business Central**.
 
-### <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
+    ![Visar menyn till vänster-navigering.](./media/new-offer-dynamics-365-bc.png)
 
-- **Erbjudande-ID**: unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet och Azure Resource Manager mallar (om tillämpligt). Erbjudande-ID: t måste bestå av gemena alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg), begränsat till 50 tecken och kan inte ändras när du har valt **skapa**.  Om du till exempel anger *test-erbjudandet-1* här, är erbjudande-URL: en `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+> [!NOTE]
+> När ett erbjudande har publicerats visas bara ändringar som gjorts i Partner Center i butiker efter publiceringen av erbjudandet. Se till att du alltid publicerar igen när du har gjort ändringar.
 
-- **Erbjudande Ali Aset**: namnet som används för att referera till erbjudandet i Partner Center. Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som ska visas för kunderna. Det går inte att ändra det här värdet när du har valt **skapa**.
+## <a name="new-offer"></a>Nytt erbjudande
 
-När du har angett ditt **erbjudande-ID** och **erbjud alias**väljer du **skapa**. Du kommer sedan att kunna arbeta med alla olika delar av ditt erbjudande.
+Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
+
+- Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
+
+Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
+
+- Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som visas för kunderna.
+- Det går inte att ändra namnet på erbjudandet när du har valt **skapa**.
+
+Välj **skapa** för att generera erbjudandet och fortsätt.
 
 ## <a name="offer-setup"></a>Erbjudande konfiguration
 
-På sidan **erbjudande konfiguration** ber vi om följande information. Se till att välja **Spara** när du är klar med fälten.
+Följ dessa steg för att konfigurera erbjudandet.
 
 ### <a name="how-do-you-want-potential-customers-to-interact-with-this-listing-offer"></a>Hur vill du att potentiella kunder ska kunna interagera med det här registrerings erbjudandet?
 
@@ -47,11 +56,11 @@ Välj det alternativ som du vill använda för det här erbjudandet.
 
 #### <a name="get-it-now-free"></a>Hämta nu (kostnads fritt)
 
-Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig URL (från och med *http* eller *https*) där de kan komma åt din app.  Exempelvis: `https://contoso.com/my-app`
+Lista ditt erbjudande till kunder kostnads fritt genom att tillhandahålla en giltig URL (från och med *http* eller *https*) där de kan komma åt din app.  Till exempel `https://contoso.com/my-app`.
 
 #### <a name="free-trial-listing"></a>Kostnads fri utvärderings version (lista)
 
-Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig URL (från och med *http* eller *https*) där de kan få en utvärderings version.  Till exempel: `https://contoso.com/trial/my-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
+Lista ditt erbjudande till kunder med en länk till en kostnads fri utvärderings version genom att tillhandahålla en giltig URL (från och med *http* eller *https*) där de kan få en utvärderings version.  Till exempel `https://contoso.com/trial/my-app`. Erbjudande om kostnads fria utvärderings versioner skapas, hanteras och konfigureras av din tjänst och har inga prenumerationer som hanteras av Microsoft.
 
 > [!NOTE]
 > De token som programmet tar emot via din utvärderings länk kan bara användas för att hämta användar information via Azure Active Directory (Azure AD) för att automatisera skapandet av konton i din app. Microsoft-konton stöds inte för autentisering med denna token.
@@ -62,26 +71,28 @@ Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Re
 
 ### <a name="test-drive"></a>Test enhet
 
-En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-Markera kryss rutan **Aktivera en testenhet** om du vill aktivera en test enhet. Sedan måste du konfigurera en demonstrations miljö i den [tekniska konfigurationen för test enheten](#test-drive-technical-configuration) konfigurera så att kunderna kan testa ditt erbjudande under en viss tids period. 
+Om du vill aktivera en testenhet under en fast tids period markerar du kryss rutan **Aktivera en testenhet** . Avmarkera den här kryss rutan om du vill ta bort test enheten från erbjudandet. Konfigurera testen hets miljö i avsnittet [test enhet teknisk konfiguration](#test-drive-technical-configuration) senare i det här avsnittet.
+
+Mer information finns i [Testa ditt erbjudande på den kommersiella marknads platsen](https://docs.microsoft.com/azure/marketplace/partner-center-portal/test-drive).
 
 #### <a name="type-of-test-drive"></a>Typ av test enhet
 
 Välj bland följande alternativ:
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**: en distributions mall som innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser.
-- **[Dynamics 365 för företag, Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**: Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ett företags huvud företags resurs planerings system (finans, Operations, service Chain, CRM osv.).  
-- **[Dynamics 365 för kund engagemang](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)**: Microsoft är värd för och underhåller tjänsten Test Drive (inklusive etablering och distribution) för ett kund engagemang system (Sales, service, Project service, Field service osv.).  
-- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)**: Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ekonomi-och drift företags resurs planerings system (finans, drift, tillverkning, leverans kedja osv.). 
-- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)**: en distributions mall som omfattar alla komplexa lösnings arkitekturer. Alla anpassade produkter bör använda den här typen av test enhet.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**: en inbäddad länk till en anpassad instrument panel. Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt bör använda den här typen av test enhet. Allt du behöver ladda upp här är din inbäddade Power BI-URL.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** – en distributions mall som innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser.
+- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** – Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ett företags huvud företags resurs planerings system (finans, Operations, service Chain, CRM osv.).  
+- **[Dynamics 365 för kund engagemang](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** – Microsoft är värd för och underhåller tjänsten Test Drive (inklusive etablering och distribution) för ett kund engagemang system (Sales, service, Project service, Field service osv.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** – Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ekonomi-och drift företags resurs planerings system (finans, drift, tillverkning, leverans kedja osv.). 
+- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** – en distributions mall som omfattar alla komplexa lösnings arkitekturer. Alla anpassade produkter bör använda den här typen av test enhet.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** – en inbäddad länk till en anpassad instrument panel. Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt bör använda den här typen av test enhet. Allt du behöver ladda upp här är din inbäddade Power BI-URL.
 
 #### <a name="additional-test-drive-resources"></a>Ytterligare resurser för enhets test
 
 - [Test Drive tekniska metod tips](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Metod tips för marknadsföring av test enheter](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [Översikt över test enhet en pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+- [Översikt över test enheter](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF (se till att blockering av popup-fönster är inaktiverat)
 
 ## <a name="connect-lead-management"></a>Anslut lead-hantering
 
@@ -89,11 +100,11 @@ Välj bland följande alternativ:
 
 Mer information finns i [Översikt över hantering av leads](./commercial-marketplace-get-customer-leads.md).
 
-Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
+Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="properties"></a>Egenskaper
 
-På sidan **Egenskaper** kan du definiera de kategorier och branscher som ska användas för att gruppera ditt erbjudande på Marketplace, din app-version och de juridiska avtal som stöder ditt erbjudande. Välj **Spara** när du är klar med den här sidan.
+På den här sidan kan du definiera de kategorier och branscher som ska användas för att gruppera ditt erbjudande på Marketplace, din app-version och de juridiska avtal som stöder ditt erbjudande.
 
 ### <a name="category"></a>Kategori
 
@@ -111,9 +122,11 @@ Ange versions numret för ditt erbjudande. Kunderna kommer att se den här versi
 
 Ange dina egna juridiska villkor i fältet **allmänna** villkor. Du kan också ange URL: en där du hittar dina villkor. Kunder måste acceptera dessa villkor innan de kan testa ditt erbjudande.
 
+Välj **Spara utkast** innan du fortsätter.
+
 ## <a name="offer-listing"></a>Erbjudande lista
 
-På sidan med erbjudandets lista kan du definiera information om ditt erbjudande (till exempel namn, beskrivning, bilder osv.).
+Det är här du definierar information om ditt erbjudande, till exempel namn, beskrivning och avbildningar.
 
 > [!NOTE]
 > Du kan endast ange information om erbjudandet på ett språk. Det är inte nödvändigt att vara på engelska, så länge erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det är också acceptabelt att tillhandahålla en *URL för hjälp länkar* för att erbjuda innehåll på ett annat språk än det som används i list innehållet för erbjudandet.
@@ -130,7 +143,7 @@ Ange en kort beskrivning av ditt erbjudande (upp till 100 tecken) som kan använ
 
 Ange en längre Beskrivning av ditt erbjudande (upp till 3 000 tecken). Den här beskrivningen visas för kunder i Översikt över Marketplace-registrering. Ta med ditt erbjudandes värde, viktiga fördelar, kategori-och/eller bransch associationer, inköps möjligheter för appar och eventuella uppgifter som krävs. 
 
-Några tips för att skriva din beskrivning:  
+Några tips för att skriva din beskrivning:
 
 - Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen. Ta med följande objekt i ditt värde förslag:
   - Beskrivning av produkten
@@ -141,23 +154,13 @@ Några tips för att skriva din beskrivning:
 - Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt.
 - Överväg att använda HTML-taggar för att formatera beskrivningen och göra den mer intressant.
 
-Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att formatera beskrivningen.
+Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
 
-![Använda Rich Text Editor](./media/text-editor2.png)
+![Använda Rich Text Editor](./media/rich-text-editor.png)
 
-Använd följande instruktioner för att använda Rich Text Editor:
-
-- Om du vill ändra formatet på ditt innehåll markerar du den text som du vill formatera och väljer ett text format enligt nedan:
-
-     ![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png)
-
-- Om du vill lägga till en punkt lista eller numrerad lista i texten använder du alternativen nedan:
-
-     ![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png)
-
-- Om du vill lägga till eller ta bort indrag i texten använder du alternativen nedan:
-
-     ![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png)
+| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
+| --- | --- | --- |
+| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
 
 ### <a name="search-keywords"></a>Sök efter nyckelord
 
@@ -191,10 +194,13 @@ Ange minst ett (och upp till tre) relaterade marknadsförings dokument här, til
 
 ### <a name="marketplace-images"></a>Marketplace-avbildningar
 
-I det här avsnittet kan du ange logo typer och avbildningar som ska användas när du visar ditt erbjudande för kunden. Alla bilder måste vara i PNG-format. Ladda upp din erbjudande logo typ i två storlekar: **liten (48 x 48)** och **stor (216 x 216)**.
+Ange logo typer och avbildningar för ditt erbjudande. Alla bilder måste vara i PNG-format. Ladda upp din erbjudande logo typ i två storlekar:
 
->[!Note]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
+* **Liten** (48 x 48 pixlar)
+* **Stor** (216 x 216 pixlar)
+
+>[!NOTE]
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar `https://upload.xboxlive.com` tjänsten som används av Partner Center.
 
 #### <a name="screenshots"></a>Skärmbilder
 
@@ -206,24 +212,26 @@ Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. 
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
-- [Metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+[Metod tips för Marketplace-erbjudanden](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+
+Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="availability"></a>Tillgänglighet
 
-På sidan **tillgänglighet** får du alternativ för var och hur du gör ditt erbjudande tillgängligt.
+På den här sidan får du alternativ för var och hur du gör ditt erbjudande tillgängligt.
 
 ### <a name="markets"></a>Marknaden
 
 I det här avsnittet kan du ange vilka marknader som ditt erbjudande ska vara tillgängligt för. Det gör du genom att välja **Redigera marknader**, så visas popup-fönstret för **marknads val** .
 
-Som standard väljs inga marknader, men du måste välja minst en marknad för att kunna publicera erbjudandet. Klicka på **Välj alla** för att göra ditt erbjudande tillgängligt på alla möjliga marknader eller Välj de olika marknader som du vill lägga till. När du är klar väljer du **Spara**.
+Välj minst en marknad för att publicera erbjudandet. Välj **Välj alla** om du vill göra ditt erbjudande tillgängligt på alla möjliga marknader eller Välj de olika marknader som du vill lägga till.
 
 Dina val gäller endast för nya förvärv. om någon redan har din app på en viss marknad och du senare tar bort marknaden, kan de personer som redan har erbjudandet på marknaden fortsätta att använda den, men inga nya kunder på den marknaden kommer att kunna få ditt erbjudande.
 
 > [!IMPORTANT]
 > Det är ditt ansvar att uppfylla alla lokala juridiska krav, även om dessa krav inte finns med i listan här eller i Partner Center.
 
-Tänk på att även om du väljer alla marknader, lokala lagar och restriktioner eller andra faktorer kan förhindra att vissa erbjudanden visas i vissa länder och regioner.
+Tänk på att även om du väljer alla marknader, lokala lagar, begränsningar eller andra faktorer kan förhindra att vissa erbjudanden visas i vissa länder och regioner.
 
 ### <a name="preview-audience"></a>Förhandsgranska mål grupp
 
@@ -231,16 +239,18 @@ Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet må
 
 När du är redo att göra ditt erbjudande tillgängligt och ta bort begränsningen för för hands versionen måste du ta bort **Dölj-tangenten** och publicera igen.
 
+Välj **Spara utkast** innan du fortsätter.
+
 ## <a name="technical-configuration"></a>Teknisk konfiguration
 
-Sidan **teknisk konfiguration** definierar de tekniska uppgifter som används för att ansluta till ditt erbjudande. Med den här anslutningen kan vi tillhandahålla ditt erbjudande för slutanvändaren om de väljer att förvärva det.
+Den här sidan definierar de tekniska uppgifter som används för att ansluta till ditt erbjudande. Med den här anslutningen kan vi tillhandahålla ditt erbjudande för slutanvändaren om de väljer att förvärva det.
 
 ### <a name="package-type"></a>Pakettyp
 
 Välj det alternativ som gäller för ditt erbjudande:
 
-- **Lägg till**: en app för tillägg utökar upplevelsen och de befintliga funktionerna i Dynamics 365 Business Central. Mer information finns i [lägga till appar](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-- **Anslut**: en Connect-app kan användas i scenariot där det måste upprättas en punkt-till-punkt-anslutning mellan Dynamics 365 Business Central och en lösning eller tjänst från tredje part. Mer information finns i [Anslut](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
+* **Lägg till** – en app för tillägg utökar upplevelsen och de befintliga funktionerna i Dynamics 365 Business Central. Mer information finns i [lägga till appar](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+* **Anslut** – en Connect-app kan användas i scenariot där det måste upprättas en punkt-till-punkt-anslutning mellan Dynamics 365 Business Central och en lösning eller tjänst från tredje part. Mer information finns i [ansluta appar](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
 ### <a name="file-upload"></a>Fil uppladdning
 
@@ -260,13 +270,15 @@ Krävs om ditt erbjudande måste installeras tillsammans med ett annat tillägg 
 
 ### <a name="url-to-app-installation"></a>URL till app-installation
 
-Om du har valt **Anslut** ovan anger du URL: en för din app-installation här. För anslutna tjänster som inte kräver installation anger du URL: en för din tjänsts landnings sida eller registrerings sida.
+Om du har valt **Anslut** ovan anger du adressen till din app-installation här. För anslutna tjänster som inte kräver installation anger du adressen för din tjänsts landnings sida eller registrerings sida.
+
+Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="test-drive-technical-configuration"></a>Teknisk konfiguration för test enhet
 
-Om du har valt **Aktivera en testen het** på sidan [erbjudande konfiguration](#offer-setup) måste du ange information här för att kunderna ska kunna uppleva en test enhet för ditt erbjudande.
+På den här sidan kan du konfigurera en demonstration ("testenhet") som gör det möjligt för kunder att prova ditt erbjudande innan de köper det. Läs mer i artikeln [Vad är Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive).
 
-På sidan **testenhet** kan du konfigurera en demonstration (eller "testenhet") som gör det möjligt för kunder att prova ditt erbjudande innan de genomför köpet. Läs mer i artikeln [Vad är Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Om du inte längre vill ange en testen het för ditt erbjudande går du tillbaka till sidan **[erbjudande konfiguration](#offer-setup)** och avmarkerar **Aktivera test enhet**.
+Om du vill aktivera en testen het markerar du kryss rutan **Aktivera en testenhet** på fliken [erbjudande konfiguration](#test-drive) . Avmarkera den här kryss rutan om du vill ta bort test enheten från erbjudandet.
 
 Följande typer av test enheter är tillgängliga, var och en med sina egna tekniska konfigurations krav.
 
@@ -275,71 +287,75 @@ Följande typer av test enheter är tillgängliga, var och en med sina egna tekn
 - [Logic app](#technical-configuration-for-logic-app-test-drive)
 - [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (teknisk konfiguration krävs inte)
 
+Ytterligare resurser för test enheter:
+
+- [Metodtips för marknadsföring](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Rekommenderade tekniska metoder](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Översikt](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF, se till att blockering av popup-fönster är inaktiverat)
+
 ### <a name="technical-configuration-for-azure-resource-manager-test-drive"></a>Teknisk konfiguration för Azure Resource Manager testen het
 
 En distributionsmall som innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser. Läs mer om hur du konfigurerar en [Azure Resource Manager test-enhet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
-- **Regioner** (obligatoriskt): för närvarande finns det 26 Azure-regioner som stöds där din test enhet kan göras tillgänglig. Vanligt vis vill du göra din test enhet tillgänglig i de regioner där du räknar med det största antalet kunder, så att de kan välja den region som är närmast för bästa prestanda. Du måste kontrol lera att din prenumeration har tillåtelse att distribuera alla resurser som behövs i varje region som du väljer.
+- **Regioner** (obligatoriskt) – för närvarande finns det 26 Azure-regioner som stöds där din test enhet kan göras tillgänglig. Vanligt vis vill du göra din test enhet tillgänglig i de regioner där du räknar med det största antalet kunder, så att de kan välja den region som är närmast för bästa prestanda. Du måste kontrol lera att din prenumeration har tillåtelse att distribuera alla resurser som behövs i varje region som du väljer.
 
-- **Instanser**: Välj typ (frekvent eller kall) och antal tillgängliga instanser, vilket kommer att multipliceras med antalet regioner där ditt erbjudande är tillgängligt.
+- **Instanser** – Välj typ (frekvent eller kall) och antal tillgängliga instanser, vilket kommer att multipliceras med antalet regioner där ditt erbjudande är tillgängligt.
 
-**Het**: den här typen av instans distribueras och väntar på åtkomst per vald region. Kunder kan komma åt en test enhets *aktiva* instanser direkt i stället för att vänta på en distribution. Kompromissen är att dessa instanser alltid körs på din Azure-prenumeration, så de kommer att ådra sig en högre drift tid. Vi rekommenderar starkt att du har minst en *aktiv* instans, eftersom de flesta kunder inte vill vänta på fullständiga distributioner, vilket resulterar i en kombination av kund användning om ingen *aktiv* instans är tillgänglig.
+    Frekvent **– den** här typen av instans distribueras och väntar på åtkomst per vald region. Kunder kan komma åt en test enhets *aktiva* instanser direkt i stället för att vänta på en distribution. Kompromissen är att dessa instanser alltid körs på din Azure-prenumeration, så de kommer att ådra sig en högre drift tid. Vi rekommenderar starkt att du har minst en *aktiv* instans, eftersom de flesta kunder inte vill vänta på fullständiga distributioner, vilket resulterar i en kombination av kund användning om ingen *aktiv* instans är tillgänglig.
 
-**Kall**: den här typen av instans representerar det totala antalet instanser som eventuellt kan distribueras per region. Kalla instanser kräver att hela test enhetens Resource Manager-mall distribueras när en kund begär test enheten, så att *kalla* instanser är mycket långsammare att läsa in än *varma* instanser. Kompromissen är att du bara behöver betala under test enhetens varaktighet, den körs *inte* alltid på din Azure-prenumeration som en *aktiv* instans.
+    **Kall** – den här typen av instans representerar det totala antalet instanser som eventuellt kan distribueras per region. Kalla instanser kräver att hela test enhetens Resource Manager-mall distribueras när en kund begär test enheten, så att *kalla* instanser är mycket långsammare att läsa in än *varma* instanser. Kompromissen är att du bara behöver betala under test enhetens varaktighet, den körs *inte* alltid på din Azure-prenumeration som en *aktiv* instans.
 
-- **Testkör Azure Resource Manager mall**: Ladda upp zip-filen som innehåller din Azure Resource Manager-mall.  Lär dig mer om hur du skapar en Azure Resource Manager-mall i snabb starts artikeln [skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+- **Testa enhet Azure Resource Manager mall** – Ladda upp zip-filen som innehåller din Azure Resource Manager-mall.  Lär dig mer om hur du skapar en Azure Resource Manager-mall i snabb starts artikeln [skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Test enhetens varaktighet** (krävs): Ange hur lång tid som test enheten ska vara aktiv i antal timmar. Test enheten avslutas automatiskt när den här tids perioden är slut. Denna varaktighet får bara anges med ett heltal (till exempel "2" timmar, "1,5" är inte giltigt).
+- **Test enhetens varaktighet** (krävs) – ange hur lång tid test enheten ska vara aktiv, i antal timmar. Test enheten avslutas automatiskt när den här tids perioden är slut. Använd endast heltal (till exempel "2" timmar är giltigt, "1,5" är inte).
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Teknisk konfiguration för Dynamics 365-testenhet
 
 Microsoft kan ta bort komplexiteten för att konfigurera en testen het genom att vara värd för och underhålla tjänst etableringen och-distributionen med den här typen av test enhet. Konfigurationen av den här typen av värdbaserad test enhet är samma oavsett om test enheten är riktad mot en affärs Central, kund engagemang eller drifts grupp.
 
-- **Maximalt antal samtidiga test enheter** (krävs): Ange det maximala antalet kunder som kan använda test enheten samtidigt. Varje samtidig användare använder en Dynamics 365-licens medan test enheten är aktiv, så du måste se till att du har tillräckligt med licenser för att stödja Max gränsen. Rekommenderat värde 3-5.
+- **Maximalt antal samtidiga test enheter** (krävs) – Ange det maximala antalet kunder som kan använda test enheten samtidigt. Varje samtidig användare använder en Dynamics 365-licens medan test enheten är aktiv, så du måste se till att du har tillräckligt med licenser för att stödja Max gränsen. Rekommenderat värde 3-5.
 
-- **Test enhetens varaktighet** (krävs): Ange hur lång tid test enheten ska vara aktiv genom att definiera antalet timmar. Efter så här många timmar avslutas sessionen och använder inte längre någon av dina licenser. Vi rekommenderar ett värde på 2-24 timmar beroende på hur komplex ditt erbjudande är. Denna varaktighet får bara anges med ett heltal (till exempel "2" timmar, "1,5" är inte giltigt).  Användaren kan begära en ny session om de får slut på tid och vill komma åt test enheten igen.
+- **Test enhetens varaktighet** (krävs) – ange hur lång tid test enheten ska vara aktiv genom att definiera antalet timmar. Efter så här många timmar avslutas sessionen och använder inte längre någon av dina licenser. Vi rekommenderar ett värde på 2-24 timmar beroende på hur komplex ditt erbjudande är. Denna varaktighet får bara anges med ett heltal (till exempel "2" timmar, "1,5" är inte giltigt).  Användaren kan begära en ny session om de får slut på tid och vill komma åt test enheten igen.
 
-- **Instans-URL** (krävs): URL: en där kunden kommer att påbörja sin test-enhet. Normalt är URL: en för din Dynamics 365-instans som kör appen med exempel data installerat ( `https://testdrive.crm.dynamics.com`till exempel).
+- **Instans-URL** (obligatorisk) – URL: en där kunden kommer att påbörja sin test-enhet. Normalt är URL: en för din Dynamics 365-instans som kör appen med exempel data installerat ( `https://testdrive.crm.dynamics.com`till exempel).
 
-- **URL för instans webb-API** (krävs): Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **Inställningar** \&gt; **Anpassning** \&gt; **Utvecklings resurser** \&gt; **Instans webb-API (tjänstens rot-URL)**, kopiera URL-adressen som finns `https://testdrive.crm.dynamics.com/api/data/v9.0`här (till exempel).
+- **URL för instans webb-API** (krävs) – Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **Inställningar** \&gt; **Anpassning** \&gt; **Utvecklings resurser** \&gt; **Instans webb-API (tjänstens rot-URL)**, kopiera URL-adressen som finns `https://testdrive.crm.dynamics.com/api/data/v9.0`här (till exempel).
 
-- **Rollnamn** (obligatoriskt): Ange namnet på den säkerhets roll som du har definierat i din anpassade Dynamics 365-testenhet, som ska tilldelas användaren under deras test enhet (till exempel Test-Drive-roll).
+- **Rollnamn** (obligatoriskt) – Ange namnet på den säkerhets roll som du har definierat i din anpassade Dynamics 365-testenhet, som kommer att tilldelas användaren under deras test enhet (till exempel Test-Drive-roll).
 
 ### <a name="technical-configuration-for-logic-app-test-drive"></a>Teknisk konfiguration för Logic app-testenhet
 
 Alla anpassade produkter bör använda den här typen av mall för distribution av test enheter som omfattar en mängd olika komplexa lösnings arkitekturer. Mer information om hur du konfigurerar Logi Kap par test enheter finns i [åtgärder](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) och [kund engagemang](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) på GitHub.
 
-- **Region** (obligatorisk, lista med enstaka val): för närvarande finns det 26 Azure-regioner som stöds där du kan göra en test enhet tillgänglig. Resurserna för din Logic-app distribueras i den region som du väljer. Om din Logi Kap par innehåller anpassade resurser som lagras i en viss region, se till att regionen är vald här. Det bästa sättet är att helt distribuera din Logic app lokalt på din Azure-prenumeration i portalen och kontrol lera att den fungerar korrekt innan du gör det här valet.
+- **Region** (obligatorisk listruta för enskild markering) – för närvarande finns det 26 Azure-regioner som stöds där din test enhet kan göras tillgänglig. Resurserna för din Logic-app distribueras i den region som du väljer. Om din Logi Kap par innehåller anpassade resurser som lagras i en viss region, se till att regionen är vald här. Det bästa sättet är att helt distribuera din Logic app lokalt på din Azure-prenumeration i portalen och kontrol lera att den fungerar korrekt innan du gör det här valet.
 
-- **Maximalt antal samtidiga test enheter** (krävs): Ange det maximala antalet kunder som kan använda test enheten samtidigt. De här test enheterna har redan distribuerats, vilket gör det möjligt för kunder att komma åt dem direkt utan att vänta på en distribution.
+- **Maximalt antal samtidiga test enheter** (krävs) – Ange det maximala antalet kunder som kan använda test enheten samtidigt. De här test enheterna har redan distribuerats, vilket gör det möjligt för kunder att komma åt dem direkt utan att vänta på en distribution.
 
-- **Test enhetens varaktighet** (krävs): Ange hur lång tid som test enheten ska vara aktiv i antal timmar. Test enheten avslutas automatiskt när den här tids perioden är slut.
+- **Test enhetens varaktighet** (krävs) – ange hur lång tid test enheten ska vara aktiv, i antal timmar. Test enheten avslutas automatiskt när den här tids perioden är slut.
 
-- **Namn på Azure-resurs grupp** (krävs): Ange namnet på den [Azure-resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) där din Logic app-testenhet sparas.
+- **Namn på Azure-resurs grupp** (obligatoriskt) Ange namnet på den [Azure-resurs grupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) där din Logic app-testenhet sparas.
 
-- **Azure Logic app-namn** (obligatoriskt): Ange namnet på den Logic-app som tilldelar användaren till användaren. Den här Logic-appen måste sparas i gruppen Azure-resurser ovan.
+- **Azure Logic app-namn** (obligatoriskt) – Ange namnet på den Logic-app som tilldelar användaren till användaren. Den här Logic-appen måste sparas i gruppen Azure-resurser ovan.
 
-- **Avetablera Logic app-namn** (obligatoriskt): Ange namnet på den Logic-app som avetablerar test enheten när kunden är färdig. Den här Logic-appen måste sparas i gruppen Azure-resurser ovan.
+- **Avetablera Logic app-namn** (obligatoriskt) – Ange namnet på den Logic-app som avetablerar test enheten när kunden är färdig. Den här Logic-appen måste sparas i gruppen Azure-resurser ovan.
 
 ### <a name="technical-configuration-not-required-for-power-bi-test-drives"></a>Teknisk konfiguration krävs inte för Power BI test enheter
 
-Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt kan använda en inbäddad länk för att dela en anpassad instrument panel som test enhet, ingen ytterligare teknisk konfiguration krävs. Läs mer om hur du konfigurerar[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) mallar.
+Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt kan använda en inbäddad länk för att dela en anpassad instrument panel som test enhet, ingen ytterligare teknisk konfiguration krävs. Läs mer om hur du konfigurerar [Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) mallar.
 
 ### <a name="deployment-subscription-details"></a>Information om distributions prenumeration
 
 För att distribuera test enheten åt dig skapar du och tillhandahåller en separat och unik Azure-prenumeration. (Krävs inte för Power BI test enheter).
 
-- **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och logi Kap par): ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken **prenumerationer** på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (till exempel "a83645ac-1234-5AB6-6789-1h234g764ghty").
+- **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och logi Kap par) – ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken **prenumerationer** på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (till exempel "a83645ac-1234-5AB6-6789-1h234g764ghty").
 
-- **Azure AD-klient-ID** (krävs): ange ditt Azure Active Directory (AD) [klient organisations-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer * * egenskaper och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns-URL [https://www.whatismytenantid.com](https://www.whatismytenantid.com)på:.
+- **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer * * egenskaper och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns adress [https://www.whatismytenantid.com](https://www.whatismytenantid.com)på.
 
-- **Namn på Azure AD-klient** (krävs för dynamisk 365): ange ditt Azure Active Directory (AD) namn. Du hittar det här namnet genom att logga in på [Azure Portal](https://portal.azure.com/)i det övre högra hörnet ditt klient namn visas under ditt konto namn.
+- **Namn på Azure AD-klient** (krävs för dynamisk 365) – ange ditt Azure Active Directory (AD) namn. Du hittar det här namnet genom att logga in på [Azure Portal](https://portal.azure.com/)i det övre högra hörnet ditt klient namn visas under ditt konto namn.
 
-- **ID för Azure AD-App** (krävs): ange ditt Azure Active Directory (AD) [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID för Azure AD-App** (krävs) – ange ditt Azure Active Directory (AD) [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **Azure AD-appens klient hemlighet** (krävs): Ange din Azure AD-programs [klient hemlighet](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på den vänstra menyn, Välj **Appregistreringar**och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter**, Välj **ny klient hemlighet**, ange en beskrivning, Välj **aldrig** under **upphör ande**och välj sedan **Lägg till**. Glöm inte att kopiera värdet. (Du kan inte navigera bort från sidan innan du gör detta, eller så har du inte till gång till värdet.)
-
-Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
+- **Azure AD-appens klient hemlighet** (krävs) – ange [klient hemligheten](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)för Azure AD-programmet. Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på den vänstra menyn, Välj **Appregistreringar**och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter**, Välj **ny klient hemlighet**, ange en beskrivning, Välj **aldrig** under **upphör ande**och välj sedan **Lägg till**. Glöm inte att kopiera värdet. (Du kan inte navigera bort från sidan innan du gör detta, eller så har du inte till gång till värdet.)
 
 ### <a name="test-drive-marketplace-listings"></a>Marketplace-platser för enhets kontroll
 
@@ -348,17 +364,18 @@ På **fliken** **testenhet** kan du ange information om test enhets upplevelsen.
 > [!NOTE]
 > Du kan endast ange information om enhets listor på ett språk. Det är inte nödvändigt att vara på engelska, så länge erbjudande beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det är också acceptabelt att tillhandahålla en *URL för hjälp länkar* för att erbjuda innehåll på ett annat språk än det som används i innehålls förteckningen för test enheten.
 
+- **Beskrivning** (krävs) – Beskriv din test enhet, vad som visas, mål för användaren att experimentera med, vilka funktioner som ska utforskas och all relevant information som hjälper användaren att avgöra om ditt erbjudande ska erhållas. Upp till 3 000 tecken text kan anges i det här fältet. 
 
-- **Beskrivning** (krävs): Beskriv test enheten, vad som visas, mål för användaren att experimentera med, vilka funktioner som ska utforskas och all relevant information som hjälper användaren att avgöra om ditt erbjudande ska erhållas. Upp till 3 000 tecken text kan anges i det här fältet. 
+- **Åtkomst information** (krävs för Azure Resource Manager och logik test enheter) – förklara vad en kund behöver veta för att få åtkomst till och använda den här test enheten. Gå igenom ett scenario för att använda ditt erbjudande och exakt vad kunden bör känna till för att få åtkomst till funktioner i hela test enheten. Upp till 10 000 tecken text kan anges i det här fältet.
 
-- **Åtkomst information** (krävs för Azure Resource Manager-och logik test enheter): förklara vad en kund behöver veta för att få åtkomst till och använda den här test enheten. Gå igenom ett scenario för att använda ditt erbjudande och exakt vad kunden bör känna till för att få åtkomst till funktioner i hela test enheten. Upp till 10 000 tecken text kan anges i det här fältet.
+- **Användar handbok** (krävs) – en djupgående genom gång av test enhets upplevelsen. Användar handboken bör bestå av exakt vad du vill att kunden ska få från att använda test enheten och fungera som referens för alla frågor som de kan ha. Filen måste vara i PDF-format och ha namnet (högst 255 tecken) efter överföringen.
 
-- **Användar handbok** (krävs): en djupgående genom gång av test enhets upplevelsen. Användar handboken bör bestå av exakt vad du vill att kunden ska få från att använda test enheten och fungera som referens för alla frågor som de kan ha. Filen måste vara i PDF-format och ha namnet (högst 255 tecken) efter överföringen.
-
-- **Videor: Lägg till videor** (valfritt): videor kan laddas upp till YouTube eller Vimeo och refereras till med en länk och miniatyr bild (533 x 324 bild punkter) så att en kund kan visa en genom gång av information för att hjälpa dem att bättre förstå test enheten, inklusive hur du kan använda funktionerna i ditt erbjudande och förstå scenarier som fokuserar på deras fördelar.
+- **Videor** (valfritt) – videor kan laddas upp till YouTube eller Vimeo och refereras till med en länk och miniatyr bild (533 x 324 pixlar) så att en kund kan visa en genom gång av information för att hjälpa dem att bättre förstå test enheten, inklusive hur du kan använda funktionerna i ditt erbjudande och förstå scenarier som fokuserar på deras fördelar.
   - **Namn** (obligatoriskt)
   - **URL (endast YouTube eller Vimeo)** (obligatoriskt)
-  - **Miniatyr (533 x 324 BPT)**: bild filen måste vara i PNG-format.
+  - **Miniatyr** bild (filen måste vara i PNG-format och 533 x 324 BPT)
+
+Välj **Spara utkast** innan du fortsätter.
 
 ## <a name="supplemental-content"></a>Kompletterande innehåll
 
@@ -374,7 +391,7 @@ Om ditt erbjudande kräver Premium-versionen av Microsoft Dynamics 365 Business 
 
 ### <a name="key-usage-scenario"></a>Scenario för nyckel användning
 
-Du måste ladda upp `.pdf` en fil som visar dina erbjudandens scenarier för nyckel användning som visas i ett dokument (. pdf-format). Alla scenarier som listas här kan kontrol leras av vårt validerings team innan vi godkänner ditt erbjudande för Marketplace.
+Du måste ladda upp en PDF-fil som visar dina erbjudandens scenarier för nyckel användning som visas i ett dokument (. pdf-format). Alla scenarier som listas här kan kontrol leras av vårt validerings team innan vi godkänner ditt erbjudande för Marketplace.
 
 ### <a name="app-tests-automation"></a>Automatisering av app-test
 

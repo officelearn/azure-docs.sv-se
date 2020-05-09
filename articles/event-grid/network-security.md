@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: vkukke
-ms.openlocfilehash: ed3b70ad267252981110e7970bc5c5fad6cf4b4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d6d6d8df8f3c5da762ac672b304ec072a723e7d7
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79300159"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82857043"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Nätverks säkerhet för Azure Event Grid resurser
 I den här artikeln beskrivs hur du använder följande säkerhetsfunktioner med Azure Event Grid: 
@@ -92,10 +92,9 @@ I följande tabell beskrivs olika tillstånd för den privata slut punkts anslut
 För att publiceringen ska lyckas bör anslutnings statusen för den privata slut punkten **godkännas**. Om en anslutning avvisas kan den inte godkännas med hjälp av Azure Portal. Den enda möjligheten är att ta bort anslutningen och skapa en ny i stället.
 
 ## <a name="pricing-and-quotas"></a>Priser och kvoter
-**Privata slut punkter** är bara tillgängliga med ämnen och domäner i Premium-nivån. Event Grid tillåter att upp till 64 privata slut punkts anslutningar skapas per ämne eller domän. Information om hur du uppgraderar från Basic-nivån till Premium-nivån finns i artikeln [Uppdatera pris nivå](update-tier.md) .
+**Privata slut punkter** finns på både Basic-och Premium-nivån för Event Grid. Event Grid tillåter att upp till 64 privata slut punkts anslutningar skapas per ämne eller domän. 
 
 Funktionen **IP-brandvägg** finns på både Basic-och Premium-nivån för Event Grid. Vi tillåter att upp till 16 IP-brandväggar skapas per ämne eller domän.
-
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan konfigurera IP-brandväggen för din Event Grid resurs för att begränsa åtkomsten via det offentliga Internet från endast en Välj uppsättning IP-adresser eller IP-adressintervall. Stegvisa instruktioner finns i [Konfigurera IP-brandvägg](configure-firewall.md).

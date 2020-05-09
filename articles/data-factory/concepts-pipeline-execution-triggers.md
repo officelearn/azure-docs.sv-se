@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: fac9933c57a54736aed5ccfdd54d126f0ca32973
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418362"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82562210"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pipeline-körning och utlösare i Azure Data Factory
 
@@ -281,13 +281,13 @@ I följande tabell ges en översikt över de viktigaste schemaelementen relatera
 
 ### <a name="schema-defaults-limits-and-examples"></a>Standardvärden för scheman, begränsningar och exempel
 
-| JSON-egenskap | Typ | Krävs | Standardvärde | Giltiga värden | Exempel |
+| JSON-egenskap | Typ | Obligatorisk | Standardvärde | Giltiga värden | Exempel |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | sträng | Ja | Ingen | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **mönster** | objekt | Ja | Ingen | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | sträng | Ja | Inga | ISO 8601 datum/tid | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **mönster** | objekt | Ja | Inga | Ett upprepningsobjekt | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **intervall** | nummer | Inga | 1 | 1 till 1000 | `"interval":10` |
-| **endTime** | sträng | Ja | Ingen | Ett datum/tid-värde som representerar en tidpunkt i framtiden | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **Ange** | objekt | Inga | Ingen | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **endTime** | sträng | Ja | Inga | Ett datum/tid-värde som representerar en tidpunkt i framtiden | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **Ange** | objekt | Inga | Inga | Ett schemaobjekt | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Egenskapen startTime
 I följande tabell visas hur egenskapen **startTime** styr körningen av en utlösare:
@@ -326,6 +326,9 @@ I följande tabell beskrivs **schedule**-elementen i detalj:
 Utlösare för rullande fönster är en typ av utlösare som går igång med jämna tidsintervall från en angiven starttid och behåller sitt tillstånd. Rullande fönster är en serie sammanhängande tidsintervall med fast storlek som inte överlappar.
 
 Mer information om utlösare för rullande fönster och exempel finns i [skapa en utlösare för rullande fönster](how-to-create-tumbling-window-trigger.md).
+
+> [!NOTE]
+> Körningen av rullande Window-utlösare väntar på att *den utlösta pipeline-körningen* ska slutföras. Dess körnings tillstånd visar statusen för den Utlös ande pipeline-körningen. Om till exempel en utlöst pipeline-körning avbryts, markeras den motsvarande körningen av utlösare för rullande-fönster som avbrutits. Detta skiljer sig från beteendet "brand och glöm" i schema utlösaren, vilket har marker ATS som slutfört så länge en pipeline-körning har startats.
 
 ## <a name="event-based-trigger"></a>Händelsebaserad utlösare
 

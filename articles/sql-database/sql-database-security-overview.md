@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 1d08770d81ade2d976142b2ce1fd94dae044cf32
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
-ms.translationtype: HT
+ms.openlocfilehash: 7feb6282f3a3551e08d1bb8db2cf6ad2fcd754a8
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461403"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82626164"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över Azure SQL Database säkerhets funktioner
 
@@ -30,7 +30,7 @@ Microsoft Azure SQL Database tillhandahåller en Relations databas tjänst för 
 
 ### <a name="ip-firewall-rules"></a>Regler för IP-brandvägg
 
-Regler för IP-brandvägg ger åtkomst till databaser baserat på den ursprungliga IP-adressen för varje begäran. Mer information finns i [Översikt över Azure SQL Database och SQL Data Warehouse brand Väggs regler](sql-database-firewall-configure.md).
+Regler för IP-brandvägg ger åtkomst till databaser baserat på den ursprungliga IP-adressen för varje begäran. Mer information finns i [Översikt över brand Väggs regler för Azure SQL Database och Azure Synapse Analytics](sql-database-firewall-configure.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Brandväggsregler för virtuella nätverk
 
@@ -56,7 +56,7 @@ Autentisering är en process för att bevisa att användaren är den som han ell
 
 - **Azure Active Directory autentisering**:
 
-    Azure Active Directory autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (Azure AD). Med Azure AD-autentisering kan administratörer centralt hantera identiteter och behörigheter för databas användare tillsammans med andra Microsoft-tjänster på en central plats. Detta inkluderar minimering av lösen ords lagring och möjliggör centraliserade principer för lösen ords rotation.
+    Azure Active Directory autentisering är en mekanism för att ansluta till [Azure SQL Database](sql-database-technical-overview.md) och [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) med hjälp av identiteter i Azure Active Directory (Azure AD). Med Azure AD-autentisering kan administratörer centralt hantera identiteter och behörigheter för databas användare tillsammans med andra Microsoft-tjänster på en central plats. Detta inkluderar minimering av lösen ords lagring och möjliggör centraliserade principer för lösen ords rotation.
 
      En Server administratör som kallas **Active Directory administratör** måste skapas för att använda Azure AD-autentisering med SQL Database. Mer information finns i [ansluta till SQL Database med Azure Active Directory autentisering](sql-database-aad-authentication.md). Azure AD-autentisering stöder både hanterade och federerade konton. Federerade konton stöder Windows-användare och grupper för en kund domän som är federerad med Azure AD.
 
@@ -97,7 +97,7 @@ Avancerat skydd analyserar SQL Server loggar för att identifiera onormalt betee
 
 SQL Database skyddar kund information genom att kryptera data i rörelse med [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-SQL Server upprätthåller kryptering (SSL/TLS) hela tiden för alla anslutningar. Detta säkerställer att alla data krypteras "under överföring" mellan klienten och servern oavsett inställningen för **kryptering** eller **TrustServerCertificate** i anslutnings strängen.
+SQL Server upprätthåller kryptering (TLS) hela tiden för alla anslutningar. Detta säkerställer att alla data krypteras "under överföring" mellan klienten och servern oavsett inställningen för **kryptering** eller **TrustServerCertificate** i anslutnings strängen.
 
 Som bästa praxis rekommenderar vi att du i programmets anslutnings sträng anger en krypterad anslutning och _**inte**_ litar på Server certifikatet. Detta tvingar ditt program att verifiera Server certifikatet och förhindrar därför att ditt program är sårbart för människor i mellan typ attacker.
 

@@ -1,6 +1,6 @@
 ---
-title: Köra SSIS-paket med hjälp av Azure SQL Database hanterade instans agent
-description: Lär dig hur du kör SSIS-paket med hjälp av Azure SQL Database hanterade instans agenten.
+title: Schemalägg SSIS-paket körningar med hjälp av Azure SQL Database Hanterad instans agent
+description: Lär dig hur du schemalägger SSIS-paket körningar med hjälp av Azure SQL Database hanterade instans agenten.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,14 +9,17 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: fcbfeb5ab3a3a80fdb8f7e355f290451d4afe804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f230e4d33686b006b20e856d5e8033847e3f3d67
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144808"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82628494"
 ---
-# <a name="run-ssis-packages-by-using-azure-sql-database-managed-instance-agent"></a>Köra SSIS-paket med hjälp av Azure SQL Database hanterade instans agent
+# <a name="schedule-ssis-package-executions-by-using-azure-sql-database-managed-instance-agent"></a>Schemalägg SSIS-paket körningar med hjälp av Azure SQL Database Hanterad instans agent
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Den här artikeln beskriver hur du kör ett SQL Server Integration Services-paket (SSIS) med hjälp av Azure SQL Database hanterade instans agenten. Den här funktionen innehåller beteenden som liknar när du schemalägger SSIS-paket med hjälp av SQL Server Agent i din lokala miljö.
 
 Med den här funktionen kan du köra SSIS-paket som lagras i SSISDB i en Azure SQL Database Hanterad instans eller ett fil system som Azure Files.
@@ -78,7 +81,7 @@ I den här proceduren använder du Azure SQL Database hanterade instans agenten 
 
         ![Alternativ för fil käll typ](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
       
-        Paket Sök vägen är ** \\ <storage account name>. File.Core.Windows.net\<fil resurs namn>\<paket namn>. dtsx**.
+        Paket Sök vägen är **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`**.
       
         Under **paket fil åtkomst autentiseringsuppgifter**anger du Azure-filkontots namn och konto nyckel för att få åtkomst till Azure-filen. Domänen är inställd som **Azure**.
 
@@ -89,11 +92,14 @@ I den här proceduren använder du Azure SQL Database hanterade instans agenten 
         Ange motsvarande domän, användar namn och lösen ord för att få åtkomst till nätverks resursens paket fil.
    1. Om paket filen är krypterad med ett lösen ord väljer du **krypterings lösen ord** och anger lösen ordet.
 1. På fliken **konfigurationer** anger du sökvägen till konfigurations filen om du behöver en konfigurations fil för att köra SSIS-paketet.
+   Om du lagrar konfigurationen i Azure Files, är dess konfigurations Sök väg **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`**.
 1. På fliken **körnings alternativ** kan du välja om du vill använda **Windows-autentisering** eller **32-bitars körning** för att köra SSIS-paketet.
-1. På fliken **loggning** kan du välja loggnings Sök väg och motsvarande autentiseringsuppgifter för inloggning för att lagra loggfilerna. Som standard är loggnings Sök vägen samma som sökvägen för paketfilerna och loggningen av autentiseringsuppgifter är samma som paketets åtkomst autentiseringsuppgifter.
+1. På fliken **loggning** kan du välja loggnings Sök väg och motsvarande autentiseringsuppgifter för inloggning för att lagra loggfilerna. 
+   Som standard är loggnings Sök vägen samma som sökvägen för paketfilerna och loggningen av autentiseringsuppgifter är samma som paketets åtkomst autentiseringsuppgifter.
+   Om du lagrar dina loggar i Azure Files, är din loggnings Sök **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`** väg.
 1. På fliken **Ange värden** kan du ange egenskapens sökväg och värde för att åsidosätta paket egenskaperna.
  
-   Om du till exempel vill åsidosätta värdet för användar variabeln anger du dess sökväg i följande format: **\Package.Variables [user::<variable name>]. Värde**.
+   Om du till exempel vill åsidosätta värdet för användar variabeln anger du dess sökväg i följande format: **`\Package.Variables[User::<variable name>].Value`**.
 1. Spara Agent jobb konfigurationen genom att välja **OK** .
 1. Starta Agent jobbet för att köra SSIS-paketet.
 

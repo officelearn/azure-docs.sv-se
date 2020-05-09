@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 857a4da0b24d600ecc572933af578e2e8faf501a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a5ffdf217483c60836f67213c20ff3afd9043d5
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366327"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82608923"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Korrigera operativ systemet Windows i Service Fabric-klustret
 
@@ -165,7 +165,7 @@ Du kan konfigurera POA-beteendet så att det passar dina behov. Åsidosätt stan
 | WUOperationTimeOutInMinutes | Int <br>(Standard: *90*)                   | Anger tids gränsen för alla Windows Update åtgärder (Sök eller ladda ned eller installera). Om åtgärden inte slutförs inom den angivna tids gränsen avbryts den.       |
 | WURescheduleCount     | Int <br> (Standard: *5*)                  | Det maximala antalet gånger som tjänsten omplanerar Windows Update om en åtgärd Miss lyckas beständigt.          |
 | WURescheduleTimeInMinutes | Int <br>(Standard: *30*) | Intervallet då tjänsten omplanerar Windows-uppdateringar om ett problem kvarstår. |
-| WUFrequency           | Kommaavgränsad sträng (standard: *veckovis, onsdag, 7:00:00*)     | Frekvensen för att installera Windows-uppdateringar. Formatet och möjliga värden är: <br>&nbsp;&nbsp;-Månatlig: DD, HH: MM: SS (till exempel *månad, 5, 12:22:32*)<br>Tillåtna värden för fältet DD (dag) är tal från 1 till och med 28 och "sista". <br> &nbsp;&nbsp;– Veckovis, dag, HH: MM: SS (till exempel *vecka, tisdag 12:22:32*)  <br> &nbsp;&nbsp;– Dagligen, HH: MM: SS (till exempel *dagligen, 12:22:32*)  <br> &nbsp;&nbsp;-  *Ingen* anger att Windows-uppdateringar inte ska göras.  <br><br> Tiden är i UTC-tid.|
+| WUFrequency           | Kommaavgränsad sträng (standard: *veckovis, onsdag, 7:00:00*)     | Frekvensen för att installera Windows-uppdateringar. Formatet och möjliga värden är: <br>– Varje månad, DD, HH: MM: SS (exempel: *Monthly, 5, 12:22:32*). Tillåtna värden för fältet _DD_ (dag) är tal från 1 till 28 och _sist_. <br>– Varje vecka, dag, HH: MM: SS (exempel: *Weekly, tisdag, 12:22:32*)  <br>– Dagligen, HH: MM: SS (exempel: *Daily, 12:22:32*)  <br>– Vecka, dag, HH: MM: SS (exempel: *2, fredag, 21:00:00* anger 9:00 pm UTC på fredag i den andra veckan varje månad) <br>- *Ingen* anger att Windows-uppdateringar inte ska göras.  <br><br> Tiden är i UTC-tid.|
 | AcceptWindowsUpdateEula | Boolesk <br>(Standard: *Sant*) | Genom att ange den här flaggan godkänner programmet slut användar avtalet för Windows Update för datorns ägare.              |
 
 > [!TIP]
@@ -235,7 +235,7 @@ POA exponerar REST-API: er för att visa historiska resultat för användare. H�
 
 JSON-fälten beskrivs i följande tabell:
 
-Field | Värden | Information
+Fält | Värden | Information
 -- | -- | --
 OperationResult under pågående | 0-lyckades<br> 1 – lyckades med fel<br> 2 – misslyckades<br> 3-avbruten<br> 4 – avbruten med timeout | Visar resultatet av den övergripande åtgärden, som normalt innebär installation av en eller flera uppdateringar.
 ResultCode | Samma som OperationResult under pågående | Det här fältet visar resultatet av installations åtgärden för en enskild uppdatering.

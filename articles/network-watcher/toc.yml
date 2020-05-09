@@ -25,7 +25,7 @@
       href: diagnose-communication-problem-between-networks.md
     - name: Logga VM-nätverkstrafik
       href: network-watcher-nsg-flow-logging-portal.md
-- name: Koncept
+- name: Begrepp
   items:
     - name: Diagnostisera problem med VM-nätverkstrafikfilter
       href: network-watcher-ip-flow-verify-overview.md
@@ -43,7 +43,7 @@
       href: network-watcher-security-group-view-overview.md
     - name: Behörigheter för rollbaserad åtkomstkontroll
       href: required-rbac-permissions.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Konfigurera Network Watcher
       href: network-watcher-create.md
@@ -63,7 +63,7 @@
               href: diagnose-vm-network-routing-problem-cli.md
         - name: Diagnosticera problem med utgående anslutningar
           items:
-            - name: Azure-portalen
+            - name: Azure Portal
               href: network-watcher-connectivity-portal.md
             - name: Azure PowerShell
               href: network-watcher-connectivity-powershell.md
@@ -75,7 +75,7 @@
           items:
             - name: Hantera ett infångat paket
               items:
-                - name: Azure-portalen
+                - name: Azure Portal
                   href: network-watcher-packet-capture-manage-portal.md
                 - name: Azure PowerShell
                   href: network-watcher-packet-capture-manage-powershell.md
@@ -173,7 +173,7 @@
     - name: .NET
       href: /dotnet/api/overview/azure/virtual-network
     - name: Node.js
-      href: /javascript/api/azure-arm-network
+      href: /javascript/api/@azure/arm-network
     - name: REST
       href: /rest/api/network-watcher/
 - name: Resurser
@@ -184,7 +184,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN-forum
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=WAVirtualMachinesVirtualNetwork'
-    - name: Priser
+    - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/network-watcher/'
     - name: Tjänstuppdateringar
       href: 'https://azure.microsoft.com/updates/?product=network-watcher'

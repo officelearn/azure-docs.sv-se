@@ -4,12 +4,12 @@ description: Återställa en virtuell Azure-dator från en återställnings punk
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 687406676320f93bab22e34ca95951035187718d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a170755673c05448d1bb86af993cad929664949
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182896"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82597781"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -190,7 +190,7 @@ Det finns ett antal vanliga scenarier där du kan behöva återställa virtuella
 **Återställning utan operativ system** | Den största skillnaden mellan virtuella Azure-datorer och lokala hypervisors-paneler är att det inte finns någon VM-konsol tillgänglig i Azure. En-konsol krävs för vissa scenarier, till exempel att återställa med hjälp av en återställning utan operativ system (BMR)-typ. Återställning av virtuella datorer från valvet är dock en fullständig ersättning för BMR.
 **Återställa virtuella datorer med särskilda nätverkskonfigurationer** | Särskilda nätverkskonfigurationer är virtuella datorer som använder intern eller extern belastnings utjämning, med flera nätverkskort eller flera reserverade IP-adresser. Du återställer de virtuella datorerna med [alternativet Återställ disk](#restore-disks). Det här alternativet gör en kopia av de virtuella hård diskarna till det angivna lagrings kontot och du kan sedan skapa en virtuell dator med en [intern](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) eller [extern](/azure/load-balancer/quickstart-create-standard-load-balancer-powershell) belastningsutjämnare, [flera nätverkskort](../virtual-machines/windows/multiple-nics.md)eller [flera reserverade IP-adresser](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), i enlighet med din konfiguration.
 **Nätverks säkerhets grupp (NSG) på NIC/undernät** | Azure VM Backup stöder säkerhets kopiering och återställning av NSG-information på VNet, undernät och NIC-nivå.
-**Zon fästa virtuella datorer** | Azure Backup stöder säkerhets kopiering och återställning av zonbaserade fästa virtuella datorer. [Läs mer](https://azure.microsoft.com/global-infrastructure/availability-zones/)
+**Zon fästa virtuella datorer** | Om du säkerhetskopierar en virtuell Azure-dator som är fäst i en zon (med Azure Backup) kan du återställa den i samma zon som den fästa. [Läs mer](https://docs.microsoft.com/azure/availability-zones/az-overview)
 
 ## <a name="track-the-restore-operation"></a>Spåra återställnings åtgärden
 
@@ -218,7 +218,7 @@ Det finns ett antal saker att notera när du återställer en virtuell dator:
 - Om den säkerhetskopierade virtuella datorn har en statisk IP-adress, kommer den återställda virtuella datorn ha en dynamisk IP-adress för att undvika konflikter. Du kan [lägga till en statisk IP-adress till den återställda virtuella datorn](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig?view=azps-3.5.0#description).
 - Det finns ingen tillgänglighets uppsättning för en återställd virtuell dator. Om du använder alternativet för att återställa diskar kan du [Ange en tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md) när du skapar en virtuell dator från disken med hjälp av den angivna mallen eller PowerShell.
 - Om du använder en Cloud-Init-baserad Linux-distribution, till exempel Ubuntu, av säkerhets skäl, blockeras lösen ordet efter återställningen. Använd tillägget VMAccess på den återställda virtuella datorn för att [återställa lösen ordet](../virtual-machines/linux/reset-password.md). Vi rekommenderar att du använder SSH-nycklar på dessa distributioner, så du behöver inte återställa lösen ordet efter återställningen.
-- Om du inte kan komma åt den virtuella datorn när den har återställts på grund av att den virtuella datorn har brutit relationer med domänkontrollanten följer du stegen nedan för att öppna den virtuella datorn:
+- Om du inte kan komma åt en virtuell dator när den har återställts på grund av att den virtuella datorn har en bruten relation med domänkontrollanten följer du stegen nedan för att öppna den virtuella datorn:
   - Koppla OS-disk som en data disk till en återställd virtuell dator.
   - Installera VM-agenten manuellt om Azure-agenten inte svarar genom att följa den här [länken](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/install-vm-agent-offline).
   - Aktivera åtkomst till seriell konsol på den virtuella datorn för att tillåta kommando rads åtkomst till den virtuella datorn
@@ -239,7 +239,7 @@ Det finns ett antal saker att notera när du återställer en virtuell dator:
     cmd /c "netdom remove <<MachineName>> /domain:<<DomainName>> /userD:<<DomainAdminhere>> /passwordD:<<PasswordHere>> /reboot:10 /Force"
     ```
 
-- När den virtuella datorn har kopplats från och startats om, kommer du att kunna distribuera RDP till den virtuella datorn med autentiseringsuppgifter för lokal administratör och återansluta den till domänen.
+- När den virtuella datorn kopplas från och startas om, kommer du att kunna använda RDP till den virtuella datorn med autentiseringsuppgifter för lokal administratör och återansluta den till domänen igen.
 
 ## <a name="backing-up-restored-vms"></a>Säkerhetskopiera återställda virtuella datorer
 

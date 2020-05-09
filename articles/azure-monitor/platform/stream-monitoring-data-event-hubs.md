@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 32bc90cc069ac82641c3aa7692c900c60db7ba87
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 915df5d6356e2246c8937cb167c8068b00e0917b
+ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733101"
+ms.lasthandoff: 05/06/2020
+ms.locfileid: "82854615"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Strömma Azure-övervakningsdata till en händelsehubb
 Azure Monitor ger en fullständig lösning för stack övervakning för program och tjänster i Azure, i andra moln och lokalt. Förutom att använda Azure Monitor för att analysera data och använda dem för olika övervaknings scenarier, kan du behöva skicka dem till andra övervaknings verktyg i din miljö. Den mest effektiva metoden att strömma övervaknings data till externa verktyg i de flesta fall är att använda [Azure Event Hubs](/azure/event-hubs/). Den här artikeln innehåller en kort beskrivning av hur du kan strömma övervaknings data från olika källor till en Event Hub och länkar till detaljerad vägledning.
@@ -23,7 +23,7 @@ Azure Monitor ger en fullständig lösning för stack övervakning för program 
 Innan du konfigurerar strömning för en data källa måste du [skapa ett Event Hubs-namnområde och händelsehubben](../../event-hubs/event-hubs-create.md). Det här namn området och händelsehubben är målet för alla dina övervaknings data. Ett Event Hubs-namnområde är en logisk gruppering av händelse hubbar som delar samma åtkomst princip, ungefär som ett lagrings konto har enskilda blobbar inom det lagrings kontot. Tänk på följande om Event Hub-namnområdet och händelse nav som du använder för att strömma övervaknings data:
 
 * Antalet data flödes enheter gör att du kan öka data flödets skala för dina Event Hub. Det krävs vanligt vis en data flödes enhet. Om du behöver skala upp när logg användningen ökar kan du manuellt öka antalet data flödes enheter för namn området eller aktivera automatisk inflation.
-* Med antalet partitioner kan du parallellisera förbrukningen för många konsumenter. En enda partition har stöd för upp till 20MBps eller cirka 20 000 meddelanden per sekund. Beroende på vilket verktyg som utnyttjar data kan det hända att det inte går att använda från flera partitioner. Fyra partitioner är rimliga för att starta om du är osäker på om du är osäker på hur många partitioner som ska anges.
+* Med antalet partitioner kan du parallellisera förbrukningen för många konsumenter. En enda partition har stöd för upp till 20MBps eller cirka 20 000 meddelanden per sekund. Beroende på vilket verktyg som utnyttjar data kan det hända att det inte går att använda från flera partitioner. Fyra partitioner är rimliga för att börja med om du inte är säker på hur många partitioner som ska ställas in.
 * Du ställer in meddelande kvarhållning på händelsehubben till minst 7 dagar. Om ditt förbrukare verktyg går ned i mer än en dag, ser detta till att verktyget kan fortsätta där det slutade för händelser upp till 7 dagar gammal.
 * Använd standard konsument gruppen för händelsehubben. Du behöver inte skapa andra konsument grupper eller använda en separat konsument grupp om du inte planerar att ha två olika verktyg som använder samma data från samma Event Hub.
 * För Azure aktivitets loggen väljer du ett Event Hubs namn område och Azure Monitor skapar en händelsehubben i det namn området som kallas _Insights-loggar-operativa loggar_. För andra typer av loggar kan du antingen välja en befintlig händelsehubben eller låta Azure Monitor skapa en Event Hub per logg kategori.

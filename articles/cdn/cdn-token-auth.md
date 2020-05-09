@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
-ms.author: mezha
-ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: mazha
+ms.openlocfilehash: 491f413f9bf189b1a46d04042fd7223a47af1f24
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67593394"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929136"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Skydda Azure CDN-tillgångar med token-autentisering
 
@@ -29,7 +29,7 @@ ms.locfileid: "67593394"
 
 Token-autentisering är en mekanism som gör att du kan förhindra att Azure-Content Delivery Network (CDN) kan betjäna till gångar till obehöriga klienter. Token-autentisering görs vanligt vis för att förhindra *hotlinking* av innehåll, där en annan webbplats, till exempel ett meddelande kort, använder dina till gångar utan behörighet. Hotlinking kan påverka dina kostnader för innehålls leverans. Genom att aktivera token-autentisering i CDN autentiseras begär anden av CDN Edge-servern innan CDN levererar innehållet. 
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 Token-autentiseringen verifierar att begär Anden genereras av en betrodd plats genom att kräva att begär Anden innehåller ett token-värde som innehåller kodad information om beställaren. Innehållet hanteras endast till en beställare om den kodade informationen uppfyller kraven. annars nekas förfrågningar. Du kan ställa in kraven genom att använda en eller flera av följande parametrar:
 

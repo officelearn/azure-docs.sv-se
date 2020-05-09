@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-ms.date: 03/10/2020
-ms.openlocfilehash: 67c47b35e84a93d7d9032ad55b425ae2bb6971fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/04/2020
+ms.openlocfilehash: 37eabd4b2f61a82388b1c8d0aaf4aef2320f008e
+ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79209492"
+ms.lasthandoff: 05/05/2020
+ms.locfileid: "82801815"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-databases-using-azure-portal"></a>Skapa aviseringar för Azure SQL Database-och Azure Synapse Analytics-databaser med Azure Portal
 
@@ -24,8 +24,8 @@ ms.locfileid: "79209492"
 
 Den här artikeln visar hur du ställer in aviseringar för enstaka, pooler och informations lager databaser i Azure SQL Database och Azure Synapse Analytics (tidigare Azure SQL Data Warehouse) med hjälp av Azure Portal. Aviseringar kan skicka ett e-postmeddelande till dig eller anropa en webbhook när något mått (till exempel databas storlek eller CPU-användning) når tröskelvärdet. Den här artikeln innehåller också metod tips för att ställa in aviserings perioder.
 
-> [!IMPORTANT]
-> Den här funktionen är inte tillgänglig ännu i en hanterad instans. Alternativt kan du använda SQL-agenten för att skicka e-postaviseringar för vissa mått baserat på [vyer för dynamisk hantering](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
+> [!NOTE]
+> Instruktioner för SQL-hanterade instanser finns i [skapa aviseringar för Azure SQL-hanterad instans](sql-database-managed-instance-alerts.md).
 
 Du kan få en avisering baserat på övervaknings mått för, eller händelser på, dina Azure-tjänster.
 
@@ -40,7 +40,7 @@ Du kan konfigurera en avisering för att göra följande när den utlöser:
 
 Du kan konfigurera och hämta information om aviserings regler med hjälp av
 
-* [Azure Portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
+* [Azure-portalen](../monitoring-and-diagnostics/insights-alerts-portal.md)
 * [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
 * [kommando rads gränssnitt (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [REST-API:et för Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)

@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 6574ccd7616ac1442b1c8c69b6218431ad912ab3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
-ms.translationtype: MT
+ms.openlocfilehash: 47663072be0931961d0f2fded938322027148d7a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204227"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929289"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tio saker du kan göra på Windows-Data Science Virtual Machine
 
@@ -68,7 +68,7 @@ Jupyter Notebook tillhandahåller en webbläsarbaserad IDE för data utforskning
 
 Om du vill starta Jupyter Notebook väljer du ikonen **Jupyter Notebook** på **Start** -menyn eller på Skriv bordet. I kommando tolken DSVM kan du också köra kommandot ```jupyter notebook``` från den katalog där du har befintliga antecknings böcker eller där du vill skapa nya antecknings böcker.  
 
-När du har startat Jupyter bör du se en katalog som innehåller några exempel antecknings böcker som förpackas i DSVM. Nu kan du:
+När du har startat Jupyter navigerar du `/notebooks` till katalogen till exempel antecknings böcker som förpackas i DSVM. Nu kan du:
 
 * Välj den bärbara datorn om du vill se koden.
 * Kör varje cell genom att välja SKIFT + RETUR.

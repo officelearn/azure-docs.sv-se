@@ -2,19 +2,19 @@
 title: Azure Application insikter om ASP.NET Core program | Microsoft Docs
 description: Övervaka ASP.NET Core webb program för tillgänglighet, prestanda och användning.
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: e8ace92c39ed6b7bdcca0bae14cc0ae95aced2c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/30/2020
+ms.openlocfilehash: 9c7c2e22d2befb503a388df1fa8a42c3d6eb07c5
+ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145266"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82652776"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights för ASP.NET Core program
 
 I den här artikeln beskrivs hur du aktiverar Application Insights för ett [ASP.net Core](https://docs.microsoft.com/aspnet/core) program. När du har slutfört instruktionerna i den här artikeln får Application Insights Samla in begär Anden, beroenden, undantag, prestanda räknare, pulsslag och loggar från ditt ASP.NET Core-program.
 
-Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) som `netcoreapp2.2`är mål. Du kan använda dessa instruktioner för alla ASP.NET Core-program.
+Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app) som `netcoreapp3.0`är mål. Du kan använda dessa instruktioner för alla ASP.NET Core-program.
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
@@ -28,7 +28,7 @@ Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.c
 * **IDE**: Visual Studio, vs Code eller kommando rad.
 
 > [!NOTE]
-> Om du använder ASP.NET Core 3. X tillsammans med Application Insights använder du [2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) -versionen eller senare. Det här är den enda version som stöder ASP.NET Core 3. X.
+> ASP.NET Core 3. X kräver [Application Insights 2.8.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.8.0) eller senare.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -103,13 +103,15 @@ Exemplet som vi ska använda här är ett [MVC-program](https://docs.microsoft.c
 
     * `ApplicationInsights:InstrumentationKey`
 
-    Ett exempel:
+    Exempel:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
     * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    Normalt `APPINSIGHTS_INSTRUMENTATIONKEY` anger Instrumentation-nyckeln för program som distribueras till Azure Web Apps.
+    * `APPINSIGHTS_INSTRUMENTATIONKEY`används vanligt vis i [Azure Web Apps](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps?tabs=net), men kan även användas på alla platser där SDK stöds. (Om du gör en kod lös övervakning av webbappar krävs det här formatet om du inte använder anslutnings strängar.)
+
+    Du kan nu även använda [anslutnings strängar](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net)i stället för att ställa in Instrumentation-nycklar.
 
     > [!NOTE]
     > En Instrumentation-nyckel som anges i kod WINS över miljövariabeln `APPINSIGHTS_INSTRUMENTATIONKEY`, som vinner över andra alternativ.
@@ -209,7 +211,7 @@ Fullständig lista över inställningar i`ApplicationInsightsServiceOptions`
 |EnableAzureInstanceMetadataTelemetryModule   |  Aktivera/inaktivera`AzureInstanceMetadataTelemetryModule` | true
 |EnableQuickPulseMetricStream | Aktivera/inaktivera LiveMetrics-funktionen | true
 |EnableAdaptiveSampling | Aktivera/inaktivera adaptiv sampling | true
-|EnableHeartbeat | Funktionen Aktivera/inaktivera pulsslag, som regelbundet (15 min standard) skickar ett anpassat mått med namnet "HeartBeatState" med information om körnings miljön som .NET-version, Azure-miljö information, om tillämpligt, osv. | true
+|EnableHeartbeat | Funktionen Aktivera/inaktivera pulsslag, som regelbundet (15 min standard) skickar ett anpassat mått med namnet "HeartbeatState" med information om körnings miljön som .NET-version, Azure-miljö information, om tillämpligt, osv. | true
 |AddAutoCollectedMetricExtractor | Aktivera/inaktivera AutoCollectedMetrics Extractor, som är en TelemetryProcessor som skickar församlade mått om begär Anden/beroenden innan provtagning sker. | true
 |RequestCollectionOptions.TrackExceptions | Aktivera/inaktivera rapportering av ohanterad undantags spårning i modulen för begärans insamling. | falskt i netstandard 2.0 (eftersom undantag spåras med ApplicationInsightsLoggerProvider), annars sant.
 

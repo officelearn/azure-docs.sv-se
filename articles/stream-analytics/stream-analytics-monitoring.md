@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4e9f90035816269d2d41781be34d0d8080628b12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54bff88e9650240a3703e18d583f603cafeb3022
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75431658"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611899"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Förstå Stream Analytics jobb övervakning och övervaka frågor
 
@@ -37,7 +37,7 @@ Fönstret visas som det visas:
 | Funktions begär Anden      | Antal anrop till Azure Machine Learning funktion (om det finns). |
 | Fel vid deserialisering av indataport       | Antal ingångs händelser som inte kunde deserialiseras.  |
 | Inkommande händelse-byte      | Mängden data som tas emot av Stream Analytics jobb, i byte. Detta kan användas för att kontrol lera att händelser skickas till Indatakällan. |
-| Inmatade händelser           | Antal poster som har deserialiserats från inmatade händelser. Antalet inkluderar inte inkommande händelser som resulterar i fel vid deserialisering. |
+| Inmatade händelser           | Antal poster som har deserialiserats från inmatade händelser. Antalet inkluderar inte inkommande händelser som resulterar i fel vid deserialisering. Samma händelser kan matas in genom att Stream Analytics flera gånger i scenarier som interna återställningar och själv kopplingar. Vi rekommenderar därför att du inte förväntar sig att indata-och utmatnings händelser ska matchas om jobbet har en enkel "passa"-fråga. |
 | Mottagna inmatade källor       | Antal meddelanden som tagits emot av jobbet. För Event Hub är ett meddelande ett enda EventData. För BLOB är ett meddelande en enda blob. Observera att inmatade källor räknas innan deserialisering. Om det finns deserialiserade fel kan indatakällana vara större än inmatade händelser. Annars kan det vara mindre än eller lika med indatamängden eftersom varje meddelande kan innehålla flera händelser. |
 | Sena ingångs händelser      | Händelser som anlänt senare än den konfigurerade tolerans perioden för sent införsel. Lär dig mer om att [tänka på när du Azure Stream Analytics händelse ordning](stream-analytics-out-of-order-and-late-events.md) . |
 | Händelser som inte är i ordning    | Antalet händelser som tagits emot utanför ordningen som antingen släpptes eller fått en anpassad tidsstämpel, baserat på händelse ordnings principen. Detta kan påverkas av konfigurationen av inställningen för avställnings tolerans fönstret. |

@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 02/24/2020
 ms.topic: include
-ms.openlocfilehash: c77849b2285283a34e6adf84dc3845a4076407af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78bf29a170152666d82ec26504ee8f61ed90636a
+ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77597956"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82616073"
 ---
 ## <a name="attack-scenario"></a>Attack scenario
 
@@ -29,9 +29,16 @@ När en användare begär åtkomst till en virtuell dator kontrollerar Security 
  > Om en begäran om JIT-åtkomst har godkänts för en virtuell dator bakom en Azure-brandvägg ändrar Security Center automatiskt både NSG-och brand Väggs princip reglerna. För den tid som har angetts tillåter reglerna inkommande trafik till de valda portarna och begärda käll-IP-adresser eller intervall. När tiden är över, Security Center återställer brand Väggs-och NSG-reglerna till sina tidigare tillstånd.
 
 
+## <a name="roles-that-can-read-jit-policies"></a>Roller som kan läsa JIT-principer
+
+**Reader** -och **SecurityReader** -roller kan båda läsa principer.
+
 ## <a name="permissions-needed-to-configure-and-use-jit"></a>Behörigheter som krävs för att konfigurera och använda JIT
+
+Om du vill skapa anpassade roller som kan fungera med JIT behöver du följande information:
 
 | Så här gör du så att en användare kan: | Behörigheter att ange|
 | --- | --- |
 | Konfigurera eller redigera en JIT-princip för en virtuell dator | *Tilldela följande åtgärder till rollen:*  <ul><li>I omfånget för en prenumeration eller resurs grupp som är associerad med den virtuella datorn:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> I omfånget för en prenumeration eller resurs grupp av virtuell dator: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Begär JIT-åtkomst till en virtuell dator | *Tilldela följande åtgärder till användaren:*  <ul><li>I omfånget för en prenumeration eller resurs grupp som är associerad med den virtuella datorn:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>I omfånget för en prenumeration eller resurs grupp som är associerad med den virtuella datorn:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  I omfånget för en prenumeration eller resurs grupp eller virtuell dator:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  I omfånget för en prenumeration eller resurs grupp eller virtuell dator:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
+|Läs JIT-principer| *Tilldela följande åtgärder till användaren:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|

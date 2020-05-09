@@ -3,12 +3,12 @@ title: Application Insights-API för anpassade händelser och mått | Microsoft 
 description: Infoga några rader kod i din enhet eller Skriv bords app, webb sida eller tjänst, för att spåra användning och diagnostisera problem.
 ms.topic: conceptual
 ms.date: 03/27/2019
-ms.openlocfilehash: 152bd117ec0ae76c2c85ead26ba5278aa71d582f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 74ca6d6a13967c2139d3d47dd425b6cb1a3ee31a
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509295"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927946"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API för Application Insights för anpassade händelser och mått
 
@@ -649,7 +649,7 @@ Den bästa metoden Flush () ska användas i programmets avstängnings aktivitet.
 
 ## <a name="authenticated-users"></a>Autentiserade användare
 
-I en webbapp identifieras användare (som standard) av cookies. En användare kan räknas mer än en gång om de får åtkomst till din app från en annan dator eller webbläsare, eller om de tar bort cookies.
+I en webbapp identifieras användare (som standard) [av cookies](../../azure-monitor/app/usage-segmentation.md#the-users-sessions-and-events-segmentation-tool). En användare kan räknas mer än en gång om de får åtkomst till din app från en annan dator eller webbläsare, eller om de tar bort cookies.
 
 Om användarna loggar in i din app kan du få ett mer exakt antal genom att ange det autentiserade användar-ID: t i webb läsar koden:
 

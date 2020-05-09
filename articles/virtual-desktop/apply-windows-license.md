@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
-ms.openlocfilehash: 2543dd12e8a75a038a1fc04371b8c562ef696e25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 994edf26e43c7ad67d4f8822d4ed0d18d53b510b
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254240"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82612460"
 ---
 # <a name="apply-windows-license-to-session-host-virtual-machines"></a>Använd Windows-licens för sessioner som är värdar för virtuella datorer
 
@@ -23,7 +23,7 @@ Med Windows Virtual Desktop-licensiering kan du tillämpa en licens på en virtu
 
 Det finns några sätt att använda Windows Virtual Desktop-licensen:
 - Du kan skapa en adresspool och dess sessions värd för virtuella datorer med hjälp av [Azure Marketplace-erbjudandet](./create-host-pools-azure-marketplace.md). Virtuella datorer som skapas på det här sättet har licensen tillämpats automatiskt.
-- Du kan skapa en adresspool och dess sessions värd för virtuella datorer med hjälp av [GitHub Azure Resource Manager-mallen](./create-host-pools-arm-template.md). Virtuella datorer som skapas på det här sättet har licensen tillämpats automatiskt.
+- Du kan skapa en adresspool och dess sessions värd för virtuella datorer med hjälp av [GitHub Azure Resource Manager-mallen](./virtual-desktop-fall-2019/create-host-pools-arm-template.md). Virtuella datorer som skapas på det här sättet har licensen tillämpats automatiskt.
 - Du kan tillämpa en licens på en befintlig virtuell Session Host-dator. Det gör du genom att följa anvisningarna i [skapa en adresspool med PowerShell](./create-host-pools-powershell.md) för att skapa en adresspool och associerade virtuella datorer. gå sedan tillbaka till den här artikeln och lär dig hur du tillämpar licensen.
 
 ## <a name="apply-a-windows-license-to-a-session-host-vm"></a>Tillämpa en Windows-licens på en virtuell dator för en fjärrskrivbordssession

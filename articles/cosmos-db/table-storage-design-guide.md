@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fcae1ed9064d38457ede73c675afb75ce4872fe6
+ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79246479"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82611796"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Tabell design guide för Azure Table Storage: skalbara och genomförda tabeller
 
@@ -208,7 +208,7 @@ Här följer några allmänna rikt linjer för att utforma tabell lagrings fråg
 * Det andra bästa är en *Range-fråga*. Det använder `PartitionKey`och filtrerar på ett värde intervall `RowKey` för att returnera mer än en entitet. `PartitionKey` Värdet identifierar en viss partition och `RowKey` värdena identifierar en delmängd av entiteterna i partitionen. Till exempel: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
 * Det tredje bästa är en *partitions ökning*. Det använder `PartitionKey`och filtrerar på en annan icke-nyckel-egenskap och kan returnera fler än en entitet. `PartitionKey` Värdet identifierar en viss partition och egenskaps värden väljer för en delmängd av entiteterna i den partitionen. Till exempel: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * En *tabells ökning* omfattar `PartitionKey`inte och är ineffektiv eftersom den söker igenom alla partitioner som utgör tabellen för matchande entiteter. Den utför en tabells ökning oavsett om filtret använder eller inte `RowKey`. Till exempel: `$filter=LastName eq 'Jones'`.  
-* Azure Table Storage-frågor som returnerar flera entiteter sorterar dem i `PartitionKey` och `RowKey` ordning. Välj en `RowKey` som definierar den vanligaste sorterings ordningen för att undvika att enheterna i klienten används. Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+* Azure Table Storage-frågor som returnerar flera entiteter sorterar dem i `PartitionKey` och `RowKey` ordning. Välj en `RowKey` som definierar den vanligaste sorterings ordningen för att undvika att enheterna i klienten används. Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 Om du använder en "**eller**" för att ange ett `RowKey` filter baserat på värden resulterar det i en partitions ökning och behandlas inte som en områdes fråga. Undvik därför frågor som använder filter som till exempel: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
@@ -250,7 +250,7 @@ Många design komponenter måste uppfylla kraven för att kunna söka efter enti
 Table Storage returnerar frågeresultat sorterade i stigande ordning, baserat på `PartitionKey` och sedan efter. `RowKey`
 
 > [!NOTE]
-> Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 Nycklar i Table Storage är sträng värden. För att se till att numeriska värden sorteras korrekt bör du omvandla dem till en fast längd och fylla dem med nollor. Om till exempel det medarbetar-ID-värde som du använder `RowKey` som är ett heltals värde, bör du konvertera anställnings-ID **123** till **00000123**. 
 
@@ -663,7 +663,7 @@ I en Relations databas normaliserar du vanligt vis data för att ta bort dubblet
 ![Bild av avdelnings enhet och entitet för anställd][16]
 
 #### <a name="solution"></a>Lösning
-I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Ett exempel:  
+I stället för att lagra data i två separata entiteter avnormaliserar du data och behåller en kopia av chefens information i avdelnings enheten. Exempel:  
 
 ![Bild av avnormaliserad och kombinerad avdelnings enhet][17]
 
@@ -733,7 +733,7 @@ Följande mönster och riktlinjer kan vara relevanta när du implementerar det h
 Hämta de *n* entiteter som senast har lagts till i en partition `RowKey` med hjälp av ett värde som sorterar i omvänt datum-och tids ordning.  
 
 > [!NOTE]
-> Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. Detta mönster är därför lämpligt för Table Storage, men det är inte lämpligt för Azure Cosmos DB. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Frågeresultat som returneras av Azure-Tabell-API i Azure Cosmos DB sorteras inte efter partitionsnyckel eller rad nyckel. Detta mönster är därför lämpligt för Table Storage, men det är inte lämpligt för Azure Cosmos DB. En detaljerad lista över funktions skillnader finns i [skillnader mellan tabell-API i Azure Cosmos DB och Azure Table Storage](table-api-faq.md#table-api-vs-table-storage).
 
 #### <a name="context-and-problem"></a>Kontext och problem
 Ett vanligt krav är att kunna hämta de senast skapade entiteterna, till exempel de tio senaste utgifts anspråk som skickats av en anställd. Tabell frågor stöder en `$top` fråga för att returnera de första *n* entiteterna från en mängd. Det finns ingen motsvarande fråga för att returnera de sista *n* entiteterna i en mängd.  

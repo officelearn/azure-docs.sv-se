@@ -10,12 +10,12 @@ author: FrancescaLazzeri
 ms.author: lazzeri
 ms.reviewer: cgronlun
 ms.date: 05/07/2020
-ms.openlocfilehash: 98f7edac5bbec7a88999c728b2e4db8be7a3d2b5
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
-ms.translationtype: HT
+ms.openlocfilehash: ad384896301e809940f6e99df2f5562cfdb6a6fe
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891351"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82927589"
 ---
 # <a name="how-to-select-algorithms-for-azure-machine-learning"></a>Så här väljer du algoritmer för Azure Machine Learning
 
@@ -148,6 +148,6 @@ Du kan också använda [funktionen för permutations prioritet](https://docs.mic
 
 ## <a name="next-steps"></a>Nästa steg
 
- - [Läs mer om Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/service/concept-designer?WT.mc_id=docs-article-lazzeri)
+ - [Läs mer om Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer?WT.mc_id=docs-article-lazzeri)
  - Beskrivningar av alla Machine Learning-algoritmer som är tillgängliga i Azure Machine Learning Designer finns i [Machine Learning designer-algoritmen och module-referensen](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference?WT.mc_id=docs-article-lazzeri)
- - Om du vill utforska förhållandet mellan djup inlärning, maskin inlärning och AI, se [djup inlärning mot Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)
+ - Om du vill utforska förhållandet mellan djup inlärning, maskin inlärning och AI, se [djup inlärning mot Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-deep-learning-vs-machine-learning?WT.mc_id=docs-article-lazzeri)

@@ -11,12 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: fbaca387dd8062f50bb7555c7be6e7f65ce346bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79136f86c647c0453d600fe2601be56571ee6fed
+ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062480"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82625892"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Hantera dina anslutna organisationer från sidan organisationer
 
@@ -34,7 +34,7 @@ Sidan **organisationer** i portalen **My-Account** hjälper dig att hantera orga
 
 ## <a name="view-your-organizations"></a>Visa dina organisationer
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till **mitt konto** (https://myprofile.microsoft.com/) sidan.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till **mitt konto** (https://myaccount.microsoft.com/) sidan.
 
 2. Välj **organisationer** i det vänstra navigerings fönstret eller Välj länken **Hantera organisationer** från **organisationer** -blocket.
 

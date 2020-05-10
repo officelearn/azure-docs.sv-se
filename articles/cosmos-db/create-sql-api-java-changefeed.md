@@ -1,27 +1,29 @@
 ---
-title: Självstudie – ett asynkront Java SQL API-exempel från slut punkt till slut punkt med ändrings flöde
-description: Den här självstudien vägleder dig genom ett enkelt Java SQL API-program som infogar dokument i en Azure Cosmos DB-behållare, samtidigt som en materialiserad vy av behållaren upprätthålls med hjälp av Change feed.
+title: Skapa ett exempel på en slutpunkt-till-slutpunkt Azure Cosmos DB Java SDK v4-program med hjälp av ändra feed
+description: Den här instruktions guiden vägleder dig genom ett enkelt Java SQL API-program som infogar dokument i en Azure Cosmos DB-behållare, samtidigt som en materialiserad vy av behållaren upprätthålls med hjälp av Change feed.
 author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: tutorial
-ms.date: 04/01/2020
+ms.topic: conceptual
+ms.date: 05/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: c74ec73eb06c43110747d87e6fecd12183527759
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
-ms.translationtype: HT
+ms.openlocfilehash: 9e28eb4f766677ebbd5cfcc5f61fe54e53a45523
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872541"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996514"
 ---
-# <a name="tutorial---an-end-to-end-async-java-sql-api-application-sample-with-change-feed"></a>Självstudie – ett asynkront Java SQL API-exempel från slut punkt till slut punkt med ändrings flöde
+# <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Så här skapar du ett Java-program som använder Azure Cosmos DB SQL API och ändra flödes processor
 
-Den här guiden vägleder dig genom ett enkelt Java SQL API-program som infogar dokument i en Azure Cosmos DB-behållare, samtidigt som en materialiserad vy av behållaren används med hjälp av Change feed.
+> [!IMPORTANT]  
+> Mer information om Azure Cosmos DB Java SDK v4 finns i Azure Cosmos DB Java SDK v4-viktig information, maven- [lagringsplats](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB Java SDK v4- [prestanda tips](performance-tips-java-sdk-v4-sql.md)och Azure Cosmos DB [fel söknings guide](troubleshoot-java-sdk-v4-sql.md)för Java SDK v4.
+>
+
+Den här instruktions guiden vägleder dig genom ett enkelt Java-program som använder Azure Cosmos DB SQL API för att infoga dokument i en Azure Cosmos DB-behållare, samtidigt som en materialiserad vy av behållaren används med hjälp av ändrings flöde och byte av flödes processor. Java-programmet kommunicerar med Azure Cosmos DB SQL API med hjälp av Azure Cosmos DB Java SDK v4.
 
 ## <a name="prerequisites"></a>Krav
-
-* Personlig dator
 
 * URI och nyckel för ditt Azure Cosmos DB konto
 
@@ -45,8 +47,6 @@ Om du inte redan har gjort det kan du klona appens exempel lagrings platsen:
 git clone https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example.git
 ```
 
-> Du kan välja att arbeta med den här snabb starten med Java SDK 4,0 eller Java SDK 3.7.0. **Om du vill använda Java SDK-3.7.0 skriver du i terminaltypen ```git checkout SDK3.7.0``` **. Annars fortsätter du till ```master``` grenen, som använder Java SDK 4,0 som standard.
-
 Öppna en Terminal i lagrings platsen-katalogen. Bygg appen genom att köra
 
 ```bash
@@ -55,7 +55,7 @@ mvn clean package
 
 ## <a name="walkthrough"></a>Genomgång
 
-1. Som första kontroll bör du ha ett Azure Cosmos DB-konto. Öppna **Azure Portal** i webbläsaren, gå till ditt Azure Cosmos DB konto och gå till det vänstra fönstret och navigera till **datautforskaren**.
+1. Som första kontroll bör du ha ett Azure Cosmos DB-konto. Öppna **Azure Portal** i webbläsaren, gå till ditt Azure Cosmos DB-konto och navigera till **datautforskaren**i det vänstra fönstret.
 
     ![Azure Cosmos DB konto](media/create-sql-api-java-changefeed/cosmos_account_empty.JPG)
 
@@ -89,7 +89,7 @@ mvn clean package
 
     Tryck på RETUR. Nu kommer följande kodblock att köra och initiera processorn för ändrings flöden i en annan tråd: 
 
-   # <a name="java-sdk-40"></a>[Java SDK 4,0](#tab/v4sdk)
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
     ```java
     changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
@@ -103,21 +103,6 @@ mvn clean package
     while (!isProcessorRunning.get()); //Wait for Change Feed processor start
     ```
 
-   # <a name="java-sdk-370"></a>[Java SDK-3.7.0](#tab/v3sdk)
-
-    ```java
-    changeFeedProcessorInstance = getChangeFeedProcessor("SampleHost_1", feedContainer, leaseContainer);
-    changeFeedProcessorInstance.start()
-        .subscribeOn(Schedulers.elastic())
-        .doOnSuccess(aVoid -> {
-            isProcessorRunning.set(true);
-        })
-        .subscribe();
-
-    while (!isProcessorRunning.get()); //Wait for Change Feed processor start    
-    ```
-   ---
-
     ```"SampleHost_1"```är namnet på den ändrade flödes processorns arbetare. ```changeFeedProcessorInstance.start()```är vad som faktiskt startar bearbetningen av Change feeds.
 
     Gå tillbaka till Azure Portal Datautforskaren i webbläsaren. Under behållaren **InventoryContainer-Leases** , klickar du på **objekt** för att se dess innehåll. Du ser att Change feed-processorn har fyllt i leasing containern, dvs. processorn har tilldelat ```SampleHost_1``` arbetaren ett lån på vissa partitioner i **InventoryContainer**.
@@ -126,7 +111,7 @@ mvn clean package
 
 1. Tryck på RETUR igen i terminalen. Detta kommer att utlösa 10 dokument som ska infogas i **InventoryContainer**. Varje dokument infogning visas i ändra feed som JSON. följande callback-kod hanterar dessa händelser genom att spegla JSON-dokumenten till en materialiserad vy:
 
-   # <a name="java-sdk-40"></a>[Java SDK 4,0](#tab/v4sdk)
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
     ```java
     public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosAsyncContainer feedContainer, CosmosAsyncContainer leaseContainer) {
@@ -153,35 +138,7 @@ mvn clean package
     }
     ```
 
-   # <a name="java-sdk-370"></a>[Java SDK-3.7.0](#tab/v3sdk)
-
-    ```java
-    public static ChangeFeedProcessor getChangeFeedProcessor(String hostName, CosmosContainer feedContainer, CosmosContainer leaseContainer) {
-        ChangeFeedProcessorOptions cfOptions = new ChangeFeedProcessorOptions();
-        cfOptions.feedPollDelay(Duration.ofMillis(100));
-        cfOptions.startFromBeginning(true);
-        return ChangeFeedProcessor.Builder()
-            .options(cfOptions)
-            .hostName(hostName)
-            .feedContainer(feedContainer)
-            .leaseContainer(leaseContainer)
-            .handleChanges((List<CosmosItemProperties> docs) -> {
-                for (CosmosItemProperties document : docs) {
-                        //Duplicate each document update from the feed container into the materialized view container
-                        updateInventoryTypeMaterializedView(document);
-                }
-
-            })
-            .build();
-    }
-
-    private static void updateInventoryTypeMaterializedView(CosmosItemProperties document) {
-        typeContainer.upsertItem(document).subscribe();
-    }    
-    ```
-   ---
-
-1. Tillåt att koden kör 5-10sec. Gå sedan tillbaka till Azure Portal Datautforskaren och navigera till **InventoryContainer > objekt**. Du bör se att objekten infogas i lager behållaren. Anteckna partitionsnyckel (```id```).
+1. Tillåt att koden kör 5-10sec. Gå sedan tillbaka till Azure Portal Datautforskaren och gå till **InventoryContainer > objekt**. Du bör se att objekten infogas i lager behållaren. Anteckna partitionsnyckel (```id```).
 
     ![Feed-behållare](media/create-sql-api-java-changefeed/cosmos_items.JPG)
 
@@ -195,7 +152,7 @@ mvn clean package
 
     Tryck på RETUR igen för att anropa ```deleteDocument()``` funktionen i exempel koden. Den här funktionen, som visas nedan, upsertar en ny version av dokumentet ```/ttl == 5```med, som anger TTL-värdet (Time-to-Live) till 5Sec. 
     
-   # <a name="java-sdk-40"></a>[Java SDK 4,0](#tab/v4sdk)
+    ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
     ```java
     public static void deleteDocument() {
@@ -223,35 +180,6 @@ mvn clean package
         feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
     }    
     ```
-   # <a name="java-sdk-370"></a>[Java SDK-3.7.0](#tab/v3sdk)
-
-    ```java
-    public static void deleteDocument() {
-
-        String jsonString =    "{\"id\" : \"" + idToDelete + "\""
-                + ","
-                + "\"brand\" : \"Jerry's\""
-                + ","
-                + "\"type\" : \"plums\""
-                + ","
-                + "\"quantity\" : \"50\""
-                + ","
-                + "\"ttl\" : 5"
-                + "}";
-
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode document = null;
-
-        try {
-            document = mapper.readTree(jsonString);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        feedContainer.upsertItem(document,new CosmosItemRequestOptions()).block();
-    }    
-    ```
-   ---
 
     Ändrings flödet ```feedPollDelay``` är inställt på 100 MS; därför svarar ändra feed på den här uppdateringen nästan omedelbart och samtal ```updateInventoryTypeMaterializedView()``` som visas ovan. Det senaste funktions anropet kommer att upsert det nya dokumentet med TTL för 5Sec till **InventoryContainer-pktype**.
 

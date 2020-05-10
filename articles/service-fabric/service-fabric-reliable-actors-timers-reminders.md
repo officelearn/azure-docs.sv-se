@@ -1,16 +1,14 @@
 ---
 title: Reliable Actors timers och påminnelser
 description: Introduktion till timers och påminnelser för Service Fabric Reliable Actors, inklusive vägledning om när du ska använda dem.
-author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
-ms.author: vturecek
-ms.openlocfilehash: 02d6220b31ee9c991e8450759bf46759af6177a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67dc5d9706c2176b2fe70d2540be00d0af79fd80
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75639623"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996358"
 ---
 # <a name="actor-timers-and-reminders"></a>Timers för aktör och påminnelser
 Aktörer kan schemalägga periodiska arbeten genom att registrera antingen timers eller påminnelser. Den här artikeln visar hur du använder timers och påminnelser och förklarar skillnaderna mellan dem.
@@ -122,12 +120,17 @@ Nästa period i timern startar när återanropet har slutförts. Detta innebär 
 
 Aktörs körningen sparar ändringar som gjorts i aktörens tillstånds hanterare när återanropet slutförs. Om ett fel inträffar när du sparar status inaktive ras aktörens objekt och en ny instans aktive ras.
 
+Till skillnad från [påminnelser](#actor-reminders)kan timers inte uppdateras. Om `RegisterTimer` anropas igen kommer en ny timer att registreras.
+
 Alla timers stoppas när aktören inaktive ras som en del av skräp insamling. Inga timer-återanrop anropas efter det. Dessutom bevarar inte aktörernas körnings information om timers som kördes före inaktive ringen. Det är upp till aktören att registrera alla timers som behövs när den återaktiveras i framtiden. Mer information finns i avsnittet om [aktörens skräp insamling](service-fabric-reliable-actors-lifecycle.md).
 
 ## <a name="actor-reminders"></a>Aktörs påminnelser
-Påminnelser är en mekanism för att utlösa beständiga återanrop på en aktör vid angivna tidpunkter. Deras funktioner liknar timers. Men till skillnad från timers utlöses påminnelser under alla omständigheter tills aktören uttryckligen avregistrerar dem eller aktören tas bort explicit. Mer specifikt utlöses påminnelser om inaktive ring av skådespelare och redundans, eftersom kör tid för aktörerna bevarar information om aktörens påminnelser med hjälp av aktörs leverantör. Observera att tillförlitligheten för påminnelser är knuten till de tillstånds Tillförlitlighets garantier som tillhandahålls av aktörens tillstånds leverantör. Det innebär att för aktörer vars beständighet har angetts till ingen, aktive ras påminnelser inte efter en redundansväxling. 
+Påminnelser är en mekanism för att utlösa beständiga återanrop på en aktör vid angivna tidpunkter. Deras funktioner liknar timers. Men till skillnad från timers utlöses påminnelser under alla omständigheter tills aktören uttryckligen avregistrerar dem eller aktören tas bort explicit. Mer specifikt utlöses påminnelser om inaktive ring av skådespelare och redundans, eftersom kör tid för aktörerna bevarar information om aktörens påminnelser med hjälp av aktörs leverantör. Till skillnad från timers kan befintliga påminnelser uppdateras genom att anropa registrerings metoden (`RegisterReminderAsync`) igen med samma *reminderName*.
 
-För att registrera en påminnelse anropar en aktör `RegisterReminderAsync` metoden som anges i Bask Lassen, som du ser i följande exempel:
+> [!NOTE]
+> Tillförlitligheten för påminnelser är knuten till de tillstånds Tillförlitlighets garantier som tillhandahålls av aktörens tillstånds leverantör. Det innebär att för aktörer vars beständighet har angetts till *ingen*, aktive ras påminnelser inte efter en redundansväxling.
+
+För att registrera en påminnelse anropar en aktör [`RegisterReminderAsync`](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.runtime.actorbase.registerreminderasync?view=azure-dotnet#remarks) metoden som anges i Bask Lassen, som du ser i följande exempel:
 
 ```csharp
 protected override async Task OnActivateAsync()
@@ -218,7 +221,7 @@ CompletableFuture reminderUnregistration = unregisterReminderAsync(reminder);
 
 Som du `UnregisterReminderAsync`ser ovan accepterar metoden (c#) `unregisterReminderAsync`eller (Java) ett `IActorReminder`(c#) eller `ActorReminder`(Java)-gränssnitt. Aktörs Bask Lassen stöder `GetReminder`en (c#) `getReminder`eller (Java)-metod som kan användas för att `IActorReminder`Hämta (c#) `ActorReminder`eller (Java)-gränssnittet genom att skicka i påminnelse namnet. Detta är praktiskt eftersom aktören inte behöver `IActorReminder`Spara (c#) eller `ActorReminder`Java-gränssnittet som returnerades från `RegisterReminder`(c#) eller `registerReminder`(Java) metod anropet.
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 Lär dig mer om pålitliga aktörs händelser och återinträde:
 * [Aktörs händelser](service-fabric-reliable-actors-events.md)
 * [Aktör återinträde](service-fabric-reliable-actors-reentrancy.md)

@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: c15f16692e92c4d25d8194aaf93a3da907ae0e67
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 53ebf8adb99362b5aaf27676bbd50fb8b525f526
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598155"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994489"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Utveckla .NET standard-användardefinierade funktioner för Azure Stream Analytics jobb (för hands version)
 
@@ -51,7 +51,7 @@ För Azure Stream Analytics värden som ska användas i C# måste de konverteras
 |nvarchar(max) | sträng |
 |datetime | DateTime |
 |Spela in | Ord\<lista sträng, objekt> |
-|Matris | Mat\<ris objekt> |
+|Matris | Objekt [] |
 
 Detsamma gäller om data måste konverteras från C# till Azure Stream Analytics, vilket inträffar i utmatning svärdet för en UDF. Tabellen nedan visar vilka typer som stöds:
 
@@ -63,7 +63,7 @@ Detsamma gäller om data måste konverteras från C# till Azure Stream Analytics
 |DateTime  |  dateTime   |
 |struct  |  Spela in   |
 |objekt  |  Spela in   |
-|Mat\<ris objekt>  |  Matris   |
+|Objekt []  |  Matris   |
 |Ord\<lista sträng, objekt>  |  Spela in   |
 
 ## <a name="codebehind"></a>CodeBehind
@@ -140,6 +140,43 @@ Expandera avsnittet **användardefinierade kod Configuration** avsnittet och fyl
    |Behållare för lagrings inställningar för anpassade koder|< lagrings container >|
    |Sammansättnings källa för anpassad kod|Befintliga paket paket från molnet|
    |Sammansättnings källa för anpassad kod|UserCustomCode. zip|
+
+## <a name="user-logging"></a>Användar loggning
+Med loggnings metoden kan du samla in anpassad information medan ett jobb körs. Du kan använda loggdata för att felsöka eller utvärdera rätthet för den anpassade koden i real tid.
+
+Med `StreamingContext` klassen kan du publicera diagnostikinformation med hjälp av `StreamingDiagnostics.WriteError` funktionen. I koden nedan visas gränssnittet som exponeras av Azure Stream Analytics.
+
+```csharp
+public abstract class StreamingContext
+{
+    public abstract StreamingDiagnostics Diagnostics { get; }
+}
+
+public abstract class StreamingDiagnostics
+{
+    public abstract void WriteError(string briefMessage, string detailedMessage);
+}
+```
+
+`StreamingContext`skickas som en indataparameter till UDF-metoden och kan användas i UDF för att publicera anpassad logg information. I exemplet nedan `MyUdfMethod` definierar **data** inmatning, som tillhandahålls av frågan och en **Sammanhangs** inmatning som `StreamingContext`, som tillhandahålls av körnings motorn. 
+
+```csharp
+public static long MyUdfMethod(long data, StreamingContext context)
+{
+    // write log
+    context.Diagnostics.WriteError("User Log", "This is a log message");
+    
+    return data;
+}
+```
+
+`StreamingContext` Värdet behöver inte skickas av SQL-frågan. Azure Stream Analytics tillhandahåller ett kontext objekt automatiskt om en indataparameter finns. Användningen av `MyUdfMethod` ändras inte, som visas i följande fråga:
+
+```sql
+SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
+```
+
+Du kan komma åt logg meddelanden via [diagnostikloggar](data-errors.md).
 
 ## <a name="limitations"></a>Begränsningar
 UDF-förhands granskningen har för närvarande följande begränsningar:

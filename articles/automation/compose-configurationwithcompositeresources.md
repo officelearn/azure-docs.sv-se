@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e7625ae95d5355ae1122a16ea4828eed5f78c73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1840f4049f8450295e179a89b472d7710c5f61a0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682934"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993766"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-using-composite-resources"></a>Skriver DSC-konfigurationer i Azure Automation tillstånds konfiguration med sammansatta resurser
 
@@ -34,9 +34,9 @@ Innan du kan tilldela en konfiguration som görs från sammansatta resurser i Az
 1. I steget **Parameters** visas parametern för varje sammansatt resurs så att du kan ange värden. Om en parameter har en beskrivning visas den bredvid parameter fältet. Om en parameter är av `PSCredential` typen, innehåller List rutan en lista över **Credential** -objekt i det aktuella Automation-kontot. Det finns även ett alternativ för att **lägga till en autentiseringsuppgift** . När alla obligatoriska parametrar har angetts klickar du på **Spara och kompilera**.
    ![Skärm bild av steget Parameters på sidan Skriv konfiguration](./media/compose-configurationwithcompositeresources/compose-configuration-parameters.png)
 
-När den nya konfigurationen har sparats skickas den för kompilering. Status för Compilation-jobbet kan visas som alla importerade konfigurationer. Mer information finns i [Visa ett Compilation-jobb](automation-dsc-getting-started.md#viewing-a-compilation-job).
+När den nya konfigurationen har sparats skickas den för kompilering. Status för Compilation-jobbet kan visas som alla importerade konfigurationer. Mer information finns i [Visa ett Compilation-jobb](automation-dsc-getting-started.md#view-a-compilation-job).
 
-När kompileringen har slutförts visas den nya konfigurationen på fliken **kompilerade konfigurationer** . Sedan kan du tilldela konfigurationen till en hanterad nod med hjälp av stegen i [omtilldela en nod till en annan nod-konfiguration](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration).
+När kompileringen har slutförts visas den nya konfigurationen på fliken **kompilerade konfigurationer** . Sedan kan du tilldela konfigurationen till en hanterad nod med hjälp av stegen i [omtilldela en nod till en annan nod-konfiguration](automation-dsc-getting-started.md#reassign-a-node-to-a-different-node-configuration).
 
 ## <a name="next-steps"></a>Nästa steg
 

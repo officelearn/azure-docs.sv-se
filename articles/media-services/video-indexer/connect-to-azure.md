@@ -8,20 +8,22 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 89360f062f0198a6b0c857395b4956caa1109e82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2093132abaa7aed06113b1856c85ac54fd7ae60d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097204"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995714"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
 
 När du skapar ett Video Indexer konto kan du välja ett kostnads fritt utvärderings konto (där du får ett visst antal kostnads fria indexerings minuter) eller ett betalt alternativ (där du inte är begränsad till kvoten). Med en kostnads fri utvärderings version tillhandahåller Video Indexer upp till 600 minuter kostnads fri indexering för webbplats användare och upp till 2400 minuter kostnads fri indexering för API-användare. Med alternativet betald kan du skapa ett Video Indexer-konto som är kopplat till din Azure-prenumeration och ett Azure Media Services-konto. Du betalar för minuter som har indexerats samt de kostnader som gäller för medie kontot.
 
 Den här artikeln visar hur du skapar ett Video Indexer-konto som är länkat till en Azure-prenumeration och ett Azure Media Services-konto. Avsnittet innehåller steg för att ansluta till Azure med hjälp av det automatiska (standard) flödet. Det visar också hur du ansluter till Azure manuellt (avancerat).
+
+Om du flyttar från en *utvärdering* till *betald* video Indexer konto kan du välja att kopiera alla videor och modell anpassningar till det nya kontot, enligt beskrivningen i [Importera ditt innehåll från utvärderings kontot](#import-your-content-from-the-trial-account).
 
 ## <a name="prerequisites"></a>Krav
 

@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 72a40363edf0e83eea26ee697ce992226da0db4f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f291bdea2df67e07b1aca2dcc6326c3c9864ad2
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392295"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995803"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
-Den här artikeln visar hur du skapar ett Azure Automation konto i Azure Portal. Du kan använda Portal Automation-kontot för att utvärdera och lära dig om automatisering utan att använda ytterligare hanterings lösningar eller integrering med Azure Monitor loggar. Du kan lägga till dessa hanterings lösningar eller integrera med Azure Monitor loggar för avancerad övervakning av Runbook-jobb när som helst i framtiden.
+Den här artikeln visar hur du skapar ett Azure Automation konto i Azure Portal. Du kan använda Portal Automation-kontot för att utvärdera och lära dig om automatisering utan att använda ytterligare hanterings funktioner eller integrera med Azure Monitor loggar. Du kan lägga till hanterings funktioner eller integrera med Azure Monitor loggar för avancerad övervakning av Runbook-jobb när som helst i framtiden.
 
 Med ett Automation-konto kan du autentisera runbooks genom att hantera resurser i antingen Azure Resource Manager eller den klassiska distributions modellen. Ett Automation-konto kan hantera resurser i alla regioner och prenumerationer för en viss klientorganisation.
 

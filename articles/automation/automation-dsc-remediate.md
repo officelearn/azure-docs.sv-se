@@ -9,12 +9,12 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: dfe62c54bfb10d70f1dbf19daec90eec68e66431
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f871b406793e455c857ca14c83434c9ed3e004df
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406074"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993847"
 ---
 # <a name="remediate-noncompliant-dsc-servers"></a>Reparera inkompatibla DSC-servrar
 
@@ -37,7 +37,7 @@ Update-DscConfiguration -Wait -Verbose
 
 Liknande funktioner är för närvarande inte tillgängliga för Linux-servrar.
 Det enda alternativet är att upprepa registrerings processen.
-För Azure-noder kan du korrigera avvikelser från Azure Portal eller genom att använda cmdlets för AZ-moduler. Information om den här processen dokumenteras i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md#onboard-a-vm-using-azure-portal).
+För Azure-noder kan du korrigera avvikelser från Azure Portal eller genom att använda cmdlets för AZ-moduler. Information om den här processen dokumenteras i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
 För Hybrid-noder kan du korrigera driften med hjälp av de Python-skript som ingår.
 Se [POWERSHELL DSC för Linux lagrings platsen](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 

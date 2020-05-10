@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/22/2017
 ms.author: robinsh
-ms.openlocfilehash: a6bd8a766f3205358a65ef2fd0816643e4261cab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1550254e969e96fbc83c4c344189d414a8fa8d3
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68414267"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995513"
 ---
 # <a name="use-ip-filters"></a>Använda IP-filter
 
@@ -66,7 +66,7 @@ Om du vill redigera en befintlig regel väljer du de data som du vill ändra, g�
 > Att avvisa IP-adresser kan förhindra andra Azure-tjänster (till exempel Azure Stream Analytics, Azure Virtual Machines eller Device Explorer i portalen) från att samverka med IoT Hub.
 
 > [!WARNING]
-> Om du använder Azure Stream Analytics (ASA) för att läsa meddelanden från en IoT-hubb där IP-filtrering är aktiverat, använder du det Event Hub-kompatibla namnet och slut punkten för ditt IoT Hub i anslutnings strängen ASA.
+> Om du använder Azure Stream Analytics (ASA) för att läsa meddelanden från en IoT-hubb där IP-filtrering är aktiverat, använder du det Event Hub-kompatibla namnet och slut punkten för din IoT Hub för att manuellt lägga till en [Event Hubs Stream-indata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs) i ASA.
 
 ## <a name="delete-an-ip-filter-rule"></a>Ta bort en regel för IP-filter
 

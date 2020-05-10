@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d2981495a256ce5fb8f8f3584e68ac91541f9d62
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5aaef50f12bfec89cf5e883ed6b1c85fa984ad6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430258"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995987"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckel rotation och granskning
 
@@ -85,23 +85,35 @@ Först måste du registrera ditt program med Azure Active Directory. Se sedan Ke
 > [!NOTE]
 > Ditt program måste skapas på samma Azure Active Directory-klient som nyckel valvet.
 
-1. Öppna **Azure Active Directory**.
-2. Välj **Appregistreringar**. 
-3. Välj **ny program registrering** för att lägga till ett program i Azure Active Directory.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Om ditt konto ger dig åtkomst till fler än en klient väljer du ditt konto i det övre högra hörnet. Ange din portal-session till den Azure AD-klient som du vill använda.
+1. Sök efter och välj **Azure Active Directory**. Under **Hantera**väljer du **Appregistreringar**.
+1. Välj **ny registrering**.
+1. I **Registrera ett program**anger du ett meningsfullt program namn som ska visas för användarna.
+1. Ange vem som kan använda programmet enligt följande:
 
-    ![Öppna program i Azure Active Directory](../media/keyvault-keyrotation/azure-ad-application.png)
+    | Kontotyper som stöds | Beskrivning |
+    |-------------------------|-------------|
+    | **Endast konton i den här organisationskatalogen** | Välj det här alternativet om du skapar en verksamhetsspecifik app. Det här alternativet är inte tillgängligt om du inte registrerar programmet i en katalog.<br><br>Det här alternativet mappar endast till Azure AD för en enskild klientorganisation.<br><br>Det här alternativet är standard om du inte registrerar appen utanför en katalog. I fall då appen registreras utanför en katalog är standardalternativet Azure AD för flera klientorganisationer och personliga Microsoft-konton. |
+    | **Konton i valfri organisationskatalog** | Välj det här alternativet om du vill rikta dig till mot alla företags- och utbildningskunder.<br><br>Det här alternativet mappar endast till Azure AD för flera klientorganisationer.<br><br>Om du har registrerat appen som endast Azure AD-klient kan du uppdatera den så att den blir Azure AD multi-Tenant och tillbaka till en enda klient via sidan **autentisering** . |
+    | **Konton i en valfri organisationskatalog och personliga Microsoft-konton** | Välj det här alternativet om målgruppen är bredast möjliga uppsättning av kunder.<br><br>Det här alternativet mappar till Azure AD för flera klientorganisationer och personliga Microsoft-konton.<br><br>Om du har registrerat appen som Azure AD-konto för flera klienter och personliga Microsoft-konton kan du inte ändra den här inställningen i användar gränssnittet. Du måste i stället använda redigeringsprogrammet för applikationsmanifest för att ändra de kontotyper som stöds. |
 
-4. Under **skapa**, låt program typen vara **Web App/API** och ge programmet ett namn. Ge ditt program en **inloggnings-URL**. Den här URL: en kan vara vad du vill för den här demon.
+1. Under **omdirigerings-URI (valfritt)** väljer du den typ av app som du skapar: **webb** eller **offentlig klient (mobil & Desktop)**. Ange omdirigerings-URI eller svars-URL för programmet.
 
-    ![Skapa program registrering](../media/keyvault-keyrotation/create-app.png)
+    * För webbappar anger du grundläggande URL för appen. Till exempel kan `https://localhost:31544` vara URL för en webbapp som körs på din lokala dator. Användare skulle då använda den här URL:en för att logga in till ett webbklientprogram.
+    * För offentliga klientprogram anger du den URI som används av Azure AD för att returnera tokensvar. Ange ett värde som är specifikt för ditt program, till exempel `myapp://auth`.
 
-5. När programmet har lagts till i Azure Active Directory öppnas sidan program. Välj **Inställningar**och välj sedan **Egenskaper**. Kopiera **programmets ID-** värde. Du behöver den i senare steg.
+1. När det är klart väljer du **Registrera**.
 
-Sedan genererar du en nyckel för programmet så att det kan interagera med Azure Active Directory. Om du vill skapa en nyckel väljer du **nycklar** under **Inställningar**. Anteckna den nyligen genererade nyckeln för ditt Azure Active Directory-program. Du behöver den senare. Nyckeln är inte tillgänglig när du har lämnat det här avsnittet. 
+    ![Visar skärmen för att registrera ett nytt program i Azure Portal](../media/new-app-registration.png)
 
-![Azure Active Directory app-nycklar](../media/keyvault-keyrotation/create-key.png)
+Azure AD tilldelar ett unikt program, eller ett klient-ID till din app. Portalen öppnar programmets **översikts** sida. Notera **programmets (klient) ID-** värde.
 
-Innan du upprättar några anrop från ditt program till nyckel valvet måste du meddela nyckel valvet om ditt program och dess behörigheter. Följande kommando använder valv namnet och program-ID: t från din Azure Active Directory-app för att ge **programmet åtkomst till ditt** nyckel valv.
+Om du vill lägga till funktioner i programmet kan du välja andra konfigurations alternativ, till exempel anpassning, certifikat och hemligheter, API-behörigheter med mera.
+
+![Exempel på en nyligen registrerad app-översikt](../media//new-app-overview-page-expanded.png)
+
+Innan du upprättar några anrop från ditt program till nyckel valvet måste du meddela nyckel valvet om ditt program och dess behörigheter. Följande kommando använder valv namnet och **program-ID: t (klient)** från din Azure Active Directory-app för att ge **programmet åtkomst till ditt** nyckel valv.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get

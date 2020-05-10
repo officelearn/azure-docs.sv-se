@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Automation tillstånds konfiguration
-description: En översikt över Azure Automation tillstånds konfiguration (DSC), dess villkor och kända problem
+description: En översikt över Azure Automation tillstånds konfiguration, dess villkor och kända problem
 keywords: PowerShell DSC, önskad tillstånds konfiguration, PowerShell DSC Azure
 services: automation
 ms.service: automation
@@ -10,20 +10,34 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: afceb11180662416aa4953b8b58ef03ffaa70eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbe617e6614eb69f0a7f6e31c89c1f645804fe1b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81406188"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993859"
 ---
-# <a name="state-configuration-overview"></a>Översikt över statuskonfiguration
+# <a name="azure-automation-state-configuration-overview"></a>Översikt över Azure Automation tillstånds konfiguration
 
-Azure Automation tillstånds konfiguration är en Azure-tjänst som gör att du kan skriva, hantera och kompilera DSC- [konfigurationer](/powershell/scripting/dsc/configurations/configurations)(Desired State Configuration) för PowerShell. Tjänsten importerar också [DSC-resurser](/powershell/scripting/dsc/resources/resources)och tilldelar konfigurationer till mål noder, allt i molnet.
+Azure Automation tillstånds konfiguration är en Azure Configuration Management-tjänst som gör att du kan skriva, hantera och kompilera DSC- [konfigurationer](/powershell/scripting/dsc/configurations/configurations) (Desired State Configuration) för noder i ett moln eller lokalt Data Center. Tjänsten importerar också [DSC-resurser](/powershell/scripting/dsc/resources/resources)och tilldelar konfigurationer till mål noder, allt i molnet. Du kan komma åt Azure Automation tillstånds konfiguration i Azure Portal genom att välja **tillstånds konfiguration (DSC)** under **konfigurations hantering**. 
+
+Du kan använda Azure Automation tillstånds konfiguration för att hantera flera olika datorer:
+
+- Virtuella Azure-datorer
+- Virtuella Azure-datorer (klassisk)
+- Fysiska/virtuella Windows-datorer lokalt eller i ett annat moln än Azure (inklusive AWS EC2-instanser)
+- Fysiska/virtuella Linux-datorer lokalt, i Azure eller i ett annat moln än Azure
+
+Om du inte är redo att hantera dator konfigurationen från molnet kan du använda Azure Automation tillstånds konfiguration som en slut punkt för endast rapporter. Med den här funktionen kan du ange (push) konfigurationer via DSC och Visa rapporterings information i Azure Automation.
+
+> [!NOTE]
+> Hantering av virtuella Azure-datorer med Azure Automation tillstånds konfiguration ingår utan extra kostnad om det installerade tillägget för Azure VM Desired State Configuration är större än 2,70. Mer information finns på [**sidan med automatiserings priser**](https://azure.microsoft.com/pricing/details/automation/).
 
 ## <a name="why-use-azure-automation-state-configuration"></a>Varför ska du använda konfiguration av Azure Automation tillstånd
 
-Azure Automation tillstånds konfiguration ger flera fördelar jämfört med att använda DSC utanför Azure.
+Azure Automation tillstånds konfiguration ger flera fördelar jämfört med användningen av DSC utanför Azure. Den här tjänsten möjliggör skalbarhet på tusentals datorer snabbt och enkelt från en central, säker plats. Du kan enkelt aktivera datorer, tilldela dem deklarativ konfigurationer och Visa rapporter som visar varje dators kompatibilitet med önskat tillstånd som du anger.
+
+Azure Automation tillstånds konfigurations tjänsten är till DSC vad Azure Automation runbooks är till PowerShell-skript. Med andra ord, på samma sätt som Azure Automation hjälper dig att hantera PowerShell-skript, kan du även hantera DSC-konfigurationer. 
 
 ### <a name="built-in-pull-server"></a>Inbyggd hämtnings Server
 
@@ -41,7 +55,7 @@ Noder som hanteras med Azure Automation tillstånds konfiguration Skicka detalje
 
 ## <a name="prerequisites-for-using-azure-automation-state-configuration"></a>Krav för att använda konfiguration av Azure Automation tillstånd
 
-Överväg följande krav när du använder Azure Automation State-konfiguration för DSC.
+Beakta kraven i det här avsnittet när du använder Azure Automation tillstånds konfiguration.
 
 ### <a name="operating-system-requirements"></a>Operativsystemskrav
 
@@ -63,9 +77,9 @@ För noder som kör Linux stöder DSC Linux-tillägget alla Linux-distributioner
 
 ### <a name="dsc-requirements"></a>DSC-krav
 
-För alla Windows-noder som körs i Azure installeras [WMF 5,1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) vid onboarding. För noder som kör Windows Server 2012 och Windows 7 är [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) aktiverat.
+För alla Windows-noder som körs i Azure installeras [WMF 5,1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) när datorer är aktiverade. För noder som kör Windows Server 2012 och Windows 7 är [WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency) aktiverat.
 
-För alla Linux-noder som körs i Azure installeras [POWERSHELL DSC för Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) under onboarding.
+För alla Linux-noder som körs i Azure installeras [POWERSHELL DSC för Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) när datorer är aktiverade.
 
 ### <a name="configuration-of-private-networks"></a><a name="network-planning"></a>Konfiguration av privata nätverk
 
@@ -80,7 +94,7 @@ Om du använder DSC-resurser som kommunicerar mellan noder, till exempel [waitfo
 
 #### <a name="proxy-support"></a>Stöd för proxy
 
-Proxy-stöd för DSC-agenten finns i Windows version 1809 och senare. Det här alternativet är aktiverat genom att ange värdena `ProxyURL` för `ProxyCredential` och i [metaconfiguration-skriptet](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) som används för att registrera noder.
+Proxy-stöd för DSC-agenten finns i Windows version 1809 och senare. Det här alternativet är aktiverat genom att ange värdena `ProxyURL` för `ProxyCredential` och i [metaconfiguration-skriptet](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) som används för att registrera noder.
 
 >[!NOTE]
 >Azure Automation tillstånds konfiguration ger inte stöd för DSC-proxy för tidigare versioner av Windows.
@@ -93,7 +107,7 @@ Vi rekommenderar att du använder adresserna i listan nedan när du definierar u
 
 Om du har ett Automation-konto som har definierats för en viss region kan du begränsa kommunikationen till det regionala data centret. Följande tabell innehåller DNS-posten för varje region:
 
-| **Region** | **DNS-post** |
+| **Nationella** | **DNS-post** |
 | --- | --- |
 | USA, västra centrala | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | USA, södra centrala |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
@@ -121,7 +135,7 @@ Azure ExpressRoute-användare bör Observera att den här filen används för at
 ## <a name="next-steps"></a>Nästa steg
 
 - För att komma igång med DSC i Azure Automation tillstånds konfiguration, se [komma igång med Azure Automation tillstånds konfiguration](automation-dsc-getting-started.md).
-- Information om hur du kan publicera noder finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md).
+- Information om hur du aktiverar noder finns i [Aktivera datorer för hantering genom att Azure Automation tillstånds konfiguration](automation-dsc-onboarding.md).
 - Mer information om hur du kompilerar DSC-konfigurationer så att du kan tilldela dem till mål noder finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
 - En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).

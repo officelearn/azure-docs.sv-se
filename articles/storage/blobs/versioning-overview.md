@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 77af321b74a47306a7202c1fddf6e81edc0ee02a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
-ms.translationtype: HT
+ms.openlocfilehash: fa28e07c28c36c03ab9e85d8436e3f1a2b36ad1c
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926076"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82993967"
 ---
 # <a name="blob-versioning-preview"></a>Blob-version (för hands version)
 
@@ -195,7 +195,6 @@ I följande tabell visas den behörighet som krävs för en SAS för att ta bort
 
 BLOB-versioner är tillgängliga i för hands versionen i följande regioner:
 
-- Frankrike, södra
 - Frankrike, centrala
 - Kanada, östra
 - Kanada, centrala

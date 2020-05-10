@@ -1,6 +1,6 @@
 ---
 title: Kom igång med konfiguration av Azure Automation tillstånd
-description: Förklaring och exempel på de vanligaste uppgifterna i Azure Automation State Configuration (DSC)
+description: Förklaring och exempel på de vanligaste uppgifterna i Azure Automation tillstånds konfiguration
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,18 +9,18 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43268d5b48b44fffefa222f566c40151c85a5895
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45d56daee20d95230f77db249028883165acb951
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392177"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995785"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Kom igång med konfiguration av Azure Automation tillstånd
 
-I den här artikeln förklaras hur du utför de vanligaste uppgifterna med Azure Automation tillstånds konfiguration, till exempel skapa, importera och kompilera konfigurationer, onboarding-datorer som ska hanteras och Visa rapporter. En översikt över hur Azure Automation tillstånds konfiguration finns i [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md). För dokumentation om Desired State Configuration (DSC), se [Översikt över Desired State Configuration i Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+Den här artikeln innehåller en steg-för-steg-guide om hur du utför de vanligaste uppgifterna med Azure Automation tillstånds konfiguration, till exempel skapa, importera och kompilera konfigurationer, aktivera datorer för att hantera och Visa rapporter. En översikt över tillstånds konfiguration finns i [Översikt över tillstånds konfiguration](automation-dsc-overview.md). För dokumentation om Desired State Configuration (DSC), se [Översikt över Desired State Configuration i Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 
-Den här artikeln innehåller en steg-för-steg-guide om hur du använder Azure Automation tillstånds konfiguration. Om du vill ha en exempel miljö som redan har kon figurer ATS utan att följa stegen som beskrivs i den här artikeln kan du använda följande Resource Manager-mall: [Azure Automation hanterad Node-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Den här mallen konfigurerar en slutförd konfigurations miljö för Azure Automation tillstånd, inklusive en virtuell Azure-dator som hanteras av Azure Automation tillstånds konfiguration.
+Om du vill ha en exempel miljö som redan har kon figurer ATS utan att följa stegen som beskrivs i den här artikeln kan du använda [mallen Azure Automation hanterad nod](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Med den här mallen ställer du in en fullständig tillstånds konfiguration (DSC)-miljö, inklusive en virtuell Azure-dator som hanteras av State Configuration (DSC).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -29,7 +29,7 @@ Följande krävs för att slutföra exemplen i den här artikeln:
 - Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
 - En Azure Resource Manager virtuell dator (inte klassisk) som kör ett [operativ system som stöds](automation-dsc-overview.md#operating-system-requirements). Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
-## <a name="creating-a-dsc-configuration"></a>Skapa en DSC-konfiguration
+## <a name="create-a-dsc-configuration"></a>Skapa en DSC-konfiguration
 
 Du kan skapa en enkel [DSC-konfiguration](/powershell/scripting/dsc/configurations/configurations) som garanterar antingen närvaron eller frånvaron av Windows-funktionen i **Web Server** (IIS), beroende på hur du tilldelar noder.
 
@@ -63,7 +63,7 @@ Du kan skapa en enkel [DSC-konfiguration](/powershell/scripting/dsc/configuratio
 
 Den här konfigurationen anropar en resurs i varje Node-block, [WindowsFeature-resursen](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource). Den här resursen garanterar närvaron eller frånvaron av **webb server** funktionen.
 
-## <a name="importing-a-configuration-into-azure-automation"></a>Importera en konfiguration till Azure Automation
+## <a name="import-a-configuration-into-azure-automation"></a>Importera en konfiguration till Azure Automation
 
 Därefter importerar du konfigurationen till Automation-kontot.
 
@@ -77,7 +77,7 @@ Därefter importerar du konfigurationen till Automation-kontot.
 
 1. Klicka på **OK**.
 
-## <a name="viewing-a-configuration-in-azure-automation"></a>Visa en konfiguration i Azure Automation
+## <a name="view-a-configuration-in-azure-automation"></a>Visa en konfiguration i Azure Automation
 
 När du har importerat en konfiguration kan du Visa den i Azure Portal.
 
@@ -91,9 +91,9 @@ När du har importerat en konfiguration kan du Visa den i Azure Portal.
 
    En TestConfig konfigurations källa öppnas och visar PowerShell-koden för konfigurationen.
 
-## <a name="compiling-a-configuration-in-azure-automation"></a>Kompilera en konfiguration i Azure Automation
+## <a name="compile-a-configuration-in-azure-automation"></a>Kompilera en konfiguration i Azure Automation
 
-Innan du kan använda ett önskat tillstånd för en nod, måste en DSC-konfiguration som definierar det läget kompileras till ett eller flera nodkonfigurationer (MOF-dokument) och placeras på Automation DSC hämtnings Server. En mer detaljerad beskrivning av hur du kompilerar konfigurationer i Azure Automation tillstånds konfiguration finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
+Innan du kan använda ett önskat tillstånd för en nod, måste en DSC-konfiguration som definierar det läget kompileras till ett eller flera nodkonfigurationer (MOF-dokument) och placeras på Automation DSC hämtnings Server. En mer detaljerad beskrivning av hur du kompilerar konfigurationer i tillstånds konfiguration (DSC) finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
 Mer information om hur du kompilerar konfigurationer finns i [DSC-konfigurationer](/powershell/scripting/dsc/configurations/configurations).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
@@ -107,7 +107,7 @@ Mer information om hur du kompilerar konfigurationer finns i [DSC-konfiguratione
 > [!NOTE]
 > När du kompilerar en konfiguration i Azure Automation distribueras automatiskt alla skapade MOF-filer för noden som skapats till hämtnings servern.
 
-## <a name="viewing-a-compilation-job"></a>Visa ett Compilation-jobb
+## <a name="view-a-compilation-job"></a>Visa ett Compilation-jobb
 
 När du har startat en kompilering kan du Visa den på panelen för att **kompilera jobb** på **konfigurations** sidan. På panelen **Compilation Jobs** visas pågående, slutförda och misslyckade jobb. När du öppnar ett fönster för kompilering av kompilering visas information om det jobbet, inklusive eventuella fel eller varningar, indataparametrar som används i konfigurations-och kompilerings loggar.
 
@@ -121,7 +121,7 @@ När du har startat en kompilering kan du Visa den på panelen för att **kompil
 
 1. Klicka på valfri panel i fönstret kompilera jobb om du vill visa mer information om jobbet.
 
-## <a name="viewing-node-configurations"></a>Visa nodkonfigurationer
+## <a name="view-node-configurations"></a>Visa nodkonfigurationer
 
 Slutfört slut för ande av ett Compilation-jobb skapar en eller flera nya nodkonfigurationer. En Node-konfiguration är ett MOF-dokument som distribueras till pull-servern och är redo att hämtas och tillämpas av en eller flera noder. Du kan visa nodkonfigurationer i ditt Automation-konto på sidan för tillstånds konfiguration (DSC). En Node-konfiguration har ett namn med formuläret `ConfigurationName.NodeName`.
 
@@ -132,11 +132,9 @@ Slutfört slut för ande av ett Compilation-jobb skapar en eller flera nya nodko
 
    ![Skärm bild av fliken kompilerade konfigurationer](./media/automation-dsc-getting-started/NodeConfigs.png)
 
-## <a name="onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration"></a>Publicera en virtuell Azure-dator för hantering med Azure Automation tillstånds konfiguration
+## <a name="enable-an-azure-resource-manager-vm-for-management-with-state-configuration"></a>Aktivera en Azure Resource Manager VM för hantering med tillstånds konfiguration
 
-Du kan använda Azure Automation tillstånds konfiguration för att hantera virtuella Azure-datorer (både klassiska och Resource Manager), lokala virtuella datorer, Linux-datorer, virtuella AWS-datorer och lokala fysiska datorer. I den här artikeln får du lära dig hur du endast registrerar Azure Resource Manager virtuella datorer. Information om hur du registrerar andra typer av datorer finns i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md).
-
-### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>För att publicera en Azure Resource Manager virtuell dator för hantering genom Azure Automation tillstånds konfiguration
+Du kan använda tillstånds konfiguration för att hantera virtuella Azure-datorer (både klassiska och Resource Manager), lokala virtuella datorer, Linux-datorer, virtuella AWS-datorer och lokala fysiska datorer. I den här artikeln får du lära dig hur du aktiverar endast Azure Resource Manager virtuella datorer. Information om hur du aktiverar andra typer av datorer finns i [Aktivera datorer för hantering genom att Azure Automation tillstånds konfiguration](automation-dsc-onboarding.md).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
@@ -151,7 +149,7 @@ Du kan använda Azure Automation tillstånds konfiguration för att hantera virt
    > [!IMPORTANT]
    > Den virtuella datorn måste vara en Azure Resource Manager virtuell dator som kör ett [operativ system som stöds](automation-dsc-overview.md#operating-system-requirements).
 
-2. På sidan registrering väljer du namnet på den nod som ska användas för den virtuella datorn i fältet **konfigurations namn för nod** . Det är valfritt att ange ett namn i det här läget. Du kan ändra den tilldelade nodens konfiguration efter att noden har registrerats.
+2. På sidan registrering väljer du namnet på den nod som ska användas för den virtuella datorn i fältet **konfigurations namn för nod** . Det är valfritt att ange ett namn i det här läget. Du kan ändra den tilldelade nodens konfiguration när du har aktiverat noden.
 
 3. Markera **noden omstart om det behövs**och klicka sedan på **OK**.
 
@@ -159,20 +157,20 @@ Du kan använda Azure Automation tillstånds konfiguration för att hantera virt
 
    Den Node-konfiguration som du har angett tillämpas på den virtuella datorn med intervall som anges av värdet för **konfigurations läges frekvens**. Den virtuella datorn söker efter uppdateringar av nodens konfiguration enligt intervall som anges av värdet **uppdaterings frekvens** . Mer information om hur dessa värden används finns i [Konfigurera den lokala Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
-Azure startar processen med att onboarda den virtuella datorn. När den är klar visas den virtuella datorn på fliken **noder** på sidan för tillstånds konfiguration (DSC) i Automation-kontot.
+Azure startar processen med att aktivera den virtuella datorn. När den är klar visas den virtuella datorn på fliken **noder** på sidan för tillstånds konfiguration (DSC) i Automation-kontot.
 
-## <a name="viewing-the-list-of-managed-nodes"></a>Visa listan över hanterade noder
+## <a name="view-the-list-of-managed-nodes"></a>Visa listan över hanterade noder
 
-Du kan visa listan över alla datorer som har registrerats för hantering i ditt Automation-konto på fliken **noder** på sidan för tillstånds konfiguration (DSC).
+Du kan visa listan över alla datorer som har Aktiver ATS för hantering i ditt Automation-konto på fliken **noder** på sidan för tillstånds konfiguration (DSC).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På sidan Automation-konto klickar du på **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan State Configuration (DSC) klickar du på fliken **noder** .
 
-## <a name="viewing-reports-for-managed-nodes"></a>Visa rapporter för hanterade noder
+## <a name="view-reports-for-managed-nodes"></a>Visa rapporter för hanterade noder
 
-Varje gången Azure Automation tillstånds konfiguration utför en konsekvens kontroll på en hanterad nod, skickar noden en status rapport tillbaka till hämtnings servern. Du kan visa rapporterna på sidan för noden.
+Varje tids tillstånds konfiguration utför en konsekvens kontroll på en hanterad nod, skickar noden en status rapport tillbaka till hämtnings servern. Du kan visa rapporterna på sidan för noden.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
@@ -201,9 +199,9 @@ På bladet för en enskild rapport kan du se följande status information för m
 Du kan också klicka på **Visa rå rapport** om du vill se de faktiska data som noden skickar till servern.
 Mer information om hur du använder dessa data finns i [använda en DSC-rapport Server](/powershell/scripting/dsc/pull-server/reportserver).
 
-Det kan ta lite tid efter att en nod har publicerats innan den första rapporten är tillgänglig. Du kan behöva vänta upp till 30 minuter för den första rapporten när du har publicerat en nod.
+Det kan ta lite tid efter att en nod har Aktiver ATS innan den första rapporten är tillgänglig. Du kan behöva vänta upp till 30 minuter för den första rapporten när du har aktiverat en nod.
 
-## <a name="reassigning-a-node-to-a-different-node-configuration"></a>Tilldela om en nod till en annan nod-konfiguration
+## <a name="reassign-a-node-to-a-different-node-configuration"></a>Tilldela om en nod till en annan nod-konfiguration
 
 Du kan tilldela en nod till att använda en annan nods konfiguration än den som du ursprungligen tilldelade.
 
@@ -220,9 +218,9 @@ Du kan tilldela en nod till att använda en annan nods konfiguration än den som
 
     ![Skärm bild av sidan tilldela konfiguration av nod](./media/automation-dsc-getting-started/AssignNodeConfig.png)
 
-## <a name="unregistering-a-node"></a>Avregistrera en nod
+## <a name="unregister-a-node"></a>Avregistrera en nod
 
-Om du inte längre vill att en nod ska hanteras av Azure Automation DSC kan du avregistrera den.
+Om du inte längre vill att en nod ska hanteras av tillstånds konfigurationen kan du avregistrera den.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.

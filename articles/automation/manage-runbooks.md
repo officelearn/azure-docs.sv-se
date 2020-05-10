@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 687579825c652888112ff8ddff7401b3305e3a8e
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: cd89314b0d847909bf4196361e471b71ebb9b6e9
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871195"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995498"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Hantera Runbooks i Azure Automation
 
@@ -228,7 +228,7 @@ Start-AzAutomationRunbook `
 Så här använder du ett anpassat skript:
 
 1. Skapa ett Automation-konto och få en [deltagar roll](automation-role-based-access-control.md).
-2. [Länka kontot till Azure-arbetsytan](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection.md).
+2. [Länka kontot till Azure-arbetsytan](../security-center/security-center-enable-data-collection.md).
 3. Aktivera [hybrid Runbook Worker](automation-hybrid-runbook-worker.md), [uppdateringshantering](automation-update-management.md)eller någon annan automatiserings funktion. 
 4. Om du behöver hög behörighet på en Linux-dator. Logga in för att [stänga av signatur kontroller](automation-linux-hrw-install.md#turn-off-signature-validation).
 

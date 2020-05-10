@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 04/09/2020
-ms.openlocfilehash: 87c3e2439d1b4bef4a58663e3ea06d8bb7cb9b19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 98bb643e1a780754fcb3b9f4eb91d8f04dc4e90b
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192543"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996391"
 ---
-# <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Vilka Apache Hadoops komponenter och versioner är tillgängliga med HDInsight?
+# <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Apache-komponenter och versioner som är tillgängliga för Azure HDInsight
 
 Lär dig mer om komponenter och versioner i [Apache Hadoop](https://hadoop.apache.org/) -miljön i Microsoft Azure HDInsight och Enterprise Security Package. Lär dig också hur du kontrollerar Hadoop-komponentens versioner i HDInsight.
 
-## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Apache Hadoops komponenter som är tillgängliga med olika HDInsight-versioner
+## <a name="apache-components-available-with-different-hdinsight-versions"></a>Apache-komponenter som är tillgängliga med olika HDInsight-versioner
 
 Azure HDInsight stöder flera Hadoop-kluster som kan distribueras när som helst. Den 4 april 2017 är den standard kluster version som används av Azure HDInsight 3,6.
 
@@ -53,7 +53,7 @@ Komponent versioner som är associerade med HDInsight-kluster versioner visas i 
 > [!NOTE]
 > På grund av system prestanda överväganden har support för Kafka version 0,10 gått ut i mars 2019.
 
-## <a name="check-for-current-hadoop-component-version-information"></a>Kontrol lera den aktuella versions informationen för Hadoop-komponenten
+## <a name="check-for-current-apache-component-version-information"></a>Sök efter aktuell versions information för Apache-komponenten
 
 Komponent versioner av Hadoop-miljön som är associerade med HDInsight-kluster versioner kan ändra med uppdateringar till HDInsight. Om du vill kontrol lera Hadoop-komponenterna och kontrol lera vilka versioner som används för ett kluster använder du Ambari-REST API. **GetComponentInformation** -kommandot hämtar information om tjänst komponenter. Mer information finns i [Apache Ambari-dokumentationen](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
@@ -104,50 +104,6 @@ I följande tabell visas de versioner av HDInsight som **inte** är tillgänglig
 > [!NOTE]  
 > Kluster med hög tillgänglighet med två head-noder distribueras som standard för HDInsight version 2,1 och senare. De är inte tillgängliga för HDInsight version 1,6-kluster.
 
-## <a name="enterprise-security-package-for-hdinsight"></a>Enterprise Security Package för HDInsight
-
-Enterprise Security är ett valfritt paket som du kan lägga till i ditt HDInsight-kluster som en del av arbets flödet skapa kluster. Enterprise Security Package stöder:
-
-- Integrering med Active Directory för autentisering.
-
-    Tidigare skapade du HDInsight-kluster med lokal administratörs användare och lokal SSH-användare. Den lokala administratörs användaren har åtkomst till alla filer, mappar, tabeller och kolumner.  Med Enterprise Security Package aktiverar du rollbaserad åtkomst kontroll genom att integrera HDInsight med ditt Active Directory. Som omfattar lokala Active Directory Azure Active Directory Domain Services. Eller Active Directory på den virtuella IaaS-datorn. Domän administratören i klustret kan ge användarna behörighet att använda sina egna företags användar namn och lösen ord.
-
-    Mer information finns i:
-
-    - [En introduktion till Apache Hadoop säkerhet med domänanslutna HDInsight-kluster](./domain-joined/hdinsight-security-overview.md)
-    - [Planera Azure-domänanslutna Apache Hadoop kluster i HDInsight](./domain-joined/apache-domain-joined-architecture.md)
-    - [Konfigurera en domänansluten testmiljö](./domain-joined/apache-domain-joined-configure.md)
-    - [Konfigurera domänanslutna HDInsight-kluster med hjälp av Azure Active Directory Domain Services](./domain-joined/apache-domain-joined-configure-using-azure-adds.md)
-
-- Auktorisering för data
-
-  - Integrering med Apache Ranger för auktorisering för Hive-, Spark SQL-och garn köer.
-  - Du kan ange åtkomst kontroll för filer och mappar.
-
-    Mer information finns i:
-
-  - [Konfigurera Apache Hive principer i domänanslutna HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
-
-- Visa gransknings loggarna för att övervaka åtkomst och de konfigurerade principerna.
-
-### <a name="supported-cluster-types"></a>Kluster typer som stöds
-
-För närvarande stöder endast följande kluster typer Enterprise Security Package:
-
-- Hadoop (endast HDInsight 3,6)
-- Spark
-- Kafka
-- HBase
-- Interaktiv fråga
-
-### <a name="support-for-azure-data-lake-storage"></a>Stöd för Azure Data Lake Storage
-
-Enterprise Security Package har stöd för att använda Azure Data Lake Storage som både den primära lagringen och lagringen för tillägg.
-
-### <a name="pricing-and-service-level-agreement-sla"></a>Priser och service nivå avtal (SLA)
-
-Information om priser och service avtal för Enterprise Security Package finns i avsnittet om [priser för HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
-
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>Service nivå avtal för HDInsight-kluster versioner
 
 Service nivå avtalet (SLA) definieras som ett _support fönster_. Support fönstret är den tids period som en HDInsight-version stöds `Microsoft Customer Service and Support`av. Om versionen har ett _utgångs datum som_har gått ut är HDInsight-klustret utanför support fönstret. Stöd för förfallo datum för HDInsight version X (när en senare version av X + 1 är tillgänglig) är senare:  
@@ -166,3 +122,4 @@ Mer information om vilka virtuella datorer SKU: er som ska väljas för klustret
 - [Kluster konfiguration för Apache Hadoop, Spark och mer på HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Arbeta i Apache Hadoop på HDInsight från en Windows-dator](hdinsight-hadoop-windows-tools.md)
 - [Hortonworks versions anteckningar som är associerade med Azure HDInsight-versioner](./hortonworks-release-notes.md)
+- [Enterprise Security Package](./enterprise-security-package.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 1f9c8d449fb060d5b1a5f810f9e387057eac3252
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a4082ddfd8c092a6f9223a0894f21bc734b6efb6
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927980"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82997020"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Felsök problem med Linux-uppdaterings agent
 
@@ -82,14 +82,14 @@ Den här kontrollen avgör om agenten rapporterar till flera arbets ytor. Multih
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-Den här kontrollen kontrollerar om Log Analytics-agenten för Linux har Hybrid Runbook Worker-paketet. Det här paketet krävs för att Uppdateringshantering ska fungera.
+Den här kontrollen kontrollerar om Log Analytics-agenten för Linux har Hybrid Runbook Worker-paketet. Det här paketet krävs för att Uppdateringshantering ska fungera. Mer information finns i [Log Analytics agent för Linux körs inte](hybrid-runbook-worker.md#oms-agent-not-running).
+
+Uppdateringshantering laddar ned Hybrid Runbook Worker paket från slut punkten för åtgärder. Om Hybrid Runbook Worker inte körs och [slut punkten för åtgärder](#operations-endpoint) Miss lyckas kan uppdateringen Miss lyckas.
 
 ### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker status
 
-Den här kontrollen säkerställer att Hybrid Runbook Worker körs på datorn. Följande processer bör finnas om Hybrid Runbook Worker körs på rätt sätt. Mer information finns i [felsöka Log Analytics agent för Linux](hybrid-runbook-worker.md#oms-agent-not-running).
+Den här kontrollen säkerställer att Hybrid Runbook Worker körs på datorn. Processerna i exemplet nedan bör finnas om Hybrid Runbook Worker körs på rätt sätt.
 
-> [!NOTE]
-> Om Hybrid Runbook Worker inte körs och drift slut punkten har misslyckats kan uppdateringen Miss lyckas. Uppdateringshantering laddar ned hybrid Worker-paketen från slut punkten för åtgärder.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
@@ -107,13 +107,13 @@ Den här kontrollen ser till att datorn har åtkomst till Internet.
 
 Den här kontrollen avgör om Hybrid Runbook Worker kan kommunicera korrekt med Azure Automation i arbets ytan Log Analytics.
 
-Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med registrerings slut punkten. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
+Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med registrerings slut punkten. En lista över adresser och portar som ska öppnas finns i [nätverks planering](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="operations-endpoint"></a>Åtgärds slut punkt
 
-Den här kontrollen avgör om agenten kan kommunicera korrekt med jobb körnings data tjänsten.
+Den här kontrollen avgör om Log Analytics-agenten kan kommunicera korrekt med jobbets körnings data tjänst.
 
-Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med jobb körnings data tjänsten. En lista över adresser och portar som ska öppnas finns i [nätverks planering för Hybrid arbetare](../automation-hybrid-runbook-worker.md#network-planning).
+Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker agent kommunicerar med jobb körnings data tjänsten. En lista över adresser och portar som ska öppnas finns i [nätverks planering](../automation-hybrid-runbook-worker.md#network-planning).
 
 ### <a name="log-analytics-endpoint-1"></a>Log Analytics slut punkt 1
 

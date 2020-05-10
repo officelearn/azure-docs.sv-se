@@ -4,14 +4,14 @@ description: Hantera telemetri volymer och övervaka kostnader i Application Ins
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 11/27/2019
+ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0225484de06ae4e595f1dcbcdd520f4e0e4d53f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c597ea559e7337c9c84914d168f1055e0631886
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405377"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995540"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -62,7 +62,7 @@ E. Ange daglig data volyms kap.
 
 Om du vill undersöka Application Insightss användningen mer djup, öppnar du sidan **mått** , lägger till måttet "data punkts volym" och väljer sedan alternativet *Använd delning* för att dela data efter "telemetri objekt typ".
 
-Application Insights avgifter läggs till på din Azure-faktura. Du kan se information om din Azure-faktura i **fakturerings** avsnittet i Azure Portal eller på [Azures fakturerings Portal](https://account.windowsazure.com/Subscriptions).
+Application Insights avgifter läggs till på din Azure-faktura. Du kan se information om din Azure-faktura i avsnittet **Cost Management + fakturering** i Azure Portal eller på [Azures fakturerings Portal](https://account.windowsazure.com/Subscriptions).  [Se nedan](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) för information om hur du använder detta för Application Insights. 
 
 ![På den vänstra menyn väljer du fakturering](./media/pricing/02-billing.png)
 
@@ -129,7 +129,7 @@ dependencies
 
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visa Application Insights användning på din Azure-faktura
 
-Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Genom att lägga till ett filter efter resurs typ (till Microsoft. insikter/komponenter för Application Insights) kan du spåra dina utgifter.
+Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Genom att lägga till ett filter efter resurs typ (till Microsoft. insikter/komponenter för Application Insights) kan du spåra dina utgifter. Välj sedan "mäta kategori" eller "mätare" för "Gruppera efter".  För Application Insights resurser i de aktuella pris planerna visas de flesta användnings områden som Log Analytics för mätar kategorin eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter. 
 
 Du kan få mer förståelse för användningen genom att [Ladda ned din användning från Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal).
 I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID" som innehåller Microsoft. Insights/komponenter.  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -212,7 +212,7 @@ I varje kvarhållen post `itemCount` anger antalet ursprungliga poster som den r
 
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
-Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar.
+Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. [Lär dig mer](https://azure.microsoft.com/pricing/details/monitor/) om priser för längre data kvarhållning. 
 
 Om du vill ändra kvarhållning går du till sidan **användning och uppskattade kostnader** från Application Insights resursen och väljer alternativet **data kvarhållning** :
 

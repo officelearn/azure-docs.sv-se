@@ -11,12 +11,12 @@ ms.date: 06/10/2019
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 53660ad93ab2218d546ae6f363873c4d66872e2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9554713e50e7a2ead2e25f274428ad0ecba4934d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730314"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996946"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Referens – IoT Hub slut punkter
 
@@ -54,9 +54,9 @@ I följande lista beskrivs slut punkterna:
 
   * *Ta emot begär Anden om direkta metoder*. En enhet använder slut punkten för att lyssna efter [direkta metod](iot-hub-devguide-direct-methods.md)begär Anden.
 
-    Dessa slut punkter exponeras med hjälp av [MQTT v 3.1.1](https://mqtt.org/)-, https 1,1-och [AMQP 1,0](https://www.amqp.org/) -protokoll. AMQP är också tillgängligt via [WebSockets](https://tools.ietf.org/html/rfc6455) på port 443.
+    Dessa slut punkter exponeras med hjälp av [MQTT v 3.1.1](https://mqtt.org/)-, https 1,1-och [AMQP 1,0](https://www.amqp.org/) -protokoll. AMQP och MQTT är också tillgängliga via [WebSockets](https://tools.ietf.org/html/rfc6455) på port 443.
 
-* **Tjänst slut punkter**. Varje IoT-hubb exponerar en uppsättning slut punkter för lösningens Server del för att kommunicera med dina enheter. Med ett undantag exponeras de här slut punkterna endast med [AMQP](https://www.amqp.org/) -protokollet. Slut punkten för metod anropet exponeras via HTTPS-protokollet.
+* **Tjänst slut punkter**. Varje IoT-hubb exponerar en uppsättning slut punkter för lösningens Server del för att kommunicera med dina enheter. Med ett undantag exponeras dessa slut punkter endast med hjälp av protokollen [AMQP](https://www.amqp.org/) och AMQP över WebSockets. Anrops slut punkten för direkt metoden exponeras via HTTPS-protokollet.
   
   * *Ta emot meddelanden från enheten till molnet*. Den här slut punkten är kompatibel med [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). En backend-tjänst kan använda den för att läsa [meddelanden från enheten till molnet](iot-hub-devguide-messages-d2c.md) som skickas av dina enheter. Du kan skapa anpassade slut punkter i IoT Hub förutom den här inbyggda slut punkten.
   

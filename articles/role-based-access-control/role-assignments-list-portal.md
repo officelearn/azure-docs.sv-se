@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4c02369f44255dfa472202215496378d41f8c6c
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
-ms.translationtype: HT
+ms.openlocfilehash: 04a13b2b3b8cd6e696f0ac6601b5f23b9d6cb24d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735733"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996645"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Visa en lista med Azures roll tilldelningar med hjälp av Azure Portal
 
@@ -32,7 +32,9 @@ ms.locfileid: "82735733"
 
 Det enklaste sättet att se de roller som har tilldelats en användare eller grupp i en prenumeration är att använda fönstret **Azure-resurser** .
 
-1. I Azure Portal klickar du på **alla tjänster** och väljer sedan **användare** eller **grupper**.
+1. I Azure Portal väljer du **alla tjänster** på Azure Portal-menyn.
+
+1. Välj **Azure Active Directory** och välj sedan **användare** eller **grupper**.
 
 1. Klicka på den användare eller grupp som du vill visa en lista över roll tilldelningarna för.
 
@@ -128,7 +130,7 @@ Om du vill visa en lista över åtkomsten för en användare, grupp, tjänstens 
 
 ## <a name="list-number-of-role-assignments"></a>Lista antal roll tilldelningar
 
-Du kan ha upp till **2000** roll tilldelningar i varje prenumeration. För att hjälpa dig att hålla koll på den här gränsen innehåller fliken **roll tilldelningar** ett diagram som visar antalet roll tilldelningar för den aktuella prenumerationen.
+Du kan ha upp till **2000** roll tilldelningar i varje prenumeration. Den här gränsen omfattar roll tilldelningar i prenumerations-, resurs grupps-och resurs omfång. För att hjälpa dig att hålla koll på den här gränsen innehåller fliken **roll tilldelningar** ett diagram som visar antalet roll tilldelningar för den aktuella prenumerationen.
 
 ![Åtkomst kontroll-antal roll tilldelnings diagram](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
 

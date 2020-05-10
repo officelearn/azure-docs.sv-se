@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/17/2020
+ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 03edb8e5c58f0fe746921d50ab3f657f291d16da
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735546"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996619"
 ---
 # <a name="understand-azure-role-definitions"></a>Förstå roll definitioner för Azure
 
@@ -28,7 +28,9 @@ Om du försöker förstå hur en Azure-roll fungerar eller om du skapar en egen 
 
 ## <a name="role-definition"></a>Rolldefinition
 
-En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också ange vilka åtgärder som inte kan utföras eller åtgärder relaterade till underliggande data. En roll definition har följande egenskaper:
+En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också visa en lista över de åtgärder som undantas från tillåtna åtgärder eller åtgärder som rör underliggande data.
+
+Följande visar ett exempel på egenskaperna i en roll definition när du visas med hjälp av Azure PowerShell:
 
 ```
 Name
@@ -42,17 +44,33 @@ NotDataActions []
 AssignableScopes []
 ```
 
+Följande visar ett exempel på egenskaperna i en roll definition när de visas med hjälp av Azure Portal, Azure CLI eller REST API:
+
+```
+roleName
+name
+type
+description
+actions []
+notActions []
+dataActions []
+notDataActions []
+assignableScopes []
+```
+
+I följande tabell beskrivs vad roll egenskaperna innebär.
+
 | Egenskap | Beskrivning |
 | --- | --- |
-| `Name` | Visnings namnet för rollen. |
-| `Id` | Rollens unika ID. |
-| `IsCustom` | Anger om det här är en anpassad roll. Ange till `true` för anpassade roller. |
-| `Description` | Rollens beskrivning. |
-| `Actions` | En sträng mat ris som anger vilka hanterings åtgärder som rollen kan utföra. |
-| `NotActions` | En sträng mat ris som anger vilka hanterings åtgärder som undantas från tillåten `Actions`. |
-| `DataActions` | En sträng mat ris som anger de data åtgärder som rollen kan utföra på dina data i objektet. |
-| `NotDataActions` | En sträng mat ris som anger de data åtgärder som undantas från tillåten `DataActions`. |
-| `AssignableScopes` | En sträng mat ris som anger de omfång som rollen är tillgänglig för tilldelning. |
+| `Name`</br>`roleName` | Visnings namnet för rollen. |
+| `Id`</br>`name` | Rollens unika ID. |
+| `IsCustom`</br>`roleType` | Anger om det här är en anpassad roll. Ange till `true` eller `CustomRole` för anpassade roller. Ange till `false` eller `BuiltInRole` för inbyggda roller. |
+| `Description`</br>`description` | Rollens beskrivning. |
+| `Actions`</br>`actions` | En sträng mat ris som anger vilka hanterings åtgärder som rollen kan utföra. |
+| `NotActions`</br>`notActions` | En sträng mat ris som anger vilka hanterings åtgärder som undantas från tillåten `Actions`. |
+| `DataActions`</br>`dataActions` | En sträng mat ris som anger de data åtgärder som rollen kan utföra på dina data i objektet. |
+| `NotDataActions`</br>`notDataActions` | En sträng mat ris som anger de data åtgärder som undantas från tillåten `DataActions`. |
+| `AssignableScopes`</br>`assignableScopes` | En sträng mat ris som anger de omfång som rollen är tillgänglig för tilldelning. |
 
 ### <a name="operations-format"></a>Åtgärds format
 
@@ -72,7 +90,9 @@ AssignableScopes []
 
 ### <a name="role-definition-example"></a>Exempel på roll definition
 
-Här är roll definitionen [deltagare](built-in-roles.md#contributor) i JSON-format. Jokertecknet (`*`) under `Actions` anger att huvudnamnet som tilldelats den här rollen kan utföra alla åtgärder, eller med andra ord sköta all administration. Det här inbegriper även åtgärder som definieras i framtiden när Azure lägger till nya resurstyper. Åtgärderna under `NotActions` dras bort från `Actions`. För rollen [Deltagare](built-in-roles.md#contributor) tar `NotActions` bort rollens möjlighet att hantera åtkomsten till resurser och även att ge åtkomst till resurser.
+Här är roll definitionen [deltagare](built-in-roles.md#contributor) som visas i Azure PowerShell och Azure CLI. Jokertecknet (`*`) under `Actions` anger att huvudnamnet som tilldelats den här rollen kan utföra alla åtgärder, eller med andra ord sköta all administration. Det här inbegriper även åtgärder som definieras i framtiden när Azure lägger till nya resurstyper. Åtgärderna under `NotActions` dras bort från `Actions`. För rollen [Deltagare](built-in-roles.md#contributor) tar `NotActions` bort rollens möjlighet att hantera åtkomsten till resurser och även att ge åtkomst till resurser.
+
+Deltagar rollen som visas i Azure PowerShell:
 
 ```json
 {
@@ -86,13 +106,47 @@ Här är roll definitionen [deltagare](built-in-roles.md#contributor) i JSON-for
   "NotActions": [
     "Microsoft.Authorization/*/Delete",
     "Microsoft.Authorization/*/Write",
-    "Microsoft.Authorization/elevateAccess/Action"
+    "Microsoft.Authorization/elevateAccess/Action",
+    "Microsoft.Blueprint/blueprintAssignments/write",
+    "Microsoft.Blueprint/blueprintAssignments/delete"
   ],
   "DataActions": [],
   "NotDataActions": [],
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Deltagar rollen som visas i Azure CLI:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage everything except access to resources.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+  "permissions": [
+    {
+      "actions": [
+        "*"
+      ],
+      "notActions": [
+        "Microsoft.Authorization/*/Delete",
+        "Microsoft.Authorization/*/Write",
+        "Microsoft.Authorization/elevateAccess/Action",
+        "Microsoft.Blueprint/blueprintAssignments/write",
+        "Microsoft.Blueprint/blueprintAssignments/delete"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -116,6 +170,8 @@ För att stödja data åtgärder har nya data egenskaper lagts till i roll defin
 
 Här är roll definitionen [Storage BLOB data Reader](built-in-roles.md#storage-blob-data-reader) , som innehåller åtgärder i egenskaperna `Actions` och. `DataActions` Med den här rollen kan du läsa BLOB-behållaren och även underliggande BLOB-data.
 
+Rollen Storage BLOB data Reader som visas i Azure PowerShell:
+
 ```json
 {
   "Name": "Storage Blob Data Reader",
@@ -123,7 +179,8 @@ Här är roll definitionen [Storage BLOB data Reader](built-in-roles.md#storage-
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
   "Actions": [
-    "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+    "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+    "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
   ],
   "NotActions": [],
   "DataActions": [
@@ -133,6 +190,35 @@ Här är roll definitionen [Storage BLOB data Reader](built-in-roles.md#storage-
   "AssignableScopes": [
     "/"
   ]
+}
+```
+
+Rollen Storage BLOB data Reader som visas i Azure CLI:
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for read access to Azure Storage blob containers and data",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Blob Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
@@ -159,9 +245,11 @@ Storage BLOB data-deltagare
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;DataActions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
 Eftersom Alice har en jokertecken`*`()-åtgärd i ett prenumerations omfång, ärver deras behörigheter nedåt för att de ska kunna utföra alla hanterings åtgärder. Alice kan läsa, skriva och ta bort behållare. Alice kan dock inte utföra data åtgärder utan att vidta ytterligare åtgärder. Som standard kan Alice till exempel inte läsa blobarna i en behållare. För att läsa blobarna måste Alice Hämta lagrings åtkomst nycklar och använda dem för att få åtkomst till Blobbarna.

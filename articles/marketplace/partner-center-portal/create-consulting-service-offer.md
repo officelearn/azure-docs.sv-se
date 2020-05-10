@@ -6,18 +6,15 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 7e85175cbee53bd5984a38a587a90b98eaf8dcad
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/08/2020
+ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791909"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994358"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
-
-> [!IMPORTANT]
-> Vi flyttar hantering av konsult tjänst erbjudanden från Cloud Partner Portal till Partner Center. Följ anvisningarna i [Azure-och Dynamics 365 Consulting Service-erbjudandet](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) för Cloud Partner Portal att hantera dina erbjudanden innan du migrerar dina erbjudanden.
 
 Den här artikeln beskriver hur du publicerar ett konsult tjänst erbjudande till antingen [Microsoft AppSource](https://appsource.microsoft.com/) eller [Azure Marketplace](https://azuremarketplace.microsoft.com/). Lista konsult tjänst erbjudanden baserade på Microsoft [Dynamics 365](https://dynamics.microsoft.com/) och Power Platform på AppSource. Visa en lista över konsult tjänst erbjudanden baserade på Microsoft Azure på Azure Marketplace. Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
@@ -99,10 +96,10 @@ På den här sidan kan du ange den primära produkt som din konsult tjänst erbj
     - **Koncept bevis**: en begränsad omfattning för att avgöra om en lösning uppfyller kundens krav.
     - **Workshop**: ett interaktivt engagemang i en kunds lokala. Det kan omfatta utbildning, kortfattade, utvärderingar eller demonstrationer som bygger på kundens data eller miljö.
 
-1. Om du har valt en primär produkt i **Azure**väljer du upp till tre **lösnings områden**. Detta gör det enklare för kunderna på Azure Marketplace att hitta ditt erbjudande. Hoppa över det här steget om du inte har valt Azure.
-2. Om du har valt en _annan_ primär produkt än Azure väljer du upp till tre **tillämpliga produkter**. Detta gör det enklare för kunder i AppSource att hitta ditt erbjudande. Mer information finns i avsnittet [Microsoft AppSource konsult service](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) distail Guidelines (PDF).
-3. Välj upp till sex **branscher** som ditt erbjudande gäller för. På så sätt blir det enklare för kunderna att hitta ditt erbjudande.
-4. Lägg till upp till tre **kompetenser** som ditt företag har fått att visa i din konsult tjänst erbjudande lista. Minst en kompetens krävs förutom Azure expert MSP och Azure Networking MSP.
+3. Om du har valt en primär produkt i **Azure**väljer du upp till tre **lösnings områden**. Detta gör det enklare för kunderna på Azure Marketplace att hitta ditt erbjudande. Hoppa över det här steget om du inte har valt Azure.
+4. Om du har valt en _annan_ primär produkt än Azure väljer du upp till tre **tillämpliga produkter**. Detta gör det enklare för kunder i AppSource att hitta ditt erbjudande. Mer information finns i avsnittet [Microsoft AppSource konsult service](https://go.microsoft.com/fwlink/?LinkId=828734&amp;clcid=0x409) distail Guidelines (PDF).
+5. Välj upp till sex **branscher** som ditt erbjudande gäller för. På så sätt blir det enklare för kunderna att hitta ditt erbjudande.
+6. Lägg till upp till tre **kompetenser** som ditt företag har fått att visa i din konsult tjänst erbjudande lista. Minst en kompetens krävs förutom Azure expert MSP och Azure Networking MSP.
 
 Välj **Spara utkast** innan du fortsätter.
 

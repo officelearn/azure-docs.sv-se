@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: b1c72c2f606ab653d7e3f1d81f7278571e8e4978
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 834ff39b0ffd8ee38156e468008c332971b742d0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136540"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996481"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Styra uppdateringar med underhålls kontroll och Azure PowerShell
 
@@ -20,11 +20,17 @@ Med underhålls kontrollen kan du bestämma när du ska tillämpa uppdateringar 
  
 ## <a name="enable-the-powershell-module"></a>Aktivera PowerShell-modulen
 
-Se till `PowerShellGet` att det är aktuellt.
+Se till `PowerShellGet` att det är aktuellt.    
 
-```azurepowershell-interactive
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
+```azurepowershell-interactive  
+Install-Module -Name PowerShellGet -Repository PSGallery -Force 
+``` 
+
+Installera `Az.Maintenance` PowerShell-modulen.     
+
+```azurepowershell-interactive  
+Install-Module -Name Az.Maintenance
+``` 
 
 Om du installerar lokalt, se till att du öppnar PowerShell-prompten som administratör.
 

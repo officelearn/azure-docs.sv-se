@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 734ddcacf46804db8d9aac091b0a9ac0ca512e18
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: aa3733b1231b92f30f5fd36dab64794129e62b07
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983808"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995341"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Anropa, utlösa eller kapsla Logi Kap par genom att använda HTTPS-slutpunkter i Azure Logic Apps
 
@@ -140,17 +140,19 @@ Utlösaren förväntar sig som standard en POST-begäran. Du kan ange en annan m
 
    ![Välj metod för begäran som förväntas av utlösaren](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
-## <a name="accept-parameters-in-endpoint-url"></a>Acceptera parametrar i slut punkts-URL
+<a name="endpoint-url-parameters"></a>
 
-När du vill att slut punkts-URL: en ska acceptera parameter värden via slut punktens URL, har du följande alternativ:
+## <a name="pass-parameters-through-endpoint-url"></a>Skicka parametrar via slut punkts-URL
+
+När du vill acceptera parameter värden via slut punktens URL har du följande alternativ:
 
 * [Acceptera värden via get parametrar](#get-parameters) eller URL-parametrar.
 
-  Dessa värden skickas som namn-värde-par när begäran skickas till slut punktens URL. För det här alternativet måste du använda GET-metoden i din begäran-utlösare. I en efterföljande åtgärd kan du hämta parametervärdena som utlöser utdata genom att `triggerOutputs()` använda funktionen i ett uttryck.
+  Dessa värden skickas som namn-värde-par i slut punktens URL. För det här alternativet måste du använda GET-metoden i din begäran-utlösare. I en efterföljande åtgärd kan du hämta parametervärdena som utlöser utdata genom att `triggerOutputs()` använda funktionen i ett uttryck.
 
 * [Acceptera värden via en relativ sökväg](#relative-path) för parametrar i din begäran-utlösare.
 
-  Dessa värden skickas när begäran skickas till slut punktens URL. Du måste också uttryckligen [välja den metod](#select-method) som utlösaren förväntar sig. I en efterföljande åtgärd kan du hämta parametervärdena som utlöser utdata genom att referera till dessa utdata direkt.
+  Dessa värden skickas via en relativ sökväg i slut punktens URL. Du måste också uttryckligen [välja den metod](#select-method) som utlösaren förväntar sig. I en efterföljande åtgärd kan du hämta parametervärdena som utlöser utdata genom att referera till dessa utdata direkt.
 
 <a name="get-parameters"></a>
 

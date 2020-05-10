@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/03/2020
-ms.openlocfilehash: b9d935e72c67b78484337e39e0897d4962340636
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5cab7f962a829ab8609325e8bb1b35498568726c
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77199049"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82994185"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Skapa HDInsight-kluster med Azure CLI
 
@@ -49,7 +49,7 @@ Azure CLI. Om du inte har installerat Azure CLI kan du läsa om hur du [installe
     |`--workernode-count`| Antalet arbetsnoder i klustret. I den här artikeln används `clusterSizeInNodes` variabeln som det värde `--workernode-count`som skickades till. |
     |`--version`| HDInsight-klustrets version. I den här artikeln används `clusterVersion` variabeln som det värde `--version`som skickades till. Se även: [HDInsight-versioner som stöds](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
     |`--type`| Typ av HDInsight-kluster, t. ex. Hadoop, interactivehive, HBase, Kafka, Storm, Spark, rserver, mlservices.  I den här artikeln används `clusterType` variabeln som det värde `--type`som skickades till. Se även: [kluster typer och konfiguration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
-    |`--component-version`|Versioner av olika Hadoop-komponenter, i blankstegsavgränsad versioner i formatet komponent = version. I den här artikeln används `componentVersion` variabeln som det värde `--component-version`som skickades till. Se även: [Hadoop-komponenter](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
+    |`--component-version`|Versioner av olika Hadoop-komponenter, i blankstegsavgränsad versioner i formatet komponent = version. I den här artikeln används `componentVersion` variabeln som det värde `--component-version`som skickades till. Se även: [Hadoop-komponenter](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
 
     Ersätt `RESOURCEGROUPNAME`, `LOCATION` `CLUSTERNAME`,, och `PASSWORD` med önskade värden. `STORAGEACCOUNTNAME` Ändra värdena för de andra variablerna efter behov. Ange sedan CLI-kommandona.
 

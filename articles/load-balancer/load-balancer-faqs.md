@@ -7,19 +7,19 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3648bb102d539156067cdc259c1cf9b6e73d6a49
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884493"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005144"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 ## <a name="what-types-of-load-balancer-exist"></a>Vilka typer av Load Balancer finns?
-Interna belastningsutjämnare som balanserar trafik i ett VNET och externa belastningsutjämnare som balanserar trafik till och från en ansluten Internet-slutpunkt. Mer information finns i [Load Balancer typer] (https://docs.microsoft.com/azure/load-balancer/concepts-limitations#load-balancer-types). 
+Interna belastningsutjämnare som balanserar trafik i ett VNET och externa belastningsutjämnare som balanserar trafik till och från en ansluten Internet-slutpunkt. Mer information finns i [Load Balancer typer](components.md#frontend-ip-configurations). 
 
-För båda dessa typer erbjuder Azure en grundläggande SKU och standard-SKU som har olika funktioner för funktioner, prestanda, säkerhet och hälso tillstånd. Dessa skillnader beskrivs i vår [SKU-jämförelse] (https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus) artikel.
+För båda dessa typer erbjuder Azure en grundläggande SKU och standard-SKU som har olika funktioner för funktioner, prestanda, säkerhet och hälso tillstånd. Dessa skillnader beskrivs i vår artikel om [SKU-jämförelse](skus.md) .
 
  ## <a name="how-can-i-upgrade-from-a-basic-to-a-standard-load-balancer"></a>Hur kan jag uppgradera från en Basic till en Standard Load Balancer?
 Se artikeln [Uppgradera från Basic till standard](upgrade-basic-standard.md) för ett automatiserat skript och vägledning om hur du uppgraderar en Load Balancer SKU.

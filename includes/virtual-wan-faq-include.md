@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/24/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cde644b821b8c9233c9a79c2c5e9fe8478850a65
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 827a2d6dc8a3622c17cdbcdfb179a3ea0f434f6f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82997724"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006431"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Behöver användaren ha hubb och eker med SD-WAN/VPN-enheter för att kunna använda Azure Virtual WAN?
 
@@ -190,8 +190,8 @@ Det totala VPN-dataflödet för en hubb är upp till 20 Gbit/s baserat på vald 
 Navigera till VPN-gatewayen i ett nav på portalen och klicka på skalnings enheten för att ändra den till lämplig inställning.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>Tillåter Virtual WAN att den lokala enheten använder flera olika Internet leverantörer parallellt, eller är alltid en enda VPN-tunnel?
+Lokala enhets lösningar kan använda trafik principer för att styra trafik över flera tunnlar till Azure.
 
-En anslutning som kommer till ett virtuellt WAN-nätverk är alltid en aktiv-aktiv tunnel (för återhämtning inom samma hubb/region) med en länk som är tillgänglig på grenen. Länken kan vara en ISP-länk på den lokala grenen. Virtuella WAN-VPNSite ger möjlighet att lägga till länk information till platsen. Om du har flera Internet leverantörer i grenen och var och en av Internet leverantörerna tillhandahöll en länk, kan den informationen konfigureras i VPN-platsens information i Azure. Att hantera redundans över Internet leverantörer i grenen är dock helt en förgrenings driven väg åtgärd.
 
 ### <a name="what-is-global-transit-architecture"></a>Vad är global transiterings arkitektur?
 

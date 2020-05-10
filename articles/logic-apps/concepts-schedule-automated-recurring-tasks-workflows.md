@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: 20f27ebc7b9712d440dc1c67c46cb0385a3f874a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/25/2020
+ms.openlocfilehash: 6d00c7d7cc88427a3500b28891ec70bb8a4bbb43
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234102"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005207"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Schemalägg och kör återkommande automatiserade uppgifter, processer och arbetsflöden med Azure Logic Apps
 
@@ -48,13 +48,13 @@ I den här artikeln beskrivs funktionerna i de inbyggda schema utlösarna och å
 
 ## <a name="schedule-triggers"></a>Schemalägg utlösare
 
-Du kan starta ditt Logic app-arbetsflöde med utlösaren upprepnings utlösare eller överlappande fönster, som inte är associerad med någon speciell tjänst eller något annat system, till exempel Office 365 Outlook eller SQL Server. Dessa utlösare startar och kör ditt arbets flöde baserat på den angivna upprepningen där du väljer intervall och frekvens, till exempel antalet sekunder, minuter och timmar för båda utlösarna, eller antalet dagar, veckor eller månader för upprepnings utlösaren. Du kan också ange start datum och-tid samt tidszon. Varje gång en utlösare utlöses skapar Logic Apps och kör en ny arbets flödes instans för din Logic app.
+Du kan starta ditt Logic app-arbetsflöde med utlösaren upprepnings utlösare eller glidande fönster, som inte är associerad med någon speciell tjänst eller något annat system. Dessa utlösare startar och kör ditt arbets flöde baserat på din angivna upprepning där du väljer intervall och frekvens, till exempel antalet sekunder, minuter, timmar, dagar, veckor eller månader. Du kan också ange start datum och-tid samt tidszon. Varje gång en utlösare utlöses skapar Logic Apps och kör en ny arbets flödes instans för din Logic app.
 
 Här följer skillnaderna mellan dessa utlösare:
 
 * **Upprepning**: kör arbets flödet med jämna tidsintervall baserat på det angivna schemat. Om upprepningar saknas bearbetar upprepnings utlösaren missade upprepningar men startar om upprepningar med nästa schemalagda intervall. Du kan ange start datum och-tid samt tidszon. Om du väljer dag kan du ange timmar på dagen och minuterna i timmen, till exempel varje dag vid 2:30. Om du väljer "vecka" kan du också välja vecko dagar, till exempel onsdag och lördag. Mer information finns i [skapa, schemalägga och köra återkommande uppgifter och arbets flöden med upprepnings utlösaren](../connectors/connectors-native-recurrence.md).
 
-* **Glidande fönster**: kör arbets flödet med regelbundna tidsintervall som hanterar data i kontinuerliga segment. Om upprepningar missas går den glidande fönster utlösaren tillbaka och bearbetar de missade upprepningarna. Du kan ange start datum och tid, tidszon och varaktighet för att försena varje upprepning i arbets flödet. Den här utlösaren har inte alternativ för att ange dagar, veckor och månader, timmar på dagen, minuter i timmen och dagar i veckan. Mer information finns i [skapa, schemalägga och köra återkommande uppgifter och arbets flöden med den glidande fönster utlösaren](../connectors/connectors-native-sliding-window.md).
+* **Glidande fönster**: kör arbets flödet med regelbundna tidsintervall som hanterar data i kontinuerliga segment. Om upprepningar missas går den glidande fönster utlösaren tillbaka och bearbetar de missade upprepningarna. Du kan ange start datum och tid, tidszon och varaktighet för att försena varje upprepning i arbets flödet. Den här utlösaren stöder inte avancerade scheman, till exempel vissa timmar på dagen, minuter i timmen och dagar i veckan. Mer information finns i [skapa, schemalägga och köra återkommande uppgifter och arbets flöden med den glidande fönster utlösaren](../connectors/connectors-native-sliding-window.md).
 
 <a name="schedule-actions"></a>
 

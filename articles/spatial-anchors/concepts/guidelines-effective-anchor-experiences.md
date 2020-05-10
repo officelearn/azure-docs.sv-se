@@ -8,20 +8,24 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9a24da8d76f401f534eccf33312fbf0c2bee9f5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1877934cb604d140d7700c2e537d6dc187b63cc4
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74270523"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005532"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Skapa en effektiv fäst punkts upplevelse med hjälp av Azure spatiala ankare
 
-Den här artikeln innehåller rikt linjer och överväganden som hjälper dig att effektivt skapa och hitta ankare med hjälp av spatiala ankare.
+Den här artikeln innehåller rikt linjer och överväganden för att hjälpa dig att skapa och hitta ankare på ett effektivt sätt med hjälp av Azure spatiala ankare.
+
+## <a name="anchor-improvement-over-time"></a>Anchor-förbättringar över tid
+
+Med Azures spatiala ankare försöker vi förbättra kvaliteten på kommande Sök åtgärder varje gång du hittar ankare. Vi gör detta med hjälp av de miljö data som samlas in för att utöka den visuella informationen på de ankare vi söker. Den här processen körs under huven och är en offline-optimering som körs av tjänsten Azure spatiala ankare för att optimera för din miljö. De ytterligare data som samlas in under varje åtgärd skapar en bättre förståelse för miljön. Detta förbättrar kvaliteten och gör att du bättre kan hitta ankare genom miljö förändringar, tids överföring och för användare som tittar på ankare från olika vinklar och perspektiv.
 
 ## <a name="good-anchors"></a>Lämpliga ankare
 
-Med avstånds ankare kan du skapa bra ankare. Det är viktigt att investera tid i att antingen utbilda eller guida användare i ditt användar gränssnitt (UX) för att skapa bra ankare. Genom att investera i skapa välgrundade fäst punkter kan du hjälpa slutanvändare att hitta ankare på ett tillförlitligt sätt:
+Medan Azures avstånds ankare försöker förbättra kvaliteten på ankare över tid, är det också viktigt att investera tid i att antingen utbilda eller guida användare i ditt användar gränssnitt (UX) för att skapa bra ankare. Genom att investera i skapa välgrundade fäst punkter kan du hjälpa slutanvändare att hitta ankare på ett tillförlitligt sätt:
 
 - Mellan olika enheter.
 - Vid olika tidpunkter.
@@ -100,7 +104,7 @@ Visuella spårnings system förlitar sig på de visuella funktionerna i en milj�
 
 Följ de allmänna rikt linjerna i det här avsnittet för att bygga ett UX som uppmuntrar en användbar genomsökning av miljön.
 
-Först, om användaren inte hittar någon fäst punkt inom några sekunder, bör appen uppmuntra användarna att flytta enheten för att fånga fler perspektiv. Appen kan också uppmuntra användarna att flytta sig själva runt miljön för att söka efter fäst punkten från fler perspektiv. De mer funktions perspektiv som enheten ser, desto bättre.
+Först, om användaren inte hittar någon fäst punkt inom några sekunder, bör appen uppmuntra användarna att flytta enheten för att fånga fler perspektiv. Appen kan också uppmuntra användarna att flytta sig själva runt miljön för att söka efter fäst punkten från fler perspektiv. Den mer funktionalitet som enheten ser är bättre, eftersom den ökar sannolikheten för att ett ankare finns och den samlar även in mer miljö data som ska användas för att förbättra fäst punktens kvalitet.
 
 För mål scenarier ber du användaren att flytta runt målet för att visa den från olika perspektiv. Med andra ord ber du användaren att avbilda målet från nya perspektiv tills ankaret är placerat.
 

@@ -7,15 +7,15 @@ author: njray
 manager: edprice
 editor: edprice
 ms.author: larryme
-ms.date: 04/02/2019
+ms.date: 05/09/2020
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: cf02ff7078fe5d33f220c0abc2d941d483e5c125
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07234e5f456a5467adde4d899341a6124d128567
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76293512"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006127"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Stordator arbets belastningar som stöds i Azure
 
@@ -25,20 +25,24 @@ Mer hjälp med stordator-emulering och-tjänster finns i [Azures stordator migra
 
 ## <a name="migrate-mainframe-closer-to-azure"></a>Migrera stordatorer närmare Azure
 
+- [ASNA Visual RPG for .net](https://asna.com/us/products/visual-rpg) compiler for the .NET Framework via Visual Studio-plugin-programmet.
+- [ASYSCO AMT COBOL](https://www.asysco.com/cobol/) Development Environment (UNISYS, IBM-stordatorer och andra COBOL-dialekter som Micro Focus COBOL).
+- [ASYSCO AMT go](https://www.asysco.com/amt-go/) Cloud-baserad distributions arkitektur för avancerade arbets belastningar.
+- [ASYSCO AMT-transformering](https://www.asysco.com/amt-transform/) för konvertering av data, kod, skript, säkerhet, gränssnitt och andra stordator artefakter.
+- Verktyg för utveckling och integrering av [Fujitsu-NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) .
 - [Micro Focus](https://www.microfocus.com/products/visual-cobol/) -verktyg för utveckling och integrering av visuella COBOL.
 - [Micro Focus pl/i](https://www.microfocus.com/campaign/download/pli-modernization/) en äldre kompilator för .NET-plattformen, stöd för stordatorer, data typer och beteenden.
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) stordator integrations plattform.
-- Verktyg för utveckling och integrering av [Fujitsu-NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) .
+- [Moderna system CTU-verktyg (COBOL-to-Universal)](https://modernsystems.com/automatic-cobol-to-java-conversion/) utveckling och integrering.
 - [NTT Data Enterprise COBOL](https://us.nttdata.com/en/digital/application-development-and-modernization) Development and integration tools.
 - [NTT öppna pl/i Legacy-](https://us.nttdata.com/en/digital/application-development-and-modernization) kompilator för .NET-plattformen, stöd för stordator pl/i syntax, data typer och beteende.
 - [RAINCODE COBOL compiler](https://www.raincode.com/products/cobol/) -verktyg för utveckling och integrering.
 - [RAINCODE pl/i-kompilatorn](https://www.raincode.com/products/pli/) för .NET-plattformen stöder stordator-/i-syntax, data typer och beteende.
 - [RAINCODE ASM370-kompilator](https://www.raincode.com/technical-landscape/asm370/) för stordator assembler 370 och HLASM syntax.
-- [ASNA Visual RPG for .net](https://asna.com/us/products/visual-rpg) compiler for the .NET Framework via Visual Studio-plugin-programmet.
-- [Moderna system CTU-verktyg (COBOL-to-Universal)](https://modernsystems.com/automatic-cobol-to-java-conversion/) utveckling och integrering.
 
 ## <a name="deploy-an-emulation-environment-for-online-and-batch-processing"></a>Distribuera en emulation-miljö för online-och batchbearbetning
 
+- [ASYSCO AMT go](https://www.asysco.com/amt-go/) Deployment Architecture stöder CICS, IMS, Tip, HVTIP och andra vanliga stordator miljöer.
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) stordator integrations plattform.
 - [NTT Data stordator](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) som är värd för den ursprungliga transaktions bearbetnings miljön i utvecklings miljön.
 - Funktions växlaren BPE ( [NTT Data Batch Processing Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) ), inklusive JCL transaktions funktioner.
@@ -47,10 +51,11 @@ Mer hjälp med stordator-emulering och-tjänster finns i [Azures stordator migra
 
 ## <a name="code-conversion"></a>Kod konvertering
 
-- [Asysco](https://www.asysco.com/azure-cloud/) för käll kods konvertering.
-- [LzLabs Software Defined stordator](https://www.lzlabs.com/) hanterad program varu behållare för migrering av stordator program till Linux-datorer eller privata, offentliga och hybrida moln miljöer.
+- [Asysco](https://www.asysco.com/azure-cloud/) system konverterings teknik som täcker källkod, data, batch, schemaläggning, TP-övervakare, gränssnitt, säkerhet, hantering med mera.
+- [ASYSCO AMT-tjänster](https://www.asysco.com/migration-services/) från slut punkt till slut punkt för migreringsjobb, inklusive inventering och analys, design utbildning, höga repetitioner, Go-Live och support efter migrering.
 - [Blu-ålders](https://www.bluage.com/) verktyg för att digitalisera äldre affärs program och databaser.
 - [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) Services för att konvertera stordator Cobol, CICS och VSAM till Java.
+- [LzLabs Software Defined stordator](https://www.lzlabs.com/) hanterad program varu behållare för migrering av stordator program till Linux-datorer eller privata, offentliga och hybrida moln miljöer.
 
 ## <a name="modernization-services"></a>Modernisering-tjänster
 

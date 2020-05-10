@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4587909ad6fca6cdf21d54d11d89f797bbb29833
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 380b61df8a774e69454577d201cebf1c495b4f74
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335837"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004751"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
@@ -71,12 +71,12 @@ För att utföra stegen som beskrivs i den här artikeln måste du ha:
     > Domän namn för jokertecken, `*.contoso.com` t. ex. stöds i alla nivåer förutom förbruknings nivån.
 
     > [!TIP]
-    > Vi rekommenderar att du använder Azure Key Vault för att hantera certifikat och ställa in dem för automatisk rotation.
+    > Vi rekommenderar att du använder [Azure Key Vault för att hantera certifikat](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) och ställa in dem för att förnya.
     > Om du använder Azure Key Vault för att hantera det anpassade domän-TLS/SSL-certifikatet kontrollerar du att certifikatet har infogats i Key Vault [som ett _certifikat_](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate), inte en _hemlighet_.
     >
     > Om du vill hämta ett TLS/SSL-certifikat måste API Management ha behörigheterna lista och hämta hemligheter på den Azure Key Vault som innehåller certifikatet. När du använder Azure Portal alla de nödvändiga konfigurations stegen att utföras automatiskt. När du använder kommando rads verktyg eller hanterings-API måste dessa behörigheter beviljas manuellt. Detta görs i två steg. Använd först sidan hanterade identiteter på din API Management-instans för att se till att den hanterade identiteten är aktive rad och anteckna det huvud-ID som visas på sidan. Andra, ge behörighets listan och hämta hemligheter till detta huvud namns-ID på den Azure Key Vault som innehåller certifikatet.
     >
-    > Om certifikatet är inställt på automatisk rotation, kommer API Management automatiskt att hämta den senaste versionen utan drift avbrott till tjänsten (om din API Management-nivå har SLA-i. e. i alla nivåer förutom utvecklings nivån).
+    > Om certifikatet är inställt på automatisk förnyelse, kommer API Management automatiskt att hämta den senaste versionen utan drift avbrott till tjänsten (om din API Management-nivå har SLA-i. e. i alla nivåer förutom utvecklings nivån).
 
 1. Klicka på Använd.
 

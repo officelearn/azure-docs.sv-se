@@ -10,17 +10,18 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d0ada9c1e6b45b1be17b15b67f67fc64fc266203
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1d93bcd84fd9460e658b221089a4b24d46b0429
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430882"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005819"
 ---
 # <a name="common-parameters-and-headers"></a>Vanliga parametrar och sidhuvuden
 
 Följande information är gemensam för alla åtgärder som du kan göra relaterade till Key Vault resurser:
 
+- HTTP- `Host` huvudet måste alltid finnas och måste ange valvets värdnamn. Exempel: `Host: contoso.vault.azure.net`. Observera att de flesta klient tekniker fyller `Host` i sidhuvudet från URI: n. Till exempel `GET https://contoso.vault.azure.net/secrets/mysecret{...}` ställer in `Host` as. `contoso.vault.azure.net` Det innebär att om du kommer åt Key Vault att använda RAW IP `GET https://10.0.0.23/secrets/mysecret{...}`-adress som är det `Host` automatiska värdet för rubriken fel och du måste manuellt se till att `Host` sidhuvudet innehåller valv-värdnamnet.
 - Ersätt `{api-version}` med API-versionen i URI: n.
 - Ersätt `{subscription-id}` med prenumerations-ID: t i URI: n
 - Ersätt `{resource-group-name}` med resurs gruppen. Mer information finns i använda resurs grupper för att hantera dina Azure-resurser.

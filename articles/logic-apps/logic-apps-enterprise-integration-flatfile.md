@@ -1,98 +1,99 @@
 ---
 title: Koda eller avkoda flata filer
-description: Koda eller avkoda flata filer för företags integrering med Azure Logic Apps och Enterprise-integrationspaket
+description: Koda eller avkoda flata filer för företags integrering i Azure Logic Apps med hjälp av Enterprise-integrationspaket
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 07/08/2016
-ms.openlocfilehash: 2d6182ba01507c2fb361628e01bb52e1ea821f44
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/09/2020
+ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77152660"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005266"
 ---
-# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Koda eller avkoda flata filer med Azure Logic Apps och Enterprise-integrationspaket
+# <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Koda och avkoda flata filer i Azure Logic Apps med hjälp av Enterprise-integrationspaket
 
-Du kanske vill koda XML-innehåll innan du skickar det till en affärs partner i ett B2B-scenario (Business-to-Business). I en Logic app kan du göra detta med hjälp av den flata fil kodnings anslutningen. Den Logic-app som du skapar kan hämta sitt XML-innehåll från en mängd olika källor, inklusive från en HTTP-begäran, från ett annat program eller till och med från någon av de många [kopplingarna](../connectors/apis-list.md). Mer information om Logic Apps finns i dokumentationen om [Logic Apps](logic-apps-overview.md "Läs mer om Logic Apps").  
+Innan du skickar XML-innehåll till en affärs partner i ett affärs-till-företag-scenario (B2B), kanske du vill koda innehållet först. Genom att skapa en Logic-app kan du koda och avkoda flata filer med hjälp av den **flata fil** anslutningen. Din Logi Kap par kan hämta det här XML-innehållet från olika källor, till exempel utlösare för begäran, en annan app eller andra [anslutningar som stöds av Azure Logic Apps](../connectors/apis-list.md). Mer information finns i [Vad är Azure Logic Apps](logic-apps-overview.md)?
 
-## <a name="create-the-flat-file-encoding-connector"></a>Skapa den flata filen kodnings koppling
-Följ dessa steg om du vill lägga till en flat fil kodnings koppling i din Logic app.
+## <a name="prerequisites"></a>Krav
 
-1. Skapa en Logic-app och [länka den till ditt integrations konto](logic-apps-enterprise-integration-accounts.md "Lär dig att länka ett integrations konto till en Logic app"). Det här kontot innehåller det schema som du ska använda för att koda XML-data.  
+* En Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-1. I Logic Apps designer lägger du till listan **när en HTTP-begäran tas emot** som utlösare för din Logic app.
+* Den Logic app där du vill använda den **flata fil** anslutningen och en utlösare som startar din Logic app-arbetsflöde. Den **flata fil** kopplingen tillhandahåller endast åtgärder, inte utlösare. Du kan antingen använda utlösaren eller en annan åtgärd för att mata in XML-innehållet i din Logic app för kodning eller avkodning. Om du inte har använt Logic Apps igen går du igenom [snabb start: skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Lägg till den flata fil kodnings åtgärden enligt följande:
+* Ett [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som är associerat med din Azure-prenumeration och [länkat till Logic-appen](logic-apps-enterprise-integration-accounts.md#link-account) där du planerar att använda den **flata fil** anslutningen. Både din Logic app och ditt integrations konto måste finnas på samma plats eller i Azure-regionen.
 
-   a. Välj **plus** tecknet.
+* Ett flat- [filschema](logic-apps-enterprise-integration-schemas.md) som du har laddat upp till ditt integrations konto för kodning eller avkodning av XML-innehållet
 
-   b. Välj länken **Lägg till en åtgärd** (visas när du har valt plus tecknet).
+* Minst två [handels partner](logic-apps-enterprise-integration-partners.md) som du redan har definierat i ditt integrations konto
 
-   c. I rutan Sök anger du *Flat* för att filtrera alla åtgärder till den som du vill använda.
+## <a name="add-flat-file-encode-action"></a>Lägg till åtgärd för Flat File-kodning
 
-   d. Välj alternativet **flat fil kodning** i listan.   
+1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-      ![Skärm bild av alternativ för flat fil kodning](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
+1. Under utlösare eller åtgärd i din Logic app väljer du **nytt steg** > **Lägg till en åtgärd**. I det här exemplet används utlösaren för förfrågningar, som namnges **när en HTTP-begäran tas emot**och hanterar inkommande förfrågningar från utanför Logic-appen.
 
-1. I dialog rutan **Flat File encoding** väljer du text rutan **innehåll** .  
+   > [!TIP]
+   > Det är valfritt att ange ett JSON-schema. Om du har ett exempel på en nytto Last från den inkommande begäran väljer du **Använd exempel nytto last för att skapa schema**, anger exempel nytto last och väljer sedan **slutfört**. Schemat visas i rutan **JSON-schema för begär ande text** .
 
-   ![Skärm bild av text rutan innehåll](media/logic-apps-enterprise-integration-flatfile/flatfile-3.png)  
+1. Under **Välj en åtgärd**anger `flat file`du. I listan åtgärder väljer du den här åtgärden: **flat fil kodning**
 
-1. Välj bröd text tag gen som det innehåll som du vill koda. Bröd text tag gen fyller i innehålls fältet.     
+   ![Välj åtgärden "flat fil encoding"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-encoding.png)
 
-   ![Skärm bild av body-tagg](media/logic-apps-enterprise-integration-flatfile/flatfile-4.png)  
+1. Klicka i **innehålls** rutan så att listan med dynamiskt innehåll visas. I listan i avsnittet **när en HTTP-begäran tas emot** väljer du egenskapen **brödtext** som innehåller den begär ande texten från utlösaren och innehållet som ska kodas.
 
-1. Markera List rutan **schema namn** och välj det schema som du vill använda för att koda det inmatade innehållet.    
+   ![Välj innehåll som ska kodas från listan med dynamiskt innehåll](./media/logic-apps-enterprise-integration-flatfile/select-content-to-encode.png)
 
-   ![Skärm bild av list rutan schema namn](media/logic-apps-enterprise-integration-flatfile/flatfile-5.png)  
+   > [!TIP]
+   > Om du inte ser egenskapen **brödtext** i listan med dynamiskt innehåll, väljer du **Läs mer** bredvid avsnittet **när en http-begäran tas emot** .
+   > Du kan också ange det innehåll som ska avkodas direkt i **innehålls** rutan.
 
-1. Spara ditt arbete.
+1. I listan **schema namn** väljer du det schema som är i det länkade integrations kontot som ska användas för kodning, till exempel:
 
-   ![Skärm bild av ikonen Spara](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)  
+   ![Välj schema som ska användas för kodning](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-encoding.png)
 
-Nu är du färdig med konfigurationen av den flata fil kodnings anslutningen. I ett verkligt världs program kanske du vill lagra kodade data i ett affärs program, till exempel Salesforce. Eller så kan du skicka dessa kodade data till en handels partner. Du kan enkelt lägga till en åtgärd för att skicka utdata från encoding-åtgärden till Salesforce, eller till din handels partner genom att använda någon av de andra anslutningarna som tillhandahålls.
+   > [!NOTE]
+   > Om inget schema visas i listan innehåller ditt integrations konto inte några schemafiler att använda för kodning. Ladda upp det schema som du vill använda för ditt integrations konto.
 
-Nu kan du testa din anslutning genom att göra en begäran till HTTP-slutpunkten och inkludera XML-innehållet i bröd texten i begäran.  
+1. Spara din logikapp. Testa din anslutning genom att göra en begäran till HTTPS-slutpunkten, som visas i den begär ande egenskapen **http post URL** och inkludera det XML-innehåll som du vill koda i begär ande texten.
 
-## <a name="create-the-flat-file-decoding-connector"></a>Skapa platt fil avkodnings koppling
+Nu är du klar med att ställa in din Flat File encoding-åtgärd. I en verklig värld kanske du vill lagra kodade data i en affärsrelaterad app (LOB), till exempel Salesforce. Du kan också skicka kodade data till en handels partner. Om du vill skicka utdata från encoding-åtgärden till Salesforce eller till din handels partner använder du de andra [anslutningarna som är tillgängliga i Azure Logic Apps](../connectors/apis-list.md).
 
-> [!NOTE]
-> För att slutföra de här stegen måste du ha en schema fil som redan har laddats upp till ditt integrations konto.
+## <a name="add-flat-file-decode-action"></a>Lägg till Flat File-avkoda-åtgärd
 
-1. I Logic Apps designer lägger du till listan **när en HTTP-begäran tas emot** som utlösare för din Logic app.
+1. I [Azure Portal](https://portal.azure.com)öppnar du din Logic app i Logic Apps designer.
 
-1. Lägg till den flata fil avkodnings åtgärden enligt följande:
+1. Under utlösare eller åtgärd i din Logic app väljer du **nytt steg** > **Lägg till en åtgärd**. I det här exemplet används utlösaren för förfrågningar, som namnges **när en HTTP-begäran tas emot**och hanterar inkommande förfrågningar från utanför Logic-appen.
 
-   a. Välj **plus** tecknet.
+   > [!TIP]
+   > Det är valfritt att ange ett JSON-schema. Om du har ett exempel på en nytto Last från den inkommande begäran väljer du **Använd exempel nytto last för att skapa schema**, anger exempel nytto last och väljer sedan **slutfört**. Schemat visas i rutan **JSON-schema för begär ande text** .
 
-   b. Välj länken **Lägg till en åtgärd** (visas när du har valt plus tecknet).
+1. Under **Välj en åtgärd**anger `flat file`du. I listan åtgärder väljer du den här åtgärden: **flat fil avkodning**
 
-   c. I rutan Sök anger du *Flat* för att filtrera alla åtgärder till den som du vill använda.
+   ![Välj åtgärden "flat fil avkodning"](./media/logic-apps-enterprise-integration-flatfile/select-flat-file-decoding.png)
 
-   d. Välj alternativet **flat fil avkodning** i listan.   
+1. Klicka i **innehålls** rutan så att listan med dynamiskt innehåll visas. I listan i avsnittet **när en HTTP-begäran tas emot** väljer du egenskapen **brödtext** som innehåller den begär ande texten från utlösaren och innehållet som ska avkodas.
 
-      ![Skärm bild av alternativ för flat fil avkodning](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
+   ![Välj innehåll att avkoda från listan med dynamiskt innehåll](./media/logic-apps-enterprise-integration-flatfile/select-content-to-decode.png)
 
-1. Välj **innehålls** kontrollen. Detta skapar en lista med innehållet från tidigare steg som du kan använda som innehåll för att avkoda. Observera att *bröd texten* från den inkommande HTTP-begäran är tillgänglig att användas som innehåll att avkoda. Du kan också ange innehållet att avkoda direkt i **innehålls** kontrollen.     
+   > [!TIP]
+   > Om du inte ser egenskapen **brödtext** i listan med dynamiskt innehåll, väljer du **Läs mer** bredvid avsnittet **när en http-begäran tas emot** . Du kan också ange det innehåll som ska avkodas direkt i **innehålls** rutan.
 
-1. Välj *Body* -taggen. Observera att bröd text tag gen nu finns i **innehålls** kontrollen.
+1. I listan **schema namn** väljer du det schema som är i det länkade integrations kontot som ska användas för avkodning, till exempel:
 
-1. Välj namnet på det schema som du vill använda för att avkoda innehållet. Följande skärm bild visar att *OrderFile* är det valda schema namnet. Schema namnet hade laddats upp till integrations kontot tidigare.
+   ![Välj schema som ska användas för avkodning](./media/logic-apps-enterprise-integration-flatfile/select-schema-for-decoding.png)
 
-   ![Skärm bild av dialog rutan flat fil avkodning](media/logic-apps-enterprise-integration-flatfile/flatfile-decode-1.png) 
+   > [!NOTE]
+   > Om inget schema visas i listan innehåller ditt integrations konto inte några schemafiler att använda för avkodning. Ladda upp det schema som du vill använda för ditt integrations konto.
 
-1. Spara ditt arbete.  
+1. Spara din logikapp. Testa din anslutning genom att göra en begäran till HTTPS-slutpunkten, som visas i den begär ande egenskapen **http post URL** och inkludera det XML-innehåll som du vill avkoda i begär ande texten.
 
-   ![Skärm bild av ikonen Spara](media/logic-apps-enterprise-integration-flatfile/flatfile-6.png)    
-
-Nu är du färdig med konfigurationen av den flata fil avkodnings kopplingen. I ett verkligt världs program kanske du vill lagra de avkodade data i ett branschspecifika program, till exempel Salesforce. Du kan enkelt lägga till en åtgärd för att skicka utdata från avkodnings åtgärden till Salesforce.
-
-Nu kan du testa din anslutning genom att göra en begäran till HTTP-slutpunkten och inkludera det XML-innehåll som du vill avkoda i bröd texten i begäran.  
+Du är nu klar med att ställa in din flata fil avkodnings åtgärd. I en verklig värld kan du vilja lagra de avkodade data som finns i en affärsrelaterad app (LOB), till exempel Salesforce. Du kan också skicka de avkodade data till en handels partner. Om du vill skicka utdata från avkodnings åtgärden till Salesforce eller till din handels partner använder du andra [anslutningar som är tillgängliga i Azure Logic Apps](../connectors/apis-list.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Läs mer om Enterprise-integrationspaket](logic-apps-enterprise-integration-overview.md "Läs mer om Enterprise-integrationspaket").  
 
+* Läs mer om [Enterprise-integrationspaket](logic-apps-enterprise-integration-overview.md)

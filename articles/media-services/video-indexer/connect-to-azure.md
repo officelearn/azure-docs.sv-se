@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: juliako
-ms.openlocfilehash: 2093132abaa7aed06113b1856c85ac54fd7ae60d
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 405533aad8247350d45cc53009abe6b58a511264
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995714"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005935"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Skapa ett Video Indexer-konto som är anslutet till Azure
 
@@ -23,7 +23,7 @@ När du skapar ett Video Indexer konto kan du välja ett kostnads fritt utvärde
 
 Den här artikeln visar hur du skapar ett Video Indexer-konto som är länkat till en Azure-prenumeration och ett Azure Media Services-konto. Avsnittet innehåller steg för att ansluta till Azure med hjälp av det automatiska (standard) flödet. Det visar också hur du ansluter till Azure manuellt (avancerat).
 
-Om du flyttar från en *utvärdering* till *betald* video Indexer konto kan du välja att kopiera alla videor och modell anpassningar till det nya kontot, enligt beskrivningen i [Importera ditt innehåll från utvärderings kontot](#import-your-content-from-the-trial-account).
+Om du flyttar från en *utvärdering* till *betald* video Indexer konto kan du välja att kopiera alla videor och modell anpassningar till det nya kontot, enligt beskrivningen i avsnittet [Importera ditt innehåll från utvärderings kontot](#import-your-content-from-the-trial-account) .
 
 ## <a name="prerequisites"></a>Krav
 

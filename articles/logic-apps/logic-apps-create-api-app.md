@@ -3,15 +3,15 @@ title: 'Skapa webb-API: er & REST API: er för Azure Logic Apps'
 description: 'Skapa webb-API: er & REST API: er för att anropa dina API: er, tjänster eller system för system integrering i Azure Logic Apps'
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, jehollan, logicappspm
-ms.topic: article
+ms.reviewer: jonfan, logicappspm
+ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: bb6c99ea12e5b53631d42a04b36b7bfef2337e42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270542"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005251"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Skapa anpassade API: er som du kan anropa från Azure Logic Apps
 
@@ -136,11 +136,13 @@ För det här mönstret ställer du in två slut punkter på din styrenhet `subs
 
 ![Åtgärds mönster för webhook](./media/logic-apps-create-api-app/custom-api-webhook-action-pattern.png)
 
-> [!NOTE]
-> Logic App Designer stöder för närvarande inte identifiering av webhook-slutpunkter via Swagger. Så för det här mönstret måste du lägga till en [ **webhook** -åtgärd](../connectors/connectors-native-webhook.md) och ange URL, rubriker och brödtext för din begäran. Se även [arbets flödes åtgärder och utlösare](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Om du vill skicka in återanrops-URL: `@listCallbackUrl()` en kan du använda arbets flödes funktionen i något av de föregående fälten om det behövs.
+Logic App Designer stöder för närvarande inte identifiering av webhook-slutpunkter via Swagger. Så för det här mönstret måste du lägga till en [ **webhook** -åtgärd](../connectors/connectors-native-webhook.md) och ange URL, rubriker och brödtext för din begäran. Se även [arbets flödes åtgärder och utlösare](logic-apps-workflow-actions-triggers.md#apiconnection-webhook-action). Om du vill se ett exempel på ett webhook-mönster kan du läsa detta [exempel på webhook-utlösare](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)
 
-> [!TIP]
-> Om du vill se ett exempel på ett webhook-mönster kan du läsa detta [exempel på webhook-utlösare](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs)
+Här följer några andra tips och anmärkningar:
+
+* Om du vill skicka in återanrops-URL: `@listCallbackUrl()` en kan du använda arbets flödes funktionen i något av de föregående fälten om det behövs.
+
+* Om du äger både Logic app och den prenumererade tjänsten behöver du inte anropa `unsubscribe` slut punkten efter att återanrops-URL: en har anropats. Annars måste Logic Apps runtime anropa `unsubscribe` slut punkten för att signalera att inga fler anrop förväntas och för att göra det möjligt att rensa resursen på Server sidan.
 
 <a name="triggers"></a>
 
@@ -171,7 +173,7 @@ Om du till exempel regelbundet vill kontrol lera din tjänst för nya filer kan 
 
 | Förfrågan ingår `triggerState`? | API-svar | 
 | -------------------------------- | -------------| 
-| Nej | Returnera en HTTP `202 ACCEPTED` -status plus `location` ett sidhuvud `triggerState` med angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
+| Inga | Returnera en HTTP `202 ACCEPTED` -status plus `location` ett sidhuvud `triggerState` med angivet till aktuell tid och `retry-after` intervallet till 15 sekunder. | 
 | Ja | Kontrol lera om det finns filer som har `DateTime` lagts `triggerState`till efter for i-tjänsten. | 
 ||| 
 
@@ -198,13 +200,15 @@ Webhook-utlösare fungerar ungefär som [webhook-åtgärder](#webhook-actions) s
 
 ![Utlösnings mönster för webhook](./media/logic-apps-create-api-app/custom-api-webhook-trigger-pattern.png)
 
-> [!NOTE]
-> Logic App Designer stöder för närvarande inte identifiering av webhook-slutpunkter via Swagger. Så för det här mönstret måste du lägga till en [ **webhook** -utlösare](../connectors/connectors-native-webhook.md) och ange URL, rubriker och brödtext för din begäran. Se även [HTTPWebhook-utlösare](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Om du vill skicka in återanrops-URL: `@listCallbackUrl()` en kan du använda arbets flödes funktionen i något av de föregående fälten om det behövs.
->
-> För att förhindra bearbetning av samma data flera gånger bör utlösaren rensa data som redan har lästs och skickats till Logic app.
+Logic App Designer stöder för närvarande inte identifiering av webhook-slutpunkter via Swagger. Så för det här mönstret måste du lägga till en [ **webhook** -utlösare](../connectors/connectors-native-webhook.md) och ange URL, rubriker och brödtext för din begäran. Se även [HTTPWebhook-utlösare](logic-apps-workflow-actions-triggers.md#httpwebhook-trigger). Om du vill se ett exempel på ett webhook-mönster kan du läsa detta [exempel på en utlösare i GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
 
-> [!TIP]
-> Om du vill se ett exempel på ett webhook-mönster kan du läsa detta [exempel på en utlösare i GitHub](https://github.com/logicappsio/LogicAppTriggersExample/blob/master/LogicAppTriggers/Controllers/WebhookTriggerController.cs).
+Här följer några andra tips och anmärkningar:
+
+* Om du vill skicka in återanrops-URL: `@listCallbackUrl()` en kan du använda arbets flödes funktionen i något av de föregående fälten om det behövs.
+
+* För att förhindra bearbetning av samma data flera gånger bör utlösaren rensa data som redan har lästs och skickats till Logic app.
+
+* Om du äger både Logic app och den prenumererade tjänsten behöver du inte anropa `unsubscribe` slut punkten efter att återanrops-URL: en har anropats. Annars måste Logic Apps runtime anropa `unsubscribe` slut punkten för att signalera att inga fler anrop förväntas och för att göra det möjligt att rensa resursen på Server sidan.
 
 ## <a name="improve-security-for-calls-to-your-apis-from-logic-apps"></a>Förbättra säkerheten för anrop till dina API: er från Logic Apps
 

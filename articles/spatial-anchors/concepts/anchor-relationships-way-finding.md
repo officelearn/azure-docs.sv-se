@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f2fd8f4b7d03be8822c3ec12e2be589054942ce3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13c85dff40e266287d893d9e45b32a66a33f027e
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74270607"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006024"
 ---
 # <a name="anchor-relationships-and-way-finding-in-azure-spatial-anchors"></a>Fäst relationer och hur du hittar dem i Azure spatiala ankare
 
@@ -73,7 +73,7 @@ Du kan fortsätta med den här proceduren för fler ankare och fler sessioner ö
 
 ### <a name="verify-anchor-connections"></a>Verifiera fäst anslutningar
 
-Appen kan verifiera att två ankare är anslutna genom att utfärda en fråga för närliggande ankare. När frågans resultat innehåller mål ankaret, verifieras ankar anslutningen. Om ankarena inte är anslutna kan appen försöka ansluta dem igen.
+Appen kan verifiera att två ankare är anslutna genom att utfärda en fråga för närliggande ankare, vilket du gör genom att `NearAnchorCriteria` ange på en. `CloudSpatialAnchorWatcher` När frågans resultat innehåller mål ankaret, verifieras ankar anslutningen. Om ankarena inte är anslutna kan appen försöka ansluta dem igen.
 
 Här följer några orsaker till varför ankare kanske inte kan ansluta:
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88e58fbf6acc15b71fd135184cf8806a793140f3
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 7ce011a34aed39429884dc03285a0848776ac008
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983218"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006072"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
 
@@ -89,7 +89,7 @@ Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pi
 - Öppna Azure Portal
 - Hitta STG1
 - Navigera till CNT1
-- Se till att MSI (Hanterad tjänstidentitet) för WS1 har tilldelats rollen **Azure blob data Contributor** på CNT1
+- Se till att MSI (Hanterad tjänstidentitet) för WS1 har tilldelats rollen **Storage BLOB data Contributor** på CNT1
   - Om du inte ser den tilldelade tilldelar du den.
   - MSI har samma namn som arbets ytan. I det här fallet är &quot;det WS1.&quot;
 

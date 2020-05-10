@@ -8,18 +8,21 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f0537af684632a08a39e3e681900d62238365073
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc1f1b5f7015efc604d461a5e292184398cba44f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74280973"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005494"
 ---
 # <a name="how-to-map-ai-enriched-fields-to-a-searchable-index"></a>Så här mappar du AI-berikade fält till ett sökbart index
 
 I den här artikeln får du lära dig hur du mappar informativa inmatnings fält till utdatakolumner i ett sökbart index. När du har [definierat en färdigheter](cognitive-search-defining-skillset.md)måste du mappa utmatnings fälten för alla färdigheter som direkt bidrar med värden till ett angivet fält i ditt sökindex. 
 
 Mappningar av utdatakolumner krävs för att flytta innehåll från berikade dokument till indexet.  Det förrikade dokumentet är egentligen ett träd med information, även om det finns stöd för komplexa typer i indexet, ibland kanske du vill omvandla informationen från det berikade trädet till en mer enkel typ (till exempel en sträng mat ris). Med mappningar av utdata fält kan du utföra transformeringar av data former genom att förenkla informationen.
+
+> [!NOTE]
+> Vi har nyligen aktiverat funktionerna i mappnings funktioner för mappningar av utdatakolumner. Mer information om mappnings funktioner finns i [fält mappnings funktioner](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#field-mapping-functions)
 
 ## <a name="use-outputfieldmappings"></a>Använd outputFieldMappings
 Om du vill mappa fält `outputFieldMappings` lägger du till den i index definitions definitionen enligt nedan:
@@ -50,7 +53,10 @@ Bröd texten i begäran är strukturerad enligt följande:
     "outputFieldMappings": [
         {
             "sourceFieldName": "/document/content/organizations/*/description",
-            "targetFieldName": "descriptions"
+            "targetFieldName": "descriptions",
+            "mappingFunction": {
+                "name": "base64Decode"
+            }
         },
         {
             "sourceFieldName": "/document/content/organizations",

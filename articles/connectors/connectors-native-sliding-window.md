@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
-ms.date: 05/25/2019
-ms.openlocfilehash: ab4bf802772c95d8c48a8cdba48def05e8a2761b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 03/25/2020
+ms.openlocfilehash: 3ec71a1ed8d24eb637afbb73b5949b69a1e3c041
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74786919"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004625"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>Schemalägg och kör aktiviteter för sammanhängande data med hjälp av den glidande fönster utlösaren i Azure Logic Apps
 
@@ -19,9 +19,9 @@ För att regelbundet köra aktiviteter, processer eller jobb som måste hantera 
 
 Här följer några mönster som denna utlösare stöder:
 
-* Kör omedelbart och *Upprepa vartannat antal* sekunder, minuter eller timmar.
+* Kör omedelbart och upprepa varje *n* antal sekunder, minuter, timmar, dagar, veckor eller månader.
 
-* Starta vid ett visst datum och klock slag, och kör och upprepa varje *n* sekunder, minuter eller timmar. Med den här utlösaren kan du ange en start tid tidigare, som kör alla tidigare upprepningar.
+* Starta vid ett visst datum och klock slag, kör och upprepa varje *n* sekunder, minuter, timmar, dagar, veckor eller månader. Med den här utlösaren kan du ange en start tid tidigare, som kör alla tidigare upprepningar.
 
 * Fördröj varje upprepning för en viss varaktighet innan du kör.
 
@@ -40,7 +40,7 @@ Skillnader mellan den här utlösaren och upprepnings utlösaren eller mer infor
 
 1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa en tom logikapp.
 
-1. När Logic Apps Designer visas anger du "glidande fönster" som filter i sökrutan. Välj den här utlösaren i listan utlösare som första steg i ditt Logic app-arbetsflöde: **glidande fönster**
+1. När Logic Apps Designer visas går du till rutan Sök och anger `sliding window` som filter. I listan utlösare väljer du utlösaren för **glidnings fönster** som första steg i ditt Logic app-arbetsflöde.
 
    ![Välj "glidande fönster"-utlösare](./media/connectors-native-sliding-window/add-sliding-window-trigger.png)
 
@@ -48,16 +48,15 @@ Skillnader mellan den här utlösaren och upprepnings utlösaren eller mer infor
 
    ![Ange intervall och frekvens](./media/connectors-native-sliding-window/sliding-window-trigger-details.png)
 
-   | Egenskap | Krävs | JSON-namn | Typ | Beskrivning |
+   | Egenskap | JSON-namn | Krävs | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|
-   | **Intervall** | Ja | interval | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Timme: 1 – 12000 timmar </br>-Minute: 1 – 72000 minuter </br>-Sekund: 1 – 9999999 sekunder<p>Om intervallet till exempel är 6 och frekvensen är "timme", är upprepningen var 6: e timme. |
-   | **Frekvens** | Ja | frequency | Sträng | Tidsenhet för upprepning: **sekund**, **minut**eller **timme** |
+   | **Intervall** | `interval` | Ja | Integer | Ett positivt heltal som beskriver hur ofta arbets flödet körs baserat på frekvensen. Här följer de lägsta och högsta intervallen: <p>– Månad: 1-16 månader <br>– Vecka: 1-71 veckor <br>– Dag: 1-500 dagar <br>– Timme: 1 – 12000 timmar <br>-Minute: 1 – 72000 minuter <br>-Sekund: 1 – 9999999 sekunder <p>Om intervallet till exempel är 6 och frekvensen är "månad", är upprepningen var 6: a månad. |
+   | **Frekvens** | `frequency` | Ja | Sträng | Tidsenhet för upprepning: **sekund**, **minut**, **timme**, **dag**, **vecka**eller **månad** |
    ||||||
 
    ![Avancerade alternativ för upprepning](./media/connectors-native-sliding-window/sliding-window-trigger-more-options-details.png)
 
-   Du kan visa fler upprepnings alternativ genom att öppna listan **Lägg till ny parameter** . 
-   Alla alternativ som du väljer visas i utlösaren efter val.
+   Du kan visa fler upprepnings alternativ genom att öppna listan **Lägg till ny parameter** . Alla alternativ som du väljer visas i utlösaren efter val.
 
    | Egenskap | Krävs | JSON-namn | Typ | Beskrivning |
    |----------|----------|-----------|------|-------------|

@@ -4,22 +4,22 @@ description: Läs om SQL-syntaxen och exempel för FROM-satsen för Azure Cosmos
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77587693"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005860"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>FROM-sats i Azure Cosmos DB
 
 From (`FROM <from_specification>`)-satsen är valfri, om inte källan filtreras eller projiceras senare i frågan. En fråga som `SELECT * FROM Families` räknar upp över hela `Families` behållaren. Du kan också använda den särskilda identifierande roten för behållaren i stället för att använda behållar namnet.
 
-FROM-satsen framtvingar följande regler per fråga:
+`FROM` Satsen tillämpar följande regler per fråga:
 
-* Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här `f` är aliaset för `Families`. SOM är ett valfritt nyckelord för att [aliasa](sql-query-aliasing.md) identifieraren.  
+* Containern kan vara ett alias, till exempel `SELECT f.id FROM Families AS f` eller bara `SELECT f.id FROM Families f`. Här `f` är aliaset för `Families`. SOM är ett valfritt nyckelord för att [aliasa](sql-query-working-with-json.md#aliasing) identifieraren.  
 
 * Det går inte att binda det ursprungliga käll namnet när det har alias. `SELECT Families.id FROM Families f` Är till exempel syntaktiskt som ogiltigt eftersom identifieraren `Families` har fått ett alias och det inte går att lösa dem längre.  
 
@@ -30,15 +30,15 @@ FROM-satsen framtvingar följande regler per fråga:
 ```sql  
 FROM <from_specification>  
   
-<from_specification> ::=   
+<from_specification> ::=
         <from_source> {[ JOIN <from_source>][,...n]}  
   
-<from_source> ::=   
+<from_source> ::=
           <container_expression> [[AS] input_alias]  
         | input_alias IN <container_expression>  
   
-<container_expression> ::=   
-        ROOT   
+<container_expression> ::=
+        ROOT
      | container_name  
      | input_alias  
      | <container_expression> '.' property_name  
@@ -51,9 +51,9 @@ FROM <from_specification>
   
   Anger en data källa, med eller utan ett alias. Om alias inte anges härleds det från `<container_expression>` med hjälp av följande regler:  
   
-  -  Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
+-  Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
   
-  -  Om uttrycket är `<container_expression>`, sedan Property_Name, kommer Property_Name att användas som ett alias. Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
+-  Om uttrycket är `<container_expression>`, sedan Property_Name, kommer Property_Name att användas som ett alias. Om uttrycket är ett container_name, kommer container_name att användas som ett alias.  
   
 - SOM`input_alias`  
   
@@ -99,9 +99,9 @@ Om ett behållar uttryck använder egenskaper eller mat ris element och det vär
   
 Ett behållar uttryck kan vara behållare-omfattning eller dokument omfattning:  
   
--   Ett uttryck är container-scopet, om den underliggande källan för behållar uttrycket är antingen ROOT `container_name`eller. Ett sådant uttryck representerar en uppsättning dokument som hämtats från behållaren direkt, och som inte är beroende av bearbetningen av andra behållar uttryck.  
+- Ett uttryck är container-scopet, om den underliggande källan för behållar uttrycket är antingen ROOT `container_name`eller. Ett sådant uttryck representerar en uppsättning dokument som hämtats från behållaren direkt, och som inte är beroende av bearbetningen av andra behållar uttryck.  
   
--   Ett uttryck är dokument-omfattning, om den underliggande källan för behållar uttrycket `input_alias` introduceras tidigare i frågan. Ett sådant uttryck representerar en uppsättning dokument som hämtas genom att utvärdera behållar uttrycket i omfånget för varje dokument som hör till uppsättningen som är associerad med den behållare som har alias.  Den resulterande uppsättningen är en union av uppsättningar som erhålls genom att utvärdera behållar uttrycket för varje dokument i den underliggande uppsättningen. 
+- Ett uttryck är dokument-omfattning, om den underliggande källan för behållar uttrycket `input_alias` introduceras tidigare i frågan. Ett sådant uttryck representerar en uppsättning dokument som hämtas genom att utvärdera behållar uttrycket i omfånget för varje dokument som hör till uppsättningen som är associerad med den behållare som har alias. Den resulterande uppsättningen är en union av uppsättningar som erhålls genom att utvärdera behållar uttrycket för varje dokument i den underliggande uppsättningen.
 
 ## <a name="examples"></a>Exempel
 

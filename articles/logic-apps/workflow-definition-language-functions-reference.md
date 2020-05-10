@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: e1ebc0257082ecfacc708352ba0a68e38e10717f
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 05/12/2020
+ms.openlocfilehash: 56bf1898eb00d74fe92934ca8cd7d9d2848c2f1f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607800"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005903"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Referens guide för att använda funktioner i uttryck för Azure Logic Apps och energi automatisering
 
@@ -29,9 +29,6 @@ Du kan till exempel beräkna värden med hjälp av matematiska funktioner, till 
 ||||
 
 Granska följande tabeller för att hitta funktioner [baserat på deras generella syfte](#ordered-by-purpose). Mer detaljerad information om varje funktion finns i [alfabetisk lista](#alphabetical-list).
-
-> [!NOTE]
-> I syntaxen för parameter definitioner är ett frågetecken (?) som visas efter en parameter att parametern är valfri. Se till exempel [getFutureTime ()](#getFutureTime).
 
 ## <a name="functions-in-expressions"></a>Funktioner i uttryck
 
@@ -51,8 +48,7 @@ Här följer några andra allmänna sätt som du kan använda funktioner i uttry
 | 1. Hämta resultatet från *functionname*. </br>2. under förutsättning att resultatet är ett objekt med egenskapen *PropertyName*, Hämta egenskapens värde. | "\@<*functionname*> (<*objekt*>). <*PropertyName*>" |
 |||
 
-`concat()` Funktionen kan till exempel ta två eller fler sträng värden som parametrar. Den här funktionen kombinerar dessa strängar till en sträng.
-Du kan antingen skicka in sträng litteraler, till exempel "Sophia" och "Owen" så att du får en kombinerad sträng, "SophiaOwen":
+`concat()` Funktionen kan till exempel ta två eller fler sträng värden som parametrar. Den här funktionen kombinerar dessa strängar till en sträng. Du kan antingen skicka in sträng litteraler, till exempel "Sophia" och "Owen" så att du får en kombinerad sträng, "SophiaOwen":
 
 ```json
 "customerName": "@concat('Sophia', 'Owen')"
@@ -66,7 +62,13 @@ Du kan också hämta sträng värden från parametrar. I det här exemplet `para
 
 Båda fallen tilldelar båda exemplen resultatet till `customerName` egenskapen.
 
-Här är de tillgängliga funktionerna ordnade i deras generella syfte, eller så kan du bläddra bland funktionerna baserat på [alfabetisk ordning](#alphabetical-list).
+Här följer några andra anmärkningar om funktioner i uttryck:
+
+* Funktions parametrarna utvärderas från vänster till höger.
+
+* I syntaxen för parameter definitioner är ett frågetecken (?) som visas efter en parameter att parametern är valfri. Se till exempel [getFutureTime ()](#getFutureTime).
+
+I följande avsnitt organiseras funktioner baserat på deras generella syfte, eller så kan du bläddra bland dessa funktioner i [alfabetisk ordning](#alphabetical-list).
 
 <a name="ordered-by-purpose"></a>
 <a name="string-functions"></a>
@@ -148,7 +150,7 @@ Om du vill ändra ett värdes typ eller format kan du använda dessa konverterin
 | [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Returnera den binära versionen för en Base64-kodad sträng. |
 | [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Returnera sträng versionen för en Base64-kodad sträng. |
 | [binär](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Returnera den binära versionen för ett indatavärde. |
-| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Returnera den booleska versionen för ett indatavärde. |
+| [boolesk](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Returnera den booleska versionen för ett indatavärde. |
 | [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Returnera en matris från flera indata. |
 | [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Returnera data-URI: n för ett indatavärde. |
 | [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Returnera den binära versionen för en data-URI. |
@@ -1110,7 +1112,7 @@ Och returnerar följande resultat:
 
 <a name="bool"></a>
 
-### <a name="bool"></a>bool
+### <a name="bool"></a>boolesk
 
 Returnera den booleska versionen för ett värde.
 
@@ -2270,8 +2272,7 @@ Och returnerar följande resultat:`"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 ### <a name="if"></a>om
 
-Kontrol lera om ett uttryck är sant eller falskt.
-Returnera ett angivet värde baserat på resultatet.
+Kontrol lera om ett uttryck är sant eller falskt. Returnera ett angivet värde baserat på resultatet. Parametrarna utvärderas från vänster till höger.
 
 ```
 if(<expression>, <valueIfTrue>, <valueIfFalse>)

@@ -1,35 +1,34 @@
 ---
 title: SELECT-sats i Azure Cosmos DB
 description: Läs om SQL SELECT-satsen för Azure Cosmos DB. Använd SQL som Azure Cosmos DB JSON-frågespråk.
-author: ginarobinson
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: girobins
-ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.author: tisande
+ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77469943"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005955"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>SELECT-sats i Azure Cosmos DB
 
-Varje fråga består av en SELECT-sats och [valfria from](sql-query-from.md) -och [WHERE](sql-query-where.md) -satser, enligt ANSI SQL-standarder. Normalt räknas källan i from-satsen och WHERE-satsen använder ett filter på källan för att hämta en delmängd av JSON-objekt. SELECT-satsen projekterar sedan de begärda JSON-värdena i SELECT-listan.
+Varje fråga består av en `SELECT` sats [och valfria from](sql-query-from.md) -och [WHERE](sql-query-where.md) -satser, enligt ANSI SQL-standarder. Normalt räknas källan i `FROM` satsen och `WHERE` satsen använder ett filter på källan för att hämta en delmängd av JSON-objekt. `SELECT` Satsen projekterar sedan de BEGÄRda JSON-värdena i SELECT-listan.
 
 ## <a name="syntax"></a>Syntax
 
 ```sql
 SELECT <select_specification>  
 
-<select_specification> ::=   
-      '*'   
-      | [DISTINCT] <object_property_list>   
+<select_specification> ::=
+      '*'
+      | [DISTINCT] <object_property_list>
       | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
   
-<object_property_list> ::=   
+<object_property_list> ::=
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
-  
 ```  
   
 ## <a name="arguments"></a>Argument
@@ -49,7 +48,7 @@ SELECT <select_specification>
 - `VALUE`  
 
   Anger att JSON-värdet ska hämtas i stället för hela JSON-objektet. Detta sker till skillnad `<property_list>` från att inte omge det beräknade värdet i ett objekt.  
- 
+
 - `DISTINCT`
   
   Anger att dubbletter av projekterade egenskaper ska tas bort.  
@@ -96,122 +95,6 @@ Resultatet är:
         "city": "Seattle"
       }
     }]
-```
-
-### <a name="quoted-property-accessor"></a>Accessor med citatomsluten egenskap
-Du kan komma åt egenskaper med operatorn för citerad egenskap []. Till exempel är `SELECT c.grade` och `SELECT c["grade"]` likvärdiga. Den här syntaxen är användbar för att undvika en egenskap som innehåller blank steg, specialtecken eller har samma namn som ett SQL-nyckelord eller reserverat ord.
-
-```sql
-    SELECT f["lastName"]
-    FROM Families f
-    WHERE f["id"] = "AndersenFamily"
-```
-
-### <a name="nested-properties"></a>Kapslade egenskaper
-
-I följande exempel projekterar två kapslade `f.address.state` egenskaper `f.address.city`och.
-
-```sql
-    SELECT f.address.state, f.address.city
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-Resultatet är:
-
-```json
-    [{
-      "state": "WA",
-      "city": "Seattle"
-    }]
-```
-### <a name="json-expressions"></a>JSON-uttryck
-
-Projektion stöder även JSON-uttryck, som du ser i följande exempel:
-
-```sql
-    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-Resultatet är:
-
-```json
-    [{
-      "$1": {
-        "state": "WA",
-        "city": "Seattle",
-        "name": "AndersenFamily"
-      }
-    }]
-```
-
-I föregående exempel måste SELECT-satsen skapa ett JSON-objekt och eftersom exemplet inte innehåller någon nyckel använder-satsen det implicita argumentet variabel namn `$1`. Följande fråga returnerar två implicita argument-variabler `$1` : `$2`och.
-
-```sql
-    SELECT { "state": f.address.state, "city": f.address.city },
-           { "name": f.id }
-    FROM Families f
-    WHERE f.id = "AndersenFamily"
-```
-
-Resultatet är:
-
-```json
-    [{
-      "$1": {
-        "state": "WA",
-        "city": "Seattle"
-      }, 
-      "$2": {
-        "name": "AndersenFamily"
-      }
-    }]
-```
-## <a name="reserved-keywords-and-special-characters"></a>Reserverade nyckelord och specialtecken
-
-Om dina data innehåller egenskaper med samma namn som reserverade nyckelord, till exempel "order" eller "grupp", leder frågorna till dessa dokument av syntaxfel. Du bör uttryckligen inkludera egenskapen i `[]` -tecknen för att köra frågan.
-
-Här är till exempel ett dokument med en egenskap med namnet `order` och en egenskap `price($)` som innehåller specialtecken:
-
-```json
-{
-  "id": "AndersenFamily",
-  "order": [
-     {
-         "orderId": "12345",
-         "productId": "A17849",
-         "price($)": 59.33
-     }
-  ],
-  "creationDate": 1431620472,
-  "isRegistered": true
-}
-```
-
-Om du kör en fråga som innehåller `order` egenskapen eller `price($)` egenskapen visas ett syntaxfel.
-
-```sql
-SELECT * FROM c where c.order.orderid = "12345"
-```
-```sql
-SELECT * FROM c where c.order.price($) > 50
-```
-Resultatet är:
-
-`
-Syntax error, incorrect syntax near 'order'
-`
-
-Du bör skriva om samma frågor som nedan:
-
-```sql
-SELECT * FROM c WHERE c["order"].orderId = "12345"
-```
-
-```sql
-SELECT * FROM c WHERE c["order"]["price($)"] > 50
 ```
 
 ## <a name="next-steps"></a>Nästa steg

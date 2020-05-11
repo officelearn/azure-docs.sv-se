@@ -1,14 +1,14 @@
 ---
 title: PBMM i Kanada, federala exempel kontroller
 description: Kontroll av kart provet i Kanadas federala PBMM-exempel. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-ms.date: 09/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 943ca6849f9a55ce45b609a06cfcbb9b96b691c2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8fc5b2f369dbe174fb4d5ea8160d592e9aaef3af
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74545259"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005716"
 ---
 # <a name="control-mapping-of-the-canada-federal-pbmm-blueprint-sample"></a>Kontroll av kart provet i Kanadas federala PBMM-utkast
 
@@ -57,8 +57,8 @@ Att ha bara en Azure-prenumerations ägare tillåter inte administrativ redundan
 
 - Högst 3 ägare bör anges för din prenumeration
 - Det bör finnas fler än en ägare som tilldelats din prenumeration
-- Granska virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
-- Granska virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
+- Visa gransknings resultat från virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
+- Visa gransknings resultat från virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
 - Distribuera krav för att granska virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
 - Distribuera krav för att granska virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
 
@@ -68,8 +68,8 @@ Azure implementerar [rollbaserad åtkomst kontroll](../../../../role-based-acces
 
 - Högst 3 ägare bör anges för din prenumeration
 - Det bör finnas fler än en ägare som tilldelats din prenumeration
-- Granska virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
-- Granska virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
+- Visa gransknings resultat från virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
+- Visa gransknings resultat från virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
 - Distribuera krav för att granska virtuella Windows-datorer där gruppen administratörer innehåller någon av de angivna medlemmarna
 - Distribuera krav för att granska virtuella Windows-datorer där gruppen administratörer inte innehåller alla angivna medlemmar
 
@@ -85,7 +85,7 @@ Funktionerna för data identifiering och klassificering av avancerad data säker
 
 Den här skissen hjälper dig att övervaka och kontrol lera fjärråtkomst genom att tilldela [Azure policy](../../../policy/overview.md) definitioner för att övervaka att fjärrfelsökning för Azure App Service program är inaktive rad. Skissen tilldelar också princip definitioner som granskar virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord. Dessutom tilldelar skissen en Azure Policy definition som hjälper dig att övervaka obegränsad åtkomst till lagrings konton. Genom att övervaka dessa indikatorer kan du se till att du ser till att fjärranslutna metoder överensstämmer med din säkerhets princip.
 
-- \[För\]hands version: granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Fjärrfelsökning bör inaktive ras för API-appen
@@ -107,7 +107,7 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta som
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som övervakar konfigurationer för granskning och händelse loggning. Övervakning av de här konfigurationerna kan ge en indikator för ett fel eller en felaktig konfiguration av systemet och hjälpa dig att vidta lämpliga åtgärder.
 
 - Granska diagnostikinställning
-- Granska gransknings inställningar för SQL Server-nivå
+- Granskning på SQL Server måste vara aktiverat
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 
@@ -131,7 +131,7 @@ Den här skissen hjälper dig att se till att system händelser loggas genom att
 - \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer
 - Granska diagnostikinställning
-- Granska gransknings inställningar för SQL Server-nivå
+- Granskning på SQL Server måste vara aktiverat
 - Avancerad data säkerhet ska vara aktiverat på dina hanterade instanser
 - Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Distribuera avancerad data säkerhet på SQL-servrar
@@ -167,8 +167,8 @@ Den här skissen hjälper dig att begränsa och kontrol lera privilegie rad åtk
 
 Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord och/eller har felaktiga behörigheter som angetts för passwd-filen. Den här skissen tilldelar också princip definitioner som granskar konfigurationen av lösen ords krypterings typen för virtuella Windows-datorer. Genom att övervaka dessa indikatorer kan du se till att system autentiserare följer organisationens principer för identifiering och autentisering.
 
-- \[För\]hands version: granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644
-- \[För\]hands version: granska virtuella Linux-datorer som har konton utan lösen ord
+- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644
+- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som har konton utan lösen ord
 - \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644
 - \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
 
@@ -176,11 +176,11 @@ Den här skissen tilldelar [Azure policy](../../../policy/overview.md) definitio
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte kräver lägsta möjliga styrka och andra lösen ords krav. Medvetenheten om virtuella datorer som strider mot principen för lösen ords styrka hjälper dig att vidta åtgärder för att se till att lösen ord för alla virtuella dator användar konton följer organisationens lösen ords princip.
 
-- \[För\]hands version: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[För\]hands version: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[För\]hands version: granska virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
-- \[För\]hands version: granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[För\]hands version: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
+- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer där inställningen för lösen ords komplexitet är aktive rad
+- \[För\]hands version: Visa gransknings resultat från virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
 - \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 - \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
 - \[För\]hands version: Distribuera krav för att granska virtuella Windows-datorer som inte har minsta ålder på lösen ord på 1 dag
@@ -217,10 +217,9 @@ Azures standard nivå för DDoS (distributed denial of Service) tillhandahåller
 Den här skissen hjälper dig att hantera och kontrol lera system gränser genom att tilldela en [Azure policy](../../../policy/overview.md) -definition som övervakar för nätverks säkerhets grupps härdnings rekommendationer i Azure Security Center. Azure Security Center analyserar trafik mönster för virtuella datorer som är riktade mot Internet och ger regel rekommendationer för nätverks säkerhets grupper för att minska risken för angrepp.
 Dessutom tilldelar skissen princip definitioner som övervakar oskyddade slut punkter, program och lagrings konton. Slut punkter och program som inte skyddas av en brand vägg och lagrings konton med obegränsad åtkomst kan ge oavsiktlig åtkomst till information som finns i informations systemet.
 
-- Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta
+- Rekommendationer för anpassningsbar nätverks härdning bör tillämpas på virtuella datorer som är riktade mot Internet
 - Åtkomst via slut punkt mot Internet bör vara begränsad
 - Granska obegränsad nätverks åtkomst till lagrings konton
-- NSG: er-reglerna för webb program på IaaS bör vara härdade
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) gränser skydd | Åtkomst punkter
 
@@ -239,7 +238,7 @@ Just-in-Time (JIT)-åtkomst till virtuella datorer låser inkommande trafik till
 Den här skissen hjälper dig att skydda konfidentiell och integritet på överförd information genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som hjälper dig att övervaka kryptografisk mekanism som implementerats för kommunikations protokoll. Att säkerställa att kommunikationen är korrekt krypterad kan hjälpa dig att uppfylla organisationens krav eller skydda information från obehörigt utlämnande av information och ändringar.
 
 - API-appen bör bara vara tillgänglig via HTTPS
-- Granska Windows-webbservrar som inte använder säkra kommunikations protokoll
+- Visa gransknings resultat från Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Distribuera krav för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Funktionsapp bör endast vara tillgängligt via HTTPS
 - Endast säkra anslutningar till din Redis Cache ska vara aktiverade

@@ -7,12 +7,12 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 2c21a8770209871be4d871a08e6355e4ca7ed169
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a928726665a743cb874a2f8a51ee63fcf64d9ad
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82204329"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007529"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Tagga bilder i ett etikett projekt
 
@@ -65,11 +65,13 @@ När du har skickat taggar för data till handen uppdaterar Azure sidan med en n
 
 ### <a name="assisted-machine-learning"></a>Assisterad maskin inlärning 
 
-Machine Learning-algoritmer kan utlösas under en klassificerings uppgift med flera klasser eller flera etiketter. Om dessa algoritmer är aktiverade i projektet kan du se följande:
+Machine Learning-algoritmer kan utlösas. Om dessa algoritmer är aktiverade i projektet kan du se följande:
 
 * När vissa bilder har märkts kan du se uppgifter som är **klustrade** överst på skärmen bredvid projekt namnet.  Det innebär att bilder grupperas tillsammans för att presentera liknande bilder på samma sida.  I så fall kan du växla till en av vyerna för flera bilder för att dra nytta av grupperingen.  
 
 * Vid ett senare tillfälle kan du se uppgifter som är **förmärkta** bredvid projekt namnet.  Bilderna visas sedan med en föreslagen etikett som kommer från en maskin inlärnings klassificerings modell. Ingen Machine Learning-modell har 100% noggrannhet. Vi använder bara bilder för vilka modellen är säker, men dessa bilder kan fortfarande vara felaktigt märkta.  När du ser dessa etiketter korrigerar du eventuella fel etiketter innan du skickar in sidan.  
+
+* För objekt identifierings modeller kan du se avgränsnings rutor och etiketter som redan finns.  Korrigera eventuella fel innan du skickar in sidan.
 
 I synnerhet i ett etikett projekt kan Machine Learning-modellen bara vara tillräckligt exakt för att förmärka en liten del av avbildningarna. När de här bilderna har märkts, kommer etiketts projektet att återgå till manuell etikettering för att samla in mer data för nästa runda av modell träning. Med tiden blir modellen mer säker på en högre andel av avbildningarna, vilket leder till fler förmärknings uppgifter senare i projektet.
 

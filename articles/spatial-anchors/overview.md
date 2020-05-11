@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 5ebd29b5fb6fdedcdfbc434209b350512c4cd5dc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 361a75c2e5951dc540830efd6be057753402daf1
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77657315"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006098"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Översikt över Azure Spatial Anchors
 
@@ -26,7 +26,7 @@ De här exakta platserna av intresse kallas spatiala fästpunkter.
 
 Här är några exempel på användningsfall som möjliggörs av Spatial Anchors:
 
-- [Upplevelser för flera användare](tutorials/tutorial-share-anchors-across-devices.md). Spatial Anchors gör det enkelt för personer på samma plats att delta i program med mixad verklighet för flera användare. Två personer kan till exempel börja spela schack med mixad verklighet genom att placera ett virtuellt schackbräde på ett bord. Genom att rikta sin enhet mot bordet kan de sedan se och interagera med det virtuella schackbrädet tillsammans.
+- [Upplevelser för flera användare](tutorials/tutorial-share-anchors-across-devices.md). Med avstånds ankare för Azure är det enkelt för personer på samma plats att delta i program med mixad Reality i flera användare. Två personer kan till exempel börja spela schack med mixad verklighet genom att placera ett virtuellt schackbräde på ett bord. Genom att rikta sin enhet mot bordet kan de sedan se och interagera med det virtuella schackbrädet tillsammans.
 
 - [Vägledning](concepts/anchor-relationships-way-finding.md). Utvecklare kan också koppla samman spatiala fästpunkter och skapa relationer mellan dem. En app kan exempelvis innehålla en upplevelse med minst två platser av intresse som en användare måste interagera med för att slutföra en uppgift. De platserna av intresse kan skapas med kopplingar. Senare, när användaren genomför uppgiften i flera steg, kan appen be om fästpunkter som finns i närheten av den aktuella för att dirigera användaren till nästa steg i uppgiften.
 
@@ -36,7 +36,7 @@ Azure Spatial Anchors består av en hanterad tjänst och klient-SDK:er för enhe
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skapa din första app med Spatial Anchors.
+Skapa din första app med de spatiala Ankarena i Azure.
 
 > [!div class="nextstepaction"]
 > [Unity (HoloLens)](quickstarts/get-started-unity-hololens.md)

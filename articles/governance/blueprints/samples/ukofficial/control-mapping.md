@@ -1,14 +1,14 @@
 ---
 title: Storbritannien, officiella & UK NHS-skisser kontroller
 description: Kontroll mappning av NHS i Storbritannien och Storbritannien. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-ms.date: 12/04/2019
+ms.date: 05/08/2020
 ms.topic: sample
-ms.openlocfilehash: 5bef590013a9ef06b791e58dc6c82e74dffe1a17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74851374"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005603"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
@@ -27,9 +27,6 @@ Skissen hjälper dig att se till att informations överföring med Azure-tjänst
 - Säker överföring till lagringskonton ska vara aktiverat
 - Visa gransknings resultat från Windows-webbservrar som inte använder säkra kommunikations protokoll
 - Distribuera förutsättningar för att granska Windows-webbservrar som inte använder säkra kommunikations protokoll
-- Den senaste TLS-versionen ska användas i din API-app
-- Den senaste TLS-versionen ska användas i din webbapp
-- Den senaste TLS-versionen ska användas i Funktionsapp
 
 ## <a name="23-data-at-rest-protection"></a>2,3 data vid rest-skydd
 
@@ -129,8 +126,8 @@ Den här skissen hjälper dig också att styra åtkomsten till Azure-resurser ge
 
 - \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
 - \[För\]hands version: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- \[För\]hands version: granska virtuella Linux-datorer som har konton utan lösen ord
-- \[För\]hands version: granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som har konton utan lösen ord
+- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Lagrings konton ska migreras till nya Azure Resource Manager resurser
 - Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
 - Granska virtuella datorer som inte använder hanterade diskar
@@ -141,12 +138,10 @@ Förutom att använda fler än 25 principer för lämplig säker användar hante
 
 - Granska obegränsad nätverks åtkomst till lagrings konton
 - Anpassningsbara program kontroller ska vara aktiverade på virtuella datorer
-- NSG: er-reglerna för webb program på IaaS bör vara härdade
 - Åtkomst via slut punkt mot Internet bör vara begränsad
-- Regler för nätverks säkerhets grupper för virtuella datorer som riktas mot Internet bör vara skärpta
+- Rekommendationer för anpassningsbar nätverks härdning bör tillämpas på virtuella datorer som är riktade mot Internet
 - Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar
 - Just-in-time-kontroller av nätverksåtkomst ska tillämpas på virtuella datorer
-- Granska obegränsad nätverks åtkomst till lagrings konton
 - Fjärrfelsökning bör inaktive ras för Funktionsapp
 - Fjärrfelsökning bör inaktive ras för webb program
 - Fjärrfelsökning bör inaktive ras för API-appen
@@ -179,13 +174,13 @@ Den här skissen tilldelar också Azure Policy definitioner till gransknings kon
 
 Den här skissen tilldelar också en Azure Policy-definition som granskar Linux VM lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här designen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
 
-- \[För\]hands version: granska virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
+- \[För\]hands version: Visa gransknings resultat från virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644
 
 ## <a name="13-audit-information-for-users"></a>13 gransknings information för användare
 
 Den här skissen hjälper dig att se till att system händelser loggas genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar logg inställningar på Azure-resurser. En tilldelad princip granskar också om virtuella datorer inte skickar loggar till en angiven Log Analytics-arbetsyta.
 
-- Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
+- Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar
 - Granska diagnostikinställning
 - \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer
 - \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer

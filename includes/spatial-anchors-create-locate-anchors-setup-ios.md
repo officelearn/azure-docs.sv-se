@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 26eff7b10542843be561264c316bdcf1a63271f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7e3a31663e6c166b912ba20166ba0f0f769008a
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67187044"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83006422"
 ---
 ## <a name="setting-up-the-library"></a>Konfigurerar biblioteket
 
-Anropa start () för att göra det möjligt för din session att bearbeta miljö data.
+Anropa `Start()` för att göra det möjligt för din session att bearbeta miljö data.
 
-Om du vill hantera händelser som aktive ras av `delegate` sessionen ställer du in sessionens egenskap till ett objekt, t. ex. vyn. Det här objektet måste implementera SSCCloudSpatialAnchorSessionDelegate-protokollet.
+Om du vill hantera händelser som aktive ras av `delegate` sessionen ställer du in sessionens egenskap till ett objekt, t. ex. vyn. Det här objektet måste implementera `SSCCloudSpatialAnchorSessionDelegate` protokollet.

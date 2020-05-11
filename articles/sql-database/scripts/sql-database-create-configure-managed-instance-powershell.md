@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
-ms.openlocfilehash: 3e72a2f6754ad8e9c5bcfabe7eeee299468fa8f3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4ba4d69b560307e52c277f5c695bbba718cd1d3
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73691637"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83005831"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Använd PowerShell för att skapa en Azure SQL Database Hanterad instans
 
@@ -43,9 +43,9 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+Det här skriptet använder några av följande kommandon. Om du vill ha mer information om hur du använder och andra kommandon i tabellen nedan, klickar du på länkarna till den aktuella dokumentationen.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras.
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Skapar ett virtuellt nätverk |

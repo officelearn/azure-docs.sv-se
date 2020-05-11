@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
+ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76844895"
+ms.lasthandoff: 05/10/2020
+ms.locfileid: "83004476"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Vanliga frågor om Azure Spatial Anchors
 
@@ -49,6 +49,10 @@ Mer information finns i [Översikt över Azure Spatial Anchors](overview.md).
 
 **A:** Ankare isoleras av Azure-kontot. Endast appar som du ger åtkomst till ditt konto får åtkomst till fästpunkter i kontot.
 
+**F: Hur lagrar Azure spatiala ankare data?**
+
+**A:** Alla data lagras krypterade med en Microsoft-hanterad data krypterings nyckel.
+
 **F: vilken information om en miljö överförs och lagras på tjänsten när du använder Azure spatiala ankare? Överförs och lagras bilder i miljön?**
 
 **A**: när du skapar eller söker efter ankare bearbetas bilder i miljön på enheten i ett härlett format. Det här härledda formatet skickas till och lagras i tjänsten.
@@ -59,7 +63,6 @@ Azure Spatial Anchors följer [villkoren i serviceavtalet för Azure](https://go
 
 ![En miljö och dess härledda utlösare för moln](./media/sparse-point-cloud.png)
 *bild 1: en miljö och dess härledda, härledda punkt moln*
-
 
 **F: finns det något sätt som jag kan skicka diagnostikinformation till Microsoft?**
 

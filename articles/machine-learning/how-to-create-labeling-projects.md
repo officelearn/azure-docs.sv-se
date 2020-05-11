@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6c553580bc3f2c9cb1aac321bea3c86b04b2ba56
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231228"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007536"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Skapa ett projekt med data etiketter och exportera etiketter 
 
@@ -138,8 +138,6 @@ För avgränsnings rutor är viktiga frågor:
 
 Med hjälp av sidan **ml-märkning** kan du utlösa automatiska maskin inlärnings modeller för att påskynda etiketten. I början av ditt projekt som du har märkt, sorteras bilderna i en slumpmässig ordning för att minska potentiell kompensation. Men eventuella förskjutningar som förekommer i data uppsättningen visas i den tränade modellen. Om till exempel 80% av dina avbildningar är av en enda klass kommer cirka 80% av de data som används för att träna modellen att vara av klassen. Den här utbildningen omfattar inte aktiv inlärning.
 
-Den här funktionen är tillgänglig för bild klassificerings aktiviteter (flera klasser eller flera etiketter).  
-
 Välj *Enable ml-etikettering* och ange en GPU för att aktivera assisterad märkning, som består av två faser:
 * Klustring
 * För markering
@@ -150,13 +148,15 @@ Eftersom de slutliga etiketterna fortfarande är beroende av inmatade Labeler, k
 
 ### <a name="clustering"></a>Klustring
 
-När ett visst antal etiketter har skickats börjar maskin inlärnings modellen att gruppera liknande bilder.  Dessa liknande bilder presenteras för etiketter på samma skärm för att påskynda manuell taggning. Klustring är särskilt användbart när Labeler visar ett rutnät med 4, 6 eller 9 bilder. 
+När ett visst antal etiketter har skickats börjar Machine Learning-modellen för bild klassificering att gruppera liknande bilder.  Dessa liknande bilder presenteras för etiketter på samma skärm för att påskynda manuell taggning. Klustring är särskilt användbart när Labeler visar ett rutnät med 4, 6 eller 9 bilder. 
 
 När en maskin inlärnings modell har tränats på dina manuellt märkta data, trunkeras modellen till det sista fullständigt anslutna lagret. Omärkta bilder skickas sedan genom den trunkerade modellen i en process som kallas "inbäddning" eller "funktionalisering". Detta bäddar in varje bild i ett högt dimensionellt utrymme som definieras av detta modell lager. Bilder som är närmsta grannar i utrymmet används för kluster uppgifter. 
 
+Kluster fasen visas inte för objekt identifierings modeller.
+
 ### <a name="prelabeling"></a>För markering
 
-När fler bild etiketter har skickats används en klassificerings modell för att förutsäga bild taggar.  Labeler ser nu sidor som innehåller förväntade etiketter som redan finns på varje bild.  Uppgiften granskar sedan dessa etiketter och korrigerar eventuella felmärkta bilder innan sidan skickas.  
+När tillräckligt med bild etiketter har skickats används en klassificerings modell för att förutsäga bild taggar. Eller en objekt identifierings modell används för att förutsäga avgränsnings rutor. Labeler ser nu sidor som innehåller förväntade etiketter som redan finns på varje bild. För objekt identifiering visas även de förväntade rutorna. Uppgiften granskar sedan dessa förutsägelser och korrigerar eventuella felmärkta bilder innan sidan skickas.  
 
 När en maskin inlärnings modell har tränats på dina manuellt märkta data, utvärderas modellen i en test uppsättning med manuellt märkta bilder för att fastställa dess exakthet på en rad olika konfidens trösklar. Den här utvärderings processen används för att fastställa ett konfidens tröskelvärde över vilket modellen är tillräckligt korrekt för att Visa före-etiketter. Modellen utvärderas sedan mot omärkta data. Bilder med förutsägelser mer tryggare än det här tröskelvärdet används för för märkning.
 

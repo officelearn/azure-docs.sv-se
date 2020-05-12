@@ -68,7 +68,7 @@
           href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Hantera din katalog
       items:
-        - name: Administrera din katalog
+        - name: Azure AD-organisationer
           href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Hantera domännamn
           href: domains-manage.md
@@ -84,7 +84,7 @@
           href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Hantera grupper
       items:
-        - name: Hantera åtkomst med Azure AD-grupper
+        - name: Hantera åtkomst med grupper
           href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Skapa en grupp (Azure-portalen)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -134,6 +134,8 @@
           href: groups-assign-sensitivity-labels.md
     - name: Tilldela licenser
       items:
+        - name: Tilldela licenser till användare
+          href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Tilldela licenser till en grupp
           href: licensing-groups-assign.md
         - name: Lösa problem med grupplicenser

@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/20/2020
+ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: dfa4d65464192b90d4a6f74255faaf8b664ce118
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e80d1a05765d224dc4682c6f64faccc8c81f8ebd
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767971"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007478"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ I det här avsnittet beskrivs problem och begränsningar med att använda BLOB-A
 
 * Du kan inte använda både BLOB-API: er och Data Lake Storage-API: er för att skriva till samma instans av en fil. Om du skriver till en fil med hjälp av Data Lake Storage Gen2 API: er visas inte filens block för anrop till BLOB-API: t [Get block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) . Du kan skriva över en fil med hjälp av antingen Data Lake Storage Gen2-API: er eller BLOB-API: er. Detta påverkar inte fil egenskaperna.
 
-* När du använder [list-bloben](https://docs.microsoft.com/rest/api/storageservices/list-blobs) utan att ange en avgränsare, kommer resultatet att inkludera både kataloger och blobbar. Om du väljer att använda en avgränsare använder du bara ett snedstreck (`/`). Detta är den enda avgränsare som stöds.
+* När du använder [list-bloben](https://docs.microsoft.com/rest/api/storageservices/list-blobs) utan att ange en avgränsare, kommer resultatet att inkludera både kataloger och blobbar. Om du väljer att använda en avgränsare använder du bara ett snedstreck ( `/` ). Detta är den enda avgränsare som stöds.
 
 * Om du använder [Delete BLOB](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API för att ta bort en katalog tas katalogen bara bort om den är tom. Det innebär att du inte kan använda BLOB API-borttagningarna rekursivt.
 
@@ -70,12 +70,11 @@ Ohanterade VM-diskar stöds inte i konton som har ett hierarkiskt namn område. 
 
 ## <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 
-* Borttagning av BLOB-ögonblicksbilder stöds inte ännu.  
+Borttagning av BLOB-ögonblicksbilder stöds inte ännu. 
 
 ## <a name="archive-tier"></a>Arkiv lag ring
 
 Det finns för närvarande en bugg som påverkar Arkiv åtkomst nivån.
-
 
 ## <a name="blobfuse"></a>Blobfuse
 
@@ -91,7 +90,7 @@ Använd endast den senaste versionen av AzCopy ([AzCopy v10](https://docs.micros
 
 ## <a name="azure-storage-explorer"></a>Azure Lagringsutforskaren
 
-Använd endast versioner `1.6.0` eller högre.
+Använd endast versioner  `1.6.0`   eller högre.
 
 <a id="explorer-in-portal" />
 
@@ -108,6 +107,39 @@ Program från tredje part som använder REST-API: er för arbete fortsätter att
 ## <a name="access-control-lists-acl-and-anonymous-read-access"></a>Åtkomst kontrol listor (ACL) och anonym Läs åtkomst
 
 Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats till en behållare, har ACL: er ingen påverkan på den behållaren eller filerna i den behållaren.
+
+## <a name="premium-performance-block-blob-storage-accounts"></a>Premium-Performance Block Blob Storage-konton
+
+### <a name="diagnostic-logs"></a>Diagnostikloggar
+
+Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Ett exempel:
+
+```powershell
+#To login
+Connect-AzAccount
+
+#Set default block blob storage account.
+Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
+
+#Enable logging
+Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
+```
+
+### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
+
+- Principer för livs cykel hantering stöds inte ännu i Premium Block Blob Storage-konton. 
+
+- Det går inte att flytta data från Premium-nivån till lägre nivåer. 
+
+- Åtgärden **ta bort BLOB** stöds inte för närvarande. 
+
+### <a name="hdinsight-support"></a>Stöd för HDInsight
+
+När du skapar ett n HDInsight-kluster kan du ännu inte välja ett Block Blob Storage-konto som har funktionen hierarkiskt namn område aktive rad. Du kan dock koppla kontot till klustret när du har skapat det.
+
+### <a name="dremio-support"></a>Dremio-stöd
+
+Dremio ansluter ännu inte till ett Block Blob Storage-konto som har funktionen hierarkiskt namn område aktive rad på den. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Windows Azure Storage Blob (WASB) driv rutin (stöds inte med Data Lake Storage Gen2)
 

@@ -10,6 +10,8 @@
           href: migrate-from-hub-spoke-topology.md
         - name: Global Transit Network-arkitektur
           href: virtual-wan-global-transit-network-architecture.md
+        - name: SD-WAN-anslutningsarkitektur
+          href: sd-wan-connectivity-architecture.md
         - name: Sammankoppla med Kina
           href: interconnect-china.md
 - name: Självstudier
@@ -38,7 +40,7 @@
       href: virtual-wan-ipsec.md
 - name: Anvisningar
   items:
-    - name: Anslut virtuell nätverksgateway till Virtual WAN
+    - name: 'Anslut virtuell nätverksgateway till Virtual WAN '
       href: connect-virtual-network-gateway-vwan.md
     - name: Konfigurera global VNet-peering
       href: global-peering-vnet.md

@@ -127,6 +127,8 @@
               items:
                 - name: Sårbarhetsbedömning
                   href: sql-vulnerability-assessment.md
+                - name: Sårbarhetsbedömningsregler
+                  href: sql-database-vulnerability-assessment-rules.md
                 - name: Lagra VA-genomsökningar bakom brandväggar och virtuella nätverk
                   href: sql-database-vulnerability-assessment-storage.md
             - name: Advanced Threat Protection

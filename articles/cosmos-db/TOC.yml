@@ -39,8 +39,6 @@
               href: sql-api-java-get-started.md
             - name: Async Java
               href: sql-api-async-java-get-started.md
-            - name: Asynkront Java-exempel med ändringsflöde
-              href: create-sql-api-java-changefeed.md
             - name: Node.js
               href: sql-api-nodejs-get-started.md
         - name: Bygga en webbapp
@@ -168,15 +166,15 @@
             - name: FÖRSKJUTNINGSGRÄNS
               displayName: offset limit
               href: sql-query-offset-limit.md
+        - name: Arbeta med JSON
+          displayName: 'alias, JSON, projection'
+          href: sql-query-working-with-json.md
         - name: Underfråga
           displayName: 'subquery, exists'
           href: sql-query-subquery.md
         - name: Kopplingar
           displayName: join
           href: sql-query-join.md
-        - name: Alias
-          displayName: 'alias, aliasing'
-          href: sql-query-aliasing.md
         - name: Matriser och objekt
           displayName: 'object and array creation, object and array'
           href: sql-query-object-array.md
@@ -494,6 +492,8 @@
         - name: Utlösa Azure Functions
           displayName: change feed
           href: change-feed-functions.md
+        - name: Hämtningsmodell för ändringsflöde
+          href: change-feed-pull-model.md
     - name: Globalt distribuerad analys och AI
       items:
         - name: Användningsfall för analystjänster
@@ -665,6 +665,8 @@
               href: create-mongodb-xamarin.md
             - name: Golang
               href: create-mongodb-golang.md
+            - name: Go
+              href: create-mongodb-go.md
         - name: Självstudier
           items:
             - name: 1 – Skapa och hantera data
@@ -996,6 +998,10 @@
               href: troubleshoot-java-async-sdk.md
         - name: Felsöka .NET SDK
           href: troubleshoot-dot-net-sdk.md
+    - name: 'Migrera till nyare SDK:er'
+      items:
+        - name: Migrera till Java V4-SDK
+          href: migrate-java-v4-sdk.md
     - name: Ändringsflöde
       items:
         - name: Azure Cosmos DB-utlösarloggar
@@ -1012,6 +1018,8 @@
           href: how-to-use-change-feed-estimator.md
         - name: Migrera från Change Feed Processor-biblioteket
           href: how-to-migrate-from-change-feed-library.md
+        - name: Skapa ett Java SQL-program med ändringsflöde
+          href: create-sql-api-java-changefeed.md
     - name: Inbyggd analys med Apache Spark
       items:
         - name: Azure Databricks Spark-anslutningsapp

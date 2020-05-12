@@ -3,16 +3,16 @@ title: Hantera stora meddelanden med hjälp av segment
 description: Lär dig hur du hanterar stora meddelande storlekar med hjälp av segment i automatiserade uppgifter och arbets flöden som du skapar med Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: shae-hurst
-ms.author: shhurst
+author: DavidCBerry13
+ms.author: daberry
 ms.topic: article
 ms.date: 12/03/2019
-ms.openlocfilehash: 81e7c12b04c1ebd9691c11d76f387f7d42490180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54828dded5196c86946d99a9cd8cec7a42533661
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456565"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117571"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Hantera stora meddelanden med segment i Azure Logic Apps
 
@@ -121,10 +121,10 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
 2. Slut punkten svarar med status koden 200 och denna valfria information:
 
-   | Rubrik fält för slut punkts svar | Typ | Krävs | Beskrivning |
+   | Rubrik fält för slut punkts svar | Typ | Obligatorisk | Beskrivning |
    |--------------------------------|------|----------|-------------|
    | **x-MS-segment-storlek** | Integer | Inga | Den föreslagna segment storleken i byte |
-   | **Location** | Sträng | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
+   | **Position** | Sträng | Ja | Den URL-plats dit meddelanden om HTTP-KORRIGERINGarna ska skickas |
    ||||
 
 3. Din Logi Kap par skapar och skickar uppföljning av HTTP-meddelanden – var och en med den här informationen:
@@ -142,13 +142,13 @@ De här stegen beskriver den detaljerade processen Logic Apps använder för att
 
 4. Efter varje PATCH-begäran bekräftar slut punkten kvittot för varje segment genom att svara med status koden "200" och följande svarshuvuden:
 
-   | Rubrik fält för slut punkts svar | Typ | Krävs | Beskrivning |
+   | Rubrik fält för slut punkts svar | Typ | Obligatorisk | Beskrivning |
    |--------------------------------|------|----------|-------------|
    | **Intervall** | Sträng | Ja | Byte-intervallet för innehåll som har tagits emot av slut punkten, till exempel: "byte = 0-1023" |   
    | **x-MS-segment-storlek** | Integer | Inga | Den föreslagna segment storleken i byte |
    ||||
 
-Denna åtgärds definition visar till exempel en HTTP POST-begäran om att överföra segment innehåll till en slut punkt. I åtgärdens `runTimeConfiguration` egenskap anges `contentTransfer` `transferMode` egenskapen till: `chunked`
+Denna åtgärds definition visar till exempel en HTTP POST-begäran om att överföra segment innehåll till en slut punkt. I åtgärdens `runTimeConfiguration` egenskap `contentTransfer` anges egenskapen `transferMode` till `chunked` :
 
 ```json
 "postAction": {

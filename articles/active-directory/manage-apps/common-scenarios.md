@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21caec50bf9c20ec60194976b1bfbf16e4815914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1874a2f2cf96aaa905616bddcc6cb83c60c1d279
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261048"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115616"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralisera program hantering med Azure AD
 
@@ -53,7 +53,7 @@ De flesta program kräver att en användare är etablerad i programmet innan de 
 
 |Funktion  |Beskrivning|Rekommendation |
 |---------|---------|---------|
-|SCIM-etablering|[Scim](https://aka.ms/SICMOverview) är en bästa praxis för automatisering av användar etablering. Alla SCIM-kompatibla program kan integreras med Azure AD. Skapa, uppdatera och ta bort användar konton automatiskt utan att behöva hantera CSV-filer, anpassade skript eller lokal-lösningar.|Kolla in den växande listan över [förintegrerade](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) appar i Azure AD App-galleriet|
+|SCIM-etablering|[Scim](https://aka.ms/SCIMOverview) är en bästa praxis för automatisering av användar etablering. Alla SCIM-kompatibla program kan integreras med Azure AD. Skapa, uppdatera och ta bort användar konton automatiskt utan att behöva hantera CSV-filer, anpassade skript eller lokal-lösningar.|Kolla in den växande listan över [förintegrerade](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) appar i Azure AD App-galleriet|
 |Microsoft Graph|Använd inandning och data djupet som Azure AD har för att förbättra ditt program med de data som krävs.|Utnyttja [Microsoft Graph](https://developer.microsoft.com/graph/) för att hämta data från Microsoft-eko systemet. |
 
 
@@ -89,6 +89,6 @@ Identiteten kan bara vara ditt kontroll plan om den kan ansluta allt över molne
 - [Programhantering](https://docs.microsoft.com/azure/active-directory/manage-apps/index)
 - [Programetablering](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning)
 - [Hybrid säker åtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/secure-hybrid-access)
-- [Identitetsstyrning](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
+- [Identitets styrning](https://docs.microsoft.com/azure/active-directory/governance/identity-governance-overview)
 - [Microsoft-identitetsplattform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)
 - [Identitets säkerhet](https://docs.microsoft.com/azure/active-directory/conditional-access/index)

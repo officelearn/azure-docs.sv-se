@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 05/08/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 56975cebbfe4f6dd6452c850c338d431faea27bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7c26780cdba37a2bddc201928dbcbd5f86e0170
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050499"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115905"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Metod tips och rekommendationer för Microsoft Identity Platform
 
@@ -26,6 +26,9 @@ I den här artikeln beskrivs bästa praxis, rekommendationer och vanliga översi
 Om du precis har kommit igång kan du läsa dokumentationen om autentisering i [Microsoft Identity Platform](index.yml) för att lära dig grunderna för autentisering, program scenarier i Microsofts identitets plattform med mera.
 
 Använd följande check lista för att se till att programmet är effektivt integrerat med [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/).
+
+> [!TIP]
+> *Integrations assistenten* i Azure Portal kan hjälpa dig att använda många av de rekommenderade metoderna och rekommendationerna. Välj någon av dina [app-registreringar](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) i Azure Portal och välj sedan meny alternativet **integration Assistant (förhands granskning)** för att komma igång med assistenten.
 
 ## <a name="basics"></a>Grundläggande inställningar
 
@@ -56,7 +59,7 @@ Använd följande check lista för att se till att programmet är effektivt inte
 
 |   |   |
 |---|---|
-| ![kryssruta](./media/active-directory-integration-checklist/checkbox-two.svg) | Hantera dina omdirigerings-URI: er: <ul><li>Behåll ägarskapet för alla dina omdirigerings-URI: er och se till att DNS-posterna är aktuella.</li><li>Använd inte jokertecken (*) i dina URI: er.</li><li>För Web Apps ser du till att alla URI: er är säkra och krypterade (till exempel med hjälp av https-scheman).</li><li>För offentliga klienter använder du plattformsspecifika omdirigerings-URI: er om tillämpligt (huvudsakligen för iOS och Android). Annars använder du omdirigerings-URI: er med hög slumpmässighet för att förhindra kollisioner när du ringer tillbaka till din app.</li><li>Om din app används från en isolerad webb agent kan du använda `https://login.microsoftonline.com/common/oauth2/nativeclient`.</li><li>Granska och rensa alla oanvända eller onödiga omdirigerings-URI: er regelbundet.</li></ul> |
+| ![kryssruta](./media/active-directory-integration-checklist/checkbox-two.svg) | Hantera dina omdirigerings-URI: er: <ul><li>Behåll ägarskapet för alla dina omdirigerings-URI: er och se till att DNS-posterna är aktuella.</li><li>Använd inte jokertecken (*) i dina URI: er.</li><li>För Web Apps ser du till att alla URI: er är säkra och krypterade (till exempel med hjälp av https-scheman).</li><li>För offentliga klienter använder du plattformsspecifika omdirigerings-URI: er om tillämpligt (huvudsakligen för iOS och Android). Annars använder du omdirigerings-URI: er med hög slumpmässighet för att förhindra kollisioner när du ringer tillbaka till din app.</li><li>Om din app används från en isolerad webb agent kan du använda `https://login.microsoftonline.com/common/oauth2/nativeclient` .</li><li>Granska och rensa alla oanvända eller onödiga omdirigerings-URI: er regelbundet.</li></ul> |
 | ![kryssruta](./media/active-directory-integration-checklist/checkbox-two.svg) | Om din app är registrerad i en katalog minimerar du och övervakar sedan listan över program registrerings ägare manuellt. |
 | ![kryssruta](./media/active-directory-integration-checklist/checkbox-two.svg) | Aktivera inte stöd för det [OAuth2 implicita beviljade flödet](v2-oauth2-implicit-grant-flow.md) om det inte uttryckligen krävs. Lär dig mer om det giltiga scenariot [här](v2-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![kryssruta](./media/active-directory-integration-checklist/checkbox-two.svg) | Flytta bortom användar namn/lösen ord. Använd inte [ROPC (Resource Owner Password Credential Flow)](v2-oauth-ropc.md)som direkt hanterar användarnas lösen ord. Det här flödet kräver en hög grad av förtroende och användar exponering och bör endast användas när andra, säkrare flöden inte kan användas. Det här flödet behövs fortfarande i vissa scenarier (t. ex. DevOps), men tänk på att använda det för att införa begränsningar i ditt program.  För fler moderna metoder, Läs [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md).|
@@ -104,4 +107,4 @@ Utforska detaljerad information om v2.0:
 * [Referens för ID-token](id-tokens.md)
 * [Referens för autentiserings bibliotek](reference-v2-libraries.md)
 * [Behörigheter och medgivande i Microsoft Identity Platform](v2-permissions-and-consent.md)
-* [Microsoft Graph-API](https://developer.microsoft.com/graph)
+* [Microsoft Graph API](https://developer.microsoft.com/graph)

@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2020
+ms.date: 05/11/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 1161575104efe8cfc797f84c109a12116f723cad
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: def198a15710d0aff4a943300eedc338a7772e46
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926586"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115803"
 ---
 # <a name="security-tokens"></a>Säkerhetstoken
 
@@ -31,7 +31,7 @@ En **åtkomsttoken är en säkerhetstoken som** utfärdas av en [Authorization-S
 **ID-token** skickas till klient programmet som en del av ett [OpenID Connect](v2-protocols-oidc.md) -flöde. De kan skickas på sidan eller i stället för en åtkomsttoken och används av klienten för att autentisera användaren. Mer information om hur Microsoft Identity Platform utfärdar ID-token finns i [ID-token](id-tokens.md).
 
 > [!NOTE]
-> Den här artikeln beskriver säkerhetstoken för OAuth2-och OpenID Connect-protokollen. Många företags program använder SAML för att autentisera användare. Se [referens för Azure AD SAML-token](reference-saml-tokens.md) för information om SAML-kontroller.
+> Den här artikeln beskriver säkerhetstoken som används av OAuth2-och OpenID Connect-protokollen. Många företags program använder SAML för att autentisera användare. Se [referens för Azure AD SAML-token](reference-saml-tokens.md) för information om SAML-kontroller.
 
 ## <a name="validating-security-tokens"></a>Verifierar säkerhetstoken
 
@@ -46,7 +46,7 @@ Tokens är bara giltiga under en begränsad tid. STS tillhandahåller vanligt vi
 
 ## <a name="json-web-tokens-jwts-and-claims"></a>JSON-webbtoken (JWTs) och anspråk
 
-Microsoft Identity Platform implementerar säkerhetstoken som **JSON-Webbtoken (JWTs)** som innehåller **anspråk**.
+Microsoft Identity Platform implementerar säkerhetstoken som **JSON-Webbtoken (JWTs)** som innehåller **anspråk**. Eftersom JWTs används som säkerhetstoken kallas den här typen av autentisering även **JWT-autentisering**.
 
 Ett [anspråk](developer-glossary.md#claim) ger intyg om en entitet, till exempel ett klient program eller en [resurs ägare](developer-glossary.md#resource-owner), till en annan entitet, till exempel en resurs Server. Ett anspråk kan också kallas för ett JWT-anspråk eller JSON Web Token-anspråk.
 
@@ -82,7 +82,7 @@ Beroende på hur din klient har skapats kan den använda en (eller flera) av de 
 |[On-Behalf-Of-flöde](v2-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
 |[Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |
 
-Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL `response_mode` : `query` en `fragment`(där är eller).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Detta innebär att dessa tokens inte har eller `groups` `wids` är anspråk.
+Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL: en (där `response_mode` är `query` eller `fragment` ).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Detta innebär att dessa tokens inte har `groups` eller är `wids` anspråk.
 
 ## <a name="next-steps"></a>Nästa steg
 

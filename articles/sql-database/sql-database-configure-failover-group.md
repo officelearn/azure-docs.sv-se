@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 3b423a25b6b13ad543ef4a74bc0335ce19f5766d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aea252772bfd911899ebdc00c902996b32475a90
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77461822"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115140"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurera en failover-grupp för Azure SQL Database
 
@@ -33,7 +33,7 @@ Skapa gruppen redundans och Lägg till en enda databas i den med hjälp av Azure
 
 ### <a name="create-failover-group"></a>Skapa redundans grupp
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Skapa din grupp för redundans och Lägg till din enda databas i den med hjälp av Azure Portal.
 
 
@@ -107,7 +107,7 @@ Skapa din grupp för redundans och Lägg till din databas i den med hjälp av Po
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal. 
 
@@ -200,7 +200,7 @@ Skapa gruppen redundans och Lägg till en elastisk pool i den med hjälp av Azur
 
 Skapa gruppen redundans för den elastiska poolen med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Skapa din failover-grupp och Lägg till den elastiska poolen i den med hjälp av Azure Portal.
 
 1. Välj **Azure SQL** i den vänstra menyn i [Azure Portal](https://portal.azure.com). Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
@@ -271,7 +271,7 @@ Skapa din failover-grupp och Lägg till den elastiska poolen i den med hjälp av
 
 Testa redundansväxlingen av den elastiska poolen med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Redundansväxla din redundansväxling till den sekundära servern och växla sedan tillbaka med Azure Portal. 
 
@@ -353,7 +353,7 @@ Du måste antingen konfigurera [ExpressRoute](../expressroute/expressroute-howto
 
 Om du inte har konfigurerat [ExpressRoute](../expressroute/expressroute-howto-circuit-portal-resource-manager.md)kan du skapa den primära virtuella nätverksgatewayen med Azure Portal eller PowerShell. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal. 
 
@@ -362,7 +362,7 @@ Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal.
 
    ![Lägg till gateway för primär hanterad instans](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
 
-1. När du har skapat en gateway för undernät väljer du **skapa en resurs** i det vänstra navigerings fönstret och `Virtual network gateway` skriver sedan i sökrutan. Välj den **virtuella nätverks-Gateway** -resurs som publicerats av **Microsoft**. 
+1. När du har skapat en gateway för undernät väljer du **skapa en resurs** i det vänstra navigerings fönstret och skriver sedan `Virtual network gateway` i sökrutan. Välj den **virtuella nätverks-Gateway** -resurs som publicerats av **Microsoft**. 
 
    ![Skapa en ny virtuell nätverksgateway](media/sql-database-managed-instance-failover-group-tutorial/create-virtual-network-gateway.png)
 
@@ -370,14 +370,14 @@ Skapa den primära virtuella Nätverksgatewayen med hjälp av Azure Portal.
 
    I följande tabell visas de värden som krävs för gatewayen för den primära hanterade instansen:
  
-    | **Field** | Värde |
+    | **Fält** | Värde |
     | --- | --- |
     | **Prenumeration** |  Den prenumeration där din primära hanterade instans är. |
     | **Namn** | Namnet på den virtuella Nätverksgatewayen. | 
-    | **Region** | Den region där den sekundära hanterade instansen är. |
+    | **Nationella** | Den region där den sekundära hanterade instansen är. |
     | **Typ av Gateway** | Välj **VPN**. |
     | **VPN-typ** | Välj **Route-baserad** |
-    | **SKU**| Lämna standardvärdet `VpnGw1`. |
+    | **SKU**| Lämna standardvärdet `VpnGw1` . |
     | **Position**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
     | **Virtuellt nätverk**| Välj det virtuella nätverket för din sekundära hanterade instans. |
     | **Offentlig IP-adress**| Välj **Skapa ny**. |
@@ -426,23 +426,23 @@ Skapa den primära virtuella Nätverksgatewayen med PowerShell.
 
 Skapa den sekundära virtuella Nätverksgatewayen med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Upprepa stegen i föregående avsnitt för att skapa det virtuella nätverkets undernät och gateway för den sekundära hanterade instansen. Fyll i de obligatoriska fälten om du vill konfigurera gatewayen för din sekundära hanterade instans. 
 
    I följande tabell visas de värden som krävs för gatewayen för den sekundära hanterade instansen:
 
-   | **Field** | Värde |
+   | **Fält** | Värde |
    | --- | --- |
    | **Prenumeration** |  Prenumerationen där den sekundära hanterade instansen är. |
-   | **Namn** | Namnet på din virtuella nätverksgateway, till exempel `secondary-mi-gateway`. | 
-   | **Region** | Den region där den sekundära hanterade instansen är. |
+   | **Namn** | Namnet på din virtuella nätverksgateway, till exempel `secondary-mi-gateway` . | 
+   | **Nationella** | Den region där den sekundära hanterade instansen är. |
    | **Typ av Gateway** | Välj **VPN**. |
    | **VPN-typ** | Välj **Route-baserad** |
-   | **SKU**| Lämna standardvärdet `VpnGw1`. |
+   | **SKU**| Lämna standardvärdet `VpnGw1` . |
    | **Position**| Den plats där den sekundära hanterade instansen och det sekundära virtuella nätverket är.   |
-   | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-secondary`. |
+   | **Virtuellt nätverk**| Välj det virtuella nätverk som skapades i avsnitt 2, till exempel `vnet-sql-mi-secondary` . |
    | **Offentlig IP-adress**| Välj **Skapa ny**. |
-   | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till `secondary-gateway-IP`exempel. |
+   | **Namn på offentlig IP-adress**| Ange ett namn för din IP-adress, till exempel `secondary-gateway-IP` . |
    | &nbsp; | &nbsp; |
 
    ![Inställningar för sekundär Gateway](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
@@ -488,7 +488,7 @@ Två anslutningar måste skapas – anslutningen från den primära gatewayen ti
 
 Den delade nyckel som används för båda anslutningarna ska vara densamma för varje anslutning. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 Skapa anslutningar mellan de två gatewayerna med hjälp av Azure Portal. 
 
 1. Välj **skapa en resurs** från [Azure Portal](https://portal.azure.com).
@@ -500,11 +500,11 @@ Skapa anslutningar mellan de två gatewayerna med hjälp av Azure Portal.
     1. Välj resurs grupp för din hanterade instans i list rutan. 
     1. Välj platsen för din primära hanterade instans i list rutan 
 1. På fliken **Inställningar** väljer eller anger du följande värden och väljer sedan **OK**:
-    1. Välj den primära Nätverksgatewayen för den **första virtuella Nätverksgatewayen**, till exempel `Primary-Gateway`.  
-    1. Välj den sekundära Nätverksgatewayen för den **andra virtuella Nätverksgatewayen**, till exempel `Secondary-Gateway`. 
+    1. Välj den primära Nätverksgatewayen för den **första virtuella Nätverksgatewayen**, till exempel `Primary-Gateway` .  
+    1. Välj den sekundära Nätverksgatewayen för den **andra virtuella Nätverksgatewayen**, till exempel `Secondary-Gateway` . 
     1. Markera kryss rutan bredvid **upprätta dubbelriktad anslutning**. 
     1. Lämna antingen standard namnet för primär anslutning eller Byt namn på det till önskat värde. 
-    1. Ange en **delad nyckel (PSK)** för anslutningen, till exempel `mi1m2psk`. 
+    1. Ange en **delad nyckel (PSK)** för anslutningen, till exempel `mi1m2psk` . 
 
    ![Skapa Gateway-anslutning](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
@@ -546,7 +546,7 @@ Skapa anslutningar mellan de två gatewayerna med PowerShell.
 ### <a name="create-the-failover-group"></a>Skapa gruppen redundans 
 Skapa gruppen redundans för dina hanterade instanser med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Skapa gruppen redundans för dina hanterade instanser med hjälp av Azure Portal. 
 
@@ -588,7 +588,7 @@ Skapa gruppen redundans för dina hanterade instanser med PowerShell.
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal eller PowerShell. 
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Testa redundans för din failover-grupp med hjälp av Azure Portal. 
 
@@ -644,17 +644,30 @@ Testa redundans för din failover-grupp med hjälp av PowerShell.
 
 ---
 
+## <a name="use-private-link"></a>Använda Private Link
+
+Med hjälp av en privat länk kan du associera en logisk server med en speciell privat IP-adress inom det virtuella nätverket och under nätet. 
+
+Gör så här om du vill använda en privat länk med din failover-grupp:
+
+1. Se till att dina primära och sekundära servrar finns i en [kopplad region](/azure/best-practices-availability-paired-regions). 
+1. Skapa det virtuella nätverket och under nätet i varje region som värd för privata slut punkter för primära och sekundära servrar, så att de har icke-överlappande IP-adressutrymme. Till exempel är det primära virtuella nätverks adress intervallet 10.0.0.0/16 och det sekundära virtuella nätverks adress intervallet 10.0.0.1/16 överlappar. Mer information om adress intervall för virtuella nätverk finns i bloggen [utforma virtuella Azure-nätverk](https://devblogs.microsoft.com/premier-developer/understanding-cidr-notation-when-designing-azure-virtual-networks-and-subnets/).
+1. Skapa en [privat slut punkt och Azure privat DNS zon för den primära servern](../private-link/create-private-endpoint-portal.md#create-a-private-endpoint). 
+1. Skapa även en privat slut punkt för den sekundära servern, men den här gången väljer du att återanvända samma Privat DNS zon som skapades för den primära servern. 
+1. När den privata länken har upprättats kan du skapa en failover-grupp enligt stegen som beskrivs tidigare i den här artikeln. 
+
+
 ## <a name="locate-listener-endpoint"></a>Hitta lyssnar slut punkt
 
 När du har konfigurerat din failover-grupp uppdaterar du anslutnings strängen för ditt program till lyssnar slut punkten. Detta gör att ditt program är anslutet till avlyssnings gruppens lyssnare i stället för den primära databasen, elastisk pool eller en hanterad instans. På så sätt behöver du inte uppdatera anslutnings strängen manuellt varje gång din Azure SQL Database-enhet växlar över, och trafik dirigeras till den enhet som är primär för närvarande. 
 
-Lyssnar slut punkten är i form av `fog-name.database.windows.net`och visas i Azure Portal när du visar gruppen redundans:
+Lyssnar slut punkten är i form av `fog-name.database.windows.net` och visas i Azure Portal när du visar gruppen redundans:
 
 ![Anslutnings sträng för redundans grupp](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
 ## <a name="remarks"></a>Anmärkningar
 
-- Att ta bort en redundans grupp för en databas med en eller flera databaser stoppar inte replikeringen och tar inte bort den replikerade databasen. Du måste stoppa geo-replikering manuellt och ta bort databasen från den sekundära servern om du vill lägga till en enskild eller fristående databas tillbaka till en redundansväxling när den har tagits bort. Om du inte gör något kan det resultera i ett fel som `The operation cannot be performed due to multiple errors` liknar när du försöker lägga till databasen i gruppen för växling vid fel. 
+- Att ta bort en redundans grupp för en databas med en eller flera databaser stoppar inte replikeringen och tar inte bort den replikerade databasen. Du måste stoppa geo-replikering manuellt och ta bort databasen från den sekundära servern om du vill lägga till en enskild eller fristående databas tillbaka till en redundansväxling när den har tagits bort. Om du inte gör något kan det resultera i ett fel som liknar `The operation cannot be performed due to multiple errors` när du försöker lägga till databasen i gruppen för växling vid fel. 
 
 
 ## <a name="next-steps"></a>Nästa steg

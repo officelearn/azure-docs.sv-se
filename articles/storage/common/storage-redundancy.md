@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: d37e790b8a77a48cb5ef53292712164dcdcf459b
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 65d898112396755bb2518cade0ac94c21bc52685
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872011"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117724"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -102,7 +102,7 @@ Geo-Zone-redundant lagring (GZRS) kombinerar den höga tillgänglighet som tillh
 
 Med ett GZRS lagrings konto kan du fortsätta att läsa och skriva data om en tillgänglighets zon blir otillgänglig eller inte kan återställas. Dessutom är dina data också varaktiga när det gäller ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte kan återskapas. GZRS har utformats för att ge minst 99.99999999999999% (16 9) objekts hållbarhet under ett angivet år.
 
-Endast General-Purpose v2-lagrings konton stöder GZRS och RA-GZRS. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md). GZRS och RA-GZRS stöder block-blobbar, Page blobbar (utom för VHD-diskar), filer, tabeller och köer. GZRS och RA-GZRS är tillgängliga i alla Azure-regioner.
+Endast General-Purpose v2-lagrings konton stöder GZRS och RA-GZRS. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md). GZRS och RA-GZRS stöder block-blobbar, Page blobbar (utom för VHD-diskar), filer, tabeller och köer.
 
 GZRS och RA-GZRS stöds i följande regioner:
 
@@ -126,7 +126,7 @@ Geo-redundant lagring (med GRS eller GZRS) replikerar dina data till en annan fy
 
 Om ditt lagrings konto har kon figurer ATS för Läs åtkomst till den sekundära regionen kan du utforma dina program för att sömlöst växla till att läsa data från den sekundära regionen, om den primära regionen inte är tillgänglig av någon anledning. Den sekundära regionen är alltid tillgänglig för Läs behörighet, så du kan testa programmet för att se till att det kommer att läsa från den sekundära händelsen vid ett avbrott. Mer information om hur du utformar dina program för hög tillgänglighet finns i [använda GEO-redundans för att skapa program med hög](geo-redundant-design.md)tillgänglighet.
 
-När Läs åtkomst till den sekundära är aktive rad kan dina data läsas från den sekundära slut punkten och från den primära slut punkten för ditt lagrings konto. Den sekundära slut punkten lägger till suffixet *– sekundärt* till konto namnet. Om din primära slut punkt för Blob Storage t. ex `myaccount.blob.core.windows.net`. är, är `myaccount-secondary.blob.core.windows.net`den sekundära slut punkten. Konto åtkomst nycklarna för ditt lagrings konto är desamma för både den primära och den sekundära slut punkten.
+När Läs åtkomst till den sekundära är aktive rad kan dina data läsas från den sekundära slut punkten och från den primära slut punkten för ditt lagrings konto. Den sekundära slut punkten lägger till suffixet *– sekundärt* till konto namnet. Om din primära slut punkt för Blob Storage t. ex `myaccount.blob.core.windows.net` . är, är den sekundära slut punkten `myaccount-secondary.blob.core.windows.net` . Konto åtkomst nycklarna för ditt lagrings konto är desamma för både den primära och den sekundära slut punkten.
 
 ### <a name="check-the-last-sync-time-property"></a>Kontrollera egenskapen Tidpunkt för senaste synkronisering
 

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 03/30/2020
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7f3eaa54ecb39922a155e2ea65e15d38f2b138e4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: eeccf0031e28bdcb719c0d534874d2c240ba46d3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615310"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117435"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -84,7 +84,7 @@ Det rekommenderade sättet att etablera virtuella datorer med hjälp av Azure Re
 
 Följ de här anvisningarna för att bekräfta att komponenterna är installerade och för att söka efter fel meddelanden.
 
-1. Bekräfta att de två komponenterna är installerade genom att kontrol lera**i program** > **och funktioner**på **kontroll panelen** > . Om **Windows Virtual Desktop-agenten** och **Start inläsaren för virtuella Skriv bords agenter** för Windows inte visas, är de inte installerade på den virtuella datorn.
+1. Bekräfta att de två komponenterna är installerade genom att kontrol **Control Panel**lera i program  >  **Programs**  >  **och funktioner**på kontroll panelen. Om **Windows Virtual Desktop-agenten** och **Start inläsaren för virtuella Skriv bords agenter** för Windows inte visas, är de inte installerade på den virtuella datorn.
 2. Öppna **Utforskaren** och gå till **C:\Windows\Temp\ScriptLog.log**. Om filen saknas, anger det att PowerShell DSC som installerade de två komponenterna inte kunde köras i den angivna säkerhets kontexten.
 3. Om filen **C:\Windows\Temp\ScriptLog.log** finns öppnar du den och kontrollerar om det finns fel meddelanden.
 
@@ -237,7 +237,7 @@ Den virtuella datorn som används för att köra reparation måste finnas i samm
 Följ de här anvisningarna för att köra reparationen från samma undernät och domän:
 
 1. Anslut med standard Remote Desktop Protocol (RDP) till den virtuella datorn från den plats där korrigeringen ska tillämpas.
-2. Hämta PsExec från https://docs.microsoft.com/sysinternals/downloads/psexec.
+2. Hämta PsExec från https://docs.microsoft.com/sysinternals/downloads/psexec .
 3. Zippa upp den hämtade filen.
 4. Starta kommando tolken som lokal administratör.
 5. Navigera till mappen där PsExec var zippad.
@@ -313,7 +313,7 @@ Om något av dessa meddelanden visas innebär det att avbildningen inte har de s
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Inaktivera grup princip inställningen för fjärr skrivbords licensierings läge
 
-Kontrol lera grup princip inställningen genom att öppna grupprincip redigeraren på den virtuella datorn och navigera till **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd** > **licensiering** > för fjärrskrivbordssession**Ange fjärr skrivbords licensierings läge**. Om grup princip inställningen är **aktive rad**ändrar du den till **inaktive rad**. Om den redan är inaktive rad lämnar du den som den är.
+Kontrol lera grup princip inställningen genom att öppna grupprincip redigeraren på den virtuella datorn och navigera till **administrativa mallar**  >  **Windows-komponenter**  >  **Fjärrskrivbordstjänster**  >  **värd**  >  **licensiering**för fjärrskrivbordssession  >  **Ange fjärr skrivbords licensierings läge**. Om grup princip inställningen är **aktive rad**ändrar du den till **inaktive rad**. Om den redan är inaktive rad lämnar du den som den är.
 
 >[!NOTE]
 >Om du anger grup princip via din domän inaktiverar du den här inställningen för principer som riktar sig mot de här Windows 10 Enterprise-datorer med flera sessioner.
@@ -338,6 +338,12 @@ Om versions numret säger "1809" installerar [du KB4516077-uppdateringen](https:
 ### <a name="version-1903"></a>Version 1903
 
 Distribuera om värd operativ systemet med den senaste versionen av Windows 10, version 1903-avbildningen från Azure-galleriet.
+
+## <a name="we-couldnt-connect-to-the-remote-pc-because-of-a-security-error"></a>Det gick inte att ansluta till fjärrdatorn på grund av ett säkerhets fel
+
+Om dina användare ser ett fel som säger att "vi inte kunde ansluta till fjärrdatorn på grund av ett säkerhets fel. Om detta händer kan du be din administratör eller teknisk support om hjälp, validera eventuella befintliga principer som ändrar RDP-standardbehörigheterna. En princip som kan orsaka att det här felet visas är "Tillåt inloggning genom Fjärrskrivbordstjänster säkerhets princip".
+
+Mer information om den här principen finns i [Tillåt inloggning via Fjärrskrivbordstjänster](/windows/security/threat-protection/security-policy-settings/allow-log-on-through-remote-desktop-services).
 
 ## <a name="next-steps"></a>Nästa steg
 

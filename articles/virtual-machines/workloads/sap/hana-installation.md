@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca59305b22fcf1e81ef518612910731cb6edea5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4db072cf881c936db6721845e7823082388515b0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77617097"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117129"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure
 
@@ -35,7 +35,7 @@ Verifiera följande innan du påbörjar HANA-installationen:
 - [HLI-enhet (er)](#validate-the-hana-large-instance-units)
 - [Konfiguration av operativ system](#operating-system)
 - [Konfiguration av nätverk](#networking)
-- [Storage-konfiguration](#storage)
+- [Lagrings konfiguration](#storage)
 
 
 ## <a name="validate-the-hana-large-instance-units"></a>Verifiera de HANA-stora instans enheterna
@@ -90,7 +90,7 @@ Se [resurs bibliotek/fakta blad](https://www.suse.com/products/sles-for-sap/reso
 Följande är ytterligare och användbart SAP på SUSE-relaterade länkar:
 
 - [SAP HANA på SUSE Linux-webbplats](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [Metod tips för SAP: köa replikering – SAP NetWeaver på SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113)
+- [Metod tips för SAP: köa replikering – SAP NetWeaver på SUSE Linux Enterprise 12](https://www.suse.com/media/guide/SLES4SAP-NetWeaver-ha-guide-EnqRepl-12_color_en.pdf)
 - [ClamSAP – SLES virus skydd för SAP](https://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (inklusive SLES 12 för SAP-program)
 
 Följande är SAP-support anteckningar som är tillämpliga för att implementera SAP HANA på SLES 12:
@@ -117,7 +117,7 @@ Följande är SAP-support anteckningar som är tillämpliga för att implementer
 
 ### <a name="time-synchronization"></a>Tidssynkronisering
 
-SAP-program som bygger på SAP NetWeaver-arkitekturen är känsliga för tids skillnader för de olika komponenter som utgör SAP-systemet. ABAP för SAP-kort med fel rubriken för ZDATE\_stor\_\_skillnad är förmodligen bekant. Det beror på att de här korta dumparna visas när system tiden för olika servrar eller virtuella datorer är för långt ifrån varandra.
+SAP-program som bygger på SAP NetWeaver-arkitekturen är känsliga för tids skillnader för de olika komponenter som utgör SAP-systemet. ABAP för SAP-kort med fel rubriken för ZDATE \_ stor \_ \_ skillnad är förmodligen bekant. Det beror på att de här korta dumparna visas när system tiden för olika servrar eller virtuella datorer är för långt ifrån varandra.
 
 För SAP HANA på Azure (stora instanser) gäller tidssynkroniseringen som är utförd i Azure inte beräknings enheterna i de stora instans stämplarna. Den här synkroniseringen gäller inte för att köra SAP-program i interna virtuella Azure-datorer eftersom Azure säkerställer att systemets tid är korrekt synkroniserad. 
 
@@ -136,7 +136,7 @@ Mer information om Ethernet-information för din arkitektur finns i [scenarier f
 
 ## <a name="storage"></a>Storage
 
-Lagrings layouten för SAP HANA på Azure (stora instanser) konfigureras genom att SAP HANA `service management` på Azure med hjälp av SAP-rekommenderade rikt linjer. Dessa rikt linjer beskrivs i [SAP HANA lagrings krav](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) White Paper. 
+Lagrings layouten för SAP HANA på Azure (stora instanser) konfigureras genom att SAP HANA på Azure `service management` med hjälp av SAP-rekommenderade rikt linjer. Dessa rikt linjer beskrivs i [SAP HANA lagrings krav](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) White Paper. 
 
 De höga storlekarna för de olika volymerna med de olika volymerna för HANA-stora instanser dokumenteras i [SAP HANA (stora instanser) Översikt och arkitektur på Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -144,8 +144,8 @@ Namngivnings konventionerna för lagrings volymerna visas i följande tabell:
 
 | Lagrings användning | Monterings namn | Volym namn | 
 | --- | --- | ---|
-| HANA-data | /hana/data/SID/mnt0000\<m> | Lagrings-IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA-logg | /hana/log/SID/mnt0000\<m> | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA-data | /hana/data/SID/mnt0000 \< m> | Lagrings-IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA-logg | /hana/log/SID/mnt0000 \< m> | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA-logg säkerhets kopiering | /hana/log/backups | Lagrings-IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA delad | /hana/shared/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/Shared |
 | usr/SAP | /usr/sap/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
@@ -164,7 +164,7 @@ Volymen HANA/log/backup ska inte vara volymen för databas säkerhets kopior. De
 
 Utöver det lagrings utrymme som tillhandahålls kan du köpa ytterligare lagrings kapacitet i steg om 1 TB. Detta ytterligare lagrings utrymme kan läggas till som nya volymer i en stor HANA-instans.
 
-Vid onboarding med SAP HANA på Azure `service management`anger kunden ett användar-ID (UID) och grupp-ID (GID) för användar-och sapsys-gruppen sidadm (till exempel: 1 000 500). Under installationen av SAP HANA systemet måste du använda samma värden. Eftersom du vill distribuera flera HANA-instanser på en enhet får du flera uppsättningar med volymer (en uppsättning för varje instans). Därför måste du vid distributions tiden definiera:
+Vid onboarding med SAP HANA på Azure `service management` anger kunden ett användar-ID (UID) och grupp-ID (GID) för användar-och sapsys-gruppen sidadm (till exempel: 1 000 500). Under installationen av SAP HANA systemet måste du använda samma värden. Eftersom du vill distribuera flera HANA-instanser på en enhet får du flera uppsättningar med volymer (en uppsättning för varje instans). Därför måste du vid distributions tiden definiera:
 
 - SID för de olika HANA-instanserna (sidadm härleds från den).
 - Minnes storlekarna för de olika HANA-instanserna. Minnes storleken per instans definierar storleken på volymerna i varje enskild volym uppsättning.

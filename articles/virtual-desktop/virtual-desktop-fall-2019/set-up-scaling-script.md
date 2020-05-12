@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 28e76a93e309112d965c49f25be232ced789ad66
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 012cdc53099bf156e50fe766b04c3176d415db1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983201"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117401"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skala sessionsbaserade värdar med hjälp av Azure Automation
 
@@ -23,6 +23,10 @@ ms.locfileid: "82983201"
 Du kan minska din totala distributions kostnad för virtuella Windows-datorer genom att skala dina virtuella datorer (VM). Det innebär att du stänger av och avallokerar sessions värden för virtuella datorer vid låg belastnings tider, sedan aktiverar dem igen och omallokerar dem under hög belastnings tid.
 
 I den här artikeln får du lära dig om skalnings verktyget som skapats med Azure Automation och Azure Logic Apps som automatiskt skalar virtuella datorer i Windows Virtual Desktop-miljön. Om du vill lära dig hur du använder skalnings verktyget kan du gå vidare till [krav](#prerequisites).
+
+## <a name="report-issues"></a>Rapportera problem
+
+Problem rapporter för skalnings verktyget hanteras för närvarande på GitHub i stället för Microsoft Support. Om du stöter på problem med skalnings verktyget kan du rapportera dem Bu att öppna ett GitHub-ärende med etiketten "4a-WVD-Scaling-logicapps" på [sidan RDS GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Hur skalnings verktyget fungerar
 
@@ -43,7 +47,7 @@ Under den högsta användnings tiden kontrollerar jobbet det aktuella antalet se
 
 Under den högsta användnings tiden avgör jobbet vilken virtuell dator i sessionen som ska stängas av baserat på parametern *MinimumNumberOfRDSH* . Jobbet ställer in de virtuella datorerna i den virtuella datorn i tömnings läge för att förhindra att nya sessioner ansluter till värdarna. Om du ställer in parametern *LimitSecondsToForceLogOffUser* på ett positivt värde som inte är noll meddelar jobbet alla användare som är inloggade att spara sitt arbete, väntar på den konfigurerade tiden och tvingar sedan användarna att logga ut. När alla användarsessioner på VM-sessionen har loggats ut stängs jobbet av den virtuella datorn.
 
-Om du ställer in parametern *LimitSecondsToForceLogOffUser* på noll, kommer jobbet att tillåta konfigurations inställningen för sessionen i angivna grup principer för att hantera signering av användarsessioner. Om du vill se dessa grup principer går du till **dator konfiguration** > **principer** > **administrativa mallar** > **Windows-komponenter** > **Terminal Services** > **Terminal Server** > **tids gränser för sessioner**. Om det finns aktiva sessioner på en virtuell dator för en virtuell dator kommer jobbet att lämna den virtuella dator som körs på sessionen. Om det inte finns några aktiva sessioner stängs jobbet för den virtuella datorns sessions värd.
+Om du ställer in parametern *LimitSecondsToForceLogOffUser* på noll, kommer jobbet att tillåta konfigurations inställningen för sessionen i angivna grup principer för att hantera signering av användarsessioner. Om du vill se dessa grup principer går du till **dator konfiguration**  >  **principer**  >  **administrativa mallar**  >  **Windows-komponenter**  >  **Terminal Services**  >  **Terminal Server**  >  **tids gränser för sessioner**. Om det finns aktiva sessioner på en virtuell dator för en virtuell dator kommer jobbet att lämna den virtuella dator som körs på sessionen. Om det inte finns några aktiva sessioner stängs jobbet för den virtuella datorns sessions värd.
 
 Jobbet körs regelbundet baserat på ett angivet upprepnings intervall. Du kan ändra det här intervallet baserat på storleken på din Windows Virtual Desktop-miljö, men kom ihåg att starta och stänga av virtuella datorer kan ta lite tid, så kom ihåg att ta hänsyn till fördröjningen. Vi rekommenderar att du ställer in upprepnings intervallet på var 15: e minut.
 
@@ -258,6 +262,3 @@ Navigera till runbooken (standard namnet är WVDAutoScaleRunbook) i resurs grupp
 
 ![En bild av utdatafönstret för skalnings verktyget.](../media/tool-output.png)
 
-## <a name="report-issues"></a>Rapportera problem
-
-Om du stöter på problem med skalnings verktyget kan du rapportera dem på [sidan RDS-GitHub](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).

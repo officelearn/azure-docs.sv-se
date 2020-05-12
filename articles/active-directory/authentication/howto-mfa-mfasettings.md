@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9002447df44a1f0c87ec9de03e316d7d12d8a626
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfde52db9cbe5bc14be7b30c1063215472bff699
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105666"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116296"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera inställningar för Azure Multi-Factor Authentication
 
 Den här artikeln hjälper dig att hantera Multi-Factor Authentication inställningar i Azure Portal. Den täcker olika ämnen som hjälper dig att få ut mesta möjliga av Azure-Multi-Factor Authentication. Alla funktioner är inte tillgängliga i alla versioner av Azure Multi-Factor Authentication.
 
-Du kan komma åt inställningar som rör Azure Multi-Factor Authentication från Azure Portal genom att bläddra till **Azure Active Directory** > **säkerhets** > **MFA**.
+Du kan komma åt inställningar som rör Azure Multi-Factor Authentication från Azure Portal genom att bläddra till **Azure Active Directory**  >  **säkerhets**  >  **MFA**.
 
 ![Azure Portal-inställningar för Azure AD Multi-Factor Authentication](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -36,7 +36,7 @@ Några av de här inställningarna gäller för MFA Server, Azure MFA eller båd
 | [Blockera/avblockera användare](#block-and-unblock-users) | Används för att blockera vissa användare från att kunna ta emot Multi-Factor Authentication begär Anden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användarna är blockerade i 90 dagar från blockeringens starttid. |
 | [Bedrägerivarning](#fraud-alert) | Konfigurera inställningar för användarnas möjlighet att rapportera falska verifierings begär Anden |
 | [Meddelanden](#notifications) | Aktivera meddelanden om händelser från MFA Server. |
-| [OATH-token](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Används i Cloud-baserade Azure MFA-miljöer för att hantera OATH-token för användare. |
+| [OATH-token](concept-authentication-methods.md#oath-hardware-tokens) | Används i Cloud-baserade Azure MFA-miljöer för att hantera OATH-token för användare. |
 | [Telefonsamtals inställningar](#phone-call-settings) | Konfigurera inställningar för telefonsamtal och hälsningar för moln miljöer och lokala miljöer. |
 | Leverantörer | Då visas befintliga autentiseringsproviders som du kan ha associerat med ditt konto. Nya autentiseringsproviders får inte skapas från den 1 september 2018 |
 
@@ -63,15 +63,15 @@ Använd funktionen _blockera och avblockera användare_ om du vill förhindra at
 ### <a name="block-a-user"></a>Blockera en användare
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhets** > **MFA** > **blockera/avblockera användare**.
+2. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **MFA**  >  **blockera/avblockera användare**.
 3. Välj **Lägg till** för att blockera en användare.
-4. Välj **replikeringsgrupp**. Ange användar namnet för den blockerade användaren **som\@användar namn domain.com**. Ange en kommentar i fältet **orsak** .
+4. Välj **replikeringsgrupp**. Ange användar namnet för den blockerade användaren som **användar namn \@ Domain.com**. Ange en kommentar i fältet **orsak** .
 5. Välj **Lägg till** för att slutföra blockeringen av användaren.
 
 ### <a name="unblock-a-user"></a>Avblockera en användare
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhets** > **MFA** > **blockera/avblockera användare**.
+2. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **MFA**  >  **blockera/avblockera användare**.
 3. Välj **Häv blockering** i kolumnen **åtgärd** bredvid användaren att avblockera.
 4. Ange en kommentar i fältet **orsak till att fältet avblockeras** .
 5. Klicka på **Tillåt** för att avbryta blockeringen av användaren.
@@ -83,14 +83,14 @@ Konfigurera _bedrägeri aviserings_ funktionen så att användarna kan rapporter
 ### <a name="turn-on-fraud-alerts"></a>Aktivera bedrägerier-aviseringar
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhets** > **MFA** > **bedrägeri avisering**.
+2. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **MFA**  >  **bedrägeri avisering**.
 3. Ange inställningen **Tillåt användare att skicka bedrägeri varningar** till **på**.
 4. Välj **Spara**.
 
 ### <a name="configuration-options"></a>Konfigurationsalternativ
 
 * **Blockera användare när bedrägeri rapporteras**: om en användare rapporterar bedrägerier, blockeras kontot i 90 dagar eller tills en administratör avblockerar sitt konto. En administratör kan granska inloggningar med hjälp av inloggnings rapporten och vidta lämpliga åtgärder för att förhindra framtida bedrägerier. En administratör kan sedan [avblockera](#unblock-a-user) användarens konto.
-* **Kod för att rapportera bedrägeri under inledande hälsning**: När användarna får ett telefonsamtal för att utföra tvåstegsverifiering, trycks **#** vanligt vis för att bekräfta inloggningen. Användaren kan rapportera bedrägerier genom att ange en kod innan du trycker **#** på. Den här koden är **0** som standard, men du kan anpassa den.
+* **Kod för att rapportera bedrägeri under inledande hälsning**: När användarna får ett telefonsamtal för att utföra tvåstegsverifiering, trycks vanligt vis **#** för att bekräfta inloggningen. Användaren kan rapportera bedrägerier genom att ange en kod innan du trycker på **#** . Den här koden är **0** som standard, men du kan anpassa den.
 
    >[!NOTE]
    >Vanliga röst hälsningar från Microsoft instruerar användarna att trycka på **0 #** för att skicka en bedrägeri avisering. Om du vill använda en annan kod än **0**, spelar du in och laddar upp egna röst hälsningar med lämpliga instruktioner för dina användare.
@@ -99,11 +99,11 @@ Konfigurera _bedrägeri aviserings_ funktionen så att användarna kan rapporter
 ### <a name="view-fraud-reports"></a>Visa bedrägerier-rapporter
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj**information om** **Azure Active Directory** > **inloggningar** > . Bedrägeri rapporten är nu en del av standard rapporten för Azure AD-inloggningar och visas i **"resultat information"** som MFA nekad, bedrägeri kod angiven.
+2. Välj **Azure Active Directory**  >  **Sign-ins**  >  **information om**Azure Active Directory inloggningar. Bedrägeri rapporten är nu en del av standard rapporten för Azure AD-inloggningar och visas i **"resultat information"** som MFA nekad, bedrägeri kod angiven.
  
 ## <a name="notifications"></a>Meddelanden
 
-Konfigurera e-postadresser här för användare som får aviseringar om bedrägerier i **Azure Active Directory** > **säkerhets** > **Multi-Factor Authentication** > **meddelanden**.
+Konfigurera e-postadresser här för användare som får aviseringar om bedrägerier i **Azure Active Directory**  >  **säkerhets**  >  **Multi-Factor Authentication**  >  **meddelanden**.
 
 ![Avisering om meddelande bedrägerier e-exempel](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
@@ -146,7 +146,7 @@ Om det till exempel bara finns ett anpassat meddelande, med språket tyska:
 ### <a name="set-up-a-custom-message"></a>Konfigurera ett anpassat meddelande
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-1. Bläddra till **Azure Active Directory** > **säkerhets** > **MFA** > **Inställningar**för MFA-telefonsamtal.
+1. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  Inställningar för**MFA**-  >  **telefonsamtal**.
 1. Välj **Lägg till hälsning**.
 1. Välj typ av hälsning.
 1. Välj språk.
@@ -185,16 +185,16 @@ Med funktionen för att _kringgå_ en funktion kan en användare autentisera en 
 ### <a name="create-a-one-time-bypass"></a>Skapa en eng ång slö fördröjning
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhets** > **MFA** > ,**eng ång slö läge**.
+2. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **MFA**  >  ,**eng ång slö läge**.
 3. Välj **Lägg till**.
 4. Om det behövs väljer du replikeringsgruppen för bypass.
-5. Ange användar namnet **\@Domain.com**. Ange antalet sekunder som förbikopplingen ska vara sist. Ange anledningen till kringgåendet.
+5. Ange användar namnet ** \@ Domain.com**. Ange antalet sekunder som förbikopplingen ska vara sist. Ange anledningen till kringgåendet.
 6. Välj **Lägg till**. Tids gränsen börjar gälla omedelbart. Användaren måste logga in innan eng ång slö tiden upphör att gälla.
 
 ### <a name="view-the-one-time-bypass-report"></a>Visa en rapport för att kringgå en stund
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Bläddra till **Azure Active Directory** > **säkerhets** > **MFA** > ,**eng ång slö läge**.
+2. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  **MFA**  >  ,**eng ång slö läge**.
 
 ## <a name="caching-rules"></a>Regler för cachelagring
 
@@ -206,7 +206,7 @@ Du kan ange en tids period för att tillåta autentiseringsförsök när en anv�
 ### <a name="set-up-caching"></a>Konfigurera cachelagring
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhets** > regler för**MFA** > -**cachelagring**.
+2. Bläddra till **Azure Active Directory**  >  **säkerhets**  >  regler för**MFA**-  >  **cachelagring**.
 3. Välj **Lägg till**.
 4. Välj **cache-typ** i list rutan. Ange maximalt antal cache- **sekunder**.
 5. Om det behövs väljer du en autentiseringstyp och anger ett program.
@@ -214,7 +214,7 @@ Du kan ange en tids period för att tillåta autentiseringsförsök när en anv�
 
 ## <a name="mfa-service-settings"></a>Inställningar för MFA-tjänsten
 
-Inställningar för applösenord, tillförlitliga IP-adresser, verifierings alternativ och kom ihåg Multi-Factor Authentication för Azure Multi-Factor Authentication finns i tjänst inställningar. Du kan komma åt tjänst inställningar från Azure Portal genom att bläddra till **Azure Active Directory** > **Security** > **säkerhetsmfa** > **komma igång** > **Konfigurera** > **ytterligare molnbaserade MFA-inställningar**.
+Inställningar för applösenord, tillförlitliga IP-adresser, verifierings alternativ och kom ihåg Multi-Factor Authentication för Azure Multi-Factor Authentication finns i tjänst inställningar. Du kan komma åt tjänst inställningar från Azure Portal genom att bläddra till **Azure Active Directory**  >  **Security**  >  **säkerhetsmfa**  >  **komma igång**  >  **Konfigurera**  >  **ytterligare molnbaserade MFA-inställningar**.
 
 ![Azure Multi-Factor Authentication Service-inställningar](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-service-settings.png)
 
@@ -279,7 +279,7 @@ Azure AD stöder Federation eller enkel inloggning (SSO) med lokala Windows Serv
 Som standard kan användarna inte skapa applösenord. Funktionen applösenord måste vara aktive rad. Använd följande procedur för att ge användarna möjlighet att skapa applösenord:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **användare**till vänster.
+2. Välj **Azure Active Directory**  >  **användare**till vänster.
 3. Välj **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
 5. På sidan **tjänst inställningar** väljer du alternativet **Tillåt användare att skapa applösenord för att logga in på icke-webbläsarbaserade appar** .
@@ -319,7 +319,7 @@ Oberoende av om funktionen för betrodda IP-adresser är aktive rad krävs tvås
 ### <a name="enable-named-locations-by-using-conditional-access"></a>Aktivera namngivna platser med hjälp av villkorlig åtkomst
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Till vänster väljer du **Azure Active Directory** > **säkerhets** > **villkorlig åtkomst** > **med namnet platser**.
+2. Till vänster väljer du **Azure Active Directory**  >  **säkerhets**  >  **villkorlig åtkomst**  >  **med namnet platser**.
 3. Välj **ny plats**.
 4. Ange ett namn på platsen.
 5. Välj **Markera som betrodd plats**.
@@ -329,7 +329,7 @@ Oberoende av om funktionen för betrodda IP-adresser är aktive rad krävs tvås
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>Aktivera funktionen för betrodda IP-adresser med hjälp av villkorlig åtkomst
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Till vänster väljer du **Azure Active Directory** > **säkerhets** >  **villkorlig åtkomst** > **med namnet platser**.
+2. Till vänster väljer du **Azure Active Directory**  >  **säkerhets**  >   **villkorlig åtkomst**  >  **med namnet platser**.
 3. Välj **Konfigurera MFA-betrodda IP-adresser**.
 4. På sidan **tjänst inställningar** under **betrodda IP-adresser**väljer du något av följande två alternativ:
 
@@ -347,7 +347,7 @@ Oberoende av om funktionen för betrodda IP-adresser är aktive rad krävs tvås
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Aktivera funktionen för betrodda IP-adresser med hjälp av tjänst inställningar
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **användare**till vänster.
+2. Välj **Azure Active Directory**  >  **användare**till vänster.
 3. Välj **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
 5. På sidan **tjänst inställningar** under **betrodda IP-adresser**väljer du ett (eller båda) av följande två alternativ:
@@ -379,7 +379,7 @@ När dina användare registrerar sina konton för Azure Multi-Factor Authenticat
 ### <a name="enable-and-disable-verification-methods"></a>Aktivera och inaktivera verifierings metoder
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **användare**till vänster.
+2. Välj **Azure Active Directory**  >  **användare**till vänster.
 3. Välj **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
 5. På sidan **tjänst inställningar** under **verifierings alternativ**väljer/avmarkerar du de metoder som du vill använda för dina användare.
@@ -415,7 +415,7 @@ Funktionen minskar antalet autentiseringar i Web Apps, som normalt frågas varje
 ### <a name="enable-remember-multi-factor-authentication"></a>Aktivera kom ihåg Multi-Factor Authentication
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Välj **Azure Active Directory** > **användare**till vänster.
+2. Välj **Azure Active Directory**  >  **användare**till vänster.
 3. Välj **Multi-Factor Authentication**.
 4. Under Multi-Factor Authentication väljer du **tjänst inställningar**.
 5. På sidan **tjänst inställningar** hanterar du **kom ihåg Multi-Factor Authentication**och väljer alternativet **Tillåt användare att komma ihåg Multi-Factor Authentication på enheter som de litar på** .

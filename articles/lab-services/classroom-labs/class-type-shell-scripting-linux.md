@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1199bca9e2ab7c85ccf5c90879fe5141a55a7bb5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443558"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115072"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurera ett labb för att lära sig använda Shell-skript i Linux
 Den här artikeln visar hur du konfigurerar ett labb för att lära sig att använda Shell-skript i Linux. Skript är en användbar del av system administration som gör det möjligt för administratörer att undvika repetitiva uppgifter. I det här exempel scenariot täcker klassen traditionella bash-skript och förbättrade skript. Förbättrade skript är skript som kombinerar bash-kommandon och Ruby. Med den här metoden kan ruby skicka data runt-och bash-kommandon för att interagera med gränssnittet. 
@@ -32,22 +32,22 @@ När du har skapat labb kontot aktiverar du följande inställningar i labb kont
 
 | Inställning för labb konto | Instruktioner |
 | ----------- | ------------ |  
-| Marketplace-avbildningar | Aktivera [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) -avbildningen för användning i ditt labb konto. Mer information finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapande](specify-marketplace-images.md). | 
+| Marketplace-avbildningar | Aktivera Ubuntu Server 18,04 LTS-avbildningen för användning i ditt labb konto. Mer information finns i [Ange Marketplace-avbildningar som är tillgängliga för labb skapande](specify-marketplace-images.md). | 
 
 Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa ett nytt labb och tillämpa följande inställningar:
 
 | Labb inställningar | Värde/anvisningar | 
 | ------------ | ------------------ |
 | Storlek för virtuell dator (VM) | Liten  |
-| Avbildning av virtuell dator | [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
+| Avbildning av virtuell dator | Ubuntu Server 18,04 LTS |
 | Aktivera anslutning till fjärr skrivbord | Aktivera. <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina virtuella datorer med hjälp av fjärr skrivbord (RDP). Mer information finns i [Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Installera Desktop och xrdp
-[Ubuntu server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) -avbildningen har inte fjärr skrivbords server installerad som standard. Följ anvisningarna i artikeln [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md) -artikeln för att installera de paket som behövs på den mall datorn för att ansluta via Remote Desktop Protocol.
+Ubuntu Server 18,04 LTS-avbildningen har inte fjärr skrivbords server installerad som standard. Följ anvisningarna i artikeln [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md) -artikeln för att installera de paket som behövs på den mall datorn för att ansluta via Remote Desktop Protocol.
 
 ## <a name="install-ruby"></a>Installera Ruby
-Ruby är ett dynamiskt språk med öppen källkod som kan kombineras med bash-skript. Det här avsnittet visar hur du `apt-get` använder för att installera den senaste versionen av [ruby](https://www.ruby-lang.org/).
+Ruby är ett dynamiskt språk med öppen källkod som kan kombineras med bash-skript. Det här avsnittet visar hur du använder `apt-get` för att installera den senaste versionen av [ruby](https://www.ruby-lang.org/).
 
 1. Installera uppdateringar genom att köra följande kommandon:
 

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: babanisa
-ms.openlocfilehash: 2c34a9e1463c49ab1822d1de6bf33e81f19cf003
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 7c363fd4e55fdd6fe04a099ac833a256bbfd2eb2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629600"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116976"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>Ta emot händelser till en HTTP-slutpunkt
 
@@ -28,9 +28,9 @@ Du behöver en Function-app med en HTTP-utlöst funktion.
 
 ## <a name="add-dependencies"></a>Lägg till beroenden
 
-Om du utvecklar i .net lägger du [till ett beroende](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) till din funktion för `Microsoft.Azure.EventGrid` [NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). I exemplen i den här artikeln krävs version 1.4.0 eller senare.
+Om du utvecklar i .NET lägger du [till ett beroende](../azure-functions/functions-reference-csharp.md#referencing-custom-assemblies) till din funktion för NuGet- `Microsoft.Azure.EventGrid` [paketet](https://www.nuget.org/packages/Microsoft.Azure.EventGrid). I exemplen i den här artikeln krävs version 1.4.0 eller senare.
 
-SDK: er för andra språk är tillgängliga via referens för att [publicera SDK](./sdk-overview.md#data-plane-sdks) : er. De här paketen har modeller för interna händelse typer som `EventGridEvent`, `StorageBlobCreatedEventData`och `EventHubCaptureFileCreatedEventData`.
+SDK: er för andra språk är tillgängliga via referens för att [publicera SDK](./sdk-overview.md#data-plane-sdks) : er. De här paketen har modeller för interna händelse typer som `EventGridEvent` , `StorageBlobCreatedEventData` och `EventHubCaptureFileCreatedEventData` .
 
 Klicka på länken "Visa filer" i din Azure-funktion (den högra rutan i Azure Functions-portalen) och skapa en fil med namnet Project. JSON. Lägg till följande innehåll i `project.json` filen och spara den:
 
@@ -50,9 +50,9 @@ Klicka på länken "Visa filer" i din Azure-funktion (den högra rutan i Azure F
 
 ## <a name="endpoint-validation"></a>Slut punkts validering
 
-Det första du vill göra är att hantera `Microsoft.EventGrid.SubscriptionValidationEvent` händelser. Varje gång någon prenumererar på en händelse skickar Event Grid en validerings händelse till slut punkten med en `validationCode` i data nytto lasten. Slut punkten krävs för att ekona tillbaka i svars texten för att [bevisa att slut punkten är giltig och ägs av dig](webhook-event-delivery.md). Om du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) i stället för en webhook-utlöst funktion, hanteras slut punkts verifieringen åt dig. Om du använder en API-tjänst från tredje part (t. ex. [Zapier](https://zapier.com) eller [ifttt](https://ifttt.com/)) kanske du inte kan program mässigt ekoa verifierings koden. För dessa tjänster kan du verifiera prenumerationen manuellt genom att använda en verifierings-URL som skickas i prenumerations validerings händelsen. Kopiera URL: en i `validationUrl` egenskapen och skicka en get-begäran antingen via en rest-klient eller webbläsaren.
+Det första du vill göra är att hantera `Microsoft.EventGrid.SubscriptionValidationEvent` händelser. Varje gång någon prenumererar på en händelse skickar Event Grid en validerings händelse till slut punkten med en `validationCode` i data nytto lasten. Slut punkten krävs för att ekona tillbaka i svars texten för att [bevisa att slut punkten är giltig och ägs av dig](webhook-event-delivery.md). Om du använder en [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md) i stället för en webhook-utlöst funktion, hanteras slut punkts verifieringen åt dig. Om du använder en API-tjänst från tredje part (t. ex. [Zapier](https://zapier.com/home) eller [ifttt](https://ifttt.com/)) kanske du inte kan program mässigt ekoa verifierings koden. För dessa tjänster kan du verifiera prenumerationen manuellt genom att använda en verifierings-URL som skickas i prenumerations validerings händelsen. Kopiera URL: en i `validationUrl` egenskapen och skicka en get-begäran antingen via en rest-klient eller webbläsaren.
 
-I C# deserialiserar `DeserializeEventGridEvents()` funktionen Event Grid händelser. Den deserialiserar händelse data till lämplig typ, till exempel StorageBlobCreatedEventData. Använd- `Microsoft.Azure.EventGrid.EventTypes` klassen för att hämta händelse typer och namn som stöds.
+I C# `DeserializeEventGridEvents()` deserialiserar funktionen Event Grid händelser. Den deserialiserar händelse data till lämplig typ, till exempel StorageBlobCreatedEventData. Använd- `Microsoft.Azure.EventGrid.EventTypes` klassen för att hämta händelse typer och namn som stöds.
 
 Använd följande kod för att program mässigt ekoa verifierings koden. Du kan hitta relaterade exempel i [Event Grid Consumer-exempel](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer).
 
@@ -140,7 +140,7 @@ När du klickar på Kör ska utdata vara 200 OK och `{"ValidationResponse":"512d
 
 ## <a name="handle-blob-storage-events"></a>Hantera Blob Storage-händelser
 
-Nu ska vi utöka funktionen att hantera `Microsoft.Storage.BlobCreated`:
+Nu ska vi utöka funktionen att hantera `Microsoft.Storage.BlobCreated` :
 
 ```cs
 using System.Net;
@@ -257,7 +257,7 @@ Slutligen kan du utöka funktionen en gång till så att den även kan hantera a
 
 I C# stöder SDK mappning av ett händelse typs namn till händelse data typen. Använd `AddOrUpdateCustomEventMapping()` funktionen för att mappa den anpassade händelsen.
 
-Lägg till en kontroll för din `Contoso.Items.ItemReceived`händelse. Den slutliga koden bör se ut så här:
+Lägg till en kontroll för din händelse `Contoso.Items.ItemReceived` . Den slutliga koden bör se ut så här:
 
 ```cs
 using System.Net;

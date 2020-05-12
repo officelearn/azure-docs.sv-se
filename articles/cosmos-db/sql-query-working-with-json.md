@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: a8f32ad69d32844305c1cc785afc9f1df3c102b8
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: d0b11cdb0cf2719b576b7a4c4f3fa534ae09dfa8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006357"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117027"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Arbeta med JSON i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ I Azure Cosmos DB SQL-API: n (Core) lagras objekten som JSON. Typ systemet och u
 
 Vi kommer att sammanfatta några viktiga aspekter av att arbeta med JSON:
 
-- JSON-objekt börjar alltid med `{` en vänster klammerparentes och slutar med en `}` höger klammerparentes
+- JSON-objekt börjar alltid med en `{` vänster klammerparentes och slutar med en `}` höger klammerparentes
 - Du kan ha JSON-egenskaper [kapslade](#nested-properties) i varandra
 - JSON-egenskapsvärde kan vara matriser
 - JSON-egenskaps namn är Skift läges känsliga
@@ -45,9 +45,9 @@ Här är ett dokument med kapslad JSON:
 }
 ```
 
-I det här fallet är `state`egenskaperna `country`, och `city` alla kapslade i `address` egenskapen.
+I det här fallet `state` `country` är egenskaperna, och `city` alla kapslade i `address` egenskapen.
 
-I följande exempel projekterar två kapslade `f.address.state` egenskaper `f.address.city`: och.
+I följande exempel projekterar två kapslade egenskaper: `f.address.state` och `f.address.city` .
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -141,7 +141,7 @@ WHERE EXISTS(
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Reserverade nyckelord och specialtecken i JSON
 
-Du kan komma åt egenskaper med hjälp av den `[]`citerade egenskaps operatorn. Till exempel är `SELECT c.grade` och `SELECT c["grade"]` likvärdiga. Den här syntaxen är användbar för att undvika en egenskap som innehåller blank steg, specialtecken eller har samma namn som ett SQL-nyckelord eller reserverat ord.
+Du kan komma åt egenskaper med hjälp av den citerade egenskaps operatorn `[]` . Till exempel är `SELECT c.grade` och `SELECT c["grade"]` likvärdiga. Den här syntaxen är användbar för att undvika en egenskap som innehåller blank steg, specialtecken eller har samma namn som ett SQL-nyckelord eller reserverat ord.
 
 Här är till exempel ett dokument med en egenskap med namnet `order` och en egenskap `price($)` som innehåller specialtecken:
 
@@ -208,7 +208,7 @@ Resultatet är:
     }]
 ```
 
-I föregående exempel måste `SELECT` satsen skapa ett JSON-objekt och eftersom exemplet inte tillhandahåller någon nyckel använder-satsen det implicita argumentet variabel namn. `$1` Följande fråga returnerar två implicita argument-variabler `$1` : `$2`och.
+I föregående exempel `SELECT` måste satsen skapa ett JSON-objekt och eftersom exemplet inte tillhandahåller någon nyckel använder-satsen det implicita argumentet variabel namn `$1` . Följande fråga returnerar två implicita argument-variabler: `$1` och `$2` .
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -237,7 +237,7 @@ Du kan uttryckligen Ali Aset värden i frågor. Om en fråga har två egenskaper
 
 ### <a name="examples"></a>Exempel
 
-`AS` Nyckelordet som används för alias är valfritt, som visas i följande exempel när du projicerar det andra värdet som `NameInfo`:
+`AS`Nyckelordet som används för alias är valfritt, som visas i följande exempel när du projicerar det andra värdet som `NameInfo` :
 
 ```sql
     SELECT
@@ -270,7 +270,7 @@ Här är ett exempel:
 ```sql
     SELECT
            {"JSON expression with a space": { "state": f.address.state, "city": f.address.city }},
-           { "JSON expression with a special character": { "name": f.id }}
+           {"JSON expression with a special character!": { "name": f.id }}
     FROM Families f
     WHERE f.id = "AndersenFamily"
 ```

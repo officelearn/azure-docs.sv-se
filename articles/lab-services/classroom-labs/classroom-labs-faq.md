@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: 2c8cc4c01b172cd11c13558cd195673d21499b41
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: cb645b5adfcd937758a950eaf596bc60e4d55f3f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983915"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115157"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Klass rums labb i Azure Lab Services – vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Services. 
@@ -77,6 +77,6 @@ Prenumerera på [labb tjänst uppdateringar](https://azure.microsoft.com/updates
 Om din fråga inte visas här kan vi berätta för oss, så vi kan hjälpa dig att hitta ett svar.
 
 - Publicera en fråga i slutet av dessa vanliga frågor och svar. 
-- För att få en större mål grupp kan du skicka en fråga till [Azure Lab Services – Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- För att få en större mål grupp kan du publicera en fråga på [Azure Lab Services – Tech community-forumet](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices). 
 - Skicka dina förfrågningar och idéer till [Azure Lab Services – användar rösten](https://feedback.azure.com/forums/320373-lab-services?category_id=352774)för funktions förfrågningar.
 

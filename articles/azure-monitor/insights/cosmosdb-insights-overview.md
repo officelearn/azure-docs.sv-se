@@ -1,21 +1,21 @@
 ---
-title: Övervaka Azure Cosmos DB med Azure Monitor för Cosmos DB (förhands granskning) | Microsoft Docs
+title: Övervaka Azure Cosmos DB med Azure Monitor för Cosmos DB | Microsoft Docs
 description: I den här artikeln beskrivs Azure Monitor för Cosmos DB-funktionen som ger Cosmos DB ägare en snabb förståelse för prestanda-och användnings problem med sina CosmosDB-konton.
 ms.subservice: ''
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/27/2019
-ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.openlocfilehash: 68b1b8c92b5119da400b0ada0fe792c855dd1f33
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78250678"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195403"
 ---
-# <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Utforska Azure Monitor för Azure Cosmos DB (förhands granskning)
+# <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Utforska Azure Monitor för Azure Cosmos DB
 
-Azure Monitor för Azure Cosmos DB (för hands version) ger en överblick över den övergripande prestandan, fel, kapacitet och drifts hälsa för alla dina Azure Cosmos DB resurser i en enhetlig interaktiv upplevelse. Den här artikeln hjälper dig att förstå fördelarna med den nya övervaknings miljön och hur du kan ändra och anpassa upplevelsen så att den passar organisationens unika behov.   
+Azure Monitor för Azure Cosmos DB ger en översikt över övergripande prestanda, fel, kapacitet och drifts hälsa för alla dina Azure Cosmos DB resurser i en enhetlig interaktiv upplevelse. Den här artikeln hjälper dig att förstå fördelarna med den nya övervaknings miljön och hur du kan ändra och anpassa upplevelsen så att den passar organisationens unika behov.   
 
 ## <a name="introduction"></a>Introduktion
 
@@ -44,7 +44,7 @@ Utför följande steg för att visa användning och prestanda för dina lagrings
 
     ![Sökrutan med ordet "Monitor" och en listruta som säger tjänster "Monitor" med en hastighets format bild](./media/cosmosdb-insights-overview/search-monitor.png)
 
-3. Välj **Cosmos dB (för hands version)**.
+3. Välj **Cosmos DB**.
 
     ![Skärm bild av Cosmos DB översikt över arbets bok](./media/cosmosdb-insights-overview/cosmos-db.png)
 
@@ -92,7 +92,7 @@ Precis som med översikts arbets boken kan du välja den nedrullningsbara List r
 
 Välj **åtgärder** överst på sidan och **drift** delen av arbets bokens mall öppnas. Det ger dig möjlighet att se dina begär Anden uppdelade efter den typ av förfrågningar som görs. 
 
-I exemplet nedan ser du att `eastus-billingint` i huvudsak tar emot Läs begär Anden, men med ett litet antal upsert-och Create-begäranden. `westeurope-billingint` Är skrivskyddad från ett ärende perspektiv, minst de senaste fyra timmarna som arbets boken för närvarande är begränsad till via dess tidsintervalls parameter.
+I exemplet nedan ser du att i `eastus-billingint` huvudsak tar emot Läs begär Anden, men med ett litet antal upsert-och Create-begäranden. `westeurope-billingint`Är skrivskyddad från ett ärende perspektiv, minst de senaste fyra timmarna som arbets boken för närvarande är begränsad till via dess tidsintervalls parameter.
 
 ![Arbets bok](./media/cosmosdb-insights-overview/operation.png) 
 
@@ -110,9 +110,9 @@ Om du vill visa eller dölja alla nedrullningsbara List rutor i arbets boken vä
 
 ![Ikonen Visa arbets bok](./media/cosmosdb-insights-overview/expand.png)
 
-## <a name="customize-azure-monitor-for-azure-cosmos-db-preview"></a>Anpassa Azure Monitor för Azure Cosmos DB (förhands granskning)
+## <a name="customize-azure-monitor-for-azure-cosmos-db"></a>Anpassa Azure Monitor för Azure Cosmos DB
 
-Eftersom den här upplevelsen bygger på Azure Monitor arbetsboksmall kan du **Anpassa** > **Redigera** och **Spara** en kopia av den ändrade versionen i en anpassad arbets bok. 
+Eftersom den här upplevelsen bygger på Azure Monitor arbetsboksmall kan du **Anpassa**  >  **Redigera** och **Spara** en kopia av den ändrade versionen i en anpassad arbets bok. 
 
 ![Anpassa stapel](./media/cosmosdb-insights-overview/customize.png)
 

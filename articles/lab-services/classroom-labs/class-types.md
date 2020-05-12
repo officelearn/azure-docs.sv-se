@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 27619a69a1f7fbded8ce6430afc2b8e9a8b4a00c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45043718664eb1b3b6b865821b3f6b2a51199194
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79296735"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115038"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Översikt över klass typer – Azure Lab Services
 
@@ -61,6 +61,10 @@ Du kan ställa in ett labb i Azure Lab Services för att lära en introduktion t
 
 Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för att lära mobil program utveckling med Android Studio](class-type-mobile-dev-android-studio.md).
 
+## <a name="big-data-analytics"></a>Stordataanalyser
+Du kan ställa in ett labb för att lära en stor data analys klass. Med den här typen av klass kan studenter lära sig att hantera stora mängder data och använda algoritmer för maskin-och statistiska inlärning för att härleda data insikter. Ett viktigt mål för studenter är att lära sig att använda verktyg för data analys som Apache Hadoop programmets program varu paket med öppen källkod som innehåller verktyg för att lagra, hantera och bearbeta Big data. 
+
+Detaljerad information om hur du konfigurerar den här typen av labb finns i [Konfigurera ett labb för stor data analys med hjälp av Docker-distribution av HortonWorks Data Platform](class-type-big-data-analytics.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

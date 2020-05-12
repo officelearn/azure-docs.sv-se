@@ -1,19 +1,20 @@
 ---
 title: Referera till en anpassad avbildning i en mall för Azure-skalnings uppsättning
 description: Lär dig hur du lägger till en anpassad avbildning i en befintlig mall för skalnings uppsättningar för virtuella Azure-datorer
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: cynthn
+ms.author: cynthn
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: imaging
 ms.date: 04/26/2018
-ms.author: mimckitt
-ms.openlocfilehash: 3965090239949b5e1116ceebe427728e49ffafe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: akjosh
+ms.custom: akjosh
+ms.openlocfilehash: 5ed9ee79dde73e738417031b928a675ea913179c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273706"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124915"
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Lägga till en anpassad avbildning till en skalningsuppsättningsmall i Azure
 
@@ -24,7 +25,7 @@ I en [föregående artikel](virtual-machine-scale-sets-mvss-start.md) har vi ska
 
 ### <a name="creating-a-managed-disk-image"></a>Skapa en hanterad disk avbildning
 
-Om du redan har en anpassad hanterad disk avbildning (en resurs av `Microsoft.Compute/images`typen) kan du hoppa över det här avsnittet.
+Om du redan har en anpassad hanterad disk avbildning (en resurs av typen `Microsoft.Compute/images` ) kan du hoppa över det här avsnittet.
 
 Lägg först till en `sourceImageVhdUri` parameter, som är URI: n till den generaliserade blobben i Azure Storage som innehåller den anpassade avbildningen som ska distribueras från.
 
@@ -44,7 +45,7 @@ Lägg först till en `sourceImageVhdUri` parameter, som är URI: n till den gene
    "variables": {},
 ```
 
-Lägg sedan till en resurs av typen `Microsoft.Compute/images`, som är den hanterade disk avbildningen baserat på den generaliserade blobben som `sourceImageVhdUri`finns på URI. Den här bilden måste vara i samma region som den skalnings uppsättning som använder den. I egenskaperna för avbildningen anger du OS-typen, platsen för blobben (från `sourceImageVhdUri` parametern) och lagrings konto typen:
+Lägg sedan till en resurs av typen `Microsoft.Compute/images` , som är den hanterade disk avbildningen baserat på den generaliserade blobben som finns på URI `sourceImageVhdUri` . Den här bilden måste vara i samma region som den skalnings uppsättning som använder den. I egenskaperna för avbildningen anger du OS-typen, platsen för blobben (från `sourceImageVhdUri` parametern) och lagrings konto typen:
 
 ```diff
    "resources": [
@@ -71,7 +72,7 @@ Lägg sedan till en resurs av typen `Microsoft.Compute/images`, som är den hant
 
 ```
 
-I skalnings uppsättnings resursen lägger du `dependsOn` till en sats som refererar till den anpassade avbildningen för att se till att avbildningen skapas innan skalnings uppsättningen försöker distribuera från avbildningen:
+I skalnings uppsättnings resursen lägger du till en `dependsOn` sats som refererar till den anpassade avbildningen för att se till att avbildningen skapas innan skalnings uppsättningen försöker distribuera från avbildningen:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -88,7 +89,7 @@ I skalnings uppsättnings resursen lägger du `dependsOn` till en sats som refer
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Ändra skalnings uppsättnings egenskaper till att använda den hanterade disk avbildningen
 
-`imageReference` I i skalnings uppsättningen `storageProfile`, i stället för att ange utgivare, erbjudande, SKU och version för en plattforms avbildning, anger du `id` för `Microsoft.Compute/images` resursen:
+I i `imageReference` skalnings uppsättningen `storageProfile` , i stället för att ange utgivare, erbjudande, SKU och version för en plattforms avbildning, anger du `id` för `Microsoft.Compute/images` resursen:
 
 ```json
          "virtualMachineProfile": {
@@ -100,7 +101,7 @@ I skalnings uppsättnings resursen lägger du `dependsOn` till en sats som refer
            "osProfile": {
 ```
 
-I det här exemplet använder du `resourceId` funktionen för att hämta resurs-ID för avbildningen som skapats i samma mall. Om du har skapat den hanterade disk avbildningen i förväg bör du ange ID: t för avbildningen i stället. Detta ID måste ha formatet: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+I det här exemplet använder du `resourceId` funktionen för att hämta resurs-ID för avbildningen som skapats i samma mall. Om du har skapat den hanterade disk avbildningen i förväg bör du ange ID: t för avbildningen i stället. Detta ID måste ha formatet: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>` .
 
 
 ## <a name="next-steps"></a>Nästa steg

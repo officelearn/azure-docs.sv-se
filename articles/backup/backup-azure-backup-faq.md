@@ -3,12 +3,12 @@ title: Svar på vanliga frågor
 description: 'Svar på vanliga frågor om: Azure Backup-funktioner inklusive Recovery Services-valvet, vad du kan säkerhetskopiera, hur det fungerar, kryptering och gränser. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ee6df940dd36a325d3638c3ad29ebfd8dec713d8
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801713"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196272"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Vanliga frågor och svar
 
@@ -107,7 +107,7 @@ Windows 8 eller senare | 54 400 GB
 Windows 7 |1 700 GB
 Windows Server 2012 eller senare | 54 400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1 700 GB
-Azure VM | 16 datadiskar<br/> Om du vill registrera dig för den begränsade för hands versionen av virtuella datorer med 16 + diskar (upp till 32 diskar) skriver du till oss påAskAzureBackupTeam@microsoft.com <br><br> Datadisk på upp till 32 TB
+Azure VM | Se [support mat ris för säkerhets kopiering av virtuella Azure-datorer](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
 
 ### <a name="how-is-the-data-source-size-determined"></a>Hur bestäms datakällstorleken?
 

@@ -9,15 +9,15 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/04/2020
+ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f83ae9c8290a52381c8087b46da959d4723d7f4e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f36fb952b21b058fb50dc567f714e8bdb665d6c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745160"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200315"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Komma igång med Visual Studio 2019
 
@@ -38,15 +38,12 @@ Se [Ladda ned Visual studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 Det finns tillfällen när funktions versioner för Synapse SQL inte innehåller stöd för SSDT. Följande funktioner stöds för närvarande inte:
 
-- [Materialiserade vyer](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [Beställda grupperade columnstore-index](/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#examples--and-)
-- [COPY-instruktion](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+
 - [Arbets belastnings hantering](sql-data-warehouse-workload-management.md) -arbets belastnings grupper och klassificerare
 - [Säkerhet på radnivå](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
   - Skicka in ett [support ärende eller rösta](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) för att få den funktion som stöds.
 - [Dynamisk datamaskning](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
    - Skicka in ett [support ärende eller rösta](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) för att få den funktion som stöds.
-- [Tabeller med begränsningar](sql-data-warehouse-table-constraints.md#table-constraints) stöds inte. För dessa tabell objekt ställer du in åtgärden Skapa på "ingen".
 
 ## <a name="next-steps"></a>Nästa steg
 

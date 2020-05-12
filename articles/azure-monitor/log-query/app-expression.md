@@ -5,19 +5,20 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/25/2019
-ms.openlocfilehash: 5502df1cd119c0f63c65945d73431a17282ebc0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/09/2019
+ms.openlocfilehash: 5d31c829487400f8eb239c0b837e53eecafeb900
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670270"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201109"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>app ()-uttryck i Azure Monitor fråga
 
-`app` Uttrycket används i en Azure Monitor-fråga för att hämta data från en speciell Application Insights-app i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta är användbart om du vill inkludera program data i en Azure Monitor logg fråga och fråga efter data över flera program i en Application Insights fråga.
+`app`Uttrycket används i en Azure Monitor-fråga för att hämta data från en speciell Application Insights-app i samma resurs grupp, en annan resurs grupp eller en annan prenumeration. Detta är användbart om du vill inkludera program data i en Azure Monitor logg fråga och fråga efter data över flera program i en Application Insights fråga.
 
-
+> [!IMPORTANT]
+> App ()-uttrycket används inte om du använder en [arbets yta-baserad Application Insights resurs](../app/create-workspace-resource.md) sedan loggdata lagras i en Log Analytics arbets yta. Använd log ()-uttrycket för att skriva en fråga som inkluderar program i flera arbets ytor. För flera program i samma arbets yta behöver du inte en fråga om flera arbets ytor.
 
 ## <a name="syntax"></a>Syntax
 
@@ -30,13 +31,13 @@ ms.locfileid: "77670270"
 
 | Identifierare | Beskrivning | Exempel
 |:---|:---|:---|
-| Resursnamn | Namnet på appens läsliga namn (AKA "komponent namn") | app ("fabrikamapp") |
+| Resursnamn | Appens läsliga namn (även kallat komponent namn) | app ("fabrikamapp") |
 | Kvalificerat namn | Appens fullständiga namn i formatet: "subscriptionName/resourceGroup/componentName" | app (' AI-Prototype/Fabrikam/fabrikamapp ') |
 | ID | Appens GUID | app ("988ba129-363e-4415-8fe7-8cbab5447518") |
 | Resurs-ID för Azure | Identifierare för Azure-resursen |app ("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp") |
 
 
-## <a name="notes"></a>Obs!
+## <a name="notes"></a>Anteckningar
 
 * Du måste ha Läs behörighet till programmet.
 * Att identifiera ett program med hjälp av namnet förutsätter att det är unikt för alla tillgängliga prenumerationer. Om du har flera program med det angivna namnet går det inte att köra frågan på grund av tvetydighet. I det här fallet måste du använda någon av de andra identifierarna.

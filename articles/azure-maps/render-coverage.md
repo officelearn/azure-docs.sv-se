@@ -1,19 +1,19 @@
 ---
 title: Rendera täckning | Microsoft Azure Maps
 description: I den här artikeln lär du dig om regioner med Microsoft Azure Maps återger täckning tillsammans med deras nivå av återgivna uppgifter.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ddc53111cd69072322f37fdfb25c37665c852c23
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7fffa0e5ab75767ab36c83542ac0e3a9ffb1231
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536759"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123946"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps återge täckning
 

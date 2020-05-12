@@ -1,18 +1,20 @@
 ---
 title: Använd Azure Autoscale med gäst mått i en mall för Linux-skalnings uppsättning
 description: Lär dig hur du skalar med hjälp av gäst mått i en virtuell Linux-dators mall för skalnings uppsättning
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 04/26/2019
-ms.author: mimckitt
-ms.openlocfilehash: 8021b7b8feb6dc06fb2e48bc4e825200a1baad33
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: aa004cc3ad6c02937ae3c3c8bdb1d5ebd225f434
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273655"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124813"
 ---
 # <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Skala med hjälp av gäst mått i en mall för en Linux-skalnings uppsättning
 
@@ -24,7 +26,7 @@ Värd mått kräver inte ytterligare konfiguration eftersom de samlas in av den 
 
 I en [föregående artikel](virtual-machine-scale-sets-mvss-start.md) har vi skapat en grundläggande mall för skalnings uppsättningar. Vi kommer nu att använda den tidigare mallen och ändra den för att skapa en mall som distribuerar en Linux-skalnings uppsättning med gäst mått baserat autoskalning.
 
-Lägg först till parametrar för `storageAccountName` och `storageAccountSasToken`. Diagnostics-agenten lagrar mått data i en [tabell](../cosmos-db/table-storage-how-to-use-dotnet.md) i det här lagrings kontot. Från och med version 3,0 av Linux Diagnostics-agenten stöds inte längre en lagrings åtkomst nyckel. Använd i stället en [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Lägg först till parametrar för `storageAccountName` och `storageAccountSasToken` . Diagnostics-agenten lagrar mått data i en [tabell](../cosmos-db/table-storage-how-to-use-dotnet.md) i det här lagrings kontot. Från och med version 3,0 av Linux Diagnostics-agenten stöds inte längre en lagrings åtkomst nyckel. Använd i stället en [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -103,7 +105,7 @@ Lägg först till parametrar för `storageAccountName` och `storageAccountSasTok
        }
 ```
 
-Slutligen lägger du till `autoscaleSettings` en resurs för att konfigurera autoskalning baserat på dessa mått. Den här resursen har `dependsOn` en sats som refererar till skalnings uppsättningen för att säkerställa att skalnings uppsättningen finns innan du försöker Autoskala den. Om du väljer ett annat mått för automatisk skalning på, använder `counterSpecifier` du konfigurations tillägget för diagnostik som `metricName` i konfigurationen för automatisk skalning. Mer information om konfiguration av autoskalning finns i [metod tips för autoskalning](../azure-monitor/platform/autoscale-best-practices.md) och [Azure Monitor REST API referens dokumentation](/rest/api/monitor/autoscalesettings).
+Slutligen lägger du till en `autoscaleSettings` resurs för att konfigurera autoskalning baserat på dessa mått. Den här resursen har en `dependsOn` sats som refererar till skalnings uppsättningen för att säkerställa att skalnings uppsättningen finns innan du försöker Autoskala den. Om du väljer ett annat mått för automatisk skalning på, använder du `counterSpecifier` konfigurations tillägget för diagnostik som `metricName` i konfigurationen för automatisk skalning. Mer information om konfiguration av autoskalning finns i [metod tips för autoskalning](../azure-monitor/platform/autoscale-best-practices.md) och [Azure Monitor REST API referens dokumentation](/rest/api/monitor/autoscalesettings).
 
 ```diff
 +    },

@@ -2,17 +2,19 @@
 title: Skapa en skalnings uppsättning som använder virtuella Azure-datorer
 description: Lär dig hur du skapar skalnings uppsättningar för virtuella Azure-datorer som använder virtuella datorer för att spara pengar.
 author: cynthn
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: article
-ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: a7bd22032a554c83a2ea2323ffdb3ae52dfe4faf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: spot
+ms.date: 03/25/2020
+ms.reviewer: jagaveer
+ms.custom: jagaveer
+ms.openlocfilehash: 59de7a8decef807b548ff4b85f06fc1115ce110b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545941"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125051"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>Virtuella Azure-datorer för skalnings uppsättningar för virtuella datorer 
 
@@ -26,7 +28,7 @@ Mängden tillgänglig kapacitet kan variera beroende på storlek, region, tid oc
 Priser för punkt instanser är varierande, baserat på region och SKU. Mer information finns i avsnittet om priser för [Linux](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/) och [Windows](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/). 
 
 
-Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) med upp till 5 decimaler. Värdet `0.98765`skulle till exempel vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset så `-1`kommer instansen inte att avlägsnas baserat på priset. Priset för instansen är det aktuella priset för dekor eller priset för en standard instans, vilket någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
+Med varierande priser har du möjlighet att ange ett högsta pris i USD (USD) med upp till 5 decimaler. Värdet skulle till exempel `0.98765` vara ett max pris på $0,98765 USD per timme. Om du anger det högsta priset så `-1` kommer instansen inte att avlägsnas baserat på priset. Priset för instansen är det aktuella priset för dekor eller priset för en standard instans, vilket någonsin är mindre, så länge det finns kapacitet och tillgänglig kvot.
 
 ## <a name="eviction-policy"></a>Borttagnings princip
 
@@ -49,12 +51,12 @@ Om du vill distribuera virtuella datorer på skalnings uppsättningar kan du st�
 
 ## <a name="portal"></a>Portalen
 
-Processen för att skapa en skalnings uppsättning som använder virtuella datorer är samma som i [artikeln komma igång](quick-create-portal.md). När du distribuerar en skalnings uppsättning kan du välja att ange flaggan för punkt och avinstallations principen: ![skapa en skalnings uppsättning med virtuella datorer](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
+Processen för att skapa en skalnings uppsättning som använder virtuella datorer är samma som i [artikeln komma igång](quick-create-portal.md). När du distribuerar en skalnings uppsättning kan du välja att ange flaggan för punkt och avinstallations principen: ![ skapa en skalnings uppsättning med virtuella datorer](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Processen att skapa en skalnings uppsättning med virtuella datorer är samma som beskrivs i [artikeln komma igång](quick-create-cli.md). Lägg bara till "--prioritets plats" och Lägg `--max-price`till. I det här exemplet använder `-1` vi för `--max-price` så att instansen inte avlägsnas baserat på priset.
+Processen att skapa en skalnings uppsättning med virtuella datorer är samma som beskrivs i [artikeln komma igång](quick-create-cli.md). Lägg bara till "--prioritets plats" och Lägg till `--max-price` . I det här exemplet använder vi `-1` för `--max-price` så att instansen inte avlägsnas baserat på priset.
 
 ```azurecli
 az vmss create \
@@ -71,7 +73,7 @@ az vmss create \
 ## <a name="powershell"></a>PowerShell
 
 Processen att skapa en skalnings uppsättning med virtuella datorer är samma som beskrivs i [artikeln komma igång](quick-create-powershell.md).
-Lägg bara till "-prioritets punkt" och ange `-max-price` en till [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
+Lägg bara till "-prioritets punkt" och ange en `-max-price` till [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -87,7 +89,7 @@ $vmssConfig = New-AzVmssConfig `
 
 Den process som används för att skapa en skalnings uppsättning som använder virtuella datorer är samma som beskrivs i komma igång-artikeln för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). 
 
-För distributioner av dekor mallar använder`"apiVersion": "2019-03-01"` eller senare. Lägg till `priority`- `evictionPolicy` och `billingProfile` -egenskaperna i `"virtualMachineProfile":` avsnittet i mallen: 
+För distributioner av dekor mallar använder `"apiVersion": "2019-03-01"` eller senare. Lägg till `priority` - `evictionPolicy` och- `billingProfile` egenskaperna i `"virtualMachineProfile":` avsnittet i mallen: 
 
 ```json
                 "priority": "Spot",
@@ -97,7 +99,7 @@ För distributioner av dekor mallar använder`"apiVersion": "2019-03-01"` eller 
                 }
 ```
 
-Ändra `evictionPolicy` parametern till `Delete`om du vill ta bort instansen när den har avlägsnats.
+Ändra parametern till om du vill ta bort instansen när den har avlägsnats `evictionPolicy` `Delete` .
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
@@ -123,12 +125,12 @@ För distributioner av dekor mallar använder`"apiVersion": "2019-03-01"` eller 
 
 **F:** Kan jag konvertera befintliga skalnings uppsättningar till dekor skalnings uppsättningar?
 
-**A:** Nej, det går `Spot` bara att ställa in flaggan vid skapande tillfället.
+**A:** Nej, det går bara att ställa in `Spot` flaggan vid skapande tillfället.
 
 
-**F:** Måste jag börja använda `low` `Spot` i stället om jag använde för låg prioritets skalnings uppsättningar?
+**F:** `low`Måste jag börja använda i stället om jag använde för låg prioritets skalnings uppsättningar `Spot` ?
 
-**A:** För tillfället kommer både `low` och `Spot` att fungera, men du bör börja över gången till med `Spot`.
+**A:** För tillfället kommer både `low` och `Spot` att fungera, men du bör börja över gången till med `Spot` .
 
 
 **F:** Kan jag skapa en skalnings uppsättning med både vanliga virtuella datorer och virtuella datorer?

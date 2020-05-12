@@ -12,12 +12,13 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 67a3ba99e29582c5681d69cd0c6db377a258020a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250015"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201352"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>BitLocker-startfel på en virtuell Azure-dator
 
@@ -31,7 +32,7 @@ ms.locfileid: "79250015"
 
 - Anslut USB-drivrutinen som har BitLocker-nyckeln
 
-- Du är låst! Ange återställnings nyckeln för att komma igång igen (tangentbordslayout: US) fel inloggnings information har angetts för många gånger, så att datorn var låst för att skydda din integritet. Hämta återställnings nyckeln genom att gå https://windows.microsoft.com/recoverykeyfaq till från en annan dator eller mobil enhet. Om du behöver det är nyckel-ID: t XXXXXXX. Du kan också återställa datorn.
+- Du är låst! Ange återställnings nyckeln för att komma igång igen (tangentbordslayout: US) fel inloggnings information har angetts för många gånger, så att datorn var låst för att skydda din integritet. Hämta återställnings nyckeln genom att gå till https://windows.microsoft.com/recoverykeyfaq från en annan dator eller mobil enhet. Om du behöver det är nyckel-ID: t XXXXXXX. Du kan också återställa datorn.
 
 - Ange lösen ordet för att låsa upp enheten [] Tryck på INSERT-tangenten för att se lösen ordet när du skriver.
 - Ange återställnings nyckeln Läs in din återställnings nyckel från en USB-enhet.
@@ -273,13 +274,13 @@ Följ dessa steg för ett scenario med nyckel krypterings nyckel:
 
 **Fel: det gick inte att läsa in filen eller sammansättningen**
 
-Felet beror på att Sök vägarna för ADAL-sammansättningarna är felaktiga. Om AZ-modulen bara är installerad för den aktuella användaren, finns ADAL-sammansättningarna i `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`.
+Felet beror på att Sök vägarna för ADAL-sammansättningarna är felaktiga. Om AZ-modulen bara är installerad för den aktuella användaren, finns ADAL-sammansättningarna i `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>` .
 
 Du kan också söka efter `Az.Accounts` en mapp för att hitta rätt sökväg.
 
 **Fel: get-AzKeyVaultSecret eller get-AzKeyVaultSecret känns inte igen som namnet på en cmdlet**
 
-Om du använder den gamla AZ PowerShell-modulen måste du ändra de två kommandona till `Get-AzureKeyVaultSecret` och `Get-AzureKeyVaultSecret`.
+Om du använder den gamla AZ PowerShell-modulen måste du ändra de två kommandona till `Get-AzureKeyVaultSecret` och `Get-AzureKeyVaultSecret` .
 
 **Parameter exempel**
 

@@ -1,19 +1,20 @@
 ---
 title: Underhålls meddelanden för skalnings uppsättningar för virtuella datorer i Azure
 description: Visa underhålls meddelanden och starta självbetjänings underhåll för skalnings uppsättningar för virtuella datorer i Azure.
-author: shants123
-tags: azure-service-management,azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 08/20/2019
-ms.author: shants
-ms.openlocfilehash: 53ebb7c4710c5455ef90701dc7e94f1b846a874a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062708"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200094"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Meddelanden för planerat underhåll för VM-skalningsuppsättningar
 
@@ -83,7 +84,7 @@ Kolumnen för självbetjänings **Underhåll** visas nu i listan över skalnings
 | Värde | Beskrivning |
 |-------|-------------|
 | Ja | Minst en virtuell dator i skalnings uppsättningen för den virtuella datorn är i ett självbetjänings fönster. Du kan starta underhåll när som helst under den här självbetjänings perioden. | 
-| Nej | Inga virtuella datorer är i ett självbetjänings fönster i den berörda skalnings uppsättningen för virtuella datorer. | 
+| Inga | Inga virtuella datorer är i ett självbetjänings fönster i den berörda skalnings uppsättningen för virtuella datorer. | 
 | - | Skalnings uppsättningar för virtuella datorer ingår inte i en planerad underhålls våg.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Aviseringar och aviseringar i portalen
@@ -111,7 +112,7 @@ När du har startat underhåll genomgår de virtuella datorerna i den virtuella 
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Kontrol lera underhålls status med hjälp av PowerShell
 
-Du kan använda Azure PowerShell för att se när virtuella datorer i dina skalnings uppsättningar för virtuella datorer är schemalagda för underhåll. Information om planerat underhåll är tillgänglig med hjälp av cmdleten [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) när du `-InstanceView` använder-parametern.
+Du kan använda Azure PowerShell för att se när virtuella datorer i dina skalnings uppsättningar för virtuella datorer är schemalagda för underhåll. Information om planerat underhåll är tillgänglig med hjälp av cmdleten [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) när du använder- `-InstanceView` parametern.
  
 Underhålls information returneras endast om underhållet är planerat. Om inget underhåll har schemalagts som påverkar VM-instansen returnerar cmdleten ingen underhålls information. 
 

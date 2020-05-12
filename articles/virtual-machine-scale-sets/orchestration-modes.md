@@ -1,18 +1,20 @@
 ---
 title: Lär dig mer om Orchestration-lägen för skalnings uppsättningar för virtuella datorer i Azure
 description: Lär dig mer om Orchestration-lägen för skalnings uppsättningar för virtuella datorer i Azure.
-author: shandilvarun
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
+author: mimckitt
+ms.author: mimckitt
 ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
 ms.date: 10/23/2019
-ms.author: vashan
-ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: cbe080b4c2b6e73ae15fd186589bd43535bfc13d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76279067"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198395"
 ---
 # <a name="orchestration-mode-preview"></a>Orchestration-läge (för hands version)
 
@@ -39,7 +41,7 @@ Skalnings uppsättningar för virtuella datorer har stöd för 2 distinkta Orche
 
 |                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Konfigurations modell för virtuell dator      | Ingen                                       | Krävs |
+| Konfigurations modell för virtuell dator      | Inga                                       | Krävs |
 | Lägger till ny virtuell dator i skalnings uppsättningen  | Virtuella datorer läggs explicit till i skalnings uppsättningen när den virtuella datorn skapas. | Virtuella datorer skapas implicit och läggs till i skalnings uppsättningen baserat på den virtuella datorns konfigurations modell, instans antal och regler för automatisk skalning | |
 | Ta bort virtuell dator                   | Virtuella datorer måste tas bort individuellt, skalnings uppsättningen tas inte bort om den har några virtuella datorer i den. | Virtuella datorer kan tas bort individuellt. om du tar bort skalnings uppsättningen raderas alla VM-instanser.  |
 | Ansluta/koppla från virtuella datorer           | Stöds inte                              | Stöds inte |

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ccaf662488203e346065cfee082018128f37d95
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77591548"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201674"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Förbered Azure-infrastrukturen för SAP med hög tillgänglighet genom att använda ett Windows-redundanskluster och en fil resurs för SAP ASCS/SCS-instanser
 
@@ -228,7 +228,7 @@ Läs följande artikel innan du påbörjar installationen:
 
 **Tabell 1**: ASCS/SCS-kluster
 
-| SAP \<SID-> | Instans nummer för SAP ASCS/SCS |
+| SAP \< sid-> | Instans nummer för SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
@@ -348,7 +348,7 @@ När du har installerat Windows Skalbar filserver-klustret kan du anpassa timeou
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
-- RoutingHistoryLength = 30
+- RouteHistoryLength = 30
 
 De här inställningarna har testats med kunder och ger en bättre kompromiss. De är tillräckligt flexibla, men de ger också snabb och tillräckligt snabb redundans i verkliga fel tillstånd eller VM-fel.
 

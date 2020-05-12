@@ -1,19 +1,20 @@
 ---
 title: Referera till ett befintligt virtuellt nätverk i en Azure Scale set-mall
 description: Lär dig hur du lägger till ett virtuellt nätverk i en befintlig mall för skalnings uppsättningar för virtuella Azure-datorer
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: networking
 ms.date: 04/26/2019
-ms.author: mimckitt
-ms.openlocfilehash: 83328a31dad8009c28e146c81b24d6d9244f88a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: fab6e6742fa43e1e38ee661b67896ae4aa11b3ed
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273672"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124830"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Lägg till en referens till ett befintligt virtuellt nätverk i en mall för Azure-skalnings uppsättning
 
@@ -25,7 +26,7 @@ I en [föregående artikel](virtual-machine-scale-sets-mvss-start.md) har vi ska
 
 Lägg först till en `subnetId` parameter. Den här strängen skickas till konfigurationen för skalnings uppsättningar, så att skalnings uppsättningen kan identifiera det förskapade under nätet för att distribuera virtuella datorer till. Strängen måste ha formatet:`/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
 
-Om du till exempel vill distribuera skalnings uppsättningen till ett befintligt virtuellt nätverk med `myvnet`namn, `mysubnet`undernät, resurs `myrg`grupp och prenumeration `00000000-0000-0000-0000-000000000000`skulle subnetId vara: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Om du till exempel vill distribuera skalnings uppsättningen till ett befintligt virtuellt nätverk med namn `myvnet` , undernät `mysubnet` , resurs grupp `myrg` och prenumeration `00000000-0000-0000-0000-000000000000` skulle subnetId vara: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet` .
 
 ```diff
      },

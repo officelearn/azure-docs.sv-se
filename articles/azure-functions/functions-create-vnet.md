@@ -3,15 +3,15 @@ title: Integrera Azure Functions med ett virtuellt Azure-nätverk
 description: En steg-för-steg-självstudie som visar hur du ansluter en funktion till ett virtuellt Azure-nätverk
 author: alexkarcher-msft
 ms.topic: article
-ms.date: 5/03/2019
+ms.date: 4/23/2020
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 0c70c69f547405eb8ebdcf6dcc6ae597db151e53
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1babfa188a29e79cb52cd14af19d552123345f1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75433219"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122739"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Självstudie: integrera Functions med ett virtuellt Azure-nätverk
 
@@ -50,7 +50,7 @@ Du kan fästa appens funktion på instrument panelen genom att välja ikonen fä
 
 Skapa sedan en förkonfigurerad virtuell dator som kör WordPress i ett virtuellt nätverk ([WordPress LEMP7 Max prestanda](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) per Jetware). En virtuell WordPress-dator används på grund av sin låga kostnad och bekvämlighet. Samma scenario fungerar med alla resurser i ett virtuellt nätverk, till exempel REST-API: er, App Service miljöer och andra Azure-tjänster. 
 
-1. I portalen väljer du **+ skapa en resurs** i det vänstra navigerings fönstret, i Sök fältet typ `WordPress LEMP7 Max Performance`och trycker på RETUR.
+1. I portalen väljer du **+ skapa en resurs** i det vänstra navigerings fönstret, i Sök fältet typ `WordPress LEMP7 Max Performance` och trycker på RETUR.
 
 1. Välj **WordPress Lemp högsta prestanda** i Sök resultaten. Välj en program plan för **WordPress Lemp högsta prestanda för CentOS** som **program varu plan** och välj **skapa**.
 
@@ -58,14 +58,14 @@ Skapa sedan en förkonfigurerad virtuell dator som kör WordPress i ett virtuell
 
     ![Fliken grunder för att skapa en virtuell dator](./media/functions-create-vnet/create-vm-1.png)
 
-    | Inställning      | Föreslaget värde  | Beskrivning      |
+    | Inställningen      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | **Prenumeration** | Din prenumeration | Den prenumeration som dina resurser skapas under. | 
-    | **[Resursgrupp](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Välj `myResourceGroup`eller resurs gruppen som du skapade med din Function-app. Om du använder samma resurs grupp för Function-appen, WordPress VM och värd prenumerationen blir det enklare att rensa resurser när du är klar med den här självstudien. |
+    | **[Resursgrupp](../azure-resource-manager/management/overview.md)**  | myResourceGroup | Välj `myResourceGroup` eller resurs gruppen som du skapade med din Function-app. Om du använder samma resurs grupp för Function-appen, WordPress VM och värd prenumerationen blir det enklare att rensa resurser när du är klar med den här självstudien. |
     | **Namn på virtuell dator** | VNET-WordPress | Det virtuella dator namnet måste vara unikt i resurs gruppen |
-    | **[Region](https://azure.microsoft.com/regions/)** | Östeuropa Västeuropa | Välj en region nära dig eller nära de funktioner som har åtkomst till den virtuella datorn. |
+    | **[Nationella](https://azure.microsoft.com/regions/)** | Östeuropa Västeuropa | Välj en region nära dig eller nära de funktioner som har åtkomst till den virtuella datorn. |
     | **Storlek** | B1S | Välj **ändra storlek** och välj sedan B1S Standard avbildning, som har 1 vCPU och 1 GB minne. |
-    | **Autentiseringstyp** | lösenord | Om du vill använda lösenordsautentisering måste du också ange ett **användar namn**, ett säkert **lösen ord**och sedan **Bekräfta lösen ordet**. I den här självstudien behöver du inte logga in på den virtuella datorn om du inte behöver felsöka. |
+    | **Autentiseringstyp** | lösenordsinställning | Om du vill använda lösenordsautentisering måste du också ange ett **användar namn**, ett säkert **lösen ord**och sedan **Bekräfta lösen ordet**. I den här självstudien behöver du inte logga in på den virtuella datorn om du inte behöver felsöka. |
 
 1. Välj fliken **nätverk** och under Konfigurera virtuella nätverk väljer du **Skapa ny**.
 
@@ -73,7 +73,7 @@ Skapa sedan en förkonfigurerad virtuell dator som kör WordPress i ett virtuell
 
     ![Fliken nätverk i Create VM](./media/functions-create-vnet/create-vm-2.png)
 
-    | Inställning      | Föreslaget värde  | Beskrivning      |
+    | Inställningen      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | **Namn** | myResourceGroup-VNet | Du kan använda standard namnet som genereras för det virtuella nätverket. |
     | **Adressintervall** | 10.10.0.0/16 | Använd ett enda adress intervall för det virtuella nätverket. |
@@ -100,31 +100,29 @@ Nu har du en WordPress-webbplats som har distribuerats helt i det virtuella nät
 
 Med en WordPress-webbplats som körs i en virtuell dator i ett virtuellt nätverk kan du nu ansluta din Function-app till det virtuella nätverket.
 
-1. I den nya Function-appen väljer du **plattforms funktioner** > **nätverk**.
-
-    ![Välj nätverk i Function-appen](./media/functions-create-vnet/networking-0.png)
+1. I din nya Function-app väljer du **nätverk** på den vänstra menyn.
 
 1. Under **VNet-integrering**väljer **du klicka här för att konfigurera**.
 
-    ![Status för att konfigurera en nätverks funktion](./media/functions-create-vnet/Networking-1.png)
+    :::image type="content" source="./media/functions-create-vnet/networking-0.png" alt-text="Välj nätverk i Function-appen":::
 
-1. På sidan virtuell nätverks integrering väljer du **Lägg till VNet (för hands version)**.
+1. På sidan **VNet-integration** väljer du **Lägg till VNet**.
 
-    ![Lägg till för hands versionen av VNet-integrering](./media/functions-create-vnet/networking-2.png)
+    :::image type="content" source="./media/functions-create-vnet/networking-2.png" alt-text="Lägg till för hands versionen av VNet-integrering":::
 
 1. I **nätverks funktions status**använder du inställningarna i tabellen under bilden:
 
     ![Definiera funktions programmet virtuellt nätverk](./media/functions-create-vnet/networking-3.png)
 
-    | Inställning      | Föreslaget värde  | Beskrivning      |
+    | Inställningen      | Föreslaget värde  | Beskrivning      |
     | ------------ | ---------------- | ---------------- |
     | **Virtual Network** | MyResourceGroup-VNet | Det här virtuella nätverket är det som du skapade tidigare. |
     | **Delnät** | Skapa nytt undernät | Skapa ett undernät i det virtuella nätverket som din Function-app ska använda. VNet-integrering måste konfigureras för att använda ett tomt undernät. Det spelar ingen roll att dina funktioner använder ett annat undernät än den virtuella datorn. Det virtuella nätverket dirigerar automatiskt trafik mellan de två under näten. |
     | **Under näts namn** | Funktion-net | Namnet på det nya undernätet. |
     | **Adress block för virtuellt nätverk** | 10.10.0.0/16 | Välj samma adress block som används av WordPress-platsen. Du bör bara ha ett definierat adress block. |
-    | **Adressintervall** | 10.10.2.0/24   | Under näts storleken begränsar det totala antalet instanser som din Premium plan Function-app kan skala ut till. I det här exemplet `/24` används ett undernät med 254 tillgängliga värd adresser. Det här under nätet är överallokerat, men enkelt att beräkna. |
+    | **Adressintervall** | 10.10.2.0/24   | Under näts storleken begränsar det totala antalet instanser som din Premium plan Function-app kan skala ut till. I det här exemplet används ett `/24` undernät med 254 tillgängliga värd adresser. Det här under nätet är överallokerat, men enkelt att beräkna. |
 
-1. Välj **OK** för att lägga till under nätet. Stäng sidan VNet-integrering och status för nätverks funktions sidan för att återgå till din Function-app-sida.
+1. Välj **OK** för att lägga till under nätet. Stäng sidan **VNet-integrering** och **status för nätverks funktions** sidan för att återgå till din Function-app-sida.
 
 Function-appen kan nu komma åt det virtuella nätverk där WordPress-platsen körs. Sedan använder du [Azure Functions-proxyservrar](functions-proxies.md) för att returnera en fil från WordPress-webbplatsen.
 
@@ -132,11 +130,11 @@ Function-appen kan nu komma åt det virtuella nätverk där WordPress-platsen k�
 
 Med VNet-integrering aktiverat kan du skapa en proxy i din Function-app för att vidarebefordra begär anden till den virtuella datorn som körs i det virtuella nätverket.
 
-1. I din Function-app väljer du **proxyservrar** > **+** och använder sedan proxyinställningarna i tabellen under avbildningen:
+1. I din Function-app väljer du **proxyservrar** på den vänstra menyn och väljer sedan **Lägg till**. Använd proxyinställningarna i tabellen under bilden:
 
-    ![Definiera proxyinställningarna](./media/functions-create-vnet/create-proxy.png)
+    :::image type="content" source="./media/functions-create-vnet/create-proxy.png" alt-text="Definiera proxyinställningarna":::
 
-    | Inställning  | Föreslaget värde  | Beskrivning      |
+    | Inställningen  | Föreslaget värde  | Beskrivning      |
     | -------- | ---------------- | ---------------- |
     | **Namn** | Anläggning | Namnet kan vara vilket värde som helst. Den används för att identifiera proxyservern. |
     | **Route-mall** | /plant | Väg som mappar till en VM-resurs. |
@@ -144,7 +142,7 @@ Med VNet-integrering aktiverat kan du skapa en proxy i din Function-app för att
 
 1. Välj **skapa** för att lägga till proxy i din Function-app.
 
-## <a name="try-it-out"></a>Prova det
+## <a name="try-it-out"></a>Prova nu
 
 1. Försök att komma åt den URL som du använde som **Server dels-URL**i webbläsaren. Som förväntat, tids gränsen för begäran. En timeout inträffar eftersom WordPress-platsen bara är ansluten till ditt virtuella nätverk och inte Internet.
 

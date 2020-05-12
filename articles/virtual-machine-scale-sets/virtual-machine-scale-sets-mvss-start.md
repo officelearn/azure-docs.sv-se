@@ -2,28 +2,29 @@
 title: Lär dig mer om mallar för skalnings uppsättningar för virtuella datorer
 description: Lär dig hur du skapar en grundläggande skalnings uppsättnings mall för skalnings uppsättningar för virtuella Azure-datorer via flera enkla steg.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 04/26/2019
 ms.author: mimckitt
-ms.openlocfilehash: 9c6a30a5f08b33adfa515973962236516f34fbf3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: template
+ms.date: 04/26/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: af2f000b9f9a7bf64898c46b3126cf180802b445
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273400"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198127"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Lär dig mer om mallar för skalnings uppsättningar för virtuella datorer
 [Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) är ett bra sätt att distribuera grupper av relaterade resurser. Den här själv studie serien visar hur du skapar en grundläggande mall för skalnings uppsättningar och hur du ändrar den här mallen så att den passar olika scenarier. Alla exempel kommer från den här [GitHub-lagringsplatsen](https://github.com/gatneil/mvss).
 
-Den här mallen är avsedd att vara enkel. Fler kompletta exempel på mallar för skalnings uppsättningar finns i [GitHub-lagringsplatsen för Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates) och söka efter `vmss`mappar som innehåller strängen.
+Den här mallen är avsedd att vara enkel. Fler kompletta exempel på mallar för skalnings uppsättningar finns i [GitHub-lagringsplatsen för Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates) och söka efter mappar som innehåller strängen `vmss` .
 
 Om du redan är bekant med att skapa mallar kan du gå vidare till avsnittet "nästa steg" för att se hur du ändrar den här mallen.
 
 ## <a name="define-schema-and-contentversion"></a>Definiera $schema och contentVersion
-Börja med att `$schema` definiera `contentVersion` och i mallen. `$schema` Elementet definierar versionen för mallens språk och används för Visual Studio-syntax och liknande verifierings funktioner. `contentVersion` Elementet används inte av Azure. I stället hjälper det dig att hålla koll på mallens version.
+Börja med `$schema` att definiera och `contentVersion` i mallen. `$schema`Elementet definierar versionen för mallens språk och används för Visual Studio-syntax och liknande verifierings funktioner. `contentVersion`Elementet används inte av Azure. I stället hjälper det dig att hålla koll på mallens version.
 
 ```json
 {
@@ -32,7 +33,7 @@ Börja med att `$schema` definiera `contentVersion` och i mallen. `$schema` Elem
 ```
 
 ## <a name="define-parameters"></a>Definiera parametrar
-Definiera sedan två parametrar `adminUsername` och. `adminPassword` Parametrar är värden som du anger vid tidpunkten för distributionen. `adminUsername` Parametern är helt enkelt en `string` typ, men eftersom `adminPassword` är en hemlighet, så ge den `securestring`typen. Senare överförs dessa parametrar till konfigurationen för skalnings uppsättningar.
+Definiera sedan två parametrar `adminUsername` och `adminPassword` . Parametrar är värden som du anger vid tidpunkten för distributionen. `adminUsername`Parametern är helt enkelt en `string` typ, men eftersom `adminPassword` är en hemlighet, så ge den typen `securestring` . Senare överförs dessa parametrar till konfigurationen för skalnings uppsättningar.
 
 ```json
   "parameters": {
@@ -52,13 +53,13 @@ Med Resource Manager-mallar kan du också definiera variabler som ska användas 
 ```
 
 ## <a name="define-resources"></a>Definiera resurser
-Härnäst är avsnittet resurser i mallen. Här definierar du vad du faktiskt vill distribuera. Till skillnad `parameters` från `variables` och (som är JSON-objekt `resources` ) är en JSON-lista med JSON-objekt.
+Härnäst är avsnittet resurser i mallen. Här definierar du vad du faktiskt vill distribuera. Till skillnad från `parameters` och `variables` (som är JSON-objekt) `resources` är en JSON-lista med JSON-objekt.
 
 ```json
    "resources": [
 ```
 
-Alla resurser kräver `type`, `name`, `apiVersion`och `location` . Det här exemplets första resurs har typen [Microsoft. Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), `myVnet`Name och API version `2018-11-01`. (Du hittar den senaste API-versionen för en resurs typ finns i [referensen för Azure Resource Manager mal len](/azure/templates/).)
+Alla resurser kräver `type` , `name` , `apiVersion` och `location` . Det här exemplets första resurs har typen [Microsoft. Network/virtualNetwork](/azure/templates/microsoft.network/virtualnetworks), Name och `myVnet` API version `2018-11-01` . (Du hittar den senaste API-versionen för en resurs typ finns i [referensen för Azure Resource Manager mal len](/azure/templates/).)
 
 ```json
      {
@@ -68,14 +69,14 @@ Alla resurser kräver `type`, `name`, `apiVersion`och `location` . Det här exem
 ```
 
 ## <a name="specify-location"></a>Ange plats
-Använd en [Resource Manager-mall](../azure-resource-manager/templates/template-functions.md)för att ange platsen för det virtuella nätverket. Funktionen måste stå inom citat tecken och hakparenteser som denna: `"[<template-function>]"`. I det här fallet använder du `resourceGroup` funktionen. Det tar inga argument och returnerar ett JSON-objekt med metadata om den resurs grupp som distributionen distribueras till. Resurs gruppen ställs in av användaren vid tidpunkten för distributionen. Värdet indexeras sedan till detta JSON-objekt med `.location` för att hämta platsen från JSON-objektet.
+Använd en [Resource Manager-mall](../azure-resource-manager/templates/template-functions.md)för att ange platsen för det virtuella nätverket. Funktionen måste stå inom citat tecken och hakparenteser som denna: `"[<template-function>]"` . I det här fallet använder du `resourceGroup` funktionen. Det tar inga argument och returnerar ett JSON-objekt med metadata om den resurs grupp som distributionen distribueras till. Resurs gruppen ställs in av användaren vid tidpunkten för distributionen. Värdet indexeras sedan till detta JSON-objekt med `.location` för att hämta platsen från JSON-objektet.
 
 ```json
        "location": "[resourceGroup().location]",
 ```
 
 ## <a name="specify-virtual-network-properties"></a>Ange egenskaper för virtuellt nätverk
-Varje Resource Manager-resurs har ett `properties` eget avsnitt för konfigurationer som är specifika för resursen. I det här fallet anger du att det virtuella nätverket ska ha ett undernät som använder det privata IP `10.0.0.0/16`-adressintervallet. En skalnings uppsättning ingår alltid i ett undernät. Den kan inte omfatta undernät.
+Varje Resource Manager-resurs har ett eget `properties` avsnitt för konfigurationer som är specifika för resursen. I det här fallet anger du att det virtuella nätverket ska ha ett undernät som använder det privata IP-adressintervallet `10.0.0.0/16` . En skalnings uppsättning ingår alltid i ett undernät. Den kan inte omfatta undernät.
 
 ```json
        "properties": {
@@ -97,9 +98,9 @@ Varje Resource Manager-resurs har ett `properties` eget avsnitt för konfigurati
 ```
 
 ## <a name="add-dependson-list"></a>Lägg till dependsOn-lista
-`type`Förutom obligatoriska `name`, `apiVersion`, och `location` egenskaper kan varje resurs ha en valfri `dependsOn` lista med strängar. Den här listan anger vilka andra resurser från distributionen som måste slutföras innan den här resursen distribueras.
+Förutom obligatoriska `type` ,, `name` `apiVersion` och `location` egenskaper kan varje resurs ha en valfri `dependsOn` lista med strängar. Den här listan anger vilka andra resurser från distributionen som måste slutföras innan den här resursen distribueras.
 
-I det här fallet finns det bara ett-element i listan, det virtuella nätverket från föregående exempel. Du anger detta beroende eftersom skalnings uppsättningen kräver att nätverket finns innan du skapar några virtuella datorer. På så sätt kan skalnings uppsättningen ge de virtuella datorerna privata IP-adresser från det IP-adressintervall som tidigare angavs i nätverks egenskaperna. Formatet för varje sträng i dependsOn-listan är `<type>/<name>`. Använd samma `type` och `name` som tidigare i den virtuella nätverks resurs definitionen.
+I det här fallet finns det bara ett-element i listan, det virtuella nätverket från föregående exempel. Du anger detta beroende eftersom skalnings uppsättningen kräver att nätverket finns innan du skapar några virtuella datorer. På så sätt kan skalnings uppsättningen ge de virtuella datorerna privata IP-adresser från det IP-adressintervall som tidigare angavs i nätverks egenskaperna. Formatet för varje sträng i dependsOn-listan är `<type>/<name>` . Använd samma `type` och `name` som tidigare i den virtuella nätverks resurs definitionen.
 
 ```json
      {
@@ -124,7 +125,7 @@ Skalnings uppsättningen måste veta vad storleken på den virtuella datorn som 
 ```
 
 ### <a name="choose-type-of-updates"></a>Välj typ av uppdateringar
-Skalnings uppsättningen måste också veta hur du hanterar uppdateringar på skalnings uppsättningen. Det finns för närvarande tre alternativ, `Manual` `Rolling` och `Automatic`. Mer information om skillnaderna mellan de två finns i dokumentationen om [hur du uppgraderar en skalnings uppsättning](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+Skalnings uppsättningen måste också veta hur du hanterar uppdateringar på skalnings uppsättningen. Det finns för närvarande tre alternativ, `Manual` `Rolling` och `Automatic` . Mer information om skillnaderna mellan de två finns i dokumentationen om [hur du uppgraderar en skalnings uppsättning](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {
@@ -149,7 +150,7 @@ Skalnings uppsättningen måste veta vilket operativ system som ska finnas på d
 ```
 
 ### <a name="specify-computernameprefix"></a>Ange computerNamePrefix
-Skalnings uppsättningen distribuerar flera virtuella datorer. I stället för att ange varje VM- `computerNamePrefix`namn anger du. Skalnings uppsättningen lägger till ett index i prefixet för varje virtuell dator, så att VM-namn `<computerNamePrefix>_<auto-generated-index>`har formuläret.
+Skalnings uppsättningen distribuerar flera virtuella datorer. I stället för att ange varje VM-namn anger du `computerNamePrefix` . Skalnings uppsättningen lägger till ett index i prefixet för varje virtuell dator, så att VM-namn har formuläret `<computerNamePrefix>_<auto-generated-index>` .
 
 I följande kodfragment använder du parametrarna från innan för att ange administratörens användar namn och lösen ord för alla virtuella datorer i skalnings uppsättningen. Den här processen använder `parameters` funktionen mall. Den här funktionen tar i en sträng som anger vilken parameter som ska referera till och returnerar värdet för den parametern.
 

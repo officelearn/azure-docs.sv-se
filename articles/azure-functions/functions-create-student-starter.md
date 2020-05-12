@@ -4,14 +4,14 @@ description: Lär dig hur du skapar en Azure-funktion från en Azure for student
 Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
 ms.topic: how-to
-ms.date: 02/22/2019
+ms.date: 04/29/2020
 ms.author: alkarche
-ms.openlocfilehash: c7dd88bf0ead558a0c4951baf38543566d805caa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ffb6378d3dc4cc3fb23ea62157aad393d8ae6642
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756470"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122909"
 ---
 # <a name="create-a-function-using-azure-for-students-starter"></a>Skapa en funktion med Start programmet för Azure för studenter
 
@@ -21,78 +21,51 @@ I den här självstudien skapar vi en "Hello World"-HTTP-funktion i en start pre
 
 Med Azure Functions kan du köra kod i en [serverfri](https://azure.microsoft.com/solutions/serverless/) miljö utan att först behöva skapa en virtuell dator eller publicera en webbapp. [Lär dig mer om funktioner här.](./functions-overview.md)
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="create-a-function"></a>Skapa en funktion
 
- I det här avsnittet får du lära dig hur du använder Functions för att skapa en HTTP-utlöst "Hello World"-funktion i Azure Portal.
+ I den här artikeln lär du dig hur du använder Azure Functions för att skapa en "Hello World" HTTP-utlösare i Azure Portal.
 
 ![Skapa en funktionsapp i Azure Portal](./media/functions-create-student-starter/function-app-in-portal-editor.png)
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-portalen på <https://portal.azure.com> med ditt Azure-konto.
+Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 ## <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 Du måste ha en funktionsapp som värd för körning av dina funktioner. Med en Function-app kan du gruppera funktioner som en logisk enhet för enklare hantering, distribution, skalning och delning av resurser.
 
-1. Välj knappen **skapa en resurs** som finns i det övre vänstra hörnet av Azure Portal. Välj sedan **Compute** > **Funktionsapp**.
-
-    ![Skapa en funktionsapp i Azure Portal](./media/functions-create-student-starter/function-app-create-flow.png)
-
-2. Använd funktionsappinställningarna enligt tabellen under bilden.
-
-    <img src="./media/functions-create-student-starter/Function-create-start.png" width="315">
-
-    | Inställningen      | Föreslaget värde  | Beskrivning                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **App-namn** | Globalt unikt namn | Namn som identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`.  | 
-    | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. | 
-    | **[Resurs grupp](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
-   | **[App Service plan/plats](./functions-scale.md)** | Ny | Värd planen som styr vilken region som din Function-app distribueras till och densiteten för dina resurser. Flera funktions program som distribueras till samma plan delar alla samma kostnads fria instans. Detta är en begränsning av student starts planen. De fullständiga värd alternativen [beskrivs här.](./functions-scale.md)|
-    | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.NET** för C#- och F#-funktioner. |
-    |**[Application Insights](./functions-monitoring.md)**| Enabled | Application Insights används för att lagra och analysera funktions programmets loggar. Den är aktive rad som standard om du väljer en plats som har stöd för Application Insights. Application Insights kan aktive ras för en funktion genom att manuellt välja en närliggande region för att distribuera Application Insights. Utan Application Insights kommer du bara att kunna visa direkt uppspelnings loggar.
-
-3. Välj **App Service plan/plats** ovan om du vill välja en annan plats
-
-4. Välj **Skapa ny** och ge sedan planen ett unikt namn.
-
-5. Välj den plats som är närmast dig. [Se en fullständig karta över Azure-regioner här.](https://azure.microsoft.com/global-infrastructure/regions/) 
-
-    <img src="./media/functions-create-student-starter/Create-ASP.png" width="800">
-
-6. Välj **Skapa** för att etablera och distribuera funktionsappen.
-
-    <img src="./media/functions-create-student-starter/Function-create-end.png" width="315">
-
-7. Välj meddelandeikonen i det övre högra hörnet av portalen och titta efter meddelandet **Distribueringen lyckades**.
-
-    ![Definiera nya funktionsappinställningar](./media/functions-create-student-starter/function-app-create-notification.png)
-
-8. Välj **Gå till resurs** att visa den nya funktionsappen.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
 Därefter skapar du en funktion i den nya funktionsappen.
 
-## <a name="create-an-http-triggered-function"></a><a name="create-function"></a>Skapa en HTTP-utlöst funktion
+## <a name="create-an-http-trigger-function"></a><a name="create-function"></a>Skapa en HTTP-utlösnings funktion
 
-1. Expandera din nya Function-app och välj sedan **+** knappen bredvid **funktioner**, Välj **i portalen**och välj **Fortsätt**.
+1. På den vänstra menyn i fönstret **funktioner** väljer du **Functions**och väljer sedan **Lägg till** på den översta menyn. 
+ 
+1. Välj **http-utlösare**i fönstret **ny funktion** .
 
-    ![Functions-snabbstart, välj plattform.](./media/functions-create-student-starter/function-app-quickstart-choose-portal.png)
+    ![Välj funktionen HTTP-utlösare](./media/functions-create-student-starter/function-app-select-http-trigger.png)
 
-1. Välj **WebHook + API** och välj sedan **Skapa**.
+1. I fönstret **ny funktion** godkänner du standard namnet för **ny funktion**eller anger ett nytt namn. 
 
-    ![Snabbstart för funktioner i Azure Portal.](./media/functions-create-student-starter/function-app-quickstart-node-webhook.png)
+1. Välj **Anonym** i list rutan **Autentiseringsnivå** och välj sedan **skapa funktion**.
 
-En funktion skapas med hjälp av en språkspecifik mall för en HTTP-utlöst funktion.
-
-Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
+    Azure skapar funktionen HTTP-utlösare. Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. I den nya funktionen klickar du på **</> Hämta funktionswebbadress** längst upp till höger och väljer **Standard (funktionsnyckel)**. Sedan klickar du på **Kopiera**. 
+1. I din nya funktion för HTTP-utlösare väljer du **kod + test** på den vänstra menyn och sedan **Hämta funktions webb adress** på den översta menyn.
+
+    ![Välj Hämta funktions webb adress](./media/functions-create-student-starter/function-app-select-get-function-url.png)
+
+1. I dialog rutan **Hämta funktions webb adress** väljer du **standard** i list rutan och väljer sedan ikonen **Kopiera till Urklipp** . 
 
     ![Kopiera funktionswebbadressen från Azure Portal](./media/functions-create-student-starter/function-app-develop-tab-testing.png)
 
-2. Klistra in funktionens URL i adressfältet för din webbläsare. Lägg till frågesträngvärdet `&name=<yourname>` i slutet av den här webbadressen och tryck på knappen `Enter` på tangentbordet för att utföra begäran. Du bör se svaret som returnerades av funktionen som visas i webbläsaren.  
+1. Klistra in funktionens URL i adressfältet för din webbläsare. Lägg till frågesträngen `?name=<your_name>` i slutet av den här URL: en och tryck på RETUR för att köra begäran. 
 
     I följande exempel visas svaret i webbläsaren:
 
@@ -100,7 +73,7 @@ Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
     Begäransadressen innehåller en nyckel som krävs för åtkomst till din funktion över HTTP.
 
-3. När din funktion körs skrivs spårningsinformation till loggarna. Om du vill visa spårningsinformationen från föregående körning återgår du till funktionen i portalen och klickar på pilen längst ned på skärmen så att **Loggar** expanderas.
+1. När din funktion körs skrivs spårningsinformation till loggarna. Om du vill se spårnings resultatet går du tillbaka till sidan **kod + test** i portalen och expanderar pilen **loggar** längst ned på sidan.
 
    ![Funktionsloggvisning i Azure Portal.](./media/functions-create-student-starter/function-view-logs.png)
 
@@ -110,7 +83,7 @@ Nu kan du köra den nya funktionen genom att skicka en HTTP-begäran.
 
 ## <a name="supported-features-in-azure-for-students-starter"></a>Funktioner som stöds i Start programmet för Azure för studenter
 
-I Azure for Students Starter har du till gång till de flesta av funktionerna i Azure Functions runtime, med flera viktiga begränsningar i listan nedan:
+I Start programmet för Azure för studenter har du till gång till de flesta funktioner i Azure Functions runtime, med flera viktiga begränsningar i listan nedan:
 
 * HTTP-utlösaren är den enda utlösnings typ som stöds.
     * Alla indata och alla utgående bindningar stöds! [Se den fullständiga listan här.](functions-triggers-bindings.md)
@@ -120,13 +93,13 @@ I Azure for Students Starter har du till gång till de flesta av funktionerna i 
     * F # (.NET Core 2)
     * [Se språk som stöds i högre planer här](supported-languages.md)
 * Windows är det enda operativ system som stöds.
-* Skalningen är begränsad till [en instans på en kostnads fri nivå](https://azure.microsoft.com/pricing/details/app-service/windows/) som körs i upp till 60 minuter varje dag. Du kommer serverlessly att skala från 0 till 1 instans automatiskt när HTTP-trafik tas emot, men inte ytterligare.
+* Skalningen är begränsad till [en instans på en kostnads fri nivå](https://azure.microsoft.com/pricing/details/app-service/windows/) som körs i upp till 60 minuter varje dag. Du ska serverlessly skala från 0 till 1 instans automatiskt när HTTP-trafik tas emot, men inte längre.
 * Endast [version 2. x och senare](functions-versions.md) av Functions-körningen stöds.
 * Alla verktyg för utvecklare stöds för redigerings-och publicerings funktioner. Detta inkluderar VS Code, Visual Studio, Azure CLI och Azure Portal. Om du vill använda något annat än portalen måste du först skapa en app i portalen och sedan välja appen som ett distributions mål i önskat verktyg.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har skapat en Function-app med en enkel HTTP-utlöst funktion! Nu kan du utforska lokala verktyg, fler språk, övervakning och integreringar.
+Nu har du skapat en Function-app med en enkel HTTP-utlösnings funktion. Härnäst kan du utforska lokala verktyg, fler språk, övervakning och integreringar.
 
  * [Skapa din första funktion med Visual Studio](./functions-create-your-first-function-visual-studio.md)
  * [Skapa din första funktion med Visual Studio Code](./functions-create-first-function-vs-code.md)

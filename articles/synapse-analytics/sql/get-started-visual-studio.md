@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5e725df5c875f23d82da1fda19bcdf28db548fc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a8839609856bda5304712405ec57accb4afb095
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428568"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201681"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Ansluta till Synapse SQL med Visual Studio och SSDT
 > [!div class="op_single_selector"]
@@ -28,9 +28,8 @@ ms.locfileid: "81428568"
 
 Använd Visual Studio för att fråga SQL-pool med Azure Synapse Analytics. Den här metoden använder tillägget SQL Server Data Tools (SSDT) i Visual Studio 2019. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Verktyg som stöds för SQL på begäran (för hands version)
-
-Visual Studio stöds för närvarande inte för SQL på begäran (för hands version). Azure Data Studi (för hands version) o är dock ett verktyg som stöds fullt ut. SQL Server Management Studio stöds delvis från version 18,4 och har begränsade funktioner som att ansluta och fråga.
+> [!NOTE]
+> SQL på begäran (för hands version) stöds inte av SSDT.
 
 ## <a name="prerequisites"></a>Krav
 Om du vill använda den här självstudien måste du ha följande komponenter:
@@ -41,7 +40,7 @@ Om du vill använda den här självstudien måste du ha följande komponenter:
 
 ## <a name="1-connect-to-sql-pool"></a>1. Anslut till SQL-pool
 1. Öppna Visual Studio 2019.
-2. Öppna SQL Server Object Explorer. Om du vill göra det väljer du **Visa** > **SQL Server Object Explorer**.
+2. Öppna SQL Server Object Explorer. Om du vill göra det väljer du **Visa**  >  **SQL Server Object Explorer**.
    
     ![SQL Server Object Explorer](./media/get-started-visual-studio/open-ssdt.png)
 3. Klicka på ikonen **lägg till SQL Server**.

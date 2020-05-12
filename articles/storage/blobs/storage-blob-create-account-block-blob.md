@@ -5,21 +5,22 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/23/2019
+ms.date: 05/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 6303644ada5c6f093611dba94daf8006f8cc5819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4767c0310783e7e2cc51b4caa7d6e6a052d0a05a
+ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79536912"
+ms.lasthandoff: 05/11/2020
+ms.locfileid: "83007307"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Skapa ett BlockBlobStorage-konto
 
 Med BlockBlobStorage-kontots typ kan du skapa block-blobbar med förstklassiga prestanda egenskaper. Den här typen av lagrings konto är optimerad för arbets belastningar med höga transaktions priser eller som kräver mycket snabba åtkomst tider. Den här artikeln visar hur du skapar ett BlockBlobStorage-konto med hjälp av Azure Portal, Azure CLI eller Azure PowerShell.
 
-[!INCLUDE [updated-for-az](../../../includes/storage-data-lake-gen2-support.md)]
+> [!NOTE]
+> Funktionen för hierarkiskt namn område i ett Block Blob Storage-konto finns i en offentlig för hands version och är tillgänglig i östra USA, östra USA 2, centrala USA, södra centrala USA, västra USA 2, Storbritannien, södra, centrala Kanada och östra Australien. Information om hur du granskar begränsningar finns [i Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) och [kända problem](data-lake-storage-known-issues.md). Information om hur du registrerar i för hands versionen finns i [det här formuläret](https://aka.ms/adlspremiumonboard).
 
 Mer information om BlockBlobStorage-konton finns i [Översikt över Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
@@ -27,7 +28,7 @@ Mer information om BlockBlobStorage-konton finns i [Översikt över Azure Storag
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Inga.
 
@@ -60,7 +61,7 @@ Du kan även installera och använda Azure CLI lokalt. Den här instruktions art
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -86,38 +87,47 @@ az login
 
 ## <a name="create-a-blockblobstorage-account"></a>Skapa ett BlockBlobStorage-konto
 
-## <a name="portal"></a>[Portalen](#tab/azure-portal)
+## <a name="portal"></a>[Portal](#tab/azure-portal)
 Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
 
 1. I Azure Portal väljer du **alla tjänster** > **lagrings** kategorin > **lagrings konton**.
 
-1. Under **lagrings konton**väljer du **Lägg till**.
+2. Under **lagrings konton**väljer du **Lägg till**.
 
-1. I fältet **prenumeration** väljer du den prenumeration där du vill skapa lagrings kontot.
+3. I fältet **prenumeration** väljer du den prenumeration där du vill skapa lagrings kontot.
 
-1. I fältet **resurs grupp** väljer du en befintlig resurs grupp eller väljer **Skapa ny**, och anger ett namn för den nya resurs gruppen.
+4. I fältet **resurs grupp** väljer du en befintlig resurs grupp eller väljer **Skapa ny**, och anger ett namn för den nya resurs gruppen.
 
-1. I fältet **namn på lagrings konto** anger du ett namn för kontot. Observera följande rikt linjer:
+5. I fältet **namn på lagrings konto** anger du ett namn för kontot. Observera följande rikt linjer:
 
    - Namnet måste vara unikt i Azure.
    - Namnet måste innehålla mellan tre och 24 tecken.
    - Namnet får bara innehålla siffror och gemena bokstäver.
 
-1. I fältet **plats** väljer du en plats för lagrings kontot eller använder standard platsen.
+6. I fältet **plats** väljer du en plats för lagrings kontot eller använder standard platsen.
 
-1. Konfigurera följande för resten av inställningarna:
+7. Konfigurera följande för resten av inställningarna:
 
-   |Field     |Värde  |
+   |Fält     |Värde  |
    |---------|---------|
-   |**Prestanda**    |  Välj **Premium**.   |
+   |**Historik**    |  Välj **Premium**.   |
    |**Typ av konto**    | Välj **BlockBlobStorage**.      |
    |**Replikering**    |  Lämna standardinställningen för **Lokalt Redundant lagring (LRS)**.      |
 
    ![Visar Portal gränssnittet för att skapa ett Block Blob Storage-konto](media/storage-blob-create-account-block-blob/create-block-blob-storage-account.png)
 
-1. Välj **Granska + skapa** för att granska inställningarna för lagrings kontot.
+8. Välj fliken **Avancerat** .
 
-1. Välj **Skapa**.
+9. Om du vill optimera ditt lagrings konto för data analys ska du ange **hierarkiskt namn område** till **aktiverat**. Annars lämnar du det här alternativet inställt på standardvärdet.
+
+   Mer information finns i [Introduktion till Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > Funktionen för hierarkiskt namn område i ett Block Blob Storage-konto finns i en offentlig för hands version och är tillgänglig i östra USA, östra USA 2, centrala USA, södra centrala USA, västra USA 2, Storbritannien, södra, centrala Kanada och östra Australien. Information om hur du granskar begränsningar finns [i Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) och [kända problem](data-lake-storage-known-issues.md). Information om hur du registrerar i för hands versionen finns i [det här formuläret](https://aka.ms/adlspremiumonboard).
+
+8. Välj **Granska + skapa** för att granska inställningarna för lagrings kontot.
+
+9. Välj **Skapa**.
 
 ## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
@@ -125,19 +135,19 @@ Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
 
 1. Öppna en upphöjd Windows PowerShell-session (kör som administratör).
 
-1. Kör följande kommando för att kontrol lera att den senaste versionen av `Az` PowerShell-modulen är installerad.
+2. Kör följande kommando för att kontrol lera att den senaste versionen av `Az` PowerShell-modulen är installerad.
 
    ```powershell
    Install-Module -Name Az -AllowClobber
    ```
 
-1. Öppna en ny PowerShell-konsol och logga in med ditt Azure-konto.
+3. Öppna en ny PowerShell-konsol och logga in med ditt Azure-konto.
 
    ```powershell
    Connect-AzAccount -SubscriptionId <SubscriptionID>
    ```
 
-1. Om det behövs skapar du en ny resurs grupp. Ersätt värdena i citat tecken och kör följande kommando.
+4. Om det behövs skapar du en ny resurs grupp. Ersätt värdena i citat tecken och kör följande kommando.
 
    ```powershell
    $resourcegroup = "new_resource_group_name"
@@ -145,7 +155,7 @@ Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
    New-AzResourceGroup -Name $resourceGroup -Location $location
    ```
 
-1. Skapa BlockBlobStorage-kontot. Ersätt värdena i citat tecken och kör följande kommando.
+5. Skapa BlockBlobStorage-kontot. Ersätt värdena i citat tecken och kör följande kommando.
 
    ```powershell
    $resourcegroup = "resource_group_name"
@@ -154,6 +164,10 @@ Följ dessa steg om du vill skapa ett BlockBlobStorage-konto i Azure Portal:
 
    New-AzStorageAccount -ResourceGroupName $resourcegroup -Name $storageaccount -Location $location -Kind "BlockBlobStorage" -SkuName "Premium_LRS"
    ```
+   Om du vill optimera ditt lagrings konto för data analys kan du lägga till `-EnableHierarchicalNamespace $True` i kommandot. Mer information finns i [Introduktion till Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > Funktionen för hierarkiskt namn område i ett Block Blob Storage-konto finns i en offentlig för hands version och är tillgänglig i östra USA, östra USA 2, centrala USA, södra centrala USA, västra USA 2, Storbritannien, södra, centrala Kanada och östra Australien. Information om hur du granskar begränsningar finns [i Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) och [kända problem](data-lake-storage-known-issues.md). Information om hur du registrerar i för hands versionen finns i [det här formuläret](https://aka.ms/adlspremiumonboard).
 
 ## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -165,7 +179,7 @@ Om du vill skapa ett block-BLOB-konto med hjälp av Azure CLI måste du först i
    az login
    ```
 
-1. Om det behövs skapar du en ny resurs grupp. Ersätt värdena inom hakparenteser (inklusive hakparenteser) och kör följande kommando.
+2. Om det behövs skapar du en ny resurs grupp. Ersätt värdena inom hakparenteser (inklusive hakparenteser) och kör följande kommando.
 
    ```azurecli
    az group create \
@@ -173,7 +187,7 @@ Om du vill skapa ett block-BLOB-konto med hjälp av Azure CLI måste du först i
     --location "<location>"
    ```
 
-1. Skapa BlockBlobStorage-kontot. Ersätt värdena inom hakparenteser (inklusive hakparenteser) och kör följande kommando.
+3. Skapa BlockBlobStorage-kontot. Ersätt värdena inom hakparenteser (inklusive hakparenteser) och kör följande kommando.
 
    ```azurecli
    az storage account create \
@@ -184,6 +198,11 @@ Om du vill skapa ett block-BLOB-konto med hjälp av Azure CLI måste du först i
     --sku "Premium_LRS"
    ```
 
+   Om du vill optimera ditt lagrings konto för data analys kan du lägga till `--hierarchical-namespace true` i kommandot. Mer information finns i [Introduktion till Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+
+   > [!NOTE]
+   > Funktionen för hierarkiskt namn område i ett Block Blob Storage-konto finns i en offentlig för hands version och är tillgänglig i östra USA, östra USA 2, centrala USA, södra centrala USA, västra USA 2, Storbritannien, södra, centrala Kanada och östra Australien. Information om hur du granskar begränsningar finns [i Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md) och [kända problem](data-lake-storage-known-issues.md). Information om hur du registrerar i för hands versionen finns i [det här formuläret](https://aka.ms/adlspremiumonboard).
+   
 ---
 
 ## <a name="next-steps"></a>Nästa steg

@@ -15,7 +15,7 @@
           href: quick-setup-auto-provision-cli.md
         - name: Azure RM-mall
           href: quick-setup-auto-provision-rm.md
-    - name: Etablera en enda simulerad enhet
+    - name: Etablera en enskild enhet
       items:
         - name: Symmetrisk nyckelattestering
           items:

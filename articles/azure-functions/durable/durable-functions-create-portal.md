@@ -2,14 +2,14 @@
 title: Skapa Durable Functions med hjälp av Azure Portal
 description: Lär dig hur du installerar Durable Functions-tillägget för Azure Functions för Portal utveckling.
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6416ae4aba8b045c6c4fb0fe6557bdcd1efb3a9b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769650"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120170"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Skapa Durable Functions med hjälp av Azure Portal
 
@@ -30,15 +30,17 @@ Som standard använder Function-appen version 2. x av Azure Functions Runtime. D
 
 ## <a name="install-the-durable-functions-npm-package-javascript-only"></a>Installera NPM-paketet bestående av funktioner (endast java script)
 
-Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-functions)JavaScript-Durable Functions måste du installera NPM-paketet.
+Om du skapar ett JavaScript-Durable Functions måste du installera [ `durable-functions` NPM-paketet](https://www.npmjs.com/package/durable-functions):
 
-1. Välj appens funktions namn, följt av **plattforms funktioner**, och sedan **Avancerade verktyg (kudu)**.
+1. Från din funktions programs sida väljer du **Avancerade verktyg** under **utvecklingsverktyg** i det vänstra fönstret.
 
-   ![Funktions plattforms funktioner Välj kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+   :::image type="content" source="./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png" alt-text="Funktions plattforms funktioner Välj kudu":::
 
-2. I kudu-konsolen väljer du **Felsök konsol** och sedan **cmd**.
+2. På sidan **Avancerade verktyg** väljer du **gå**till.
 
-   ![Kudu fel söknings konsol](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+3. I kudu-konsolen väljer du **Felsök konsol**och sedan **cmd**.
+
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu fel söknings konsol":::
 
 3. Din funktions programmets fil katalog struktur bör visas. Gå till mappen `site/wwwroot`. Därifrån kan du ladda upp en `package.json` fil genom att dra och släppa den i fönstret fil katalog. Ett exempel `package.json` är nedan:
 
@@ -50,7 +52,7 @@ Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-f
     }
     ```
 
-   ![Kudu upload Package. JSON](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+   :::image type="content" source="./media/durable-functions-create-portal/kudu-choose-debug-console.png" alt-text="Kudu upload Package. JSON":::
 
 4. När din `package.json` har överförts kör du `npm install` kommandot från kudu-konsolen för fjärrkörning.
 
@@ -58,29 +60,23 @@ Om du skapar ett [ `durable-functions` ](https://www.npmjs.com/package/durable-f
 
 ## <a name="create-an-orchestrator-function"></a>Skapa en Orchestrator-funktion
 
-1. Expandera din Function-app och klicka **+** på knappen bredvid **Functions**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
+1. I din Function-app väljer du **Functions** i den vänstra rutan och väljer sedan **Lägg till** på den översta menyn. 
 
-   ![Sidan snabbstart för funktioner i Azure Portal](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
+1. I Sök fältet på sidan **ny funktion** anger du `durable` och väljer sedan **Durable Functions http starter-** mall.
 
-1. Välj **Fler mallar** och sedan **Slutför och visa mallar**.
+   :::image type="content" source="./media/durable-functions-create-portal/durable-functions-http-starter-template.png" alt-text="Välj Durable Functions HTTP-startstarter":::
 
-    ![Functions-snabbstart, välj fler mallar](./media/durable-functions-create-portal/add-first-function.png)
+1. För det **nya funktions** namnet anger du `HttpStart` och väljer sedan **skapa funktion**.
 
-1. I Sök fältet skriver `durable` du och väljer sedan **Durable Functions http** startmall.
+   Funktionen som skapas används för att starta dirigeringen.
 
-1. När du uppmanas väljer du **Installera** för att installera Azure DurableTask-tillägget och eventuella beroenden i Function-appen. Du behöver bara installera tillägget en gång för en given funktionsapp. När installationen är klar väljer du **Fortsätt**.
+1. Skapa en annan funktion i Function-appen, den här gången med hjälp av **Durable Functions Orchestrator** -mallen. Ge din nya Orchestration-funktion ett namn `HelloSequence` .
 
-    ![Installera bindningstillägg](./media/durable-functions-create-portal/install-durabletask-extension.png)
-
-1. När installationen är klar namnger du den nya funktionen `HttpStart` och väljer **skapa**. Funktionen som skapas används för att starta dirigeringen.
-
-1. Skapa en annan funktion i Function-appen, den här gången med hjälp av **Durable Functions Orchestrator** -mallen. Ge din nya Orchestration-funktion `HelloSequence`ett namn.
-
-1. Skapa en tredje funktion med `Hello` namnet med hjälp av mallen för **Durable Functionss aktivitet** .
+1. Skapa en tredje funktion med namnet `Hello` med hjälp av mallen för **Durable Functionss aktivitet** .
 
 ## <a name="test-the-durable-function-orchestration"></a>Testa den varaktiga funktions dirigeringen
 
-1. Gå tillbaka till funktionen **HttpStart** , Välj **</> Hämta funktions webb adress** och **Kopiera** URL: en. Du kan använda den här URL: en för att starta funktionen **HelloSequence** .
+1. Gå tillbaka till funktionen **HttpStart** , Välj **Hämta funktions webb adress**och välj ikonen **Kopiera till Urklipp** för att kopiera URL: en. Du kan använda den här URL: en för att starta funktionen **HelloSequence** .
 
 1. Använd ett HTTP-verktyg som Postman eller sväng för att skicka en POST-begäran till den URL som du kopierade. Följande exempel är ett spiral kommando som skickar en POST-begäran till den varaktiga funktionen:
 

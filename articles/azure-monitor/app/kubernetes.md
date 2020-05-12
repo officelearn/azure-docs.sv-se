@@ -5,19 +5,18 @@ ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: 56a0cb66f5b54c817067970ab369d7ca471a1696
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c3b2b4e8868b73e22706c684d94371fe37885b9a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132350"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119251"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Program övervakning utan Instrumentation för Kubernetes-värdbaserade program
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications-with-istio---deprecated"></a>Övervakning av program vara utan instrumentering för Kubernetes-värdbaserade program med Istio-inaktuell
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Den här funktionen är för närvarande inaktuell och kommer inte längre att stödjas efter den 1 augusti 2020.
+> Den rekommenderade versionen fungerar bara för [Java via fristående agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
 
 Azure Monitor använder nu teknisk teknik för service nät på ditt Kubernetes-kluster för att tillhandahålla program övervakning för alla Kubernetes appar som körs. Med standardinställningar för program insikter som [program karta](../../azure-monitor/app/app-map.md) för att modellera dina beroenden [Live Metrics Stream](../../azure-monitor/app/live-stream.md) för real tids övervakning, kraftfulla visualiseringar med [standard instrument panelen](../../azure-monitor/app/overview-dashboard.md), [Metric Explorer](../../azure-monitor/platform/metrics-getting-started.md)och [arbets böcker](../../azure-monitor/app/usage-workbooks.md). Med den här funktionen kan användarna upptäcka Flask halsar i prestanda och fel hotspots i alla sina Kubernetes-arbetsbelastningar inom ett valt Kubernetes-namnområde. Genom att dra nytta av dina befintliga service nät investeringar med tekniker som Azure Monitor Istio aktive ras automatiskt instrumenterad app Monitoring utan någon ändring av programmets kod.
 

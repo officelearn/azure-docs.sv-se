@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 05/06/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 904f93aa705a4e327f29bbec109bdf3b937f6c70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c8af4cafb2c7ab4d39a591f5972803161c2aa0f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80519489"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120393"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure import/export-tjänsten: vanliga frågor och svar
 
@@ -109,7 +109,7 @@ När uppladdningen är klar kan processen för att returnera enhet (er) till en 
 
 Kraven beror på de begränsningar som gäller för Azure Data Center.
 
-- Det finns några webbplatser, till exempel Australien, Tyskland och Storbritannien, södra, som kräver att ett Microsoft Data Center-inkommande ID-nummer skrivs på skiftena av säkerhets skäl. Innan du levererar dina enheter eller diskar till data centret kan du kontakta Azure Data Center-adbops@microsoft.comåtgärder () för att få det här numret. Utan det här antalet kommer paketet att avvisas.
+- Det finns några webbplatser, till exempel Australien, Tyskland och Storbritannien, södra, som kräver att ett Microsoft Data Center-inkommande ID-nummer skrivs på skiftena av säkerhets skäl. Innan du levererar dina enheter eller diskar till data centret kan du kontakta Azure Data Center-åtgärder ( adbops@microsoft.com ) för att få det här numret. Utan det här antalet kommer paketet att avvisas.
 - Data centret i Indien kräver personliga uppgifter för driv rutinen, till exempel kortet för myndighets-ID eller bevis nummer. (t. ex. panorering, AADHAR, DL), namn, kontakt och bil plåt numret för att få en grind post pass. Informera operatören om dessa krav för att undvika leverans fördröjningar.
 
 ### <a name="when-creating-a-job-the-shipping-address-is-a-location-that-is-different-from-my-storage-account-location-what-should-i-do"></a>När du skapar ett jobb är leverans adressen en plats som skiljer sig från min lagrings konto plats. Vad ska jag göra?
@@ -153,7 +153,7 @@ Nej. WAImportExport-verktyget är bara kompatibelt med 64-bitars Windows-operati
 
 ### <a name="does-azure-importexport-support-aes-256-encryption"></a>Stöder Azure import/export AES-256-kryptering?
 
-Nej. Azure import/export-tjänsten använder AES-128 BitLocker-kryptering.
+Ja. Azure import/export-tjänsten använder AES-256 BitLocker-kryptering.
 
 ## <a name="next-steps"></a>Nästa steg
 

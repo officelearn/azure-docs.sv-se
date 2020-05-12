@@ -5,18 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 06/26/2019
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 09fd5326c2532e115dbab0752af31a809488f04c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 060e98f2617da503068911ec1e687241d909dabc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559684"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120920"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
 Som standard använder AKS-kluster [Kubernetes][kubenet]och ett virtuellt Azure-nätverk och undernät skapas åt dig. Med *Kubernetes*hämtar noder en IP-adress från det virtuella nätverkets undernät i Azure. Poddar får en IP-adress från ett annat logiskt adressutrymme än det virtuella Azure-nätverkets undernät för noderna. NAT (Network Address Translation) konfigureras sedan så att poddarna kan komma åt resurser i det virtuella Azure-nätverket. Käll-IP-adressen för trafiken är NAT till nodens primära IP-adress. Den här metoden minskar antalet IP-adresser som du behöver reservera i ditt nätverks utrymme för att poddar ska kunna användas.
 
-Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod en IP-adress från under nätet och kan nås direkt. De här IP-adresserna måste vara unika i ditt nätverks utrymme och måste planeras i förväg. Varje nod har en konfigurations parameter för det maximala antalet poddar som stöds. Motsvarande antal IP-adresser per nod är sedan reserverade för den noden. Den här metoden kräver mer planering, och leder ofta till IP-prisslutning eller behovet av att återskapa kluster i ett större undernät när ditt program kräver en tillväxt.
+Med [Azure Container Network Interface (cni)][cni-networking]hämtar varje Pod en IP-adress från under nätet och kan nås direkt. De här IP-adresserna måste vara unika i ditt nätverks utrymme och måste planeras i förväg. Varje nod har en konfigurations parameter för det maximala antalet poddar som stöds. Motsvarande antal IP-adresser per nod är sedan reserverade för den noden. Den här metoden kräver mer planering, och leder ofta till IP-prisslutning eller behovet av att återskapa kluster i ett större undernät när ditt program kräver en tillväxt. Du kan konfigurera den maximala poddar som kan distribueras till en nod vid klustrets skapande tid eller när du skapar nya nodkonfigurationer. Om du inte anger maxPods när du skapar nya Node-pooler får du ett standardvärde på 110 för Kubernetes.
 
 Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa och använda ett virtuellt nätverks under nät för ett AKS-kluster. Mer information om nätverks alternativ och överväganden finns i [nätverks koncept för Kubernetes och AKS][aks-network-concepts].
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du använder *Kubernetes* -nätverk för att skapa o
 
 * Det virtuella nätverket för AKS-klustret måste tillåta utgående Internet anslutning.
 * Skapa inte fler än ett AKS-kluster i samma undernät.
-* AKS-kluster får inte använda `169.254.0.0/16`, `172.30.0.0/16` `172.31.0.0/16`, eller `192.0.2.0/24` för Kubernetes-tjänstens adress intervall.
+* AKS-kluster får inte använda `169.254.0.0/16` , `172.30.0.0/16` , `172.31.0.0/16` eller `192.0.2.0/24` för Kubernetes-tjänstens adress intervall.
 * Tjänstens huvud namn som används av AKS-klustret måste ha minst rollen [nätverks deltagare](../role-based-access-control/built-in-roles.md#network-contributor) på under nätet i det virtuella nätverket. Om du vill definiera en [anpassad roll](../role-based-access-control/custom-roles.md) i stället för att använda den inbyggda rollen nätverks deltagare, krävs följande behörigheter:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -139,7 +139,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Tilldela nu tjänstens huvud namn för AKS-klustrets *deltagar* behörigheter på det virtuella nätverket med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Ange ett eget * \<appId->* som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn:
+Tilldela nu tjänstens huvud namn för AKS-klustrets *deltagar* behörigheter på det virtuella nätverket med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Ange ett eget * \< appId->* som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -147,7 +147,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
 
-Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat behörigheter för ett huvud namn för tjänsten för att använda dessa nätverks resurser. Skapa nu ett AKS-kluster i ditt virtuella nätverk och under nätet med kommandot [AZ AKS Create][az-aks-create] . Definiera ditt eget tjänst huvud namn * \<>* och * \<lösen ord>*, som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn.
+Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat behörigheter för ett huvud namn för tjänsten för att använda dessa nätverks resurser. Skapa nu ett AKS-kluster i ditt virtuella nätverk och under nätet med kommandot [AZ AKS Create][az-aks-create] . Definiera ditt eget tjänst huvud namn * \<>* och * \< lösen ord>*, som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn.
 
 Följande IP-adressintervall definieras också som en del av klustret Create process:
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 307ca08e733417efc9496415a09a0898fe10393e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af69b9105d55749267e6c54a6584566b499b4097
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183474"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118472"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services-administratörs guide
 IT-administratörer som hanterar ett universitets moln resurser är vanligt vis ansvariga för att ställa in labb kontot för sin skola. När ett labb konto har kon figurer ATS kan administratörer eller lärare skapa klass rums labb som finns i labb kontot. Den här artikeln innehåller en översikt över de Azure-resurser som ingår och vägledningen för att skapa dem.
@@ -124,16 +124,16 @@ När du kommer igång med Azure Lab Services rekommenderar vi att du skapar namn
 
 | Resurstyp | Roll | Föreslaget mönster | Exempel |
 | ------------- | ---- | ----------------- | -------- | 
-| Resursgrupp | Innehåller ett eller flera labb konton och ett eller flera gallerier för delade avbildningar | \<organisationens kort\>-\<namn\>miljö – rg<ul><li>**Organisationens kort namn** identifierar namnet på den organisation som resurs gruppen stöder</li><li>**Miljö** identifierar resursens miljö, till exempel pilot eller produktion</li><li>**RG** står för resurs typen: resurs grupp.</li></ul> | contosouniversitylabs – rg<br/>contosouniversitylabs – pilot – rg<br/>contosouniversitylabs-Prod-rg |
-| Labb konto | Innehåller en eller flera labb | \<organisationens kort\>-\<namn\>miljö – La<ul><li>**Organisationens kort namn** identifierar namnet på den organisation som resurs gruppen stöder</li><li>**Miljö** identifierar resursens miljö, till exempel pilot eller produktion</li><li>**La** står för resurs typen: labb konto.</li></ul> | contosouniversitylabs-La<br/>mathdeptlabs-La<br/>sciencedeptlabs-pilot-La<br/>sciencedeptlabs-Prod-La |
-| Klass rums labb | Innehåller en eller flera virtuella datorer |\<lärare-\>-\<ID\>-\<för klass namn tidsram\><ul><li>**Klass namn** identifierar namnet på klassen som labbet stöder.</li><li>**Tidsram** identifierar den tidsram i vilken klassen erbjuds.</li>**Utbildnings identifierare** identifierar den lärare som äger labbet.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| Galleri för delad avbildning | Innehåller en eller flera versioner av virtuella dator avbildningar | \<Galleri för organisationens kort namn\> | contosouniversitylabsgallery |
+| Resursgrupp | Innehåller ett eller flera labb konton och ett eller flera gallerier för delade avbildningar | \<organisationens kort namn \> - \< miljö \> – rg<ul><li>**Organisationens kort namn** identifierar namnet på den organisation som resurs gruppen stöder</li><li>**Miljö** identifierar resursens miljö, till exempel pilot eller produktion</li><li>**RG** står för resurs typen: resurs grupp.</li></ul> | contosouniversitylabs – rg<br/>contosouniversitylabs – pilot – rg<br/>contosouniversitylabs-Prod-rg |
+| Labb konto | Innehåller en eller flera labb | \<organisationens kort namn \> - \< miljö \> – La<ul><li>**Organisationens kort namn** identifierar namnet på den organisation som resurs gruppen stöder</li><li>**Miljö** identifierar resursens miljö, till exempel pilot eller produktion</li><li>**La** står för resurs typen: labb konto.</li></ul> | contosouniversitylabs-La<br/>mathdeptlabs-La<br/>sciencedeptlabs-pilot-La<br/>sciencedeptlabs-Prod-La |
+| Klass rums labb | Innehåller en eller flera virtuella datorer |\<lärare- \> - \< \> - \< ID för klass namn tidsram\><ul><li>**Klass namn** identifierar namnet på klassen som labbet stöder.</li><li>**Tidsram** identifierar den tidsram i vilken klassen erbjuds.</li>**Utbildnings identifierare** identifierar den lärare som äger labbet.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
+| Galleri för delad avbildning | Innehåller en eller flera versioner av virtuella dator avbildningar | \<Galleri för organisationens kort namn \> | contosouniversitylabsgallery |
 
 Mer information om hur du namnger andra Azure-resurser finns i [namngivnings konventioner för Azure-resurser](/azure/architecture/best-practices/naming-conventions).
 
 ## <a name="regionslocations"></a>Regions\locations
 
-När du konfigurerar Azure Lab Services resurser måste du ange en region (eller en plats) för det data Center som ska vara värd för resursen. Här är mer information om hur regionen påverkar var och en av de omkopierade som ingår i konfigurationen av ett labb.
+När du konfigurerar Azure Lab Services resurser måste du ange en region (eller en plats) för det data Center som ska vara värd för resursen. Här finns mer information om hur regioner påverkar var och en av de resurser som ingår i konfigurationen av ett labb.
 
 ### <a name="resource-group"></a>Resursgrupp
 

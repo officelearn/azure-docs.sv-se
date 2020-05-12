@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 05/10/2020
+ms.date: 05/11/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 50c1d7e35b1c4e92664d810836fe1213183fbf83
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5099cc2ce2228bcdbf49d3484e488e7373883ec0
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927351"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119045"
 ---
 # <a name="secure-your-machine-learning-lifecycles-with-private-virtual-networks"></a>Skydda dina Machine Learning-livscykler med privata virtuella nätverk
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,8 +29,9 @@ I den här artikeln får du lära dig hur du isolerar experimentering/utbildning
 > - Användar gränssnitt för automatisk maskin inlärning
 > - GRÄNSSNITT för data etiketter
 > - Användar gränssnitt för data uppsättningar
+> - Notebooks
 > 
->  Om du provar får du ett fel meddelande när du visualiserar data från ett lagrings konto i ett virtuellt nätverk som liknar:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
+> Om du försöker igen får du ett meddelande som liknar följande fel:`__Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.__`
 
 ## <a name="what-is-a-vnet"></a>Vad är ett VNET?
 
@@ -176,7 +177,7 @@ Om du använder Tvingad tunnel trafik med Machine Learning-beräkning lägger du
 
 * Upprätta en UDR för varje IP-adress som används av tjänsten Azure Batch i den region där dina resurser finns. Dessa UDR gör att batch-tjänsten kan kommunicera med datornoder för schemaläggning av aktiviteter. Lägg också till IP-adressen för den Azure Machine Learning tjänst där resurserna finns, eftersom detta krävs för åtkomst till beräknings instanser. Använd någon av följande metoder för att hämta en lista över IP-adresser för batch-tjänsten och Azure Machine Learning tjänsten:
 
-    * Hämta [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) och Sök efter `BatchNodeManagement.<region>` och `AzureMachineLearning.<region>`, där `<region>` är din Azure-region.
+    * Hämta [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) och Sök efter `BatchNodeManagement.<region>` och `AzureMachineLearning.<region>` , där `<region>` är din Azure-region.
 
     * Använd [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) för att hämta informationen. I följande exempel hämtas IP-adress informationen och filtreras bort informationen för regionen USA, östra 2:
 
@@ -185,7 +186,7 @@ Om du använder Tvingad tunnel trafik med Machine Learning-beräkning lägger du
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'AzureMachineLearning')] | [?properties.region=='eastus2']"
         ```
 
-* Utgående trafik till Azure Storage får inte blockeras av den lokala nätverks enheten. Mer specifikt är webb adresserna i formatet `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`och `<account>.blob.core.windows.net`.
+* Utgående trafik till Azure Storage får inte blockeras av den lokala nätverks enheten. Mer specifikt är webb adresserna i formatet `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` och `<account>.blob.core.windows.net` .
 
 När du lägger till UDR definierar du vägen för varje relaterat batch-IP-adressprefix och anger __nästa hopp typ__ till __Internet__. Följande bild visar ett exempel på den här UDR i Azure Portal:
 
@@ -201,7 +202,7 @@ Använd följande steg för att skapa ett Machine Learning-beräkning kluster:
 
 1. Välj __Beräkna__ till vänster.
 
-1. Välj __utbildnings kluster__ från mitten och välj __+__ sedan.
+1. Välj __utbildnings kluster__ från mitten och välj sedan __+__ .
 
 1. I dialog rutan __nytt utbildnings kluster__ expanderar du avsnittet __Avancerade inställningar__ .
 
@@ -213,7 +214,7 @@ Använd följande steg för att skapa ett Machine Learning-beräkning kluster:
 
    ![Inställningarna för virtuella nätverk för Machine Learning-beräkning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
-Du kan också skapa ett Machine Learning-beräkning-kluster med hjälp av Azure Machine Learning SDK. Följande kod skapar ett nytt Machine Learning-beräkning-kluster i `default` under nätet för ett virtuellt nätverk med `mynetwork`namnet:
+Du kan också skapa ett Machine Learning-beräkning-kluster med hjälp av Azure Machine Learning SDK. Följande kod skapar ett nytt Machine Learning-beräkning-kluster i `default` under nätet för ett virtuellt nätverk med namnet `mynetwork` :
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -309,7 +310,7 @@ Använd följande steg för att lägga till Azure Kubernetes service (AKS) i ett
 
 1. Välj __Beräkna__ till vänster.
 
-1. Välj __härlednings kluster__ från mitten och välj __+__ sedan.
+1. Välj __härlednings kluster__ från mitten och välj sedan __+__ .
 
 1. I dialog rutan __nytt kluster__ för __överbelastnings__kluster väljer du __Avancerat__ under nätverks konfiguration.
 
@@ -330,7 +331,7 @@ Använd följande steg för att lägga till Azure Kubernetes service (AKS) i ett
 
    [![En inkommande säkerhets regel](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
-Du kan också använda Azure Machine Learning SDK för att lägga till Azure Kubernetes-tjänsten i ett virtuellt nätverk. Om du redan har ett AKS-kluster i ett virtuellt nätverk ansluter du det till arbets ytan enligt beskrivningen i [så här distribuerar du till AKS](how-to-deploy-and-where.md). Följande kod skapar en ny AKS-instans i `default` under nätet för ett virtuellt nätverk med `mynetwork`namnet:
+Du kan också använda Azure Machine Learning SDK för att lägga till Azure Kubernetes-tjänsten i ett virtuellt nätverk. Om du redan har ett AKS-kluster i ett virtuellt nätverk ansluter du det till arbets ytan enligt beskrivningen i [så här distribuerar du till AKS](how-to-deploy-and-where.md). Följande kod skapar en ny AKS-instans i `default` under nätet för ett virtuellt nätverk med namnet `mynetwork` :
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -406,7 +407,7 @@ __Azure CLI__
 az rest --method put --uri https://management.azure.com"/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-resource-id>?api-version=2018-11-19 --body @body.json
 ```
 
-Innehållet i `body.json` filen som kommandot refererar till liknar följande JSON-dokument:
+Innehållet i filen som `body.json` kommandot refererar till liknar följande JSON-dokument:
 
 ```json
 { 
@@ -439,9 +440,9 @@ Använd följande steg för att använda ACI i ett virtuellt nätverk på din ar
 1. Om du vill aktivera under näts delegering i det virtuella nätverket använder du informationen i artikeln [Lägg till eller ta bort en under näts delegering](../virtual-network/manage-subnet-delegation.md) . Du kan aktivera delegering när du skapar ett virtuellt nätverk eller lägga till det i ett befintligt nätverk.
 
     > [!IMPORTANT]
-    > När du aktiverar delegering `Microsoft.ContainerInstance/containerGroups` ska du använda som värde för __tjänsten delegera till tjänst__ .
+    > När du aktiverar delegering ska `Microsoft.ContainerInstance/containerGroups` du använda som värde för __tjänsten delegera till tjänst__ .
 
-2. Distribuera modellen med [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-) `vnet_name` och Använd parametrarna och `subnet_name` . Ange de här parametrarna som namn på det virtuella nätverket och under nätet där du aktiverade delegering.
+2. Distribuera modellen med [AciWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-) `vnet_name` och Använd `subnet_name` parametrarna och. Ange de här parametrarna som namn på det virtuella nätverket och under nätet där du aktiverade delegering.
 
 ## <a name="azure-firewall"></a>Azure Firewall
 
@@ -475,7 +476,7 @@ Information om hur du använder Azure Machine Learning med Azure-brandväggen fi
     az ml workspace show -w yourworkspacename -g resourcegroupname --query 'containerRegistry'
     ```
 
-    Det här kommandot returnerar ett värde som `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"`liknar. Den sista delen av strängen är namnet på Azure Container Registry för arbets ytan.
+    Det här kommandot returnerar ett värde som liknar `"/subscriptions/{GUID}/resourceGroups/{resourcegroupname}/providers/Microsoft.ContainerRegistry/registries/{ACRname}"` . Den sista delen av strängen är namnet på Azure Container Registry för arbets ytan.
 
 1. Du begränsar åtkomsten till ditt virtuella nätverk genom att följa stegen i [Konfigurera nätverks åtkomst för registret](../container-registry/container-registry-vnet.md#configure-network-access-for-registry). När du lägger till det virtuella nätverket väljer du det virtuella nätverket och under nätet för dina Azure Machine Learning-resurser.
 
@@ -618,7 +619,7 @@ Använd följande steg om du vill använda en virtuell dator eller ett Azure HDI
 
     * I list rutan __käll tjänst tag__ väljer du __AzureMachineLearning__.
 
-    * I list rutan __käll port intervall__ väljer __*__ du.
+    * I list rutan __käll port intervall__ väljer du __*__ .
 
     * I list rutan __mål__ väljer du __valfri__.
 

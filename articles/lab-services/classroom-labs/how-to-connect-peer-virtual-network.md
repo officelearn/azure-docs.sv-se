@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: spelluru
-ms.openlocfilehash: 9e53b6bdb041bfac5a82ed607b75b25ab0513f57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d8f2c747a4bc0ab2119c92e61188e3c57f2b212
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188012"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118370"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>Anslut ditt labb nätverk till ett peer-virtuellt nätverk i Azure Lab Services
 
@@ -48,7 +48,7 @@ När du skapar ett nytt [labb konto](tutorial-setup-lab-account.md)kan du välja
 
 Det finns också ett alternativ för att tillhandahålla **adress intervall** för de virtuella datorerna i labbet.  Egenskapen för **adress intervall** gäller endast om det **virtuella peer-nätverket** är aktiverat för labbet.  Om adress intervallet anges skapas alla virtuella datorer i labben under labb kontot i det adress intervallet. Adress intervallet ska vara i CIDR-format (t. ex. 10.20.0.0/20) och inte överlappa några befintliga adress intervall.  När du tillhandahåller ett adress intervall är det viktigt att tänka på hur många *labb* som ska skapas och tillhandahålla ett adress intervall för att hantera det. Labb tjänster förutsätter högst 512 virtuella datorer per labb.  Ett IP-intervall med "/23" kan till exempel endast skapa ett labb.  Ett intervall med "/21" gör det möjligt att skapa fyra labb.
 
-Om **adress intervallet** inte anges använder Lab-tjänsterna det standard adress intervall som ges av Azure när det virtuella nätverket skapas för peer-kopplas till det virtuella nätverket.  Intervallet är ofta något som 10. x. 0,0/16.  Detta kan leda till överlappande IP-intervall, så se till att antingen ange och adressera intervallet i labb inställningarna eller kontrol lera adress intervallet för det virtuella nätverket som peer-kopplas.
+Om **adress intervallet** inte anges använder Lab-tjänsterna det standard adress intervall som ges av Azure när det virtuella nätverket skapas för peer-kopplas till det virtuella nätverket.  Intervallet är ofta något som 10. x. 0,0/16.  Detta kan leda till överlappande IP-intervall, så se till att antingen ange ett adress intervall i labb inställningarna eller kontrol lera adress intervallet för det virtuella nätverket som peer-kopplas.
 
 ## <a name="configure-after-the-lab-is-created"></a>Konfigurera när labbet har skapats
 

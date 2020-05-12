@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: b712148b9e619cbf5c6886bf0510b4015183d018
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883352"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120427"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Ändra stöd för feed i Azure Blob Storage (för hands version)
 
@@ -36,6 +36,8 @@ Stöd för ändring av feed passar bra för scenarier som bearbetar data baserat
   - Bygg lösningar för att säkerhetskopiera, spegla eller replikera objekt tillstånd i ditt konto för haveri hantering eller efterlevnad.
 
   - Skapa anslutna program pipelines som reagerar på ändrings händelser eller schema körningar baserat på skapade eller ändrade objekt.
+  
+Change feed är en nödvändig funktion för återställning av en [tidpunkt för block-blobar](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > Ändra feed tillhandahåller en varaktig, ordnad logg modell av de ändringar som görs i en blob. Ändringar skrivs och görs tillgängliga i din Change feed-logg inom en ordning med några minuter av ändringen. Om ditt program måste reagera på händelser mycket snabbare än så kan du överväga att använda [Blob Storage händelser](storage-blob-event-overview.md) i stället. [Blob Storage-händelser](storage-blob-event-overview.md) tillhandahåller engångs händelser i real tid som gör det möjligt för dina Azure Functions eller program att snabbt reagera på ändringar som görs i en blob. 
@@ -55,7 +57,7 @@ Här är några saker att tänka på när du aktiverar ändrings flödet.
 - Endast GPv2-och Blob Storage-konton kan aktivera ändrings flöde. Premium BlockBlobStorage-konton och aktiverade konton för hierarkiskt namn område stöds inte för närvarande. GPv1 lagrings konton stöds inte, men kan uppgraderas till GPv2 utan avbrott, se [Uppgradera till ett GPv2 Storage-konto](../common/storage-account-upgrade.md) för mer information.
 
 > [!IMPORTANT]
-> Ändrings flödet finns i en offentlig för hands version och är tillgängligt i regionerna **westcentralus** och **westus2** . Se avsnittet [villkor](#conditions) i den här artikeln. Information om hur du registrerar i för hands versionen finns i avsnittet [Registrera prenumerationen](#register) i den här artikeln. Du måste registrera din prenumeration innan du kan aktivera ändra feed på dina lagrings konton.
+> Ändrings flödet är i en offentlig för hands version och är tillgänglig i **USA, västra centrala USA**, **västra USA 2**, **centrala Frankrike**, **södra** **Kanada, centrala Kanada**och **Östra Kanada** . Se avsnittet [villkor](#conditions) i den här artikeln. Information om hur du registrerar i för hands versionen finns i avsnittet [Registrera prenumerationen](#register) i den här artikeln. Du måste registrera din prenumeration innan du kan aktivera ändra feed på dina lagrings konton.
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -154,7 +156,7 @@ Se [processen ändra flödes loggar i Azure Blob Storage](storage-blob-change-fe
 
 Ändrings flödet är en logg över ändringar som organiseras i **Tim** *segment* , men som läggs till och uppdateras med några minuter. Segmenten skapas endast när det finns BLOB Change-händelser som inträffar under den timmen. Detta gör att klient programmet kan använda ändringar som sker inom specifika tidsintervall utan att behöva söka igenom hela loggen. Mer information finns i [specifikationerna](#specifications).
 
-Ett tillgängligt Tim segment i ändrings flödet beskrivs i en manifest fil som anger Sök vägarna till filerna för byte av byte för det segmentet. I listen av `$blobchangefeed/idx/segments/` den virtuella katalogen visas de segment som sorteras efter tid. Segmentets sökväg beskriver starten av tids intervallet för varje timme som segmentet representerar. Du kan använda listan för att filtrera ut segmenten med loggar som är intressanta för dig.
+Ett tillgängligt Tim segment i ändrings flödet beskrivs i en manifest fil som anger Sök vägarna till filerna för byte av byte för det segmentet. I listen av den `$blobchangefeed/idx/segments/` virtuella katalogen visas de segment som sorteras efter tid. Segmentets sökväg beskriver starten av tids intervallet för varje timme som segmentet representerar. Du kan använda listan för att filtrera ut segmenten med loggar som är intressanta för dig.
 
 ```text
 Name                                                                    Blob Type    Blob Tier      Length  Content Type    
@@ -166,9 +168,9 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 ```
 
 > [!NOTE]
-> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` Skapas automatiskt när du aktiverar ändrings flödet. Du kan ignorera den här filen på ett säkert sätt. Det är en initierings fil som alltid är tom. 
+> `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json`Skapas automatiskt när du aktiverar ändrings flödet. Du kan ignorera den här filen på ett säkert sätt. Det är en initierings fil som alltid är tom. 
 
-Segment manifest filen (`meta.json`) visar sökvägen till filerna för att ändra feed för segmentet i `chunkFilePaths` egenskapen. Här är ett exempel på en segment manifest fil.
+Segment manifest filen ( `meta.json` ) visar sökvägen till filerna för att ändra feed för segmentet i `chunkFilePaths` egenskapen. Här är ett exempel på en segment manifest fil.
 
 ```json
 {
@@ -199,7 +201,7 @@ Segment manifest filen (`meta.json`) visar sökvägen till filerna för att änd
 ```
 
 > [!NOTE]
-> `$blobchangefeed` Behållaren visas bara när du har aktiverat funktionen ändra feed på ditt konto. Du måste vänta några minuter efter att du aktiverat ändra feed innan du kan lista blobarna i behållaren. 
+> `$blobchangefeed`Behållaren visas bara när du har aktiverat funktionen ändra feed på ditt konto. Du måste vänta några minuter efter att du aktiverat ändra feed innan du kan lista blobarna i behållaren. 
 
 <a id="log-files"></a>
 
@@ -207,7 +209,13 @@ Segment manifest filen (`meta.json`) visar sökvägen till filerna för att änd
 
 Filerna för ändrings-feed innehåller en serie ändrings händelse poster. Varje ändrings händelse post motsvarar en ändring i en enskild blob. Posterna serialiseras och skrivs till filen med Avro-format specifikationen [Apache](https://avro.apache.org/docs/1.8.2/spec.html) . Posterna kan läsas med hjälp av specifikationen Avro File format. Det finns flera bibliotek som är tillgängliga för att bearbeta filer i det formatet.
 
-Ändra feed-filer lagras i den `$blobchangefeed/log/` virtuella katalogen som [bifogade blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Den första ändrings matnings filen under varje `00000` sökväg kommer att ha i fil namnet `00000.avro`(till exempel). Namnet på varje efterföljande loggfil som läggs till i sökvägen ökar med 1 (till exempel: `00001.avro`).
+Ändra feed-filer lagras i den `$blobchangefeed/log/` virtuella katalogen som [bifogade blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Den första ändrings matnings filen under varje sökväg kommer att ha `00000` i fil namnet (till exempel `00000.avro` ). Namnet på varje efterföljande loggfil som läggs till i sökvägen ökar med 1 (till exempel: `00001.avro` ).
+
+Följande händelse typer samlas in i ändra flödes poster:
+- BlobCreated
+- BlobDeleted
+- BlobPropertiesUpdated
+- BlobSnapshotCreated
 
 Här är ett exempel på en ändrings händelse post från ändra feed-fil som konverterats till JSON.
 
@@ -238,7 +246,7 @@ Här är ett exempel på en ändrings händelse post från ändra feed-fil som k
 }
 ```
 
-En beskrivning av varje egenskap finns i [Azure Event Grid händelse schema för Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
+En beskrivning av varje egenskap finns i [Azure Event Grid händelse schema för Blob Storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties). BlobPropertiesUpdated-och BlobSnapshotCreated-händelserna är för närvarande exklusiva för att ändra feed och ännu inte stöd för Blob Storage händelser.
 
 > [!NOTE]
 > Filerna för att ändra feeds för ett segment visas inte direkt efter att ett segment har skapats. Fördröjnings tiden ligger inom det normala intervallet för publicerings fördröjningen för ändrings flödet som är inom några minuter från ändringen.
@@ -263,7 +271,7 @@ En beskrivning av varje egenskap finns i [Azure Event Grid händelse schema för
 
 - Varje segment kan ha olika antal `chunkFilePaths` på grund av intern partitionering av logg strömmen för att hantera publicerings data flödet. Loggfilerna i var `chunkFilePath` och en garanterar att de innehåller ömsesidigt uteslutande blobbar och kan förbrukas och bearbetas parallellt utan att det bryter mot sortering av ändringar per BLOB under iterationen.
 
-- Segmenten börjar i `Publishing` status. När tillägget av posterna i segmentet har slutförts blir det `Finalized`. Loggfiler i alla segment som är daterade efter datumet för `LastConsumable` egenskapen i `$blobchangefeed/meta/Segments.json` filen bör inte användas av ditt program. Här är ett exempel på en `LastConsumable`egenskap i en `$blobchangefeed/meta/Segments.json` fil:
+- Segmenten börjar i `Publishing` status. När tillägget av posterna i segmentet har slutförts blir det `Finalized` . Loggfiler i alla segment som är daterade efter datumet för `LastConsumable` egenskapen i `$blobchangefeed/meta/Segments.json` filen bör inte användas av ditt program. Här är ett exempel på en `LastConsumable` egenskap i en `$blobchangefeed/meta/Segments.json` fil:
 
 ```json
 {
@@ -310,13 +318,13 @@ az provider register --namespace 'Microsoft.Storage'
 ## <a name="conditions-and-known-issues-preview"></a>Villkor och kända problem (förhands granskning)
 
 I det här avsnittet beskrivs kända problem och villkor i den aktuella offentliga för hands versionen av ändrings flödet. 
-- För för hands versionen måste du först [Registrera din prenumeration](#register) innan du kan aktivera ändra feed för ditt lagrings konto i westcentralus-eller westus2-regionerna. 
-- För avbildningar av ändrings flöden skapas endast åtgärder för att skapa, uppdatera, ta bort och kopiera. Metadata-uppdateringar registreras för närvarande inte i för hands versionen.
+- För för hands versionen måste du först [Registrera din prenumeration](#register) innan du kan aktivera ändra feed för ditt lagrings konto i USA, västra centrala USA, västra USA 2, centrala Frankrike, södra Frankrike, centrala Kanada och Östra Kanada. 
+- För avbildningar av ändrings flöden skapas endast åtgärder för att skapa, uppdatera, ta bort och kopiera. Ändringar av BLOB-egenskapen och metadata registreras också. Åtkomst nivå egenskapen har dock inte registrerats för tillfället. 
 - Ändrings händelse poster för en enskild ändring kan visas mer än en gång i din ändrings feed.
-- Du kan ännu inte hantera livs längden för loggfiler för ändrings flöden genom att ange en tidsbaserad bevarande princip för dem och du kan inte ta bort Blobbarna 
-- Logg `url` filens egenskap är för närvarande tom.
-- `LastConsumable` Egenskapen för segment. JSON-filen listar inte det allra första segmentet som ändrings flödet Slutför. Det här problemet uppstår först när det första segmentet har slutförts. Alla efterföljande segment efter den första timmen registreras korrekt i `LastConsumable` egenskapen.
-- Du kan för närvarande inte se **$blobchangefeed** -behållaren när du anropar ListContainers API och behållaren inte visas på Azure Portal eller Storage Explorer
+- Du kan ännu inte hantera livs längden för loggfiler för ändrings flöden genom att ange en tidsbaserad bevarande princip för dem och du kan inte ta bort Blobbarna.
+- `url`Logg filens egenskap är för närvarande tom.
+- `LastConsumable`Egenskapen för segment. JSON-filen listar inte det allra första segmentet som ändrings flödet Slutför. Det här problemet uppstår först när det första segmentet har slutförts. Alla efterföljande segment efter den första timmen registreras korrekt i `LastConsumable` egenskapen.
+- Du kan för närvarande inte se **$blobchangefeed** -behållaren när du anropar ListContainers API och behållaren inte visas på Azure Portal eller Storage Explorer. Du kan visa innehållet genom att anropa ListBlobs-API: et i $blobchangefeed containern direkt.
 - Lagrings konton som tidigare har initierat en [konto redundansväxling](../common/storage-disaster-recovery-guidance.md) kan ha problem med logg filen som inte visas. Eventuella framtida fel i kontot kan också påverka logg filen under för hands versionen.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR

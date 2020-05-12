@@ -14,24 +14,28 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 03/17/2020
 ms.author: spelluru
-ms.openlocfilehash: db1e60ccd7e05cb8b6923d6b2ec008cdfb76eaa1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ebda7ecec363abc1b58cdc3fc6c0799ca879adcc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501927"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118404"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn. 
 
 ## <a name="register-to-the-lab"></a>Registrera dig för labbet
 
-1. Gå till **registrerings-URL:en** som du fick av läraren. Du behöver inte använda registrerings-URL:en efter att du har slutfört registreringen. Använd i stället URL: [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 stöds inte ännu. 
+1. Gå till **registrerings-URL:en** som du fick av läraren. Du behöver inte använda registrerings-URL:en efter att du har slutfört registreringen. Använd i stället URL: [https://labs.azure.com](https://labs.azure.com) . Internet Explorer 11 stöds inte ännu. 
+
+    ![Registrera dig för labbet](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Logga in på tjänsten med ditt skolkonto för att slutföra registreringen. 
 
     > [!NOTE]
     > En Microsoft-konto krävs för att använda Azure Lab Services. Om du försöker använda en icke-Microsoft-konto, t. ex. Yahoo eller Google-konton för att logga in på portalen, följer du anvisningarna för att skapa ett Microsoft-konto som kommer att länkas till din icke-Microsoft-konto. Följ sedan stegen för att slutföra registrerings processen. 
 1. När registreringen är klar kontrollerar du att du ser den virtuella datorn för det labb som du har åtkomst till. 
+
+    ![Tillgängliga virtuella datorer](../media/tutorial-connect-vm-in-classroom-lab/accessible-vms.png)
 1. Vänta tills den virtuella datorn är klar. Observera följande fält på panelen VM:
     1. Längst upp i panelen ser du **namnet på labbet**.
     1. Till höger visas ikonen som representerar den virtuella datorns **operativ system (OS)** . I det här exemplet är det Windows-operativsystem. 
@@ -80,7 +84,7 @@ Förlopps indikatorn i panelen visar antalet timmar som använts för antalet ti
 ## <a name="view-all-the-classroom-labs"></a>Visa alla klassrumslabb
 När du registrerat dig till labben kan du visa alla klassrumslabb genom att utföra följande steg: 
 
-1. Navigera till [https://labs.azure.com](https://labs.azure.com). Internet Explorer 11 stöds inte ännu. 
+1. Navigera till [https://labs.azure.com](https://labs.azure.com) . Internet Explorer 11 stöds inte ännu. 
 2. Logga in på tjänsten med hjälp av det användarkonto som du använde för att registrera dig till labbet. 
 3. Bekräfta att du ser alla labb som du har åtkomst till. 
 

@@ -1,24 +1,30 @@
 ---
-title: Aktivera mjuk borttagning för blobbar
+title: Aktivera och hantera mjuk borttagning för blobbar
 titleSuffix: Azure Storage
 description: Aktivera mjuk borttagning för BLOB-objekt för att enklare återställa data när de ändras felaktigt eller tas bort.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/02/2020
+ms.date: 05/11/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 26a16d0eeb81c12faede1c00bdf5a0d724f7a6c6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884688"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120121"
 ---
-# <a name="enable-soft-delete-for-blobs"></a>Aktivera mjuk borttagning för blobbar
+# <a name="enable-and-manage-soft-delete-for-blobs"></a>Aktivera och hantera mjuk borttagning för blobbar
 
-Följande steg visar hur du kommer igång med mjuk borttagning.
+Mjuk borttagning skyddar BLOB-data från att oavsiktligt eller felaktigt ändras eller tas bort. När mjuk borttagning har Aktiver ATS för ett lagrings konto kan blobbar, BLOB-versioner (för hands version) och ögonblicks bilder i det lagrings kontot återställas när de har tagits bort, inom en kvarhållningsperiod som du anger.
+
+Om det finns en risk att dina data av misstag kan ändras eller tas bort av ett program eller en annan lagrings konto användare, rekommenderar Microsoft att du aktiverar mjuk borttagning.
+
+Den här artikeln visar hur du kommer igång med mjuk borttagning.
+
+## <a name="enable-soft-delete"></a>Aktivera mjuk borttagning
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -71,6 +77,7 @@ Set-AzContext -Subscription "<subscription-name>"
 $MatchingAccounts = Get-AzStorageAccount | where-object{$_.StorageAccountName -match "<matching-regex>"}
 $MatchingAccounts | Enable-AzStorageDeleteRetentionPolicy -RetentionDays 7
 ```
+
 Du kan kontrol lera att mjuk borttagning har Aktiver ATS genom att använda följande kommando:
 
 ```powershell
@@ -174,3 +181,7 @@ blockBlob.StartCopy(copySource);
 
 ---
 
+## <a name="next-steps"></a>Nästa steg
+
+- [Mjuk borttagning för Blob Storage](soft-delete-overview.md)
+- [Blob-version (för hands version)](versioning-overview.md)

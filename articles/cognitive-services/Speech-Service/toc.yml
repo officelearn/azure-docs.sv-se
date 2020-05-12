@@ -426,13 +426,31 @@
           items:
             - name: Vanliga frågor och svar om röstassistenter
               href: faq-voice-assistants.md
+    - name: Röstassistenter i Windows
+      items:
+        - name: Översikt över röstassistenter i Windows
+          href: windows-voice-assistants-overview.md
+        - name: Anvisningar
+          items:
+            - name: Börja utveckla din assistent med Windows
+              href: how-to-windows-voice-assistants-get-started.md
+            - name: Aktivera röstaktivering
+              href: windows-voice-assistants-implementation-guide.md
+        - name: Resurser
+          items:
+            - name: Sekretesskrav och -riktlinjer
+              href: windows-voice-assistants-automatic-enablement-guidelines.md
+            - name: Regelverk för assistentupplevelser
+              href: windows-voice-assistants-best-practices.md
+            - name: Exempel och vanliga frågor och svar
+              href: windows-voice-assistants-faq.md
     - name: Anpassade nyckelord
       items:
         - name: Anpassad nyckelordsöversikt
           href: custom-keyword-overview.md
         - name: Riktlinjer för anpassad namngivning av nyckelord
           href: speech-devices-sdk-kws-guidelines.md
-        - name: Anpassad nyckelordsidentifiering
+        - name: Anpassad nyckelordsigenkänning
           href: speech-devices-sdk-create-kws.md
 - name: Värd
   items:

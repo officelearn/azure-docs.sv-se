@@ -74,6 +74,8 @@
           href: alerts-schemas.md
         - name: Hantera säkerhetsaviseringar
           href: security-center-managing-and-responding-alerts.md
+        - name: Undertrycksregler för säkerhetsaviseringar
+          href: alerts-suppression-rules.md
         - name: Hantera säkerhetsincidenter
           href: security-center-incident.md
         - name: Intelligent aviseringskorrelation i molnet (incidenter)

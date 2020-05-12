@@ -3,7 +3,7 @@ title: Felsöka distribution av virtuella Linux-datorer | Microsoft Docs
 description: Felsök distributions problem i Resource Manager när du skapar en ny virtuell Linux-dator i Azure
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
-ms.author: cjiang
-ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: f85389d8fc2269b346df22854bb7ddce08844a88
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981409"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118234"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Felsök distributions problem i Resource Manager med att skapa en ny Linux-virtuell dator i Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -50,7 +50,7 @@ För att starta fel sökningen samlar du in aktivitets loggarna för att identif
 
 **N<sup>2</sup>:** Om operativ systemet är specialiserat på Linux och det laddas upp som generaliserat, får du ett fel meddelande om etableringen eftersom den nya virtuella datorn körs med det ursprungliga dator namnet, användar namnet och lösen ordet.
 
-**Lösning**
+**Lösning:**
 
 För att lösa båda dessa fel kan du överföra den ursprungliga virtuella hård disken, som är tillgänglig lokalt, med samma inställning som för operativ systemet (generaliserad/specialiserad). Kom ihåg att köra avetableringen först om du vill överföra som generaliserad.
 
@@ -60,7 +60,7 @@ För att lösa båda dessa fel kan du överföra den ursprungliga virtuella hår
 
 **N<sup>4</sup>:** Om operativ systemet är specialiserat på Linux och det registreras som generaliserat får du ett fel meddelande om etableringen, eftersom den nya virtuella datorn körs med det ursprungliga dator namnet, användar namnet och lösen ordet. Dessutom går det inte att använda den ursprungliga virtuella datorn eftersom den är markerad som specialiserad.
 
-**Lösning**
+**Lösning:**
 
 Du kan lösa båda dessa fel genom att ta bort den aktuella avbildningen från portalen och [avbilda om den från de aktuella virtuella hård diskarna](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) med samma inställning som för operativ systemet (generaliserat/specialiserat).
 
@@ -74,7 +74,7 @@ Det här felet uppstår i situationer när den nya VM-begäran fästs i ett klus
 * Gör om begäran med en mindre VM-storlek.
 * Om det inte går att ändra storleken på den begärda virtuella datorn:
   * Stoppa alla virtuella datorer i tillgänglighets uppsättningen.
-    Klicka på **resurs grupper** > *resurs gruppen* > **resurser** > *din tillgänglighets uppsättning* > **Virtual Machines** > *den virtuella datorn* > **stoppas**.
+    Klicka på **resurs grupper**  >  *resurs gruppen*  >  **resurser**  >  *din tillgänglighets uppsättning*  >  **Virtual Machines**  >  *den virtuella datorn*  >  **stoppas**.
   * När alla virtuella datorer har stoppats skapar du den nya virtuella datorn i önskad storlek.
   * Starta den nya virtuella datorn först och välj sedan var och en av de stoppade virtuella datorerna och klicka på **Starta**.
 

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
-ms.openlocfilehash: ba268e623a2858c2863ffc86eacfe25284a1e37a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 7ba66441a87e3e02483ae27400f9900d2d052af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722965"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118166"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Azure Storage övervaknings data referens
 
@@ -95,7 +95,7 @@ Azure Storage stöder följande dimensioner för mått i Azure Monitor.
 | **BlobTier** | Azure Storage erbjuder olika åtkomst nivåer, vilket gör att du kan lagra BLOB-Datadata på det mest kostnads effektiva sättet. Läs mer i [Azure Storage BLOB-nivå](../blobs/storage-blob-storage-tiers.md). De värden som stöds är: <br/> <li>Frekvent **: frekvent**nivå</li> <li>Låg **frekvent: låg**frekvent nivå</li> <li>**Arkiv**: Arkiv lag ring</li> <li>**Premium**: Premium-nivån för Block-Blob</li> <li>**P4/P6/P10/p15/P20/P30/P40/P50/P60**: nivå typer för Premium Page-BLOB</li> <li>**Standard**: nivå typ för standard sid-BLOB</li> <li>Inte i **nivå**: nivå typ för generell användning v1 lagrings konto</li> |
 | **Typ av typ** | Transaktion från primärt eller sekundärt kluster. De tillgängliga värdena är **primär** och **sekundär**. Den gäller för läsning av Geo-redundant lagring med Läs behörighet (RA-GRS) vid läsning av objekt från en sekundär klient. |
 | **ResponseType** | Typ av transaktions svar. Tillgängliga värden är: <br/><br/> <li>**ServerOtherError**: alla andra fel på Server sidan förutom de som beskrivs </li> <li>**ServerBusyError**: autentiserad begäran som returnerade en HTTP 503-status kod. </li> <li>**ServerTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Tidsgränsen överskreds på grund av ett serverfel. </li> <li>**AuthorizationError**: autentiserad begäran som misslyckades på grund av obehörig åtkomst till data eller ett auktoriseringsfel. </li> <li>**NetworkError**: autentiserad begäran som misslyckades på grund av nätverks fel. Inträffar vanligen när klienten stänger en anslutning för tidigt innan tidsgränsen. </li><li>**ClientAccountBandwidthThrottlingError**: begäran begränsas på bandbredden för att överskrida [skalbarhets gränserna för lagrings kontot](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: begäran begränsas enligt begär ande frekvens för överskridning av [skalbarhets gränser för lagrings kontot](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: andra begränsnings fel på klient sidan. ClientAccountBandwidthThrottlingError och ClientAccountRequestThrottlingError är undantagna.</li> <li>**ClientTimeoutError**: en timeout-autentiserad begäran som returnerade en status kod för HTTP 500. Om klientens tidsgränser för nätverket eller förfrågningar är inställda på lägre värden än vad lagringstjänsten förväntar sig är det en förväntad timeout. Annars rapporteras den som ett ServerTimeoutError. </li> <li>**ClientOtherError**: alla andra fel på klient sidan, förutom de som beskrivs. </li> <li>**Lyckades**: lyckad begäran</li> <li> **SuccessWithThrottling**: lyckad begäran när en SMB-klient får en begränsning i de första försöken (erna) men lyckas efter återförsök.</li> |
-| **ApiName** | Åtgärdens namn. Exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **ApiName** | Åtgärdens namn. Ett exempel: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> För alla åtgärds namn, se [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | **Autentisering** | Autentiseringstyp som används i transaktioner. Tillgängliga värden är: <br/> <li>**AccountKey**: transaktionen autentiseras med lagrings konto nyckeln.</li> <li>**SAS**: transaktionen autentiseras med signaturer för delad åtkomst.</li> <li>**OAuth**: transaktionen autentiseras med OAuth-åtkomsttoken.</li> <li>**Anonym**: transaktionen begärs anonymt. Den omfattar inte preflight-begäranden.</li> <li>**AnonymousPreflight**: transaktionen är en preflight-begäran.</li> |
 
 För mått som stöder dimensioner måste du ange dimension svärdet för att se motsvarande mått värden. Om du till exempel tittar på **transaktions** värde för lyckade svar måste du filtrera **ResponseType** -dimensionen med **lyckat resultat**. Eller om du tittar på **BlobCount** -värdet för Block-Blob måste du filtrera **BlobType** -dimensionen med **BlockBlob**.
@@ -131,18 +131,18 @@ I följande tabell visas egenskaperna för Azure Storage resurs loggar när de s
 |:--- |:---|
 |**tid** | UTC-tid (Universal Time Coordinated) när begäran togs emot av lagrings platsen. Till exempel: `2018/11/08 21:09:36.6900118`.|
 |**resourceId** | Resurs-ID för lagrings kontot. Exempelvis: `/subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/`<br>`myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/storageAccounts/blobServices/default`|
-|**kategori** | Kategorin för den begärda åtgärden. Till exempel: `StorageRead`, `StorageWrite`, eller `StorageDelete`.|
+|**kategori** | Kategorin för den begärda åtgärden. Till exempel: `StorageRead` , `StorageWrite` , eller `StorageDelete` .|
 |**operationName** | Den typ av REST-åtgärd som utfördes. <br> En fullständig lista över åtgärder finns i [avsnittet Lagringsanalys loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 |**operationVersion** | Den lagrings tjänst version som angavs när begäran gjordes. Detta motsvarar värdet för huvudet **x-MS-version** . Till exempel: `2017-04-17`.|
 |**Schema** | Loggens schema version. Till exempel: `1.0`.|
-|**statusCode** | HTTP-statuskod för begäran. Om begäran avbryts kan det här värdet vara inställt på `Unknown`. <br> Exempelvis: `206` |
+|**statusCode** | HTTP-statuskod för begäran. Om begäran avbryts kan det här värdet vara inställt på `Unknown` . <br> Exempelvis: `206` |
 |**Status text** | Status för den begärda åtgärden.  En fullständig lista över status meddelanden finns i [avsnittet Lagringsanalys loggade åtgärder och status meddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). I version 2017-04-17 och senare används inte status meddelandet `ClientOtherError` . I stället innehåller det här fältet en felkod. Exempelvis: `SASSuccess`  |
 |**durationMs** | Den totala tiden, uttryckt i millisekunder, för att utföra den begärda åtgärden. Detta omfattar tiden att läsa den inkommande begäran och att skicka svaret till beställaren. Till exempel: `12`.|
 |**callerIpAddress** | IP-adressen för beställaren, inklusive Port numret. Till exempel: `192.100.0.102:4362`. |
 |**correlationId** | Det ID som används för att korrelera loggar över resurser. Till exempel: `b99ba45e-a01e-0042-4ea6-772bbb000000`. |
 |**sökvägen** | Lagrings kontots plats. Till exempel: `North Europe`. |
-|**protokollhanterare**|Det protokoll som används i åtgärden. Till exempel: `HTTP`, `HTTPS`, `SMB`eller`NFS`|
-| **URI** | Enhetligt resurs-ID som begärs. Till exempel: http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10. |
+|**protokollhanterare**|Det protokoll som används i åtgärden. Till exempel: `HTTP` , `HTTPS` , `SMB` eller`NFS`|
+| **URI** | Enhetligt resurs-ID som begärs. Till exempel: `http://myaccountname.blob.core.windows.net/cont1/blobname?timeout=10`. |
 
 ### <a name="fields-that-describe-how-the-operation-was-authenticated"></a>Fält som beskriver hur åtgärden autentiserades
 
@@ -177,7 +177,7 @@ I följande tabell visas egenskaperna för Azure Storage resurs loggar när de s
 
 | Egenskap | Beskrivning |
 |:--- |:---|
-|**identitet/typ** | Den typ av autentisering som användes för att utföra begäran. Till exempel: `OAuth`, `SAS Key`, `Account Key`eller`Anonymous` |
+|**identitet/typ** | Den typ av autentisering som användes för att utföra begäran. Till exempel: `OAuth` , `SAS Key` , `Account Key` eller`Anonymous` |
 |**identitets-tokenHash**|Det här fältet är reserverat för internt bruk. |
 |**auktorisering/åtgärd** | Den åtgärd som har tilldelats begäran. Exempelvis: `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read` |
 |**auktoriserings-roleAssignmentId** | Roll tilldelnings-ID: t. Till exempel: `4e2521b7-13be-4363-aeda-111111111111`.|
@@ -239,8 +239,8 @@ I följande tabell visas egenskaperna för Azure Storage resurs loggar när de s
 |**clientRequestId** | Huvudet **x-MS-client-Request-ID** för begäran. Till exempel: `360b66a6-ad4f-4c4a-84a4-0ad7cb44f7a6`. |
 |**etag** | ETag-identifieraren för det returnerade objektet, inom citat tecken. Till exempel: `0x8D101F7E4B662C4`.  |
 |**serverLatencyMs** | Den totala tiden uttryckt i millisekunder för att utföra den begärda åtgärden. Det här värdet omfattar inte nätverks svars tiden (tiden för att läsa inkommande begäran och skicka svaret till beställaren). Till exempel: `22`. |
-|**serviceType** | Tjänsten som är kopplad till den här begäran. Till exempel: `blob`, `table`, `files`eller `queue`. |
-|**operationCount** | Antalet varje loggad åtgärd som ingår i begäran. Antalet börjar med ett index av `0`. Vissa begär Anden kräver mer än en åtgärd, till exempel en begäran om att kopiera en blob. De flesta förfrågningar utför bara en åtgärd. Till exempel: `1`. |
+|**serviceType** | Tjänsten som är kopplad till den här begäran. Till exempel: `blob` , `table` , `files` eller `queue` . |
+|**operationCount** | Antalet varje loggad åtgärd som ingår i begäran. Antalet börjar med ett index av `0` . Vissa begär Anden kräver mer än en åtgärd, till exempel en begäran om att kopiera en blob. De flesta förfrågningar utför bara en åtgärd. Till exempel: `1`. |
 |**requestHeaderSize** | Storleken på begär ande huvudet uttryckt i byte. Till exempel: `578`. <br>Om en begäran Miss lyckas kan det här värdet vara tomt. |
 |**requestBodySize** | Storleken på begär ande paket, uttryckt i byte, som läses av lagrings tjänsten. <br> Till exempel: `0`. <br>Om en begäran Miss lyckas kan det här värdet vara tomt.  |
 |**responseHeaderSize** | Storleken på svars huvudet uttryckt i byte. Till exempel: `216`. <br>Om en begäran Miss lyckas kan det här värdet vara tomt.  |

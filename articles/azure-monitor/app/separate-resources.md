@@ -1,18 +1,18 @@
 ---
-title: Åtskilj telemetri i Azure Application Insights
+title: Hur du utformar din Application Insights-distribution – en vs många resurser?
 description: Dirigera telemetri till olika resurser för utveckling, testning och produktions märken.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: 92a1bb6cb0bb73ac67d38eeba5bd3cdafacf8b56
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.date: 05/11/2020
+ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562159"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125697"
 ---
-# <a name="separating-telemetry-from-development-test-and-production"></a>Åtskilj telemetri från utveckling, testning och produktion
+# <a name="how-many-application-insights-resources-should-i-deploy"></a>Hur många Application Insights-resurser ska jag distribuera
 
-När du utvecklar nästa version av ett webb program vill du inte blanda [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetri från den nya versionen och den version som redan har släppts. Undvik förvirring genom att skicka Telemetrin från olika utvecklings steg till att separera Application Insights-resurser med separata instrumentande nycklar (ikeys). För att göra det enklare att ändra Instrumentation-nyckeln när en version flyttas från ett steg till en annan, kan det vara praktiskt att ange iKey i kod i stället för i konfigurations filen. 
+När du utvecklar nästa version av ett webb program vill du inte blanda [Application Insights](../../azure-monitor/app/app-insights-overview.md) telemetri från den nya versionen och den version som redan har släppts. Undvik förvirring genom att skicka Telemetrin från olika utvecklings steg till att separera Application Insights-resurser med separata instrumentande nycklar (ikeys). För att göra det enklare att ändra Instrumentation-nyckeln när en version flyttas från ett steg till en annan, kan det vara praktiskt att ange iKey i kod i stället för i konfigurations filen.
 
 (Om systemet är en Azure-moln tjänst finns det [en metod för att ställa in separata ikeys](../../azure-monitor/app/cloudservices.md).)
 
@@ -22,7 +22,7 @@ När du konfigurerar Application Insights övervakning för din webbapp skapar d
 
 Varje Application Insights resurs levereras med mått som är tillgängliga direkt. Om du rapporterar helt separata komponenter till samma Application Insights resurs, kan dessa mått inte vara begripliga för instrument paneler/aviseringar.
 
-### <a name="use-a-single-application-insights-resource"></a>Använda en enda Application Insights resurs
+### <a name="when-to-use-a-single-application-insights-resource"></a>När du ska använda en enda Application Insights-resurs
 
 -   För program komponenter som distribueras tillsammans. Utvecklas vanligt vis av ett enda team, som hanteras av samma uppsättning DevOps/ITOps-användare.
 -   Om det är klokt att aggregera nyckeltal (KPI: er), till exempel svars tider, frekvenser för haverier på instrument panelen osv., över alla dessa som standard (du kan välja att segmentera efter roll namn i Metrics Explorers upplevelsen).
@@ -93,7 +93,7 @@ Det finns flera olika metoder för att ange program versions egenskapen.
 
     `telemetryClient.Context.Component.Version = typeof(MyProject.MyClass).Assembly.GetName().Version;`
 * Radbryt raden i en [telemetri initierare](../../azure-monitor/app/api-custom-events-metrics.md#defaults) för att säkerställa att alla TelemetryClient-instanser anges konsekvent.
-* [ASP.NET] Ange versionen i `BuildInfo.config`. Webbmodulen hämtar versionen från BuildLabel-noden. Ta med den här filen i projektet och kom ihåg att ange egenskapen kopiera alltid i Solution Explorer.
+* [ASP.NET] Ange versionen i `BuildInfo.config` . Webbmodulen hämtar versionen från BuildLabel-noden. Ta med den här filen i projektet och kom ihåg att ange egenskapen kopiera alltid i Solution Explorer.
 
     ```XML
 
@@ -121,10 +121,10 @@ Det finns flera olika metoder för att ange program versions egenskapen.
 
     Versions etiketten innehåller en plats hållare (AutoGen_...) när du skapar med Visual Studio. Men när det har skapats med MSBuild fylls det i med rätt versions nummer.
 
-    Om du vill tillåta att MSBuild genererar versions nummer ställer du `1.0.*` in versionen som i AssemblyReference.CS
+    Om du vill tillåta att MSBuild genererar versions nummer ställer du in versionen som `1.0.*` i AssemblyReference.CS
 
 ## <a name="version-and-release-tracking"></a>Spårning av versionen och utgåva
-Om du vill kunna spåra programversionen, se till att `buildinfo.config` genereras av Microsoft Build Engine-processen. I filen `.csproj` lägger du till:  
+Om du vill kunna spåra programversionen, se till att `buildinfo.config` genereras av Microsoft Build Engine-processen. I `.csproj` filen lägger du till:  
 
 ```XML
 

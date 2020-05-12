@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: 056b9bdd46520790f3ffbd9aca56ad8555e23a3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1edb0791e80a8503e5ecba3154d7b421206272c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189828"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198617"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Datainsamling i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer, skalnings uppsättningar för virtuella datorer, IaaS behållare och icke-Azure (inklusive lokala) datorer för att övervaka säkerhets problem och hot. Data samlas in med hjälp av Log Analytics agent, som läser olika säkerhetsrelaterade konfigurationer och händelse loggar från datorn och kopierar data till din arbets yta för analys. Exempel på sådana data är: operativ systemets typ och version, operativ system loggar (Windows-händelseloggar), processer som körs, dator namn, IP-adresser och inloggad användare. Log Analytics agenten kopierar även krasch dum par till din arbets yta.
@@ -72,7 +72,7 @@ Så här väljer du en arbets yta som skapats av Security Center:
 
 1. Klicka på **Spara**.<br>
     Security Center skapar en ny resurs grupp och standard arbets yta på den platsen och ansluter agenten till den arbets ytan. Namngivnings konventionen för arbets ytan och resurs gruppen är:<br>
-   **Arbets yta: DefaultWorkspace-[prenumerations-ID]-[<br> geo] resurs grupp: DefaultResourceGroup-[geo]**
+   **Arbets yta: DefaultWorkspace-[prenumerations-ID]-[geo] <br> resurs grupp: DefaultResourceGroup-[geo]**
 
    Om en prenumeration innehåller virtuella datorer från flera platser skapar Security Center flera arbets ytor. Flera arbets ytor skapas för att underhålla data sekretess regler.
 1. Security Center aktiverar automatiskt en Security Center lösning på arbets ytan enligt den pris nivå som angetts för prenumerationen. 
@@ -126,7 +126,7 @@ Så här väljer du en befintlig Log Analytics arbets yta:
     a.  På Security Center huvud menyn väljer du **pris & inställningar**.
      
     b.  Välj önskad arbets yta där du vill ansluta agenten.
-        ![Välj arbets][7] yta c. Ange pris nivå.
+        ![Välj arbets yta ][7] c. Ange pris nivå.
         ![Välj pris nivå][9]
    
    >[!NOTE]
@@ -223,9 +223,8 @@ Du kan inaktivera automatisk etablering från resurser när du vill genom att in
 
 När automatisk etablering är inaktive rad (inaktive rad) visas inte avsnittet standard konfiguration av arbets yta.
 
-Om du stänger av automatisk etablering efter det tidigare var:
--   Agenter kommer inte att tillhandahållas på nya virtuella datorer.
--   Security Center slutar att samla in data från standard arbets ytan.
+Om du stänger av automatisk etablering efter det tidigare har agenterna inte etableras på nya virtuella datorer.
+
  
 > [!NOTE]
 >  Om du inaktiverar automatisk etablering tas inte Log Analytics agenten bort från virtuella Azure-datorer där agenten etablerades. Information om hur du tar bort OMS-tillägget finns i [Hur gör jag för att ta bort OMS-tillägg som installerats av Security Center](faq-data-collection-agents.md#remove-oms).

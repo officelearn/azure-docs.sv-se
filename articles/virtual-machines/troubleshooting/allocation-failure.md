@@ -3,7 +3,7 @@ title: Felsöka allokeringsfel för Azure VM | Microsoft Docs
 description: Felsök allokeringsfel när du skapar, startar om eller ändrar storlek på en virtuell dator i Azure
 services: virtual-machines
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: felixwu
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
@@ -11,13 +11,13 @@ ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
-ms.author: cjiang
-ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: fdbf07fa51adf8151e80d230734ebe53d36b5390
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484408"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124796"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Felsöka allokeringsfel när du skapar, startar om eller ändrar storlek på virtuella datorer i Azure
 
@@ -25,7 +25,7 @@ När du skapar en virtuell dator (VM) måste du starta om stoppade (Frigjord) vi
 
 **Felkod**: AllocationFailed eller ZonalAllocationFailed
 
-**Fel meddelande**: "allokeringen misslyckades. Det finns inte tillräckligt med kapacitet för den begärda virtuella dator storleken i den här regionen. Läs mer om hur du förbättrar sannolikheten för att tilldelningen lyckades vid https:\//aka.MS/Allocation-Guidance "
+**Fel meddelande**: "allokeringen misslyckades. Det finns inte tillräckligt med kapacitet för den begärda virtuella dator storleken i den här regionen. Läs mer om hur du förbättrar sannolikheten för att tilldelningen lyckades vid https: \/ /aka.MS/Allocation-Guidance "
 
 I den här artikeln beskrivs orsakerna till några vanliga allokeringsfel och förslag på möjliga lösningar.
 

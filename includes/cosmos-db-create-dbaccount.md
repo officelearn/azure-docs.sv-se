@@ -8,24 +8,18 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 04/10/2020
 ms.custom: include file
-ms.openlocfilehash: 4c6e45eaa816499c7e5969e302a036368bea0937
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2559b7d81a6f60b633d023a35081b54e1204268a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422114"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120204"
 ---
-1. Gå till [Microsoft Azure-portalen](https://portal.azure.com/) för att skapa ett Azure Cosmos DB-konto. På din start sida väljer du **skapa en resurs** från panelen **Azure-tjänster** .
+1. Från Azure Portal-menyn eller **Start sidan**väljer du **skapa en resurs**.
 
-   ![Skapa en resurs](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-resource-1.png)
+1. På sidan **ny** söker du efter och väljer **Azure Cosmos DB**.
 
-1. Sök efter och välj **Azure Cosmos DB**.
-
-   ![List rutan Azure Portal-resurser](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-updated-1.png)
-
-1. Välj **Skapa**.
-
-   ![Skapa Azure Cosmos DB resurs](./media/cosmos-db-create-dbaccount/azure-cosmos-db-create-account-1.png)
+1. På sidan **Azure Cosmos DB** väljer du **skapa**.
 
 1. Ange de grundläggande inställningarna för det nya Azure Cosmos-kontot på sidan **Skapa Azure Cosmos DB-konto**. 
 

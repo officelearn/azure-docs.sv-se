@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfb094bc9f84e7129a3e1c733a054c5f6cd96372
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10b3a6bb9592c955d16b070ae412374b8a1f4444
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81008659"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196933"
 ---
 Azure Ultra disks erbjuder högt data flöde, hög IOPS och konsekvent låg latens disk lagring för virtuella Azure IaaS-datorer (VM). Det nya erbjudandet ger överst i linje prestanda på samma tillgänglighets nivå som våra befintliga diskar. En stor fördel med Ultra disks är möjligheten att dynamiskt ändra prestanda för SSD tillsammans med dina arbets belastningar utan att behöva starta om dina virtuella datorer. Ultradiskar är lämpliga för dataintensiva arbetsbelastningar som SAP HANA, databaser på toppnivå och transaktionskrävande arbetsbelastningar.
 
@@ -62,7 +62,7 @@ Nu när du vet vilken zon du ska distribuera till, följer du distributions steg
 
 ### <a name="vms-with-no-redundancy-options"></a>Virtuella datorer utan redundans alternativ
 
-Ultra disks som distribueras i västra USA måste distribueras utan några alternativ för redundans för tillfället. Alla disk storlekar som stöder Ultra disks kan dock vara i den här regionen. Du kan ta reda på vilka som har stöd för Ultra disks i västra USA genom att använda något av följande kodfragment. Se till att ersätta värdena `vmSize` och `subscription` innan värdena:
+Ultra disks som distribueras i västra USA måste distribueras utan några alternativ för redundans för tillfället. Alla disk storlekar som stöder Ultra disks kan dock vara i den här regionen. Du kan ta reda på vilka som har stöd för Ultra disks i västra USA genom att använda något av följande kodfragment. Se till att ersätta `vmSize` värdena och `subscription` innan värdena:
 
 ```azurecli
 $subscription = "<yourSubID>"

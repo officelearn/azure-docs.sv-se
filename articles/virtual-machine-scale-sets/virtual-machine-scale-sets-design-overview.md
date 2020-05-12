@@ -3,19 +3,19 @@ title: Design överväganden för Azure Virtual Machine Scale Sets
 description: Lär dig mer om design överväganden för din Azure-Virtual Machine Scale Sets. Jämför skalnings uppsättnings funktioner med VM-funktioner.
 keywords: virtuell Linux-dator, skalnings uppsättningar för virtuella datorer
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: c27c6a59-a0ab-4117-a01b-42b049464ca1
-ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: vm-linux
-ms.topic: conceptual
-ms.date: 06/01/2017
 ms.author: mimckitt
-ms.openlocfilehash: 20f6cb08781c7c6aca7a4022e75a7be8640ef18a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 06/01/2017
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 0676a7d31d141e0c264119a54b77ec29a527374b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273774"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200203"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Design överväganden för skalnings uppsättningar
 I den här artikeln beskrivs design överväganden för Virtual Machine Scale Sets. Information om vad Virtual Machine Scale Sets finns i [Översikt över Virtual Machine Scale Sets](virtual-machine-scale-sets-overview.md).
@@ -56,7 +56,7 @@ En skalnings uppsättning som inte har definierats med Azure Managed Disks förl
 ## <a name="overprovisioning"></a>Överetablering
 Skalnings uppsättningar som är standard för att "överetablera" virtuella datorer. När den här inställningen är aktive rad, ökar skalnings uppsättningen i själva verket fler virtuella datorer än du bad om och tar sedan bort de extra virtuella datorerna när det begärda antalet virtuella datorer har etablerats. Överetablering förbättrar etableringen av lyckade kostnader och minskar distributions tiden. Du debiteras inte för de extra virtuella datorerna och de räknas inte över till dina kvot gränser.
 
-Under överetablering kan du förbättra etableringen av lyckade kostnader, men det kan orsaka förvirrande beteende för ett program som inte är utformat för att hantera extra virtuella datorer som visas och sedan visas. Om du vill inaktivera överetablering ser du till att du har följande sträng i mallen: `"overprovision": "false"`. Mer information finns i [skalnings uppsättningen REST API-dokumentationen](/rest/api/virtualmachinescalesets/create-or-update-a-set).
+Under överetablering kan du förbättra etableringen av lyckade kostnader, men det kan orsaka förvirrande beteende för ett program som inte är utformat för att hantera extra virtuella datorer som visas och sedan visas. Om du vill inaktivera överetablering ser du till att du har följande sträng i mallen: `"overprovision": "false"` . Mer information finns i [skalnings uppsättningen REST API-dokumentationen](/rest/api/virtualmachinescalesets/create-or-update-a-set).
 
 Om din skalnings uppsättning använder användar hanterad lagring och du inaktiverar överetablering, kan du ha fler än 20 virtuella datorer per lagrings konto, men vi rekommenderar inte att gå över 40 för prestanda orsaker i i/o. 
 

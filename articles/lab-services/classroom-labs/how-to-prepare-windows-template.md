@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: c1aaf588f61b329fa3b838b8a92f3e287897315b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ed2a506fc4446f78685c6cd6ae9dec2b65e1743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80521175"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119305"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guide för att konfigurera en Windows-mall i Azure Lab Services
 
@@ -136,7 +136,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
 Om din dator behöver Office rekommenderar vi att du installerar Office via [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Du måste skapa en återanvändbar konfigurations fil med [office 365-klient konfigurations tjänsten](https://config.office.com/) för att välja vilken arkitektur, vilka funktioner du behöver från Office och hur ofta de uppdateras.
 
 1. Gå till [Office 365-klient konfigurations tjänsten](https://config.office.com/) och ladda ned din egen konfigurations fil.
-2. Hämta [distributions verktyget för Office](https://www.microsoft.com/download/details.aspx?id=49117).  Den hämtade filen är `setup.exe`.
+2. Hämta [distributions verktyget för Office](https://www.microsoft.com/download/details.aspx?id=49117).  Den hämtade filen är `setup.exe` .
 3. Kör `setup.exe /download configuration.xml` för att ladda ned Office-komponenter.
 4. Kör `setup.exe /configure configuration.xml` för att installera Office-komponenter.
 
@@ -211,11 +211,11 @@ Om du behöver fler språk installerade på den virtuella datorn kan du lägga t
 2. Sök efter "språk paket"
 3. Välj språk att installera
 
-Om du redan är inloggad på mallen VM använder du [genvägen "installera språk paket"](ms-settings:regionlanguage?activationSource=SMC-IA-4027670) för att gå direkt till rätt inställnings sida.
+Om du redan är inloggad på mallen VM använder du genvägen "installera språk paket" ( `ms-settings:regionlanguage?activationSource=SMC-IA-4027670` ) för att gå direkt till rätt inställnings sida.
 
 ## <a name="remove-unneeded-built-in-apps"></a>Ta bort onödiga inbyggda appar
 
-Windows 10 innehåller många inbyggda program som kanske inte behövs för din specifika klass. För att förenkla dator avbildningen för studenter kanske du vill avinstallera vissa program från din mall maskin.  Om du vill se en lista över installerade program använder du `Get-AppxPackage` PowerShell-cmdleten.  I exemplet nedan visas alla installerade program som kan tas bort.
+Windows 10 innehåller många inbyggda program som kanske inte behövs för din specifika klass. För att förenkla dator avbildningen för studenter kanske du vill avinstallera vissa program från din mall maskin.  Om du vill se en lista över installerade program använder du PowerShell- `Get-AppxPackage` cmdleten.  I exemplet nedan visas alla installerade program som kan tas bort.
 
 ```powershell
 Get-AppxPackage | Where {$_.NonRemovable -eq $false} | select Name

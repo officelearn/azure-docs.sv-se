@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 54fd8caef51a17148714d9cf90328572433c59db
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76717994"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83115123"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Använda klass rums labb för utbildningar
-Du kan ställa in ett labb för utbildning. Med klass rums labb Azure Lab Services kan du skapa ett labb för din utbildning där varje fordonsbaserad använder identiska och isolerade miljöer för utbildning. Du kan använda principer för att säkerställa att inlärnings miljöer endast är tillgängliga för varje tågen när de behöver dem och innehåller tillräckligt med resurser – till exempel virtuella datorer – krävs för utbildningen. 
+Med Azure Labs Services kan du snabbt och enkelt skapa ett online-labb för att etablera förkonfigurerade inlärnings miljöer för eleverna. Varje ombordpersonal skulle kunna använda identiska och isolerade miljöer för utbildningen. Principer kan användas för att säkerställa att inlärnings miljöerna endast är tillgängliga för varje ombordpersonal när de behöver dem och innehåller tillräckligt med resurser, till exempel virtuella datorer – krävs för utbildningen. 
 
 ![Klass rums labb](../media/classroom-labs-scenarios/classroom.png)
 

@@ -3,12 +3,12 @@ title: Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 description: Innehåller en översikt över support inställningar och begränsningar vid säkerhets kopiering av virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 86141532e0db80f75c6e79277b36060ecb939a53
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: b7201972811c5b9cc8187b671c9e688236667860
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801441"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199870"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -112,7 +112,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 ## <a name="support-for-file-level-restore"></a>Stöd för återställning på filnivå
 
-**Återställa** | **Tillåtna**
+**Återställa** | **Stöds**
 --- | ---
 Återställa filer över operativ system | Du kan återställa filer på alla datorer som har samma (eller kompatibla) OS som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS-tabellen](backup-azure-restore-files-from-vm.md#system-requirements).
 Återställa filer från krypterade virtuella datorer | Stöds inte.
@@ -125,7 +125,7 @@ Högsta kvarhållningsperiod | Beror på säkerhetskopieringsfrekvensen.
 
 I följande tabell sammanfattas stödet för säkerhets kopiering under aktiviteter för hantering av virtuella datorer, till exempel att lägga till eller ersätta VM-diskar.
 
-**Återställa** | **Tillåtna**
+**Återställa** | **Stöds**
 --- | ---
 Återställ över prenumeration/region/zon. | Stöds inte.
 Återställa till en befintlig virtuell dator | Använd alternativet Ersätt disk.
@@ -158,7 +158,7 @@ Virtuella Gen2-datorer | Stöds <br> Azure Backup stöder säkerhets kopiering o
 
 **Komponent** | **Support**
 --- | ---
-Datadiskar för virtuella Azure-datorer | Säkerhetskopiera en virtuell dator med 16 eller färre data diskar.<BR> Om du vill registrera dig för den begränsade för hands versionen av virtuella datorer med 16 + diskar (upp till 32 diskar) skriver du till oss påAskAzureBackupTeam@microsoft.com
+Datadiskar för virtuella Azure-datorer | Stöd för säkerhets kopiering av virtuella Azure-datorer med upp till 32 diskar finns i offentlig för hands version i [dessa regioner](#backup-of-azure-virtual-machines-with-up-to-32-disks).<br><br> Stöd för säkerhets kopiering av virtuella Azure-datorer med ohanterade diskar eller klassiska virtuella datorer är bara upp till 16 diskar.
 Data disk storlek | Enskild disk storlek kan vara upp till 32 TB och högst 256 TB kombinerat för alla diskar i en virtuell dator.
 Lagringstyp | Standard HDD Standard SSD Premium SSD.
 Hanterade diskar | Stöds.
@@ -169,6 +169,13 @@ Lägg till disk i skyddad virtuell dator | Stöds.
 Ändra storlek på disk på skyddad virtuell dator | Stöds.
 Delad lagring| Säkerhets kopiering av virtuella datorer med klusterdelad volym (CSV) eller Skalbar filserver stöds inte. CSV-skrivare fungerar sannolikt inte under säkerhets kopieringen. Vid återställning kanske diskar som innehåller CSV-volymer inte kommer att visas.
 [Delade diskar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-shared-enable) | Stöds inte.
+
+### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Säkerhets kopiering av virtuella Azure-datorer med upp till 32 diskar
+
+Azure Backup stöder nu säkerhets kopiering av virtuella Azure-datorer med upp till 32 anslutna diskar.  Den här funktionen finns i offentlig för hands version i USA, västra centrala.  Om du är intresse rad av den här funktionen i andra regioner kan du registrera dig för den begränsade för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com .  
+
+>[!NOTE]
+>Azure Backup stöder endast upp till 16 diskar för virtuella Azure-datorer med ohanterade diskar eller klassiska virtuella datorer.
 
 ## <a name="vm-network-support"></a>Stöd för virtuella dator nätverk
 

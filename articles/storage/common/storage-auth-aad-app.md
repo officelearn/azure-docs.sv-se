@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d3ee211298598d78f423d88fd4df1c58ed4bfa29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 0cda75469edaa183ed6553a431b9ad13b611db7d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268488"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201075"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Hämta en token från Azure AD för att auktorisera begär Anden från ett klient program
 
@@ -178,7 +179,7 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 Lägg sedan till en metod som begär en token från Azure AD för användarens räkning. Den här metoden definierar omfattningen för vilka behörigheter ska beviljas. Mer information om behörigheter och omfattningar finns [i behörigheter och medgivande i slut punkten för Microsoft Identity Platform](../../active-directory/develop/v2-permissions-and-consent.md).
 
-Använd resurs-ID för att konstruera det omfång som du vill hämta token för. Exemplet konstruerar omfånget med hjälp av resurs-ID: t tillsammans med det `user_impersonation` inbyggda omfånget, vilket indikerar att token begärs för användarens räkning.
+Använd resurs-ID för att konstruera det omfång som du vill hämta token för. Exemplet konstruerar omfånget med hjälp av resurs-ID: t tillsammans med det inbyggda `user_impersonation` omfånget, vilket indikerar att token begärs för användarens räkning.
 
 Tänk på att du kan behöva presentera användaren med ett gränssnitt som gör det möjligt för användaren att begära token för deras räkning. När samtycke är nödvändigt fångar exemplet **MsalUiRequiredException** och anropar en annan metod för att under lätta begäran om godkännande:
 

@@ -1,5 +1,5 @@
 ---
-title: SD – WAN-anslutningens arkitektur
+title: SD-WAN-anslutningsarkitektur
 titleSuffix: Azure Virtual WAN
 description: Lär dig mer om att ansluta ett privat SD-WAN med Azure Virtual WAN
 services: virtual-wan
@@ -8,16 +8,16 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: cherylmc
-ms.openlocfilehash: 15e44b9c048f167935fe8660228581e5bac0f43d
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 34b2282421b9c95ad99ad040cb11847a30d3b52c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006266"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199985"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>SD – WAN-anslutning med Azure Virtual WAN
 
-Azure Virtual WAN är en nätverks tjänst som sammanställer många moln anslutningar och säkerhets tjänster med ett enda drift gränssnitt. Dessa tjänster omfattar gren (via plats-till-plats-VPN), fjärran vändare (punkt-till-plats-VPN), privat (ExpressRoute) anslutning samt en transitiv anslutning mellan moln för virtuella nätverk, VPN och ExpressRoute, routning, Azure-brandvägg och kryptering för privat anslutning.
+Azure Virtual WAN är en nätverks tjänst som sammanställer många moln anslutningar och säkerhets tjänster med ett enda drift gränssnitt. De här tjänsterna omfattar gren (via plats-till-plats-VPN), fjärran vändare (punkt-till-plats-VPN), privat (ExpressRoute) anslutning, transitivt molnbaserad anslutning mellan moln för virtuella nätverk, VPN och ExpressRoute, routning, Azure-brandvägg och kryptering för privat anslutning.
 
 Även om det virtuella Azure-nätverket är en programdefinierad WAN-anslutning (SD-WAN) är det också utformat för att möjliggöra sömlös samman koppling med de lokala säkerhets teknikerna och tjänsterna. Många sådana tjänster erbjuds av vårt [virtuella WAN](virtual-wan-locations-partners.md) -eko system och Azure Network Managed Services [-partner (MSP)](../networking/networking-partners-msp.md). Företag som omvandlar sina privata WAN-nätverk till SD-WAN har alternativ för att ansluta sina privata SD-WAN-nätverk med Azure Virtual WAN. Företag kan välja bland följande alternativ:
 
@@ -39,7 +39,7 @@ SD-WAN-CPE fortsätter att vara den plats där trafik optimering och val av sök
 
 I den här modellen kanske en del leverantörs trafik optimering baserat på trafik egenskaper i real tid inte stöds eftersom anslutningen till det virtuella WAN-nätverket är över IPsec och IPsec-VPN-gatewayen avslutas på den virtuella WAN-gatewayen. Till exempel är dynamisk Sök vägs val i grenen CPE möjligt på grund av att gren enheten utbyter olika information om nätverks paket med en annan SD-WAN-nod, vilket innebär att den bästa länken kan användas för olika prioriterade trafik dynamiskt på grenen. Den här funktionen kan vara användbar i områden där senaste mil optimering (gren till närmaste Microsoft-POP) krävs.
 
-Med Virtual WAN kan användarna få val av Azure-sökvägar, vilket är principbaserad Sök vägs val över flera ISP-länkar från grenen CPE till virtuella WAN-gatewayer. Med det virtuella WAN-nätverket kan du konfigurera flera länkar (sökvägar) till samma SD-WAN-gren CPE, varje länk som avslutas på olika offentliga IP-gränssnitt i SD-WAN-CPE. SD-WAN-leverantörer kan dra nytta av den här funktionen för att välja den mest optimala sökvägen till Azure, baserat på de trafik principer som är speciella för dessa sökvägar.
+Med Virtual WAN kan användarna få val av Azure-sökvägar, vilket är principbaserad Sök vägs val över flera ISP-länkar från grenen CPE till virtuella WAN-gatewayer. Med det virtuella WAN-nätverket kan du konfigurera flera länkar (sökvägar) från samma SD-WAN-gren CPE. varje länk representerar en dubbel tunnel anslutning från en unik offentlig IP-adress för SD-WAN-CPE till två olika instanser av Azure Virtual WAN-gatewayen. SD-WAN-leverantörer kan implementera den mest optimala sökvägen till Azure, baserat på de trafik principer som anges av deras princip motor på CPE-länkarna.
 
 ## <a name="indirect-interconnect-model"></a><a name="indirect"></a>Indirekt Interconnect-modell
 

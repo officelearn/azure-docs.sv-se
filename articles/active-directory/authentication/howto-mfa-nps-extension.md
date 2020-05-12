@@ -11,12 +11,13 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc1be4637d56d7205d50ebfc6f7d1d5d22e62edf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617660"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199556"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -76,15 +77,15 @@ När du installerar tillägget behöver du katalog-ID och admin-autentiseringsup
 
 NPS-servern måste kunna kommunicera med följande URL: er över portarna 80 och 443.
 
-- https:\//adnotifications.windowsazure.com
+- https: \/ /adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
-- https:\//credentials.Azure.com
+- https: \/ /credentials.Azure.com
 
 Dessutom krävs anslutning till följande URL: er för att slutföra [installationen av kortet med hjälp av det angivna PowerShell-skriptet](#run-the-powershell-script)
 
 - https:\//login.microsoftonline.com
-- https:\//provisioningapi.microsoftonline.com
-- https:\//aadcdn.msauth.net
+- https: \/ /provisioningapi.microsoftonline.com
+- https: \/ /aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Förbered din miljö
 
@@ -110,7 +111,7 @@ Stegen för att konfigurera din RADIUS-autentiseringsprincip varierar beroende p
 Det här steget kanske redan har slutförts på din klient, men det är bäst att kontrol lera att Azure AD Connect har synkroniserat dina databaser nyligen.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-2. Välj **Azure Active Directory** > **Azure AD Connect**
+2. Välj **Azure Active Directory**  >  **Azure AD Connect**
 3. Kontrol lera att din synkroniseringsstatus är **aktive rad** och att din senaste synkronisering var mindre än en timme sedan.
 
 Om du behöver starta en ny avrundning av synkroniseringen kan du använda anvisningarna i [Azure AD Connect Sync: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
@@ -172,7 +173,7 @@ När du uppgraderar en befintlig installation av NPS-tillägg måste du utföra 
 
 ### <a name="run-the-powershell-script"></a>Kör PowerShell-skriptet
 
-Installations programmet skapar ett PowerShell-skript på den här `C:\Program Files\Microsoft\AzureMfa\Config` platsen: (där C:\ är installations enheten). Det här PowerShell-skriptet utför följande åtgärder varje gången det körs:
+Installations programmet skapar ett PowerShell-skript på den här platsen: `C:\Program Files\Microsoft\AzureMfa\Config` (där C:\ är installations enheten). Det här PowerShell-skriptet utför följande åtgärder varje gången det körs:
 
 - Skapa ett självsignerat certifikat.
 - Koppla certifikatets offentliga nyckel till tjänstens huvud namn i Azure AD.
@@ -200,7 +201,7 @@ Upprepa de här stegen på eventuella ytterligare NPS-servrar som du vill konfig
 Om ditt tidigare dator certifikat har upphört att gälla och ett nytt certifikat har skapats, bör du ta bort eventuella utgångna certifikat. Certifikat som har upphört att gälla kan orsaka problem med att NPS-tillägget startar.
 
 > [!NOTE]
-> Om du använder egna certifikat i stället för att skapa certifikat med PowerShell-skriptet ser du till att de överensstämmer med namngivnings konventionen för NPS. Ämnes namnet måste vara **CN\<= TenantID\>, OU = Microsoft NPS-tillägg**. 
+> Om du använder egna certifikat i stället för att skapa certifikat med PowerShell-skriptet ser du till att de överensstämmer med namngivnings konventionen för NPS. Ämnes namnet måste vara **CN = \< TenantID \> , OU = Microsoft NPS-tillägg**. 
 
 ### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government ytterligare steg
 
@@ -225,7 +226,7 @@ Med version 1.0.1.32 av NPS-tillägget stöds nu läsning av flera certifikat. D
 
 Certifikat som skapats av `AzureMfaNpsExtnConfigSetup.ps1` skriptet är giltiga i två år. IT-organisationer bör övervaka certifikat för förfallo datum. Certifikat för NPS-tillägget placeras i den lokala datorns certifikat Arkiv under personligt och utfärdas till klient-ID: t som angetts för skriptet.
 
-När ett certifikat närmar sig förfallo datumet ska ett nytt certifikat skapas för att ersätta det.  Den här processen åstadkommer du genom att `AzureMfaNpsExtnConfigSetup.ps1` köra igen och behålla samma klient-ID när du uppmanas till det. Den här processen bör upprepas på varje NPS-server i din miljö.
+När ett certifikat närmar sig förfallo datumet ska ett nytt certifikat skapas för att ersätta det.  Den här processen åstadkommer du genom att köra `AzureMfaNpsExtnConfigSetup.ps1` igen och behålla samma klient-ID när du uppmanas till det. Den här processen bör upprepas på varje NPS-server i din miljö.
 
 ## <a name="configure-your-nps-extension"></a>Konfigurera ditt NPS-tillägg
 
@@ -247,7 +248,7 @@ När du aktiverar MFA för en RADIUS-klient med hjälp av NPS-tillägget, krävs
 
 Om du har användare som inte är registrerade för MFA kan du bestämma vad som händer när de försöker autentisera sig. Använd register inställningen *REQUIRE_USER_MATCH* i register Sök vägen *HKLM\Software\Microsoft\AzureMFA* för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ:
 
-| Nyckel | Värde | Standardvärde |
+| Tangent | Värde | Standardvärde |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -267,7 +268,7 @@ Följande skript är tillgängligt för att utföra grundläggande hälso kontro
 
 ### <a name="how-do-i-verify-that-the-client-cert-is-installed-as-expected"></a>Hur gör jag för att verifiera att klient certifikatet är installerat som det ska?
 
-Leta efter det självsignerade certifikatet som skapats av installations programmet i certifikat arkivet och kontrol lera att den privata nyckeln har behörighet för användar **nätverks tjänsten**. Certifikatet har ämnes namnet ** \<\>CN TENANTID, OU = Microsoft NPS-tillägg**
+Leta efter det självsignerade certifikatet som skapats av installations programmet i certifikat arkivet och kontrol lera att den privata nyckeln har behörighet för användar **nätverks tjänsten**. Certifikatet har ämnes namnet **CN \< tenantid \> , OU = Microsoft NPS-tillägg**
 
 Självsignerade certifikat som genereras av *AzureMfaNpsExtnConfigSetup. ps1* -skriptet har också en giltighets tid på två år. När du verifierar att certifikatet har installerats bör du också kontrol lera att certifikatet inte har upphört att gälla.
 

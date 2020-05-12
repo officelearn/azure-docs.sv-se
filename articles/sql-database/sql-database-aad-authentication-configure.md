@@ -4,19 +4,19 @@ description: Lär dig hur du ansluter till SQL Database, hanterad instans och Az
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: azure-synapse
+ms.custom: azure-synapse, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 03/27/2020
-ms.openlocfilehash: 0e244ea185011bbb7d9f0facad399bb9b577bbc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60a1b0deda75c1fc30a9e3b8255106d2809856ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419850"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198601"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>Konfigurera och hantera Azure Active Directory-autentisering med SQL
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du skapar och fyller i Azure AD och använder sedan 
 > Den här artikeln gäller Azure SQL Server och både SQL Database och Azure-Synapse. För enkelhetens skull används SQL Database när du refererar till både SQL Database och Azure-Synapse.
 
 > [!IMPORTANT]  
-> Det går inte att ansluta till SQL Server som körs på en virtuell Azure-dator med ett Azure Active Directory konto. Använd ett domän Active Directory konto i stället.
+> Det går inte att ansluta till SQL Server som körs på en virtuell Azure-dator med ett Azure Active Directory konto. Använd ett Active Directory-domänkonto i stället.
 
 ## <a name="azure-ad-authentication-methods"></a>Autentiseringsmetoder för Azure AD
 
@@ -187,8 +187,8 @@ Som bästa praxis för befintliga Azure AD-administratörer för MI som skapats 
 
 ### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>Kända problem med Azure AD login GA för MI
 
-- Om det finns en Azure AD-inloggning i huvud databasen för MI, som skapats med T-SQL `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`-kommandot, kan den inte konfigureras som en Azure AD-administratör för mi. Du får ett fel när du anger inloggningen som en Azure AD-administratör med hjälp av Azure Portal-, PowerShell-eller CLI-kommandona för att skapa Azure AD-inloggningen.
-  - Inloggningen måste tas bort från huvud databasen med hjälp av kommandot `DROP LOGIN [myaadaccount]`, innan kontot kan skapas som en Azure AD-administratör.
+- Om det finns en Azure AD-inloggning i huvud databasen för MI, som skapats med T-SQL-kommandot `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER` , kan den inte konfigureras som en Azure AD-administratör för mi. Du får ett fel när du anger inloggningen som en Azure AD-administratör med hjälp av Azure Portal-, PowerShell-eller CLI-kommandona för att skapa Azure AD-inloggningen.
+  - Inloggningen måste tas bort från huvud databasen med hjälp av kommandot `DROP LOGIN [myaadaccount]` , innan kontot kan skapas som en Azure AD-administratör.
   - Konfigurera Azure AD-administratörskontot i Azure Portal när det `DROP LOGIN` lyckas. 
   - Om du inte kan konfigurera Azure AD-administratörskontot, checkar du in huvud databasen för den hanterade instansen för inloggningen. Använd följande kommando:`SELECT * FROM sys.server_principals`
   - Genom att konfigurera en Azure AD-administratör för MI skapas automatiskt en inloggning i huvud databasen för det här kontot. Om du tar bort Azure AD-administratören tas inloggningen bort automatiskt från huvud databasen.
@@ -311,16 +311,16 @@ Cmdletar som används för att etablera och hantera Azure AD-administratör för
 
 Använd PowerShell-kommandot Get-Help för att se mer information om vart och ett av dessa kommandon. Till exempel `get-help Set-AzSqlServerActiveDirectoryAdministrator`.
 
-Följande skript etablerar en Azure AD-administratörs **DBA_Group** grupp med namnet DBA_Group `40b79501-b343-44ed-9ce7-da4c8cc7353f`(objekt-ID) för **demo_server** -servern i en resurs grupp med namnet **grupp-23**:
+Följande skript etablerar en Azure AD-administratörs grupp med namnet **DBA_Group** (objekt-ID `40b79501-b343-44ed-9ce7-da4c8cc7353f` ) för **demo_server** -servern i en resurs grupp med namnet **grupp-23**:
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server" -DisplayName "DBA_Group"
 ```
 
-Indataparametern **DisplayName** -Indataparametern accepterar antingen visnings namnet för Azure AD eller användarens huvud namn. Till exempel ``DisplayName="John Smith"`` och ``DisplayName="johns@contoso.com"``. Endast Azure AD-visnings namn stöds för Azure AD-grupper.
+Indataparametern **DisplayName** -Indataparametern accepterar antingen visnings namnet för Azure AD eller användarens huvud namn. Till exempel ``DisplayName="John Smith"`` och ``DisplayName="johns@contoso.com"`` . Endast Azure AD-visnings namn stöds för Azure AD-grupper.
 
 > [!NOTE]
-> Kommandot ```Set-AzSqlServerActiveDirectoryAdministrator``` Azure PowerShell förhindrar inte att du konfigurerar Azure AD-administratörer för användare som inte stöds. En användare som inte stöds kan vara etablerad, men kan inte ansluta till en databas.
+> Kommandot Azure PowerShell ```Set-AzSqlServerActiveDirectoryAdministrator``` förhindrar inte att du konfigurerar Azure AD-administratörer för användare som inte stöds. En användare som inte stöds kan vara etablerad, men kan inte ansluta till en databas.
 
 I följande exempel används det valfria **ObjectID**:
 
@@ -366,7 +366,7 @@ Mer information om CLI-kommandon finns i [AZ SQL Server](/cli/azure/sql/server).
 
 På alla klient datorer, från vilka dina program eller användare ansluter till Azure SQL Database eller Azure-Synapse med hjälp av Azure AD-identiteter, måste du installera följande program vara:
 
-- .NET Framework 4,6 eller senare från [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx).
+- .NET Framework 4,6 eller senare från [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
 - Azure Active Directory bibliotek för autentisering för SQL Server (*ADAL. DLL*). Nedan visas nedladdnings länkarna för att installera den senaste SSMS-, ODBC-och OLE DB-drivrutinen som innehåller *ADAL. DLL* -bibliotek.
     1. [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
     1. [ODBC-drivrutin 17 för SQL Server](https://www.microsoft.com/download/details.aspx?id=56567)
@@ -471,7 +471,7 @@ Använd den här metoden för att autentisera till SQL DB eller MI med endast id
 
 1. Starta Management Studio eller data verktyg och i dialog rutan **Anslut till Server** (eller **Anslut till databas motor**) i rutan **autentisering** väljer du **Azure Active Directory-Password**.
 
-2. I rutan **användar namn** skriver du ditt Azure Active Directory användar namn i formatet **användar\@namn domain.com**. Användar namn måste vara ett konto från Azure Active Directory eller ett konto från en hanterad eller federerad domän med Azure Active Directory.
+2. I rutan **användar namn** skriver du ditt Azure Active Directory användar namn i formatet användar namn ** \@ Domain.com**. Användar namn måste vara ett konto från Azure Active Directory eller ett konto från en hanterad eller federerad domän med Azure Active Directory.
 
 3. I rutan **lösen ord** skriver du ditt användar lösen ord för Azure Active Directory konto eller hanterat/federerat domän konto.
 
@@ -498,7 +498,7 @@ Om du vill använda integrerad Windows-autentisering måste din domäns Active D
 
 Klient programmet (eller en tjänst) som ansluter till databasen måste köras på en domänansluten dator under användarens domänautentiseringsuppgifter.
 
-För att ansluta till en databas med integrerad autentisering och en Azure AD-identitet måste nyckelordet Authentication i databas anslutnings strängen anges till `Active Directory Integrated`. I följande C#-kod exempel används ADO .NET.
+För att ansluta till en databas med integrerad autentisering och en Azure AD-identitet måste nyckelordet Authentication i databas anslutnings strängen anges till `Active Directory Integrated` . I följande C#-kod exempel används ADO .NET.
 
 ```csharp
 string ConnectionString = @"Data Source=n9lxnyuzhv.database.windows.net; Authentication=Active Directory Integrated; Initial Catalog=testdb;";
@@ -506,11 +506,11 @@ SqlConnection conn = new SqlConnection(ConnectionString);
 conn.Open();
 ```
 
-Nyckelordet `Integrated Security=True` för anslutnings strängen stöds inte för anslutning till Azure SQL Database. När du skapar en ODBC-anslutning måste du ta bort blank steg och ange autentiseringen till ' ActiveDirectoryIntegrated '.
+Nyckelordet för anslutnings strängen `Integrated Security=True` stöds inte för anslutning till Azure SQL Database. När du skapar en ODBC-anslutning måste du ta bort blank steg och ange autentiseringen till ' ActiveDirectoryIntegrated '.
 
 ### <a name="active-directory-password-authentication"></a>Active Directory lösenordsautentisering
 
-Om du vill ansluta till en databas med enbart Azure AD-identitets användar konton eller de som använder Azure AD Hybrid identiteter, måste nyckelordet autentisering anges till `Active Directory Password`. Anslutnings strängen måste innehålla användar-ID/UID och lösen ord/PWD-nyckelord och-värden. I följande C#-kod exempel används ADO .NET.
+Om du vill ansluta till en databas med enbart Azure AD-identitets användar konton eller de som använder Azure AD Hybrid identiteter, måste nyckelordet autentisering anges till `Active Directory Password` . Anslutnings strängen måste innehålla användar-ID/UID och lösen ord/PWD-nyckelord och-värden. I följande C#-kod exempel används ADO .NET.
 
 ```csharp
 string ConnectionString =

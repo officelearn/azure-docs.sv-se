@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b000776c04550e1deb883039d94deeb735061ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40d6768b528d132b3d238227098d4340fce37cca
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985889"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125799"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Skala och var värd i Azure Functions
 
@@ -105,11 +105,11 @@ Om du kör på en App Service plan bör du aktivera inställningen **Always on**
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 
-Även om Always On är aktiverat, styrs körningens tids gräns för enskilda `functionTimeout` funktioner av inställningen i filen [Host. JSON](functions-host-json.md#functiontimeout) -projekt.
+Även om Always On är aktiverat, styrs körningens tids gräns för enskilda funktioner av `functionTimeout` inställningen i filen [Host. JSON](functions-host-json.md#functiontimeout) -projekt.
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Fastställa värd planen för ett befintligt program
 
-För att avgöra vilken värd plan som används av din Function-app, se **App Service plan/pris nivå** på fliken **Översikt** för function-appen i [Azure Portal](https://portal.azure.com). För App Service planer anges även pris nivån.
+För att avgöra vilken värd plan som används av din Function-app, se **App Service plan** på fliken **Översikt** för function-appen i [Azure Portal](https://portal.azure.com). Om du vill se pris nivån väljer du namnet på **app Services planen**och väljer sedan **Egenskaper** i det vänstra fönstret.
 
 ![Visa skalnings plan i portalen](./media/functions-scale/function-app-overview-portal.png)
 
@@ -120,11 +120,11 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-När utdata från det här kommandot är `dynamic`är din Function-app i förbruknings planen. När utdata från det här kommandot är `ElasticPremium`är din Function-app i Premium-planen. Alla andra värden indikerar olika nivåer för en App Service plan.
+När utdata från det här kommandot är är `dynamic` din Function-app i förbruknings planen. När utdata från det här kommandot är är `ElasticPremium` din Function-app i Premium-planen. Alla andra värden indikerar olika nivåer för en App Service plan.
 
 ## <a name="storage-account-requirements"></a>Krav för lagringskonto
 
-I alla planer kräver en Function-app ett allmänt Azure Storage konto, som stöder Azure Blob, Queue, Files och table Storage. Detta beror på att funktioner förlitar sig på Azure Storage för åtgärder som att hantera utlösare och loggning av funktions körningar, men vissa lagrings konton stöder inte köer och tabeller. Dessa konton, som inkluderar BLOB-endast lagrings konton (inklusive Premium Storage) och allmänna lagrings konton med zon-redundant lagrings replikering, filtreras bort från dina befintliga **lagrings konto** val när du skapar en Function-app.
+I alla planer kräver en Function-app ett allmänt Azure Storage konto, som stöder Azure Blob, Queue, Files och table Storage. Detta beror på att Azure Functions förlitar sig på Azure Storage för åtgärder som att hantera utlösare och loggning av funktions körningar, men vissa lagrings konton stöder inte köer och tabeller. Dessa konton, som inkluderar BLOB-endast lagrings konton (inklusive Premium Storage) och allmänna lagrings konton med zon-redundant lagrings replikering, filtreras bort från dina befintliga **lagrings konto** val när du skapar en Function-app.
 
 Samma lagrings konto som används av din Function-app kan också användas av utlösare och bindningar för att lagra program data. För lagrings intensiva åtgärder bör du dock använda ett separat lagrings konto.  
 

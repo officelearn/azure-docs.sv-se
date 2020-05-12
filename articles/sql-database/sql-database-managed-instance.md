@@ -11,16 +11,16 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 65bce50665b6dd99662e99ca57569f906f3af208
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: cce871d2f38d7871bd1ba9c5cb7b086e514a6913
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598546"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120801"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
-Managed instance är ett nytt distributions alternativ för Azure SQL Database, vilket ger en nära 100% kompatibilitet med den senaste SQL Server lokala (Enterprise Edition) databas motorn, som tillhandahåller en inbyggd [virtuell nätverks implementering (VNet)](../virtual-network/virtual-networks-overview.md) som behandlar vanliga säkerhets problem och en [affärs modell](https://azure.microsoft.com/pricing/details/sql-database/) som är fördelaktig för lokala SQL Server kunder. Distributions modellen för hanterade instanser gör att befintliga SQL Server kunder kan lyfta och byta sina lokala program till molnet med minimala program-och databas ändringar. På samma gång bevarar den hanterade instansen distributions alternativet alla PaaS-funktioner (automatiska korrigeringar och versions uppdateringar, [automatiserade säkerhets kopieringar](sql-database-automated-backups.md), [hög tillgänglighet](sql-database-high-availability.md) ) som drastiskt minskar hanterings kostnader och TCO.
+Managed instance är ett nytt distributions alternativ för Azure SQL Database, vilket ger en nära 100% kompatibilitet med den senaste SQL Server lokala (Enterprise Edition) databas motorn, som tillhandahåller en inbyggd [virtuell nätverks implementering (VNet)](../virtual-network/virtual-networks-overview.md) som behandlar vanliga säkerhets problem och en [affärs modell](https://azure.microsoft.com/pricing/details/sql-database/) som är fördelaktig för lokala SQL Server kunder. Distributions modellen för hanterade instanser gör att befintliga SQL Server kunder kan lyfta och byta sina lokala program till molnet med minimala program-och databas ändringar. På samma gång bevarar den hanterade instansen distributions alternativet alla PaaS-operativa funktioner med avseende på automatiska korrigeringar och versions uppdateringar, [automatiserade säkerhets kopieringar](sql-database-automated-backups.md)och [hög tillgänglighet](sql-database-high-availability.md), vilket drastiskt minskar hanterings kostnader och TCO.
 
 > [!IMPORTANT]
 > För en lista över regioner där distributions alternativet för hanterade instanser är tillgängligt, se [regioner som stöds](sql-database-managed-instance-resource-limits.md#supported-regions).
@@ -337,7 +337,7 @@ I följande tabell visas flera egenskaper, som är tillgängliga via Transact SQ
 |`@@VERSION`|Microsoft SQL Azure (RTM) – 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Värdet är samma som i SQL Database. Detta indikerar **inte** SQL-motor version 12 (SQL Server 2014). Den hanterade instansen kör alltid den senaste säkra versionen av SQL-motorn, som är lika med eller högre än den senaste tillgängliga RTM-versionen av SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Värdet är samma som i SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Det här värdet identifierar en hanterad instans unikt.|
-|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Fullständigt instans-DNS-namn i följande format`<instanceName>`:. `<dnsPrefix>`. Database.Windows.net, där `<instanceName>` är namnet som tillhandahålls av kunden, medan `<dnsPrefix>` är automatiskt genererad del av namnet som garanterar unikt DNS-namn ("wcus17662feb9ce98", till exempel)|Exempel: my-managed-instance.wcus17662feb9ce98.database.windows.net|
+|`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Fullständigt instans-DNS-namn i följande format: `<instanceName>` . `<dnsPrefix>` . database.windows.net, där `<instanceName>` är namnet som tillhandahålls av kunden, medan `<dnsPrefix>` är automatiskt genererad del av namnet som garanterar unikt DNS-namn ("wcus17662feb9ce98", till exempel)|Exempel: my-managed-instance.wcus17662feb9ce98.database.windows.net|
 
 ## <a name="next-steps"></a>Nästa steg
 

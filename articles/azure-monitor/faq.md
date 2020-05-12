@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/26/2020
-ms.openlocfilehash: 728c8605dca183d8eb733b5e674868592d920d03
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/11/2020
+ms.openlocfilehash: 471ccddd31fd6c9f332bdaa8ea76b7bda25ac191
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732044"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117792"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -196,11 +196,15 @@ View Designer är bara tillgängligt för användare som har tilldelats deltagar
 * [Azure Diagnostics](platform/diagnostics-extension-to-application-insights.md)
 * [Java-webbapp](app/java-troubleshoot.md)
 
-*Jag får inga data från min server*
+*Jag får inga data från min server:*
 
 * [Ange brand Väggs undantag](app/ip-addresses.md)
 * [Konfigurera en ASP.NET-Server](app/monitor-performance-live-website-now.md)
 * [Konfigurera en Java-Server](app/java-agent.md)
+
+*Hur många Application Insights bör jag distribuera?:*
+
+* [Hur du utformar din Application Insights-distribution: en till många Application Insights resurser?](app/separate-resources.md)
 
 ### <a name="can-i-use-application-insights-with-"></a>Kan jag använda Application Insights med...?
 
@@ -247,7 +251,7 @@ Informationen beror på projekt typen. För ett webb program:
 * Infogar objekt i:
   * Web.config
   * packages. config
-* (Endast nya projekt – om du [lägger till Application Insights i ett befintligt projekt][start]måste du göra det manuellt.) Infogar kodfragment i klient-och Server koden för att initiera dem med Application Insights resurs-ID. I en MVC-app infogas till exempel kod i vyerna för huvud sidan/Shared\_/layout. cshtml
+* (Endast nya projekt – om du [lägger till Application Insights i ett befintligt projekt][start]måste du göra det manuellt.) Infogar kodfragment i klient-och Server koden för att initiera dem med Application Insights resurs-ID. I en MVC-app infogas till exempel kod i vyerna för huvud sidan/Shared/ \_ layout. cshtml
 
 ### <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hur gör jag för att uppgradering från äldre SDK-versioner?
 Se [viktig information](app/release-notes.md) om SDK: n som passar din typ av program.
@@ -309,7 +313,7 @@ Vi letar upp IP-adressen (IPv4 eller IPv6) för webb klienten med hjälp av [Geo
 * Mer information om hur IP-adress och data för geolokalisering samlas in i Application Insights finns i den här [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
 
 
-Du kan konfigurera `ClientIpHeaderTelemetryInitializer` att ta med IP-adressen från en annan rubrik. I vissa system flyttas den till exempel av en proxy, belastningsutjämnare eller CDN till `X-Originating-IP`. [Läs mer](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+Du kan konfigurera `ClientIpHeaderTelemetryInitializer` att ta med IP-adressen från en annan rubrik. I vissa system flyttas den till exempel av en proxy, belastningsutjämnare eller CDN till `X-Originating-IP` . [Läs mer](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 Du kan [använda Power BI](app/export-power-bi.md ) för att visa din begär ande telemetri på en karta.
 
@@ -436,7 +440,7 @@ Tillåt att din webb server skickar telemetri till våra slut punkter.
 
 Dirigera trafik från servern till en gateway på intranätet genom att skriva över slut punkter i konfigurationen. Om dessa "slut punkts egenskaper" inte finns i konfigurationen, använder dessa klasser standardvärdena som visas nedan i exemplet ApplicationInsights. config. 
 
-Din gateway ska dirigera trafik till vår slut punkts bas adress. Ersätt standardvärdena i konfigurationen med `http://<your.gateway.address>/<relative path>`.
+Din gateway ska dirigera trafik till vår slut punkts bas adress. Ersätt standardvärdena i konfigurationen med `http://<your.gateway.address>/<relative path>` .
 
 
 ##### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Exempel på ApplicationInsights. config med standard slut punkter:
@@ -515,7 +519,7 @@ Dessa processer är icke-containern som körs på noden.
 
 Hur beräknar vi detta?
 
-**Andra processer** = *Total användning från CAdvisor* - -*användning från container process*
+**Andra processer**  =  *Total användning från CAdvisor*  -  *Användning från container process*
 
 De **andra processerna** innehåller:
 
@@ -537,7 +541,7 @@ För agent version ciprod12042019 och senare fylls dessa två egenskaper i som s
 
 Gå med i andra tabeller för att inkludera dessa egenskaps värden i resultaten.
 
-Ändra dina frågor så att de innehåller bild-och ImageTag ```ContainerInventory``` egenskaper från tabellen genom att ansluta till egenskapen ContainerID. Du kan inkludera egenskapen namn (som tidigare fanns i ```ContainerLog``` tabellen) från KubepodInventory-tabellens ContaineName-fält genom att koppla till egenskapen ContainerID. Detta är det rekommenderade alternativet.
+Ändra dina frågor så att de innehåller bild-och ImageTag egenskaper från ```ContainerInventory``` tabellen genom att ansluta till egenskapen ContainerID. Du kan inkludera egenskapen namn (som tidigare fanns i ```ContainerLog``` tabellen) från KubepodInventory-tabellens ContaineName-fält genom att koppla till egenskapen ContainerID. Detta är det rekommenderade alternativet.
 
 Följande exempel är ett exempel på en detaljerad fråga som förklarar hur du hämtar dessa fält värden med kopplingar.
 
@@ -565,7 +569,7 @@ ContainerLog
 
 Återaktivera insamling för de här egenskaperna för varje behållar logg rad.
 
-Om det första alternativet inte är bekvämt på grund av ändringar i frågan, kan du återaktivera insamling av de här fälten genom att aktivera ```log_collection_settings.enrich_container_logs``` inställningen i agentens konfigurations mappning enligt beskrivningen i [konfigurations inställningarna för data insamling](insights/container-insights-agent-config.md).
+Om det första alternativet inte är bekvämt på grund av ändringar i frågan, kan du återaktivera insamling av de här fälten genom att aktivera inställningen ```log_collection_settings.enrich_container_logs``` i agentens konfigurations mappning enligt beskrivningen i [konfigurations inställningarna för data insamling](insights/container-insights-agent-config.md).
 
 > [!NOTE]
 > Det andra alternativet rekommenderas inte med stora kluster som har fler än 50 noder eftersom det genererar API-Server anrop från varje nod i klustret för att utföra denna anrikning. Det här alternativet ökar också data storleken för varje logg rad som samlas in.
@@ -628,7 +632,7 @@ En detaljerad översikt över problemet finns i följande [GitHub-länk](https:/
 
 ### <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>Hur gör jag för att lösa Azure AD-fel när jag aktiverar Live-loggar? 
 
-Följande fel kan visas: svars-URL: en som **anges i begäran matchar inte de svars-URL: er som har kon figurer ATS\>för programmet: <program-ID**. Lösningen för att lösa problemet finns i artikeln [så här visar du behållar data i real tid med Azure Monitor för behållare](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
+Följande fel kan visas: svars-URL: en som **anges i begäran matchar inte de svars-URL: er som har kon figurer ATS \> för programmet: <program-ID**. Lösningen för att lösa problemet finns i artikeln [så här visar du behållar data i real tid med Azure Monitor för behållare](insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ### <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Varför kan jag inte uppgradera klustret efter onboarding?
 

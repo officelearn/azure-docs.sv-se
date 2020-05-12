@@ -3,14 +3,14 @@ title: Köra en Azure-funktion som inte utlösts av HTTP manuellt
 description: Använda en HTTP-begäran för att köra icke-HTTP-utlöst Azure Functions
 author: craigshoemaker
 ms.topic: article
-ms.date: 12/12/2018
+ms.date: 04/23/2020
 ms.author: cshoe
-ms.openlocfilehash: 6571482d738549d2708fd8ab23eaf8c9f6fb1f70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd7b0be967c7a0bbc605c51408448917b5222d36
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892367"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121821"
 ---
 # <a name="manually-run-a-non-http-triggered-function"></a>Köra en funktion som inte utlösts av HTTP manuellt
 
@@ -37,11 +37,17 @@ Du kan använda den här platsen för begäran i Postman tillsammans med funktio
 
 ## <a name="get-the-functions-master-key"></a>Hämta funktionens huvudnyckel
 
-Gå till din funktion på Azure-portalen och klicka på **Hantera** och leta upp avsnittet **Host Keys** (Värdnycklar). Klicka på knappen **Kopiera** på raden *_master* som ska kopiera huvudnyckeln till Urklipp.
+1. Navigera till din funktion i Azure Portal och välj **funktions tangenter**. Välj sedan den funktions nyckel som du vill kopiera. 
 
-![Kopiera huvudnyckeln från hanteringsfunktionsskärmen](./media/functions-manually-run-non-http/azure-portal-functions-master-key.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key.png" alt-text="Leta upp huvud nyckeln som ska kopieras." border="true":::
 
-Klicka på funktionsnamnet att återgå till kodfilfönstret när du har kopierat huvudnyckeln. Klicka sedan på fliken **loggar** . Du ser meddelanden från funktionen som loggas här när du kör funktionen från Postman manuellt.
+1. I avsnittet **Redigera nyckel** kopierar du nyckelvärdet till Urklipp och väljer sedan **OK**.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-copy.png" alt-text="Kopiera huvud nyckeln till Urklipp." border="true":::
+
+1. När du har kopierat *_master* -nyckeln väljer du **kod + test**och väljer sedan **loggar**. Du ser loggade meddelanden från funktionen här när du kör funktionen manuellt från Postman.
+
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-function-log.png" alt-text="Visa loggarna för att se test resultaten för huvud nyckeln." border="true":::
 
 > [!CAUTION]  
 > På grund av de utökade behörigheterna i din funktionsapp som beviljats av huvudnyckeln bör du inte dela den här nyckeln med tredje part eller distribuera den i ett program.
@@ -51,27 +57,27 @@ Klicka på funktionsnamnet att återgå till kodfilfönstret när du har kopiera
 Öppna Postman och följ de här stegen:
 
 1. Ange din **begäran om plats i URL-textrutan**.
-2. Kontrollera att HTTP-metoden är inställd på **POST**.
-3. **Klicka** på fliken **Rubriker**.
-4. Ange **x-functions-key** som den första **nyckeln** och klistra in huvudnyckeln (från Urklipp) till **värderutan**.
-5. Skriv **Content-Type** som den andra **nyckeln** och skriv **application/json** som **värdet**.
+1. Kontrollera att HTTP-metoden är inställd på **POST**.
+1. Välj fliken **sidhuvud** .
+1. Skriv **x-Functions-Key** som den första nyckeln och klistra in huvud nyckeln (från Urklipp) som värde.
+1. Skriv **Content-Type** som den andra nyckeln och skriv **Application/JSON** som värde.
 
-    ![Inställningar för rubriker i Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png" alt-text="Inställningar för Postman-rubriker." border="true":::
 
-6. **Klicka** på fliken **Brödtext**.
-7. Ange **{”input”: ”test”}** som brödtext för begäran.
+1. Välj fliken **brödtext**.
+1. Skriv **{"indatamängd": "test"}** som brödtext för begäran.
 
-    ![Inställningar för brödtext i Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png" alt-text="Inställningar för Postman-brödtext." border="true":::
 
-8. Klicka på **Skicka**.
+1. Välj **Skicka**.
+        
+    :::image type="content" source="./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png" alt-text="Skicka en begäran med Postman." border="true":::
 
-    ![Skicka en begäran med Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
+    Postman rapporterar statusen **202 - Godkänd**.
 
-Postman rapporterar statusen **202 - Godkänd**.
+1. Gå därefter tillbaka till din funktion på Azure-portalen. Granska loggarna så kommer du att se meddelanden från det manuella anropet till funktionen.
 
-Gå därefter tillbaka till din funktion på Azure-portalen. Leta upp fönstret *Loggar* så ser du meddelanden som kommer från det manuella anropet till funktionen.
-
-![Funktionsloggresultat från manuellt anrop](./media/functions-manually-run-non-http/azure-portal-function-log.png)
+    :::image type="content" source="./media/functions-manually-run-non-http/azure-portal-functions-master-key-logs.png" alt-text="Visa loggarna för att se test resultaten för huvud nyckeln." border="true":::
 
 ## <a name="next-steps"></a>Nästa steg
 

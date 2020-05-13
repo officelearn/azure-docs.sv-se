@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 809fbe85a9783777d5dbef86357bd5a386bd6f81
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: efb9e8b8abdcb442e2c5c4d8bfd1b2e1e60865ce
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261252"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197858"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Ta bort TLS 1,0 och 1,1 från användning med Azure cache för Redis
 
@@ -19,7 +19,7 @@ Det finns en företagsomfattande push-överföring mot exklusiv användning av T
 
 Som en del av den här ansträngningen gör vi följande ändringar i Azure cache för Redis:
 
-* **Fas 1:** Vi konfigurerar den lägsta standard TLS-versionen till 1,2 för nyskapade cache-instanser. (Det här användes för att vara TLS 1,0.) Befintliga instanser av cachen uppdateras inte just nu. Du får [ändra den lägsta TLS-versionen](cache-configure.md#access-ports) tillbaka till 1,0 eller 1,1 för bakåtkompatibilitet, om det behövs. Den här ändringen kan göras via Azure Portal eller andra hanterings-API: er.
+* **Fas 1:** Vi konfigurerar den lägsta standard TLS-versionen till 1,2 för nyskapade cache-instanser (tidigare TLS 1,0).  Befintliga instanser av cachen uppdateras inte just nu. Du får [ändra den lägsta TLS-versionen](cache-configure.md#access-ports) tillbaka till 1,0 eller 1,1 för bakåtkompatibilitet, om det behövs. Den här ändringen kan göras via Azure Portal eller andra hanterings-API: er.
 * **Fas 2:** Vi slutar stödja TLS-versionerna 1,0 och 1,1. Efter den här ändringen måste ditt program använda TLS 1,2 eller senare för att kommunicera med din cache.
 
 Som en del av den här ändringen kommer vi dessutom att ta bort stöd för äldre, osäkra chiffer-paket.  Våra chiffer-paket som stöds är begränsade till följande när cachen är konfigurerad med en lägsta TLS-version på 1,2.
@@ -33,7 +33,7 @@ Datumen när ändringarna börjar gälla:
 
 | Molnet               | Start datum för fas 1 | Start datum för fas 2      |
 |---------------------|--------------------|-------------------------|
-| Azure (global)      |  13 januari 2020  | 11 maj 2020 (utökad) |
+| Azure (global)      |  13 januari 2020  | 11 maj 2020            |
 | Azure Government    |  13 mars 2020    | 11 maj 2020            |
 | Azure Tyskland       |  13 mars 2020    | 11 maj 2020            |
 | Azure Kina         |  13 mars 2020    | 11 maj 2020            |

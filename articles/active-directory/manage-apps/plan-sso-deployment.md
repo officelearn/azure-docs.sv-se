@@ -12,12 +12,13 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 4b5836ffe721aa3e329651c3709ce64344363728
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512835"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197871"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
 
@@ -236,11 +237,11 @@ Använd alltid rollen med minst de behörigheter som krävs för att utföra den
 
 | Person| Roller | Azure AD-roll (om det behövs) |
 |--------|-------|-----------------------------|
-| Support administratör | Nivå 1-stöd | Ingen |
+| Support administratör | Nivå 1-stöd | Inga |
 | Identitets administratör | Konfigurera och Felsök när problem påverkar Azure AD | Global administratör |
-| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
+| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Inga |
 | Infrastruktur administratörer | Certifikat förnyelse ägare | Global administratör |
-| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Ingen |
+| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Inga |
 
 Vi rekommenderar att du använder [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) för att hantera dina roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 

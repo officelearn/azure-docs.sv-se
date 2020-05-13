@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 2a6165cf2739482805d712ddffb5c6a9f5ebabf8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57a49f9e1473f33eceba14591815415338aeecf4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312036"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198805"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrera Azure Application Gateway och brand vägg för webbaserade program från v1 till v2
 
@@ -53,15 +53,15 @@ Det finns två alternativ för dig, beroende på din lokala PowerShell-Miljös k
 * Om du inte har installerat Azure AZ-moduler, eller om du inte vill avinstallera Azure AZ-modulerna, är det bästa alternativet att använda `Install-Script` alternativet för att köra skriptet.
 * Om du behöver behålla Azure AZ-modulerna är det bästa valet att ladda ned skriptet och köra det direkt.
 
-Du kan ta reda på om du har installerat Azure AZ- `Get-InstalledModule -Name az`moduler genom att köra. Om du inte ser några installerade AZ-moduler kan du använda- `Install-Script` metoden.
+Du kan ta reda på om du har installerat Azure AZ-moduler genom att köra `Get-InstalledModule -Name az` . Om du inte ser några installerade AZ-moduler kan du använda- `Install-Script` metoden.
 
 ### <a name="install-using-the-install-script-method"></a>Installera med metoden install-script
 
 Om du vill använda det här alternativet behöver du inte ha de Azure AZ-moduler som är installerade på datorn. Om de är installerade visar följande kommando ett fel. Du kan antingen avinstallera Azure AZ-moduler eller använda det andra alternativet för att ladda ned skriptet manuellt och köra det.
   
-Kör skriptet med följande kommando:
+Kör skriptet med följande kommando för att hämta den senaste versionen:
 
-`Install-Script -Name AzureAppGWMigration`
+`Install-Script -Name AzureAppGWMigration -Force`
 
 Det här kommandot installerar även de AZ-moduler som krävs.  
 
@@ -101,7 +101,7 @@ Kör skriptet så här:
 
    * **subnetAddressRange: [sträng]: krävs** – det här är det IP-adressutrymme som du har tilldelat (eller vill allokera) för ett nytt undernät som innehåller din nya v2-Gateway. Detta måste anges i CIDR-notation. Till exempel: 10.0.0.0/24. Du behöver inte skapa det här under nätet i förväg. Skriptet skapar det åt dig om det inte finns.
    * **appgwName: [sträng]: valfritt**. Det här är en sträng som du anger för att använda som namn på den nya Standard_v2 eller WAF_v2 Gateway. Om den här parametern inte anges kommer namnet på din befintliga v1-Gateway att användas med suffixet *_v2* bifogad.
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: valfritt**.  En kommaavgränsad lista med PSApplicationGatewaySslCertificate-objekt som du skapar för att representera TLS/SSL-certifikat från din v1-Gateway måste överföras till den nya v2-gatewayen. För var och en av dina TLS/SSL-certifikat som har kon figurer ATS för din standard v1-eller WAF v1-Gateway, `New-AzApplicationGatewaySslCertificate` kan du skapa ett nytt PSApplicationGatewaySslCertificate-objekt via kommandot som visas här. Du behöver sökvägen till TLS/SSL-cert-filen och lösen ordet.
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: valfritt**.  En kommaavgränsad lista med PSApplicationGatewaySslCertificate-objekt som du skapar för att representera TLS/SSL-certifikat från din v1-Gateway måste överföras till den nya v2-gatewayen. För var och en av dina TLS/SSL-certifikat som har kon figurer ATS för din standard v1-eller WAF v1-Gateway, kan du skapa ett nytt PSApplicationGatewaySslCertificate-objekt via `New-AzApplicationGatewaySslCertificate` kommandot som visas här. Du behöver sökvägen till TLS/SSL-cert-filen och lösen ordet.
 
      Den här parametern är bara valfri om du inte har HTTPS-lyssnare som har kon figurer ATS för din v1-gateway eller WAF. Om du har minst en HTTPS Listener-installation måste du ange den här parametern.
 
@@ -162,7 +162,7 @@ Här följer några scenarier där din aktuella Application Gateway (standard) k
 
   * Om du använder offentliga IP-adresser på din Application Gateway kan du göra en kontrollerad, detaljerad migrering med hjälp av en Traffic Manager-profil för att stegvis dirigera trafik (viktad Traffic routing-metod) till den nya v2-gatewayen.
 
-    Du kan göra detta genom att lägga till DNS-etiketterna för både v1-och v2-programgatewayer i [Traffic Manager profilen](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)och skapa en CNAME-post (till exempel `www.contoso.com`) till Traffic Manager-domänen (till exempel contoso.trafficmanager.net).
+    Du kan göra detta genom att lägga till DNS-etiketterna för både v1-och v2-programgatewayer i [Traffic Manager profilen](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)och skapa en CNAME-post (till exempel `www.contoso.com` ) till Traffic Manager-domänen (till exempel contoso.trafficmanager.net).
   * Eller så kan du uppdatera din DNS-post för anpassade domäner så att den pekar på DNS-etiketten för den nya v2 Application Gateway. Beroende på vilken TTL som kon figurer ATS på din DNS-post kan det ta en stund innan all klient trafik migreras till din nya v2-Gateway.
 * **Klienterna ansluter till klient delens IP-adress för din Application Gateway**.
 
@@ -196,7 +196,7 @@ Nej. För närvarande stöder skriptet inte certifikat i nyckel valvet. Detta ko
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Jag har stött på problem med att använda det här skriptet. Hur kan jag få hjälp?
   
-Du kan skicka ett e- appgwmigrationsup@microsoft.compostmeddelande till, öppna ett support ärende med Azure-supporten eller göra båda.
+Du kan kontakta Azure-supporten under avsnittet "konfiguration och installation/migrera till v2 SKU". Läs mer om [Azure-support här](https://azure.microsoft.com/support/options/).
 
 ## <a name="next-steps"></a>Nästa steg
 

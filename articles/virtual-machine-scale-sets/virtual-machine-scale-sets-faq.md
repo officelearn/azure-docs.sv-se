@@ -2,18 +2,19 @@
 title: Vanliga frågor och svar om Virtual Machine Scale Sets
 description: Få svar på vanliga frågor om skalnings uppsättningar för virtuella datorer i Azure.
 author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/24/2019
 ms.author: mimckitt
-ms.openlocfilehash: 0a5fcb3bb1ebf48eaa9cdce70800a4239c5fae03
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: faq
+ms.date: 05/24/2019
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: a3074fdd10ef960a1c0b58b973d57da14d888af4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611406"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200168"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar om Virtual Machine Scale Sets
 
@@ -233,9 +234,9 @@ Ett exempel finns i [snabb starts mal len 101-VM-sshkey GitHub](https://github.c
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzVmss` efter att ha lagt till mer än ett certifikat från samma nyckel valv visas följande meddelande:
 
->Update-AzVmss: lista hemlighet innehåller upprepade instanser av/Subscriptions/\<My-Subscription-ID>/ResourceGroups/Internal-RG-dev/providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, vilket inte tillåts.
+>Update-AzVmss: lista hemlighet innehåller upprepade instanser av/Subscriptions/ \< My-Subscription-id>/ResourceGroups/Internal-RG-dev/providers/Microsoft.keyvault/Vaults/Internal-keyvault-dev, vilket inte tillåts.
 
-Detta kan inträffa om du försöker lägga till samma valv i stället för att använda ett nytt valv certifikat för det befintliga käll valvet. `Add-AzVmssSecret` Kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
+Detta kan inträffa om du försöker lägga till samma valv i stället för att använda ett nytt valv certifikat för det befintliga käll valvet. `Add-AzVmssSecret`Kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
 
 Om du vill lägga till fler hemligheter från samma nyckel valv uppdaterar du listan $vmss. Properties. osProfile. hemligheter [0]. vaultCertificates.
 
@@ -251,7 +252,7 @@ Nya virtuella datorer kommer inte att ha det gamla certifikatet. Virtuella dator
 
 ### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>Kan jag push-överföra certifikat till den virtuella datorns skalnings uppsättning utan att ange lösen ordet när certifikatet finns i den hemliga lagringen?
 
-Du behöver inte hårdkoda lösen ord i skript. Du kan hämta lösen ord dynamiskt med de behörigheter som du använder för att köra distributions skriptet. Om du har ett skript som flyttar ett certifikat från nyckel valvet för den hemliga lagrings platsen `get certificate` , kommer det hemliga lager kommandot också att spara lösen ordet för. pfx-filen.
+Du behöver inte hårdkoda lösen ord i skript. Du kan hämta lösen ord dynamiskt med de behörigheter som du använder för att köra distributions skriptet. Om du har ett skript som flyttar ett certifikat från nyckel valvet för den hemliga lagrings platsen, kommer det hemliga lager `get certificate` kommandot också att spara lösen ordet för. pfx-filen.
 
 ### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>Hur fungerar egenskapen hemligheter för virtualMachineProfile. osProfile för en skalnings uppsättning för virtuella datorer? Varför behöver jag sourceVault-värdet när jag måste ange den absoluta URI: n för ett certifikat med hjälp av egenskapen certificateUrl?
 
@@ -301,7 +302,7 @@ Om du skapar en virtuell dator och sedan uppdaterar din hemlighet i nyckel valve
 
 ### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>Mitt team fungerar med flera certifikat som distribueras till som. cer-offentliga nycklar. Vad är den rekommenderade metoden för att distribuera dessa certifikat till en skalnings uppsättning för virtuella datorer?
 
-Om du vill distribuera offentliga. cer-offentliga nycklar till en skalnings uppsättning för virtuella datorer kan du generera en. pfx-fil som bara innehåller CER-filer. Använd `X509ContentType = Pfx`för att göra detta. Läs till exempel in. CER-filen som ett x509Certificate2-objekt i C# eller PowerShell och anropa sedan metoden.
+Om du vill distribuera offentliga. cer-offentliga nycklar till en skalnings uppsättning för virtuella datorer kan du generera en. pfx-fil som bara innehåller CER-filer. Använd för att göra detta `X509ContentType = Pfx` . Läs till exempel in. CER-filen som ett x509Certificate2-objekt i C# eller PowerShell och anropa sedan metoden.
 
 Mer information finns i [X509Certificate. export-metoden (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
@@ -359,7 +360,7 @@ $vmss=Remove-AzVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
 Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
 
-Du hittar tillägg-värdet i `$vmss`.
+Du hittar tillägg-värdet i `$vmss` .
 
 ### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>Finns det ett exempel på en mall för skalnings uppsättning för virtuell dator som kan integreras med Azure Monitor loggar?
 
@@ -638,7 +639,7 @@ Om du vill uppdatera skalnings uppsättningen för den virtuella datorn till en 
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Kan jag använda åtgärden för avbildning för att återställa en virtuell dator utan att ändra avbildningen? (Det vill säga jag vill återställa en virtuell dator till fabriks inställningarna i stället för till en ny avbildning.)
 
-Ja, du kan använda åtgärden för avbildning för att återställa en virtuell dator utan att ändra avbildningen. Men om den virtuella datorns skalnings uppsättning refererar till en plattforms avbildning med `version = latest`, kan den virtuella datorn uppdatera till en senare OS `reimage`-avbildning när du anropar.
+Ja, du kan använda åtgärden för avbildning för att återställa en virtuell dator utan att ändra avbildningen. Men om den virtuella datorns skalnings uppsättning refererar till en plattforms avbildning med `version = latest` , kan den virtuella datorn uppdatera till en senare OS-avbildning när du anropar `reimage` .
 
 ### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>Är det möjligt att integrera skalnings uppsättningar med Azure Monitor loggar?
 
@@ -683,7 +684,7 @@ När en ny virtuell dator skapas visar egenskapen InstanceView för den virtuell
 
 ### <a name="how-do-i-get-property-information-for-each-vm-without-making-multiple-calls-for-example-how-would-i-get-the-fault-domain-for-each-of-the-100-vms-in-my-virtual-machine-scale-set"></a>Hur gör jag för att hämta egenskaps information för varje virtuell dator utan att göra flera anrop? Hur får jag till exempel fel domänen för var och en av de 100 virtuella datorerna i skalnings uppsättningen för den virtuella datorn?
 
-Om du vill hämta egenskaps information för varje virtuell dator utan att skapa flera `ListVMInstanceViews` anrop kan du anropa `GET` genom att göra en REST API på följande resurs-URI:
+Om du vill hämta egenskaps information för varje virtuell dator utan att skapa flera anrop kan du anropa `ListVMInstanceViews` genom att göra en REST API `GET` på följande resurs-URI:
 
 /Subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines? $expand = instanceView&$select = instanceView
 
@@ -699,7 +700,7 @@ Du kan ställa in den här egenskapen på **false**. För små skalnings uppsät
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Vad är skillnaden mellan att ta bort en virtuell dator i en skalnings uppsättning för virtuella datorer och att ta bort den virtuella datorn? När ska jag välja ett över det andra?
 
-Den största skillnaden mellan att ta bort en virtuell dator i en skalnings uppsättning för virtuella datorer och att `deallocate` ta bort den virtuella datorn är att inte ta bort de virtuella hård diskarna (VHD). Det finns lagrings kostnader som är `stop deallocate`kopplade till att köra. Du kan använda någon av följande orsaker:
+Den största skillnaden mellan att ta bort en virtuell dator i en skalnings uppsättning för virtuella datorer och att ta bort den virtuella datorn är att `deallocate` inte ta bort de virtuella hård diskarna (VHD). Det finns lagrings kostnader som är kopplade till att köra `stop deallocate` . Du kan använda någon av följande orsaker:
 
 - Du vill sluta betala beräknings kostnaderna, men du vill behålla disk statusen för de virtuella datorerna.
 - Du vill starta en uppsättning virtuella datorer snabbare än du kan skala ut en skalnings uppsättning för virtuella datorer.

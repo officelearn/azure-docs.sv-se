@@ -4,19 +4,19 @@ description: Lär dig hur du använder multi-Factord Authentication med SSMS fö
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 38d8eba5dd451c8e8709ce4d43aba107e5346bfc
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e551ac54414cb3114a7d0905b1b2e59b0d16580a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627372"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198551"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Konfigurera Multi-Factor Authentication för SQL Server Management Studio och Azure AD
 
@@ -38,7 +38,7 @@ Följande steg visar hur du ansluter till SQL Database-eller SAzure-Synapse med 
 
 1. Om du vill ansluta med Universal Authentication går du till dialog rutan **Anslut till Server** och väljer **Active Directory-Universal med MFA-stöd**. (Om du ser **Active Directory Universal Authentication** får du inte den senaste versionen av SSMS.)  
    ![1mfa – Universal-Connect][1]  
-2. Fyll i rutan **användar namn** med Azure Active Directory autentiseringsuppgifter i formatet `user_name@domain.com`.  
+2. Fyll i rutan **användar namn** med Azure Active Directory autentiseringsuppgifter i formatet `user_name@domain.com` .  
    ![1mfa – Universal-Connect-User](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect-user.png)   
 3. Om du ansluter som en gäst användare behöver du inte längre fylla i fältet AD-domännamn eller klient-ID för gäst användare eftersom SSMS 18. x eller senare identifierar det automatiskt. Mer information finns i [Universal Authentication with SQL Database and Azure Synapse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md).
    ![MFA-No-Tenant-SSMS](./media/sql-database-ssms-mfa-auth/mfa-no-tenant-ssms.png)
@@ -46,7 +46,7 @@ Följande steg visar hur du ansluter till SQL Database-eller SAzure-Synapse med 
    Men om du ansluter som en gäst användare som använder SSMS 17. x eller äldre, måste du klicka på **alternativ**och i dialog rutan **anslutnings egenskaper** och fylla i rutan **AD-domännamn eller klient-ID** .
    ![MFA-Tenant-SSMS](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)
 
-4. Som vanligt för SQL Database och Azure-Synapse måste du klicka på **alternativ** och ange databasen i dialog rutan **alternativ** . (Om den anslutna användaren är gäst användare (d.v.s. joe@outlook.com) måste du markera kryss rutan och lägga till det aktuella AD-domännamnet eller klient-ID som en del av alternativen. Se [Universal Authentication with SQL Database och Azure Synapse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md). Klicka sedan på **Anslut**.  
+4. Som vanligt för SQL Database och Azure-Synapse måste du klicka på **alternativ** och ange databasen i dialog rutan **alternativ** . (Om den anslutna användaren är gäst användare (d.v.s. joe@outlook.com ) måste du markera kryss rutan och lägga till det aktuella AD-domännamnet eller klient-ID som en del av alternativen. Se [Universal Authentication with SQL Database och Azure Synapse (SSMS-stöd för MFA)](sql-database-ssms-mfa-authentication.md). Klicka sedan på **Anslut**.  
 5. När dialog rutan **Logga in på ditt konto** visas anger du Azure Active Directory identitetens konto och lösen ord. Inget lösen ord krävs om en användare är en del av en domän som är federerad med Azure AD.  
    ![2mfa – logga in][2]  
 

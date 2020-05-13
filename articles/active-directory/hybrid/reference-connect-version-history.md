@@ -12,12 +12,13 @@ ms.date: 04/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08f142a270cae525571ae414602a89b2538c17d0
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: has-adal-ref
+ms.openlocfilehash: bc3c572aeb72328bc4708d27052756623ccd7701
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981994"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200977"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -87,9 +88,9 @@ Den här snabb korrigeringen löser ett problem med build-1.5.18.0 om du har gru
 > Om du har klonat in från regeln för att **ansluta till AD-gruppen** och inte har klonat **in från regel för vanlig synkronisering i AD-gruppen** och planerar att uppgradera, slutför du följande steg som en del av uppgraderingen:
 > 1. Under uppgraderingen avmarkerar du alternativet **starta synkroniseringsprocessen när konfigurationen är klar**.
 > 2. Redigera synkroniseringsregeln för klonad koppling och Lägg till följande två omvandlingar:
->     - Ange direkt flöde `objectGUID` till `sourceAnchorBinary`.
->     - Ange `ConvertToBase64([objectGUID])` uttrycks `sourceAnchor`flöde till.     
-> 3. Aktivera Scheduler med hjälp av `Set-ADSyncScheduler -SyncCycleEnabled $true`.
+>     - Ange direkt flöde `objectGUID` till `sourceAnchorBinary` .
+>     - Ange uttrycks flöde `ConvertToBase64([objectGUID])` till `sourceAnchor` .     
+> 3. Aktivera Scheduler med hjälp av `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 
 
@@ -209,7 +210,7 @@ Vi har åtgärdat ett program fel i komprimerings verktyget för synkroniserings
 >[!IMPORTANT]
 >Det finns ett känt problem med att uppgradera Azure AD Connect från en tidigare version till 1.3.21.0 där O365-portalen inte återspeglar den uppdaterade versionen, även om Azure AD Connect har uppgraderats.
 >
-> För att lösa detta måste du importera **ADSync** -modulen och sedan köra`Set-ADSyncDirSyncConfiguration` PowerShell-cmdleten på Azure AD Connect-servern.  Du kan använda följande steg:
+> För att lösa detta måste du importera **ADSync** -modulen och sedan köra `Set-ADSyncDirSyncConfiguration` PowerShell-cmdleten på Azure AD Connect-servern.  Du kan använda följande steg:
 >
 >1. Öppna PowerShell i administratör-läge.
 >2. Kör `Import-Module "ADSync"`.
@@ -772,7 +773,7 @@ Status: 23 2017 juli
   * Du har aktiverat funktionen för tillbakaskrivning av användare.
   
   >[!NOTE]
-  >Omfattnings expansionen för funktionen automatisk uppgradering påverkar kunder med Azure AD Connect build 1.1.105.0 och efter. Om du inte vill att din Azure AD Connect Server ska uppgraderas automatiskt måste du köra följande cmdlet på din Azure AD Connect-Server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Mer information om hur du aktiverar/inaktiverar automatisk uppgradering finns i artikeln [Azure AD Connect: automatisk uppgradering](how-to-connect-install-automatic-upgrade.md).
+  >Omfattnings expansionen för funktionen automatisk uppgradering påverkar kunder med Azure AD Connect build 1.1.105.0 och efter. Om du inte vill att din Azure AD Connect Server ska uppgraderas automatiskt måste du köra följande cmdlet på din Azure AD Connect-Server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled` . Mer information om hur du aktiverar/inaktiverar automatisk uppgradering finns i artikeln [Azure AD Connect: automatisk uppgradering](how-to-connect-install-automatic-upgrade.md).
 
 ## <a name="115580"></a>1.1.558.0
 Status: kommer inte att släppas. Ändringar i den här versionen ingår i version 1.1.561.0.
@@ -800,7 +801,7 @@ Status: kommer inte att släppas. Ändringar i den här versionen ingår i versi
   * Du har aktiverat funktionen för tillbakaskrivning av användare.
   
   >[!NOTE]
-  >Omfattnings expansionen för funktionen automatisk uppgradering påverkar kunder med Azure AD Connect build 1.1.105.0 och efter. Om du inte vill att din Azure AD Connect Server ska uppgraderas automatiskt måste du köra följande cmdlet på din Azure AD Connect-Server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled`. Mer information om hur du aktiverar/inaktiverar automatisk uppgradering finns i artikeln [Azure AD Connect: automatisk uppgradering](how-to-connect-install-automatic-upgrade.md).
+  >Omfattnings expansionen för funktionen automatisk uppgradering påverkar kunder med Azure AD Connect build 1.1.105.0 och efter. Om du inte vill att din Azure AD Connect Server ska uppgraderas automatiskt måste du köra följande cmdlet på din Azure AD Connect-Server: `Set-ADSyncAutoUpgrade -AutoUpgradeState disabled` . Mer information om hur du aktiverar/inaktiverar automatisk uppgradering finns i artikeln [Azure AD Connect: automatisk uppgradering](how-to-connect-install-automatic-upgrade.md).
 
 ## <a name="115570"></a>1.1.557.0
 Status: 2017 juli
@@ -940,12 +941,12 @@ CBool(
 #### <a name="issues-fixed"></a>Korrigerade problem
 
 * Följande URL: er är nya WS-Federation-slutpunkter som introduceras av Azure AD för att förbättra återhämtning mot autentiseringsfel och kommer att läggas till lokalt AD FS säkerhets konfiguration för svars part:
-  * https:\//ests.login.microsoftonline.com/login.srf
-  * https:\//stamp2.login.microsoftonline.com/login.srf
+  * https: \/ /ests.login.microsoftonline.com/login.srf
+  * https: \/ /stamp2.login.microsoftonline.com/login.srf
   * https://ccs.login.microsoftonline.com/login.srf
   * https://ccs-sdf.login.microsoftonline.com/login.srf
   
-* Ett problem som orsakade AD FS att generera ett felaktigt anspråks värde för IssuerID har åtgärd ATS. Problemet uppstår om det finns flera verifierade domäner i Azure AD-klienten och domänsuffixet för det userPrincipalName-attribut som används för att generera IssuerID-anspråk är minst 3 nivåer djup (till exempel johndoe@us.contoso.com). Problemet löses genom att det regex som används av anspråks reglerna uppdateras.
+* Ett problem som orsakade AD FS att generera ett felaktigt anspråks värde för IssuerID har åtgärd ATS. Problemet uppstår om det finns flera verifierade domäner i Azure AD-klienten och domänsuffixet för det userPrincipalName-attribut som används för att generera IssuerID-anspråk är minst 3 nivåer djup (till exempel johndoe@us.contoso.com ). Problemet löses genom att det regex som används av anspråks reglerna uppdateras.
 
 #### <a name="new-features-and-improvements"></a>Nya funktioner och förbättringar
 * Tidigare kan ADFS-funktionen för certifikat hantering som tillhandahålls av Azure AD Connect endast användas med ADFS-grupper som hanteras via Azure AD Connect. Nu kan du använda funktionen med ADFS-grupper som inte hanteras med hjälp av Azure AD Connect.
@@ -1155,7 +1156,7 @@ Lanserad: augusti 2016
 **Korrigerade problem:**
 
 * Ändringar i synkroniseringsstatus sker inte förrän nästa synkronisering har slutförts.
-* Azure AD Connects guiden accepterar inte ett Azure AD-konto vars användar namn börjar med ett under\_streck ().
+* Azure AD Connects guiden accepterar inte ett Azure AD-konto vars användar namn börjar med ett under streck ( \_ ).
 * Azure AD Connects guiden kan inte autentisera Azure AD-kontot om konto lösen ordet innehåller för många specialtecken. Fel meddelandet "Det gick inte att validera autentiseringsuppgifterna. Ett oväntat fel har inträffat. " returneras.
 * Om du avinstallerar en fristående server inaktive ras Lösenordssynkronisering i Azure AD-klienten och synkroniseringen av lösen ordet Miss lyckas med den aktiva servern.
 * Lösenordssynkronisering Miss lyckas i ovanliga fall när det inte finns någon lösen ords-hash lagrad på användaren.
@@ -1220,7 +1221,7 @@ Lanserad: februari 2016
 
 * Uppgradering från tidigare versioner fungerar inte om installationen inte finns i standardmappen C:\Program Files.
 * Om du installerar och avmarkerar **starta synkroniseringsprocessen** i slutet av installations guiden och kör installations guiden en andra gång aktive ras inte Scheduler.
-* Scheduler fungerar inte som förväntat på servrar där formatet US-en datum/tid inte används. Det kommer också att `Get-ADSyncScheduler` blockeras för att returnera korrekta tider.
+* Scheduler fungerar inte som förväntat på servrar där formatet US-en datum/tid inte används. Det kommer också att blockeras `Get-ADSyncScheduler` för att returnera korrekta tider.
 * Om du har installerat en tidigare version av Azure AD Connect med AD FS som inloggnings alternativ och uppgradering kan du inte köra installations guiden igen.
 
 ## <a name="111050"></a>1.1.105.0

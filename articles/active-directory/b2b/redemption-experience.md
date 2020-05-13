@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7917b63b86e4d103061a902f74c368dfd6c123b
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 2bbfd0027f9de93ee939815853f5141044404c53
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160756"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199497"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samarbete för inbjudan
 
@@ -42,9 +42,9 @@ Som ett alternativ till e-postinbjudan kan du ge en gäst en direkt länk till d
 
 > [!IMPORTANT]
 > Den direkta länken måste vara klient-/regionsspecifika. Med andra ord måste det innehålla ett klient-ID eller verifierad domän så att gästen kan autentiseras i din klient, där den delade appen finns. En vanlig URL som https://myapps.microsoft.com inte fungerar för en gäst, eftersom den kommer att omdirigeras till sin hem klient för autentisering. Här följer några exempel på direkta länkar med klient kontext:
- > - Åtkomst panel för appar https://myapps.microsoft.com/?tenantid=&lt:; klient-ID&gt; 
- > - Åtkomst panel för appar för en verifierad https://myapps.microsoft.com/&ltdomän:; verifierad domän&gt;
- > - Azure Portal: https://portal.azure.com/&lt; klient-ID&gt;
+ > - Åtkomst panel för appar: https://myapps.microsoft.com/?tenantid=&lt ; klient-ID&gt; 
+ > - Åtkomst panel för appar för en verifierad domän: https://myapps.microsoft.com/&lt ; verifierad domän&gt;
+ > - Azure Portal: https://portal.azure.com/&lt ; klient-ID&gt;
  > - Enskild app: se så här använder du en [direkt inloggnings länk](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Det finns vissa fall där e-postinbjudan rekommenderas över en direkt länk. Om dessa specialfall är viktiga för din organisation rekommenderar vi att du bjuder in användare genom att använda metoder som fortfarande skickar e-postinbjudan:
@@ -99,7 +99,7 @@ När en gäst loggar in för att komma åt resurser i en partner organisation f�
 
    ![Skärm bild som visar nya användnings villkor](media/redemption-experience/terms-of-use-accept.png) 
 
-   Du kan konfigurera se [användnings villkoren](../governance/active-directory-tou.md) i **Hantera** > **organisations relationer** > **användningsvillkor**.
+   Du kan konfigurera [användnings villkoren](../governance/active-directory-tou.md) i **organisatoriska relationer** (eller **externa identiteter**) > **användningsvillkor**.
 
 3. Om inget annat anges omdirigeras gästen till appens åtkomst panel, som innehåller en lista över de program som gästen har åtkomst till.
 

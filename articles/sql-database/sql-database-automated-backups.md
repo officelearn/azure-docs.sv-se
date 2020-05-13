@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 9ac6927df63d51830a58773e32ad0968920c0867
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80061767"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198563"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -61,6 +61,8 @@ Du kan prova några av de här åtgärderna med hjälp av följande exempel:
 SQL Database stöder självbetjäning för återställning av PITR (Point-in-Time-återställning) genom att automatiskt skapa fullständiga säkerhets kopior, differentiella säkerhets kopieringar och säkerhets kopior av transaktions loggar. Fullständiga säkerhets kopieringar skapas varje vecka och säkerhets kopior av differentiella databaser skapas vanligt vis var 12: e timme. Säkerhets kopior av transaktions loggar skapas vanligt vis var 5 till 10 minuter. Frekvensen för säkerhets kopiering av transaktions loggar baseras på beräknings storlek och mängden databas aktivitet. 
 
 Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en databas har skapats. Den här säkerhets kopian slutförs vanligt vis inom 30 minuter, men det kan ta längre tid när databasen är stor. Den första säkerhets kopieringen kan till exempel ta längre tid på en återställd databas eller en databas kopia. Efter den första fullständiga säkerhetskopian schemaläggs alla ytterligare säkerhetskopieringar obevakat i bakgrunden. Den exakta tiden för alla databassäkerhetskopieringar fastställs av SQL Database-tjänsten eftersom den balanserar den övergripande systemarbetsbelastningen. Du kan inte ändra eller inaktivera säkerhetskopieringsjobben.
+
+### <a name="default-backup-retention-period"></a>Standard bevarande period för säkerhets kopiering
 
 PITR-säkerhetskopieringar skyddas med Geo-redundant lagring. Läs mer i [Redundansalternativ för Azure Storage](../storage/common/storage-redundancy.md).
 
@@ -156,7 +158,7 @@ Om databasen är krypterad med TDE krypteras säkerhets kopiorna automatiskt i v
 
 Med jämna mellanrum testar Azure SQL Database teknik teamet automatiskt återställning av automatiserade databas säkerhets kopior av databaser placerade i logiska servrar och Elastic Database-pooler. (Den här testningen är inte tillgänglig i en hanterad instans.) Vid tidpunkts återställning erhåller-databaser också integritets kontroller för DBCC CHECKDB.
 
-Den hanterade instansen tar `CHECKSUM` automatisk inledande säkerhets kopiering med databaser `RESTORE` som återställs med det interna kommandot eller med Azure Data Migration service när migreringen är klar.
+Den hanterade instansen tar automatisk inledande säkerhets kopiering med `CHECKSUM` databaser som återställs med det interna `RESTORE` kommandot eller med Azure Data Migration service när migreringen är klar.
 
 Eventuella problem som hittas under integritets kontrollen resulterar i en avisering till teknik teamet. Mer information finns [i data integritet i Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 

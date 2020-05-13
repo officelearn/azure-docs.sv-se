@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273fdb80475defb0576bcd29d1944c5f6c595cfc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 818528ae193209e23424998421ebe2fb0c2b24b3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266512"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199380"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Vanliga frågor och svar kring Azure Active Directory rapporter
 
@@ -37,7 +37,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 **F: Jag använder för närvarande `https://graph.windows.net/<tenant-name>/reports/` slut punkts-API: er för att hämta Azure AD-säkerhetsrapporter (vissa typer av identifieringar, till exempel läckta autentiseringsuppgifter eller inloggningar från anonyma IP-adresser) till våra rapporterings system program mässigt. Vad ska jag byta till?**
 
-**A:** Du kan använda [identitets skyddets identifierings-API](../identity-protection/graph-get-started.md) för att få åtkomst till säkerhets identifieringar via Microsoft Graph. Det nya formatet ger större flexibilitet i hur du kan fråga data, med avancerad filtrering, val av fält med mera och standardisera risk identifieringar till en typ för enklare integrering i Siem och andra data insamlings verktyg. Eftersom data har ett annat format kan du inte ersätta en ny fråga för dina gamla frågor. [Det nya API: et använder dock Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), som är Microsoft-standarden för sådana API: er som O365 eller Azure AD. Det arbete som krävs kan antingen utöka dina nuvarande Microsoft Graph investeringar eller hjälpa dig att börja över gången till den nya standard plattformen.
+**A:** Du kan använda [identitets skyddets identifierings-API](../identity-protection/graph-get-started.md)   för att få åtkomst till säkerhets identifieringar via Microsoft Graph. Det nya formatet ger större flexibilitet i hur du kan fråga data, med avancerad filtrering, val av fält med mera och standardisera risk identifieringar till en typ för enklare integrering i Siem och andra data insamlings verktyg. Eftersom data har ett annat format kan du inte ersätta en ny fråga för dina gamla frågor. [Det nya API: et använder dock Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), som är Microsoft-standarden för sådana API: er som O365 eller Azure AD. Det arbete som krävs kan antingen utöka dina nuvarande Microsoft Graph investeringar eller hjälpa dig att börja över gången till den nya standard plattformen.
 
 ---
 
@@ -71,13 +71,7 @@ Den här artikeln innehåller svar på vanliga frågor om Azure Active Directory
 
 **F: Vad är data kvarhållning för aktivitets loggar (granskning och inloggningar) i Azure Portal?** 
 
-**A:** I följande tabell visas data lagrings perioden för aktivitets loggar. Mer information finns i [principer för data bevarande för Azure AD-rapporter](reference-reports-data-retention.md).
-
-| Rapport                 | Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
-| :--                    | :--           | :--                 | :--                 |
-| Granskningsloggar             | 7 dagar        | 30 dagar             | 30 dagar             |
-| Inloggningar               | Ej tillämpligt           | 30 dagar             | 30 dagar             |
-| Användning av Azure MFA        | 30 dagar       | 30 dagar             | 30 dagar             |
+**A:** Mer information finns i [principer för data bevarande för Azure AD-rapporter](reference-reports-data-retention.md).
 
 ---
 

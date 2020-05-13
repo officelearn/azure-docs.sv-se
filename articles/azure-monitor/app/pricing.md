@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6c597ea559e7337c9c84914d168f1055e0631886
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: b99c1c9348f8442233eeee8fd4442736c78ee4e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995540"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199048"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -29,6 +29,10 @@ Prissättningen för [Azure Application insikter][start] är en modell där **du
 [Webbtester med flera steg](../../azure-monitor/app/availability-multistep.md) debiteras ytterligare en kostnad. Webbtester med flera steg är webbtester som utför en sekvens med åtgärder. Det finns ingen separat avgift för *ping-test* av en enda sida. Telemetri från ping-test och multi-Step-tester debiteras på samma sätt som andra telemetri från din app.
 
 Application Insights alternativet för att [aktivera aviseringar för anpassade mått dimensioner](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation) kan också generera ytterligare kostnader eftersom detta kan leda till att ytterligare församlings mått skapas. [Lär dig mer](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics) om loggbaserade och föraggregerade mått i Application Insights och om [prissättning](https://azure.microsoft.com/pricing/details/monitor/) för Azure Monitor anpassade mått.
+
+### <a name="workspace-based-application-insights"></a>Arbets yta-baserad Application Insights
+
+För Application Insights resurser som skickar sina data till en Log Analytics arbets yta, som kallas [arbets ytans baserade Application Insights resurser](create-workspace-resource.md), görs faktureringen för data inmatning och kvarhållning av arbets ytan där Application Insights data finns. Detta gör det möjligt för kunderna att använda alla alternativ för Log Analytics [pris modell](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#pricing-model) som inkluderar kapacitets reservationer förutom att betala per användning. Log Analytics har också fler alternativ för datakvarhållning, inklusive [kvarhållning efter datatyp](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#retention-by-data-type). Application Insights data typer i arbets ytan får 90 dagars kvarhållning utan avgifter. Användningen av webbtester och aktivering av aviseringar för anpassade mått dimensioner rapporteras fortfarande via Application Insights. Lär dig hur du spårar data inmatnings-och lagrings kostnader i Log Analytics användning [och uppskattade kostnader](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs), [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#viewing-log-analytics-usage-on-your-azure-bill) -och [log Analyticss frågor](#data-volume-for-workspace-based-application-insights-resources). 
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Beräkna kostnaderna för att hantera ditt program
 
@@ -75,7 +79,7 @@ Om du vill veta mer om dina data volymer väljer du **mått** för din Applicati
 
 ### <a name="queries-to-understand-data-volume-details"></a>Frågor för att förstå data volym information
 
-Det finns två metoder för att undersöka data volymer för Application Insights. Det första använder aggregerad information i `systemEvents` tabellen och den andra använder `_BilledSize` egenskapen som är tillgänglig för varje inmatad händelse.
+Det finns två metoder för att undersöka data volymer för Application Insights. Det första använder aggregerad information i `systemEvents` tabellen och den andra använder `_BilledSize` egenskapen som är tillgänglig för varje inmatad händelse. `systemEvents`kommer inte att ha information om data storlek för [arbets ytans baserade-Application-Insights](#data-volume-for-workspace-based-application-insights-resources).
 
 #### <a name="using-aggregated-data-volume-information"></a>Använda information om sammanställd data volym
 
@@ -118,13 +122,54 @@ systemEvents
 
 Om du vill ha mer information om källan till dina data volymer kan du använda den `_BilledSize` egenskap som finns på varje inmatad händelse.
 
-Om du till exempel vill titta på vilka åtgärder som genererar mest data volym under de senaste 30 dagarna, kan vi `_BilledSize` summera för alla beroende händelser:
+Om du till exempel vill titta på vilka åtgärder som genererar mest data volym under de senaste 30 dagarna, kan vi summera `_BilledSize` för alla beroende händelser:
 
 ```kusto
 dependencies
 | where timestamp >= startofday(ago(30d))
 | summarize sum(_BilledSize) by operation_Name
 | render barchart  
+```
+
+#### <a name="data-volume-for-workspace-based-application-insights-resources"></a>Data volym för arbets ytans baserade Application Insights resurser
+
+Om du vill titta på data volym trenderna för alla [arbets ytans baserade Application Insights resurser](create-workspace-resource.md) på en arbets yta under den senaste veckan går du till arbets ytan Log Analytics och kör frågan:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| summarize sum(_BilledSize) by _ResourceId, bin(TimeGenerated, 1d)
+| render areachart
+```
+
+Om du vill fråga data volym trenderna efter typ för en speciell arbets yta som baseras på arbets ytans Application Insights resurs, i Log Analytics arbets ytan använder du:
+
+```kusto
+union (AppAvailabilityResults),
+      (AppBrowserTimings),
+      (AppDependencies),
+      (AppExceptions),
+      (AppEvents),
+      (AppMetrics),
+      (AppPageViews),
+      (AppPerformanceCounters),
+      (AppRequests),
+      (AppSystemEvents),
+      (AppTraces)
+| where TimeGenerated >= startofday(ago(7d) and TimeGenerated < startofday(now())
+| where _ResourceId contains "<myAppInsightsResourceName>"
+| summarize sum(_BilledSize) by Type, bin(TimeGenerated, 1d)
+| render areachart
 ```
 
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visa Application Insights användning på din Azure-faktura
@@ -174,11 +219,11 @@ Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera*
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-003.png)
 
-Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är egenskapen som ska ändras `dailyQuota`.  Via Azure Resource Manager kan du också ställa in `dailyQuotaResetTime` och använda det dagliga taket `warningThreshold`.
+Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är egenskapen som ska ändras `dailyQuota` .  Via Azure Resource Manager kan du också ställa in `dailyQuotaResetTime` och använda det dagliga taket `warningThreshold` .
 
 ### <a name="create-alerts-for-the-daily-cap"></a>Skapa aviseringar för det dagliga taket
 
-Application Insights dagliga tak skapar en händelse i Azure aktivitets loggen när de inmatade data volymerna träffar varnings nivån eller den dagliga gräns nivån.  Du kan [skapa en avisering baserat på dessa aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Signal namnen för dessa händelser är:
+Application Insights dagliga tak skapar en händelse i Azure aktivitets loggen när de inmatade data volymerna når varnings nivån eller den dagliga gräns nivån.  Du kan [skapa en avisering baserat på dessa aktivitets logg händelser](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log#create-with-the-azure-portal). Signal namnen för dessa händelser är:
 
 * Varnings tröskeln för dagliga tak för Application Insights komponent har nåtts
 
@@ -220,7 +265,7 @@ Om du vill ändra kvarhållning går du till sidan **användning och uppskattade
 
 När kvarhållning sänks, finns det en flera dagars respitperiod innan de äldsta data tas bort.
 
-Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av `retentionInDays` parametern. Om du ställer in datakvarhållning på 30 dagar kan du utlösa en omedelbar rensning av äldre data med hjälp av `immediatePurgeDataOn30Days` parametern, vilket kan vara användbart för scenarier som rör kompatibilitet. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. Den dagliga återställnings tiden för data volymens tak kan konfigureras med hjälp av `dailyQuotaResetTime` Azure Resource Manager för att ange parametern.
+Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md#set-the-data-retention) med hjälp av `retentionInDays` parametern. Om du ställer in datakvarhållning på 30 dagar kan du utlösa en omedelbar rensning av äldre data med hjälp av `immediatePurgeDataOn30Days` parametern, vilket kan vara användbart för scenarier som rör kompatibilitet. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. Den dagliga återställnings tiden för data volymens tak kan konfigureras med hjälp av Azure Resource Manager för att ange `dailyQuotaResetTime` parametern.
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Avgifter för data överföring med Application Insights
 

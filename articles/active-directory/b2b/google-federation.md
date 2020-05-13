@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/05/2020
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72c18e48c27942c7bea47931ec79a31af941064e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b1ca4ff3ed35371fe7454c242da8c9107badc659
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79126647"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199536"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägg till Google som en identitets leverantör för B2B-gäst användare
 
@@ -37,20 +37,20 @@ Om gäst användaren ser ett fel meddelande om att huvudet är för långt, kan 
 
 ## <a name="limitations"></a>Begränsningar
 
-Team stöder fullständigt Google gäst användare på alla enheter. Google-användare kan logga in till Teams från en gemensam `https://teams.microsoft.com`slut punkt som.
+Team stöder fullständigt Google gäst användare på alla enheter. Google-användare kan logga in till Teams från en gemensam slut punkt som `https://teams.microsoft.com` .
 
 Vanliga slut punkter för andra program kanske inte stöder Google-användare. Google gäst användare måste logga in med en länk som innehåller din klient information. Följande är exempel:
   * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
   * `https://portal.azure.com/<your tenant id>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
 
-   Om Google gäst användare försöker använda en länk som `https://myapps.microsoft.com` eller `https://portal.azure.com`, får de ett fel meddelande.
+   Om Google gäst användare försöker använda en länk som `https://myapps.microsoft.com` eller `https://portal.azure.com` , får de ett fel meddelande.
 
-Du kan också ge Google gäst användare en direkt länk till ett program eller en resurs, så länge den här länken innehåller din klient information, till `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`exempel. 
+Du kan också ge Google gäst användare en direkt länk till ett program eller en resurs, så länge den här länken innehåller din klient information, till exempel `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>` . 
 
 ## <a name="step-1-configure-a-google-developer-project"></a>Steg 1: Konfigurera ett Google Developer-projekt
 Börja med att skapa ett nytt projekt i Google Developer-konsolen för att hämta ett klient-ID och en klient hemlighet som du senare kan lägga till i Azure AD. 
-1. Gå till Google-API: https://console.developers.google.comerna på och logga in med ditt Google-konto. Vi rekommenderar att du använder ett delat team Google-konto.
+1. Gå till Google-API: erna på https://console.developers.google.com och logga in med ditt Google-konto. Vi rekommenderar att du använder ett delat team Google-konto.
 2. Skapa ett nytt projekt: Välj **skapa projekt**på instrument panelen och välj sedan **skapa**. På sidan nytt projekt anger du ett **projekt namn**och väljer sedan **skapa**.
    
    ![Skärm bild som visar en ny projekt sida för Google](media/google-federation/google-new-project.png)
@@ -77,7 +77,7 @@ Börja med att skapa ett nytt projekt i Google Developer-konsolen för att hämt
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(där `<directory id>` är ditt katalog-ID)
    
      > [!NOTE]
-     > Om du vill hitta ditt katalog-ID https://portal.azure.comgår du till och väljer **Egenskaper** under **Azure Active Directory**och kopierar **katalog-ID: t**.
+     > Om du vill hitta ditt katalog-ID går du till https://portal.azure.com och väljer **egenskaper** under **Azure Active Directory**och kopierar **katalog-ID: t**.
 
    ![Skärm bild som visar avsnittet behöriga omdirigerings-URI: er](media/google-federation/google-create-oauth-client-id.png)
 
@@ -90,15 +90,15 @@ Nu ska du ange Google-klient-ID och klient hemlighet, antingen genom att ange de
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Konfigurera Google Federation i Azure AD-portalen 
 1. Gå till [Azure Portal](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
-2. Välj **organisations relationer**.
-3. Välj **identitets leverantörer**och klicka sedan på **Google** -knappen.
+2. Välj **organisations relationer** (eller **externa identiteter**).
+3. Välj **alla identitets leverantörer**och klicka sedan på **Google** -knappen.
 4. Ange ett namn. Ange sedan det klient-ID och den klient hemlighet som du fick tidigare. Välj **Spara**. 
 
    ![Skärm bild som visar sidan Lägg till Google Identity Provider](media/google-federation/google-identity-provider.png)
 
 #### <a name="to-configure-google-federation-by-using-powershell"></a>Konfigurera Google Federation med PowerShell
 1. Installera den senaste versionen av Azure AD PowerShell för Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. Kör följande kommando: `Connect-AzureAD`.
+2. Kör följande kommando: `Connect-AzureAD` .
 3. Logga in med det hanterade globala administratörs kontot vid inloggnings meddelandet.  
 4. Kör följande kommando: 
    
@@ -112,8 +112,8 @@ Du kan ta bort din Google Federation-installation. Om du gör det kan Google gä
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Ta bort Google Federation i Azure AD-portalen: 
 1. Gå till [Azure Portal](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
-2. Välj **organisations relationer**.
-3. Välj **identitets leverantörer**.
+2. Välj **organisations relationer** (eller **externa identiteter**).
+3. Välj **alla identitets leverantörer**.
 4. Välj snabb menyn (**...**) på **Google** -raden och välj sedan **ta bort**. 
    
    ![Skärm bild som visar alternativet ta bort för den sociala identitets leverantören](media/google-federation/google-social-identity-providers.png)

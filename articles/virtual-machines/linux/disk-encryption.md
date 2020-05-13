@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 027efd268ee80fbaf921b42d09cc424c8e8483ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9266f20d276b0b8d315cc83cd96fc235c79e773
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82136931"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198960"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på Server sidan av Azure Managed disks
 
@@ -75,11 +75,11 @@ För närvarande har Kundhanterade nycklar följande begränsningar:
 - Endast ["mjuka" och "hårda" RSA-nycklar](../../key-vault/keys/about-keys.md) med storleken 2048 stöds, inga andra nycklar eller storlekar.
 - Diskar som har skapats från anpassade avbildningar som krypteras med kryptering på Server sidan och Kundhanterade nycklar måste krypteras med samma Kundhanterade nycklar och måste finnas i samma prenumeration.
 - Ögonblicks bilder som har skapats från diskar som är krypterade med kryptering på Server sidan och Kundhanterade nycklar måste vara krypterade med samma Kundhanterade nycklar.
-- Anpassade avbildningar som krypteras med kryptering på Server sidan och Kundhanterade nycklar kan inte användas i det delade avbildnings galleriet.
 - Alla resurser som är relaterade till dina Kundhanterade nycklar (Azure Key Vaults, disk krypterings uppsättningar, virtuella datorer, diskar och ögonblicks bilder) måste finnas i samma prenumeration och region.
 - Diskar, ögonblicks bilder och bilder som är krypterade med Kundhanterade nycklar kan inte flyttas till en annan prenumeration.
 - Om du använder Azure Portal för att skapa disk krypterings uppsättningen kan du inte använda ögonblicks bilder för tillfället.
 - Hanterade diskar som krypterats med Kundhanterade nycklar kan inte också krypteras med Azure Disk Encryption.
+- Information om hur du använder Kundhanterade nycklar med delade avbildnings gallerier finns i för [hands version: Använd Kundhanterade nycklar för att kryptera avbildningar](../image-version-encryption.md).
 
 ### <a name="cli"></a>CLI
 #### <a name="setting-up-your-azure-key-vault-and-diskencryptionset"></a>Konfigurera din Azure Key Vault och DiskEncryptionSet

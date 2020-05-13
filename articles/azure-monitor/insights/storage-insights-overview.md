@@ -1,25 +1,25 @@
 ---
-title: Övervaka Azure Storage tjänster med Azure Monitor för lagring (för hands version) | Microsoft Docs
+title: Övervaka Azure Storage tjänster med Azure Monitor för lagring | Microsoft Docs
 description: Den här artikeln beskriver Azure Monitor för lagrings funktionen som ger lagrings administratörer en snabb förståelse för prestanda-och användnings problem med deras Azure Storage-konton.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/15/2019
-ms.openlocfilehash: 497ea5a27a56ed5f8192b694fac1c52c8bf57ca6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: b0fd0343e7a072c0da0a5af0fa2d39eb2284cb06
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691118"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199960"
 ---
-# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring (för hands version)
+# <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Övervaka lagrings tjänsten med Azure Monitor för lagring
 
-Azure Monitor för lagring (för hands version) ger omfattande övervakning av dina Azure Storage-konton genom att leverera en enhetlig vy över dina Azure Storage tjänsters prestanda, kapacitet och tillgänglighet. Du kan se lagrings kapacitet och prestanda på två sätt, Visa direkt från ett lagrings konto eller vy från Azure Monitor för att se flera grupper av lagrings konton. 
+Azure Monitor för lagring ger omfattande övervakning av dina Azure Storage-konton genom att leverera en enhetlig vy över dina Azure Storage tjänsters prestanda, kapacitet och tillgänglighet. Du kan se lagrings kapacitet och prestanda på två sätt, Visa direkt från ett lagrings konto eller vy från Azure Monitor för att se flera grupper av lagrings konton. 
 
-Den här artikeln hjälper dig att förstå upplevelsen Azure Monitor för lagring (för hands version) som ger till gång till kunskaps bara information om hälso tillstånd och prestanda för lagrings konton i stor skala, med möjlighet att fokusera på hotspots och diagnostisera svars-, begränsnings-och tillgänglighets problem.
+Den här artikeln hjälper dig att förstå den upplevelse Azure Monitor för lagrings utrymme som ger dig möjlighet att härleda användbara kunskaper om hälsa och prestanda för lagrings konton i stor skala, med en möjlighet att fokusera på hotspots och diagnostisera svars tid, begränsningar och tillgänglighets problem.
 
-## <a name="introduction-to-azure-monitor-for-storage-preview"></a>Introduktion till Azure Monitor för lagring (för hands version)
+## <a name="introduction-to-azure-monitor-for-storage"></a>Introduktion till Azure Monitor för lagring
 
 Innan du simhopp i upplevelsen bör du förstå hur den visar och visualiserar information. Oavsett om du väljer lagrings funktionen direkt från ett lagrings konto eller från Azure Monitor, ger Azure Monitor för lagring en konsekvent upplevelse. 
 
@@ -46,9 +46,9 @@ Från Azure Monitor kan du Visa information om transaktion, svars tid och kapaci
 
 Utför följande steg för att visa användning och tillgänglighet för dina lagrings konton för alla dina prenumerationer.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
-2. Välj **övervaka** i rutan till vänster i Azure Portal och välj **lagrings konton (förhands granskning)** under avsnittet **insikter** .
+2. Välj **övervaka** i rutan till vänster i Azure Portal och välj **lagrings konton**under avsnittet **insikter** .
 
     ![Vy över flera lagrings konton](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -92,7 +92,7 @@ Få åtkomst till Azure Monitor for VMs direkt från ett lagrings konto:
 
 1. I Azure Portal väljer du lagrings konton.
 
-2. Välj ett lagrings konto i listan. I avsnittet övervakning väljer du insikter (för hands version).
+2. Välj ett lagrings konto i listan. I avsnittet övervakning väljer du insikter.
 
     ![Sidan vald översikt över lagrings konto](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
@@ -138,7 +138,7 @@ Du kan fästa något av mått avsnitten på en Azure-instrumentpanel genom att v
 
 ![Exempel på export av arbets bokens rutnäts resultat](./media/storage-insights-overview/workbook-export-example.png)
 
-## <a name="customize-azure-monitor-for-storage-preview"></a>Anpassa Azure Monitor för lagring (för hands version)
+## <a name="customize-azure-monitor-for-storage"></a>Anpassa Azure Monitor för lagring
 
 I det här avsnittet beskrivs vanliga scenarier för att redigera arbets boken för att anpassa stöd för dina data analys behov:
 
@@ -155,7 +155,7 @@ Anpassningarna sparas i en anpassad arbets bok för att förhindra att standard 
 
 Du kan konfigurera en **Översikt över** flera prenumerationer och lagrings konton för att omfånget till en viss **prenumeration eller ett** lagrings konto på varje körning genom att utföra följande steg.
 
-1. Välj **övervakare** från portalen och välj sedan **lagrings konton (förhands granskning)** i den vänstra rutan.
+1. Välj **övervakare** från portalen och välj sedan **lagrings konton** i den vänstra rutan.
 
 2. I **översikts** arbets boken väljer du **Redigera**i kommando fältet.
 
@@ -176,7 +176,7 @@ I vårt exempel arbetar vi med arbets boken med flera prenumerationer och lagrin
 
 Du kan utföra samma ändringar mot något av de förbyggda **felen**, **prestanda**, **tillgänglighet**och **kapacitets** arbets böcker.
 
-1. Välj **övervakare** från portalen och välj sedan **lagrings konton (förhands granskning)** i den vänstra rutan.
+1. Välj **övervakare** från portalen och välj sedan **lagrings konton** i den vänstra rutan.
 
 2. Välj **kapacitet** för att växla till arbets boken kapacitet och i kommando fältet väljer du **Redigera** från kommando fältet.
 
@@ -210,7 +210,7 @@ I det här exemplet arbetar vi med arbets boken lagrings konto kapacitet och dem
 
 1. Välj **lagrings konton** från portalen och välj sedan ett lagrings konto i listan.
 
-2. Välj **Insights (förhands granskning)** i det vänstra fönstret.
+2. Välj **insikter** i den vänstra rutan.
 
 3. I arbets boken väljer du **tillgänglighet** för att växla till tillgänglighets arbets boken och väljer sedan **Redigera** från kommando fältet. 
 
@@ -228,11 +228,11 @@ I det här exemplet arbetar vi med arbets boken lagrings konto kapacitet och dem
 
 ## <a name="troubleshooting"></a>Felsökning
 
-I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för lagring (för hands version). Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
+I det här avsnittet får du hjälp med diagnos och fel sökning av några vanliga problem som kan uppstå när du använder Azure Monitor för lagring. Använd listan nedan för att hitta den information som är relevant för det aktuella problemet.
 
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>Lösa problem med prestanda, kapacitet eller tillgänglighet
 
-Information om hur du felsöker eventuella lagrings problem som du identifierar med Azure Monitor för lagring (för hands version) finns i [fel söknings vägledningen](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)för Azure Storage.  
+Information om hur du felsöker eventuella lagrings problem som du identifierar med Azure Monitor för lagring finns i vägledning för Azure Storage [fel sökning](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance).  
 
 ### <a name="why-can-i-only-see-200-storage-accounts"></a>Varför kan jag bara se 200-lagrings konton?
 
@@ -311,8 +311,8 @@ Rubriken på arbets bokens eller arbets bokens steg som fästs på en instrument
 
 Om du vill ändra namnet på ett steg i din sparade arbets bok väljer du redigera under steget och väljer sedan växeln längst ned i inställningarna.
 
-![Välj Redigera längst ned i ett arbets boks steg för att öppna inställningarna](./media/storage-insights-overview/fqa-edit.png)
-![i Inställningar Välj växeln längst ned för att kunna ändra steg namnet](./media/storage-insights-overview/fqa-change-name.png)
+![Välj Redigera längst ned i ett arbets boks steg för att öppna inställningarna ](./media/storage-insights-overview/fqa-edit.png)
+ ![ i Inställningar Välj växeln längst ned för att kunna ändra steg namnet](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

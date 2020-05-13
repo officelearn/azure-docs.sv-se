@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fb10863334392b207c7cfd2172dc9260cf15e2d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f69069b0c62f1e96c16441e99fbadac45728743
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74272906"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199439"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster
 
@@ -36,11 +36,9 @@ Som standard kan alla användare, inklusive gäster, bjuda in gäst användare.
 ### <a name="to-configure-external-collaboration-settings"></a>Konfigurera inställningar för externt samarbete:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som klient organisations administratör.
-2. Välj **Azure Active Directory** > **Users** > **användar inställningar**för användare.
-3. Under **externa användare**väljer du **Hantera inställningar för externt samarbete**.
-   > [!NOTE]
-   > De **externa samarbets inställningarna** är också tillgängliga på sidan **organisations relationer** . Gå till**Inställningar**för **organisations relationer** > i Azure Active Directory under **Hantera**.
-4. På sidan **Inställningar för externt samarbete** väljer du de principer som du vill aktivera.
+2. Välj **Azure Active Directory**.
+3. Välj inställningar för **organisations relationer**  >  **Settings** (eller Välj **externa identiteter**  >  **externa samarbets inställningar**).
+6. På sidan **Inställningar för externt samarbete** väljer du de principer som du vill aktivera.
 
    ![Inställningar för externt samarbete](./media/delegate-invitations/control-who-to-invite.png)
 

@@ -5,15 +5,18 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/05/2019
-ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 83c33e6935de7c9ed9f1b2c9f97aa18dd6b10f01
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249612"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199914"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Utföra kors resurs logg frågor i Azure Monitor  
+
+> [!IMPORTANT]
+> Om du använder en [arbets yta som baseras på arbets ytans Application Insights resurs](../app/create-workspace-resource.md) telemetri lagras i en Log Analytics arbets yta med alla andra loggdata. Använd log ()-uttrycket för att skriva en fråga som inkluderar program i flera arbets ytor. För flera program i samma arbets yta behöver du inte en fråga om flera arbets ytor.
 
 Tidigare med Azure Monitor kunde du bara analysera data från den aktuella arbets ytan och den begränsade möjligheten att fråga över flera arbets ytor som definierats i din prenumeration.  Dessutom kan du bara söka efter telemetri som samlats in från ditt webbaserade program med Application Insights direkt i Application Insights eller från Visual Studio. Detta gjorde också det en utmaning att internt analysera drift-och program data tillsammans.
 
@@ -103,7 +106,7 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Använda frågor över flera resurser för flera resurser
 När du använder frågor över flera resurser för att korrelera data från flera arbets ytor Log Analytics och Application Insights resurser, kan frågan bli komplex och svår att underhålla. Du bör använda [funktioner i Azure Monitor logg frågor](functions.md) för att avgränsa fråge logiken från omfånget för frågans resurser, vilket fören klar fråge strukturen. I följande exempel visas hur du kan övervaka flera Application Insights resurser och visualisera antalet misslyckade förfrågningar efter program namn. 
 
-Skapa en fråga som refererar till omfånget för Application Insights resurser. `withsource= SourceApp` Kommandot lägger till en kolumn som anger det program namn som skickade loggen. [Spara frågan som funktion](functions.md#create-a-function) med aliaset _applicationsScoping_.
+Skapa en fråga som refererar till omfånget för Application Insights resurser. `withsource= SourceApp`Kommandot lägger till en kolumn som anger det program namn som skickade loggen. [Spara frågan som funktion](functions.md#create-a-function) med aliaset _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources

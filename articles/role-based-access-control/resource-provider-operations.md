@@ -13,20 +13,18 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1be7ceb9b0560b87d0917fdb57b2c21e0b050db9
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839104"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199570"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Åtgärder för Azure Resource Manager Resource Provider
 
-Den här artikeln visar de åtgärder som är tillgängliga för varje Azure Resource Manager-resursprovider. De här åtgärderna kan användas i [Azures anpassade roller](custom-roles.md) för att ge detaljerad åtkomst kontroll till resurser i Azure. Åtgärds strängar har följande format: `{Company}.{ProviderName}/{resourceType}/{action}`. En lista över hur resurs namn rymder mappar till Azure-tjänster finns i [matcha Resource Provider to service](../azure-resource-manager/management/azure-services-resource-providers.md).
+Den här artikeln visar de åtgärder som är tillgängliga för varje Azure Resource Manager-resursprovider. De här åtgärderna kan användas i [Azures anpassade roller](custom-roles.md) för att ge detaljerad åtkomst kontroll till resurser i Azure. Åtgärds strängar har följande format: `{Company}.{ProviderName}/{resourceType}/{action}` . En lista över hur resurs namn rymder mappar till Azure-tjänster finns i [matcha Resource Provider to service](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 Resurs leverantörs åtgärderna utvecklas alltid. Använd [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) eller [AZ Provider operation List](/cli/azure/provider/operation#az-provider-operation-list)för att få de senaste åtgärderna.
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="microsoftaad"></a>Microsoft. AAD
 
@@ -2137,7 +2135,7 @@ Azure-tjänst: [Cognitive Services](../cognitive-services/index.yml)
 > | DataAction | Microsoft. CognitiveServices/konton/stavning/stavning/åtgärd | Få resultatet av en stavnings kontroll fråga via GET eller POST. |
 > |  | **konton/TextAnalytics** |  |
 > | DataAction | Microsoft. CognitiveServices/konton/TextAnalytics/språk/åtgärd | API: et returnerar det identifierade språket och ett numeriskt resultat mellan 0 och 1. Poängen nära 1 visar 100% säkerhet som det identifierade språket är sant. Det finns stöd för totalt 120 språk. |
-> | DataAction | Microsoft. CognitiveServices/konton/TextAnalytics/entiteter/åtgärd | API: t returnerar en lista över kända entiteter och allmänna namngivna\"entiteter \"(\"person \"\",\" plats, organisation osv.) i ett visst dokument. |
+> | DataAction | Microsoft. CognitiveServices/konton/TextAnalytics/entiteter/åtgärd | API: t returnerar en lista över kända entiteter och allmänna namngivna entiteter ( \" person \" , \" plats \" , \" organisation \" osv.) i ett visst dokument. |
 > | DataAction | Microsoft. CognitiveServices/Accounts/TextAnalytics/-fras/åtgärd | API: et returnerar en lista med strängar som anger att nyckeln pratar i inmatad text. |
 > | DataAction | Microsoft. CognitiveServices/Accounts/TextAnalytics/sentiment/Action | API:n returnerar en numerisk poäng mellan 0 och 1.<br>Värden närmare 1 anger positiv attityd och värden närmare 0 indikerar negativ attityd.<br>Poängen på 0,5 anger att sentiment saknas (t. ex.<br>ett factoid-uttryck). |
 > |  | **konton/VideoSearch** |  |
@@ -2299,7 +2297,7 @@ Azure-tjänst: [Virtual Machines](../virtual-machines/index.yml), [Virtual Machi
 > | Action | Microsoft. Compute/sharedVMImages/versioner/replikera/åtgärd | Replikera en SharedVMImageVersion till mål regioner |
 > |  | **enheter** |  |
 > | Action | Microsoft. Compute/SKU/Read | Hämtar listan över Microsoft. Compute-SKU: er som är tillgängliga för din prenumeration |
-> |  | **snapshots** |  |
+> |  | **ögonblicks bilder** |  |
 > | Action | Microsoft. Compute/ögonblicks bilder/läsa | Hämta egenskaperna för en ögonblicks bild |
 > | Action | Microsoft. Compute/ögonblicks bilder/skrivning | Skapa en ny ögonblicks bild eller uppdatera en befintlig |
 > | Action | Microsoft. Compute/ögonblicks bilder/ta bort | Ta bort en ögonblicks bild |

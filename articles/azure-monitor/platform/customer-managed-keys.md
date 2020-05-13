@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/07/2020
-ms.openlocfilehash: c78d8d603b6686d382ec7edcccc24d5dacc4745a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2838051d8e75ffbe3b7ecc9fbc655f24b57199e4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982232"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198690"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -20,10 +20,6 @@ Den här artikeln innehåller bakgrunds information och steg för att konfigurer
 Vi rekommenderar att du granskar [begränsningar och](#limitations-and-constraints) begränsningar nedan före konfigurationen.
 
 ## <a name="disclaimers"></a>Ansvarsfriskrivningar
-
-- Azure Monitor CMK är en funktion för tidig åtkomst som är aktive rad för registrerade prenumerationer.
-
-- CMK-distributionen som beskrivs i den här artikeln levereras i produktions kvalitet och stöds, även om det är en tidig åtkomst funktion.
 
 - CMK-funktionen levereras på ett dedikerat Log Analytics kluster, som är ett fysiskt kluster och ett data lager som är lämpligt för kunder som skickar 1 TB per dag eller mer
 
@@ -42,7 +38,7 @@ Inmatade data under de senaste 14 dagarna behålls också i frekvent cache (SSD-
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Så här fungerar CMK i Azure Monitor
 
-Azure Monitor utnyttjar systemtilldelad hanterad identitet för att ge åtkomst till din Azure Key Vault.Systemtilldelad hanterad identitet kan bara kopplas till en enda Azure-resurs. Identiteten för det dedikerade Log Analytics-klustret stöds på kluster nivå och detta anger att CMK-funktionen levereras på ett dedikerat Log Analytics kluster. För att stödja CMK på flera arbets ytor, fungerar en ny Log Analytics *kluster* resurs som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. Det här konceptet upprätthåller identiteten mellan det dedikerade Log Analytics klustret och Log Analytics *kluster* resurs, medan data för associerade arbets ytor skyddas med din Key Vault nyckel. Den dedikerade Log Analytics kluster lagringen använder den hanterade identitet som\'är kopplad till *kluster* resursen för att autentisera och komma åt din Azure Key Vault via Azure Active Directory.
+Azure Monitor utnyttjar systemtilldelad hanterad identitet för att ge åtkomst till din Azure Key Vault.Systemtilldelad hanterad identitet kan bara kopplas till en enda Azure-resurs. Identiteten för det dedikerade Log Analytics-klustret stöds på kluster nivå och detta anger att CMK-funktionen levereras på ett dedikerat Log Analytics kluster. För att stödja CMK på flera arbets ytor, fungerar en ny Log Analytics *kluster* resurs som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. Det här konceptet upprätthåller identiteten mellan det dedikerade Log Analytics klustret och Log Analytics *kluster* resurs, medan data för associerade arbets ytor skyddas med din Key Vault nyckel. Den dedikerade Log Analytics kluster lagringen använder den hanterade identitet som \' är kopplad till *kluster* resursen för att autentisera och komma åt din Azure Key Vault via Azure Active Directory.
 
 ![Översikt över CMK](media/customer-managed-keys/cmk-overview-8bit.png)
 1.    Kundens Key Vault.
@@ -72,7 +68,7 @@ Följande regler gäller:
 
 ## <a name="cmk-provisioning-procedure"></a>Etablerings procedur för CMK
 
-1. Prenumerations-vit listning – detta krävs för den här funktionen för tidig åtkomst
+1. Prenumerations vit listning – för att garantera att vi har den kapacitet som krävs i din region för dedikerade Log Analytics-kluster, måste vi verifiera och vitlista din prenumeration i förväg
 2. Skapa Azure Key Vault och lagra nyckel
 3. Skapa en *kluster* resurs
 5. Bevilja behörighet till din Key Vault
@@ -173,7 +169,7 @@ De här inställningarna är tillgängliga via CLI och PowerShell:
 
 Den här resursen används som en mellanliggande identitets anslutning mellan din Key Vault och dina Log Analytics arbets ytor. När du har fått en bekräftelse på att dina prenumerationer har vit listas skapar du en Log Analytics *kluster* resurs i den region där dina arbets ytor finns.
 
-Du måste ange *kapacitets reservations* nivå (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan ligga inom intervallet 1 000 till 2 000 GB per dag och du kan uppdatera den i steg om 100 senare. Om du behöver kapacitets reservations nivå över 2 000 GB per dag kan du kontakta LAIngestionRate@microsoft.comoss på. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
+Du måste ange *kapacitets reservations* nivå (SKU) när du skapar en *kluster* resurs. *Kapacitets reservations* nivån kan ligga inom intervallet 1 000 till 2 000 GB per dag och du kan uppdatera den i steg om 100 senare. Om du behöver kapacitets reservations nivå över 2 000 GB per dag kan du kontakta oss på LAIngestionRate@microsoft.com . [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
     
 Egenskapen *billingType* bestämmer fakturerings behörigheten för *kluster* resursen och dess data:
 - *kluster* (standard)--faktureringen tillskrivs till den prenumeration som är värd för *kluster* resursen
@@ -420,16 +416,17 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/
 
 ## <a name="cmk-kek-revocation"></a>CMK (KEK) åter kallelse
 
-Du kan återkalla åtkomsten till dina data genom att inaktivera nyckeln eller ta bort *kluster* resurs åtkomst principen i Key Vault. Azure Monitor-lagringen kommer alltid att respektera ändringar i nyckel behörigheter inom en timme, vanligt vis snart, och lagring kommer att bli otillgänglig. Data som hämtas till arbets ytor som är associerade med din *kluster* resurs släpps och frågor kommer att Miss förväntas. Tidigare inmatade data är inte tillgängliga i Azure Monitor lagring så länge som du är *kluster* resurs och dina arbets ytor inte tas bort. Otillgängliga data regleras av data bevarande principen och kommer att rensas när kvarhållning har nåtts. 
+Du kan återkalla åtkomsten till data genom att inaktivera nyckeln eller ta bort *kluster* resurs åtkomst principen i Key Vault. Den dedikerade Log Analytics kluster lagringen kommer alltid att respektera ändringar i nyckel behörigheter inom en timme eller snart, och lagringen kommer att bli otillgänglig. Data som hämtas till arbets ytor som är associerade med *kluster* resursen tas bort och frågor kommer att Miss kopie ras. Tidigare inmatade data är inte tillgängliga i lagringen som när *kluster* resursen och dina arbets ytor inte tas bort. Otillgängliga data regleras av data bevarande principen och kommer att rensas när kvarhållning har nåtts. 
 
-Inmatade data under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men tas bort vid nyckel återkallnings åtgärden och blir otillgängliga.
+Inmatade data under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Detta tas bort vid nyckel återkallnings åtgärden och blir oåtkomlig även.
 
-Lagringen avsöker regelbundet din Key Vault för att försöka att packa upp krypterings nyckeln och en gång till, men data inmatningen och frågan återupptas inom 30 minuter.
+Lagringen avsöker regelbundet Key Vault för att försöka att packa upp krypterings nyckeln och en gång till, så fortsätter data inmatningen och frågan att återupptas inom 30 minuter.
 
 ## <a name="cmk-kek-rotation"></a>CMK (KEK) rotation
 
-Rotationen av CMK kräver en explicit uppdatering av *kluster* resursen med den nya nyckel versionen i Azure Key Vault. Om du vill uppdatera Azure Monitor med din nya nyckel version följer du anvisningarna i steget uppdatera *kluster* resurs med information om nyckel identifierare. Om du uppdaterar din nyckel version i Key Vault och inte uppdaterar informationen om den nya nyckel identifieraren i *kluster* resursen, kommer Azure Monitor Storage att fortsätta använda din tidigare nyckel.
-Alla dina data är tillgängliga efter nyckel rotations åtgärden, inklusive data som matats in före rotationen och efter det, eftersom alla data förblir krypterade av konto krypterings nyckeln (AEK) medan AEK nu krypteras av din nya KEK-version (Key Encryption Key).
+Rotationen av CMK kräver explicit uppdatering av *kluster* resursen med den nya nyckel versionen i Azure Key Vault. Följ anvisningarna i steget uppdatera *kluster* resurs med information om nyckel identifierare. Om du inte uppdaterar den nya informationen om nyckel identifierare i *kluster* resursen, fortsätter den dedikerade Log Analytics kluster lagringen att använda din tidigare nyckel.
+
+Alla dina data är tillgängliga efter nyckel rotations åtgärden, inklusive data som matats in före rotationen och efter det, eftersom data alltid krypteras med konto krypterings nyckeln (AEK) medan AEK nu krypteras med den nya KEK-versionen (Key Encryption Key) i Key Vault.
 
 ## <a name="limitations-and-constraints"></a>Begränsningar och begränsningar
 
@@ -575,8 +572,7 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, inklusive da
 
 - **Återställa *kluster* resursen och dina data** 
   
-  En *kluster* resurs som togs bort under de senaste 14 dagarna är i läget för tyst Borttagning och kan återställas. Detta utförs manuellt av produkt gruppen för närvarande. Använd din Microsoft-kanal för återställnings begär Anden.
-
+  En *kluster* resurs som togs bort under de senaste 14 dagarna är i läget för tyst Borttagning och kan återställas med sina data. Eftersom alla arbets ytor har avassocierats från *kluster* resursen vid borttagning måste du associera dina arbets ytor igen efter återställningen för CMK-kryptering. Återställnings åtgärden utförs manuellt av produkt gruppen för närvarande. Använd din Microsoft-kanal för återställnings begär Anden.
 
 ## <a name="troubleshooting"></a>Felsökning
 - Beteende med Key Vault tillgänglighet
@@ -595,3 +591,10 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, inklusive da
 - Om du får ett konflikt fel när du skapar en *kluster* resurs – det kan bero på att du har tagit bort *kluster* resursen under de senaste 14 dagarna och att den är i en mjuk borttagnings period. *Kluster* resurs namnet är reserverat under den mjuka borttagnings perioden och du kan inte skapa ett nytt kluster med det namnet. Namnet släpps efter den mjuka borttagnings perioden när *kluster* resursen tas bort permanent.
 
 - Om du uppdaterar *kluster* resursen medan en åtgärd pågår, fungerar inte åtgärden.
+
+- Om du inte kan distribuera *kluster* resursen kontrollerar du att Azure Key Vault, *kluster*   resursen och tillhör ande Log Analytics arbets ytor finns i samma region. Kan finnas i olika prenumerationer.
+
+- Om du uppdaterar din nyckel version i Key Vault och inte uppdaterar informationen om den nya nyckel identifieraren i *kluster* resursen, fortsätter Log Analytics klustret att använda din tidigare nyckel och dina data blir otillgängliga. Uppdatera informationen om den nya nyckel identifieraren i *kluster* resursen för att återuppta data inmatning och möjlighet att fråga data.
+
+- För support och hjälp som är relaterat till kund Managed Key använder du dina kontakter i Microsoft.
+

@@ -11,17 +11,17 @@ ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 174ee07e389e598fed6ed8487e60303fbce81f77
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 444cb2c8378ad873beb61116c5c4387ad3c59761
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416037"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200342"
 ---
 # <a name="connect-to-azure-synapse-analytics-with-visual-studio-and-ssdt"></a>Ansluta till Azure Synapse Analytics med Visual Studio och SSDT
 > [!div class="op_single_selector"]
+> * [Azure Data Studio](../sql/get-started-azure-data-studio.md)
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [SQLCMD](../sql/get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -39,7 +39,7 @@ Du behöver följande för att använda de här självstudierna:
 
 ## <a name="1-connect-to-your-sql-pool"></a>1. Anslut till din SQL-pool
 1. Öppna Visual Studio 2019.
-2. Öppna SQL Server Object Explorer genom att välja **Visa** > **SQL Server Object Explorer**.
+2. Öppna SQL Server Object Explorer genom att välja **Visa**  >  **SQL Server Object Explorer**.
    
     ![SQL Server Object Explorer](./media/sql-data-warehouse-query-visual-studio/open-ssdt.png)
 3. Klicka på ikonen **lägg till SQL Server**.
@@ -51,7 +51,7 @@ Du behöver följande för att använda de här självstudierna:
    
    * **Server namn**. Ange det **servernamn** som du identifierade tidigare.
    * **Autentisering**. Välj **SQL Server-autentisering** eller **Active Directory-integrerad autentisering**.
-   * **Användarnamn** och **lösenord**. Ange användarnamn och lösenord om du valde SQL Server-autentisering ovan.
+   * **Användar namn** och **lösen ord**. Ange användarnamn och lösenord om du valde SQL Server-autentisering ovan.
    * Klicka på **Anslut**.
 5. Expandera din Azure SQL-server för att utforska. Du kan se de databaser som är associerade med servern. Expandera AdventureWorksDW för att se tabellerna i din exempeldatabas.
    
@@ -69,7 +69,7 @@ När du nu etablerat en anslutning till din databas, är det dags att skriva en 
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Kör frågan genom att klicka på den gröna pilen eller Använd följande genväg: `CTRL` + `SHIFT` + `E`.
+4. Kör frågan genom att klicka på den gröna pilen eller Använd följande genväg: `CTRL` + `SHIFT` + `E` .
    
     ![Kör frågan](./media/sql-data-warehouse-query-visual-studio/run-query.png)
 5. Titta på frågeresultaten. I det här exemplet har tabellen FactInternetSales 60398 rader.

@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: mimart
 ms.reviewer: dhanyahk
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8dbaa169bbe85a06694bde9719924f2006623cc
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: b117309a3ccc9893890d82c2d0b0d2cb0c6e7bca
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890327"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197877"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Vill du arkivera vad som är nytt i Azure Active Directory?
 
@@ -50,7 +50,7 @@ Mer information om det nya riskDetection-API: et finns i [referens dokumentation
 
 **Typ:** Plan för ändrings **tjänst kategori:** App proxy **produkt kapacitet:** Access Control
 
-Ett par veckor före versionen av Chrome 80-webbläsaren, planerar vi att uppdatera hur programproxy-cookies behandlar attributet **SameSite** . I och med lanseringen av Chrome 80 behandlas alla cookies som inte anger attributet **SameSite** som om det var inställt på `SameSite=Lax`.
+Ett par veckor före versionen av Chrome 80-webbläsaren, planerar vi att uppdatera hur programproxy-cookies behandlar attributet **SameSite** . I och med lanseringen av Chrome 80 behandlas alla cookies som inte anger attributet **SameSite** som om det var inställt på `SameSite=Lax` .
 
 För att undvika potentiellt negativa konsekvenser på grund av den här ändringen uppdaterar vi programproxyns åtkomst och sessionscookies genom att:
 
@@ -105,7 +105,7 @@ Detaljerad information om de här nya funktionerna, inklusive hur du använder d
 
 **Typ:** Ny funktions **tjänst kategori:** autentiseringar (inloggningar) **produkt kapacitet:** övervakning & rapportering
 
-Vi har lagt till en ny **mina inloggnings** sida (https://mysignins.microsoft.com) för att låta din organisations användare visa sin senaste inloggnings historik för att söka efter en ovanlig aktivitet. På den nya sidan kan användarna se:
+Vi har lagt till en ny **mina inloggnings** sida ( https://mysignins.microsoft.com) för att låta din organisations användare visa sin senaste inloggnings historik för att söka efter en ovanlig aktivitet. På den nya sidan kan användarna se:
 
 - Om någon försöker gissa sitt lösen ord.
 
@@ -268,7 +268,7 @@ Mer information om hur du använder den nya slut punkten finns i [using the admi
 
 I september 2019 har vi lagt till dessa 29 nya appar med stöd för federation i app-galleriet:
 
-[ScheduleLook](https://schedulelook.bbsonlineservices.net/), [MS Azure SSO-åtkomst för Ethidex Compliance&trade; Office – enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial), [iserver-portalen](https://docs.microsoft.com/azure/active-directory/saas-apps/iserver-portal-tutorial), [SKYSITE](https://docs.microsoft.com/azure/active-directory/saas-apps/skysite-tutorial), [Concur res-och utgift](https://docs.microsoft.com/azure/active-directory/saas-apps/concur-travel-and-expense-tutorial), `https://apps.yeeflow.com/` [WorkBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/workboard-tutorial),, Arc [-](https://app.amelio.co/) [anläggningar](https://docs.microsoft.com/azure/active-directory/saas-apps/arc-facilities-tutorial), [Luware Stratus-team](https://stratus.emea.luware.cloud/login), [breda idéer](https://wideideas.online/wideideas/), prisma- [moln](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), JDLT- [klient hubb](https://clients.jdlt.co.uk/login), [RENRAKU,](https://docs.microsoft.com/azure/active-directory/saas-apps/renraku-tutorial) [sealpath Brings säker webbläsare](https://protection.sealpath.com/SealPathInterceptorWopiSaas/Open/InstallSealPathEditorOneDrive), [Prisma moln](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), `https://app.penneo.com/`, `https://app.testhtm.com/settings/email-integration`, [Cintoo Cloud](https://aec.cintoo.com/login), [Whitesource](https://docs.microsoft.com/azure/active-directory/saas-apps/whitesource-tutorial), [värd arvs online SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/hosted-heritage-online-sso-tutorial), [IDC](https://docs.microsoft.com/azure/active-directory/saas-apps/idc-tutorial), [CakeHR](https://docs.microsoft.com/azure/active-directory/saas-apps/cakehr-tutorial), [BIS](https://docs.microsoft.com/azure/active-directory/saas-apps/bis-tutorial), [COO Kai team build](https://ms-contacts.coo-kai.jp/), [SonarQube](https://docs.microsoft.com/azure/active-directory/saas-apps/sonarqube-tutorial), [Adobe Identity Management](https://docs.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-tutorial), [identifierings förmåner SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/discovery-benefits-sso-tutorial)`https://itask.yipinapp.com/`
+[ScheduleLook](https://schedulelook.bbsonlineservices.net/), [MS Azure SSO-åtkomst för Ethidex Compliance &trade; Office – enkel inloggning](https://docs.microsoft.com/azure/active-directory/saas-apps/ms-azure-sso-access-for-ethidex-compliance-office-tutorial), [iserver-portalen](https://docs.microsoft.com/azure/active-directory/saas-apps/iserver-portal-tutorial), [SKYSITE](https://docs.microsoft.com/azure/active-directory/saas-apps/skysite-tutorial), [Concur res-och utgift](https://docs.microsoft.com/azure/active-directory/saas-apps/concur-travel-and-expense-tutorial), [WorkBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/workboard-tutorial), `https://apps.yeeflow.com/` , Arc- [anläggningar](https://docs.microsoft.com/azure/active-directory/saas-apps/arc-facilities-tutorial), [Luware Stratus-team](https://stratus.emea.luware.cloud/login), [breda idéer](https://wideideas.online/wideideas/), [Prisma-moln](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), JDLT- [klient hubb](https://clients.jdlt.co.uk/login), [RENRAKU](https://docs.microsoft.com/azure/active-directory/saas-apps/renraku-tutorial), [sealpath Brings säker webbläsare](https://protection.sealpath.com/SealPathInterceptorWopiSaas/Open/InstallSealPathEditorOneDrive), [Prisma moln](https://docs.microsoft.com/azure/active-directory/saas-apps/prisma-cloud-tutorial), `https://app.penneo.com/` , `https://app.testhtm.com/settings/email-integration` , [Cintoo Cloud](https://aec.cintoo.com/login), [Whitesource](https://docs.microsoft.com/azure/active-directory/saas-apps/whitesource-tutorial), [värd arvs online SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/hosted-heritage-online-sso-tutorial), [IDC](https://docs.microsoft.com/azure/active-directory/saas-apps/idc-tutorial), [CakeHR](https://docs.microsoft.com/azure/active-directory/saas-apps/cakehr-tutorial), [BIS](https://docs.microsoft.com/azure/active-directory/saas-apps/bis-tutorial), [COO Kai team build](https://ms-contacts.coo-kai.jp/), [SonarQube](https://docs.microsoft.com/azure/active-directory/saas-apps/sonarqube-tutorial), [Adobe Identity Management](https://docs.microsoft.com/azure/active-directory/saas-apps/adobe-identity-management-tutorial), [identifierings förmåner SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/discovery-benefits-sso-tutorial) [Amelio](https://app.amelio.co/)`https://itask.yipinapp.com/`
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](https://aka.ms/appstutorial). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](https://aka.ms/azureadapprequest).
 
@@ -427,7 +427,7 @@ Mer information finns i [så här fungerar det: lösen ords återställning](htt
 
 **Typ:** Fast **tjänst kategori:** autentiseringar (inloggningar) **produkt kapacitet:** användarautentisering
 
-Från och med Azure AD Authentication Library (ADAL.NET) version 5.0.0 – för hands version måste Apps-utvecklare [serialisera en cache per konto för webbappar och webb-API: er](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). I annat fall kan vissa scenarier som använder [sig av Flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow), tillsammans med vissa speciella användnings fall av `UserAssertion`, resultera i en höjning av behörighet. För att undvika den här säkerhets risken ignorerar ADAL.NET nu det delade cacheminnet för Microsoft Authentication Library för dotNET (MSAL.NET) för scenarier med olika förutsättningar.
+Från och med Azure AD Authentication Library (ADAL.NET) version 5.0.0 – för hands version måste Apps-utvecklare [serialisera en cache per konto för webbappar och webb-API: er](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization#custom-token-cache-serialization-in-web-applications--web-api). I annat fall kan vissa scenarier som använder [sig av Flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-app-configuration#on-behalf-of-flow), tillsammans med vissa speciella användnings fall av `UserAssertion` , resultera i en höjning av behörighet. För att undvika den här säkerhets risken ignorerar ADAL.NET nu det delade cacheminnet för Microsoft Authentication Library för dotNET (MSAL.NET) för scenarier med olika förutsättningar.
 
 Mer information om det här problemet finns i [Azure Active Directory behörighets bibliotekets utökning av behörighets sårbarhet](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1258).
 
@@ -439,7 +439,7 @@ Mer information om det här problemet finns i [Azure Active Directory behörighe
 
 I augusti 2019 har vi lagt till dessa 26 nya appar med stöd för federation i app-galleriet:
 
-[Civic-plattform](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon-verksamhet](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Viareports Inativ portal (Europa)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial), [Azure Databricks](https://azure.microsoft.com/services/databricks), [Robin](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [Academy-närvaro](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), [prioritets mat ris](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [CPQSync av Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee-tutorial), [leverera.&trade; media portal](https://portal.deliver.media), [Frontline utbildning](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD Connect](https://www.stashcat.com), [Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), ProNovos- [analys](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial) [, Sigstr,](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial) [Darwinbox,](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial) [titta efter färger](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [nät](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial)och [EAB navigera i strategiska vård](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
+[Civic-plattform](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon-verksamhet](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Viareports Inativ portal (Europa)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial), [Azure Databricks](https://azure.microsoft.com/services/databricks), [Robin](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [Academy-närvaro](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), [prioritets mat ris](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [CPQSync av Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee-tutorial), [leverera. Media &trade; Portal](https://portal.deliver.media), [Frontline utbildning](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD Connect](https://www.stashcat.com), [Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), ProNovos- [analys](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial) [, Sigstr,](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial) [Darwinbox,](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial) [titta efter färger](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [nät](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial)och [EAB navigera i strategiska vård](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](https://aka.ms/appstutorial). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](https://aka.ms/azureadapprequest).
 
@@ -478,7 +478,7 @@ Mer information finns i [Hantera dynamiska medlemskaps regler](https://docs.micr
 
 **Typ:** Ändrad funktions **tjänst kategori:** åtkomst granskningar **produkt kapacitet:** identitets styrning
 
-Vi har introducerat en ny Microsoft Graph app- `AccessReview.ReadWrite.Membership`behörighet, som gör det möjligt för appar att automatiskt skapa och hämta åtkomst granskningar för grupp medlemskap och app-tilldelningar. Den här behörigheten kan användas av schemalagda jobb eller som en del av din automatisering, utan att det krävs någon inloggad användar kontext.
+Vi har introducerat en ny Microsoft Graph app-behörighet, `AccessReview.ReadWrite.Membership` som gör det möjligt för appar att automatiskt skapa och hämta åtkomst granskningar för grupp medlemskap och app-tilldelningar. Den här behörigheten kan användas av schemalagda jobb eller som en del av din automatisering, utan att det krävs någon inloggad användar kontext.
 
 Mer information finns i exempel på [hur du skapar åtkomst granskningar för Azure AD med hjälp av Microsoft Graph app-behörigheter med PowerShell-bloggen](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241).
 
@@ -517,7 +517,7 @@ Mer information om förbättrad säkerhets information finns i vår [Administrat
     När du har sparat inställningarna har du inte längre till gång till den gamla säkerhets informationen.
 
 >[!Important]
->Om du inte slutför de här stegen före den 25 september 2019 aktive ras din Azure Active Directory klient automatiskt för den förbättrade upplevelsen. Om du har frågor kan du kontakta oss på registrationpreview@microsoft.com.
+>Om du inte slutför de här stegen före den 25 september 2019 aktive ras din Azure Active Directory klient automatiskt för den förbättrade upplevelsen. Om du har frågor kan du kontakta oss på registrationpreview@microsoft.com .
 
 ---
 
@@ -567,7 +567,7 @@ Vi tar bort MFA-serverns IP-adress från [Office 365 IP-adress och URL-webbtjän
 
 Den 26 juli 2019 ändrade vi hur vi tillhandahåller app-only-token via [tilldelningen av klientens autentiseringsuppgifter](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow). Tidigare kunde appar Hämta token för att anropa andra appar, oavsett om klient programmet fanns i klienten. Vi har uppdaterat det här beteendet så att resurser med en enda klient, ibland kallade webb-API: er, bara kan anropas av klient program som finns i resurs klienten.
 
-Om din app inte finns i resurs klienten får du ett fel meddelande som säger att du kan åtgärda `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` det här problemet genom att skapa klientens huvud namn för klienten i klienten, antingen med hjälp av [Administratörs medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) eller [via PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell), som säkerställer att klienten har gett appen behörighet att köras i klienten.
+Om din app inte finns i resurs klienten får du ett fel meddelande som säger att `The service principal named <app_name> was not found in the tenant named <tenant_name>. This can happen if the application has not been installed by the administrator of the tenant.` du kan åtgärda det här problemet genom att skapa klientens huvud namn för klienten i klienten, antingen med hjälp av [Administratörs medgivande slut punkten](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint) eller [via PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell), som säkerställer att klienten har gett appen behörighet att köras i klienten.
 
 Mer information finns i [Vad är nytt för autentisering?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant).
 
@@ -592,7 +592,7 @@ Mer information finns i [Aktivera lösen ords lös inloggning för Azure AD (fö
 
 I juli 2019 har vi lagt till dessa 18 nya appar med stöd för federation i app-galleriet:
 
-[Ungerboeck program vara](https://docs.microsoft.com/azure/active-directory/saas-apps/ungerboeck-software-tutorial), [starkt mönster Omnichannel kontakt Center](https://docs.microsoft.com/azure/active-directory/saas-apps/bright-pattern-omnichannel-contact-center-tutorial), [smarta Nelly](https://docs.microsoft.com/azure/active-directory/saas-apps/clever-nelly-tutorial), [AcquireIO](https://docs.microsoft.com/azure/active-directory/saas-apps/acquireio-tutorial), [LOOOP](https://www.looop.co/schedule-a-demo/), [productboard](https://docs.microsoft.com/azure/active-directory/saas-apps/productboard-tutorial), [MS Azure SSO-åtkomst för Ethidex&trade;Compliance Office](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on#password-based-sso), [djupet](https://docs.microsoft.com/azure/active-directory/saas-apps/hype-tutorial), [abstract](https://docs.microsoft.com/azure/active-directory/saas-apps/abstract-tutorial) [,](https://docs.microsoft.com/azure/active-directory/saas-apps/ascentis-tutorial), [FlipSnack](https://www.flipsnack.com/accounts/sign-in-sso.html), [Wandera](https://docs.microsoft.com/azure/active-directory/saas-apps/wandera-tutorial), [TwineSocial](https://twinesocial.com/), [Kallidus](https://docs.microsoft.com/azure/active-directory/saas-apps/kallidus-tutorial), [,](https://docs.microsoft.com/azure/active-directory/saas-apps/hyperanna-tutorial) [PharmID WasteWitness](https://pharmid.com/), [i2B Connect](https://www.i2b-online.com/sign-up-to-use-i2b-connect-here-sso-access/), JFrog- [artefakting](https://docs.microsoft.com/azure/active-directory/saas-apps/jfrog-artifactory-tutorial)
+[Ungerboeck program vara](https://docs.microsoft.com/azure/active-directory/saas-apps/ungerboeck-software-tutorial), [starkt mönster Omnichannel kontakt Center](https://docs.microsoft.com/azure/active-directory/saas-apps/bright-pattern-omnichannel-contact-center-tutorial), [smarta Nelly](https://docs.microsoft.com/azure/active-directory/saas-apps/clever-nelly-tutorial), [AcquireIO](https://docs.microsoft.com/azure/active-directory/saas-apps/acquireio-tutorial), [LOOOP](https://www.looop.co/schedule-a-demo/), [productboard](https://docs.microsoft.com/azure/active-directory/saas-apps/productboard-tutorial), [MS Azure SSO-åtkomst för Ethidex &trade; Compliance Office](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on#password-based-sso), [djupet](https://docs.microsoft.com/azure/active-directory/saas-apps/hype-tutorial), [abstract](https://docs.microsoft.com/azure/active-directory/saas-apps/abstract-tutorial) [,](https://docs.microsoft.com/azure/active-directory/saas-apps/ascentis-tutorial), [FlipSnack](https://www.flipsnack.com/accounts/sign-in-sso.html), [Wandera](https://docs.microsoft.com/azure/active-directory/saas-apps/wandera-tutorial), [TwineSocial](https://twinesocial.com/), [Kallidus](https://docs.microsoft.com/azure/active-directory/saas-apps/kallidus-tutorial), [,](https://docs.microsoft.com/azure/active-directory/saas-apps/hyperanna-tutorial) [PharmID WasteWitness](https://pharmid.com/), [i2B Connect](https://www.i2b-online.com/sign-up-to-use-i2b-connect-here-sso-access/), JFrog- [artefakting](https://docs.microsoft.com/azure/active-directory/saas-apps/jfrog-artifactory-tutorial)
 
 Mer information om apparna finns i [SaaS Application Integration with Azure Active Directory](https://aka.ms/appstutorial). Mer information om hur du visar ditt program i Azure AD App-galleriet finns i [lista ditt program i Azure Active Directory program galleriet](https://aka.ms/azureadapprequest).
 
@@ -724,9 +724,9 @@ Mer information finns i [hantera grupper i Azure AD-portalen](https://docs.micro
 
 **Typ:** Ny funktions **tjänst kategori:** autentiseringar (inloggningar) **produkt kapacitet:** användarautentisering
 
-Azure AD-appar kan nu registrera och använda URI: er för svar (omdirigering) med statiska frågeparametrar `https://contoso.com/oauth2?idp=microsoft`(till exempel) för OAuth 2,0-begäranden. Den statiska Frågeparametern omfattas av sträng matchning för svars-URI: er, precis som andra delar av svars-URI: n. Om det inte finns någon registrerad sträng som matchar URL-kodad omdirigerings-URI, avvisas begäran. Om svars-URI: n hittas används hela strängen för att omdirigera användaren, inklusive parametern för den statiska frågan.
+Azure AD-appar kan nu registrera och använda URI: er för svar (omdirigering) med statiska frågeparametrar (till exempel `https://contoso.com/oauth2?idp=microsoft` ) för OAuth 2,0-begäranden. Den statiska Frågeparametern omfattas av sträng matchning för svars-URI: er, precis som andra delar av svars-URI: n. Om det inte finns någon registrerad sträng som matchar URL-kodad omdirigerings-URI, avvisas begäran. Om svars-URI: n hittas används hela strängen för att omdirigera användaren, inklusive parametern för den statiska frågan.
 
-Dynamiska svars-URI: er är fortfarande förbjudna eftersom de utgör en säkerhets risk och inte kan användas för att bevara tillståndsinformation i en autentiseringsbegäran. För det här ändamålet använder `state` du parametern.
+Dynamiska svars-URI: er är fortfarande förbjudna eftersom de utgör en säkerhets risk och inte kan användas för att bevara tillståndsinformation i en autentiseringsbegäran. För det här ändamålet använder du `state` parametern.
 
 För närvarande blockerar appens registrerings skärmar för Azure Portal fortfarande frågeparametrar. Du kan dock redigera appens manifest manuellt för att lägga till och testa frågeparametrar i din app. Mer information finns i [Vad är nytt för autentisering?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#redirect-uris-can-now-contain-query-string-parameters).
 
@@ -1072,7 +1072,7 @@ Mer information om hur du skapar en åtkomst granskning finns i [skapa en åtkom
 
 **Typ:** Ändrad funktions **tjänst kategori:** AD Sync **produkt kapacitet:** plattform
 
-Azure AD Connect håller på att överföra våra e-postvarnings system, vilket potentiellt visar vissa kunder en ny e-postsändare. För att lösa detta måste du lägga `azure-noreply@microsoft.com` till i din organisations lista över tillåtna eller så kan du inte fortsätta att ta emot viktiga aviseringar från Office 365, Azure eller dina Sync-tjänster.
+Azure AD Connect håller på att överföra våra e-postvarnings system, vilket potentiellt visar vissa kunder en ny e-postsändare. För att lösa detta måste du lägga till `azure-noreply@microsoft.com` i din organisations lista över tillåtna eller så kan du inte fortsätta att ta emot viktiga aviseringar från Office 365, Azure eller dina Sync-tjänster.
 
 ---
 
@@ -1184,7 +1184,7 @@ Nu kan du tillhandahålla enkel inloggning (SSO) för lokala, SAML-autentiserade
 
 Klient program kan felaktigt skicka hundratals av samma inloggnings begär Anden under en kort tids period. Dessa förfrågningar, oavsett om de är lyckade eller inte, bidrar till en dåligt användar upplevelse och förhöjda arbets belastningar för IDP, ökande svars tid för alla användare och för att minska tillgängligheten för IDP.
 
-Den här uppdateringen skickar `invalid_grant` ett fel `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` : till klient program som utfärdar dubbla förfrågningar flera gånger under en kort tids period, utöver normal drifts omfattning. Klient program som stöter på det här problemet bör visa en interaktiv prompt som kräver att användaren loggar in igen. Mer information om den här ändringen och hur du åtgärdar din app om det här felet påträffas finns i [Vad är nytt för autentisering?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted).
+Den här uppdateringen skickar ett `invalid_grant` fel: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` till klient program som utfärdar dubbla förfrågningar flera gånger under en kort tids period, utöver normal drifts omfattning. Klient program som stöter på det här problemet bör visa en interaktiv prompt som kräver att användaren loggar in igen. Mer information om den här ändringen och hur du åtgärdar din app om det här felet påträffas finns i [Vad är nytt för autentisering?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted).
 
 ---
 
@@ -1688,7 +1688,7 @@ Vi inser att det är svårt att konfigurera enkel inloggning (SSO) för SaaS-app
 
 - Jamf Pro
 
-Börja använda den här funktionen genom att gå till**konfigurations** sidan för **Azure Portal** > SSO för appen. Mer information finns i [SaaS Application Integration with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+Börja använda den här funktionen genom att gå till **Azure portal**  >  **konfigurations** sidan för Azure Portal SSO för appen. Mer information finns i [SaaS Application Integration with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 
 ---
 
@@ -1706,7 +1706,7 @@ För att få åtkomst till den här funktionen och mer information, se [Azure Ac
 
 **Typ:** Ny funktions **tjänst kategori:** Mina appar **produkt kapacitet:** SSO
 
-Kolla in den nya distributions plan som är tillgänglig för åtkomst panelen för Mina apparhttps://aka.ms/deploymentplans)(.
+Kolla in den nya distributions plan som är tillgänglig för åtkomst panelen för Mina appar ( https://aka.ms/deploymentplans) .
 Åtkomst panelen för Mina appar ger användare en enda plats för att hitta och komma åt sina appar. Den här portalen ger också användare självbetjänings möjligheter, till exempel att begära åtkomst till appar och grupper eller att hantera åtkomst till dessa resurser för andras räkning.
 
 Mer information finns i [Vad är min Apps-portalen?](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-saas-access-panel-introduction)
@@ -2133,7 +2133,7 @@ Inaktuella webbläsare kanske inte stöder nyare TLS-versioner, till exempel TLS
 
 - **Microsoft Edge och Internet Explorer (båda anges med Internet Explorer)**
 
-    1. Öppna Internet Explorer, Välj **verktyg** > **Internet alternativ** > **Avancerat**.
+    1. Öppna Internet Explorer, Välj **verktyg**  >  **Internet alternativ**  >  **Avancerat**.
     2. I avsnittet **säkerhet** väljer du **Använd TLS 1,2**och väljer sedan **OK**.
     3. Stäng alla webbläsarfönster och starta om Internet Explorer.
 
@@ -2301,7 +2301,7 @@ Med Azure AD kan du automatisera genereringen, underhållet och borttagningen av
 
 - [Zendesk](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
 
-En lista över alla program som stöder användar etablering i Azure AD-galleriet finns i [https://aka.ms/appstutorial](https://aka.ms/appstutorial).
+En lista över alla program som stöder användar etablering i Azure AD-galleriet finns i [https://aka.ms/appstutorial](https://aka.ms/appstutorial) .
 
 ---
 
@@ -2605,7 +2605,7 @@ Mer information finns i [Hur loggar du in på en intern klient med sömlös SSO-
 
 **Typ:** Ny funktions **tjänst kategori:** autentiseringar (inloggningar) **produkt kapacitet:** användarautentisering
 
-Användarna får en tyst inloggning, med sömlös SSO, om ett program (till `https://contoso.sharepoint.com`exempel) skickar inloggnings begär anden till Azure Ads klient slut punkter – det vill säga, `https://login.microsoftonline.com/contoso.com/<..>` eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure Ads vanliga slut punkt (`https://login.microsoftonline.com/common/<...>`).
+Användarna får en tyst inloggning, med sömlös SSO, om ett program (till exempel `https://contoso.sharepoint.com` ) skickar inloggnings begär anden till Azure Ads klient slut punkter – det vill säga, `https://login.microsoftonline.com/contoso.com/<..>` eller `https://login.microsoftonline.com/<tenant_ID>/<..>` – i stället för Azure Ads vanliga slut punkt ( `https://login.microsoftonline.com/common/<...>` ).
 
 Mer information finns i [Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso).
 
@@ -2615,7 +2615,7 @@ Mer information finns i [Azure Active Directory sömlös enkel inloggning](https
 
 **Typ:** Ny funktions **tjänst kategori:** autentiseringar (inloggningar) **produkt kapacitet:** användarautentisering
 
-Om du vill distribuera sömlös SSO till dina användare behöver du bara lägga till en Azure AD-URL till användarnas intranät zons inställningar med hjälp av grup princip i Active Directory `https://autologon.microsoftazuread-sso.com`:. Tidigare var kunden tvungen att lägga till två URL: er.
+Om du vill distribuera sömlös SSO till dina användare behöver du bara lägga till en Azure AD-URL till användarnas intranät zons inställningar med hjälp av grup princip i Active Directory: `https://autologon.microsoftazuread-sso.com` . Tidigare var kunden tvungen att lägga till två URL: er.
 
 Mer information finns i [Azure Active Directory sömlös enkel inloggning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso).
 
@@ -2972,7 +2972,7 @@ Från och med den 8 januari 2018 har Azure AD-administrationen i den klassiska A
 
 Från och med den 8 januari 2018 har webb portalen för PhoneFactor dragits tillbaka. Den här portalen användes för administration av MFA Server, men dessa funktioner har flyttats till Azure Portal på portal.azure.com.
 
-MFA-konfigurationen finns på: ** \> Azure Active Directory MFA Server**
+MFA-konfigurationen finns på: **Azure Active Directory \> MFA Server**
 
 ---
 

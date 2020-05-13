@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: aebb590d93b3fb26151f15c176a2941845cdd50c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6feca8cc87eadb2be5f43cafaa82195a18c3c75
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426508"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200388"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Använda referens data från en SQL Database för ett Azure Stream Analytics jobb
 
@@ -101,7 +101,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 2. Dubbelklicka på **mata in. JSON** i **Solution Explorer**.
 
-3. Fyll i **konfigurationen för Stream Analytics Indatamängden**. Välj databasens namn, Server namn, uppdaterings typ och uppdaterings frekvens. Ange uppdaterings frekvensen i formatet `DD:HH:MM`.
+3. Fyll i **konfigurationen för Stream Analytics Indatamängden**. Välj databasens namn, Server namn, uppdaterings typ och uppdaterings frekvens. Ange uppdaterings frekvensen i formatet `DD:HH:MM` .
 
    ![Stream Analytics indatamängds konfiguration i Visual Studio](./media/sql-reference-data/stream-analytics-vs-input-config.png)
 
@@ -147,7 +147,7 @@ När du använder delta frågan rekommenderas [temporala tabeller i Azure SQL Da
    ```
 2. Redigera ögonblicks bild frågan. 
 
-   Använd parametern ** \@snapshotTime** för att instruera Stream Analytics runtime att hämta referens data uppsättningen från den temporala SQL Database-tabellen som är giltig vid system tiden. Om du inte anger den här parametern riskerar du att få en felaktig bas referens data uppsättning på grund av klock skevar. Ett exempel på en fullständig ögonblicks bild fråga visas nedan:
+   Använd parametern ** \@ snapshotTime** för att instruera Stream Analytics runtime att hämta referens data uppsättningen från den temporala SQL Database-tabellen som är giltig vid system tiden. Om du inte anger den här parametern riskerar du att få en felaktig bas referens data uppsättning på grund av klock skevar. Ett exempel på en fullständig ögonblicks bild fråga visas nedan:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -156,16 +156,16 @@ När du använder delta frågan rekommenderas [temporala tabeller i Azure SQL Da
  
 2. Redigera delta frågan. 
    
-   Den här frågan hämtar alla rader i SQL-databasen som infogades eller togs bort inom en start tid, ** \@deltaStartTime**och en slut tid ** \@deltaEndTime**. Delta frågan måste returnera samma kolumner som ögonblicks bild frågan och kolumn **_åtgärden_**. Den här kolumnen definierar om raden infogas eller tas bort mellan ** \@deltaStartTime** och ** \@deltaEndTime**. De resulterande raderna flaggas som **1** om posterna infogades eller **2** om de tagits bort. 
+   Den här frågan hämtar alla rader i SQL-databasen som infogades eller togs bort inom en start tid, ** \@ deltaStartTime**och en slut tid ** \@ deltaEndTime**. Delta frågan måste returnera samma kolumner som ögonblicks bild frågan och kolumn **_åtgärden_**. Den här kolumnen definierar om raden infogas eller tas bort mellan ** \@ deltaStartTime** och ** \@ deltaEndTime**. De resulterande raderna flaggas som **1** om posterna infogades eller **2** om de tagits bort. Frågan måste också lägga till **vatten märket** från SQL Server sidan för att säkerställa att alla uppdateringar i delta-perioden samlas in på rätt sätt. Om du använder delta fråga utan **vattenstämpel** kan det resultera i felaktig referens data uppsättning.  
 
    För poster som har uppdaterats bokförs den temporala tabellen genom att en infognings-och borttagnings åtgärd fångas. Den Stream Analytics körningen använder sedan resultatet av delta frågan till föregående ögonblicks bild för att hålla referens data uppdaterade. Ett exempel på en delta fråga visas nedan:
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as watermark 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as watermark 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```

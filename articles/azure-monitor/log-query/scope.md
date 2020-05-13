@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/25/2019
-ms.openlocfilehash: 897eff62fcbab5996b6b9493bd825ae412aa4c3e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: 2840e5b8ff16d44f76aaafcf68264c65e4401ff7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249599"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199017"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Logg frågans omfång och tidsintervall i Azure Monitor Log Analytics
 När du kör en [logg fråga](log-query-overview.md) i [Log Analytics i Azure Portal](get-started-portal.md), beror den uppsättning data som utvärderas av frågan på omfattningen och tidsintervallet som du väljer. I den här artikeln beskrivs omfattning och tidsintervall och hur du kan ställa in dem beroende på dina behov. Det beskriver också beteendet för olika typer av omfång.
@@ -25,6 +25,9 @@ Omfattningen visas alltid längst upp till vänster i Log Analyticss fönstret. 
 ![Omfång](media/scope/scope.png)
 
 Omfattningen bestäms av den metod som du använder för att starta Log Analytics, och i vissa fall kan du ändra omfattningen genom att klicka på den. I följande tabell visas olika typer av omfång som används och olika Detaljer för var och en.
+
+> [!IMPORTANT]
+> Om du använder APM 2,1 lagras Application Insights program i en Log Analytics arbets yta med alla andra loggdata, och Application Insights omfattningen är inte tillgänglig. Om du väljer **loggar** på Application Insights-menyn fungerar det på samma sätt som de **andra Azure-resursernas** omfattning, och endast data från det programmet i Application Insights-tabellerna är tillgängliga.
 
 | Frågeomfång | Poster i omfånget | Så här väljer du | Ändra omfång |
 |:---|:---|:---|:---|
@@ -65,7 +68,7 @@ Frågan kommer att blockeras från att köras om omfattningen omfattar arbets yt
 ## <a name="time-range"></a>Tidsintervall
 Tidsintervallet anger den uppsättning poster som utvärderas för frågan baserat på när posten skapades. Detta definieras av en standard egenskap på varje post i arbets ytan eller programmet som anges i följande tabell.
 
-| Location | Egenskap |
+| Plats | Egenskap |
 |:---|:---|
 | Log Analytics-arbetsyta          | TimeGenerated |
 | Application Insights program | timestamp     |

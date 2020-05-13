@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0015beadfea61fc31bf3f37232105b9cfd2ced71
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a1a33404982b16e458e97aaf9959ff5dd52d1cce
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692153"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198886"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Metod tips för SQL på begäran (för hands version) i Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ När begränsningen har identifierats har SQL på begäran inbyggd hantering av 
 
 Om möjligt kan du förbereda filer för bättre prestanda:
 
-- Konvertera CSV till Parquet-Parquet är kolumn format. Eftersom fil storleken är komprimerad är fil storleken mindre än CSV-filer med samma data. SQL på begäran behöver mindre tids-och lagrings begär Anden för att kunna läsa det.
+- Konvertera CSV och JSON till Parquet-Parquet är kolumn format. Eftersom den är komprimerad är fil storleken mindre än CSV-eller JSON-filer med samma data. SQL på begäran behöver mindre tids-och lagrings begär Anden för att kunna läsa det.
 - Om en fråga är riktad mot en enda stor fil, drar du nytta av att dela upp den i flera mindre filer.
 - Försök att behålla storleken på CSV-filen under 10 GB.
 - Det är bättre att ha lika stora filer för en enskild OpenRowSet-sökväg eller en extern tabell plats.
@@ -118,7 +118,14 @@ Mer information finns i funktioner för [fil namn](develop-storage-files-overvie
 > [!TIP]
 > Omvandla alltid resultatet av fil Sök väg och fileinfo-funktioner till lämpliga data typer. Om du använder tecken data typer ser du till att lämplig längd används.
 
+> [!NOTE]
+> Funktioner som används för partitions Eli minering, sökväg och fileinfo stöds för närvarande inte för andra externa tabeller än de som skapats automatiskt för varje tabell som skapats i Synapse Spark.
+
 Om dina lagrade data inte är partitionerade bör du överväga att partitionera dem så att du kan använda dessa funktioner för att optimera frågor som riktar sig mot dessa filer. När du [frågar partitionerade Spark-tabeller](develop-storage-files-spark-tables.md) från SQL på begäran, kommer frågan automatiskt att rikta in sig på de filer som behövs.
+
+## <a name="use-parser_version-20-for-querying-csv-files"></a>Använd PARSER_VERSION 2,0 för att fråga CSV-filer
+
+Du kan använda prestanda optimerad parser när du frågar CSV-filer. Mer information finns i [PARSER_VERSION](develop-openrowset.md) .
 
 ## <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Använd CETAS för att förbättra frågornas prestanda och kopplingar
 
@@ -127,6 +134,12 @@ Om dina lagrade data inte är partitionerade bör du överväga att partitionera
 Du kan använda CETAS för att lagra ofta använda delar av frågor som kopplade referens tabeller till en ny uppsättning filer. Sedan kan du koppla till den här enskilda externa tabellen i stället för att upprepa vanliga kopplingar i flera frågor.
 
 När CETAS genererar Parquet-filer skapas statistik automatiskt när den första frågan riktar sig till den externa tabellen, vilket resulterar i förbättrade prestanda.
+
+## <a name="aad-pass-through-performance"></a>Prestanda för AAD-vidarekoppling
+
+Med SQL på begäran kan du komma åt filer i lagring med AAD-direktautentisering eller SAS-autentiseringsuppgifter. Du kan uppleva sämre prestanda med AAD genom strömnings jämförelse till SAS. 
+
+Om du behöver bättre prestanda kan du prova SAS-autentiseringsuppgifter för att få åtkomst till lagring tills AAD-vidarekoppling har förbättrats.
 
 ## <a name="next-steps"></a>Nästa steg
 

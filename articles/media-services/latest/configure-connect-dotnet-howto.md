@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 6dc05f225e3585b83bd6a57ca47bd5adf97934ea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79269814"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201121"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Ansluta till Media Services v3 API-.NET
 
@@ -35,14 +36,14 @@ Den här artikeln visar hur du ansluter till Azure Media Services v3 .NET SDK me
 ## <a name="create-a-console-application"></a>Skapa ett konsolprogram
 
 1. Starta Visual Studio. 
-1. Från menyn **Arkiv** klickar du på **nytt** > **projekt**. 
+1. Från menyn **Arkiv** klickar du på **nytt**  >  **projekt**. 
 1. Skapa ett **.net Core** -konsolprogram.
 
-Exempel programmet i det här avsnittet är mål `netcoreapp2.0`. Koden använder async Main, som är tillgänglig från och med C# 7,1. Mer information finns i den här [bloggen](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
+Exempel programmet i det här avsnittet är mål `netcoreapp2.0` . Koden använder async Main, som är tillgänglig från och med C# 7,1. Mer information finns i den här [bloggen](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) .
 
 ## <a name="add-required-nuget-packages"></a>Lägg till nödvändiga NuGet-paket
 
-1. I Visual Studio väljer du **verktyg** > **NuGet Package Manager** > **NuGet Manager Console**.
+1. I Visual Studio väljer du **verktyg**  >  **NuGet Package Manager**  >  **NuGet Manager Console**.
 2. I fönstret **Package Manager-konsol** använder `Install-Package` du kommandot för att lägga till följande NuGet-paket. Till exempel `Install-Package Microsoft.Azure.Management.Media`.
 
 |Paket|Beskrivning|
@@ -57,7 +58,7 @@ Exempel programmet i det här avsnittet är mål `netcoreapp2.0`. Koden använde
 
 ### <a name="create-appsettingsjson"></a>Skapa appSettings. JSON
 
-1. Gå till filen **allmän** > **textfil**.
+1. Gå till **General**  >  **filen allmän textfil**.
 1. Ge den namnet appSettings. JSON.
 1. Ange egenskapen "Kopiera till utgående katalog" för. JSON-filen till "Kopiera om nyare" (så att programmet kan komma åt det när det publiceras).
 
@@ -70,7 +71,7 @@ Kör `az ams account sp create` kommandot enligt beskrivningen i [API: er för �
 För enkelhetens skull lägger du till en konfigurations fil som ansvarar för att läsa värden från "appSettings. JSON".
 
 1. Lägg till en ny CS-klass i projektet. Ge den namnet `ConfigWrapper`. 
-1. Klistra in följande kod i den här filen (det här exemplet förutsätter att du `ConsoleApp1`har namn området).
+1. Klistra in följande kod i den här filen (det här exemplet förutsätter att du har namn området `ConsoleApp1` ).
 
 ```csharp
 using System;

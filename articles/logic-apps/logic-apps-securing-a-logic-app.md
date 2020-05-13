@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: b00dae5c807cb8bec3b9e345c9b2af2c227139b7
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 7979d1288cd99f8e28a421663383a930e0346357
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901117"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199595"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -44,7 +44,7 @@ Varje begär ande slut punkt i en Logic app har en [signatur för delad åtkomst
 
 `https://<request-endpoint-URI>sp=<permissions>sv=<SAS-version>sig=<signature>`
 
-Varje URL innehåller Frågeparametern `sp`, `sv`och `sig` , enligt beskrivningen i den här tabellen:
+Varje URL innehåller `sp` Frågeparametern, `sv` och, `sig` enligt beskrivningen i den här tabellen:
 
 | Frågeparameter | Beskrivning |
 |-----------------|-------------|
@@ -81,7 +81,7 @@ Om du delar slut punkts-URL: en för en begärd utlösare med andra parter kan d
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-I bröd texten inkluderar du `NotAfter`egenskapen med hjälp av en JSON-datum sträng. Den här egenskapen returnerar en callback-URL som endast är giltig `NotAfter` fram till datum och tid.
+I bröd texten inkluderar du `NotAfter` egenskapen med hjälp av en JSON-datum sträng. Den här egenskapen returnerar en callback-URL som endast är giltig fram till `NotAfter` datum och tid.
 
 <a name="primary-secondary-key"></a>
 
@@ -93,7 +93,7 @@ När du skapar eller listar återanrops-URL: er för en begärd utlösare kan du
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-I bröd texten inkluderar du `KeyType` egenskapen som antingen `Primary` eller. `Secondary` Den här egenskapen returnerar en URL som är signerad av den angivna säkerhets nyckeln.
+I bröd texten inkluderar du `KeyType` egenskapen som antingen `Primary` eller `Secondary` . Den här egenskapen returnerar en URL som är signerad av den angivna säkerhets nyckeln.
 
 <a name="enable-oauth"></a>
 
@@ -126,7 +126,7 @@ Följ dessa steg om du vill lägga till en eller flera auktoriseringsprinciper i
    | Egenskap | Krävs | Beskrivning |
    |----------|----------|-------------|
    | **Princip namn** | Ja | Det namn som du vill använda för auktoriseringsprincipen |
-   | **Anspråk** | Ja | De anspråks typer och värden som din Logic app accepterar från inkommande samtal. Här följer tillgängliga anspråks typer: <p><p>- **Utfärdare** <br>- **Filmen** <br>- **Motiv** <br>- **JWT-ID** (JSON Web token-ID) <p><p>Som minimum måste **anspråks** listan innehålla **utfärdarens** anspråk, som har ett värde som börjar med ID för `https://sts.windows.net/` Azure AD-utfärdaren. Mer information om dessa anspråks typer finns i [anspråk i Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)-säkerhetstoken. Du kan också ange en egen typ och värde för anspråk. |
+   | **Anspråk** | Ja | De anspråks typer och värden som din Logic app accepterar från inkommande samtal. Här följer tillgängliga anspråks typer: <p><p>- **Utfärdare** <br>- **Filmen** <br>- **Motiv** <br>- **JWT-ID** (JSON Web token-ID) <p><p>Som minimum måste **anspråks** listan innehålla **utfärdarens** anspråk, som har ett värde som börjar med `https://sts.windows.net/` ID för Azure AD-utfärdaren. Mer information om dessa anspråks typer finns i [anspråk i Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens)-säkerhetstoken. Du kan också ange en egen typ och värde för anspråk. |
    |||
 
 1. Om du vill lägga till ett annat anspråk väljer du bland följande alternativ:
@@ -196,7 +196,7 @@ Tillsammans med signaturen för delad åtkomst (SAS) kanske du vill begränsa vi
 
 1. På din Logic Apps-meny, under **Inställningar**, väljer du **arbets flödes inställningar**.
 
-1. Under **åtkomst kontroll konfiguration** > **tillåtna inkommande IP-adresser**väljer du **vissa IP-intervall**.
+1. Under **åtkomst kontroll konfiguration**  >  **tillåtna inkommande IP-adresser**väljer du **vissa IP-intervall**.
 
 1. Under **IP-intervall för utlösare**anger du de IP-adressintervall som utlösaren accepterar.
 
@@ -209,7 +209,7 @@ Om du vill att din Logic app endast ska utlösa som en kapslad Logic-app väljer
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Begränsa inkommande IP-intervall i Azure Resource Manager mall
 
-Om du [automatiserar distributionen för logi Kap par med hjälp av Resource Manager-mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)kan du ange IP-intervallen med hjälp av `accessControl` avsnittet med `triggers` avsnittet i din Logic Apps resurs definition, till exempel:
+Om du [automatiserar distributionen för logi Kap par med hjälp av Resource Manager-mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)kan du ange IP-intervallen i *x. x. x/x/x* eller x. x. x *-x. x* . x. x-format med hjälp av `accessControl` avsnittet och genom att inkludera `triggers` avsnitten och i din Logi kap Apps `actions` resurs definition, till exempel:
 
 ```json
 {
@@ -227,20 +227,24 @@ Om du [automatiserar distributionen för logi Kap par med hjälp av Resource Man
          },
          "apiVersion": "2016-06-01",
          "properties": {
-            "definition": {<workflow-definition>},
-            "parameters": {},
+            "definition": {
+               <workflow-definition>
+            },
+            "parameters": {
+            },
             "accessControl": {
                "triggers": {
                   "allowedCallerIpAddresses": [
                      {
                         "addressRange": "192.168.12.0/23"
-                     },
-                     {
-                        "addressRange": "2001:0db8::/64"
                      }
                   ]
+               },
+               "actions": {
+                  "allowedCallerIpAddresses:" : []
                }
-            }
+            },
+            "endpointsConfiguration": {}
          }
       }
    ],
@@ -288,7 +292,7 @@ Om du vill kontrol lera åtkomsten till indata och utdata i din Logic Apps körn
 
 ### <a name="restrict-access-by-ip-address-range"></a>Begränsa åtkomst efter IP-adressintervall
 
-Du kan begränsa åtkomsten till indata och utdata i din Logic Apps körnings historik så att endast förfrågningar från vissa IP-adressintervall kan visa dessa data. Om du till exempel vill blockera alla från att komma åt indata och utdata anger du ett IP-adressintervall `0.0.0.0-0.0.0.0`som. Endast en person med administratörs behörighet kan ta bort den här begränsningen, vilket ger möjlighet till just-in-Time-åtkomst till din Logic Apps-data. Du kan ange vilka IP-intervall som ska begränsas genom att använda Azure Portal eller i en Azure Resource Manager mall som du använder för Logic app-distribution.
+Du kan begränsa åtkomsten till indata och utdata i din Logic Apps körnings historik så att endast förfrågningar från vissa IP-adressintervall kan visa dessa data. Om du till exempel vill blockera alla från att komma åt indata och utdata anger du ett IP-adressintervall som `0.0.0.0-0.0.0.0` . Endast en person med administratörs behörighet kan ta bort den här begränsningen, vilket ger möjlighet till just-in-Time-åtkomst till din Logic Apps-data. Du kan ange vilka IP-intervall som ska begränsas genom att använda Azure Portal eller i en Azure Resource Manager mall som du använder för Logic app-distribution.
 
 #### <a name="restrict-ip-ranges-in-azure-portal"></a>Begränsa IP-intervall i Azure Portal
 
@@ -296,7 +300,7 @@ Du kan begränsa åtkomsten till indata och utdata i din Logic Apps körnings hi
 
 1. På din Logic Apps-meny, under **Inställningar**, väljer du **arbets flödes inställningar**.
 
-1. Under **åtkomst kontroll konfiguration** > **tillåtna inkommande IP-adresser**väljer du **vissa IP-intervall**.
+1. Under **åtkomst kontroll konfiguration**  >  **tillåtna inkommande IP-adresser**väljer du **vissa IP-intervall**.
 
 1. Under **IP-intervall för innehåll**anger du de IP-adressintervall som har åtkomst till innehåll från indata och utdata. 
 
@@ -385,7 +389,7 @@ Många utlösare och åtgärder har inställningar för att skydda indata, utdat
 
 #### <a name="secure-inputs-and-outputs-in-code-view"></a>Säkra indata och utdata i kodvyn
 
-I den underliggande utlösaren eller åtgärds definitionen lägger du `runtimeConfiguration.secureData.properties` till eller uppdaterar matrisen med något av eller båda dessa värden:
+I den underliggande utlösaren eller åtgärds definitionen lägger du till eller uppdaterar `runtimeConfiguration.secureData.properties` matrisen med något av eller båda dessa värden:
 
 * `"inputs"`: Skyddar indata i körnings historik.
 * `"outputs"`: Skyddar utdata i körnings historiken.
@@ -448,7 +452,7 @@ Här är några [saker som du bör tänka på](#obfuscation-considerations) när
 
 Om du distribuerar över olika miljöer bör du överväga att parametriserade värdena i arbets flödes definitionen som varierar beroende på dessa miljöer. På så sätt kan du undvika hårdkodade data med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/templates/overview.md) för att distribuera din Logi Kap par, skydda känsliga data genom att definiera säkra parametrar och skicka dessa data som separata indata via [mallens parametrar](../azure-resource-manager/templates/template-parameters.md) genom att använda en [parameter fil](../azure-resource-manager/templates/parameter-files.md).
 
-Om du till exempel autentiserar HTTP-åtgärder med [Azure Active Directory öppen autentisering](#azure-active-directory-oauth-authentication) (Azure AD OAuth) kan du definiera och dölja de parametrar som godkänner klient-ID och klient hemlighet som används för autentisering. Om du vill definiera dessa parametrar i din Logic app, `parameters` använder du avsnittet i din Logic Apps arbets flödes definition och Resource Manager-mall för distribution. För att skydda parameter värden som du inte vill ska visas när du redigerar din Logic app eller visar körnings historik definierar du parametrarna med `securestring` hjälp `secureobject` av typen eller och använder kodning vid behov. Parametrar som har den här typen returneras inte med resurs definitionen och är inte tillgängliga när du visar resursen efter distributionen. Om du vill komma åt dessa parameter värden under körningen använder du `@parameters('<parameter-name>')` uttrycket i arbets flödes definitionen. Det här uttrycket utvärderas bara vid körning och beskrivs av språket för [arbets flödes definitionen](../logic-apps/logic-apps-workflow-definition-language.md).
+Om du till exempel autentiserar HTTP-åtgärder med [Azure Active Directory öppen autentisering](#azure-active-directory-oauth-authentication) (Azure AD OAuth) kan du definiera och dölja de parametrar som godkänner klient-ID och klient hemlighet som används för autentisering. Om du vill definiera dessa parametrar i din Logic app, använder du `parameters` avsnittet i din Logic Apps arbets flödes definition och Resource Manager-mall för distribution. För att skydda parameter värden som du inte vill ska visas när du redigerar din Logic app eller visar körnings historik definierar du parametrarna med hjälp av `securestring` `secureobject` typen eller och använder kodning vid behov. Parametrar som har den här typen returneras inte med resurs definitionen och är inte tillgängliga när du visar resursen efter distributionen. Om du vill komma åt dessa parameter värden under körningen använder du `@parameters('<parameter-name>')` uttrycket i arbets flödes definitionen. Det här uttrycket utvärderas bara vid körning och beskrivs av språket för [arbets flödes definitionen](../logic-apps/logic-apps-workflow-definition-language.md).
 
 > [!NOTE]
 > Om du använder en parameter i ett rubrik eller brödtext för begäran kan den parametern visas när du visar din Logic Apps körnings historik och utgående HTTP-begäran. Se till att du även anger dina principer för innehålls åtkomst. Du kan också använda [döljande](#obfuscate) för att dölja indata och utdata i körnings historiken. Authorization-rubriker visas aldrig i indata eller utdata. Så om en hemlighet används där, så kan det inte går att hämta hemligheten.
@@ -458,7 +462,7 @@ Mer information finns i följande avsnitt i det här avsnittet:
 * [Säkra parametrar i arbets flödes definitioner](#secure-parameters-workflow)
 * [Skydda data i körnings historiken med hjälp av döljande](#obfuscate)
 
-Om du [automatiserar distributionen för logi Kap par med hjälp av Resource Manager-mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)kan du definiera säkra [mallparametrar](../azure-resource-manager/templates/template-parameters.md), som utvärderas vid distribution, med hjälp `securestring` av `secureobject` -och-typerna. Om du vill definiera mallparametrar använder du mallens översta nivå `parameters` -avsnitt, som är åtskilda och skiljer sig från arbets `parameters` flödets definitions avsnitt. Använd en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md)för att ange värden för mallparametrar.
+Om du [automatiserar distributionen för logi Kap par med hjälp av Resource Manager-mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)kan du definiera säkra [mallparametrar](../azure-resource-manager/templates/template-parameters.md), som utvärderas vid distribution, med hjälp av- `securestring` och- `secureobject` typerna. Om du vill definiera mallparametrar använder du mallens översta nivå `parameters` -avsnitt, som är åtskilda och skiljer sig från arbets flödets definitions `parameters` avsnitt. Använd en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md)för att ange värden för mallparametrar.
 
 Om du till exempel använder hemligheter kan du definiera och använda säkra mallparametrar som hämtar dessa hemligheter från [Azure Key Vault](../key-vault/general/overview.md) vid distributionen. Sedan kan du referera till nyckel valvet och hemligheten i parameter filen. Mer information finns i de här ämnena:
 
@@ -469,7 +473,7 @@ Om du till exempel använder hemligheter kan du definiera och använda säkra ma
 
 ### <a name="secure-parameters-in-workflow-definitions"></a>Säkra parametrar i arbets flödes definitioner
 
-Om du vill skydda känslig information i din Logic Apps arbets flödes definition använder du skyddade parametrar så att informationen inte visas när du har sparat din Logic app. Anta till exempel att du har en HTTP-åtgärd som kräver grundläggande autentisering, som använder ett användar namn och lösen ord. I arbets flödes definitionen definierar `parameters` avsnittet parametrarna `basicAuthPasswordParam` och `basicAuthUsernameParam` genom att `securestring` använda typen. Åtgärds definitionen refererar sedan till dessa parametrar i `authentication` avsnittet.
+Om du vill skydda känslig information i din Logic Apps arbets flödes definition använder du skyddade parametrar så att informationen inte visas när du har sparat din Logic app. Anta till exempel att du har en HTTP-åtgärd som kräver grundläggande autentisering, som använder ett användar namn och lösen ord. I arbets flödes definitionen `parameters` definierar avsnittet `basicAuthPasswordParam` `basicAuthUsernameParam` parametrarna och genom att använda `securestring` typen. Åtgärds definitionen refererar sedan till dessa parametrar i `authentication` avsnittet.
 
 ```json
 "definition": {
@@ -515,15 +519,15 @@ Om du vill skydda känslig information i din Logic Apps arbets flödes definitio
 
 ### <a name="secure-parameters-in-azure-resource-manager-templates"></a>Säkra parametrar i Azure Resource Manager mallar
 
-En [Resource Manager-mall](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) för en Logic app har `parameters` flera avsnitt. Om du vill skydda lösen ord, nycklar, hemligheter och annan känslig information definierar du skyddade parametrar på mallnivå-och arbets flödes definitions nivå med hjälp av- `securestring` eller `secureobject` -typen. Du kan sedan lagra dessa värden i [Azure Key Vault](../key-vault/general/overview.md) och använda [parameter filen](../azure-resource-manager/templates/parameter-files.md) för att referera till nyckel valvet och hemligheten. Din mall hämtar sedan den informationen vid distributionen. Mer information finns i [Skicka känsliga värden vid distribution med hjälp av Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
+En [Resource Manager-mall](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) för en Logic app har flera `parameters` avsnitt. Om du vill skydda lösen ord, nycklar, hemligheter och annan känslig information definierar du skyddade parametrar på mallnivå-och arbets flödes definitions nivå med hjälp av- `securestring` eller- `secureobject` typen. Du kan sedan lagra dessa värden i [Azure Key Vault](../key-vault/general/overview.md) och använda [parameter filen](../azure-resource-manager/templates/parameter-files.md) för att referera till nyckel valvet och hemligheten. Din mall hämtar sedan den informationen vid distributionen. Mer information finns i [Skicka känsliga värden vid distribution med hjälp av Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md).
 
-Här är mer information om de `parameters` här avsnitten:
+Här är mer information om de här `parameters` avsnitten:
 
-* På mallens översta nivå definierar ett `parameters` avsnitt parametrarna för de värden som mallen använder vid *distributionen*. Dessa värden kan till exempel innehålla anslutnings strängar för en enskild distributions miljö. Du kan sedan lagra dessa värden i en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md), vilket gör det enklare att ändra dessa värden.
+* På mallens översta nivå `parameters` definierar ett avsnitt parametrarna för de värden som mallen använder vid *distributionen*. Dessa värden kan till exempel innehålla anslutnings strängar för en enskild distributions miljö. Du kan sedan lagra dessa värden i en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md), vilket gör det enklare att ändra dessa värden.
 
-* I din Logic Apps resurs definition, men utanför arbets flödes definitionen, anger `parameters` ett avsnitt värdena för arbets flödets definitions parametrar. I det här avsnittet kan du tilldela dessa värden med hjälp av mall-uttryck som refererar till mallens parametrar. Dessa uttryck utvärderas vid distribution.
+* I din Logic Apps resurs definition, men utanför arbets flödes definitionen, `parameters` anger ett avsnitt värdena för arbets flödets definitions parametrar. I det här avsnittet kan du tilldela dessa värden med hjälp av mall-uttryck som refererar till mallens parametrar. Dessa uttryck utvärderas vid distribution.
 
-* I arbets flödes definitionen definierar `parameters` ett avsnitt de parametrar som din Logic app använder vid körning. Du kan sedan referera till dessa parametrar i din Logic Apps-arbetsflöde genom att använda definitions uttryck för arbets flöde, som utvärderas vid körning.
+* I arbets flödes definitionen `parameters` definierar ett avsnitt de parametrar som din Logic app använder vid körning. Du kan sedan referera till dessa parametrar i din Logic Apps-arbetsflöde genom att använda definitions uttryck för arbets flöde, som utvärderas vid körning.
 
 Den här exempel mal len har flera skyddade parameter definitioner som använder `securestring` typen:
 
@@ -719,7 +723,7 @@ Om alternativet [grundläggande](../active-directory-b2c/secure-rest-api.md) är
 | **Lösenord** | `password` | Ja | <*ords*> | Lösen ordet för att autentisera åtkomsten till mål tjänstens slut punkt |
 ||||||
 
-När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds `type` definition `Basic` anger autentiseringen som och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
+När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds definition anger autentiseringen `type` som `Basic` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
 
 ```json
 "HTTP": {
@@ -750,7 +754,7 @@ Om alternativet [klient certifikat](../active-directory/authentication/active-di
 | **Lösenord** | `password`| Inga | <*Password-för-PFX-fil*> | Lösen ordet för att komma åt PFX-filen |
 |||||
 
-När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds `type` definition `ClientCertificate` anger autentiseringen som och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
+När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds definition anger autentiseringen `type` som `ClientCertificate` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
 
 ```json
 "HTTP": {
@@ -785,8 +789,8 @@ I begär ande utlösare kan du använda [Azure Active Directory öppna autentise
 | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
 | **Autentisering** | `type` | Ja | **Active Directory OAuth** <br>eller <br>`ActiveDirectoryOAuth` | Autentiseringstypen som ska användas. Logic Apps följer för närvarande [OAuth 2,0-protokollet](../active-directory/develop/v2-overview.md). |
-| **Myndighet** | `authority` | Inga | <*URL-för-Authority-token-Issuer*> | URL för den myndighet som tillhandahåller autentiseringstoken. Som standard är `https://login.windows.net`det här värdet. |
-| **Klient** | `tenant` | Ja | <*klient organisations-ID*> | Klient-ID för Azure AD-klienten |
+| **Myndighet** | `authority` | Inga | <*URL-för-Authority-token-Issuer*> | URL för den myndighet som tillhandahåller autentiseringstoken. Som standard är det här värdet `https://login.windows.net` . |
+| **Klientorganisation** | `tenant` | Ja | <*klient organisations-ID*> | Klient-ID för Azure AD-klienten |
 | **Målgrupp** | `audience` | Ja | <*resurs-till-auktorisera*> | Den resurs som du vill använda för auktorisering, till exempel`https://management.core.windows.net/` |
 | **Klient-ID** | `clientId` | Ja | <*klient-ID*> | Klient-ID för appen som begär auktorisering |
 | **Autentiseringstyp** | `credentialType` | Ja | Certifikat <br>eller <br>Hemlighet | Autentiseringstypen som klienten använder för att begära auktorisering. Den här egenskapen och värdet visas inte i din Logic Apps underliggande definition, men avgör vilka egenskaper som visas för den valda autentiseringstypen. |
@@ -795,7 +799,7 @@ I begär ande utlösare kan du använda [Azure Active Directory öppna autentise
 | **Lösenord** | `password` | Ja, men endast för Credential-typen "certifikat" | <*Password-för-PFX-fil*> | Lösen ordet för att komma åt PFX-filen |
 |||||
 
-När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Det här exemplet på en HTTP-åtgärd `type` anger `ActiveDirectoryOAuth`autentiseringen som, autentiseringstypen `Secret`typ som och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
+När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Det här exemplet på en HTTP-åtgärd anger autentiseringen `type` som `ActiveDirectoryOAuth` , autentiseringstypen typ som `Secret` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
 
 ```json
 "HTTP": {
@@ -842,7 +846,7 @@ I utlösaren eller åtgärden som stöder RAW-autentisering anger du följande e
 | **Värde** | `value` | Ja | <*auktorisering – huvud värde*> | Det Authorization-huvud värde som ska användas för autentisering |
 ||||||
 
-När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Det här exemplet på en HTTP-åtgärd `type` anger `Raw`autentiseringen som och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
+När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Det här exemplet på en HTTP-åtgärd anger autentiseringen `type` som `Raw` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
 
 ```json
 "HTTP": {
@@ -875,10 +879,10 @@ Om alternativet för [hanterad identitet](../active-directory/managed-identities
    |---------------------|-----------------|----------|-------|-------------|
    | **Autentisering** | `type` | Ja | **Hanterad identitet** <br>eller <br>`ManagedServiceIdentity` | Autentiseringstypen som ska användas |
    | **Hanterad identitet** | `identity` | Ja | * **Systemtilldelad hanterad identitet** <br>eller <br>`SystemAssigned` <p><p>* <*användare-tilldelad identitet-namn*> | Den hanterade identitet som ska användas |
-   | **Målgrupp** | `audience` | Ja | <*mål resurs-ID*> | Resurs-ID för den mål resurs som du vill komma åt. <p>Till exempel `https://storage.azure.com/` blir [åtkomsttoken](../active-directory/develop/access-tokens.md) för autentisering giltig för alla lagrings konton. Du kan dock också ange en rot tjänst-URL, till exempel `https://fabrikamstorageaccount.blob.core.windows.net` för ett angivet lagrings konto. <p>**Obs!** egenskapen **Audience** kan vara dold i vissa utlösare eller åtgärder. Om du vill att den här egenskapen ska vara synlig i utlösaren eller åtgärden öppnar du listan **Lägg till ny parameter** och väljer **mål grupp**. <p><p>**Viktigt**: se till att det här mål resurs-ID: t *exakt matchar* det värde som Azure AD förväntar sig, inklusive eventuella avslutande snedstreck. `https://storage.azure.com/` Resurs-ID för alla Azure Blob Storage-konton kräver därför ett avslutande snedstreck. Resurs-ID för ett angivet lagrings konto kräver dock inte något avslutande snedstreck. Du hittar dessa resurs-ID: n i [Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Målgrupp** | `audience` | Ja | <*mål resurs-ID*> | Resurs-ID för den mål resurs som du vill komma åt. <p>Till exempel `https://storage.azure.com/` blir [åtkomsttoken](../active-directory/develop/access-tokens.md) för autentisering giltig för alla lagrings konton. Du kan dock också ange en rot tjänst-URL, till exempel `https://fabrikamstorageaccount.blob.core.windows.net` för ett angivet lagrings konto. <p>**Obs!** egenskapen **Audience** kan vara dold i vissa utlösare eller åtgärder. Om du vill att den här egenskapen ska vara synlig i utlösaren eller åtgärden öppnar du listan **Lägg till ny parameter** och väljer **mål grupp**. <p><p>**Viktigt**: se till att det här mål resurs-ID: t *exakt matchar* det värde som Azure AD förväntar sig, inklusive eventuella avslutande snedstreck. `https://storage.azure.com/`Resurs-ID för alla Azure Blob Storage-konton kräver därför ett avslutande snedstreck. Resurs-ID för ett angivet lagrings konto kräver dock inte något avslutande snedstreck. Du hittar dessa resurs-ID: n i [Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
-   När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds `type` definition `ManagedServiceIdentity` anger autentiseringen som och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
+   När du använder [skyddade parametrar](#secure-action-parameters) för att hantera och skydda känslig information, till exempel i en [Azure Resource Manager mall för automatisk distribution](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), kan du använda uttryck för att få åtkomst till dessa parameter värden vid körning. Detta exempel på en HTTP-åtgärds definition anger autentiseringen `type` som `ManagedServiceIdentity` och använder [funktionen parameters ()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) för att hämta parameter värden:
 
    ```json
    "HTTP": {

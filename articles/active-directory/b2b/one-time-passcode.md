@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d897bb983eb06baa4f1573f1f875eea8bb8afc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263379"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199488"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-postautentisering med eng ång slö sen ord (för hands version)
 
@@ -31,7 +31,7 @@ Den här artikeln beskriver hur du aktiverar autentisering med eng ång slö sen
 Den här funktionen är för närvarande tillgänglig för för hands version (se [väljer i för hands versionen](#opting-in-to-the-preview) nedan). Efter för hands versionen aktive ras den här funktionen som standard för alla klienter.
 
 > [!NOTE]
-> Användare av eng ång slö sen ord måste logga in med en länk som innehåller klient kontexten (till `https://myapps.microsoft.com/?tenantid=<tenant id>` exempel `https://portal.azure.com/<tenant id>`eller, eller, om det är `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`en verifierad domän). Direkt länkar till program och resurser fungerar även så länge de omfattar klient kontexten. Gäst användare kan för närvarande inte logga in med slut punkter som inte har någon klient kontext. Om du till exempel `https://myapps.microsoft.com`använder `https://portal.azure.com`, eller en gemensam slut punkt leder det till ett fel. 
+> Användare av eng ång slö sen ord måste logga in med en länk som innehåller klient kontexten (till exempel `https://myapps.microsoft.com/?tenantid=<tenant id>` eller `https://portal.azure.com/<tenant id>` , eller, om det är en verifierad domän `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com` ). Direkt länkar till program och resurser fungerar även så länge de omfattar klient kontexten. Gäst användare kan för närvarande inte logga in med slut punkter som inte har någon klient kontext. Om du till exempel använder `https://myapps.microsoft.com` , `https://portal.azure.com` eller en gemensam slut punkt leder det till ett fel. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Användar upplevelse för gäst användare med eng ång slö sen ord
 Med autentisering med eng ång slö sen ord kan gäst användaren lösa in din inbjudan genom att klicka på en direkt länk eller via e-postinbjudan. I båda fallen indikerar ett meddelande i webbläsaren att en kod skickas till gäst användarens e-postadress. Gäst användaren väljer **Skicka kod**:
@@ -56,7 +56,7 @@ När en gäst användare löser in en inbjudan eller använder en länk till en 
 
 Vid tidpunkten för inbjudan finns det ingen indikation på att användaren som du bjuder in ska använda autentisering med eng ång slö sen ord. Men när gäst användaren loggar in blir autentiseringen med eng ång slö sen ord reserv metoden om inga andra autentiseringsmetoder kan användas. 
 
-Du kan visa gäst användare som autentiserar med eng ång slö sen ord i Azure Portal genom att gå till **Azure Active Directory** > **organisations relationer** > **användare från andra organisationer**.
+Du kan visa gäst användare som autentiserar med eng ång slö sen ord i Azure Portal genom att gå till **Azure Active Directory**  >  **användare**.
 
 ![Skärm bild som visar en eng ång slö sen ord med käll värde för eng ång slö sen ord](media/one-time-passcode/otp-users.png)
 
@@ -72,8 +72,7 @@ Det kan ta några minuter innan opt-in-åtgärden börjar gälla. Sedan kommer e
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Välja att använda Azure AD-portalen
 1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
 2.  I navigerings fönstret väljer du **Azure Active Directory**.
-3.  Under **Hantera**väljer du **organisations relationer**.
-4.  Välj **Inställningar**.
+3.  Välj inställningar för **organisations relationer**  >  **Settings** (eller Välj **externa identiteter**  >  **externa samarbets inställningar**).
 5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Ja**.
  
 ### <a name="to-opt-in-using-powershell"></a>Välja att använda PowerShell
@@ -139,8 +138,7 @@ Det kan ta några minuter innan den opt-out-åtgärden börjar gälla. Om du ina
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Så här stänger du av för hands versionen med Azure AD-portalen
 1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
 2.  I navigerings fönstret väljer du **Azure Active Directory**.
-3.  Under **Hantera**väljer du **organisations relationer**.
-4.  Välj **Inställningar**.
+3.  Välj inställningar för **organisations relationer**  >  **Settings** (eller Välj **externa identiteter**  >  **externa samarbets inställningar**).
 5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Nej**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Så här stänger du av för hands versionen med PowerShell

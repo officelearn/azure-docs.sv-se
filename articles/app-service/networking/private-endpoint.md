@@ -4,17 +4,17 @@ description: Anslut privat till en webbapp med hjälp av privat Azure-slutpunkt
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 05/12/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4d139cfa50afa94621066995314737fac70bbafe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a95c021153a458a4e3f804e64724b73ea1f1937
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756275"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198823"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Använda privata slut punkter för Azure Web App (för hands version)
 
@@ -28,7 +28,7 @@ Med hjälp av privat slut punkt för din webbapp kan du:
 - Skydda din webbapp genom att konfigurera den privata slut punkten och eliminera offentlig exponering.
 - Anslut säkert till en webbapp från lokala nätverk som ansluter till VNet med en VPN-eller ExpressRoute-peering.
 
-Om du bara behöver en säker anslutning mellan ditt VNet och din webbapp är en tjänst slut punkt den enklaste lösningen. Om du också behöver komma åt webbappen från en lokal plats via en Azure-Gateway är det en privat, privat slut punkt som är lösningen.  
+Om du bara behöver en säker anslutning mellan ditt VNet och din webbapp är en tjänst slut punkt den enklaste lösningen. Om du också behöver komma åt webbappen från lokala platser via en Azure-Gateway, ett regionalt, interaktivt VNet eller ett globalt peer-baserat VNet är den privata slut punkten lösningen.  
 
 Mer information finns i [tjänst slut punkter][serviceendpoint].
 
@@ -63,13 +63,21 @@ I webb-HTTP-loggfilerna för din webbapp hittar du klientens käll-IP. Detta imp
 ## <a name="dns"></a>DNS
 
 Eftersom den här funktionen är i för hands version ändrar vi inte DNS-posten under för hands versionen. Du måste hantera DNS-posten i din privata DNS-server eller Azure DNS privat zon själv.
-Om du behöver använda ett anpassat DNS-namn måste du lägga till det anpassade namnet i din webbapp. Under för hands versionen måste det anpassade namnet verifieras som valfritt anpassat namn med hjälp av offentlig DNS-matchning. Mer information finns i [anpassad DNS-validering][dnsvalidation] .
+Om du behöver använda ett anpassat DNS-namn måste du lägga till det anpassade namnet i din webbapp. Under för hands versionen måste det anpassade namnet verifieras som valfritt anpassat namn med hjälp av offentlig DNS-matchning. Mer information finns i [anpassad DNS-validering][dnsvalidation].
+
+Om du behöver använda kudu-konsolen eller kudu REST API (distribution med Azure DevOps-anpassade agenter till exempel), måste du skapa två poster i din Azure DNS privata zon eller på din anpassade DNS-server. 
+- PrivateEndpointIP yourwebappname.azurewebsites.net 
+- PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
 ## <a name="pricing"></a>Prissättning
 
 Pris information finns i [priser för privata Azure-länkar][pricing].
 
 ## <a name="limitations"></a>Begränsningar
+
+När du använder Azure Function i elastisk Premium-plan med privat slut punkt, för att köra eller köra funktionen i Azure-webbportalen, måste du ha direkt åtkomst till nätverket eller så får du ett HTTP 403-fel. I andra ord måste webbläsaren kunna komma åt den privata slut punkten för att köra funktionen från Azure-webbportalen. 
+
+Under för hands versionen exponeras bara produktions platsen bakom den privata slut punkten, och andra platser kan bara användas av en offentlig slut punkt.
 
 Vi förbättrar den privata länk funktionen och den privata slut punkten regelbundet. Läs [den här artikeln][pllimitations] för uppdaterad information om begränsningar.
 

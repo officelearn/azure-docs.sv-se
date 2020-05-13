@@ -3,12 +3,12 @@ title: Skapa en ny Azure Application Insights-resurs | Microsoft Docs
 description: Konfigurera Application Insights övervakning manuellt för ett nytt Live-program.
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 0c8b9ccaa70a2fd1bf46c6f4537f54d702ecc48f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d8979469ca83dfd6b81aab10191e8fbf36104ff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537584"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200670"
 ---
 # <a name="create-an-application-insights-resource"></a>Skapa en Application Insights-resurs
 
@@ -26,9 +26,10 @@ Logga in på [Azure Portal](https://portal.azure.com)och skapa en Application In
 
    | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
-   | **Namn**      | Unikt värde | Namn som identifierar den app som du övervakar. |
-   | **Resurs grupp**     | myResourceGroup      | Namnet på den nya eller befintliga resurs gruppen som värd för App Insights-data. |
-   | **Position** | USA, östra | Välj en plats nära dig eller nära den plats där din app finns. |
+   | **Namn**      | `Unique value` | Namn som identifierar den app som du övervakar. |
+   | **Resurs grupp**     | `myResourceGroup`      | Namnet på den nya eller befintliga resurs gruppen som värd för App Insights-data. |
+   | **Nationella** | `East US` | Välj en plats nära dig eller nära den plats där din app finns. |
+   | **Resurs läge** | `Classic` eller `Workspace-based` | Arbets ytans baserade resurser finns för närvarande i en offentlig för hands version och gör att du kan skicka Application Insights telemetri till en gemensam Log Analytics arbets yta. Mer information finns i [artikeln om arbets ytor-baserade resurser](create-workspace-resource.md).
 
 > [!NOTE]
 > Även om du kan använda samma resurs namn i olika resurs grupper kan det vara bra att använda ett globalt unikt namn. Detta kan vara användbart om du planerar att [utföra kors resurs frågor](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) eftersom det underlättar den nödvändiga syntaxen.
@@ -96,7 +97,7 @@ Den fullständiga PowerShell-dokumentationen för denna cmdlet och lär dig hur 
 
 ### <a name="azure-cli-preview"></a>Azure CLI (för hands version)
 
-För att få åtkomst till för hands versionen Application Insights Azure CLI-kommandon som du först måste köra:
+För att få åtkomst till för hands versionen Application Insights Azure CLI-kommandon måste du först köra:
 
 ```azurecli
  az extension add -n application-insights

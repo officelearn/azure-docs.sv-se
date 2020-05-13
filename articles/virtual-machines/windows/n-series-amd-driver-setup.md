@@ -1,5 +1,5 @@
 ---
-title: Installation av AMD GPU-drivrutin i Azure N-serien för Windows
+title: Konfiguration av Azure N-seriens AMD GPU-drivrutin för Windows
 description: Konfigurera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows Server eller Windows i Azure
 author: vikancha
 manager: jkabat
@@ -8,18 +8,22 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 63114bdf60c1feb2b6cb1092ef78397efdc5b666
-ms.sourcegitcommit: af1cbaaa4f0faa53f91fbde4d6009ffb7662f7eb
+ms.openlocfilehash: 1bcc13db3f503c80fda71a2104d0ff8d99e67df6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81865759"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198002"
 ---
-# <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner på virtuella datorer i N-serien som kör Windows
+# <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Installera AMD GPU-drivrutiner för virtuella datorer i N-serien som kör Windows
 
-För att kunna dra nytta av GPU-funktionerna i de nya virtuella datorerna i Azure NVv4-serien som kör Windows måste AMD GPU-drivrutiner installeras. AMD-drivrutinstillägget kommer att finnas tillgänglig under de kommande veckorna. Den här artikeln innehåller operativsystem, drivrutiner och steg för manuell installation och verifiering som stöds.
+För att kunna dra nytta av GPU-funktionerna i de nya virtuella Azure NVv4-serierna som kör Windows, måste AMD GPU-drivrutinerna vara installerade. [Tillägget för AMD GPU-drivrutinen](../extensions/hpccompute-amd-gpu-windows.md) installerar AMD GPU-drivrutiner på en virtuell NVv4-serie. Installera eller hantera tillägget med hjälp av Azure Portal eller verktyg som Azure PowerShell eller Azure Resource Manager mallar. Mer information om vilka operativ system och distributions steg som stöds finns i [dokumentationen för AMD GPU-drivrutinen](../extensions/hpccompute-amd-gpu-windows.md) .
 
-Grundläggande specifikationer, lagringskapacitet och diskinformation finns i [GPU Windows VM-storlekar](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Om du väljer att installera AMD GPU-drivrutiner manuellt, innehåller den här artikeln stöd för operativ system, driv rutiner och installations-och verifierings steg.
+
+Endast GPU-drivrutiner som publicerats av Microsoft stöds på virtuella NVv4-datorer. Installera inte GPU-drivrutiner från någon annan källa.
+
+Grundläggande specifikationer, lagrings kapacitet och disk information finns i storlekar för [GPU Windows VM](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 
 
@@ -27,32 +31,32 @@ Grundläggande specifikationer, lagringskapacitet och diskinformation finns i [G
 
 | Operativsystem | Drivrutin |
 | -------- |------------- |
-| Windows 10 EVD - Bygg 1903 <br/><br/>Windows 10 - Bygg 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20.Q1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (.exe) |
+| Windows 10-EVD – build 1903 <br/><br/>Windows 10 – build 1809<br/><br/>Windows Server 2016<br/><br/>Windows Server 2019 | [20. q 1.1](https://download.microsoft.com/download/3/8/9/3893407b-e8aa-4079-8592-735d7dd1c19a/Radeon-Pro-Software-for-Enterprise-GA.exe) (. exe) |
 
 
-## <a name="driver-installation"></a>Installation av drivrutiner
+## <a name="driver-installation"></a>Driv rutins installation
 
-1. Anslut med fjärrskrivbord till varje virtuell dator i NVv4-serien.
+1. Anslut via fjärr skrivbord till varje virtuell NVv4-serien.
 
-2. Om du är en NVv4 förhandsgranska kund sedan stoppa den virtuella datorn och vänta tills den ska flytta till Stoppad (Deallocated) tillstånd.
+2. Om du är en NVv4 för hands version stoppar du den virtuella datorn och väntar på att den ska flyttas till stoppat (friallokerat) tillstånd.
 
-3. Starta den virtuella datorn och ladda ner den senaste [AMD Cleanup Utility](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Avinstallera den befintliga drivrutinen genom att köra "amdcleanuputility-x64.exe". Använd INTE något befintligt rensningsverktyg som installerades med den tidigare drivrutinen.  
+3. Starta den virtuella datorn och ladda ned det senaste [verktyget för AMD Cleanup](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Avinstallera den befintliga driv rutinen genom att köra "amdcleanuputility-x64. exe". Använd inte något befintligt rensnings verktyg som installerades med den tidigare driv rutinen.  
 
-4. Ladda ner och installera den senaste drivrutinen.
+4. Hämta och installera den senaste driv rutinen.
 
 5. Starta om den virtuella datorn.
 
-## <a name="verify-driver-installation"></a>Verifiera installationen av drivrutiner
+## <a name="verify-driver-installation"></a>Verifiera installation av driv rutin
 
-Du kan verifiera drivrutinsinstallationen i Enhetshanteraren. The following example shows successful configuration of the Radeon Instinct MI25 card on an Azure NVv4 VM.
+Du kan kontrol lera driv rutins installationen i Enhetshanteraren. I följande exempel visas lyckad konfiguration av kortet Radeon Instinct MI25 på en virtuell Azure-NVv4.
 <br />
 ![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/device-manager.png)
 
-Du kan använda dxdiag för att verifiera GPU-visningsegenskaperna, inklusive video-RAM-minnet. Följande exempel visar en 1/2-partition av Radeon Instinct MI25-kortet på en Azure NVv4 VM.
+Du kan använda dxdiag för att kontrol lera GPU-bildskärms egenskaper inklusive video-RAM. I följande exempel visas en 1/2-partition av kortet Radeon Instinct MI25 på en virtuell Azure-NVv4.
 <br />
 ![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/dxdiag-output.png)
 
-Om du kör Windows 10 bygga 1903 eller högre då dxdiag kommer att visa någon information i "Display" fliken. Använd alternativet "Spara all information" längst ner och utdatafilen visar informationen om AMD MI25 GPU.
+Om du kör Windows 10 version 1903 eller senare kommer dxdiag inte att visa någon information på fliken "Visa". Använd alternativet "Spara all information" längst ned och utdatafilen visar information om AMD MI25 GPU.
 
 ![Egenskaper för GPU-drivrutin](./media/n-series-amd-driver-setup/dxdiag-details.png)
 

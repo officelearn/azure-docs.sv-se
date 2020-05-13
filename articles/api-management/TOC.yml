@@ -227,8 +227,6 @@
           href: how-to-configure-cloud-metrics-logs.md
         - name: Konfigurera lokala mått och loggar för en gateway med egen värd
           href: how-to-configure-local-metrics-logs.md
-        - name: Logga begäranden med Azure Application Insights
-          href: api-management-howto-app-insights.md
         - name: Konfigurera DR med säkerhetskopiering/återställning
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: Hantera användarkonton

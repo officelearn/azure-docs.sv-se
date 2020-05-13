@@ -11,12 +11,12 @@ metadata:
   author: spelluru
   ms.author: spelluru
   ms.date: 03/15/2020
-  ms.openlocfilehash: 65a4312d01d6f3652ebc37ee0276c912178d4ccd
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: f70bdf831d5b65aab9d6d01f88122d1a0fdd9957
+  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79472262"
+  ms.lasthandoff: 05/12/2020
+  ms.locfileid: "83200405"
 highlightedContent:
   items:
   - title: Välja bland Azure-meddelandetjänster
@@ -33,7 +33,7 @@ highlightedContent:
     url: ../service-bus-messaging/service-bus-messaging-overview.md
   - title: Vad är vidarebefordran?
     itemType: overview
-    url: ../service-bus-relay/relay-what-is-it.md
+    url: ../azure-relay/relay-what-is-it.md
 conceptualContent:
   items:
   - title: Dirigera händelser
@@ -160,12 +160,12 @@ conceptualContent:
       text: Mer information
   - title: Hybridanslutningar
     links:
-    - url: ../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md
+    - url: ../azure-relay/relay-hybrid-connections-dotnet-get-started.md
       itemType: tutorial
       text: Komma igång med Azure Relay-hybridanslutningar med Websockets i .NET
-    - url: ../service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started.md
+    - url: ../azure-relay/relay-hybrid-connections-http-requests-dotnet-get-started.md
       itemType: tutorial
       text: Komma igång med HTTP-begäranden för Relay-hybridanslutningar i .NET
     footerLink:
-      url: ../service-bus-relay/index.yml
+      url: ../azure-relay/index.yml
       text: Mer information

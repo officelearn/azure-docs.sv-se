@@ -227,6 +227,8 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Efterlevnad
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: Kryptering
+      href: qna-maker-encryption-of-data-at-rest.md
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Priser och begränsningar

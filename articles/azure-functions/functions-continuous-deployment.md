@@ -4,12 +4,12 @@ description: Använd funktionerna för kontinuerlig distribution i Azure App Ser
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: cc1e100a0c2e652ab081869409fd24dbf88017a3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e49c235e11eea17fdd1a7ff7751cc0493934d725
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79277029"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123705"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Löpande distribution för Azure Functions
 
@@ -36,46 +36,30 @@ För att kontinuerlig distribution ska lyckas måste katalog strukturen vara kom
 
 Slutför de här stegen för att konfigurera kontinuerlig distribution för en befintlig Function-app. Stegen demonstrerar integreringen med en GitHub-lagringsplats, men liknande steg gäller för Azure databaser eller andra käll kods centraler.
 
-1. I din Function-app i [Azure Portal](https://portal.azure.com)väljer du **Platform features** > **Deployment Center**.
+1. I din Function-app i [Azure Portal](https://portal.azure.com)väljer du **Deployment Center**, väljer **GitHub**och väljer sedan **auktorisera**. Om du redan har auktoriserat GitHub väljer du **Fortsätt** och hoppar över nästa steg. 
 
-    ![Öppna distributions Center](./media/functions-continuous-deployment/platform-features.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github.png" alt-text="Azure App Service distributions Center":::
 
-2. I **distributions Center**väljer du **GitHub**och väljer sedan **auktorisera**. Om du redan har auktoriserat GitHub väljer du **Fortsätt**. 
+3. I GitHub väljer du **auktorisera AzureAppService**.
 
-    ![Azure App Service distributions Center](./media/functions-continuous-deployment/github.png)
+    :::image type="content" source="./media/functions-continuous-deployment/authorize.png" alt-text="Auktorisera Azure App Service":::
 
-3. I GitHub väljer du knappen **auktorisera AzureAppService** . 
-
-    ![Auktorisera Azure App Service](./media/functions-continuous-deployment/authorize.png)
-    
-    I **distributions Center** i Azure Portal väljer du **Fortsätt**.
+    Ange ditt GitHub-lösenord och välj sedan **Fortsätt**.
 
 4. Välj en av följande build-providers:
 
     * **App Service Build Service**: bäst när du inte behöver en version eller om du behöver en allmän version.
     * **Azure-pipeliner (för hands version)**: bäst när du behöver mer kontroll över versionen. Den här providern är för närvarande en för hands version.
 
-    ![Välj en build-Provider](./media/functions-continuous-deployment/build.png)
+    Välj **Fortsätt**.
 
 5. Konfigurera information som är specifik för det alternativ för käll kontroll som du har angett. För GitHub måste du ange eller välja värden för **organisation**, **lagrings plats**och **gren**. Värdena baseras på kodens plats. Välj sedan **Fortsätt**.
 
-    ![Konfigurera GitHub](./media/functions-continuous-deployment/github-specifics.png)
+    :::image type="content" source="./media/functions-continuous-deployment/github-specifics.png" alt-text="Konfigurera GitHub":::
 
 6. Granska all information och välj sedan **Slutför** för att slutföra distributions konfigurationen.
 
-    ![Sammanfattning](./media/functions-continuous-deployment/summary.png)
-
 När processen är färdig distribueras all kod från den angivna källan till din app. Vid detta tillfälle utlöser ändringar i distributions källan en distribution av ändringarna till din Function-app i Azure.
-
-## <a name="deployment-scenarios"></a>Distributionsscenarier
-
-<a name="existing"></a>
-
-### <a name="move-existing-functions-to-continuous-deployment"></a>Flytta befintliga funktioner till kontinuerlig distribution
-
-Om du redan har skrivit funktioner i [Azure Portal](https://portal.azure.com) och du vill ladda ned innehållet i din app innan du växlar till kontinuerlig distribution, går du till fliken **Översikt** i din Function-app. Välj knappen **Hämta appens innehåll** .
-
-![Hämta app-innehåll](./media/functions-continuous-deployment/download.png)
 
 > [!NOTE]
 > När du har konfigurerat kontinuerlig integrering kan du inte längre redigera dina källfiler i functions-portalen.

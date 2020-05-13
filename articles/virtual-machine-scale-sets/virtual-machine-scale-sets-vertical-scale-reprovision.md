@@ -1,21 +1,20 @@
 ---
 title: Skala skalnings uppsättningar för virtuella Azure-datorer vertikalt
 description: Hur du lodrätt skalar en virtuell dator som svar på övervaknings aviseringar med Azure Automation
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 16b17421-6b8f-483e-8a84-26327c44e9d3
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 04/18/2019
-ms.author: mimckitt
-ms.openlocfilehash: c28c50ef78f67daa6adc4022d8feb559f5c1c1f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: 69c613de02b9601966cae2d36c13428ca6c7becc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273366"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121005"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Lodrät autoskalning med skalnings uppsättningar för virtuella datorer
 

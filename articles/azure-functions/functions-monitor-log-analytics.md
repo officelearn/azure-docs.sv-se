@@ -3,14 +3,14 @@ title: Övervaka Azure Functions med Azure Monitor loggar
 description: Lär dig hur du använder Azure Monitor loggar med Azure Functions för att övervaka funktions körningar.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 13c72a1cf8a0dd4a1124e51b9ceee04ae04bf261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b21912de95ccba1d97d187922bfada4d9dc2c56
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77649882"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121665"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Övervaka Azure Functions med Azure Monitor loggar
 
@@ -25,17 +25,23 @@ Azure Monitor använder en version av [Kusto-frågespråket](/azure/kusto/query/
 
 ## <a name="setting-up"></a>Konfigurera
 
-I avsnittet **övervakning** väljer du **diagnostikinställningar** och klickar sedan på **Lägg till diagnostisk inställning**.
+1. I avsnittet **övervakning** i din Function-app i [Azure Portal](https://portal.azure.com)väljer du **diagnostikinställningar**och väljer sedan **Lägg till diagnostisk inställning**.
 
-![Lägg till en diagnostisk inställning](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
+   :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Välj diagnostikinställningar":::
 
-På sidan **diagnostikinställningar** väljer du **Skicka till Log Analytics**och väljer sedan arbets ytan Log Analytics. Under **loggen** Välj **FunctionAppLogs**innehåller den här tabellen de önskade loggarna.
+1. På sidan **diagnostikinställningar** under **kategori information** och **logg**väljer du **FunctionAppLogs**.
 
-![Lägg till en diagnostisk inställning](media/functions-monitor-log-analytics/choose-table.png)
+   **FunctionAppLogs** -tabellen innehåller de önskade loggarna.
+
+1. Under **mål information**väljer **du skicka till Log Analytics**. Välj sedan **Log Analytics arbets ytan**. 
+
+1. Ange ett **namn på diagnostikinställningar**och välj sedan **Spara**.
+
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Lägg till en diagnostisk inställning":::
 
 ## <a name="user-generated-logs"></a>Loggar som skapats av användare
 
-Om du vill skapa anpassade loggar kan du använda den specifika loggnings instruktionen, beroende på ditt språk, här visas exempel på kodfragment:
+Om du vill skapa anpassade loggar använder du loggnings instruktionen som är specifik för ditt språk. Här är exempel kods tycken:
 
 
 # <a name="c"></a>[C #](#tab/csharp)
@@ -72,11 +78,19 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>Skicka frågor till loggarna
 
-Om du vill fråga de genererade loggarna går du till arbets ytan Log Analytics som du konfigurerade för att skicka funktions loggarna till och klickar på **loggar**.
+Så här frågar du på genererade loggar:
+ 
+1. Välj **diagnostikinställningar**från din Function-app. 
 
-![Frågefönstret i LA-arbetsytan](media/functions-monitor-log-analytics/querying.png)
+1. I listan **diagnostiska inställningar** väljer du den Log Analytics arbets yta som du konfigurerade för att skicka funktions loggarna till. 
 
-Azure Functions skriver alla loggar till **FunctionAppLogs** -tabellen är några exempel frågor.
+1. På sidan **Log Analytics arbets yta** väljer du **loggar**.
+
+   Azure Functions skriver alla loggar till tabellen **FunctionAppLogs** under **LogManagement**. 
+
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Frågefönstret i Log Analytics arbets yta":::
+
+Här följer några exempel frågor:
 
 ### <a name="all-logs"></a>Alla loggar
 
@@ -87,7 +101,7 @@ FunctionAppLogs
 
 ```
 
-### <a name="a-specific-function-logs"></a>En speciell funktions loggar
+### <a name="specific-function-logs"></a>Vissa funktions loggar
 
 ```
 
@@ -108,6 +122,6 @@ FunctionAppLogs
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska [Azure Functions översikt](functions-overview.md)
-- Läs mer om [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md)
+- Granska [Azure Functions översikt](functions-overview.md).
+- Läs mer om [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md).
 - Läs mer om [frågespråket](../azure-monitor/log-query/get-started-queries.md).

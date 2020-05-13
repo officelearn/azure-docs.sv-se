@@ -1,19 +1,20 @@
 ---
 title: Ändra en skalnings uppsättning för virtuella Azure-datorer
 description: 'Lär dig hur du ändrar och uppdaterar en skalnings uppsättning för en virtuell Azure-dator med REST-API: erna, Azure PowerShell och Azure CLI'
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: management
 ms.date: 03/10/2020
-ms.author: mimckitt
-ms.openlocfilehash: af5998a4207521d49ea4fd7956256aa6c880e6e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 9498babd9605c46d752c5fe1eb1b077f6d911351
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476832"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121022"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Skapa en VM-skalningsuppsättning
 
@@ -156,7 +157,7 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Dessa egenskaper beskriver konfigurationen av en virtuell dator instans i en skalnings uppsättning, inte konfigurationen av skalnings uppsättningen som helhet. Till exempel har `overprovision` skalnings uppsättnings modellen som en egenskap, medan modellen för en VM-instans i en skalnings uppsättning inte gör det. Den här skillnaden beror på att överetablering är en egenskap för skalnings uppsättningen som helhet, inte enskilda VM-instanser i skalnings uppsättningen (mer information om överetablering finns i [design överväganden för skalnings uppsättningar](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Dessa egenskaper beskriver konfigurationen av en virtuell dator instans i en skalnings uppsättning, inte konfigurationen av skalnings uppsättningen som helhet. Till exempel har skalnings uppsättnings modellen `overprovision` som en egenskap, medan modellen för en VM-instans i en skalnings uppsättning inte gör det. Den här skillnaden beror på att överetablering är en egenskap för skalnings uppsättningen som helhet, inte enskilda VM-instanser i skalnings uppsättningen (mer information om överetablering finns i [design överväganden för skalnings uppsättningar](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>Vyn skalnings uppsättning för virtuell dator instans
@@ -276,7 +277,7 @@ Om du vill uppdatera en global skalnings uppsättnings egenskap måste du uppdat
 
 - Du kan också använda [Resources.Azure.com](https://resources.azure.com) eller [Azure SDK](https://azure.microsoft.com/downloads/): er.
 
-När skalnings uppsättnings modellen har uppdaterats, gäller den nya konfigurationen för alla nya virtuella datorer som skapats i skalnings uppsättningen. Modellerna för befintliga virtuella datorer i skalnings uppsättningen måste dock fortfarande vara uppdaterade med den senaste modellen för skalnings uppsättningar. I modellen för varje virtuell dator är en boolesk egenskap `latestModelApplied` som anger om den virtuella datorn är uppdaterad med den senaste modellen för skalnings uppsättningar (`true` innebär att den virtuella datorn är uppdaterad med den senaste modellen).
+När skalnings uppsättnings modellen har uppdaterats, gäller den nya konfigurationen för alla nya virtuella datorer som skapats i skalnings uppsättningen. Modellerna för befintliga virtuella datorer i skalnings uppsättningen måste dock fortfarande vara uppdaterade med den senaste modellen för skalnings uppsättningar. I modellen för varje virtuell dator är en boolesk egenskap `latestModelApplied` som anger om den virtuella datorn är uppdaterad med den senaste modellen för skalnings uppsättningar ( `true` innebär att den virtuella datorn är uppdaterad med den senaste modellen).
 
 
 ## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Så här tar du med virtuella datorer uppdaterade med den senaste skalnings uppsättnings modellen

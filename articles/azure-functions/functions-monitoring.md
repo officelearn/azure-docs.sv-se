@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Application insikter med Azure Func
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 9997a44d14f5b4ca4de4e5b135efc453b12bff01
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 0b4d0f43d00a919c589a11c81df2818f3a058ed8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202421"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121598"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -29,7 +29,7 @@ Den fullständiga listan med Application Insights funktioner som är tillgängli
 
 Med [Application Insights integrering aktive rad](#enable-application-insights-integration)kan du Visa telemetridata på fliken **övervaka** .
 
-1. På sidan Function-app väljer du en funktion som har körts minst en gång efter Application Insights har kon figurer ATS. Välj sedan fliken **övervakare** . Välj **Uppdatera** regelbundet, tills listan över funktions anrop visas.
+1. På sidan Function-app väljer du en funktion som har körts minst en gång efter Application Insights har kon figurer ATS. Välj sedan **övervaka** i det vänstra fönstret. Välj **Uppdatera** regelbundet, tills listan över funktions anrop visas.
 
    ![Lista med anrop](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -40,9 +40,9 @@ Med [Application Insights integrering aktive rad](#enable-application-insights-i
 
    ![Information om anrop](media/functions-monitoring/invocation-details-ai.png)
 
-1. Välj länken **Kör i Application Insights** om du vill visa källan till frågan som hämtar Azure Monitor loggdata i Azure-loggen om det är första gången du använder Azure Log Analytics i din prenumeration, uppmanas du att aktivera.
+1. Välj **Kör i Application Insights** om du vill visa källan till frågan som hämtar Azure Monitor loggdata i Azure log. Om det här är första gången du använder Azure Log Analytics i din prenumeration, uppmanas du att aktivera det.
 
-1. När du väljer länken och väljer att aktivera logg analys. följande fråga visas. Du kan se att frågeresultaten är begränsade till de senaste 30 dagarna (`where timestamp > ago(30d)`). Dessutom visar resultatet högst 20 rader (`take 20`). Listan med information om anrop för din funktion är däremot under de senaste 30 dagarna utan begränsning.
+1. När du har aktiverat Log Analytics visas följande fråga. Du kan se att frågeresultaten är begränsade till de senaste 30 dagarna ( `where timestamp > ago(30d)` ). Dessutom visar resultatet högst 20 rader ( `take 20` ). Listan med information om anrop för din funktion är däremot under de senaste 30 dagarna utan begränsning.
 
    ![Lista med Application Insights analys anrop](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -50,7 +50,7 @@ Mer information finns i [query telemetri-data](#query-telemetry-data) senare i d
 
 ## <a name="view-telemetry-in-application-insights"></a>Visa telemetri i Application Insights
 
-Öppna Application Insights från en Function-app i Azure Portal genom att gå till sidan med funktions appens **Översikt** . Under **konfigurerade funktioner**väljer du **Application Insights**.
+Om du vill öppna Application Insights från en Function-app i Azure Portal väljer du **Application Insights** under **Inställningar** på den vänstra sidan. Om det här är första gången du använder Application Insights med din prenumeration uppmanas du att aktivera den: Välj **aktivera Application Insights**och välj sedan **Använd** på nästa sida.
 
 ![Öppna Application Insights från översikts sidan för Function-appen](media/functions-monitoring/ai-link.png)
 
@@ -64,7 +64,7 @@ Följande områden i Application Insights kan vara användbara när du ska utvä
  | Beskrivning |
 | ---- | ----------- |
 | **[Fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar baserat på funktions fel och Server undantag. **Åtgärds namnet** är funktions namnet. Felen i beroenden visas inte om du inte implementerar anpassad telemetri för beroenden. |
-| **[Prestanda](../azure-monitor/app/performance-counters.md)** | Analysera prestanda problem genom att Visa resursutnyttjande och data flöde per **moln roll instanser**. Dessa data kan vara användbara för fel sökning av scenarier där funktioner är bogging de underliggande resurserna. |
+| **[Historik](../azure-monitor/app/performance-counters.md)** | Analysera prestanda problem genom att Visa resursutnyttjande och data flöde per **moln roll instanser**. Dessa data kan vara användbara för fel sökning av scenarier där funktioner är bogging de underliggande resurserna. |
 | **[Mått](../azure-monitor/app/metrics-explorer.md)** | Skapa diagram och aviseringar som baseras på mått. Mått inkluderar antalet funktions anrop, körnings tid och lyckade kostnader. |
 | **[Live-mått](../azure-monitor/app/live-stream.md)** | Visa mått data när de skapas i nära real tid. |
 
@@ -98,14 +98,14 @@ De tabeller som är tillgängliga visas på fliken **schema** till vänster. Du 
 
 De andra tabellerna är för tillgänglighets test och telemetri för klienter och webbläsare. Du kan implementera anpassad telemetri för att lägga till data i dem.
 
-I varje tabell finns vissa av de funktioner som är aktuella i ett `customDimensions` fält.  Följande fråga hämtar till exempel alla spår som har loggnings nivå `Error`.
+I varje tabell finns vissa av de funktioner som är aktuella i ett `customDimensions` fält.  Följande fråga hämtar till exempel alla spår som har loggnings nivå `Error` .
 
 <pre>
 traces 
 | where customDimensions.LogLevel == "Error"
 </pre>
 
-Körningen innehåller fälten `customDimensions.LogLevel` och `customDimensions.Category` . Du kan ange ytterligare fält i loggar som du skriver i funktions koden. Se [strukturerad loggning](#structured-logging) senare i den här artikeln.
+Körningen innehåller `customDimensions.LogLevel` fälten och `customDimensions.Category` . Du kan ange ytterligare fält i loggar som du skriver i funktions koden. Se [strukturerad loggning](#structured-logging) senare i den här artikeln.
 
 ## <a name="configure-categories-and-log-levels"></a>Konfigurera kategorier och logg nivåer
 
@@ -117,16 +117,16 @@ Azure Functions loggen innehåller en *kategori* för varje logg. Kategorin visa
 
 | Kategori | Beskrivning |
 | ----- | ----- | 
-| Host.Results | Loggarna visar som **begär Anden** i Application Insights. De indikerar en funktion som lyckats eller misslyckats. Alla dessa loggar skrivs på `Information` nivå. Om du filtrerar `Warning` på eller ovanför visas inte någon av dessa data. |
-| Host. Aggregator | Dessa loggar ger räknare och medelvärden för funktions anrop under en [konfigurerbar](#configure-the-aggregator) tids period. Standard perioden är 30 sekunder eller 1 000 resultat, beroende på vilket som kommer först. Loggarna är tillgängliga i tabellen **customMetrics** i Application Insights. Exempel är antalet körningar, lyckade kostnader och varaktighet. Alla dessa loggar skrivs på `Information` nivå. Om du filtrerar `Warning` på eller ovanför visas inte någon av dessa data. |
+| Host.Results | Loggarna visar som **begär Anden** i Application Insights. De indikerar en funktion som lyckats eller misslyckats. Alla dessa loggar skrivs på `Information` nivå. Om du filtrerar på `Warning` eller ovanför visas inte någon av dessa data. |
+| Host. Aggregator | Dessa loggar ger räknare och medelvärden för funktions anrop under en [konfigurerbar](#configure-the-aggregator) tids period. Standard perioden är 30 sekunder eller 1 000 resultat, beroende på vilket som kommer först. Loggarna är tillgängliga i tabellen **customMetrics** i Application Insights. Exempel är antalet körningar, lyckade kostnader och varaktighet. Alla dessa loggar skrivs på `Information` nivå. Om du filtrerar på `Warning` eller ovanför visas inte någon av dessa data. |
 
 Alla loggar för andra kategorier än dessa är tillgängliga i tabellen **spårning** i Application Insights.
 
-Alla loggar med kategorier som börjar med `Host` skrivs av Functions-körningen. **Funktionen startad** och **Function slutförda** loggar har en `Host.Executor`kategori. För lyckade körningar är `Information` dessa loggar nivå. Undantagen har loggats på `Error` nivå. Körningen skapar `Warning` också nivå loggar, till exempel: köa meddelanden som skickas till en Poison-kö.
+Alla loggar med kategorier som börjar med `Host` skrivs av Functions-körningen. **Funktionen startad** och **Function slutförda** loggar har en kategori `Host.Executor` . För lyckade körningar är dessa loggar `Information` nivå. Undantagen har loggats på `Error` nivå. Körningen skapar också `Warning` nivå loggar, till exempel: köa meddelanden som skickas till en Poison-kö.
 
-Funktions körningen skapar loggar med en kategori som börjar med "värd". I version 1. x `function started`har- `function executed`,-och `function completed` -loggarna kategorin `Host.Executor`. Från och med version 2. x har dessa loggar kategorin `Function.<YOUR_FUNCTION_NAME>`.
+Funktions körningen skapar loggar med en kategori som börjar med "värd". I version 1. x `function started` har-, `function executed` -och- `function completed` loggarna kategorin `Host.Executor` . Från och med version 2. x har dessa loggar kategorin `Function.<YOUR_FUNCTION_NAME>` .
 
-Om du skriver loggar i funktions koden är kategorin `Function.<YOUR_FUNCTION_NAME>.User` och kan vara vilken logg nivå som helst. I version 1. x av Functions-körningen är `Function`kategorin.
+Om du skriver loggar i funktions koden är kategorin `Function.<YOUR_FUNCTION_NAME>.User` och kan vara vilken logg nivå som helst. I version 1. x av Functions-körningen är kategorin `Function` .
 
 ### <a name="log-levels"></a>Loggnivåer
 
@@ -185,13 +185,13 @@ Version v2. x och senare versioner av Functions-körningen använder [.net Core 
 
 I det här exemplet anges följande regler:
 
-* För loggar med kategori `Host.Results` eller `Function`, skicka endast `Error` nivån och över till Application Insights. Loggar för `Warning` nivån och nedan ignoreras.
-* Skicka alla loggar till `Host.Aggregator`Application Insights för loggar med kategori. `Trace` Logg nivån är samma som för alla loggar som anropar `Verbose`, men används `Trace` i [Host. JSON] -filen.
+* För loggar med kategori `Host.Results` eller `Function` , skicka endast `Error` nivån och över till Application Insights. Loggar för `Warning` nivån och nedan ignoreras.
+* `Host.Aggregator`Skicka alla loggar till Application Insights för loggar med kategori. `Trace`Logg nivån är samma som för alla loggar som anropar `Verbose` , men används `Trace` i [Host. JSON] -filen.
 * För alla andra loggar skickar du bara `Information` nivån och över den till Application Insights.
 
-Kategori värdet i [Host. JSON] kontrollerar loggningen för alla kategorier som börjar med samma värde. `Host`i [Host. JSON] kontrollerar loggningen `Host.General`för `Host.Executor`, `Host.Results`, och så vidare.
+Kategori värdet i [Host. JSON] kontrollerar loggningen för alla kategorier som börjar med samma värde. `Host`i [Host. JSON] kontrollerar loggningen för `Host.General` ,, `Host.Executor` `Host.Results` och så vidare.
 
-Om [Host. JSON] innehåller flera kategorier som börjar med samma sträng matchas de längre först. Anta att du vill ha allt från körnings miljön `Host.Aggregator` förutom `Error` att logga på nivå, `Host.Aggregator` men du vill logga `Information` på nivån:
+Om [Host. JSON] innehåller flera kategorier som börjar med samma sträng matchas de längre först. Anta att du vill ha allt från körnings miljön förutom `Host.Aggregator` att logga på `Error` nivå, men du vill `Host.Aggregator` Logga på `Information` nivån:
 
 ### <a name="version-2x-and-later"></a>Version 2. x och senare
 
@@ -226,7 +226,7 @@ Om [Host. JSON] innehåller flera kategorier som börjar med samma sträng match
 }
 ```
 
-Om du vill ignorera alla loggar för en kategori kan du använda loggnings nivå `None`. Inga loggar skrivs med den kategorin och det finns ingen loggnings nivå ovanför den.
+Om du vill ignorera alla loggar för en kategori kan du använda loggnings nivå `None` . Inga loggar skrivs med den kategorin och det finns ingen loggnings nivå ovanför den.
 
 ## <a name="configure-the-aggregator"></a>Konfigurera Aggregator
 
@@ -282,9 +282,9 @@ Du kan skriva loggar i funktions koden som visas som spår i Application Insight
 
 ### <a name="ilogger"></a>ILogger
 
-Använd en [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) -parameter i dina funktioner i stället `TraceWriter` för en parameter. Loggar som skapats med `TraceWriter` hjälp av gå till Application Insights `ILogger` , men du kan göra [strukturerad loggning](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
+Använd en [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) -parameter i dina funktioner i stället för en `TraceWriter` parameter. Loggar som skapats med hjälp av `TraceWriter` gå till Application Insights, men `ILogger` du kan göra [strukturerad loggning](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Med ett `ILogger` objekt anropar `Log<level>` du [tilläggs metoder på ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) för att skapa loggar. Följande kod skriver `Information` loggarna med kategorin "Function. <YOUR_FUNCTION_NAME>. Användare. "
+Med ett `ILogger` objekt anropar du `Log<level>` [tilläggs metoder på ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) för att skapa loggar. Följande kod skriver `Information` loggarna med kategorin "function. <YOUR_FUNCTION_NAME>. Användare. "
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -306,11 +306,11 @@ Om du behåller samma meddelande sträng och ändrar ordningen på parametrarna,
 
 Plats hållare hanteras på det här sättet så att du kan göra strukturerad loggning. Application Insights lagrar parameter namn-värde-par och meddelande strängen. Resultatet är att meddelande argumenten blir fält som du kan fråga på.
 
-Om ditt loggnings metod anrop ser ut som i föregående exempel, kan du fråga `customDimensions.prop__rowKey`fältet. `prop__` Prefixet läggs till för att se till att det inte finns några kollisioner mellan fält som runtime lägger till och fält som funktions koden lägger till.
+Om ditt loggnings metod anrop ser ut som i föregående exempel, kan du fråga fältet `customDimensions.prop__rowKey` . `prop__`Prefixet läggs till för att se till att det inte finns några kollisioner mellan fält som runtime lägger till och fält som funktions koden lägger till.
 
-Du kan också fråga på den ursprungliga meddelande strängen genom att referera till fältet `customDimensions.prop__{OriginalFormat}`.  
+Du kan också fråga på den ursprungliga meddelande strängen genom att referera till fältet `customDimensions.prop__{OriginalFormat}` .  
 
-Här är ett exempel på en JSON `customDimensions` -representation av data:
+Här är ett exempel på en JSON-representation av `customDimensions` data:
 
 ```json
 {
@@ -331,11 +331,11 @@ I C#-skript funktioner kan du använda `LogMetric` tilläggs metoden för `ILogg
 logger.LogMetric("TestMetric", 1234);
 ```
 
-Den här koden är ett alternativ till `TrackMetric` att anropa med hjälp av Application Insights-API för .net.
+Den här koden är ett alternativ till att anropa `TrackMetric` med hjälp av Application Insights-API för .net.
 
 ## <a name="write-logs-in-javascript-functions"></a>Skriva loggar i JavaScript-funktioner
 
-Använd `context.log` för att skriva loggar i Node. js-funktioner. Strukturerad loggning är inte aktiverat.
+Använd för att skriva loggar i Node. js-funktioner `context.log` . Strukturerad loggning är inte aktiverat.
 
 ```
 context.log('JavaScript HTTP trigger function processed a request.' + context.invocationId);
@@ -349,7 +349,7 @@ När du kör på [version 1. x](functions-versions.md#creating-1x-apps) av Funct
 context.log.metric("TestMetric", 1234);
 ```
 
-Den här koden är ett alternativ till `trackMetric` att anropa med hjälp av Node. js SDK för Application Insights.
+Den här koden är ett alternativ till att anropa `trackMetric` med hjälp av Node. js SDK för Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Logga anpassad telemetri i C#-funktioner
 
@@ -375,7 +375,7 @@ I följande C#-exempel används [API för anpassad telemetri](../azure-monitor/a
 
 ### <a name="version-2x-and-later"></a>Version 2. x och senare
 
-Version 2. x och senare versioner av körningen använder nyare funktioner i Application Insights för att automatiskt korrelera telemetri med den aktuella åtgärden. Du behöver inte ange Operations `Id`- `ParentId`,-eller `Name` -fälten manuellt.
+Version 2. x och senare versioner av körningen använder nyare funktioner i Application Insights för att automatiskt korrelera telemetri med den aktuella åtgärden. Du behöver inte ange Operations `Id` -, `ParentId` -eller- `Name` fälten manuellt.
 
 ```cs
 using System;
@@ -528,9 +528,9 @@ namespace functionapp0915
 }
 ```
 
-Anropa `TrackRequest` inte eller `StartOperation<RequestTelemetry>` eftersom du ser dubbla begär Anden för ett funktions anrop.  Functions-körningen spårar automatiskt begär Anden.
+Anropa inte `TrackRequest` eller `StartOperation<RequestTelemetry>` eftersom du ser dubbla begär Anden för ett funktions anrop.  Functions-körningen spårar automatiskt begär Anden.
 
-Ange `telemetryClient.Context.Operation.Id`inte. Den här globala inställningen orsakar felaktig korrelation när många funktioner körs samtidigt. Skapa i stället en ny telemetri-instans`DependencyTelemetry`( `EventTelemetry`,) och ändra `Context` dess egenskap. Skicka sedan telemetri-instansen till motsvarande `Track` Metod på `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). Den här metoden säkerställer att Telemetrin har rätt korrelations information för det aktuella funktions anropet.
+Ange inte `telemetryClient.Context.Operation.Id` . Den här globala inställningen orsakar felaktig korrelation när många funktioner körs samtidigt. Skapa i stället en ny telemetri-instans ( `DependencyTelemetry` , `EventTelemetry` ) och ändra dess `Context` egenskap. Skicka sedan telemetri-instansen till motsvarande `Track` metod på `TelemetryClient` ( `TrackDependency()` , `TrackEvent()` , `TrackMetric()` ). Den här metoden säkerställer att Telemetrin har rätt korrelations information för det aktuella funktions anropet.
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Logga anpassad telemetri i JavaScript-funktioner
 
@@ -584,7 +584,7 @@ module.exports = function (context, req) {
 };
 ```
 
-`tagOverrides` Parametern ställer in `operation_Id` till FUNKTIONENS anrops-ID. Med den här inställningen kan du korrelera alla automatiskt genererade och anpassade telemetri för ett angivet funktions anrop.
+`tagOverrides`Parametern ställer in `operation_Id` till funktionens anrops-ID. Med den här inställningen kan du korrelera alla automatiskt genererade och anpassade telemetri för ett angivet funktions anrop.
 
 ## <a name="dependencies"></a>Beroenden
 
@@ -689,7 +689,7 @@ Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 
 När du aktiverar Application Insights inaktiverar du den inbyggda loggning som använder Azure Storage. Den inbyggda loggningen är användbar för testning med lätta arbets belastningar, men är inte avsedd för användning med hög belastnings produktion. För produktions övervakning rekommenderar vi Application Insights. Om den inbyggda loggningen används i produktionen kan loggnings posten vara ofullständig på grund av begränsning på Azure Storage.
 
-Om du vill inaktivera den `AzureWebJobsDashboard` inbyggda loggningen tar du bort appens inställning. Information om hur du tar bort inställningar för appar i Azure Portal finns i avsnittet **program inställningar** i [hantera en Function-app](functions-how-to-use-azure-function-app-settings.md#settings). Innan du tar bort appens inställning ska du se till att inga befintliga funktioner i samma Function-app använder inställningen för Azure Storage utlösare eller bindningar.
+Om du vill inaktivera den inbyggda loggningen tar du bort `AzureWebJobsDashboard` appens inställning. Information om hur du tar bort inställningar för appar i Azure Portal finns i avsnittet **program inställningar** i [hantera en Function-app](functions-how-to-use-azure-function-app-settings.md#settings). Innan du tar bort appens inställning ska du se till att inga befintliga funktioner i samma Function-app använder inställningen för Azure Storage utlösare eller bindningar.
 
 ## <a name="next-steps"></a>Nästa steg
 

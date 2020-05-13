@@ -1,21 +1,20 @@
 ---
 title: Distribuera skalnings uppsättningen för virtuella datorer med Visual Studio
 description: Distribuera Virtual Machine Scale Sets med Visual Studio och en Resource Manager-mall
-ms.custom: vs-azure, H1Hack27Feb2017
-ms.workload: azure-vs
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: visual-studio
 ms.date: 09/09/2019
-ms.author: mimckitt
-ms.openlocfilehash: adc91d5f4f79be8a85dfed7d10a882493f6427b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 826dc1858984508e54e160675dd10f6dfad88af8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273349"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124371"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Så här skapar du en skalnings uppsättning för virtuella datorer med Visual Studio
 
@@ -65,7 +64,7 @@ Med belastningsutjämnaren kan du ansluta till de virtuella dator instanserna me
 
 Distribuera Azure Resource Manager-mallen för att skapa den virtuella datorns skalnings uppsättnings resurs:
 
-1. I **Solution Explorer**högerklickar du på projektet och väljer **distribuera** > **nytt**.
+1. I **Solution Explorer**högerklickar du på projektet och väljer **distribuera**  >  **nytt**.
 
     ![Distribuera projektet](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
@@ -85,7 +84,7 @@ Distribuera Azure Resource Manager-mallen för att skapa den virtuella datorns s
 
 ## <a name="explore-your-virtual-machine-scale-set"></a>Utforska din skalnings uppsättning för virtuella datorer<a name="exploring-your-virtual-machine-scale-set"></a>
 
-Välj **Visa** > **Cloud Explorer** för att visa den nya skalnings uppsättningen för virtuella datorer. Använd **Uppdatera alla**, om det behövs.
+Välj **Visa**  >  **Cloud Explorer** för att visa den nya skalnings uppsättningen för virtuella datorer. Använd **Uppdatera alla**, om det behövs.
 
 ![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
 

@@ -6,20 +6,20 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
-ms.openlocfilehash: b98e89d98295a7cefbc4c0c0906f5c4e10c11280
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.date: 5/11/2020
+ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006158"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124082"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
 
 Referens data (kallas även en uppslags tabell) är en begränsad data uppsättning som är statisk eller långsamt föränderlig i natur, som används för att utföra en sökning eller för att utöka dina data strömmar. I ett IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referens data och ansluta dem med IoT-dataströmmar i real tid. Azure Stream Analytics läser in referens data i minnet för att uppnå låg latens för strömnings bearbetning. Om du vill använda referens data i ditt Azure Stream Analytics jobb använder du vanligt vis en [referens data koppling](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) i din fråga. 
 
 ## <a name="example"></a>Exempel  
- Om ett kommersiellt fordon är registrerat hos avgifts företaget kan de passera genom väg den utan att ha stoppats för inspektion. Vi kommer att använda en uppslags tabell för nytto laster för att identifiera alla nytto fordon med utgånget registrering.  
+Du kan ha en real tids ström med händelser som genereras när bilar överför en väg-monter. Avgiftsbelagt monter kan fånga upp licens skylten i real tid och gå med i en statisk data uppsättning som har registrerings information för att identifiera licens plattor som har upphört att gälla.  
   
 ```SQL  
 SELECT I1.EntryTime, I1.LicensePlate, I1.TollId, R.RegistrationId  
@@ -62,13 +62,13 @@ Om dina referens data är en långsam ändring av data uppsättningen aktive ras
 Azure Stream Analytics söker automatiskt efter uppdaterade referens data blobbar med ett minut intervall. Om en blob med tidsstämpel 10:30:00 överförs med en liten fördröjning (till exempel 10:30:30) ser du en liten fördröjning i Stream Analytics jobb som refererar till denna blob. För att undvika sådana scenarier rekommenderar vi att du överför blobben som är tidigare än målets effektiva tid (10:30:00 i det här exemplet) för att tillåta Stream Analytics jobbet tillräckligt med tid för att identifiera och läsa in det i minnet och utföra åtgärder. 
 
 > [!NOTE]
-> För närvarande Stream Analytics jobb bara att leta efter BLOB-uppdateringen när dator tiden går ut till den tid som kodas i BLOB-namnet. Jobbet kommer till exempel att söka efter `sample/2015-04-16/17-30/products.csv` så snart som möjligt, men inte tidigare än 5:30 PM den 16 April, 2015 UTC-tidszonen. Det kommer *aldrig* att leta efter en blob med en kodad tid som är tidigare än den sista som identifierades.
+> För närvarande Stream Analytics jobb bara att leta efter BLOB-uppdateringen när dator tiden går ut till den tid som kodas i BLOB-namnet. Jobbet kommer till exempel att söka efter `sample/2015-04-16/17-30/products.csv` så snart som möjligt, men inte tidigare än 5:30 PM den 16 april, 2015 UTC-tidszonen. Det kommer *aldrig* att leta efter en blob med en kodad tid som är tidigare än den sista som identifierades.
 > 
-> När jobbet till exempel hittar blobben `sample/2015-04-16/17-30/products.csv` ignoreras alla filer med ett kodat datum som är tidigare än 5:30 April, 2015, så om en sen inkommande `sample/2015-04-16/17-25/products.csv` BLOB skapas i samma behållare används den inte av jobbet.
+> När jobbet till exempel hittar blobben `sample/2015-04-16/17-30/products.csv` ignoreras alla filer med ett kodat datum som är tidigare än 5:30 april, 2015, så om en sen inkommande `sample/2015-04-16/17-25/products.csv` BLOB skapas i samma behållare används den inte av jobbet.
 > 
 > Även om `sample/2015-04-16/17-30/products.csv` bara 10:03 produceras den 16 april, 2015 men ingen BLOB med ett tidigare datum finns i behållaren, kommer jobbet att använda den här filen från och med 10:03 den 16 april, 2015 och använda tidigare referens data fram till dess.
 > 
-> Ett undantag till detta är när jobbet måste bearbeta data igen i tid eller när jobbet startas första gången. Vid start tiden söker jobbet efter den senaste blob som producerats innan jobbets start tid har angetts. Detta görs för att se till att det finns en **icke-tom** referens data uppsättning när jobbet startas. Om det inte går att hitta någon, visar jobbet följande diagnostik: `Initializing input without a valid reference data blob for UTC time <start time>`.
+> Ett undantag till detta är när jobbet måste bearbeta data igen i tid eller när jobbet startas första gången. Vid start tiden söker jobbet efter den senaste blob som producerats innan jobbets start tid har angetts. Detta görs för att se till att det finns en **icke-tom** referens data uppsättning när jobbet startas. Om det inte går att hitta någon, visar jobbet följande diagnostik: `Initializing input without a valid reference data blob for UTC time <start time>` .
 
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan användas för att dirigera uppgiften att skapa de uppdaterade blobbar som krävs av Stream Analytics för att uppdatera referens data definitioner. Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Data Factory har stöd för [att ansluta till ett stort antal molnbaserade och lokala data lager](../data-factory/copy-activity-overview.md) och flytta data enkelt enligt ett regelbundet schema som du anger. Mer information och stegvisa anvisningar om hur du konfigurerar en Data Factory pipeline för att generera referens data för Stream Analytics som uppdateras i ett fördefinierat schema, finns i det här [GitHub exemplet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
@@ -111,15 +111,13 @@ Du kan använda [Azure SQL Database Hanterad instans](https://docs.microsoft.com
 
 ## <a name="size-limitation"></a>Storleks begränsning
 
-Stream Analytics stöder referens data med **maximal storlek på 300 MB**. Gränsen på 300 MB för maximal storlek för referens data kan bara uppnås med enkla frågor. När frågans komplexitet ökar för att inkludera tillstånds känslig bearbetning, till exempel fönster mängd, temporala kopplingar och temporala analys funktioner, förväntas det att den maximala storlek som stöds för referens data minskar. Om Azure Stream Analytics inte kan läsa in referens data och utföra komplexa åtgärder, kommer jobbet att ta slut på minne och Miss kan köras. I sådana fall når måttet SU% nyttjande 100%.    
+Vi rekommenderar att du använder referens data uppsättningar som är mindre än 300 MB för bästa prestanda. Användning av referens data som är större än 300 MB stöds i jobb med 6 SUs eller mer. Den här funktionen är i för hands version och får inte användas i produktion. Om du använder en mycket stor referens data kan jobbets prestanda påverkas. När frågans komplexitet ökar för att inkludera tillstånds känslig bearbetning, till exempel fönster mängd, temporala kopplingar och temporala analys funktioner, förväntas det att den maximala storlek som stöds för referens data minskar. Om Azure Stream Analytics inte kan läsa in referens data och utföra komplexa åtgärder, kommer jobbet att ta slut på minne och Miss kan köras. I sådana fall når måttet SU% nyttjande 100%.    
 
-|**Antal enheter för strömning**  |**Ungefärlig. Max storlek som stöds (i MB)**  |
+|**Antal enheter för strömning**  |**Rekommenderad storlek**  |
 |---------|---------|
-|1   |50   |
-|3   |150   |
-|6 och senare   |300   |
-
-Att öka antalet strömnings enheter för ett jobb bortom 6 ökar inte den maximala storleken för referens data som stöds.
+|1   |50 MB eller lägre   |
+|3   |150 MB eller lägre   |
+|6 och senare   |300 MB eller lägre. Att använda referens data som är större än 300 MB stöds i för hands versionen och kan påverka jobbets prestanda.    |
 
 Det finns inte stöd för komprimering för referens data.
 

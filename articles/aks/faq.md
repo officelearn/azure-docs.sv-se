@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 112060e72f36bfe5d11a997fc4161e26c36259ff
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 5ba776424462b3a8b586b1f90e83f409770e5597
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854238"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123827"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor om Azure Kubernetes Service (AKS)
 
@@ -127,6 +127,8 @@ Windows Server-stöd för Node-pool innehåller vissa begränsningar som ingår 
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Erbjuder AKS ett service nivå avtal?
 
+AKS ger möjlighet att uppnå 99,95% tillgänglighet för API-servern med [drifts SLA SLA] [drift tid-sla.md].
+
 I ett service avtal (SLA) accepterar providern att återbetala kunden till kostnaden för tjänsten om den publicerade Service nivån inte är uppfylld. Eftersom AKS är kostnads fritt är ingen kostnad tillgänglig för åter betalning, så AKS har inget formellt service avtal. Men AKS strävar efter att behålla tillgänglighet för minst 99,5 procent för Kubernetes API-servern.
 
 Det är viktigt att känna till skillnaden mellan AKS-tjänstens tillgänglighet som avser drift tid av Kubernetes-kontroll planet och tillgängligheten för din speciella arbets belastning som körs på Azure Virtual Machines. Kontroll planet kan vara otillgängligt om kontroll planet inte är klart, men dina kluster arbets belastningar som körs på virtuella Azure-datorer kan fortfarande fungera. De virtuella Azure-datorerna är betalda resurser som de backas upp av ett finansiellt service avtal. Läs [här om du vill ha mer information](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) om service avtalet för Azure VM och hur du ökar tillgängligheten med funktioner som [Tillgänglighetszoner][availability-zones].
@@ -137,7 +139,7 @@ AKS agent-noder faktureras som standard virtuella Azure-datorer, så om du har k
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>Kan jag flytta/migrera mitt kluster mellan Azure-klienter?
 
-`az aks update-credentials` Kommandot kan användas för att flytta ett AKS-kluster mellan Azure-klienter. Följ anvisningarna i [Välj för att uppdatera eller skapa ett huvud namn för tjänsten](https://docs.microsoft.com/azure/aks/update-credentials) och [uppdatera sedan AKS-kluster med nya autentiseringsuppgifter](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
+`az aks update-credentials`Kommandot kan användas för att flytta ett AKS-kluster mellan Azure-klienter. Följ anvisningarna i [Välj för att uppdatera eller skapa ett huvud namn för tjänsten](https://docs.microsoft.com/azure/aks/update-credentials) och [uppdatera sedan AKS-kluster med nya autentiseringsuppgifter](https://docs.microsoft.com/azure/aks/update-credentials#update-aks-cluster-with-new-service-principal-credentials).
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>Kan jag flytta/migrera mitt kluster mellan prenumerationer?
 
@@ -173,7 +175,7 @@ Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: [AKS-t
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Kan jag använda API: erna för skalnings uppsättningen för virtuella datorer för att skala manuellt?
 
-Nej, skalnings åtgärder med hjälp av API: er för skalnings uppsättningen för virtuella datorer stöds inte. Använd AKS-API:`az aks scale`er ().
+Nej, skalnings åtgärder med hjälp av API: er för skalnings uppsättningen för virtuella datorer stöds inte. Använd AKS-API: er ( `az aks scale` ).
 
 ## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>Kan jag använda skalnings uppsättningar för virtuella datorer för att manuellt skala till 0 noder?
 
@@ -209,6 +211,7 @@ Ingen AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte.
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
+[drift tid – SLA]./uptime-sla.mdd
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

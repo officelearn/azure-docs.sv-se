@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/21/2020
 tags: azure-synapse
-ms.openlocfilehash: f05b4d4fec99aaa2fb79da46e2167d883d1f15ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27989687934719be5f1d18b85d3ead92f28b3f60
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81766965"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123861"
 ---
 # <a name="data-discovery--classification-for-azure-sql-database-and-azure-synapse-analytics"></a>Data identifiering & klassificering för Azure SQL Database och Azure Synapse Analytics
 
@@ -113,11 +113,11 @@ När du har definierat principen för hela organisationen kan du fortsätta att 
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Granska åtkomst till känsliga data
 
-En viktig aspekt av informations skyddets paradigm är möjligheten att övervaka åtkomsten till känsliga data. [Azure SQL Database granskning](sql-database-auditing.md) har förbättrats för att inkludera ett nytt fält i gransknings loggen `data_sensitivity_information`som kallas. Det här fältet loggar känslighets klassificeringarna (etiketter) för de data som returnerades av en fråga. Här är ett exempel:
+En viktig aspekt av informations skyddets paradigm är möjligheten att övervaka åtkomsten till känsliga data. [Azure SQL Database granskning](sql-database-auditing.md) har förbättrats för att inkludera ett nytt fält i gransknings loggen som kallas `data_sensitivity_information` . Det här fältet loggar känslighets klassificeringarna (etiketter) för de data som returnerades av en fråga. Här är ett exempel:
 
 ![Gransknings logg](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a name="permissions"></a><a id="permissions"></a>Åtkomst
+## <a name="permissions"></a><a id="permissions"></a>Behörigheter
 
 Dessa inbyggda roller kan läsa data klassificeringen för en Azure SQL-databas:
 
@@ -152,18 +152,6 @@ Information om hur du använder T-SQL för klassificeringar finns i följande re
 - Ta bort klassificeringen från en eller flera kolumner: [släpp känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visa alla klassificeringar i databasen: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="use-the-rest-api"></a>Använd REST-API: et
-
-Du kan använda REST API för att program mässigt hantera klassificeringar och rekommendationer. Den publicerade REST API har stöd för följande åtgärder:
-
-- [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): skapar eller uppdaterar känslighets etiketten för den angivna kolumnen.
-- [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): tar bort känslighets etiketten för den angivna kolumnen.
-- [Inaktivera rekommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): inaktiverar känslighets rekommendationer i den angivna kolumnen.
-- [Aktivera rekommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): möjliggör känslighets rekommendationer i den angivna kolumnen. (Rekommendationer är aktiverade som standard på alla kolumner.)
-- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): hämtar känslighets etiketten för den angivna kolumnen.
-- [Lista aktuell efter databas](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): hämtar de aktuella känslighets etiketterna för den angivna databasen.
-- [Lista rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): hämtar de rekommenderade känslighets etiketterna för den angivna databasen.
-
 ### <a name="use-powershell-cmdlets"></a>Använda PowerShell-cmdletar
 Du kan använda PowerShell för att hantera klassificeringar och rekommendationer för Azure SQL Database och hanterade instanser.
 
@@ -185,6 +173,17 @@ Du kan använda PowerShell för att hantera klassificeringar och rekommendatione
 - [Aktivera – AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
 - [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
+### <a name="use-the-rest-api"></a>Använd REST-API: et
+
+Du kan använda REST API för att program mässigt hantera klassificeringar och rekommendationer. Den publicerade REST API har stöd för följande åtgärder:
+
+- [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate): skapar eller uppdaterar känslighets etiketten för den angivna kolumnen.
+- [Ta bort](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete): tar bort känslighets etiketten för den angivna kolumnen.
+- [Inaktivera rekommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/disablerecommendation): inaktiverar känslighets rekommendationer i den angivna kolumnen.
+- [Aktivera rekommendation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation): möjliggör känslighets rekommendationer i den angivna kolumnen. (Rekommendationer är aktiverade som standard på alla kolumner.)
+- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get): hämtar känslighets etiketten för den angivna kolumnen.
+- [Lista aktuell efter databas](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase): hämtar de aktuella känslighets etiketterna för den angivna databasen.
+- [Lista rekommenderas av databasen](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): hämtar de rekommenderade känslighets etiketterna för den angivna databasen.
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f4c9fab3caf1089b97265d93db7d945604a59fd3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9ba151aa1ddc7f4b14d5f4ec7f1990e2fd760602
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82723017"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121243"
 ---
 # <a name="utilize-blob-index-tags-preview-to-manage-and-find-data-on-azure-blob-storage"></a>Använd BLOB-Taggar (för hands version) för att hantera och hitta data i Azure Blob Storage
 
@@ -32,7 +32,7 @@ Mer information om BLOB-indexet finns i [Hantera och hitta data på Azure Blob S
 # <a name="net"></a>[.NET](#tab/net)
 Eftersom BLOB-indexet finns i en offentlig för hands version, släpps .NET Storage-paketet i NuGet-flödet för för hands versionen. Det här biblioteket kan ändras mellan nu och när det blir officiellt. 
 
-1. I Visual Studio lägger du till URL `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` : en till dina NuGet-paket källor. 
+1. I Visual Studio lägger du till URL: en `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` till dina NuGet-paket källor. 
 
    Mer information finns i [paket källor](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources).
 
@@ -182,7 +182,7 @@ static async Task BlobIndexTagsExample()
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-I Azure Portal tillämpar filtret BLOB index taggar automatiskt parametern för att ange `@container` den valda behållarens omfång. Om du vill filtrera och hitta taggade data över hela ditt lagrings konto kan du använda våra REST API, SDK: er eller verktyg.
+I Azure Portal tillämpar filtret BLOB index taggar automatiskt `@container` parametern för att ange den valda behållarens omfång. Om du vill filtrera och hitta taggade data över hela ditt lagrings konto kan du använda våra REST API, SDK: er eller verktyg.
 
 1. I [Azure Portal](https://portal.azure.com/)väljer du ditt lagrings konto. 
 
@@ -204,6 +204,7 @@ static async Task FindBlobsByTagsExample()
       BlobContainerClient container1 = serviceClient.GetBlobContainerClient("mycontainer");
       BlobContainerClient container2 = serviceClient.GetBlobContainerClient("mycontainer2");
 
+      // Blob Index queries and selection
       String singleEqualityQuery = @"""Archive"" = 'false'";
       String andQuery = @"""Archive"" = 'false' AND ""Priority"" = '01'";
       String rangeQuery = @"""Date"" >= '2020-04-20' AND ""Date"" <= '2020-04-30'";
@@ -254,9 +255,9 @@ static async Task FindBlobsByTagsExample()
           Console.WriteLine("Find Blob by Tags query: " + queryToUse + Environment.NewLine);
 
           List<FilterBlobItem> blobs = new List<FilterBlobItem>();
-          foreach (Page<FilterBlobItem> page in serviceClient.FindBlobsByTags(queryToUse).AsPages())
+          await foreach (FilterBlobItem filterBlobItem in serviceClient.FindBlobsByTagsAsync(queryToUse))
           {
-              blobs.AddRange(page.Values);
+              blobs.Add(filterBlobItem);
           }
 
           foreach (var filteredBlob in blobs)
@@ -284,9 +285,9 @@ static async Task FindBlobsByTagsExample()
 
 3. Välj *Lägg till regel* och fyll sedan i formulär fälten för åtgärds uppsättning
 
-4. Välj filter uppsättning för att lägga till valfritt filter för prefix matchning och blob ![-index matcha Lägg till BLOB index tag filter för livs cykel hantering](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
+4. Välj filter uppsättning för att lägga till valfritt filter för prefix matchning och blob-index matcha ![ Lägg till BLOB index tag filter för livs cykel hantering](media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png)
 
-5. Välj **Granska + Lägg** till för att granska regel ![inställningarna livs cykel hanterings regel med filter för BLOB index Taggar](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
+5. Välj **Granska + Lägg** till för att granska regel inställningarna ![ livs cykel hanterings regel med filter för BLOB index Taggar](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
 
 6. Välj **Lägg till** för att tillämpa den nya regeln i livs cykel hanterings principen
 

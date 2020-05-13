@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.openlocfilehash: 28a909c3b4011b55fb3fb67d9d64ab57a310cb86
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 74af3d14512018abc216b288a27dc54ed806d8c9
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207268"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125238"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
@@ -132,8 +133,16 @@ Total pris = $267,84 + $85,71 = $353,55
 
 Application Gateway-och WAF kan konfigureras för skalning i två lägen:
 
-- Automatisk **skalning** – när automatisk skalning är aktiverat skalar Application Gateway-och WAF v2-SKU: erna upp eller ned baserat på program trafik krav. Det här läget ger bättre elastiskhet för ditt program och eliminerar behovet av att gissa storleken på programgatewayen eller antalet instanser. I det här läget kan du också spara kostnader genom att inte kräva att gatewayen körs vid den högsta etablerade kapaciteten för förväntad högsta trafik belastning. Du måste ange ett minsta och alternativt maximalt antal instanser. Lägsta kapacitet garanterar att Application Gateway och WAF v2 inte hamnar under det minsta antal instanser som anges, även om trafik saknas. Varje instans räknas som 10 ytterligare reserverade kapacitets enheter. Noll betyder ingen reserverad kapacitet och är helt automatisk skalning av natur. Observera att noll ytterligare minimi instanser fortfarande säkerställer hög tillgänglighet för tjänsten som alltid ingår i fast pris. Du kan också ange ett maximalt antal instanser, vilket säkerställer att Application Gateway inte skalas bortom det angivna antalet instanser. Du kommer att fortsätta debiteras för den mängd trafik som hanteras av gatewayen. Antalet instanser kan vara mellan 0 och 125. Standardvärdet för maximalt antal instanser är 20 om inget värde anges.
+- Automatisk **skalning** – när automatisk skalning är aktiverat skalar Application Gateway-och WAF v2-SKU: erna upp eller ned baserat på program trafik krav. Det här läget ger bättre elastiskhet för ditt program och eliminerar behovet av att gissa storleken på programgatewayen eller antalet instanser. I det här läget kan du också spara kostnader genom att inte kräva att gatewayen körs vid den högsta etablerade kapaciteten för förväntad högsta trafik belastning. Du måste ange ett minsta och alternativt maximalt antal instanser. Lägsta kapacitet garanterar att Application Gateway och WAF v2 inte hamnar under det minsta antal instanser som anges, även om trafik saknas. Varje instans motsvarar ungefär 10 extra reserverade kapacitets enheter. Noll betyder ingen reserverad kapacitet och är helt automatisk skalning av natur. Du kan också ange ett maximalt antal instanser, vilket säkerställer att Application Gateway inte skalas bortom det angivna antalet instanser. Du debiteras bara för den mängd trafik som hanteras av gatewayen. Antalet instanser kan vara mellan 0 och 125. Standardvärdet för maximalt antal instanser är 20 om inget värde anges.
 - **Manuellt** – du kan alternativt välja manuellt läge där gatewayen inte kan skalas om. I det här läget, om det finns mer trafik än vad Application Gateway eller WAF kan hantera, kan det leda till förlust av trafik. Med manuellt läge är det obligatoriskt att ange instans antal. Antalet instanser kan variera mellan 1 och 125 instanser.
+
+## <a name="autoscaling-and-high-availability"></a>Automatisk skalning och hög tillgänglighet
+
+Azure Application gatewayer distribueras alltid med hög tillgänglighet. Tjänsten består av flera instanser som skapas som konfigurerade (om autoskalning är inaktive rad) eller krävs av program belastningen (om autoskalning är aktiverat). Observera att från användarens perspektiv behöver du inte nödvändigt vis ha insyn i de enskilda instanserna, utan bara i Application Gateway tjänsten som helhet. Om en viss instans har problem och slutar fungera, kommer Azure Application Gateway att transparent skapa en ny instans.
+
+Observera att även om du konfigurerar autoskalning med noll minsta instanser, kommer tjänsten fortfarande att vara hög tillgänglig, vilket alltid ingår i det fasta priset.
+
+Det kan dock ta tid att skapa en ny instans (cirka sex eller sju minuter). Om du inte vill hantera den här stillestånds tiden kan du därför konfigurera ett minsta instans antal på 2, helst med stöd för tillgänglighets zon. På så sätt måste du ha minst två instanser i Azure Application Gateway under normala omständigheter, så om ett av dem hade problem kan det andra försöket att hantera trafiken under tiden som en ny instans skapas. Observera att en Azure Application Gateway-instans kan stödja runt 10 kapacitets enheter, så beroende på hur mycket trafik du vanligt vis har kanske du vill konfigurera den minsta instans inställningen för automatisk skalning till ett värde som är högre än 2.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Funktions jämförelse mellan v1 SKU och v2 SKU
 

@@ -1,23 +1,23 @@
 ---
 title: Felsöka autoskalning med Virtual Machine Scale Sets
 description: Felsök autoskalning med Virtual Machine Scale Sets. Förstå vanliga problem och hur du löser dem.
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: c7d87b72-ee24-4e52-9377-a42f337f76fa
+author: avirishuv
+ms.author: avverma
+ms.topic: troubleshooting
 ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: windows
-ms.topic: conceptual
+ms.subservice: autoscale
 ms.date: 11/16/2017
-ms.author: mimckitt
-ms.openlocfilehash: 4bc5e66f5b0759bdb5fe34276369161200bd5442
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviwer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 2ef50704d96cc51881594c778d1a4b109a1eae82
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273383"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125153"
 ---
 # <a name="troubleshooting-autoscale-with-virtual-machine-scale-sets"></a>Felsöka automatisk skalning med VM-skalningsuppsättningar
-**Problem** – du har skapat en infrastruktur för automatisk skalning i Azure Resource Manager att använda skalnings uppsättningar för virtuella datorer, t. ex. genom att distribuera https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale en mall som den här: – du har definierat dina skalnings regler och den fungerar utmärkt, förutom oavsett hur mycket belastning du lägger till på de virtuella datorerna, skalas den inte.
+**Problem** – du har skapat en infrastruktur för automatisk skalning i Azure Resource Manager att använda skalnings uppsättningar för virtuella datorer, t. ex. genom att distribuera en mall som den här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale – du har definierat dina skalnings regler och den fungerar utmärkt, förutom oavsett hur mycket belastning du lägger till på de virtuella datorerna, skalas den inte.
 
 ## <a name="troubleshooting-steps"></a>Felsökningsanvisningar
 Några saker att tänka på är:
@@ -46,7 +46,7 @@ Några saker att tänka på är:
     Azure Resource Explorer är ett oumbärligt fel söknings verktyg som visar statusen för dina Azure Resource Manager-resurser. Klicka på din prenumeration och titta på den resurs grupp som du felsöker. Under Compute Resource providern tittar du på den skalnings uppsättning för virtuella datorer som du skapade och kontrollerar vyn instans, som visar status för en distribution. Kontrol lera också instans visningen av virtuella datorer i skalnings uppsättningen för den virtuella datorn. Gå sedan till Microsoft. Insights-resurs leverantören och kontrol lera att reglerna för autoskalning ser rätt ut.
 * Fungerar diagnostiskt tillägg att arbeta med prestanda data?
   
-    **Uppdatera:** Den automatiska skalningen i Azure har förbättrats för att använda en värdbaserad Mät pipeline, som inte längre kräver att ett diagnostiskt tillägg installeras. Efterföljande stycken gäller inte längre om du skapar ett program för automatisk skalning med hjälp av den nya pipelinen. Ett exempel på Azure-mallar som har konverterats för att använda värd pipelinen finns här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale. 
+    **Uppdatera:** Den automatiska skalningen i Azure har förbättrats för att använda en värdbaserad Mät pipeline, som inte längre kräver att ett diagnostiskt tillägg installeras. Efterföljande stycken gäller inte längre om du skapar ett program för automatisk skalning med hjälp av den nya pipelinen. Ett exempel på Azure-mallar som har konverterats för att använda värd pipelinen finns här: https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale . 
   
     Att använda värdbaserade mått för autoskalning är bättre av följande orsaker:
   

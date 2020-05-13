@@ -1,20 +1,20 @@
 ---
 title: Skapa en karta med Azure Maps | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du återger en karta på en webb sida med hjälp av Microsoft Azure Maps-webbsdk.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c85d6078fce7fc8e5a5b5d8485517a8b262044a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97eb1ebb61e5ff78ed918fded8107f5775b533c2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802339"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124031"
 ---
 # <a name="create-a-map"></a>Skapa en karta
 
@@ -22,12 +22,12 @@ Den här artikeln visar hur du skapar en karta och animerar en karta.
 
 ## <a name="loading-a-map"></a>Läser in en karta
 
-Om du vill läsa in en karta skapar du en ny instans av [kart klassen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map). När kartan initieras skickar du ett DIV-element-ID för att återge kartan och skicka en uppsättning alternativ som ska användas vid inläsning av kartan. Om standard information om autentisering inte anges i `atlas` namn området måste den här informationen anges i kart alternativen vid inläsning av kartan. Kartan läser in flera resurser asynkront för prestanda. Därför kan du när du har skapat kart instansen `ready` bifoga `load` en eller-händelse till kartan och sedan lägga till ytterligare kod som samverkar med kartan till händelse hanteraren. `ready` Händelsen utlöses så snart kartan har tillräckligt med resurser för att kunna interagera med program mässigt. `load` Händelsen utlöses efter att den ursprungliga kart visningen har lästs in helt. 
+Om du vill läsa in en karta skapar du en ny instans av [kart klassen](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map). När kartan initieras skickar du ett DIV-element-ID för att återge kartan och skicka en uppsättning alternativ som ska användas vid inläsning av kartan. Om standard information om autentisering inte anges i `atlas` namn området måste den här informationen anges i kart alternativen vid inläsning av kartan. Kartan läser in flera resurser asynkront för prestanda. Därför kan du när du har skapat kart instansen bifoga en `ready` eller- `load` händelse till kartan och sedan lägga till ytterligare kod som samverkar med kartan till händelse hanteraren. `ready`Händelsen utlöses så snart kartan har tillräckligt med resurser för att kunna interagera med program mässigt. `load`Händelsen utlöses efter att den ursprungliga kart visningen har lästs in helt. 
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Grundläggande kart belastning" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se den <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>grundläggande kart inläsningen</a> från Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+Se den <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>grundläggande kart inläsningen</a> från Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 > [!TIP]
@@ -35,12 +35,12 @@ Se den <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>grundläggande kart in
 
 ## <a name="show-a-single-copy-of-the-world"></a>Visa en enskild kopia av världen
 
-När kartan zoomas ut på en bred skärm visas flera kopior av världen vågrätt. Det här alternativet är bra för vissa scenarier, men för andra program är det önskvärt att se en enda kopia av världen. Detta beteende implementeras genom att ställa in `renderWorldCopies` Maps- `false`alternativet på.
+När kartan zoomas ut på en bred skärm visas flera kopior av världen vågrätt. Det här alternativet är bra för vissa scenarier, men för andra program är det önskvärt att se en enda kopia av världen. Detta beteende implementeras genom att ställa in Maps- `renderWorldCopies` alternativet på `false` .
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="renderWorldCopies = falskt" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = false</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+Se Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = false</a> by Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
@@ -53,7 +53,7 @@ När du skapar en karta finns det flera olika typer av alternativ som kan skicka
 - [StyleOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.styleoptions) används för att ange att kartan ska formateras och återges.
 - [UserInteractionOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.userinteractionoptions) används för att ange hur kartan ska uppnås när användaren interagerar med kartan. 
 
-Dessa alternativ kan också uppdateras när kartan har lästs in med hjälp av `setCamera`funktionerna `setServiceOptions`, `setStyle`, och `setUserInteraction` . 
+Dessa alternativ kan också uppdateras när kartan har lästs in med hjälp av `setCamera` funktionerna,, `setServiceOptions` `setStyle` och `setUserInteraction` . 
 
 ## <a name="controlling-the-map-camera"></a>Styra kart kameran
 
@@ -63,7 +63,7 @@ Det finns två sätt att ange det område som visas i kartan med hjälp av kamer
 
 ### <a name="set-the-camera"></a>Ange kamera
 
-Kart kameran styr vad som visas i visnings området för kart ytan. Kamera alternativ kan skickas till kart alternativen när de initieras eller skickas till Maps `setCamera` -funktionen.
+Kart kameran styr vad som visas i visnings området för kart ytan. Kamera alternativ kan skickas till kart alternativen när de initieras eller skickas till Maps- `setCamera` funktionen.
 
 ```javascript
 //Set the camera options when creating the map.
@@ -85,7 +85,7 @@ I följande kod skapas ett [kart objekt](https://docs.microsoft.com/javascript/a
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Skapa en karta via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan genom att <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>skapa en karta `CameraOptions` via </a>Azure Location Based Services (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Skapa en karta via CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan genom att <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>skapa en karta `CameraOptions` via </a>Azure Location Based Services ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <a id="setCameraBoundsOptions"></a>
@@ -101,11 +101,11 @@ map.setCamera({
 });
 ```
 
-I följande kod skapas ett [kart objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) via `new atlas.Map()`. Kart egenskaper som `CameraBoundsOptions` kan definieras via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) -funktionen för kart klassen. Egenskaper för gränser och utfyllnad anges med hjälp `setCamera`av.
+I följande kod skapas ett [kart objekt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) via `new atlas.Map()` . Kart egenskaper som `CameraBoundsOptions` kan definieras via [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map) -funktionen för kart klassen. Egenskaper för gränser och utfyllnad anges med hjälp av `setCamera` .
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Skapa en karta via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan genom att <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>skapa en karta `CameraBoundsOptions` via </a>Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Skapa en karta via CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan genom att <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>skapa en karta `CameraBoundsOptions` via </a>Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ### <a name="animate-map-view"></a>Animera Map-vy
@@ -125,7 +125,7 @@ I följande kod skapar det första kod blocket en karta och anger kart formaten 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Animera Map-vy' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Map- <a href='https://codepen.io/azuremaps/pen/WayvbO/'>vyn</a> för pen-animering efter<a href='https://codepen.io/azuremaps'>@azuremaps</a>Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Animera Map-vy' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Map- <a href='https://codepen.io/azuremaps/pen/WayvbO/'>vyn</a> för pen-animering efter Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="try-out-the-code"></a>Testa koden
@@ -139,7 +139,7 @@ Titta på kod exemplen. Du kan redigera JavaScript-koden inuti **fliken JS** och
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
 > [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions)

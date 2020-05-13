@@ -1,26 +1,22 @@
 ---
 title: Skapa en funktion i Azure som utlöses av köa meddelanden
-description: Använd Azure Functions för att skapa en funktion utan server som startas av meddelanden som skickas till en Azure Storage-kö.
+description: Använd Azure Functions för att skapa en funktion utan server som anropas av ett meddelande som skickas till en kö i Azure.
 ms.assetid: 361da2a4-15d1-4903-bdc4-cc4b27fc3ff4
 ms.topic: how-to
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 98f0290aad9971bdb0c0b265d96e96d8ac34b99d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4c20579f2306b61741f3c6ab1549285271435a3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756514"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123351"
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Skapa en funktion som utlöses av Azure Queue Storage
 
 Läs hur du skapar en funktion som utlöses när meddelanden skickas till en Azure Storage-kö.
 
-![Visa meddelande i loggarna.](./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png)
-
 ## <a name="prerequisites"></a>Krav
-
-- Hämta och installera [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 - En Azure-prenumeration. Om du inte har ett konto kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -28,7 +24,7 @@ Läs hur du skapar en funktion som utlöses när meddelanden skickas till en Azu
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-![Funktionsappen skapades.](./media/functions-create-first-azure-function/function-app-create-success.png)
+   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-create-success.png" alt-text="Function-appen har skapats.." border="true":::
 
 Därefter skapar du en funktion i den nya funktionsappen.
 
@@ -36,23 +32,16 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-a-queue-triggered-function"></a>Skapa en funktion som utlöses av en kö
 
-1. Expandera din Function-app och klicka **+** på knappen bredvid **Functions**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
+1. Välj **Functions**och välj sedan **+ Lägg** till för att lägga till en ny funktion.
 
-   ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-storage-queue-triggered-function/function-app-quickstart-choose-portal.png)
+   :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-app-quickstart-choose-template.png" alt-text="Välj en funktions mal len i Azure Portal." border="true":::
 
-1. Välj **Fler mallar** och sedan **Slutför och visa mallar**.
-
-    ![Functions-snabbstart, välj fler mallar](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
-
-1. Skriv `queue` i sökfältet och välj sedan mallen **Köutlösare**.
-
-1. Om du uppmanas till det väljer du **Installera** för att installera Azure Storage-tillägget och eventuella beroenden i Function-appen. När installationen är klar väljer du **Fortsätt**.
-
-    ![Installera bindningstillägg](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+1. Välj mallen för **Azure Queue Storage-utlösaren** .
 
 1. Använd inställningarna som anges i tabellen nedanför bilden.
 
-    ![Konfigurera lagringsköfunktionen som utlöses.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png" alt-text="Namnge och konfigurera kö Storage-utlöst funktion." border="true":::
+
 
     | Inställningen | Föreslaget värde | Beskrivning |
     |---|---|---|
@@ -60,45 +49,53 @@ Därefter skapar du en funktion i den nya funktionsappen.
     | **Könamn**   | myqueue-items    | Namnet på den kö som ska anslutas till i ditt Storage-konto. |
     | **Lagringskontoanslutning** | AzureWebJobsStorage | Du kan antingen använda den lagringskontoanslutning som redan används i funktionsappen eller skapa en ny.  |    
 
-1. Klicka på **Skapa** för att skapa den nya funktionen.
+1. Välj **skapa funktion** för att skapa din funktion.
 
-Sedan ansluter du till ditt Azure Storage-konto och skapar lagringskön **myqueue-items**.
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-3.png" alt-text="Skapa den Utlös ande funktionen Queue Storage." border="true":::
+
+Sedan ansluter du till ditt Azure Storage-konto och skapar lagrings kön för **kön objekt** .
 
 ## <a name="create-the-queue"></a>Skapa kön
 
-1. Klicka på **Integrera** i din funktion, expandera **Dokumentation** och kopiera både **kontonamnet** och **kontonyckeln**. Du använder dessa autentiseringsuppgifter för att ansluta till lagringskontot i Azure Storage Explorer. Om du redan har anslutit ditt lagringskonto går du vidare till steg 4.
+1. I din funktion går du till sidan **Översikt** och väljer din resurs grupp.
 
-    ![Hämta autentiseringsuppgifterna för att ansluta till lagringskontot.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-resource-group.png" alt-text="Välj din Azure Portal resurs grupp." border="true":::
 
-1. Kör verktyget [Microsoft Azure Storage Explorer](https://storageexplorer.com/), klicka på anslutningsikonen till vänster, välj **Use a storage account name and key** (Använd ett kontonamn och en kontonyckel för lagringskontot) och klicka på **Nästa**.
+1. Sök efter och välj din resurs grupps lagrings konto.
 
-    ![Kör verktyget Storage Account Explorer.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-1.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-account-access.png" alt-text="Åtkomst till lagrings kontot." border="true":::
 
-1. Ange **kontonamnet** och **kontonyckeln** från steg 1, klicka på **Nästa** och sedan på **Anslut**.
+1. Välj **köer**och välj sedan **+ kö**. 
 
-    ![Ange autentiseringsuppgifter för lagringskontot och anslut.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-add-queue.png" alt-text="Lägg till en kö till ditt lagrings konto i Azure Portal." border="true":::
 
-1. Expandera det anslutna lagringskontot, högerklicka på **Köer**, klicka på **Skapa kö**, skriv `myqueue-items` och tryck sedan på Retur.
+1. I fältet **namn** skriver `myqueue-items` du och väljer sedan **skapa**.
 
-    ![Skapa en lagringskö.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-name-queue.png" alt-text="Namnge kön lagrings behållare." border="true":::
 
 Nu när du har en lagringskö kan du testa funktionen genom att lägga till ett meddelande i kön.
 
 ## <a name="test-the-function"></a>Testa funktionen
 
-1. Gå till Azure Portal igen, bläddra till din funktion, expandera **Loggar** längst ned på sidan och se till att loggströmningen inte är pausad.
+1. Gå tillbaka till den Azure Portal, bläddra till din funktion expandera **loggarna** längst ned på sidan och se till att logg strömningen inte är pausad.
 
-1. I Storage Explorer expanderar du ditt lagrings konto, **köer**och **kön-objekt**och klickar sedan på **Lägg till meddelande**.
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-queue-storage-log-expander.png" alt-text="Expandera loggen i Azure Portal." border="true":::
 
-    ![Lägg till ett meddelande i kön.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-add-message.png)
+1. I ett separat webbläsarfönster går du till din resurs grupp i Azure Portal och väljer lagrings kontot.
 
-1. Skriv ditt "Hello World!"- meddelande i **Meddelandetext** och klicka på **OK**.
+1. Välj **köer**och välj sedan behållaren för **kön objekt** .
+
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue.png" alt-text="Gå till kön för kön objekt i Azure Portal." border="true":::
+
+1. Välj **Lägg till meddelande**och skriv "Hello World!" i **meddelande text**. Välj **OK**.
+
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/functions-storage-queue-test.png" alt-text="Gå till kön för kön objekt i Azure Portal." border="true":::
 
 1. Vänta några sekunder och gå sedan tillbaka till dina funktionsloggar och kontrollera att det nya meddelandet har lästs från kön.
 
-    ![Visa meddelande i loggarna.](./media/functions-create-storage-queue-triggered-function/functions-queue-storage-trigger-view-logs.png)
+    :::image type="content" source="./media/functions-create-storage-queue-triggered-function/function-app-in-portal-editor.png" alt-text="Visa meddelande i loggarna." border="true":::
 
-1. Gå tillbaka till Lagringsutforskaren, klicka på **Uppdatera** och kontrollera att meddelandet har bearbetats och inte längre finns i kön.
+1. Gå tillbaka till lagrings kön, Välj **Uppdatera** och kontrol lera att meddelandet har bearbetats och att det inte längre finns i kön.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

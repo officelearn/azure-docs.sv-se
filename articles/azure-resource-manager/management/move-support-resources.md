@@ -3,12 +3,12 @@ title: Flytta åtgärds stöd efter resurs typ
 description: Visar en lista över de Azure-resurs typer som kan flyttas till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 45450b21b1cd3236712043629f433c2c5fe20f80
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 81d545066ea6bcc1d3e2eecd884671324155d796
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900981"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124694"
 ---
 # <a name="move-operation-support-for-resources"></a>Resurser som kan flyttas
 Den här artikeln visar om en Azure-resurs har stöd för flytt åtgärden. Den innehåller också information om särskilda villkor att tänka på när du flyttar en resurs.
@@ -1253,8 +1253,7 @@ Hoppa till ett namn område för en resurs leverantör:
 
 > [!IMPORTANT]
 > Kontrol lera att flytta till en ny prenumeration inte överskrider [prenumerations kvoterna](azure-subscription-service-limits.md#azure-monitor-limits).
-
-> [!IMPORTANT]
+> 
 > Det går inte att flytta arbets ytor som har ett länkat Automation-konto. Innan du påbörjar en flytt åtgärd måste du ta bort länken till eventuella Automation-konton.   
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft. OperationsManagement
@@ -1677,8 +1676,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | konto | Inga | Inga |
-> | konto/tillägg | Ja | Ja |
-> | konto/projekt | Ja | Ja |
+> | konto/tillägg | Inga | Inga |
+> | konto/projekt | Inga | Inga |
 
 > [!IMPORTANT]
 > Information om hur du ändrar prenumerationen för Azure-DevOps finns i [ändra den Azure-prenumeration som används för fakturering](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
@@ -1705,8 +1704,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
-> | konton | Ja | Ja |
-> | utgå | Ja | Ja |
+> | konton | Inga | Inga |
+> | utgå | Inga | Inga |
 
 ## <a name="microsoftweb"></a>Microsoft. Web
 

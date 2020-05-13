@@ -3,14 +3,14 @@ title: Azure Functions distributions platser
 description: Lär dig att skapa och använda distributions fack med Azure Functions
 author: craigshoemaker
 ms.topic: reference
-ms.date: 08/12/2019
+ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7cfbd533921ba4d1757e7415a3bb8f70aeb71251
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75769225"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122603"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions distributions platser
 
@@ -19,7 +19,7 @@ Med Azure Functions distributions platser kan din Function-app köra olika insta
 Följande visar hur funktioner påverkas av växlings platser:
 
 - Trafik omdirigering är sömlös; inga förfrågningar ignoreras på grund av en växling.
-- Om en funktion körs under växlingen fortsätter körningen och efterföljande utlösare dirigeras till den utbytta App-instansen.
+- Om en funktion körs under en växling fortsätter körningen och nästa utlösare dirigeras till den utbytta App-instansen.
 
 > [!NOTE]
 > Platser är för närvarande inte tillgängliga för Linux-förbruknings planen.
@@ -45,11 +45,11 @@ Under en växling anses en plats vara källan och den andra målet. Käll platse
 
 1. **Uppdaterings dirigering:** Om alla instanser på käll platsen har förvärmts korrekt, slutför de två platserna växlingen genom att växla regler för routning. Efter det här steget har mål platsen (till exempel produktions platsen) den app som tidigare har förvärmts på käll platsen.
 
-1. **Upprepa åtgärd:** Nu när käll platsen har för hands växlings appen tidigare på mål platsen, utför du samma åtgärd genom att tillämpa alla inställningar och starta om instanserna för käll platsen.
+1. **Upprepa åtgärd:** Nu när käll platsen har för hands växlings appen tidigare på mål platsen, slutför du samma åtgärd genom att tillämpa alla inställningar och starta om instanserna för käll platsen.
 
 Tänk på följande punkter:
 
-- Vid alla tidpunkter på växlings åtgärden sker initieringen av de växlade apparna på käll platsen. Mål platsen är online medan käll platsen förbereds, om växlingen lyckas eller inte.
+- Vid alla tidpunkter på växlings åtgärden sker initieringen av de växlade apparna på käll platsen. Mål platsen är online när käll platsen är för beredd, om växlingen lyckas eller inte.
 
 - Om du vill byta mellan en mellanlagringsplats med produktions platsen kontrollerar du att produktions platsen *alltid* är mål platsen. På så sätt kommer växlings åtgärden inte att påverka din produktions program.
 
@@ -61,21 +61,27 @@ Tänk på följande punkter:
 
 ### <a name="create-a-deployment-setting"></a>Skapa en distributions inställning
 
-Du kan markera inställningar som en distributions inställning som gör den "trög". En inställning för tröghet växlar inte med App-instansen.
+Du kan markera inställningar som en distributions inställning, vilket gör den "trög". En inställning för tröghet växlar inte med App-instansen.
 
-Om du skapar en distributions inställning på en plats, se till att skapa samma inställning med ett unikt värde på andra platser som ingår i en växling. På så sätt, medan värdet för en inställning inte ändras, förblir inställnings namnen konsekventa mellan platser. Detta namn konsekvens säkerställer att koden inte försöker komma åt en inställning som har definierats på en plats, men inte en annan.
+Om du skapar en distributions inställning på en plats, se till att skapa samma inställning med ett unikt värde på någon annan plats som är involverad i en växling. På så sätt, medan värdet för en inställning inte ändras, förblir inställnings namnen konsekventa mellan platser. Detta namn konsekvens säkerställer att koden inte försöker komma åt en inställning som har definierats på en plats, men inte en annan.
 
 Använd följande steg för att skapa en distributions inställning:
 
-- Navigera till *platser* i Function-appen
-- Klicka på plats namnet
-- Under *plattforms funktioner > allmänna inställningar*klickar du på **konfiguration**
-- Klicka på det inställnings namn som du vill använda för den aktuella platsen
-- Klicka i kryss rutan **distributions plats inställning**
-- Klicka på **OK**
-- När bladet har angetts försvinner klickar du på **Spara** för att behålla ändringarna
+1. Gå till **distributions fack** i Function-appen och välj plats namnet.
 
-![Distributions plats inställning](./media/functions-deployment-slots/azure-functions-deployment-slots-deployment-setting.png)
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Hitta platser i Azure Portal." border="true":::
+
+1. Välj **konfiguration**och välj sedan det inställnings namn som du vill använda för den aktuella platsen.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Konfigurera program inställningen för en plats i Azure Portal." border="true":::
+
+1. Välj **distributions plats inställning**och välj sedan **OK**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Konfigurera distributions plats inställningen." border="true":::
+
+1. När du har angett avsnittet försvinner väljer du **Spara** för att behålla ändringarna
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Spara distributions plats inställningen." border="true":::
 
 ## <a name="deployment"></a>Distribution
 
@@ -92,22 +98,28 @@ Alla platser skalas till samma antal anställda som produktions platsen.
 
 Du kan lägga till en plats via [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) eller via portalen. Följande steg visar hur du skapar en ny plats i portalen:
 
-1. Navigera till din Function-app och klicka på **plus tecknet** bredvid *platser*.
+1. Navigera till din Function-app.
 
-    ![Lägg till Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-add.png)
+1. Välj **distributions platser**och välj sedan **+ Lägg till plats**.
 
-1. Ange ett namn i text rutan och tryck på knappen **skapa** .
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Lägg till Azure Functions distributions plats." border="true":::
 
-    ![Namn Azure Functions distributions fack](./media/functions-deployment-slots/azure-functions-deployment-slots-add-name.png)
+1. Skriv namnet på facket och välj **Lägg till**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Ge Azure Functions distributions facket." border="true":::
 
 ## <a name="swap-slots"></a>Växla platser
 
 Du kan växla mellan platser via [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap) eller via portalen. Följande steg visar hur du byter platser i portalen:
 
-1. Navigera till Function-appen
-1. Klicka på det käll plats namn som du vill byta
-1. På fliken *Översikt* klickar du **på växlings knappen** ![växling Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Verifiera konfigurations inställningarna för din växling och klicka på **växlings** ![växling Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Navigera till Function-appen.
+1. Välj **distributions platser**och välj sedan **Växla**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Växla distributions facket." border="true":::
+
+1. Verifiera konfigurations inställningarna för din växling och välj **Växla**
+    
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Växla distributions facket." border="true":::
 
 Åtgärden kan ta en stund medan växlings åtgärden körs.
 
@@ -119,11 +131,21 @@ Om en växling resulterar i ett fel eller om du bara vill "ångra" en växling k
 
 Du kan ta bort en plats via [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete) eller via portalen. Följande steg visar hur du tar bort en plats i portalen:
 
-1. Navigera till Function-appens översikt
+1. Gå till **distributions fack** i Function-appen och välj plats namnet.
 
-1. Klicka på knappen **ta bort**
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Hitta platser i Azure Portal." border="true":::
 
-    ![Lägg till Azure Functions distributions plats](./media/functions-deployment-slots/azure-functions-deployment-slots-delete.png)
+1. Välj **Ta bort**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Ta bort distributions platsen i Azure Portal." border="true":::
+
+1. Skriv namnet på den distributions plats som du vill ta bort och välj sedan **ta bort**.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Ta bort distributions platsen i Azure Portal." border="true":::
+
+1. Stäng bekräftelse fönstret för borttagning.
+
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Bekräfta borttagning av distributions plats." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatisera plats hantering
 
@@ -137,34 +159,31 @@ Med [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot
 
 ## <a name="change-app-service-plan"></a>Ändra App Service plan
 
-Med en Function-app som körs under en App Service plan har du möjlighet att ändra den underliggande App Service plan för en plats.
+Med en Function-app som körs under en App Service plan kan du ändra den underliggande App Service plan för en plats.
 
 > [!NOTE]
 > Du kan inte ändra en platss App Service plan under förbruknings planen.
 
 Använd följande steg för att ändra en platss App Service plan:
 
-1. Navigera till en plats
+1. Gå till **distributions fack** i Function-appen och välj plats namnet.
 
-1. Under *plattforms funktioner*klickar du på **alla inställningar**
+    :::image type="content" source="./media/functions-deployment-slots/functions-navigate-slots.png" alt-text="Hitta platser i Azure Portal." border="true":::
 
-    ![Ändra App Service-plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-settings.png)
+1. Under **App Service plan**väljer du **ändra App Service plan**.
 
-1. Klicka på **App Service plan**
+1. Välj den plan som du vill uppgradera till eller skapa en ny plan.
 
-1. Välj en ny App Service plan eller skapa en ny plan
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Ändra App Service plan i Azure Portal." border="true":::
 
-1. Klicka på **OK**
-
-    ![Ändra App Service-plan](./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-select.png)
-
+1. Välj **OK**.
 
 ## <a name="limitations"></a>Begränsningar
 
 Azure Functions distributions fack har följande begränsningar:
 
 - Antalet tillgängliga fack för en app beror på planen. Förbruknings planen tillåts bara en distributions plats. Det finns ytterligare platser för appar som körs under App Service plan.
-- När en plats byts ut återställs nycklar för appar som har `AzureWebJobsSecretStorageType` en app-inställning `files`som är lika med.
+- När en plats byts ut återställs nycklar för appar som har en `AzureWebJobsSecretStorageType` app-inställning som är lika med `files` .
 - Det finns inga tillgängliga platser för Linux-förbruknings planen.
 
 ## <a name="support-levels"></a>Support nivåer

@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ec69a9906eabb4ce56f79b1b88c2b5f2440f84b1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 94ec85ae658ca6012cd1f1594b431d12bb73013d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612477"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121073"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurera MSIX-appbifogning
 
@@ -41,7 +41,7 @@ Först måste du hämta den OS-avbildning som du ska använda för MSIX-appen. H
      >[!NOTE]
      >Du måste vara medlem i Windows Insider-programmet för att få åtkomst till Windows Insider-portalen. Om du vill veta mer om Windows Insider program kan du läsa vår [Windows Insider-dokumentation](/windows-insider/at-home/).
 
-2. Rulla ned till avsnittet **Välj utgåva** och välj **Windows 10 Insider Preview Enterprise (snabb) – build 19035** eller senare.
+2. Rulla ned till avsnittet **Välj utgåva** och välj **Windows 10 Insider Preview Enterprise (snabb) – build 19041** eller senare.
 
 3. Välj **Bekräfta**och välj sedan det språk som du vill använda och välj sedan **Bekräfta** igen.
     
@@ -73,6 +73,14 @@ rem Disable Windows Update:
 
 sc config wuauserv start=disabled
 ```
+
+När du har inaktiverat automatiska uppdateringar måste du aktivera Hyper-V eftersom du kommer att använda kommandot kast platsen-VHD för att mellanlagra och och demontera-VHD till destage. 
+
+```powershell
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+```
+>[!NOTE]
+>Den här ändringen kräver att du startar om den virtuella datorn.
 
 Förbered sedan VM VHD för Azure och överför den resulterande VHD-disken till Azure. Mer information finns i [förbereda och anpassa en huvud-VHD-avbildning](set-up-customize-master-image.md).
 
@@ -211,7 +219,7 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
 5.  Öppna en kommando tolk och ange **mountvol**. Det här kommandot visar en lista över volymer och deras GUID. Kopiera GUID för volymen där enhets beteckningen matchar den enhet som du monterade din virtuella hård disk till i steg 2.
 
-    Exempel: i det här exemplet på utdata för kommandot mountvol, om du har monterat din virtuella hård disk till enhet C, ska du kopiera värdet `C:\`ovan:
+    Exempel: i det här exemplet på utdata för kommandot mountvol, om du har monterat din virtuella hård disk till enhet C, ska du kopiera värdet ovan `C:\` :
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -257,7 +265,7 @@ Innan du uppdaterar PowerShell-skripten ser du till att du har volymens GUID fö
 
     {
 
-    Mount-Diskimage -ImagePath $vhdSrc -NoDriveLetter -Access ReadOnly
+    Mount-VHD -Path $vhdSrc -NoDriveLetter -ReadOnly
 
     Write-Host ("Mounting of " + $vhdSrc + " was completed!") -BackgroundColor Green
 

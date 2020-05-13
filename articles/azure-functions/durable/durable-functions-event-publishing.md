@@ -2,13 +2,13 @@
 title: Durable Functions publicering till Azure Event Grid (förhands granskning)
 description: Lär dig hur du konfigurerar automatisk Azure Event Grid publicering för Durable Functions.
 ms.topic: conceptual
-ms.date: 03/14/2019
-ms.openlocfilehash: 671f7bd5221a936ea9dad0f0cece895bdbe9512f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 04/25/2020
+ms.openlocfilehash: c0106f3754e0cdcbf1f295fbe3f1b5def8dc3ca1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535493"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124320"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Durable Functions publicering till Azure Event Grid (förhands granskning)
 
@@ -30,7 +30,7 @@ Här följer några scenarier där den här funktionen är användbar:
 
 ## <a name="create-a-custom-event-grid-topic"></a>Skapa ett anpassat Event Grid-ämne
 
-Skapa ett Event Grid ämne för att skicka händelser från Durable Functions. Följande instruktioner visar hur du skapar ett ämne med hjälp av Azure CLI. Du kan också göra detta med [hjälp av PowerShell](../../event-grid/custom-event-quickstart-powershell.md) eller med [hjälp av Azure Portal](../../event-grid/custom-event-quickstart-portal.md).
+Skapa ett Event Grid ämne för att skicka händelser från Durable Functions. Följande instruktioner visar hur du skapar ett ämne med hjälp av Azure CLI. Du kan också skapa ämnet med [hjälp av PowerShell](../../event-grid/custom-event-quickstart-powershell.md) eller med [hjälp av Azure Portal](../../event-grid/custom-event-quickstart-portal.md).
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -66,11 +66,11 @@ Nu kan du skicka händelser till ämnet.
 
 ## <a name="configure-event-grid-publishing"></a>Konfigurera Event Grid publicering
 
-Leta upp `host.json` filen i Durable Functions-projektet.
+Leta upp filen i Durable Functions-projektet `host.json` .
 
 ### <a name="durable-functions-1x"></a>Durable Functions 1. x
 
-Lägg `eventGridTopicEndpoint` till `eventGridKeySettingName` och i `durableTask` en egenskap.
+Lägg till `eventGridTopicEndpoint` och `eventGridKeySettingName` i en `durableTask` egenskap.
 
 ```json
 {
@@ -83,7 +83,7 @@ Lägg `eventGridTopicEndpoint` till `eventGridKeySettingName` och i `durableTask
 
 ### <a name="durable-functions-2x"></a>Durable Functions 2. x
 
-Lägg till `notifications` ett avsnitt i `durableTask` filens egenskap och Ersätt `<topic_name>` med det namn som du har valt. Om egenskaperna `durableTask` eller `extensions` inte finns skapar du dem som det här exemplet:
+Lägg till ett `notifications` avsnitt i `durableTask` filens egenskap och Ersätt `<topic_name>` med det namn som du har valt. Om `durableTask` egenskaperna eller `extensions` inte finns skapar du dem som det här exemplet:
 
 ```json
 {
@@ -101,9 +101,9 @@ Lägg till `notifications` ett avsnitt i `durableTask` filens egenskap och Ersä
 }
 ```
 
-De möjliga Azure Event Grid konfigurations egenskaperna finns i [Host. JSON-dokumentationen](../functions-host-json.md#durabletask). När du har konfigurerat `host.json` filen skickar din Function-app livs cykel händelser till Event Grid ämnet. Detta fungerar när du kör Function-appen både lokalt och i Azure.
+De möjliga Azure Event Grid konfigurations egenskaperna finns i [Host. JSON-dokumentationen](../functions-host-json.md#durabletask). När du har konfigurerat `host.json` filen skickar din Function-app livs cykel händelser till Event Grid ämnet. Den här åtgärden startar när du kör din Function-app både lokalt och i Azure.
 
-Ange appens inställning för ämnes nyckeln i Funktionsapp och `local.settings.json`. Följande JSON är ett exempel på `local.settings.json` för lokal fel sökning. Ersätt `<topic_key>` med ämnes nyckeln.  
+Ange appens inställning för ämnes nyckeln i Funktionsapp och `local.settings.json` . Följande JSON är ett exempel på `local.settings.json` för lokal fel sökning. Ersätt `<topic_key>` med ämnes nyckeln.  
 
 ```json
 {
@@ -116,9 +116,9 @@ Ange appens inställning för ämnes nyckeln i Funktionsapp och `local.settings.
 }
 ```
 
-Om du använder Storage- [emulatorn](../../storage/common/storage-use-emulator.md) (endast Windows) kontrollerar du att den fungerar. Det är en bra idé att köra kommandot `AzureStorageEmulator.exe clear all` innan du kör.
+Om du använder Storage- [emulatorn](../../storage/common/storage-use-emulator.md) (endast Windows) kontrollerar du att den fungerar. Det är en bra idé att köra `AzureStorageEmulator.exe clear all` kommandot innan du kör.
 
-Om du använder ett befintligt Azure Storage-konto ersätter `UseDevelopmentStorage=true` du `local.settings.json` med dess anslutnings sträng.
+Om du använder ett befintligt Azure Storage-konto ersätter du `UseDevelopmentStorage=true` `local.settings.json` med dess anslutnings sträng.
 
 ## <a name="create-functions-that-listen-for-events"></a>Skapa funktioner som lyssnar efter händelser
 
@@ -126,52 +126,65 @@ Med hjälp av Azure Portal skapar du en annan Function-app för att lyssna efter
 
 ### <a name="create-an-event-grid-trigger-function"></a>Skapa en Event Grid trigger-funktion
 
-Skapa en funktion för att ta emot livs cykel händelser. Välj **anpassad funktion**.
+1. I din Function-app väljer du **Functions**och väljer sedan **+ Lägg till** 
 
-![Välj Skapa en anpassad funktion.](./media/durable-functions-event-publishing/functions-portal.png)
+   :::image type="content" source="./media/durable-functions-event-publishing/function-add-function.png" alt-text="Lägg till en funktion i Azure Portal." border="true":::
 
-Välj Event Grid utlösare och välj ett språk.
+1. Sök efter **Event Grid**och välj sedan mallen **Azure Event Grid utlösare** . 
 
-![Välj den Event Grid utlösaren.](./media/durable-functions-event-publishing/eventgrid-trigger.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-select-event-grid-trigger.png" alt-text="Välj händelse rutnätets utlösare mall i Azure Portal." border="true":::
 
-Ange namnet på funktionen och välj `Create`sedan.
+1. Ge den nya utlösaren ett namn och välj sedan **skapa funktion**.
 
-![Skapa Event Grid-utlösaren.](./media/durable-functions-event-publishing/eventgrid-trigger-creation.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/function-name-event-grid-trigger.png" alt-text="Namnge Event Grid-utlösaren i Azure Portal." border="true":::
 
-En funktion med följande kod skapas:
 
-# <a name="c-script"></a>[C#-skript](#tab/csharp-script)
+    En funktion med följande kod skapas:
 
-```csharp
-#r "Newtonsoft.Json"
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Microsoft.Extensions.Logging;
+    # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
-public static void Run(JObject eventGridEvent, ILogger log)
-{
-    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
-}
-```
+    ```csharp
+    #r "Newtonsoft.Json"
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+    using Microsoft.Extensions.Logging;
 
-# <a name="javascript"></a>[JavaScript](#tab/javascript)
+    public static void Run(JObject eventGridEvent, ILogger log)
+    {
+        log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+    }
+    ```
 
-```javascript
-module.exports = async function(context, eventGridEvent) {
-    context.log(typeof eventGridEvent);
-    context.log(eventGridEvent);
-}
-```
+   # <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+   ```javascript
+   module.exports = async function(context, eventGridEvent) {
+       context.log(typeof eventGridEvent);
+       context.log(eventGridEvent);
+   }
+   ```
 
 ---
 
-Välj `Add Event Grid Subscription`. Den här åtgärden lägger till en Event Grid-prenumeration för det Event Grid-avsnitt som du har skapat. Mer information finns [i begrepp i Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts)
+### <a name="add-an-event-grid-subscription"></a>Lägg till en Event Grid-prenumeration
 
-![Välj länken Event Grid utlösare.](./media/durable-functions-event-publishing/eventgrid-trigger-link.png)
+Nu kan du lägga till en Event Grid-prenumeration för Event Grid avsnittet som du har skapat. Mer information finns [i begrepp i Azure Event Grid](https://docs.microsoft.com/azure/event-grid/concepts).
 
-Välj `Event Grid Topics` för **ämnes typ**. Välj den resurs grupp som du skapade för Event Grid avsnittet. Välj sedan instansen för Event Grid ämnet. Tryck `Create`på.
+1. I den nya funktionen väljer du **integration** och väljer sedan **Event Grid utlösare (eventGridEvent)**. 
 
-![Skapa en Event Grid-prenumeration.](./media/durable-functions-event-publishing/eventsubscription.png)
+    :::image type="content" source="./media/durable-functions-event-publishing/eventgrid-trigger-link.png" alt-text="Välj länken Event Grid utlösare." border="true":::
+
+1. Välj **skapa Event Grid Beskrivning**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/create-event-grid-subscription.png" alt-text="Skapa Event Grid prenumerationen." border="true":::
+
+1. Namnge din händelse prenumeration och välj ämnes typen **Event Grid ämnen** . 
+
+1. Välj prenumerationen. Välj sedan den resurs grupp och resurs som du skapade för Event Grid avsnittet. 
+
+1. Välj **Skapa**.
+
+    :::image type="content" source="./media/durable-functions-event-publishing/event-grid-subscription-details.png" alt-text="Skapa en Event Grid-prenumeration." border="true":::
 
 Nu är du redo att ta emot livs cykel händelser.
 
@@ -224,7 +237,7 @@ I Durable Functions-projektet som du konfigurerade tidigare startar du fel sökn
 I följande lista beskrivs schemat för livs cykel händelser:
 
 * **`id`**: Unik identifierare för händelsen Event Grid.
-* **`subject`**: Sökväg till händelsens ämne. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`är `Running`, `Completed` `Failed`, och `Terminated`.  
+* **`subject`**: Sökväg till händelsens ämne. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}`är `Running` ,, `Completed` `Failed` och `Terminated` .  
 * **`data`**: Durable Functions vissa parametrar.
   * **`hubName`**: [TaskHub](durable-functions-task-hubs.md) namn.
   * **`functionName`**: Orchestrator-funktions namn.

@@ -1,17 +1,17 @@
 ---
 title: Ändra storlek på en virtuell Linux-dator med Azure CLI
 description: Skala upp eller skala ned en virtuell Linux-dator genom att ändra storleken på den virtuella datorn.
-author: mikewasson
+author: DavidCBerry13
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 02/10/2017
-ms.author: mwasson
-ms.openlocfilehash: 20e7db80b55347c4a4a76b7c95d4d8bec368abda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.author: daberry
+ms.openlocfilehash: cf2716ce5d24aa86e32f6f521134590c671d5011
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969261"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120988"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Ändra storlek på en virtuell Linux-dator med Azure CLI 
 
@@ -20,13 +20,13 @@ När du har etablerat en virtuell dator (VM) kan du skala upp eller ned den virt
 ## <a name="resize-a-vm"></a>Ändra storlek på en virtuell dator
 Om du vill ändra storlek på en virtuell dator måste du ha det senaste [Azure CLI](/cli/azure/install-az-cli2) installerat och inloggat på ett Azure-konto med [AZ-inloggning](/cli/azure/reference-index).
 
-1. Visa listan över tillgängliga VM-storlekar i maskin varu klustret där den virtuella datorn är värd för [AZ VM List-VM-size-Options](/cli/azure/vm). I följande exempel visas VM-storlekar för den virtuella `myVM` datorn med namnet i `myResourceGroup` resurs grupps regionen:
+1. Visa listan över tillgängliga VM-storlekar i maskin varu klustret där den virtuella datorn är värd för [AZ VM List-VM-size-Options](/cli/azure/vm). I följande exempel visas VM-storlekar för den virtuella datorn med namnet `myVM` i resurs grupps `myResourceGroup` regionen:
    
     ```azurecli
     az vm list-vm-resize-options --resource-group myResourceGroup --name myVM --output table
     ```
 
-2. Om önskad VM-storlek visas ändrar du storlek på den virtuella datorn med [AZ storlek på virtuell dator](/cli/azure/vm). I följande exempel ändras storleken på den virtuella datorn `myVM` med namn `Standard_DS3_v2` till storleken:
+2. Om önskad VM-storlek visas ändrar du storlek på den virtuella datorn med [AZ storlek på virtuell dator](/cli/azure/vm). I följande exempel ändras storleken på den virtuella datorn med namn `myVM` till `Standard_DS3_v2` storleken:
    
     ```azurecli
     az vm resize --resource-group myResourceGroup --name myVM --size Standard_DS3_v2
@@ -34,7 +34,7 @@ Om du vill ändra storlek på en virtuell dator måste du ha det senaste [Azure 
    
     Den virtuella datorn startas om under den här processen. Efter omstarten mappas dina befintliga operativ system och data diskar om. Allt på den temporära disken förloras.
 
-3. Om önskad VM-storlek inte visas i listan måste du först frigöra den virtuella datorn med [AZ VM deallokering](/cli/azure/vm). Den här processen gör det möjligt för den virtuella datorn att ändra storlek till vilken storlek som helst som är tillgänglig som regionen har stöd för och sedan startas. Följande steg frigör, ändrar storlek och startar sedan den virtuella datorn som heter `myVM` i resurs gruppen med namnet: `myResourceGroup`
+3. Om önskad VM-storlek inte visas i listan måste du först frigöra den virtuella datorn med [AZ VM deallokering](/cli/azure/vm). Den här processen gör det möjligt för den virtuella datorn att ändra storlek till vilken storlek som helst som är tillgänglig som regionen har stöd för och sedan startas. Följande steg frigör, ändrar storlek och startar sedan den virtuella datorn `myVM` som heter i resurs gruppen med namnet `myResourceGroup` :
    
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM

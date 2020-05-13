@@ -1,20 +1,20 @@
 ---
 title: Visa väg riktningar på en karta | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du visar vägvisningar mellan två platser på en karta med hjälp av Microsoft Azure Maps-webbsdk.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: dde9264d0cb65726b624b918982cfa01985b63ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1cde1aaa7c9dba3e28407439a46b0e0a3326e4fc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371415"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123980"
 ---
 # <a name="show-directions-from-a-to-b"></a>Visa anvisningar från A till B
 
@@ -24,12 +24,12 @@ Det finns två sätt att göra detta på. Det första sättet är att fråga [Az
 
 ## <a name="query-the-route-via-service-module"></a>Fråga vägen via Service-modulen
 
-<iframe height='500' scrolling='no' title='Visa vägvisningar från A till B på en karta (service Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se anvisningarna för <a href='https://codepen.io/azuremaps/pen/RBZbep/'>att Visa pennan från a till B på en karta (service Module)</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Visa vägvisningar från A till B på en karta (service Module)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se anvisningarna för <a href='https://codepen.io/azuremaps/pen/RBZbep/'>att Visa pennan från a till B på en karta (service Module)</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 I ovanstående kod konstruerar det första blocket ett kart objekt och anger autentiseringsmekanismen för att använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
 
-Det andra blocket kod skapar en `TokenCredential` för att autentisera HTTP-begäranden för att Azure Maps med åtkomsttoken. Den skickar sedan `TokenCredential` till `atlas.service.MapsURL.newPipeline()` och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) -instans. `routeURL` Representerar en URL som Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
+Det andra blocket kod skapar en `TokenCredential` för att autentisera HTTP-begäranden för att Azure Maps med åtkomsttoken. Den skickar sedan `TokenCredential` till `atlas.service.MapsURL.newPipeline()` och skapar en [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) -instans. `routeURL`Representerar en URL som Azure Maps [väg](https://docs.microsoft.com/rest/api/maps/route) åtgärder.
 
 Det tredje blocket med kod skapar och lägger till ett [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) -objekt till kartan.
 
@@ -39,7 +39,7 @@ En linje är en [funktion](https://docs.microsoft.com/javascript/api/azure-maps-
 
 Ett [symbol lager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att återge punktbaserade data i data [källan](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Texten eller ikonerna återges som symboler på kartan. Det femte blocket med kod skapar och lägger till ett symbol lager till kartan.
 
-Det sjätte blocket med kod frågar Azure Maps Routningstjänst, som är en del av [Service-modulen](how-to-use-services-module.md). [CalculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) -metoden för RouteURL används för att hämta en väg mellan start-och slut punkterna. En samling av en interjson-funktion från svaret extraheras sedan `geojson.getFeatures()` med hjälp av-metoden och läggs till i data källan. Sedan återges svaret som en väg på kartan. Mer information om hur du lägger till en linje till kartan finns i [lägga till en rad på kartan](map-add-line-layer.md).
+Det sjätte blocket med kod frågar Azure Maps Routningstjänst, som är en del av [Service-modulen](how-to-use-services-module.md). [CalculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) -metoden för RouteURL används för att hämta en väg mellan start-och slut punkterna. En samling av en interjson-funktion från svaret extraheras sedan med hjälp av- `geojson.getFeatures()` metoden och läggs till i data källan. Sedan återges svaret som en väg på kartan. Mer information om hur du lägger till en linje till kartan finns i [lägga till en rad på kartan](map-add-line-layer.md).
 
 Det sista blocket i koden anger gränserna för kartan med kartans [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) -egenskap.
 
@@ -47,7 +47,7 @@ Route-fråga, data källa, symbol, linje lager och kamera gränser skapas i [hä
 
 ## <a name="query-the-route-via-fetch-api"></a>Fråga vägen via hämtnings-API
 
-<iframe height='500' scrolling='no' title='Visa vägvisningar från A till B på en karta' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Penn spetsen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>från a till B på en karta</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Visa vägvisningar från A till B på en karta' src='//codepen.io/azuremaps/embed/zRyNmP/?height=469&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Penn spetsen <a href='https://codepen.io/azuremaps/pen/zRyNmP/'>från a till B på en karta</a> med Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 I koden ovan konstruerar det första blocket kod ett kart objekt och ställer in autentiseringsmekanismen för att använda åtkomsttoken. Du kan se [skapa en karta](./map-create.md) för instruktioner.
@@ -74,7 +74,7 @@ Route-fråga, data källa, symbol, linje lager och kamera gränser skapas i [hä
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 I följande artiklar finns fullständiga kod exempel:
 

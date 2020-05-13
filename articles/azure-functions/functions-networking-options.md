@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 6637627d48df8f9b6126debc215aac9bceb76f6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1a214d39f958af36931192aad4561459ca0573
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419566"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121361"
 ---
 # <a name="azure-functions-networking-options"></a>Nätverksalternativ för Azure Functions
 
@@ -31,10 +31,10 @@ Du kan vara värd för funktions appar på ett par olika sätt:
 |                |[Förbruknings plan](functions-scale.md#consumption-plan)|[Premiumplan](functions-scale.md#premium-plan)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inkommande IP-begränsningar och åtkomst till privata platser](#inbound-ip-restrictions)|✅Ja|✅Ja|✅Ja|✅Ja|
-|[Integrering av virtuella nätverk](#virtual-network-integration)|❌Nej|✅Ja (regional)|✅Ja (regional och gateway)|✅Ja|
-|[Virtuella nätverks utlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌Nej| ✅Ja |✅Ja|✅Ja|
-|[Hybrid anslutningar](#hybrid-connections) (endast Windows)|❌Nej|✅Ja|✅Ja|✅Ja|
-|[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌Nej| ✅Ja|✅Ja|✅Ja|
+|[Integrering av virtuella nätverk](#virtual-network-integration)|❌Inga|✅Ja (regional)|✅Ja (regional och gateway)|✅Ja|
+|[Virtuella nätverks utlösare (icke-HTTP)](#virtual-network-triggers-non-http)|❌Inga| ✅Ja |✅Ja|✅Ja|
+|[Hybrid anslutningar](#hybrid-connections) (endast Windows)|❌Inga|✅Ja|✅Ja|✅Ja|
+|[Utgående IP-begränsningar](#outbound-ip-restrictions)|❌Inga| ✅Ja|✅Ja|✅Ja|
 
 ## <a name="inbound-ip-restrictions"></a>Inkommande IP-begränsningar
 
@@ -50,7 +50,7 @@ Läs mer i [Azure App Service statiska åtkomst begränsningar](../app-service/a
 Åtkomst till privata webbplatser syftar bara på att göra appen tillgänglig från ett privat nätverk, till exempel ett virtuellt Azure-nätverk.
 
 * Åtkomst till privata webbplatser är tillgängligt i [Premium](./functions-premium-plan.md)-, [konsumtions](functions-scale.md#consumption-plan)-och [app Services](functions-scale.md#app-service-plan) planerna när tjänstens slut punkter konfigureras.
-    * Tjänst slut punkter kan konfigureras per app med hjälp av **plattforms funktioner** > **nätverk** > **Konfigurera åtkomst begränsningar** > **Lägg till regel**. Virtuella nätverk kan nu väljas som regel typ.
+    * Tjänst slut punkter kan konfigureras per app med hjälp av **plattforms funktioner**  >  **nätverk**  >  **Konfigurera åtkomst begränsningar**  >  **Lägg till regel**. Virtuella nätverk kan nu väljas som regel typ.
     * Mer information finns i [tjänst slut punkter för virtuella nätverk](../virtual-network/virtual-network-service-endpoints-overview.md).
     * Tänk på att med tjänst slut punkter har din funktion fortfarande fullständig utgående åtkomst till Internet, även om du har konfigurerat Virtual Network-integrering.
 * Åtkomst till privata webbplatser är också tillgänglig i en App Service-miljön som har kon figurer ATS med en intern belastningsutjämnare (ILB). Mer information finns i [skapa och använda en intern belastningsutjämnare med en app service-miljön](../app-service/environment/create-ilb-ase.md).
@@ -102,9 +102,9 @@ För närvarande kan du använda icke-HTTP-utlösare i ett virtuellt nätverk p�
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Premium plan med virtuella nätverks utlösare
 
-När du kör en Premium-plan kan du ansluta funktioner som inte är HTTP-utlösare till tjänster som körs i ett virtuellt nätverk. För att göra detta måste du aktivera stöd för virtuell nätverks utlösare för din Function-app. Inställningen **stöd för virtuell nätverks utlösare** finns i [Azure Portal](https://portal.azure.com) under **Function app-inställningar**.
+När du kör en Premium-plan kan du ansluta funktioner som inte är HTTP-utlösare till tjänster som körs i ett virtuellt nätverk. För att göra detta måste du aktivera stöd för virtuell nätverks utlösare för din Function-app. Inställningen **stöd för virtuell nätverks utlösare** finns i [Azure Portal](https://portal.azure.com) under **konfigurations**  >  **funktionens körnings inställningar**.
 
-![Växla virtuellt nätverk](media/functions-networking-options/virtual-network-trigger-toggle.png)
+:::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
 Du kan också aktivera virtuella nätverks utlösare med hjälp av följande Azure CLI-kommando:
 
@@ -146,7 +146,7 @@ Mer information finns i [App Service dokumentationen för hybridanslutningar](..
 
 Utgående IP-begränsningar är tillgängliga i en Premium-plan, App Service plan eller App Service-miljön. Du kan konfigurera utgående begränsningar för det virtuella nätverk där App Service-miljön har distribuerats.
 
-När du integrerar en Function-app i en Premium-plan eller en App Service plan med ett virtuellt nätverk kan appen fortfarande göra utgående anrop till Internet som standard. Genom att lägga till program `WEBSITE_VNET_ROUTE_ALL=1`inställningen tvingar du all utgående trafik att skickas till det virtuella nätverket, där regler för nätverks säkerhets grupper kan användas för att begränsa trafiken.
+När du integrerar en Function-app i en Premium-plan eller en App Service plan med ett virtuellt nätverk kan appen fortfarande göra utgående anrop till Internet som standard. Genom att lägga till program inställningen `WEBSITE_VNET_ROUTE_ALL=1` tvingar du all utgående trafik att skickas till det virtuella nätverket, där regler för nätverks säkerhets grupper kan användas för att begränsa trafiken.
 
 ## <a name="troubleshooting"></a>Felsökning
 

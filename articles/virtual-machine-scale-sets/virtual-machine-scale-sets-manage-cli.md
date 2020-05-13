@@ -2,17 +2,19 @@
 title: Hantera Virtual Machine Scale Sets med Azure CLI
 description: Vanliga Azure CLI-kommandon för att hantera Virtual Machine Scale Sets, till exempel hur du startar och stoppar en instans eller ändrar skalnings uppsättningens kapacitet.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
-ms.openlocfilehash: ad07a237dd40d836705b332c6c10356720901481
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 05/29/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 2742b0b73d4143159fd1ed1338988b01a2171041
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81011590"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124337"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Hantera en skalnings uppsättning för virtuella datorer med Azure CLI
 Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. I den här artikeln beskrivs några av de vanliga Azure CLI-kommandon som du kan använda för att utföra dessa uppgifter.
@@ -38,7 +40,7 @@ az vmss list-instances \
     --output table
 ```
 
-Om du vill visa ytterligare information om en speciell VM-instans `--instance-id` lägger du till parametern till [AZ VMSS get-instance-View](/cli/azure/vmss) och anger en instans att visa. Följande exempel visar information om den virtuella dator instansen *0* i skalnings uppsättningen med namnet *myScaleSet* och resurs gruppen *myResourceGroup* . Ange dina egna namn enligt följande:
+Om du vill visa ytterligare information om en speciell VM-instans lägger du till `--instance-id` parametern till [AZ VMSS get-instance-View](/cli/azure/vmss) och anger en instans att visa. Följande exempel visar information om den virtuella dator instansen *0* i skalnings uppsättningen med namnet *myScaleSet* och resurs gruppen *myResourceGroup* . Ange dina egna namn enligt följande:
 
 ```azurecli
 az vmss get-instance-view \
@@ -120,7 +122,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Ta bort virtuella datorer från en skalnings uppsättning
-Om du vill ta bort en eller flera virtuella datorer i en skalnings uppsättning använder du [AZ VMSS Delete-instances](/cli/azure/vmss). `--instance-ids` Parametern låter dig ange en eller flera virtuella datorer som ska tas bort. Om du anger * för instans-ID, tas alla virtuella datorer i skalnings uppsättningen bort. Om du vill ta bort flera virtuella datorer separerar du varje instans-ID med ett blank steg.
+Om du vill ta bort en eller flera virtuella datorer i en skalnings uppsättning använder du [AZ VMSS Delete-instances](/cli/azure/vmss). `--instance-ids`Parametern låter dig ange en eller flera virtuella datorer som ska tas bort. Om du anger * för instans-ID, tas alla virtuella datorer i skalnings uppsättningen bort. Om du vill ta bort flera virtuella datorer separerar du varje instans-ID med ett blank steg.
 
 I följande exempel tas instans *0* i skalnings uppsättningen med namnet *myScaleSet* och resurs gruppen *myResourceGroup* bort. Ange dina egna värden på följande sätt:
 

@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: f8c526148e37ba1b716aafd32dcc3f242358f1eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 454420d9b2f4e3cf834490da79f3571691f25bc1
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81427788"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121141"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Hantera lagrings konto nycklar med Key Vault och Azure PowerShell
 
@@ -75,7 +75,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>Ange variabler
 
-Ange först de variabler som ska användas av PowerShell-cmdletarna i följande steg. Se till att uppdatera plats <YourResourceGroupName>hållarna <YourStorageAccountName>, <YourKeyVaultName> och och ange $keyVaultSpAppId till (enligt `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` vad som anges i [program-ID för tjänstens huvud namn](#service-principal-application-id)ovan).
+Ange först de variabler som ska användas av PowerShell-cmdletarna i följande steg. Se till att uppdatera <YourResourceGroupName> <YourStorageAccountName> <YourKeyVaultName> plats hållarna, och och ange $keyVaultSpAppId till `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` (enligt vad som anges i [program-ID för tjänstens huvud namn](#service-principal-application-id)ovan).
 
 Vi kommer också att använda Azure PowerShell [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) -och [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) -cmdlet: ar för att hämta ditt användar-ID och kontexten för ditt Azure Storage-konto.
 
@@ -84,14 +84,18 @@ $resourceGroupName = <YourResourceGroupName>
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093"
-$storageAccountKey = "key1"
+$storageAccountKey = "key1" #(key1 or key2 are allowed)
 
 # Get your User Id
 $userId = (Get-AzContext).Account.Id
 
 # Get a reference to your Azure storage account
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
+
 ```
+>[!Note]
+> För klassiskt lagrings konto använder du "primär" och "sekundär" för $storageAccountKey <br>
+> Använd "Get-AzResource-Name" ClassicStorageAccountName "-ResourceGroupName $resourceGroupName" i stället of'Get-AzStorageAccount "för det klassiska lagrings kontot
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Ge Key Vault åtkomst till ditt lagrings konto
 
@@ -134,7 +138,7 @@ Observera att behörigheter för lagrings konton inte är tillgängliga på sida
 
 ### <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Lägg till ett hanterat lagrings konto till din Key Vault-instans
 
-Använd cmdleten Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) för att skapa ett hanterat lagrings konto i Key Vault-instansen. `-DisableAutoRegenerateKey` Växeln anger att lagrings konto nycklarna inte ska återskapas.
+Använd cmdleten Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) för att skapa ett hanterat lagrings konto i Key Vault-instansen. `-DisableAutoRegenerateKey`Växeln anger att lagrings konto nycklarna inte ska återskapas.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
@@ -160,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Aktivera nyckel återskapande
 
-Om du vill Key Vault återskapa dina lagrings konto nycklar med jämna mellanrum kan du använda cmdleten Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) för att ange en återställnings period. I det här exemplet ställer vi in en tids period på tre dagar. Efter tre dagar kommer Key Vault att återskapa ' key2 ' och byta den aktiva nyckeln från ' key2 ' till ' KEY1 '.
+Om du vill Key Vault återskapa dina lagrings konto nycklar med jämna mellanrum kan du använda cmdleten Azure PowerShell [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) för att ange en återställnings period. I det här exemplet ställer vi in en tids period på tre dagar. Efter tre dagar kommer Key Vault att återskapa "key2" och byta den aktiva nyckeln från "key2" till "KEY1" (Ersätt med "primär" och "sekundär" för klassiska lagrings konton).
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -197,7 +201,7 @@ Kommandona i det här avsnittet Slutför följande åtgärder:
 - 
 ### <a name="set-variables"></a>Ange variabler
 
-Ange först de variabler som ska användas av PowerShell-cmdletarna i följande steg. Se till att uppdatera plats <YourStorageAccountName> hållarna och <YourKeyVaultName> .
+Ange först de variabler som ska användas av PowerShell-cmdletarna i följande steg. Se till att uppdatera <YourStorageAccountName> <YourKeyVaultName> plats hållarna och.
 
 Vi kommer också att använda Azure PowerShell cmdlets för [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) för att skapa en kontext för ditt Azure Storage-konto.
 
@@ -205,7 +209,7 @@ Vi kommer också att använda Azure PowerShell cmdlets för [New-AzStorageContex
 $storageAccountName = <YourStorageAccountName>
 $keyVaultName = <YourKeyVaultName>
 
-$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1
+$storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -Protocol Https -StorageAccountKey Key1 #(or "Primary" for Classic Storage Account)
 ```
 
 ### <a name="create-a-shared-access-signature-token"></a>Skapa en token för signatur för delad åtkomst

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 87cb7c57aab048e1b7acf211d58c850a41afa5a2
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 54ff58735b6831bb45a9477360ffca3439d2f6b4
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628254"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124728"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -88,7 +88,7 @@ Följande är en guide för att konfigurera en Azure pipelines-lansering som aut
 
 1.  I rutan **scen namn** anger du namnet på din miljö.
 
-1.  Välj **Lägg till artefakt**och välj sedan den git-lagringsplats som kon figurer ATS med utvecklings data fabriken. Välj [publicerings grenen](source-control.md#configure-publishing-settings) för lagrings platsen för **standard grenen**. Som standard är `adf_publish`publicerings grenen. Välj **senaste från standard gren**för **standard versionen**.
+1.  Välj **Lägg till artefakt**och välj sedan den git-lagringsplats som kon figurer ATS med utvecklings data fabriken. Välj [publicerings grenen](source-control.md#configure-publishing-settings) för lagrings platsen för **standard grenen**. Som standard är publicerings grenen `adf_publish` . Välj **senaste från standard gren**för **standard versionen**.
 
     ![Lägg till en artefakt](media/continuous-integration-deployment/continuous-integration-image7.png)
 
@@ -228,14 +228,14 @@ När du exporterar en Resource Manager-mall Data Factory läser filen från den 
 Nedan följer några rikt linjer som du följer när du skapar anpassade parameter filen, **arm-Template-Parameters-definition. JSON**. Filen består av ett avsnitt för varje entitetstyp: utlösare, pipeline, länkad tjänst, data uppsättning, integration Runtime och data flöde.
 
 * Ange sökvägen till egenskapen under den relevanta entitetstypen.
-* Om du anger ett egenskaps namn för `*` att ange att du vill Parameterisera alla egenskaper under den (enbart till den första nivån, inte rekursivt). Du kan också ange undantag för den här konfigurationen.
-* Att ange värdet för en egenskap som en sträng anger att du vill Parameterisera egenskapen. Använd formatet `<action>:<name>:<stype>`.
+* Om du anger ett egenskaps namn för att ange att  `*` du vill Parameterisera alla egenskaper under den (enbart till den första nivån, inte rekursivt). Du kan också ange undantag för den här konfigurationen.
+* Att ange värdet för en egenskap som en sträng anger att du vill Parameterisera egenskapen. Använd formatet  `<action>:<name>:<stype>` .
    *  `<action>` kan vara något av följande tecken:
       * `=` betyder att det aktuella värdet ska vara standardvärdet för parametern.
       * `-` innebär att inte behålla standardvärdet för parametern.
       * `|` är ett specialfall för hemligheter från Azure Key Vault för anslutnings strängar eller nycklar.
-   * `<name>` är namnet på parametern. Om det är tomt tar det med namnet på egenskapen. Om värdet börjar med ett `-` Character förkortas namnet. Till exempel `AzureStorage1_properties_typeProperties_connectionString` skulle kortas till `AzureStorage1_connectionString`.
-   * `<stype>` är typen av parameter. Om `<stype>` är tomt är `string`standard typen. Värden som stöds `string`: `bool`, `number` `object`,, och `securestring`.
+   * `<name>` är namnet på parametern. Om det är tomt tar det med namnet på egenskapen. Om värdet börjar med ett `-` Character förkortas namnet. Till exempel `AzureStorage1_properties_typeProperties_connectionString` skulle kortas till `AzureStorage1_connectionString` .
+   * `<stype>` är typen av parameter. Om  `<stype>`   är tomt är standard typen `string` . Värden som stöds:,,, `string` `bool` `number` `object` och `securestring` .
 * Att ange en matris i definitions filen anger att den matchande egenskapen i mallen är en matris. Data Factory itererar igenom alla objekt i matrisen med hjälp av definitionen som anges i integration runtime-objektet i matrisen. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn för parametern för varje iteration.
 * En definition kan inte vara unik för en resurs instans. Alla definitioner gäller för alla resurser av den typen.
 * Som standard är alla säkra strängar, som Key Vault hemligheter och säkra strängar, som anslutnings strängar, nycklar och tokens, parameterstyrda.
@@ -308,26 +308,26 @@ Här är en förklaring av hur föregående mall skapas, uppdelat efter resurs t
 #### <a name="pipelines"></a>Pipelines
     
 * Alla egenskaper i sökvägen `activities/typeProperties/waitTimeInSeconds` är parameterstyrda. Alla aktiviteter i en pipeline som har en kod nivå egenskap med namnet `waitTimeInSeconds` (till exempel `Wait` aktiviteten) är parameterstyrda som ett tal med ett standard namn. Men det finns inget standardvärde i Resource Manager-mallen. Det är en obligatorisk Indatatyp under distributionen av Resource Manager.
-* På samma sätt är en egenskap `headers` som kallas (t. ex `Web` . i en aktivitet) parameterstyrda med `object` typen (JObject). Det har ett standardvärde, vilket är samma värde som käll fabriken.
+* På samma sätt är en egenskap `headers` som kallas (t. ex. i en `Web` aktivitet) parameterstyrda med typen `object` (JObject). Det har ett standardvärde, vilket är samma värde som käll fabriken.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Alla egenskaper under sökvägen `typeProperties` är parameterstyrda med respektive standardvärden. Det finns till exempel två egenskaper under `IntegrationRuntimes` typ egenskaper: `computeProperties` och. `ssisProperties` Båda egenskaps typerna skapas med deras respektive standardvärden och typer (objekt).
+* Alla egenskaper under sökvägen `typeProperties` är parameterstyrda med respektive standardvärden. Det finns till exempel två egenskaper under `IntegrationRuntimes` typ egenskaper: `computeProperties` och `ssisProperties` . Båda egenskaps typerna skapas med deras respektive standardvärden och typer (objekt).
 
 #### <a name="triggers"></a>Utlösare
 
-* Under `typeProperties`, har två egenskaper parametriserade. Det första är `maxConcurrency`, som har angetts att ha ett standardvärde och är av typen`string`. Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency`.
-* `recurrence` Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number`. Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. På samma sätt är `freq` egenskapen en sträng och är parameterstyrda som en sträng. `freq` Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
+* Under `typeProperties` , har två egenskaper parametriserade. Det första är `maxConcurrency` , som har angetts att ha ett standardvärde och är av typen `string` . Den har standard parameter namnet `<entityName>_properties_typeProperties_maxConcurrency` .
+* `recurrence`Egenskapen är också parametriserad. Under den här nivån anges alla egenskaper på den nivån som parameterstyrda som strängar, med standardvärden och parameter namn. Ett undantag är `interval` egenskapen, som är parameterstyrda som typ `number` . Parameter namnet har suffix `<entityName>_properties_typeProperties_recurrence_triggerSuffix` . På samma sätt `freq` är egenskapen en sträng och är parameterstyrda som en sträng. `freq`Egenskapen är dock parameterstyrda utan ett standardvärde. Namnet är kortare och suffixet. Till exempel `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Länkade tjänster är unika. Eftersom länkade tjänster och data uppsättningar har en mängd olika typer, kan du ange en typ bestämd anpassning. I det här exemplet används en speciell mall för alla `AzureDataLakeStore`länkade tjänster av typen. En annan mall används för `*`alla andra (via).
-* `connectionString` Egenskapen är parameterstyrda som ett `securestring` värde. Det har inget standardvärde. Det kommer att ha ett förkortat parameter namn med `connectionString`suffix.
-* Egenskapen `secretAccessKey` inträffar som en `AzureKeyVaultSecret` (till exempel i en länkad Amazon S3-tjänst). Den är automatiskt parameterstyrda som en Azure Key Vault hemlighet och hämtas från det konfigurerade nyckel valvet. Du kan också Parameterisera själva nyckel valvet.
+* Länkade tjänster är unika. Eftersom länkade tjänster och data uppsättningar har en mängd olika typer, kan du ange en typ bestämd anpassning. I det här exemplet `AzureDataLakeStore` används en speciell mall för alla länkade tjänster av typen. En annan mall används för alla andra (via `*` ).
+* `connectionString`Egenskapen är parameterstyrda som ett `securestring` värde. Det har inget standardvärde. Det kommer att ha ett förkortat parameter namn med suffix `connectionString` .
+* Egenskapen `secretAccessKey` inträffar som en (till `AzureKeyVaultSecret` exempel i en länkad Amazon S3-tjänst). Den är automatiskt parameterstyrda som en Azure Key Vault hemlighet och hämtas från det konfigurerade nyckel valvet. Du kan också Parameterisera själva nyckel valvet.
 
 #### <a name="datasets"></a>Datauppsättningar
 
-* Även om typ specifik anpassning är tillgänglig för data uppsättningar kan du ange konfiguration utan att uttryckligen ha en \*-nivå-konfiguration. I föregående exempel är alla data uppsättnings egenskaper `typeProperties` under parameterstyrda.
+* Även om typ specifik anpassning är tillgänglig för data uppsättningar kan du ange konfiguration utan att uttryckligen ha en \* -nivå-konfiguration. I föregående exempel är alla data uppsättnings egenskaper under `typeProperties` parameterstyrda.
 
 ### <a name="default-parameterization-template"></a>Standard Parameterisering-mall
 
@@ -443,7 +443,7 @@ Nedan visas den aktuella standard Parameterisering-mallen. Om du bara behöver l
 
 ### <a name="example-parameterizing-an-existing-azure-databricks-interactive-cluster-id"></a>Exempel: parametriserade ett befintligt Azure Databricks interaktivt kluster-ID
 
-I följande exempel visas hur du lägger till ett enda värde i standard mal len Parameterisering. Vi vill bara lägga till ett befintligt Azure Databricks interaktiva kluster-ID: t för en länkad Databricks-tjänst till parameter filen. Observera att filen är samma som föregående fil, förutom att du kan lägga till `existingClusterId` under fältet egenskaper i. `Microsoft.DataFactory/factories/linkedServices`
+I följande exempel visas hur du lägger till ett enda värde i standard mal len Parameterisering. Vi vill bara lägga till ett befintligt Azure Databricks interaktiva kluster-ID: t för en länkad Databricks-tjänst till parameter filen. Observera att filen är samma som föregående fil, förutom att du kan lägga till `existingClusterId` under fältet egenskaper i `Microsoft.DataFactory/factories/linkedServices` .
 
 ```json
 {
@@ -569,6 +569,26 @@ Om du vill använda länkade mallar i stället för den fullständiga Resource M
 Kom ihåg att lägga till Data Factory skript i CI/CD-pipeline innan och efter distributions aktiviteten.
 
 Om du inte har git konfigurerat kan du komma åt de länkade mallarna via **export arm-mallen** i listan **arm-mall** .
+
+## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Undanta Azure-SSIS integration runtime från CI/CD
+
+Om din utvecklings fabrik har Azure-SSIS integration runtime kan du undanta alla Azure-SSIS integration runtime från CI/CD-processen i följande scenario:
+
+- Azure-SSIS IR-infrastrukturen är komplex och varierar i varje miljö.  
+- Azure-SSIS IR konfigureras manuellt för varje miljö med samma namn. Annars går det inte att publicera om det finns aktiviteter beroende på Azure-SSIS IR.
+
+Så här undantar du Azure-SSIS integration Runtime:
+
+1. Lägg till en publish_config. JSON-fil i rotmappen i samarbets grenen om den inte finns.
+1. Lägg till inställningen nedan till publish_config. JSON: 
+
+```json
+{
+    " excludeIRs": "true"
+}
+```
+
+När du publicerar från samarbets grenen kommer Azure-SSIS integration runtime uteslutas från Resource Manager-mallen som genereras.
 
 ## <a name="hotfix-production-branch"></a>Produktions gren för snabb korrigeringar
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: fa9dba62b3b58687ec6a2bfc29e8722f7016b679
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14f66701d3a375807829493f866dcb91b131f2e5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284309"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121090"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Konfigurera labb konton i Azure Lab Services 
 I Azure Lab Services är ett labb konto en behållare för hanterade labb typer, till exempel klass rums labb. En administratör konfigurerar ett labb konto med Azure Lab Services och ger till gång till labb ägare som kan skapa labb i kontot. 
@@ -38,6 +38,9 @@ Här följer några begränsningar när du anger adress intervallet som du bör 
 
 1. På sidan **labb konto** väljer du **labb inställningar** på den vänstra menyn.
 2. I fältet **adress intervall** anger du adress intervall för virtuella datorer som ska skapas i labbet. Adress intervallet bör vara i CIDR-notation (Classless Inter-Domain routing) (exempel: 10.20.0.0/23). Virtuella datorer i labbet skapas i det här adress intervallet.
+
+    > [!NOTE]
+    > Egenskapen för adress intervall gäller endast om det virtuella peer-nätverket är aktiverat för labbet. 
 3. Välj **Spara** i verktygsfältet. 
 
     ![Konfigurera adress intervall](../media/how-to-manage-lab-accounts/labs-configuration-page-address-range.png)

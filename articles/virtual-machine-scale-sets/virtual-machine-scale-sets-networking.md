@@ -1,19 +1,20 @@
 ---
 title: Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 description: Så här konfigurerar du några av de mer avancerade nätverks egenskaperna för skalnings uppsättningar för virtuella Azure-datorer.
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: networking
 ms.date: 07/17/2017
-ms.author: mimckitt
-ms.openlocfilehash: efe3a39008361fdf76d80a0c8e7e2e30b061117d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 46a12006274ca8516c936e37189c9233dde9b410
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461367"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125204"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Nätverk för skalningsuppsättningar för virtuella Azure-datorer
 

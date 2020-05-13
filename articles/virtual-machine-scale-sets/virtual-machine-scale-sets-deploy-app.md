@@ -2,18 +2,19 @@
 title: Distribuera ett program till en skalnings uppsättning för virtuella Azure-datorer
 description: Lär dig hur du distribuerar program till instanser av virtuella Linux-och Windows-datorer i en skalnings uppsättning
 author: ju-shim
-tags: azure-resource-manager
-ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
-ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
-ms.date: 05/29/2018
 ms.author: jushiman
-ms.openlocfilehash: e157db79f1835a8ca891dd360a99e3319565d1d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 05/29/2018
+ms.reviewer: avverma
+ms.custom: avverma
+ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81011471"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124932"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera din app på VM-skalningsuppsättningar
 
@@ -34,7 +35,7 @@ Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-da
 
 - [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
-- [Azure Resource Manager mall](tutorial-install-apps-template.md)
+- [Azure Resource Manager-mall](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installera en app på en virtuell Windows-dator med PowerShell DSC
@@ -91,7 +92,7 @@ Cloud-init fungerar med olika distributioner. Du använder till exempel inte **a
 
 Mer information, inklusive ett exempel på en *init. txt* -fil finns i [använda Cloud-Init för att anpassa virtuella Azure-datorer](../virtual-machines/linux/using-cloud-init.md).
 
-Om du vill skapa en skalnings uppsättning och använda en Cloud-Init- `--custom-data` fil lägger du till parametern i kommandot [AZ VMSS Create](/cli/azure/vmss) och anger namnet på en Cloud-Init-fil. I följande exempel skapas en skalnings uppsättning med namnet *myScaleSet* i *myResourceGroup* och konfigurerar virtuella dator instanser med en fil med namnet *init. txt*. Ange dina egna namn enligt följande:
+Om du vill skapa en skalnings uppsättning och använda en Cloud-Init-fil lägger du till `--custom-data` parametern i kommandot [AZ VMSS Create](/cli/azure/vmss) och anger namnet på en Cloud-Init-fil. I följande exempel skapas en skalnings uppsättning med namnet *myScaleSet* i *myResourceGroup* och konfigurerar virtuella dator instanser med en fil med namnet *init. txt*. Ange dina egna namn enligt följande:
 
 ```azurecli
 az vmss create \

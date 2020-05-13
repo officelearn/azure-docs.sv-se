@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 2c06fdba8f60243acf4e0fabd23df8b832c210db
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c050eb38e47ce2ab9d11e5c92eb7bdd3ac8e572
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78301683"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121702"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions på Kubernetes med KEDA
 
@@ -28,11 +28,11 @@ Om du vill köra funktioner i ditt Kubernetes-kluster måste du installera KEDA-
 
 ### <a name="installing-with-helm"></a>Installera med Helm
 
-Det finns olika sätt att installera KEDA i ett Kubernetes-kluster inklusive Helm.  Distributions alternativen finns dokumenterade på [KEDA-webbplatsen](https://keda.sh/deploy/).
+Det finns olika sätt att installera KEDA i ett Kubernetes-kluster inklusive Helm.  Distributions alternativen finns dokumenterade på [KEDA-webbplatsen](https://keda.sh/docs/deploy/).
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Distribuera en Function-app till Kubernetes
 
-Du kan distribuera valfri Function-app till ett Kubernetes-kluster som kör KEDA.  Eftersom dina funktioner körs i en Docker-behållare behöver ditt projekt en `Dockerfile`.  Om den inte redan har en, kan du lägga till en Dockerfile genom att köra följande kommando i roten för ditt Functions-projekt:
+Du kan distribuera valfri Function-app till ett Kubernetes-kluster som kör KEDA.  Eftersom dina funktioner körs i en Docker-behållare behöver ditt projekt en `Dockerfile` .  Om den inte redan har en, kan du lägga till en Dockerfile genom att köra följande kommando i roten för ditt Functions-projekt:
 
 ```cli
 func init --docker-only
@@ -41,7 +41,7 @@ func init --docker-only
 Om du vill skapa en avbildning och distribuera dina funktioner till Kubernetes kör du följande kommando:
 
 > [!NOTE]
-> Kärn verktygen använder Docker CLI för att bygga och publicera avbildningen. Se till att Docker är installerat och är ansluten till ditt konto med `docker login`.
+> Kärn verktygen använder Docker CLI för att bygga och publicera avbildningen. Se till att Docker är installerat och är ansluten till ditt konto med `docker login` .
 
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
@@ -49,15 +49,15 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Ersätt `<name-of-function-deployment>` med namnet på din Function-app.
 
-Detta skapar en Kubernetes `Deployment` -resurs, `ScaledObject` en resurs och `Secrets`, som innehåller miljövariabler som importeras från `local.settings.json` filen.
+Detta skapar en Kubernetes- `Deployment` resurs, en `ScaledObject` resurs och `Secrets` , som innehåller miljövariabler som importeras från `local.settings.json` filen.
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>Distribuera en Function-app från ett privat register
 
-Ovanstående flöde fungerar även för privata register.  Om du hämtar behållar avbildningen från ett privat register ska du `--pull-secret` ta med den flagga som refererar till den Kubernetes hemlighet som innehåller autentiseringsuppgifterna `func kubernetes deploy`för det privata registret när de körs.
+Ovanstående flöde fungerar även för privata register.  Om du hämtar behållar avbildningen från ett privat register ska du ta med den `--pull-secret` flagga som refererar till den Kubernetes hemlighet som innehåller autentiseringsuppgifterna för det privata registret när de körs `func kubernetes deploy` .
 
 ## <a name="removing-a-function-app-from-kubernetes"></a>Ta bort en Function-app från Kubernetes
 
-När du har distribuerat kan du ta bort en funktion `Deployment`genom `ScaledObject`att ta `Secrets` bort den associerade, en skapade.
+När du har distribuerat kan du ta bort en funktion genom att ta bort den associerade `Deployment` , `ScaledObject` en `Secrets` skapade.
 
 ```cli
 kubectl delete deploy <name-of-function-deployment>

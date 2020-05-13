@@ -1,18 +1,20 @@
 ---
 title: Använda program hälso tillägg med skalnings uppsättningar för virtuella Azure-datorer
 description: Lär dig hur du använder tillägget för program hälsa för att övervaka hälso tillståndet för dina program som distribueras på virtuella datorers skalnings uppsättningar.
-author: mimckitt
-tags: azure-resource-manager
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: extensions
 ms.date: 05/06/2020
-ms.author: mimckitt
-ms.openlocfilehash: 30f68d22a228e6de596e6999490ea7789ab21547
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 4710d03c4d5b2f2679a0d6b65f38ec584f9a056c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864376"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124116"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Använda tillägget för programmets hälsotillstånd med VM-skalningsuppsättningar
 Övervakning av din program hälsa är en viktig signal för att hantera och uppgradera distributionen. Skalnings uppsättningar för virtuella Azure-datorer ger stöd för [rullande uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) , inklusive [automatiska uppgraderingar av operativ system avbildningar](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälso övervakning av de enskilda instanserna för att uppgradera distributionen. Du kan också använda hälso tillägg för att övervaka program hälsan för varje instans i din skalnings uppsättning och utföra instans reparationer med [automatiska instans reparationer](virtual-machine-scale-sets-automatic-instance-repairs.md).
@@ -67,8 +69,8 @@ Följande JSON visar schemat för program hälso tillägget. Tillägget kräver 
 | Name | Värde/exempel | Datatyp
 | ---- | ---- | ----
 | protokollhanterare | `http`eller `https` eller`tcp` | sträng |
-| port | Valfritt när protokollet är `http` eller `https`, obligatoriskt när protokollet är`tcp` | int |
-| requestPath | Obligatoriskt när protokollet är `http` eller `https`, tillåts inte när protokollet är`tcp` | sträng |
+| port | Valfritt när protokollet är `http` eller `https` , obligatoriskt när protokollet är`tcp` | int |
+| requestPath | Obligatoriskt när protokollet är `http` eller `https` , tillåts inte när protokollet är`tcp` | sträng |
 
 ## <a name="deploy-the-application-health-extension"></a>Distribuera program hälso tillägget
 Det finns flera sätt att distribuera program hälso tillägget till dina skalnings uppsättningar enligt beskrivningen i exemplen nedan.
@@ -103,7 +105,7 @@ Används `PATCH` för att redigera ett redan distribuerat tillägg.
 
 Använd cmdleten [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) för att lägga till program hälso tillägget i modell definitionen för skalnings uppsättningen.
 
-`extensionProfile` I följande exempel läggs program hälso tillägget till i skalnings uppsättnings modellen för en Windows-baserad skalnings uppsättning. Exemplet använder den nya AZ PowerShell-modulen.
+I följande exempel läggs program hälso tillägget till `extensionProfile` i skalnings uppsättnings modellen för en Windows-baserad skalnings uppsättning. Exemplet använder den nya AZ PowerShell-modulen.
 
 ```azurepowershell-interactive
 # Define the scale set variables

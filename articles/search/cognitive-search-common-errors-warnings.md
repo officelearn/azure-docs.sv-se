@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ed10e998ea05b6687190b1f87095f8bc28265905
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5e18fcc5dc23bdbd9027de62a5bee0fb7d4ceff
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086623"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125102"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -21,7 +21,7 @@ Den här artikeln innehåller information och lösningar på vanliga fel och var
 
 Indexeringen stoppas när antalet fel överstiger ["maxFailedItems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
-Om du vill att indexerarna ska ignorera dessa fel (och hoppa över "misslyckade dokument") bör du `maxFailedItems` överväga `maxFailedItemsPerBatch` att uppdatera och enligt beskrivningen [här](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+Om du vill att indexerarna ska ignorera dessa fel (och hoppa över "misslyckade dokument") bör du överväga att uppdatera `maxFailedItems` och `maxFailedItemsPerBatch` enligt beskrivningen [här](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
 > [!NOTE]
 > Varje misslyckat dokument tillsammans med dess dokument nyckel (när det är tillgängligt) visas som ett fel i körnings statusen för indexeraren. Du kan använda [index-API: et](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att ladda upp dokumenten manuellt vid ett senare tillfälle om du har ställt in indexeraren för att tolerera felen.
@@ -30,14 +30,14 @@ Fel informationen i den här artikeln kan hjälpa dig att lösa fel som gör att
 
 Varningar slutar inte att indexera, men de anger villkor som kan leda till oväntade resultat. Oavsett om du vidtar åtgärder eller inte beror på data och ditt scenario.
 
-Från och med API `2019-05-06`-versionen struktureras fel och varningar på objekt nivå för att ge ökad klarhet kring orsaker och nästa steg. De innehåller följande egenskaper:
+Från och med API `2019-05-06` -versionen struktureras fel och varningar på objekt nivå för att ge ökad klarhet kring orsaker och nästa steg. De innehåller följande egenskaper:
 
 | Egenskap | Beskrivning | Exempel |
 | --- | --- | --- |
-| key | Dokument-ID: t för dokumentet som påverkas av felet eller varningen. | https:\//coromsearch.blob.Core.Windows.net/JFK-1k/docid-32112954.pdf |
+| key | Dokument-ID: t för dokumentet som påverkas av felet eller varningen. | https: \/ /coromsearch.blob.Core.Windows.net/JFK-1k/docid-32112954.pdf |
 | name | Åtgärds namnet som beskriver var felet eller varningen uppstod. Detta genereras av följande struktur: [Category]. [under kategori]. [resourceType]. resourceName | DocumentExtraction. azureblob. myBlobContainerName-anrikning. WebApiSkill. mySkillName projektion. SearchIndex. OutputFieldMapping. myOutputFieldName projektion. SearchIndex. MergeOrUpload. myIndexName projektion. KnowledgeStore. Table. myTableName |
 | meddelande | En övergripande beskrivning av felet eller varningen. | Det gick inte att köra kompetensen eftersom webb-API-begäran misslyckades. |
-| information | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 källa, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... rest av stack spårning... |
+| information | Ytterligare information som kan vara till hjälp för att diagnostisera problemet, till exempel WebApi-svar om det inte gick att köra en anpassad färdighet. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 källa, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... rest av stack spårning... |
 | documentationLink | En länk till relevant dokumentation med detaljerad information för att felsöka och lösa problemet. Den här länken pekar ofta på ett av nedanstående avsnitt på den här sidan. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -48,7 +48,7 @@ Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa 
 
 | Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
-| Inkonsekventa fält typer i olika dokument | "Typen av värde har en matchnings fel med kolumn typen. Det gick `'{47.6,-122.1}'` inte att lagra i kolumnen författare.  Förväntad typ är JArray. "  "Det gick inte att konvertera data typen nvarchar till float."  "Konverteringen misslyckades vid konvertering av nvarchar-värdet 12 månader till data typen int."  "Aritmetiskt data spills fel vid konvertering av uttryck till data typen int." | Se till att typen för varje fält är samma för olika dokument. Om det första `'startTime'` fältet till exempel är ett datum/tid och i det andra dokumentet är det fel meddelandet. |
+| Inkonsekventa fält typer i olika dokument | "Typen av värde har en matchnings fel med kolumn typen. Det gick inte att lagra `'{47.6,-122.1}'` i kolumnen författare.  Förväntad typ är JArray. "  "Det gick inte att konvertera data typen nvarchar till float."  "Konverteringen misslyckades vid konvertering av nvarchar-värdet 12 månader till data typen int."  "Aritmetiskt data spills fel vid konvertering av uttryck till data typen int." | Se till att typen för varje fält är samma för olika dokument. Om det första fältet till exempel `'startTime'` är ett datum/tid och i det andra dokumentet är det fel meddelandet. |
 | fel från data källans underliggande tjänst | (från Cosmos DB)`{"Errors":["Request rate is large"]}` | Kontrol lera lagrings instansen för att säkerställa att den är felfri. Du kan behöva justera skalning/partitionering. |
 | tillfälliga problem | Ett fel på transport nivå har uppstått när resultat togs emot från servern. (provider: TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
 
@@ -59,7 +59,7 @@ Indexeraren med en BLOB-datakälla kunde inte extrahera innehåll eller metadata
 
 | Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
-| blobben överskrider storleks gränsen | Dokumentet är `'150441598'` byte, vilket överskrider max storleken `'134217728'` på byte för dokument extrahering för din aktuella tjänst nivå. | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
+| blobben överskrider storleks gränsen | Dokumentet är `'150441598'` byte, vilket överskrider max storleken på `'134217728'` byte för dokument extrahering för din aktuella tjänst nivå. | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | BLOB har en innehålls typ som inte stöds | Dokumentet innehåller en innehålls typ som inte stöds`'image/png'` | [BLOB-indexerings fel](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | bloben är krypterad | Det gick inte att bearbeta dokumentet – det kan vara krypterat eller lösenordsskyddat. | Du kan hoppa över blobben med [BLOB-inställningar](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | tillfälliga problem | "Fel vid bearbetning av BLOB: begäran avbröts: begäran avbröts." "Tids gränsen nåddes för dokumentet under bearbetningen." | Ibland finns det ibland oväntade anslutnings problem. Försök att köra dokumentet via din indexerare igen senare. |
@@ -73,8 +73,13 @@ Indexeraren läser dokumentet från data källan, men det uppstod ett problem me
 | --- | --- | --- |
 | Dokument nyckeln saknas | Dokument nyckeln kan inte vara tom eller saknas | Se till att alla dokument har giltiga dokument nycklar |
 | Dokument nyckeln är ogiltig | Dokument nyckeln får innehålla högst 1024 tecken | Ändra dokument nyckeln så att den uppfyller verifierings kraven. |
-| Det gick inte att använda fält mappning i ett fält | Det gick inte att använda `'functionName'` mappnings `'fieldName'`funktionen till fältet. Matris får inte vara null. Parameter namn: byte | Dubbelt kontrol lera de [fält mappningar](search-indexer-field-mappings.md) som definierats för indexeraren och jämför med informationen i det angivna fältet för det misslyckade dokumentet. Det kan vara nödvändigt att ändra fält mappningarna eller dokument data. |
-| Det gick inte att läsa fältvärdet | Det gick inte att läsa värdet för `'fieldName'` kolumnen vid `'fieldIndex'`indexet. Ett fel på transport nivå har uppstått när resultat togs emot från servern. (provider: TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden.) | Dessa fel beror vanligt vis på oväntade anslutnings problem med data källans underliggande tjänst. Försök att köra dokumentet via din indexerare igen senare. |
+| Det gick inte att använda fält mappning i ett fält | Det gick inte att använda mappnings funktionen `'functionName'` till fältet `'fieldName'` . Matris får inte vara null. Parameter namn: byte | Dubbelt kontrol lera de [fält mappningar](search-indexer-field-mappings.md) som definierats för indexeraren och jämför med informationen i det angivna fältet för det misslyckade dokumentet. Det kan vara nödvändigt att ändra fält mappningarna eller dokument data. |
+| Det gick inte att läsa fältvärdet | Det gick inte att läsa värdet för kolumnen `'fieldName'` vid indexet `'fieldIndex'` . Ett fel på transport nivå har uppstått när resultat togs emot från servern. (provider: TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden.) | Dessa fel beror vanligt vis på oväntade anslutnings problem med data källans underliggande tjänst. Försök att köra dokumentet via din indexerare igen senare. |
+
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+
+## <a name="error-could-not-map-output-field-xyz-to-search-index-due-to-deserialization-problem-while-applying-mapping-function-abc"></a>Fel: det gick inte att mappa utmatnings fältet `xyz` till Sök indexet på grund av deserialiserings problem när mappnings funktionen tillämpades `abc`
+Utmatnings mappningen kan ha misslyckats på grund av att utdata har fel format för den mappnings funktion som du använder. Om du till exempel använder Base64Encode-mappnings funktionen på binära data genereras det här felet. Du kan lösa problemet genom att antingen köra indexeraren igen utan att ange mappnings funktion eller kontrol lera att mappnings funktionen är kompatibel med data typen output Field. Se [Mappning av utdatakolumner](cognitive-search-output-field-mapping.md) för mer information.
 
 <a name="could-not-execute-skill"/>
 
@@ -110,7 +115,7 @@ Många av de inbyggda kognitiva färdigheterna, till exempel språk identifierin
 Om du fortsätter att se det här felet i samma dokument för en inbyggd kognitiv skicklighet, kan du skicka in ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) för att få hjälp, eftersom detta inte förväntas.
 
 ### <a name="custom-skills"></a>Anpassade färdigheter
-Om du stöter på ett tids gräns fel med en anpassad färdighet som du har skapat, finns det några saker du kan prova. Börja med att granska din anpassade färdighet och se till att den inte fastnar i en oändlig slinga och att den returnerar ett resultat konsekvent. När du har bekräftat att är fallet ska du ta reda på hur körnings tiden för din färdighet är. Om du inte uttryckligen angav ett `timeout` värde för din anpassade kunskaps definition är standardvärdet `timeout` 30 sekunder. Om 30 sekunder inte är tillräckligt lång för att din kunskap ska kunna köras, kan du ange `timeout` ett högre värde för din anpassade kunskaps definition. Här är ett exempel på en anpassad kunskaps definition där tids gränsen har angetts till 90 sekunder:
+Om du stöter på ett tids gräns fel med en anpassad färdighet som du har skapat, finns det några saker du kan prova. Börja med att granska din anpassade färdighet och se till att den inte fastnar i en oändlig slinga och att den returnerar ett resultat konsekvent. När du har bekräftat att är fallet ska du ta reda på hur körnings tiden för din färdighet är. Om du inte uttryckligen angav ett `timeout` värde för din anpassade kunskaps definition är standardvärdet `timeout` 30 sekunder. Om 30 sekunder inte är tillräckligt lång för att din kunskap ska kunna köras, kan du ange ett högre `timeout` värde för din anpassade kunskaps definition. Här är ett exempel på en anpassad kunskaps definition där tids gränsen har angetts till 90 sekunder:
 
 ```json
   {
@@ -138,7 +143,7 @@ Det maximala värdet som du kan ange för `timeout` parametern är 230 sekunder.
 
 <a name="could-not-mergeorupload--delete-document-to-the-search-index"/>
 
-## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Fel: det gick inte`MergeOrUpload`att | '`Delete`'-dokument i Sök indexet
+## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Fel: det gick inte att `MergeOrUpload` | ' `Delete` '-dokument i Sök indexet
 
 Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i Sök indexet. Detta kan inträffa på grund av:
 
@@ -188,7 +193,7 @@ Felet uppstår när indexeraren försöker [projicera data till ett kunskaps lag
 | --- | --- | --- |
 | Det gick inte att uppdatera projektions-bloben `'blobUri'` i behållaren`'containerName'` |Den angivna behållaren finns inte. | Indexeraren kontrollerar om den angivna behållaren har skapats tidigare och kommer att skapa den om det behövs, men den utför bara den här kontrollen en gång per indexerare körs. Det här felet innebär att något har tagits bort från behållaren efter det här steget.  Försök att lösa det här felet: lämna din lagrings konto information, vänta tills indexeraren har slutförts och kör sedan indexeraren igen. |
 | Det gick inte att uppdatera projektions-bloben `'blobUri'` i behållaren`'containerName'` |Det gick inte att skriva data till transport anslutningen: en befintlig anslutning tvingades stänga av den fjärranslutna värden. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
-| Det gick inte att `'projectionRow'` uppdatera raden i tabellen`'tableName'` | Servern är upptagen. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
+| Det gick inte att uppdatera raden `'projectionRow'` i tabellen`'tableName'` | Servern är upptagen. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 
@@ -197,13 +202,13 @@ En inström till kompetensen saknades, fel typ eller på annat sätt är ogiltig
 1) Det gick inte att köra kompetensen
 2) Kunskapen har utförts men kan ha oväntade resultat
 
-Kognitiva kunskaper har obligatoriska indata och valfria indata. Till exempel är [extraherings kunskaper för nyckel fraser](cognitive-search-skill-keyphrases.md) två obligatoriska `text`indata, `languageCode`och inga valfria indata. Anpassade färdighets indata betraktas som valfria indata.
+Kognitiva kunskaper har obligatoriska indata och valfria indata. Till exempel är [extraherings kunskaper för nyckel fraser](cognitive-search-skill-keyphrases.md) två obligatoriska indata `text` , `languageCode` och inga valfria indata. Anpassade färdighets indata betraktas som valfria indata.
 
 Om några obligatoriska indata saknas eller om några indata inte är av rätt typ hoppas kunskapen över och genererar en varning. Överhoppade kunskaper genererar inga utdata, så om andra kunskaper använder utdata från den överhoppade kunskapen kan de generera ytterligare varningar.
 
 Om en valfri indata saknas körs kunskapen fortfarande men det kan leda till oväntade utdata på grund av saknade indata.
 
-I båda fallen kan denna varning förväntas på grund av formens data. Om du till exempel har ett dokument som innehåller information om `firstName`personer med fälten `middleName`, och `lastName`kan du ha vissa dokument som inte har någon post för. `middleName` Om du vill skicka `middleName` som inmatade till en färdighet i pipelinen förväntas det att det saknas en del av tiden. Du måste utvärdera dina data och scenario för att avgöra om någon åtgärd krävs till följd av den här varningen.
+I båda fallen kan denna varning förväntas på grund av formens data. Om du till exempel har ett dokument som innehåller information om personer med fälten, `firstName` `middleName` och kan `lastName` du ha vissa dokument som inte har någon post för `middleName` . Om du vill skicka `middleName` som inmatade till en färdighet i pipelinen förväntas det att det saknas en del av tiden. Du måste utvärdera dina data och scenario för att avgöra om någon åtgärd krävs till följd av den här varningen.
 
 Om du vill ange ett standardvärde i händelse av saknade indata kan du använda den [villkorliga kompetensen](cognitive-search-skill-conditional.md) för att generera ett standardvärde och sedan använda resultatet av den [villkorliga kompetensen](cognitive-search-skill-conditional.md) som färdighets indata.
 
@@ -223,9 +228,9 @@ Om du vill ange ett standardvärde i händelse av saknade indata kan du använda
 
 | Orsak | Information/exempel | Lösning |
 | --- | --- | --- |
-| Kompetens ineffekten är av fel typ | "Nödvändig kompetens information var inte av den förväntade typen `String`. Namn: `text`, källa: `/document/merged_content`. "  "Krav på färdighets information var inte av det förväntade formatet. Namn: `text`, källa: `/document/merged_content`. "  "Det går inte att iterera över `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`icke-matriser".  "Det går inte `0` att välja i icke `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`-matrisen" | Vissa kunskaper förväntar sig indata av särskilda typer, till exempel `text` sentiment- [kompetens](cognitive-search-skill-sentiment.md) förväntar sig vara en sträng. Om indatan anger ett värde som inte är ett sträng värde, körs inte kompetensen och genererar inga utdata. Se till att data uppsättningen har inmatnings värden som är enhetliga i typ eller Använd en [anpassad webb-API-färdighet](cognitive-search-custom-skill-web-api.md) för att Förbearbeta indatan. Om du vill iterera över en matris kontrollerar du kunskaps sammanhanget och att inmatade `*` uppgifter har rätt position. Vanligt vis ska både kontexten och Indatakällan `*` sluta med för matriser. |
-| Kompetens ineffekt saknas | "Nödvändig kompetens information saknas. Namn: `text`, källa: `/document/merged_content`"" värde `/document/normalized_images/0/imageTags`saknas. "  "Det går inte `0` att välja `/document/pages` i matrisen med längden `0`." | Om alla dokument får den här varningen, är det förmodligen ett stavfel i inmatnings Sök vägarna och du bör dubbelt kontrol lera egenskaps namnets Skift läge, extra eller saknas `*` i sökvägen och kontrol lera att dokumenten från data källan innehåller de nödvändiga indatana. |
-| Inmatade kunskaper om språk kod är ogiltiga | Kompetens ineffekten `languageCode` har följande språk `X,Y,Z`koder, minst en som är ogiltig. | Se mer information [nedan](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
+| Kompetens ineffekten är av fel typ | "Nödvändig kompetens information var inte av den förväntade typen `String` . Namn: `text` , källa: `/document/merged_content` . "  "Krav på färdighets information var inte av det förväntade formatet. Namn: `text` , källa: `/document/merged_content` . "  "Det går inte att iterera över icke-matriser `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ".  "Det går inte att välja `0` i icke-matrisen `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` " | Vissa kunskaper förväntar sig indata av särskilda typer, till exempel [sentiment-kompetens](cognitive-search-skill-sentiment.md) förväntar sig `text` vara en sträng. Om indatan anger ett värde som inte är ett sträng värde, körs inte kompetensen och genererar inga utdata. Se till att data uppsättningen har inmatnings värden som är enhetliga i typ eller Använd en [anpassad webb-API-färdighet](cognitive-search-custom-skill-web-api.md) för att Förbearbeta indatan. Om du vill iterera över en matris kontrollerar du kunskaps sammanhanget och att inmatade uppgifter har `*` rätt position. Vanligt vis ska både kontexten och Indatakällan sluta med `*` för matriser. |
+| Kompetens ineffekt saknas | "Nödvändig kompetens information saknas. Namn: `text` , källa: `/document/merged_content` "" värde saknas `/document/normalized_images/0/imageTags` . "  "Det går inte att välja `0` i matrisen `/document/pages` med längden `0` ." | Om alla dokument får den här varningen, är det förmodligen ett stavfel i inmatnings Sök vägarna och du bör dubbelt kontrol lera egenskaps namnets Skift läge, extra eller saknas `*` i sökvägen och kontrol lera att dokumenten från data källan innehåller de nödvändiga indatana. |
+| Inmatade kunskaper om språk kod är ogiltiga | Kompetens ineffekten `languageCode` har följande språk koder `X,Y,Z` , minst en som är ogiltig. | Se mer information [nedan](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>
 
@@ -259,7 +264,7 @@ Här följer några referenser för de språk som stöds för närvarande för v
 ## <a name="warning-skill-input-was-truncated"></a>Varning! kompetens ineffekten trunkerades
 Kognitiva kunskaper har gränser för text längden som kan analyseras samtidigt. Om text ingången för dessa kunskaper överskrider den gränsen kommer vi att trunkera texten för att uppfylla gränsen och sedan utföra anrikningen på den trunkerade texten. Det innebär att kunskapen körs, men inte över alla dina data.
 
-I exemplet nedan kan `'text'` indatamängden utlösa den här varningen om den ligger över tecken gränsen. Du hittar de ingångs begränsningar du har i [kunskaps dokumentationen](cognitive-search-predefined-skills.md).
+I exemplet nedan `'text'` kan indatamängden utlösa den här varningen om den ligger över tecken gränsen. Du hittar de ingångs begränsningar du har i [kunskaps dokumentationen](cognitive-search-predefined-skills.md).
 
 ```json
  {
@@ -289,7 +294,7 @@ Den här varningen inträffar bara för Cosmos DB data källor.
 
 Stegvis förlopp under indexeringen säkerställer att om körningen av Indexer avbryts vid tillfälliga haverier eller körnings tids gräns, kan indexeraren Hämta var den slutade nästa gång den körs, i stället för att behöva indexera om hela samlingen från grunden. Detta är särskilt viktigt när du indexerar stora samlingar.
 
-Möjligheten att återuppta ett index jobb som inte är klart är predikat på att ha dokument ordnade `_ts` efter kolumnen. Indexeraren använder tidsstämpeln för att avgöra vilket dokument som ska plockas härnäst. Om `_ts` kolumnen saknas eller om indexeraren inte kan avgöra om en anpassad fråga beställs, börjar indexeraren i början och du ser den här varningen.
+Möjligheten att återuppta ett index jobb som inte är klart är predikat på att ha dokument ordnade efter `_ts` kolumnen. Indexeraren använder tidsstämpeln för att avgöra vilket dokument som ska plockas härnäst. Om `_ts` kolumnen saknas eller om indexeraren inte kan avgöra om en anpassad fråga beställs, börjar indexeraren i början och du ser den här varningen.
 
 Det är möjligt att åsidosätta det här beteendet, aktivera stegvisa framsteg och ignorera den här varningen med hjälp av `assumeOrderByHighWatermarkColumn` konfigurations egenskapen.
 
@@ -311,7 +316,12 @@ Mer information finns i [gränser för indexerare](search-limits-quotas-capacity
 <a name="could-not-map-output-field-x-to-search-index"/>
 
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Varning! det gick inte att mappa utmatnings fältet "X" till Sök indexet
-Mappningar av utdatakolumner som refererar till icke-existerande/null-data genererar varningar för varje dokument och resulterar i ett tomt index fält. Du kan lösa det här problemet genom att dubbelklicka på fältet utdata – mappa käll Sök vägar för möjliga skrivfel eller ange ett standardvärde med hjälp av den [villkorliga kompetensen](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist).
+Mappningar av utdatakolumner som refererar till icke-existerande/null-data genererar varningar för varje dokument och resulterar i ett tomt index fält. Du kan lösa det här problemet genom att dubbelklicka på fältet utdata – mappa käll Sök vägar för möjliga skrivfel eller ange ett standardvärde med hjälp av den [villkorliga kompetensen](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Se [Mappning av utdatakolumner](cognitive-search-output-field-mapping.md) för mer information.
+
+| Orsak | Information/exempel | Lösning |
+| --- | --- | --- |
+| Det går inte att iterera över icke-matriser | "Det går inte att iterera över icke-matriser `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ". | Felet uppstår när utdata inte är en matris. Om du tror att utdata ska vara en matris, kontrollerar du den angivna sökvägen till käll filen för utdata för fel. Du kan till exempel ha en saknad eller extra `*` i käll fält namnet. Det är också möjligt att indatamängden till den här kompetensen är null, vilket resulterar i en tom matris. Det finns ett ogiltigt avsnitt för att hitta liknande information i [kompetens indata](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .    |
+| Det går inte att välja `0` i icke-matriser | "Det går inte att välja `0` i icke-matrisen `/document/pages` ." | Detta kan inträffa om det inte skapas någon matris i kunskaps resultatet och fält namnet för utdatakällan har mat ris index eller `*` sökväg. Se till att du har angett de sökvägar som finns i fält namnen för utdata och värdet i fältet för det angivna fält namnet. Det finns ett ogiltigt avsnitt för att hitta liknande information i [kompetens indata](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
 

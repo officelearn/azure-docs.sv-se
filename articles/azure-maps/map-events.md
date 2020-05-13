@@ -1,20 +1,20 @@
 ---
 title: Hantera kart händelser | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du skapar en interaktiv Web SDK-mappning med kart händelser med hjälp av Microsoft Azure Maps-webbsdk.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 09/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b97371d1b63ad4abfe1635e426df1449ab5f3f14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92108873d4a91c845f4a1f2685cf50942513510e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79534906"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124014"
 ---
 # <a name="interact-with-the-map"></a>Interagera med kartan
 
@@ -26,7 +26,7 @@ Spela upp med kartan nedan och se motsvarande mus händelser markerade till hög
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagera med kartan – mus händelser' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagerar med kartan – mus händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagera med kartan – mus händelser' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>interagerar med kartan – mus händelser</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>Interagera med kart skikt
@@ -35,7 +35,7 @@ Följande kod visar händelsen utlöst när du interagerar med symbol skiktet. S
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagera med karta – skikt händelser' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagerar med kartan – skikt händelser</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagera med karta – skikt händelser' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>interagerar med kartan – skikt händelser</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>Interagera med HTML-markör
@@ -44,7 +44,7 @@ Följande kod lägger till Java Script Map-händelser till en HTML-markör. Den 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Interagera med händelser för kart-HTML-markör' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>samverkar med kart-HTML-markörens händelser</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Interagera med händelser för kart-HTML-markör' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan som <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>samverkar med kart-HTML-markörens händelser</a> genom Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 I följande tabell visas alla de mappnings klass händelser som stöds.
@@ -57,8 +57,8 @@ I följande tabell visas alla de mappnings klass händelser som stöds.
 | `close`             | Utlöses när popup-fönstret stängs manuellt eller program mässigt.|
 | `contextmenu`       | Utlöses när användaren klickar på höger musknapp.|
 | `data`              | Utlöses när alla kart data läses in eller ändras. |
-| `dataadded`         | Utlöses när former läggs till i `DataSource`.|
-| `dataremoved`       | Utlöses när former tas bort från `DataSource`.|
+| `dataadded`         | Utlöses när former läggs till i `DataSource` .|
+| `dataremoved`       | Utlöses när former tas bort från `DataSource` .|
 | `datasourceupdated` | Utlöses när `DataSource` objektet uppdateras.|
 | `dblclick`          | Utlöses när en pekande enhet klickas två gånger på samma plats på kartan.|
 | `drag`              | Utlöses upprepade gånger under en "dra för att panorera"-interaktion på kartan, popup-eller HTML-markören.|
@@ -94,8 +94,8 @@ I följande tabell visas alla de mappnings klass händelser som stöds.
 | `rotatestart`       | Utlöses när interaktionen "dra och rotera" startar.|
 | `shapechanged`      | Utlöses när en form objekt egenskap ändras.|
 | `sourcedata`        | Utlöses när en av kartans källor läses in eller ändras, inklusive om en panel som tillhör en källa läses in eller ändras. |
-| `sourceadded`       | Utlöses när `DataSource` en `VectorTileSource` eller läggs till i kartan.|
-| `sourceremoved`     | Utlöses när `DataSource` en `VectorTileSource` eller tas bort från kartan.|
+| `sourceadded`       | Utlöses när en `DataSource` eller `VectorTileSource` läggs till i kartan.|
+| `sourceremoved`     | Utlöses när en `DataSource` eller tas `VectorTileSource` bort från kartan.|
 | `styledata`         | Utlöses när kartans format läses in eller ändras.|
 | `styleimagemissing` | Utlöses när ett lager försöker läsa in en bild från den bild-Sprite som inte finns |
 | `tokenacquired`     | Utlöses när en AAD-åtkomsttoken hämtas.|

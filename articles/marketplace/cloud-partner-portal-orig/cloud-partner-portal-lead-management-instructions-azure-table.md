@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dsindona
-ms.openlocfilehash: cee28c65b97d4ac163f78b746dc7be9ee210843c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e65f2041cdb2e25341bfd63783c70ec09c1216b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80280362"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124711"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>Lead – hanterings anvisningar för Table Storage
 
@@ -98,7 +98,7 @@ I nästa uppsättning steg ansluter du till lagrings tabellen och konfigurerar b
 
    - **Filter fråga**: när du väljer det här fältet visas ikonen **Hämta tidigare tid** i ett popup-fönster. Välj **tidigare tid** för att använda det här värdet som en tidsstämpel för att filtrera frågan. Eller så kan du klistra in följande funktion i fältet:
    
-      `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
+      `CreatedTime Timestamp gt '@{body('Get_past_time')}'` 
 
      ![Konfigurera funktionen Filtrera fråga](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
@@ -111,7 +111,7 @@ I nästa uppsättning steg ansluter du till lagrings tabellen och konfigurerar b
      ![Lägg till en villkors kontroll](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
 1. I fönstret **villkor** väljer du **Välj ett värde**och väljer sedan **uttryck** i popup-fönstret.
-1. Klistra `length(body('Get_entities')?['value'])` in i fältet ***FX*** . Välj **OK** för att lägga till den här funktionen. 
+1. Klistra in `length(body('Get_entities')?['value'])` i fältet ***FX*** . Välj **OK** för att lägga till den här funktionen. 
 
 
 

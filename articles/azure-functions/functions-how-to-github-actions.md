@@ -3,14 +3,14 @@ title: Använd GitHub-åtgärder för att göra kod uppdateringar i Azure Functi
 description: Lär dig hur du använder GitHub-åtgärder för att definiera ett arbets flöde för att skapa och Distribuera Azure Functions-projekt i GitHub.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 04/16/2020
 ms.author: cshoe
-ms.openlocfilehash: 54010269e5b61ebf28a29dd3165c4310f3472817
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dedca6912fd9d9e7b6f5089d02de9e4020e4e0ef
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878212"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122347"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Kontinuerlig leverans med hjälp av GitHub-åtgärd
 
@@ -46,22 +46,24 @@ I det här exemplet ersätter du plats hållarna i resursen med ditt prenumerati
 
 ## <a name="download-the-publishing-profile"></a>Ladda ned publicerings profilen
 
-Du kan ladda ned publicerings profilen för din Function-app genom att gå till sidan **Översikt** i appen och klicka på **Hämta publicerings profil**.
+Så här hämtar du publicerings profilen för din Function-app:
 
-   ![Ladda ned publicerings profil](media/functions-how-to-github-actions/get-publish-profile.png)
+1. Välj sidan **Översikt** för Function-appen och välj sedan **Hämta publicerings profil**.
 
-Kopiera innehållet i filen.
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Ladda ned publicerings profil":::
+
+1. Spara och kopiera innehållet i filen med publicerings inställningar.
 
 ## <a name="configure-the-github-secret"></a>Konfigurera GitHub-hemligheten
 
-1. I [GitHub](https://github.com), bläddra till din lagrings plats, Välj **Inställningar** > **hemligheter** > **Lägg till en ny hemlighet**.
+1. I [GitHub](https://github.com), bläddra till din lagrings plats, Välj **Inställningar**  >  **hemligheter**  >  **Lägg till en ny hemlighet**.
 
-   ![Lägg till hemlighet](media/functions-how-to-github-actions/add-secret.png)
+   :::image type="content" source="media/functions-how-to-github-actions/add-secret.png" alt-text="Lägg till hemlighet":::
 
 1. Lägg till en ny hemlighet.
 
-   * Om du använder tjänstens huvud namn som du skapade med Azure CLI använder `AZURE_CREDENTIALS` du som **namn**. Klistra sedan in det kopierade JSON-objektets utdata för **värdet**och välj **Lägg till hemlighet**.
-   * Om du använder en publicerings profil använder `SCM_CREDENTIALS` du som **namn**. Använd sedan publicerings profilens fil innehåll för **värde**och välj **Lägg till hemlighet**.
+   * Om du använder tjänstens huvud namn som du skapade med Azure CLI använder du `AZURE_CREDENTIALS` som **namn**. Klistra sedan in det kopierade JSON-objektets utdata för **värde**och välj **Lägg till hemlighet**.
+   * Om du använder en publicerings profil använder du `SCM_CREDENTIALS` som **namn**. Använd sedan publicerings profilens fil innehåll för **värde**och välj **Lägg till hemlighet**.
 
 GitHub kan nu autentisera till din Function-app i Azure.
 
@@ -205,7 +207,7 @@ Om du vill distribuera din kod till en Function-app måste du använda `Azure/fu
 |_**plats namn**_ | Valfritt Namnet på den [distributions plats](functions-deployment-slots.md) som du vill distribuera till. Facket måste redan vara definierat i din Function-app. |
 
 
-I följande exempel används version 1 av `functions-action`:
+I följande exempel används version 1 av `functions-action` :
 
 ```yaml
     - name: 'Run Azure Functions Action'
@@ -217,7 +219,7 @@ I följande exempel används version 1 av `functions-action`:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill visa ett fullständigt arbets flöde. yaml, se en av filerna i [arbets flödes exemplen för Azure GitHub-åtgärder lagrings platsen](https://aka.ms/functions-actions-samples) som har `functionapp` i namnet. Du kan använda dessa exempel som start punkt för arbets flödet.
+Om du vill visa en fullständig Workflow. yaml-fil, se en av filerna i [arbets flödes exemplen för Azure GitHub-åtgärder lagrings platsen](https://aka.ms/functions-actions-samples) som har `functionapp` i namnet. Du kan använda dessa exempel som start punkt för arbets flödet.
 
 > [!div class="nextstepaction"]
 > [Läs mer om GitHub-åtgärder](https://help.github.com/en/articles/about-github-actions)

@@ -3,7 +3,7 @@ title: Felsöka distribution av virtuella Windows-datorer i Azure | Microsoft Do
 description: Felsök distributions problem i Resource Manager när du skapar en ny virtuell Windows-dator i Azure
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
-author: JiangChen79
+author: DavidCBerry13
 manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/15/2018
-ms.author: cjiang
+ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981392"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120971"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Felsöka distributions problem när du skapar en ny virtuell Windows-dator i Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -51,7 +51,7 @@ För att starta fel sökningen samlar du in aktivitets loggarna för att identif
 
 **N<sup>2</sup>:** Om operativ systemet är Windows specialiserat och det laddas upp som generaliserat får du ett fel meddelande om etablering med den virtuella datorn som fastnat på OOBE-skärmen eftersom den nya virtuella datorn körs med det ursprungliga dator namnet, användar namnet och lösen ordet.
 
-**Upplösning**
+**Lösning**
 
 För att lösa de här felen använder du [Add-AzVhd för att överföra den ursprungliga virtuella hård disken](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), som är tillgänglig lokalt, med samma inställning som för operativ systemet (generaliserad/specialiserad). Kom ihåg att köra Sysprep först för att ladda upp som generaliserad.
 
@@ -61,7 +61,7 @@ För att lösa de här felen använder du [Add-AzVhd för att överföra den urs
 
 **N<sup>4</sup>:** Om operativ systemet är Windows specialiserat, och det har registrerats som generaliserat, får du ett fel meddelande om etableringen, eftersom den nya virtuella datorn körs med det ursprungliga dator namnet, användar namnet och lösen ordet. Dessutom går det inte att använda den ursprungliga virtuella datorn eftersom den är markerad som specialiserad.
 
-**Upplösning**
+**Lösning**
 
 Du kan lösa båda dessa fel genom att ta bort den aktuella avbildningen från portalen och [avbilda om den från de aktuella virtuella hård diskarna](../windows/create-vm-specialized.md) med samma inställning som för operativ systemet (generaliserat/specialiserat).
 
@@ -75,7 +75,7 @@ Det här felet uppstår i situationer när den nya VM-begäran fästs i ett klus
 * Gör om begäran med en mindre VM-storlek.
 * Om det inte går att ändra storleken på den begärda virtuella datorn:
   * Stoppa alla virtuella datorer i tillgänglighets uppsättningen.
-    Klicka på **resurs grupper** > *resurs gruppen* > **resurser** > *din tillgänglighets uppsättning* > **Virtual Machines** > *den virtuella datorn* > **stoppas**.
+    Klicka på **resurs grupper**  >  *resurs gruppen*  >  **resurser**  >  *din tillgänglighets uppsättning*  >  **Virtual Machines**  >  *den virtuella datorn*  >  **stoppas**.
   * När alla virtuella datorer har stoppats skapar du den nya virtuella datorn i önskad storlek.
   * Starta den nya virtuella datorn först och välj sedan var och en av de stoppade virtuella datorerna och klicka på **Starta**.
 

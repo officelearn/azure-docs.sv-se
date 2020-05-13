@@ -5,13 +5,13 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
-ms.date: 04/20/2020
-ms.openlocfilehash: 250fd242e76f64002a6e55e7caf616ac201b593b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.date: 05/11/2020
+ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692248"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124643"
 ---
 # <a name="known-issues"></a>Kända problem #
 
@@ -41,6 +41,7 @@ Den aktuella versionen har följande kända problem:
 
 - Annonser kan ha problem som infogas (vid behov eller Live) när en Ad-Blocker installeras i webbläsaren
 - Mobila enheter kan ha problem med att spela upp annonser.
+- MP4 Midroll-annonser stöds för närvarande inte av Azure Media Player.
 
 ## <a name="azurehtml5js"></a>AzureHtml5JS ##
 
@@ -62,7 +63,7 @@ Den aktuella versionen har följande kända problem:
 
 - Funktioner som saknas
 - Tekniska och HTTP-fel (t. ex. 404 nätverks-timeout) tar spelaren längre tid att återställa än andra tekniker.
-- Safari och Firefox på Mac-uppspelning med Silverlight måste uttryckligen `"http://` definiera `https://` eller för källan.
+- Safari och Firefox på Mac-uppspelning med Silverlight måste uttryckligen definiera `"http://` eller `https://` för källan.
 - Om ett API saknas för den här Tech, returnerar det vanligt vis null.
 - Om användaren har installerat Flash men inte har behörighet att läsa in den på webbplatsen kan oändlig spinning ske. Detta beror på att Windows Media Player ser till att plugin-programmet är installerat och tillgängligt och att plugin-programmet håller på att köra innehållet. JavaScript-kod har skickats men webb läsar inställningarna har blockerat plugin-programmet från att köras tills användaren har accepterat meddelandet för att tillåta plugin-programmet. Detta kan inträffa i alla webbläsare.  
 

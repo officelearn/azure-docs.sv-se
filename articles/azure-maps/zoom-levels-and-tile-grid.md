@@ -1,19 +1,19 @@
 ---
 title: Zoomnings nivåer och panels rutnät | Microsoft Azure Maps
 description: I den här artikeln får du lära dig om zoomnings nivåer och panel rutnät i Microsoft Azure Maps.
-author: jinzh-azureiot
-ms.author: jinzh
+author: Philmea
+ms.author: philmea
 ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d58c9f6940dceefdc25211f4540b34522aec935d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7dde6e1a77cebd1e88cc574d99e781ab55f0934
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530299"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123912"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
 
@@ -140,12 +140,12 @@ Här är zoomnings rutnätet för zoomnings nivå 1:
 
 ## <a name="quadkey-indices"></a>Quadkey index
 
-Vissa mappnings plattformar använder `quadkey` en index namngivnings konvention som kombinerar ZY-koordinaterna till en sträng med en dimension `quadtree` som kallas `quadkeys` nycklar eller för kort. Varje `quadkey` unikt identifierar en enskild panel med en viss detalj nivå och den kan användas som en nyckel i vanliga index i databas B-träd. Azure Maps-SDK: er har stöd för överlägg av panel lager `quadkey` som använder namngivnings konvention, förutom andra namngivnings konventioner som dokumenteras i dokumentet [Lägg till ett panel lager](map-add-tile-layer.md) .
+Vissa mappnings plattformar använder en `quadkey` index namngivnings konvention som kombinerar ZY-koordinaterna till en sträng med en dimension som kallas `quadtree` nycklar eller `quadkeys` för kort. Varje `quadkey` unikt identifierar en enskild panel med en viss detalj nivå och den kan användas som en nyckel i vanliga index i databas B-träd. Azure Maps-SDK: er har stöd för överlägg av panel lager som använder `quadkey` namngivnings konvention, förutom andra namngivnings konventioner som dokumenteras i dokumentet [Lägg till ett panel lager](map-add-tile-layer.md) .
 
 > [!NOTE]
-> `quadkeys` Namngivnings konventionen fungerar bara för zoomnings nivåer på en eller fler. Azure Maps SDK: s support zoomnings nivå 0, som är en enda kart panel för hela världen. 
+> `quadkeys`Namngivnings konventionen fungerar bara för zoomnings nivåer på en eller fler. Azure Maps SDK: s support zoomnings nivå 0, som är en enda kart panel för hela världen. 
 
-För att konvertera panel koordinater `quadkey`till a, är bitarna av Y-och X-koordinaterna överplacerade och resultatet tolkas som ett bas-4-tal (med inledande nollor) och konverteras till en sträng. Till exempel bestäms Brick koordinaterna för (3, 5) på nivå 3 `quadkey` enligt följande:
+För att konvertera panel koordinater till a `quadkey` , är bitarna av Y-och X-koordinaterna överplacerade och resultatet tolkas som ett bas-4-tal (med inledande nollor) och konverteras till en sträng. Till exempel bestäms Brick koordinaterna för (3, 5) på nivå 3 `quadkey` enligt följande:
 
 ```
 tileX = 3 = 011 (base 2)
@@ -155,13 +155,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-`Qquadkeys`ha flera intressanta egenskaper. Först är längden på a `quadkey` (antalet siffror) lika med zoomnivån för motsvarande panel. För det `quadkey` andra startar en panel med den `quadkey` överordnade panelen (som innehåller panelen på föregående nivå). Som du ser i exemplet nedan är panel 2 överordnad panel 20 till 23:
+`Qquadkeys`ha flera intressanta egenskaper. Först är längden på a `quadkey` (antalet siffror) lika med zoomnivån för motsvarande panel. För det andra `quadkey` startar en panel med den `quadkey` överordnade panelen (som innehåller panelen på föregående nivå). Som du ser i exemplet nedan är panel 2 överordnad panel 20 till 23:
 
 <center>
 
 ![Pyramid i Quadkey-panel](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Slutligen `quadkeys` anger du en endimensionell index nyckel som vanligt vis bevarar avståndet mellan brickorna i XY-utrymmet. Två brickor som har närliggande XY-koordinater har `quadkeys` med andra ord vanligt vis en relativt nära varandra. Detta är viktigt för att optimera databas prestanda eftersom intilliggande paneler ofta begärs i grupper, och det är önskvärt att behålla dessa paneler på samma disk block, för att minimera antalet disk läsningar.
+Slutligen `quadkeys` anger du en endimensionell index nyckel som vanligt vis bevarar avståndet mellan brickorna i XY-utrymmet. Två brickor som har närliggande XY-koordinater har med andra ord vanligt vis en `quadkeys` relativt nära varandra. Detta är viktigt för att optimera databas prestanda eftersom intilliggande paneler ofta begärs i grupper, och det är önskvärt att behålla dessa paneler på samma disk block, för att minimera antalet disk läsningar.
 
 ## <a name="tile-math-source-code"></a>Panel, matematik Källkod
 

@@ -4,12 +4,12 @@ description: Lär dig hur du skapar och hanterar system-nodkonfigurationer i Azu
 services: container-service
 ms.topic: article
 ms.date: 04/28/2020
-ms.openlocfilehash: 04322bdaa2e0e72c5fbdbadb07f2608ee360e1e3
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 85cc699d6ef8c632663775e91f2b5cad6ca7a7b6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790566"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125255"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Hantera system-nodkonfigurationer i Azure Kubernetes service (AKS)
 
@@ -50,6 +50,7 @@ Du kan utföra följande åtgärder med Node-pooler:
 * Ta bort pooler för användar-noder.
 * Du kan ta bort systemnoder, förutsatt att du har en annan adresspool som tar sitt ställe i AKS-klustret.
 * Ett AKS-kluster kan ha flera pooler för system och kräver minst en pool för system-Node.
+* Om du vill ändra olika inställningar i befintliga resurspooler kan du skapa nya resurspooler för att ersätta dem. Ett exempel är att lägga till en ny Node-pool med en ny maxPods-inställning och ta bort den gamla Node-poolen.
 
 ## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Skapa ett nytt AKS-kluster med en pool för system-Node
 

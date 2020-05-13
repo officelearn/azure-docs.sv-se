@@ -12,16 +12,16 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 8a9c1ba8e6316ea79941fbec1fbd339893afdb35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d78390aac51ea6fa70e1285b15dcc7ade74434ee
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131211"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124592"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
->Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` klistra in den här URL: en i din RSS-feed läsare.
+>Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in den här URL: en `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` i din RSS-feed läsare.
 
 För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
@@ -34,9 +34,9 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 
 ### <a name="new-widget-parameters-capabilities"></a>Nya egenskaper för widgeten widget
 
-Widgeten **Insights** innehåller nya parametrar: `language` och. `control`
+Widgeten **Insights** innehåller nya parametrar: `language` och `control` .
 
-Widgeten **Player** har en ny `locale` parameter. Både `locale` och `language` -parametrarna styr spelarens språk.
+Widgeten **Player** har en ny `locale` parameter. Både `locale` och- `language` parametrarna styr spelarens språk.
 
 Mer information finns i avsnittet [widgets typer](video-indexer-embed-widgets.md#widget-types) . 
 
@@ -54,18 +54,18 @@ Ett nytt skal för spelare lanserades med uppdaterad design.
     * [Get-Accounts-with-token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
  
     Objektet konto har ett `Url` fält som pekar på platsen för den [video Indexer webbplatsen](https://www.videoindexer.ai/).
-För betalda konton pekar `Url` fältet för närvarande på en intern URL i stället för den offentliga webbplatsen.
+För betalda konton `Url` pekar fältet för närvarande på en intern URL i stället för den offentliga webbplatsen.
 Under de kommande veckorna ändrar vi den och returnerar [video Indexer webbplats](https://www.videoindexer.ai/) -URL för alla konton (utvärderings version och betald).
 
     Använd inte de interna URL: erna, du bör använda [video Indexer offentliga API: er](https://api-portal.videoindexer.ai/).
-* Om du bäddar in Video Indexer webb adresser i dina program och webb adresserna inte pekar på [video Indexer webbplats](https://www.videoindexer.ai/) eller [video Indexer API-slutpunkt](https://api.videoindexer.ai) utan i stället för en regional slut punkt (till `https://wus2.videoindexer.ai`exempel), återskapar URL: erna.
+* Om du bäddar in Video Indexer webb adresser i dina program och webb adresserna inte pekar på [video Indexer webbplats](https://www.videoindexer.ai/) eller video Indexer API-slutpunkt ( `https://api.videoindexer.ai` ), men i stället för en regional slut punkt (till exempel `https://wus2.videoindexer.ai` ), återskapar URL: erna.
 
    Du kan göra det antingen genom att:
 
     * Ersätta URL: en med en URL som pekar på API: erna för Video Indexer widget (till exempel [widgeten insikter](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Använda Video Indexer webbplats för att generera en ny inbäddad URL:
          
-         Tryck på **Play** för att komma till videons sida > Klicka på ** &lt; / &gt; knappen Bädda** in – > kopiera URL: en till ditt program:
+         Tryck på **Play** för att komma till videons sida > Klicka på knappen ** &lt; / &gt; bädda** in – > kopiera URL: en till ditt program:
    
     De regionala URL: erna stöds inte och kommer att blockeras under de kommande veckorna.
 
@@ -73,7 +73,7 @@ Under de kommande veckorna ändrar vi den och returnerar [video Indexer webbplat
  
 ### <a name="custom-language-support-for-additional-languages"></a>Anpassat språk stöd för ytterligare språk
 
-Video Indexer stöder nu anpassade språk modeller för `ar-SY` , `en-UK`och `en-AU` (endast API).
+Video Indexer stöder nu anpassade språk modeller för `ar-SY` , `en-UK` och `en-AU` (endast API).
  
 ### <a name="delete-account-timeframe-action-update"></a>Ta bort åtgärds uppdatering för kontots tidsram
 
@@ -127,7 +127,7 @@ Status kod 409 kommer nu att returneras från [index video](https://api-portal.v
  
 * Stöd för koreanska anpassade språk modeller
 
-    Video Indexer stöder nu anpassade språk modeller i koreanska (`ko-KR`) i både API: n och portalen. 
+    Video Indexer stöder nu anpassade språk modeller i koreanska ( `ko-KR` ) i både API: n och portalen. 
 * Nya språk som stöds för tal till text (STT)
 
     Video Indexer API: er har nu stöd för STT i arabiska Levantine (ar-SY), engelska Storbritannien dialekt (en-GB) och engelska australisk dialekt (en-AU).

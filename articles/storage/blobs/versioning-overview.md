@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fa28e07c28c36c03ab9e85d8436e3f1a2b36ad1c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7e4bc74a51e3d6b19957bdd12512e18fa594c811
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993967"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123844"
 ---
 # <a name="blob-versioning-preview"></a>Blob-version (för hands version)
 
@@ -167,7 +167,7 @@ Följande diagram visar vad som händer när du tar en ögonblicks bild av en ve
 Du kan ge åtkomst till BLOB-versioner med någon av följande metoder:
 
 - Genom att använda rollbaserad åtkomst kontroll (RBAC) för att bevilja behörighet till ett Azure Active Directory (Azure AD) säkerhets objekt. Microsoft rekommenderar att du använder Azure AD för överlägsen säkerhet och enkel användning. Mer information om hur du använder Azure AD med BLOB-åtgärder finns i [bevilja åtkomst till blobbar och köer med hjälp av Azure Active Directory](../common/storage-auth-aad.md).
-- Genom att använda en signatur för delad åtkomst (SAS) för att delegera åtkomst till BLOB-versioner. Ange versions-ID för den signerade `bv`resurs typen, som representerar en blob-version, för att skapa en SAS-token för åtgärder i en angiven version. Mer information om signaturer för delad åtkomst finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md).
+- Genom att använda en signatur för delad åtkomst (SAS) för att delegera åtkomst till BLOB-versioner. Ange versions-ID för den signerade resurs typen `bv` , som representerar en blob-version, för att skapa en SAS-token för åtgärder i en angiven version. Mer information om signaturer för delad åtkomst finns i [bevilja begränsad åtkomst till Azure Storage-resurser med hjälp av signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md).
 - Genom att använda kontots åtkomst nycklar för att auktorisera åtgärder mot BLOB-versioner med delad nyckel. Mer information finns i [auktorisera med delad nyckel](/rest/api/storageservices/authorize-with-shared-key).
 
 BLOB-versioner är utformad för att skydda dina data från oavsiktlig eller skadlig borttagning. För att förbättra skyddet krävs särskilda behörigheter för att ta bort en blob-version. I följande avsnitt beskrivs de behörigheter som krävs för att ta bort en blob-version.
@@ -183,7 +183,7 @@ I följande tabell visas vilka RBAC-åtgärder som stöder borttagning av BLOB-e
 
 ### <a name="shared-access-signature-sas-parameters"></a>Parametrar för signatur för delad åtkomst (SAS)
 
-Den signerade resursen för en BLOB- `bv`version är. Mer information finns i [skapa en tjänst-SAS](/rest/api/storageservices/create-service-sas) eller [skapa en användar Delegerings-SAS](/rest/api/storageservices/create-user-delegation-sas).
+Den signerade resursen för en blob-version är `bv` . Mer information finns i [skapa en tjänst-SAS](/rest/api/storageservices/create-service-sas) eller [skapa en användar Delegerings-SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 I följande tabell visas den behörighet som krävs för en SAS för att ta bort en blob-version.
 
@@ -224,9 +224,10 @@ Om du vill registrera dig för för hands versionen av BLOB-versionen använder 
 Om du vill registrera dig med PowerShell anropar du kommandot [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
 
 ```powershell
+# Register for blob versioning (preview)
 Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
     -FeatureName Versioning
-    
+
 # Refresh the Azure Storage provider namespace
 Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
 ```

@@ -2,23 +2,24 @@
 title: Konvertera en skalningsuppsättningsmall för användning av hanterad disk
 description: Konvertera en Azure Resource Manager mall för skalnings uppsättning för virtuell dator till en mall för hanterad disk skalnings uppsättning.
 keywords: VM-skalningsuppsättningar
-author: mimckitt
-tags: azure-resource-manager
-ms.assetid: bc8c377a-8c3f-45b8-8b2d-acc2d6d0b1e8
+author: ju-shim
+ms.author: jushiman
+ms.topic: how-to
 ms.service: virtual-machine-scale-sets
-ms.topic: conceptual
+ms.subservice: disks
 ms.date: 5/18/2017
-ms.author: mimckitt
-ms.openlocfilehash: 79fafa8344312294f6df107b88c9b7c571af1969
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 85f8694a017c8de94d987c244994a24ad0929441
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270663"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124898"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Konvertera en mall för skalnings uppsättningar till en mall för hanterad disk skalnings uppsättning
 
-Kunder med en Resource Manager-mall för att skapa en skalnings uppsättning som inte använder hanterade diskar kanske vill ändra den för att använda hanterad disk. Den här artikeln visar hur du använder hanterade diskar, som exempel på en pull-begäran från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates), en community-driven lagrings platsen för exempel på Resource Manager-mallar. Den fullständiga pull-begäran kan visas här: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998)och relevanta delar av diffen nedan, tillsammans med förklaringar:
+Kunder med en Resource Manager-mall för att skapa en skalnings uppsättning som inte använder hanterade diskar kanske vill ändra den för att använda hanterad disk. Den här artikeln visar hur du använder hanterade diskar, som exempel på en pull-begäran från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates), en community-driven lagrings platsen för exempel på Resource Manager-mallar. Den fullständiga pull-begäran kan visas här: [https://github.com/Azure/azure-quickstart-templates/pull/2998](https://github.com/Azure/azure-quickstart-templates/pull/2998) och relevanta delar av diffen nedan, tillsammans med förklaringar:
 
 ## <a name="making-the-os-disks-managed"></a>Göra operativ system diskar hanterade
 
@@ -85,7 +86,7 @@ I följande skillnad tas lagrings konto resursen bort från resurs-matrisen helt
        "location": "[resourceGroup().location]",
 ```
 
-I följande diff kan vi se att vi tar bort den beroende on-satsen som refererar från skalnings uppsättningen till den loop som skapade lagrings konton. I den gamla mallen säkerställer detta att lagrings kontona skapades innan skalnings uppsättningen började skapas, men den här satsen behövs inte längre med den hanterade disken. Egenskapen för VHD-behållare tas också bort, tillsammans med egenskapen för namn på operativ systemets disk när dessa egenskaper hanteras automatiskt under hanteringen av den hanterade disken. Du kan lägga `"managedDisk": { "storageAccountType": "Premium_LRS" }` till i "osDisk"-konfigurationen om du vill ha Premium OS-diskar. Endast virtuella datorer med versaler eller gemener i VM-SKU: n kan använda Premium-diskar.
+I följande diff kan vi se att vi tar bort den beroende on-satsen som refererar från skalnings uppsättningen till den loop som skapade lagrings konton. I den gamla mallen säkerställer detta att lagrings kontona skapades innan skalnings uppsättningen började skapas, men den här satsen behövs inte längre med den hanterade disken. Egenskapen för VHD-behållare tas också bort, tillsammans med egenskapen för namn på operativ systemets disk när dessa egenskaper hanteras automatiskt under hanteringen av den hanterade disken. Du kan lägga till `"managedDisk": { "storageAccountType": "Premium_LRS" }` i "osDisk"-konfigurationen om du vill ha Premium OS-diskar. Endast virtuella datorer med versaler eller gemener i VM-SKU: n kan använda Premium-diskar.
 
 ```diff
 @@ -183,7 +158,6 @@
@@ -131,7 +132,7 @@ Med ändringarna ovan använder skalnings uppsättningen Managed disks för OS-d
 ]
 ```
 
-Om du anger `n` diskar i den här matrisen hämtar `n` varje virtuell dator i skalnings uppsättningen data diskar. Observera dock att dessa data diskar är RAW-enheter. De formateras inte. Det är upp till kunden att ansluta, partitionera och Formatera diskarna innan de används. Alternativt kan du också ange `"managedDisk": { "storageAccountType": "Premium_LRS" }` i varje datadisk-objekt för att ange att det ska vara en Premium data-disk. Endast virtuella datorer med versaler eller gemener i VM-SKU: n kan använda Premium-diskar.
+Om du anger `n` diskar i den här matrisen hämtar varje virtuell dator i skalnings uppsättningen `n` data diskar. Observera dock att dessa data diskar är RAW-enheter. De formateras inte. Det är upp till kunden att ansluta, partitionera och Formatera diskarna innan de används. Alternativt kan du också ange `"managedDisk": { "storageAccountType": "Premium_LRS" }` i varje datadisk-objekt för att ange att det ska vara en Premium data-disk. Endast virtuella datorer med versaler eller gemener i VM-SKU: n kan använda Premium-diskar.
 
 Mer information om hur du använder data diskar med skalnings uppsättningar finns i [den här artikeln](./virtual-machine-scale-sets-attached-disks.md).
 

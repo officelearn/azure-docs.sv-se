@@ -3,20 +3,20 @@ title: Skapa en funktion som utlöses av Azure Cosmos DB
 description: Använd Azure Functions till att skapa en serverfri funktion som anropas när data läggs till i en databas i Azure Cosmos DB.
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: how-to
-ms.date: 10/02/2018
+ms.date: 04/28/2020
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6045c61dc9837667bfaf01c685f687fcf5816e4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c16bd728fe81796d671762615ec8dc4ad6e1d87d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80754206"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83123789"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
 
 Lär dig hur du skapar en funktion som utlöses när data läggs till eller ändras i Azure Cosmos DB. Läs mer om Azure Cosmos DB i [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md) (Azure Cosmos DB: Serverfria databasberäkningar med Azure Functions).
 
-![Visa meddelande i loggarna.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
+:::image type="content" source="./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png" alt-text="Azure Cosmos DB kod":::
 
 ## <a name="prerequisites"></a>Krav
 
@@ -26,6 +26,9 @@ För att slutföra den här kursen behöver du:
 
 > [!NOTE]
 > [!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
+
+## <a name="sign-in-to-azure"></a>Logga in på Azure
+Logga in på [Azure Portal](https://portal.azure.com/) med ditt Azure-konto.
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
@@ -43,35 +46,33 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Skapa en Azure Cosmos DB-utlösare
 
-1. Expandera din Function-app och klicka **+** på knappen bredvid **Functions**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
+1. I din Function-app väljer du **Functions** i den vänstra menyn och väljer sedan **Lägg till** på den översta menyn. 
 
-   ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
+1. På sidan **ny funktion** anger du `cosmos` i Sök fältet och väljer sedan mallen **Azure Cosmos DB utlösare** .
 
-1. Välj **Fler mallar** och sedan **Slutför och visa mallar**.
+   :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-choose-cosmos.png" alt-text="Sidan funktioner i Azure Portal":::
 
-    ![Functions-snabbstart, välj fler mallar](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
-1. Skriv `cosmos` i sökfältet och välj sedan mallen **Azure Cosmos DB-utlösare**.
-
-1. Om du uppmanas väljer du **Installera** för att installera Azure Cosmos DB tillägget i Function-appen. När installationen är klar väljer du **Fortsätt**.
-
-    ![Installera bindningstillägg](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
-
-1. Konfigurera den nya utlösaren med inställningar enligt tabellen under bilden.
-
-    ![Skapa en funktion som utlöses av Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png)
+1. Konfigurera den nya utlösaren med de inställningar som anges i följande tabell:
 
     | Inställningen      | Föreslaget värde  | Beskrivning                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Namn** | Standardvärde | Använd det standardfunktionsnamn som föreslås av mallen.|
-    | **Azure Cosmos DB-kontoanslutning** | Ny inställning | Välj **Ny**, välj sedan din **prenumeration**, det **databaskonto** som du skapade tidigare och sedan **Välj**. Detta skapar en programinställning för din kontoanslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
-    | **Container namn** | Objekt | Namnet på behållaren som ska övervakas. |
-    | **Skapa en låne container om den inte finns** | Markerad | Behållaren finns inte redan, så skapa den. |
-    | **Databas namn** | Aktiviteter | Namnet på databasen med den behållare som ska övervakas. |
+    | **Ny funktion** | Acceptera standard namnet | Namnet på funktionen. |
+    | **Cosmos DB kontoanslutning** | Acceptera det nya standard namnet | Välj **nytt**, **databas kontot** som du skapade tidigare och klicka sedan på **OK**. Den här åtgärden skapar en program inställning för din konto anslutning. Den här inställningen används av bindningen för anslutningen till databasen. |
+    | **Databas namn** | Aktiviteter | Namnet på databasen som innehåller den samling som ska övervakas. |
+    | **Samlingsnamn** | Objekt | Namnet på den samling som ska övervakas. |
+    | **Samlingsnamn för lån** | leases | Namn på den samling där lånet ska lagras. |
+    | **Skapa en låne samling om den inte finns** | Ja | Kontrollerar om det finns någon låne samling och skapar den automatiskt. |
 
-1. Klicka på **Skapa** för att skapa en funktion som utlöses av Azure Cosmos DB. När funktionen har skapats visas den mallbaserade funktionskoden.  
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/functions-cosmosdb-trigger-settings.png" alt-text="Skapa en funktion som utlöses av Azure Cosmos DB":::
 
-    ![Cosmos DB – funktionsmall i C#](./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png)
+1. Välj **skapa funktion**. 
+
+    Azure skapar funktionen Cosmos DB trigger.
+
+1. Om du vill visa den mallbaserade funktions koden väljer du **kod + test**.
+
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/function-cosmosdb-template.png" alt-text="Cosmos DB – funktionsmall i C#":::
 
     Den här funktionsmallen skriver antalet dokument och ID:t för det första dokumentet till loggarna.
 
@@ -110,7 +111,7 @@ När den behållare som anges i funktions bindningen finns kan du testa funktion
 
 1. Expandera behållaren nya **objekt** i datautforskaren, Välj **objekt**och välj sedan **nytt objekt**.
 
-    ![Skapa ett objekt i objekt behållare](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
+    :::image type="content" source="./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png" alt-text="Skapa ett objekt i objekt behållare":::
 
 1. Ersätt innehållet i det nya objektet med följande innehåll och välj sedan **Spara**.
 

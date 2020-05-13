@@ -5,15 +5,13 @@ ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
 ms.topic: article
 ms.date: 04/15/2020
 ms.reviewer: mahender
-ms.custom:
-- seodec18
-- fasttrack-edit
-ms.openlocfilehash: a4ceed0d897f069a7895a3eb6b10c327566afbe5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, fasttrack-edit, has-adal-ref
+ms.openlocfilehash: f51a396e997a9e6392f3e86a6f77e581753d6ada
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457866"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196442"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autentisering och auktorisering i Azure App Service och Azure Functions
 
@@ -71,7 +69,7 @@ Om du inte behöver arbeta med tokens i din app kan du inaktivera token Store.
 
 ### <a name="logging-and-tracing"></a>Loggning och spårning
 
-Om du [aktiverar program loggning](troubleshoot-diagnostic-logs.md)ser du autentiserings-och verifierings spårningar direkt i dina loggfiler. Om du ser ett autentiseringsfel som du inte förväntade dig, kan du enkelt hitta all information genom att titta i dina befintliga program loggar. Om du aktiverar [spårning av misslyckade begär Anden](troubleshoot-diagnostic-logs.md)kan du se exakt vilken roll som modulen autentisering och auktorisering kan ha spelat i en misslyckad begäran. Leta efter referenser till en modul med namnet `EasyAuthModule_32/64`i spårnings loggarna. 
+Om du [aktiverar program loggning](troubleshoot-diagnostic-logs.md)ser du autentiserings-och verifierings spårningar direkt i dina loggfiler. Om du ser ett autentiseringsfel som du inte förväntade dig, kan du enkelt hitta all information genom att titta i dina befintliga program loggar. Om du aktiverar [spårning av misslyckade begär Anden](troubleshoot-diagnostic-logs.md)kan du se exakt vilken roll som modulen autentisering och auktorisering kan ha spelat i en misslyckad begäran. Leta efter referenser till en modul med namnet i spårnings loggarna `EasyAuthModule_32/64` . 
 
 ## <a name="identity-providers"></a>Identitetsprovidrar
 
@@ -102,12 +100,12 @@ I tabellen nedan visas stegen i Authentication Flow.
 
 | Steg | Utan SDK för Provider | Med SDK för Provider |
 | - | - | - |
-| 1. Logga in användare | Omdirigerar klienten till `/.auth/login/<provider>`. | Klient koden signerar användaren direkt med providerns SDK och tar emot en autentiseringstoken. Mer information finns i leverantörens dokumentation. |
-| 2. efter autentisering | Providern omdirigerar klienten till `/.auth/login/<provider>/callback`. | Klient koden [publicerar token från providern](app-service-authentication-how-to.md#validate-tokens-from-providers) till `/.auth/login/<provider>` för verifiering. |
+| 1. Logga in användare | Omdirigerar klienten till `/.auth/login/<provider>` . | Klient koden signerar användaren direkt med providerns SDK och tar emot en autentiseringstoken. Mer information finns i leverantörens dokumentation. |
+| 2. efter autentisering | Providern omdirigerar klienten till `/.auth/login/<provider>/callback` . | Klient koden [publicerar token från providern](app-service-authentication-how-to.md#validate-tokens-from-providers) till `/.auth/login/<provider>` för verifiering. |
 | 3. upprätta en autentiserad session | App Service lägger till autentiserad cookie i svaret. | App Service returnerar dess egen autentiseringstoken till klient koden. |
 | 4. betjäna autentiserat innehåll | Klienten inkluderar autentiserings-cookie i efterföljande begär Anden (hanteras automatiskt av webbläsare). | Klient koden presenterar autentiseringstoken i `X-ZUMO-AUTH` huvudet (hanteras automatiskt av Mobile Apps klient-SDK: er). |
 
-För klient webbläsare kan App Service automatiskt dirigera alla oautentiserade användare till `/.auth/login/<provider>`. Du kan också visa användare med en eller flera `/.auth/login/<provider>` Länkar för att logga in i din app med valfri leverantör.
+För klient webbläsare kan App Service automatiskt dirigera alla oautentiserade användare till `/.auth/login/<provider>` . Du kan också visa användare med en eller flera `/.auth/login/<provider>` Länkar för att logga in i din app med valfri leverantör.
 
 <a name="authorization"></a>
 
@@ -127,7 +125,7 @@ Det här alternativet ger större flexibilitet vid hantering av anonyma begär A
 
 ### <a name="allow-only-authenticated-requests"></a>Tillåt endast autentiserade begär Anden
 
-Alternativet är att **Logga in med \<providern>**. App Service dirigerar om alla anonyma begär `/.auth/login/<provider>` anden till för den leverantör du väljer. Om den anonyma begäran kommer från en ursprunglig mobilapp är det returnerade svaret en `HTTP 401 Unauthorized`.
+Alternativet är att **Logga in med \< providern>**. App Service dirigerar om alla anonyma begär anden till `/.auth/login/<provider>` för den leverantör du väljer. Om den anonyma begäran kommer från en ursprunglig mobilapp är det returnerade svaret en `HTTP 401 Unauthorized` .
 
 Med det här alternativet behöver du inte skriva någon autentiseringsmetod i din app. Bättre auktorisering, till exempel rollbaserad auktorisering, kan hanteras genom att inspektera användarens anspråk (se [användar anspråk för åtkomst](app-service-authentication-how-to.md#access-user-claims)).
 
@@ -142,9 +140,9 @@ Med det här alternativet behöver du inte skriva någon autentiseringsmetod i d
 
 [Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Självstudie: autentisera och auktorisera användare från slut punkt till slut punkt i Azure App Service för Linux](containers/tutorial-auth-aad.md)  
-[Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md)
-[.net Core-integrering av Azure AppService EasyAuth (tredje part)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
-[få Azure App Service autentisering arbeta med .net Core (tredje part)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+[Anpassa autentisering och auktorisering i App Service](app-service-authentication-how-to.md) 
+ [.Net Core-integrering av Azure AppService EasyAuth (tredje part)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
+ [Få Azure App Service autentisering arbeta med .net Core (tredje part)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Providerspecifika instruktions guider:
 

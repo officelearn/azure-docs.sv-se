@@ -10,14 +10,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/22/2020
+ms.date: 05/11/2020
 ms.author: radeltch
-ms.openlocfilehash: e04b37d0c95f2176581c7d13f3641a13ecddfd8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 501d49feef877addd2f3e5364a06caf1d273ca83
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101220"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196869"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hög tillgänglighet för SAP HANA på virtuella Azure-datorer på SUSE Linux Enterprise Server
 
@@ -112,7 +112,7 @@ Följ dessa steg om du vill distribuera mallen:
     - **System tillgänglighet**: Välj **ha**.
     - **Administratörens användar namn och administratörs lösen ord**: en ny användare skapas som kan användas för att logga in på datorn.
     - **Nytt eller befintligt undernät**: anger om ett nytt virtuellt nätverk och undernät ska skapas eller om ett befintligt undernät används. Om du redan har ett virtuellt nätverk som är anslutet till ditt lokala nätverk väljer du **befintligt**.
-    - **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/\<prenumerations-ID>\</ResourceGroups/\<resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/\<virtuellt nätverks namn>/subnets/under näts namn>**.
+    - **Undernäts-ID**: om du vill distribuera den virtuella datorn till ett befintligt virtuellt nätverk där du har ett undernät definierat måste den virtuella datorn vara tilldelad, namnge ID: t för det aktuella under nätet. ID: t ser vanligt vis ut som **/Subscriptions/ \< PRENUMERATIONS-ID>/ResourceGroups/ \< resurs grupp namn>/providers/Microsoft.Network/virtualnetworks/ \< virtuellt nätverks namn>/subnets/ \< under näts namn>**.
 
 ### <a name="manual-deployment"></a>Manuell distribution
 
@@ -277,7 +277,7 @@ Stegen i det här avsnittet använder följande prefix:
    sudo vgcreate vg_hana_shared_<b>HN1</b> /dev/disk/azure/scsi1/lun3
    </code></pre>
 
-   Skapa de logiska volymerna. En linjär volym skapas när du använder `lvcreate` utan `-i` växeln. Vi rekommenderar att du skapar en stripe-volym för bättre I/O-prestanda och justerar stripe-storlekarna mot värdena som dokumenteras i [SAP HANA VM Storage-konfigurationer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). `-i` Argumentet ska vara antalet underliggande fysiska volymer och `-I` argumentet är stripe-storleken. I det här dokumentet används två fysiska volymer för data volymen, så `-i` växel argumentet är inställt på **2**. Stripe-storleken för data volymen är **256KiB**. En fysisk volym används för logg volymen, så inga `-i` eller `-I` växlar används explicit för logg volym kommandona.  
+   Skapa de logiska volymerna. En linjär volym skapas när du använder `lvcreate` utan `-i` växeln. Vi rekommenderar att du skapar en stripe-volym för bättre I/O-prestanda och justerar stripe-storlekarna mot värdena som dokumenteras i [SAP HANA VM Storage-konfigurationer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage). `-i`Argumentet ska vara antalet underliggande fysiska volymer och `-I` argumentet är stripe-storleken. I det här dokumentet används två fysiska volymer för data volymen, så `-i` växel argumentet är inställt på **2**. Stripe-storleken för data volymen är **256KiB**. En fysisk volym används för logg volymen, så inga `-i` eller `-I` växlar används explicit för logg volym kommandona.  
 
    > [!IMPORTANT]
    > Använd `-i` växeln och Ställ in den på den underliggande fysiska volymens nummer när du använder mer än en fysisk volym för varje data, logg eller delade volymer. Använd `-I` växeln för att ange stripe-storlek när du skapar en stripe-volym.  
@@ -407,14 +407,14 @@ Stegen i det här avsnittet använder följande prefix:
 
    Om du använder SAP HANA 2,0 eller MDC skapar du en klient databas för ditt SAP NetWeaver-system. Ersätt **NW1** med sid för ditt SAP-system.
 
-   Kör följande kommando som <hanasid\>ADM:
+   Kör följande kommando som <hanasid \> ADM:
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** konfigurera systemreplikering på den första noden:
 
-   Säkerhetskopiera databaserna som <hanasid\>ADM:
+   Säkerhetskopiera databaserna som <hanasid \> ADM:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -434,7 +434,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[2]** konfigurera systemreplikering på den andra noden:
     
-   Registrera den andra noden för att starta systemreplikeringen. Kör följande kommando som <hanasid\>ADM:
+   Registrera den andra noden för att starta systemreplikeringen. Kör följande kommando som <hanasid \> ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -481,7 +481,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[1]** konfigurera systemreplikering på den första noden.
 
-   Skapa den primära platsen som <hanasid\>ADM:
+   Skapa den primära platsen som <hanasid \> ADM:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -489,7 +489,7 @@ Stegen i det här avsnittet använder följande prefix:
 
 1. **[2]** konfigurera systemreplikering på den sekundära noden.
 
-   Registrera den sekundära platsen som <hanasid\>ADM:
+   Registrera den sekundära platsen som <hanasid \> ADM:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b> 
@@ -547,7 +547,8 @@ sudo crm configure primitive rsc_ip_<b>HN1</b>_HDB<b>03</b> ocf:heartbeat:IPaddr
   op monitor interval="10s" timeout="20s" \
   params ip="<b>10.0.0.13</b>"
 
-sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b>
+sudo crm configure primitive rsc_nc_<b>HN1</b>_HDB<b>03</b> azure-lb port=625<b>03</b> \
+  meta resource-stickiness=0
 
 sudo crm configure group g_ip_<b>HN1</b>_HDB<b>03</b> rsc_ip_<b>HN1</b>_HDB<b>03</b> rsc_nc_<b>HN1</b>_HDB<b>03</b>
 
@@ -610,7 +611,7 @@ Du kan migrera SAP HANA Master-noden genom att köra följande kommando:
 <pre><code>crm resource migrate msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-1</b>
 </code></pre>
 
-Om du ställer `AUTOMATED_REGISTER="false"`in bör den här sekvensen av kommandon migrera SAP HANA huvud-noden och gruppen som innehåller den virtuella IP-adressen till HN1-DB-1.
+Om du ställer in `AUTOMATED_REGISTER="false"` bör den här sekvensen av kommandon migrera SAP HANA huvud-noden och gruppen som innehåller den virtuella IP-adressen till HN1-DB-1.
 
 När migreringen är färdig ser crm_mon r-utdata ut så här
 
@@ -681,7 +682,7 @@ Du kan testa konfigurationen av Azure-avgränsnings agenten genom att inaktivera
 Den virtuella datorn bör nu startas om eller stoppas beroende på kluster konfigurationen.
 Om du ställer in `stonith-action` inställningen till av stoppas den virtuella datorn och resurserna migreras till den virtuella datorn som körs.
 
-När du har startat den virtuella datorn igen går det inte att starta SAP HANA resursen som sekundär om du `AUTOMATED_REGISTER="false"`anger. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
+När du har startat den virtuella datorn igen går det inte att starta SAP HANA resursen som sekundär om du anger `AUTOMATED_REGISTER="false"` . I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
 
 <pre><code>su - <b>hn1</b>adm
 
@@ -719,7 +720,7 @@ Du kan testa en manuell redundansväxling genom att stoppa `pacemaker` tjänsten
 <pre><code>service pacemaker stop
 </code></pre>
 
-Efter redundansväxlingen kan du starta tjänsten igen. Om du ställer `AUTOMATED_REGISTER="false"`in går det inte att starta SAP HANA resursen på noden HN1-dB-0 som sekundär. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
+Efter redundansväxlingen kan du starta tjänsten igen. Om du ställer in `AUTOMATED_REGISTER="false"` går det inte att starta SAP HANA resursen på noden HN1-dB-0 som sekundär. I det här fallet konfigurerar du HANA-instansen som sekundär genom att köra det här kommandot:
 
 <pre><code>service pacemaker start
 su - <b>hn1</b>adm
@@ -759,7 +760,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som <hanasid\>adm på noden HN1-dB-0:
+   Kör följande kommandon som <hanasid \> adm på noden HN1-dB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -800,7 +801,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Kör följande kommandon som <hanasid\>adm på noden HN1-DB-1:
+   Kör följande kommandon som <hanasid \> adm på noden HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -841,7 +842,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som <hanasid\>adm på noden HN1-dB-0:
+   Kör följande kommandon som <hanasid \> adm på noden HN1-dB-0:
 
    <pre><code>hn1adm@hn1-db-0:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -882,7 +883,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-1
    </code></pre>
 
-   Kör följande kommandon som <hanasid\>adm på noden HN1-DB-1:
+   Kör följande kommandon som <hanasid \> adm på noden HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>
@@ -1025,7 +1026,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som <hanasid\>adm på noden HN1-DB-1:
+   Kör följande kommandon som <hanasid \> adm på noden HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
@@ -1062,7 +1063,7 @@ Obs! följande tester är utformade för att köras i följd och är beroende av
       rsc_nc_HN1_HDB03   (ocf::heartbeat:azure-lb):      Started hn1-db-0
    </code></pre>
 
-   Kör följande kommandon som <hanasid\>adm på noden HN1-DB-1:
+   Kör följande kommandon som <hanasid \> adm på noden HN1-DB-1:
 
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB kill-9
    </code></pre>

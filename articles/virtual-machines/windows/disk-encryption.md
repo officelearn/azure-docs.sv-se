@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: f6b6e261b5cdfee00a9346338b6eb5d7e1f2a2a0
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 8daa4d6c13cd40f28329f2ab4157f295cb092b8b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982113"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195707"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på Server sidan av Azure Managed disks
 
@@ -75,11 +75,11 @@ För närvarande har Kundhanterade nycklar följande begränsningar:
 - Endast ["mjuka" och "hårda" RSA-nycklar](../../key-vault/keys/about-keys.md) med storleken 2080 stöds, inga andra nycklar eller storlekar.
 - Diskar som har skapats från anpassade avbildningar som krypteras med kryptering på Server sidan och Kundhanterade nycklar måste krypteras med samma Kundhanterade nycklar och måste finnas i samma prenumeration.
 - Ögonblicks bilder som har skapats från diskar som är krypterade med kryptering på Server sidan och Kundhanterade nycklar måste vara krypterade med samma Kundhanterade nycklar.
-- Anpassade avbildningar som krypteras med kryptering på Server sidan och Kundhanterade nycklar kan inte användas i det delade avbildnings galleriet.
 - Alla resurser som är relaterade till dina Kundhanterade nycklar (Azure Key Vaults, disk krypterings uppsättningar, virtuella datorer, diskar och ögonblicks bilder) måste finnas i samma prenumeration och region.
 - Diskar, ögonblicks bilder och bilder som är krypterade med Kundhanterade nycklar kan inte flyttas till en annan prenumeration.
 - Om du använder Azure Portal för att skapa disk krypterings uppsättningen kan du inte använda ögonblicks bilder för tillfället.
 - Hanterade diskar som krypterats med kryptering på Server sidan med Kundhanterade nycklar kan inte också krypteras med Azure Disk Encryption och vice versa
+- Information om hur du använder Kundhanterade nycklar med delade avbildnings gallerier finns i för [hands version: Använd Kundhanterade nycklar för att kryptera avbildningar](../image-version-encryption.md).
 
 ### <a name="powershell"></a>PowerShell
 

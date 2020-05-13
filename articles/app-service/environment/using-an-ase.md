@@ -4,15 +4,15 @@ description: Lär dig hur du skapar, publicerar och skalar appar i en App Servic
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 3/26/2020
+ms.date: 5/10/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4565580feeddc2df8f6ed3011302016bb39977b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fd1ffc8636e11ca20bc32b4b6f600e03d923d8b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80586122"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125816"
 ---
 # <a name="use-an-app-service-environment"></a>Använd App Service Environment
 
@@ -36,7 +36,7 @@ Om du inte har en ASE kan du skapa en genom att följa anvisningarna i [skapa en
 
 Så här skapar du en app i en ASE:
 
-1. Välj **skapa en resurs** > **webb och mobilt** > **-webbapp**.
+1. Välj **skapa en resurs**  >  **webb och mobilt**  >  **-webbapp**.
 
 1. Ange ett namn för appen. Om du redan har valt en App Service plan i en ASE, motsvarar domän namnet för appen domän namnet för ASE:
 
@@ -104,14 +104,14 @@ Klient dels resurser är HTTP/HTTPS-slutpunkten för ASE. Med standard konfigura
 
 ## <a name="app-access"></a>Appåtkomst
 
-I en extern ASE är det domänsuffix som används för att skapa appar *.&lt; asename&gt;. p.azurewebsites.net*. Om din ASE har namnet _external-ASE_ och du är värd för en app som heter _contoso_ i den ASE, så når du den på följande URL: er:
+I en extern ASE är det domänsuffix som används för att skapa appar *. &lt; asename &gt; . p.azurewebsites.net*. Om din ASE har namnet _external-ASE_ och du är värd för en app som heter _contoso_ i den ASE, så når du den på följande URL: er:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
 Information om hur du skapar en extern ASE finns i [skapa en app service-miljön][MakeExternalASE].
 
-I en ILB-ASE är det domänsuffix som används för att skapa *appar&lt; . asename&gt;. appserviceenvironment.net*. Om din ASE heter _ILB-ASE_ och du är värd för en app som heter _contoso_ i den ASE, så når du den på följande URL: er:
+I en ILB-ASE är det domänsuffix som används för att skapa appar *. &lt; asename &gt; . appserviceenvironment.net*. Om din ASE heter _ILB-ASE_ och du är värd för en app som heter _contoso_ i den ASE, så når du den på följande URL: er:
 
 - contoso.ilb-ase.appserviceenvironment.net
 - contoso.scm.ilb-ase.appserviceenvironment.net
@@ -122,19 +122,26 @@ SCM-URL: en används för att få åtkomst till kudu-konsolen eller för att pub
 
 ### <a name="dns-configuration"></a>DNS-konfiguration 
 
-När du använder en extern ASE registreras appar i dina ASE med Azure DNS. Med en ILB-ASE måste du hantera din egen DNS. 
+När du använder en extern ASE registreras appar i dina ASE med Azure DNS. Det finns inga ytterligare steg i en extern ASE för att dina appar ska vara offentligt tillgängliga. Med en ILB-ASE måste du hantera din egen DNS. Du kan göra detta på din egen DNS-server eller med Azure DNS privata zoner.
 
-Så här konfigurerar du DNS med din ILB-ASE:
+Så här konfigurerar du DNS på din egen DNS-server med din ILB-ASE:
 
-    create a zone for <ASE name>.appserviceenvironment.net
-    create an A record in that zone that points * to the ILB IP address
-    create an A record in that zone that points @ to the ILB IP address
-    create a zone in <ASE name>.appserviceenvironment.net named scm
-    create an A record in the scm zone that points * to the ILB IP address
+1. skapa en zon för <ASE name> . appserviceenvironment.net
+1. skapa en A-post i den zonen som pekar på ILB IP-adress
+1. skapa en A-post i den zonen som pekar @ på ILB IP-adress
+1. skapa en zon i <ASE name> . appserviceenvironment.net med namnet SCM
+1. skapa en A-post i SCM-zonen som pekar på ILB IP-adress
 
-DNS-inställningarna för ditt ASE standard-domänsuffix begränsar inte dina appar till att endast vara tillgängliga för dessa namn. Du kan ange ett anpassat domän namn utan att verifiera dina appar i en ILB-ASE. Om du sedan vill skapa en zon med namnet *contoso.net*kan du göra det och peka den mot ILB IP-adressen. Det anpassade domän namnet fungerar för app-begäranden, men inte för SCM-platsen. SCM-webbplatsen är bara tillgänglig på * &lt;APPNAME&gt;. scm.&lt; asename&gt;. appserviceenvironment.net*. 
+Så här konfigurerar du DNS i Azure DNS privata zoner:
 
-Zonen med namnet *.&lt; asename&gt;. appserviceenvironment.net* är globalt unikt. Innan maj 2019 kunde kunderna ange domänsuffix för ILB-ASE. Om du vill använda *. contoso.com* för domänsuffix kan du göra det och inkludera SCM-webbplatsen. Det fanns utmaningar med denna modell, inklusive; hantera SSL-standardcertifikatet, avsaknad av enkel inloggning med SCM-platsen och kravet på att använda ett jokertecken. ILB ASE-processen för standard certifikats uppgradering avbröts också och det gjorde att programmet startades om. För att lösa dessa problem ändrades beteendet för ILB ASE till att använda ett domänsuffix baserat på namnet på ASE och med ett Microsoft-ägda suffix. Ändringen av ILB ASE-beteendet påverkar bara ILB ASE som gjorts efter maj 2019. Befintliga ILB-ASE måste fortfarande hantera standard certifikatet för ASE och deras DNS-konfiguration.
+1. skapa en Azure DNS privat zon med namnet <ASE name> . appserviceenvironment.net
+1. skapa en A-post i den zonen som pekar på ILB IP-adress
+1. skapa en A-post i den zonen som pekar @ på ILB IP-adress
+1. skapa en A-post i den zonen som pekar *. scm till ILB-IP-adressen
+
+DNS-inställningarna för ditt ASE standard-domänsuffix begränsar inte dina appar till att endast vara tillgängliga för dessa namn. Du kan ange ett anpassat domän namn utan att verifiera dina appar i en ILB-ASE. Om du sedan vill skapa en zon med namnet *contoso.net*kan du göra det och peka den mot ILB IP-adressen. Det anpassade domän namnet fungerar för app-begäranden, men inte för SCM-platsen. SCM-webbplatsen är bara tillgänglig på * &lt; APPNAME &gt; . scm. &lt; asename &gt; . appserviceenvironment.net*. 
+
+Zonen med namnet *. &lt; asename &gt; . appserviceenvironment.net* är globalt unikt. Innan maj 2019 kunde kunderna ange domänsuffix för ILB-ASE. Om du vill använda *. contoso.com* för domänsuffix kan du göra det och inkludera SCM-webbplatsen. Det fanns utmaningar med denna modell, inklusive; hantera SSL-standardcertifikatet, avsaknad av enkel inloggning med SCM-platsen och kravet på att använda ett jokertecken. ILB ASE-processen för standard certifikats uppgradering avbröts också och det gjorde att programmet startades om. För att lösa dessa problem ändrades beteendet för ILB ASE till att använda ett domänsuffix baserat på namnet på ASE och med ett Microsoft-ägda suffix. Ändringen av ILB ASE-beteendet påverkar bara ILB ASE som gjorts efter maj 2019. Befintliga ILB-ASE måste fortfarande hantera standard certifikatet för ASE och deras DNS-konfiguration.
 
 ## <a name="publishing"></a>Publicera
 
@@ -152,11 +159,11 @@ Med en ILB-ASE är publicerings slut punkterna bara tillgängliga via ILB. ILB f
 
 Utan ytterligare ändringar fungerar inte Internet-baserade CI-system som GitHub och Azure DevOps med en ILB-ASE eftersom publicerings slut punkten inte är tillgänglig för Internet. Du kan aktivera publicering till en ILB-ASE från Azure DevOps genom att installera en lokal versions agent i det virtuella nätverket som innehåller ILB ASE. Du kan också använda ett CI-system som använder en pull-modell, till exempel Dropbox.
 
-Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publicerings profil och i appens Portal fönster (i **översikts** > **information och i** **Egenskaper**).
+Publiceringsslutpunkterna för appar i en ILB ASE använder domänen som ILB ASE skapades med. Du kan se den i appens publicerings profil och i appens Portal fönster (i **översikts**information  >  **Essentials** och i **Egenskaper**).
 
 ## <a name="storage"></a>Storage
 
-En ASE har 1 TB lagrings utrymme för alla appar i ASE. En App Service plan i den isolerade pris-SKU: n har en gräns på 250 GB som standard. Om du har fem eller fler App Services planer bör du vara noga med att inte överskrida gränsen på 1 TB för ASE. Om du behöver mer än 250 GB-gränsen i en App Service plan kan du kontakta supporten för att justera App Service plan gränsen till maximalt 1 TB. När plan gränsen har justerats finns det fortfarande en gräns på 1 TB över alla App Service planer i ASE.
+En ASE har 1 TB lagrings utrymme för alla appar i ASE. En App Service plan i den isolerade pris-SKU: n har en gräns på 250 GB. I en ASE läggs 250 GB lagrings utrymme per App Service plan upp till 1 TB-gränsen. Du kan ha fler App Services planer än bara fyra, men det finns ingen mer lagrings utrymme utöver gränsen på 1 TB.
 
 ## <a name="logging"></a>Loggning
 
@@ -164,16 +171,16 @@ Du kan integrera din ASE med Azure Monitor för att skicka loggar om ASE till Az
 
 | Tillståndet | Meddelande |
 |---------|----------|
-| ASE är inte felfri | Den angivna ASE är inte felfri på grund av en ogiltig konfiguration av virtuellt nätverk. ASE inaktive ras om ohälsosamt tillstånd fortsätter. Se till att de rikt linjer som anges https://docs.microsoft.com/azure/app-service/environment/network-infohär följs:. |
+| ASE är inte felfri | Den angivna ASE är inte felfri på grund av en ogiltig konfiguration av virtuellt nätverk. ASE inaktive ras om ohälsosamt tillstånd fortsätter. Se till att de rikt linjer som anges här följs: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | ASE-undernätet är nästan slut på utrymme | Den angivna ASE finns i ett undernät som är nästan slut på utrymme. Det finns {0} återstående adresser. När de här adresserna är uttömda kan ASE inte skalas.  |
-| ASE närmar sig den totala instans gränsen | Den angivna ASE närmar sig den totala instans gränsen för ASE. Den innehåller {0} för närvarande App Service plans instanser av högst 201 instanser. |
-| ASE kan inte komma åt ett beroende | Det angivna ASE kan inte uppnås {0}.  Se till att de rikt linjer som anges https://docs.microsoft.com/azure/app-service/environment/network-infohär följs:. |
+| ASE närmar sig den totala instans gränsen | Den angivna ASE närmar sig den totala instans gränsen för ASE. Den innehåller för närvarande {0} App Service plans instanser av högst 201 instanser. |
+| ASE kan inte komma åt ett beroende | Det angivna ASE kan inte uppnås {0} .  Se till att de rikt linjer som anges här följs: https://docs.microsoft.com/azure/app-service/environment/network-info . |
 | ASE är inaktive rad | Den angivna ASE har pausats. ASE-inskjutningen kan bero på en konto brister eller en ogiltig konfiguration av virtuellt nätverk. Lös rotor saken och återuppta ASE för att fortsätta betjäna trafiken. |
 | ASE-uppgraderingen har startat | En plattforms uppgradering till den angivna ASE har påbörjats. Förväntar sig fördröjningar vid skalnings åtgärder. |
 | ASE-uppgraderingen har slutförts | En plattforms uppgradering till den angivna ASE har avslut ATS. |
-| Skalnings åtgärder har startat | En App Service plan ({0}) har börjat skala. Önskat tillstånd: {1} I{2} arbetare.
-| Skalnings åtgärder har slutförts | Skalningen av{0}en app service plan () har avslut ATS. Nuvarande tillstånd: {1} I{2} arbetare. |
-| Skalnings åtgärder har misslyckats | Det gick inte{0}att skala en app service plan (). Nuvarande tillstånd: {1} I{2} arbetare. |
+| Skalnings åtgärder har startat | En App Service plan ( {0} ) har börjat skala. Önskat tillstånd: {1} I {2} arbetare.
+| Skalnings åtgärder har slutförts | Skalningen av en App Service plan ( {0} ) har avslut ATS. Nuvarande tillstånd: {1} I {2} arbetare. |
+| Skalnings åtgärder har misslyckats | {0}Det gick inte att skala en app service plan (). Nuvarande tillstånd: {1} I {2} arbetare. |
 
 Så här aktiverar du loggning på din ASE:
 
@@ -200,16 +207,16 @@ Om du vill skapa en avisering mot loggarna följer du anvisningarna i [skapa, Vi
 
 ## <a name="upgrade-preference"></a>Uppgraderings inställning
 
-Om du har flera ASE kanske du vill att vissa ASE ska uppgraderas före andra. I ASE **HostingEnvironment Resource Manager** -objektet kan du ange ett värde för **upgradePreference**. Inställningen **upgradePreference** kan konfigureras med hjälp av en mall, ARMClient eller https://resources.azure.com. De tre möjliga värdena är:
+Om du har flera ASE kanske du vill att vissa ASE ska uppgraderas före andra. I ASE **HostingEnvironment Resource Manager** -objektet kan du ange ett värde för **upgradePreference**. Inställningen **upgradePreference** kan konfigureras med hjälp av en mall, ARMClient eller https://resources.azure.com . De tre möjliga värdena är:
 
 - **Ingen**: Azure kommer att uppgradera din ASE utan någon särskild batch. Detta värde är standard.
 - **Tidigt**: din ASE kommer att uppgraderas i den första hälften av App Service uppgraderingar.
 - **Sent**: din ASE kommer att uppgraderas i den andra halvan av App Service uppgraderingar.
 
-Om du använder https://resources.azure.comföljer du dessa steg för att ange värdet **upgradePreferences** :
+Om du använder https://resources.azure.com följer du dessa steg för att ange värdet **upgradePreferences** :
 
 1. Gå till resources.azure.com och logga in med ditt Azure-konto.
-1. Gå igenom resurser till\/\[prenumerationer prenumerations\]\/namn\/\[resourceGroups resurs grupp\]\/namn\/leverantörer Microsoft.\/Web\/\[hostingEnvironments ASE\]Name.
+1. Gå igenom resurser till prenumerationer \/ \[ prenumerations namn \] \/ resourceGroups \/ \[ resurs grupp namn \] \/ leverantörer \/ Microsoft. Web \/ hostingEnvironments \/ \[ ASE name \] .
 1. Välj **Läs/skriv** överst.
 1. Välj **Redigera**.
 1. Ange **upgradePreference** till det som är ett av de tre värdena som du vill ha.

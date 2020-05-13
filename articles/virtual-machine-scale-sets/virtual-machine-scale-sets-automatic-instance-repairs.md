@@ -2,20 +2,19 @@
 title: Automatisk instans reparation med skalnings uppsättningar för virtuella Azure-datorer
 description: Lär dig hur du konfigurerar princip för automatisk reparation för VM-instanser i en skalnings uppsättning
 author: avirishuv
-manager: vashan
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: conceptual
-ms.date: 02/28/2020
 ms.author: avverma
-ms.openlocfilehash: 8156c563573183e51e06650914117f8787922e93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.service: virtual-machine-scale-sets
+ms.subservice: availability
+ms.date: 02/28/2020
+ms.reviewer: jushiman
+ms.custom: avverma
+ms.openlocfilehash: 9e2b15eceff9bca4cee960fa462eb5148e3716dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81603670"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197027"
 ---
 # <a name="automatic-instance-repairs-for-azure-virtual-machine-scale-sets"></a>Automatiska instans reparationer för skalnings uppsättningar för virtuella Azure-datorer
 
@@ -154,7 +153,7 @@ az vmss create \
   --generate-ssh-keys \
   --load-balancer <existingLoadBalancer> \
   --health-probe <existingHealthProbeUnderLoaderBalancer> \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 Exemplet ovan använder en befintlig belastningsutjämnare och hälso avsökning för att övervaka program hälso status för instanser. Om du föredrar att använda ett program hälso tillägg för övervakning i stället kan du skapa en skalnings uppsättning, konfigurera program hälso tillägget och sedan aktivera den automatiska instansen reparera principen med hjälp av *AZ VMSS-uppdateringen*, enligt beskrivningen i nästa avsnitt.
@@ -217,7 +216,7 @@ az vmss update \
   --resource-group <myResourceGroup> \
   --name <myVMScaleSet> \
   --enable-automatic-repairs true \
-  --automatic-repairs-period 30
+  --automatic-repairs-grace-period 30
 ```
 
 ## <a name="viewing-and-updating-the-service-state-of-automatic-instance-repairs-policy"></a>Visa och uppdatera tjänst status för princip för automatisk instans reparation

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/06/2020
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: f2e3c03ba599128cc4552f64637ebd63efcb4578
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d7ab9d4e7a7c560fa05bdc06c7d1c357a2c2767
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128451"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196619"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -21,18 +21,24 @@ ms.locfileid: "82128451"
 
 Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklusive att lägga till dem i portalen, komma åt dem via REST API eller genom att fråga dem med hjälp av PowerShell eller CLI. 
 
-Den här artikeln är en fullständig lista över alla plattformar (dvs. automatiskt insamlade) mått som för närvarande är tillgängliga med Azure Monitor den konsoliderade mått pipelinen. Listan senast uppdaterades mars 27 2020. Mått som har ändrats eller lagts till efter det här datumet får inte visas nedan. Om du vill fråga efter och komma åt listan över mått program mässigt kan du använda [2018-01-01 API-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
+Den här artikeln är en fullständig lista över alla plattformar (dvs. automatiskt insamlade) mått som för närvarande är tillgängliga med Azure Monitor den konsoliderade mått pipelinen. Listan senast uppdaterades mars 27 2020. Mått som har ändrats eller lagts till efter det här datumet får inte visas nedan. Om du vill fråga efter och komma åt listan över mått program mässigt kan du använda [2018-01-01 API-versionen](https://docs.microsoft.com/rest/api/monitor/metricdefinitions). Andra mått som inte finns med i listan kan finnas tillgängliga i portalen eller med äldre API: er.
 
-Andra mått kan vara tillgängliga i portalen eller med äldre API: er. Mått för gäst operativ systemet (gäst operativ system) som körs i Azure Virtual Machines, Service Fabric och Cloud Services visas **inte** här. De måste samlas in via en eller flera agenter som körs på eller som en del av operativ systemet. Du kan skicka agent måtten till plattforms mått databasen med hjälp av [anpassade Metrics](metrics-custom-overview.md) -API, som för närvarande finns i en offentlig för hands version. Sedan kan du Diagrama, Varna och annars använda gäst operativ systemets mått som plattforms mått. Mer information finns i [Översikt över övervaknings agenter](agents-overview.md).    
+Måtten är ordnade efter resurs leverantörer och resurs typ. En lista över tjänster och resurs leverantörer som hör till dem finns i [Resource providers för Azure-tjänster](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-Måtten ordnas efter namn område. En lista över tjänster och de namn områden som hör till dem finns i [Resource providers för Azure-tjänster](../../azure-resource-manager/management/azure-services-resource-providers.md). 
 
-> [!NOTE]
-> Det går för närvarande inte att skicka flerdimensionella mätvärden via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
->
-> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
->
-> En lista över plattforms mått som kan exporteras via diagnostikinställningar finns i [den här artikeln](metrics-supported-export-diagnostic-settings.md).
+## <a name="guest-os-metrics"></a>Gäst operativ systemets mått
+
+Mått för gäst operativ systemet (gäst operativ system) som körs i Azure Virtual Machines, Service Fabric och Cloud Services visas **inte** här. I stället måste prestanda måtten för gäst operativ systemet samlas in via en eller flera agenter som körs på eller som en del av gäst operativ systemet.  Gäst operativ systemets mått inkluderar prestanda räknare som spårar gäst processor procent eller minnes användning, som båda används ofta för automatisk skalning eller avisering.  Med [Azure-diagnostik-tillägget](diagnostics-extension-overview.md)kan du skicka gäst operativ systemets prestanda mått till samma databas där plattforms måtten lagras. Den dirigerar gäst operativ systemets mått genom API: et för [anpassade mått](metrics-custom-overview.md) . Sedan kan du Diagrama, Varna och annars använda gäst operativ systemets mått som plattforms mått. Mer information finns i [Översikt över övervaknings agenter](agents-overview.md).    
+
+## <a name="routing-platform-metrics-to-other-locations"></a>Routa plattforms mått till andra platser
+
+Du kan använda [diagnostikinställningar](diagnostic-settings.md) för att dirigera plattforms mått till Azure Storage, Azure Monitor loggar (och därmed Log Analytics) och Event Hub.  
+
+Det finns vissa begränsningar i vad som kan vidarebefordras och formuläret där de lagras. 
+- Det går inte att exportera alla mått till andra platser. En lista över plattforms mått som kan exporteras via diagnostikinställningar finns i [den här artikeln](metrics-supported-export-diagnostic-settings.md).
+
+- Det finns för närvarande inte stöd för att skicka flerdimensionella mått till andra platser via diagnostikinställningar. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
+*Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och läggas till på per-kö-nivå. När måttet exporteras via diagnostikinställningar visas det dock som alla inkommande meddelanden i alla köer i händelsehubben.
 
 
 ## <a name="microsoftanalysisservicesservers"></a>Microsoft. AnalysisServices/servers
@@ -247,12 +253,12 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |cachehits|Cacheträffar|Antal|Totalt||ShardId|
 |cachemisses|Cachemissar|Antal|Totalt||ShardId|
 |cachemissrate|Missar i cache|Procent|cachemissrate||ShardId|
-|getcommands|Sparas|Antal|Totalt||ShardId|
-|setcommands|Uppsättningar|Antal|Totalt||ShardId|
+|getcommands|Hämtningar|Antal|Totalt||ShardId|
+|setcommands|Inställningar|Antal|Totalt||ShardId|
 |operationsPerSecond|Åtgärder per sekund|Antal|Maximal||ShardId|
 |evictedkeys|Avlägsnade nycklar|Antal|Totalt||ShardId|
 |totalkeys|Totalt antal nycklar|Antal|Maximal||ShardId|
-|expiredkeys|Förfallna nycklar|Antal|Totalt||ShardId|
+|expiredkeys|Utgångna nycklar|Antal|Totalt||ShardId|
 |usedmemory|Använt minne|Byte|Maximal||ShardId|
 |usedmemorypercentage|Använd minnes procent|Procent|Maximal||ShardId|
 |usedmemoryRss|RSS för använt minne|Byte|Maximal||ShardId|
@@ -464,7 +470,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet för använt konto|Inga|
+|UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet som används av konto|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -953,7 +959,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |D2C. endpoints. svars tid. Storage|Routning: meddelande fördröjning för lagring|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en lagrings slut punkt.|Inga|
 |D2C. endpoints. utgående. Storage. byte|Routning: data som levereras till lagring|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Inga|
 |D2C. endpoints. utgående. Storage. blob|Routning: blobbar levererade till lagring|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Inga|
-|EventGridDeliveries|Event Grid leveranser (för hands version)|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar händelse typen (https://aka.ms/ioteventgrid).|ResourceId, resultat, EventType|
+|EventGridDeliveries|Event Grid leveranser (för hands version)|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar händelse typen ( https://aka.ms/ioteventgrid) .|ResourceId, resultat, EventType|
 |EventGridLatency|Event Grid svars tid (för hands version)|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) från när IoT Hub-händelsen genererades till när händelsen publicerades till Event Grid. Det här talet är ett medelvärde mellan alla händelse typer. Använd EventType-dimensionen för att se svars tiden för en speciell typ av händelse.|ResourceId, EventType|
 |RoutingDeliveries|Dirigera leveranser (för hands version)|Millisekunder|Totalt|Antalet gånger IoT Hub försökte leverera meddelanden till alla slut punkter med hjälp av routning. Använd resultat dimensionen för att se antalet lyckade eller misslyckade försök. Om du vill se orsaken till fel, som ogiltig, släppt eller föräldralös, använder du FailureReasonCategory-dimensionen. Du kan också använda dimensionerna EndpointName och EndpointType för att förstå hur många meddelanden som levererats till dina olika slut punkter. Mått värdet ökar med ett för varje leverans försök, inklusive om meddelandet levereras till flera slut punkter eller om meddelandet levereras till samma slut punkt flera gånger.|ResourceId, EndpointType, EndpointName, FailureReasonCategory, result, RoutingSource|
 |RoutingDeliveryLatency|Leverans svars tid för routning (för hands version)|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en slut punkt. Du kan använda dimensionerna EndpointName och EndpointType för att förstå svars tiden för dina olika slut punkter.|ResourceId, EndpointType, EndpointName, RoutingSource|
@@ -1013,7 +1019,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |AddRegion|Region tillagt|Antal|Antal|Region tillagt|Region|
-|AvailableStorage|Tillgänglig lagring|Byte|Totalt|Totalt tillgängligt lagrings utrymme som har rapporter ATS med 5 minuters precision|Samlings namn, DatabaseName, region|
+|AvailableStorage|Tillgängligt lagringsutrymme|Byte|Totalt|Totalt tillgängligt lagrings utrymme som har rapporter ATS med 5 minuters precision|Samlings namn, DatabaseName, region|
 |CassandraConnectionClosures|Cassandra-anslutningens stängningar|Antal|Totalt|Antalet Cassandra-anslutningar som stängdes, rapporteras med en 1 minuts kornig het|APIType, region, ClosureReason|
 |CassandraKeyspaceDelete|Cassandra-tecken utrymme borttaget|Antal|Antal|Cassandra-tecken utrymme borttaget|ResourceName, ApiKind, ApiKindResourceType, OperationType|
 |CassandraKeyspaceThroughputUpdate|Cassandra-dataflöde har uppdaterats|Antal|Antal|Cassandra-dataflöde har uppdaterats|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
@@ -1034,7 +1040,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 |GremlinGraphDelete|Gremlin Graph borttagen|Antal|Antal|Gremlin Graph borttagen|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
 |GremlinGraphThroughputUpdate|Gremlin Graph-genomflöde har uppdaterats|Antal|Antal|Gremlin Graph-genomflöde har uppdaterats|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
 |GremlinGraphUpdate|Gremlin-diagrammet har uppdaterats|Antal|Antal|Gremlin-diagrammet har uppdaterats|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
-|IndexUsage|Index användning|Byte|Totalt|Total användning av index rapporterad med 5 minuters precision|Samlings namn, DatabaseName, region|
+|IndexUsage|Indexanvändning|Byte|Totalt|Total användning av index rapporterad med 5 minuters precision|Samlings namn, DatabaseName, region|
 |MetadataRequests|Begär Anden om metadata|Antal|Antal|Antal metadata-begäranden. Cosmos DB behåller systemets metadata-samling för varje konto, vilket gör att du kan räkna upp samlingar, databaser osv och deras konfigurationer kostnads fritt.|DatabaseName, samlings namn, region, StatusCode, roll|
 |MongoCollectionDelete|Mongo-samlingen har tagits bort|Antal|Antal|Mongo-samlingen har tagits bort|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, OperationType|
 |MongoCollectionThroughputUpdate|Mongo Collection-genomflöde har uppdaterats|Antal|Antal|Mongo Collection-genomflöde har uppdaterats|ResourceName, ChildResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
@@ -2108,7 +2114,7 @@ Måtten ordnas efter namn område. En lista över tjänster och de namn områden
 
 |Mått|Mått visnings namn|Enhet|Sammansättningstyp|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet för använt konto|Inga|
+|UsedCapacity|Använd kapacitet|Byte|Medel|Kapacitet som används av konto|Inga|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd ResponseType dimension för antalet olika typer av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingress|Ingress|Byte|Totalt|Mängden inkommande data, i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data, i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|

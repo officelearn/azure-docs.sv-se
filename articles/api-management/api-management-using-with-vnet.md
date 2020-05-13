@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/27/2020
+ms.date: 05/11/2020
 ms.author: apimpm
-ms.openlocfilehash: cf65cd757655b496ceb87fa1ff8121ac6209d869
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 93f66f3c030b9845b58083a992e1e1f11aa37f9c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203224"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196989"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Använda Azure API Management med virtuella nätverk
 Med virtuella Azure-nätverk (VNET) kan du placera valfria Azure-resurser i ett dirigerbart icke-Internetbaserat nätverk som du kontrollerar åtkomsten till. Dessa nätverk kan sedan anslutas till dina lokala nätverk med hjälp av olika VPN-tekniker. Om du vill veta mer om virtuella Azure-nätverk börjar du med informationen här: [Azure Virtual Network-översikt](../virtual-network/virtual-networks-overview.md).
@@ -108,7 +108,7 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 
 <a name="required-ports"> </a> När en API Management tjänst instans finns i ett VNet används portarna i följande tabell.
 
-| Käll-/mål Port (er) | Riktning          | Transport protokoll |   [Service märken](../virtual-network/security-overview.md#service-tags) <br> Källa/mål   | Syfte (\*)                                                 | Virtual Network typ |
+| Käll-/mål Port (er) | Riktning          | Transport protokoll |   [Service märken](../virtual-network/security-overview.md#service-tags) <br> Källa/mål   | Syfte ( \* )                                                 | Virtual Network typ |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | */[80], 443                  | Inkommande            | TCP                | INTERNET/VIRTUAL_NETWORK            | Klient kommunikation till API Management                      | Extern             |
 | */3443                     | Inkommande            | TCP                | API Management/VIRTUAL_NETWORK       | Hanterings slut punkt för Azure Portal och PowerShell         | Externt & internt  |
@@ -136,22 +136,22 @@ Nedan följer en lista över vanliga fel konfigurations problem som kan uppstå 
 
     | Azure-miljö | Slutpunkter                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure, offentlig      | <ul><li>gcs.prod.monitoring.core.windows.net (**ny**)</li><li>prod.warmpath.msftcloudes.com (**ska vara inaktuell**)</li><li>shoebox2.metrics.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-black.prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3-black.prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-red.prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3-red.prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com där `East US 2` är eastus2.Warm.ingestion.msftcloudes.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
-    | Azure Kina 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod5.prod.microsoftmetrics.com</li></ul>                                                                                                                                                                                                                                                |
+    | Azure, offentlig      | <ul><li>gcs.prod.monitoring.core.windows.net (**ny**)</li><li>prod.warmpath.msftcloudes.com (**ska vara inaktuell**)</li><li>shoebox2.metrics.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-black.prod.metrics.microsoftmetrics.com (**ny**)</li><li>prod3-black.prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3-red.prod.metrics.microsoftmetrics.com (**ny**)</li><li>prod3-red.prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | Azure Kina 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**ny**)</li><li>shoebox2.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod3.metrics.microsoftmetrics.com (**ny**)</li><li>prod3.metrics.nsatc.net (**ska vara inaktuell**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
   > Ändringen av kluster ovan med DNS-zon **. nsatc.net** till **. microsoftmetrics.com** är oftast en DNS-ändring. Klustrets IP-adress kommer inte att ändras.
 
 + **Regionala service märken**: NSG-regler som tillåter utgående anslutning till Storage-, SQL-och Event Hubs service-taggar kan använda regionala versioner av taggarna som motsvarar den region som innehåller API Management-instansen (till exempel lagring. väst för en API Management instans i regionen USA, västra). I distributioner i flera regioner bör NSG i varje region tillåta trafik till tjänst taggarna för den regionen och den primära regionen.
 
-+ **SMTP-relä**: utgående nätverks anslutning för SMTP-reläet, som löses under `smtpi-co1.msn.com`värden, `smtpi-ch1.msn.com` `smtpi-db3.msn.com`, och `smtpi-sin.msn.com``ies.global.microsoft.com`
++ **SMTP-relä**: utgående nätverks anslutning för SMTP-reläet, som löses under värden `smtpi-co1.msn.com` ,, `smtpi-ch1.msn.com` `smtpi-db3.msn.com` `smtpi-sin.msn.com` och`ies.global.microsoft.com`
 
-+ **Developer-portalen CAPTCHA**: utgående nätverks anslutning för Developer-portalens CAPTCHA, vilket löses under `client.hip.live.com` värdarna `partner.hip.live.com`och.
++ **Developer-portalen CAPTCHA**: utgående nätverks anslutning för Developer-portalens CAPTCHA, vilket löses under värdarna `client.hip.live.com` och `partner.hip.live.com` .
 
-+ **Azure Portal diagnostik**: om du vill aktivera flödet av diagnostikloggar från Azure Portal när du använder API Management tillägget inifrån en Virtual Network, krävs utgående åtkomst `dc.services.visualstudio.com` till på port 443. Detta hjälper till att felsöka problem som kan uppstå när du använder tillägget.
++ **Azure Portal diagnostik**: om du vill aktivera flödet av diagnostikloggar från Azure Portal när du använder API Management tillägget inifrån en Virtual Network, krävs utgående åtkomst till `dc.services.visualstudio.com` på port 443. Detta hjälper till att felsöka problem som kan uppstå när du använder tillägget.
 
-+ **Azure Load Balancer**: Tillåt inkommande begäran från service tag `AZURE_LOAD_BALANCER` är inte ett krav för `Developer` SKU, eftersom vi bara distribuerar en beräknings enhet bakom den. Men inkommande från [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) blir kritiska när du skalar till högre `Premium`SKU, som fel vid hälso avsökning från Load Balancer, Miss lyckas en distribution.
++ **Azure Load Balancer**: Tillåt inkommande begäran från service tag `AZURE_LOAD_BALANCER` är inte ett krav för `Developer` SKU, eftersom vi bara distribuerar en beräknings enhet bakom den. Men inkommande från [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) blir kritiska när du skalar till högre SKU `Premium` , som fel vid hälso avsökning från Load Balancer, Miss lyckas en distribution.
 
 + **Tvinga tunnel trafik till lokal brand vägg med hjälp av Express Route eller virtuell nätverks**installation: en vanlig kund konfiguration är att definiera sin egen standard väg (0.0.0.0/0) som tvingar all trafik från det API Management delegerade under nätet att flöda genom en lokal brand vägg eller till en virtuell nätverks installation. Detta trafikflöde avbryter anslutningen till Azure API Management eftersom utgående trafik antingen blockeras lokalt eller NAT till en okänd uppsättning adresser som inte längre fungerar med olika Azure-slutpunkter. Lösningen kräver att du gör några saker:
 
@@ -203,7 +203,7 @@ För varje extra skalnings enhet med API Management krävs ytterligare två IP-a
 
 IP-adresserna delas av **Azure-miljön**. När tillåtna IP-adresser för inkommande begär Anden som marker ATS med **Global** måste vara vit listas tillsammans med den **landsspecifika** IP-adressen.
 
-| **Azure-miljö**|   **Region**|  **IP-adress**|
+| **Azure-miljö**|   **Nationella**|  **IP-adress**|
 |-----------------|-------------------------|---------------|
 | Azure, offentlig| Södra centrala USA (global)| 104.214.19.224|
 | Azure, offentlig| Norra centrala USA (global)| 52.162.110.80|

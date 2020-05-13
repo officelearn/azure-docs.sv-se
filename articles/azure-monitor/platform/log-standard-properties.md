@@ -5,16 +5,19 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/18/2019
-ms.openlocfilehash: 252ddeb372744986df0b8ba9b742d0462a4e8202
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/01/2020
+ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274481"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196239"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Standard egenskaper i Azure Monitor loggar
 Data i Azure Monitor loggar [lagras som en uppsättning poster i antingen en Log Analytics arbets yta eller ett Application Insights program](../log-query/logs-structure.md), var och en med en viss datatyp som har en unik uppsättning egenskaper. Många data typer har standard egenskaper som är gemensamma för flera typer. Den här artikeln beskriver dessa egenskaper och innehåller exempel på hur du kan använda dem i frågor.
+
+> [!IMPORTANT]
+> Om du använder APM 2,1 lagras Application Insights program i en Log Analytics arbets yta med alla andra loggdata. Tabellerna har bytt namn och struktureras om men har samma information som tabellerna i Application Insights-programmet. Dessa nya tabeller har samma standard egenskaper som andra tabeller i arbets ytan Log Analytics.
 
 > [!NOTE]
 > Några av standard egenskaperna visas inte i vyn schema eller IntelliSense i Log Analytics och de visas inte i frågeresultaten om du inte uttryckligen anger egenskapen i utdata.
@@ -46,7 +49,7 @@ exceptions
 ```
 
 ## <a name="_timereceived"></a>\_TimeReceived
-Egenskapen ** \_TimeReceived** innehåller datum och tid då posten togs emot av Azure Monitor inmatnings punkt i Azure-molnet. Detta kan vara användbart för att identifiera svars tids problem mellan data källan och molnet. Ett exempel är ett nätverks problem som orsakar en fördröjning med data som skickas från en agent. Mer information finns i [inmatnings tiden för logg data i Azure Monitor](data-ingestion-time.md) .
+Egenskapen ** \_ TimeReceived** innehåller datum och tid då posten togs emot av Azure Monitor inmatnings punkt i Azure-molnet. Detta kan vara användbart för att identifiera svars tids problem mellan data källan och molnet. Ett exempel är ett nätverks problem som orsakar en fördröjning med data som skickas från en agent. Mer information finns i [inmatnings tiden för logg data i Azure Monitor](data-ingestion-time.md) .
 
 Följande fråga ger den genomsnittliga svars tiden per timme för händelse poster från en agent. Detta inkluderar tiden från agenten till molnet och den totala tiden för posten som ska vara tillgänglig för logg frågor.
 
@@ -60,7 +63,7 @@ Event
 ``` 
 
 ## <a name="type-and-itemtype"></a>Typ och itemType
-Egenskaperna **typ** (Log Analytics arbets yta) och **itemType** (Application Insights program) innehåller namnet på tabellen som posten hämtades från, som också kan betraktas som post typen. Den här egenskapen är användbar i frågor som kombinerar poster från flera tabeller, t. ex. sådana `search` som använder operatorn, för att skilja mellan olika typer av poster. **$Table** kan användas i stället för **typ** på vissa platser.
+Egenskaperna **typ** (Log Analytics arbets yta) och **itemType** (Application Insights program) innehåller namnet på tabellen som posten hämtades från, som också kan betraktas som post typen. Den här egenskapen är användbar i frågor som kombinerar poster från flera tabeller, t. ex. sådana som använder `search` operatorn, för att skilja mellan olika typer av poster. **$Table** kan användas i stället för **typ** på vissa platser.
 
 ### <a name="examples"></a>Exempel
 Följande fråga returnerar antalet poster efter den typ som samlats in den senaste timmen.
@@ -72,11 +75,11 @@ search *
 
 ```
 ## <a name="_itemid"></a>\_ItemId
-Egenskapen ** \_Itemid** innehåller en unik identifierare för posten.
+Egenskapen ** \_ Itemid** innehåller en unik identifierare för posten.
 
 
 ## <a name="_resourceid"></a>\_ResourceId
-Egenskapen ** \_ResourceID** innehåller en unik identifierare för resursen som posten är associerad med. Detta ger dig en standard egenskap som används för att begränsa din fråga till endast poster från en viss resurs eller för att koppla samman data över flera tabeller.
+Egenskapen ** \_ ResourceID** innehåller en unik identifierare för resursen som posten är associerad med. Detta ger dig en standard egenskap som används för att begränsa din fråga till endast poster från en viss resurs eller för att koppla samman data över flera tabeller.
 
 För Azure-resurser är värdet för **_ResourceId** [URL: en för Azure-resurs-ID](../../azure-resource-manager/templates/template-functions-resource.md). Egenskapen är för närvarande begränsad till Azure-resurser, men den kommer att utökas till resurser utanför Azure, till exempel lokala datorer.
 
@@ -122,7 +125,7 @@ union withsource = tt *
 Använd dessa `union withsource = tt *` frågor sparsamt eftersom det är dyrt att köra genomsökningar över data typer.
 
 ## <a name="_isbillable"></a>\_Fakturerbar
-Egenskapen ** \_fakturerbar** anger om inmatade data är fakturerbara. Data med ** \_fakturerbar** som är lika med _falskt_ samlas in kostnads fritt och debiteras inte ditt Azure-konto.
+Egenskapen ** \_ fakturerbar** anger om inmatade data är fakturerbara. Data med ** \_ fakturerbar** som är lika med `false` samlas in kostnads fritt och debiteras inte ditt Azure-konto.
 
 ### <a name="examples"></a>Exempel
 Använd följande fråga om du vill hämta en lista över datorer som skickar fakturerings data typer:
@@ -149,7 +152,7 @@ union withsource = tt *
 ```
 
 ## <a name="_billedsize"></a>\_BilledSize
-Egenskapen ** \_BilledSize** anger storleken i byte på data som ska faktureras till ditt Azure-konto om ** \_fakturerbar** är sant.
+Egenskapen ** \_ BilledSize** anger storleken i byte på data som ska faktureras till ditt Azure-konto om ** \_ fakturerbar** är sant.
 
 
 ### <a name="examples"></a>Exempel

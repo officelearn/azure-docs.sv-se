@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: curtand
 ms.reviewer: kexia
-ms.openlocfilehash: 3df79fb1e103ddfaafeb348641e675cd250f5858
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 555ba9a55a135bd38dcc46e1ff7a3d751083d47e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81271700"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196415"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Vanliga problem med tvåstegsverifiering och ditt arbets-eller skol konto
 
@@ -32,7 +32,7 @@ Det finns några vanliga vanliga verifierings problem på två faktorer som verk
 >[!Important]
 >Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar din Azure AD-miljö i [Azure AD-dokumentationen](https://docs.microsoft.com/azure/active-directory).
 >
->Det här innehållet är även avsett att användas med ditt arbets-eller skol konto, vilket är det konto som du fått av din organisation (till exempel alain@contoso.com). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto, vilket är ett konto som du har konfigurerat för dig själv (till exempel danielle@outlook.com), se [Aktivera eller inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>Det här innehållet är även avsett att användas med ditt arbets-eller skol konto, vilket är det konto som du fått av din organisation (till exempel alain@contoso.com ). Om du har problem med tvåstegsverifiering och din personliga Microsoft-konto, vilket är ett konto som du har konfigurerat för dig själv (till exempel danielle@outlook.com ), se [Aktivera eller inaktivera tvåstegsverifiering för din Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Jag har inte min mobila enhet
 
@@ -99,9 +99,9 @@ Applösenord ersätter ditt normala lösen ord för äldre Skriv bords program s
 
 ## <a name="i-cant-turn-two-factor-verification-off"></a>Det går inte att aktivera tvåstegsverifiering
 
-Om du använder tvåstegsverifiering med ditt arbets-eller skol konto (till exempel alain@contoso.com) innebär det förmodligen att organisationen har beslutat att du måste använda den här extra säkerhetsfunktionen. Eftersom din organisation har valt att du måste använda den här funktionen kan du inaktivera den på ett och samma sätt. Om du däremot använder tvåstegsverifiering med ett personligt konto, kan du till exempel alain@outlook.comaktivera och inaktivera funktionen. Instruktioner för hur du styr tvåstegsverifiering för dina personliga konton finns i [Aktivera eller inaktivera tvåstegsverifiering på Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+Om du använder tvåstegsverifiering med ditt arbets-eller skol konto (till exempel alain@contoso.com ) innebär det förmodligen att organisationen har beslutat att du måste använda den här extra säkerhetsfunktionen. Eftersom din organisation har valt att du måste använda den här funktionen kan du inaktivera den på ett och samma sätt. Om du däremot använder tvåstegsverifiering med ett personligt konto, kan du till exempel alain@outlook.com Aktivera och inaktivera funktionen. Instruktioner för hur du styr tvåstegsverifiering för dina personliga konton finns i [Aktivera eller inaktivera tvåstegsverifiering på Microsoft-konto](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-Om du inte kan stänga av tvåstegsverifiering kan det också bero på de säkerhets inställningar som har tillämpats på organisations nivå. Mer information om säkerhets inställningar finns i [Vad är säkerhets-defulta?](../fundamentals/concept-fundamentals-security-defaults.md)
+Om du inte kan stänga av tvåstegsverifiering kan det också bero på de säkerhets inställningar som har tillämpats på organisations nivå. Mer information om säkerhets inställningar finns i [Vad är säkerhets inställningar?](../fundamentals/concept-fundamentals-security-defaults.md)
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Jag hittade inget svar på mitt problem
 

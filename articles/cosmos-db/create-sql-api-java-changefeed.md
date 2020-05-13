@@ -1,19 +1,19 @@
 ---
 title: Skapa ett exempel på en slutpunkt-till-slutpunkt Azure Cosmos DB Java SDK v4-program med hjälp av ändra feed
-description: Den här instruktions guiden vägleder dig genom ett enkelt Java SQL API-program som infogar dokument i en Azure Cosmos DB-behållare, samtidigt som en materialiserad vy av behållaren upprätthålls med hjälp av Change feed.
-author: anfeldma
+description: Den här guiden vägleder dig genom ett enkelt Java SQL API-program som infogar dokument i en Azure Cosmos DB-behållare, samtidigt som en materialiserad vy av behållaren används med hjälp av Change feed.
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: 9e28eb4f766677ebbd5cfcc5f61fe54e53a45523
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 5e8656e891d250547174aa3deb27a94eebaa0ba3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996514"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125680"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Så här skapar du ett Java-program som använder Azure Cosmos DB SQL API och ändra flödes processor
 
@@ -100,7 +100,7 @@ mvn clean package
         })
         .subscribe();
 
-    while (!isProcessorRunning.get()); //Wait for Change Feed processor start
+    while (!isProcessorRunning.get()); //Wait for change feed processor start
     ```
 
     ```"SampleHost_1"```är namnet på den ändrade flödes processorns arbetare. ```changeFeedProcessorInstance.start()```är vad som faktiskt startar bearbetningen av Change feeds.
@@ -138,19 +138,19 @@ mvn clean package
     }
     ```
 
-1. Tillåt att koden kör 5-10sec. Gå sedan tillbaka till Azure Portal Datautforskaren och gå till **InventoryContainer > objekt**. Du bör se att objekten infogas i lager behållaren. Anteckna partitionsnyckel (```id```).
+1. Tillåt att koden kör 5-10sec. Gå sedan tillbaka till Azure Portal Datautforskaren och gå till **InventoryContainer > objekt**. Du bör se att objekten infogas i lager behållaren. Anteckna partitionsnyckel ( ```id``` ).
 
     ![Feed-behållare](media/create-sql-api-java-changefeed/cosmos_items.JPG)
 
-1. Nu går du till Datautforskaren navigera till **InventoryContainer-pktype > objekt**. Detta är den materialiserade vyn – objekten i denna behållares spegel **InventoryContainer** eftersom de infogades program mässigt av ändrings flödet. Anteckna partitionsnyckel (```type```). Den här materialiserade vyn är optimerad för frågor som filtrerar över ```type```, vilket skulle vara ineffektivt på **InventoryContainer** eftersom den är partitionerad. ```id```
+1. Nu går du till Datautforskaren navigera till **InventoryContainer-pktype > objekt**. Detta är den materialiserade vyn – objekten i denna behållares spegel **InventoryContainer** eftersom de infogades program mässigt av ändrings flödet. Anteckna partitionsnyckel ( ```type``` ). Den här materialiserade vyn är optimerad för frågor som filtrerar över ```type``` , vilket skulle vara ineffektivt på **InventoryContainer** eftersom den är partitionerad ```id``` .
 
     ![Materialiserad vy](media/create-sql-api-java-changefeed/cosmos_materializedview2.JPG)
 
-1. Vi håller på att ta bort ett dokument från både **InventoryContainer** och **InventoryContainer-pktype** med bara ett ```upsertItem()``` enda anrop. Börja med att titta på Azure Portal Datautforskaren. Vi tar bort dokumentet som ```/type == "plums"```. Det är inringat i rött under
+1. Vi håller på att ta bort ett dokument från både **InventoryContainer** och **InventoryContainer-pktype** med bara ett enda ```upsertItem()``` anrop. Börja med att titta på Azure Portal Datautforskaren. Vi tar bort dokumentet som ```/type == "plums"``` är inringat i rött under
 
     ![Materialiserad vy](media/create-sql-api-java-changefeed/cosmos_materializedview-emph-todelete.JPG)
 
-    Tryck på RETUR igen för att anropa ```deleteDocument()``` funktionen i exempel koden. Den här funktionen, som visas nedan, upsertar en ny version av dokumentet ```/ttl == 5```med, som anger TTL-värdet (Time-to-Live) till 5Sec. 
+    Tryck på RETUR igen för att anropa funktionen ```deleteDocument()``` i exempel koden. Den här funktionen, som visas nedan, upsertar en ny version av dokumentet med ```/ttl == 5``` , som anger TTL-värdet (Time-to-Live) till 5Sec. 
     
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>Java SDK v4 (maven com. Azure:: Azure-Cosmos) asynkront API
 
@@ -181,7 +181,7 @@ mvn clean package
     }    
     ```
 
-    Ändrings flödet ```feedPollDelay``` är inställt på 100 MS; därför svarar ändra feed på den här uppdateringen nästan omedelbart och samtal ```updateInventoryTypeMaterializedView()``` som visas ovan. Det senaste funktions anropet kommer att upsert det nya dokumentet med TTL för 5Sec till **InventoryContainer-pktype**.
+    Ändrings flödet ```feedPollDelay``` är inställt på 100 MS. därför svarar ändrings flödet på den här uppdateringen nästan omedelbart och samtal som ```updateInventoryTypeMaterializedView()``` visas ovan. Det senaste funktions anropet kommer att upsert det nya dokumentet med TTL för 5Sec till **InventoryContainer-pktype**.
 
     Detta innebär att dokumentet upphör att gälla efter 5 sekunder och tas bort från båda behållarna.
 

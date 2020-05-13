@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fe550bb4f5e63761bb645c9904816048584b1bca
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733268"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125782"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka gäst operativ systemets mått till Azure Monitor Mät lagringen med hjälp av en Azure Resource Manager mall för en skalnings uppsättning för virtuella Windows-datorer
 
@@ -238,8 +238,8 @@ Spara och Stäng båda filerna.
 Använd Azure PowerShell för att distribuera Resource Manager-mallen:  
 
 1. Starta PowerShell. 
-1. Logga in på Azure med `Login-AzAccount`.
-1. Hämta din lista över prenumerationer med `Get-AzSubscription`hjälp av.
+1. Logga in på Azure med `Login-AzAccount` .
+1. Hämta din lista över prenumerationer med hjälp av `Get-AzSubscription` .
 1. Ange den prenumeration som du ska skapa eller uppdatera den virtuella datorn: 
 
    ```powershell
@@ -252,7 +252,7 @@ Använd Azure PowerShell för att distribuera Resource Manager-mallen:
    ```
 
    > [!NOTE]  
-   > Kom ihåg att använda en Azure-region som är aktive rad för anpassade mått. Kom ihåg att använda en [Azure-region som är aktive rad för anpassade mått](https://github.com/MicrosoftDocs/azure-docs-pr/blob/master/articles/azure-monitor/platform/metrics-custom-overview.md#supported-regions).
+   > Kom ihåg att använda en Azure-region som är aktive rad för anpassade mått. Kom ihåg att använda en [Azure-region som är aktive rad för anpassade mått](./metrics-custom-overview.md#supported-regions).
  
 1. Kör följande kommandon för att distribuera den virtuella datorn:  
 
@@ -285,7 +285,7 @@ Använd Azure PowerShell för att distribuera Resource Manager-mallen:
 
 1. I den nedrullningsbara menyn namn områden väljer du **Azure. VM. Windows. gäst**. 
 
-1. I den nedrullningsbara menyn mått väljer du **minnes\%allokerade byte som används**.  
+1. I den nedrullningsbara menyn mått väljer du **minnes \% allokerade byte som används**.  
 
 Du kan också välja att använda dimensionerna för det här måttet för att skapa diagram för den för en viss virtuell dator eller för att rita varje virtuell dator i skalnings uppsättningen. 
 

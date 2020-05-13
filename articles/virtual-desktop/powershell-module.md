@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 54501e7e00ba8a28dd7cb421232b9a9587604338
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 6741c034351099f544c20749eb7c7a39e7932181
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82653134"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195136"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Konfigurera PowerShell-modulen för virtuellt Windows-skrivbord
 
@@ -46,7 +46,7 @@ Kör sedan följande cmdlet för att ansluta till Azure:
 Connect-AzAccount
 ```
 
-Om du loggar in på ditt Azure-konto krävs en kod som genereras när du kör Connect-cmdleten. Logga in genom att gå till <https://microsoft.com/devicelogin>, ange koden och logga in med dina autentiseringsuppgifter för Azure-administratören.
+Om du loggar in på ditt Azure-konto krävs en kod som genereras när du kör Connect-cmdleten. Logga in genom att gå till <https://microsoft.com/devicelogin> , ange koden och logga in med dina autentiseringsuppgifter för Azure-administratören.
 
 ```powershell
 Account SubscriptionName TenantId Environment
@@ -63,7 +63,7 @@ Då loggas du in direkt i den prenumeration som är standard för dina administr
 Om du vill ändra standard prenumerationen efter att du har loggat in, kör du denna cmdlet:
 
 ```powershell
-Select-AzureSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
 ```
 
 När du väljer en ny prenumeration som du vill använda, behöver du inte ange den prenumerationens ID i cmdletar som du kör efteråt. Följande cmdlet hämtar t. ex. en speciell värd för sessionen utan att behöva prenumerations-ID:

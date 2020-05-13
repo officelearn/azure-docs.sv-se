@@ -5,19 +5,22 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/22/2019
-ms.openlocfilehash: b1463415a464fe1d7a7146cec20f2c17d7c8eb03
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.date: 05/09/2020
+ms.openlocfilehash: 58724656dd407f09687b57d0ab034f3a1f808b76
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738090"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196294"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Struktur för Azure Monitor loggar
 Möjligheten att snabbt få insikter om dina data med hjälp av en [logg fråga](log-query-overview.md) är en kraftfull funktion i Azure Monitor. Om du vill skapa effektiva och användbara frågor bör du förstå några grundläggande begrepp, till exempel var de data du söker finns och hur de struktureras. Den här artikeln innehåller grundläggande begrepp som du behöver för att komma igång.
 
 ## <a name="overview"></a>Översikt
 Data i Azure Monitor loggar lagras antingen i en Log Analytics arbets yta eller i ett Application Insights program. Båda drivs av [Azure datautforskaren](/azure/data-explorer/) innebär att de utnyttjar sin kraftfulla data motor och frågespråket.
+
+> [!IMPORTANT]
+> Om du använder en [arbets yta-baserad Application Insights resurs](../app/create-workspace-resource.md), lagras telemetri i en Log Analytics arbets yta med alla andra loggdata. Tabellerna har bytt namn och struktureras om men har samma information som tabellerna i Application Insights-programmet.
 
 Data i båda arbets ytorna och programmen är indelade i tabeller. var och en lagrar olika typer av data och har en egen unik uppsättning egenskaper. De flesta [data källor](../platform/data-sources.md) skrivs till sina egna tabeller i en Log Analytics arbets yta, medan Application Insights skriver till en fördefinierad uppsättning tabeller i ett Application Insights program. Logg frågor är mycket flexibla så att du enkelt kan kombinera data från flera tabeller och även använda en kors resurs fråga för att kombinera data från tabeller i flera arbets ytor eller för att skriva frågor som kombinerar arbets ytor och program data.
 
@@ -48,23 +51,26 @@ Se dokumentationen för varje data källa för information om de tabeller som de
 Se [utforma en Azure Monitor loggar distribution](../platform/design-logs-deployment.md) för att förstå strategi och rekommendationer för åtkomst kontroll för att ge åtkomst till data i en arbets yta. Förutom att bevilja åtkomst till själva arbets ytan, kan du begränsa åtkomsten till enskilda tabeller med [RBAC på tabell nivå](../platform/manage-access.md#table-level-rbac).
 
 ## <a name="application-insights-application"></a>Application Insights program
+
+> [!IMPORTANT]
+> Om du använder en [arbets yta som baseras på arbets ytans Application Insights resurs](../app/create-workspace-resource.md) telemetri lagras i en Log Analytics arbets yta med alla andra loggdata. Tabellerna har bytt namn och struktureras om men har samma information som tabellerna i en klassisk Application Insights-resurs.
+
 När du skapar ett program i Application Insights skapas automatiskt ett motsvarande program i Azure Monitor loggar. Ingen konfiguration krävs för att samla in data, och programmet kommer automatiskt att skriva övervaknings data, till exempel sidvyer, begär Anden och undantag.
 
 Till skillnad från en Log Analytics arbets yta har ett Application Insights-program en fast uppsättning tabeller. Det går inte att konfigurera andra data källor för att skriva till programmet, så det går inte att skapa fler tabeller. 
 
 | Tabell | Beskrivning | 
 |:---|:---|
-| availabilityResults   | Sammanfattnings data från tillgänglighets test.
-| browserTimings      |     Data om klient prestanda, till exempel hur lång tid det tar att bearbeta inkommande data.
-| customEvents        | Anpassade händelser som skapats av ditt program.
-| customMetrics       | Anpassade mått som skapats av ditt program.
-| relation        | Anropar från programmet till andra komponenter (inklusive externa komponenter) som registrerats via TrackDependency () – till exempel anrop till REST API, databas eller ett fil system. 
-| undantag            | Undantag som har utlösts av program körningen och fångar både server sidans och klient sidans undantag.
-| pageViews           | Data om varje webbplats-vy med webb läsar information.
-| performanceCounters   | Prestanda mått från beräknings resurserna som stöder programmet, till exempel Windows prestanda räknare.
-| autentiseringsbegäran            | Förfrågningar som tagits emot av ditt program. En separat post för begäran loggas till exempel för varje HTTP-begäran som din webbapp tar emot. 
-| Anden                | Detaljerade loggar (spår) har genererats via program kod/loggnings ramverk som registrerats via TrackTrace ().
-
+| availabilityResults | Sammanfattnings data från tillgänglighets test. |
+| browserTimings      | Data om klient prestanda, till exempel hur lång tid det tar att bearbeta inkommande data. |
+| customEvents        | Anpassade händelser som skapats av ditt program. |
+| customMetrics       | Anpassade mått som skapats av ditt program. |
+| relation        | Anropar från programmet till andra komponenter (inklusive externa komponenter) som registrerats via TrackDependency () – till exempel anrop till REST API, databas eller ett fil system. |
+| undantag          | Undantag som har utlösts av program körningen och fångar både server sidans och klient sidans undantag.|
+| pageViews           | Data om varje webbplats-vy med webb läsar information. |
+| performanceCounters | Prestanda mått från beräknings resurserna som stöder programmet, till exempel Windows prestanda räknare. |
+| autentiseringsbegäran            | Förfrågningar som tagits emot av ditt program. En separat post för begäran loggas till exempel för varje HTTP-begäran som din webbapp tar emot.  |
+| Anden              | Detaljerade loggar (spår) har genererats via program kod/loggnings ramverk som registrerats via TrackTrace (). |
 
 Du kan visa schemat för varje tabell på fliken **schema** i Log Analytics för programmet.
 

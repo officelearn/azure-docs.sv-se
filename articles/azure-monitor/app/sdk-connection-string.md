@@ -6,12 +6,12 @@ author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 25eda0ae2b0d873fe9850e5b886489a5f2590e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92c4ccf7246c4e763cbf92aee3c48398d79e0ecc
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410617"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125714"
 ---
 # <a name="connection-strings"></a>Anslutningssträngar
 
@@ -64,10 +64,10 @@ Anslutnings strängen består av en lista med inställningar som representeras s
 - `EndpointSuffix`(t. ex.: applicationinsights.azure.cn) Genom att ställa in Endpoint-suffixet instruerar du SDK: n som Azure-molnet ska ansluta till. SDK monterar resten av slut punkten för enskilda tjänster.
 - Explicita slut punkter.
   Alla tjänster kan åsidosättas explicit i anslutnings strängen.
-   - `IngestionEndpoint`prisethttps://dc.applicationinsights.azure.com)
-   - `LiveEndpoint`prisethttps://live.applicationinsights.azure.com)
-   - `ProfilerEndpoint`prisethttps://profiler.applicationinsights.azure.com)
-   - `SnapshotEndpoint`prisethttps://snapshot.applicationinsights.azure.com)
+   - `IngestionEndpoint`(t. ex.: `https://dc.applicationinsights.azure.com` )
+   - `LiveEndpoint`(t. ex.: `https://live.applicationinsights.azure.com` )
+   - `ProfilerEndpoint`(t. ex.: `https://profiler.applicationinsights.azure.com` )
+   - `SnapshotEndpoint`(t. ex.: `https://snapshot.applicationinsights.azure.com` )
 
 #### <a name="endpoint-schema"></a>Slut punkts schema
 
@@ -106,10 +106,10 @@ I det här exemplet har endast Instrumentation-nyckeln angetts.
 - Authorization Scheme-standardvärdet till "iKey" 
 - Instrumentation-nyckel: 00000000-0000-0000-0000-000000000000
 - De regionala tjänst-URI: erna baseras på [SDK-standardvärdena](https://github.com/microsoft/ApplicationInsights-dotnet/blob/e50d569cebf485e72e98f4a08a0bc0e30cdf42bc/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/Endpoints/Constants.cs#L6) och kommer att ansluta till den offentliga globala Azure:
-   - Inmatninghttps://dc.services.visualstudio.com/
-   - Live-mått:https://rt.services.visualstudio.com/
-   - Profilerhttps://agent.azureserviceprofiler.net/
-   - Fel sökarehttps://agent.azureserviceprofiler.net/  
+   - Inmatning`https://dc.services.visualstudio.com/`
+   - Live-mått:`https://rt.services.visualstudio.com/`
+   - Profiler`https://agent.azureserviceprofiler.net/`
+   - Fel sökare`https://agent.azureserviceprofiler.net/`
 
 
 
@@ -122,10 +122,10 @@ I det här exemplet anger den här anslutnings strängen slut punktens suffix oc
 - Authorization Scheme-standardvärdet till "iKey" 
 - Instrumentation-nyckel: 00000000-0000-0000-0000-000000000000
 - De regionala tjänst-URI: erna baseras på angivet slut punkts suffix: 
-   - Inmatninghttps://dc.ai.contoso.com
-   - Live-mått:https://live.ai.contoso.com
-   - Profilerhttps://profiler.ai.contoso.com 
-   - Fel sökarehttps://snapshot.ai.contoso.com   
+   - Inmatning`https://dc.ai.contoso.com`
+   - Live-mått:`https://live.ai.contoso.com`
+   - Profiler`https://profiler.ai.contoso.com`
+   - Fel sökare`https://snapshot.ai.contoso.com`  
 
 
 
@@ -138,10 +138,10 @@ I det här exemplet anger den här anslutnings strängen explicita åsidosättni
 - Authorization Scheme-standardvärdet till "iKey" 
 - Instrumentation-nyckel: 00000000-0000-0000-0000-000000000000
 - De regionala tjänst-URI: erna baseras på de explicita värdena för åsidosättning: 
-   - Inmatning: https:\//Custom.com:111/
-   - Live-mått: https:\//Custom.com:222/
-   - Profiler: https:\//Custom.com:333/ 
-   - Fel sökning: https:\//Custom.com:444/   
+   - Inmatning`https://custom.com:111/`
+   - Live-mått:`https://custom.com:222/`
+   - Profiler`https://custom.com:333/`
+   - Fel sökare`https://custom.com:444/`  
 
 
 ## <a name="how-to-set-a-connection-string"></a>Ange en anslutnings sträng

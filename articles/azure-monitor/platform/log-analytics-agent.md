@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 658543dc96f23fc86ea50f64d7a3265ba64150e7
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0a29ee1536c7c808fe7d15c0abe26f27042bc962
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982215"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196252"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics-agenten har utvecklats för omfattande hantering av virtuella datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Windows-och Linux-agenterna skickar insamlade data från olika källor till din Log Analytics arbets yta i Azure Monitor, samt alla unika loggar eller mått som definierats i en övervaknings lösning. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/)och [Azure Automation](../../automation/automation-intro.md).
@@ -115,11 +115,11 @@ Från och med versioner som publicerats efter 2018 augusti gör vi följande än
 >Om du använder en distribution eller version som inte stöds och inte justeras till vår support modell, rekommenderar vi att du förlitar dig på den här lagrings platsen, vilket erkänner att Microsoft Support inte kommer att ge hjälp med förgrenade agent versioner.
 
 * Amazon Linux 2017,09 (x64)
-* CentOS Linux 6 (x86/x64) och 7 (x64)  
-* Oracle Linux 6 och 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 6 (x86/x64) och 7 (x64)
-* Debian GNU/Linux 8 och 9 (x86/x64)
-* Ubuntu 14,04 LTS (x86/x64), 16,04 LTS (x86/x64) och 18,04 LTS (x64)
+* CentOS Linux 6 (x64) och 7 (x64)  
+* Oracle Linux 6 och 7 (x64) 
+* Red Hat Enterprise Linux Server 6 (x64), 7 (x64) och 8 (x64)
+* Debian GNU/Linux 8 och 9 (x64)
+* Ubuntu 14,04 LTS (x86/x64), 16,04 LTS (x64) och 18,04 LTS (x64)
 * SUSE Linux Enterprise Server 12 (x64) och 15 (x64)
 
 >[!NOTE]
@@ -201,7 +201,7 @@ För Linux-agenten anges proxyservern under installationen eller [efter installa
 Exempelvis: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> Om du använder specialtecken som "\@" i ditt lösen ord får du ett anslutnings fel på grund av att värdet parsas felaktigt.  Undvik det här problemet genom att koda lösen ordet i URL: en med ett verktyg som [URLDecode](https://www.urldecoder.org/).  
+> Om du använder specialtecken som " \@ " i ditt lösen ord får du ett anslutnings fel på grund av att värdet parsas felaktigt.  Undvik det här problemet genom att koda lösen ordet i URL: en med ett verktyg som [URLDecode](https://www.urldecoder.org/).  
 
 
 

@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 19eaaa1ac442a04799bfa8d8d495b9c7dd393e5a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 72a96e04d308dbb2774d5b8f8aa909ab81bebee3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928286"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195669"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Global överföring av nätverks arkitektur och virtuellt WAN
 
@@ -145,10 +145,10 @@ Skydd mot VNet-till-VNet gör att virtuella nätverk kan ansluta till varandra v
 
 ### <a name="vnet-to-internet-or-third-party-security-service-i"></a>VNet-till-Internet eller säkerhets tjänst från tredje part (i)
 
-Den skyddade överföringen från virtuella nätverk till Internet eller från tredje part gör att virtuella nätverk kan ansluta till Internet eller en säkerhets tjänst från tredje part som stöds via Azure-brandväggen i den virtuella WAN-hubben.
+VNet-till-Internet gör att virtuella nätverk kan ansluta till Internet via Azure-brandväggen i den virtuella WAN-hubben. Trafik till Internet via tredjeparts säkerhets tjänster som stöds flödar inte över Azure-brandväggen. Du kan konfigurera VNet-till-Internet-sökväg via tredjeparts säkerhets tjänst från tredje part med hjälp av Azure Firewall Manager.  
 
 ### <a name="branch-to-internet-or-third-party-security-service-j"></a>Lokal-till-Internet eller säkerhets tjänst från tredje part (j)
-Med en säker transit från gren till Internet eller från tredje part kan grenar ansluta till Internet eller en säkerhets tjänst från tredje part som stöds via Azure-brandväggen i den virtuella WAN-hubben.
+Filial till Internet gör det möjligt för grenar att ansluta till Internet via Azure-brandväggen i den virtuella WAN-hubben. Trafik till Internet via tredjeparts säkerhets tjänster som stöds flödar inte över Azure-brandväggen. Du kan konfigurera en gren-till-Internet-sökväg via en säkerhets tjänst från tredje part med hjälp av Azure Firewall Manager. 
 
 ### <a name="how-do-i-enable-default-route-00000-in-a-secured-virtual-hub"></a>Hur gör jag för att aktivera standard väg (0.0.0.0/0) i en säker virtuell hubb
 

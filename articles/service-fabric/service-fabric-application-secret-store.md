@@ -3,18 +3,18 @@ title: Azure Service Fabric centrala hemligheter
 description: Den här artikeln beskriver hur du använder Central hemligheter i Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 4087e7ccdcb2281c4a08af155d35a10c66147a85
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c48be8945326f0f11ded7c5700cd70043830e4db
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770418"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197769"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Centrala hemligheter i Azure Service Fabric 
 Den här artikeln beskriver hur du använder den centrala hemligheter Store (CSS) i Azure Service Fabric för att skapa hemligheter i Service Fabric program. CSS är en lokal hemlighet som lagrar känsliga data, till exempel lösen ord, tokens och nycklar, krypterade i minnet.
 
 ## <a name="enable-central-secrets-store"></a>Aktivera Central hemligheter Arkiv
-Lägg till följande skript i kluster konfigurationen under `fabricSettings` för att aktivera CSS. Vi rekommenderar att du använder ett annat certifikat än ett kluster certifikat för CSS. Se till att krypterings certifikatet har installerats på alla noder och `NetworkService` att det har Läs behörighet till certifikatets privata nyckel.
+Lägg till följande skript i kluster konfigurationen under `fabricSettings` för att aktivera CSS. Vi rekommenderar att du använder ett annat certifikat än ett kluster certifikat för CSS. Se till att krypterings certifikatet har installerats på alla noder och att det `NetworkService` har Läs behörighet till certifikatets privata nyckel.
   ```json
     "fabricSettings": 
     [
@@ -28,7 +28,7 @@ Lägg till följande skript i kluster konfigurationen under `fabricSettings` fö
                 },
                 {
                     "name":  "MinReplicaSetSize",
-                    "value":  "3"
+                    "value":  "1"
                 },
                 {
                     "name":  "TargetReplicaSetSize",
@@ -51,7 +51,7 @@ Du kan skapa en hemlig resurs med hjälp av REST API.
   > [!NOTE] 
   > Om klustret använder Windows-autentisering skickas REST-begäran via oskyddad HTTP-kanal. Rekommendationen är att använda ett X509-baserat kluster med säkra slut punkter.
 
-Om du vill `supersecret` skapa en hemlig resurs med hjälp av REST API gör du en skicka `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`-begäran till. Du behöver ett kluster certifikat eller ett administratörs klient certifikat för att skapa en hemlig resurs.
+Om du vill skapa en `supersecret` hemlig resurs med hjälp av REST API gör du en skicka-begäran till `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview` . Du behöver ett kluster certifikat eller ett administratörs klient certifikat för att skapa en hemlig resurs.
 
 ```powershell
 $json = '{"properties": {"kind": "inlinedValue", "contentType": "text/plain", "description": "supersecret"}}'
@@ -73,7 +73,7 @@ Invoke-WebRequest -CertificateThumbprint <ClusterCertThumbprint> -Method POST -U
 
 Följ dessa steg om du vill använda hemligheten i ditt Service Fabric-program.
 
-1. Lägg till ett avsnitt i **Settings. XML-** filen med följande kodfragment. Observera att värdet är i formatet {`secretname:version`}.
+1. Lägg till ett avsnitt i **Settings. XML-** filen med följande kodfragment. Observera att värdet är i formatet { `secretname:version` }.
 
    ```xml
      <Section Name="testsecrets">
@@ -98,7 +98,7 @@ Följ dessa steg om du vill använda hemligheten i ditt Service Fabric-program.
    ```C#
    secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
    ```
-1. Montera hemligheterna till en behållare. Den enda ändring som krävs för att göra de hemligheter som är tillgängliga i `specify` behållaren är till en `<ConfigPackage>`monterings punkt i.
+1. Montera hemligheterna till en behållare. Den enda ändring som krävs för att göra de hemligheter som är tillgängliga i behållaren är till `specify` en monterings punkt i `<ConfigPackage>` .
 Följande kodfragment är den ändrade **ApplicationManifest. XML**.  
 
    ```xml
@@ -117,7 +117,7 @@ Följande kodfragment är den ändrade **ApplicationManifest. XML**.
    ```
    Hemligheter är tillgängliga under monterings punkten i din behållare.
 
-1. Du kan binda en hemlighet till en process miljö variabel genom att `Type='SecretsStoreRef`ange. Följande kodfragment är ett exempel på hur du `supersecret` binder versionen `ver1` till miljövariabeln `MySuperSecret` i **ServiceManifest. XML**.
+1. Du kan binda en hemlighet till en process miljö variabel genom att ange `Type='SecretsStoreRef` . Följande kodfragment är ett exempel på hur du binder `supersecret` versionen `ver1` till miljövariabeln `MySuperSecret` i **ServiceManifest. XML**.
 
    ```xml
    <EnvironmentVariables>

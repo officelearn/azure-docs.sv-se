@@ -7,12 +7,12 @@ ms.date: 05/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e20271e381f2e7023dca3c3382c9f329a5149a62
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: f4e0bbd546b770b9e81bb9142cdd97e3927db7bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872568"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195948"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Använd Azurite-emulatorn för lokal Azure Storage utveckling och testning (för hands version)
 
@@ -70,7 +70,7 @@ Följande inställningar stöds:
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installera och kör Azurite med NPM
 
-Den här installations metoden kräver att du har [Node. js version 8,0 eller senare](https://nodejs.org) installerad. Node Package Manager (NPM) är paket hanterings verktyget som ingår i varje Node. js-installation. När du har installerat Node. js kör du `npm` följande kommando för att installera Azurite.
+Den här installations metoden kräver att du har [Node. js version 8,0 eller senare](https://nodejs.org) installerad. Node Package Manager (NPM) är paket hanterings verktyget som ingår i varje Node. js-installation. När du har installerat Node. js kör du följande `npm` kommando för att installera Azurite.
 
 ```console
 npm install -g azurite
@@ -88,7 +88,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 **Kör Azurite Docker-avbildningen**:
 
-Följande kommando kör Azurite Docker-avbildningen. `-p 10000:10000` Parametern omdirigerar begär Anden från värd datorns port 10000 till Docker-instansen.
+Följande kommando kör Azurite Docker-avbildningen. `-p 10000:10000`Parametern omdirigerar begär Anden från värd datorns port 10000 till Docker-instansen.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
@@ -97,7 +97,7 @@ docker run -p 10000:10000 -p 10001:10001 \
 
 **Ange arbets ytans plats**:
 
-I följande exempel anger `-v c:/azurite:/data` parametern *c:/Azurite* som den Azurite sparade data platsen. Katalogen, *c:/Azurite*, måste skapas innan du kör Docker-kommandot.
+I följande exempel `-v c:/azurite:/data` anger parametern *c:/Azurite* som den Azurite sparade data platsen. Katalogen, *c:/Azurite*, måste skapas innan du kör Docker-kommandot.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 \
@@ -150,7 +150,7 @@ Det här avsnittet innehåller information om kommando rads växlar som är till
 
 ### <a name="help"></a>Hjälp
 
-**Valfritt** -Hämta kommando rads hjälp med växeln `-h` eller. `--help`
+**Valfritt** -Hämta kommando rads hjälp med `-h` `--help` växeln eller.
 
 ```console
 azurite -h
@@ -239,7 +239,7 @@ Porten som används visas vid start av Azurite.
 
 ### <a name="workspace-path"></a>Sökväg till arbets ytan
 
-**Valfri** -Azurite lagrar data till den lokala disken under körningen. Använd växeln `-l` eller `--location` för att ange en sökväg som arbets ytans plats. Som standard används den aktuella process arbets katalogen. Observera gemenen "l".
+**Valfri** -Azurite lagrar data till den lokala disken under körningen. Använd `-l` växeln eller `--location` för att ange en sökväg som arbets ytans plats. Som standard används den aktuella process arbets katalogen. Observera gemenen "l".
 
 ```console
 azurite -l c:\azurite
@@ -248,7 +248,7 @@ azurite --location c:\azurite
 
 ### <a name="access-log"></a>Åtkomst logg
 
-**Valfritt** – åtkomst loggen visas som standard i konsol fönstret. Inaktivera visningen av åtkomst loggen med hjälp av `-s` eller `--silent` -växeln.
+**Valfritt** – åtkomst loggen visas som standard i konsol fönstret. Inaktivera visningen av åtkomst loggen med hjälp av `-s` eller- `--silent` växeln.
 
 ```console
 azurite -s
@@ -256,7 +256,7 @@ azurite --silent
 ```
 ### <a name="debug-log"></a>Fel söknings logg
 
-**Valfri** – fel söknings loggen innehåller detaljerad information om varje begäran och stack spårning för undantag. Aktivera fel söknings loggen genom att ange en giltig lokal fil `-d` Sök `--debug` väg till växeln eller.
+**Valfri** – fel söknings loggen innehåller detaljerad information om varje begäran och stack spårning för undantag. Aktivera fel söknings loggen genom att ange en giltig lokal fil Sök väg till `-d` `--debug` växeln eller.
 
 ```console
 azurite -d path/debug.log
@@ -265,7 +265,7 @@ azurite --debug path/debug.log
 
 ### <a name="loose-mode"></a>Löst läge
 
-**Valfritt** – Azurite använder strikt läge för att blockera begärandehuvuden och parametrar som inte stöds. Inaktivera strikt läge genom att `-L` använda växeln `--loose` eller. Notera kapitalet "L".
+**Valfritt** – Azurite använder strikt läge för att blockera begärandehuvuden och parametrar som inte stöds. Inaktivera strikt läge genom att använda `-L` `--loose` växeln eller. Notera kapitalet "L".
 
 ```console
 azurite -L
@@ -273,7 +273,7 @@ azurite --loose
 ```
 ### <a name="version"></a>Version
 
-**Valfritt** – Visa det installerade Azurite-versions numret med `-v` växeln `--version` eller.
+**Valfritt** – Visa det installerade Azurite-versions numret med `-v` `--version` växeln eller.
 
 ```console
 azurite -v
@@ -282,7 +282,7 @@ azurite --version
 
 ### <a name="certificate-configuration-https"></a>Certifikat konfiguration (HTTPS)
 
-**Valfritt** – Azurite använder http-protokollet. Aktivera HTTPS-läge genom att ange en sökväg till en Privacy Enhanced Mail (. pem) eller [personal information Exchange (. pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) -certifikat `--cert` fil till växeln.
+**Valfritt** – Azurite använder http-protokollet. Aktivera HTTPS-läge genom att ange en sökväg till en Privacy Enhanced Mail (. pem) eller [personal information Exchange (. pfx)](https://docs.microsoft.com/windows-hardware/drivers/install/personal-information-exchange---pfx--files) -certifikat fil till `--cert` växeln.
 
 När `--cert` har angetts för en PEM-fil måste du ange en motsvarande `--key` växel.
 
@@ -300,14 +300,14 @@ Detaljerad information om hur du skapar PEM-och PFX-filer finns i [https-install
 
 ### <a name="oauth-configuration"></a>OAuth-konfiguration
 
-**Valfri** – Aktivera OAuth-autentisering för Azurite med hjälp `--oauth` av växeln.
+**Valfri** – Aktivera OAuth-autentisering för Azurite med hjälp av `--oauth` växeln.
 
 ```console
 azurite --oauth basic --cert path/server.pem --key path/key.pem
 ```
 
 > [!NOTE]
-> OAuth kräver en HTTPS-slutpunkt. Kontrol lera att HTTPS har Aktiver `--cert` ATS genom att tillhandahålla `--oauth` en växel tillsammans med växeln.
+> OAuth kräver en HTTPS-slutpunkt. Kontrol lera att HTTPS har Aktiver ATS genom att tillhandahålla `--cert` en växel tillsammans med `--oauth` växeln.
 
 Azurite stöder grundläggande autentisering genom att ange `basic` parametern till `--oauth` växeln. Azurite kommer att utföra grundläggande autentisering, t. ex. validera inkommande Bearer-token, kontrol lera utfärdare, mål grupp och förfallo datum. Azurite kontrollerar inte signaturen eller behörigheterna för token.
 
@@ -326,7 +326,7 @@ Azurite accepterar samma välkända konto och nyckel som används av den äldre 
 
 ### <a name="custom-storage-accounts-and-keys"></a>Anpassade lagrings konton och nycklar
 
-Azurite stöder anpassade lagrings konto namn och nycklar genom att `AZURITE_ACCOUNTS` ställa in miljövariabeln i följande `account1:key1[:key2];account2:key1[:key2];...`format:.
+Azurite stöder anpassade lagrings konto namn och nycklar genom att ställa in `AZURITE_ACCOUNTS` miljövariabeln i följande format: `account1:key1[:key2];account2:key1[:key2];...` .
 
 Använd till exempel ett anpassat lagrings konto som har en nyckel:
 
@@ -393,7 +393,7 @@ Om du bara vill använda Queue Service är HTTPS-anslutningssträngen:
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;QueueEndpoint=https://127.0.0.1:10001/devstoreaccount1;`
 
-Använd följande anslutnings `dotnet dev-certs` sträng om du använde för att generera ett självsignerat certifikat.
+`dotnet dev-certs`Använd följande anslutnings sträng om du använde för att generera ett självsignerat certifikat.
 
 `DefaultEndpointsProtocol=https;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=https://localhost:10000/devstoreaccount1;QueueEndpoint=https://localhost:10001/devstoreaccount1;`
 
@@ -461,20 +461,22 @@ Du kan använda Storage Explorer för att visa de data som lagras i Azurite.
 
 I Storage Explorer ansluter du till Azurite genom att följa dessa steg:
 
- 1. Välj **Lägg till en konto** ikon
+ 1. Välj ikonen **Hantera konton**
+ 1. Välj **Lägg till ett konto**
  1. Välj **Anslut till en lokal emulator**
  1. Välj **Nästa**
+ 1. Redigera fältet **visnings namn** till valfritt namn
  1. Välj **Nästa** igen
  1. Välj **Anslut**
 
 #### <a name="connect-to-azurite-using-https"></a>Ansluta till Azurite med HTTPS
 
-Som standard öppnas Storage Explorer inte en HTTPS-slutpunkt som använder ett självsignerat certifikat. Om du kör Azurite med HTTPS använder du förmodligen ett självsignerat certifikat. I Storage Explorer importerar du SSL-certifikat via dialog rutan **Redigera** -> **SSL Certificates** -> **import certifikat** för SSL-certifikat.
+Som standard öppnas Storage Explorer inte en HTTPS-slutpunkt som använder ett självsignerat certifikat. Om du kör Azurite med HTTPS använder du förmodligen ett självsignerat certifikat. I Storage Explorer importerar du SSL-certifikat via **Edit**  ->  **SSL Certificates**  ->  dialog rutan Redigera**import certifikat** för SSL-certifikat.
 
 ##### <a name="import-certificate-to-storage-explorer"></a>Importera certifikat till Storage Explorer
 
 1. Hitta certifikatet på den lokala datorn.
-1. I Storage Explorer går du till **Redigera** -> **SSL-certifikat** -> **Importera certifikat** och importerar ditt certifikat.
+1. I Storage Explorer går du till **Redigera**  ->  **SSL-certifikat**  ->  **Importera certifikat** och importerar ditt certifikat.
 
 Om du inte importerar ett certifikat får du ett fel meddelande:
 

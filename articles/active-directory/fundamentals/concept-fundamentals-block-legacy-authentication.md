@@ -11,12 +11,13 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ce0233fdefb8360376e94c0baafabe4c62ced7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1799f676e8971726832cc50598e119f029bc331d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309197"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196393"
 ---
 # <a name="blocking-legacy-authentication"></a>Blockerar äldre autentisering
  
@@ -31,10 +32,10 @@ Idag kommer majoriteten av alla kompromissade inloggnings försök från äldre 
 
 Innan du kan blockera äldre autentisering i din katalog måste du först förstå om dina användare har appar som använder äldre autentisering och hur de påverkar den övergripande katalogen. Inloggnings loggar för Azure AD kan användas för att förstå om du använder äldre autentisering.
 
-1. Navigera till **Azure Portal** > **Azure Active Directory** Azure Active Directory> **inloggningar**.
-1. Lägg till kolumnen **klient program** om den inte visas genom att klicka på **kolumner** > **klient program**.
+1. Navigera till **Azure Portal**   >  **Azure Active Directory**   >  **inloggningar**.
+1. Lägg till kolumnen **klient program** om den inte visas genom att klicka på **kolumner**   >  **klient program**.
 1. Filtrera efter **klient program**  > Markera alla bakåtkompatibla alternativ för **klientautentisering** som visas.
-1. Filtrering efter **status** > **lyckades**. 
+1. Filtrering efter **status**  >  **lyckades**. 
 1. Expandera datum intervallet om det behövs med **datum** filtret.
 
 Vid filtrering visas endast lyckade inloggnings försök som gjorts av de valda äldre autentiseringsprotokollen. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. I kolumnen klient program eller fältet klient app under fliken grundläggande information när du har valt en enskild rad med data visas vilket äldre autentiseringsprotokoll som användes. I dessa loggar anges vilka användare som fortfarande är beroende av tidigare autentisering och vilka program som använder äldre protokoll för att göra autentiseringsbegäranden. För användare som inte visas i dessa loggar och som bekräftas att inte använda äldre autentisering, implementera en princip för villkorlig åtkomst eller aktivera bas linje principen: blockera äldre autentisering enbart för dessa användare.
@@ -49,8 +50,8 @@ Det här avsnittet innehåller en steg-för-steg-översikt om hur du uppdaterar 
 
 Det första steget i att aktivera modern autentisering ser till att din katalog stöder modern autentisering. Modern autentisering är aktiverat som standard för kataloger som skapats den 1 augusti 2017. Om din katalog skapades före detta datum måste du aktivera modern autentisering för din katalog manuellt med hjälp av följande steg:
 
-1. Kontrol lera om din katalog redan stöder modern autentisering genom att köra `Get-CsOAuthConfiguration` från [Skype för företag – Online PowerShell-modulen](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Om kommandot returnerar en tom `OAuthServers` egenskap är modern autentisering inaktive rad. Uppdatera inställningen för att aktivera modern autentisering med `Set-CsOAuthConfiguration`. Om din `OAuthServers` egenskap innehåller en post, är du redo att sätta igång.
+1. Kontrol lera om din katalog redan stöder modern autentisering genom att köra  `Get-CsOAuthConfiguration`   från [Skype för företag – Online PowerShell-modulen](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Om kommandot returnerar en tom  `OAuthServers`   egenskap är modern autentisering inaktive rad. Uppdatera inställningen för att aktivera modern autentisering med  `Set-CsOAuthConfiguration` . Om din  `OAuthServers`   egenskap innehåller en post, är du redo att sätta igång.
 
 Se till att slutföra det här steget innan du går vidare. Det är viktigt att dina webbplatskonfigurationer ändras först eftersom de avgör vilket protokoll som ska användas av alla Office-klienter. Även om du använder Office-klienter som har stöd för modern autentisering, kommer de att använda äldre protokoll om modern autentisering är inaktive rad i din katalog.
 
@@ -58,7 +59,7 @@ Se till att slutföra det här steget innan du går vidare. Det är viktigt att 
 
 När du har aktiverat modern autentisering i din katalog kan du börja uppdatera program genom att aktivera modern autentisering för Office-klienter. Office 2016 eller senare klienter stöder modern autentisering som standard. Inga extra steg krävs.
 
-Om du använder Office 2013 Windows-klienter eller äldre rekommenderar vi att du uppgraderar till Office 2016 eller senare. Även när du har slutfört det tidigare steget i att aktivera modern autentisering i din katalog, fortsätter äldre Office-program att använda äldre autentiseringsprotokoll. Om du använder Office 2013-klienter och inte kan uppgradera direkt till Office 2016 eller senare följer du stegen i följande artikel för att [Aktivera modern autentisering för Office 2013 på Windows-enheter](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). För att skydda ditt konto när du använder äldre autentisering rekommenderar vi att du använder starka lösen ord i din katalog. Kolla in [Azure AD Password Protection](../authentication/concept-password-ban-bad.md) för att förbjuda svaga lösen ord i din katalog.
+Om du använder Office 2013 Windows-klienter eller äldre rekommenderar vi att du uppgraderar till Office 2016 eller senare. Även när du har slutfört det tidigare steget i att aktivera modern autentisering i din katalog, fortsätter äldre Office-program att använda äldre autentiseringsprotokoll. Om du använder Office 2013-klienter och inte kan uppgradera direkt till Office 2016 eller senare följer du stegen i följande artikel för att [Aktivera modern autentisering för Office 2013 på Windows-enheter](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). För att skydda ditt konto när du använder äldre autentisering rekommenderar vi att du använder starka lösen ord i din katalog. Kolla in [Azure AD Password Protection](../authentication/concept-password-ban-bad.md)   för att förbjuda svaga lösen ord i din katalog.
 
 Office 2010 stöder inte modern autentisering. Du måste uppgradera alla användare med Office 2010 till en nyare version av Office. Vi rekommenderar att du uppgraderar till Office 2016 eller senare, eftersom det blockerar äldre autentisering som standard.
 

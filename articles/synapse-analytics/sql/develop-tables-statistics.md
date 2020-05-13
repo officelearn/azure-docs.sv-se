@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 5196c85ca1d68028893caee55035c6c455b37d64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d89baa069543c0571d42807f8034e6008eaddbc8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676942"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197573"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistik i Synapse SQL
 
@@ -34,7 +34,7 @@ Om optimeringen t. ex. beräknar att det datum då frågan filtreras på kommer 
 
 ### <a name="automatic-creation-of-statistics"></a>Automatisk generering av statistik
 
-SQL-poolen analyserar inkommande användar frågor för saknad statistik när alternativet databas AUTO_CREATE_STATISTICS är inställt på `ON`.  Om statistik saknas skapar Query Optimering statistik för enskilda kolumner i frågesyntaxen eller kopplings villkoret. Den här funktionen används för att förbättra beräkningar av kardinalitet för frågeplan.
+SQL-poolen analyserar inkommande användar frågor för saknad statistik när alternativet databas AUTO_CREATE_STATISTICS är inställt på `ON` .  Om statistik saknas skapar Query Optimering statistik för enskilda kolumner i frågesyntaxen eller kopplings villkoret. Den här funktionen används för att förbättra beräkningar av kardinalitet för frågeplan.
 
 > [!IMPORTANT]
 > Automatisk generering av statistik är för närvarande aktiverat som standard.
@@ -149,7 +149,7 @@ Följande GUID-principer används för att uppdatera din statistik under inläsn
 - Fokusera på kolumner som ingår i JOIN-, GROUP BY-, ORDER BY-och DISTINCT-satser.
 - Överväg att uppdatera "ascending Key"-kolumner som transaktions datum oftare eftersom dessa värden inte ingår i statistik histogrammet.
 - Överväg att uppdatera statiska distributions kolumner mindre ofta.
-- Kom ihåg att varje statistik objekt uppdateras i följd. Att bara `UPDATE STATISTICS <TABLE_NAME>` implementera är inte alltid idealiskt, särskilt för breda tabeller med massor av statistik objekt.
+- Kom ihåg att varje statistik objekt uppdateras i följd. Att bara implementera `UPDATE STATISTICS <TABLE_NAME>` är inte alltid idealiskt, särskilt för breda tabeller med massor av statistik objekt.
 
 Mer information finns i [beräkning av kardinalitet](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
@@ -239,7 +239,7 @@ Använd föregående exempel, men ange fler kolumner för att skapa ett statisti
 > [!NOTE]
 > Histogrammet, som används för att uppskatta antalet rader i frågeresultatet, är bara tillgängligt för den första kolumnen som anges i statistik objekt definitionen.
 
-I det här exemplet är histogrammet i *produkt\_kategorin*. Statistik över kolumner beräknas för *produkt\_kategori* och *produkt\_sub_category*:
+I det här exemplet är histogrammet i *produkt \_ kategorin*. Statistik över kolumner beräknas för *produkt \_ kategori* och *produkt \_ sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -248,7 +248,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Eftersom det finns en korrelation *mellan\_produkt kategori* och *\_produkt\_under kategori*, kan ett statistik objekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
+Eftersom det finns en korrelation mellan *produkt \_ kategori* och *produkt \_ under \_ kategori*, kan ett statistik objekt med flera kolumner vara användbart om dessa kolumner används samtidigt.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Skapa statistik för alla kolumner i en tabell
 
@@ -611,6 +611,8 @@ I följande exempel visas hur du använder olika alternativ för att skapa stati
 
 > [!NOTE]
 > Du kan bara skapa en statistik med en kolumn just nu.
+>
+> Proceduren sp_create_file_statistics får ett nytt namn till sp_create_openrowset_statistics. Den offentliga Server rollen har behörighet att administrera Mass åtgärder som beviljas när den offentliga databas rollen har kör-behörighet på sp_create_file_statistics och sp_drop_file_statistics. Detta kan ändras i framtiden.
 
 Följande lagrade procedur används för att skapa statistik:
 
@@ -695,6 +697,9 @@ Om du vill uppdatera statistiken måste du släppa och skapa statistik. Följand
 ```sql
 sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
 ```
+
+> [!NOTE]
+> Proceduren sp_drop_file_statistics får ett nytt namn till sp_drop_openrowset_statistics. Den offentliga Server rollen har behörighet att administrera Mass åtgärder som beviljas när den offentliga databas rollen har kör-behörighet på sp_create_file_statistics och sp_drop_file_statistics. Detta kan ändras i framtiden.
 
 Argument: [ @stmt =] N ' statement_text '-anger samma Transact-SQL-uttryck som används när statistiken skapades.
 

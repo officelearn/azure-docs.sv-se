@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 99a9e68a2e0c39364cc5105f230b00ffb90d867d
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 76a5e12eee7a325a73b3c17dba6c775b6984b89a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82888802"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195912"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Använd Log Analytics för funktionen diagnostik
 
@@ -124,9 +124,9 @@ Diagnostiska händelser skickas till Log Analytics när de är klara.
 
 Log Analytics endast rapporter i dessa mellanliggande tillstånd för anslutnings aktiviteter:
 
-- Börjat
-- Ansluten
-- Slutfört
+- Startade: när en användare väljer och ansluter till en app eller ett skriv bord i fjärr skrivbords klienten.
+- Ansluten: när användaren har anslutit till den virtuella datorn där appen eller Skriv bordet finns.
+- Slutfört: när användaren eller servern kopplar från sessionen som aktiviteten ägde rum i.
 
 ## <a name="example-queries"></a>Exempelfrågor
 

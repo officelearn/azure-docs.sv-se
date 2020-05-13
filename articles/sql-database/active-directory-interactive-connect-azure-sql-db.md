@@ -4,19 +4,19 @@ description: C#-kod exempel, med förklaringar, för att ansluta till Azure SQL 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: active directory
+ms.custom: active directory, has-adal-ref
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi, vanto
 ms.date: 10/11/2019
-ms.openlocfilehash: 5e7d58e5e0fc79e407e77ae9d73314a1d5d22666
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc597881d15dbd534b36109fc653ffbc671f1f4d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73692298"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197085"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Ansluta till Azure SQL Database med Azure Multi-Factor Authentication
 
@@ -26,7 +26,7 @@ Mer information om Multi-Factor Authentication stöd för SQL-verktyg finns [i A
 
 ## <a name="multi-factor-authentication-for-azure-sql-database"></a>Multi-Factor Authentication för Azure SQL Database
 
-Från och med .NET Framework version 4.7.2 har uppräkningen [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) ett nytt värde `ActiveDirectoryInteractive`:. I ett C#-program för klienter dirigerar uppräkning svärdet systemet till att använda det interaktiva läge för Azure Active Directory (Azure AD) som stöder Multi-Factor Authentication för att ansluta till en Azure SQL-databas. Den användare som kör programmet ser följande dialog rutor:
+Från och med .NET Framework version 4.7.2 har uppräkningen [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) ett nytt värde: `ActiveDirectoryInteractive` . I ett C#-program för klienter dirigerar uppräkning svärdet systemet till att använda det interaktiva läge för Azure Active Directory (Azure AD) som stöder Multi-Factor Authentication för att ansluta till en Azure SQL-databas. Den användare som kör programmet ser följande dialog rutor:
 
 * En dialog ruta som visar ett användar namn för Azure AD och som frågar efter användarens lösen ord.
 
@@ -45,7 +45,7 @@ Skärm dum par av dessa dialog rutor finns i [Konfigurera Multi-Factor Authentic
 > [!TIP]
 > Du kan söka .NET Framework-API: er på [sidan med .NET API-webbläsar verktyget](https://docs.microsoft.com/dotnet/api/).
 >
-> Du kan också söka direkt med den [valfria? term =&lt;Sök värde&gt; parameter](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod).
+> Du kan också söka direkt med den [valfria? term = &lt; Sök värde &gt; parameter](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod).
 
 ## <a name="configure-your-c-application-in-the-azure-portal"></a>Konfigurera C#-programmet i Azure Portal
 
@@ -59,7 +59,7 @@ När en app-registrering slutförs skapas och visas ett **program-ID**. Ditt pro
 
 Så här registrerar och anger du nödvändiga behörigheter för ditt program:
 
-1. I Azure Portal väljer du **Azure Active Directory** > **Appregistreringar** > **ny registrering**.
+1. I Azure Portal väljer du **Azure Active Directory**  >  **Appregistreringar**  >  **ny registrering**.
 
     ![Appregistrering](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -67,7 +67,7 @@ Så här registrerar och anger du nödvändiga behörigheter för ditt program:
 
     ![App-ID visas](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. Välj **API-behörigheter** > **Lägg till en behörighet**.
+2. Välj **API-behörigheter**  >  **Lägg till en behörighet**.
 
     ![Behörighets inställningar för registrerad app](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
@@ -75,7 +75,7 @@ Så här registrerar och anger du nödvändiga behörigheter för ditt program:
 
     ![Lägg till åtkomst till API: et för Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. Välj **delegerade behörigheter** > **user_impersonation** > **Lägg till behörigheter**.
+4. Välj **delegerade behörigheter**  >  **user_impersonation**  >  **Lägg till behörigheter**.
 
     ![Delegera behörigheter till API för Azure SQL Database](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
@@ -83,21 +83,21 @@ Så här registrerar och anger du nödvändiga behörigheter för ditt program:
 
 För att ditt C#-program ska köras måste en Azure SQL Server-administratör tilldela en Azure AD-administratör för din SQL Database-Server. 
 
-På sidan **SQL Server** väljer du **Active Directory admin** > **set admin**.
+På sidan **SQL Server** väljer du **Active Directory admin**  >  **set admin**.
 
 Mer information om Azure AD-administratörer och användare för Azure SQL Database finns i skärm bilderna i [Konfigurera och hantera Azure Active Directory autentisering med SQL Database](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
 ### <a name="add-a-non-admin-user-to-a-specific-database-optional"></a>Lägga till en icke-administratör till en speciell databas (valfritt)
 
-En Azure AD-administratör för en SQL Database-Server kan köra C#-exempel programmet. En Azure AD-användare kan köra programmet om de finns i databasen. En Azure AD SQL-administratör eller en Azure AD-användare som redan finns i databasen och som `ALTER ANY USER` har behörighet för databasen kan lägga till en användare.
+En Azure AD-administratör för en SQL Database-Server kan köra C#-exempel programmet. En Azure AD-användare kan köra programmet om de finns i databasen. En Azure AD SQL-administratör eller en Azure AD-användare som redan finns i databasen och som har `ALTER ANY USER` behörighet för databasen kan lägga till en användare.
 
-Du kan lägga till en användare till databasen med SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) -kommandot. Ett exempel är `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+Du kan lägga till en användare till databasen med SQL- [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) kommandot. Ett exempel är `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 Mer information finns i [använda Azure Active Directory autentisering för autentisering med SQL Database, hanterad instans eller SQL Data Warehouse](sql-database-aad-authentication.md).
 
 ## <a name="new-authentication-enum-value"></a>Uppräknings värde för ny autentisering
 
-C#-exemplet är [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) beroende av namn området. Av särskild intresse för Multi-Factor Authentication är uppräkningen `SqlAuthenticationMethod`, som har följande värden:
+C#-exemplet är beroende av [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) namn området. Av särskild intresse för Multi-Factor Authentication är uppräkningen `SqlAuthenticationMethod` , som har följande värden:
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
@@ -117,11 +117,11 @@ För att C#-programmet ska kunna köras måste du tilldela rätt värden till st
 
 | Statiskt fält namn | Exempelvärde | Var i Azure Portal |
 | :---------------- | :------------ | :-------------------- |
-| Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL-servrar** > **Filtrera efter namn** |
-| AzureAD_UserID | "Auser\@ABC.onmicrosoft.com" | **Azure Active Directory** > **User**användare > **ny gäst användare** |
-| Initial_DatabaseName | "databas" | **SQL Server** > **SQL-databaser** |
-| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App registrations**Appregistreringar > **Sök efter namn** > **program-ID** |
-| RedirectUri | ny URI ("https://mywebserver.com/") | **Azure Active Directory** > **Appregistreringar** > **RedirectURIs**  > **Settings****Search by name** > *[Your-App-registration]* Sök efter namn [your-app-Registration] Settings RedirectURIs > <br /><br />I den här artikeln är ett giltigt värde bra för RedirectUri, eftersom det inte används här. |
+| Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL-servrar**  >  **Filtrera efter namn** |
+| AzureAD_UserID | "Auser \@ ABC.onmicrosoft.com" | **Azure Active Directory**  >  **Användare**  >  **Ny gäst användare** |
+| Initial_DatabaseName | "databas" | **SQL-servrar**  >  **SQL-databaser** |
+| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory**  >  **Appregistreringar**  >  **Sök efter namn**  >  **Program-ID** |
+| RedirectUri | ny URI (" https://mywebserver.com/ ") | **Azure Active Directory**  >  **Appregistreringar**  >  **Sök efter namn**  >  *[Din-app-Registration]*  >  **Inställningar**  >  **RedirectURIs**<br /><br />I den här artikeln är ett giltigt värde bra för RedirectUri, eftersom det inte används här. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>Verifiera med SQL Server Management Studio
@@ -139,13 +139,13 @@ Kör SSMS igen, den här gången med **autentiseringen** inställd på **Active 
 Mer information finns i [konfigurera Multi-Factor Authentication för SSMS och Azure AD](sql-database-ssms-mfa-authentication-configure.md).
 
 > [!NOTE]
-> Om du är gäst användare i databasen måste du också ange Azure AD-domännamnet för databasen: Välj **alternativ** > **AD-domännamn eller klient-ID**. Om du vill hitta domän namnet i Azure Portal väljer du **Azure Active Directory** > **anpassade domän namn**. I C#-exempel programmet är det inte nödvändigt att ange ett domän namn.
+> Om du är gäst användare i databasen måste du också ange Azure AD-domännamnet för databasen: Välj **alternativ**  >  **AD-domännamn eller klient-ID**. Om du vill hitta domän namnet i Azure Portal väljer du **Azure Active Directory**  >  **anpassade domän namn**. I C#-exempel programmet är det inte nödvändigt att ange ett domän namn.
 
 ## <a name="c-code-example"></a>C#-kod exempel
 
 C#-programmet använder sig av [*Microsoft. IdentityModel. clients. ActiveDirectory*](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory) dll-sammansättningen.
 
-Om du vill installera det här paketet väljer du **projekt** > **Hantera NuGet-paket**i Visual Studio. Sök efter och installera **Microsoft. IdentityModel. clients. ActiveDirectory**.
+Om du vill installera det här paketet väljer du **projekt**  >  **Hantera NuGet-paket**i Visual Studio. Sök efter och installera **Microsoft. IdentityModel. clients. ActiveDirectory**.
 
 Det här är ett exempel på en käll kod i C#.
 

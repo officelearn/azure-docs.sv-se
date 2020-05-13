@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: a6ea53e098a002e902d6ee6632f08dd7f2b63ca5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e5cb997bee271a1bf1c795598d0ddfda3373264
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811657"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197146"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhets rekommendationer – en referens guide
 
@@ -40,7 +40,7 @@ Dina säkra Poäng baseras på antalet Security Center rekommendationer som du h
 |**Funktionsapp bör endast vara tillgängligt via HTTPS**|Aktivera "endast HTTPS"-åtkomst för Function Apps. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.<br>(Relaterad princip: Funktionsapp bör endast vara tillgänglig via HTTPS)|Medel|**Y**|Funktionsapp|
 |**Virtuella datorer som är riktade mot Internet bör skyddas med nätverks säkerhets grupper**|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst för dina virtuella datorer.<br>(Relaterad princip: virtuella datorer som är riktade mot Internet bör skyddas med nätverks säkerhets grupper)|Hög/medel|N|Virtuell dator|
 |**IP-vidarebefordran på den virtuella datorn bör inaktive ras**|Inaktivera IP-vidarebefordring. När IP-vidarebefordring är aktiverat på en virtuell dators nätverkskort kan datorn ta emot trafik som är adresserad till andra mål. IP-vidarebefordran krävs sällan (till exempel när du använder den virtuella datorn som en virtuell nätverks installation) och därför bör detta granskas av nätverks säkerhets teamet.<br>(Relaterad princip: [för hands version]: IP-vidarebefordran på den virtuella datorn bör inaktive RAS)|Medel|N|Virtuell dator|
-|**Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer**|Använd just-in-Time (JIT)-åtkomst kontroll för att permanent låsa åtkomsten till valda portar och aktivera behöriga användare för att öppna dem via JIT, under en begränsad tid.<br>(Relaterad princip: just-in-Time Network Access Control ska tillämpas på virtuella datorer)|Hög|N|Virtuell dator|
+|**Hanterings portar för virtuella datorer bör skyddas med just-in-Time-kontroll för nätverks åtkomst**|Använd just-in-Time (JIT)-åtkomst kontroll för att permanent låsa åtkomsten till valda portar och aktivera behöriga användare för att öppna dem via JIT, under en begränsad tid.<br>(Relaterad princip: hanterings portar för virtuella datorer bör skyddas med just-in-Time-kontroll för nätverks åtkomst)|Hög|N|Virtuell dator|
 |**Hanterings portar bör stängas på dina virtuella datorer**|Skärp nätverks säkerhets gruppen för dina virtuella datorer för att begränsa åtkomsten till hanterings portar.<br>(Relaterad princip: hanterings portar bör stängas på dina virtuella datorer)|Hög|N|Virtuell dator|
 |**Säker överföring till lagringskonton ska vara aktiverat**|Aktivera säker överföring till lagrings konton. Säker överföring är ett alternativ som tvingar ditt lagrings konto att endast godkänna begär Anden från säkra anslutningar (HTTPS). Användning av HTTPS garanterar autentisering mellan servern och tjänsten och skyddar data i överföring från angrepp på nätverks nivå, till exempel man-in-the-Middle, avlyssning och session-kapning.<br>(Relaterad princip: säker överföring till lagrings konton ska vara aktive rad)|Hög|**Y**|Lagringskonto|
 |**Undernät ska associeras med en nätverks säkerhets grupp**|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst till resurser som har distribuerats i dina undernät.<br>(Relaterad princip: undernät ska associeras med en nätverks säkerhets grupp.<br>Den här principen är inaktive rad som standard)|Hög/medel|N|Undernät|

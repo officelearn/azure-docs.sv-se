@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 1af0161edb0f833cdd14d8157e6edd9644e21467
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aeee7558aeeb0c1a3de291abc66578d7d955d842
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100285"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196187"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server instans migrering till Azure SQL Database Hanterad instans
 
@@ -43,9 +43,7 @@ På en hög nivå ser databasens migreringsprocessen ut så här:
 
 Ta först reda på om den hanterade instansen är kompatibel med programmets databas krav. Distributions alternativet för hanterade instanser har utformats för att ge enkel växel och flyttning av de flesta befintliga program som använder SQL Server lokalt eller på virtuella datorer. Du kan dock ibland behöva funktioner eller funktioner som ännu inte stöds och kostnaden för att implementera en lösning är för hög.
 
-Använd [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem som påverkar databas funktioner på Azure SQL Database. DMA stöder ännu inte hanterad instans som migreringsmålet, men vi rekommenderar att du kör utvärderingen mot Azure SQL Database och noga granskar listan över rapporterade funktioner paritets-och kompatibilitetsproblem med produkt dokumentation. Se [Azure SQL Database funktioner](sql-database-features.md) för att kontrol lera att det finns rapporterade spärrnings problem som inte är blockerade i hanterade instanser, eftersom de flesta av de blockerande problem som förhindrar migrering till Azure SQL Database har tagits bort med hanterade instanser. Till exempel funktioner som kors databas frågor, transaktioner mellan databaser inom samma instans, länkad server till andra SQL-källor, CLR, globala temporära tabeller, vyer på instans nivå, Service Broker och liknande är tillgängliga i hanterade instanser.
-
-Om det finns rapporterade spärr problem som inte tas bort med distributions alternativet hanterad instans kan du behöva överväga ett alternativt alternativ, till exempel [SQL Server på virtuella Azure-datorer](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här följer några exempel:
+Använd [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) för att identifiera potentiella kompatibilitetsproblem som påverkar databas funktioner på Azure SQL Database. Om det finns rapporterade spärrnings problem kan du behöva överväga ett alternativt alternativ, till exempel [SQL Server på virtuella Azure-datorer](https://azure.microsoft.com/services/virtual-machines/sql-server/). Här följer några exempel:
 
 - Om du behöver direkt åtkomst till operativ systemet eller fil systemet, till exempel för att installera tredje part eller anpassade agenter på samma virtuella dator med SQL Server.
 - Om du har strikt beroende på funktioner som fortfarande inte stöds, till exempel FileStream/FileTable-, PolyBase-och kors instans transaktioner.
@@ -53,6 +51,7 @@ Om det finns rapporterade spärr problem som inte tas bort med distributions alt
 - Om beräknings kraven är mycket lägre än den hanterade instansen (en vCore, till exempel) och databas konsolidering är inte ett acceptabelt alternativ.
 
 Observera att vissa av ändringarna kan påverka arbets Belastningens prestanda om du har löst alla identifierade migrerings block och fortsätter migreringen till en hanterad instans:
+
 - Den obligatoriska fullständiga återställnings modellen och regelbundna automatiserade säkerhets kopierings scheman kan påverka prestanda för dina arbets belastnings-eller underhålls-eller ETL-åtgärder om du regelbundet har använt Enkel/Mass loggad modell eller stoppat säkerhets kopieringar
 - Andra konfigurationer på Server-eller databas nivå, till exempel spårnings flaggor eller kompatibilitetsnivå
 - Nya funktioner som du använder, till exempel transparent databas kryptering (TDE) eller grupper för automatisk redundans kan påverka CPU-och i/o-användning.
@@ -181,7 +180,7 @@ Resultatet av prestanda jämförelsen kan vara:
 Hanterad instans innehåller många avancerade verktyg för övervakning och fel sökning, och du bör använda dem för att övervaka prestanda på din instans. Några av parametrarna som skulle behöva övervakas är:
 - CPU-användning på instansen för att avgöra hur många virtuella kärnor som du har allokerat är den rätta matchningen för din arbets belastning.
 - Förväntad på din hanterade instans för att fastställa [behöver du ytterligare minne](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444).
-- Vänta med statistik `INSTANCE_LOG_GOVERNOR` , `PAGEIOLATCH` som kan se att du har lagrings-i/o-problem, särskilt på generell användning nivå där du kan behöva förallokera filer för att få bättre IO-prestanda.
+- Vänta med statistik `INSTANCE_LOG_GOVERNOR` `PAGEIOLATCH` , som kan se att du har lagrings-i/o-problem, särskilt på generell användning nivå där du kan behöva förallokera filer för att få bättre IO-prestanda.
 
 ## <a name="leverage-advanced-paas-features"></a>Utnyttja avancerade PaaS-funktioner
 

@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 01/23/2020
+ms.date: 05/05/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 658910dc4291375c7b2ab22e88c599b970b885af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11a9b8609218a6cf56a789b18094d048e26d4af8
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80419231"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343345"
 ---
 Med standardiserade avbildningar av virtuella datorer kan organisationer migrera till molnet och säkerställa konsekvens i distributionerna. Bilder innehåller vanligt vis fördefinierade säkerhets-och konfigurations inställningar och nödvändig program vara. Att konfigurera din egen avbildnings pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder får du bara en enkel konfiguration som beskriver avbildningen, skickar den till tjänsten och avbildningen skapas och distribueras.
  
@@ -30,7 +30,7 @@ I för hands versionen stöds dessa funktioner:
 - Integrering med Azures delade avbildnings Galleri, gör att du kan distribuera, version och skala avbildningar globalt och ger dig ett avbildnings hanterings system.
 - Integrering med befintliga avbildningar skapar pipeliner, anropar bara Image Builder från din pipeline eller Använd den enkla för hands versionen av DevOps-aktiviteten i Image Builder.
 - Migrera en befintlig avbildnings anpassnings pipeline till Azure. Använd dina befintliga skript, kommandon och processer för att anpassa avbildningar.
-- Skapa avbildningar i VHD-format.
+- Skapa avbildningar i VHD-format för att stödja Azure Stack.
  
 
 ## <a name="regions"></a>Regioner
@@ -55,8 +55,7 @@ AIB kommer att ha stöd för Azure Marketplace Base OS-avbildningar:
 - Windows 2016
 - Windows 2019
 
-RHEL ISO-stöd är inaktuellt. mer information finns i dokumentationen för mallen.
-
+Stöd för RHEL ISO stöds inte längre.
 ## <a name="how-it-works"></a>Så här fungerar det
 
 
@@ -71,40 +70,28 @@ Azure Image Builder är en fullständigt hanterad Azure-tjänst som kan nås av 
 ![Konceptuell ritning i Azure Image Builder-processen](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. Skapa avbildnings mal len som en. JSON-fil. Den här. JSON-filen innehåller information om avbildningens källa, anpassningar och distribution. Det finns flera exempel i [Azure Image Builder GitHub-lagringsplatsen](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
-1. Skicka den till tjänsten. då skapas en avbildnings mal len artefakt i den resurs grupp som du anger. I bakgrunden kommer Image Builder att ladda ned käll avbildningen eller ISO och skript efter behov. De lagras i en separat resurs grupp som skapas automatiskt i din prenumeration i formatet: IT_\<DestinationResourceGroup>_\<TemplateName>. 
-1. När du har skapat avbildnings mal len kan du skapa avbildningen. I Background Image Builder används mallen och källfilerna för att skapa en virtuell dator (standard storlek: Standard_D1_v2), nätverk, offentlig IP, NSG och lagring i IT_\<DestinationResourceGroup>_\<TemplateName> resurs grupp.
-1. Som en del av avbildningen distribuerar Image Builder avbildningen enligt mallen och tar sedan bort de ytterligare resurserna i IT_\<DestinationResourceGroup>_\<TemplateName> resurs gruppen som skapades för processen.
+1. Skicka den till tjänsten. då skapas en avbildnings mal len artefakt i den resurs grupp som du anger. I bakgrunden kommer Image Builder att ladda ned käll avbildningen eller ISO och skript efter behov. De lagras i en separat resurs grupp som skapas automatiskt i din prenumeration i formatet: IT_ \< DestinationResourceGroup>_ \< TemplateName>. 
+1. När du har skapat avbildnings mal len kan du skapa avbildningen. I Background Image Builder används mallen och källfilerna för att skapa en virtuell dator (standard storlek: Standard_D1_v2), nätverk, offentlig IP, NSG och lagring i IT_ \< DestinationResourceGroup>_ \< TemplateName> resurs grupp.
+1. Som en del av avbildningen distribuerar Image Builder avbildningen enligt mallen och tar sedan bort de ytterligare resurserna i IT_ \< DestinationResourceGroup>_ \< TemplateName> resurs gruppen som skapades för processen.
 
 
 ## <a name="permissions"></a>Behörigheter
+När du registrerar dig för (AIB) ger detta behörigheten AIB-tjänst för att skapa, hantera och ta bort en resurs grupp för mellanlagring (IT_ *) och har behörighet att lägga till resurser i den, vilket krävs för avbildnings versionen. Detta görs av ett AIB tjänst huvud namn (SPN) som görs tillgängligt i prenumerationen vid en lyckad registrering.
 
-Om du vill tillåta att Azure VM Image Builder distribuerar avbildningar till antingen de hanterade avbildningarna eller till ett delat avbildnings Galleri måste du ange deltagar behörighet för tjänsten Azure Virtual Machine Image Builder (app-ID: cf32a0cc-373c-47c9-9156-0db11f6a6dfc) i resurs grupperna. 
+Om du vill tillåta att Azure VM Image Builder distribuerar avbildningar till antingen de hanterade avbildningarna eller till ett delat avbildnings Galleri måste du skapa en Azure User-tilldelad identitet som har behörighet att läsa och skriva bilder. Om du använder Azure Storage måste du ha behörighet att läsa privata behållare.
 
-Om du använder en befintlig anpassad hanterad avbildnings-eller avbildnings version behöver Azure Image Builder minst ' Reader '-åtkomst till dessa resurs grupper.
+Först måste du [skapa en Azure User-tilldelade hanterad identitets](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) dokumentation om hur du skapar en identitet.
 
-Du kan tilldela åtkomst med hjälp av Azure CLI:
+När du har identiteten som du behöver för att ge IT-behörighet kan du använda en anpassad roll definition i Azure och sedan tilldela den användare som tilldelats den hanterade identiteten att använda den anpassade roll definitionen.
 
-```azurecli-interactive
-az role assignment create \
-    --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
-    --role Contributor \
-    --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
-```
+Behörigheter förklaras i detalj [här](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)och exemplen visar hur detta implementeras.
 
-Du kan tilldela åtkomst med hjälp av PowerShell:
-
-```azurePowerShell-interactive
-New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName> -RoleDefinitionName Contributor
-```
-
-
-Om tjänst kontot inte hittas kan det betyda att prenumerationen där du lägger till roll tilldelningen ännu inte har registrerats för resurs leverantören.
-
+> [OBS!] Tidigare med AIB använder du AIB SPN och ger SPN-behörighet till avbildnings resurs grupperna. Vi går vidare från den här modellen, så att du kan använda framtida funktioner. Från 1 juni 2020 kommer Image Builder inte att acceptera mallar som inte har någon tilldelad identitet, befintliga mallar måste skickas igen till tjänsten med en [användar identitet](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). Exemplen här visar redan hur du kan skapa en användardefinierad identitet och lägga till dem i en mall.
 
 ## <a name="costs"></a>Kostnader
 Du kommer att ådra dig några beräknings-, nätverks-och lagrings kostnader när du skapar, skapar och lagrar avbildningar med Azure Image Builder. Dessa kostnader liknar kostnaderna för att skapa anpassade avbildningar manuellt. För resurserna debiteras du enligt dina Azure-priser. 
 
-Under processen för att skapa avbildningar laddas filerna ned och lagras `IT_<DestinationResourceGroup>_<TemplateName>` i resurs gruppen, vilket innebär en liten lagrings kostnad. Om du inte vill behålla dessa raderar du **avbildnings mal len** efter att avbildningen har byggts.
+Under processen för att skapa avbildningar laddas filerna ned och lagras i `IT_<DestinationResourceGroup>_<TemplateName>` resurs gruppen, vilket innebär en liten lagrings kostnad. Om du inte vill behålla dessa raderar du **avbildnings mal len** efter att avbildningen har byggts.
  
 Image Builder skapar en virtuell dator med en D1v2 VM-storlek, och lagrings utrymme och nätverk som krävs för den virtuella datorn. Dessa resurser kommer att vara sist under Bygg processen och tas bort när avbildnings verktyget har skapat avbildningen. 
  
@@ -113,5 +100,4 @@ Azure Image Builder distribuerar avbildningen till dina valda regioner, vilket k
 ## <a name="next-steps"></a>Nästa steg 
  
 Om du vill prova Azure Image Builder kan du läsa artikeln om att skapa [Linux](../articles/virtual-machines/linux/image-builder.md) -eller [Windows](../articles/virtual-machines/windows/image-builder.md) -avbildningar.
- 
  

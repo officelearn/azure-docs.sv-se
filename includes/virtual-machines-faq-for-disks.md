@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e1cf3905a34fdced878526cfcc55e6dd0a1a369f
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: e87b6ee4739818e25ee069986e299f8205d44a2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82595247"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343311"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -257,32 +257,6 @@ Alla Azure-regioner stöder nu Standard SSD diskar.
 **Är Azure Backup tillgängligt när du använder standard-SSD?**
 Ja, Azure Backup är nu tillgängligt.
 
-**Hur gör jag för att skapa Standard SSD diskar?**
-Du kan skapa Standard SSD diskar med Azure Resource Manager mallar, SDK, PowerShell eller CLI. Nedan visas de parametrar som behövs i Resource Manager-mallen för att skapa Standard SSD diskar:
-
-* *API version* för Microsoft. Compute måste anges som `2018-04-01` (eller senare)
-* Ange *managedDisk. storageAccountType* som`StandardSSD_LRS`
-
-I följande exempel visas avsnittet *Properties. storageProfile. osDisk* för en virtuell dator som använder standard SSD diskar:
-
-```json
-"osDisk": {
-    "osType": "Windows",
-    "name": "myOsDisk",
-    "caching": "ReadWrite",
-    "createOption": "FromImage",
-    "managedDisk": {
-        "storageAccountType": "StandardSSD_LRS"
-    }
-}
-```
-
-Ett komplett mall exempel på hur du skapar en Standard SSD disk med en mall finns i [skapa en virtuell dator från en Windows-avbildning med standard SSD data diskar](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
-
-**Kan jag konvertera mina befintliga diskar till Standard SSD?**
-Ja, det kan du. Se [konvertera Azure Managed disks Storage från standard till Premium och vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) för de allmänna rikt linjerna för att konvertera Managed disks. Och Använd följande värde för att uppdatera disk typen till Standard SSD.
--Den StandardSSD_LRS
-
 **Vad är fördelen med att använda Standard SSD diskar i stället för hård diskar?**
 Standard SSD diskar ger bättre svars tid, konsekvens, tillgänglighet och tillförlitlighet jämfört med hård diskar. Program arbets belastningar kör mycket mer smidigt på Standard SSD på grund av det. Obs! Premium SSD diskar är den rekommenderade lösningen för de flesta i/o-intensiva produktions arbets belastningar.
 
@@ -332,9 +306,9 @@ Ja
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks och Kryptering för lagringstjänst
 
-**Är Azure Storage tjänst kryptering aktive rad som standard när jag skapar en hanterad disk?**
+**Är kryptering på Server sidan aktiverat som standard när jag skapar en hanterad disk?**
 
-Ja.
+Ja. Managed Disks krypteras med kryptering på Server sidan med plattforms hanterade nycklar. 
 
 **Är start volymen krypterad som standard på en hanterad disk?**
 
@@ -342,30 +316,27 @@ Ja. Som standard krypteras alla hanterade diskar, inklusive OS-disken.
 
 **Vem hanterar krypterings nycklarna?**
 
-Microsoft hanterar krypterings nycklarna.
+Plattforms hanterade nycklar hanteras av Microsoft. Du kan också använda och hantera dina egna nycklar som lagras i Azure Key Vault. 
 
-**Kan jag inaktivera Kryptering för lagringstjänst för mina hanterade diskar?**
+**Kan jag inaktivera kryptering på Server sidan för mina hanterade diskar?**
 
 Nej.
 
-**Är Kryptering för lagringstjänst endast tillgängligt i vissa regioner?**
+**Är kryptering enbart på Server sidan tillgängligt i vissa regioner?**
 
-Nej. Den är tillgänglig i alla regioner där Managed Disks är tillgängliga. Managed Disks är tillgängligt i alla offentliga regioner och Tyskland. Den är också tillgänglig i Kina, men endast för Microsoft-hanterade nycklar, inte kund hanterade nycklar.
+Nej. Kryptering på Server sidan med både plattforms-och kund hanterade nycklar är tillgängliga i alla regioner där Managed Disks är tillgängliga. 
 
-**Hur kan jag ta reda på om min hanterade disk är krypterad?**
+**Har Azure Site Recovery stöd för kryptering på Server sidan med kundhanterad nyckel för lokal till Azure och Azure till Azures haveri beredskap för haveri beredskap?**
 
-Du kan ta reda på hur lång tid det tar innan en hanterad disk skapades från Azure Portal, Azure CLI och PowerShell. Om tiden är senare än den 9 juni 2017 krypteras din disk.
+Ja. 
 
-**Hur kan jag kryptera mina befintliga diskar som skapats före den 10 juni 2017?**
+**Kan jag säkerhetskopiera Managed Disks krypterad med kryptering på Server sidan med kund hanterad nyckel med hjälp av tjänsten Azure Backup?**
 
-Från och med den 10 juni 2017 krypteras nya data som skrivs till befintliga hanterade diskar automatiskt. Vi planerar också att kryptera befintliga data och krypteringen sker asynkront i bakgrunden. Om du måste kryptera befintliga data nu skapar du en kopia av disken. Nya diskar kommer att krypteras.
-
-* [Kopiera hanterade diskar med hjälp av Azure CLI](../articles/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
-* [Kopiera hanterade diskar med hjälp av PowerShell](../articles/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json)
+Ja.
 
 **Är hanterade ögonblicks bilder och bilder krypterade?**
 
-Ja. Alla hanterade ögonblicks bilder och avbildningar som skapats efter den 9 juni 2017 krypteras automatiskt. 
+Ja. Alla hanterade ögonblicks bilder och avbildningar krypteras automatiskt. 
 
 **Kan jag konvertera virtuella datorer med ohanterade diskar som finns på lagrings konton som eller tidigare har krypterats till Managed disks?**
 

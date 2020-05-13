@@ -22,6 +22,8 @@
   items:
     - name: Classroom Labs-begrepp
       href: classroom-labs-concepts.md
+    - name: Classroom Labs-arkitekturens grunder
+      href: classroom-labs-fundamentals.md
     - name: Scenarier
       items:
         - name: Använda labb i klasser
@@ -136,7 +138,7 @@
       href: 'https://azure.microsoft.com/updates/?product=lab-services'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/lab-services/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-lab-services'
+    - name: Tech Community-forum
+      href: 'https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices'
     - name: Vanliga frågor och svar
       href: classroom-labs-faq.md

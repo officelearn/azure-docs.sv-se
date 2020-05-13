@@ -557,6 +557,20 @@
       items:
         - name: Viktig information om SDK för Speech-enheter
           href: devices-sdk-release-notes.md
+- name: Verktyg
+  items:
+    - name: SPX
+      items:
+        - name: Vad är SPX?
+          href: spx-overview.md
+        - name: Grunderna i SPX
+          href: spx-basics.md
+    - name: Speech Studio
+      items:
+        - name: Vad är Speech Studio?
+          href: 'https://speech.microsoft.com'
+        - name: Skapa en app för anpassade kommandon med Speech Studio
+          href: quickstart-custom-speech-commands-create-new.md
 - name: Migrering
   items:
     - name: Från Taligenkänning i Bing

@@ -15,7 +15,7 @@
       href: tutorial-enable-sspr-writeback.md
     - name: Konfigurera anpassade listor över förbjudna lösenord
       href: tutorial-configure-custom-password-protection.md
-    - name: Integrera Azure Identity Protection
+    - name: Aktivera riskbaserat inloggningsskydd
       href: tutorial-risk-based-sspr-mfa.md
 - name: Begrepp
   expanded: true

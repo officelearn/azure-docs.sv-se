@@ -25,6 +25,8 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Skapa datafabrik – Resource Manager-mall
       href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Säkerhet – aktivera kundhanterad nyckelkryptering
+      href: quickstart-enable-customer-managed-key.md
     - name: Skapa ett dataflöde
       href: data-flow-create.md
 - name: Självstudier

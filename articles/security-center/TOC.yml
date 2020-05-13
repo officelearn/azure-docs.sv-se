@@ -12,6 +12,8 @@
           href: security-center-services.md
         - name: Funktioner för Azure PaaS-resurser
           href: features-paas.md
+    - name: Vad är nytt i Security Center?
+      href: release-notes.md
     - name: Säkerhetsrekommendationer
       href: recommendations-reference.md
     - name: Säkerhetsaviseringar och händelsekedja för avsikt
@@ -188,7 +190,9 @@
           href: faq-vms.md
         - name: Befintliga Azure Log Analytics-användare
           href: faq-azure-monitor-logs.md
-    - name: Viktig information
+    - name: Arkiv med nyheter i Security Center
+      href: release-notes-archive.md
+    - name: Blogg om Azure-översikt
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Tillbakadragande av funktioner och API (juli 2019)
       href: security-center-features-retirement-july2019.md

@@ -234,6 +234,11 @@
                       href: instance-generalized-image-version-cli.md
                 - name: Uppdatera avbildningsresurser
                   href: ../virtual-machines/update-image-resources-cli.md
+            - name: Felsöka delade bilder
+              href: ../virtual-machines/troubleshooting-shared-images.md
+            - name: Använda kundhanterade nycklar
+              displayName: 'SSE, CMK, encrypt'
+              href: ../virtual-machines/image-version-encryption.md
     - name: Skapa en mall
       items:
         - name: Läs mer om skalningsuppsättningsmallar

@@ -212,6 +212,8 @@
     - name: Felsöka
       items:
         - name: Felsökningsguide
+          href: troubleshooting-guide.md
+        - name: .NET-undantag
           href: event-hubs-messaging-exceptions.md
         - name: Resource Manager-undantag
           href: resource-manager-exceptions.md

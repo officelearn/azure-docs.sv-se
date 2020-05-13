@@ -129,6 +129,8 @@
           href: scale-cluster.md
         - name: Uppgradera ett AKS-kluster
           href: upgrade-cluster.md
+        - name: Använda serviceavtal för drifttid
+          href: uptime-sla.md
         - name: Bearbeta OS-noduppdateringar
           href: node-updates-kured.md
         - name: Konfigurera ett AKS-kluster
@@ -231,7 +233,7 @@
         - name: Aktivera Azure Active Directory-integrering
           items:
             - name: Integrera Azure AD (förhandsversion)
-              href: azure-ad-v2.md
+              href: managed-aad.md
             - name: Använda Azure CLI
               href: azure-ad-integration-cli.md
             - name: Använda Azure-portalen

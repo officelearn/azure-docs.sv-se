@@ -7,18 +7,26 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: ASP.NET-app
-      href: cache-web-app-howto.md
-    - name: .NET Core-app
-      href: cache-dotnet-core-quickstart.md
-    - name: .NET-app
-      href: cache-dotnet-how-to-use-azure-redis-cache.md
-    - name: Java-app
-      href: cache-java-get-started.md
-    - name: Node.js-app
-      href: cache-nodejs-get-started.md
-    - name: Python-app
-      href: cache-python-get-started.md
+    - name: Skapa en cache
+      items:
+        - name: 'Nivåerna Basic, Standard och Premium'
+          href: quickstart-create-redis.md
+        - name: Företagsnivåer
+          href: quickstart-create-redis-enterprise.md
+    - name: Använda en cache
+      items:
+        - name: ASP.NET-app
+          href: cache-web-app-howto.md
+        - name: .NET Core-app
+          href: cache-dotnet-core-quickstart.md
+        - name: .NET-app
+          href: cache-dotnet-how-to-use-azure-redis-cache.md
+        - name: Java-app
+          href: cache-java-get-started.md
+        - name: Node.js-app
+          href: cache-nodejs-get-started.md
+        - name: Python-app
+          href: cache-python-get-started.md
 - name: Självstudier
   items:
     - name: Använda cachelagring med rankningslistor

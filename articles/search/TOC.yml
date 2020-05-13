@@ -315,6 +315,8 @@
           href: search-security-overview.md
         - name: Skapa en privat slutpunkt
           href: service-create-private-endpoint.md
+        - name: Konfigurera en IP-brandvägg
+          href: service-configure-firewall.md
         - name: Hantering av servicenycklar
           href: search-security-api-keys.md
         - name: Rollbaserad administratörsåtkomst

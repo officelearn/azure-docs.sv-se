@@ -200,6 +200,8 @@
           href: web-sites-monitor.md
         - name: Aktivera loggar
           href: troubleshoot-diagnostic-logs.md
+        - name: Hämta resurshändelser
+          href: get-resource-events.md
     - name: Hantera app
       items:
         - name: Hantera värdplanen

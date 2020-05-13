@@ -94,11 +94,11 @@
                   items:
                     - name: Check Point
                       href: connect-checkpoint.md
-                    - name: Cisco
+                    - name: Cisco ASA
                       href: connect-cisco.md
                     - name: ExtraHop Reveal(x)
                       href: connect-extrahop.md
-                    - name: F5
+                    - name: F5 ASM
                       href: connect-f5.md
                     - name: Forcepoint-produkter
                       href: connect-forcepoint-casb-ngfw.md
@@ -118,8 +118,10 @@
           href: connect-threat-intelligence.md
         - name: Ansluta virtuella datorer i Azure Stack
           href: connect-azure-stack.md
-    - name: Flera klienter (MSSP)
+    - name: Arbeta med flera klientorganisationer (MSSP)
       href: multiple-tenants-service-providers.md
+    - name: Arbeta med incidenter på flera arbetsytor
+      href: multiple-workspace-view.md
     - name: Konfigurera kundhanterade nycklar (CMK)
       href: customer-managed-keys.md
     - name: Skapa incidenter från aviseringar
@@ -145,3 +147,5 @@
       href: 'https://blogs.msdn.com/b/azuresecurity/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/en-us/pricing/details/azure-sentinel/'

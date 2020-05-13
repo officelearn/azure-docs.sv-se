@@ -1018,7 +1018,7 @@
           href: how-to-use-change-feed-estimator.md
         - name: Migrera från Change Feed Processor-biblioteket
           href: how-to-migrate-from-change-feed-library.md
-        - name: Skapa ett Java SQL-program med ändringsflöde
+        - name: Ändringsflöde – Async Java-exempel
           href: create-sql-api-java-changefeed.md
     - name: Inbyggd analys med Apache Spark
       items:
@@ -1080,6 +1080,8 @@
               href: monitor-server-side-latency.md
             - name: Övervaka användning av enheter för programbegäran
               href: monitor-request-unit-usage.md
+            - name: Övervaka normaliserad användning av enheter för programbegäran
+              href: monitor-normalized-request-units.md
         - name: Använda Azure-övervakningsloggar
           items:
             - name: Övervaka med diagnostikloggar

@@ -2,28 +2,28 @@
 title: Självstudie – Använd en anpassad VM-avbildning i en skalnings uppsättning med Azure PowerShell
 description: Läs hur du använder Azure PowerShell för att skapa en anpassad virtuell datoravbildning som du kan använda för att distribuera en VM-skalningsuppsättning
 author: cynthn
-tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
 ms.topic: tutorial
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 4b072991a86922fe2b4ba5be93b4c96841dc24af
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.custom: akjosh
+ms.openlocfilehash: 3f99b68de4bce37e7ba9ce6656cf401209e73105
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792776"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200922"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure PowerShell
 
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
-> * Skapa ett galleri för delad avbildning
+> * Skapa ett Shared Image Gallery
 > * Skapa en avbildnings definition
-> * Skapa en avbildnings version
+> * Skapa en avbildningsversion
 > * Skapa en skalnings uppsättning från en bild 
 > * Dela ett avbildnings Galleri
 
@@ -39,12 +39,12 @@ Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i den h
 
 Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
 
-Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com/powershell](https://shell.azure.com/powershell)gå till. Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
+Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell på en separat webbläsare-flik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
 
 ## <a name="get-the-vm"></a>Hämta den virtuella datorn
 
-Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp kan `Get-AzVM` du använda igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$VM*. 
+Du kan se en lista över virtuella datorer som är tillgängliga i en resurs grupp med hjälp av [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). När du känner till namnet på den virtuella datorn och vilken resurs grupp kan du använda `Get-AzVM` igen för att hämta det virtuella datorobjektet och lagra det i en variabel som ska användas senare. Det här exemplet hämtar en virtuell dator med namnet *sourceVM* från resurs gruppen "myResourceGroup" och tilldelar den variabeln *$VM*. 
 
 ```azurepowershell-interactive
 $sourceVM = Get-AzVM `
@@ -98,7 +98,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 ```
 
 
-## <a name="create-an-image-version"></a>Skapa en avbildnings version
+## <a name="create-an-image-version"></a>Skapa en avbildningsversion
 
 Skapa en avbildnings version från en virtuell dator med [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
 
@@ -106,7 +106,7 @@ Tillåtna tecken för bild version är tal och punkter. Talen måste vara inom i
 
 I det här exemplet är avbildnings versionen *1.0.0* och replikeras till både *östra USA* och *södra centrala USA* -datacenter. När du väljer mål regioner för replikering måste du inkludera *käll* regionen som mål för replikering.
 
-Om du vill skapa en avbildnings version från den `$vm.Id.ToString()` virtuella datorn `-Source`använder du för.
+Om du vill skapa en avbildnings version från den virtuella datorn använder du `$vm.Id.ToString()` för `-Source` .
 
 ```azurepowershell-interactive
 $region1 = @{Name='South Central US';ReplicaCount=1}
@@ -262,9 +262,9 @@ Azure erbjuder också en tjänst som bygger på Packer, [Azure VM Image Builder]
 I den här självstudien fick du läsa om hur du skapar och använder en anpassad virtuell datoravbildning för dina skalningsuppsättningar med Azure PowerShell:
 
 > [!div class="checklist"]
-> * Skapa ett galleri för delad avbildning
+> * Skapa ett Shared Image Gallery
 > * Skapa en avbildnings definition
-> * Skapa en avbildnings version
+> * Skapa en avbildningsversion
 > * Skapa en skalnings uppsättning från en bild 
 > * Dela ett avbildnings Galleri
 

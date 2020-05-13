@@ -2,15 +2,15 @@
 title: Exponera dina funktioner med OpenAPI med hjälp av Azure API Management
 description: Skapa en OpenAPI-definition som gör det möjligt för andra appar och tjänster att anropa din funktion i Azure.
 ms.topic: tutorial
-ms.date: 05/08/2019
+ms.date: 04/21/2020
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 9465209467c83f7de075d16e724459c307d55bd3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d63d5ea17184ffa6e456877079da0821a75d59e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77210216"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121496"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Skapa en OpenAPI-definition för ett Server lös API med hjälp av Azure API Management
 
@@ -39,17 +39,19 @@ Den här självstudien använder en HTTP-utlöst funktion som tar två parametra
 * Beräknad tid för att göra en turbin-reparation i timmar.
 * Kapaciteten för turbinen i kilowatt. 
 
-Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket intäkter turbinen kan generera under en 24-timmarsperiod. För att skapa funktionen HTTP-utlöst i [Azure Portal](https://portal.azure.com):
+Funktionen beräknar sedan hur mycket en reparation kostar och hur mycket pengar turbinen kan göra under en 24-timmarsperiod. För att skapa funktionen HTTP-utlöst i [Azure Portal](https://portal.azure.com):
 
-1. Expandera din Function-app och välj **+** knappen bredvid **Functions**. Välj **i-portalen** > **Fortsätt**.
+1. På den vänstra menyn i appen Functions väljer du **Functions**och väljer sedan **Lägg till** på den översta menyn.
 
-1. Välj **Fler mallar...** och välj sedan **Slutför och Visa mallar**
+1. I fönstret **ny funktion** väljer du **http-utlösare**.
 
-1. Välj HTTP-utlösare `TurbineRepair` , skriv för funktions **namnet**, Välj `Function` för **[Autentiseringsnivå](functions-bindings-http-webhook-trigger.md#http-auth)** och välj sedan **skapa**.  
+1. För **ny funktion**anger du `TurbineRepair` . 
 
-    ![Skapa HTTP-funktion för OpenAPI](media/functions-openapi-definition/select-http-trigger-openapi.png)
+1. Välj **funktion** i list rutan **[Autentiseringsnivå](functions-bindings-http-webhook-trigger.md#http-auth)** och välj sedan **skapa funktion**.
 
-1. Ersätt innehållet i C#-skript filen Run. CSX med följande kod och välj sedan **Spara**:
+    :::image type="content" source="media/functions-openapi-definition/select-http-trigger-openapi.png" alt-text="Skapa HTTP-funktion för OpenAPI":::
+
+1. Välj **kod + test**och välj sedan **Kör. CSX** i list rutan. Ersätt innehållet i C#-skript filen Run. CSX med följande kod och välj sedan **Spara**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -102,9 +104,9 @@ Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket 
     }
     ```
 
-    Den här funktionskoden returnerar meddelandet `Yes` eller `No` som indikation på om en nödreparation är kostnadseffektiv, intäktsmöjligheten som turbinen representerar och kostnaden för att reparera turbinen.
+    Den här funktions koden returnerar ett meddelande om `Yes` eller `No` för att indikera om en nöd reparation är kostnads effektiv. Det returnerar också den intäkts möjlighet som turbinen representerar och kostnaden för att åtgärda turbinen.
 
-1. Testa funktionen genom att klicka på **test** längst till höger för att expandera fliken test. Ange följande värde för **begär ande texten**och klicka sedan på **Kör**.
+1. Om du vill testa funktionen väljer du **test**, väljer fliken **inmatare** , anger följande ininformation för **bröd texten**och väljer sedan **Kör**:
 
     ```json
     {
@@ -113,9 +115,9 @@ Funktionen beräknar sedan hur mycket en reparation skulle kosta och hur mycket 
     }
     ```
 
-    ![Testa funktionen i Azure Portal](media/functions-openapi-definition/test-function.png)
+    :::image type="content" source="media/functions-openapi-definition/test-function.png" alt-text="Testa funktionen i Azure Portal":::
 
-    Följande värde returneras i brödtexten i svaret.
+    Följande utdata returneras i fliken **utdata** :
 
     ```json
     {"message":"Yes","revenueOpportunity":"$7200","costToFix":"$1600"}
@@ -125,47 +127,48 @@ Nu har du en funktion som avgör om en nödreparation är kostnadseffektiv. Där
 
 ## <a name="generate-the-openapi-definition"></a>Generera OpenAPI-definitionen
 
-Nu är du redo att generera OpenAPI-definitionen.
+Så här genererar du OpenAPI-definitionen:
 
-1. Välj Function-appen, Välj **API Management** i **plattforms funktioner**och välj **Skapa ny** under **API Management**.
+1. Välj Function-appen, Välj **API Management** på menyn till vänster och välj sedan **skapa ny** under **API Management**.
 
-    ![Välj API Management i plattforms funktioner](media/functions-openapi-definition/select-all-settings-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/select-all-settings-openapi.png" alt-text="Välj API Management":::
 
-1. Använd API Management inställningar som anges i tabellen nedanför bilden.
 
-    ![Skapa ny API Management-tjänst](media/functions-openapi-definition/new-apim-service-openapi.png)
+1. Använd API Management inställningar som anges i följande tabell:
 
     | Inställningen      | Föreslaget värde  | Beskrivning                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Namn** | Globalt unikt namn | Ett namn genereras baserat på namnet på din Function-app. |
     | **Prenumeration** | Din prenumeration | Prenumerationen som den här nya resursen skapas under. |  
-    | **[Resurs grupp](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Samma resurs som din Function-app, som ska ställas in för dig. |
+    | **[Resursgrupp](../azure-resource-manager/management/overview.md)** |  myResourceGroup | Samma resurs som din Function-app, som ska ställas in för dig. |
     | **Position** | USA, västra | Välj platsen för västra USA. |
-    | **Organisationens namn** | Contoso | Namnet på organisationen som används i Developer-portalen och för e-postaviseringar. |
+    | **Organisationsnamn** | Contoso | Namnet på organisationen som används i Developer-portalen och för e-postaviseringar. |
     | **E-postadress för administratör** | din e-post | E-post som tog emot system meddelanden från API Management. |
-    | **Pris nivå** | Konsumtion (för hands version) | Förbruknings nivån är i för hands version och är inte tillgänglig i alla regioner. Fullständig pris information finns på sidan med [API Management priser](https://azure.microsoft.com/pricing/details/api-management/) |
+    | **Pris nivå** | Förbrukning | Förbruknings nivån är inte tillgänglig i alla regioner. Fullständig pris information finns på sidan med [API Management priser](https://azure.microsoft.com/pricing/details/api-management/) |
+
+    ![Skapa ny API Management-tjänst](media/functions-openapi-definition/new-apim-service-openapi.png)
 
 1. Välj **Skapa** om du vill skapa API Management-instansen, vilket kan ta flera minuter.
 
-1. Välj **aktivera Application Insights** för att skicka loggar till samma plats som funktions programmet, Godkänn sedan de återstående standardvärdena och välj **Link API**.
+1. När Azure har skapat instansen aktive ras alternativet **aktivera Application Insights** på sidan. Välj den för att skicka loggar till samma plats som funktions programmet och välj **Link API**.
 
 1. **Import Azure Functions** öppnas med funktionen **TurbineRepair** markerad. Klicka på **Välj** för att fortsätta.
 
     ![Importera Azure Functions till API Management](media/functions-openapi-definition/import-function-openapi.png)
 
-1. På sidan **skapa från Funktionsapp** godkänner du standardvärdena och väljer **skapa**
+1. På sidan **skapa från Funktionsapp** godkänner du standardvärdena och väljer sedan **skapa**.
 
-    ![Skapa från Funktionsapp](media/functions-openapi-definition/create-function-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/create-function-openapi.png" alt-text="Skapa från Funktionsapp":::
 
-API: et har nu skapats för funktionen.
+    Azure skapar API: t för funktionen.
 
 ## <a name="test-the-api"></a>Testa API:et
 
 Innan du använder OpenAPI-definitionen bör du kontrol lera att API: et fungerar.
 
-1. På fliken **test** i funktionen väljer du **post** åtgärd.
+1. På sidan Function app väljer du **API Management**, väljer fliken **test** och väljer sedan **publicera TurbineRepair**. 
 
-1. Ange värden för **timmar** och **kapacitet**
+1. Ange följande kod i **begär ande texten**:
 
     ```json
     {
@@ -174,9 +177,9 @@ Innan du använder OpenAPI-definitionen bör du kontrol lera att API: et fungera
     }
     ```
 
-1. Klicka på **Skicka**och Visa http-svaret.
+1. Välj **Skicka**och visa **http-svaret**.
 
-    ![API för test funktion](media/functions-openapi-definition/test-function-api-openapi.png)
+    :::image type="content" source="media/functions-openapi-definition/test-function-api-openapi.png" alt-text="API för test funktion":::
 
 ## <a name="download-the-openapi-definition"></a>Hämta OpenAPI-definitionen
 
@@ -186,7 +189,7 @@ Om ditt API fungerar som förväntat kan du ladda ned OpenAPI-definitionen.
    
    ![Ladda ned OpenAPI-definition](media/functions-openapi-definition/download-definition.png)
 
-2. Öppna den nedladdade JSON-filen och granska definitionen.
+2. Spara den nedladdade JSON-filen och öppna den sedan. Granska definitionen.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 

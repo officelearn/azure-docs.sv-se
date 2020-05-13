@@ -1,20 +1,20 @@
 ---
 title: Azure CLI-exempel – skapa en skalnings uppsättning för virtuella datorer
 description: Det här skriptet skapar en Azure VM-skalningsuppsättning med ett Ubuntu-operativsystem och relaterade nätverksresurser inklusive en lastbalanserare.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.devlang: azurecli
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: cli
 ms.date: 03/27/2018
-ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: c7f03d0f6dd31d85de8c3f917895e965585eb6ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: ad21a816aba5bd8f8de1c541cc4bc34243956d35
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010404"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200994"
 ---
 # <a name="create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Skapa en VM-skalningsuppsättning med Azure CLI
 Det här skriptet skapar en Azure VM-skalningsuppsättning med ett Ubuntu-operativsystem och relaterade nätverksresurser inklusive en lastbalanserare. När skriptet har körts får du åtkomst till de virtuella datorinstanserna via SSH.
@@ -36,7 +36,7 @@ az group delete --name myResourceGroup
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder följande kommandon för att skapa en resursgrupp, en VM-skalningsuppsättning och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/ad/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az vmss create](/cli/azure/vmss) | Skapar VM-skalningsuppsättningen och ansluter den till det virtuella nätverket, undernätet och nätverkssäkerhetsgruppen. En lastbalanserare skapas även för att distribuera trafik till flera virtuella datorinstanser. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |

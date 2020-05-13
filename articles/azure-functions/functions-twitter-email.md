@@ -4,21 +4,21 @@ description: Skapa en funktion som integrerar med Azure Logic Apps och Azure Cog
 author: craigshoemaker
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
 ms.topic: tutorial
-ms.date: 11/06/2018
+ms.date: 04/27/2020
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f6698bcc8125cd00dcb1cd6c86a8d69153242b35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa4087f3eafcd217eedc707697d093155b13b9e6
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190307"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83116461"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Skapa en funktion som kan integreras med Azure Logic Apps
 
 Azure Functions kan integreras med Azure Logic Apps i Logikappdesignern. Via integrationen kan du använda Functions databearbetningskraft i orkestreringar med andra tjänster från Azure och tredje part. 
 
-Den här självstudien visar hur du använder Functions med Logic Apps och Cognitive Services på Azure för att köra attitydanalyser från Twitter-inlägg. En HTTP-utlöst funktion kategoriserar tweets som gröna, gula eller röda baserat på attitydsresultatet. Ett e-postmeddelande skickas när svaga sentiment har identifierats. 
+Den här självstudien visar hur du använder Azure Functions med Logic Apps och Cognitive Services på Azure för att köra sentiment-analys från Twitter-inlägg. En HTTP-utlösnings funktion kategoriserar Tweets som grönt, gult eller rött baserat på sentiment-poängen. Ett e-postmeddelande skickas när svaga sentiment har identifierats. 
 
 ![bild på de första två stegen för en app i Logikappdesignern](media/functions-twitter-email/00-logic-app-overview.png)
 
@@ -51,7 +51,7 @@ API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser
 
 2. Klicka på **Skapa en resurs** längst upp till vänster i Azure Portal.
 
-3. Klicka på **AI + Machine Learning** > **textanalys**. Använd sedan inställningarna som anges i tabellen för att skapa resursen.
+3. Klicka på **AI + Machine Learning**  >  **textanalys**. Använd sedan inställningarna som anges i tabellen för att skapa resursen.
 
     ![Skapa Cognitive-resurssida](media/functions-twitter-email/01-create-text-analytics.png)
 
@@ -64,7 +64,7 @@ API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser
 
 4. Klicka på **Skapa** för att skapa resursen. 
 
-5. Klicka på **Översikt** och kopiera värdet av **slutpunkten** till en textredigerare. Det här används när du skapar en anslutning till Cognitive Services-API:et.
+5. Klicka på **Översikt** och kopiera värdet för **slut punkten** till en text redigerare. Det här används när du skapar en anslutning till Cognitive Services-API:et.
 
     ![Cognitive Services-inställningar](media/functions-twitter-email/02-cognitive-services.png)
 
@@ -74,21 +74,21 @@ API:erna för Cognitive Services är tillgängliga i Azure som enskilda resurser
 
 ## <a name="create-the-function-app"></a>Skapa funktionsappen
 
-Med Functions får du ett bra sätt att avlasta pågående uppgifter i ett logikappsarbetsflöde. I den här självstudien används en HTTP-utlöst funktion för att bearbeta tweetattitydsresultat från Cognitive Services och returnera ett kategorivärde.  
+Azure Functions är ett bra sätt att avlasta bearbetnings uppgifter i ett Logic Apps-arbetsflöde. I den här självstudien används en HTTP-utlösare för att bearbeta tweet-sentiment resultat från Cognitive Services och returnera ett kategori värde.  
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-## <a name="create-an-http-triggered-function"></a>Skapa en HTTP-utlöst funktion  
+## <a name="create-an-http-trigger-function"></a>Skapa en HTTP-utlösnings funktion  
 
-1. Expandera din Function-app och klicka **+** på knappen bredvid **Functions**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen**.
+1. På den vänstra menyn i fönstret **funktioner** väljer du **Functions**och väljer sedan **Lägg till** på den översta menyn.
 
-    ![Sidan snabbstart för funktioner i Azure Portal](media/functions-twitter-email/05-function-app-create-portal.png)
+2. Välj **http-utlösare**i fönstret **ny funktion** .
 
-2. Välj sedan **Webhook + API** och klicka på **Skapa**. 
+    ![Välj funktionen HTTP-utlösare](./media/functions-twitter-email/06-function-http-trigger.png)
 
-    ![Välj HTTP-utlösare](./media/functions-twitter-email/06-function-webhook.png)
+3. Välj **skapa funktion**på sidan **ny funktion** .
 
-3. Ersätt innehållet i filen `run.csx` med följande kod och klicka sedan på **Spara**:
+4. I den nya funktionen HTTP-utlösare väljer du **kod + test** på den vänstra menyn, ersätter innehållet i `run.csx` filen med följande kod och väljer sedan **Spara**:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -123,11 +123,12 @@ Med Functions får du ett bra sätt att avlasta pågående uppgifter i ett logik
             : new BadRequestObjectResult("Please pass a value on the query string or in the request body");
     }
     ```
+
     Den här funktionskoden returnerar en färgkategori baserat på sentimentets poäng från begäran. 
 
-4. Testa funktionen genom att klicka på **test** längst till höger för att expandera fliken test. Ange ett värde `0.2` för **begär ande texten**och klicka sedan på **Kör**. Värdet **RED** (Röd) returneras i brödtexten i svaret. 
+5. Om du vill testa funktionen väljer du **test** på den översta menyn. Ange ett värde i bröd texten på fliken **inmatare** `0.2` och välj sedan **Kör**. **Body** Värdet **röd** returneras i **http-svarets innehåll** på fliken **utdata** . 
 
-    ![Testa funktionen i Azure Portal](./media/functions-twitter-email/07-function-test.png)
+    :::image type="content" source="./media/functions-twitter-email/07-function-test.png" alt-text="Definiera proxyinställningarna":::
 
 Nu har du en funktion som kategoriserar sentimentpoäng. Därefter skapar du en logikapp som integrerar din funktion med dina API:er för Twitter och Cognitive Services. 
 
@@ -135,7 +136,7 @@ Nu har du en funktion som kategoriserar sentimentpoäng. Därefter skapar du en 
 
 1. I Azure Portal klickar du på knappen **skapa en resurs** i det övre vänstra hörnet av Azure Portal.
 
-2. Klicka på **webb** > **Logic app**.
+2. Klicka på **webb**  >  **Logic app**.
  
 3. Ange sedan ett värde för **Namn** som `TweetSentiment` och använd inställningarna som anges i tabellen.
 
@@ -187,7 +188,7 @@ Nu är appen ansluten till Twitter. Efter det ansluter du till textanalys för a
 
     ![Nytt steg och sedan Lägg till en åtgärd](media/functions-twitter-email/12-connection-settings.png)
 
-4. Ange sedan **Tweet-text** i textrutan och klicka på **Nytt steg**.
+4. Ange sedan **Tweet-text** i text rutan och klicka sedan på **nytt steg**.
 
     ![Definiera text att analysera](media/functions-twitter-email/13-analyze-tweet-text.png)
 
@@ -195,7 +196,7 @@ Nu när sentimentidentifiering har konfigurerats kan du lägga till en anslutnin
 
 ## <a name="connect-sentiment-output-to-your-function"></a>Anslut sentimentutdata till din funktion
 
-1. I Logic Apps designer klickar du på **nytt steg** > **Lägg till en åtgärd**, filtrera på **Azure Functions** och klickar på **Välj en Azure-funktion**.
+1. I Logic Apps designer klickar du på **nytt steg**  >  **Lägg till en åtgärd**, filtrera på **Azure Functions** och klickar på **Välj en Azure-funktion**.
 
     ![Identifiera sentiment](media/functions-twitter-email/14-azure-functions.png)
   
@@ -215,9 +216,9 @@ Nu utlöses din funktion när ett sentimentpoäng skickas från logikappen. En f
 
 ## <a name="add-email-notifications"></a>Lägga till e-postmeddelanden
 
-Den sista delen av arbetsflödet är att utlösa ett e-postmeddelande när sentimentet får poängen _RED_. I det här avsnittet används en Outlook.com-anslutning. Du kan utföra liknande steg för att använda en Gmail- eller Office 365 Outlook-anslutning.   
+Den sista delen av arbetsflödet är att utlösa ett e-postmeddelande när sentimentet får poängen _RED_. I den här artikeln används en Outlook.com-anslutning. Du kan utföra liknande steg för att använda en Gmail- eller Office 365 Outlook-anslutning.   
 
-1. I Logic Apps designer klickar du på **nytt steg** > **Lägg till ett villkor**. 
+1. I Logic Apps designer klickar du på **nytt steg**  >  **Lägg till ett villkor**. 
 
     ![Lägg till ett villkor i logikappen.](media/functions-twitter-email/18-add-condition.png)
 
@@ -277,7 +278,7 @@ Nu när arbetsflödet är klart kan du aktivera logikappen och se när funktione
     > [!IMPORTANT]
     > När du har slutfört självstudien bör du inaktivera logikappen. När du inaktiverar appen undviker du att debiteras för körningar och använda upp transaktionerna i Cognitive Services-API:n.
 
-Nu har du sett hur enkelt det är att integrera Functions i ett Logic Apps-arbetsflöde.
+Nu har du sett hur enkelt det är att integrera funktioner i ett Logic Apps-arbetsflöde.
 
 ## <a name="disable-the-logic-app"></a>Inaktivera logikappen
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94128c69f227ceff51968354048ec6610e3d7c4c
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8b08e8e4d6623277d1935fc85e302e8ce3c88eea
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614405"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83124405"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Självstudie: skapa en klient i Windows Virtual Desktop
 
@@ -57,7 +57,7 @@ Så här beviljar du tjänst behörigheter:
    >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
    >```
 
-2. Logga in på sidan Windows-godkännande för virtuella datorer med ett globalt administratörs konto. Om du till exempel har Contoso-organisationen kan ditt konto vara admin@contoso.com eller. admin@contoso.onmicrosoft.com
+2. Logga in på sidan Windows-godkännande för virtuella datorer med ett globalt administratörs konto. Om du till exempel har Contoso-organisationen kan ditt konto vara admin@contoso.com eller admin@contoso.onmicrosoft.com .
 3. Välj **Godkänn**.
 4. Vänta en minut så att Azure AD kan registrera medgivande.
 5. Öppna en webbläsare och påbörja det administrativa godkännande flödet till [Windows-klienten för virtuella skriv bord](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
@@ -87,7 +87,7 @@ Så här tilldelar du program rollen TenantCreator:
    ![En skärm bild av de användare och grupper som har tilldelats för att hantera företags programmet "Windows Virtual Desktop". Skärm bilden visar bara en tilldelning, vilket är för "standard åtkomst".](../media/tenant-default-access.png)
 4. Välj **Lägg till användare**och välj sedan **användare och grupper** på fliken **Lägg till tilldelning** .
 5. Sök efter ett användar konto som ska skapa din Windows-klient för virtuella skriv bord. För enkelhetens skull kan detta vara det globala administratörs kontot.
-   - Om du använder en Microsoft Identity-Provider som contosoadmin@live.com eller contosoadmin@outlook.com, kanske du inte kan logga in på det virtuella Windows-skrivbordet. Vi rekommenderar att du använder ett domänbaserat konto som admin@contoso.com eller admin@contoso.onmicrosoft.com i stället.
+   - Om du använder en Microsoft Identity-Provider som contosoadmin@live.com eller contosoadmin@outlook.com , kanske du inte kan logga in på det virtuella Windows-skrivbordet. Vi rekommenderar att du använder ett domänbaserat konto som admin@contoso.com eller admin@contoso.onmicrosoft.com i stället.
 
    ![En skärm bild av att välja en användare att lägga till som "TenantCreator".](../media/tenant-assign-user.png)
    > [!NOTE]
@@ -145,13 +145,15 @@ Ersätt värdena för hakparenteser med värden som är relevanta för din organ
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999
 ```
 
-Det är en bra idé att tilldela administrativ åtkomst till en andra användare om du någonsin vet att du har låst ditt konto eller om du går på semester och behöver någon för att agera som innehavaradministratör i din frånvaro. Om du vill tilldela administratörs åtkomst till en andra användare kör du följande `<TenantName>` cmdlet `<Upn>` med och ersatt med klient namnet och den andra användarens UPN.
+Det är en bra idé att tilldela administrativ åtkomst till en andra användare om du någonsin vet att du har låst ditt konto eller om du går på semester och behöver någon för att agera som innehavaradministratör i din frånvaro. Om du vill tilldela administratörs åtkomst till en andra användare kör du följande cmdlet med `<TenantName>` och `<Upn>` ersatt med klient namnet och den andra användarens UPN.
 
 ```powershell
 New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinitionName "RDS Owner"
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
+En mer djupgående genom gång finns i vår [utbildnings väg för Windows för virtuella datorer](https://docs.microsoft.com/learn/paths/m365-wvd/).
 
 När du har skapat din klient organisation måste du skapa ett huvud namn för tjänsten i Azure Active Directory och tilldela den en roll i det virtuella Windows-skrivbordet. Tjänstens huvud namn gör att du kan distribuera Windows Virtual Desktop Azure Marketplace-erbjudandet för att skapa en adresspool. Om du vill veta mer om värdar för pooler fortsätter du till självstudien för att skapa en adresspool i Windows Virtual Desktop.
 

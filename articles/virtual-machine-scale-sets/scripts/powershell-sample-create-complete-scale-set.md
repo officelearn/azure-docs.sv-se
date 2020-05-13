@@ -1,19 +1,20 @@
 ---
 title: Azure PowerShell exempel – skapa en fullständig skalnings uppsättning för virtuella datorer
 description: Det här skriptet skapar en skalnings uppsättning för virtuella datorer som kör Windows Server 2016, där enskilda resurser konfigureras och skapas.
-author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
+author: mimckitt
+ms.author: mimckitt
 ms.topic: sample
+ms.service: virtual-machine-scale-sets
+ms.subservice: powershell
 ms.date: 05/29/2018
-ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 2459aee8c93df3b039922ee53c0fe86d302505cf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: jushiman
+ms.custom: mimckitt
+ms.openlocfilehash: 2d4e252484515f43e53bdfbed58f7350d4d82cb3
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81011522"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83200286"
 ---
 # <a name="create-a-complete-virtual-machine-scale-set-with-powershell"></a>Skapa en fullständig VM-skalningsuppsättning med PowerShell
 
@@ -38,7 +39,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 ## <a name="script-explanation"></a>Förklaring av skript
 Det här skriptet använder följande kommandon för att skapa distributionen. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | Skapar en undernätskonfiguration. Den här konfigurationen används med skapandeprocessen för virtuella nätverk. |

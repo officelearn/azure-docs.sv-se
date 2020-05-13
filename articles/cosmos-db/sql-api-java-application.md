@@ -1,19 +1,19 @@
 ---
-title: 'Självstudie: självstudien om utveckling av Java-program med Azure Cosmos DB'
+title: 'Självstudie: utveckla en Java-webbapp med Azure Cosmos DB och SQL API'
 description: 'Självstudie: den här självstudien för Java-webbprogram visar hur du använder Azure Cosmos DB och SQL API för att lagra och få åtkomst till data från ett Java-program som finns på Azure Websites.'
-author: tknandu
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/05/2019
-ms.author: ramkris
-ms.openlocfilehash: 2e38aeba198f875961024f8c25c7fb0123479f87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: anfeldma
+ms.openlocfilehash: fc8fb0e3c9ad35957291376691d5ed2c0484192a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80985277"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120205"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Självstudie: bygga ett Java-webbprogram med Azure Cosmos DB och SQL API
 
@@ -50,7 +50,7 @@ Innan du påbörjar den här självstudien om apputveckling måste du ha följan
 * [Eclipse IDE för Java EE-utvecklare.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [En Azure-webbplats med en aktiverad Java-körningsmiljö (t.ex. Tomcat eller Jetty).](../app-service/app-service-web-get-started-java.md)
 
-Om du installerar verktygen för första gången finns det en beskrivning av installationsprocessen på coreservlets.com avsnittet Quick Start i artikeln [Tutorial: Installing TomCat7 and Using it with Eclipse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html).
+Om du installerar de här verktygen för första gången ger coreservlets.com en genom gång av installations processen i avsnittet snabb start i [självstudierna: installerar TomCat7 och använder den med Sol förmörkelse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) -artikeln.
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Steg 1: Skapa ett Azure Cosmos DB-konto
 Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto eller om du använder Azure Cosmos DB-emulatorn för den här kursen kan du gå vidare till [Steg 2: Skapa Java JSP-programmet](#CreateJSP).
@@ -98,7 +98,7 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
      
    ![Installera SQL Java Application SDK](./media/sql-api-java-application/image13.png)
      
-   * Du kan även lägga till XML-beroendefilen för Grupp-ID och Artefakt-ID direkt i pom.xml via en textredigerare:
+   * Eller Lägg till beroende XML för grupp-ID och artefakt-ID direkt till Pom. XML via en text redigerare:
         ```xml
         <dependency>
             <groupId>com.microsoft.azure</groupId>
@@ -250,7 +250,7 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
    
             return gson.fromJson(todoItemDocument.toString(), TodoItem.class);
         }
-5. Precis som med Azure Cosmos-databaser och samlingar, refereras dokument också till av själv länkar. Med följande hjälpfunktion kan vi hämta dokument efter andra attribut (t.ex. ”id”) än självlänkar:
+5. Precis som med Azure Cosmos-databaser och samlingar, refereras dokument också till av själv länkar. Med hjälp av följande hjälp funktion kan vi hämta dokument via ett annat attribut (t. ex. "ID") i stället för själv länk:
    
         private Document getDocumentById(String id) {
             // Retrieve the document using the DocumentClient.
@@ -265,7 +265,7 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
                 return null;
             }
         }
-6. Med hjälpmetoden i steg 5 kan vi hämta ett TodoItem JSON-dokument efter id och sedan deserialisera det till en POJO:
+6. Vi kan använda hjälp metoden i steg 5 för att hämta ett TodoItem JSON-dokument med ID och sedan deserialisera det till en POJO:
    
         @Override
         public TodoItem readTodoItem(String id) {

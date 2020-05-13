@@ -2,15 +2,15 @@
 title: Självstudie – Skapa & distribuera mall
 description: Skapa din första Azure Resource Manager-mall. I självstudien får du lära dig mer om mallens syntax och hur du distribuerar ett lagrings konto.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 05/12/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b05bccf10ef5f273a74ca49e02162fd0408230f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c07f587b8b200a6f9d686c77e5ffefa399c6e179
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80411713"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83199930"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Självstudie: skapa och distribuera din första ARM-mall
 
@@ -92,6 +92,24 @@ az login
 ```
 
 ---
+
+Om du har flera Azure-prenumerationer väljer du den prenumeration som du vill använda:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Select-AzSubscription [SubscriptionID/SubscriptionName]
+```
+
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```azurecli
+az account set --subscription [SubscriptionID/SubscriptionName]
+```
+
+---
+
+
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
 När du distribuerar en mall anger du en resurs grupp som ska innehålla resurserna. Innan du kör distributions kommandot skapar du resurs gruppen med antingen Azure CLI eller Azure PowerShell. Välj flikarna i följande kod avsnitt om du vill välja mellan Azure PowerShell och Azure CLI. CLI-exemplen i den här artikeln är skrivna för bash-gränssnittet.
@@ -125,7 +143,7 @@ $templateFile = "{provide-the-path-to-the-template-file}"
 New-AzResourceGroupDeployment `
   -Name blanktemplate `
   -ResourceGroupName myResourceGroup `
-  -TemplateFile $templateFile 
+  -TemplateFile $templateFile
 ```
 
 # <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -142,7 +160,7 @@ az deployment group create \
 
 ---
 
-Distributions kommandot returnerar resultat. Leta efter `ProvisioningState` för att se om distributionen har slutförts.
+Distributions kommandot returnerar resultat. Leta efter för `ProvisioningState` att se om distributionen har slutförts.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 

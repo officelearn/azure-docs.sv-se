@@ -2,18 +2,19 @@
 title: Självstudie – Skapa och hantera en skalnings uppsättning för virtuella Azure-datorer
 description: Läs hur du använder Azure PowerShell för att skapa en VM-skalningsuppsättning, tillsammans med vissa vanliga hanteringsuppgifter, till exempel att starta och stoppa en instans, eller ändra kapaciteten för en skalningsuppsättning.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: tutorial
-ms.date: 05/18/2018
 ms.author: jushiman
-ms.custom: mvc
-ms.openlocfilehash: 938b4e64dd5b67488ae5d061f2ceb29ae4bb7f6e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: tutorial
+ms.service: virtual-machine-scale-sets
+ms.subservice: management
+ms.date: 05/18/2018
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 2e9c027a927d4aba9c174db8dfc5a72f0cc4f214
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81011259"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195180"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skapa och hantera en VM-skalningsuppsättning med Azure PowerShell
 
@@ -132,7 +133,7 @@ IpAddress
 52.168.121.216
 ```
 
-Skapa en fjärranslutning till din första virtuella datorinstans. Ange din offentliga IP-adress och portnummer för nödvändiga virtuella datorinstanser som de visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalnings uppsättningen (som standard i exempel kommandona, *azureuser* och *\@P Ssw0Rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till den virtuella datorinstansen *1*:
+Skapa en fjärranslutning till din första virtuella datorinstans. Ange din offentliga IP-adress och portnummer för nödvändiga virtuella datorinstanser som de visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalnings uppsättningen (som standard i exempel kommandona, *azureuser* och *P \@ Ssw0Rd!*). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till den virtuella datorinstansen *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

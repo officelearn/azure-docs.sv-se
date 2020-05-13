@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3195be3486aaafa91a22b6f6e9cb4fd5f4fe6de2
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d9effbe29917c774279b6e9d203f44d5ad5c72e2
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930003"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83121056"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Självstudie: skapa en värdbaserad pool med Azure Portal
 
 >[!IMPORTANT]
->Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md).
+>Det här innehållet gäller för våren 2020-uppdateringen med Azure Resource Manager virtuella Windows Desktop-objekt. Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager objekt, se [den här artikeln](./virtual-desktop-fall-2019/create-host-pools-azure-marketplace-2019.md). Artiklar som du skapar med Windows virtuellt Desktop sjunker 2019 kan inte hanteras med Azure Portal.
 >
 > Den virtuella Windows-skrivbordets våren 2020-uppdateringen är för närvarande en offentlig för hands version. Den här för hands versionen tillhandahålls utan service nivå avtal och vi rekommenderar inte att du använder den för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. 
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -105,7 +105,7 @@ Så här konfigurerar du den virtuella datorn i konfigurationen av poolen för v
     >[!NOTE]
     >Installations processen kan skapa upp till 400 virtuella datorer när du konfigurerar din adresspool, och varje process för VM-installation skapar fyra objekt i resurs gruppen. Eftersom processen för att skapa processer inte kontrollerar din prenumerations kvot kontrollerar du att antalet virtuella datorer som du anger ligger inom Azure VM och API-gränserna för resurs gruppen och prenumerationen. Du kan lägga till fler virtuella datorer när du är klar med att skapa din värd-pool.
 
-5. Efter det anger du ett **namn prefix** som namnger de virtuella datorer som installations processen skapar. Suffixet kommer att `-` vara med siffror från 0.
+5. Efter det anger du ett **namn prefix** som namnger de virtuella datorer som installations processen skapar. Suffixet kommer att vara `-` med siffror från 0.
 
 6. Välj sedan den avbildning som ska användas för att skapa den virtuella datorn. Du kan välja antingen **Galleri** eller **Storage-BLOB**.
 

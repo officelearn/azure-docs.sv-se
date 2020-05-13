@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/31/2020
-ms.openlocfilehash: e73ba110128f6d4f0bea008840b06572d7aee140
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/12/2020
+ms.openlocfilehash: c8265f641afb4164f26b8b2663b9f904f95b2b67
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80517928"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201452"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Alternativet för säljsamarbete i Partner Center
 
@@ -22,11 +22,11 @@ Alternativet Co-försäljning i Partner Center är för närvarande tillgänglig
 
 | **Erbjudande typ** | **Sidan Co-Sälj finns i Partner Center** |
 |    -----------------------    |    -----------------------------  |
-| Program vara som en tjänst (SaaS) |     Allmän tillgänglighet april 2020      |
+| Program vara som en tjänst (SaaS) |      Tillgängligt nu      |
 | Dynamics 365 för kund engagemang & PowerApps      |     Tillgängligt nu      |
 | Dynamics 365 for Operations     |     Tillgängligt nu       |
-| Dynamics 365 Business Central      |  Allmän tillgänglighet april 2020     |
-| Azure Application     |     Allmän tillgänglighet april 2020     |
+| Dynamics 365 Business Central      |   Tillgängligt nu     |
+| Azure Application     |      Tillgängligt nu     |
 | Virtuell Azure-dator      |     Ska tillkännages       |
 | Azure-behållare     |     Ska tillkännages       |
 | Konsulttjänst      |     Ska tillkännages       |
@@ -58,7 +58,7 @@ Lösnings typer hjälper dig att definiera scenarier som ditt erbjudande är utf
 
 Lösnings områden hjälper till att ytterligare definiera din lösning.
 
-Du kan lägga till upp till tre lösnings områden för ditt erbjudande. För varje lösnings områden kan du välja upp till två del områden för lösningen. Om du vill välja flera under Kategorier använder `Ctrl` du nyckeln (i Windows) eller kommando nyckeln (på Mac OS).
+Du kan lägga till upp till tre lösnings områden för ditt erbjudande. För varje lösnings områden kan du välja upp till två del områden för lösningen. Om du vill välja flera under Kategorier använder du `Ctrl` nyckeln (i Windows) eller kommando nyckeln (på Mac OS).
 
 ## <a name="documents"></a>Dokument
 
@@ -75,7 +75,7 @@ Du kan tillhandahålla information som Microsoft kan använda för att utvärder
 | *Andra dokument* | Alternativt kan du överföra upp till fem ytterligare dokument eller videor för att hjälpa Microsofts försäljnings team och kanal åter försäljare att lära sig mer om din lösning, organisation och/eller differentiering. |
 | *Extern referens-URL* | Länken till produktens webbplats där Microsoft Sales Teams och Channel-återförsäljare kan lära sig mer om din lösning. |
 
-## <a name="contacts"></a>Contacts
+## <a name="contacts"></a>Kontakter
 
 Med din kontakt information kan Microsoft sälj team och kanal åter försäljare begära ytterligare information från den aktuella resursen i din organisation. Kontakt information är tillgänglig för alla Microsoft-säljteam. Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet är den här kontakt informationen också tillgänglig för kanal åter försäljare.
 

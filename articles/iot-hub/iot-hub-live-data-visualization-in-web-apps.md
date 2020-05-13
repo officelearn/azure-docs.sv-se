@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 138e077f7b47fa9f38a4710db95eb7208cef78e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e27cf51d50b3094adca6ce8d3846ef358f78482
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78675324"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201532"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera real tids sensor data från din Azure IoT Hub i ett webb program
 
@@ -141,7 +141,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
 
 ## <a name="open-a-web-page-to-see-data-from-your-iot-hub"></a>Öppna en webb sida om du vill visa data från din IoT Hub
 
-Öppna en webbläsare till `http://localhost:3000`.
+Öppna en webbläsare till `http://localhost:3000` .
 
 I listan **Välj en enhet** väljer du din enhet för att se en arbets kurva om de senaste 50 temperatur-och fuktighets-data punkterna som skickas av enheten till din IoT-hubb.
 
@@ -165,16 +165,16 @@ I det här avsnittet etablerar du en webbapp i App Service och distribuerar din 
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. Etablera nu en webbapp i App Service plan. `--deployment-local-git` Parametern gör att webbappens kod kan laddas upp och distribueras från en git-lagringsplats på den lokala datorn. Ditt webb program namn måste vara globalt unikt och får innehålla versaler, gemener, siffror och bindestreck. Se till att ange Node version 10,6 eller senare för `--runtime` parametern, beroende på vilken version av Node. js-körningen som du använder. Du kan använda `az webapp list-runtimes` kommandot för att hämta en lista över körningar som stöds.
+2. Etablera nu en webbapp i App Service plan. `--deployment-local-git`Parametern gör att webbappens kod kan laddas upp och distribueras från en git-lagringsplats på den lokala datorn. Ditt webb program namn måste vara globalt unikt och får innehålla versaler, gemener, siffror och bindestreck. Se till att ange Node version 10,6 eller senare för `--runtime` parametern, beroende på vilken version av Node. js-körningen som du använder. Du kan använda `az webapp list-runtimes` kommandot för att hämta en lista över körningar som stöds.
 
    ```azurecli-interactive
    az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
    ```
 
-3. Lägg nu till program inställningar för de miljövariabler som anger IoT Hub-anslutningssträngen och konsument gruppen för Event Hub. Enskilda inställningar är avgränsade med utrymme `-settings` i parametern. Använd tjänst anslutnings strängen för din IoT-hubb och den konsument grupp som du skapade tidigare i den här självstudien. Citera inte värdena.
+3. Lägg nu till program inställningar för de miljövariabler som anger IoT Hub-anslutningssträngen och konsument gruppen för Event Hub. Enskilda inställningar är avgränsade med utrymme i `-settings` parametern. Använd tjänst anslutnings strängen för din IoT-hubb och den konsument grupp som du skapade tidigare i den här självstudien. Citera inte värdena.
 
    ```azurecli-interactive
-   az webapp config appsettings set -n <your web app name> -g <your resource group name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString=<your IoT hub connection string>
+   az webapp config appsettings set -n <your web app name> -g <your resource group name> --settings EventHubConsumerGroup=<your consumer group> IotHubConnectionString="<your IoT hub connection string>"
    ```
 
 4. Aktivera webb-socket-protokollet för webbappen och ange att webbappen endast ska ta emot HTTPS-förfrågningar (HTTP-begäranden omdirigeras till HTTPS).
@@ -198,7 +198,7 @@ I det här avsnittet etablerar du en webbapp i App Service och distribuerar din 
    az webapp deployment source config-local-git -n <your web app name> -g <your resource group name>
    ```
 
-7. Lägg till en fjärran sluten till din klon som hänvisar till git-lagringsplatsen för webbappen i App Service. För \<git-klon\>-URL använder du URL: en som returnerades i föregående steg. Kör följande kommando i kommando fönstret.
+7. Lägg till en fjärran sluten till din klon som hänvisar till git-lagringsplatsen för webbappen i App Service. För \< git-klon \> -URL använder du URL: en som returnerades i föregående steg. Kör följande kommando i kommando fönstret.
 
    ```cmd
    git remote add webapp <Git clone URL>
@@ -251,9 +251,9 @@ Om du kommer över eventuella problem med det här exemplet kan du prova stegen 
 
 * I Azure Portal går du till din webbapp. Under **övervakning** i den vänstra rutan väljer du **App Service loggar**. Aktivera **program loggning (fil system)** till på, ange **nivå** till fel och välj sedan **Spara**. Öppna sedan **logg strömmen** (under **övervakning**).
 
-* Från din webbapp i Azure Portal under **utvecklingsverktyg** väljer du **konsol** och validerar Node-och NPM-versioner `node -v` med `npm -v`och.
+* Från din webbapp i Azure Portal under **utvecklingsverktyg** väljer du **konsol** och validerar Node-och NPM-versioner med `node -v` och `npm -v` .
 
-* Om du ser ett fel om att det inte går att hitta ett paket kan du köra stegen i rätt ordning. När platsen distribueras (med `git push`) körs `npm install`app service, som körs baserat på den aktuella versionen av noden som den har kon figurer ATS. Om den ändras i konfigurationen senare, måste du göra en meningslös ändring av koden och skicka igen.
+* Om du ser ett fel om att det inte går att hitta ett paket kan du köra stegen i rätt ordning. När platsen distribueras (med `git push` ) körs App Service `npm install` , som körs baserat på den aktuella versionen av noden som den har kon figurer ATS. Om den ändras i konfigurationen senare, måste du göra en meningslös ändring av koden och skicka igen.
 
 ## <a name="next-steps"></a>Nästa steg
 

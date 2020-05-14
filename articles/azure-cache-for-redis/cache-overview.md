@@ -5,21 +5,21 @@ author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: overview
-ms.date: 03/11/2020
-ms.openlocfilehash: cd4e7c8e2693c25f3fc092fb53874a97cfd62434
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/12/2020
+ms.openlocfilehash: 09a7a28716e437bab71c7386bd332712a4d192dd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82113212"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196376"
 ---
-# <a name="azure-cache-for-redis-description"></a>Beskrivning av Azure Cache for Redis
+# <a name="azure-cache-for-redis"></a>Azure Cache for Redis
 
-Azure cache för Redis tillhandahåller ett InMemory-datalager baserat på [Redis](https://redis.io/)med öppen källkod. När den används som cache förbättrar Redis prestanda och skalbarhet för system som förlitar sig på Server dels data lager. Prestanda förbättras genom kopiering av data som används ofta till snabb lagring som finns nära programmet. Med Azure cache för Redis finns den här snabba lagringen i minnet i stället för att läsas in från disk av en databas.
+Azure cache för Redis tillhandahåller ett InMemory-datalager baserat på [Redis](https://redis.io/)med öppen källkod. När Redis används som cache förbättrar prestanda och skalbarhet för system som förlitar sig på Server dels data lager. Prestanda förbättras genom kopiering av data som används ofta till snabb lagring som finns nära programmet. Med Azure cache för Redis finns den här snabba lagringen i minnet i stället för att läsas in från disk av en databas.
 
-Azure cache för Redis kan användas som en lagrings plats för data strukturen i minnet, en distribuerad icke-relationell databas och en meddelande koordinator. Genom att utnyttja Redis-motorns korta svarstider och höga dataflöde förbättras programprestanda.
+Azure cache för Redis kan användas som distribuerad datacache, ett migreringsarkiv och en meddelande koordinator. Genom att utnyttja Redis-motorns korta svarstider och höga dataflöde förbättras programprestanda.
 
-Azure cache för Redis ger åtkomst till en säker, dedikerad Redis-cache. Azure cache för Redis hanteras av Microsoft, som finns i Azure och är tillgängligt för alla program inom eller utanför Azure. Dessutom använder Azure-Redis för cache strategin för replikering utan disk, vilket förbättrar kompatibiliteten med betalnings korts branschen.
+Azure cache för Redis ger åtkomst till en säker, dedikerad Redis-cache. Den hanteras av Microsoft, som finns i Azure och är tillgänglig för alla program inom eller utanför Azure.
 
 ## <a name="using-azure-cache-for-redis"></a>Använda Azure cache för Redis
 
@@ -49,7 +49,7 @@ Basic | Cache för en enda nod. Den här nivån stöder flera minnes storlekar (
 
 Du kan skala upp cacheminnet till en högre nivå när det har skapats. Det går inte att skala ned till en lägre nivå. Stegvisa skalningsanvisningar finns i [Skala Azure Cache for Redis](cache-how-to-scale.md) och [Automatisera en skalningsåtgärd](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### <a name="feature-comparison"></a>Jämförelse av funktioner
+### <a name="feature-comparison"></a>Jämför funktioner
 
 En detaljerad jämförelse av varje nivå finns på sidan med [prissättning för Azure Cache for Redis](https://azure.microsoft.com/pricing/details/cache/). Följande tabell beskriver några av de funktioner som stöds på respektive nivå:
 

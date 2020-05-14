@@ -3,19 +3,19 @@ title: Migrera dina ansikts data över prenumerationer – ansikte
 titleSuffix: Azure Cognitive Services
 description: Den här guiden visar hur du migrerar dina lagrade ansikts data från en ansikts prenumeration till en annan.
 services: cognitive-services
-author: lewlu
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.author: lewlu
-ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.author: nitinme
+ms.openlocfilehash: fd0e7079b3b70a6a6b8166cc7fc7518070e7153d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76169815"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83120818"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrera dina ansikts data till en annan ansikts prenumeration
 
@@ -62,7 +62,7 @@ Fyll i prenumerations nyckel värden och slut punkts-URL: er för dina käll-och
 
 ## <a name="prepare-a-persongroup-for-migration"></a>Förbereda en PersonGroup för migrering
 
-Du behöver ID: t för PersonGroup i din käll prenumeration för att migrera den till mål prenumerationen. Använd metoden [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) för att hämta en lista över dina PersonGroup-objekt. Hämta sedan egenskapen [PersonGroup. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Den här processen ser olika ut beroende på vilka PersonGroup-objekt du har. I den här hand boken lagras käll-PersonGroup-ID `personGroupId`: t i.
+Du behöver ID: t för PersonGroup i din käll prenumeration för att migrera den till mål prenumerationen. Använd metoden [PersonGroupOperationsExtensions. ListAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperationsextensions.listasync?view=azure-dotnet) för att hämta en lista över dina PersonGroup-objekt. Hämta sedan egenskapen [PersonGroup. PersonGroupId](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.persongroup.persongroupid?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_Face_Models_PersonGroup_PersonGroupId) . Den här processen ser olika ut beroende på vilka PersonGroup-objekt du har. I den här hand boken lagras käll-PersonGroup-ID: t i `personGroupId` .
 
 > [!NOTE]
 > [Exempel koden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) skapar och tågen en ny PersonGroup som kan migreras. I de flesta fall bör du redan ha en PersonGroup att använda.
@@ -85,7 +85,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## <a name="retrieve-the-snapshot-id"></a>Hämta ögonblicks bild-ID
 
-Den metod som används för att ta ögonblicks bilder är asynkron, så du måste vänta tills den är klar. Ögonblicks bild åtgärder kan inte avbrytas. I den här koden övervakar `WaitForOperation` metoden det asynkrona anropet. Den kontrollerar status var 100 MS. När åtgärden har slutförts hämtar du `OperationLocation` ett ÅTGÄRDS-ID genom att parsa fältet. 
+Den metod som används för att ta ögonblicks bilder är asynkron, så du måste vänta tills den är klar. Ögonblicks bild åtgärder kan inte avbrytas. I den här koden `WaitForOperation` övervakar metoden det asynkrona anropet. Den kontrollerar status var 100 MS. När åtgärden har slutförts hämtar du ett åtgärds-ID genom att parsa `OperationLocation` fältet. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);
@@ -98,7 +98,7 @@ Ett typiskt `OperationLocation` värde ser ut så här:
 "/operations/a63a3bdd-a1db-4d05-87b8-dbad6850062a"
 ```
 
-`WaitForOperation` Hjälp metoden är här:
+`WaitForOperation`Hjälp metoden är här:
 
 ```csharp
 /// <summary>
@@ -127,7 +127,7 @@ private static async Task<OperationStatus> WaitForOperation(IFaceClient client, 
 }
 ```
 
-När åtgärds statusen visas `Succeeded`hämtar du ögonblicks bildens ID genom att `ResourceLocation` parsa fältet för den returnerade OperationStatus-instansen.
+När åtgärds statusen visas `Succeeded` hämtar du ögonblicks bildens ID genom att parsa `ResourceLocation` fältet för den returnerade OperationStatus-instansen.
 
 ```csharp
 var snapshotId = Guid.Parse(operationStatus.ResourceLocation.Split('/')[2]);
@@ -152,13 +152,13 @@ var applySnapshotResult = await FaceClientWestUS.Snapshot.ApplyAsync(snapshotId,
 > [!NOTE]
 > Ett ögonblicks bild objekt är giltigt endast för 48 timmar. Ta bara en ögonblicks bild om du tänker använda den för datamigrering strax efter.
 
-En ögonblicks bild tillämpa begäran returnerar ett annat åtgärds-ID. Hämta det här ID: t genom `OperationLocation` att parsa fältet för den returnerade applySnapshotResult-instansen. 
+En ögonblicks bild tillämpa begäran returnerar ett annat åtgärds-ID. Hämta det här ID: t genom att parsa `OperationLocation` fältet för den returnerade applySnapshotResult-instansen. 
 
 ```csharp
 var applyOperationId = Guid.Parse(applySnapshotResult.OperationLocation.Split('/')[2]);
 ```
 
-Processen för ögonblicks bild programmet är också asynkron och används `WaitForOperation` sedan för att vänta tills den har slutförts.
+Processen för ögonblicks bild programmet är också asynkron och används sedan `WaitForOperation` för att vänta tills den har slutförts.
 
 ```csharp
 operationStatus = await WaitForOperation(FaceClientWestUS, applyOperationId);

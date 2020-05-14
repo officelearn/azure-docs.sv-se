@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 6ab1f7c97173021cc112a5f117469abd74ac954d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ea6f78d0d0856bb6a758a3168b6b86a1c962962b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062582"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201011"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Konfigurera en Authenticator-app som metod med tvåstegsverifiering
 
@@ -29,7 +29,7 @@ Du kan ställa in en Authenticator-app för att skicka ett meddelande till din m
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-send-notifications"></a>Konfigurera Microsoft Authenticator-appen för att skicka meddelanden
 
-1. På sidan **ytterligare säkerhets verifiering** väljer du **mobilapp** från **steg 1: Hur ska vi kontakta** ditt ställe.
+1. På [sidan ytterligare säkerhets verifiering](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1)väljer du **mobilapp** från **steg 1: Hur ska vi kontakta** ditt ställe.
 
 2. Välj **ta emot aviseringar för verifiering** från rutan **Hur vill du använda** modulen för mobilapp och välj sedan **Konfigurera**.
 
@@ -65,7 +65,7 @@ Du kan ställa in en Authenticator-app för att skicka ett meddelande till din m
     >[!Note]
     >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
 
-9. Välj **Klar**.
+9. Välj **Done** (Klar).
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-use-verification-codes"></a>Konfigurera appen Microsoft Authenticator att använda verifierings koder
 
@@ -107,7 +107,7 @@ Du kan ställa in en Authenticator-app för att skicka ett meddelande till din m
     >[!Note]
     >Information om hur du använder applösenord med dina äldre appar finns i [Hantera applösenord](multi-factor-authentication-end-user-app-passwords.md). Du behöver bara använda applösenord om du fortsätter att använda äldre appar som inte stöder tvåstegsverifiering.
 
-9. Välj **Klar**.
+9. Välj **Done** (Klar).
 
 ## <a name="next-steps"></a>Nästa steg
 

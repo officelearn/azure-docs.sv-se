@@ -2,18 +2,19 @@
 title: Snabb start – skapa en skalnings uppsättning för virtuella Linux-datorer med en Azure Resource Manager-mall
 description: Lär dig hur du snabbt skapar en skalningsuppsättning för virtuella Linux-datorer med en Azure Resource Manager-mall som distribuerar en exempelapp och konfigurerar regler för automatisk skalning
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.topic: quickstart
-ms.custom: mvc,subject-armqs
-ms.date: 03/27/2020
 ms.author: jushiman
-ms.openlocfilehash: 4c0bac943be996c02436824334bd79a270f9a2e2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: linux
+ms.date: 03/27/2020
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: f51bfa012c62e7acdd0aa2cd16279ec68702a72c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010468"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83117341"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-resource-manager-template"></a>Snabb start: skapa en skalnings uppsättning för virtuella Linux-datorer med en Azure Resource Manager-mall
 
@@ -56,7 +57,7 @@ Den markerade delen är resurs definitionen för skalnings uppsättningen. När 
 | location                     | Platsen där skalningsuppsättningen skapas                     | USA, östra                                   |
 | sku.name                     | VM-storleken för varje skalningsuppsättningsinstans                  | Standard_A1                               |
 | sku.capacity                 | Antal VM-instanser som skapas inledningsvis           | 2                                         |
-| upgradePolicy.mode           | Uppgraderingsläge för VM-instanser när ändringar sker              | Automatisk                                 |
+| upgradePolicy.mode           | Uppgraderingsläge för VM-instanser när ändringar sker              | Automatiskt                                 |
 | imageReference               | Plattform eller anpassad avbildning som ska användas för VM-instanserna | Canonical Ubuntu Server 16.04-LTS         |
 | osProfile.computerNamePrefix | Namnprefix för varje VM-instans                     | myvmss                                    |
 | osProfile.adminUsername      | Användarnamn för varje VM-instans                        | azureuser                                 |
@@ -76,7 +77,7 @@ Testa din skalningsuppsättning genom att installera ett grundläggande webbprog
 
 Mallen använder tillägget för anpassat skript för att installera [Flask](https://bottlepy.org/docs/dev/), ett python-webbramverk och en enkel http-server.
 
-Två skript definieras i **fileUris** - -*installserver.sh*och *workserver.py*. Filerna laddas ned från GitHub och sedan *commandToExecute* körs `bash installserver.sh` commandToExecute för att installera och konfigurera appen.
+Två skript definieras i **fileUris**  -  -*installserver.sh*och *workserver.py*. Filerna laddas ned från GitHub och sedan *commandToExecute* körs commandToExecute `bash installserver.sh` för att installera och konfigurera appen.
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -108,7 +109,7 @@ az network public-ip list \
     --query [*].ipAddress -o tsv
 ```
 
-Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *http:\//publicIpAddress: 9000/do_work*. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
+Ange den offentliga IP-adressen för belastningsutjämnaren i en webbläsare i formatet *http: \/ /publicIpAddress: 9000/do_work*. Lastbalanseraren distribuerar trafik till en av dina VM-instanser enligt följande exempel:
 
 ![Standardwebbsida i NGINX](media/virtual-machine-scale-sets-create-template/running-python-app.png)
 

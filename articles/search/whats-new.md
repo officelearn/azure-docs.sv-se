@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 03/24/2020
-ms.openlocfilehash: 475f89fc5b33948864fd83c39ee8058ab6908cad
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0aea6a42269712e5c1e505c270f9d88635de83e5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80247205"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195290"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -26,6 +26,10 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspegla den utökade (ännu valfria) användningen av kognitiva kunskaper och AI-bearbetning i kärn åtgärder. API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Nya och befintliga Sök lösningar påverkas inte av tjänst namns ändringen.
 
 ## <a name="feature-announcements"></a>Funktions aviseringar
+
+### <a name="may-2020"></a>Maj 2020
+
++ Funktionen Felsök sessioner är nu i för hands version. [Registrera dig för att begära åtkomst](https://aka.ms/DebugSessions).
 
 ### <a name="march-2020"></a>Mars 2020
 
@@ -41,11 +45,11 @@ Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspe
 
 ### <a name="january-2020"></a>Januari 2020
 
-+ [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) är nu allmänt tillgängliga. Om du använder REST kan du komma åt funktionen med hjälp av `api-version=2019-05-06`. För hanterad kod är rätt paket fortfarande [.NET SDK version 8,0 – förhands granskning](search-dotnet-sdk-migration-version-9.md) trots att funktionen inte är i förhands granskning. 
++ [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) är nu allmänt tillgängliga. Om du använder REST kan du komma åt funktionen med hjälp av `api-version=2019-05-06` . För hanterad kod är rätt paket fortfarande [.NET SDK version 8,0 – förhands granskning](search-dotnet-sdk-migration-version-9.md) trots att funktionen inte är i förhands granskning. 
 
 + Privat åtkomst till en Sök tjänst är tillgänglig via två mekanismer, både för närvarande i för hands version:
 
-  + Du kan begränsa åtkomsten till vissa IP-adresser genom att använda `api-version=2019-10-01-Preview` hanterings REST API för att skapa tjänsten. För hands versions-API: et har nya egenskaper för **IpRule** och **NETWORKRULESET** i [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Den här förhands gransknings funktionen är tillgänglig i valda regioner. Mer information finns i [så här använder du hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+  + Du kan begränsa åtkomsten till vissa IP-adresser genom att använda hanterings REST API `api-version=2019-10-01-Preview` för att skapa tjänsten. För hands versions-API: et har nya egenskaper för **IpRule** och **NETWORKRULESET** i [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Den här förhands gransknings funktionen är tillgänglig i valda regioner. Mer information finns i [så här använder du hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 
   + För närvarande tillgängligt via en begränsad till gång kan du etablera en Azure Search-tjänst som stöder Azures privata slut punkter för anslutningar från klienter i samma virtuella nätverk. Mer information finns i [skapa en privat slut punkt för en säker anslutning](service-create-private-endpoint.md).
 

@@ -2,20 +2,19 @@
 title: Snabb start – skapa en skalnings uppsättning för virtuell dator i Azure Portal
 description: Kom igång med dina distributioner genom att lära dig att snabbt skapa en virtuell dator skala Azure Portal.
 author: ju-shim
-tags: azure-resource-manager
-ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm
-ms.topic: quickstart
-ms.custom: mvc, H1Hack27Feb2017
-ms.date: 10/23/2019
 ms.author: jushiman
-ms.openlocfilehash: 5855c53a73ac94985f34f229fbe5ab77067ef17d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: quickstart
+ms.service: virtual-machine-scale-sets
+ms.subservice: ''
+ms.date: 10/23/2019
+ms.reviewer: mimckitt
+ms.custom: mimckitt
+ms.openlocfilehash: 582bf5c6424b9dc13b354a92e75b3a7ee2cdca6f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81680426"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197651"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure Portal
 
@@ -36,7 +35,7 @@ Börja med att skapa en offentlig Standard Load Balancer med hjälp av portalen.
 1. I rutan Sök skriver du **Load Balancer**. Välj **belastnings utjämning**under **Marketplace** i Sök resultaten.
 1. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information:
 
-    | Inställning                 | Värde   |
+    | Inställningen                 | Värde   |
     | ---| ---|
     | Prenumeration  | Välj din prenumeration.    |    
     | Resursgrupp | Välj **Skapa ny** och skriv *myVMSSResourceGroup* i text rutan.|

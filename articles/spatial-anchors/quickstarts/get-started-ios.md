@@ -8,12 +8,13 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6304077a26f5c0ecb91e1ec4936bd79b3d839d95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: has-adal-ref
+ms.openlocfilehash: 1da5bd7020304c67bd9f9058612f47d528611a9e
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79471225"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195339"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Snabb start: skapa en iOS-app med molnbaserade ankare, antingen i Swift eller mål-C
 
@@ -34,7 +35,7 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 - En utvecklare aktiverade macOS-datorn med den senaste versionen av <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> och <a href="https://cocoapods.org" target="_blank">CocoaPods</a> installerad.
 - Git installerat via HomeBrew:
-  1. Ange följande kommando som en enda rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. 
+  1. Ange följande kommando som en enda rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . 
   1. Kör `brew install git` och `brew install git-lfs`.
   1. Uppdatera git-konfigurationen med `git lfs install` (för den aktuella användaren) eller `git lfs install --system` (för hela systemet).
 - En utvecklaraktiverad <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit-kompatibel</a> iOS-enhet.
@@ -129,7 +130,7 @@ I Xcode stoppar du appen genom att trycka på **Stoppa**.
 
 ### <a name="cocoapods-issues-on-macos-catalina-1015"></a>CocoaPods problem på macOS Catalina (10,15)
 
-Om du nyligen har uppdaterat till macOS Catalina (10,15) och hade CocoaPods installerat i förväg, kan CocoaPods vara i ett trasigt tillstånd och inte konfigurera dina poddar- `.xcworkspace` och projektfiler korrekt. För att lösa det här problemet måste du installera om CocoaPods genom att köra följande kommandon:
+Om du nyligen har uppdaterat till macOS Catalina (10,15) och hade CocoaPods installerat i förväg, kan CocoaPods vara i ett trasigt tillstånd och inte konfigurera dina poddar-och `.xcworkspace` projektfiler korrekt. För att lösa det här problemet måste du installera om CocoaPods genom att köra följande kommandon:
 
 ```shell
 brew update
@@ -139,7 +140,7 @@ brew link --overwrite cocoapods
 
 ### <a name="app-crashes-when-deploying-to-ios-1031-from-a-personal-provisioning-profiledeveloper-account"></a>Appen kraschar vid distribution till iOS-10.3.1 från en personlig etablerings profil/utvecklarens konto 
 
-Om du distribuerar iOS-appen på iOS-10.3.1 från en personlig etablerings profil/ett utvecklares konto kan du se det här `Library not loaded: @rpath/ADAL...`felet:. 
+Om du distribuerar iOS-appen på iOS-10.3.1 från en personlig etablerings profil/ett utvecklares konto kan du se det här felet: `Library not loaded: @rpath/ADAL...` . 
 
 Så här löser du problemet:
 

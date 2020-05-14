@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 02/27/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1bef4e5f4129ddc8300d61d609392ce0b07b74b8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 48ce72ee501252e35388f958b5c2e166edc2678f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80656256"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83196160"
 ---
 # <a name="what-is-azure-private-link"></a>Vad är Azure Privat Link? 
 Med Azures privata länk kan du få åtkomst till Azure PaaS-tjänster (till exempel Azure Storage och SQL Database) och Azure-värdbaserade/partner tjänster som ägs av en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket.
@@ -40,29 +40,31 @@ Azure Private-länken ger följande fördelar:
 ## <a name="availability"></a>Tillgänglighet 
  I följande tabell visas de privata länk tjänsterna och de regioner där de är tillgängliga. 
 
-|Scenario  |Tjänster som stöds  |Tillgängliga regioner | Status  |
-|:---------|:-------------------|:-----------------|:--------|
-|Privat länk för kundägda tjänster |Privata länk tjänster bakom standard Azure Load Balancer | Alla offentliga regioner  | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-|Privat länk för Azure PaaS Services   | Azure Storage        |  Alla offentliga regioner      | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
-|  | Azure Data Lake Storage Gen2        |  Alla offentliga regioner      | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
-|  |  Azure SQL Database         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
-|  |Azure Synapse Analytics (SQL Data Warehouse)| Alla offentliga regioner |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|  |Azure Cosmos DB|  Alla offentliga regioner |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  |  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  |  Azure Database for MySQL         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  |  Azure-databas för MariaDB         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
-|  |  Azure Key Vault         | Alla offentliga regioner      |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
-|  |Azure Kubernetes-tjänst – Kubernetes-API | Alla offentliga regioner      |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/aks/private-clusters)   |
-|  |Azure Search | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA |   Förhandsversion    |
-|  |Azure Container Registry | Alla offentliga regioner      |   Förhandsversion   |
-|  |Azure App Configuration | Alla offentliga regioner      |   Förhandsversion   |
-|  |Azure Backup | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA     |   Förhandsversion   |
-|  |Azure Event Hub | Alla offentliga regioner      |   Förhandsversion    |
-|  |Azure Service Bus | Alla offentliga regioner      |   Förhandsversion   |
-|  |Azure Relay | Alla offentliga regioner      |   Förhandsversion   |
-|  |Azure Event Grid| ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/event-grid/network-security)   |
-|  |Azure Web Apps | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|  |Azure Machine Learning | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsversion   <br/> [Läs mer](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Tjänster som stöds  |Tillgängliga regioner | Status  |
+|:-------------------|:-----------------|:--------|
+|Privata länk tjänster bakom standard Azure Load Balancer | Alla offentliga regioner  | Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Azure Storage        |  Alla offentliga regioner       | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
+| Azure Data Lake Storage Gen2        |  Alla offentliga regioner      | Allmän tillgänglighet (GA) <br/> [Läs mer](/azure/storage/common/storage-private-endpoints)  |
+|  Azure SQL Database         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+|Azure Synapse Analytics (SQL Data Warehouse)| Alla offentliga regioner |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
+|Azure Cosmos DB|  Alla offentliga regioner |Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database for MySQL         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  Azure-databas för MariaDB         | Alla offentliga regioner      |   Allmän tillgänglighet (GA) <br/> [Läs mer](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|  Azure Key Vault         | Alla offentliga regioner      |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
+|Azure Kubernetes-tjänst – Kubernetes-API | Alla offentliga regioner      |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/aks/private-clusters)   |
+|Azure Search | Alla offentliga regioner |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
+|Azure Container Registry | Alla offentliga regioner      |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/container-registry/container-registry-private-link)   |
+|Azure App Configuration | Alla offentliga regioner      |   Förhandsgranskning   |
+|Azure Backup | Alla offentliga regioner     |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/backup/private-endpoints)   |
+|Azure Event Hub | Alla offentliga regioner      |    Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/event-hubs/private-link-service)  |
+|Azure Service Bus | Alla offentliga regioner      |  Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/service-bus-messaging/private-link-service)    |
+|Azure Relay | Alla offentliga regioner      |   Förhandsgranskning <br/> [Läs mer](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
+|Azure Event Grid| Alla offentliga regioner       |   Allmän tillgänglighet (GA)   <br/> [Läs mer](https://docs.microsoft.com/azure/event-grid/network-security) |
+|Azure Web Apps | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsgranskning   <br/> [Läs mer](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
+|Azure Machine Learning | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsgranskning   <br/> [Läs mer](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+| IoT Hub | Alla offentliga regioner    |   Förhandsgranskning   <br/> [Läs mer](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
+| Azure SignalR | ÖSTRA USA, VÄSTRA USA 2, SÖDRA CENTRALA USA      |   Förhandsgranskning   <br/> [Läs mer](https://aka.ms/asrs/privatelink)   |
 
 Du hittar de senaste aviseringarna på [sidan för Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 

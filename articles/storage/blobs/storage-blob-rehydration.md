@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 82ea4ad23e3207f5641ade196f69595cd1e7b323
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1265d018997f9540e14e83ab15a44e78f4f86fb1
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684067"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402670"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>Dehydratisera BLOB-data från Arkiv lag rings nivå
 
@@ -34,6 +34,9 @@ När en BLOB finns i Arkiv åtkomst nivån anses den vara offline och kan inte l
 Om du inte vill skapa en nytorkad Arkiv-BLOB kan du välja att göra en [kopierings-BLOB](https://docs.microsoft.com/rest/api/storageservices/copy-blob) -åtgärd. Den ursprungliga blobben förblir oförändrad i arkivet medan en ny BLOB skapas på låg frekvent eller låg frekvent nivå så att du kan arbeta med. I åtgärden Kopiera BLOB kan du också ange den valfria egenskapen *x-MS-rehydratiserat-Priority* till standard eller hög för att ange den prioritet som du vill att din BLOB-kopia ska skapas i.
 
 Det kan ta flera timmar att kopiera en BLOB från arkivet, beroende på vilken rehydratiserad prioritet som har valts. I bakgrunden läser **kopierings-BLOB** -åtgärden din Arkiv käll-BLOB för att skapa en ny online-BLOB på den valda mål nivån. Den nya blobben kan vara synlig när du listar blobbar, men data är inte tillgängliga förrän läsningen från källans Arkiv-BLOB har slutförts och data skrivs till den nya online-målcachen. Den nya blobben är som en oberoende kopia och eventuella ändringar eller borttagningar av den påverkar inte källans Arkiv-blob.
+
+> [!IMPORTANT]
+> Ta inte bort käll-bloben förrän kopieringen har slutförts på mål platsen. Om käll-bloben tas bort kan inte mål-bloben slutföra kopieringen och måste vara tom. Du kan kontrol lera *x-MS-Copy-status* för att fastställa status för kopierings åtgärden.
 
 Arkiv-blobbar kan bara kopieras till mål nivåerna online inom samma lagrings konto. Det finns inte stöd för att kopiera en Arkiv-blob till en annan Archive-blob. I följande tabell visas CopyBlob funktioner.
 
@@ -57,7 +60,7 @@ Blobbar i Arkiv lag rings nivån lagras i minst 180 dagar. Om du tar bort eller 
 ## <a name="quickstart-scenarios"></a>Snabbstartsscenarier
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>Dehydratiserar en Arkiv-blob till en onlinenivå
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Sök efter och välj **alla resurser**i Azure Portal.
@@ -74,11 +77,11 @@ Blobbar i Arkiv lag rings nivån lagras i minst 180 dagar. Om du tar bort eller 
 
 1. Välj **Spara** längst ned.
 
-![Ändra status för kontroll](media/storage-tiers/blob-access-tier.png)
-![av lagrings konto nivå](media/storage-tiers/rehydrate-status.png)
+![Ändra ](media/storage-tiers/blob-access-tier.png)
+ status för kontroll av lagrings konto nivå ![](media/storage-tiers/rehydrate-status.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Följande PowerShell-skript kan användas för att ändra BLOB-nivån för en Arkiv-blob. `$rgName` Variabeln måste initieras med resurs gruppens namn. `$accountName` Variabeln måste initieras med ditt lagrings konto namn. `$containerName` Variabeln måste initieras med ditt container namn. `$blobName` Variabeln måste initieras med ditt BLOB-namn. 
+Följande PowerShell-skript kan användas för att ändra BLOB-nivån för en Arkiv-blob. `$rgName`Variabeln måste initieras med resurs gruppens namn. `$accountName`Variabeln måste initieras med ditt lagrings konto namn. `$containerName`Variabeln måste initieras med ditt container namn. `$blobName`Variabeln måste initieras med ditt BLOB-namn. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
@@ -99,7 +102,7 @@ $blob.ICloudBlob.SetStandardBlobTier("Hot", “Standard”)
 ---
 
 ### <a name="copy-an-archive-blob-to-a-new-blob-with-an-online-tier"></a>Kopiera en Arkiv-blob till en ny BLOB med en onlinenivå
-Följande PowerShell-skript kan användas för att kopiera en Arkiv-blob till en ny BLOB inom samma lagrings konto. `$rgName` Variabeln måste initieras med resurs gruppens namn. `$accountName` Variabeln måste initieras med ditt lagrings konto namn. `$srcContainerName` Variablerna `$destContainerName` och måste initieras med dina behållar namn. `$srcBlobName` Variablerna `$destBlobName` och måste initieras med dina BLOB-namn. 
+Följande PowerShell-skript kan användas för att kopiera en Arkiv-blob till en ny BLOB inom samma lagrings konto. `$rgName`Variabeln måste initieras med resurs gruppens namn. `$accountName`Variabeln måste initieras med ditt lagrings konto namn. `$srcContainerName` `$destContainerName` Variablerna och måste initieras med dina behållar namn. `$srcBlobName` `$destBlobName` Variablerna och måste initieras med dina BLOB-namn. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""

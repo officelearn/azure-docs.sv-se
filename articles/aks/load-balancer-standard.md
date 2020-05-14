@@ -7,16 +7,16 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3be60888d3d12d37650ad2cffc1911fb3b5e6682
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 14e80f6348772af77c5a53b1d5e9111c4ae8ba9b
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790702"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402075"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
-För att ge åtkomst till program via Kubernetes-tjänster `LoadBalancer` av typen i Azure Kubernetes service (AKS) kan du använda en Azure Load Balancer. En belastningsutjämnare som körs på AKS kan användas som en intern eller extern belastningsutjämnare. En intern belastningsutjämnare gör att en Kubernetes-tjänst endast är tillgänglig för program som körs i samma virtuella nätverk som AKS-klustret. En extern belastningsutjämnare tar emot en eller flera offentliga IP-adresser för ingress och gör en Kubernetes-tjänst tillgänglig externt med hjälp av offentliga IP-adresser.
+För att ge åtkomst till program via Kubernetes-tjänster av typen `LoadBalancer` i Azure Kubernetes service (AKS) kan du använda en Azure Load Balancer. En belastningsutjämnare som körs på AKS kan användas som en intern eller extern belastningsutjämnare. En intern belastningsutjämnare gör att en Kubernetes-tjänst endast är tillgänglig för program som körs i samma virtuella nätverk som AKS-klustret. En extern belastningsutjämnare tar emot en eller flera offentliga IP-adresser för ingress och gör en Kubernetes-tjänst tillgänglig externt med hjälp av offentliga IP-adresser.
 
 Azure Load Balancer finns i två SKU: er – *Basic* och *standard*. *Standard* -SKU: n används som standard när du skapar ett AKS-kluster. Med en *standard* -SKU-belastningsutjämnare får du ytterligare funktioner och funktioner, till exempel en större storlek och Tillgänglighetszoner för Server delen. Det är viktigt att du förstår skillnaderna mellan *standard* -och *grundläggande* belastningsutjämnare innan du väljer vilken du vill använda. När du har skapat ett AKS-kluster kan du inte ändra SKU för belastnings utjämning för det klustret. Mer information om *Basic* -och *standard* -SKU: er finns i [jämförelse av Azure Load Balancer SKU][azure-lb-comparison].
 
@@ -38,7 +38,7 @@ AKS-kluster tjänstens huvud namn behöver också behörighet att hantera nätve
 
 Om du har ett befintligt kluster med Basic-SKU Load Balancer, finns det viktiga skillnader att tänka på när du migrerar till att använda ett kluster med standard-SKU: n Load Balancer.
 
-Om du till exempel gör blå/gröna distributioner för att migrera kluster, är det `load-balancer-sku` en vanlig metod som ger en typ av kluster som bara kan definieras i klustrets skapande tid. *Basic SKU* -belastningsutjämnare använder dock *Basic SKU* IP-adresser som inte är kompatibla med *standardsku* : er för SKU: er, eftersom de kräver *standard-SKU* IP-adresser. När du migrerar kluster för att uppgradera Load Balancer SKU: er krävs en ny IP-adress med en kompatibel IP-SKU.
+Om du till exempel gör blå/gröna distributioner för att migrera kluster, är det en vanlig metod som `load-balancer-sku` ger en typ av kluster som bara kan definieras i klustrets skapande tid. *Basic SKU* -belastningsutjämnare använder dock *Basic SKU* IP-adresser som inte är kompatibla med *standardsku* : er för SKU: er, eftersom de kräver *standard-SKU* IP-adresser. När du migrerar kluster för att uppgradera Load Balancer SKU: er krävs en ny IP-adress med en kompatibel IP-SKU.
 
 Mer information om hur du migrerar kluster finns i [vår dokumentation om migrering](aks-migration.md) för att se en lista över viktiga ämnen som du bör tänka på när du migrerar. Begränsningarna nedan är också viktiga skillnader när du antecknar när du använder standard-SKU: er i AKS.
 
@@ -89,12 +89,17 @@ När du använder en *standard* -SKU-BELASTNINGSUTJÄMNARE skapar AKS-klustret a
 
 Genom att ta med flera IP-adresser eller prefix kan du definiera flera tjänster för säkerhets kopiering när du definierar IP-adressen bakom ett enda belastnings Utjämnings objekt. Den utgående slut punkten för vissa noder beror på vilken tjänst de är associerade med.
 
-> [!IMPORTANT]
-> Du måste använda *standard* SKU offentliga IP: er för utgående med din *standard* -SKU. Du kan kontrol lera SKU: er för dina offentliga IP-adresser med hjälp av kommandot [AZ Network Public-IP show][az-network-public-ip-show] :
->
-> ```azurecli-interactive
-> az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
-> ```
+### <a name="pre-requisites-to-bring-your-own-ip-addresses-or-ip-prefixes"></a>Krav för att hämta egna IP-adresser eller IP-prefix
+1. Du måste använda *standard* SKU offentliga IP: er för utgående med din *standard* -SKU. Du kan kontrol lera SKU: er för dina offentliga IP-adresser med hjälp av kommandot [AZ Network Public-IP show][az-network-public-ip-show] :
+
+   ```azurecli-interactive
+   az network public-ip show --resource-group myResourceGroup --name myPublicIP --query sku.name -o tsv
+   ```
+ 1. De offentliga IP-adresserna och IP-prefixen måste finnas i samma region och ingå i samma prenumeration som ditt AKS-kluster.
+ 1. Offentliga IP-adresser och IP-prefix kan inte vara IP-adresser som skapats av AKS som en hanterad IP-adress. Se till att alla IP-adresser som anges som anpassade IP-adresser har skapats manuellt och inte är AKS-tjänsten.
+ 1. Det går inte att använda offentliga IP-adresser och IP-prefix av en annan resurs eller tjänst.
+
+ ### <a name="define-your-own-public-ip-or-prefixes-on-an-existing-cluster"></a>Definiera egna offentliga IP-adresser eller prefix i ett befintligt kluster
 
 Använd kommandot [AZ Network Public-IP show][az-network-public-ip-show] för att visa ID: n för dina offentliga IP-adresser.
 
@@ -131,9 +136,6 @@ az aks update \
     --name myAKSCluster \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
-
-> [!IMPORTANT]
-> De offentliga IP-adresserna och IP-prefixen måste finnas i samma region och ingå i samma prenumeration som ditt AKS-kluster. 
 
 ### <a name="define-your-own-public-ip-or-prefixes-at-cluster-create-time"></a>Definiera en egen offentlig IP-adress eller prefix i klustrets skapande tid
 
@@ -222,7 +224,7 @@ När du ändrar *belastnings Utjämnings-utgående-portarna* och *belastningsutj
 ### <a name="required-quota-for-customizing-allocatedoutboundports"></a>Nödvändig kvot för att anpassa allocatedOutboundPorts
 Du måste ha tillräckligt med utgående IP-kapacitet baserat på antalet virtuella noder och önskade allokerade portar. Om du vill kontrol lera att du har tillräckligt med utgående IP-kapacitet använder du följande formel: 
  
-*outboundIPs* \* 64 000 \> *nodeVMs* nodeVMs \* *desiredAllocatedOutboundPorts*.
+*outboundIPs* \* 64 000 \> *nodeVMs* \* *desiredAllocatedOutboundPorts*.
  
 Om du till exempel har 3 *nodeVMs*och 50 000 *desiredAllocatedOutboundPorts*måste du ha minst 3 *outboundIPs*. Vi rekommenderar att du införlivar ytterligare utgående IP-kapacitet utöver det du behöver. Dessutom måste du ha ett konto för den automatiska skalnings tjänsten för klustret och möjligheten att uppgradera noder i noden när du beräknar utgående IP-kapacitet. Granska antalet aktuella noder och maximalt antal noder och Använd det högre värdet för klustrets autoskalning. För att uppgradera måste du konto för en ytterligare virtuell nod för varje nod som tillåter uppgradering.
  

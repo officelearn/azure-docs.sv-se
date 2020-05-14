@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/19/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 6345d210e26747f921595039a2a3c8e11be11fda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f26fa00f78b8564e08b6352d4da31640b13f47f
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80387639"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402682"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Skriv granskning till ett lagrings konto bakom VNet och brand vägg
 
@@ -38,7 +38,7 @@ Följande förutsättningar måste vara uppfyllda för att granskning ska kunna 
 > [!div class="checklist"]
 > * Ett allmänt-syfte v2-lagrings konto. Om du har ett allmänt v1-eller Blob Storage-konto [uppgraderar du till ett allmänt lagrings konto](../storage/common/storage-account-upgrade.md). Mer information finns i [typer av lagrings konton](../storage/common/storage-account-overview.md#types-of-storage-accounts).
 > * Lagrings kontot måste finnas i samma prenumeration och på samma plats som Azure SQL Database-servern. 
-> * Det Azure Storage kontot kräver `Allow trusted Microsoft services to access this storage account`. Ange detta på lagrings kontots **brand väggar och virtuella nätverk**.
+> * Det Azure Storage kontot kräver `Allow trusted Microsoft services to access this storage account` . Ange detta på lagrings kontots **brand väggar och virtuella nätverk**.
 > * Du måste ha `Microsoft.Authorization/roleAssignments/write` behörighet för det valda lagrings kontot. Mer information finns i [inbyggda roller i Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="configure-in-azure-portal"></a>Konfigurera i Azure Portal
@@ -54,7 +54,7 @@ Anslut till [Azure Portal](https://portal.azure.com) med din prenumeration. Navi
   > [!NOTE]
   > Om det valda lagrings kontot ligger bakom VNet visas följande meddelande:
   >
-  >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage: requires an Active Directory admin on the server; enables 'Allow trusted Microsoft services to access this storage account' on the storage account; and creates a server managed identity with 'storage blob data contributor' RBAC.`
+  >`You have selected a storage account that is behind a firewall or in a virtual network. Using this storage requires to enable 'Allow trusted Microsoft services to access this storage account' on the storage account and creates a server managed identity with 'storage blob data contributor' RBAC.`
   >
   >Om du inte ser det här meddelandet finns inte lagrings kontot bakom ett VNet.
 

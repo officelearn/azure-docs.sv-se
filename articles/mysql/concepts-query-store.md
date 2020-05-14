@@ -5,17 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: d138c2fb8ed667d5b3c961c9f567264fa40edaee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/12/2020
+ms.openlocfilehash: b47ab44c5a5f8faad85b60032a6781475235a170
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537048"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402247"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Övervaka Azure Database for MySQL prestanda med Query Store
 
-**Gäller för:** Azure Database for MySQL 5,7
+**Gäller för:** Azure Database for MySQL 5,7, 8,0
 
 Funktionen Query Store i Azure Database for MySQL ger dig ett sätt att spåra frågeresultaten över tid. Query Store fören klar prestanda fel sökningen genom att hjälpa dig att snabbt hitta de allra som körs och de flesta resurs intensiva frågor. Query Store samlar automatiskt in en historik över frågor och körnings statistik och behåller dem för din granskning. Den separerar data efter tids period, så att du kan se databas användnings mönster. Data för alla användare, databaser och frågor lagras i databasen **MySQL** schema i Azure Database for MySQL-instansen.
 
@@ -87,7 +87,7 @@ När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönste
 
 Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **ProfileServiceApplicationProxy** | **Beskrivning** | **Standardvärde** | **Intervall** |
+| **Parameter** | **Beskrivning** | **Standard** | **Intervall** |
 |---|---|---|---|
 | query_store_capture_mode | Aktivera/inaktivera funktionen för Query Store baserat på värdet. OBS! om performance_schema är avstängd aktiverar query_store_capture_mode performance_schema och en delmängd av de prestanda schema instrument som krävs för den här funktionen. | ALL | INGEN, ALLA |
 | query_store_capture_interval | Hämtnings intervallet för frågearkivet i minuter. Tillåter att du anger det intervall som används för att aggregera frågeresultaten | 15 | 5 - 60 |
@@ -96,7 +96,7 @@ Följande alternativ är tillgängliga för att konfigurera parametrar för Frå
 
 Följande alternativ gäller specifikt för väntande statistik.
 
-| **ProfileServiceApplicationProxy** | **Beskrivning** | **Standardvärde** | **Intervall** |
+| **Parameter** | **Beskrivning** | **Standard** | **Intervall** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Gör det möjligt att aktivera/inaktivera väntande statistik. | ALTERNATIVET | INGEN, ALLA |
 | query_store_wait_sampling_frequency | Ändrar frekvensen för vänta-sampling i sekunder. 5 till 300 sekunder. | 30 | 5-300 |
@@ -104,7 +104,7 @@ Följande alternativ gäller specifikt för väntande statistik.
 > [!NOTE]
 > För närvarande ersätter **query_store_capture_mode** den här konfigurationen, vilket innebär att både **query_store_capture_mode** och **query_store_wait_sampling_capture_mode** måste aktive ras för att vänta på att statistik ska fungera. Om **query_store_capture_mode** är inaktive rad inaktive ras väntande statistik, eftersom väntande statistik använder performance_schema aktiverat och query_text som fångas av frågearkivet.
 
-Använd [Azure Portal](howto-server-parameters.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md) för att hämta eller ange ett annat värde för en parameter.
+Använd [Azure Portal](howto-server-parameters.md)   eller [Azure CLI](howto-configure-server-parameters-using-cli.md)   för att hämta eller ange ett annat värde för en parameter.
 
 ## <a name="views-and-functions"></a>Vyer och funktioner
 
@@ -172,9 +172,9 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
 - Om en MySQL-server har parametern `default_transaction_read_only` på kan Query Store inte samla in data.
-- Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor\>(= 6000 byte).
+- Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor ( \> = 6000 byte).
 - Kvarhållningsperioden för väntande statistik är 24 timmar.
-- Väntande statistik använder exempel för att avbilda en del av händelser. Frekvensen kan ändras med hjälp av parametern `query_store_wait_sampling_frequency`.
+- Väntande statistik använder exempel för att avbilda en del av händelser. Frekvensen kan ändras med hjälp av parametern `query_store_wait_sampling_frequency` .
 
 ## <a name="next-steps"></a>Nästa steg
 

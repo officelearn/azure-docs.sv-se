@@ -1,19 +1,19 @@
 ---
 title: Lägg till fullständig texts ökning i Azure Blob Storage
 titleSuffix: Azure Cognitive Search
-description: Extrahera innehåll och Lägg till struktur i Azure-blobbar när du skapar ett fullständigt texts öknings index i Azure kognitiva ök.
+description: Extrahera innehåll och Lägg till struktur i Azure-blobar när du skapar ett fullständigt texts öknings index i Azure kognitiva sökningar.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: af7d04bd74ada296b9f0e0f7c149c2a781cec579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83308f42fb1f2ea3408b5c1a63d88d21a8e7830a
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73496486"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402084"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Lägg till fullständig texts ökning i Azure blob-data med Azure Kognitiv sökning
 
@@ -58,6 +58,11 @@ Genom att köra en BLOB-indexerare över en behållare kan du extrahera text och
 ### <a name="indexing-blob-metadata"></a>Indexera BLOB-metadata
 
 Ett vanligt scenario som gör det enkelt att sortera genom blobbar av vilken innehålls typ som helst är att indexera både anpassade metadata och system egenskaper för varje blob. På så sätt indexeras information för alla blobbar oavsett dokument typ, som lagras i ett index i din Sök tjänst. Med ditt nya index kan du fortsätta att sortera, filtrera och fasett över allt Blob Storage-innehåll.
+
+> [!NOTE]
+> BLOB index-Taggar indexeras internt av Blob Storage-tjänsten och exponeras för frågor. Om dina blobbars nyckel/värde-attribut kräver indexerings-och filtrerings funktioner bör BLOB index-taggarna användas i stället för metadata.
+>
+> Mer information om BLOB-index finns i [Hantera och hitta data på Azure Blob Storage med BLOB-index](../storage/blobs/storage-manage-find-blobs.md).
 
 ### <a name="indexing-json-blobs"></a>Indexera JSON-blobbar
 Indexerare kan konfigureras för att extrahera strukturerat innehåll som finns i blobbar som innehåller JSON. En indexerare kan läsa JSON-blobbar och parsa det strukturerade innehållet i lämpliga fält i ett Sök dokument. Indexerare kan också ta blobbar som innehåller en matris med JSON-objekt och mappa varje element till ett separat Sök dokument. Du kan ställa in ett tolknings läge för att påverka typen av JSON-objekt som skapas av indexeraren.

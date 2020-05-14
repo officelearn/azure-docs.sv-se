@@ -3,16 +3,16 @@ title: Ansluta till SQL Server eller Azure SQL Database
 description: Automatisera aktiviteter för SQL-databaser lokalt eller i molnet med hjälp av Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam; logicappspm
+ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: 93b63d332f00c31a352c11e483fc3ce5cb45a922
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c32e17aaf83c233ad77bbbf607c30cc526253352
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789211"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402588"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatisera arbets flöden för SQL Server eller Azure SQL Database med Azure Logic Apps
 
@@ -86,7 +86,7 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
    ![Lägg till nytt steg i din Logic app](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
-   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan befintliga steg flyttar du musen över den anslutande pilen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**i rutan Sök anger du "SQL Server" som filter. I listan åtgärder väljer du den SQL-åtgärd som du vill använda.
 
@@ -129,6 +129,20 @@ Ibland måste du arbeta med resultat uppsättningar så att kopplingen inte retu
   * [SQL-sid brytning för Mass data överföring med Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx)
 
   * [SELECT-ORDER BY-sats](https://docs.microsoft.com/sql/t-sql/queries/select-order-by-clause-transact-sql)
+
+### <a name="handle-dynamic-bulk-data"></a>Hantera dynamiska Mass data
+
+När du gör ett anrop till en lagrad procedur i SQL Server-anslutaren är den returnerade utmatningen ibland dynamisk. I det här scenariot följer du dessa steg:
+
+1. Öppna **Logic Apps designer**.
+1. Utför en testkörning av din Logic app för att se utdataformatet. Kopiera exempel på utdata.
+1. I designern, under den åtgärd där du anropar den lagrade proceduren, väljer du **nytt steg**.
+1. Under **Välj en åtgärd**söker du efter och väljer åtgärden [**parsa JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) .
+1. I åtgärden **parsa JSON** väljer **du Använd exempel nytto last för att generera schemat**.
+1. I fönstret **Ange eller klistra in ett exempel-JSON-nyttolast** klistrar du in exempel på utdata och väljer sedan **Slutför**.
+1. Om du får ett fel meddelande som Logic Apps inte kan generera ett schema, kontrollerar du att syntaxen för exempel på utdata är korrekt formaterad. Ange ett schema manuellt i rutan **schema** om du fortfarande inte kan skapa schemat.
+1. I verktygsfältet designer väljer du **Spara**.
+1. Om du vill få åtkomst till egenskaperna för JSON-innehåll använder du de datatoken som visas i listan med dynamiskt innehåll under [åtgärden **parsa JSON** ](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action).
 
 ## <a name="connector-specific-details"></a>Anslutningsspecifika Detaljer
 

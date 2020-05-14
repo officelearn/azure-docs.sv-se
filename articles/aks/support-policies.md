@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: a5d90106a85a61cbf499c4c08130392b922a45f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4146dd4988be93475dc4d2d0dade06b8738ad83
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77593588"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402466"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -38,11 +38,6 @@ Microsoft hanterar och övervakar följande komponenter i kontroll fönstret:
 AKS är inte en fullständigt hanterad kluster lösning. Vissa komponenter, till exempel arbetsnoder, har *delat ansvar*, där användarna måste underhålla AKS-klustret. Användarindata krävs, t. ex. för att tillämpa en säkerhets korrigering för en säkerhets korrigering av en arbetsnods operativ system (OS).
 
 Tjänsterna *hanteras* i den mening att Microsoft och AKS-teamet distribuerar, agerar och ansvarar för tjänstens tillgänglighet och funktioner. Kunder kan inte ändra dessa hanterade komponenter. Microsoft begränsar anpassningen för att säkerställa en konsekvent och skalbar användar upplevelse. En helt anpassningsbar lösning finns i [AKS-motorn](https://github.com/Azure/aks-engine).
-
-> [!NOTE]
-> AKS Worker-noder visas i Azure Portal som vanliga Azure IaaS-resurser. Men de här virtuella datorerna distribueras till en anpassad Azure-resurs grupp (föregås\\av MC *). Det går att ändra AKS Worker-noder. Du kan till exempel använda SSH (Secure Shell) för att ändra AKS Worker-noder på samma sätt som du ändrar normala virtuella datorer (du kan dock inte ändra bas operativ system avbildningen, och ändringar kanske inte behålls genom en uppdatering eller omstart) och du kan koppla andra Azure-resurser till AKS arbetsnoder. Men när du gör ändringar *utanför band-hanteringen och anpassningen* kan AKS-klustret bli oanvändbart. Undvik att ändra arbetsnoder om inte Microsoft Support dirigerar dig om att göra ändringar.
-
-Om du skickar åtgärder som inte stöds enligt definitionen ovan, till exempel out-of-band-deallokering av alla agent-noder, återges inte klustret. AKS förbehåller sig rätten att arkivera kontroll plan som har kon figurer ATS ur support rikt linjerna för utökade perioder som är lika med och bortom 30 dagar. AKS upprätthåller säkerhets kopiering av etcd metadata i kluster och kan enkelt allokera om klustret. Den här Omallokeringen kan initieras av en pågående åtgärd som tar klustret tillbaka till support, till exempel en uppgradering eller skalning till aktiva agent-noder.
 
 ## <a name="shared-responsibility"></a>Delat ansvar
 
@@ -104,8 +99,22 @@ Microsoft startar inte automatiskt om arbetsnoder för att tillämpa uppdatering
 
 Kunderna ansvarar för att köra Kubernetes-uppgraderingar. De kan köra uppgraderingar via Azures kontroll panel eller Azure CLI. Detta gäller för uppdateringar som innehåller förbättringar av säkerhet eller funktioner i Kubernetes.
 
+#### <a name="user-customization-of-worker-nodes"></a>Användar anpassning av arbetsnoder
 > [!NOTE]
-> Eftersom AKS är en *hanterad tjänst*, omfattar slut målen för att ta bort ansvar för korrigeringar, uppdateringar och logg insamling för att göra tjänst hanteringen mer komplett och praktisk. När tjänstens kapacitet för slut punkt till slut punkt ökar kan framtida versioner utesluta vissa funktioner (till exempel omstart av nod och automatisk uppdatering).
+> AKS Worker-noder visas i Azure Portal som vanliga Azure IaaS-resurser. Men de här virtuella datorerna distribueras till en anpassad Azure-resurs grupp (föregås av MC \\ *). Det går att utöka AKS Worker-noder från sina Grundkonfigurationer. Du kan till exempel använda SSH (Secure Shell) för att ändra AKS Worker-noder på samma sätt som du ändrar normala virtuella datorer. Du kan dock inte ändra bas operativ system avbildningen. Eventuella anpassade ändringar kanske inte behålls genom en uppgradering, skalning, uppdatering eller omstart. Att göra ändringar *utanför band och utanför omfånget för AKS-API: n* leder **dock**till att AKS-klustret inte stöds. Undvik att ändra arbetsnoder om inte Microsoft Support dirigerar dig om att göra ändringar.
+
+Om du skickar åtgärder som inte stöds enligt definitionen ovan, till exempel out-of-band-deallokering av alla agent-noder, återges inte klustret. AKS förbehåller sig rätten att arkivera kontroll plan som har kon figurer ATS ur support rikt linjerna för utökade perioder som är lika med och bortom 30 dagar. AKS upprätthåller säkerhets kopiering av etcd metadata i kluster och kan enkelt allokera om klustret. Den här Omallokeringen kan initieras av en pågående åtgärd som tar klustret tillbaka till support, till exempel en uppgradering eller skalning till aktiva agent-noder.
+
+AKS hanterar livs cykeln och åtgärder för arbetsnoder på uppdrag av kunder – det **går inte**att ändra de IaaS-resurser som är associerade med arbetsnoderna. Ett exempel på en åtgärd som inte stöds är att anpassa VM Scale set för en resurspool genom att manuellt ändra konfigurationer på VMSS via VMSS-portalen eller VMSS API.
+ 
+AKS rekommenderar att du använder [Kubernetes daemonsets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)för arbets belastnings bara konfigurationer eller paket.
+
+Med hjälp av Kubernetes Privileged daemonsets och init containers kan kunder finjustera och ändra eller installera program vara från tredje part på klustrets arbetsnoder. Exempel på sådana anpassningar är att lägga till anpassade program för säkerhets genomsökning eller uppdatera sysctl-inställningar.
+
+Även om detta är en rekommenderad sökväg, om ovanstående krav är uppfyllda, kan AKS Engineering and support inte hjälpa till med fel sökning eller diagnostisering av brutna/icke-funktionella ändringar eller sådana som gör att noden inte är tillgänglig på grund av en kund distribuerad daemonset.
+
+> [!NOTE]
+> AKS som en *hanterad tjänst* har slut mål, till exempel borttagning av ansvar för korrigeringar, uppdateringar och logg insamling för att göra tjänst hanteringen mer komplett och praktisk. När tjänstens kapacitet för slut punkt till slut punkt ökar kan framtida versioner utesluta vissa funktioner (till exempel omstart av nod och automatisk uppdatering).
 
 ### <a name="security-issues-and-patching"></a>Säkerhets problem och uppdatering
 

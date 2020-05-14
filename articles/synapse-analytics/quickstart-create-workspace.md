@@ -2,19 +2,19 @@
 title: Snabb start – skapa en arbets yta
 description: Skapa en Azure Synapse Analytics-arbetsyta genom att följa stegen i den här hand boken.
 services: synapse-analytics
-author: malvenko
+author: pimorano
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: ''
 ms.date: 04/15/2020
-ms.author: josels
+ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 49bd251b7f76a844a0d3fd1b1a09f7e15c5e7ddb
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0bf58348d91c23db9bcc016ff6d71ce2b3804ced
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792215"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201060"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Snabb start: skapa en Azure Synapse Analytics-arbetsyta (för hands version)
 
@@ -33,9 +33,9 @@ Logga in på [Azure Portal](https://portal.azure.com/)
 ## <a name="create-an-azure-synapse-workspace-using-the-azure-portal"></a>Skapa en Azure dataSynapses-arbetsyta med hjälp av Azure Portal
 
 1. I rutan Microsoft Azure Sök anger du **Synapse-arbetsyta** och väljer sedan den här tjänsten.
-![Azure Portal Sök fältet med Azure Synapse-arbetsytor skrivna i.](media/quickstart-create-synapse-workspace/workspace-search.png).
+![Azure Portal Sök fältet med Azure Synapse-arbetsytor som anges i.](media/quickstart-create-synapse-workspace/workspace-search.png)
 2. På sidan **Synapse-arbetsytor** klickar du på **+ Lägg till**.
-![Kommando för att skapa en ny Azure dataSynapses-arbetsyta är markerat. ](media/quickstart-create-synapse-workspace/create-workspace-02.png).
+![Kommando för att skapa en ny Azure dataSynapses-arbetsyta är markerat.](media/quickstart-create-synapse-workspace/create-workspace-02.png)
 3. Fyll i formuläret för **Azure DataSynapses-arbetsyta** med följande information:
 
     | Inställningen | Föreslaget värde | Beskrivning |
@@ -47,7 +47,7 @@ Logga in på [Azure Portal](https://portal.azure.com/)
     | **Data Lake Storage Gen2** | Redovisning`storage account name` </br> Fil system:`root file system to use` | Anger ADLS Gen2 lagrings konto namn som ska användas som primär lagring och fil systemet som ska användas.|
     ||||
 
-    ![Arbets ytans etablerings flöde – grundläggande flik.](media/quickstart-create-synapse-workspace/create-workspace-03.png).
+    ![Arbets ytans etablerings flöde – grundläggande flik.](media/quickstart-create-synapse-workspace/create-workspace-03.png)
 
     Lagrings kontot kan väljas från:
     - En lista med ADLS Gen2 konton som är tillgängliga i din prenumeration
@@ -60,8 +60,8 @@ Logga in på [Azure Portal](https://portal.azure.com/)
 
 4. Valfritt Ändra något av fliken **standardvärden säkerhet + nätverk** :
 5. Valfritt Lägg till taggar på fliken **taggar** .
-6. Fliken **Sammanfattning** kör de nödvändiga verifieringarna för att se till att arbets ytan kan skapas. När verifieringen har slutförts trycker du på **skapa** ![arbets ytan etablerings flöde-bekräftelse](media/quickstart-create-synapse-workspace/create-workspace-05.png)..
-7. När resurs etablerings processen har slutförts visas en post för den skapade arbets ytan i listan över Synapse-arbetsytor. ![Lista över Synapse-arbetsytor som visar den nyligen etablerade arbets ytan.](media/quickstart-create-synapse-workspace/create-workspace-07.png).
+6. Fliken **Sammanfattning** kör de nödvändiga verifieringarna för att se till att arbets ytan kan skapas. När verifieringen har slutförts trycker du på **skapa** ![ arbets ytan etablerings flöde – bekräftelse-fliken.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
+7. När resurs etablerings processen har slutförts visas en post för den skapade arbets ytan i listan över Synapse-arbetsytor. ![Lista över Synapse-arbetsytor som visar den nyligen etablerade arbets ytan.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

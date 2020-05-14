@@ -3,13 +3,13 @@ author: erhopf
 ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/23/2019
-ms.openlocfilehash: 8754504655cdd08c9bf9f89311cb6c5d1057f0e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/11/2020
+ms.openlocfilehash: ddc61a0d0cb5a630282a9ba0589cef6fda29c4b5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78262491"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343471"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Autentisera med hjälp av Azure Active Directory
 
@@ -101,3 +101,19 @@ I det här exemplet används ett lösen ord för att autentisera tjänstens huvu
    ```
 
 Alternativt kan tjänstens huvud namn autentiseras med ett certifikat. Förutom tjänstens huvud namn stöds även användarens huvud konto genom att ha behörighet som delegerats via ett annat AAD-program. I det här fallet, i stället för lösen ord eller certifikat, uppmanas användarna att ange tvåfaktorautentisering när de hämtar token.
+
+## <a name="authorize-access-to-managed-identities"></a>Ge åtkomst till hanterade identiteter
+ 
+Cognitive Services stöd Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Hanterade identiteter för Azure-resurser kan ge åtkomst till Cognitive Services-resurser med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure Virtual Machines (VM), Function-appar, skalnings uppsättningar för virtuella datorer och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet.  
+
+### <a name="enable-managed-identities-on-a-vm"></a>Aktivera hanterade identiteter på en virtuell dator
+
+Innan du kan använda hanterade identiteter för Azure-resurser för att ge åtkomst till Cognitive Services resurser från din virtuella dator måste du aktivera hanterade identiteter för Azure-resurser på den virtuella datorn. Information om hur du aktiverar hanterade identiteter för Azure-resurser finns i:
+
+- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
+- [Azure CLI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+- [Azure Resource Manager mall](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
+- [Azure Resource Manager klient bibliotek](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
+
+Mer information om hanterade identiteter finns i [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).

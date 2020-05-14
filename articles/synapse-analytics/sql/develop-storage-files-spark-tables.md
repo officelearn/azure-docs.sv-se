@@ -9,22 +9,22 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41e31a322a3d771557474fdf5c318960822bcfe1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 210e0b240eefd2dd3f8d1ac45c781959e47ab893
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424050"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198481"
 ---
 # <a name="query-spark-tables-with-azure-synapse-analytics-using-sql-on-demand-preview"></a>Fråga Spark-tabeller med Azure Synapse Analytics med SQL på begäran (för hands version)
 
-SQL on-demand (för hands version) kan automatiskt synkronisera metadata från Spark-pooler i Synapse-arbetsytan (för hands version). En SQL-databas på begäran skapas för varje databas som är befintlig i Spark-pooler (för hands version). För varje spark-tabell som baseras på Parquet eller CSV skapas en extern tabell i SQL-databasen på begäran. Därför kan du stänga av Spark-poolerna och fortfarande fråga Spark-tabeller från SQL på begäran.
+SQL on-demand (för hands version) kan automatiskt synkronisera metadata från Spark-pooler i Synapse-arbetsytan (för hands version). En SQL-databas på begäran skapas för varje databas som är befintlig i Spark-pooler (för hands version). För varje spark-extern tabell som baseras på Parquet och finns i Azure Storage skapas en extern tabell i SQL-databasen på begäran. Därför kan du stänga av Spark-poolerna och fortfarande fråga Spark-externa tabeller från SQL på begäran.
 
 När en tabell är partitionerad i Spark ordnas filer i lagringen efter mappar. SQL på begäran kommer att använda metadata för partitionen och endast rikta relevanta mappar och filer för frågan.
 
-Synkronisering av metadata konfigureras automatiskt för varje spark-pool som tillhandahålls i Azure dataSynapses-arbetsytan. Du kan börja fråga Spark-tabeller direkt.
+Synkronisering av metadata konfigureras automatiskt för varje spark-pool som tillhandahålls i Azure dataSynapses-arbetsytan. Du kan börja fråga direkt externa tabeller direkt.
 
-Varje Spark-tabell representeras med en extern tabell i ett dbo-schema som motsvarar en SQL-databas på begäran. Kör en fråga som är riktad mot en extern [spark_table] för Spark Table-frågor. Kontrol lera att du har rätt [åtkomst till lagrings kontot](develop-storage-files-storage-access-control.md) där filerna finns innan du kör exemplet nedan.
+Varje Spark Parquet extern tabell som finns i Azure Storage representeras av en extern tabell i ett dbo-schema som motsvarar en SQL-databas på begäran. Kör en fråga som är riktad mot en extern [spark_table] för Spark-frågor för externa tabeller. Kontrol lera att du har rätt [åtkomst till lagrings kontot](develop-storage-files-storage-access-control.md) där filerna finns innan du kör exemplet nedan.
 
 ```sql
 SELECT * FROM [db].dbo.[spark_table]
@@ -42,7 +42,7 @@ SELECT * FROM [db].dbo.[spark_table]
 | DoubleType      | float                       |
 | DecimalType     | decimal                     |
 | TimestampType   | datetime2                   |
-| DateType        | date                        |
+| DateType        | datum                        |
 | StringType      | varchar (max) *               |
 | BinaryType      | varbinary                   |
 | BooleanType     | bit                         |

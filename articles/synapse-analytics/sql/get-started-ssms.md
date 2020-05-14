@@ -9,14 +9,15 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 704da86fd1d816dbf5d6cd9cf67dfee53fce2622
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a25049aee620a1cf14eeb51adfb75f6577defc2a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423742"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197072"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Ansluta till Synapse-SQL med SQL Server Management Studio (SSMS)
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -30,8 +31,11 @@ Du kan använda [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-ser
 
 ### <a name="supported-tools-for-sql-on-demand-preview"></a>Verktyg som stöds för SQL på begäran (för hands version)
 
-SSMS stöds delvis från och med version 18,5 med begränsade funktioner som att ansluta och fråga. [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) stöds fullt ut.
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) stöds fullt ut från version 1.18.0. SSMS stöds delvis från och med version 18,5. du kan bara använda den för att ansluta och fråga.
 
+> [!NOTE]
+> Om AAD-inloggningen har öppen anslutning i mer än 1 timme vid frågekörningen, kommer alla frågor som förlitar sig på AAD att Miss förväntas. Detta omfattar att fråga lagring med AAD-vidarekoppling och-instruktioner som interagerar med AAD (t. ex. skapa extern PROVIDER). Detta påverkar alla verktyg som håller anslutningen öppen, som i Frågeredigeraren i SSMS och ADS. Verktyg som öppnar ny anslutning för att köra frågor påverkas inte, till exempel Synapse Studio.
+> Du kan åtgärda problemet genom att starta om SSMS eller ansluta och frånkoppla i ADS. .
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar måste du kontrol lera att du har följande krav:  
@@ -94,7 +98,7 @@ Nu när en databas anslutning har upprättats kan du fråga efter data.
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Kör frågan. Det gör du genom att `Execute` Klicka på eller använda följande genväg `F5`:.
+4. Kör frågan. Det gör du genom att klicka på `Execute` eller använda följande genväg: `F5` .
    
     ![Kör frågan](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
 5. Titta på frågeresultaten. I det här exemplet har tabellen FactInternetSales 60398 rader.
@@ -114,7 +118,7 @@ Nu när du har upprättat en databas anslutning kan du fråga efter data.
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
     ```
-4. Kör frågan. Det gör du genom att `Execute` Klicka på eller använda följande genväg `F5`:.
+4. Kör frågan. Det gör du genom att klicka på `Execute` eller använda följande genväg: `F5` .
    
     ![Kör frågan](./media/get-started-ssms/execute-query.png)
 5. Titta på frågeresultaten. I det här exemplet har usPopulationView-vyn 3664512 rader.

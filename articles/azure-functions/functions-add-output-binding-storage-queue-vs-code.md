@@ -4,12 +4,12 @@ description: Lär dig hur du ansluter Azure Functions till en Azure Storage kö 
 ms.date: 02/07/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: c32f98fc1b3de98592f8e7ceb43c17aa8a9049f7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb5db5858a65759c6cf20789da9cb5bfca761b1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673458"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83125865"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta Azure Functions till Azure Storage med Visual Studio Code
 
@@ -17,7 +17,7 @@ ms.locfileid: "80673458"
 
 Den här artikeln visar hur du använder Visual Studio Code för att ansluta den funktion som du skapade i [föregående snabb starts artikel](functions-create-first-function-vs-code.md) till Azure Storage. Den utgående bindning som du lägger till i den här funktionen skriver data från HTTP-begäran till ett meddelande i en kö för Azure Queue Storage. 
 
-De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app- `AzureWebJobsStorage`inställning med namnet.  
+De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app-inställning med namnet `AzureWebJobsStorage` .  
 
 ## <a name="configure-your-local-environment"></a>Konfigurera din lokala miljö
 
@@ -33,20 +33,20 @@ Innan du startar den här artikeln måste du uppfylla följande krav:
 
 * Slutför stegen i [del 1 av snabb starten för Visual Studio Code](functions-create-first-function-vs-code.md). 
 
-Den här artikeln förutsätter att du redan har loggat in på Azure-prenumerationen från Visual Studio Code. Du kan logga in genom att `Azure: Sign In` köra från kommando paletten. 
+Den här artikeln förutsätter att du redan har loggat in på Azure-prenumerationen från Visual Studio Code. Du kan logga in genom `Azure: Sign In` att köra från kommando paletten. 
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
 I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. För att ansluta till ditt lagrings konto när funktionen körs lokalt måste du hämta appinställningar till filen Local. Settings. JSON. 
 
-1. Tryck på F1-tangenten för att öppna kommando paletten och Sök sedan efter och kör `Azure Functions: Download Remote Settings....`kommandot. 
+1. Tryck på F1-tangenten för att öppna kommando paletten och Sök sedan efter och kör kommandot `Azure Functions: Download Remote Settings....` . 
 
 1. Välj den Function-app som du skapade i föregående artikel. Välj **Ja om** du vill skriva över de befintliga lokala inställningarna. 
 
     > [!IMPORTANT]  
     > Eftersom den innehåller hemligheter publiceras inte filen Local. Settings. JSON och tas inte med i käll kontrollen.
 
-1. Kopiera värdet `AzureWebJobsStorage`, som är nyckeln för värdet för anslutnings strängen för lagrings kontot. Använd den här anslutningen för att kontrol lera att utgående bindning fungerar som förväntat.
+1. Kopiera värdet `AzureWebJobsStorage` , som är nyckeln för värdet för anslutnings strängen för lagrings kontot. Använd den här anslutningen för att kontrol lera att utgående bindning fungerar som förväntat.
 
 ## <a name="register-binding-extensions"></a>Registrera bindningstillägg
 
@@ -56,7 +56,7 @@ Eftersom du använder en kö för lagring av utdata måste du ha installerat til
 
 Ditt projekt har kon figurer ATS för att använda [tilläggs](functions-bindings-register.md#extension-bundles)paket, som automatiskt installerar en fördefinierad uppsättning tilläggs paket. 
 
-Tilläggs paket är aktiverade i Host. JSON-filen i projekt roten, vilket ser ut ungefär så här:
+Användnings paket för tillägg aktive ras i Host. JSON-filen i projekt roten, som visas på följande sätt:
 
 :::code language="json" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/host.json":::
 
@@ -76,7 +76,7 @@ Nu kan du lägga till bindningen för Storage-utdata i projektet.
 
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
-I functions kräver varje typ av bindning en `direction`, `type`, och en unik `name` för att definieras i function. JSON-filen. Hur du definierar dessa attribut beror på språket i din Function-app.
+I functions kräver varje typ av bindning en `direction` , `type` , och en unik `name` för att definieras i function. JSON-filen. Hur du definierar dessa attribut beror på språket i din Function-app.
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell,programming-language-java"
 
@@ -98,7 +98,7 @@ I functions kräver varje typ av bindning en `direction`, `type`, och en unik `n
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
-När bindningen har definierats kan du använda bindningen `name` för att komma åt den som ett attribut i Function-signaturen. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
+När bindningen har definierats kan du använda `name` bindningen för att komma åt den som ett attribut i Function-signaturen. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
 
 ::: zone pivot="programming-language-javascript"  
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
@@ -172,7 +172,7 @@ När du har loggat in på ditt konto visas alla Azure-prenumerationer som är ko
 
 ### <a name="examine-the-output-queue"></a>Granska utdatakö
 
-1. I Visual Studio Code trycker du på F1-tangenten för att öppna kommando-paletten, sedan söker du efter `Azure Storage: Open in Storage Explorer` och kör kommandot och väljer ditt lagrings konto namn. Ditt lagrings konto öppnas i Azure Storage Explorer.  
+1. I Visual Studio Code trycker du på F1-tangenten för att öppna kommando-paletten, sedan söker du efter och kör kommandot `Azure Storage: Open in Storage Explorer` och väljer ditt lagrings konto namn. Ditt lagrings konto öppnas i Azure Storage Explorer.  
 
 1. Expandera noden **Köer** och välj sedan kön med namnet **outqueue**. 
 
@@ -186,7 +186,7 @@ Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 ## <a name="redeploy-and-verify-the-updated-app"></a>Distribuera om och verifiera den uppdaterade appen
 
-1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Deploy to function app...`.
+1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Deploy to function app...` .
 
 1. Välj den Function-app som du skapade i den första artikeln. Eftersom du omdistribuerar projektet till samma app väljer du **distribuera** för att ignorera varningen om att skriva över filer.
 
@@ -200,7 +200,7 @@ Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-*Resurser* i Azure refererar till funktionsappar, funktioner, lagringskonton och så vidare. Dessa grupperas i *resursgrupper*. Du kan ta bort allt innehåll i en grupp genom att ta bort gruppen.
+I Azure refererar *resurserna* till Function-appar, funktioner, lagrings konton och så vidare. De är grupperade i *resurs grupper*och du kan ta bort allt i en grupp genom att ta bort gruppen.
 
 Du skapade resurser för att slutföra de här snabbstarterna. Det är möjligt att du debiteras för de här resurserna beroende på din [kontostatus](https://azure.microsoft.com/account/) och dina [servicepriser](https://azure.microsoft.com/pricing/). Om du inte behöver resurserna längre så visar vi hur du tar bort dem här:
 

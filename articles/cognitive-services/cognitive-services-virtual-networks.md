@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 0988c8154c63bb408493edf3243078e625c80d53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79371230"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202080"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurera virtuella Azure Cognitive Services-nätverk
 
@@ -55,7 +55,7 @@ Stöd för virtuella nätverk för Cognitive Services nedan är begränsat till 
 
 Stöd för virtuella nätverk för Cognitive Services i listan nedan är begränsat till *centrala USA-EUAP*, *södra centrala* *USA, USA*, *västra USA 2*, *globala*och *US gov, Virginia* Azure-regioner.
 > [!div class="checklist"]
-> * [Translator Text](./translator/index.yml)
+> * [Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#virtual-network-support)
 
 ## <a name="service-tags"></a>Tjänsttaggar
 Förutom att stödja tjänst slut punkter för virtuella nätverk för tjänsterna ovan stöder Cognitive Services också ett service tag för konfiguration av utgående nätverks regler. Följande tjänster ingår i CognitiveServicesManagement-tjänst tag gen.
@@ -339,12 +339,12 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
 
 Du kan konfigurera Cognitive Services-resurser för att tillåta åtkomst från vissa offentliga Internet-IP-adressintervall. Den här konfigurationen beviljar åtkomst till vissa tjänster och lokala nätverk, vilket effektivt blockerar allmän Internet trafik.
 
-Ange tillåtna Internet adress intervall med [CIDR-notering](https://tools.ietf.org/html/rfc4632) i formuläret `16.17.18.0/24` eller som enskilda IP-adresser `16.17.18.19`som.
+Ange tillåtna Internet adress intervall med [CIDR-notering](https://tools.ietf.org/html/rfc4632) i formuläret `16.17.18.0/24` eller som enskilda IP-adresser som `16.17.18.19` .
 
    > [!Tip]
    > Små adress intervall som använder sig av prefixlängden "/31" eller "/32" stöds inte. Dessa intervall ska konfigureras med hjälp av enskilda IP-adressintervall.
 
-IP-nätverks regler tillåts endast för **offentliga Internet** -IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med `10.*`, `172.16.*`  -  `172.31.*`, och `192.168.*`.
+IP-nätverks regler tillåts endast för **offentliga Internet** -IP-adresser. IP-adressintervall som är reserverade för privata nätverk (enligt definitionen i [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) tillåts inte i IP-regler. Privata nätverk innehåller adresser som börjar med `10.*` , `172.16.*`  -  `172.31.*` , och `192.168.*` .
 
    > [!NOTE]
    > IP-nätverksanslutningar har ingen påverkan på begär Anden som kommer från samma Azure-region som den Cognitive Services resursen. Använd [regler för virtuella nätverk](#grant-access-from-a-virtual-network) för att tillåta begäran om samma region.
@@ -369,11 +369,11 @@ Du kan hantera IP-nätverks regler för Cognitive Services resurser via Azure Po
 
 1. Kontrol lera att du har valt att tillåta åtkomst från **valda nätverk**.
 
-1. Om du vill bevilja åtkomst till ett Internet-IP-intervall anger du IP-adressen eller adress intervallet (i [CIDR-format](https://tools.ietf.org/html/rfc4632)) under **brand Väggs** > **adress intervall**. Endast giltiga offentliga IP-adresser (icke-reserverade) accepteras.
+1. Om du vill bevilja åtkomst till ett Internet-IP-intervall anger du IP-adressen eller adress intervallet (i [CIDR-format](https://tools.ietf.org/html/rfc4632)) under **brand Väggs**  >  **adress intervall**. Endast giltiga offentliga IP-adresser (icke-reserverade) accepteras.
 
    ![Lägg till IP-intervall](media/vnet/virtual-network-add-ip-range.png)
 
-1. Om du vill ta bort en IP-nätverks regel väljer <span class="docon docon-delete x-hidden-focus"></span> du pappers korgs ikonen bredvid adress intervallet.
+1. Om du vill ta bort en IP-nätverks regel väljer du pappers korgs <span class="docon docon-delete x-hidden-focus"></span> ikonen bredvid adress intervallet.
 
    ![Ta bort IP-intervall](media/vnet/virtual-network-delete-ip-range.png)
 

@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/11/2020
 ms.author: egeaney
-ms.openlocfilehash: 3ccc9820f38a8c32d0b390663eb6b4430b42e8f0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372363"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198659"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Tal tjänst kryptering av data i vila
 
@@ -42,13 +42,10 @@ Om du vill begära åtkomst för att ta med din egen lagring kan du fylla i och 
 > [!IMPORTANT]
 > Om du inaktiverar systemtilldelade hanterade identiteter kommer åtkomst till lagrings kontot att tas bort. Detta leder till att de delar av tal tjänsten som kräver åtkomst till lagrings kontot slutar fungera.  
 
-## <a name="regional-availability"></a>Regional tillgänglighet
+Tal tjänsten har för närvarande inte stöd för Customer Lockbox. Kund information kan dock lagras med BYOS, så att du kan uppnå liknande data kontroller för [Customer lockbox](../../security/fundamentals/customer-lockbox-overview.md). Tänk på att tal tjänst data är kvar och bearbetas i den region där tal resursen skapades. Detta gäller för alla data i vila och data under överföring. När du använder anpassnings funktioner som Custom Speech och anpassad röst överförs all kund information, lagras och bearbetas i samma region där din BYOS (om den används) och en röst tjänst resurs finns.
 
-BYOS är för närvarande tillgängligt i följande regioner:
-
-* USA, södra centrala
-* USA, västra 2
-* USA, östra
+> [!IMPORTANT]
+> Microsoft använder **inte** kund information för att förbättra sina tal modeller. Om slut punkts loggningen är inaktive rad och inga anpassningar används, lagras även inga kund uppgifter. 
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,22 +1,22 @@
 ---
 title: 'Snabb start: skapa din första funktion i Azure med Visual Studio'
-description: I den här snabb starten får du lära dig hur du skapar och publicerar en HTTP-utlöst Azure-funktion med hjälp av Visual Studio.
+description: I den här snabb starten får du lära dig hur du skapar och publicerar en HTTP-utlösare Azure-funktion med hjälp av Visual Studio.
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: e58414fa94a4ef54eb2f288b2cd636c10611460d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a4549bd2947332d7140f4f440a5344f417430554
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81308938"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83122756"
 ---
 # <a name="quickstart-create-your-first-function-in-azure-using-visual-studio"></a>Snabb start: skapa din första funktion i Azure med Visual Studio
 
 Med Azure Functions kan du köra din kod i en miljö utan server utan att först behöva skapa en virtuell dator eller publicera ett webb program.
 
-I den här snabb starten får du lära dig hur du använder Visual Studio 2019 för att lokalt skapa och testa en "Hello World" HTTP-utlöst C#-Function-app, som du sedan publicerar till Azure. 
+I den här snabb starten får du lära dig hur du använder Visual Studio 2019 för att lokalt skapa och testa en "Hello World" HTTP trigger C#-Function-app, som du sedan publicerar till Azure. 
 
 ![Svar för funktion-localhost i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -34,11 +34,11 @@ Om du inte har en [Azure-prenumeration](../guides/developer/azure-developer-guid
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio skapar ett projekt och en klass som innehåller en exempel kod för funktionen HTTP-utlösare. Attributet `FunctionName` Method anger namnet på funktionen, som som standard är `Function1`. `HttpTrigger` Attributet anger att funktionen utlöses av en http-begäran. Den formaterade exempelkoden skickar ett HTTP-svar som innehåller ett värde från förfrågan eller frågesträngen.
+Visual Studio skapar ett projekt och en klass som innehåller en exempel kod för funktionen HTTP-utlösare. `FunctionName`Attributet Method anger namnet på funktionen, som som standard är `Function1` . `HttpTrigger`Attributet anger att funktionen utlöses av en HTTP-begäran. Den formaterade exempelkoden skickar ett HTTP-svar som innehåller ett värde från förfrågan eller frågesträngen.
 
 Utöka funktionerna i din funktion med indata och utgående bindningar genom att tillämpa lämpliga attribut för-metoden. Mer information finns i avsnittet [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) (Utlösare och bindningar) i [Azure Functions C# developer reference](functions-dotnet-class-library.md) (Azure Functions C#-referens för utvecklare).
 
-Nu när du har skapat ditt funktionsprojekt och en HTTP-utlöst funktion kan du testa den på en lokal dator.
+Nu när du har skapat ditt funktions projekt och en HTTP-utlösare kan du testa den på den lokala datorn.
 
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 
@@ -58,7 +58,7 @@ Innan du kan publicera ditt projekt måste du ha en Function-app i din Azure-pre
 
 1. Kopiera bas-URL: en för Function-appen från sidan **publicera** profil. Ersätt den `localhost:port` del av URL: en som du använde för att testa funktionen lokalt med den nya bas-URL: en. Lägg till frågesträngen `?name=<YOUR_NAME>` till denna URL och kör begäran.
 
-    URL: en som anropar funktionen HTTP-utlöst har följande format:
+    Den URL som anropar funktionen HTTP-utlösare har följande format:
 
     `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME>`
 
@@ -72,7 +72,7 @@ Innan du kan publicera ditt projekt måste du ha en Function-app i din Azure-pre
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten använde du Visual Studio för att skapa och publicera en C# Function-app i Azure med en enkel HTTP-utlöst funktion. 
+I den här snabb starten använde du Visual Studio för att skapa och publicera en C# Function-app i Azure med en enkel HTTP-utlösnings funktion. 
 
 Gå vidare till nästa artikel om du vill lära dig hur du lägger till en Azure Storage Queue-bindning till din funktion:
 > [!div class="nextstepaction"]

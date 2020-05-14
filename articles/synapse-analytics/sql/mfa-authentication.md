@@ -8,12 +8,13 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8e8f17f54f52aef6f552b7c211aa8f0e498b94df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: has-adal-ref
+ms.openlocfilehash: a1f6548a83736cfb0e519559fd22e16d4527ae0b
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424925"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197666"
 ---
 # <a name="using-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Använda Multi-Factor AAD-autentisering med Synapse SQL (SSMS-stöd för MFA)
 
@@ -56,7 +57,7 @@ Gäst användare inkluderar användare som har bjudits in från andra Azure-anno
 
 Alla dessa användare som ska autentiseras med Universal Authentication måste ange sitt Azure AD-domännamn eller klient-ID. Den här parametern representerar det aktuella Azure AD-domännamnet/klient-ID som Azure-servern är länkad till. 
 
-Om till exempel Azure Server är associerad med Azure AD-domän `contosotest.onmicrosoft.com` där användaren `joe@contosodev.onmicrosoft.com` är värd för en importerad användare från Azure AD `contosodev.onmicrosoft.com`-domän, är `contosotest.onmicrosoft.com`domän namnet som krävs för att autentisera användaren. 
+Om till exempel Azure Server är associerad med Azure AD-domän `contosotest.onmicrosoft.com` där användaren `joe@contosodev.onmicrosoft.com` är värd för en importerad användare från Azure AD `contosodev.onmicrosoft.com` -domän, är domän namnet som krävs för att autentisera användaren `contosotest.onmicrosoft.com` . 
 
 När användaren är en inbyggd användare av Azure AD som är länkad till Azure Server och inte är ett MSA-konto krävs inget domän namn eller klient-ID. 
 
@@ -71,11 +72,11 @@ Om du kör SSMS 18. x eller senare behövs inte längre AD-domännamnet eller kl
    ![MFA-Tenant-SSMS](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Support för Azure AD Business till företag   
-Azure AD-användare som stöds för Azure AD B2B-scenarier som gäst användare (se [Vad är Azure B2B-samarbete](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) kan endast ansluta till SYNAPSE-SQL som en del av medlemmarna i en grupp som skapats i den aktuella Azure AD `CREATE USER` och mappas manuellt med Transact-SQL-uttrycket i en specifik databas. 
+Azure AD-användare som stöds för Azure AD B2B-scenarier som gäst användare (se [Vad är Azure B2B-samarbete](../../active-directory/b2b/what-is-b2b.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) kan endast ansluta till SYNAPSE-SQL som en del av medlemmarna i en grupp som skapats i den aktuella Azure AD och mappas manuellt med Transact-SQL- `CREATE USER` uttrycket i en specifik databas. 
 
-Om `steve@gmail.com` till exempel är inbjuden till Azure AD `contosotest` (med Azure AD-domänen `contosotest.onmicrosoft.com`) måste en Azure AD-grupp, till `usergroup` exempel, skapas i Azure AD som innehåller `steve@gmail.com` medlemmen. Sedan måste den här gruppen skapas för en särskild databas (dvs. databas) av Azure AD SQL-administratören eller Azure AD DBO genom att köra ett Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` -uttryck. 
+Om `steve@gmail.com` till exempel är inbjuden till Azure AD `contosotest` (med Azure AD-domänen `contosotest.onmicrosoft.com` ) måste en Azure AD-grupp, till exempel, `usergroup` skapas i Azure AD som innehåller `steve@gmail.com` medlemmen. Sedan måste den här gruppen skapas för en särskild databas (dvs. databas) av Azure AD SQL-administratören eller Azure AD DBO genom att köra ett Transact-SQL- `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` uttryck. 
 
-När databas användaren har skapats kan användaren `steve@gmail.com` logga in till `MyDatabase` med alternativet `Active Directory – Universal with MFA support`SSMS-autentisering. 
+När databas användaren har skapats `steve@gmail.com` kan användaren logga in till `MyDatabase` med alternativet SSMS-autentisering `Active Directory – Universal with MFA support` . 
 
 Usergroup har som standard bara Connect-behörigheten och all ytterligare data åtkomst som behöver beviljas på normalt sätt. 
 

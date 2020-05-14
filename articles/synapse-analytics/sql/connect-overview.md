@@ -9,21 +9,24 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9748b0354ce09752296fb7d736e09af716f19351
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f09f9a503348efc51fb50c283e7fe856869e0dd5
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424610"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83198506"
 ---
 # <a name="connect-to-synapse-sql"></a>Anslut till Synapse SQL
 Anslut till SQL-funktionen Synapse i Azure Synapse Analytics.
 
 ## <a name="supported-tools-for-sql-on-demand-preview"></a>Verktyg som stöds för SQL på begäran (för hands version)
 
-Det fullt stödda verktyget är Azure Data Studio (för hands version).
+[Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) stöds fullt ut från version 1.18.0. SSMS stöds delvis från och med version 18,5. du kan bara använda den för att ansluta och fråga.
 
-SQL Server Management Studio stöds delvis från version 18,4. Det finns begränsade funktioner som att ansluta och fråga.
+> [!NOTE]
+> Om en AAD-inloggning har en anslutning som är öppen i mer än 1 timme vid frågekörningen, kommer alla frågor som förlitar sig på AAD att Miss förväntas. Detta omfattar att fråga lagring med AAD-vidarekoppling och-instruktioner som interagerar med AAD (t. ex. skapa extern PROVIDER). Detta påverkar alla verktyg som håller igång anslutningar, som i Frågeredigeraren i SSMS och ADS. Verktyg som öppnar nya anslutningar för att köra en fråga, t. ex. Synapse Studio, påverkas inte.
+
+> Du kan åtgärda problemet genom att starta om SSMS eller ansluta och frånkoppla i ADS. 
 
 ## <a name="find-your-server-name"></a>Hitta servernamnet
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71bc20680467d270436e28190bb49db5b9313ca0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3bf7ff668584a78fea6e2d787e96f36a20f12e37
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424029"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197635"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS med Synapse SQL
 
@@ -78,6 +78,9 @@ Välj <select_criteria>
 
 Fyller den nya tabellen med resultaten från en SELECT-instruktion. *select_criteria* är bröd texten i SELECT-instruktionen som avgör vilka data som ska kopieras till den nya tabellen. Information om SELECT-instruktioner finns i [Select (Transact-SQL)](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
+> [!NOTE]
+> ORDER BY-satsen i SELECT-delen av CETAS stöds inte.
+
 ## <a name="permissions"></a>Behörigheter
 
 Du måste ha behörighet att lista innehållet i mappen och skriva till plats-mappen för att CETAS ska fungera.
@@ -139,7 +142,7 @@ CETAS kan användas för att lagra resultat uppsättningar med följande SQL-dat
 - varbinary
 - char
 - varchar
-- date
+- datum
 - time
 - datetime2
 - decimal

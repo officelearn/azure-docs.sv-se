@@ -7,18 +7,18 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/11/2020
 ms.author: dapine
-ms.openlocfilehash: c86d806c408c2e8226e632a0b15e1e8729c987f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fa0ad8c7f75a977e1a39ff6ffd6fee08d977f57a
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80131540"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83202016"
 ---
 # <a name="azure-cognitive-services-security"></a>Azure Cognitive Services-säkerhet
 
-Säkerhet bör betraktas som högsta prioritet när du utvecklar alla program. Med utgången av aktiverade appar för artificiell intelligens är säkerheten ännu viktigare. I den här artikeln beskrivs olika aspekter av Azure Cognitive Services Security, till exempel användning av Transport Layer Security, autentisering och säker konfigurering av känsliga data.
+Säkerhet bör betraktas som högsta prioritet när du utvecklar alla program. Med utgången av aktiverade appar för artificiell intelligens är säkerheten ännu viktigare. I den här artikeln beskrivs olika aspekter av Azure Cognitive Services Security, till exempel användningen av Transport Layer Security, autentisering, säker konfigurering av känsliga data och Customer Lockbox för åtkomst till kund data.
 
 ## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
 
@@ -28,13 +28,13 @@ Alla Cognitive Services slut punkter som exponeras via HTTP genomdriver TLS 1,2.
 * Det språk (och den plattform) som används för att göra HTTP-anropet måste ange TLS 1,2 som en del av begäran
   * Beroende på språk och plattform, är det möjligt att ange TLS antingen implicit eller explicit
 
-För .NET-användare bör du överväga <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security bästa <span class="docon docon-navigate-external x-hidden-focus"> </span>praxis </a>.
+För .NET-användare bör du överväga <a href="https://docs.microsoft.com/dotnet/framework/network-programming/tls" target="_blank">Transport Layer Security bästa <span class="docon docon-navigate-external x-hidden-focus"></span> praxis </a>.
 
 ## <a name="authentication"></a>Autentisering
 
-När du diskuterar autentisering finns det flera vanliga felbegrepp. Autentisering och auktorisering är ofta förvirrande för varandra. Identitet är också en viktig komponent i säkerheten. En identitet är en samling information om ett <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">huvud konto <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Identitets leverantörer (IdP) tillhandahåller identiteter för Authentication Services. Autentisering handlar om att verifiera en användares identitet. Auktorisering är specifikationen av åtkomst rättigheter och behörigheter för resurser för en specifik identitet. Flera av de Cognitive Services erbjudandena innehåller rollbaserad åtkomst kontroll (RBAC). RBAC kan användas för att förenkla vissa av ceremonin som arbetar med att hantera huvud konton manuellt. Mer information finns i [rollbaserad åtkomst kontroll för Azure-resurser](../role-based-access-control/overview.md).
+När du diskuterar autentisering finns det flera vanliga felbegrepp. Autentisering och auktorisering är ofta förvirrande för varandra. Identitet är också en viktig komponent i säkerheten. En identitet är en samling information om ett <a href="https://en.wikipedia.org/wiki/Principal_(computer_security)" target="_blank">huvud konto <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Identitets leverantörer (IdP) tillhandahåller identiteter för Authentication Services. Autentisering handlar om att verifiera en användares identitet. Auktorisering är specifikationen av åtkomst rättigheter och behörigheter för resurser för en specifik identitet. Flera av de Cognitive Services erbjudandena innehåller rollbaserad åtkomst kontroll (RBAC). RBAC kan användas för att förenkla vissa av ceremonin som arbetar med att hantera huvud konton manuellt. Mer information finns i [rollbaserad åtkomst kontroll för Azure-resurser](../role-based-access-control/overview.md).
 
-Mer information om autentisering med prenumerations nycklar, åtkomsttoken och Azure Active Directory (AAD) finns i <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autentisera begär anden till Azure Cognitive Services<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+Mer information om autentisering med prenumerations nycklar, åtkomsttoken och Azure Active Directory (AAD) finns i <a href="https://docs.microsoft.com/azure/cognitive-services/authentication" target="_blank">autentisera begär anden till Azure Cognitive Services <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ## <a name="environment-variables-and-application-configuration"></a>Miljövariabler och program konfiguration
 
@@ -48,7 +48,7 @@ Miljövariabler är namn/värde-par som lagras i en speciell miljö. Ett säkrar
 
 ### <a name="set-environment-variable"></a>Ange miljö variabel
 
-Om du vill ange miljövariabler använder du ett av följande kommandon – `ENVIRONMENT_VARIABLE_KEY` där är den namngivna nyckeln `value` och är det värde som lagras i miljö variabeln.
+Om du vill ange miljövariabler använder du ett av följande kommandon – där `ENVIRONMENT_VARIABLE_KEY` är den namngivna nyckeln och `value` är det värde som lagras i miljö variabeln.
 
 # <a name="command-line"></a>[Kommando rad](#tab/command-line)
 
@@ -108,11 +108,11 @@ echo "${ENVIRONMENT_VARIABLE_KEY}"
 
 ### <a name="get-environment-variable"></a>Hämta miljö variabel
 
-Om du vill hämta en miljö variabel måste den läsas i minnet. Beroende på vilket språk du använder bör du tänka på följande kodfragment. Dessa kodfragment visar hur du hämtar miljövariabeln och tilldelar den `ENVIRONMENT_VARIABLE_KEY` till en variabel med namnet `value`.
+Om du vill hämta en miljö variabel måste den läsas i minnet. Beroende på vilket språk du använder bör du tänka på följande kodfragment. Dessa kodfragment visar hur du hämtar miljövariabeln `ENVIRONMENT_VARIABLE_KEY` och tilldelar den till en variabel med namnet `value` .
 
 # <a name="c"></a>[C #](#tab/csharp)
 
-Mer information finns i <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+Mer information finns i <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```csharp
 using static System.Environment;
@@ -131,7 +131,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Mer information finns i <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+Mer information finns i <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```cpp
 #include <stdlib.h>
@@ -146,7 +146,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Mer information finns i <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+Mer information finns i <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```java
 import java.lang.*;
@@ -163,7 +163,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-Mer information finns i <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+Mer information finns i <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -173,7 +173,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-Mer information finns i <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+Mer information finns i <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```python
 import os
@@ -184,7 +184,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-Mer information finns i <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+Mer information finns i <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -193,6 +193,21 @@ NSString* value =
 ```
 
 ---
+
+## <a name="customer-lockbox"></a>Customer Lockbox
+
+[Customer lockbox för Microsoft Azure](../security/fundamentals/customer-lockbox-overview.md) ger ett gränssnitt för kunder som kan granska och godkänna eller avvisa förfrågningar om kund data åtkomst. Den används i fall där en Microsoft-tekniker behöver åtkomst till kund information under en support förfrågan. Information om hur Customer Lockbox begär Anden initieras, spåras och lagras för senare granskningar och granskningar finns i [Customer lockbox](../security/fundamentals/customer-lockbox-overview.md). 
+
+Customer Lockbox är tillgängligt för den här kognitiva tjänsten:
+
+* Översättare
+
+För Language Understanding kommer Microsoft-tekniker inte att komma åt någon kund information i E0-SKU: n. För att begära möjlighet att använda E0 SKU, fyller du i och skickar [Luis service förfrågnings formulär](https://aka.ms/cogsvc-cmk). Det tar cirka 3-5 arbets dagar att höra om status för din begäran. Beroende på efter frågan kan du placera i en kö och godkännas som utrymme blir tillgängligt. När du har godkänt för att använda E0 SKU med LUIS måste du skapa en ny Language Understanding resurs från Azure Portal och välja E0 som pris nivå. Användarna kommer inte att kunna uppgradera från F0 till den nya E0 SKU: n.
+
+Tal tjänsten har för närvarande inte stöd för Customer Lockbox. Kund information kan dock lagras med BYOS, så att du kan uppnå liknande data kontroller för [Customer lockbox](../security/fundamentals/customer-lockbox-overview.md). Tänk på att tal tjänst data är kvar och bearbetas i den region där tal resursen skapades. Detta gäller för alla data i vila och data under överföring. När du använder anpassnings funktioner som Custom Speech och anpassad röst överförs all kund information, lagras och bearbetas i samma region där din BYOS (om den används) och en röst tjänst resurs finns.
+
+> [!IMPORTANT]
+> Microsoft använder **inte** kund information för att förbättra sina tal modeller. Om slut punkts loggningen är inaktive rad och inga anpassningar används, lagras även inga kund uppgifter. 
 
 ## <a name="next-steps"></a>Nästa steg
 

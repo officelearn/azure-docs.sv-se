@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0f5323193706fdd00739be6c71a4fe12cfedf21b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c6a151bdd3b437c6a01a949096604b3963489bd
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424540"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83195152"
 ---
 # <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Skapa och Använd vyer i SQL på begäran (för hands version) med Azure Synapse Analytics
 
@@ -22,17 +22,14 @@ I det här avsnittet får du lära dig hur du skapar och använder vyer för att
 
 ## <a name="prerequisites"></a>Krav
 
-Ditt första steg är att granska artiklarna nedan och kontrol lera att du har uppfyllt kraven för att skapa och använda SQL-vyer på begäran:
-
-- [Installation vid första tiden](query-data-storage.md#first-time-setup)
-- [Förutsättningar](query-data-storage.md#prerequisites)
+Ditt första steg är att skapa en databas där vyn kommer att skapas och initiera de objekt som behövs för att autentisera i Azure Storage genom att köra [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) på den databasen. Alla frågor i den här artikeln utförs i exempel databasen.
 
 ## <a name="create-a-view"></a>Skapa en vy
 
 Du kan skapa vyer på samma sätt som du skapar vanliga SQL Server vyer. Frågan nedan skapar en vy som läser en *populations. csv* -fil.
 
 > [!NOTE]
-> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup).
+> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat.
 
 ```sql
 USE [mydbname];
@@ -57,6 +54,19 @@ WITH (
 ) AS [r];
 ```
 
+Vyn i det här exemplet använder `OPENROWSET` funktionen som använder absoluta sökvägar till de underliggande filerna. Om du har `EXTERNAL DATA SOURCE` en rot-URL för lagringen kan du använda `OPENROWSET` med `DATA_SOURCE` och relativ fil Sök väg:
+
+```
+CREATE VIEW TaxiView
+AS SELECT *, nyc.filepath(1) AS [year], nyc.filepath(2) AS [month]
+FROM
+    OPENROWSET(
+        BULK 'parquet/taxi/year=*/month=*/*.parquet',
+        DATA_SOURCE = 'sqlondemandstorage',
+        FORMAT='PARQUET'
+    ) AS nyc
+```
+
 ## <a name="use-a-view"></a>Använda en vy
 
 Du kan använda vyer i dina frågor på samma sätt som du använder vyer i SQL Server frågor.
@@ -64,7 +74,7 @@ Du kan använda vyer i dina frågor på samma sätt som du använder vyer i SQL 
 Följande fråga visar hur du använder *population_csv* vy som vi skapade i [skapa en vy](#create-a-view). Den returnerar lands namn med sin population i 2019 i fallande ordning.
 
 > [!NOTE]
-> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. Om du inte har skapat en databas läser du [installations programmet för första gången](query-data-storage.md#first-time-setup).
+> Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat.
 
 ```sql
 USE [mydbname];

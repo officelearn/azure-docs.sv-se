@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: f92c05476c9e85690fdeacade5463a43d0a4af42
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f562c195e90f2356568530b9b618ae9e6610fa56
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424295"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201465"
 ---
 # <a name="introduction"></a>Introduktion
 
@@ -24,7 +24,7 @@ Spark SQL Analytics-anslutningen är utformad för att effektivt överföra data
 
 Överföring av data mellan Spark-pooler och SQL-pooler kan göras med JDBC. Men med tanke på två distribuerade system som Spark-och SQL-pooler, är JDBC att vara en Flask hals med seriell data överföring.
 
-Spark-poolerna till SQL Analytics Connector är en implementering av data källor för Apache Spark. Den använder Azure Data Lake Storage gen 2 och PolyBase i SQL-pooler för att effektivt överföra data mellan Spark-klustret och SQL Analytics-instansen.
+Spark-poolerna till SQL Analytics-kopplingen är en implementering av data källor för Apache Spark. Den använder Azure Data Lake Storage gen 2 och PolyBase i SQL-pooler för att effektivt överföra data mellan Spark-klustret och SQL Analytics-instansen.
 
 ![Kopplings arkitektur](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -55,7 +55,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 ## <a name="usage"></a>Användning
 
-Import instruktionerna behöver inte tillhandahållas, de är redan importerade för den bärbara datorn.
+Import instruktionerna krävs inte, de är i förväg importerade för den bärbara datorn.
 
 ### <a name="transferring-data-to-or-from-a-sql-pool-in-the-logical-server-dw-instance-attached-with-the-workspace"></a>Överföring av data till eller från en SQL-pool på den logiska servern (DW-instans) som är kopplad till arbets ytan
 
@@ -161,9 +161,36 @@ val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 
 pysparkdftemptable.write.sqlanalytics("sqlpool.dbo.PySparkTable", Constants.INTERNAL)
 ```
+
 På samma sätt kan du i Läs scenariot läsa data med Scala och skriva till en temporär tabell och använda Spark SQL i PySpark för att fråga Temp-tabellen till en dataframe.
+
+## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Låta andra användare använda DW-anslutningen i din arbets yta
+
+Om du vill ändra behörigheter som saknas för andra måste du vara ägare till Storage BLOB-data på ADLS Gen2 lagrings konto som är anslutet till arbets ytan. Se till att användaren har åtkomst till arbets ytan och behörigheterna för att köra antecknings böcker.
+
+### <a name="option-1"></a>Alternativ 1
+
+- Gör användaren till en Storage BLOB data-deltagare/-ägare
+
+### <a name="option-2"></a>Alternativ 2
+
+- Ange följande ACL: er i mappstrukturen:
+
+| Mapp | / | synapse | arbetsytor  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
+|--|--|--|--|--|--|--|--|
+| Åtkomst behörigheter |--X |--X |--X |--X |--X |--X |-WX |
+| Standard behörigheter |---|---|---|---|---|---|---|
+
+- Du bör kunna ACL: er alla mappar från "Synapse" och nedåt från Azure Portal. Följ anvisningarna nedan om du vill ACL-använda rotmappen "/".
+
+- Ansluta till lagrings kontot som är anslutet till arbets ytan från Storage Explorer med AAD
+- Välj ditt konto och ange ADLS Gen2-URL och standard fil system för arbets ytan
+- När du kan se det lagrings konto som visas i listan högerklickar du på arbets ytan lista och väljer Hantera åtkomst
+- Lägg till användaren i mappen/-mappen med åtkomst behörigheten "kör". Välj OK
+
+**Se till att du inte väljer standard om du inte tänker**
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en SQL-pool]([Create a new Apache Spark pool for an Azure Synapse Analytics workspace](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
+- [Skapa en SQL-pool](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
 - [Skapa en ny Apache Spark pool för en Azure Synapse Analytics-arbetsyta](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 

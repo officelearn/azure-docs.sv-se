@@ -9,16 +9,20 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0d2683091898e9c84457b3b538776f0e6b0469d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6ebf23720d1d323b66671c6770ab2121c9091920
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424036"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83197693"
 ---
-# <a name="control-storage-account-access-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version) i Azure Synapse Analytics
+# <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version)
 
-En fråga om SQL på begäran (för hands version) läser filer direkt från Azure Storage. Eftersom lagrings kontot är ett objekt som är externt för SQL-resursen på begäran krävs lämpliga autentiseringsuppgifter. En användare behöver de behörigheter som krävs för att kunna använda den nödvändiga autentiseringsuppgiften. Den här artikeln beskriver de typer av autentiseringsuppgifter som du kan använda och hur sökning efter autentiseringsuppgifter registreras för SQL-och Azure AD-användare.
+En SQL-fråga på begäran läser filer direkt från Azure Storage. Behörigheter för att komma åt filerna i Azure Storage styrs på två nivåer:
+- **Lagrings nivå** – användaren bör ha behörighet att komma åt underliggande lagringsfiler. Lagrings administratören ska tillåta att Azure AD-huvudobjektet läser/skriver filer, eller genererar SAS-nyckel som ska användas för att komma åt lagringen.
+- **SQL Service Level** -användaren ska ha `ADMINISTER BULK ADMIN` behörighet att köra `OPENROWSET` och även behörighet att använda autentiseringsuppgifter som används för att komma åt lagringen.
+
+Den här artikeln beskriver de typer av autentiseringsuppgifter som du kan använda och hur sökning efter autentiseringsuppgifter registreras för SQL-och Azure AD-användare.
 
 ## <a name="supported-storage-authorization-types"></a>Typer av lagringspooler som stöds
 
@@ -29,14 +33,14 @@ En användare som har loggat in på en SQL-resurs på begäran måste ha behöri
 - [Användar identitet](#user-identity)
 
 > [!NOTE]
-> [Azure AD-vidarekoppling](#force-azure-ad-pass-through) är standard beteendet när du skapar en arbets yta. Om du använder det behöver du inte skapa autentiseringsuppgifter för varje lagrings konto som nås med AD-inloggningar. Du kan [inaktivera det här beteendet](#disable-forcing-azure-ad-pass-through).
+> [Azure AD-vidarekoppling](#force-azure-ad-pass-through) är standard beteendet när du skapar en arbets yta. Om du använder det behöver du inte skapa autentiseringsuppgifter för varje lagrings konto som nås med hjälp av Azure AD-inloggningar. Du kan [inaktivera det här beteendet](#disable-forcing-azure-ad-pass-through).
 
-I tabellen nedan hittar du de olika typer av autentisering som antingen stöds eller som kommer att stödjas snart.
+I tabellen nedan hittar du tillgängliga typer av autentisering:
 
 | Auktoriseringstyp                    | *SQL-användare*    | *Azure AD-användare*     |
 | ------------------------------------- | ------------- | -----------    |
 | [SÄKERHETS](#shared-access-signature)       | Stöds     | Stöds      |
-| [Hanterad identitet](#managed-identity) | Stöds inte | Stöds inte  |
+| [Hanterad identitet](#managed-identity) | Stöds inte | Stöds      |
 | [Användar identitet](#user-identity)       | Stöds inte | Stöds      |
 
 ### <a name="shared-access-signature"></a>Signatur för delad åtkomst
@@ -54,9 +58,6 @@ Du kan få en SAS-token genom att gå till **Azure Portal-> lagrings konto-> sig
 
 **Användar identitet**, som även kallas "vidarekoppling", är en typ av auktorisering där identiteten för den Azure AD-användare som loggade in på begäran används för att ge åtkomst till data. Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till Azure AD-användaren. Som anges i tabellen ovan stöds det inte för SQL-användargruppen.
 
-> [!NOTE]
-> Om du använder [Azure AD-vidarekoppling](#force-azure-ad-pass-through) behöver du inte skapa autentiseringsuppgifter för varje lagrings konto som nås med AD-inloggningar.
-
 > [!IMPORTANT]
 > Du måste ha rollen som ägare/deltagare/läsare för Storage BLOB-rollen för att kunna använda din identitet för att komma åt data.
 > Även om du är ägare till ett lagrings konto behöver du fortfarande lägga till dig själv i en av lagrings BLOB-datarollerna.
@@ -64,88 +65,11 @@ Du kan få en SAS-token genom att gå till **Azure Portal-> lagrings konto-> sig
 > Läs mer om åtkomst kontroll i Azure Data Lake Store Gen2 genom att granska [åtkomst kontrollen i Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-access-control.md) artikeln.
 >
 
-### <a name="managed-identity"></a>Hanterad identitet
+Du måste uttryckligen aktivera Azure AD-direktautentisering för att ge Azure AD-användare åtkomst till lagrings utrymme med hjälp av sina identiteter.
 
-**Hanterad identitet** kallas även MSI. Det är en funktion i Azure Active Directory (Azure AD) som tillhandahåller Azure-tjänster för SQL på begäran. Dessutom distribueras en automatiskt hanterad identitet i Azure AD. Den här identiteten kan användas för att auktorisera begäran om data åtkomst i Azure Storage.
+#### <a name="force-azure-ad-pass-through"></a>Tvinga Azure AD-vidarekoppling
 
-Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till hanterad identitet för att komma åt data. Att bevilja behörigheter till hanterad identitet görs på samma sätt som när du beviljar behörighet till andra Azure AD-användare.
-
-## <a name="create-credentials"></a>Skapa autentiseringsuppgifter
-
-Om du vill fråga en fil som finns i Azure Storage måste din SQL-slutpunkt på begäran ha AUTENTISERINGSUPPGIFTER på server nivå som innehåller autentiseringsinformationen. Du lägger till en autentiseringsuppgift genom att köra [skapa autentiseringsuppgifter](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Du måste ange ett namn argument för AUTENTISERINGSUPPGIFTER. Den måste matcha antingen en del av sökvägen eller hela sökvägen till data i lagringen (se nedan).
-
-> [!NOTE]
-> Argumentet FOR CRYPTOGRAPHIC PROVIDER stöds inte.
-
-För alla typer som stöds kan autentiseringsuppgifter peka på ett konto, en behållare, alla kataloger (icke-rot) eller en enskild fil.
-
-NAMNET på AUTENTISERINGSUPPGIFTEN måste matcha den fullständiga sökvägen till behållaren, mappen eller filen i följande format:`<prefix>://<storage_account_path>/<storage_path>`
-
-| Extern data Källa       | Prefix | Sökväg till lagrings konto                                |
-| -------------------------- | ------ | --------------------------------------------------- |
-| Azure Blob Storage         | https  | <storage_account>. blob.core.windows.net             |
-| Azure Data Lake Storage Gen1 | https  | <storage_account>. azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Storage Gen2 | https  | <storage_account>. dfs.core.windows.net              |
-
- <storage_path> är en sökväg i lagrings platsen som pekar på den mapp eller fil som du vill läsa.
-
-> [!NOTE]
-> Det finns ett särskilt namn `UserIdentity` på autentiseringsuppgifter som [TVINGAR fram Azure AD-vidarekoppling](#force-azure-ad-pass-through). Läs om den påverkan den har vid [sökning efter autentiseringsuppgifter](#credential-lookup) vid körning av frågor.
-
-Om du vill tillåta att en användare skapar eller släpper en autentiseringsuppgift, kan administratören bevilja/neka behörighet att ändra AUTENTISERINGSUPPGIFTER till en användare:
-
-```sql
-GRANT ALTER ANY CREDENTIAL TO [user_name];
-```
-
-### <a name="supported-storages-and-authorization-types"></a>Lagrings enheter och verifierings typer som stöds
-
-Du kan använda följande kombinationer av auktoriserings-och Azure Storage typer:
-
-|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
-| ------------------- | ------------   | --------------   | -----------   |
-| *SÄKERHETS*               | Stöds      | Stöds inte   | Stöds     |
-| *Hanterad identitet* | Stöds inte  | Stöds inte    | Stöds inte |
-| *Användar identitet*    | Stöds      | Stöds        | Stöds     |
-
-### <a name="examples"></a>Exempel
-
-Beroende på typ av [auktorisering](#supported-storage-authorization-types)kan du skapa autentiseringsuppgifter med hjälp av T-SQL-syntaxen nedan.
-
-**Signatur för delad åtkomst och Blob Storage**
-
-Exchange <*mystorageaccountname*> med ditt faktiska lagrings konto namn och <*mystorageaccountcontainername*> med det faktiska behållar namnet:
-
-```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
-WITH IDENTITY='SHARED ACCESS SIGNATURE'
-, SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
-GO
-```
-
-**Användar identitet och Azure Data Lake Storage Gen1**
-
-Exchange <*mystorageaccountname*> med ditt faktiska lagrings konto namn och <*mystorageaccountcontainername*> med det faktiska behållar namnet:
-
-```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.azuredatalakestore.net/webhdfs/v1/<mystorageaccountcontainername>]
-WITH IDENTITY='User Identity';
-GO
-```
-
-**Användar identitet och Azure Data Lake Storage Gen2**
-
-Exchange <*mystorageaccountname*> med ditt faktiska lagrings konto namn och <*mystorageaccountcontainername*> med det faktiska behållar namnet:
-
-```sql
-CREATE CREDENTIAL [https://<mystorageaccountname>.dfs.core.windows.net/<mystorageaccountcontainername>]
-WITH IDENTITY='User Identity';
-GO
-```
-
-## <a name="force-azure-ad-pass-through"></a>Tvinga Azure AD-vidarekoppling
-
-Att tvinga fram en Azure AD-vidarekoppling är ett standard beteende som uppnås av ett särskilt `UserIdentity`inloggnings namn, som skapas automatiskt under etablering av Azure Synapse-arbetsytan. Den tvingar användningen av ett Azure AD-vidarekoppling för varje fråga om varje Azure AD-inloggning, vilket sker trots att andra autentiseringsuppgifter finns.
+Att tvinga fram en Azure AD-vidarekoppling är ett standard beteende som uppnås av ett särskilt INLOGGNINGs namn, `UserIdentity` som skapas automatiskt under etablering av Azure Synapse-arbetsytan. Den tvingar användningen av ett Azure AD-vidarekoppling för varje fråga om varje Azure AD-inloggning, vilket sker trots att andra autentiseringsuppgifter finns.
 
 > [!NOTE]
 > Azure AD-vidarekoppling är ett standard beteende. Du behöver inte skapa autentiseringsuppgifter för varje lagrings konto som används av AD-inloggningar.
@@ -163,9 +87,7 @@ Om du vill aktivera en Azure AD-vidarekoppling för en viss användare kan du be
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name];
 ```
 
-Mer information om hur SQL på begäran hittar autentiseringsuppgifter som ska användas finns i [Sök efter autentiseringsuppgifter](#credential-lookup).
-
-## <a name="disable-forcing-azure-ad-pass-through"></a>Inaktivera tvingande Azure AD-vidarekoppling
+#### <a name="disable-forcing-azure-ad-pass-through"></a>Inaktivera tvingande Azure AD-vidarekoppling
 
 Du kan inaktivera [Tvingad Azure AD-vidarekoppling för varje fråga](#force-azure-ad-pass-through). Du inaktiverar den genom att släppa `Userdentity` autentiseringsuppgiften med:
 
@@ -175,15 +97,55 @@ DROP CREDENTIAL [UserIdentity];
 
 Om du vill återaktivera det igen läser du avsnittet om [Azure AD-vidarekoppling](#force-azure-ad-pass-through) .
 
-Om du vill inaktivera tvingande Azure AD-vidarekoppling för en viss användare kan du neka en referens behörighet för `UserIdentity` autentiseringsuppgifter för en viss användare. I följande exempel inaktive ras en tvingande Azure AD-vidarekoppling för en user_name:
+### <a name="managed-identity"></a>Hanterad identitet
+
+**Hanterad identitet** kallas även MSI. Det är en funktion i Azure Active Directory (Azure AD) som tillhandahåller Azure-tjänster för SQL på begäran. Dessutom distribueras en automatiskt hanterad identitet i Azure AD. Den här identiteten kan användas för att auktorisera begäran om data åtkomst i Azure Storage.
+
+Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till hanterad identitet för att komma åt data. Att bevilja behörigheter till hanterad identitet görs på samma sätt som när du beviljar behörighet till andra Azure AD-användare.
+
+## <a name="credentials"></a>Autentiseringsuppgifter
+
+Om du vill fråga en fil som finns i Azure Storage måste din SQL-slutpunkt på begäran ha en autentiseringsuppgift som innehåller autentiseringsinformationen. Två typer av autentiseringsuppgifter används:
+- AUTENTISERINGSUPPGIFTER på server nivå används för ad hoc-frågor som körs med hjälp av `OPENROWSET` funktion. Namnet på autentiseringsuppgiften måste matcha lagrings-URL: en.
+- DATABASens begränsade AUTENTISERINGSUPPGIFTER används för externa tabeller. En extern tabell refererar till `DATA SOURCE` den autentiseringsuppgift som ska användas för åtkomst till lagring.
+
+Du lägger till en autentiseringsuppgift genom att köra [skapa autentiseringsuppgifter](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Du måste ange ett namn argument för AUTENTISERINGSUPPGIFTER. Den måste matcha antingen en del av sökvägen eller hela sökvägen till data i lagringen (se nedan).
+
+> [!NOTE]
+> Argumentet FOR CRYPTOGRAPHIC PROVIDER stöds inte.
+
+För alla typer som stöds kan autentiseringsuppgifter peka på ett konto eller en behållare.
+
+Namnet på Server nivåns AUTENTISERINGSUPPGIFTER måste matcha den fullständiga sökvägen till lagrings kontot (och eventuellt container) i följande format:`<prefix>://<storage_account_path>/<storage_path>`
+
+| Extern data Källa       | Prefix | Sökväg till lagrings konto                                |
+| -------------------------- | ------ | --------------------------------------------------- |
+| Azure Blob Storage         | https  | <storage_account>. blob.core.windows.net             |
+| Azure Data Lake Storage Gen1 | https  | <storage_account>. azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Storage Gen2 | https  | <storage_account>. dfs.core.windows.net              |
+
+
+> [!NOTE]
+> Det finns särskilda AUTENTISERINGSUPPGIFTER på server nivå `UserIdentity` som [tvingar fram Azure AD-vidarekoppling](#force-azure-ad-pass-through).
+
+Om du vill tillåta att en användare skapar eller släpper en autentiseringsuppgift, kan administratören bevilja/neka behörighet att ändra AUTENTISERINGSUPPGIFTER till en användare:
 
 ```sql
-DENY REFERENCES ON CREDENTIAL::[UserIdentity] TO USER [user_name];
+GRANT ALTER ANY CREDENTIAL TO [user_name];
 ```
 
-Mer information om hur SQL på begäran hittar autentiseringsuppgifter som ska användas finns i [Sök efter autentiseringsuppgifter](#credential-lookup).
+### <a name="supported-storages-and-authorization-types"></a>Lagrings enheter och verifierings typer som stöds
 
-## <a name="grant-permissions-to-use-credential"></a>Bevilja behörighet att använda autentiseringsuppgifter
+Du kan använda följande kombinationer av auktoriserings-och Azure Storage typer:
+
+|                     | Blob Storage   | ADLS Gen1        | ADLS Gen2     |
+| ------------------- | ------------   | --------------   | -----------   |
+| *SÄKERHETS*               | Stöds      | Stöds inte   | Stöds     |
+| *Hanterad identitet* | Stöds      | Stöds        | Stöds     |
+| *Användar identitet*    | Stöds      | Stöds        | Stöds     |
+
+
+### <a name="grant-permissions-to-use-credential"></a>Bevilja behörighet att använda autentiseringsuppgifter
 
 Om du vill använda autentiseringsuppgifterna måste en användare ha behörighet för referenser till en angiven autentiseringsuppgift. Om du vill ge en referens behörighet för en storage_credential för en specific_user kör du:
 
@@ -197,47 +159,69 @@ För att säkerställa en smidig Azure AD-direktautentisering har alla användar
 GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
 ```
 
-## <a name="credential-lookup"></a>Sökning efter autentiseringsuppgifter
+### <a name="examples"></a>Exempel
 
-Vid auktorisering av frågor används autentisering av autentiseringsuppgifter för att få åtkomst till ett lagrings konto och baseras på följande regler:
+Beroende på typ av [auktorisering](#supported-storage-authorization-types)kan du skapa autentiseringsuppgifter med hjälp av T-SQL-syntaxen nedan.
+- Autentiseringsuppgifter för Server omfång används när SQL login-anrop `OPENROWSET` fungerar utan `DATA_SOURCE` att läsa filer på vissa lagrings konton. Namnet på serverns begränsade autentiseringsuppgifter **måste** matcha URL: en för Azure Storage.
+- Autentiseringsuppgifter för databasens omfattning används när en huvud anrops `OPENROWSET` funktion med `DATA_SOURCE` eller väljer data från extern tabell som inte kommer åt offentliga filer. Databasens begränsade autentiseringsuppgifter behöver inte matcha namnet på lagrings kontot eftersom det används explicit i DATA källan som definierar lagrings platsen.
 
-- Användaren är inloggad som en Azure AD-inloggning
+**Server-begränsade autentiseringsuppgifter med signaturen för delad åtkomst för Blob Storage**
 
-  - Om det finns en UserIdentity-autentiseringsuppgift och användaren har referens behörighet för den, kommer Azure AD-vidarekoppling att användas, annars [sökning efter autentiseringsuppgifter efter sökväg](#lookup-credential-by-path)
+Följande skript skapar en autentiseringsuppgift på server nivå som kan användas för att få åtkomst till alla filer i Azure Storage med SAS-token. Skapa den här autentiseringsuppgiften för att aktivera SQL-huvudobjektet som kör `OPENROWSET` funktionen för att läsa filer som skyddas med SAS-nyckel på Azure Storage som matchar URL: en i autentiseringsuppgiften.
 
-- Användaren är inloggad som SQL-inloggning
+Exchange <*mystorageaccountname*> med ditt faktiska lagrings konto namn och <*mystorageaccountcontainername*> med det faktiska behållar namnet:
 
-  - Använd Sök [autentiseringsuppgifter efter sökväg](#lookup-credential-by-path)
-
-### <a name="lookup-credential-by-path"></a>Sök efter autentiseringsuppgifter efter sökväg
-
-Om tvingande Azure AD-vidarekoppling är inaktiverat baseras autentisering av autentiseringsuppgifter baserat på lagrings Sök vägen (djup) och förekomsten av en referens behörighet för den aktuella autentiseringsuppgiften. Om det finns flera autentiseringsuppgifter som kan användas för åtkomst till samma fil, kommer SQL på begäran att använda den mest aktuella.  
-
-Nedan visas ett exempel på en fråga över följande fil Sök väg: *Account.DFS.Core.Windows.net/filesystem/folder1/.../folderN/fileX.ext*
-
-Sökning efter autentiseringsuppgifter slutförs i den här ordningen:
-
-```
-account.dfs.core.windows.net/filesystem/folder1/.../folderN/fileX
-account.dfs.core.windows.net/filesystem/folder1/.../folderN
-account.dfs.core.windows.net/filesystem/folder1
-account.dfs.core.windows.net/filesystem
-account.dfs.core.windows.net
+```sql
+CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
+WITH IDENTITY='SHARED ACCESS SIGNATURE'
+, SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
+GO
 ```
 
-Om en användare inte har behörighet att använda Credential Number 5, kontrollerar SQL på begäran att användaren har behörighet till en autentiseringsuppgift som är en högre nivå än den som har behörighet som användaren har behörighet för. Om det inte går att hitta någon sådan behörighet returneras ett fel meddelande.
+**Server-begränsade autentiseringsuppgifter som ger åtkomst till offentlig lagring**
 
-### <a name="credential-and-path-level"></a>Autentiseringsuppgift-och Sök vägs nivå
+Följande skript skapar en autentiseringsuppgift på server nivå som kan användas för att få åtkomst till alla filer på offentligt tillgängliga Azure-lagring. Skapa den här autentiseringsuppgiften för att aktivera SQL-huvudobjektet som kör `OPENROWSET` funktionen för att läsa offentligt tillgängliga filer på Azure Storage som matchar URL: en med namnet på autentiseringsuppgiften.
 
-Beroende på vilken Sök vägs form du vill använda är följande krav på plats för att köra frågor:
+Du måste ha Exchange <*mystorageaccountname* -> med det faktiska lagrings konto namnet och <*mystorageaccountcontainername*> med det faktiska behållar namnet:
 
-- Om frågan är riktad mot flera filer (mappar, med eller utan jokertecken) måste användaren ha åtkomst till en autentiseringsuppgift på minst rot Katalog nivå (container nivå). Den här åtkomst nivån krävs eftersom en lista över filer är relativa från rot katalogen (Azure Storage begränsningar)
-- Om frågan är riktad mot en enskild fil måste användaren ha åtkomst till en autentiseringsuppgift på valfri nivå när SQL på begäran kommer åt filen direkt, det vill säga utan att visa mappar.
+```sql
+CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystorageaccountcontainername>]
+WITH IDENTITY='SHARED ACCESS SIGNATURE'
+, SECRET = '';
+GO
+```
 
-|                  | *Konto* | *Rot Katalog* | *Alla andra kataloger* | *Fil*        |
-| ---------------- | --------- | ---------------- | --------------------- | ------------- |
-| *Enskild fil*    | Stöds | Stöds        | Stöds             | Stöds     |
-| *Flera filer* | Stöds | Stöds        | Stöds inte         | Stöds inte |
+**Autentiseringsuppgifter för databas omfattning med SAS-token**
+
+Följande skript skapar en autentiseringsuppgift som används för att komma åt filer på lagrings platsen med SAS-token som anges i autentiseringsuppgiften.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL [SasToken]
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D';
+GO
+```
+
+**Autentiseringsuppgifter för databas omfattning med Azure AD-identitet**
+
+Följande skript skapar en autentiseringsuppgift som används av externa tabeller och `OPENROWSET` funktioner som använder data källa med autentiseringsuppgifter för att komma åt lagringsfiler med sin egen Azure AD-identitet.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL [AzureAD]
+WITH IDENTITY = 'User Identity';
+GO
+```
+
+**Autentiseringsuppgifter för databas omfattning med hanterad identitet**
+
+Följande skript skapar en autentiseringsuppgift som kan användas för att personifiera den aktuella Azure AD-användaren som hanterad identitet för tjänsten. 
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL [SynapseIdentity]
+WITH IDENTITY = 'Managed Identity';
+GO
+```
+
+Databasens begränsade autentiseringsuppgifter behöver inte matcha namnet på lagrings kontot eftersom det används explicit i DATA källan som definierar lagrings platsen.
 
 ## <a name="next-steps"></a>Nästa steg
 

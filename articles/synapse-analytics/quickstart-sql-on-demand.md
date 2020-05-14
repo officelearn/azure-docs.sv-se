@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 43f361fbaf4ab0462af0a720d7711f219134a165
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9cb90ba81f6399d7b0e238d673c2d956911bd004
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692174"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83201032"
 ---
 # <a name="quickstart-using-sql-on-demand"></a>Snabb start: använda SQL på begäran
 
-Synapse SQL on-demand (för hands version) är en server lös Query-tjänst som gör att du kan köra SQL-frågor på filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med SQL på begäran.
+Synapse SQL on-demand (för hands version) är en server lös Query-tjänst som gör att du kan köra SQL-frågor på filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med SQL på begäran. Format som stöds visas i [OpenRowSet](sql/develop-openrowset.md).
 
-Följande filtyper stöds: JSON, CSV, Apache Parquet
+Den här snabb starten visar frågor: CSV-, Apache Parquet-och JSON-filer.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -123,7 +123,7 @@ Fler exempel finns i [fråga CSV-fil](sql/query-single-csv-file.md).
 I följande exempel visas de automatiska schema härlednings funktionerna för att fråga Parquet-filer. Det returnerar antalet rader i september 2017 utan att ange schema.
 
 > [!NOTE]
-> Du behöver inte ange columns i `OPENROWSET WITH` -satsen när du läser Parquet-filer. I så fall använder SQL på begäran metadata i Parquet-filen och binder kolumner efter namn.
+> Du behöver inte ange columns i- `OPENROWSET WITH` satsen när du läser Parquet-filer. I så fall använder SQL på begäran metadata i Parquet-filen och binder kolumner efter namn.
 
 ```sql
 SELECT COUNT_BIG(*)

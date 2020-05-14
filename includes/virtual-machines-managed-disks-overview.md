@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0eaac5aac94c536fda58d7d004a54df51219f7cd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c37c5a125bce23f8f2a813b5df4516323c2a2c12
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82147782"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83343454"
 ---
 ## <a name="benefits-of-managed-disks"></a>Fördelar med hanterade diskar
 
@@ -55,11 +55,14 @@ Hanterade diskar erbjuder två olika typer av kryptering. Det första är Server
 
 ### <a name="server-side-encryption"></a>Kryptering på serversidan
 
-[Kryptering på Server sidan](../articles/virtual-machines/windows/disk-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Kryptering på Server sidan är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. Du kan antingen tillåta Azure att hantera dina nycklar åt dig, dessa är plattforms hanterade nycklar, eller så kan du hantera nycklarna själv, som är Kundhanterade nycklar. Mer information finns på [sidan med vanliga frågor och svar om Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
+[Kryptering på Server sidan](../articles/virtual-machines/windows/disk-encryption.md) ger kryptering vid vila och skyddar dina data så att de uppfyller organisationens säkerhets-och efterlevnads åtaganden. Kryptering på Server sidan är aktiverat som standard för alla hanterade diskar, ögonblicks bilder och avbildningar i alla regioner där Managed disks finns tillgängliga. (Temporära diskar, å andra sidan, är inte krypterade med Kryptering för lagringstjänst. se [disk roller: temporära diskar](#temporary-disk)).
+
+Du kan antingen tillåta Azure att hantera dina nycklar åt dig, dessa är plattforms hanterade nycklar, eller så kan du hantera nycklarna själv, som är Kundhanterade nycklar. Mer information finns på [sidan med vanliga frågor och svar om Managed disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) .
+
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 
-Med Azure Disk Encryption kan du kryptera operativ system och data diskar som används av en virtuell IaaS-dator. Krypteringen omfattar Managed disks. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Krypteringsprocessen är integrerad med Azure Key Vault så att du kan styra och hantera diskkrypteringsnycklarna. Mer information finns i [Azure Disk Encryption för virtuella datorer för IaaS](../articles/security/azure-security-disk-encryption-overview.md).
+Med Azure Disk Encryption kan du kryptera operativ system och data diskar som används av en virtuell IaaS-dator. Krypteringen omfattar Managed disks. För Windows krypteras enheterna med hjälp av teknik för BitLocker-kryptering enligt bransch standard. För Linux krypteras diskarna med hjälp av DM-crypt-teknik. Krypteringsprocessen är integrerad med Azure Key Vault så att du kan styra och hantera diskkrypteringsnycklarna. Mer information finns i [Azure Disk Encryption för virtuella Linux-datorer](../articles/virtual-machines/linux/disk-encryption-overview.md) eller [Azure Disk Encryption för virtuella Windows-datorer](../articles/virtual-machines/windows/disk-encryption-overview.md).
 
 ## <a name="disk-roles"></a>Diskroller
 
@@ -79,7 +82,9 @@ Den här disken har en maximal kapacitet på 2 048 GiB.
 
 ### <a name="temporary-disk"></a>Tillfällig disk
 
-Varje virtuell dator innehåller en temporär disk, som inte är en hanterad disk. Den temporära disken ger kortsiktig lagring för program och processer och är avsedd att endast lagra data, t. ex. sid-eller växlings fil. Data på den tillfälliga disken kan gå förlorade under händelsen [Underhåll](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du distribuerar om [en virtuell dator](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). På virtuella Azure Linux-datorer är den temporära disken/dev/SDB som standard och på virtuella Windows-datorer är den temporära disken D: som standard. Vid en lyckad standard omstart av den virtuella datorn kommer data på den temporära disken att kvarstå.
+Varje virtuell dator innehåller en temporär disk, som inte är en hanterad disk. Den temporära disken ger kortsiktig lagring för program och processer och är avsedd att endast lagra data, t. ex. sid-eller växlings fil. Data på den tillfälliga disken kan gå förlorade under händelsen [Underhåll](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) eller när du distribuerar om [en virtuell dator](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Vid en lyckad standard omstart av den virtuella datorn kommer data på den temporära disken att kvarstå.  
+
+På virtuella Azure Linux-datorer är den temporära disken vanligt vis/dev/SDB och på virtuella Windows-datorer är den temporära disken D: som standard. Den temporära disken är inte krypterad med kryptering på Server sidan (se [kryptering](#encryption)).
 
 ## <a name="managed-disk-snapshots"></a>Ögonblicks bilder av hanterade diskar
 

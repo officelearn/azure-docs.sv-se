@@ -6,22 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 03/03/2020
+ms.date: 05/08/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1003b862d7fbe19545cf705570866479132c1f03
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6b165df42da35077c7ef252291d8e1514bb3b1b0
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78273178"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82996000"
 ---
-::: zone target="chromeless"
-
-## <a name="return-azure-data-box-disk"></a>Returnera Azure Data Box Disk 
-
-::: zone-end
-
 ::: zone target="docs"
 
 # <a name="tutorial-return-azure-data-box-disk"></a>Självstudier: Returnera Azure Data Box Disk 
@@ -40,6 +34,12 @@ Innan du börjar bör du slutföra följande [självstudie: Kopiera data till en
 
 
 ## <a name="ship-data-box-disk-back"></a>Skicka tillbaka Data Box-disken
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## <a name="return-azure-data-box-disk"></a>Returnera Azure Data Box Disk 
 
 ::: zone-end
 

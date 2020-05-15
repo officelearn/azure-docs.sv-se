@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 05/12/2020
 ms.author: anfeldma
-ms.openlocfilehash: fc8fb0e3c9ad35957291376691d5ed2c0484192a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0b4e25bd0c24b51975682b83df608581dea083bd
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120205"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402501"
 ---
 # <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Självstudie: bygga ett Java-webbprogram med Azure Cosmos DB och SQL API
 
@@ -36,10 +36,10 @@ I den här självstudien om Java visar vi hur du skapar en webbaserad aktivitets
 
 > [!TIP]
 > Den här självstudien om apputveckling förutsätter att du har tidigare erfarenhet av Java. Om du inte har använt Java eller [verktygen som krävs](#Prerequisites) tidigare, rekommenderar vi att du hämtar det fullständiga [todo](https://github.com/Azure-Samples/documentdb-java-todo-app)-projektet från GitHub och skapar det enligt [anvisningarna i slutet av artikeln](#GetProject). När du har skapat det kan du läsa den här artikeln för information om koden i projektets sammanhang.  
-> 
-> 
+>
 
 ## <a name="prerequisites-for-this-java-web-application-tutorial"></a><a id="Prerequisites"></a>Förhandskrav för den här självstudien för Java-webbprogram
+
 Innan du påbörjar den här självstudien om apputveckling måste du ha följande:
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar. 
@@ -52,36 +52,48 @@ Innan du påbörjar den här självstudien om apputveckling måste du ha följan
 
 Om du installerar de här verktygen för första gången ger coreservlets.com en genom gång av installations processen i avsnittet snabb start i [självstudierna: installerar TomCat7 och använder den med Sol förmörkelse](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) -artikeln.
 
-## <a name="step-1-create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Steg 1: Skapa ett Azure Cosmos DB-konto
+## <a name="create-an-azure-cosmos-db-account"></a><a id="CreateDB"></a>Skapa ett Azure Cosmos DB konto
+
 Vi ska börja med att skapa ett Azure Cosmos DB-konto. Om du redan har ett konto eller om du använder Azure Cosmos DB-emulatorn för den här kursen kan du gå vidare till [Steg 2: Skapa Java JSP-programmet](#CreateJSP).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="step-2-create-the-java-jsp-application"></a><a id="CreateJSP"></a>Steg 2: Skapa Java JSP-programmet
+## <a name="create-the-java-jsp-application"></a><a id="CreateJSP"></a>Skapa Java JSP-programmet
+
 Så här skapar du JSP-appen:
 
 1. Först börjar vi med att skapa ett Java-projekt. Starta Eclipse och klicka på **Arkiv**, **Nytt** och slutligen **Dynamiskt webbprojekt**. Om du inte ser **dynamiskt webb projekt** som visas som ett tillgängligt projekt gör du följande: Klicka på **Arkiv**, klicka på **nytt**, klicka på **projekt**..., expandera **webb**, klicka på **dynamiskt webb projekt**och klicka på **Nästa**.
    
     ![JSP Java-apputveckling](./media/sql-api-java-application/image10.png)
-2. Ange ett projektnamn i rutan **Projektnamn** och välj eventuellt ett värde (t.ex. Apache Tomcat v7.0) i rullgardinsmenyn **Körningsmål** och klicka sedan på **Slutför**. När du väljer ett mål för körning kan du köra projektet lokalt genom Eclipse.
-3. Expandera projektet i Eclipse i vyn Projektutforskaren. Högerklicka på **Webbinnehåll**, klicka på **Ny** och sedan på **JSP-fil**.
-4. I dialogrutan **Ny JSP-fil** namnger du filen **index.jsp**. Behåll den överordnade mappen som **Webbinnehåll**, så som visas i nedanstående bild, och klicka sedan på **Nästa**.
+
+1. Ange ett projektnamn i rutan **Projektnamn** och välj eventuellt ett värde (t.ex. Apache Tomcat v7.0) i rullgardinsmenyn **Körningsmål** och klicka sedan på **Slutför**. När du väljer ett mål för körning kan du köra projektet lokalt genom Eclipse.
+
+1. Expandera projektet i Eclipse i vyn Projektutforskaren. Högerklicka på **Webbinnehåll**, klicka på **Ny** och sedan på **JSP-fil**.
+
+1. I dialogrutan **Ny JSP-fil** namnger du filen **index.jsp**. Behåll den överordnade mappen som **Webbinnehåll**, så som visas i nedanstående bild, och klicka sedan på **Nästa**.
    
     ![Skapa en ny JSP-fil – självstudie om Java-webbapp](./media/sql-api-java-application/image11.png)
-5. I dialogrutan **Välj JSP-mall** väljer du i den här självstudien **Ny JSP-fil (html)** och klickar sedan på **Slutför**.
-6. Lägg till en text som visar **Hello World!** i det befintliga `<body>`-elementet när index.jsp-filen öppnas i Eclipse. Det uppdaterade `<body>`-innehållet bör likna följande kod:
-   
-        <body>
-            <% out.println("Hello World!"); %>
-        </body>
-7. Spara filen index.jsp.
-8. Om du anger ett mål för körning i steg 2 kan du klicka på **Projekt** och **Kör** för att köra JSP-appen lokalt:
-   
-    ![Hello World – självstudie om Java-app](./media/sql-api-java-application/image12.png)
 
-## <a name="step-3-install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Steg 3: Installera SQL Java SDK
+1. I dialogrutan **Välj JSP-mall** väljer du i den här självstudien **Ny JSP-fil (html)** och klickar sedan på **Slutför**.
+
+1. Lägg till en text som visar **Hello World!** i det befintliga `<body>`-elementet när index.jsp-filen öppnas i Eclipse. Det uppdaterade `<body>`-innehållet bör likna följande kod:
+
+   ```html
+   <body>
+     <% out.println("Hello World!"); %>
+   </body>
+   ```
+
+1. Spara filen index.jsp.
+
+1. Om du anger ett mål för körning i steg 2 kan du klicka på **Projekt** och **Kör** för att köra JSP-appen lokalt:
+
+  ![Hello World – självstudie om Java-app](./media/sql-api-java-application/image12.png)
+
+## <a name="install-the-sql-java-sdk"></a><a id="InstallSDK"></a>Installera SQL Java SDK
+
 Det enklaste sättet att hämta SQL Java SDK och dess beroenden är via [Apache Maven](https://maven.apache.org/).
 
 För att kunna göra det måste du konvertera ditt projekt till ett Maven-projekt genom följande steg:
@@ -109,7 +121,8 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
 6. Klicka på **OK** så installerar Maven SQL Java SDK.
 7. Spara filen pom.xml.
 
-## <a name="step-4-using-the-azure-cosmos-db-service-in-a-java-application"></a><a id="UseService"></a>Steg 4: Använda Azure Cosmos DB-tjänsten i ett Java-program
+## <a name="using-the-azure-cosmos-db-service-in-a-java-application"></a><a id="UseService"></a>Använda Azure Cosmos DB-tjänsten i ett Java-program
+
 1. Först ska vi definiera TodoItem-objektet i TodoItem.java:
    
         @Data
@@ -343,7 +356,7 @@ För att kunna göra det måste du konvertera ditt projekt till ett Maven-projek
             return true;
         }
 
-## <a name="step-5-wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Steg 5: Koppla samman resten av Java-programmets utvecklingsprojekt
+## <a name="wiring-the-rest-of-the-of-java-application-development-project-together"></a><a id="Wire"></a>Koppla samman resten av Java-programmets utvecklingsprojekt
 Nu när vi är klara med de roliga bitarna är allt som återstår att skapa ett snabbt användargränssnitt och ansluta det till vårt DAO.
 
 1. Vi börjar med att skapa en styrning (controller) som kan anropa vår DAO:
@@ -715,7 +728,7 @@ Nu när vi är klara med de roliga bitarna är allt som återstår att skapa ett
 5. Fantastiskt! Nu återstår bara att testa appen. Kör appen lokalt och lägg till några Todo-objekt genom att fylla i namn och kategori och klicka på **Lägg till aktivitet**.
 6. När objektet visas kan du uppdatera om aktiviteten är slutförd eller inte genom att använda kryssrutan och sedan klicka på **Uppdatera aktiviteter**.
 
-## <a name="step-6-deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Steg 6: Distribuera Java-programmet till Azure Web Sites
+## <a name="deploy-your-java-application-to-azure-web-sites"></a><a id="Deploy"></a>Distribuera Java-programmet till Azure Web Sites
 Med Azure Web Sites är det enkelt att distribuera Java-appar. Allt du behöver göra är att exportera appen som en WAR-fil och antingen ladda upp den via källkontrollen (t.ex. Git) eller FTP.
 
 1. Du exporterar appen som en WAR-fil genom att högerklicka på projektet i **Projektutforskaren**, klicka på **Exportera** och sedan på **WAR-fil**.
@@ -755,3 +768,4 @@ Alla exempel i den här självstudien finns i projektet [Todo](https://github.co
 21. Gå till `http://localhost:8080/azure-documentdb-java-sample/` i en webbläsare och börja lägga till aktiviteter. Om du har ändrat portarnas standardvärden ändrar du 8080 till värdet du har valt.
 22. Information om hur du distribuerar projektet till en Azure-webbplats finns i [steg 6. Distribuera ditt program till Azure Web Sites](#Deploy).
 
+## <a name="next-steps"></a>Nästa steg

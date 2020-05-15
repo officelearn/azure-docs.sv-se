@@ -15,135 +15,138 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3babda69c50da02f1b32d1f0d6879833681405db
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984337"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402447"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Trelica
 
-I den här självstudien får du lära dig hur du integrerar Trelica med Azure Active Directory (Azure AD). När du integrerar Trelica med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar Trelica med Azure Active Directory (Azure AD).
+
+Med den här integreringen kan du:
 
 * Kontroll i Azure AD som har åtkomst till Trelica.
-* Gör det möjligt för användarna att logga in automatiskt till Trelica med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Gör det möjligt för användarna att logga in automatiskt på Trelica med sina Azure AD-konton.
+* Hantera dina konton på en central plats: Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Om du vill veta mer om SaaS (Software as a Service) med Azure AD, se [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Trelica för enkel inloggning (SSO) aktive rad.
+* En Trelica-prenumeration med enkel inloggning aktive rad (SSO).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-
-* Trelica stöder **IDP** INITIERAd SSO
-* Trelica stöder **just-in-Time** User-etablering
-* När du har konfigurerat Trelica kan du framtvinga sessionshantering, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Trelica stöder IDP-initierad SSO.
+* Trelica stöder just-in-Time-etablering av användare.
+* När du har konfigurerat Trelica kan du framtvinga kontroll av sessionen. Den här kontrollen skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Kontroll av sessionen sträcker sig från villkorlig åtkomst. [Lär dig hur du tvingar fram en session med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-trelica-from-the-gallery"></a>Lägga till Trelica från galleriet
 
 Om du vill konfigurera integreringen av Trelica i Azure AD måste du lägga till Trelica från galleriet i listan över hanterade SaaS-appar.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med antingen ett arbets-eller skol konto eller en personlig Microsoft-konto.
-1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett arbets-eller skol konto eller en personlig Microsoft-konto.
+1. I navigerings fönstret längst till vänster väljer du tjänsten **Azure Active Directory** .
+1. Gå till **Företagsprogram** och välj sedan **Alla program**.
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **Trelica** i sökrutan.
-1. Välj **Trelica** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+1. I avsnittet **Lägg till från galleriet** , ange **Trelica** i sökrutan.
+1. Välj **Trelica** från Sök resultaten och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-trelica"></a>Konfigurera och testa enkel inloggning med Azure AD för Trelica
 
-Konfigurera och testa Azure AD SSO med Trelica med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Trelica.
+Konfigurera och testa Azure AD SSO med Trelica med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länkad relation mellan en Azure AD-användare och den relaterade användaren i Trelica.
 
 Om du vill konfigurera och testa Azure AD SSO med Trelica, slutför du följande Bygg stenar:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
-    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
-1. **[Konfigurera TRELICA SSO](#configure-trelica-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
-    1. **[Skapa Trelica test User](#create-trelica-test-user)** -om du vill ha en motsvarighet till B. Simon i Trelica som är länkad till Azure AD-representation av användare.
-1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa enkel inloggning i Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+1. **[Konfigurera TRELICA SSO](#configure-trelica-sso)** för att konfigurera inställningarna för enkel inloggning på program sidan.
+    1. **[Skapa en Trelica-test](#create-a-trelica-test-user)** för att få en motsvarighet till B. Simon i Trelica. Den här motsvarigheten är länkad till användarens Azure AD-representation.
+1. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Trelica** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)går du till avsnittet **Hantera** på sidan för program integrering i **Trelica** . Välj **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på Penn ikonen för **grundläggande SAML-konfiguration** för att redigera inställningarna.
 
-   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+   ![Sidan konfigurera enkel inloggning med SAML, med Penn ikonen för grundläggande SAML-konfiguration markerad](common/edit-urls.png)
 
-1. På sidan **Konfigurera enkel inloggning med SAML** anger du värdena för följande fält:
+1. På sidan **Konfigurera enkel inloggning med SAML** anger du följande värden:
 
-    a. Skriv en URL i text rutan **identifierare** :`https://app.trelica.com`
+    1. I rutan **identifierare** anger du URL: en **https://app.trelica.com** .
 
-    b. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs`
+    1. I rutan **svars-URL** anger du en URL som har mönstret `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs` .
 
     > [!NOTE]
-    > Värdet för svars-URL:en är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL:en. Kontakta [Trelica client support team](mailto:support@trelica.com) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > **Svars-URL** -värdet är inte verkligt. Uppdatera det här värdet med den faktiska svars-URL: en. Kontakta [Trelica-klientens support team](mailto:support@trelica.com) för att få det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat** . Till höger om **URL för app Federation-Metadata**väljer du kopierings knappen för att kopiera URL: en. Spara webb adressen på datorn.
 
-    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
+    ![Avsnittet SAML-signeringscertifikat med kopierings knappen bredvid URL för app Federation-Metadata](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+I det här avsnittet skapar du en test användare som heter B. Simon i Azure Portal.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. I rutan längst till vänster i Azure Portal väljer du **Azure Active Directory**  >  **användare**  >  **alla användare**.
+1. Överst på skärmen väljer du **ny användare**.
 1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
+   1. I fältet **namn** anger du **B. Simon**.
+   1. I fältet **användar namn** anger du **B. Simon@**_companydomain_**.** _tillägg_. Till exempel B.Simon@contoso.com.
+   1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
+   1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Trelica.
+I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Trelica.
 
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I Azure Portal väljer du **företags program**  >  **alla program**.
 1. I listan program väljer du **Trelica**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+1. På sidan Översikt för appen går du till avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+   ![Avsnittet hantera, där användare och grupper är markerade](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare**. I dialog rutan **Lägg till tilldelning** väljer **du användare och grupper**.
 
-    ![Länken Lägg till användare](common/add-assign-user.png)
+   ![Fönstret användare och grupper, där Lägg till användare är markerat](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare. Välj sedan knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig något rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** en lämplig roll för användaren i listan. Välj sedan knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
 ## <a name="configure-trelica-sso"></a>Konfigurera Trelica SSO
 
-Om du vill konfigurera enkel inloggning på **Trelica** sida måste du skicka **URL: en för appens Federations-metadata** till [support teamet för Trelica](mailto:support@trelica.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Trelica** -sidan skickar du det kopierade URL-värdet för **app Federation-Metadata** till [support teamet för Trelica](mailto:support@trelica.com). De konfigurerar den här inställningen att ha SAML SSO-anslutningen korrekt inställd på båda sidorna.
 
-### <a name="create-trelica-test-user"></a>Skapa Trelica test användare
+### <a name="create-a-trelica-test-user"></a>Skapa en Trelica-test användare
 
-I det här avsnittet skapas en användare som kallas Britta Simon i Trelica. Trelica stöder just-in-Time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om en användare inte redan finns i Trelica skapas en ny efter autentiseringen.
+I det här avsnittet skapar du en användare som heter B. Simon i Trelica.
 
-## <a name="test-sso"></a>Testa SSO 
+Trelica stöder just-in-Time-etablering, som är aktiverat som standard. Det finns ingen åtgärd att ta med i det här avsnittet. Om en användare inte redan finns i Trelica skapas en ny efter autentiseringen.
 
-I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+## <a name="test-sso"></a>Testa SSO
 
-När du klickar på panelen Trelica på åtkomst panelen, bör du loggas in automatiskt på den Trelica som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+I det här avsnittet testar du konfigurationen av enkel inloggning med Azure AD med hjälp av portalen Mina appar.
+
+När du väljer panelen Trelica i portalen Mina appar loggas du automatiskt in på den Trelica som du ställer in SSO för. Mer information om mina apps-portalen finns i [Introduktion till portalen Mina appar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

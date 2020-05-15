@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: abb61afab3391f9a53ada4881cb186aa9fae3187
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 49c1a29547195ad8557550ba1bc0cb80fae40ad8
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005918"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402634"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll
 
@@ -60,13 +60,13 @@ ObjectId för ett program motsvarar dess associerade tjänst huvud namn. Fullst�
 
 Det finns två sätt att hämta ett objectId för ett program.  Det första är att registrera ditt program med Azure Active Directory. Det gör du genom att följa stegen i snabb starten [Registrera ett program med Microsoft Identity Platform](../../active-directory/develop/quickstart-register-app.md). När registreringen är klar visas objectID som "program-ID" (klient).
 
-Det andra är att skapa ett huvud namn för tjänsten i ett terminalfönster. Med Azure CLI använder du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) och anger ett unikt tjänst princip namn för flaggan-n i formatet "http://&lt;My-Unique-service-name&gt;".
+Det andra är att skapa ett huvud namn för tjänsten i ett terminalfönster. Med Azure CLI använder du kommandot [AZ AD SP Create-for-RBAC](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) och anger ett unikt tjänst princip namn för flaggan-n i formatet "http:// &lt; My-Unique-service-name &gt; ".
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n "http://<my-unique-service-principle-name"
 ```
 
-ObjectId visas i utdata som `clientID`.
+ObjectId visas i utdata som `clientID` .
 
 Med Azure PowerShell använder du cmdleten [New-AzADServicePrincipal](/powershell/module/Az.Resources/New-AzADServicePrincipal?view=azps-2.7.0) .
 
@@ -75,7 +75,7 @@ Med Azure PowerShell använder du cmdleten [New-AzADServicePrincipal](/powershel
 New-AzADServicePrincipal -DisplayName <my-unique-service-principle-name>
 ```
 
-ObjectId visas i utdata som `Id` (inte `ApplicationId`).
+ObjectId visas i utdata som `Id` (inte `ApplicationId` ).
 
 #### <a name="azure-ad-groups"></a>Azure AD-grupper
 
@@ -100,7 +100,7 @@ Använd cmdleten [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup?v
 Get-AzADGroup -SearchString <search-string>
 ```
 
-I utdata visas objectId som `Id`:
+I utdata visas objectId som `Id` :
 
 ```console
 ...
@@ -109,7 +109,7 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ```
 
 > [!WARNING]
-> Azure AD-grupper stöder inte hanterade identiteter. Endast tjänst-och användar huvud konton stöds.
+> Azure AD-grupper med hanterade identiteter kräver upp till 8hr för att uppdatera token och börja gälla.
 
 #### <a name="users"></a>Användare
 
@@ -131,13 +131,13 @@ Användarens objectId kommer att returneras i utdata:
   ...
 ```
 
-Om du vill hitta en användare med Azure PowerShell använder du cmdleten [Get-AzADUser](/powershell/module/az.resources/get-azaduser?view=azps-2.7.0) och skickar användarens e- `-UserPrincipalName` postadress till parametern.
+Om du vill hitta en användare med Azure PowerShell använder du cmdleten [Get-AzADUser](/powershell/module/az.resources/get-azaduser?view=azps-2.7.0) och skickar användarens e-postadress till `-UserPrincipalName` parametern.
 
 ```azurepowershell-interactive
  Get-AzAdUser -UserPrincipalName <email-address-of-user>
 ```
 
-Användarens objectId kommer att returneras i utdata som `Id`.
+Användarens objectId kommer att returneras i utdata som `Id` .
 
 ```console
 ...
@@ -207,7 +207,7 @@ Följ stegen i avsnittet [användare](#users) ovan för att hitta objectIds för
 
 Lägg nu till objectIds i din nya Azure AD-grupp.
 
-Med Azure CLI använder du AD- [AZ AD-gruppmedlem Lägg till](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add), och skickar ObjectID `--member-id` till parametern.
+Med Azure CLI använder du AD- [AZ AD-gruppmedlem Lägg till](/cli/azure/ad/group/member?view=azure-cli-latest#az-ad-group-member-add), och skickar ObjectID till `--member-id` parametern.
 
 
 ```azurecli-interactive

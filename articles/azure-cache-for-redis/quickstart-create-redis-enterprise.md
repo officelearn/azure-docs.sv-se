@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/12/2020
-ms.openlocfilehash: f3eee85c600d40b3997a0e6dff6a9b218242feb4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3df6cb1afe8a6249eadbbd3f61619e66be2d2478
+ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204720"
+ms.lasthandoff: 05/14/2020
+ms.locfileid: "83402496"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Snabb start: skapa en cacheminne för företags nivå (för hands version)
 
@@ -20,7 +20,7 @@ Azure cache för Redis "företags nivåer ger fullständigt integrerat och hante
 * Enterprise, som använder flyktigt minne (DRAM) på en virtuell dator för att lagra data
 * Enterprise SSD, som använder både flyktigt och icke-flyktigt minne (NVMe) för att lagra data.
 
-Det kostar inget att delta i förhands granskningen. Registrera dig via [Azure Marketplace](https://aka.ms/redispreviewsignup/) om du är intresse rad av. Vi har mycket begränsat antal deltagar punkter och kan inte garantera att du kommer att accepteras i för hands versionen.
+Det kostar inget att delta i förhands granskningen. Registrera dig via [Azure Marketplace](https://aka.ms/redispreviewsignup/) **kontakta mig** om du är intresse rad av. Vi har mycket begränsat antal deltagar punkter och kan inte garantera att du kommer att accepteras i för hands versionen.
 
 ## <a name="prerequisites"></a>Krav
 

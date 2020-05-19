@@ -1,0 +1,137 @@
+---
+title: Implementera dynamisk formatering för Azure Maps Creators inomhus Maps
+description: Lär dig hur du implementerar dynamisk formatering för Creators inomhus Maps
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 05/18/2020
+ms.topic: how-to
+ms.service: azure-maps
+services: azure-maps
+manager: philmea
+ms.openlocfilehash: 6edc114a2d69dfe8f1e6e5d3c0a2d4af26dbad67
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83598775"
+---
+# <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementera dynamisk formatering för Creators inomhus Maps
+
+Med Azure Maps skapare [funktion tillstånds tjänst](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) kan du använda formatmallar som baseras på de dynamiska egenskaperna för inlednings data funktioner i kartan.  Du kan till exempel återge anläggningarnas Mötes rum med en speciell färg för att avspegla inslags status. I den här artikeln visar vi hur du dynamiskt återger inaktuella kart funktioner med [funktions tillstånds tjänsten](https://docs.microsoft.com/rest/api/maps/featurestate/featurestate) och den inaktuella [webbmodulen](how-to-use-indoor-module.md).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+1. [Skapa ett Azure Maps-konto](quick-demo-map-app.md#create-an-account-with-azure-maps)
+2. [Hämta en primär prenumerations nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account), även kallat primär nyckel eller prenumerations nyckel.
+3. [Skapa en skapare resurs](how-to-manage-creator.md)
+4. Ladda ned [exempel ritnings paketet](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+5. [Skapa en](tutorial-creator-indoor-maps.md) ingångs karta för att få en `tilesetId` och `statesetId` .
+6. Bygg ett webb program genom att följa stegen i [använda Map-modulen](how-to-use-indoor-module.md).
+
+I den här självstudien används [Postman](https://www.postman.com/) -programmet, men du kan välja en annan API utvecklings miljö.
+
+## <a name="implement-dynamic-styling"></a>Implementera dynamisk formatering
+
+När du har slutfört kraven bör du ha ett enkelt webb program konfigurerat med din prenumerations nyckel, `tilesetId` och `statesetId` .
+
+### <a name="select-features"></a>Välja funktioner
+
+För att implementera dynamisk formatering måste en funktion, till exempel ett möte eller konferens rum, refereras till av sin funktion `id` . Du använder funktionen `id` för att uppdatera den dynamiska egenskapen eller *statusen* för den funktionen. Om du vill visa de funktioner som definierats i en data uppsättning kan du använda någon av följande metoder:
+
+* WFS-API (Web Feature service). Data uppsättningar kan frågas med hjälp av WFS-API: et. WFS följer Open Geospatial Consortium API-funktioner. WFS-API: et är användbart för att fråga efter funktioner i en data uppsättning. Du kan till exempel använda WFS för att hitta alla Mötes rum i mitten av en specifik anläggning och golv nivå.
+
+* Implementera anpassad kod som låter en användare välja funktioner på en karta med ditt webb program. I den här artikeln kommer vi att använda det här alternativet.  
+
+Följande skript implementerar händelsen mus klickning. Koden hämtar funktionen `id` baserat på den klickade punkten. I ditt program kan du infoga koden under ditt kod block för inmatnings hanteraren. Kör programmet och kontrol lera konsolen för att hämta funktionen `id` för den klickade punkten.
+
+```javascript
+/* Upon a mouse click, log the feature properties to the browser's console. */
+map.events.add("click", function(e){
+
+    var features = map.layers.getRenderedShapes(e.position, "indoor")
+
+    var result = features.reduce(function (ids, feature) {
+        if (feature.layer.id == "indoor_unit_office") {
+            console.log(feature);
+        }
+    }, []);
+});
+```
+
+Självstudien [skapa en](tutorial-creator-indoor-maps.md) över gångs karta konfigurerade funktionen stateset för att godkänna tillstånds uppdateringar för `occupancy` .
+
+I nästa avsnitt anger vi användnings *status* för Office `UNIT26` till `true` . även om Office är `UNIT27` inställt på `false` .
+
+### <a name="set-occupancy-status"></a>Ange status för besittning
+
+ Vi kommer nu att uppdatera status för de två kontoren `UNIT26` och `UNIT27` :
+
+1. I Postman-programmet väljer du **nytt**. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn på begäran** och välj en samling. Klicka på **Spara**
+
+2. Använd [API: t för funktions uppdaterings tillstånd](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview) för att uppdatera tillståndet. Skicka stateset-ID: t och `UNIT26` för en av de två enheterna. Lägg till din Azure Maps prenumerations nyckel. Här är URL: en för en **post** -begäran om att uppdatera status:
+
+    ```http
+    https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
+
+3. Ange som i **rubrikerna** för **post** -begäran `Content-Type` `application/json` . I **bröd texten** i **post** -begäran skriver du följande JSON med funktions uppdateringarna. Uppdateringen sparas endast om den bokförda tidsstämpeln är efter tidsstämpeln som användes i tidigare uppdaterings begär Anden för funktions tillstånd för samma funktion `ID` . Skicka "upptagen" `keyName` för att uppdatera värdet.
+
+    ```json
+    {
+        "states": [
+            {
+                "keyName": "occupied",
+                "value": true,
+                "eventTimestamp": "2019-11-14T17:10:20"
+            }
+        ]
+    }
+    ```
+
+4. Gör om steg 2 och 3 med `UNIT27` följande JSON.
+
+    ``` json
+    {
+        "states": [
+            {
+                "keyName": "occupied",
+                "value": false,
+                "eventTimestamp": "2019-11-14T17:10:20"
+            }
+        ]
+    }
+    ```
+
+### <a name="visualize-dynamic-styles-on-a-map"></a>Visualisera dynamiska stilar på en karta
+
+Det webb program som du tidigare öppnade i en webbläsare bör nu avspegla det uppdaterade läget för kart funktionerna. `UNIT27`(151) ska vara grönt och `UNIT26` (157) ska vara röd.
+
+![Ledigt utrymme i grönt och hårt belastat utrymme i rött](./media/indoor-map-dynamic-styling/room-state.png)
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer genom att läsa:
+
+> [!div class="nextstepaction"]
+> [Skapare för från koppling till inomhus](creator-indoor-maps.md)
+
+Se referenserna för de API: er som nämns i den här artikeln:
+
+> [!div class="nextstepaction"]
+> [Data uppladdning](creator-indoor-maps.md#upload-a-drawing-package)
+
+> [!div class="nextstepaction"]
+> [Data konvertering](creator-indoor-maps.md#convert-a-drawing-package)
+
+> [!div class="nextstepaction"]
+> [Data uppsättning](creator-indoor-maps.md#datasets)
+
+> [!div class="nextstepaction"]
+> [Tileset](creator-indoor-maps.md#tilesets)
+
+> [!div class="nextstepaction"]
+> [Funktions tillstånds uppsättning](creator-indoor-maps.md#feature-statesets)
+
+> [!div class="nextstepaction"]
+> [WFS-tjänst](creator-indoor-maps.md#web-feature-service-api)
+

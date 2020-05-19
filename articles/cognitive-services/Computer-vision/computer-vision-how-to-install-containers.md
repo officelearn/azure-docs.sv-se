@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 5f36c429041a8182551d1f077f0a1229f520e8c1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 838b759f6b175b478dcd9b0559784975b5d24f70
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879351"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593348"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installera och köra Läs behållare (förhands granskning)
 
@@ -24,16 +24,16 @@ Med behållare kan du köra Visuellt innehåll-API: er i din egen miljö. Behål
 
 En enda Docker-behållare, *Läs*, är tillgänglig för visuellt innehåll. Med *Läs* behållaren kan du identifiera och extrahera *utskriven text* från bilder av olika objekt med olika ytor och bakgrunder, till exempel kvitton, affischer och visitkort. Dessutom identifierar *läsnings* behållaren *handskriven text* i bilder och innehåller PDF-, TIFF-och fil stöd för flera sidor. Mer information finns i [Read](concept-recognizing-text.md#read-api) API-dokumentationen.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Du måste uppfylla följande krav innan du använder behållarna:
 
-|Krävs|Syfte|
+|Obligatorisk|Syfte|
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
-|Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper `docker` om grundläggande kommandon.| 
+|Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker` kommandon.| 
 |Visuellt innehåll resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure **visuellt innehåll** -resurs och den tillhör ande API-nyckeln slut punkts-URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
@@ -87,7 +87,7 @@ När behållaren är på [värddatorn](#the-host-computer)använder du följande
 
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
-Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur `{ENDPOINT_URI}` du `{API_KEY}` hämtar och-värden.
+Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur du hämtar `{ENDPOINT_URI}` och- `{API_KEY}` värden.
 
 [Exempel](computer-vision-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga.
 
@@ -109,7 +109,7 @@ Det här kommandot:
 Fler [exempel](./computer-vision-resource-container-config.md#example-docker-run-commands) på `docker run` kommandot är tillgängliga. 
 
 > [!IMPORTANT]
-> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
+> `Eula`Alternativen, `Billing` och `ApiKey` måste anges för att köra behållaren, annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -121,13 +121,13 @@ Fler [exempel](./computer-vision-resource-container-config.md#example-docker-run
 
 Behållaren innehåller REST-baserade slut punkts-API: er för frågor förutsägelse. 
 
-Använd värden, `http://localhost:5000`för behållar-API: er.
+Använd värden, `http://localhost:5000` för behållar-API: er.
 
 ### <a name="asynchronous-read"></a>Asynkron läsning
 
 Du kan använda- `POST /vision/v2.0/read/core/asyncBatchAnalyze` och `GET /vision/v2.0/read/operations/{operationId}` -åtgärderna i samförstånd för att läsa en avbildning asynkront, på liknande sätt som visuellt innehåll tjänsten använder motsvarande rest-åtgärder. Metoden asynkron POST returnerar en `operationId` som används som identifierare till HTTP GET-begäran.
 
-I Swagger-ANVÄNDARGRÄNSSNITTET väljer du alternativet `asyncBatchAnalyze` för att expandera det i webbläsaren. Välj sedan **testa den** > **Välj fil**. I det här exemplet ska vi använda följande bild:
+I Swagger-ANVÄNDARGRÄNSSNITTET väljer du alternativet `asyncBatchAnalyze` för att expandera det i webbläsaren. Välj sedan **testa den**  >  **Välj fil**. I det här exemplet ska vi använda följande bild:
 
 ![tabbar eller blank steg](media/tabs-vs-spaces.png)
 
@@ -140,7 +140,7 @@ När det asynkrona inlägget har körts returneras en status kod för **HTTP 202
  server: Kestrel
 ```
 
-`operation-location` Är den fullständigt kvalificerade URL: en och nås via en HTTP Get. Här är JSON-svaret från att köra `operation-location` URL: en från föregående bild:
+`operation-location`Är den fullständigt kvalificerade URL: en och nås via en HTTP Get. Här är JSON-svaret från att köra `operation-location` URL: en från föregående bild:
 
 ```json
 {

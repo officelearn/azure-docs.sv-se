@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/9/2020
-ms.openlocfilehash: 4c265665be26dcc6868ea9a303b0c12c52dfe05b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 7391fbccaf7983a070d80da64a2908333280420b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878314"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83609009"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics för hands versions funktioner
 
@@ -21,6 +21,15 @@ I den här artikeln sammanfattas alla funktioner som för hands version för Azu
 ## <a name="public-previews"></a>Allmänt tillgängliga förhandsversioner
 
 Följande funktioner finns i offentlig för hands version. Du kan dra nytta av dessa funktioner idag, men Använd dem inte i produktions miljön.
+
+### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Autentisera för att SQL Database utdata med hanterade identiteter
+
+Azure Stream Analytics stöder [autentisering med hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) för Azure SQL Database utgående mottagare. Hanterade identiteter eliminerar begränsningar för användarbaserade autentiseringsmetoder, t. ex. behovet av att autentisera på grund av lösen ords ändringar eller förfallo datum för användar-token som inträffar var 90: e dag. När du tar bort behovet av att autentisera manuellt, kan dina Stream Analytics-distributioner helt automatiseras.
+
+### <a name="output-to-azure-synapse-analytics"></a>Utdata till Azure Synapse Analytics
+
+Azure Stream Analytics jobb kan matas ut till en SQL-adresspool i [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) och kan bearbeta data flödes hastigheter upp till 200 MB/s. Detta stöder de mest krävande real tids analys och frekventa data bearbetnings behov för arbets belastningar som rapportering och instrument paneler.  
+
 
 ### <a name="online-scaling"></a>Online-skalning
 

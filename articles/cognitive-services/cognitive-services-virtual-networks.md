@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 96108053e6b68a71532d1cf25f8a352b3e0e5ca7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 885f92bfb7a49fb90f68d3d5c5a2a93e5880afbc
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202080"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588351"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Konfigurera virtuella Azure Cognitive Services-nätverk
 
@@ -70,7 +70,7 @@ Förutom att stödja tjänst slut punkter för virtuella nätverk för tjänster
 > * [Personanpassning](./personalizer/index.yml)
 > * [Textanalys](./text-analytics/index.yml)
 > * [QnA Maker](./qnamaker/index.yml)
-> * [Translator Text](./translator/index.yml)
+> * [Översättare](./translator/index.yml)
 > * [Tjänst för taligenkänning](./speech-service/index.yml)
 
 ## <a name="change-the-default-network-access-rule"></a>Ändra standardåtkomstregeln för nätverk
@@ -335,7 +335,7 @@ Du kan hantera virtuella nätverks regler för Cognitive Services resurser via A
 > [!IMPORTANT]
 > Se till att [Ange standard regeln](#change-the-default-network-access-rule) för **neka**eller att nätverks regler inte har någon påverkan.
 
-## <a name="grant-access-from-an-internet-ip-range"></a>Bevilja åtkomst från ett Internet-IP-intervall
+## <a name="grant-access-from-an-internet-ip-range"></a>Bevilja åtkomst från ett IP-intervall på internet
 
 Du kan konfigurera Cognitive Services-resurser för att tillåta åtkomst från vissa offentliga Internet-IP-adressintervall. Den här konfigurationen beviljar åtkomst till vissa tjänster och lokala nätverk, vilket effektivt blockerar allmän Internet trafik.
 

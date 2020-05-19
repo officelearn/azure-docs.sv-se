@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d2f7903fa85c645357e46a753d1cb043e0893254
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a67e199af1ee6e68f00dbde9a0a43d02e4c7d638
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219438"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588674"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>Vad är en anpassad översättare-arbetsyta?
 
@@ -39,9 +39,9 @@ I samma arbets yta kan du skapa projekt för samma språk par i olika kategorier
 
 Med anpassad översättare kan du tilldela en projekt etikett till projektet. Projekt etiketten skiljer sig mellan flera projekt med samma språk par och kategori. Vi rekommenderar att du inte använder Project-etiketter om det inte behövs.
 
-Projekt etiketten används som en del av kategorin kategori. Om projekt etiketten lämnas kvar eller anges identiskt mellan projekt, kommer projekt med samma kategori och *olika* språk par att dela samma kategori. Den här metoden är fördelaktig eftersom det låter dig eller din kund växla mellan språk när du använder API: et för text översättning utan att oroa dig för en kategori som är unik för varje projekt.
+Projekt etiketten används som en del av kategorin kategori. Om projekt etiketten lämnas kvar eller anges identiskt mellan projekt, kommer projekt med samma kategori och *olika* språk par att dela samma kategori. Den här metoden är fördelaktig eftersom det låter dig eller din kund byta mellan olika språk när du använder Translatoren utan att behöva oroa dig för en kategori som är unik för varje projekt.
 
-Om jag till exempel ville aktivera översättningar i teknik domänen från engelska till franska och från franska till engelska, skulle jag skapa två projekt: ett för engelska och\> franska, och ett för franska –\> engelska. Jag skulle ange samma kategori (teknik) för båda och lämna projekt etiketten tom. Kategorin för båda projekten skulle matcha, så jag kan fråga API: t för både engelska och franska översättningar utan att behöva ändra min kategori.
+Om jag till exempel ville aktivera översättningar i teknik domänen från engelska till franska och från franska till engelska, skulle jag skapa två projekt: ett för engelska \> och franska, och ett för franska – \> engelska. Jag skulle ange samma kategori (teknik) för båda och lämna projekt etiketten tom. Kategorin för båda projekten skulle matcha, så jag kan fråga API: t för både engelska och franska översättningar utan att behöva ändra min kategori.
 
 Om du är en språk tjänst leverantör och vill betjäna flera kunder med olika modeller som behåller samma kategori-och språk par, är det ett bra beslut att använda en projekt etikett för att skilja mellan kunderna.
 

@@ -2,13 +2,13 @@
 title: Utvecklings resurser – Language Understanding
 description: 'SDK: er, REST API: er, CLI, hjälper dig att utveckla Language Understanding-appar (LUIS) i ditt programmeringsspråk. Hantera dina Azure-resurser och LUIS-förutsägelser.'
 ms.topic: reference
-ms.date: 03/16/2020
-ms.openlocfilehash: 5e375157cef4789bc2980f6154ea8d59e765ff3b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/05/2020
+ms.openlocfilehash: 820811c53f143c9747cd11f45cafb075398b080b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79457992"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589014"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>SDK-, REST-och CLI-utvecklarresurser för Language Understanding (LUIS)
 
@@ -63,7 +63,7 @@ LUIS har för närvarande två typer av slut punkter:
 |V3 runtime-versioner förutsägelse på runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
 |V3 körnings plats förutsägelse på runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
 
-I följande tabell förklaras parametrarna, med klammerparenteser `{}`, i föregående tabell.
+I följande tabell förklaras parametrarna, med klammerparenteser `{}` , i föregående tabell.
 
 |Parameter|Syfte|
 |--|--|
@@ -71,6 +71,10 @@ I följande tabell förklaras parametrarna, med klammerparenteser `{}`, i föreg
 |`q` eller `query`|uttryck text som skickats från klient programmet, till exempel chatt-robot|
 |`version`|namn på 10-siffrig version|
 |`slot`| `production` eller `staging`|
+
+## <a name="app-schema"></a>App-schema
+
+[Appens schema](app-schema-definition.md) importeras och exporteras i ett- `.json` eller- `.lu` format.
 
 ### <a name="language-based-sdks"></a>Språkbaserade SDK: er
 
@@ -83,7 +87,7 @@ I följande tabell förklaras parametrarna, med klammerparenteser `{}`, i föreg
 |Python|[Redigering och förutsägelse](sdk-authoring.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Redigering](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[Redigering](sdk-authoring.md?pivots=programming-language-python)<br>[Förutsägelse med REST](luis-get-started-get-intent-from-rest.md)
 
 
-### <a name="containers"></a>Containrar
+### <a name="containers"></a>Containers
 
 Language Understanding (LUIS) innehåller en [behållare](luis-container-howto.md) för att tillhandahålla lokala och befintliga versioner av din app.
 

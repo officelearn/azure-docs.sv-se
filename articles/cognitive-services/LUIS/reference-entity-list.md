@@ -2,13 +2,13 @@
 title: Lista enhets typ – LUIS
 description: Lista entiteter representerar en fast, avslutad uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för List-entiteter. Använd rekommendations funktionen om du vill se förslag på nya ord baserade på den aktuella listan.
 ms.topic: reference
-ms.date: 03/12/2020
-ms.openlocfilehash: 273fabae38f6682cfaaffcdcc19e62adc41b7a47
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 339fb832ef4af069b6f040c5264426002189f93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097582"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588895"
 ---
 # <a name="list-entity"></a>Lista entitet
 
@@ -52,7 +52,7 @@ En lista entitet har inte registrerats på datorn. Det är en exakt text matchni
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 
-Anta att appen har en lista med namnet `Cities`, som tillåter variationer av Orts namn, till exempel stads-TAC, flyg plats kod (Sea), post nummer (98101) och telefon rikt nummer (206).
+Anta att appen har en lista med namnet `Cities` , som tillåter variationer av Orts namn, till exempel stads-TAC, flyg plats kod (Sea), post nummer (98101) och telefon rikt nummer (206).
 
 |List objekt|Objekt synonymer|
 |---|---|
@@ -61,7 +61,7 @@ Anta att appen har en lista med namnet `Cities`, som tillåter variationer av Or
 
 `book 2 tickets to paris`
 
-I föregående uttryck mappas ordet `paris` till Paris-objektet som en del av entiteten `Cities` lista. List entiteten matchar både objektets normaliserade namn och objektets synonymer.
+I föregående uttryck `paris` mappas ordet till Paris-objektet som en del av `Cities` entiteten lista. List entiteten matchar både objektets normaliserade namn och objektets synonymer.
 
 #### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
@@ -84,7 +84,7 @@ I föregående uttryck mappas ordet `paris` till Paris-objektet som en del av en
 #### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 
-Detta är JSON om `verbose=false` anges i frågesträngen:
+Detta är JSON om anges `verbose=false` i frågesträngen:
 
 ```json
 "entities": {
@@ -96,7 +96,7 @@ Detta är JSON om `verbose=false` anges i frågesträngen:
 }
 ```
 
-Detta är JSON om `verbose=true` anges i frågesträngen:
+Detta är JSON om anges `verbose=true` i frågesträngen:
 
 ```json
 "entities": {
@@ -132,4 +132,7 @@ Detta är JSON om `verbose=true` anges i frågesträngen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här [självstudien](tutorial-list-entity.md)får du lära dig hur du använder en **list-entitet** för att extrahera exakta matchningar av text från en lista över kända objekt.
+Lär dig mer om entiteter:
+
+* [Begrepp](luis-concept-entity-types.md)
+* [Så här skapar du](luis-how-to-add-entities.md)

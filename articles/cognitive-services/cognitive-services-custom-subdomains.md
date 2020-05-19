@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73647681"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590646"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Anpassade under domän namn för Cognitive Services
 
@@ -51,7 +51,7 @@ Ja. Om du använder ett eget under domän namn ändras inte några av de regiona
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>Vilka är kraven för ett anpassat under domän namn?
 
-Ett eget under domän namn är unikt för din resurs. Namnet får bara innehålla alfanumeriska tecken och `-` tecknet. Det måste vara mellan 2 och 64 tecken långt och får inte sluta med en `-`.
+Ett eget under domän namn är unikt för din resurs. Namnet får bara innehålla alfanumeriska tecken och `-` tecknet. det måste vara mellan 2 och 64 tecken långt och får inte sluta med ett `-` .
 
 ## <a name="can-i-change-a-custom-domain-name"></a>Kan jag ändra ett anpassat domän namn?
 
@@ -66,11 +66,11 @@ Varje anpassat under domän namn är unikt, så för att kunna återanvända ett
 Ja. Det här är en lista över regionala slut punkter som du kan använda med Azure Cognitive Services-resurser.
 
 > [!NOTE]
-> Translator Text API och API:er för Bing-sökresultat använder globala slut punkter.
+> Tjänsten Translator och API:er för Bing-sökresultat använda globala slut punkter.
 
 | Slut punkts typ | Region | Slutpunkt |
 |---------------|--------|----------|
-| Offentlig | Global (Translator Text & Bing) | `https://api.cognitive.microsoft.com` |
+| Offentlig | Global (Translator & Bing) | `https://api.cognitive.microsoft.com` |
 | | Australien, östra | `https://australiaeast.api.cognitive.microsoft.com` |
 | | Brasilien, södra | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | Kanada, centrala | `https://canadacentral.api.cognitive.microsoft.com` |

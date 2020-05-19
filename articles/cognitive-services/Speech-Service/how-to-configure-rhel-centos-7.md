@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/02/2020
 ms.author: pankopon
-ms.openlocfilehash: dc09d517d95b5a3f2a88504a14f1451d1de5ffc9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ba531164e024f96d3bdd23912f3f6e90275edda4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80639167"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589745"
 ---
 # <a name="configure-rhelcentos-7-for-speech-sdk"></a>Konfigurera RHEL/CentOS 7 för tal-SDK
 
@@ -45,7 +45,7 @@ ldconfig -p | grep libstdc++
 
 Utdata på vanilj RHEL/CentOS 7 (x64) är:
 
-```
+```bash
 libstdc++.so.6 (libc6,x86-64) => /lib64/libstdc++.so.6
 ```
 
@@ -57,7 +57,7 @@ strings /lib64/libstdc++.so.6 | egrep "GLIBCXX_|CXXABI_"
 
 Utdata ska vara:
 
-```
+```bash
 ...
 GLIBCXX_3.4.19
 ...
@@ -72,7 +72,11 @@ Talet SDK kräver **CXXABI_1.3.9** och **GLIBCXX_3.4.21**. Du kan hitta den här
 
 ## <a name="example"></a>Exempel
 
-Detta är ett exempel kommando som illustrerar hur du konfigurerar RHEL/CentOS 7 x64 för utveckling (C++, C#, Java, python) med talet SDK 1.10.0 eller senare:
+Detta är ett exempel på en kommando uppsättning som visar hur du konfigurerar RHEL/CentOS 7 x64 för utveckling (C++, C#, Java, python) med talet SDK 1.10.0 eller senare:
+
+### <a name="1-general-setup"></a>1. allmän installation
+
+Installera först alla allmänna beroenden:
 
 ```bash
 # Only run ONE of the following two commands
@@ -86,16 +90,53 @@ sudo yum update -y
 sudo yum groupinstall -y "Development tools"
 sudo yum install -y alsa-lib dotnet-sdk-2.1 java-1.8.0-openjdk-devel openssl python3
 sudo yum install -y gstreamer1 gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-bad-free gstreamer1-plugins-ugly-free
+```
 
-# Build GCC 5.4.0 and runtimes and install them under /usr/local
+### <a name="2-cc-compiler-and-runtime-libraries"></a>2. C/C++-kompilator och körnings bibliotek
+
+Installera de nödvändiga paketen med det här kommandot:
+
+```bash
 sudo yum install -y gmp-devel mpfr-devel libmpc-devel
+```
+
+> [!NOTE]
+> Libmpc-devel-paketet är inaktuellt i RHEL 7,8-uppdateringen. Om utdata från föregående kommando innehåller ett meddelande
+>
+> ```bash
+> No package libmpc-devel available.
+> ```
+>
+> sedan måste de nödvändiga filerna installeras från de ursprungliga källorna. Kör följande kommandon:
+>
+> ```bash
+> curl https://ftp.gnu.org/gnu/mpc/mpc-1.1.0.tar.gz -O
+> tar zxf mpc-1.1.0.tar.gz
+> mkdir mpc-1.1.0-build && cd mpc-1.1.0-build
+> ../mpc-1.1.0/configure --prefix=/usr/local --libdir=/usr/local/lib64
+> make -j$(nproc)
+> sudo make install-strip
+> ```
+
+Nästa uppdatering av kompilator-och körnings bibliotek:
+
+```bash
+# Build GCC 5.4.0 and runtimes and install them under /usr/local
 curl https://ftp.gnu.org/gnu/gcc/gcc-5.4.0/gcc-5.4.0.tar.bz2 -O
 tar jxf gcc-5.4.0.tar.bz2
 mkdir gcc-5.4.0-build && cd gcc-5.4.0-build
 ../gcc-5.4.0/configure --enable-languages=c,c++ --disable-bootstrap --disable-multilib --prefix=/usr/local
 make -j$(nproc)
 sudo make install-strip
+```
 
+Om den uppdaterade kompileraren och biblioteken måste distribueras på flera datorer, kan du helt enkelt kopiera dem från `/usr/local` till andra datorer. Om bara körnings biblioteken behövs så räcker filerna i `/usr/local/lib64` .
+
+### <a name="3-environment-settings"></a>3. miljö inställningar
+
+Slutför konfigurationen genom att köra följande kommandon:
+
+```bash
 # Set SSL cert file location
 # (this is required for any development/testing with Speech SDK)
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt

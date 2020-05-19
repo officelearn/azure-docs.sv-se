@@ -2,14 +2,14 @@
 title: Metod tips för att skapa en LUIS-app
 description: Lär dig mer om bästa praxis för att få bästa möjliga resultat från LUIS-appens modell.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 525d450084723a53ae090319d9ebf3f68d63beee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382391"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589813"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Metod tips för att skapa en LUIS-app (Language förståelseing)
 Använd redigerings processen för appar för att skapa LUIS-appen:
@@ -31,11 +31,11 @@ I följande lista finns metod tips för LUIS-appar:
 
 |Gör följande|Gör inte följande|
 |--|--|
-|[Definiera distinkta avsikter](#do-define-distinct-intents)<br>[Lägg till beskrivningar till avsikter](#do-add-descriptors-to-intents) |[Lägg till många exempel yttranden till avsikter](#dont-add-many-example-utterances-to-intents)<br>[Använd få eller enkla entiteter](#dont-use-few-or-simple-entities) |
+|[Definiera distinkta avsikter](#do-define-distinct-intents)<br>[Lägg till funktioner till avsikter](#do-add-features-to-intents) |[Lägg till många exempel yttranden till avsikter](#dont-add-many-example-utterances-to-intents)<br>[Använd få eller enkla entiteter](#dont-use-few-or-simple-entities) |
 |[Hitta en söt punkt mellan för allmän och för varje avsikt](#do-find-sweet-spot-for-intents)|[Använd LUIS som utbildnings plattform](#dont-use-luis-as-a-training-platform)|
 |[Bygg din app iterativt med versioner](#do-build-your-app-iteratively-with-versions)<br>[Bygg entiteter för modell nedbrytning](#do-build-for-model-decomposition)|[Lägg till många exempel yttranden i samma format, ignorera andra format](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Lägga till mönster i senare iterationer](#do-add-patterns-in-later-iterations)|[Blanda definitionen av avsikter och entiteter](#dont-mix-the-definition-of-intents-and-entities)|
-|[Balansera din yttranden för alla syften](#balance-your-utterances-across-all-intents) förutom ingen avsikt.<br>[Lägg till exempel yttranden i ingen avsikt](#do-add-example-utterances-to-none-intent)|[Skapa beskrivningar med alla möjliga värden](#dont-create-descriptors-with-all-the-possible-values)|
+|[Balansera din yttranden för alla syften](#balance-your-utterances-across-all-intents) förutom ingen avsikt.<br>[Lägg till exempel yttranden i ingen avsikt](#do-add-example-utterances-to-none-intent)|[Skapa fras listor med alla möjliga värden](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Dra nytta av funktionen föreslå för aktiv inlärning](#do-leverage-the-suggest-feature-for-active-learning)|[Lägg till för många mönster](#dont-add-many-patterns)|
 |[Övervaka appens prestanda med batch-testning](#do-monitor-the-performance-of-your-app)|[Träna och publicera med varje enda exempel-uttryck tillagt](#dont-train-and-publish-with-every-single-example-utterance)|
 
@@ -51,11 +51,11 @@ Om ord listan mellan två avsikter är densamma kombinerar du avsikten och anvä
 |Boka en flygning|
 |Boka ett hotell|
 
-`Book a flight`och `Book a hotel` Använd samma vokabulär i `book a `. Det här formatet är detsamma, så det bör vara samma avsikt med de olika orden av `flight` och `hotel` som extraherade entiteter.
+`Book a flight`och `Book a hotel` Använd samma vokabulär i `book a ` . Det här formatet är detsamma, så det bör vara samma avsikt med de olika orden av `flight` och `hotel` som extraherade entiteter.
 
-## <a name="do-add-descriptors-to-intents"></a>Lägg till beskrivningar till avsikter
+## <a name="do-add-features-to-intents"></a>Lägg till funktioner till avsikter
 
-Med hjälp av beskrivningar kan du beskriva funktioner för ett avsikts sätt. En beskrivning kan vara en fras lista med ord som är viktiga för avsikten eller en enhet som är viktig för avsikten.
+Funktioner beskriver begrepp för ett avsikts alternativ. En funktion kan vara en fras lista med ord som är viktiga för avsikten eller en enhet som är viktig för avsikten.
 
 ## <a name="do-find-sweet-spot-for-intents"></a>Hittar du söt för avsikter
 Använd förutsägelse data från LUIS för att avgöra om dina avsikter överlappar. Överlappande avsikter förvirrar LUIS. Resultatet är att den översta bedömnings avsikten är för nära en annan avsikt. Eftersom LUIS inte använder exakt samma sökväg via data för utbildning varje gång, har en överlappande avsikt möjlighet att vara första eller andra i utbildningen. Du vill att uttryck-poängen för varje avsikt att ligga längre bort, så att den här flip/vippa inte sker. Bra distinktion för avsikter bör resultera i förväntat topp-avsikt varje gång.
@@ -73,17 +73,22 @@ Modell dispositionen har en typisk process för:
 * skapa **avsikt** baserat på klientens användar avsikter
 * Lägg till 15-30-exempel yttranden baserat på verkliga indata från användaren
 * Märk data koncept på översta nivån i exemplet uttryck
-* Bryt data koncept i del komponenter
-* Lägg till beskrivningar (funktioner) i under komponenter
-* Lägg till beskrivningar (funktioner) i avsikten
+* Bryt data koncept i underentiteter
+* Lägg till funktioner i underentiteter
+* Lägg till funktioner till avsikter
 
 När du har skapat avsikten och lagt till exempel yttranden, beskriver följande exempel enhets diskompositionen.
 
-Börja med att identifiera fullständiga data koncept som du vill extrahera i en uttryck. Det här är din enhet som du har lärt dig. Dela sedan upp frasen i dess delar. Detta omfattar att identifiera under komponenter (som entiteter) tillsammans med beskrivningar och begränsningar.
+Börja med att identifiera fullständiga data koncept som du vill extrahera i en uttryck. Det här är din enhet som du har lärt dig. Dela sedan upp frasen i dess delar. Detta omfattar att identifiera underentiteter och funktioner.
 
-Om du t. ex. vill extrahera en adress kan den översta enheten som sparats på datorn `Address`anropas. När du skapar adressen identifierar du några av dess del komponenter, till exempel gatuadress, stad, region och post nummer.
+Om du t. ex. vill extrahera en adress kan den översta enheten som sparats på datorn anropas `Address` . När du skapar adressen identifierar du några av dess underentiteter, till exempel gatuadress, stad, delstat och post nummer.
 
-Fortsätt sammanställningen av dessa element genom att **begränsa** post numret till ett reguljärt uttryck. Dela upp gatuadressen i delar av ett gatu nummer (med ett fördefinierat nummer), ett gatu namn och en gatu typ. Gatu typen kan beskrivas med en **beskrivnings** lista, till exempel minimering, cirkel, väg och Lane.
+Fortsätt sammanställningen av dessa element genom att:
+* Lägga till en nödvändig funktion i post numret som en entitet för reguljära uttryck.
+* Dela upp gatuadressen i delar:
+    * Ett **gatu nummer** med en obligatorisk funktion i en fördefinierad entitet med nummer.
+    * Ett **gatu namn**.
+    * En **gatu typ** med en obligatorisk funktion i en List-entitet, inklusive ord som minimering, cirkel, väg och Lane.
 
 V3-redigerings-API: n möjliggör modell dekomposition.
 
@@ -145,9 +150,9 @@ Skapa ett avsikts sätt för alla åtgärder som din robot tar. Använd entitete
 
 För en robot som ska boka flyg Plans flygningar skapar du en **BookFlight** avsikt. Skapa inte en avsikt för varje flyg bolag eller varje mål. Använd dessa delar av data som [entiteter](luis-concept-entity-types.md) och markera dem i exemplet yttranden.
 
-## <a name="dont-create-descriptors-with-all-the-possible-values"></a>Skapa inte beskrivningar med alla möjliga värden
+## <a name="dont-create-phrase-lists-with-all-the-possible-values"></a>Skapa inte fras listor med alla möjliga värden
 
-Ange några exempel i [listorna](luis-concept-feature.md) beskrivnings fraser, men inte alla ord. LUIS generaliserar och tar hänsyn till sammanhang i kontot.
+Ange några exempel i [fras listorna](luis-concept-feature.md) , men inte varje ord eller fras. LUIS generaliserar och tar hänsyn till sammanhang i kontot.
 
 ## <a name="dont-add-many-patterns"></a>Lägg inte till många mönster
 

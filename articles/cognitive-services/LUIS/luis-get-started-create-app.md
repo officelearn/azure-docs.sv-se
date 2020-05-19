@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: skapa app-LUIS'
-description: Den här snabb starten visar hur du skapar en LUIS-app som använder den `HomeAutomation` färdiga domänen för att aktivera och inaktivera lampor och apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
+description: Den här snabb starten visar hur du skapar en LUIS-app som använder den färdiga domänen `HomeAutomation` för att aktivera och inaktivera lampor och apparater. Den fördefinierade domänen ger dig avsikter, entiteter och exempelyttranden. När du är klar har du en LUIS-slutpunkt som körs i molnet.
 ms.topic: quickstart
-ms.date: 03/24/2020
-ms.openlocfilehash: de6cf5e95ee63fc9500cf1b5edab78597bdb18af
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/05/2020
+ms.openlocfilehash: 186a60a7fd8315d68718ceedd3b5cadb4d3645e8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287806"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589180"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda en färdig hemautomatiseringsapp
 
@@ -21,11 +21,15 @@ I den här snabbstarten skapar du en LUIS-app som använder den fördefinierade 
 ## <a name="create-a-new-app"></a>Skapa en ny app
 Du kan skapa och hantera dina appar på **Mina appar**.
 
-1. I listan Mina appar väljer du **+ ny app för konversation**.
+1. I listan Mina appar väljer du **+ ny app för konversation**. Välj sedan **+ ny app för konversation** i listan med alternativ.
 
-1. I dialog rutan namnger du ditt program `Home Automation`. Välj **engelska** som kultur. Beskrivningen är valfri och används inte för redigering eller förutsägelse. Förutsägelse resursen är också valfri när du skapar en LUIS-app. Välj **Klar**.
+1. I dialog rutan namnger du ditt program `Home Automation` .
+1. Välj **engelska** som kultur.
+1. Ange en valfri beskrivning.
+1. Välj inte en förutsägelse resurs om du inte redan har skapat resursen. Om du vill använda appens förutsägelse slut punkt (mellanlagring eller produktion) måste du tilldela en förutsägelse resurs.
+1. Välj **Done** (Klar).
 
-    LUIS skapar appen. När du publicerar din app till produktion bör du tilldela en förutsägelse resurs så att din app kan hantera många begär Anden.
+    LUIS skapar appen.
 
     ![I dialog rutan namnger du appens hem automatisering](./media/create-new-app-details.png)
 
@@ -34,24 +38,27 @@ Du kan skapa och hantera dina appar på **Mina appar**.
 
 ## <a name="add-prebuilt-domain"></a>Lägga till fördefinierad domän
 
-Välj **förinställda domäner** och Sök sedan efter **HomeAutomation**. Välj **Lägg till domän** på HomeAutomation-kortet.
+1. I det vänstra navigerings fältet väljer du **fördefinierade domäner**.
+1. Sök efter **HomeAutomation**.
+1. Välj **Lägg till domän** på HomeAutomation-kortet.
 
-![Välj "förinställda domäner" och Sök efter "HomeAutomation". Välj Lägg till domän på HomeAutomation-kortet.](media/luis-quickstart-new-app/home-automation.png)
+    ![Välj "förinställda domäner" och Sök efter "HomeAutomation". Välj Lägg till domän på HomeAutomation-kortet.](media/luis-quickstart-new-app/home-automation.png)
 
-När domänen har lagts till visar rutan för den fördefinierade domänen knappen **Remove domain** (Ta bort domän).
+    När domänen har lagts till visar rutan för den fördefinierade domänen knappen **Remove domain** (Ta bort domän).
 
 ## <a name="intents-and-entities"></a>Avsikter och entiteter
 
-Välj **avsikter** för att granska HomeAutomation domän avsikter. De fördefinierade domän exemplen har ett exempel på yttranden.
+1. Välj **avsikter** för att granska HomeAutomation domän avsikter. De fördefinierade domän exemplen har exempel yttranden.
 
-![Skärm bild av listan med HomeAutomation-intentor](media/luis-quickstart-new-app/home-automation-intents.png "Skärm bild av listan med HomeAutomation-intentor")
+    ![Skärm bild av listan med HomeAutomation-intentor](media/luis-quickstart-new-app/home-automation-intents.png "Skärm bild av listan med HomeAutomation-intentor")
 
-> [!NOTE]
-> **None** (Ingen) är en avsikt som tillhandahålls av alla LUIS-appar. Du kan använda den till att hantera yttranden som inte motsvarar funktioner som finns i din app.
+    > [!NOTE]
+    > **None** (Ingen) är en avsikt som tillhandahålls av alla LUIS-appar. Du kan använda den till att hantera yttranden som inte motsvarar funktioner som finns i din app.
 
-Välj avsikten **HomeAutomation.TurnOff** (stänga av). Du kan se att avsikten innehåller en lista med yttranden som är märkta med entiteter.
+1. Välj avsikten **HomeAutomation.TurnOff** (stänga av). Avsikten innehåller en lista över exempel-yttranden som är märkta med entiteter.
 
-[![Skärmbild av avsikten HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+    > [!div class="mx-imgBorder"]
+    > [![Skärmbild av avsikten HomeAutomation.TurnOff](media/luis-quickstart-new-app/home-automation-turnoff.png "Skärmbild av avsikten HomeAutomation.TurnOff")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>Träna LUIS-appen
 
@@ -60,21 +67,22 @@ Välj avsikten **HomeAutomation.TurnOff** (stänga av). Du kan se att avsikten i
 ## <a name="test-your-app"></a>Testa din app
 När du har tränat appen kan du testa den.
 
-1. Välj **test** i det övre högra navigerings fönstret. 1. Skriv ett test-uttryck `Turn off the lights` som i det interaktiva test fönstret och tryck på RETUR.
+1. Välj **test** i det övre högra navigerings fönstret.
+
+1. Skriv ett test-uttryck som `Turn off the lights` i det interaktiva test fönstret och tryck på RETUR.
 
     ```
     Turn off the lights
     ```
 
-    Kontrollera att avsikten med högst poäng motsvarar den avsikt du förväntade dig för varje testyttrande.
-
     I det här exemplet `Turn off the lights` identifieras korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff**.
 
     ![Skärmbild av testpanel med yttranden markerade](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
-1. Välj **Granska** för att granska mer information om förutsägelsen.
+1. Välj **kontrol lera** om du vill visa mer information om förutsägelsen.
 
-    ![Skärm bild av test panelen med gransknings information](media/luis-quickstart-new-app/test.png)
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild av test panelen med gransknings information](media/luis-quickstart-new-app/test.png)
 
 1. Stäng test fönstret.
 

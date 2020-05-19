@@ -1,7 +1,7 @@
 ---
-title: Metod för Translator Text API språk
+title: Metod för översättnings språk
 titleSuffix: Azure Cognitive Services
-description: Språk metoden hämtar de språk som för närvarande stöds av andra åtgärder i Translator Text API.
+description: Språk metoden hämtar de språk som för närvarande stöds av andra åtgärder i Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 37f70399e8125db559098869cdfffdf4533498d7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1f4dfc4b80aff01e4b7fe7ebae4850b28cd6a498
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73835836"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588606"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3,0: språk
+# <a name="translator-30-languages"></a>Translator 3,0: språk
 
-Hämtar de språk som för närvarande stöds av andra åtgärder i Translator Text API. 
+Hämtar den uppsättning språk som för närvarande stöds av andra åtgärder i Translator. 
 
-## <a name="request-url"></a>URL för begäran
+## <a name="request-url"></a>Begärans-URL
 
 Skicka en `GET` begäran till:
 ```HTTP
@@ -34,22 +34,22 @@ Parametrarna för begäran som skickades till frågesträngen är:
 
 <table width="100%">
   <th width="20%">Frågeparameter</th>
-  <th>Beskrivning</th>
+  <th>Description</th>
   <tr>
     <td>api-version</td>
-    <td><em>Obligatorisk parameter</em>.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`.</td>
+    <td><em>Obligatorisk parameter</em>.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` .</td>
   </tr>
   <tr>
     <td>omfång</td>
-    <td>*Valfri parameter*.<br/>En kommaavgränsad lista med namn som definierar den grupp av språk som ska returneras. Tillåtna grupp namn är: `translation`, `transliteration` och `dictionary`. Om ingen omfattning anges returneras alla grupper, vilket motsvarar att skicka `scope=translation,transliteration,dictionary`. Information om vilka språk som stöds är lämpliga för ditt scenario genom att se beskrivningen av [objektet Response](#response-body).</td>
+    <td>*Valfri parameter*.<br/>En kommaavgränsad lista med namn som definierar den grupp av språk som ska returneras. Tillåtna grupp namn är: `translation` , `transliteration` och `dictionary` . Om ingen omfattning anges returneras alla grupper, vilket motsvarar att skicka `scope=translation,transliteration,dictionary` . Information om vilka språk som stöds är lämpliga för ditt scenario genom att se beskrivningen av [objektet Response](#response-body).</td>
   </tr>
 </table> 
 
 Begärandehuvuden är:
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
-  <th>Beskrivning</th>
+  <th width="20%">Sidhuvuden</th>
+  <th>Description</th>
   <tr>
     <td>Accept-Language</td>
     <td>*Valfritt huvud för begäran*.<br/>Språket som ska användas för användargränssnittssträngar. Några av fälten i svaret är namn på språk eller namn på regioner. Använd den här parametern för att definiera språket som namnen returneras i. Språket anges genom att tillhandahålla en välformulerad BCP 47-språktagg. Använd exempelvis värdet `fr` för att begära namn på franska eller Använd värdet `zh-Hant` för att begära namn på traditionell kinesiska.<br/>Namn anges på det engelska språket när ett mål språk inte anges eller när lokalisering inte är tillgängligt.
@@ -73,7 +73,7 @@ En klient använder `scope` Frågeparametern för att definiera vilka grupper av
 
 * `scope=dictionary`innehåller språk par för vilka `Dictionary` åtgärder returnerar data.
 
-En klient kan hämta flera grupper samtidigt genom att ange en kommaavgränsad lista med namn. `scope=translation,transliteration,dictionary` Skulle till exempel kunna returnera språk som stöds för alla grupper.
+En klient kan hämta flera grupper samtidigt genom att ange en kommaavgränsad lista med namn. Skulle till exempel `scope=translation,transliteration,dictionary` kunna returnera språk som stöds för alla grupper.
 
 Ett lyckat svar är ett JSON-objekt med en egenskap för varje begärd grupp:
 
@@ -95,9 +95,9 @@ Värdet för varje egenskap är följande.
 
 * `translation`immaterialrätt
 
-  `translation` Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. En nyckel identifierar ett språk för vilken text kan översättas till eller översättas från. Värdet som är kopplat till nyckeln är ett JSON-objekt med egenskaper som beskriver språket:
+  `translation`Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. En nyckel identifierar ett språk för vilken text kan översättas till eller översättas från. Värdet som är kopplat till nyckeln är ett JSON-objekt med egenskaper som beskriver språket:
 
-  * `name`: Visnings namnet för språket i det språk som begärs `Accept-Language` via sidhuvud.
+  * `name`: Visnings namnet för språket i det språk som begärs via `Accept-Language` sidhuvud.
 
   * `nativeName`: Visnings namnet för språket i det språkspecifika språket för det här språket.
 
@@ -121,9 +121,9 @@ Värdet för varje egenskap är följande.
 
 * `transliteration`immaterialrätt
 
-  `transliteration` Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. En nyckel identifierar ett språk för vilken text kan konverteras från ett skript till ett annat skript. Värdet som är kopplat till nyckeln är ett JSON-objekt med egenskaper som beskriver språket och skript som stöds:
+  `transliteration`Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. En nyckel identifierar ett språk för vilken text kan konverteras från ett skript till ett annat skript. Värdet som är kopplat till nyckeln är ett JSON-objekt med egenskaper som beskriver språket och skript som stöds:
 
-  * `name`: Visnings namnet för språket i det språk som begärs `Accept-Language` via sidhuvud.
+  * `name`: Visnings namnet för språket i det språk som begärs via `Accept-Language` sidhuvud.
 
   * `nativeName`: Visnings namnet för språket i det språkspecifika språket för det här språket.
 
@@ -131,13 +131,13 @@ Värdet för varje egenskap är följande.
 
     * `code`: Kod som identifierar skriptet.
 
-    * `name`: Visnings namnet för skriptet i det språk som begärs `Accept-Language` via rubrik.
+    * `name`: Visnings namnet för skriptet i det språk som begärs via `Accept-Language` rubrik.
 
     * `nativeName`: Visnings namnet för språket i det språk som är inbyggt för språket.
 
     * `dir`: Vägbeskrivning, som är `rtl` för höger-till-vänster-språk eller `ltr` för vänster-till-höger-språk.
 
-    * `toScripts`: Lista över skript som är tillgängliga för att konvertera text till. Varje element i `toScripts` listan har egenskaper `code`, `name`, `nativeName`och `dir` enligt beskrivningen ovan.
+    * `toScripts`: Lista över skript som är tillgängliga för att konvertera text till. Varje element i `toScripts` listan har egenskaper `code` , `name` , `nativeName` och `dir` enligt beskrivningen ovan.
 
   Ett exempel är:
 
@@ -186,9 +186,9 @@ Värdet för varje egenskap är följande.
 
 * `dictionary`immaterialrätt
 
-  `dictionary` Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. Nyckeln identifierar ett språk som alternativa översättningar och tillbaka översättningar är tillgängliga för. Värdet är ett JSON-objekt som beskriver käll språket och mål språken med tillgängliga översättningar:
+  `dictionary`Egenskapens värde är en ord lista med (nyckel, värde) par. Varje nyckel är en språk tagg för BCP 47. Nyckeln identifierar ett språk som alternativa översättningar och tillbaka översättningar är tillgängliga för. Värdet är ett JSON-objekt som beskriver käll språket och mål språken med tillgängliga översättningar:
 
-  * `name`: Visnings namnet för käll språket i det språk som begärdes `Accept-Language` via rubrik.
+  * `name`: Visnings namnet för käll språket i det språk som begärdes via `Accept-Language` rubrik.
 
   * `nativeName`: Visnings namnet för språket i det språkspecifika språket för det här språket.
 
@@ -224,13 +224,13 @@ Värdet för varje egenskap är följande.
 
 Objektets struktur ändras inte utan en ändring i API-versionen. I samma version av API: t kan listan över tillgängliga språk ändras över tid eftersom Microsoft Translator kontinuerligt utökar listan över språk som stöds av tjänsterna.
 
-Listan över språk som stöds kommer inte att ändras ofta. Om du vill spara nätverks bandbredden och förbättra svars tiden bör ett klient program överväga att cachelagra språk resurser och motsvarande`ETag`enhets tag gen (). Sedan kan klient programmet regelbundet (till exempel en gång var 24: e timme) fråga tjänsten för att hämta den senaste uppsättningen språk som stöds. Om du skickar `ETag` det aktuella värdet `If-None-Match` i ett rubrik fält kan tjänsten optimera svaret. Om resursen inte har ändrats returnerar tjänsten status kod 304 och en tom svars text.
+Listan över språk som stöds kommer inte att ändras ofta. Om du vill spara nätverks bandbredden och förbättra svars tiden bör ett klient program överväga att cachelagra språk resurser och motsvarande enhets tag gen ( `ETag` ). Sedan kan klient programmet regelbundet (till exempel en gång var 24: e timme) fråga tjänsten för att hämta den senaste uppsättningen språk som stöds. Om du skickar det aktuella `ETag` värdet i ett `If-None-Match` rubrik fält kan tjänsten optimera svaret. Om resursen inte har ändrats returnerar tjänsten status kod 304 och en tom svars text.
 
 ## <a name="response-headers"></a>Svarshuvuden
 
 <table width="100%">
-  <th width="20%">Rubriker</th>
-  <th>Beskrivning</th>
+  <th width="20%">Sidhuvuden</th>
+  <th>Description</th>
   <tr>
     <td>ETag</td>
     <td>Aktuellt värde för enhets tag gen för de begärda språken som stöds. För att göra efterföljande begär Anden mer effektiva kan klienten skicka `ETag` värdet i ett `If-None-Match` rubrik fält.
@@ -248,14 +248,14 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
 
 <table width="100%">
   <th width="20%">Statuskod</th>
-  <th>Beskrivning</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
-    <td>Lyckades.</td>
+    <td>Åtgärden lyckades.</td>
   </tr>
   <tr>
     <td>304</td>
-    <td>Resursen har inte ändrats sedan den version som angavs av begärandehuvuden `If-None-Match`.</td>
+    <td>Resursen har inte ändrats sedan den version som angavs av begärandehuvuden `If-None-Match` .</td>
   </tr>
   <tr>
     <td>400</td>
@@ -267,15 +267,15 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   </tr>
   <tr>
     <td>500</td>
-    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet `X-RequestId`och klient-ID: n från begär `X-ClientTraceId`ande huvudet.</td>
+    <td>Det uppstod ett oväntat fel. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet `X-RequestId` och klient-ID: n från begär ande huvudet `X-ClientTraceId` .</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet `X-RequestId`och klient-ID: n från begär `X-ClientTraceId`ande huvudet.</td>
+    <td>Servern är inte tillgänglig för tillfället. Gör om begäran. Om felet kvarstår rapporterar du det med: datum och tid för felet, begärande-ID från svars huvudet `X-RequestId` och klient-ID: n från begär ande huvudet `X-ClientTraceId` .</td>
   </tr>
 </table> 
 
-Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3-Translator text API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga felkoder finns på [referens sidan för v3 Translator](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
 ## <a name="examples"></a>Exempel
 

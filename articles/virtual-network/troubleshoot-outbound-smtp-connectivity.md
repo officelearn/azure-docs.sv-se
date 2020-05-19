@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: e5a878c8108706c4a3a175c920708beeeaa4aa12
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 148a8bf7626d8b8ee687658990fdaf2fce9f7de7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801758"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590102"
 ---
 # <a name="troubleshoot-outbound-smtp-connectivity-issues-in-azure"></a>Felsök problem med utgående SMTP-anslutningar i Azure
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=027fa865-2329-23de-3740-cfbe35359302" target='_blank'>Börja</a></span><span class="has-padding-small">lösa problemet snabbt genom att använda vår virtuella agent för att köra <b>automatiserad diagnostik.</b> </span> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <sub>Privacy Statement</sub> Sekretess <div align="right">policy</div></a></span></p>
+
 Från och med den 15 november 2017 görs utgående e-postmeddelanden som skickas direkt till externa domäner (till exempel outlook.com och gmail.com) från en virtuell dator (VM) endast tillgängliga för vissa prenumerations typer i Microsoft Azure. Utgående SMTP-anslutningar som använder TCP-port 25 blockerades. (Port 25 används främst för oautentiserad e-postleverans.)
 
 Den här förändringen gäller endast för nya prenumerationer och nya distributioner sedan den 15 november 2017.
@@ -36,7 +36,7 @@ För Enterprise-avtal Azure-användare finns det ingen ändring av den tekniska 
 ## <a name="pay-as-you-go"></a>Betala per användning
 Om du registrerade dig före den 15 november 2017 för erbjudandet betala per användning eller Microsoft Partner Network prenumerationer, kommer det inte att finnas någon förändring i den tekniska möjligheten att testa utgående e-postleverans. Du fortsätter att kunna testa utgående e-postleverans från virtuella Azure-datorer i dessa prenumerationer direkt till externa e-postleverantörer utan begränsningar från Azure-plattformen. Återigen är det inte säkert att e-postleverantörerna accepterar inkommande e-post från en specifik användare, och användarna måste arbeta direkt med e-postleverantörer för att kunna åtgärda eventuella meddelande leverans-eller skräp post filtrerings problem som berör vissa leverantörer.
 
-För att betala per användning eller Microsoft Partner Network prenumerationer som skapats efter den 15 november 2017 kommer det att finnas tekniska begränsningar som blockerar e-post som skickas direkt från virtuella datorer i dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du göra en begäran om att ta bort begränsningen. Förfrågningarna granskas och godkänns enligt Microsofts gottfinnande, och de beviljas endast när ytterligare skydd mot bedrägerier görs. Om du vill göra en förfrågan öppnar du ett support ärende med följande typ av problem: **teknisk** > **Virtual Network** > **anslutning** > **kan inte skicka e-post (SMTP/port 25)**. Se till att du lägger till information om varför din distribution måste skicka e-post direkt till e-postleverantörer i stället för att använda ett autentiserat relä.
+För att betala per användning eller Microsoft Partner Network prenumerationer som skapats efter den 15 november 2017 kommer det att finnas tekniska begränsningar som blockerar e-post som skickas direkt från virtuella datorer i dessa prenumerationer. Om du vill kunna skicka e-post från virtuella Azure-datorer direkt till externa e-postleverantörer (inte använda ett autentiserat SMTP-relä) kan du göra en begäran om att ta bort begränsningen. Förfrågningarna granskas och godkänns enligt Microsofts gottfinnande, och de beviljas endast när ytterligare skydd mot bedrägerier görs. Om du vill göra en förfrågan öppnar du ett support ärende med följande typ av problem: **teknisk**  >  **Virtual Network**  >  **anslutning**  >  **kan inte skicka e-post (SMTP/port 25)**. Se till att du lägger till information om varför din distribution måste skicka e-post direkt till e-postleverantörer i stället för att använda ett autentiserat relä.
 
 När en "betala per användning"-prenumeration eller Microsoft Partner Network prenumeration är undantagen och de virtuella datorerna har stoppats & har startats från Azure Portal, kommer alla virtuella datorer i den prenumerationen att undantas. Undantaget gäller endast för den begärda prenumerationen och gäller endast för virtuella dator trafik som dirigeras direkt till Internet. Routning av port 25-trafik via Azure PaaS Services, t. ex. [Azure-brandväggen](https://azure.microsoft.com/services/azure-firewall/) , stöds inte.
 

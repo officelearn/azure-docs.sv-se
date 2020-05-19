@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c829579f3ad9922c8c621b6dbfa966b69a2497d1
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5d0a9771e5b999028996676ea72f8def3c5d63cf
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690804"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589864"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Känna igen tryckt och handskriven text
 
@@ -26,10 +26,9 @@ Visuellt innehåll tillhandahåller ett antal tjänster som identifierar och ext
 
 Read API identifierar text innehåll i en avbildning med hjälp av våra senaste igenkännings modeller och konverterar den identifierade texten till en maskin läsnings bar tecken ström. Den är optimerad för text intensiva avbildningar (till exempel dokument som har skannats digitalt) och för bilder med stor visuell brus. Den avgör vilken igenkännings modell som ska användas för varje textrad, stöd för bilder med både utskrift och handskriven text. Read API körs asynkront eftersom det kan ta flera minuter för större dokument att returnera ett resultat.
 
-Läs åtgärden underhåller de ursprungliga rad grupperna av identifierade ord i dess utdata. Varje rad kommer med koordinater för markerings rutor, och varje ord på raden har också sina egna koordinater. Om ett ord identifierades med låg exakthet förmedlas även den informationen. Mer information finns i referens dokumenten [Read API v 2.0 Reference dokument](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) eller [Read API v 3.0 Preview](https://go.microsoft.com/fwlink/?linkid=2118322) .
+Läs åtgärden underhåller de ursprungliga rad grupperna av identifierade ord i dess utdata. Varje rad kommer med koordinater för markerings rutor, och varje ord på raden har också sina egna koordinater. Om ett ord identifierades med låg exakthet förmedlas även den informationen. Mer information finns i referens dokumenten [läsa API v 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) eller [läsa API v 3.0](https://aka.ms/computer-vision-v3-ref) .
 
-> [!NOTE]
-> Den här funktionen är endast tillgänglig för text i engelska och spanska (v 3.0 Preview).
+Läs åtgärden kan identifiera text på engelska, spanska, tyska, franska, italienska, portugisiska och nederländska.
 
 ### <a name="image-requirements"></a>Avbildningskrav
 

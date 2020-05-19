@@ -8,22 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
+ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71695155"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588912"
 ---
-# <a name="composite-entity"></a>Sammansatt entitet 
+# <a name="composite-entity"></a>Sammansatt entitet
 
-En sammansatt entitet består av andra entiteter, till exempel färdiga entiteter, enkla, reguljära uttryck och list enheter. Separata entiteter utgör en hel entitet. 
+En sammansatt entitet består av andra entiteter, till exempel färdiga entiteter, enkla, reguljära uttryck och list enheter. Separata entiteter utgör en hel entitet.
+
+> [!CAUTION]
+> Den här entiteten är **inaktuell**. Migrera till den enhet som sparats av [datorn](reference-entity-machine-learned-entity.md).
 
 **Den här entiteten passar bra när data:**
 
-* Är relaterade till varandra. 
+* Är relaterade till varandra.
 * De är relaterade till varandra i yttrandet.
 * Använd olika typer av enheter.
 * Måste grupperas och bearbetas av klient programmet som en informations enhet.
@@ -33,17 +36,17 @@ En sammansatt entitet består av andra entiteter, till exempel färdiga entitete
 
 ## <a name="example-json"></a>Exempel-JSON
 
-Betrakta en sammansatt entitet av `number` fördefinierad `Location::ToLocation` och med följande uttryck:
+Betrakta en sammansatt entitet av fördefinierad `number` och `Location::ToLocation` med följande uttryck:
 
 `book 2 tickets to cairo`
 
-Observera att `2`antalet och `cairo`ToLocation innehåller ord mellan dem som inte ingår i någon av entiteterna. Den gröna understrykningen, som används i en etikettad uttryck på [Luis](luis-reference-regions.md) -webbplatsen, anger en sammansatt entitet.
+Observera att `2` antalet och `cairo` ToLocation innehåller ord mellan dem som inte ingår i någon av entiteterna. Den gröna understrykningen, som används i en etikettad uttryck på [Luis](luis-reference-regions.md) -webbplatsen, anger en sammansatt entitet.
 
 ![Sammansatt entitet](./media/luis-concept-data-extraction/composite-entity.png)
 
 #### <a name="v2-prediction-endpoint-response"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
-Sammansatta entiteter returneras `compositeEntities` i en matris och alla entiteter i den sammansatta `entities` returneras också i matrisen:
+Sammansatta entiteter returneras i en `compositeEntities` matris och alla entiteter i den sammansatta returneras också i `entities` matrisen:
 
 ```JSON
   "entities": [
@@ -87,11 +90,11 @@ Sammansatta entiteter returneras `compositeEntities` i en matris och alla entite
       ]
     }
   ]
-```    
+```
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Detta är JSON om `verbose=false` anges i frågesträngen:
+Detta är JSON om anges `verbose=false` i frågesträngen:
 
 ```json
 "entities": {
@@ -108,7 +111,7 @@ Detta är JSON om `verbose=false` anges i frågesträngen:
 }
 ```
 
-Detta är JSON om `verbose=true` anges i frågesträngen:
+Detta är JSON om anges `verbose=true` i frågesträngen:
 
 ```json
 "entities": {
@@ -169,7 +172,7 @@ Detta är JSON om `verbose=true` anges i frågesträngen:
 }
 ```
 
-* * * 
+* * *
 
 
 |Data objekt|Entitetsnamn|Värde|
@@ -179,4 +182,7 @@ Detta är JSON om `verbose=true` anges i frågesträngen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här [självstudien](luis-tutorial-composite-entity.md)lägger du till en **sammansatt enhet** för att bunta extraherade data av olika typer till en enda som innehåller entiteten. Genom att koppla samman data kan klient programmet enkelt extrahera relaterade data i olika data typer.
+Lär dig mer om entiteter:
+
+* [Begrepp](luis-concept-entity-types.md)
+* [Så här skapar du](luis-how-to-add-entities.md)

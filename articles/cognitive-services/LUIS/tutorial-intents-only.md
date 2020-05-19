@@ -1,20 +1,20 @@
 ---
 title: 'Självstudie: förutsäga-LUIS'
-description: I den här självstudien skapar du en anpassad app som förutspår en användares avsikt. Den här appen är den enklaste typen av LUIS-app eftersom den inte extraherar olika dataelement från yttranden, som e-postadresser eller datum.
+description: Skapa en anpassad app som förutsäger en användares avsikt baserat på uttryck (text) i den här självstudien.
 ms.topic: tutorial
-ms.date: 03/24/2020
-ms.openlocfilehash: c58c96f717de77c065d7f844928714eb4fb3e4db
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/05/2020
+ms.openlocfilehash: c76273d7c180928d25be70e0abd7abf26c90b44a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80286752"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588976"
 ---
 # <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>Självstudie: Bygg en LUIS-app för att fastställa användar avsikter
 
 I den här självstudien skapar du en anpassad app som förutsäger en användares avsikt baserat på uttryck (text).
 
-**I den här guiden får du lära dig att:**
+**I de här självstudierna får du lära dig att**
 
 > [!div class="checklist"]
 > * Skapa en ny app
@@ -37,7 +37,7 @@ Dessa syften är indelade i **avsikter**.
 |`ModifyOrder`|Fastställa användarens pizza-ordning.|
 |`Greeting`|Starta bot-konversation.|
 |`ConfirmOrder`|Bekräfta pizza-ordningen.|
-|`None`|Ta reda på om användaren frågar något som appen inte ska svara på. Den här avsikten tillhandahålls som en del av att skapa appen och kan inte tas bort. |
+|`None`|Ta reda på om användaren tillfrågas om något LUIS-appen inte är utformad för att svara. Avsikten anges som en del av att skapa appar och kan inte tas bort. |
 
 ## <a name="create-a-new-app"></a>Skapa en ny app
 
@@ -49,9 +49,9 @@ Avsikten är att klassificera användar yttranden baserat på användarens avsik
 
 För att klassificera en uttryck behöver avsikten exempel på användar-yttranden som ska klassificeras med det här syftet.
 
-1. I avsnittet **skapa** på sidan **avsikter** väljer du **+ skapa** för att skapa en ny avsikt. Ange det nya namnet på avsikten `OrderPizza`och välj sedan **färdig**.
+1. I avsnittet **skapa** på sidan **avsikter** väljer du **+ skapa** för att skapa en ny avsikt. Ange det nya namnet på avsikten och `OrderPizza` Välj sedan **färdig**.
 
-    `OrderPizza` Avsikten förutsägs när en användare vill beställa en pizza.
+    `OrderPizza`Avsikten förutsägs när en användare vill beställa en pizza.
 
 1. Lägg till flera exempelyttranden till den här avsikten som du förväntar dig att en användare kan fråga:
 
@@ -64,15 +64,16 @@ För att klassificera en uttryck behöver avsikten exempel på användar-yttrand
     |`i need 2 large cheese pizzas 6 large pepperoni pizzas and 1 large supreme pizza`|
     |`Order a pizza for me`|
 
-    ![Lägga till exempelyttranden](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild som visar hur du lägger till exempel yttranden i LUIS Portal på avsikts Sidan](media/tutorial-intents-only/add-example-utterances-for-pizza-order.png)
 
-    Genom att tillhandahålla _exempel yttranden_, lär du dig Luis om vilka typer av yttranden som ska förutsägas för det här syftet.
+    Genom att tillhandahålla _exempel yttranden_, lär du dig Luis om vilka typer av yttranden som ska förutsägas för det här syftet. Det här är positiva exempel. Yttranden i alla andra avsikter behandlas som negativa exempel för det här syftet.
 
     [!INCLUDE [Do not use too few utterances](includes/do-not-use-too-few-utterances.md)]
 
 ## <a name="create-remaining-intents"></a>Skapa återstående avsikter
 
-1. `Greeting` Skapa avsikten och Lägg till följande exempel yttranden. Detta är avsikten att avgöra om en användare påbörjar en ny pizza order-konversation.
+1. Skapa `Greeting` avsikten och Lägg till följande exempel yttranden. Detta är avsikten att avgöra om en användare påbörjar en ny pizza order-konversation.
 
     |`Greeting`exempel yttranden|
     |--|
@@ -82,7 +83,7 @@ För att klassificera en uttryck behöver avsikten exempel på användar-yttrand
     |`Start`|
     |`Begin`|
 
-1. `Confirm` Skapa avsikten och Lägg till följande exempel yttranden. Det här är avsikten att avgöra om en användare utför beställningar och godkänner beställnings detaljerna.
+1. Skapa `Confirm` avsikten och Lägg till följande exempel yttranden. Det här är avsikten att avgöra om en användare utför beställningar och godkänner beställnings detaljerna.
 
     |`Confirm`exempel yttranden|
     |--|
@@ -178,6 +179,8 @@ För att klassificera en uttryck behöver avsikten exempel på användar-yttrand
 
 ## <a name="client-application-next-steps"></a>Nästa steg för klientprogrammet
 
+I den här självstudien har du skapat en LUIS-app, skapat avsikter, lagt till exempel yttranden för varje avsikt, lagt till exempel yttranden i ingen avsikt, utbildad, publicerad och testad vid slut punkten. Det här är de grundläggande stegen i att skapa en LUIS-modell.
+
 När LUIS returnerar JSON-svaret är LUIS färdig med förfrågningen. LUIS svarar inte på användarnas yttranden utan identifierar bara vilken typ av information som efterfrågas på det naturliga språket. Konversationsuppföljningen tillhandahålls av klientprogram, till exempel en Azure-robot.
 
 
@@ -193,8 +196,6 @@ När LUIS returnerar JSON-svaret är LUIS färdig med förfrågningen. LUIS svar
 
 
 ## <a name="next-steps"></a>Nästa steg
-
-I den här självstudien har du skapat en LUIS-app, skapat avsikter, lagt till exempel yttranden för varje avsikt, lagt till exempel yttranden i ingen avsikt, utbildad, publicerad och testad vid slut punkten. Det här är de grundläggande stegen i att skapa en LUIS-modell.
 
 > [!div class="nextstepaction"]
 > [Lägg till en desammansättnings bar entitet i den här appen](tutorial-machine-learned-entity.md)

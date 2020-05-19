@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 7d73b3a1a7c3b2ab290d85d88aa24108d9e7a605
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 2d5d508afe81975cbeda448b497a098e8a3bbcf3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83401974"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589286"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrol lera åtkomsten till lagrings kontot för SQL på begäran (för hands version)
 
@@ -28,8 +28,8 @@ Den här artikeln beskriver de typer av autentiseringsuppgifter som du kan anvä
 
 En användare som har loggat in på en SQL-resurs på begäran måste ha behörighet att komma åt och fråga filerna i Azure Storage om filerna inte är offentligt tillgängliga. Tre typer av verifierings typer stöds:
 
-- [Användar identitet](?tabs=user-identity)
 - [Signatur för delad åtkomst](?tabs=shared-access-signature)
+- [Användar identitet](?tabs=user-identity)
 - [Hanterad identitet](?tabs=managed-identity)
 
 > [!NOTE]
@@ -42,13 +42,13 @@ En användare som har loggat in på en SQL-resurs på begäran måste ha behöri
 Du kan få en SAS-token genom att gå till **Azure Portal-> lagrings konto-> signatur för delad åtkomst-> konfigurera behörigheter – > generera SAS och anslutnings sträng.**
 
 > [!IMPORTANT]
-> När en SAS-token skapas, innehåller den ett frågetecken ("?") i början av token. Om du vill använda token i SQL på begäran måste du ta bort frågetecknet (?) när du skapar en autentiseringsuppgift. Exempel:
+> När en SAS-token skapas, innehåller den ett frågetecken ("?") i början av token. Om du vill använda token i SQL på begäran måste du ta bort frågetecknet (?) när du skapar en autentiseringsuppgift. Till exempel:
 >
 > SAS-token:? sa = 2018-03-28&SS = bfqt&SRT = SCO&SP = rwdlacup&se = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&sig = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 
 Du måste skapa en databas-eller Server begränsad autentiseringsuppgift för att aktivera åtkomst med SAS-token.
 
-### <a name="user-identity"></a>Användar identitet
+### <a name="user-identity"></a>[Användar identitet](#tab/user-identity)
 
 **Användar identitet**, som även kallas "vidarekoppling", är en typ av auktorisering där identiteten för den Azure AD-användare som loggade in på begäran används för att ge åtkomst till data. Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till Azure AD-användaren. Som anges i tabellen ovan stöds det inte för SQL-användargruppen.
 
@@ -91,13 +91,13 @@ DROP CREDENTIAL [UserIdentity];
 
 Om du vill återaktivera det igen läser du avsnittet om [Azure AD-vidarekoppling](#force-azure-ad-pass-through) .
 
-### <a name="managed-identity"></a>Hanterad identitet
+### <a name="managed-identity"></a>[Hanterad identitet](#tab/managed-identity)
 
 **Hanterad identitet** kallas även MSI. Det är en funktion i Azure Active Directory (Azure AD) som tillhandahåller Azure-tjänster för SQL på begäran. Dessutom distribueras en automatiskt hanterad identitet i Azure AD. Den här identiteten kan användas för att auktorisera begäran om data åtkomst i Azure Storage.
 
 Innan du får åtkomst till data måste Azure Storages administratören bevilja behörighet till hanterad identitet för att komma åt data. Att bevilja behörigheter till hanterad identitet görs på samma sätt som när du beviljar behörighet till andra Azure AD-användare.
 
-### <a name="anonymous-access"></a>Anonym åtkomst
+### <a name="anonymous-access"></a>[Anonym åtkomst](#tab/public-access)
 
 Du kan komma åt offentligt tillgängliga filer som placerats på Azure Storage-konton som [tillåter anonym åtkomst](/azure/storage/blobs/storage-manage-access-to-resources.md).
 
@@ -171,7 +171,7 @@ Namnet på Server nivåns AUTENTISERINGSUPPGIFTER måste matcha den fullständig
 
 Autentiseringsuppgifter för Server omfång ger åtkomst till Azure Storage med följande autentiseringstyper:
 
-### <a name="shared-access-signature"></a>Signatur för delad åtkomst
+### <a name="shared-access-signature"></a>[Signatur för delad åtkomst](#tab/shared-access-signature)
 
 Följande skript skapar en autentiseringsuppgift på server nivå som kan användas av `OPENROWSET` funktion för att få åtkomst till alla filer i Azure Storage med SAS-token. Skapa den här autentiseringsuppgiften för att aktivera SQL-huvudobjektet som kör `OPENROWSET` funktionen för att läsa filer som skyddas med SAS-nyckel på Azure Storage som matchar URL: en i autentiseringsuppgiften.
 
@@ -184,7 +184,7 @@ WITH IDENTITY='SHARED ACCESS SIGNATURE'
 GO
 ```
 
-### <a name="user-identity"></a>Användar identitet
+### <a name="user-identity"></a>[Användar identitet](#tab/user-identity)
 
 Följande skript skapar en autentiseringsuppgift på server nivå som gör det möjligt för användaren att personifiera med hjälp av Azure AD-identitet.
 
@@ -193,7 +193,7 @@ CREATE CREDENTIAL [UserIdentity]
 WITH IDENTITY = 'User Identity';
 ```
 
-### <a name="managed-identity"></a>Hanterad identitet
+### <a name="managed-identity"></a>[Hanterad identitet](#tab/managed-identity)
 
 Följande skript skapar en autentiseringsuppgift på server nivå som kan användas av `OPENROWSET` funktionen för att få åtkomst till alla filer i Azure Storage med hjälp av arbets ytans hanterade identitet.
 
@@ -202,7 +202,7 @@ CREATE CREDENTIAL [https://<mystorageaccountname>.blob.core.windows.net/<mystora
 WITH IDENTITY='Managed Identity'
 ```
 
-### <a name="public-access"></a>Offentlig åtkomst
+### <a name="public-access"></a>[Offentlig åtkomst](#tab/public-access)
 
 Följande skript skapar en autentiseringsuppgift på server nivå som kan användas av `OPENROWSET` funktionen för att få åtkomst till alla filer på offentligt tillgängliga Azure-lagring. Skapa den här autentiseringsuppgiften för att aktivera SQL-huvudobjektet som kör `OPENROWSET` funktionen för att läsa offentligt tillgängliga filer på Azure Storage som matchar URL: en med namnet på autentiseringsuppgiften.
 
@@ -222,7 +222,7 @@ Autentiseringsuppgifter för databasens omfattning används när en huvud anrops
 
 Autentiseringsuppgifter för databasens omfång ger åtkomst till Azure Storage med följande autentiseringstyper:
 
-### <a name="shared-access-signature"></a>Signatur för delad åtkomst
+### <a name="shared-access-signature"></a>[Signatur för delad åtkomst](#tab/shared-access-signature)
 
 Följande skript skapar en autentiseringsuppgift som används för att komma åt filer på lagrings platsen med SAS-token som anges i autentiseringsuppgiften.
 
@@ -232,7 +232,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 'sv=2018-03-28&ss=bfqt&srt=s
 GO
 ```
 
-### <a name="azure-ad-identity"></a>Azure AD-identitet
+### <a name="azure-ad-identity"></a>[Azure AD-identitet](#tab/user-identity)
 
 Följande skript skapar en databas-begränsad autentiseringsuppgift som används av en [extern tabell](develop-tables-external-tables.md) och `OPENROWSET` funktioner som använder data källa med autentiseringsuppgifter för att komma åt lagringsfiler med sin egen Azure AD-identitet.
 
@@ -242,7 +242,7 @@ WITH IDENTITY = 'User Identity';
 GO
 ```
 
-### <a name="managed-identity"></a>Hanterad identitet
+### <a name="managed-identity"></a>[Hanterad identitet](#tab/managed-identity)
 
 Följande skript skapar en databas-begränsade autentiseringsuppgifter som kan användas för att personifiera den aktuella Azure AD-användaren som hanterad identitet för tjänsten. 
 

@@ -6,40 +6,66 @@ manager: nitinme
 description: Två tabeller som representerar behållar register, databaser och avbildnings namn för alla kognitiva tjänst erbjudanden.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: a854a090af908da691e9b26f5b0714c6560fc0ba
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80876850"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590679"
 ---
 ### <a name="container-repositories-and-images"></a>Behållar databaser och avbildningar
 
-Tabellerna nedan innehåller en lista över tillgängliga behållar avbildningar som erbjuds av Azure Cognitive Services. En fullständig lista över alla tillgängliga behållar avbildnings namn och deras tillgängliga taggar finns i [Cognitive Services behållar avbildnings Taggar](../container-image-tags.md). För närvarande finns det inga Cognitive Services behållare som är allmänt tillgängliga (GA). Under tiden, tills ytterligare meddelanden görs – behållare är tillgängliga som antingen offentlig eller för *hands version av offentlig* *port* .
+Tabellerna nedan innehåller en lista över tillgängliga behållar avbildningar som erbjuds av Azure Cognitive Services. En fullständig lista över alla tillgängliga behållar avbildnings namn och deras tillgängliga taggar finns i [Cognitive Services behållar avbildnings Taggar](../container-image-tags.md). 
 
- - *Offentlig utan grind*: behållare är tillgängliga offentligt utan en hantera mekanism.
- - För *hands version av offentlig gated*: behållare är tillgängliga offentligt, men kräver först formell begäran om att få åtkomst till behållar registret.
+#### <a name="generally-available"></a>Allmänt tillgänglig 
 
-#### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>Offentlig "icke-grind" (container Registry: `mcr.microsoft.com`)
+Microsoft Container Registry (MCR) syndikerar alla allmänt tillgängliga behållare för Cognitive Services. Behållarna är också tillgängliga direkt från [Docker-hubben](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
-Microsoft Container Registry (MCR) syndikerar alla allmänt tillgängliga "ej" "ej" "icke-" icke-Cognitive Services "icke-" icke-"icke- Behållarna är också tillgängliga direkt från [Docker-hubben](https://hub.docker.com/_/microsoft-azure-cognitive-services).
+#### <a name="luis"></a>[LUIS](#tab/luis)
+
+| LUIS-behållare | Container Registry/namn på lagrings plats/avbildning |
+|--|--|
+| LUIS | `mcr.microsoft.com/azure-cognitive-services/luis` |
+
+Mer information finns i [så här kör och installerar du Luis-behållare](../../LUIS/luis-container-howto.md) .
+
+#### <a name="text-analytics"></a>[Textanalys](#tab/text-analytics)
+
+| Textanalys behållare | Container Registry/namn på lagrings plats/avbildning |
+|--|--|
+| Attitydanalys v3 (engelska) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en` |
+| Attitydanalys v3 (spanska) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-es` |
+| Attitydanalys v3 (franska) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-fr` |
+| Attitydanalys v3 (italiensk) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-it` |
+| Attitydanalys v3 (tyska) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-de` |
+| Attitydanalys v3 (kinesiskt-förenklat) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zh` |
+| Attitydanalys v3 (kinesiska – traditionell) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-zht` |
+| Attitydanalys v3 (japanska) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-ja` |
+| Attitydanalys v3 (portugisiska) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-pt` |
+| Attitydanalys v3 (nederländska) | `mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-nl` |
+
+Mer information finns i [köra och installera textanalys behållare](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) .
+
+---
+
+#### <a name="public-ungated-preview-container-registry-mcrmicrosoftcom"></a>Offentlig "icke-grind"-förhands granskning (container Registry: `mcr.microsoft.com` )
+
+Följande för hands behållare är tillgängliga offentligt. Microsoft Container Registry (MCR) syndikerar alla allmänt tillgängliga icke-hälsocontainrar för Cognitive Services. Behållarna är också tillgängliga direkt från [Docker-hubben](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 | Tjänst | Container | Container Registry/namn på lagrings plats/avbildning |
 |--|--|--|
-| [LUIS](../../LUIS/luis-container-howto.md) | LUIS | `mcr.microsoft.com/azure-cogni'ive-services/luis` |
 | [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Extrahering av nyckelfraser | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 | [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Språkidentifiering | `mcr.microsoft.com/azure-cognitive-services/language` |
-| [Textanalys](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Attitydanalys | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+| [Avvikelse detektor](../../anomaly-detector/anomaly-detector-container-howto.md) | Avvikelseidentifiering | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector` |
 
-#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Offentlig "gated"-förhands granskning `containerpreview.azurecr.io`(container Registry:)
+#### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Offentlig "gated"-förhands granskning (container Registry: `containerpreview.azurecr.io` )
 
-I förhands gransknings registret är värd för alla offentligt tillgängliga "gated"-behållare för Cognitive Services. Dessa behållare kräver en formell begäran om åtkomst till dem via behållar registret.
+Följande gated Preview-behållare finns i förhands gransknings registret för behållare och kräver åtkomst till ett program. Mer information finns i [Cognitive Services hantera-processen](../../cognitive-services-gating-process.md) .
 
 | Tjänst | Container | Container Registry/namn på lagrings plats/avbildning |
 |--|--|--|
-| [Avvikelse detektor](../../anomaly-detector/anomaly-detector-container-howto.md) | Avvikelseidentifiering | `containerpreview.azurecr.io/microsoft/cognitive-services-anomaly-detector` |
 | [Visuellt innehåll](../../Computer-vision/computer-vision-how-to-install-containers.md) | Läsa | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Ansikte](../../face/face-how-to-install-containers.md) | Ansikte | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [Formulär igenkänning](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Formigenkänning | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |

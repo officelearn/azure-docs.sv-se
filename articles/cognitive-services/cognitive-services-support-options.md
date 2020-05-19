@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 00e966dbee6c1993256a94d734bcc6261aea00af
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0bf4750d5db5961ff8c572c3aa52cc06faf697c1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81258444"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590544"
 ---
 # <a name="azure-cognitive-services-support-and-feedback-options"></a>Alternativ för support och feedback för Azure Cognitive Services
 
@@ -33,7 +33,7 @@ Utforska [support alternativen för Azure och välj den plan](https://azure.micr
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal för USA myndigheter](https://portal.azure.us)
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 
 <div class='icon is-large'>
     <img alt='Search' src='https://docs.microsoft.com/media/common/i_search.svg'>
@@ -102,7 +102,7 @@ Nyheter om Cognitive Services delas i Azure- [bloggen](https://azure.microsoft.c
 
 Reddit är en community-driven diskussions webbplats som erbjuder de senaste konversationerna om [Azure Cognitive Services](https://www.reddit.com/r/AZURE/search/?q=Cognitive%20Services&restrict_sr=1) nyheter, hjälp, information, tips och knep. Registrerade medlemmar kan skicka innehåll och andra kan rösta på den, vilket i sin mån höjer det mest relevanta innehållet överst i sina flöden.
 
-## <a name="give-feedback"></a>Ge feedback
+## <a name="give-feedback"></a>Lämna feedback
 
 ### <a name="uservoice-forum"></a>UserVoice-forumet
 
@@ -132,7 +132,7 @@ Om du vill begära nya funktioner kan du publicera dem på UserVoice. Dela med d
 | Speech Services               | https://cognitive.uservoice.com/forums/912208-speech-service |
 | Custom Speech                 | https://cognitive.uservoice.com/forums/555934-custom-speech-service |
 | Textanalys                | https://cognitive.uservoice.com/forums/555922-text-analytics |
-| Translator Text               | https://cognitive.uservoice.com/forums/558796-translator |
+| Översättare               | https://cognitive.uservoice.com/forums/558796-translator |
 | Video Indexer                 | https://cognitive.uservoice.com/forums/598144-video-indexer |
 
 ## <a name="report-bugs"></a>Rapportera buggar

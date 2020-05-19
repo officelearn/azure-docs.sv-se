@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: a263e7e17cda64a8519bab215f97fdf26e88d9d2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 083580435c467a7d4b6a4cede0a821a2c271962f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402247"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589660"
 ---
-# <a name="improve-synthesis-with-audio-content-creation"></a>Förbättra syntesen med att skapa ljud innehåll
+# <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Förbättra syntesen med verktyget för att skapa ljud innehåll
 
 Att [skapa ljud innehåll](https://aka.ms/audiocontentcreation) är ett online verktyg som gör att du kan anpassa och finjustera Microsofts text till tal-utdata för dina appar och produkter. Du kan använda det här verktyget för att finjustera offentliga och anpassade röster för mer exakta naturliga uttryck och hantera dina utdata i molnet.
 
@@ -25,28 +25,26 @@ Verktyget för att skapa ljud innehåll baseras på [SSML (Speech syntes Markup 
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
-Det här diagrammet visar de steg som krävs för att justera och exportera anpassade tal-till-text-utdata. Använd länkarna nedan för att lära dig mer om varje steg.
+Det här diagrammet visar de steg som krävs för att finjustera text till tal-utdata. Använd länkarna nedan för att lära dig mer om varje steg.
 
 ![](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
-1. Det första steget är att [skapa ett Azure-konto, registrera en tal resurs och hämta en prenumerations nyckel](#create-a-speech-resource). När du har en prenumerations nyckel kan du använda den för att anropa röst tjänsten och för att få åtkomst till [ljud innehåll](https://aka.ms/audiocontentcreation).
-2. [Skapa en fil för ljud justering](#create-an-audio-tuning-file) med oformaterad text eller SSML.
-3. Välj den röst och det språk som du vill justera. Framställning av ljud innehåll innehåller alla [Microsofts text till tal-röster](language-support.md#text-to-speech). Du kan använda standard, neurala eller din egen anpassade röst.
+1. [Konfigurera ditt Azure-konto och din tal resurs](#set-up-your-azure-account-and-speech-resource) för att komma igång.
+2. [Skapa en fil för ljud justering](#create-an-audio-tuning-file) med hjälp av oformaterad text eller SSML-skript.
+3. Välj rösten och språket för ditt skript innehåll. Framställning av ljud innehåll innehåller alla [Microsofts text till tal-röster](language-support.md#text-to-speech). Du kan använda standard, neurala eller din egen anpassade röst.
    >[!NOTE]
    > Gated Access är tillgängligt för anpassade neurala-röster, vilket gör att du kan skapa hög definitions röster som liknar naturliga ljud. Mer information finns i [Hantera process](https://aka.ms/ignite2019/speech/ethics).
 
-4. Granska standard resultatet. Använd sedan justerings verktyget för att justera uttal, färgdjup, Rate, intonation, röst stil med mera. En fullständig lista över alternativ finns i [tal syntes märknings språk](speech-synthesis-markup.md).
+4. Granska standard syntes resultatet. Förbättra sedan utdata genom att justera uttal, Break, färgdjup, Rate, intonation, röst stil med mera. En fullständig lista över alternativ finns i [tal syntes märknings språk](speech-synthesis-markup.md). Här är en [video](https://youtu.be/mUvf2NbfuYU) som visar hur du finjusterar tal resultatet med att skapa ljud innehåll. 
 5. Spara och [exportera det anpassade ljudet](#export-tuned-audio). När du sparar justerings spåret i systemet kan du fortsätta att arbeta och iterera på utdata. När du är nöjd med utdata kan du skapa en ljud skapande aktivitet med funktionen Exportera. Du kan se statusen för export uppgiften och hämta utdata för användning med dina appar och produkter.
-6. Det sista steget är att använda den anpassade rösten i dina appar och produkter.
 
-## <a name="create-a-speech-resource"></a>Skapa en tal resurs
+## <a name="set-up-your-azure-account-and-speech-resource"></a>Konfigurera ditt Azure-konto och din tal resurs
 
-Följ dessa steg om du vill skapa en tal resurs och ansluta den till tal Studio.
-
-1. Följ de här anvisningarna för att [Registrera dig för ett Azure-konto](get-started.md#new-resource) och [skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource). Kontrol lera att pris nivån är inställd på **S0**. Om du använder någon av neurala-rösterna ser du till att du skapar din resurs i en [region som stöds](regions.md#standard-and-neural-voices).
-2. Logga in på att [skapa ljud innehåll](https://aka.ms/audiocontentcreation).
-3. Välj ett befintligt projekt eller klicka på **Skapa nytt**.
-4. Du kan ändra din prenumeration när som helst med alternativet **Inställningar** , som finns i det övre navigerings fältet.
+1. Du måste ha ett Azure-konto för att kunna arbeta med att skapa ljud innehåll. Du kan skapa ett Azure-konto med ditt Microsoft-konto. Följ dessa anvisningar för att [Konfigurera ett Azure-konto](get-started.md#new-resource). 
+2. [Skapa en tal resurs](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-the-resource) till ditt Azure-konto. Kontrol lera att pris nivån är inställd på **S0**. Om du använder någon av neurala-rösterna ser du till att du skapar din resurs i en [region som stöds](regions.md#standard-and-neural-voices).
+2. När du har skaffat Azure-kontot och tal resursen kan du använda tal tjänster och komma åt [ljud innehåll](https://aka.ms/audiocontentcreation).
+3. Välj den tal resurs som du behöver arbeta med. Du kan också skapa en ny tal resurs här. 
+4. Du kan ändra din tal resurs när som helst med alternativet **Inställningar** , som finns i det övre navigerings fältet.
 
 ## <a name="create-an-audio-tuning-file"></a>Skapa en fil för ljud justering
 
@@ -54,21 +52,22 @@ Det finns två sätt att hämta innehåll till verktyget för att skapa ljud inn
 
 **Alternativ 1:**
 
-1. När du har loggat in på att skapa [ljud innehåll](https://aka.ms/audiocontentcreation)klickar du på **ljud justering** för att skapa en ny fil för ljud justering.
-2. När redigerings fönstret visas kan du ange upp till 10 000 tecken.
+1. Klicka på **ny fil** för att skapa en ny fil för ljud justering.
+2. Skriv eller klistra in innehållet i redigerings fönstret. Tecknen för varje fil är upp till 20 000. Om skriptet innehåller fler än 20 000 tecken kan du använda alternativ 2 för att automatiskt dela upp innehållet i flera filer. 
 3. Glöm inte att spara.
 
 **Alternativ 2:**
 
-1. När du har loggat in på att [skapa ljud innehåll](https://aka.ms/audiocontentcreation)klickar du på **överför** för att importera en eller flera textfiler. Både oformaterad text och SSML stöds.
-2. När du laddar upp textfilerna kontrollerar du att innehållet uppfyller dessa krav.
+1. Klicka på **överför** för att importera en eller flera textfiler. Både oformaterad text och SSML stöds.
+2. Om skript filen är mer än 20 000 tecken kan du dela filen med stycken, med tecken eller med reguljära uttryck. 
+3. När du laddar upp dina textfiler bör du kontrol lera att filen uppfyller dessa krav.
 
    | Egenskap | Värde/anteckningar |
    |----------|---------------|
    | Fil format | Oformaterad text (. txt)<br/> SSML text (. txt)<br/> Zip-filer stöds inte |
    | Kodnings format | UTF-8 |
    | Filnamn | Varje fil måste ha ett unikt namn. Dubbletter stöds inte. |
-   | Text längd | Textfiler får inte överstiga 10 000 tecken. |
+   | Text längd | Textfiler får inte överstiga 20 000 tecken. |
    | SSML-begränsningar | Varje SSML-fil får bara innehålla en enda del av SSML. |
 
 ### <a name="plain-text-example"></a>Exempel på oformaterad text
@@ -91,7 +90,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 När du har granskat din ljud uppspelning och är nöjd med justeringen och justeringen kan du exportera ljudet.
 
-1. Från verktyget för att skapa ljud [innehåll](https://aka.ms/audiocontentcreation) klickar du på **Exportera** för att skapa en ljud skapande aktivitet.
+1. Klicka på **Exportera** för att skapa en ljud skapande aktivitet. **Export till ljud bibliotek** rekommenderas eftersom det stöder långa ljud utdata och den fullständiga ljud uppspelnings upplevelsen. Du kan också ladda ned ljudet till den lokala disken direkt, men bara de första 10 minuterna är tillgängliga. 
 2. Välj utdataformat för det justerade ljudet. En lista över format och samplings frekvenser som stöds finns nedan.
 3. Du kan visa status för uppgiften på fliken **Exportera aktivitet** . Om aktiviteten Miss lyckas, se sidan detaljerad information för en fullständig rapport.
 4. När uppgiften har slutförts är ljudet tillgängligt för hämtning på fliken **ljud bibliotek** .
@@ -111,4 +110,4 @@ När du har granskat din ljud uppspelning och är nöjd med justeringen och just
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Tal Studio](https://speech.microsoft.com)
+> [Speech Studio](https://speech.microsoft.com)

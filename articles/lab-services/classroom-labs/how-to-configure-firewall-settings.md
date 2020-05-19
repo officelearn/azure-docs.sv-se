@@ -3,15 +3,15 @@ title: Brandväggsinställningarna för Azure Lab Services
 description: Lär dig hur du fastställer den offentliga IP-adressen och port nummer intervallet för virtuella datorer i ett labb så att information kan läggas till i brand Väggs regler.
 author: emaher
 ms.author: enewman
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.topic: article
 ms.service: lab-services
-ms.openlocfilehash: fbd45af0c9b94f04fdaad9d9b5c8214a91a8db91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dcb8c0d5304f052dbe7f14386425ce67ae3b79a6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77443471"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83589541"
 ---
 # <a name="firewall-settings-for-azure-lab-services"></a>Brandväggsinställningarna för Azure Lab Services
 
@@ -24,7 +24,7 @@ Varje labb använder en enskild offentlig IP-adress och flera portar.  Alla virt
 
 ## <a name="find-public-ip-for-a-lab"></a>Hitta en offentlig IP-adress för ett labb
 
-De offentliga IP-adresserna för varje labb visas på sidan **alla** labb i labb tjänst labb kontot.  Anvisningar om hur du hittar sidan **alla labb** finns i [Hantera labb i ett labb konto](how-to-manage-lab-accounts.md#view-and-manage-labs-in-the-lab-account).  
+De offentliga IP-adresserna för varje labb visas på sidan **alla** labb i labb tjänst labb kontot.  Anvisningar om hur du hittar sidan **alla labb** finns i [Visa labb i ett labb konto](manage-labs.md#view-labs-in-a-lab-account).  
 
 > [!div class="mx-imgBorder"]
 > ![Sidan alla labb](../media/how-to-configure-firewall-settings/all-labs-properties.png)

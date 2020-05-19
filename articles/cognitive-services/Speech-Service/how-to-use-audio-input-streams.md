@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 23a426bf8cc3f30516fff0a672d7118a49666433
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74109946"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584934"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>Om API för tal-SDK ljud inspelnings ström
 
@@ -25,20 +25,20 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
 
 - Identifiera formatet för ljud strömmen. Formatet måste stödjas av talet SDK och tal tjänsten. För närvarande stöds endast följande konfiguration:
 
-  Ljud exempel i PCM-format, en kanal, 16000 sampel per sekund, 32000 byte per sekund, två block justera (16 bitar, inklusive utfyllnad för ett exempel), 16 bitar per sampel.
+  Ljud exempel i PCM-format, en kanal, 16 bitar per sampel, 8000 eller 16000-exempel per sekund (16000 eller 32000 byte per sekund), två block justera (16 bitar, inklusive utfyllnad för ett exempel).
 
   Motsvarande kod i SDK: n för att skapa ljud formatet ser ut så här:
 
   ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
-  int samplesPerSecond = 16000;
+  int samplesPerSecond = 16000; // or 8000
   var audioFormat = AudioStreamFormat.GetWaveFormatPCM(samplesPerSecond, bitsPerSample, channels);
   ```
 
 - Kontrol lera att din kod kan tillhandahålla rå ljuddata enligt dessa specifikationer. Om dina ljud käll data inte matchar de format som stöds måste ljudet kodas till det format som krävs.
 
-- Skapa din egen ljud data ström klass härledd `PullAudioInputStreamCallback`från. Implementera `Read()` och `Close()` -medlemmar. Den exakta funktions signaturen är språk beroende, men koden kommer att se ut ungefär som i det här kod exemplet:
+- Skapa din egen ljud data ström klass härledd från `PullAudioInputStreamCallback` . Implementera `Read()` och- `Close()` medlemmar. Den exakta funktions signaturen är språk beroende, men koden kommer att se ut ungefär som i det här kod exemplet:
 
   ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
@@ -59,7 +59,7 @@ Följande steg krävs när du använder ljud inspelnings strömmar:
    };
   ```
 
-- Skapa en ljud konfiguration baserat på ditt ljud format och en indataströmmen. Skicka både din vanliga tal konfiguration och konfigurationen av ljud indata när du skapar din tolk. Ett exempel:
+- Skapa en ljud konfiguration baserat på ditt ljud format och en indataströmmen. Skicka både din vanliga tal konfiguration och konfigurationen av ljud indata när du skapar din tolk. Till exempel:
 
   ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);

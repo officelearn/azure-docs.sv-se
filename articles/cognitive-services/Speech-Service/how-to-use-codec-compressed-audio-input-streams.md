@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: amishu
 zone_pivot_groups: programming-languages-set-twelve
-ms.openlocfilehash: bd6b500a823bde654da4442704b75451806d6a46
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 13cb35ffa650661da2855787279c4bdc37126ac9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637277"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585035"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Använd codec-komprimerad ljud inspelning med talet SDK
 
-Med API: t för tal service SDK **komprimerad ljud inspelnings ström** får du ett sätt att strömma komprimerat ljud `PullStream` till `PushStream`tal tjänsten med hjälp av antingen en eller.
+Med API: t för tal service SDK **komprimerad ljud inspelnings ström** får du ett sätt att strömma komprimerat ljud till tal tjänsten med hjälp av antingen en `PullStream` eller `PushStream` .
 
-Strömmande komprimerade indata-ljud stöds för närvarande för C#, C++, Java på Windows (UWP-program stöds inte) och Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8). Det finns också stöd för java i Android och mål-C på iOS-plattformen.
+Strömmande komprimerade indata-ljud stöds för närvarande för C#, C++, Java på Windows (UWP-program stöds inte) och Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 7/8, CentOS 7/8). Det finns också stöd för java i Android och mål-C på iOS-plattformen.
 * Tal SDK-version 1.10.0 eller senare krävs för RHEL 8 och CentOS 8
 * Tal SDK-version 1.11.0 eller senare krävs för för Windows.
 
 [!INCLUDE [supported-audio-formats](includes/supported-audio-formats.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/how-to/compressed-audio-input/csharp/prerequisites.md)]

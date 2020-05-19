@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 65f6c6627093358f8cbc66055bb9b16561f7c610
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5c458b1c04a7f3be1a43d725591426e619286b7d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424666"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587891"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
@@ -24,11 +24,11 @@ Idag Enterprise Analytics kräver en enorm skala på alla typer av data, både R
 
 Lösningar som detta är svåra att bygga, konfigurera, skydda och underhålla, vilket fördröjer Swift-extraktionen av intelligenta insikter.
 
-**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden till insikter från alla data i alla skalor, i informations lager och Big data analys system. Det kombinerar det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används i Big data Analytics och **pipelines** för att samordna aktiviteter och data förflyttning. 
+**Azure Synapse** är en integrerad analys tjänst som påskyndar tiden till insikter från alla data i alla skalor, i informations lager och Big data analys system. Det kombinerar det bästa av **SQL** -teknikerna som används i företags data lager, **Spark** -tekniker som används i Big data Analytics och **pipelines** för att samordna aktiviteter och data förflyttning.
 
 Azure Synapse levereras med en webbaserad **Studio** -användar upplevelse som ger en enda upplevelse och modell för hantering, övervakning, kodning och säkerhet.
 
-Azure Synapse erbjuder det enklaste och snabbaste sättet för ett företag att samla in insikter om alla data i valfri storlek, med hjälp av de analyser som de är mest bekanta med. Den integreras kraftigt med **Power BI** som gör det möjligt för data tekniker att skapa analys lösningar som fungerar från slut punkt till slut punkt för att ge Business Intelligence. 
+Azure Synapse erbjuder det enklaste och snabbaste sättet för ett företag att samla in insikter om alla data i valfri storlek, med hjälp av de analyser som de är mest bekanta med. Den integreras kraftigt med **Power BI** som gör det möjligt för data tekniker att skapa analys lösningar som fungerar från slut punkt till slut punkt för att ge Business Intelligence.
 
 Dessutom underlättar Azure-Synapse förutsägelse modell utveckling och avancerad analys med Machine Learning via det inbyggda stödet för **azureml**.
 
@@ -44,14 +44,14 @@ Dessutom underlättar Azure-Synapse förutsägelse modell utveckling och avancer
 
 ### <a name="industry-standard-apache-spark"></a>Bransch standard Apache Spark
 
-**Synapse Spark** är djupt integrerat och sömlöst integrerar Apache Spark – den mest populära Big data motorn med öppen källkod som används för förberedelse av data, data teknik, ETL och maskin inlärning.
+**Apache Spark för Azure Synapse** djup och sömlöst integrera Apache Spark – den mest populära Big data motorn med öppen källkod som används för förberedelse av data, data teknik, ETL och maskin inlärning.
 
 * ML-modeller med SparkML-algoritmer och AzureML-integrering för Apache Spark 2,4 med inbyggt stöd för Linux Foundation delta Lake.
 * Förenklad resurs modell som gör att du inte behöver oroa dig för att hantera kluster.
 * Snabb start av Spark och aggressiv automatisk skalning.
 * Inbyggt stöd för .NET för Spark gör att du kan återanvända din C#-expertis och befintliga .NET-kod i ett Spark-program.
 
-### <a name="interop-of-sql-and-spark-on-your-data-lake"></a>Interop för SQL och Spark på din Data Lake
+### <a name="interop-of-sql-and-apache-spark-on-your-data-lake"></a>Interop för SQL och Apache Spark på din Data Lake
 
 Azure Synapse tar bort de traditionella teknik barriärerna mellan att använda SQL och Spark tillsammans. Du kan kombinera och matcha på ett smidigt sätt utifrån dina behov och kunskaper.
 

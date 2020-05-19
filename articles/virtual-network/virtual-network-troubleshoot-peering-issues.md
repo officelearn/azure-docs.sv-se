@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 20580edb84a8c983c2342e6a5904c75a0986a3d7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 9685c1739a00788a974c200ddabb8cc975696b62
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801577"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587739"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>Felsöka problem med peering i virtuella nätverk
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=457b3ba7-7ac5-93be-981c-677553ad39dd" target='_blank'>Börja</a></span><span class="has-padding-small">lösa problemet snabbt genom att använda vår virtuella agent för att köra <b>automatiserad diagnostik.</b> </span> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <sub>Privacy Statement</sub> Sekretess <div align="right">policy</div></a></span></p>
 
 Den här fel söknings guiden innehåller steg som hjälper dig att lösa de flesta problem med [peering i virtuella nätverk](virtual-network-peering-overview.md) .
 
@@ -100,7 +99,7 @@ Information om hur du felsöker NVA enhets konfiguration och routning finns i [p
 * Redis cache (använder Basic ILB SKU)
 * Application Gateway (använder Basic ILB SKU)
 * Skalnings uppsättningar (använder Basic ILB SKU)
-* Service Fabric kluster (använder Basic ILB SKU)
+* Service Fabric-kluster (använder Basic ILB SKU)
 * SQL Server Always On (använder Basic ILB SKU)
 * App Service-miljön (använder Basic ILB SKU)
 * API Management (använder Basic ILB SKU)
@@ -140,7 +139,7 @@ Så här felsöker du problemet:
    > * Redis cache (använder Basic ILB SKU)
    > * Application Gateway (använder Basic ILB SKU)
    > * Skalnings uppsättningar (använder Basic ILB SKU)
-   > * Service Fabric kluster (använder Basic ILB SKU)
+   > * Service Fabric-kluster (använder Basic ILB SKU)
    > * SQL Server Always On (använder Basic ILB SKU)
    > * App Service-miljön (använder Basic ILB SKU)
    > * API Management (använder Basic ILB SKU)
@@ -201,7 +200,7 @@ Mer information finns i [tjänst länkning](https://docs.microsoft.com/azure/vir
 * Redis cache (använder Basic ILB SKU)
 * Application Gateway (använder Basic ILB SKU)
 * Skalnings uppsättningar (använder Basic ILB SKU)
-* Service Fabric kluster (använder Basic ILB SKU)
+* Service Fabric-kluster (använder Basic ILB SKU)
 * SQL Server Always On (använder Basic ILB SKU)
 * App Service-miljön (använder Basic ILB SKU)
 * API Management (använder Basic ILB SKU)
@@ -213,7 +212,7 @@ Mer information finns i [krav och begränsningar](https://docs.microsoft.com/azu
 
 Så här felsöker du problemet:
 
-1. Logga in på Azure-portalen. 
+1. Logga in på Azure Portal. 
 1. I webbappen väljer du **nätverk**och väljer sedan VNet- **integrering**.
 1. Kontrol lera om du kan se det virtuella fjärrnätverket. Ange adress utrymmet för det virtuella fjärrnätverket manuellt (**Synkronisera nätverk** och **Lägg till vägar**).
 
@@ -224,7 +223,7 @@ Mer information finns i följande artiklar:
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>Felsöka ett fel meddelande om konfiguration av virtuellt nätverk peering 
 
-### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>Den aktuella `<TENANT ID>` klienten har inte åtkomst behörighet till den länkade prenumerationen
+### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>Den aktuella klienten har `<TENANT ID>` inte åtkomst behörighet till den länkade prenumerationen
 
 Lös problemet genom att se [skapa peering – Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
@@ -238,12 +237,12 @@ Lös problemet genom att konfigurera det virtuella nätverkets peering under **A
 
 ### <a name="the-remote-virtual-network-lacks-a-gateway"></a>Det virtuella fjärrnätverket saknar Gateway
 
-Det här problemet uppstår när du peer-koppla virtuella nätverk från olika klienter och senare vill `Use Remote Gateways`konfigurera. En begränsning av Azure Portal är att det inte går att verifiera förekomsten av en virtuell nätverksgateway i en annan innehavares virtuella nätverk.
+Det här problemet uppstår när du peer-koppla virtuella nätverk från olika klienter och senare vill konfigurera `Use Remote Gateways` . En begränsning av Azure Portal är att det inte går att verifiera förekomsten av en virtuell nätverksgateway i en annan innehavares virtuella nätverk.
 
 Det finns två sätt att lösa problemet:
 
  * Ta bort peer kopplingarna och aktivera `Use Remote Gateways` alternativet när du skapar en ny peering.
- * Använd PowerShell eller CLI, i stället för Azure Portal, för att `Use Remote Gateways`aktivera.
+ * Använd PowerShell eller CLI, i stället för Azure Portal, för att aktivera `Use Remote Gateways` .
 
 ## <a name="next-steps"></a>Nästa steg
 

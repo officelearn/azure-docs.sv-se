@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 6c72cd270e634ca0aebff7c17d5663241428e182
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d52c4ba9bc4fdb5a696b43aa2b8358992182c553
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69907103"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587068"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -17,7 +17,7 @@ ms.locfileid: "69907103"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt python-projekt med hjälp av din favorit-IDE eller-redigerare eller skapa en ny mapp på Skriv bordet. Kopiera det här kodfragmentet till din projekt/mapp till en fil `dictionary-lookup.py`med namnet.
+Skapa ett nytt python-projekt med hjälp av din favorit-IDE eller-redigerare eller skapa en ny mapp på Skriv bordet. Kopiera det här kodfragmentet till din projekt/mapp till en fil med namnet `dictionary-lookup.py` .
 
 ```python
 # -*- coding: utf-8 -*-
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `pip install requests uuid`.
 
-Den första kommentaren instruerar Python-tolken att använda UTF-8-kodning. Sedan importeras de moduler som krävs för att läsa prenumerationsnyckeln från en miljövariabel, skapa HTTP-begäran, skapa en unik identifierare samt hantera det JSON-svar som returneras av Translator Text API.
+Den första kommentaren instruerar Python-tolken att använda UTF-8-kodning. Sedan importeras de nödvändiga modulerna för att läsa prenumerations nyckeln från en miljö variabel, skapa http-begäran, skapa en unik identifierare och hantera JSON-svaret som returnerades av Translator.
 
 ## <a name="set-the-subscription-key-endpoint-and-path"></a>Ange prenumerations nyckel, slut punkt och sökväg
 
-Det här exemplet försöker läsa Translator Text prenumerations nyckel och slut punkt från miljövariablerna: `TRANSLATOR_TEXT_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscription_key` och `endpoint` som en sträng och kommentera ut villkors satserna.
+I det här exemplet görs ett försök att läsa prenumerations nyckeln och slut punkten för din översättare från miljövariablerna: `TRANSLATOR_TEXT_KEY` och `TRANSLATOR_TEXT_ENDPOINT` . Om du inte är bekant med miljövariabler kan du ange `subscription_key` och `endpoint` som en sträng och kommentera ut villkors satserna.
 
 Kopiera den här koden till projektet:
 
@@ -47,12 +47,12 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-Den globala slutpunkten för Translator Text anges som `endpoint`. `path` anger `dictionary/lookup`-vägen och identifierar att vi vill nå version 3 av API:et.
+Den globala slut punkten för översättare har angetts som `endpoint` . `path` anger `dictionary/lookup`-vägen och identifierar att vi vill nå version 3 av API:et.
 
 `params` används till att ange källan och utdataspråken. I det här exemplet använder vi engelska och spanska: `en` och `es`.
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Ordlista, sökning](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> Mer information om slut punkter, vägar och parametrar för begäran finns i [Translator 3,0: Sök efter ord](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 path = '/dictionary/lookup?api-version=3.0'
@@ -105,7 +105,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
+Det innebär att du har skapat ett enkelt program som anropar översättaren och returnerar ett JSON-svar. Nu är det dags att köra programmet:
 
 ```console
 python alt-translations.py
@@ -147,7 +147,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

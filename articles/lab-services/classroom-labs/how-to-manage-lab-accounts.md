@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: c82b5d02ab3928eb0472f2a047cdca2238bf0b63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a67ba18b70f6b5b9eebb473e6cc2915bc937ce6b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79284296"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588198"
 ---
-# <a name="manage-lab-accounts-in-azure-lab-services"></a>Hantera labb konton i Azure Lab Services 
+# <a name="create-and-manage-lab-accounts"></a>Skapa och hantera labbkonton
 I Azure Lab Services är ett labb konto en behållare för hanterade labb typer, till exempel klass rums labb. En administratör konfigurerar ett labb konto med Azure Lab Services och ger till gång till labb ägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labb konto, visar alla labb konton eller tar bort ett labb konto.
 
 ## <a name="create-a-lab-account"></a>Skapa ett labbkonto
@@ -45,7 +45,10 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
     1. Välj ett befintligt **delat avbildnings Galleri** eller skapa ett. Du kan spara mallen VM i det delade avbildnings galleriet så att den återanvänds av andra. Detaljerad information om delade avbildnings gallerier finns [i använda ett delat avbildnings galleri i Azure Lab Services](how-to-use-shared-image-gallery.md).
     2. Ange om du vill **stänga virtuella Windows-datorer automatiskt** när användarna kopplar från dem. Ange hur länge de virtuella datorerna ska vänta tills användaren ansluter igen innan den stängs av automatiskt. 
     3. För **peer Virtual Network**väljer du ett peer-virtuellt nätverk (VNet) för labb nätverket. Labb som skapats i det här kontot är anslutna till det valda virtuella nätverket och har åtkomst till resurserna i det valda virtuella nätverket. Mer information finns i [ansluta ditt labbs virtuella nätverk till ett virtuellt peer-nätverk](how-to-connect-peer-virtual-network.md).    
-    8. Ange ett **adress intervall** för virtuella datorer i labbet. Adress intervallet bör vara i CIDR-notation (Classless Inter-Domain routing) (exempel: 10.20.0.0/23). Virtuella datorer i labbet skapas i det här adress intervallet. Mer information finns i [Ange ett adress intervall för virtuella datorer i labbet](how-to-configure-lab-accounts.md#specify-an-address-range-for-vms-in-the-lab)  
+    8. Ange ett **adress intervall** för virtuella datorer i labbet. Adress intervallet bör vara i CIDR-notation (Classless Inter-Domain routing) (exempel: 10.20.0.0/23). Virtuella datorer i labbet skapas i det här adress intervallet. Mer information finns i [Ange ett adress intervall för virtuella datorer i labbet](how-to-connect-peer-virtual-network.md#specify-an-address-range-for-vms-in-the-lab-account)  
+
+        > [!NOTE]
+        > Egenskapen för **adress intervall** gäller endast om ett **virtuellt dator nätverk** är aktiverat för labbet.
 
         ![Skapa labb konto – > Advanced](../media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
 6. Välj **Nästa: Taggar** längst ned på sidan för att växla till fliken **taggar** . Lägg till alla Taggar som du vill koppla till labb kontot. Taggar är namn/värde-par som låter dig kategorisera resurser och Visa konsol IDE rad fakturering genom att tillämpa samma tagg på flera resurser och resurs grupper. Mer information finns i [använda taggar för att ordna dina Azure-resurser](../../azure-resource-manager/management/tag-resources.md).
@@ -74,28 +77,6 @@ Följande steg visar hur du använder Azure Portal till att skapa ett labbkonto 
 
     ![Alla resurser-> Lab-konton](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
 
-## <a name="view-and-manage-labs-in-the-lab-account"></a>Visa och hantera labb i labb kontot
-
-1. På sidan **labb konto** väljer du **alla labb** på den vänstra menyn.
-
-    ![Labb i kontot](../media/how-to-manage-lab-accounts/labs-in-account.png)
-1. Du ser en **lista med labb** i kontot med följande information: 
-    1. Labbets namn.
-    2. Det datum då labbet skapades. 
-    3. E-postadressen till den användare som skapade labbet. 
-    4. Maximalt antal användare som tillåts i labbet. 
-    5. Labbets status. 
-    6. Rolltilldelningar. 
-
-## <a name="delete-a-lab-in-the-lab-account"></a>Ta bort ett labb i labb kontot
-Följ anvisningarna i föregående avsnitt om du vill se en lista över labben i labb kontot.
-
-1. Välj **... (tre punkter)** och välj **ta bort**. 
-
-    ![Ta bort en labb knapp](../media/how-to-manage-lab-accounts/delete-lab-button.png)
-2. Välj **Ja** i varnings meddelandet. 
-
-    ![Bekräfta borttagning av labb](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
 
 ## <a name="delete-a-lab-account"></a>Ta bort ett labb konto
 Följ anvisningarna från föregående avsnitt som visar labb konton i en lista. Använd följande instruktioner för att ta bort ett labb konto: 
@@ -113,11 +94,4 @@ Följ anvisningarna från föregående avsnitt som visar labb konton i en lista.
 > Du kan också använda PowerShell-modulen AZ. LabServices (för hands version) för att hantera labb konton. Mer information finns på [Start sidan för AZ. LabServices på GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar:
-
-- [Tillåt labbets skapare att välja plats för labbet](allow-lab-creator-pick-lab-location.md)
-- [Anslut ditt labb nätverk till ett peer-virtuellt nätverk](how-to-connect-peer-virtual-network.md)
-- [Koppla ett delat avbildnings galleri till ett labb](how-to-attach-detach-shared-image-gallery.md)
-- [Lägg till en användare som labb ägare](how-to-add-user-lab-owner.md)
-- [Visa brand Väggs inställningar för ett labb](how-to-configure-firewall-settings.md)
-- [Konfigurera andra inställningar för ett labb](how-to-configure-lab-accounts.md)
+Se andra artiklar i avsnittet **instruktions guider**  ->  **skapa och konfigurera labb konton (labb konto ägare)** i innehålls förteckningen (TOC). 

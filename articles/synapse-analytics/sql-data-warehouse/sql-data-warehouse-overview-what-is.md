@@ -10,19 +10,18 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27e6c7beb8c88a29b90b30e0c77e35e493f2480a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5c6580d4fe7431c942ec4886b9dafc6148635b18
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690912"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585376"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Vad är Azure Synapse Analytics (tidigare SQL DW)?
 
 > [!NOTE] 
-> Testa de senaste Azure Synapse-funktionerna som arbets ytor, Spark, SQL på begäran och den integrerade Synapse Studio-upplevelsen genom att [begära åtkomst till Azure Synapse (för hands versioner av arbets ytor)](https://aka.ms/synapsepreview). 
->
 >Utforska [dokumentationen för Azure Synapse (arbets ytans för hands version)](../overview-what-is.md).
+>
 
 Azure Synapse är en analys tjänst som samlar ihop företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure synapse ger de här två världar tillsammans med en enhetlig upplevelse för att mata in, förbereda, hantera och hantera data för omedelbara BI-och maskin inlärnings behov.
 
@@ -30,12 +29,10 @@ Azure-Synapse har fyra komponenter:
 
 - Synapse SQL: fullständig T-SQL-baserad analys – allmänt tillgänglig
   - SQL-pool (betala per DWU etablerad)
-  - SQL på begäran (betala per TB bearbetat) – (för hands version)
+  - SQL på begäran (betala per TB bearbetat) (för hands version)
 - Spark: djupt integrerad Apache Spark (förhands granskning)
 - Synapse-pipeline: hybrid data integrering (för hands version)
-- Studio: enhetlig användar upplevelse.  (Förhandsversion)
-
-
+- Studio: enhetlig användar upplevelse. (förhandsversion)
 
 ## <a name="synapse-sql-pool-in-azure-synapse"></a>Synapse SQL-pool i Azure Synapse
 
@@ -68,6 +65,6 @@ Eller titta på några av de andra Azure Synapse-resurserna.
 
 - Sök efter [Bloggar](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
 - Skicka en [funktions förfrågan](https://feedback.azure.com/forums/307516-sql-data-warehouse)
-- [Skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md)
+- [Skapa ett support ärende](sql-data-warehouse-get-started-create-support-ticket.md)
 - Sök i [MSDN-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
 - Sök [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

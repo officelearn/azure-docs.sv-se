@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Hämta menings längder – Translator Text API'
+title: 'Snabb start: Hämta menings längder – översättare'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten får du lära dig hur du fastställer menings längden med Translator Text API.
+description: I den här snabb starten får du lära dig hur du fastställer menings längd med hjälp av Translator.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: b2569859a039739f2804a180be44e621421f0cd2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ca468993798c02c02380eeac7f68e4d3504ec1d8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525128"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586782"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>Snabb start: Använd Translator Text API för att fastställa menings längd
+# <a name="quickstart-use-the-translator-to-determine-sentence-length"></a>Snabb start: Använd Translator för att fastställa menings längd
 
-I den här snabb starten får du lära dig hur du fastställer längden på meningar med hjälp av Translator Text API.
+I den här snabb starten får du lära dig hur du fastställer längden på meningar med hjälp av Translator.
 
-För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
+Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/sentences-csharp.md)]

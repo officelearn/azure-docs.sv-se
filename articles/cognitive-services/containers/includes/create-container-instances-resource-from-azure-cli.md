@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e3542b976921aa45794d62cad9517984c8348ce3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9d1b72eff3ffac37d2d10cd74c345eac8289b651
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875152"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585697"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Skapa en Azure Container instance-resurs från Azure CLI
 
@@ -24,7 +24,7 @@ I YAML nedan definieras Azure Container instance-resursen. Kopiera och klistra i
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials: # This is required when pulling a non-public image
+imageRegistryCredentials: # This is only required if you are pulling a non-public image that requires authentication to access.
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
@@ -66,13 +66,13 @@ type: Microsoft.ContainerInstance/containerGroups
 > [!NOTE]
 > Alla platser har inte samma processor-och minnes tillgänglighet. Se tabellen [plats och resurser][location-to-resource] för att visa en lista över tillgängliga resurser för behållare per plats och operativ system.
 
-Vi förlitar dig på den YAML-fil som [`az container create`][azure-container-create] vi har skapat för kommandot. Kör `az container create` kommandot från Azure CLI och Ersätt `<resource-group>` med ditt eget. För att skydda värden inom en YAML-distribution finns dessutom [säkra värden][secure-values].
+Vi förlitar dig på den YAML-fil som vi har skapat för [`az container create`][azure-container-create] kommandot. Kör kommandot från Azure CLI och `az container create` Ersätt `<resource-group>` med ditt eget. För att skydda värden inom en YAML-distribution finns dessutom [säkra värden][secure-values].
 
 ```azurecli
 az container create -g <resource-group> -f my-aci.yaml
 ```
 
-Kommandots utdata är om det `Running...` är giltigt, efter att utdata har ändrats till en JSON-sträng som representerar den nyligen skapade ACI-resursen. Behållar avbildningen är mer än sannolikt inte tillgänglig för en stund, men resursen distribueras nu.
+Kommandots utdata är `Running...` om det är giltigt, efter att utdata har ändrats till en JSON-sträng som representerar den nyligen skapade ACI-resursen. Behållar avbildningen är mer än sannolikt inte tillgänglig för en stund, men resursen distribueras nu.
 
 > [!TIP]
 > Var uppmärksam på platserna för de allmänt tillgängliga Azure-tjänsterna för för hands versionen, eftersom YAML krävs för att de ska kunna matcha platsen.

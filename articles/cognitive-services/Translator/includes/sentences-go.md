@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9aecaa6195509ec4c1f0d6b4b14b9bb30817da34
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 758bd9b424146d62ab64f9721c67af4910e006e1
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906880"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586779"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Skapa Main-funktionen
 
-Det här exemplet försöker läsa Translator Text prenumerations nyckel och slut punkt från följande miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
+Det här exemplet försöker läsa prenumerations nyckeln och slut punkten för din översättare från dessa miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT` . Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
 
 Kopiera den här koden till projektet:
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-determine-sentence-length"></a>Skapa en funktion för att fastställa meningslängd
 
-Låt oss skapa en funktion för att fastställa meningslängd. Den här funktionen använder ett enda argument, din Translator Text-prenumerationsnyckel.
+Låt oss skapa en funktion för att fastställa meningslängd. Den här funktionen tar ett enskilt argument, prenumerations nyckeln för Translator.
 
 ```go
 func breakSentence(subscriptionKey string, uri string)
@@ -91,7 +91,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Mer information om slut punkter, vägar och parametrar för begäran finns i [Translator Text API 3,0: BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+> Mer information om slut punkter, vägar och parametrar för begäran finns i [Translator 3,0: BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Skapa en struktur för begärandetexten
 
@@ -109,7 +109,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Skapa begäran
 
-Nu när du har kodat begärandetexten som JSON, kan du skapa din POST-begäran och anropa Translator Text API.
+Nu när du har kodat begär ande texten som JSON kan du bygga din POST-begäran och anropa Translator.
 
 ```go
 // Build the HTTP POST request
@@ -121,7 +121,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -147,7 +147,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
+Det innebär att du har skapat ett enkelt program som anropar översättaren och returnerar ett JSON-svar. Nu är det dags att köra programmet:
 
 ```console
 go run sentence-length.go
@@ -175,7 +175,7 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

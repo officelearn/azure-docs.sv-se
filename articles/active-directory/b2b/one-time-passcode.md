@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac743a82405524efc16e16be015b61b9390bd05d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 520f42956a1e096893935b6b7844d67060958829
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199488"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585935"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-postautentisering med eng ång slö sen ord (för hands version)
 
@@ -72,7 +72,7 @@ Det kan ta några minuter innan opt-in-åtgärden börjar gälla. Sedan kommer e
 ### <a name="to-opt-in-using-the-azure-ad-portal"></a>Välja att använda Azure AD-portalen
 1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
 2.  I navigerings fönstret väljer du **Azure Active Directory**.
-3.  Välj inställningar för **organisations relationer**  >  **Settings** (eller Välj **externa identiteter**  >  **externa samarbets inställningar**).
+3.  Välj **externa identiteter**  >  **externa samarbets inställningar**.
 5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Ja**.
  
 ### <a name="to-opt-in-using-powershell"></a>Välja att använda PowerShell
@@ -138,7 +138,7 @@ Det kan ta några minuter innan den opt-out-åtgärden börjar gälla. Om du ina
 ### <a name="to-turn-off-the-preview-using-the-azure-ad-portal"></a>Så här stänger du av för hands versionen med Azure AD-portalen
 1.  Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD.
 2.  I navigerings fönstret väljer du **Azure Active Directory**.
-3.  Välj inställningar för **organisations relationer**  >  **Settings** (eller Välj **externa identiteter**  >  **externa samarbets inställningar**).
+3.  Välj **externa identiteter**  >  **externa samarbets inställningar**.
 5.  Under **Aktivera e-post med eng ång slö sen ord för gäster (för hands version)** väljer du **Nej**.
 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Så här stänger du av för hands versionen med PowerShell

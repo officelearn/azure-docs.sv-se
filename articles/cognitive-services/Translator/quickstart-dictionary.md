@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: slå upp ord med tvåspråkig ordbok – Translator Text API'
+title: 'Snabb start: slå upp ord med tvåspråkig ordbok – översättare'
 titleSuffix: Azure Cognitive Services
-description: I den här snabb starten får du lära dig hur du får alternativa översättningar för en term, och även exempel på användning av dessa alternativa översättningar med hjälp av Translator Text API.
+description: I den här snabb starten får du lära dig hur du får alternativa översättningar för en term, och även exempel på användning av dessa alternativa översättningar med hjälp av Translator.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 07fd984f72628ac4f6d6736bf0ab903619e96c72
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fe2f4f2bea52650c2baa2ac3380b5b92f01c15eb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525166"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587066"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Snabb start: slå upp ord med tvåspråkig ord lista
 
-I den här snabb starten får du lära dig hur du får alternativa översättningar för en term, och även exempel på användning av dessa alternativa översättningar med hjälp av Translator Text API.
+I den här snabb starten får du lära dig hur du får alternativa översättningar för en term, och även exempel på användning av dessa alternativa översättningar med hjälp av Translator.
 
-För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
+Den här snabb starten kräver ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/dictionary-csharp.md)]

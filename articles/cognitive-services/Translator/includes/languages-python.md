@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 7f14a12d5de64206f64e8c7205beb2c59c4f1f2a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a491249e21db433d878a59cad19f59f8987b638b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906920"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586914"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -27,11 +27,11 @@ import os, requests, uuid, json
 > [!NOTE]
 > Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `pip install requests uuid`.
 
-Den första kommentaren instruerar Python-tolken att använda UTF-8-kodning. Sedan importeras de moduler som krävs för att läsa prenumerationsnyckeln från en miljövariabel, skapa HTTP-begäran, skapa en unik identifierare samt hantera det JSON-svar som returneras av Translator Text API.
+Den första kommentaren instruerar Python-tolken att använda UTF-8-kodning. Sedan importeras de nödvändiga modulerna för att läsa prenumerations nyckeln från en miljö variabel, skapa http-begäran, skapa en unik identifierare och hantera JSON-svaret som returnerades av Translator.
 
 ## <a name="set-the-endpoint-and-path"></a>Ange slut punkt och sökväg
 
-Det här exemplet försöker läsa Translator Text slut punkten från en miljö variabel: `TRANSLATOR_TEXT_ENDPOINT`. Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
+I det här exemplet görs ett försök att läsa din översättares slut punkt från en miljö variabel: `TRANSLATOR_TEXT_ENDPOINT` . Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
 
 ```python
 endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
@@ -40,10 +40,10 @@ if not endpoint_var_name in os.environ:
 endpoint = os.environ[endpoint_var_name]
 ```
 
-Den globala slutpunkten för Translator Text anges som `endpoint`. `path` anger `languages`-vägen och identifierar att vi vill nå version 3 av API:et.
+Den globala slut punkten för översättare har angetts som `endpoint` . `path` anger `languages`-vägen och identifierar att vi vill nå version 3 av API:et.
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Mer information om slut punkter, vägar och parametrar för begäran finns i [Translator 3,0: språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
 path = '/languages?api-version=3.0'
@@ -85,7 +85,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
+Det innebär att du har skapat ett enkelt program som anropar översättaren och returnerar ett JSON-svar. Nu är det dags att köra programmet:
 
 ```console
 python get-languages.py
@@ -189,7 +189,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

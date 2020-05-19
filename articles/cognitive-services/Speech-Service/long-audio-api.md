@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: trbye
-ms.openlocfilehash: b7cca314ec59e46cf17751b1aec28b5c3ea029ed
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0e18fd0c52fd4090477599f53cd0ef0bc05855f2
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401059"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587348"
 ---
 # <a name="long-audio-api-preview"></a>Långt ljud-API (för hands version)
 
-Den långa ljud-API: n är utformad för asynkron syntes av lång Forms text till tal (till exempel: ljud böcker). Det här API: t returnerar inte syntetiskt ljud i real tid, i stället är det förväntat att du ska söka efter svar och använda de utdata som de görs tillgängliga från tjänsten. Till skillnad från text till tal-API som används av talet SDK, kan det långa ljud-API: et skapa syntetiskt ljud som är längre än 10 minuter, vilket gör det perfekt för utgivare och ljud innehålls plattformar.
+Den långa ljud-API: n är utformad för asynkron syntes av lång Forms text till tal (till exempel: ljud böcker, nyhets artiklar och dokument). Det här API: t returnerar inte syntetiskt ljud i real tid, i stället är det förväntat att du ska söka efter svar och använda de utdata som de görs tillgängliga från tjänsten. Till skillnad från text till tal-API som används av talet SDK, kan det långa ljud-API: et skapa syntetiskt ljud som är längre än 10 minuter, vilket gör det perfekt för utgivare och ljud innehålls plattformar.
 
 Ytterligare fördelar med den långa ljud-API: et:
 
-* Syntetiskt tal som returneras av tjänsten använder neurala-röster, som säkerställer ljud uppspelning med hög åter givning.
-* Eftersom real tids svar inte stöds behöver du inte distribuera en röst slut punkt.
+* Syntetiskt tal som returneras av tjänsten använder de bästa neurala-rösterna.
+* Du behöver inte distribuera en röst slut punkt när den syntetiserar röster i ingen real tids batch-läge.
 
 > [!NOTE]
-> API för långa ljud stöder nu bara [anpassad neurala röst](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
+> API för långa ljud stöder nu både [offentliga neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) och [anpassade neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice#custom-neural-voices).
 
 ## <a name="workflow"></a>Arbetsflöde
 
@@ -52,14 +52,47 @@ När du förbereder text filen måste du se till att den:
 
 ## <a name="submit-synthesis-requests"></a>Skicka syntes begär Anden
 
-När du har bearbetat indata-innehållet följer du snabb starten för det [långa form ljud syntesen](https://aka.ms/long-audio-python) för att skicka begäran. Om du har fler än en indatafil måste du skicka flera begär Anden. Det finns vissa begränsningar som du bör känna till: 
-* Klienten får skicka upp till 5 förfrågningar till server per sekund för varje Azure-prenumerations konto. Om den överskrider begränsningen får klienten en 429-felkod (för många begär Anden). Minska antalet begär Anden per sekund
-* Servern kan köra och köa upp till 120 förfrågningar för varje Azure-prenumerations konto. Om den överskrider begränsningen returnerar servern en 429-felkod (för många begär Anden). Vänta och Undvik att skicka ny begäran förrän vissa begär Anden har slutförts
-* Servern kommer att behålla upp till 20 000 förfrågningar för varje Azure-prenumerations konto. Om det överskrider begränsningen tar du bort några begär Anden innan du skickar nya
+När du har bearbetat indata-innehållet följer du snabb starten för det [långa form ljud syntesen](https://aka.ms/long-audio-python) för att skicka begäran. Om du har fler än en indatafil måste du skicka flera begär Anden. 
+
+**Http-status koderna** anger vanliga fel.
+
+| API | HTTP-statuskod | Description | Förslag |
+|-----|------------------|-------------|----------|
+| Skapa | 400 | Röst syntesen är inte aktive rad i den här regionen. | Ändra tal prenumerations nyckeln med en region som stöds. |
+|        | 400 | Endast **standard** tal prenumerationen för den här regionen är giltig. | Ändra tal prenumerations nyckeln till pris nivån "standard". |
+|        | 400 | Överskrid gränsen för 20 000-begäran för Azure-kontot. Ta bort några förfrågningar innan du skickar nya. | Servern kommer att ha upp till 20 000 förfrågningar för varje Azure-konto. Ta bort några begär Anden innan du skickar nya. |
+|        | 400 | Det går inte att använda den här modellen i röst syntesen: {modelID}. | Kontrol lera att status för {modelID} är korrekt. |
+|        | 400 | Regionen för begäran matchar inte regionen för modellen {modelID}. | Kontrol lera att {modelID} s region stämmer överens med begärans region. |
+|        | 400 | Röst syntesen stöder bara text filen i UTF-8-kodningen med byte-ordnings markören. | Kontrol lera att indatafilerna är i UTF-8-kodning med markör för byte-ordning. |
+|        | 400 | Endast giltiga SSML-indata är tillåtna i röst syntes förfrågan. | Kontrol lera att SSML-uttrycken är korrekta. |
+|        | 400 | Det gick inte att hitta röst namnet {voiceName} i indatafilen. | Röst namnet för SSML är inte justerat med modell-ID: t. |
+|        | 400 | Styckets mängd i indatafilen ska vara mindre än 10 000. | Kontrol lera att stycket i filen är mindre än 10 000. |
+|        | 400 | Indatafilen får innehålla mer än 400 tecken. | Kontrol lera att indatafilen överskrider 400 tecken. |
+|        | 404 | Det går inte att hitta modellen som har deklarerats i röst syntes definitionen: {modelID}. | Kontrol lera att {modelID} är korrekt. |
+|        | 429 | Överskrida den aktiva röst syntes gränsen. Vänta tills några begär Anden har slutförts. | Servern kan köra och köa upp till 120 förfrågningar för varje Azure-konto. Vänta och Undvik att skicka nya begär Anden förrän vissa begär Anden har slutförts. |
+| Alla       | 429 | Det finns för många begär Anden. | Klienten får skicka upp till 5 förfrågningar till server per sekund för varje Azure-konto. Minska antalet begär Anden per sekund. |
+| Ta bort    | 400 | Röst syntes aktiviteten används fortfarande. | Du kan bara ta bort begär Anden som har **slutförts** eller **misslyckats**. |
+| GetByID   | 404 | Det går inte att hitta den angivna entiteten. | Kontrol lera att syntes-ID: t är korrekt. |
+
+## <a name="regions-and-endpoints"></a>Regioner och slut punkter
+
+Den långa ljud-API: n är tillgänglig i flera regioner med unika slut punkter.
+
+| Region | Slutpunkt |
+|--------|----------|
+| Australien, östra | `https://australiaeast.customvoice.api.speech.microsoft.com` |
+| Kanada, centrala | `https://canadacentral.customvoice.api.speech.microsoft.com` |
+| USA, östra | `https://eastus.customvoice.api.speech.microsoft.com` |
+| Indien, centrala | `https://centralindia.customvoice.api.speech.microsoft.com` |
+| USA, södra centrala | `https://southcentralus.customvoice.api.speech.microsoft.com` |
+| Sydostasien | `https://southeastasia.customvoice.api.speech.microsoft.com` |
+| Storbritannien, södra | `https://uksouth.customvoice.api.speech.microsoft.com` |
+| Europa, västra | `https://westeurope.customvoice.api.speech.microsoft.com` |
+| USA, västra 2 | `https://westus2.customvoice.api.speech.microsoft.com` |
 
 ## <a name="audio-output-formats"></a>Format för ljud uppspelning
 
-Vi har stöd för flexibla format för ljud uppspelning. Du kan generera ljud utmatningar per stycke eller slå ihop ljuden till en utmatning genom att ange parametern "concatenateResult". Följande format för ljudutdata stöds av den långa ljud-API: et:
+Vi har stöd för flexibla format för ljud uppspelning. Du kan generera ljud utmatningar per stycke eller sammanfoga ljud utmatningarna till en enda utmatning genom att ange parametern "concatenateResult". Följande format för ljudutdata stöds av den långa ljud-API: et:
 
 > [!NOTE]
 > Standard ljud formatet är riff-16khz-bitarsläge-mono-PCM.

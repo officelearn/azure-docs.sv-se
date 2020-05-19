@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219515"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587260"
 ---
 # <a name="how-to-manage-settings"></a>Hantera inställningar
 
@@ -29,11 +29,11 @@ Så här öppnar du sidan inställningar:
 
 ## <a name="associating-microsoft-translator-subscription"></a>Kopplar Microsoft Translator-prenumeration
 
-Du måste ha en prenumerations nyckel för Microsoft Translator Text API kopplad till din arbets yta för att träna eller distribuera modeller.
+Du måste ha en prenumerations nyckel för översättare kopplad till din arbets yta för att träna eller distribuera modeller.
 
 Om du inte har någon prenumeration följer du stegen nedan:
 
-1. Prenumerera på Microsoft Translator Text API. Den här artikeln visar hur du prenumererar på Microsoft Translator Text API.
+1. Prenumerera på Translator. Den här artikeln visar hur du prenumererar på Translator.
 2. Notera nyckeln för din Translator-prenumeration. Antingen KEY1 eller Key2 är acceptabla.
 3. Gå tillbaka till den anpassade översättnings portalen.
 

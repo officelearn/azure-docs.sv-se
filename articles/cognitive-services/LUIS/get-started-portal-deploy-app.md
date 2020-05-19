@@ -2,13 +2,13 @@
 title: 'Snabb start: Distribuera en app med LUIS-portalen'
 description: Den här snabb starten visar hur du distribuerar en app genom att skapa en förutsägelse slut punkts resurs, tilldela resursen, utbildningen och publicera appen.
 ms.topic: quickstart
-ms.date: 04/06/2020
-ms.openlocfilehash: aaf86766c2357c5382b78cd4a35fd4b159e5c0f3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/06/2020
+ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756304"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585114"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabb start: Distribuera en app i LUIS-portalen
 
@@ -16,7 +16,7 @@ När din LUIS-app är redo att returnera uttryck förutsägelser till ett klient
 
 I den här snabb starten lär du dig att distribuera ett program. Du skapar en förutsägelse slut punkt resurs, tilldelar resursen till appen, tränar appen och publicerar appen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Skaffa en [Azure-prenumeration](https://azure.microsoft.com/free).
 * Slutför den [föregående Portal snabb](get-started-portal-build-app.md) starten eller [Ladda ned och importera appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
@@ -30,7 +30,7 @@ I den här snabb starten lär du dig att distribuera ett program. Du skapar en f
 
 Varje gång du skapar en ny redigerare eller en fråga förutsägelse resurs för LUIS, måste du tilldela resursen till LUIS-appen. När du har tilldelat dig behöver du inte göra detta steg igen om du inte skapar en ny resurs. Du kan skapa en ny resurs för att expandera regionerna i appen eller för att stödja ett större antal förutsägelse frågor.
 
-1. Logga in på [Luis-portalen för förhands granskning](https://preview.luis.ai) och välj **myEnglishApp** -appen från listan appar.
+1. Logga in på [Luis-portalen](https://www.luis.ai) och välj **myEnglishApp** -appen från listan appar.
 
 1. Välj **Hantera** på menyn längst upp till höger och välj sedan **Azure-resurser**.
 
@@ -44,10 +44,10 @@ Varje gång du skapar en ny redigerare eller en fråga förutsägelse resurs fö
 
 1. Slutför samma steg för att lägga till redigerings nyckeln till din app.
 
-1. Hitta den nya raden i tabellen för den nya förutsägelse resursen och kopiera slut punkts-URL: en. Den är korrekt konstruerad för att `HTTP GET` göra en begäran till Luis API-slutpunkten för en förutsägelse.
+1. Hitta den nya raden i tabellen för den nya förutsägelse resursen och kopiera slut punkts-URL: en. Den är korrekt konstruerad för att göra en `HTTP GET` begäran till Luis API-slutpunkten för en förutsägelse.
 
 > [!TIP]
-> Om du tänker använda aktiv inlärning för att förbättra LUIS-appen väljer du **ändra** frågeparametrar och väljer **Spara loggar**. Den här åtgärden ändrar exempel-URL genom att `log=true` lägga till parametern QueryString. Kopiera och Använd fråge-URL: en för den ändrade exemplet när du gör förutsägelse frågor till körnings slut punkten.
+> Om du tänker använda aktiv inlärning för att förbättra LUIS-appen väljer du **ändra** frågeparametrar och väljer **Spara loggar**. Den här åtgärden ändrar exempel-URL genom att lägga till `log=true` parametern QueryString. Kopiera och Använd fråge-URL: en för den ändrade exemplet när du gör förutsägelse frågor till körnings slut punkten.
 
 ## <a name="train-the-app"></a>Träna appen
 
@@ -59,7 +59,7 @@ Varje gång du skapar en ny redigerare eller en fråga förutsägelse resurs fö
 
 ## <a name="prediction-endpoint-request"></a>Förutsägelse slut punkts förfrågan
 
-I för hands versions `query=` portalen är URL: en i slutet av URL: en där användarens uttryck läggs till i get-begäran. Efter anger `query=`du samma användar-uttryck som användes i slutet av föregående snabb start:
+I-portalen är det i `query=` slutet av URL: en där användarens uttryck läggs till i get-begäran. Efter `query=` anger du samma användar-uttryck som användes i slutet av föregående snabb start:
 
 ```Is there a form named hrf-234098```
 

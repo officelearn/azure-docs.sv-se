@@ -1,21 +1,14 @@
 ---
 title: Enhets typ för reguljärt uttryck – LUIS
-titleSuffix: Azure Cognitive Services
 description: Ett reguljärt uttryck passar bäst för rå uttryck text. Det ignorerar Skift läge och ignorerar kulturell variant.  Matchning av reguljära uttryck används efter stavnings kontroll av ändringar på tecknen, inte på token-nivå.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: b9da76a80183f353a74d43e667bf6c9219eb6c05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/14/2020
+ms.openlocfilehash: 90260fca10fc087225f6b1286e9fa2dd6d17c836
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74841225"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585614"
 ---
 # <a name="regular-expression-entity"></a>Entitet för reguljära uttryck
 
@@ -32,13 +25,13 @@ Ett reguljärt uttryck passar bäst för rå uttryck text. Det ignorerar Skift l
 
 ## <a name="usage-considerations"></a>Användnings överväganden
 
-Reguljära uttryck kan matcha mer än vad du förväntar dig att matcha. Ett exempel på detta är numerisk ord matchning som `one` och. `two` Ett exempel är följande regex, som matchar antalet `one` tillsammans med andra tal:
+Reguljära uttryck kan matcha mer än vad du förväntar dig att matcha. Ett exempel på detta är numerisk ord matchning som `one` och `two` . Ett exempel är följande regex, som matchar antalet `one` tillsammans med andra tal:
 
 ```javascript
 (plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*
 ```
 
-Det här regex-uttrycket matchar även ord som slutar med talen, till exempel `phone`. För att åtgärda problem som detta måste du kontrol lera att regex-matchningarna tar hänsyn till ord gränser. Regex för att använda ord gränser för det här exemplet används i följande regex:
+Det här regex-uttrycket matchar även ord som slutar med talen, till exempel `phone` . För att åtgärda problem som detta måste du kontrol lera att regex-matchningarna tar hänsyn till ord gränser. Regex för att använda ord gränser för det här exemplet används i följande regex:
 
 ```javascript
 \b(plus )?(zero|one|two|three|four|five|six|seven|eight|nine)(\s+(zero|one|two|three|four|five|six|seven|eight|nine))*\b
@@ -46,7 +39,7 @@ Det här regex-uttrycket matchar även ord som slutar med talen, till exempel `p
 
 ### <a name="example-json"></a>Exempel-JSON
 
-När du `kb[0-9]{6}`använder, som enhets definition för reguljärt uttryck, är följande JSON-svar ett exempel på uttryck med returnerade reguljära uttrycks enheter för frågan:
+När `kb[0-9]{6}` du använder, som enhets definition för reguljärt uttryck, är följande JSON-svar ett exempel på uttryck med returnerade reguljära uttrycks enheter för frågan:
 
 `When was kb123456 published?`:
 
@@ -67,7 +60,7 @@ När du `kb[0-9]{6}`använder, som enhets definition för reguljärt uttryck, ä
 #### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
 
-Detta är JSON om `verbose=false` anges i frågesträngen:
+Detta är JSON om anges `verbose=false` i frågesträngen:
 
 ```json
 "entities": {
@@ -77,7 +70,7 @@ Detta är JSON om `verbose=false` anges i frågesträngen:
 }
 ```
 
-Detta är JSON om `verbose=true` anges i frågesträngen:
+Detta är JSON om anges `verbose=true` i frågesträngen:
 
 ```json
 "entities": {
@@ -106,4 +99,7 @@ Detta är JSON om `verbose=true` anges i frågesträngen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här [självstudien](tutorial-regex-entity.md)skapar du en app för att extrahera konsekvent formaterad data från en uttryck med hjälp av entiteten för **reguljära uttryck** .
+Lär dig mer om entiteter:
+
+* [Begrepp](luis-concept-entity-types.md)
+* [Så här skapar du](luis-how-to-add-entities.md)

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: fc5d2b8f7673488169ee3ae393efcb74ef0a27a2
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: fd49d11061a345b396d300c2356645a2acd5b4c0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996455"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588130"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -56,7 +56,7 @@ Läs mer om hur du [skickar experiment](#submit) i slutet av den här artikeln.
 
 För att under lätta modell utbildningen med populära ramverk, tillhandahåller Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning.  Med den här klassen kan du enkelt konstruera kör konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära). Vi rekommenderar att du använder en uppskattning för utbildning eftersom den automatiskt konstruerar inbäddade objekt som en miljö eller RunConfiguration objekt åt dig. Om du vill ha mer kontroll över hur dessa objekt skapas och ange vilka paket som ska installeras för att köra experimentet, följer du [dessa steg](#amlcompute) för att skicka dina utbildnings experiment med ett RunConfiguration-objekt på en Azure Machine Learning-beräkning.
 
-För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning även de olika uppskattningarna [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) för att förenkla användningen av dessa ramverk.
+Azure Machine Learning tillhandahåller vissa uppskattningar för [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py)-, [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)-, [kedje](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py)-och [Ray-RLlib](how-to-use-reinforcement-learning.md).
 
 Mer information finns i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
 
@@ -182,7 +182,7 @@ Azure HDInsight är en populär plattform för stor data analys. Plattformen ger
 
     När du skapar klustret måste du ange ett SSH-användarnamn och-lösen ord. Anteckna dessa värden eftersom du behöver dem för att använda HDInsight som ett beräknings mål.
     
-    När klustret har skapats ansluter du till det med värd namnet \<kluster namn>-SSH.azurehdinsight.net, där \<kluster namn> är det namn som du angav för klustret. 
+    När klustret har skapats ansluter du till det med värd namnet \< kluster namn>-SSH.azurehdinsight.net, där kluster \< namn> är det namn som du angav för klustret. 
 
 1. **Bifoga**: om du vill ansluta ett HDInsight-kluster som ett beräknings mål måste du ange resurs-ID, användar namn och lösen ord för HDInsight-klustret. Resurs-ID för HDInsight-klustret kan konstrueras med prenumerations-ID, resurs grupp namn och HDInsight-kluster namn med följande sträng format:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
@@ -378,7 +378,7 @@ Börja med att skapa ett experiment i din arbets yta.
 
 ### <a name="submit-the-experiment"></a>Skicka experimentet
 
-Skicka experimentet med ett `ScriptRunConfig` -objekt.  Det här objektet innehåller:
+Skicka experimentet med ett- `ScriptRunConfig` objekt.  Det här objektet innehåller:
 
 * **source_directory**: käll katalogen som innehåller ditt utbildnings skript
 * **skript**: identifiera utbildnings skriptet
@@ -393,7 +393,7 @@ Växla samma experiment för att köra i ett annat beräknings mål genom att an
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=amlcompute_submit)]
 
 > [!TIP]
-> I det här exemplet används som standard bara en nod i Compute-målet för träning. `node_count` Om du vill använda mer än en nod ställer du in körnings konfigurationen på önskat antal noder. Följande kod anger till exempel antalet noder som används för utbildning till fyra:
+> I det här exemplet används som standard bara en nod i Compute-målet för träning. Om du vill använda mer än en nod ställer du in `node_count` körnings konfigurationen på önskat antal noder. Följande kod anger till exempel antalet noder som används för utbildning till fyra:
 >
 > ```python
 > src.run_config.node_count = 4
@@ -401,7 +401,7 @@ Växla samma experiment för att köra i ett annat beräknings mål genom att an
 
 Eller så kan du:
 
-* Skicka experimentet med ett `Estimator` -objekt som det visas i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
+* Skicka experimentet med ett- `Estimator` objekt som det visas i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
 * Skicka en HyperDrive-körning för inställning av min [parameter](how-to-tune-hyperparameters.md).
 * Skicka ett experiment via [vs Code-tillägget](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model).
 
@@ -409,7 +409,7 @@ Mer information finns i dokumentationen om [ScriptRunConfig](https://docs.micros
 
 ## <a name="create-run-configuration-and-submit-run-using-azure-machine-learning-cli"></a>Skapa kör konfiguration och skicka körning med Azure Machine Learning CLI
 
-Du kan använda [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och [Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md) för att skapa kör konfigurationer och skicka körningar på olika Compute-mål. Följande exempel förutsätter att du har en befintlig Azure Machine Learning-arbetsyta och att du har loggat in på `az login` Azure med CLI-kommandot. 
+Du kan använda [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) och [Machine Learning CLI-tillägget](reference-azure-machine-learning-cli.md) för att skapa kör konfigurationer och skicka körningar på olika Compute-mål. Följande exempel förutsätter att du har en befintlig Azure Machine Learning-arbetsyta och att du har loggat in på Azure med `az login` CLI-kommandot. 
 
 [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 

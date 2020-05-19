@@ -1,7 +1,7 @@
 ---
-title: 'Snabb start: Hämta en lista över språk som stöds – Translator Text API'
+title: 'Snabb start: hämta listan över språk som stöds – översättare'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten hämtar du en lista över språk som stöds för översättning, translitterering och ordlistesökningar med hjälp av Translator Text API.
+description: I den här snabb starten får du en lista över språk som stöds för översättning, transkriberingsspråk och sökning av ord listor med hjälp av Translator.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: d992fcec6071ea9883f2db61d6c54f41a9615867
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bfb8b9d81496d10601bf6e6cfeb26d18b57e3eca
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77525149"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586918"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages"></a>Snabb start: Använd Translator Text API för att hämta en lista över språk som stöds
+# <a name="quickstart-use-the-translator-to-get-a-list-of-supported-languages"></a>Snabb start: Använd Translator för att hämta en lista över språk som stöds
 
-I den här snabbstarten hämtar du en lista över språk som stöds för översättning, translitterering och ordlistesökningar med hjälp av Translator Text API.
+I den här snabb starten får du en lista över språk som stöds för översättning, transkriberingsspråk och sökning av ord listor med hjälp av Translator.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [C# quickstart](includes/languages-csharp.md)]

@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 04255fb6fdf83e7249fad01c75425943b580393c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 599514f6e7b97208194fc4c1660712f4d5e0c4cb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742861"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585359"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Vägledning för att utforma distribuerade tabeller i Synapse SQL-pool
 
@@ -92,11 +92,11 @@ WITH
 ;
 ```
 
-Att välja en distributions kolumn är ett viktigt design beslut eftersom värdena i den här kolumnen avgör hur raderna ska distribueras. Det bästa valet beror på flera faktorer och inbegriper vanligt vis kompromisser. Men om du inte väljer den bästa kolumnen första gången kan du använda [CREATE TABLE som Select (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att återskapa tabellen med en annan distributions kolumn.
+Data som lagras i kolumnen distribution kan uppdateras. Uppdateringar av data i kolumnen distribution kan resultera i en data blandnings åtgärd.
 
-### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>Välj en distributions kolumn som inte kräver uppdateringar
+Att välja en distributions kolumn är ett viktigt design beslut eftersom värdena i den här kolumnen avgör hur raderna ska distribueras. Det bästa valet beror på flera faktorer och inbegriper vanligt vis kompromisser. När du har valt en distributions kolumn kan du inte ändra den.  
 
-Du kan inte uppdatera en distributions kolumn om du inte tar bort raden och infogar en ny rad med de uppdaterade värdena. Välj därför en kolumn med statiska värden.
+Om du inte väljer den bästa kolumnen första gången kan du använda [CREATE TABLE som Select (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för att återskapa tabellen med en annan distributions kolumn.
 
 ### <a name="choose-a-distribution-column-with-data-that-distributes-evenly"></a>Välj en distributions kolumn med data som distribuerar jämnt
 
@@ -117,7 +117,7 @@ För att få rätt frågor om frågeresultat kan du flytta data från en Compute
 
 Om du vill minimera data flytten väljer du en distributions kolumn som:
 
-- Används `JOIN`i-, `GROUP BY` `DISTINCT`-, `OVER`-och `HAVING` -satser. När två stora fakta tabeller har frekventa kopplingar, ökar frågans prestanda när du distribuerar båda tabellerna på någon av kopplings kolumnerna.  När en tabell inte används i kopplingar bör du överväga att distribuera tabellen i en kolumn som ofta är i- `GROUP BY` satsen.
+- Används i `JOIN` -,-, `GROUP BY` `DISTINCT` `OVER` -och- `HAVING` satser. När två stora fakta tabeller har frekventa kopplingar, ökar frågans prestanda när du distribuerar båda tabellerna på någon av kopplings kolumnerna.  När en tabell inte används i kopplingar bör du överväga att distribuera tabellen i en kolumn som ofta är i- `GROUP BY` satsen.
 - Används *inte* i `WHERE` satser. Detta kan begränsa frågan till att inte köras på alla distributioner.
 - Är *inte* en datum kolumn. WHERE-satser filtreras ofta efter datum.  När detta inträffar kan all bearbetning bara köras på några få distributioner.
 
@@ -169,7 +169,7 @@ Undvik data flyttning under en koppling:
 - Tabellerna som används i kopplingen måste vara hash-distribuerade på **någon** av kolumnerna som ingår i kopplingen.
 - Data typerna för kopplings kolumnerna måste matcha mellan båda tabellerna.
 - Kolumnerna måste vara kopplade till en Equals-operator.
-- Kopplings typen får inte vara en `CROSS JOIN`.
+- Kopplings typen får inte vara en `CROSS JOIN` .
 
 Om du vill se om frågor har data förflyttning kan du titta på frågeplan.  
 

@@ -1,17 +1,17 @@
 ---
 title: Azure Lab Services – Visa supportinformation (labb användare)
-description: Den här artikeln förklarar hur en labb användare eller lärare kan visa supportinformation som han/hon kan använda för att få hjälp.
+description: I den här artikeln förklaras hur en labb användare eller lärare kan visa support information som han/hon kan använda för att få hjälp.
 author: spelluru
 ms.author: spelluru
 ms.date: 02/14/2020
 ms.topic: how-to
 ms.service: lab-services
-ms.openlocfilehash: bd92d53e09774183edadff0f949820f8feec6180
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45cfc327f8534336ba2d9fb404a50e9bd530dccb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80109256"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585563"
 ---
 # <a name="view-support-information-lab-user-in-azure-lab-services"></a>Visa supportinformation (labb användare i Azure Lab Services)
 Den här artikeln förklarar hur du (som en labb användare) kan visa följande supportinformation:

@@ -3,12 +3,12 @@ title: Vad är Personanpassning?
 description: Personanpassar är en molnbaserad API-tjänst som gör att du kan välja den bästa upplevelsen som ska visas för användarna, lära sig från deras real tids beteende.
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 3ae425479d764c0a6bf6c63bdd54a964c48af8b6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cf046ada21c4920ea9e3853668a5928b2ca9f33a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687266"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586226"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
@@ -71,16 +71,23 @@ Eftersom Personanpassaren använder samlad information i nära real tid för att
 
 1. [Utforma](concepts-features.md) och planera för innehåll, **_åtgärder_** och **_kontext_**. Fastställ belönings algoritmen för **_belönings_** poängen.
 1. Varje [personanpassa resurs](how-to-settings.md) som du skapar betraktas som en inlärnings slinga. Slingan tar emot både rang-och belönings anrop för det innehållet eller användar upplevelsen.
-1. Lägg till en Personanpassare till din webbplats eller ditt innehålls system:
+
+    |Resurstyp| Syfte|
+    |--|--|
+    |[Lärlings läge](concept-apprentice-mode.md)`E0`|Träna en personanpassa modell utan att påverka ditt befintliga program och distribuera sedan till onlineutbildning i en produktions miljö|
+    |Standard`S0`|Utbildnings beteende online i en produktions miljö|
+    |Kostnads fria`F0`| Testa inlärnings beteendet i en miljö som inte är en produktions miljö|
+
+1. Lägg till en Personanpassare till ditt program, din webbplats eller ditt system:
     1. Lägg till ett **rang** anrop till personanpassaren i ditt program, din webbplats eller ditt system för att fastställa det bästa, enda _innehålls_ posten innan innehållet visas för användaren.
     1. Visa det bästa, enda _innehålls_ objekt, vilket är det returnerade _Åtgärds-ID: t för belöning_, till användare.
-    1. Använd _algoritmen_ för insamlad information om hur användaren beter sig för att fastställa **belönings** poängen, till exempel:
+    1. Använd _affärs logik_ för att samla in information om hur användaren beter sig för att fastställa **belönings** poängen, till exempel:
 
-        |Beteende|Beräknad belönings Poäng|
-        |--|--|
-        |Användaren har valt bästa, enskilt _innehålls_ objekt (ID för belönings åtgärd)|**1**|
-        |Användaren har valt annat innehåll|**0**|
-        |Användaren pausade, rullade runt på ett avgörande sätt innan du väljer bästa, enskilt _innehålls_ objekt (belönings ÅTGÄRDS-ID)|**0,5**|
+    |Beteende|Beräknad belönings Poäng|
+    |--|--|
+    |Användaren har valt bästa, enskilt _innehålls_ objekt (ID för belönings åtgärd)|**1**|
+    |Användaren har valt annat innehåll|**0**|
+    |Användaren pausade, rullade runt på ett avgörande sätt innan du väljer bästa, enskilt _innehålls_ objekt (belönings ÅTGÄRDS-ID)|**0,5**|
 
     1. Lägg till ett **belönings** samtal som skickar en belönings Poäng mellan 0 och 1
         * Direkt efter att ha visat ditt innehåll
@@ -95,5 +102,5 @@ Eftersom Personanpassaren använder samlad information i nära real tid för att
 * [Lär dig mer om funktioner och åtgärder för rang förfrågan](concepts-features.md)
 * [Läs om hur du avgör poängen för belönings förfrågan](concept-rewards.md)
 * [Snabbstarter](sdk-learning-loop.md)
-* [Självstudier](tutorial-use-azure-notebook-generate-loop-data.md)
+* [Självstudie](tutorial-use-azure-notebook-generate-loop-data.md)
 * [Använd den interaktiva demonstrationen](https://personalizationdemo.azurewebsites.net/)

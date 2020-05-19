@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: d75c925ef55163ce06b2ceff585e230d95b38c77
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7f3824ba4683c5ade4ac5bb84b853caf72e1073b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "71837522"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587203"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Skapa Main-funktionen
 
-Det här exemplet försöker läsa Translator Text prenumerations nyckel och slut punkt från följande miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
+Det här exemplet försöker läsa prenumerations nyckeln och slut punkten för din översättare från dessa miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT` . Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
 
 Kopiera den här koden till projektet:
 
@@ -67,7 +67,7 @@ func main() {
 
 ## <a name="create-a-function-to-detect-the-text-language"></a>Skapa en funktion för att identifiera textens språk
 
-Nu ska vi skapa en funktion för att identifiera textens språk. Den här funktionen använder ett enda argument, din Translator Text-prenumerationsnyckel.
+Nu ska vi skapa en funktion för att identifiera textens språk. Den här funktionen tar ett enskilt argument, prenumerations nyckeln för Translator.
 
 ```go
 func detect(subscriptionKey string, uri string) {
@@ -90,7 +90,7 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> Mer information om slut punkter, vägar och parametrar för begäran finns i [Translator 3,0: identifiera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
 
 ## <a name="create-a-struct-for-your-request-body"></a>Skapa en struktur för begärandetexten
 
@@ -108,7 +108,7 @@ b, _ := json.Marshal(body)
 
 ## <a name="build-the-request"></a>Skapa begäran
 
-Nu när du har kodat begärandetexten som JSON, kan du skapa din POST-begäran och anropa Translator Text API.
+Nu när du har kodat begär ande texten som JSON kan du bygga din POST-begäran och anropa Translator.
 
 ```go
 // Build the HTTP POST request
@@ -120,7 +120,7 @@ if err != nil {
 req.Header.Add("Ocp-Apim-Subscription-Key", subscriptionKey)
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -146,7 +146,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
+Det innebär att du har skapat ett enkelt program som anropar översättaren och returnerar ett JSON-svar. Nu är det dags att köra programmet:
 
 ```console
 go run detect-language.go
@@ -189,7 +189,7 @@ När du har kört exemplet bör du se följande utskrivna till Terminal:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

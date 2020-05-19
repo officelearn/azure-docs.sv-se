@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2020
+ms.date: 05/19/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 167c7f7aa3dbf967575c0ee8905821fb9d3f77ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0effb6bb6e3d3f80775a3cee1ad8a63013a78805
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80050727"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585848"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Vad är gästanvändaråtkomst i Azure Active Directory B2B?
 
@@ -88,6 +88,19 @@ Integrera dina externa partners så passar din organisations behov.
 
 - Använd [hantering av Azure AD-rättighet](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) för att konfigurera principer som [hanterar åtkomst för externa användare](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
 - Använd [API: er för inbjudan med B2B-samarbete](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) för att anpassa dina onboarding-upplevelser.
+
+## <a name="integrate-with-identity-providers"></a>Integrera med identitets leverantörer
+
+Azure AD stöder externa identitets leverantörer som Facebook, Microsoft-konton, Google-eller Enterprise Identity-leverantörer. Du kan konfigurera Federation med identitets leverantörer så att dina externa användare kan logga in med sina befintliga sociala konton eller företags konton i stället för att skapa ett nytt konto för ditt program. Läs mer om identitets leverantörer för externa identiteter.
+
+![Skärm bild som visar sidan med identitets leverantörer](media/what-is-b2b/identity-providers.png)
+
+
+## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Skapa ett användar flöde för självbetjänings registrering (förhands granskning)
+
+Med ett användar flöde för självbetjänings registrering kan du skapa en registrerings miljö för externa användare som vill ha åtkomst till dina appar. Som en del av registrerings flödet kan du ange alternativ för olika sociala eller företags identitets leverantörer och samla in information om användaren. Lär dig om självbetjänings registrering och hur du konfigurerar det.
+
+![Skärm bild som visar sidan användar flöden](media/what-is-b2b/self-service-sign-up-user-flow-overview.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

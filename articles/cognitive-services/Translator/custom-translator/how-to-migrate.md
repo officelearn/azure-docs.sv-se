@@ -9,19 +9,19 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 2fa90a8099778bf37ce8534e968a2b1b4345c2d8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75446785"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587013"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrera Hub-arbetsytan och projekt till anpassad översättare
 
 Du kan enkelt migrera [Microsoft Translator Hub](https://hub.microsofttranslator.com/) -arbetsytan och-projekt till anpassad översättare. Migrering initieras från Microsoft Hub genom att välja en arbets yta eller ett projekt och sedan välja en arbets yta i anpassad översättare och sedan välja de utbildningar som du vill överföra. När migreringen startar överförs de valda utbildnings inställningarna till alla relevanta dokument. Distribuerade modeller är utbildade och kan distribueras när de är klara.
 
 De här åtgärderna utförs under migreringen:
-* Alla dokument och projekt definitioner får sina namn överförda med tillägget "hub_" som redan har prefixet till namnet. Automatiskt genererade test-och justerings data får namnet\<hub_systemtune_ ModelID> eller\<hub_systemtest_ ModelID>.
+* Alla dokument och projekt definitioner får sina namn överförda med tillägget "hub_" som redan har prefixet till namnet. Automatiskt genererade test-och justerings data får namnet hub_systemtune_ \< modelid> eller hub_systemtest_ \< ModelID>.
 * Alla utbildningar som befann sig i det distribuerade läget när migreringen sker kommer automatiskt att tränas med dokumenten i hubb inlärningen. Den här utbildningen kommer inte att debiteras för din prenumeration. Om automatisk distribution valdes för migreringen distribueras den tränade modellen när den är klar. Vanliga värd avgifter kommer att tillämpas.
 * Alla migrerade utbildningar som inte befann sig i det distribuerade läget kommer att placeras i det migrerade utkastet. I det här läget har du möjlighet att träna en modell med den migrerade definitionen, men regelbundna utbildnings avgifter kommer att gälla.
 * BLEU-poängen som migreras från hubben i någon punkt finns i TrainingDetails-sidan i modellen i rubriken "Bleu score i MT Hub".
@@ -134,16 +134,16 @@ I den här tabellen jämförs funktionerna mellan Microsoft Translator Hub och d
 |:-----|:----:|:----:|
 |Status för anpassnings funktion   | Allmän tillgänglighet  | Allmän tillgänglighet |
 | Text-API-version  | V2    | V3  |
-| SMT-anpassning | Ja   | Nej |
-| Anpassning av NMT | Nej    | Ja |
-| Ny anpassning av enhetligt tal tjänster | Nej    | Ja |
+| SMT-anpassning | Yes   | Nej |
+| Anpassning av NMT | Nej    | Yes |
+| Ny anpassning av enhetligt tal tjänster | Nej    | Yes |
 | Ingen spårning | Ja | Ja |
 
 ## <a name="new-languages"></a>Nya språk
 
-Om du är en community eller organisation som arbetar med att [custommt@microsoft.com](mailto:custommt@microsoft.com) skapa ett nytt språk system för Microsoft Translator kan du kontakta för mer information.
+Om du är en community eller organisation som arbetar med att skapa ett nytt språk system för Microsoft Translator kan du kontakta [custommt@microsoft.com](mailto:custommt@microsoft.com) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Träna en modell](how-to-train-model.md).
-- Börja använda din distribuerade anpassade översättnings modell via [Microsoft Translator text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Börja använda din distribuerade anpassade översättnings modell via [Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

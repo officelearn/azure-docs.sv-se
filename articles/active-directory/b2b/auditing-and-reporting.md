@@ -12,18 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67b543bd46b195a0944959f3f462a2bdc7d150ba
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b2f1478391eccaabcc4dbcd150b54376494d3f56
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199463"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587535"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Granskning och rapportering av en B2B-samarbets användare
 Med gäst användare har du gransknings funktioner som liknar medlems användare. 
 
 ## <a name="access-reviews"></a>Åtkomstgranskningar
-Du kan använda åtkomst granskningar för att regelbundet kontrol lera om gäst användare fortfarande behöver åtkomst till dina resurser. Funktionen **åtkomst granskningar** är tillgänglig i **Azure Active Directory** under åtkomst granskningar för **organisations relationer**  >  **Access reviews** (eller **externa identiteter**  >  **åtkomst granskningar** ). Du kan också söka efter "åtkomst granskningar" från **alla tjänster** i Azure Portal. Information om hur du använder åtkomst granskningar finns i [Hantera gäst åtkomst med åtkomst granskningar för Azure AD](../governance/manage-guest-access-with-access-reviews.md).
+Du kan använda åtkomst granskningar för att regelbundet kontrol lera om gäst användare fortfarande behöver åtkomst till dina resurser. Funktionen **åtkomst granskningar** finns i **Azure Active Directory** under **externa identiteter**  >  **åtkomst granskningar**. Du kan också söka efter "åtkomst granskningar" från **alla tjänster** i Azure Portal. Information om hur du använder åtkomst granskningar finns i [Hantera gäst åtkomst med åtkomst granskningar för Azure AD](../governance/manage-guest-access-with-access-reviews.md).
 
 ## <a name="audit-logs"></a>Granskningsloggar
 

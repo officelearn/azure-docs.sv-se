@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bbfd0027f9de93ee939815853f5141044404c53
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199497"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585903"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samarbete för inbjudan
 
@@ -99,7 +99,7 @@ När en gäst loggar in för att komma åt resurser i en partner organisation f�
 
    ![Skärm bild som visar nya användnings villkor](media/redemption-experience/terms-of-use-accept.png) 
 
-   Du kan konfigurera [användnings villkoren](../governance/active-directory-tou.md) i **organisatoriska relationer** (eller **externa identiteter**) > **användningsvillkor**.
+   Du kan konfigurera användnings [villkoren](../governance/active-directory-tou.md) i **externa identiteter**  >  **användningsvillkor**.
 
 3. Om inget annat anges omdirigeras gästen till appens åtkomst panel, som innehåller en lista över de program som gästen har åtkomst till.
 

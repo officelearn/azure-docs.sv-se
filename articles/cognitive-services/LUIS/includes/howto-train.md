@@ -10,18 +10,15 @@ ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 636669ee4284d218d5ac2c6e2e7cdb37b00b3a5b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 59d78f60081367b7f5544229b7749d71b7a1dd2f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77279645"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585115"
 ---
-1. Längst uppe till höger på LUIS-webbplatsen väljer du knappen **Train** (Träna).
+1. I den övre högra delen av webbplatsen LUIS väljer du knappen **träna** .
 
     ![Knappen Train (Träna)](../media/train-button-preview.png)
 
-2. Träningen är klar när du ser status bekräftelsen lyckades.
-
-    > [!Tip]
-    > **Aviseringar** finns i det övre högra navigerings fönstret och innehåller en historik.
+1. Träningen är klar när status indikatorn på knappen **träna** är grön.

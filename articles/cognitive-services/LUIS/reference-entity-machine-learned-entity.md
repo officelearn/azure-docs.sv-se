@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 12/30/2019
+ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: aac4ba3ec63d425cac782f5db65bba923d24ed71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75552006"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585597"
 ---
 # <a name="machine-learned-entity"></a>Maskininlärd enhet
 
@@ -38,13 +38,13 @@ Här är några exempelyttranden:
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Eftersom en enhet som kan identifieras av enheten kan ha många del komponenter med begränsningar och beskrivningar, är detta bara ett exempel. Den bör betraktas som en vägledning för vad din entitet kommer att returnera.
+Eftersom en enhet som har lärts in kan ha många underentiteter med nödvändiga funktioner, är detta bara ett exempel. Den bör betraktas som en vägledning för vad din entitet kommer att returnera.
 
 Överväg frågan:
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-Detta är JSON om `verbose=false` anges i frågesträngen:
+Detta är JSON om anges `verbose=false` i frågesträngen:
 
 ```json
 "entities": {
@@ -102,7 +102,7 @@ Detta är JSON om `verbose=false` anges i frågesträngen:
 
 ```
 
-Detta är JSON om `verbose=true` anges i frågesträngen:
+Detta är JSON om anges `verbose=true` i frågesträngen:
 
 ```json
 "entities": {

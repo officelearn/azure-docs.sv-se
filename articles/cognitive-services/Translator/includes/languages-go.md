@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 05355ad37183d4c14cb8f6598141292ded0386d9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: edde734409d064f1bff0212a1cbaecf136206772
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906990"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586915"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -17,7 +17,7 @@ ms.locfileid: "69906990"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt go-projekt med hjälp av din favorit-IDE eller-redigerare eller ny mapp på Skriv bordet. Kopiera sedan kodfragmentet till projektet/mappen i en fil med namnet `get-languages.go`.
+Skapa ett nytt go-projekt med hjälp av din favorit-IDE eller-redigerare eller ny mapp på Skriv bordet. Kopiera sedan kodfragmentet till projektet/mappen i en fil med namnet `get-languages.go` .
 
 ```go
 package main
@@ -34,9 +34,9 @@ import (
 
 ## <a name="create-the-main-function"></a>Skapa Main-funktionen
 
-Nu ska vi skapa huvudfunktionen i vårt program. Du kommer att märka att det bara är en enda rad med kod. Det beror på att vi skapar en enda funktion som hämtar och skriver ut listan med språk som stöds i Translator Text.
+Nu ska vi skapa huvudfunktionen i vårt program. Du kommer att märka att det bara är en enda rad med kod. Det beror på att vi skapar en enda funktion för att hämta och skriva ut listan över språk som stöds för Translator.
 
-Det här exemplet försöker läsa Translator Text slut punkten från en miljö variabel: `TRANSLATOR_TEXT_ENDPOINT`. Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
+I det här exemplet görs ett försök att läsa din översättares slut punkt från en miljö variabel: `TRANSLATOR_TEXT_ENDPOINT` . Om du inte känner till miljövariabler kan du ange `endpoint` som en sträng och kommentera bort den villkorliga instruktionen.
 
 Kopiera den här koden till projektet:
 
@@ -76,11 +76,11 @@ u.RawQuery = q.Encode()
 ```
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
+> Mer information om slut punkter, vägar och parametrar för begäran finns i [Translator 3,0: språk](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ## <a name="build-the-request"></a>Skapa begäran
 
-Nu när du har kodat begärandetexten som JSON, kan du skapa din POST-begäran och anropa Translator Text API.
+Nu när du har kodat begär ande texten som JSON kan du bygga din POST-begäran och anropa Translator.
 
 ```go
 // Build the HTTP GET request
@@ -91,7 +91,7 @@ if err != nil {
 // Add required headers
 req.Header.Add("Content-Type", "application/json")
 
-// Call the Translator Text API
+// Call the Translator
 res, err := http.DefaultClient.Do(req)
 if err != nil {
     log.Fatal(err)
@@ -117,7 +117,7 @@ fmt.Printf("%s\n", prettyJSON)
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
+Det innebär att du har skapat ett enkelt program som anropar översättaren och returnerar ett JSON-svar. Nu är det dags att köra programmet:
 
 ```console
 go run get-languages.go
@@ -217,7 +217,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

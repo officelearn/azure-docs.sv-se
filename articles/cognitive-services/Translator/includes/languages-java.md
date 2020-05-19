@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 34ff0e792fc388f3083e2d490b2658822793988f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ab8474833ce791f5715369cb25e95f34170f457b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906935"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586913"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -121,7 +121,7 @@ public String Get() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>Skapa en funktion för att parsa svaret
 
-Den här enkla funktionen parsar och gör JSON-svaret prydligare från Translator Text-tjänsten.
+Den här enkla funktionen parsar och prettifies JSON-svaret från Translator-tjänsten.
 
 ```java
 // This function prettifies the json response.
@@ -255,7 +255,7 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5b3a6f2e903d8178554b7a076ae1277633569353
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e01f3ddde96903716cf1fcff0426791ff3a90e07
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73836570"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587671"
 ---
 # <a name="create-a-project"></a>Skapa ett projekt
 
@@ -52,7 +52,7 @@ Landnings sidan för anpassad översättare visar de första 10 projekten i din 
 
 När du har valt ett projekt visas följande på projekt sidan:
 
-- Kategorinr: en Kategorinhet skapas genom att sammanfoga WorkspaceID, projekt etiketten och kategori koden. Du kan använda kategorin med text Translator för att hämta anpassade översättningar.
+- Kategorinr: en Kategorinhet skapas genom att sammanfoga WorkspaceID, projekt etiketten och kategori koden. Du kan använda kategorin med text översättare för att hämta anpassade översättningar.
 
 - Knappen träna: Använd den här knappen för att starta en [träna en modell](how-to-train-model.md).
 

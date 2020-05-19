@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 4395e0a14819021bd1e4ae32c89ffb0cf8e07d00
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7801040811844640639195a3493b792a8e1ee645
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906574"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586577"
 ---
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
@@ -17,7 +17,7 @@ ms.locfileid: "69906574"
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt projekt med hjälp av din favorit-IDE eller-redigerare eller en ny mapp med `translate-text.js` en fil med namnet på Skriv bordet. Kopiera sedan kodfragmentet till projektet/filen:
+Skapa ett nytt projekt med hjälp av din favorit-IDE eller-redigerare eller en ny mapp med en fil med namnet `translate-text.js` på Skriv bordet. Kopiera sedan kodfragmentet till projektet/filen:
 
 ```javascript
 const request = require('request');
@@ -31,7 +31,7 @@ De här modulerna krävs för att skapa HTTP-begäran och skapa en unik identifi
 
 ## <a name="set-the-subscription-key-and-endpoint"></a>Ange prenumerations nyckel och slut punkt
 
-Det här exemplet försöker läsa Translator Text prenumerations nyckel och slut punkt från följande miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
+Det här exemplet försöker läsa prenumerations nyckeln och slut punkten för din översättare från dessa miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT` . Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
 
 Kopiera den här koden till projektet:
 
@@ -53,7 +53,7 @@ var endpoint = process.env[endpoint_var];
 Metoden `request()`, som görs tillgänglig via begärandemodulen, gör att vi kan skicka HTTP-metoden, URL:en, begärandeparametrarna, sidhuvudena och JSON-brödtexten som ett `options`-objekt. I det här kodfragmentet konfigurerar vi begäran:
 
 >[!NOTE]
-> Mer information om slutpunkter, vägar och begärandeparametrar finns i [Translator Text API 3.0: Translitterera](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> Mer information om slut punkter, vägar och parametrar för begäran finns i [Translator 3,0: translittererad](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```javascript
 let options = {
@@ -99,7 +99,7 @@ request(options, function(err, res, body){
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det var allt – du har skapat ett enkelt program som anropar Translator Text API och returnerar en JSON-svar. Nu är det dags att köra programmet:
+Det innebär att du har skapat ett enkelt program som anropar översättaren och returnerar ett JSON-svar. Nu är det dags att köra programmet:
 
 ```console
 node transliterate-text.js
@@ -124,7 +124,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

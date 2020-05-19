@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie – Azure Synapse Analytics: Spark jobb definition för Synapse'
-description: Självstudie – Använd Azure Synapse Analytics för att skapa Spark-jobb definitioner och skicka dem till en Synapse Spark-pool.
+title: 'Självstudie – Apache Spark för Azure Synapse Analytics: Apache Spark jobb definition för Synapse'
+description: Självstudie – Använd Azure Synapse Analytics för att skapa Spark-jobb definitioner och skicka dem till en Apache Spark för Azure Synapse Analytics-poolen.
 author: hrasheed-msft
 ms.author: jejiang
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: d5443a2db6f4fecbd84ef51166f44c3a6e920aee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5fc9dffaa73d195c842381b6682a00e9834c0fe7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422972"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83587943"
 ---
 # <a name="tutorial-use-azure-synapse-analytics-to-create-apache-spark-job-definitions-for-synapse-spark-pools"></a>Självstudie: använda Azure Synapse Analytics för att skapa Apache Spark jobb definitioner för Synapse Spark-pooler
 
@@ -22,14 +22,14 @@ Den här självstudien visar hur du använder Azure Synapse Analytics för att s
 * Utveckla och skicka en spark-jobbiljett på en Synapse Spark-pool.
 * Visa jobb information efter överföring.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 >
 > * Utveckla och skicka en spark-jobbiljett på en Synapse Spark-pool.
 > * Visa jobb information efter överföring.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure Synapse Analytics-arbetsyta. Instruktioner finns i [skapa en Azure Synapse Analytics-arbetsyta](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
 
@@ -47,7 +47,7 @@ Innan du skickar en spark-jobbiljett måste du vara ägare till Storage BLOB-dat
 
     ![Dialog rutan för Spark-sändning](./media/apache-spark-job-definitions/create-new-filesystem.png)
 
-3. Öppna `sparkjob`, klicka på **Access Control (IAM)** och klicka sedan på **Lägg till** och välj **Lägg till roll tilldelning**.
+3. Öppna `sparkjob` , klicka på **Access Control (IAM)** och klicka sedan på **Lägg till** och välj **Lägg till roll tilldelning**.
 
     ![Klicka på knappen Skicka för att skicka Spark-jobbet definition](./media/apache-spark-job-definitions/add-role-assignment-01.png)
 

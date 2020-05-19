@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: ad5c51b3d373947e8a09762b0cb27afff990e6da
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 82766e969f62f35f39f6545eb4c2c6bdda29c11b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906466"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586583"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -88,7 +88,7 @@ public class Transliterate {
 }
 ```
 
-Lägg till följande rader i klassen `Transliterate`. Först läses prenumerations nyckeln och slut punkten in från miljövariabler. Sedan kommer du att märka att tillsammans med de `api-version`två ytterligare parametrarna har lagts till i `url`. De här parametrarna används för att ange indataspråket och skripten för translitteration. I det här exemplet är det inställt på japanska (`jpan`) och latin (`latn`). 
+Lägg till följande rader i klassen `Transliterate`. Först läses prenumerations nyckeln och slut punkten in från miljövariabler. Sedan kommer du att märka att tillsammans med de `api-version` två ytterligare parametrarna har lagts till i `url` . De här parametrarna används för att ange indataspråket och skripten för translitteration. I det här exemplet är det inställt på japanska (`jpan`) och latin (`latn`). 
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
@@ -125,7 +125,7 @@ public String Post() throws IOException {
 
 ## <a name="create-a-function-to-parse-the-response"></a>Skapa en funktion för att parsa svaret
 
-Den här enkla funktionen parsar och gör JSON-svaret prydligare från Translator Text-tjänsten.
+Den här enkla funktionen parsar och prettifies JSON-svaret från Translator-tjänsten.
 
 ```java
 // This function prettifies the json response.
@@ -180,7 +180,7 @@ gradle run
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

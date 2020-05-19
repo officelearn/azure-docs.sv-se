@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: spelluru
-ms.openlocfilehash: dfd16d0977504e598492225238d29c83fcb7a028
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: a40575340fc5b1c202be6b001807085954439f03
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598070"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83588164"
 ---
 # <a name="enable-remote-desktop-for-linux-virtual-machines-in-a-lab-in-azure-lab-services"></a>Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services
 Den här artikeln visar hur du utför följande uppgifter:
 
 - Aktivera fjärr skrivbord för virtuell Linux-dator
-- Hur lärare kan ansluta till mallen VM via Anslutning till fjärrskrivbord (RDP).
+- Hur en lärare kan ansluta till mallen VM via Anslutning till fjärrskrivbord (RDP).
 
 ## <a name="enable-remote-desktop-for-linux-vm"></a>Aktivera fjärr skrivbord för virtuell Linux-dator
-Under labb skapandet kan lärare aktivera **anslutning till fjärr skrivbord** för **Linux** -avbildningar. Alternativet **aktivera anslutning till fjärrskrivbord** visas när en Linux-avbildning väljs för mallen. När det här alternativet är aktiverat kan lärare ansluta till mallen VM och student virtuella datorer via RDP (fjärr skrivbord). 
+Under labb skapandet kan lärare aktivera anslutning till **fjärr skrivbord** för **Linux** -avbildningar. Alternativet **aktivera anslutning till fjärrskrivbord** visas när en Linux-avbildning väljs för mallen. När det här alternativet är aktiverat kan lärare ansluta till mallen VM och student virtuella datorer via RDP (fjärr skrivbord). 
 
 ![Aktivera anslutning till fjärr skrivbord för en Linux-avbildning](../media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
@@ -49,7 +49,7 @@ Anslutning till fjärr skrivbord stöds för följande operativ system:
 - Ubuntu Server 16,04 LTS
 
 ## <a name="connect-to-the-template-vm"></a>Ansluta till den virtuella malldatorn 
-Lärare måste ansluta till mallen VM med SSH först och installera RDP-och GUI-paket på den. Sedan kan lärarna använda RDP för att ansluta till mallen VM: 
+Lärare måste ansluta till mallen VM med SSH först och installera RDP-och GUI-paket på den. Sedan kan läraren använda RDP för att ansluta till mallen VM: 
 
 1. Om du ser **Anpassa mall** i verktygsfältet väljer du den. Välj sedan **Fortsätt** i dialog rutan **Anpassa mall** . Den här åtgärden startar mallen VM.  
 

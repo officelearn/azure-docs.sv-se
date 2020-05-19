@@ -4,14 +4,14 @@ description: Använd Azure Resource Manager mallar för att skapa och konfigurer
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/08/2020
 ms.author: mjbrown
-ms.openlocfilehash: 501065875cafc035d491e606c016f3ad4dbfc5d4
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a98aee61c3a330344b5b7fa0a5f7f53a65e5ecdb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791637"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586158"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Resource Manager-mallar för Azure Cosmos DB
 
@@ -22,6 +22,7 @@ Följande tabeller innehåller länkar till Azure Resource Manager mallar för A
 |**Mall**|**Beskrivning**|
 |---|---|
 |[Skapa ett Azure Cosmos-konto, en databas, container med autoskalning av data flöde](manage-sql-with-resource-manager.md#create-autoscale) | Den här mallen skapar ett kärn-API-konto (SQL) i två regioner, en databas och container med autoskalning av data flöde. |
+|[Skapa ett Azure Cosmos-konto, en databas, container med analys lager](manage-sql-with-resource-manager.md#create-analytical-store) | Den här mallen skapar ett huvud-API-konto i en region med en behållare som kon figurer ATS med analytiskt TTL aktiverat och alternativet för att använda manuell eller autoskalning av data flöde. |
 |[Skapa ett Azure Cosmos-konto, en databas, behållare med standard (manuell) data flöde](manage-sql-with-resource-manager.md#create-manual) | Den här mallen skapar ett kärn-API-konto (SQL) i två regioner, en databas och en behållare med standard data flöde. |
 |[Skapa ett Azure Cosmos-konto, en databas och en behållare med en lagrad procedur, utlösare och UDF](manage-sql-with-resource-manager.md#create-sproc) | Den här mallen skapar ett Core (SQL) API-konto i två regioner med en lagrad procedur, utlösare och UDF för en behållare. |
 |[Skapa en privat slut punkt för ett befintligt Azure Cosmos-konto](how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-a-resource-manager-template) |  Den här mallen skapar en privat slut punkt för ett befintligt API-konto i Azure Cosmos Core (SQL) i ett befintligt virtuellt nätverk. |

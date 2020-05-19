@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 3d92d3f959e2ad44daa82d6b609b9357cee969c9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: dc8afd5a61a40b14792bb564d394604010718888
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906888"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586778"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -36,7 +36,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 Den här snabb starten kräver C# 7,1 eller senare. Det finns några sätt att ändra C#-versionen för projektet. I den här hand boken visar vi hur du justerar `sentences-sample.csproj` filen. För alla tillgängliga alternativ, till exempel att ändra språk i Visual Studio, se [väljer du språk versionen C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Öppna projektet och öppna `sentences-sample.csproj`sedan. Kontrol lera att `LangVersion` är inställt på 7,1 eller senare. Om det inte finns en egenskaps grupp för språk versionen lägger du till följande rader:
+Öppna projektet och öppna sedan `sentences-sample.csproj` . Kontrol lera att `LangVersion` är inställt på 7,1 eller senare. Om det inte finns en egenskaps grupp för språk versionen lägger du till följande rader:
 
 ```xml
 <PropertyGroup>
@@ -59,11 +59,11 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Skapa klasser för JSON-svaret
 
-Nu ska vi skapa en klass som används för att avserialisera JSON-svaret som returneras av Translator Text API.
+Nu ska vi skapa en klass som används för att avserialisera JSON-svaret som returneras av Translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class BreakSentenceResult
 {
@@ -105,7 +105,7 @@ static Program()
 
 ## <a name="create-a-function-to-determine-sentence-length"></a>Skapa en funktion för att fastställa meningslängd
 
-I- `Program` klassen skapar du en ny funktion som `BreakSentenceRequest()`heter. Den här funktionen tar fyra argument `subscriptionKey`: `endpoint`, `route`, och `inputText`.
+I `Program` -klassen skapar du en ny funktion som heter `BreakSentenceRequest()` . Den här funktionen tar fyra argument: `subscriptionKey` , `endpoint` , `route` och `inputText` .
 
 ```csharp
 static public async Task BreakSentenceRequest(string subscriptionKey, string endpoint, string route, string inputText)
@@ -177,7 +177,7 @@ Om du använder en Cognitive Services-prenumeration med flera tjänster måste d
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att anropa `BreakSentenceRequest()` i funktionen `Main`. Leta `static void Main(string[] args)` upp och ersätt den med den här koden:
+Det sista steget är att anropa `BreakSentenceRequest()` i funktionen `Main`. Leta upp `static void Main(string[] args)` och ersätt den med den här koden:
 
 ```csharp
 static async Task Main(string[] args)
@@ -194,7 +194,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Du kommer att märka att `Main`i, du har `subscriptionKey`deklarerat `endpoint`, `route`, och den text som ska `breakSentenceText`utvärderas.
+Du kommer att märka att i `Main` , du har deklarerat `subscriptionKey` ,, `endpoint` `route` och den text som ska utvärderas `breakSentenceText` .
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
@@ -234,7 +234,7 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

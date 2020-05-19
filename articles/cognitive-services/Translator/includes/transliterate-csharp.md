@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 81fb599ca4987adccdb91baa7a74c33ae3af48d4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4573224a77b080e0ba6cefe5069164466e7df5b9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69906634"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83586571"
 ---
 [!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
@@ -36,7 +36,7 @@ dotnet add package Newtonsoft.Json --version 11.0.2
 
 Den här snabb starten kräver C# 7,1 eller senare. Det finns några sätt att ändra C#-versionen för projektet. I den här hand boken visar vi hur du justerar `transliterate-sample.csproj` filen. För alla tillgängliga alternativ, till exempel att ändra språk i Visual Studio, se [väljer du språk versionen C#](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Öppna projektet och öppna `transliterate-sample.csproj`sedan. Kontrol lera att `LangVersion` är inställt på 7,1 eller senare. Om det inte finns en egenskaps grupp för språk versionen lägger du till följande rader:
+Öppna projektet och öppna sedan `transliterate-sample.csproj` . Kontrol lera att `LangVersion` är inställt på 7,1 eller senare. Om det inte finns en egenskaps grupp för språk versionen lägger du till följande rader:
 
 ```xml
 <PropertyGroup>
@@ -59,11 +59,11 @@ using Newtonsoft.Json;
 
 ## <a name="create-classes-for-the-json-response"></a>Skapa klasser för JSON-svaret
 
-Nu ska vi skapa en klass som används för att avserialisera JSON-svaret som returneras av Translator Text API.
+Nu ska vi skapa en klass som används för att avserialisera JSON-svaret som returneras av Translator.
 
 ```csharp
 /// <summary>
-/// The C# classes that represents the JSON returned by the Translator Text API.
+/// The C# classes that represents the JSON returned by the Translator.
 /// </summary>
 public class TransliterationResult
 {
@@ -99,7 +99,7 @@ static Program()
 
 ## <a name="create-a-function-to-transliterate-text"></a>Skapa en funktion för att translitterera text
 
-I- `Program` klassen skapar du en asynkron funktion som `TransliterateTextRequest()`kallas. Den här funktionen tar fyra argument `subscriptionKey`: `endpoint`, `route`, och `inputText`.
+I `Program` -klassen skapar du en asynkron funktion som kallas `TransliterateTextRequest()` . Den här funktionen tar fyra argument: `subscriptionKey` , `endpoint` , `route` och `inputText` .
 
 ```csharp
 static public async Task TransliterateTextRequest(string subscriptionKey, string endpoint, string route, string inputText)
@@ -113,7 +113,7 @@ static public async Task TransliterateTextRequest(string subscriptionKey, string
 
 ## <a name="serialize-the-translation-request"></a>Serialisera översättnings förfrågan
 
-Sedan behöver vi skapa och serialisera det JSON-objekt som innehåller den text du vill översätta. Kom ihåg att du kan skicka fler än ett objekt i `body`.
+Sedan behöver vi skapa och serialisera det JSON-objekt som innehåller den text du vill översätta. Kom ihåg att du kan skicka fler än ett objekt i `body` .
 
 ```csharp
 object[] body = new object[] { new { Text = inputText } };
@@ -171,7 +171,7 @@ Om du använder en Cognitive Services-prenumeration med flera tjänster måste d
 
 ## <a name="put-it-all-together"></a>Färdigställa allt
 
-Det sista steget är att anropa `TransliterateTextRequest()` i funktionen `Main`. I det här exemplet är vi transliterating från japansk till latinskt skript. Leta `static void Main(string[] args)` upp och ersätt den med den här koden:
+Det sista steget är att anropa `TransliterateTextRequest()` i funktionen `Main`. I det här exemplet är vi transliterating från japansk till latinskt skript. Leta upp `static void Main(string[] args)` och ersätt den med den här koden:
 
 ```csharp
 static async Task Main(string[] args)
@@ -188,7 +188,7 @@ static async Task Main(string[] args)
 }
 ```
 
-Du kommer att märka att `Main`i, du `subscriptionKey`deklarerar `endpoint`, `route`, och skriptet till translittererad `textToTransliterate`.
+Du kommer att märka att i `Main` , du deklarerar `subscriptionKey` ,, `endpoint` `route` och skriptet till translittererad `textToTransliterate` .
 
 ## <a name="run-the-sample-app"></a>Kör exempelappen
 
@@ -223,7 +223,7 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ta en titt på API-referensen för att förstå allt du kan göra med Translator Text API.
+Ta en titt på API-referensen för att förstå allt du kan göra med Translator.
 
 > [!div class="nextstepaction"]
 > [API-referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

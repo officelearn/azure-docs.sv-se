@@ -2,13 +2,13 @@
 title: Vad är Language Understanding Intelligent Service (LUIS)?
 description: Language Understanding Intelligent Service (LUIS) är en molnbaserad API-tjänst som använder anpassad maskininlärningsinformation på en användares naturliga konversationsspråk för att förutsäga den övergripande betydelsen och hämta relevant, detaljerad information.
 ms.topic: overview
-ms.date: 02/23/2020
-ms.openlocfilehash: 98fb936422f8e23e728efea19fa2cd75d90fac57
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/05/2020
+ms.openlocfilehash: d09aaabeec1d22132843ba98472e1cd89ba95815
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80053357"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592822"
 ---
 # <a name="what-is-language-understanding-luis"></a>Vad är Language Understanding Intelligent Service (LUIS)?
 
@@ -29,10 +29,10 @@ När LUIS-appen har skickar ett klientprogram yttranden (text) till LUIS slutpun
 
 ![Konceptuell bilder av LUIS fungerar med chatt-roboten för att förutsäga användar text med naturligt språk förståelse (NLP)](./media/luis-overview/LUIS-chat-bot-request-response.svg "Konceptuell bilder av LUIS fungerar med chatt-roboten för att förutsäga användar text med naturligt språk förståelse (NLP")
 
-|Steg|Action|
+|Steg|Åtgärd|
 |:--|:--|
 |1|Klientprogrammet skickar användarens _yttrande_ (text med användarens egna ord), "I want to call my HR rep." (”Jag vill ringa HR-personalen.”) till LUIS-slutpunkten som en HTTP-begäran.|
-|2|Med LUIS kan du utforma dina anpassade språk modeller för att lägga till information i ditt program. Datorns förkonfigurerade språk modeller tar användarens ostrukturerade indata och returnerar ett JSON-formaterat svar, med en topp avsikt `HRContact`. Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med högsta poäng. Det kan också extrahera data, till exempel entiteten _kontakt typ_ .|
+|2|Med LUIS kan du utforma dina anpassade språk modeller för att lägga till information i ditt program. Datorns förkonfigurerade språk modeller tar användarens ostrukturerade indata och returnerar ett JSON-formaterat svar, med en topp avsikt `HRContact` . Det minsta JSON-slutpunktssvaret innehåller frågeyttrandet och avsikten med högsta poäng. Det kan också extrahera data, till exempel entiteten _kontakt typ_ .|
 |3|Klientprogrammet använder JSON-svaret för att fatta beslut om hur användarens begäranden sak uppfyllas. Dessa beslut kan innehålla besluts träd i bot Framework-koden och anrop till andra tjänster. |
 
 LUIS-appen tillhandahåller information så att klientprogrammet kan fatta smarta beslut. LUIS har inte dessa alternativ.
@@ -55,9 +55,9 @@ LUIS-modellen börjar med kategorier av användaravsikter som kallas för **[avs
 
 |Exempel på användaryttrande|Avsikt|Extraherade data|
 |-----------|-----------|-----------|
-|`Book a flight to __Seattle__?`|BookFlight (Boka flyg)|Seattle|
-|`When does your store __open__?`|StoreHoursAndLocation (Butikens öppettider och plats)|open (öppen)|
-|`Schedule a meeting at __1pm__ with __Bob__ in Distribution`|ScheduleMeeting (Boka möte)|1pm, Bob (kl. 13, Bob)|
+|`Book a flight to Seattle?`|BookFlight (Boka flyg)|Seattle|
+|`When does your store open?`|StoreHoursAndLocation (Butikens öppettider och plats)|open (öppen)|
+|`Schedule a meeting at 1pm with Bob in Distribution`|ScheduleMeeting (Boka möte)|1pm, Bob (kl. 13, Bob)|
 
 ## <a name="query-prediction-endpoint"></a>Slutpunkt för frågeförutsägelse
 

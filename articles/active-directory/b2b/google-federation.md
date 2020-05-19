@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1ca4ff3ed35371fe7454c242da8c9107badc659
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6a1a743f313ca4159ce4ef03413a94ec25bb8fae
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199536"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591241"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägg till Google som en identitets leverantör för B2B-gäst användare
 
@@ -90,7 +90,7 @@ Nu ska du ange Google-klient-ID och klient hemlighet, antingen genom att ange de
 
 #### <a name="to-configure-google-federation-in-the-azure-ad-portal"></a>Konfigurera Google Federation i Azure AD-portalen 
 1. Gå till [Azure Portal](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
-2. Välj **organisations relationer** (eller **externa identiteter**).
+2. Välj **externa identiteter**.
 3. Välj **alla identitets leverantörer**och klicka sedan på **Google** -knappen.
 4. Ange ett namn. Ange sedan det klient-ID och den klient hemlighet som du fick tidigare. Välj **Spara**. 
 
@@ -112,7 +112,7 @@ Du kan ta bort din Google Federation-installation. Om du gör det kan Google gä
  
 ### <a name="to-delete-google-federation-in-the-azure-ad-portal"></a>Ta bort Google Federation i Azure AD-portalen: 
 1. Gå till [Azure Portal](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
-2. Välj **organisations relationer** (eller **externa identiteter**).
+2. Välj **externa identiteter**.
 3. Välj **alla identitets leverantörer**.
 4. Välj snabb menyn (**...**) på **Google** -raden och välj sedan **ta bort**. 
    

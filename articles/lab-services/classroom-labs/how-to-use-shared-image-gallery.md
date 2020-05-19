@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 294a270107033590e340db49b85e8a67acbbb701
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8253b784a427ceb3842b6b4d585c52a2c30e0c4d
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116874"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592431"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Använd ett delat avbildnings galleri i Azure Lab Services
-Den här artikeln visar hur lärare/labb administratören kan spara en mall för virtuella dator avbildningar i ett [delat bild galleri](../../virtual-machines/windows/shared-image-galleries.md) så att den kan användas av andra för att skapa labb. 
+Den här artikeln visar hur lärare och labb administratörer kan spara en mall för virtuella dator avbildningar i ett [delat bild galleri](../../virtual-machines/windows/shared-image-galleries.md) så att de kan användas av andra för att skapa labb. 
 
 ## <a name="scenarios"></a>Scenarier
 Här är några av de scenarier som stöds av den här funktionen: 
@@ -35,7 +35,7 @@ Här är några av de scenarier som stöds av den här funktionen:
     > Azure Lab Services har stöd för att skapa virtuella mall-datorer baserat på både **generaliserade** och **specialiserade** avbildningar i ett delat avbildnings Galleri. 
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 - Skapa ett galleri för delad avbildning med hjälp av antingen [Azure PowerShell](../../virtual-machines/windows/shared-images.md) eller [Azure CLI](../../virtual-machines/linux/shared-images.md).
 - Du har kopplat det delade avbildnings galleriet till labb kontot. Stegvisa instruktioner finns i [så här ansluter du eller kopplar från delade avbildnings galleriet](how-to-attach-detach-shared-image-gallery.md).
 
@@ -64,7 +64,7 @@ När ett delat avbildnings Galleri har kopplats kan en labb konto administratör
     
 
 ## <a name="use-an-image-from-the-shared-image-gallery"></a>Använd en avbildning från galleriet för delad avbildning
-En lärare/lärare kan välja en anpassad avbildning som är tillgänglig i galleriet för delade avbildningar för mallen när nya labb skapas.
+En lärare kan välja en anpassad avbildning som är tillgänglig i galleriet för delade avbildningar för mallen när nya labb skapas.
 
 ![Använd avbildningen av en virtuell dator från galleriet](../media/how-to-use-shared-image-gallery/use-shared-image.png)
 

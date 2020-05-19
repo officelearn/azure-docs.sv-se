@@ -1,20 +1,33 @@
 ---
 title: Vad är nytt – Language Understanding (LUIS)
 description: Den här artikeln uppdateras regelbundet med nyheter om Azure Cognitive Services API för Language Understanding.
-ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 8e3b6f729f69866cdb797cdfd1887de4f5e2be05
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.topic: overview
+ms.date: 05/08/2020
+ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82097735"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592805"
 ---
 # <a name="whats-new-in-language-understanding"></a>Vad är nytt i Language Understanding
 
 Läs om vad som är nytt i tjänsten. Dessa objekt innehåller viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="may-2020---build"></a>2020 maj-build
+
+* Publicerad som **allmänt tillgänglig** (ga):
+    * [Language Understanding behållare](luis-container-howto.md)
+    * För hands versionen av portalen upphöjt till den [aktuella portalen](https://www.luis.ai), den [tidigare](https://previous.luis.ai) portalen är fortfarande tillgänglig
+    * Ny dator – lärt dig att skapa och märka entiteter
+    * [Uppgradera processen](migrate-from-composite-entity.md) från sammansatta och enkla entiteter till enheter som har lärts från enheten
+    * [Ställer in](how-to-application-settings-portal.md) stöd för normaliserade Word-varianter
+* Förhandsgranska redigering av API-ändringar
+    * App schema 7. x för kapslade dator enheter
+    * [Migrering till nödvändig funktion](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+
 
 ### <a name="march-2020"></a>Mars 2020
 
@@ -26,7 +39,7 @@ Läs om vad som är nytt i tjänsten. Dessa objekt innehåller viktig informatio
 
 * Förbättrad produktivitet för utvecklare
     * Allmän tillgänglighet för vår [förutsägelse slut punkt v3](luis-migration-api-v3.md).
-    * Möjlighet att importera och exportera appar med formatet. lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)). På så sätt kan du paves en effektiv CI/CD-process.
+    * Möjlighet att importera och exportera appar med `.lu` ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) format. På så sätt kan du paves en effektiv CI/CD-process.
 * Språk expansion
     * [Arabiska och hindi](luis-language-support.md) i offentlig för hands version.
 * Fördefinierade modeller
@@ -80,7 +93,7 @@ Följande funktioner släpptes på Build 2019-konferensen:
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Video
 
 ### <a name="2019-ignite-videos"></a>2019 tänd videor
 

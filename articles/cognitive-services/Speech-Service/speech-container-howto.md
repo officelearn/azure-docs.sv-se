@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: efca7eceae74416945c568268edfe0b13a21861a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: dc11d9d7dfa7ededa19e11c9e1bc38e1eaaec93f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856424"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591036"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -33,21 +33,21 @@ Tal behållare gör det möjligt för kunderna att bygga en tal program arkitekt
 | Text till tal | Konverterar text till tal med naturligt ljud med text indata eller SSML (Speech syntes Markup Language). | 1.3.0 |
 | Anpassad text till tal | Med hjälp av en anpassad modell från den [anpassade röst portalen](https://aka.ms/custom-voice-portal)konverteras text till tal med naturligt ljud med text-eller tal syntess språk (SSML). | 1.3.0 |
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Följande krav gäller innan du använder tal behållare:
 
-| Krävs | Syfte |
+| Obligatorisk | Syfte |
 |--|--|
 | Docker-motorn | Du behöver Docker-motorn installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta att behållarna ansluter till och skicka fakturerings data till Azure. <br><br> **I Windows**måste Docker också konfigureras för att stödja Linux-behållare.<br><br> |
-| Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper `docker` om grundläggande kommandon. |
+| Bekant med Docker | Du bör ha grundläggande kunskaper om Docker-koncept, t. ex. register, databaser, behållare och behållar avbildningar, samt kunskaper om grundläggande `docker` kommandon. |
 | Tal resurs | Du måste ha följande för att kunna använda dessa behållare:<br><br>En Azure _tal_ -resurs för att hämta tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på Azure Portalens **tal** översikt och nycklar sidor. Båda krävs för att starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt** |
 
 ## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
-Fyll i och skicka [formuläret för begäran om Cognitive Services tal behållare](https://aka.ms/speechcontainerspreview/) för att begära åtkomst till behållaren. 
+Fyll i och skicka [fråge formuläret för Cognitive Services containers](https://aka.ms/cognitivegate) för att begära åtkomst till behållaren.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -101,7 +101,7 @@ I följande tabell beskrivs den lägsta och rekommenderade fördelningen av resu
 
 * Varje kärna måste vara minst 2,6 gigahertz (GHz) eller snabbare.
 
-Core och minne motsvarar inställningarna `--cpus` och `--memory` som används som en del av `docker run` kommandot.
+Core och minne motsvarar `--cpus` `--memory` inställningarna och som används som en del av `docker run` kommandot.
 
 > [!NOTE]
 > Minimum och Recommended baseras på Docker-gränser, *inte* värd datorns resurser. Till exempel används tal-till-text-behållare som minnes karta för en stor språk modell, och *vi rekommenderar* att hela filen passar i minnet, vilket är ytterligare 4-6 GB. Dessutom kan den första körningen av en behållare ta längre tid, eftersom modeller växlas till minnet.
@@ -151,11 +151,11 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 ```
 
 > [!IMPORTANT]
-> `latest` Taggen hämtar `en-US` språkvarianten. För ytterligare språk, se [tal-till-text-språk](#speech-to-text-locales).
+> `latest`Taggen hämtar `en-US` språkvarianten. För ytterligare språk, se [tal-till-text-språk](#speech-to-text-locales).
 
 #### <a name="speech-to-text-locales"></a>Tal till text-språk
 
-Alla Taggar, förutom i `latest` , är i följande format och är Skift läges känsliga:
+Alla Taggar, förutom `latest` i, är i följande format och är Skift läges känsliga:
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
@@ -180,7 +180,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-spee
 ```
 
 > [!NOTE]
-> `locale` Och `voice` för anpassade tal behållare bestäms av den anpassade modellen som matas in av behållaren.
+> `locale`Och `voice` för anpassade tal behållare bestäms av den anpassade modellen som matas in av behållaren.
 
 # <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
@@ -193,11 +193,11 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> `latest` Taggen hämtar `en-US` språket och `jessarus` rösten. För ytterligare språk, se [text till tal-språk](#text-to-speech-locales).
+> `latest`Taggen hämtar `en-US` språket och `jessarus` rösten. För ytterligare språk, se [text till tal-språk](#text-to-speech-locales).
 
 #### <a name="text-to-speech-locales"></a>Text till tal-språk
 
-Alla Taggar, förutom i `latest` , är i följande format och är Skift läges känsliga:
+Alla Taggar, förutom `latest` i, är i följande format och är Skift läges känsliga:
 
 ```
 <major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
@@ -212,7 +212,7 @@ Följande tagg är ett exempel på formatet:
 För alla språk som stöds och motsvarande röster för **text till tal** -behållaren, se [taggar för text till tal-bilder](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> När du skapar ett *standard text-till-tal* -http-post kräver [SSML-](speech-synthesis-markup.md) meddelandet ett `voice` -element med ett `name` -attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). `latest` Taggen skulle till exempel ha röst namnet `en-US-JessaRUS`.
+> När du skapar ett *standard text-till-tal* -http-post kräver [SSML-](speech-synthesis-markup.md) meddelandet ett- `voice` element med ett- `name` attribut. Värdet är motsvarande behållares nationella inställningar och röst, även kallat ["kort namn"](language-support.md#standard-voices). Taggen skulle till exempel `latest` ha röst namnet `en-US-JessaRUS` .
 
 # <a name="custom-text-to-speech"></a>[Anpassad text till tal](#tab/ctts)
 
@@ -225,7 +225,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 ```
 
 > [!NOTE]
-> `locale` Och `voice` för anpassade tal behållare bestäms av den anpassade modellen som matas in av behållaren.
+> `locale`Och `voice` för anpassade tal behållare bestäms av den anpassade modellen som matas in av behållaren.
 
 ***
 
@@ -238,11 +238,11 @@ När behållaren är på [värddatorn](#the-host-computer)använder du följande
 
 ## <a name="run-the-container-with-docker-run"></a>Kör behållaren med`docker run`
 
-Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur `{Endpoint_URI}` du `{API_Key}` hämtar och-värden. Fler [exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är också tillgängliga.
+Använd kommandot [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) för att köra behållaren. Läs om hur du [samlar in nödvändiga parametrar](#gathering-required-parameters) för information om hur du hämtar `{Endpoint_URI}` och- `{API_Key}` värden. Fler [exempel](speech-container-configuration.md#example-docker-run-commands) på `docker run` kommandot är också tillgängliga.
 
 # <a name="speech-to-text"></a>[Tal till text](#tab/stt)
 
-Kör följande `docker run` kommando för att köra den *tal-till-text-* behållaren.
+Kör följande kommando för att köra den *tal-till-text-* behållaren `docker run` .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -262,7 +262,7 @@ Det här kommandot:
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analysera sentiment för utdata från tal till text 
 
-Från och med v-2.2.0 av den tal-till-text-behållaren kan du anropa [sentiment Analysis v3-API: et](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) på utdata. Om du vill anropa sentiment-analysen behöver du en API för textanalys resurs slut punkt. Exempel: 
+Från och med v-2.2.0 av den tal-till-text-behållaren kan du anropa [sentiment Analysis v3-API: et](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) på utdata. Om du vill anropa sentiment-analysen behöver du en API för textanalys resurs slut punkt. Till exempel: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
 * `https://localhost:5000/text/analytics/v3.0-preview.1/sentiment`
 
@@ -302,7 +302,7 @@ Det anpassade tal **modells-ID: t** krävs för att köra behållaren. Du hittar
 
 ![Inlärnings sidan för anpassat tal](media/custom-speech/custom-speech-model-training.png)
 
-Hämta **modell-ID: t** som ska användas som argument `ModelId` till `docker run` kommandots parameter.
+Hämta **modell-ID: t** som ska användas som argument till `ModelId` `docker run` kommandots parameter.
 <br>
 
 ![Information om anpassad tal modell](media/custom-speech/custom-speech-model-details.png)
@@ -316,7 +316,7 @@ Följande tabell representerar de olika `docker run` parametrarna och deras mots
 | `{ENDPOINT_URI}` | Slut punkten krävs för mätning och fakturering. Mer information finns i avsnittet om att [samla in obligatoriska parametrar](#gathering-required-parameters). |
 | `{API_KEY}` | API-nyckeln måste anges. Mer information finns i avsnittet om att [samla in obligatoriska parametrar](#gathering-required-parameters). |
 
-Kör följande `docker run` kommando för att köra behållaren *Custom Speech-till-text* :
+Kör följande kommando för att köra behållaren *Custom Speech-till-text* `docker run` :
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -340,7 +340,7 @@ Det här kommandot:
 
 # <a name="text-to-speech"></a>[Text till tal](#tab/tts)
 
-Kör följande `docker run` kommando för att köra en *text till tal* -behållare.
+Kör följande kommando för att köra en *text till tal* -behållare `docker run` .
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -364,7 +364,7 @@ Den *anpassade text till tal* -behållaren är beroende av en anpassad röst mod
 
 ![Sidan anpassad röst utbildning](media/custom-voice/custom-voice-model-training.png)
 
-Hämta **modell-ID: t** som ska användas som argument `ModelId` till parametern för kommandot Docker Run.
+Hämta **modell-ID: t** som ska användas som argument till `ModelId` parametern för kommandot Docker Run.
 <br>
 
 ![Information om anpassad röst modell](media/custom-voice/custom-voice-model-details.png)
@@ -378,7 +378,7 @@ Följande tabell representerar de olika `docker run` parametrarna och deras mots
 | `{ENDPOINT_URI}` | Slut punkten krävs för mätning och fakturering. Mer information finns i avsnittet om att [samla in obligatoriska parametrar](#gathering-required-parameters). |
 | `{API_KEY}` | API-nyckeln måste anges. Mer information finns i avsnittet om att [samla in obligatoriska parametrar](#gathering-required-parameters). |
 
-Kör följande `docker run` kommando för att köra den *anpassade text till tal* -behållaren:
+Kör följande kommando för att köra den *anpassade text till tal* -behållaren `docker run` :
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -403,14 +403,14 @@ Det här kommandot:
 ***
 
 > [!IMPORTANT]
-> Alternativen `Eula`, `Billing`och `ApiKey` måste anges för att köra behållaren. annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
+> `Eula`Alternativen, `Billing` och `ApiKey` måste anges för att köra behållaren, annars startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarens förutsägelse slut punkt
 
 > [!NOTE]
 > Använd ett unikt port nummer om du kör flera behållare.
 
-| Containrar | SDK-värd-URL | Protokoll |
+| Containers | SDK-värd-URL | Protokoll |
 |--|--|--|
 | Tal till text och Custom Speech till text | `ws://localhost:5000` | WS |
 | Text till tal och anpassad text till tal | `http://localhost:5000` | HTTP |
@@ -425,7 +425,7 @@ Om du har angett dina API för textanalys autentiseringsuppgifter [för behålla
 
 # <a name="simple-format"></a>[Enkelt format](#tab/simple-format)
 
-Om du vill konfigurera tal klienten för att använda ett enkelt format `"Sentiment"` , lägger du till `Simple.Extensions`som ett värde för. Om du vill välja en speciell Textanalys modell version ersätter `'latest'` du `speechcontext-phraseDetection.sentimentAnalysis.modelversion` i egenskaps konfigurationen.
+Om du vill konfigurera tal klienten för att använda ett enkelt format, lägger du till `"Sentiment"` som ett värde för `Simple.Extensions` . Om du vill välja en speciell Textanalys modell version ersätter `'latest'` du i `speechcontext-phraseDetection.sentimentAnalysis.modelversion` egenskaps konfigurationen.
 
 ```python
 speech_config.set_service_property(
@@ -459,7 +459,7 @@ speech_config.set_service_property(
 
 # <a name="detailed-format"></a>[Detaljerat format](#tab/detailed-format)
 
-Om du vill konfigurera tal klienten så att den använder ett detaljerat format, lägger `Detailed.Extensions`du `Detailed.Options`till `"Sentiment"` som ett värde för, eller båda. Om du vill välja en speciell Textanalys modell version ersätter `'latest'` du `speechcontext-phraseDetection.sentimentAnalysis.modelversion` i egenskaps konfigurationen.
+Om du vill konfigurera tal klienten så att den använder ett detaljerat format, lägger du till `"Sentiment"` som ett värde för `Detailed.Extensions` , `Detailed.Options` eller båda. Om du vill välja en speciell Textanalys modell version ersätter `'latest'` du i `speechcontext-phraseDetection.sentimentAnalysis.modelversion` egenskaps konfigurationen.
 
 ```python
 speech_config.set_service_property(
@@ -524,7 +524,7 @@ speech_config.set_service_property(
 
 ---
 
-Om du vill inaktivera sentiment-analysen helt lägger du till `false` ett värde `sentimentanalysis.enabled`i.
+Om du vill inaktivera sentiment-analysen helt lägger du till ett `false` värde i `sentimentanalysis.enabled` .
 
 ```python
 speech_config.set_service_property(

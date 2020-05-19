@@ -4,12 +4,12 @@ description: I den här självstudien får du förbättra app-förutsägelserna 
 services: cognitive-services
 ms.topic: tutorial
 ms.date: 04/01/2020
-ms.openlocfilehash: 307c18d3326cb1a64b884463a571985a015834ed
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 32d43b36910c8fbfd60463f4062b6a00b9272fdb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548732"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592584"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Självstudie: åtgärda osäker förutsägelse genom att granska slut punkts yttranden
 I den här självstudien får du förbättra appens förutsägelser genom att verifiera eller korrigera yttranden, som tas emot via HTTPS-slutpunkten LUIS, som LUIS är osäker på. Du bör granska slut punkt yttranden som en vanlig del av ditt schemalagda LUIS-underhåll.
@@ -22,7 +22,7 @@ Den här gransknings processen gör det möjligt för LUIS att lära sig din app
 
 Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrandets förutsagda avsikt.
 
-**I den här guiden får du lära dig att:**
+**I de här självstudierna får du lära dig att**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -33,11 +33,11 @@ Genom att granska slutpunktsyttranden verifierar eller korrigerar du det yttrand
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>Importera exempelappen
+## <a name="download-json-file-for-app"></a>Ladda ned JSON-fil för appen
 
-Använd följande steg för att importera en app.
+Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
+## <a name="import-json-file-for-app"></a>Importera JSON-fil för appen
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
@@ -80,9 +80,9 @@ Granska slut punkts yttranden för korrekt justerat syfte. Även om det finns en
     > [!div class="mx-imgBorder"]
     > ![Skärmbild av knappen Granska slutpunktstalindata i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
 
-    Den här uttryck `I'm looking for a job with Natural Language Processing`är inte i rätt avsikt.
+    Den här uttryck `I'm looking for a job with Natural Language Processing` är inte i rätt avsikt.
 
-1.  Om du vill justera den här uttryck väljer du rätt **justerat avsikt** för `GetJobInformation`i raden uttryck. Lägg till den ändrade uttryck i appen genom att markera bock markeringen.
+1.  Om du vill justera den här uttryck väljer du rätt **justerat avsikt** för i raden uttryck `GetJobInformation` . Lägg till den ändrade uttryck i appen genom att markera bock markeringen.
 
     > [!div class="mx-imgBorder"]
     > ![Skärmbild av knappen Granska slutpunktstalindata i det vänstra navigeringsfönstret](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
@@ -101,7 +101,7 @@ Om du vill kontrol lera det korrekt justerade exemplet yttranden förbättrad ap
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med `Are there any natural language processing jobs in my department right now?`.
+1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med `Are there any natural language processing jobs in my department right now?` .
 
    ```json
     {

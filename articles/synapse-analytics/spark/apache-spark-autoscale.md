@@ -8,22 +8,22 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: a2f907384326aa887c12c293feb8c988f42bbaf1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210519"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591972"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Skala automatiskt Apache Spark pooler i Azure Synapse Analytics
 
-Funktionen för automatisk skalning i Azure Synapse Spark-poolen skalar automatiskt antalet noder i en kluster instans upp och ned. När du skapar en ny Azure Synapse Spark-pool kan du ange ett minsta och högsta antal noder när autoskalning är markerat. Autoskalning övervakar sedan resurs kraven för belastningen och skalar antalet noder uppåt eller nedåt. Den här funktionen kostar inget extra.
+Apache Spark funktionen för automatisk skalning i Azure Synapse Analytics skalar automatiskt antalet noder i en kluster instans upp och ned. När du skapar en ny Apache Spark för Azure Synapse Analytics-poolen kan du ange ett minsta och högsta antal noder när autoskalning är markerat. Autoskalning övervakar sedan resurs kraven för belastningen och skalar antalet noder uppåt eller nedåt. Den här funktionen kostar inget extra.
 
 ## <a name="metrics-monitoring"></a>Mått övervakning
 
 Autoskalning övervakar kontinuerligt instansen av Spark-instansen och samlar in följande mått:
 
-|Mått|Beskrivning|
+|Metric|Beskrivning|
 |---|---|
 |Total väntande processor|Det totala antalet kärnor som krävs för att starta körningen av alla väntande noder.|
 |Totalt väntande minne|Det totala minne (i MB) som krävs för att starta körningen av alla väntande noder.|
@@ -60,7 +60,7 @@ Aktivera funktionen för autoskalning genom att utföra följande steg som en de
 
 Det första antalet noder är minimivärdet. Det här värdet definierar den ursprungliga storleken på instansen när den skapas. Det minsta antalet noder får inte vara mindre än tre.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 ### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Beakta svars tiden för skalning upp-eller nedskalning
 

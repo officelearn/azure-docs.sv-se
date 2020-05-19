@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c2152b872c82c224c786e56db0318c9df994ac25
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 2a64f42c8672972939bb2870ba40876e5cc8d855
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801594"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591955"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Fel sökning: det gick inte att ta bort ett virtuellt nätverk i Azure
-<p class="alert is-flex is-primary"><span class="has-padding-left-medium has-padding-top-extra-small"><a class="button is-primary" href="https://azurevirtualsupportagent.services.microsoft.com?content=a13a0908-28e0-f9f7-c6c7-301fcd187560" target='_blank'>Börja</a></span><span class="has-padding-small">lösa problemet snabbt genom att använda vår virtuella agent för att köra <b>automatiserad diagnostik.</b> </span> <span class="has-padding-small"> <a href="https://privacy.microsoft.com/privacystatement" target='_blank'> <sub>Privacy Statement</sub> Sekretess <div align="right">policy</div></a></span></p>
-Du kan få fel meddelanden när du försöker ta bort ett virtuellt nätverk i Microsoft Azure. Den här artikeln innehåller fel söknings steg som hjälper dig att lösa det här problemet. 
+
+Du kan få fel meddelanden när du försöker ta bort ett virtuellt nätverk i Microsoft Azure. Den här artikeln innehåller fel söknings steg som hjälper dig att lösa det här problemet.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 

@@ -10,21 +10,20 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: dcdc942999e45eb779e54cd5f92432c54d65fc6a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 62236b472aa5c4812cd62af44a15b805b5326271
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561989"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592567"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Snabb start: asynkron syntes för lång Forms ljud i python (för hands version)
 
 I den här snabb starten använder du den långa ljud-API: n för att konvertera text till tal asynkront och hämta ljud resultatet från en URI som tillhandahålls av tjänsten. Den här REST API är idealisk för innehålls leverantörer som behöver syntetisera ljud från text som är större än 5 000 tecken (eller mer än 10 minuter långt). Mer information finns i avsnittet om [långa ljud-API](../../long-audio-api.md).
 
-> [!NOTE]
-> Asynkron syntes för lång Forms ljud kan bara användas med [anpassade neurala-röster](../../how-to-custom-voice.md#custom-neural-voices).
+Asynkron syntes för lång Forms ljud kan användas med [offentliga neurala-röster](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices) och [anpassade neurala-röster](../../how-to-custom-voice.md#custom-neural-voices), som var och en har stöd för ett särskilt språk och dialekt. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För den här snabbstarten krävs:
 
@@ -34,7 +33,7 @@ För den här snabbstarten krävs:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Skapa ett projekt och importera nödvändiga moduler
 
-Skapa ett nytt Python-projekt med valfri IDE eller redigeringsprogram. Kopiera sedan kodfragmentet till en fil med namnet `voice_synthesis_client.py`.
+Skapa ett nytt Python-projekt med valfri IDE eller redigeringsprogram. Kopiera sedan kodfragmentet till en fil med namnet `voice_synthesis_client.py` .
 
 ```python
 import argparse
@@ -56,7 +55,7 @@ Dessa moduler används för att parsa argument, konstruera HTTP-begäran och anr
 
 ## <a name="get-a-list-of-supported-voices"></a>Hämta en lista över röster som stöds
 
-Den här koden hämtar en lista över tillgängliga röster som du kan använda för att konvertera text till tal. Lägg till koden i `voice_synthesis_client.py`:
+Med den här koden kan du få en fullständig lista över röster för en speciell region eller slut punkt som du kan använda. Kontrol lera [regionen/slut punkten som stöds](../../long-audio-api.md). Lägg till koden i `voice_synthesis_client.py` :
 
 ```python
 parser = argparse.ArgumentParser(description='Text-to-speech client tool to submit voice synthesis requests.')
@@ -83,7 +82,7 @@ if args.voices:
 Vi testar vad du har gjort hittills. Du måste uppdatera några saker i begäran nedan:
 
 * Ersätt `<your_key>` med din prenumerations nyckel för röst tjänsten. Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
-* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus` ). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
 
 Kör följande kommando:
 
@@ -100,13 +99,15 @@ Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xx
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
 
+Om **PublicVoice** -parametern är **True**är rösten offentlig neurala röst. Annars är den anpassade neurala rösten. 
+
 ## <a name="prepare-input-files"></a>Förbered indatafiler
 
 Förbered en textfil för indata. Det kan vara antingen oformaterad text eller SSML text. Information om krav för indatafiler finns i så här [förbereder du innehåll för syntes](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#prepare-content-for-synthesis).
 
 ## <a name="convert-text-to-speech"></a>Omvandla text till tal
 
-När du har bearbetat in text filen lägger du till den här `voice_synthesis_client.py`koden för tal syntes till:
+När du har bearbetat in text filen lägger du till den här koden för tal syntes till `voice_synthesis_client.py` :
 
 > [!NOTE]
 > ' concatenateResult ' är en valfri parameter. Om den här parametern inte anges genereras ljud utmatningarna per stycke. Du kan också sammanfoga ljuden till 1 utdata genom att ange parametern. Som standard är ljud uppspelningen inställd på riff-16khz-bitarsläge-mono-PCM. Mer information om ljud utdata som stöds finns i [format för ljud uppspelning](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
@@ -175,7 +176,7 @@ if args.submit:
 Vi gör en begäran om att syntetisera text med hjälp av indatafilen som källa. Du måste uppdatera några saker i begäran nedan:
 
 * Ersätt `<your_key>` med din prenumerations nyckel för röst tjänsten. Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
-* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus` ). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
 * Ersätt `<input>` med sökvägen till text filen som du har för berett för text till tal.
 * Ersätt `<locale>` med det önskade utmatnings språket. Mer information finns i [språk stöd](../../language-support.md#neural-voices).
 * Ersätt `<voice_guid>` med den önskade utdata-rösten. Använd en av de röster som returneras av [Hämta en lista över röster som stöds](#get-a-list-of-supported-voices).
@@ -215,7 +216,7 @@ Resultatet innehåller inmatnings texten och de ljudutdata som genereras av tjä
 
 Servern kommer att behålla upp till **20 000** förfrågningar för varje Azure-prenumerations konto. Om ditt begär ande belopp överskrider den här begränsningen kan du ta bort tidigare begär Anden innan du gör nya. Om du inte tar bort befintliga förfrågningar får du ett fel meddelande.
 
-Lägg till koden i `voice_synthesis_client.py`:
+Lägg till koden i `voice_synthesis_client.py` :
 
 ```python
 parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
@@ -251,7 +252,7 @@ if args.delete:
 Nu ska vi kontrol lera vilka begär Anden som du har skickat. Innan du fortsätter måste du uppdatera några saker i denna begäran:
 
 * Ersätt `<your_key>` med din prenumerations nyckel för röst tjänsten. Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
-* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus` ). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
 
 Kör följande kommando:
 
@@ -271,7 +272,7 @@ ID : xxx , Name : xxx : Succeeded
 Nu ska vi ta bort en tidigare skickad begäran. Du måste uppdatera några saker i koden nedan:
 
 * Ersätt `<your_key>` med din prenumerations nyckel för röst tjänsten. Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
-* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus` ). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
 * Ersätt `<synthesis_id>` med värdet som returnerades i föregående begäran.
 
 > [!NOTE]

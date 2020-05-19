@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d103b22338672f031fa4f91349a8376f86b703c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50c6d3ff6e1e8b979b3544c423a15ae8e1e42f6f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81530987"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592159"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Stöd för naturligt språk för Azure Cognitive Services
 
@@ -41,15 +41,15 @@ Dessa Cognitive Services är språk oberoende och har inga begränsningar basera
 * [Language Understanding (LUIS)](./luis/luis-supported-languages.md)
 * [QnA Maker](./qnamaker/overview/languages-supported.md)
 * [Textanalys](./text-analytics/text-analytics-supported-languages.md)
-* [Translator Text](./translator/languages.md)
+* [Översättare](./translator/languages.md)
 
-## <a name="speech"></a>Tal
+## <a name="speech"></a>Speech
 
 * [Speech service: tal-till-text](./speech-service/supported-languages.md#speech-to-text)
 * [Speech service: text till tal](./speech-service/supported-languages.md#text-to-speech)
 * [Speech service: tal Översättning](./speech-service/supported-languages.md#speech-translation)
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
 * [Anpassad sökning i Bing](./bing-custom-search/supported-countries-markets.md)
 * [Bildsökning i Bing](./bing-image-search/supported-countries-markets.md)

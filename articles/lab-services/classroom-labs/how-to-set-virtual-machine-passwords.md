@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ff464936025a20cb6925adc7ef6eb44c2fe1f0e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8479c00ed2129d5726421f576e1fffdb4506fb4b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78933827"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592482"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Konfigurera och hantera en pool för virtuella datorer 
 Den här artikeln visar hur du utför följande uppgifter:
@@ -30,7 +30,7 @@ Den här artikeln visar hur du utför följande uppgifter:
 ## <a name="update-the-lab-capacity"></a>Uppdatera labb kapaciteten
 Gör så här för att öka eller minska labb kapaciteten (antal virtuella datorer i ett labb):
 
-1. På sidan **pool för virtuell dator** väljer du **labb kapacitet: &lt;numrera&gt; datorer**.
+1. På sidan **pool för virtuell dator** väljer du **labb kapacitet: &lt; numrera &gt; datorer**.
 2. Ange det nya **antal virtuella datorer** som du vill ha i labbet. Antalet måste vara större än eller lika med antalet användare som registrerats i labbet. 
 3. Välj sedan **Spara**. 
 
@@ -91,7 +91,7 @@ Genom att aktivera/inaktivera alternativet **Använd samma lösen ord för alla 
     ![Dialog rutan Ange lösen ord](../media/how-to-set-virtual-machine-passwords/set-password.png)
 
 ## <a name="connect-to-student-vms"></a>Ansluta till student virtuella datorer
-Labb skaparen (instruktör/lärare) kan ansluta till en elev-VM om följande villkor är uppfyllda: 
+Labb skaparen (lärare) kan ansluta till en elev-VM om följande villkor är uppfyllda: 
 
 - Alternativet **Använd samma lösen ord för alla virtuella datorer** valdes när labbet skapades
 - Den virtuella datorn körs 
@@ -101,7 +101,7 @@ Labb skaparen (instruktör/lärare) kan ansluta till en elev-VM om följande vil
 ![Knappen Anslut till virtuell dator för student](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
 
 > [!NOTE]
-> När den virtuella datorns lärare startar den virtuella datorn och ansluter till den, påverkas inte student kvoten. 
+> När lärare startar den virtuella datorn och ansluter till den, påverkas inte student kvoten. 
 
 ## <a name="export-list-of-virtual-machines-to-a-csv-file"></a>Exportera lista över virtuella datorer till en CSV-fil
 

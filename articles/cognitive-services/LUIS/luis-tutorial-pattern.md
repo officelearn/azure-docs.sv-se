@@ -2,19 +2,19 @@
 title: 'Självstudie: mönster – LUIS'
 description: Använd mönster för att öka avsikt och enhets förutsägelse samtidigt som du ger färre exempel yttranden i den här självstudien. Mönstret anges som en mall uttryck exempel som innehåller syntax för att identifiera entiteter och text som kan ignoreras.
 ms.topic: tutorial
-ms.date: 04/14/2020
-ms.openlocfilehash: 826334fafd04a6357f529b1dc07408ff1c15ce5c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/07/2020
+ms.openlocfilehash: c9bbd521d49d669e8ebd18b29bda9f2add8f7739
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380774"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592924"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Självstudie: Lägg till vanliga mönster mal len uttryck format för att förbättra förutsägelser
 
 I den här självstudien använder du mönster för att öka avsikt och enhets förutsägelse, vilket gör att du kan ange färre exempel yttranden. Mönstret är en mall som uttryck tilldelas till en avsikt, som innehåller syntax för att identifiera entiteter och text som kan ignoreras.
 
-**I den här guiden får du lära dig att:**
+**I de här självstudierna får du lära dig att**
 
 > [!div class="checklist"]
 > * Skapa ett mönster
@@ -41,9 +41,10 @@ Använd följande steg:
 
 1.  Ladda ned och spara [app-JSON-filen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json?raw=true).
 
-1. Importera JSON till en ny app till LUIS- [portalen för förhands granskning](https://preview.luis.ai). På sidan **Mina appar** väljer du **+ ny app för konversation**och väljer sedan **Importera som JSON**. Välj den fil som du laddade ned i föregående steg.
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Importera JSON till en ny app i Luis- [portalen](https://www.luis.ai). På sidan **Mina appar** väljer du **+ ny app för konversation**och väljer sedan **Importera som JSON**. Välj den fil som du laddade ned i föregående steg.
 
-1. Välj den aktiva versionen på fliken **versioner** i avsnittet **Hantera** och välj sedan **klona**. Namnge den klonade versionen `patterns`. Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
+1. Välj den aktiva versionen på fliken **versioner** i avsnittet **Hantera** och välj sedan **klona**. Namnge den klonade versionen `patterns` . Kloning är ett bra sätt att prova på olika LUIS-funktioner utan att påverka originalversionen. Eftersom versionsnamnet används i webbadressen får namnet inte innehålla några tecken som är ogiltiga i webbadresser.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Skapa nya avsikter och deras yttranden
 
@@ -99,7 +100,7 @@ De två avsikterna hittar chefen eller chefens direkt rapporter baserat på uttr
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med: `Who is the boss of Jill Jones?`.
+1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med: `Who is the boss of Jill Jones?` .
 
     ```json
     {
@@ -198,7 +199,7 @@ Använd mönster för att göra den korrekta avsiktens poäng betydligt högre p
 Lämna det här andra webbläsarfönstret öppet. Du använder det igen senare i den här kursen.
 
 ## <a name="template-utterances"></a>Mallyttranden
-På grund av typen av mänsklig resurs ämnes domän finns det några vanliga sätt att fråga om medarbetar relationer i organisationer. Ett exempel:
+På grund av typen av mänsklig resurs ämnes domän finns det några vanliga sätt att fråga om medarbetar relationer i organisationer. Till exempel:
 
 |Yttranden|
 |--|
@@ -214,7 +215,7 @@ Exempel på mallyttranden för den här avsikten är:
 |`Who does {Employee} report to[?]`|utbytbara`{Employee}`<br>Ignorera`[?]`|
 |`Who reports to {Employee}[?]`|utbytbara`{Employee}`<br>Ignorera`[?]`|
 
-Syntaxen `{Employee}` markerar entitetsplatsen i mallyttrandet och vilken entitet det är. Valfri syntax, `[?]`, markerar ord eller [interpunktion](luis-reference-application-settings.md#punctuation-normalization) som är valfria. LUIS matchar yttrandet, ignorerar den valfria texten inom hakparentes.
+Syntaxen `{Employee}` markerar entitetsplatsen i mallyttrandet och vilken entitet det är. Valfri syntax, `[?]` , markerar ord eller [interpunktion](luis-reference-application-settings.md#punctuation-normalization) som är valfria. LUIS matchar yttrandet, ignorerar den valfria texten inom hakparentes.
 
 När syntaxen ser ut som ett reguljärt uttryck är det inte ett reguljärt uttryck. Endast syntax inom klamrar, `{}`, och hakparentes, `[]`, stöds. De kan kapslas upp till två nivåer.
 
@@ -365,7 +366,7 @@ Exempelyttranden är:
 |OrgChart-Manager (Organisationsschema-Chef)|`Who will be Jill Jones manager in a month?`|
 |OrgChart-Manager (Organisationsschema-Chef)|`Who will be Jill Jones manager on March 3?`|
 
-Alla dessa exempel använder ett verbtempus, `was`, `is`, `will be` samt ett datum, `March 3`, `now` och `in a month`, som LUIS behöver för att förutsäga korrekt. Observera att de två sista exemplen i tabellen använder nästan samma text förutom `in` och. `on`
+Alla dessa exempel använder ett verbtempus, `was`, `is`, `will be` samt ett datum, `March 3`, `now` och `in a month`, som LUIS behöver för att förutsäga korrekt. Observera att de två sista exemplen i tabellen använder nästan samma text förutom `in` och `on` .
 
 Exempel mal yttranden som tillåter denna valfria information:
 
@@ -424,7 +425,7 @@ Användningen av mönster har angetts:
 
 Flera av de tidigare mallarna yttranden är mycket nära. Använd **gruppen** `()` och **eller** `|` syntaxen för att minska mallen yttranden.
 
-Följande 2-mönster kan kombineras i ett enda mönster med hjälp `()` av gruppen `|` och eller syntaxen.
+Följande 2-mönster kan kombineras i ett enda mönster med hjälp av gruppen `()` och eller `|` syntaxen.
 
 |Avsikt|Exempelyttranden med valfri text och fördefinierade entiteter|
 |--|--|
@@ -437,7 +438,7 @@ Den nya mallens uttryck kommer att vara:
 
 Detta använder en **grupp** som omger de nödvändiga verben och de valfria `in` och `on` med en **eller** ett rör mellan dem.
 
-1. På sidan **mönster** väljer du filtret **organisations hanterare** . Begränsa listan genom att söka efter `manager`.
+1. På sidan **mönster** väljer du filtret **organisations hanterare** . Begränsa listan genom att söka efter `manager` .
 
 1. Behåll en version av mallen uttryck (för att redigera i nästa steg) och ta bort de andra varianterna.
 
@@ -464,37 +465,11 @@ Genom att använda fler mönstermatchningssyntax minskar du antalet yttranden so
 
 ### <a name="use-the-utterance-beginning-and-ending-anchors"></a>Använd uttryck start-och slut ankare
 
-Pattern-syntaxen ger inledande och avslutande uttryck Anchor- `^`syntax för ett cirkumflex. De inledande och avslutande uttryck-ankarena kan användas tillsammans för att rikta in sig på mycket specifika och eventuellt exakta uttryck eller som används separat för mål avsikter.
+Pattern-syntaxen ger inledande och avslutande uttryck Anchor-syntax för ett cirkumflex `^` . De inledande och avslutande uttryck-ankarena kan användas tillsammans för att rikta in sig på mycket specifika och eventuellt exakta uttryck eller som används separat för mål avsikter.
 
 ## <a name="using-patternany-entity"></a>Med Pattern.any-entitet
 
-Med entiteten pattern.any kan du söka efter friformsdata där formuleringen i entiteten gör det svårt att fastställa var entiteten slutar baserat på resten av yttrandet.
-
-Den här personalappen hjälper anställda att hitta företagsformulär.
-
-|Yttrande|
-|--|
-|Var finns **HRF-123456**?|
-|Vem skapade **HRF 123234**?|
-|Har **HRF 456098** publicerats på franska?|
-
-Varje formulär har dock både ett formaterat namn, som används i tabellen ovan, samt ett eget namn, till exempel `Request relocation from employee new to the company 2018 version 5`.
-
-Yttranden med det egna formulärnamnet ser ut så här:
-
-|Yttrande|
-|--|
-|Var finns **Begär flytt från medarbetare som är ny i företaget 2018 version 5**?|
-|Vem skapade **”Begär flytt från medarbetare som är ny i företaget 2018 version 5”**?|
-|Har **Begära flytt från medarbetare som är ny i företagets 2018 version 5** publicerats på franska?|
-
-Den varierande längden innehåller ord som kan förvirra LUIS om var entiteten slutar. Genom att använda en Pattern.any-entitet i ett mönster kan du ange formulärnamnets början och slut, så att LUIS kan extrahera formulärnamnet korrekt.
-
-|Exempelmall för yttranden|
-|--|
-|Var finns {FormName}[?]|
-|Vem skapade {FormName}[?]|
-|Har {FormName} publicerats på franska[?]|
+[!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
 ### <a name="add-example-utterances-with-patternany"></a>Lägg till exempel yttranden med mönster. alla
 
@@ -518,7 +493,7 @@ Entiteten Pattern.any extraherar entiteter med olika längd. Det fungerar bara i
 
 1. Välj **Entiteter** i det vänstra navigeringsfältet.
 
-1. Välj **+ skapa**, ange namnet `FormName`och välj **mönster. vilken** typ som helst. Välj **Skapa**.
+1. Välj **+ skapa**, ange namnet `FormName` och välj **mönster. vilken** typ som helst. Välj **Skapa**.
 
 ### <a name="add-a-pattern-that-uses-the-patternany"></a>Lägga till ett mönster som använder Pattern.any
 

@@ -10,24 +10,24 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 7fe773b35c5aba31b2fea66bd2be7b2745eac3ee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80879249"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592907"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Language Understanding (LUIS) begränsningar för behållare
 
 LUIS-behållare har några viktiga begränsningar. I den här artikeln beskrivs de här begränsningarna från beroenden som inte stöds för en delmängd språk som stöds.
 
-## <a name="supported-dependencies-for-latest-container"></a>Beroenden som `latest` stöds för container
+## <a name="supported-dependencies-for-latest-container"></a>Beroenden som stöds för `latest` container
 
-Den senaste LUIS-behållaren, som lanserades på [//build/2019](https://news.microsoft.com/build2019/), stöder:
+Den senaste LUIS-behållaren stöder:
 
 * [Nya fördefinierade domäner](luis-reference-prebuilt-domains.md): de här företags fokuserade domänerna omfattar entiteter, exempel yttranden och mönster. Utöka dessa domäner för eget bruk.
 
-## <a name="unsupported-dependencies-for-latest-container"></a>Beroenden som inte stöds `latest` för container
+## <a name="unsupported-dependencies-for-latest-container"></a>Beroenden som inte stöds för `latest` container
 
 Om du vill [Exportera för container](luis-container-howto.md#export-packaged-app-from-luis)måste du ta bort beroenden som inte stöds från Luis-appen. När du försöker exportera för container rapporterar LUIS-portalen dessa funktioner som inte stöds och som du måste ta bort.
 
@@ -35,9 +35,9 @@ Du kan använda ett LUIS-program om det **inte innehåller** något av följande
 
 App-konfigurationer som inte stöds|Information|
 |--|--|
-|Container kulturer stöds inte| Nederländska (`nl-NL`)<br>Japanska (`ja-JP`)<br>Tyska stöds endast med 1.0.2- [tokenizer](luis-language-support.md#custom-tokenizer-versions).|
+|Container kulturer stöds inte| Nederländska ( `nl-NL` )<br>Japanska ( `ja-JP` )<br>Tyska stöds endast med 1.0.2- [tokenizer](luis-language-support.md#custom-tokenizer-versions).|
 |Entiteter som inte stöds för alla kulturer|Fördefinierad enhets [fras](luis-reference-prebuilt-keyphrase.md) för alla kulturer|
-|Entiteter som inte stöds för engelska`en-US`() kultur|[GeographyV2](luis-reference-prebuilt-geographyV2.md) fördefinierade entiteter|
+|Entiteter som inte stöds för engelska ( `en-US` ) kultur|[GeographyV2](luis-reference-prebuilt-geographyV2.md) fördefinierade entiteter|
 |Tal Prima|Externa beroenden stöds inte i behållaren.|
 |Sentimentanalys|Externa beroenden stöds inte i behållaren.|
 |Stavnings kontroll i Bing|Externa beroenden stöds inte i behållaren.|
@@ -55,7 +55,7 @@ LUIS-behållare har stöd för en delmängd av de [språk som stöds](luis-langu
 | Tyska |`de-DE` | ✔️ | ✔️ | ✔️ | ✔️ |
 | Hindi | `hi-IN`| ❌ | ❌ | ❌ | ❌ |
 | Italienska |`it-IT` | ✔️ | ✔️ | ✔️ | ✔️ |
-| Koreansk |`ko-KR` | ✔️ | ❌ | ❌ | Endast *nyckel fras* |
+| Koreanska |`ko-KR` | ✔️ | ❌ | ❌ | Endast *nyckel fras* |
 | Portugisiska (Brasilien) |`pt-BR` | ✔️ | ✔️ | ✔️ | alla under kulturer |
 | Spanska (Spanien) |`es-ES` | ✔️ | ✔️ |✔️|✔️|
 | Spanska (Mexiko)|`es-MX` | ❌ | ❌ |✔️|✔️|

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7ce011a34aed39429884dc03285a0848776ac008
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: d02cd12552b3664dd7acaae0142fc939ee57f5f6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006072"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591989"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Skydda din Synapse-arbetsyta (för hands version)
 
@@ -28,7 +28,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
 - Synapse-roller – dessa roller är unika för Synapse och baseras inte på Azure-roller. Det finns tre av följande roller:
   - Administratör för Synapse-arbetsyta
   - Synapse SQL-administratör
-  - Synapse Spark-administratör
+  - Apache Spark för Azure Synapse Analytics-administratör
 - Åtkomst kontroll för data i Azure Data Lake Storage gen 2 (ADLSGEN2).
 - Åtkomst kontroll för Synapse SQL-och Spark-databaser
 
@@ -36,7 +36,7 @@ För att skydda en Synapse-arbetsyta (för hands version) följer du ett mönste
 
 I det här dokumentet används standard namn för att förenkla anvisningarna. Ersätt dem med valfritt namn.
 
-|Inställningen | Exempelvärde | Beskrivning |
+|Inställningen | Exempelvärde | Description |
 | :------ | :-------------- | :---------- |
 | **Synapse-arbetsyta** | WS1 |  Namnet som Synapse-arbetsytan kommer att ha. |
 | **ADLSGEN2-konto** | STG1 | ADLS-kontot som ska användas med din arbets yta. |
@@ -48,11 +48,11 @@ I det här dokumentet används standard namn för att förenkla anvisningarna. E
 
 Skapa och fyll i tre säkerhets grupper för din arbets yta:
 
-- **WS1\_WSAdmins** – för användare som behöver fullständig kontroll över arbets ytan
-- **WS1\_SparkAdmins** – för användare som behöver fullständig kontroll över Spark-aspekterna på arbets ytan
-- **WS1\_SQLAdmins** – för användare som behöver fullständig kontroll över arbets ytans SQL-aspekter
-- Lägg **till\_WS1 WSAdmins** till **WS1\_SQLAdmins**
-- Lägg **till\_WS1 WSAdmins** till **WS1\_SparkAdmins**
+- **WS1 \_ WSAdmins** – för användare som behöver fullständig kontroll över arbets ytan
+- **WS1 \_ SparkAdmins** – för de användare som behöver fullständig kontroll över Spark-aspekterna på arbets ytan
+- **WS1 \_ SQLAdmins** – för användare som behöver fullständig kontroll över arbets ytans SQL-aspekter
+- Lägg till **WS1 \_ WSAdmins** till **WS1 \_ SQLAdmins**
+- Lägg till **WS1 \_ WSAdmins** till **WS1 \_ SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>STEG 2: Förbered ditt Data Lake Storage Gen2-konto
 
@@ -65,9 +65,9 @@ Identifiera den här informationen om din lagring:
 
 - Tilldela säkerhets grupperna följande roller på CNT1 med hjälp av Azure Portal
 
-  - Tilldela **WS1\_WSAdmins** till rollen **Storage BLOB data Contributor**
-  - Tilldela **WS1\_SparkAdmins** till rollen **Storage BLOB data Contributor**
-  - Tilldela **WS1\_SQLAdmins** till rollen **Storage BLOB data Contributor**
+  - Tilldela **WS1 \_ WSAdmins** till rollen **Storage BLOB data Contributor**
+  - Tilldela **WS1 \_ SparkAdmins** till rollen **Storage BLOB data Contributor**
+  - Tilldela **WS1 \_ SQLAdmins** till rollen **Storage BLOB data Contributor**
 
 ## <a name="step-3-create-and-configure-your-synapse-workspace"></a>STEG 3: skapa och konfigurera din Synapse-arbetsyta
 
@@ -77,10 +77,10 @@ I Azure Portal skapar du en arbets yta för Synapse:
 - Välj STG1 för lagrings kontot
 - Välj CNT1 för den behållare som används som "filesystem".
 - Öppna WS1 i Synapse Studio
-- Välj **Hantera** > **Access Control** tilldela säkerhets grupperna till följande Synapse-roller.
-  - Tilldela **WS1\_-WSAdmins** till Synapse arbets ytans administratörer
-  - Tilldela **WS1\_SparkAdmins** till Synapse Spark-administratörer
-  - Tilldela **WS1\_-SQLADMINS** till Synapse SQL-administratörer
+- Välj **Hantera**  >  **Access Control** tilldela säkerhets grupperna till följande Synapse-roller.
+  - Tilldela **WS1- \_ WSAdmins** till Synapse arbets ytans administratörer
+  - Tilldela **WS1 \_ SparkAdmins** till Synapse Spark-administratörer
+  - Tilldela **WS1- \_ SQLAdmins** till Synapse SQL-administratörer
 
 ## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>STEG 4: Konfigurera Data Lake Storage Gen2 som ska användas av Synapse-arbetsytan
 
@@ -91,14 +91,14 @@ Synapse-arbetsytan behöver åtkomst till STG1 och CNT1 så att den kan köra pi
 - Navigera till CNT1
 - Se till att MSI (Hanterad tjänstidentitet) för WS1 har tilldelats rollen **Storage BLOB data Contributor** på CNT1
   - Om du inte ser den tilldelade tilldelar du den.
-  - MSI har samma namn som arbets ytan. I det här fallet är &quot;det WS1.&quot;
+  - MSI har samma namn som arbets ytan. I det här fallet är det &quot; WS1 &quot; .
 
 ## <a name="step-5-configure-admin-access-for-sql-pools"></a>STEG 5: Konfigurera administratörs åtkomst för SQL-pooler
 
 - Öppna Azure Portal
 - Navigera till WS1
 - Under **Inställningar**klickar du på **SQL Active Directory admin**
-- Klicka på **Ange administratör** och välj\_WS1 SQLAdmins
+- Klicka på **Ange administratör** och välj WS1 \_ SQLAdmins
 
 ## <a name="step-6-maintaining-access-control"></a>STEG 6: upprätthålla åtkomst kontroll
 
@@ -119,7 +119,7 @@ Användare i varje roll behöver utföra följande steg:
 | 3 | Skapa en spark-pool | JA [1] | JA [1] | NO  |
 | 4 | Läser filen Parquet med en bärbar dator | JA | JA | NO |
 | 5 | Skapa en pipeline från antecknings boken och Utlös pipelinen för att köras nu | JA | NO | NO |
-| 6 | Skapa en SQL-pool och kör ett SQL-skript &quot;, till exempel Select 1&quot; | JA [1] | NO | JA [1] |
+| 6 | Skapa en SQL-pool och kör ett SQL-skript, till exempel &quot; Select 1&quot; | JA [1] | NO | JA [1] |
 
 > [!NOTE]
 > [1] om du vill skapa SQL-eller Spark-pooler måste användaren ha minst deltagar rollen i Synapse-arbetsytan.

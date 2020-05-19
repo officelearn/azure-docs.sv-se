@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f69069b0c62f1e96c16441e99fbadac45728743
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: cf872991adbf1361a482f6618e57304e33ec1261
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199439"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591292"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Aktivera externt samarbete i B2B och hantera vem som kan bjuda in gäster
 
@@ -37,7 +37,7 @@ Som standard kan alla användare, inklusive gäster, bjuda in gäst användare.
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som klient organisations administratör.
 2. Välj **Azure Active Directory**.
-3. Välj inställningar för **organisations relationer**  >  **Settings** (eller Välj **externa identiteter**  >  **externa samarbets inställningar**).
+3. Välj **externa identiteter**  >  **externa samarbets inställningar**.
 6. På sidan **Inställningar för externt samarbete** väljer du de principer som du vill aktivera.
 
    ![Inställningar för externt samarbete](./media/delegate-invitations/control-who-to-invite.png)

@@ -1,7 +1,7 @@
 ---
-title: Exempel metod för Translator Text API-ordlista
+title: Exempel metod för Translator-ordlista
 titleSuffix: Azure Cognitive Services
-description: Exempel metoden Translator Text API Dictionary innehåller exempel som visar hur termer i ord listan används i kontexten.
+description: Exempel metoden Translator-ordlista innehåller exempel som visar hur termer i ord listan används i kontexten.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a1d86ac354524cb4d7bf9f9776b8605f244d92f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548075"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592516"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3,0: exempel på ord lista
+# <a name="translator-30-dictionary-examples"></a>Translator 3,0: exempel på ord lista
 
 Innehåller exempel som visar hur termer i ord listan används i kontexten. Den här åtgärden används i tandem med [ord](./v3-0-dictionary-lookup.md)lists ökning.
 
-## <a name="request-url"></a>URL för begäran
+## <a name="request-url"></a>Begärans-URL
 
 Skicka en `POST` begäran till:
 
@@ -33,20 +33,20 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 Parametrarna för begäran som skickades till frågesträngen är:
 
-| Frågeparameter | Beskrivning |
+| Frågeparameter | Description |
 | --------- | ----------- |
-| api-version <img width=200/> | **Obligatorisk parameter**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`. |
+| api-version <img width=200/> | **Obligatorisk parameter**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` . |
 | Från | **Obligatorisk parameter**.<br/>Anger språket för inmatad text. Käll språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary` omfånget. |
 | till | **Obligatorisk parameter**.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary` omfånget.  | 
 
 Begärandehuvuden innehåller:
 
-| Rubriker  | Beskrivning |
+| Sidhuvuden  | Description |
 | ------ | ----------- |
 | Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
-| Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`. |
+| Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json` . |
 | Innehålls längd   | **Begär ande huvud för begäran**.<br/>Längden på begär ande texten. |
-| X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp `ClientTraceId`av en frågeparameter med namnet. |
+| X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId` . |
 
 ## <a name="request-body"></a>Begärandetext
 
@@ -81,22 +81,22 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
     * `sourcePrefix`: Strängen som ska sammanfogas _innan_ värdet för `sourceTerm` utgör ett fullständigt exempel. Lägg inte till ett blank stegs tecken eftersom det redan finns där. Det här värdet kan vara en tom sträng.
 
-    * `sourceTerm`: En sträng som motsvarar den faktiska termen som har sökts upp. Strängen läggs till med `sourcePrefix` och `sourceSuffix` används för att skapa hela exemplet. Värdet är avgränsat så att det kan markeras i ett användar gränssnitt, t. ex. med fetstil.
+    * `sourceTerm`: En sträng som motsvarar den faktiska termen som har sökts upp. Strängen läggs till med `sourcePrefix` och används `sourceSuffix` för att skapa hela exemplet. Värdet är avgränsat så att det kan markeras i ett användar gränssnitt, t. ex. med fetstil.
 
     * `sourceSuffix`: Strängen som ska sammanfogas _efter_ värdet för `sourceTerm` att skapa ett fullständigt exempel. Lägg inte till ett blank stegs tecken eftersom det redan finns där. Det här värdet kan vara en tom sträng.
 
-    * `targetPrefix`: En sträng som `sourcePrefix` liknar men för målet.
+    * `targetPrefix`: En sträng som liknar `sourcePrefix` men för målet.
 
-    * `targetTerm`: En sträng som `sourceTerm` liknar men för målet.
+    * `targetTerm`: En sträng som liknar `sourceTerm` men för målet.
 
-    * `targetSuffix`: En sträng som `sourceSuffix` liknar men för målet.
+    * `targetSuffix`: En sträng som liknar `sourceSuffix` men för målet.
 
     > [!NOTE]
     > Om det inte finns några exempel i ord listan är svaret 200 (OK), men `examples` listan är en tom lista.
 
 ## <a name="examples"></a>Exempel
 
-Det här exemplet visar hur du söker efter exempel för paret som består av den engelska `fly` och dess Spanska Översättning `volar`.
+Det här exemplet visar hur du söker efter exempel för paret som består av den engelska `fly` och dess Spanska Översättning `volar` .
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

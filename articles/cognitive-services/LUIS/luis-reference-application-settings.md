@@ -2,34 +2,29 @@
 title: Program inställningar – LUIS
 description: Program inställningar för Azure Cognitive Services Language förståelseing-appar lagras i appen och portalen.
 ms.topic: reference
-ms.date: 04/14/2020
-ms.openlocfilehash: 9e17736cd6ff5074a6eab76a6cf5bdb8acedc185
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382208"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591001"
 ---
-# <a name="application-settings"></a>Programinställningar
+# <a name="app-and-version-settings"></a>Inställningar för app och version
 
-Dessa program inställningar lagras i den [exporterade](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) appen och [uppdateras](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med REST-API: erna. Om du ändrar inställningarna för program versionen återställs appens utbildnings status till inte tränad.
+Dessa inställningar lagras i den [exporterade](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) appen och uppdateras med REST-API: erna eller Luis-portalen.
 
-Lär dig [begrepp](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) för dia kritiska tecken och interpunktion.
+Om du ändrar inställningarna för program versionen återställs appens utbildnings status till inte tränad.
 
-|Inställningen|Standardvärde|Obs!|
-|--|--|--|
-|NormalizePunctuation|Sant|Tar bort interpunktion.|
-|NormalizeDiacritics|Sant|Tar bort dia kritiska tecken.|
+[!INCLUDE [App and version settings](includes/app-version-settings.md)]
+
+
+Text referens och exempel är:
+
+* [Skiljetecken](#punctuation-normalization)
+* [Dia kritiska tecken](#diacritics-normalization)
 
 ## <a name="diacritics-normalization"></a>Normalisering av dia kritiska tecken
-
-Aktivera uttryck-normalisering för dia kritiska tecken till din LUIS JSON-app-fil `settings` i parametern.
-
-```JSON
-"settings": [
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
 
 Följande yttranden visar hur dia kritiska normalisering påverkar yttranden:
 
@@ -40,7 +35,7 @@ Följande yttranden visar hur dia kritiska normalisering påverkar yttranden:
 
 ### <a name="language-support-for-diacritics"></a>Språk stöd för dia kritiska tecken
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugisiska `pt-br` (Brasilien) dia kritiska tecken
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Portugisiska (Brasilien) `pt-br` dia kritiska tecken
 
 |Dia kritiska tecken har angetts till false|Dia kritiska tecken har angetts till true|
 |-|-|
@@ -133,16 +128,7 @@ Detta inkluderar både spanska och kanadensiska mexikanska.
 |`ü`|`u`|
 |`ñ`|`u`|
 
-
 ## <a name="punctuation-normalization"></a>Normalisering av interpunktion
-
-Aktivera uttryck normalisering för interpunktion till din LUIS JSON-app-fil i- `settings` parametern.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"}
-]
-```
 
 Följande yttranden visar hur interpunktion påverkar yttranden:
 

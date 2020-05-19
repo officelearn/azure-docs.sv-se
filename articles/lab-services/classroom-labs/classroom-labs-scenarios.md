@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 54fd8caef51a17148714d9cf90328572433c59db
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 26caebafc7c147452decbb28e313513072d7511b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115123"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592057"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Använda klass rums labb för utbildningar
-Med Azure Labs Services kan du snabbt och enkelt skapa ett online-labb för att etablera förkonfigurerade inlärnings miljöer för eleverna. Varje ombordpersonal skulle kunna använda identiska och isolerade miljöer för utbildningen. Principer kan användas för att säkerställa att inlärnings miljöerna endast är tillgängliga för varje ombordpersonal när de behöver dem och innehåller tillräckligt med resurser, till exempel virtuella datorer – krävs för utbildningen. 
+Azure Labs Services gör det möjligt för lärare (lärare, lärare, lärare eller undervisnings assistenter osv.) att snabbt och enkelt skapa ett online-labb för att etablera förkonfigurerade inlärnings miljöer för eleverna. Varje ombordpersonal skulle kunna använda identiska och isolerade miljöer för utbildningen. Principer kan användas för att säkerställa att inlärnings miljöerna endast är tillgängliga för varje ombordpersonal när de behöver dem och innehåller tillräckligt med resurser, till exempel virtuella datorer – krävs för utbildningen. 
 
 ![Klass rums labb](../media/classroom-labs-scenarios/classroom.png)
 
@@ -40,7 +40,7 @@ I den här artikeln får du lära dig mer om olika Azure Lab Services funktioner
 Det första steget i att använda Azure Lab Services är att skapa ett labb konto i Azure Portal. När en labb konto administratör skapar labb kontot, lägger administratören till användare som vill skapa labb till rollen **labb skapare** . Läraren skapar labb med virtuella datorer för studenter för att göra övningar för den kurs som de lär sig. Mer information finns i [skapa och hantera labb konto](how-to-manage-lab-accounts.md).
 
 ## <a name="create-and-manage-classroom-labs"></a>Skapa och hantera klassrumslabb
-En utbildare, som är medlem i rollen labb skapare i ett labb konto, kan skapa ett eller flera labb i labb kontot. Du skapar och konfigurerar en mall för virtuella datorer med all nödvändig program vara för att utföra övningar i kursen. Du väljer en färdig avbildning från de tillgängliga avbildningarna för att skapa ett klass rums labb och anpassar det genom att installera den program vara som krävs för labbet. Mer information finns i [skapa och hantera klass rums labb](how-to-manage-classroom-labs.md).
+En lärare, som är medlem i rollen labb skapare i ett labb konto, kan skapa ett eller flera labb i labb kontot. Du skapar och konfigurerar en mall för virtuella datorer med all nödvändig program vara för att utföra övningar i kursen. Du väljer en färdig avbildning från de tillgängliga avbildningarna för att skapa ett klass rums labb och anpassar det genom att installera den program vara som krävs för labbet. Mer information finns i [skapa och hantera klass rums labb](how-to-manage-classroom-labs.md).
 
 ## <a name="configure-usage-settings-and-policies"></a>Konfigurera användnings inställningar och principer
 Labb skaparen kan lägga till eller ta bort användare i labbet, Hämta registrerings länk för att skicka till labb användare, konfigurera principer, till exempel ställa in enskilda kvoter per användare, uppdatera antalet tillgängliga virtuella datorer i labbet och mycket mer. Mer information finns i [Konfigurera användnings inställningar och principer](how-to-configure-student-usage.md).

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: ce79674462f82e05cc07e9e470cb82ff8e47f672
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: aef5cd13742c0265851f5ba2918d557b4e1026d0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118489"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592652"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Koppla eller koppla från ett delat avbildnings galleri i Azure Lab Services
 Den här artikeln visar hur du kopplar eller kopplar från ett delat avbildnings galleri till ett labb konto. 
@@ -83,7 +83,7 @@ Följande procedur visar hur du ansluter ett befintligt delat avbildnings galler
     
     I det här exemplet finns det inga avbildningar i galleriet för delade avbildningar ännu.
 
-    Azure Lab Services identitet läggs till som deltagare i det delade avbildnings galleriet som är kopplat till labbet. Det gör det möjligt för lärare/IT-administratörer att spara avbildningar av virtuella datorer i det delade avbildnings galleriet. Alla labb som skapats i det här labb kontot har åtkomst till den bifogade delade avbildnings galleriet. 
+    Azure Lab Services identitet läggs till som deltagare i det delade avbildnings galleriet som är kopplat till labbet. Det ger lärare och IT-administratörer möjlighet att spara avbildningar av virtuella datorer i det delade avbildnings galleriet. Alla labb som skapats i det här labb kontot har åtkomst till den bifogade delade avbildnings galleriet. 
 
     Alla avbildningar i den bifogade delade avbildnings galleriet är aktiverade som standard. Du kan aktivera eller inaktivera valda avbildningar genom att markera dem i listan och använda knappen **aktivera markerade bilder** eller **inaktivera valda avbildningar** . 
 

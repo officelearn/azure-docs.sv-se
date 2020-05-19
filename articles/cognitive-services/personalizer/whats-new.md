@@ -8,20 +8,26 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 21e1be094716ac1d43e1f4458b41e855315d1779
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 21669a214ff1646a8f331cbe2871b7d8c756f22f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82192994"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591768"
 ---
 # <a name="whats-new-in-personalizer"></a>Nyheter i Personanpassaren
 
 Läs om vad som är nytt i tjänsten. Dessa objekt kan innehålla viktig information, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="may-2020---build-conference"></a>2020 maj-build-konferens
+
+Följande är tillgängligt i den **offentliga för hands versionen**:
+
+ * [Lärlings läge](concept-apprentice-mode.md) som ett inlärnings beteende.
 
 ### <a name="march-2020"></a>Mars 2020
 
@@ -38,7 +44,7 @@ Följande för hands versions funktioner släpptes på Build 2019-konferensen:
 
 * [Inlärnings slinga för rang och belöning](what-is-personalizer.md)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Video
 
 ### <a name="2019-build-videos"></a>2019 Bygg videor
 

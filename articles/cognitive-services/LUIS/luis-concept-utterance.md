@@ -2,13 +2,13 @@
 title: Användbart exempel yttranden – LUIS
 description: Yttranden är indata från användaren som appen behöver tolka. Samla in fraser som du tror att användarna kommer att ange. Inkludera yttranden som betyder samma sak, men som har utformats annorlunda i ord-längd och ord placering.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: d851082a4ec4a003619826eeffd4f4b856a67824
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/04/2020
+ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382279"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592873"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vilka bra yttranden är för din LUIS-app
 
@@ -68,11 +68,27 @@ Det är bättre att börja med några få yttranden och sedan [Granska slut punk
 
 ## <a name="utterance-normalization"></a>Uttryck-normalisering
 
-Uttryck normalisering är processen att ignorera effekterna av interpunktion och dia kritiska tecken under utbildning och förutsägelse. Använd [program inställningarna](luis-reference-application-settings.md) för att styra hur uttryck-normalisering påverkar uttryck förutsägelser.
+Uttryck normalisering är processen att ignorera effekterna av text typer, till exempel interpunktion och dia kritiska tecken, under utbildning och förutsägelse.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Uttryck-normalisering för dia kritiska tecken och interpunktion
+Inställningarna för uttryck-normalisering är inaktiverade som standard. Inställningarna omfattar:
 
-Uttryck-normalisering definieras när du skapar eller importerar appen eftersom den är en inställning i appens JSON-fil. Inställningarna för uttryck-normalisering är inaktiverade som standard.
+* Ord former
+* Dia kritiska tecken
+* Skiljetecken
+
+Om du aktiverar en normaliserings inställning ändras poängen i **test** fönstret, batch-test och slut punkts frågor för alla yttranden för den normaliserings inställningen.
+
+När du klonar en version i LUIS-portalen fortsätter versions inställningarna till den nya klonade versionen.
+
+Ange versions inställningar via LUIS-portalen, gå till avsnittet **Hantera** på sidan **program inställningar** eller API för [uppdaterings versions inställningar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings). Läs mer om de här normaliserings ändringarna i [referensen](luis-reference-application-settings.md).
+
+### <a name="word-forms"></a>Ord former
+
+Normaliserade **ord former** ignorerar skillnaderna i ord som expanderar bortom roten. Till exempel orden `run` , `running` och `runs` ändras baserat på verb.
+
+<a name="utterance-normalization-for-diacritics-and-punctuation"></a>
+
+### <a name="diacritics"></a>Dia kritiska tecken
 
 Dia kritiska tecken markeras eller signeras i texten, t. ex.:
 
@@ -80,24 +96,8 @@ Dia kritiska tecken markeras eller signeras i texten, t. ex.:
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Om din app aktiverar normalisering på, kommer resultat i **test** fönstret, batch-test och slut punkts frågor att ändras för alla yttranden med dia kritiska tecken eller skiljetecken.
-
-Aktivera uttryck-normalisering för dia kritiska tecken eller interpunktion till din LUIS JSON-app-fil i `settings` parametern.
-
-```JSON
-"settings": [
-    {"name": "NormalizePunctuation", "value": "true"},
-    {"name": "NormalizeDiacritics", "value": "true"}
-]
-```
-
-Normalisera **interpunktion** innebär att innan dina modeller blir utbildade och innan dina slut punkts frågor hämtas, tas skiljetecken bort från yttranden.
-
-Normaliserar **dia kritiska** tecken ersätter tecknen med dia kritiska tecken i yttranden med vanliga tecken. Till exempel: `Je parle français` blir `Je parle francais`.
-
-Normalisering innebär inte att du inte ser interpunktion och dia kritiska tecken i dina exempel yttranden eller förutsägelse svar, bara att de kommer att ignoreras vid inlärning och förutsägelse.
-
 ### <a name="punctuation-marks"></a>Skiljetecken
+Normalisera **interpunktion** innebär att innan dina modeller blir utbildade och innan dina slut punkts frågor hämtas, tas skiljetecken bort från yttranden.
 
 Interpunktion är en separat token i LUIS. En uttryck som innehåller en period i slutet jämfört med en uttryck som inte innehåller en period i slutet är två separata yttranden och kan få två olika förutsägelser.
 
@@ -109,9 +109,11 @@ Om interpunktionen inte har någon specifik betydelse i klient programmet, bör 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorerar ord och interpunktion
 
-Om du vill ignorera vissa ord eller interpunktion i mönster, använder du ett [mönster](luis-concept-patterns.md#pattern-syntax) med kommandot _Ignore_ för hakparenteser `[]`.
+Om du vill ignorera vissa ord eller interpunktion i mönster, använder du ett [mönster](luis-concept-patterns.md#pattern-syntax) med kommandot _Ignore_ för hakparenteser `[]` .
 
-## <a name="training-utterances"></a>Utbildning yttranden
+<a name="training-utterances"></a>
+
+## <a name="training-with-all-utterances"></a>Utbildning med alla yttranden
 
 Träning är vanligt vis icke-deterministiskt: uttryck förutsägelse kan variera något mellan versioner eller appar.
 Du kan ta bort icke-deterministisk utbildning genom att uppdatera API för [versions inställningar](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) med `UseAllTrainingData` namn/värde-paret för att använda alla tränings data.
@@ -124,7 +126,7 @@ Utvecklare bör börja testa sitt LUIS-program med verklig trafik genom att skic
 
 När din modell har tränat, publicerat och tagit emot [slut punkts](luis-glossary.md#endpoint) frågor, [granskar du yttranden](luis-how-to-review-endpoint-utterances.md) som föreslås av Luis. LUIS väljer slut punkts yttranden som har låga Poäng för antingen avsikten eller entiteten.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 Granska [metod tips](luis-concept-best-practices.md) och Använd dem som en del av din vanliga redigerings cykel.
 
@@ -132,14 +134,14 @@ Granska [metod tips](luis-concept-best-practices.md) och Använd dem som en del 
 
 Om Word-valet eller ord ordningen är detsamma, men inte samma sak, ska du inte märka det med entiteten.
 
-I följande yttranden är ordet `fair` ett homograph. Den har stavats likadan men har en annan betydelse:
+I följande yttranden `fair` är ordet ett homograph. Den har stavats likadan men har en annan betydelse:
 
 |Yttrande|
 |--|
 |Vilken typ av regions mässor sker i Seattle-arean på sommaren?|
 |Är det aktuella omdömet för översynen i Stockholm?|
 
-Om du vill att en händelse entitet ska hitta alla händelse data kan du märka `fair` ordet i den första uttryck, men inte i den andra.
+Om du vill att en händelse entitet ska hitta alla händelse data kan du märka ordet `fair` i den första uttryck, men inte i den andra.
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
 title: Få åtkomst till ett klassrumslabb i Azure Lab Services | Microsoft Docs
-description: I självstudien får du åtkomst till virtuella datorer i ett klassrumslabb som har konfigurerats av en professor.
+description: I den här självstudien får du åtkomst till virtuella datorer i ett klass rums labb som har kon figurer ATS av en lärare.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc
-ms.date: 03/17/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: ebda7ecec363abc1b58cdc3fc6c0799ca879adcc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 2430348a8bfbecda3f172361a40a96ef801f5bc4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118404"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592448"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Få åtkomst till ett klassrumslabb i Azure Lab Services
 Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, visar alla labb som du kan komma åt, starta/stoppa en virtuell dator i labbet och ansluta till den virtuella datorn. 
 
 ## <a name="register-to-the-lab"></a>Registrera dig för labbet
 
-1. Gå till **registrerings-URL:en** som du fick av läraren. Du behöver inte använda registrerings-URL:en efter att du har slutfört registreringen. Använd i stället URL: [https://labs.azure.com](https://labs.azure.com) . Internet Explorer 11 stöds inte ännu. 
+1. Gå till **registrerings-URL: en** som du fick från lärare. Du behöver inte använda registrerings-URL:en efter att du har slutfört registreringen. Använd i stället URL: [https://labs.azure.com](https://labs.azure.com) . Internet Explorer 11 stöds inte ännu. 
 
     ![Registrera dig för labbet](../media/tutorial-connect-vm-in-classroom-lab/register-lab.png)
 1. Logga in på tjänsten med ditt skolkonto för att slutföra registreringen. 
@@ -60,7 +60,7 @@ Den här artikeln beskriver hur du registrerar dig för ett klass rums labb, vis
 
     ![Ansluta till virtuell dator](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Gör något av följande: 
-    1. För virtuella **Windows** -datorer sparar du **RDP** -filen på hård disken. Öppna RDP-filen för att ansluta till den virtuella datorn. Använd det **användar namn** och **lösen ord** som du får från din lärare/lärare för att logga in på datorn. 
+    1. För virtuella **Windows** -datorer sparar du **RDP** -filen på hård disken. Öppna RDP-filen för att ansluta till den virtuella datorn. Använd det **användar namn** och **lösen ord** som du får från din lärare för att logga in på datorn. 
     3. För virtuella **Linux** -datorer kan du använda **SSH** eller **RDP** (om det är aktiverat) för att ansluta till dem. Mer information finns i [aktivera anslutning till fjärr skrivbord för Linux-datorer](how-to-enable-remote-desktop-linux.md). 
     1. Om du använder en **Mac** för att ansluta till den virtuella labb datorn följer du anvisningarna i nästa avsnitt. 
 

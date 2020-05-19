@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 3c954c4689281838ea8c61c932cdcc3b74bac442
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7831e554fcca20134d5cf8608481ff0c82eb8a0
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184681"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592006"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services"></a>Aktivera kapslad virtualisering på en virtuell mall på en virtuell dator i Azure Lab Services
 
-För närvarande kan du med Azure Lab Services konfigurera en virtuell mall för virtuella datorer i ett labb och göra en enskild kopia tillgänglig för varje användare. Om du är en lärare som underhåller nätverk, säkerhet eller IT-klasser kan du behöva ge varje studenter en miljö där flera virtuella datorer kan kommunicera med varandra via ett nätverk.
+För närvarande kan du med Azure Lab Services konfigurera en virtuell mall för virtuella datorer i ett labb och göra en enskild kopia tillgänglig för varje användare. Om du är en lärare-underordnad nätverks-, säkerhets-eller IT-klass kan du behöva ge varje studenter en miljö där flera virtuella datorer kan kommunicera med varandra via ett nätverk.
 
 Kapslad virtualisering gör att du kan skapa en miljö med flera virtuella datorer i en labbs mall för virtuella datorer. Genom att publicera mallen får du varje användare i labbet med en virtuell dator som är konfigurerad med flera virtuella datorer i den.  Den här artikeln beskriver hur du konfigurerar kapslad virtualisering på en mallfil i Azure Lab Services.
 

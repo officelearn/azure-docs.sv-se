@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: spelluru
-ms.openlocfilehash: cb645b5adfcd937758a950eaf596bc60e4d55f3f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 11cb0d995537b8979c3727bf508045c6e31fc208
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115157"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592618"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Klass rums labb i Azure Lab Services – vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Services. 
@@ -28,8 +28,8 @@ Få svar på några av de vanligaste frågorna om klass rums labb i Azure Lab Se
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>Är kvoten per användare eller per vecka eller per hela tiden för labbet? 
 Den kvot som du har angett för ett labb är för varje student under hela Labbets varaktighet. Och den [schemalagda körningen av virtuella datorer](how-to-create-schedules.md) räknas inte mot den kvot som tilldelats till en användare. Kvoten är för tiden utanför de schema timmar som en student tillbringar på virtuella datorer.  Mer information om kvoter finns i [Ange kvoter för användare](how-to-configure-student-usage.md#set-quotas-for-users).
 
-### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Om jag aktiverar en elev-VM, påverkar detta student kvoten? 
-Nej. Det inte. När den virtuella datorn är aktive ras, påverkar den inte den kvot som tilldelats studenten. 
+### <a name="if-educator-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>Om lärare aktiverar en elev-VM, påverkar detta student kvoten? 
+Nej. Det inte. När lärare slår på den virtuella student datorn påverkar den inte den kvot som tilldelats studenten. 
 
 ## <a name="schedules"></a>Scheman
 

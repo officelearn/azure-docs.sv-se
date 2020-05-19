@@ -1,7 +1,7 @@
 ---
-title: Transformera text – Translator Text API
+title: Transformera text – översättare
 titleSuffix: Azure Cognitive Services
-description: Transformera text med hjälp av Translator Text API.
+description: Transformera text med hjälp av Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,17 +10,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
-ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ba8cf9a25a12ecc261845477c4e32a86f585906e
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68594907"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592210"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Använda metoden TransformText
 
 > [!NOTE]
-> Den här metoden är föråldrad. Den är inte tillgänglig i V 3.0 för Translator Text API.
+> Den här metoden är föråldrad. Den är inte tillgänglig i V 3.0 i Translator.
 
 Metoden TransformText är en text normaliserings funktion för sociala medier, som returnerar en normaliserad form av indatamängden. Metoden kan användas som ett förbehandlings steg i dator översättning eller andra program som förväntar sig en ren indata-text som vanligt vis inte finns i sociala medier eller innehåll som skapats av användare. Funktionen fungerar för närvarande endast med engelska ingångar.
 

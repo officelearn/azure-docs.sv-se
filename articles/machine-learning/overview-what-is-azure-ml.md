@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b97bae252b25c9ae2891506f08fc4955f84c1eb6
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79241614"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593026"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -23,7 +23,7 @@ Azure Machine Learning kan användas för alla typer av Machine Learning, från 
 
 Starta utbildningen på den lokala datorn och skala sedan ut till molnet. 
 
-Tjänsten samverkar också med populära verktyg med öppen källkod, till exempel PyTorch, TensorFlow och scikit-lär.
+Tjänsten samverkar också med populära djup inlärnings-och förstärknings verktyg med öppen källkod, till exempel PyTorch, TensorFlow, scikit – lära och Ray RLlib. 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
@@ -48,9 +48,11 @@ Azure Machine Learning innehåller alla verktyg och data forskare som behöver f
 
 + [Visual Studio Code-tillägg](tutorial-setup-vscode-extension.md)
 
-+ [Machine Learning CLI](reference-azure-machine-learning-cli.md)
++ [Maskininlärning CLI](reference-azure-machine-learning-cli.md)
 
 + Ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit – lära och många fler
+
++ [Förstärka inlärning](how-to-use-reinforcement-learning.md) med Ray RLlib
 
 Du kan även använda [MLflow för att spåra mått och distribuera modeller](how-to-use-mlflow.md) eller Kubeflow för att [bygga arbets flöden från slut punkt till slut punkt](https://www.kubeflow.org/docs/azure/).
 

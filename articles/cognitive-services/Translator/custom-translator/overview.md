@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 04f90292b74593dece5f7e54268907e184fd084c
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982693"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592771"
 ---
 # <a name="what-is-custom-translator"></a>Vad är Custom Translator?
 
@@ -28,13 +28,13 @@ Custom Translator stöder mer än tre dussin språk och mappas direkt till språ
 
 Custom Translator har olika funktioner för att skapa ett anpassat översättningssystem och därefter använda det.
 
-|Funktion  |Beskrivning  |
+|Funktion  |Description  |
 |---------|---------|
 |[Utnyttja neural maskinöversättningsteknik](https://www.microsoft.com/translator/blog/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/)     |  Förbättra översättningen genom att utnyttja neural maskinöversättning (NMT) som tillhandahålls av Custom Translator.       |
 |[Skapa system som känner till din affärsterminologi](what-are-parallel-documents.md)     |  Anpassa och skapa översättningssystem med hjälp av parallella dokument, som förstår den terminologi som används i din egen verksamhet och bransch.       |
 |[Använda ordlista till att skapa dina modeller](what-is-dictionary.md)     |   Om du inte har angett träningsdata kan du träna en modell med bara ordlistedata.       |
 |[Samarbeta med andra](how-to-manage-settings.md#share-your-workspace)     |   Samarbeta med teamet genom att dela ditt arbete med olika personer.     |
-|[Få åtkomst till din anpassade översättningsmodell](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Den anpassade översättningsmodellen kan användas när som helst av dina befintliga appar/program via Microsoft Translator Text API V3.       |
+|[Få åtkomst till din anpassade översättningsmodell](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  Din anpassade översättnings modell kan nås när som helst av dina befintliga program/program via Translator v3.       |
 
 ## <a name="get-better-translations"></a>Få bättre översättningar
 
@@ -54,11 +54,11 @@ Med hjälp av den säkra [Custom Translator](https://portal.customtranslator.azu
 
 [Custom Translator](https://portal.customtranslator.azure.ai) kan även användas programmatiskt via ett [dedikerat API](https://custom-api.cognitive.microsofttranslator.com/swagger/) (för närvarande en förhandsversion). Med API:et kan användare hantera skapandet eller uppdateringen av träning regelbundet via en egen app eller webbtjänst.
 
-Kostnaden för att använda en anpassad modell till att översätta innehåll baseras på användarens prisnivå för Translator Text API. Se Cognitive Services [webbsidan med priser för Translator Text API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) information om olika prisnivåer.
+Kostnaden för att använda en anpassad modell för att översätta innehåll baseras på användarens pris nivå för översättare. Se [pris webb sidan](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/) för Cognitive Services Translator för pris nivå information.
 
 ## <a name="securely-translate-anytime-anywhere-on-all-your-apps-and-services"></a>Översätt säkert när som helst, var som helst på alla dina appar och tjänster
 
-Anpassade system kan sömlöst användas och integreras i alla produkter eller affärsarbetsflöden, och på valfri enhet, via Microsoft Translator Text API via REST-standardtekniken.
+Anpassade system kan nås sömlöst och integreras i alla produkter och affärs arbets flöden och på alla enheter via Translator via standard REST-teknik.
 
 ## <a name="next-steps"></a>Nästa steg
 

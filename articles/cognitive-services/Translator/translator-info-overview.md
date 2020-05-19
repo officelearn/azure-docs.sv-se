@@ -1,7 +1,7 @@
 ---
-title: Vad är Translator Text API? - Translator Text API
+title: Vad är Translator? -Translator
 titlesuffix: Azure Cognitive Services
-description: Integrera Translator Text API i program, på webbplatser och i verktyg och andra lösningar för att tillhandahålla användarupplevelser för flera språk.
+description: Integrera översättaren i dina program, webbplatser, verktyg och andra lösningar för att tillhandahålla användar upplevelser med flera språk.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,24 +11,24 @@ ms.topic: overview
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: f6b55163440b25bf69c76e9b1217c439b0884d5d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e4a1f2d778fb2b811d4c38dd26956e2eab51258a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78331050"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592669"
 ---
-# <a name="what-is-the-translator-text-api"></a>Vad är Translator Text API?
+# <a name="what-is-the-translator"></a>Vad är Translator?
 
-Translator Text API är enkelt att integrera i dina program, webbplatser, verktyg och lösningar. Det gör att du kan flerspråksanvändarupplevelser med [fler än 60 språk](languages.md), och det kan användas på alla maskinvaruplattformar med alla operativsystem för text-till-text-språköversättningar.
+Översättningen är enkel att integrera i dina program, webbplatser, verktyg och lösningar. Det gör att du kan flerspråksanvändarupplevelser med [fler än 60 språk](languages.md), och det kan användas på alla maskinvaruplattformar med alla operativsystem för text-till-text-språköversättningar.
 
-Translator Text API är en del av Azure [Cognitive Services API](https://docs.microsoft.com/azure/?pivot=products&panel=ai)-samlingen med maskininlärnings- och AI-algoritmer i molnet, och det kan enkelt användas i dina utvecklingsprojekt.
+Översättaren är en del av [Azure Cognitive Services](https://docs.microsoft.com/azure/?pivot=products&panel=ai) -samlingen av Machine Learning-och AI-algoritmer i molnet och är lätt att använda i dina utvecklings projekt.
 
 ## <a name="about-microsoft-translator"></a>Om Microsoft Translator
 
-Microsoft Translator är en molnbaserad maskinöversättningstjänst. Den viktigaste tjänsten är Translator Text API, som driver ett antal produkter och tjänster från Microsoft och används av tusentals företag över hela världen i program och arbetsflöden, vilket gör att deras innehåll kan nå en världsomspännande publik.
+Translator är en molnbaserad maskin översättnings tjänst. Kärn tjänsten är översättaren, vilket ger en mängd olika Microsoft-produkter och-tjänster och används av tusentals företag i hela världen i sina program och arbets flöden, vilket ger sitt innehåll möjlighet att komma åt en global publik.
 
-Talöversättning, som drivs av Translator Text API, är också tillgängligt via [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktioner från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbar tjänst.Speech Service ersätter Translator Speech API, som tas ur drift 15 oktober 2019.
+Tal översättning, som drivs av Translator, är också tillgängligt via [Microsoft Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Den kombinerar funktioner från Translator Speech API och Custom Speech Service till en enhetlig och helt anpassningsbar tjänst.Speech Service ersätter Translator Speech API, som tas ur drift 15 oktober 2019.
 
 ## <a name="language-support"></a>Stöd för språk
 
@@ -46,9 +46,9 @@ Läs mer om [hur neural maskinöversättning fungerar](https://www.microsoft.com
 
 ## <a name="language-customization"></a>Språkanpassning
 
-Den anpassade översättningstjänsten är ett tillägg till Microsofts grundläggande översättningstjänst. Den kan användas tillsammans med Translator Text API för att anpassa det neutrala översättningssystemet, så att specifik terminologi och stil översätts bättre.
+En utökning av tjänsten Microsoft Translator, anpassad översättare kan användas tillsammans med Translator för att anpassa neurala översättnings systemet och förbättra översättningen för din speciella terminologi och stil.
 
-Med den anpassade översättningstjänsten kan du skapa översättningssystem som hanterar den terminologi som används inom företaget eller branschen. Det anpassade översättningssystemet är enkelt att integrera i befintliga program, arbetsflöden och webbplatser och på olika typer av enheter, via vanliga Microsoft Translator Text API, med hjälp av kategoriparametern.
+Med den anpassade översättningstjänsten kan du skapa översättningssystem som hanterar den terminologi som används inom företaget eller branschen. Det anpassade översättnings systemet integreras sedan enkelt i dina befintliga program, arbets flöden och webbplatser på flera olika typer av enheter, via den vanliga översättaren, med hjälp av parametern Category.
 
 Läs mer om [språkanpassning](customization.md)
 

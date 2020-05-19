@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 305242e13dab23b6a003c5d864073372a052601a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77560906"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593179"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrera från Translator Speech API till tal tjänsten
 
@@ -37,7 +37,7 @@ Använd den här artikeln för att migrera dina program från Microsoft Translat
 | Flera språk som har översatts i en enskild begäran | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | SDK: er är tillgängliga                                    | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Se [dokumentationen för tal tjänst](index.yml) för tillgängliga SDK: er.                                                                                                                                                    |
 | WebSockets-anslutningar                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| Språk-API                                     | :heavy_check_mark:                                              | : heavy_minus_sign:                 | Tal tjänsten har stöd för samma mängd språk som beskrivs i artikeln [Translator-API språk referens](../translator-speech/languages-reference.md) . |
+| Språk-API                                     | :heavy_check_mark:                                              | : heavy_minus_sign:                 | Tal tjänsten har stöd för samma mängd språk som beskrivs i artikeln [översättnings språk referens](../translator-speech/languages-reference.md) . |
 | Filter och markör för svordomar                       | : heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | . WAV/PCM som inmatade                                 | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Andra filtyper som indata                         | : heavy_minus_sign:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
@@ -55,7 +55,7 @@ Om du eller din organisation har program som är i utvecklings-eller produktions
 
 * Om programmet använder långsiktiga anslutningar och inte kan använda de tillgängliga SDK: erna kan du använda en WebSockets-anslutning. Hantera tids gränsen på 10 minuter genom att ansluta vid rätt tidpunkter.
 
-* Om programmet använder Translator Text API och Translator Speech API för att aktivera anpassade översättnings modeller, kan du lägga till kategori-ID: n direkt med hjälp av tal tjänsten.
+* Om programmet använder tjänsten Translator och Translator Speech API för att aktivera anpassade översättnings modeller, kan du lägga till kategori-ID: n direkt med hjälp av tal tjänsten.
 
 * Till skillnad från Translator Speech API kan tal tjänsten slutföra översättningar till flera språk i en enskild begäran.
 

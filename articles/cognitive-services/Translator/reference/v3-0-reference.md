@@ -1,7 +1,7 @@
 ---
-title: Translator Text API V 3.0-referens
+title: Translator V 3.0-referens
 titleSuffix: Azure Cognitive Services
-description: Referens dokumentation för Translator Text API V 3.0. Version 3 av Translator Text API tillhandahåller ett modernt JSON-baserat webb-API.
+description: Referens dokumentation för Translator V 3.0. Version 3 av Translator tillhandahåller ett modernt JSON-baserat webb-API.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 4/17/2020
 ms.author: swmachan
-ms.openlocfilehash: bf7701055c8c325f02c0daca1755806f3ca17b76
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2ddc3921c77f8861761ea37b8783e220c1242b97
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857310"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592278"
 ---
-# <a name="translator-text-api-v30"></a>Translator Text API v 3.0
+# <a name="translator-v30"></a>Translator v 3.0
 
 ## <a name="whats-new"></a>Nyheter
 
-Version 3 av Translator Text API tillhandahåller ett modernt JSON-baserat webb-API. Det förbättrar användbarhet och prestanda genom att konsolidera befintliga funktioner i färre operationer och den innehåller nya funktioner.
+Version 3 av Translator tillhandahåller ett modernt JSON-baserat webb-API. Det förbättrar användbarhet och prestanda genom att konsolidera befintliga funktioner i färre operationer och den innehåller nya funktioner.
 
  * Transkriberingsspråk att konvertera text på ett språk från ett skript till ett annat.
  * Översättning till flera språk i en begäran.
@@ -37,11 +37,11 @@ Microsoft Translator hanteras av flera data Center platser. De finns för närva
 * **Asien och Stillahavsområdet:** Södra Korea, Östra Japan, Sydostasien och östra Australien
 * **Europa:** Nord Europa och Västeuropa
 
-Begär anden till Microsoft-Translator Text API hanteras i de flesta fall av data centret som är närmast den plats där begäran kommer. Om ett Data Center haveri skulle Miss lyckas kan begäran dirigeras utanför Azure-geografien.
+Begär anden till Microsoft Translator hanteras i de flesta fall av data centret som är närmast den plats där begäran kommer. Om ett Data Center haveri skulle Miss lyckas kan begäran dirigeras utanför Azure-geografien.
 
 Om du vill tvinga begäran att hanteras av ett visst Azure-geografi ändrar du den globala slut punkten i API-begäran till önskad regional slut punkt:
 
-|Beskrivning|Azure geografi|Grundläggande URL|
+|Description|Azure geografi|Grundläggande URL|
 |:--|:--|:--|
 |Azure|Global (icke-regional)|   api.cognitive.microsofttranslator.com|
 |Azure|USA|   api-nam.cognitive.microsofttranslator.com|
@@ -50,28 +50,28 @@ Om du vill tvinga begäran att hanteras av ett visst Azure-geografi ändrar du d
 
 ## <a name="authentication"></a>Autentisering
 
-Prenumerera på Translator Text API eller [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) i Azure Cognitive Services och Använd din prenumerations nyckel (tillgänglig i Azure Portal) för att autentisera. 
+Prenumerera på Translator eller [Cognitive Services multi-service](https://azure.microsoft.com/pricing/details/cognitive-services/) i Azure Cognitive Services och Använd din prenumerations nyckel (tillgänglig i Azure Portal) för att autentisera. 
 
 Det finns tre huvuden som du kan använda för att autentisera din prenumeration. Den här tabellen beskriver hur var och en används:
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|*Använd med Cognitive Services prenumeration om du skickar den hemliga nyckeln*.<br/>Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
-|Auktorisering|*Använd med Cognitive Services prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är Bearer-token: `Bearer <token>`.|
+|Ocp-Apim-Subscription-Key|*Använd med Cognitive Services prenumeration om du skickar den hemliga nyckeln*.<br/>Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
+|Auktorisering|*Använd med Cognitive Services prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är Bearer-token: `Bearer <token>` .|
 |OCP-APIM-Subscription-region|*Använd med Cognitive Services flera tjänst-och regional Translator-resurser.*<br/>Värdet är regionen för resursen för flera tjänst-eller regionala översättare. Det här värdet är valfritt när du använder en global translator-resurs.|
 
 ###  <a name="secret-key"></a>Hemlig nyckel
-Det första alternativet är att autentisera med hjälp `Ocp-Apim-Subscription-Key` av-huvudet. Lägg till `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` rubriken i din begäran.
+Det första alternativet är att autentisera med hjälp av- `Ocp-Apim-Subscription-Key` huvudet. Lägg till `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` rubriken i din begäran.
 
 #### <a name="authenticating-with-a-global-resource"></a>Autentisera med en global resurs
 
-När du använder en [Global Translator-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)måste du inkludera en rubrik för att anropa Translator-API: et.
+När du använder en [Global Translator-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)måste du inkludera en rubrik för att anropa översättaren.
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
+|Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 
-Här är en exempel förfrågan om att anropa Translator-API: et med hjälp av den globala Translator-resursen
+Här är en exempel förfrågan om att anropa Translator med hjälp av den globala Translator-resursen
 
 ```curl
 // Pass secret key using headers
@@ -84,14 +84,14 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 #### <a name="authenticating-with-a-regional-resource"></a>Autentisera med en regional resurs
 
 När du använder en [lokal översättare-resurs](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
-Det finns 2 huvuden som du behöver anropa Translator-API: et.
+Det finns två huvuden som du måste anropa Translator.
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
+|Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 |OCP-APIM-Subscription-region| Värdet är den region där Translator-resursen finns. |
 
-Här är en exempel förfrågan om att anropa Translator-API: et med hjälp av den regionala Translator-resursen
+Här är en exempel förfrågan om att anropa Translator med hjälp av den regionala Translator-resursen
 
 ```curl
 // Pass secret key and region using headers
@@ -106,21 +106,21 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 När du använder en kognitiv tjänsts resurs för flera tjänster. På så sätt kan du använda en enskild hemlig nyckel för att autentisera begär Anden för flera tjänster. 
 
-När du använder en hemlig nyckel för flera tjänster måste du inkludera två autentiseringsscheman med din begäran. Det finns 2 huvuden som du behöver anropa Translator-API: et.
+När du använder en hemlig nyckel för flera tjänster måste du inkludera två autentiseringsscheman med din begäran. Det finns två huvuden som du måste anropa Translator.
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din multi-service-resurs.|
 |OCP-APIM-Subscription-region| Värdet är regionen för flera tjänst resurser. |
 
 Region krävs för multi-service text API-prenumerationen. Den region du väljer är den enda region som du kan använda för text översättning när du använder prenumerations nyckeln för flera tjänster och måste vara samma region som du valde när du registrerade dig för din prenumeration på flera tjänster via Azure Portal.
 
-Tillgängliga regioner är `australiaeast`, `brazilsouth` `canadacentral` `centralindia` `centralus` `centraluseuap` `eastasia` `eastus` `eastus2` `francecentral` `southafricanorth`,, `uksouth`,,,,,,,,,,,,,,,,, och. `northcentralus` `japaneast` `japanwest` `koreacentral` `northeurope` `southcentralus` `southeastasia` `westcentralus` `westeurope` `westus` `westus2`
+Tillgängliga regioner är,,,,,,,,,,,,,,,,,,,, `australiaeast` `brazilsouth` `canadacentral` `centralindia` `centralus` `centraluseuap` `eastasia` `eastus` `eastus2` `francecentral` `japaneast` `japanwest` `koreacentral` `northcentralus` `northeurope` `southcentralus` `southeastasia` `uksouth` `westcentralus` `westeurope` `westus` `westus2` och `southafricanorth` .
 
-Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key`måste du ange regionen med Frågeparametern. `Subscription-Region`
+Om du skickar den hemliga nyckeln i frågesträngen med parametern `Subscription-Key` måste du ange regionen med Frågeparametern `Subscription-Region` .
 
 ### <a name="authenticating-with-an-access-token"></a>Autentisera med en åtkomsttoken
-Alternativt kan du byta hemlig nyckel för en åtkomsttoken. Denna token ingår i varje begäran som `Authorization` rubrik. Om du vill hämta en autentiseringstoken gör du `POST` en begäran till följande URL:
+Alternativt kan du byta hemlig nyckel för en åtkomsttoken. Denna token ingår i varje begäran som `Authorization` rubrik. Om du vill hämta en autentiseringstoken gör du en `POST` begäran till följande URL:
 
 | Resurstyp     | URL för autentiseringstjänst                                |
 |-----------------|-----------------------------------------------------------|
@@ -143,22 +143,22 @@ En lyckad begäran returnerar kodad åtkomsttoken som oformaterad text i svars t
 Authorization: Bearer <Base64-access_token>
 ```
 
-En autentiseringstoken är giltig i 10 minuter. Token ska återanvändas när du gör flera anrop till Translator-API: erna. Men om programmet skickar begär anden till Translator-API under en längre tid måste programmet begära en ny åtkomsttoken med jämna mellanrum (till exempel var 8: e minut).
+En autentiseringstoken är giltig i 10 minuter. Token ska återanvändas när du gör flera anrop till Translator. Men om programmet skickar begär anden till översättaren under en längre tid måste programmet begära en ny åtkomsttoken med jämna mellanrum (till exempel var 8: e minut).
 
 ## <a name="virtual-network-support"></a>Stöd för virtuellt nätverk
 
-Translator-tjänsten är nu tillgänglig med Virtual Network funktioner i begränsade regioner`WestUS2`( `EastUS`, `SouthCentralUS` `WestUS` `CentralUSEUAP`,,, `global`,). Om du vill aktivera Virtual Network kan du läsa [Konfigurera Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
+Translator-tjänsten är nu tillgänglig med Virtual Network funktioner i begränsade regioner (,,,,, `WestUS2` `EastUS` `SouthCentralUS` `WestUS` `CentralUSEUAP` `global` ). Om du vill aktivera Virtual Network kan du läsa [Konfigurera Azure Cognitive Services Virtual Networks](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal). 
 
-När du har aktiverat den här funktionen måste du använda den anpassade slut punkten för att anropa Translator-API: et. Du kan inte använda den globala Translator-slutpunkten ("api.cognitive.microsofttranslator.com") och du kan inte autentisera med en åtkomsttoken.
+När du har aktiverat den här funktionen måste du använda den anpassade slut punkten för att anropa Translator. Du kan inte använda den globala Translator-slutpunkten ("api.cognitive.microsofttranslator.com") och du kan inte autentisera med en åtkomsttoken.
 
 Du hittar den anpassade slut punkten när du har skapat [Translator-resursen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation).
 
-|Rubriker|Beskrivning|
+|Sidhuvuden|Description|
 |:-----|:----|
-|Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration till Translator Text API.|
+|Ocp-Apim-Subscription-Key| Värdet är Azures hemliga nyckel för din prenumeration på Translator.|
 |OCP-APIM-Subscription-region| Värdet är den region där Translator-resursen finns. Det här värdet är valfritt om resursen är`global`|
 
-Här är en exempel förfrågan om att anropa Translator-API: et med den anpassade slut punkten
+Här är en exempel förfrågan om att anropa Translator med den anpassade slut punkten
 
 ```curl
 // Pass secret key and region using headers
@@ -171,7 +171,7 @@ curl -X POST "https://<your-custom-domain>.cognitiveservices.azure.com/translato
 
 ## <a name="errors"></a>Fel
 
-Ett standard fel svar är ett JSON-objekt med namnet/värde- `error`paret med namnet. Värdet är också ett JSON-objekt med egenskaper:
+Ett standard fel svar är ett JSON-objekt med namnet/värde-paret med namnet `error` . Värdet är också ett JSON-objekt med egenskaper:
 
   * `code`: En server-definierad felkod.
   * `message`: En sträng som ger en läslig representation av felet.
@@ -188,7 +188,7 @@ Till exempel skulle en kund med en kostnads fri utvärderings prenumeration få 
 ```
 Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden följt av ett 3-siffrigt nummer för att ytterligare kategorisera felet. Vanliga fel koder är:
 
-| Kod | Beskrivning |
+| Kod | Description |
 |:----|:-----|
 | 400000| En av begärda indata är inte giltiga.|
 | 400001| Parametern "scope" är ogiltig.|
@@ -218,7 +218,7 @@ Felkoden är ett 6-siffrigt tal som kombinerar den tresiffriga HTTP-statuskoden 
 | 400079| Det anpassade systemet som begärdes för översättning mellan från och till språk finns inte.|
 | 400080| Transkriberingsspråk stöds inte för språket eller skriptet.|
 | 401000| Begäran är inte auktoriserad eftersom autentiseringsuppgifterna saknas eller är ogiltiga.|
-| 401015| "De angivna autentiseringsuppgifterna är för Speech API. Den här begäran kräver autentiseringsuppgifter för text-API: et. Använd en prenumeration för att Translator Text API. "|
+| 401015| "De angivna autentiseringsuppgifterna är för Speech API. Den här begäran kräver autentiseringsuppgifter för text-API: et. Använd en prenumeration på Translator. "|
 | 403000| Åtgärden är inte tillåten.|
 | 403001| Åtgärden tillåts inte eftersom prenumerationen har överskridit den kostnads fria kvoten.|
 | 405000| Metoden Request stöds inte för den begärda resursen.|
@@ -236,7 +236,7 @@ Med mått kan du Visa information om användning och tillgänglighet för övers
 
 I den här tabellen listas tillgängliga mått med en beskrivning av hur de används för att övervaka API-anrop för översättning.
 
-| Mått | Beskrivning |
+| Mått | Description |
 |:----|:-----|
 | TotalCalls| Totalt antal API-anrop.|
 | TotalTokenCalls| Totalt antal API-anrop via token service med autentiseringstoken.|

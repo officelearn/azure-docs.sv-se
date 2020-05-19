@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: c4b0c5277fb826780ff0c103f011c26049282672
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201489"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591428"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Använda OpenRowSet med SQL på begäran (för hands version)
 
@@ -48,7 +48,7 @@ Det här är ett snabbt och enkelt sätt att läsa innehållet i filerna utan f�
     Med det här alternativet kan du konfigurera lagrings kontots plats i data källan och ange den autentiseringsmetod som ska användas för åtkomst till lagringen. 
     
     > [!IMPORTANT]
-    > `OPENROWSET`utan `DATA_SOURCE` ger ett snabbt och enkelt sätt att komma åt lagringsfiler, men erbjuder alternativ för begränsad autentisering. Till exempel kan Azure AD-huvudobjektet endast komma åt filer med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md#user-identity) och kan inte komma åt offentligt tillgängliga filer. Om du behöver mer kraftfulla autentiseringsalternativ använder du `DATA_SOURCE` alternativet och definierar de autentiseringsuppgifter som du vill använda för att komma åt lagringen.
+    > `OPENROWSET`utan `DATA_SOURCE` ger ett snabbt och enkelt sätt att komma åt lagringsfiler, men erbjuder alternativ för begränsad autentisering. Till exempel kan Azure AD-huvudobjektet endast komma åt filer med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) och kan inte komma åt offentligt tillgängliga filer. Om du behöver mer kraftfulla autentiseringsalternativ använder du `DATA_SOURCE` alternativet och definierar de autentiseringsuppgifter som du vill använda för att komma åt lagringen.
 
 ## <a name="security"></a>Säkerhet
 
@@ -58,9 +58,9 @@ Lagrings administratören måste också göra det möjligt för en användare at
 
 `OPENROWSET`Använd följande regler för att avgöra hur du ska autentisera till lagring:
 - I `OPENROWSET` med `DATA_SOURCE` autentiseringsmekanismen är beroende av samtals typ.
-  - AAD-inloggningar kan bara komma åt filer med sin egen [Azure AD-identitet](develop-storage-files-storage-access-control.md#user-identity) om Azure Storage gör det möjligt för Azure AD-användaren att komma åt underliggande filer (till exempel om anroparen har behörighet för lagrings läsare för lagring) och om du [aktiverar Azure AD passthrough-autentisering](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) på Synapse SQL-tjänsten.
+  - AAD-inloggningar kan bara komma åt filer med sin egen [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) om Azure Storage gör det möjligt för Azure AD-användaren att komma åt underliggande filer (till exempel om anroparen har behörighet för lagrings läsare för lagring) och om du [aktiverar Azure AD passthrough-autentisering](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) på Synapse SQL-tjänsten.
   - SQL-inloggningar kan också använda `OPENROWSET` utan `DATA_SOURCE` åtkomst till offentligt tillgängliga filer, filer som skyddas med SAS-token eller hanterad identitet för Synapse-arbetsytan. Du måste [skapa server-begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md#examples) för att tillåta åtkomst till lagringsfiler. 
-- I `OPENROWSET` med autentiseringsmekanismen `DATA_SOURCE` definieras den autentiseringsuppgifter som tilldelats den refererade data källan i databasens begränsade autentiseringsuppgifter. Med det här alternativet kan du få åtkomst till offentligt tillgängligt lagrings utrymme, eller åtkomst till lagring med SAS-token, hanterad identitet för arbets ytan eller [Azure AD-identiteten](develop-storage-files-storage-access-control.md#user-identity) (om anroparen är Azure AD-huvudobjekt). Om `DATA_SOURCE` du refererar till Azure Storage som inte är offentligt måste du [skapa databasens begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md#examples) och referera till den i `DATA SOURCE` för att tillåta åtkomst till lagringsfiler.
+- I `OPENROWSET` med `DATA_SOURCE` autentiseringsmetoden definieras den refererade autentiseringsuppgiften i databasen som tilldelats den refererade data källan. Med det här alternativet kan du få åtkomst till offentligt tillgängligt lagrings utrymme, eller åtkomst till lagring med SAS-token, hanterad identitet för arbets ytan eller [Azure AD-identiteten](develop-storage-files-storage-access-control.md?tabs=user-identity#) (om anroparen är Azure AD-huvudobjekt). Om `DATA_SOURCE` du refererar till Azure Storage som inte är offentligt måste du [skapa databasens begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md#examples) och referera till den i `DATA SOURCE` för att tillåta åtkomst till lagringsfiler.
 
 Anroparen måste ha `REFERENCES` behörighet för autentiseringsuppgifter för att kunna använda den för att autentisera till lagring.
 

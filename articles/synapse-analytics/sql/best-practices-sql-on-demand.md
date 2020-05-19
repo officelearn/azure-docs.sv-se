@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a1a33404982b16e458e97aaf9959ff5dd52d1cce
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 86678365d1510199247e8a1aaa48ec844d07de32
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198886"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592941"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Metod tips för SQL på begäran (för hands version) i Azure Synapse Analytics
 
@@ -119,7 +119,7 @@ Mer information finns i funktioner för [fil namn](develop-storage-files-overvie
 > Omvandla alltid resultatet av fil Sök väg och fileinfo-funktioner till lämpliga data typer. Om du använder tecken data typer ser du till att lämplig längd används.
 
 > [!NOTE]
-> Funktioner som används för partitions Eli minering, sökväg och fileinfo stöds för närvarande inte för andra externa tabeller än de som skapats automatiskt för varje tabell som skapats i Synapse Spark.
+> Funktioner som används för partitions Eli minering, sökväg och fileinfo stöds för närvarande inte för andra externa tabeller än de som skapats automatiskt för varje tabell som skapats i Apache Spark för Azure Synapse Analytics.
 
 Om dina lagrade data inte är partitionerade bör du överväga att partitionera dem så att du kan använda dessa funktioner för att optimera frågor som riktar sig mot dessa filer. När du [frågar partitionerade Spark-tabeller](develop-storage-files-spark-tables.md) från SQL på begäran, kommer frågan automatiskt att rikta in sig på de filer som behövs.
 

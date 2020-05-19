@@ -1,7 +1,7 @@
 ---
-title: Dynamisk ord lista – Translator Text API
+title: Dynamisk ord lista – översättare
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln förklarar hur du använder funktionen för dynamisk ord lista i Azure Cognitive Services Translator Text API.
+description: Den här artikeln förklarar hur du använder funktionen för dynamisk ord lista i Azure Cognitive Services Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 944bca8644da6127e73af04eb75d01697cd34399
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3ef881efc417a6c3816a92d9af7d77bba74355aa
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75446717"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592550"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Så här använder du en dynamisk ord lista
 
@@ -27,7 +27,7 @@ Om du redan vet vilken översättning du vill använda för ett ord eller en fra
 
 **Signaturkrav**
 
-* - `From` Och `To` -språken måste innehålla engelska och ett annat språk som stöds. 
+* - `From` Och- `To` språken måste innehålla engelska och ett annat språk som stöds. 
 * Du måste inkludera `From` parametern i din begäran om API-omvandling i stället för att använda funktionen för automatisk identifiering. 
 
 **Exempel: sv-de:**
@@ -38,4 +38,4 @@ Mål utmatning:`Das Wort "wordomatic" ist ein Wörterbucheintrag.`
 
 Den här funktionen fungerar på samma sätt med och utan HTML-läge.
 
-Använd funktionen sparsamt. Ett bättre sätt att anpassa översättning är att använda anpassad översättare. Anpassad översättare ger fullständig användning av kontext och statistisk sannolikhet. Om du har eller kan skapa tränings data som visar ditt arbete eller en fras i sammanhanget får du mycket bättre resultat. Du hittar mer information om anpassad översättare på [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator).
+Använd funktionen sparsamt. Ett bättre sätt att anpassa översättning är att använda anpassad översättare. Anpassad översättare ger fullständig användning av kontext och statistisk sannolikhet. Om du har eller kan skapa tränings data som visar ditt arbete eller en fras i sammanhanget får du mycket bättre resultat. Du hittar mer information om anpassad översättare på [https://aka.ms/CustomTranslator](https://aka.ms/CustomTranslator) .

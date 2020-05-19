@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 82efa70b30e829cfedd0b1fa7a21fd06949aa6d5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e859ac18276d10960a5a8488a6051252d90e0fcd
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80744140"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591054"
 ---
 # <a name="language-and-region-support-for-luis"></a>Språk-och region stöd för LUIS
 
@@ -24,7 +24,7 @@ LUIS har flera olika funktioner i tjänsten. Alla funktioner är inte på samma 
 
 ## <a name="multi-language-luis-apps"></a>LUIS-appar med flera språk
 
-Om du behöver ett LUIS-klient program med flera språk, till exempel en chattrobot, har du några alternativ. Om LUIS har stöd för alla språk utvecklar du en LUIS-app för varje språk. Varje LUIS-app har ett unikt app-ID och slut punkts logg. Om du behöver ange språk förståelse för ett språk LUIS inte stöder kan du använda [Microsoft Translator API](../Translator/translator-info-overview.md) för att översätta uttryck till ett språk som stöds, skicka uttryck till Luis-slutpunkten och ta emot de resulterande poängen.
+Om du behöver ett LUIS-klient program med flera språk, till exempel en chattrobot, har du några alternativ. Om LUIS har stöd för alla språk utvecklar du en LUIS-app för varje språk. Varje LUIS-app har ett unikt app-ID och slut punkts logg. Om du behöver ange språk förståelse för ett språk LUIS inte stöder kan du använda [Translator-tjänsten](../Translator/translator-info-overview.md) för att översätta uttryck till ett språk som stöds, skicka uttryck till Luis-slutpunkten och ta emot de resulterande poängen.
 
 ## <a name="languages-supported"></a>Språk som stöds
 
@@ -43,7 +43,7 @@ LUIS förstår yttranden på följande språk:
 | Hindi | `hi-IN`|-|✔|-|-|
 | Italienska |`it-IT` |✔| ✔ |✔|✔|
 | *[Japanska](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Endast nyckel fras|
-| Koreansk |`ko-KR` |✔|-|-|Endast nyckel fras|
+| Koreanska |`ko-KR` |✔|-|-|Endast nyckel fras|
 | Marathi | `mr-IN`|-|-|-|-|
 | Portugisiska (Brasilien) |`pt-BR` |✔| ✔ |✔ |alla under kulturer|
 | Spanska (Spanien) |`es-ES` |✔| ✔ |✔|✔|
@@ -74,7 +74,7 @@ Se språk som [stöds](../speech-service/speech-to-text.md) av tal i tal för ta
 Se Stavningskontroll i Bing [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) för en lista över språk och status som stöds.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Ovanliga eller främmande ord i ett program
-I `en-us` kulturen lär sig Luis att skilja ut de flesta engelska ord, inklusive slang. I `zh-cn` kulturen lär sig Luis att skilja på de flesta kinesiska tecknen. Om du använder ett sällsynt ord i `en-us` eller en bokstav `zh-cn`i, och du ser att Luis inte verkar särskilja ordet eller specialtecknet, kan du lägga till ordet eller symbolen i en [fras List funktion](luis-how-to-add-features.md). Till exempel ord utanför programmets kultur – det vill säga främmande ord – ska läggas till i en fras List funktion.
+I `en-us` kulturen lär sig Luis att skilja ut de flesta engelska ord, inklusive slang. I `zh-cn` kulturen lär sig Luis att skilja på de flesta kinesiska tecknen. Om du använder ett sällsynt ord i `en-us` eller en bokstav i `zh-cn` , och du ser att Luis inte verkar särskilja ordet eller specialtecknet, kan du lägga till ordet eller symbolen i en [fras List funktion](luis-how-to-add-features.md). Till exempel ord utanför programmets kultur – det vill säga främmande ord – ska läggas till i en fras List funktion.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -97,7 +97,7 @@ För att utföra maskin inlärning bryter LUIS en uttryck till [token](luis-glos
 |Hindi|✔|||
 |Italienska|✔|||
 |Japanska|||✔
-|Koreansk||✔||
+|Koreanska||✔||
 |Marathi|✔|||
 |Portugisiska (Brasilien)|✔|||
 |Spanska (es-ES)|✔|||
@@ -113,10 +113,10 @@ Följande kulturer har anpassade tokenizer-versioner:
 
 |Culture (Kultur)|Version|Syfte|
 |--|--|--|
-|Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare anger `Ich fahre einen krankenwagen` som en uttryck, aktive ras den. `Ich fahre einen kranken wagen` Tillåta markering av `kranken` och `wagen` oberoende som olika entiteter.|
-|Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på blank steg.<br> Om en användare anges `Ich fahre einen krankenwagen` som en uttryck, förblir den en enda token. Markeras därför `krankenwagen` som en enskild entitet. |
-|Nederländska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare anger `Ik ga naar de kleuterschool` som en uttryck, aktive ras den. `Ik ga naar de kleuter school` Tillåta markering av `kleuter` och `school` oberoende som olika entiteter.|
-|Nederländska<br>`de-de`|1.0.1|Tokenizes ord genom att dela dem på blank steg.<br> Om en användare anges `Ik ga naar de kleuterschool` som en uttryck, förblir den en enda token. Markeras därför `kleuterschool` som en enskild entitet. |
+|Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare anger `Ich fahre einen krankenwagen` som en uttryck, aktive ras den `Ich fahre einen kranken wagen` . Tillåta markering av `kranken` och `wagen` oberoende som olika entiteter.|
+|Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på blank steg.<br> Om en användare anges `Ich fahre einen krankenwagen` som en uttryck, förblir den en enda token. `krankenwagen`Markeras därför som en enskild entitet. |
+|Nederländska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare anger `Ik ga naar de kleuterschool` som en uttryck, aktive ras den `Ik ga naar de kleuter school` . Tillåta markering av `kleuter` och `school` oberoende som olika entiteter.|
+|Nederländska<br>`de-de`|1.0.1|Tokenizes ord genom att dela dem på blank steg.<br> Om en användare anges `Ik ga naar de kleuterschool` som en uttryck, förblir den en enda token. `kleuterschool`Markeras därför som en enskild entitet. |
 
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrera mellan tokenizer-versioner

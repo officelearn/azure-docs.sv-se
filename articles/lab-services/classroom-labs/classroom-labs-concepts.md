@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: a34af2ef779a41c19d4bfb831360948af1a66724
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 548cacfb76aba9093a59a5c87525d038558bf353
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115055"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592635"
 ---
 # <a name="classroom-labs-concepts"></a>Classroom Labs-begrepp
 
@@ -26,13 +26,13 @@ Följande lista innehåller koncept och definitioner för nyckel labb tjänster:
 
 ## <a name="quota"></a>Kvot
 
-Kvoten är den tids gräns (i timmar) som en lärare kan ange för en elev att använda en virtuell labb dator. Det kan ställas in på 0 eller ett angivet antal timmar. Om kvoten är inställd på 0, kan en student bara använda den virtuella datorn när ett schema körs eller när en lärare manuellt aktiverar den virtuella datorn för studenten.  
+Kvoten är den tids gräns (i timmar) som en lärare kan ställas in för att eleven ska kunna använda en virtuell labb dator. Det kan ställas in på 0 eller ett angivet antal timmar. Om kvoten är inställd på 0, kan en student bara använda den virtuella datorn när ett schema körs eller när en lärare manuellt aktiverar den virtuella datorn för studenten.  
 
 Kvot timmar räknas när studenten startar själva labb datorn.  Om en lärare manuellt startar den virtuella labb datorn för en student, används inte kvot timmar för den studenten.
 
 ## <a name="schedules"></a>Scheman
 
-Scheman är de tids platser som en lärare kan skapa för klassen så att de virtuella student datorerna är tillgängliga för klass tid.  Scheman kan vara engångs eller återkommande.  Kvot timmar används inte när ett schema körs.
+Scheman är de tidsintervaller som en lärare kan skapa för klassen så att de virtuella student datorerna är tillgängliga för klass tid.  Scheman kan vara engångs eller återkommande.  Kvot timmar används inte när ett schema körs.
 
 Det finns tre typer av scheman: standard, endast start och stopp.
 
@@ -56,7 +56,7 @@ Normalt är en IT-administratör av organisationens moln resurser, som äger Azu
 - Hanterar och konfigurerar principer för alla labb.
 - Ger behörigheter till personer i organisationen för att skapa ett labb under labbkontot.
 
-### <a name="professor"></a>Lärare
+### <a name="educator"></a>Utbildare
 
 Normalt skapar användare till exempel en lärare eller en online-undervisare klassrumslabb under ett labbkonto. En utbildare utför följande uppgifter:
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12d87c12b84130d404eaf203fd6013f6924020f5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 299b0a677e7ca7bea9481d94ecf98c993af0a6ed
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199443"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591224"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Direkt Federation med AD FS och tredje parts leverantörer för gäst användare (för hands version)
 |     |
@@ -146,7 +146,7 @@ Sedan konfigurerar du federationen med den identitetsprovider som du konfigurera
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Konfigurera direkt Federation i Azure AD-portalen
 
 1. Gå till [Azure Portal](https://portal.azure.com/). Välj **Azure Active Directory** i den vänstra rutan. 
-2. Välj **organisations relationer**  >  **alla identitets leverantörer** (eller **externa identiteter**  >  **alla identitets leverantörer**).
+2. Välj **externa identiteter**  >  **alla identitets leverantörer**.
 3. Välj och välj sedan **ny SAML/WS-utfodras IDP**.
 
     ![Skärm bild som visar knapp för att lägga till en ny SAML-eller WS-utfodras IdP](media/direct-federation/new-saml-wsfed-idp.png)
@@ -194,7 +194,7 @@ Testa nu din direkt Federations installation genom att bjuda in en ny B2B-gäst 
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>Hur gör jag för att redigera en direkt Federations relation?
 
 1. Gå till [Azure Portal](https://portal.azure.com/). Välj **Azure Active Directory** i den vänstra rutan. 
-2. Välj **organisations relationer** (eller **externa identiteter**).
+2. Välj **externa identiteter**.
 3. Välj **alla identitets leverantörer**
 4. Under **SAML/WS-utfodras identitets leverantörer**väljer du providern.
 5. Uppdatera värdena i fönstret information om identitetsprovider.
@@ -205,7 +205,7 @@ Testa nu din direkt Federations installation genom att bjuda in en ny B2B-gäst 
 Du kan ta bort den direkt Federations konfigurationen. Om du gör det kommer direkt Federations gäst användare som redan har löst deras inbjudningar inte att kunna logga in. Men du kan ge dem åtkomst till dina resurser igen genom att ta bort dem från katalogen och bjuda in dem igen. Ta bort direkt Federation med en identitets leverantör i Azure AD-portalen:
 
 1. Gå till [Azure Portal](https://portal.azure.com/). Välj **Azure Active Directory** i den vänstra rutan. 
-2. Välj **organisations relationer** (eller **externa identiteter**).
+2. Välj **externa identiteter**.
 3. Välj **alla identitets leverantörer**.
 4. Välj identitets leverantören och välj sedan **ta bort**. 
 5. Bekräfta borttagningen genom att välja **Ja** . 

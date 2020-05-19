@@ -2,19 +2,17 @@
 title: Testa appen i LUIS-portalen
 description: Använd Language Understanding (LUIS) för att kontinuerligt arbeta med ditt program för att förfina det och förbättra dess språk förståelse.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: ba7e23a72cd308dd4393bf9a581571e2bc9f5fa0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/07/2020
+ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219823"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591870"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testa din LUIS-app i LUIS-portalen
 
 [Testning](luis-concept-test.md) av en app är en iterativ process. När du har tränat din LUIS-app kan du testa den med exempel yttranden för att se om intentarna och entiteterna identifieras korrekt. Om de inte är det kan du göra uppdateringar till LUIS-appen, träna och testa igen.
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
 
 <!-- anchors for H2 name changes -->
 <a name="train-your-app"></a>
@@ -24,12 +22,15 @@ ms.locfileid: "79219823"
 
 ## <a name="train-before-testing"></a>Träna innan du testar
 
-För att testa mot den senaste versionen av den aktiva appen väljer du **träna** på den översta menyn innan du testar.
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
+1. För att testa mot den senaste versionen av den aktiva appen väljer du **träna** på den översta menyn innan du testar.
 
 ## <a name="test-an-utterance"></a>Testa en uttryck
 
 Test-uttryck bör inte vara exakt samma som alla exempel-yttranden i appen. Test uttryck bör omfatta val av ord, fras längd och enhets användning som du förväntar dig för en användare.
 
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
 1. Öppna din app genom att välja namnet på sidan **Mina appar** .
 
 1. Välj **testa** i programmets övre panel för att komma åt **test** -bildspel-panelen.

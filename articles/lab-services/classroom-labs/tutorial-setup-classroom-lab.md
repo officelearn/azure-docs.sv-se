@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77592228"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83591785"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
@@ -32,14 +32,14 @@ I den här självstudien gör du följande:
 > * Ange schema för labbet
 > * Skicka inbjudan via e-post till studenter
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 I den här självstudien skapar du ett labb med virtuella datorer för din klass. Om du vill konfigurera ett klass rums labb i ett labb konto måste du vara medlem i någon av dessa roller i labb kontot: ägare, labb skapare eller deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen. Så du kan använda det användar konto som du använde för att skapa ett labb konto för att skapa ett klass rums labb. 
 
 Här är det vanligaste arbets flödet när du använder Azure Lab Services:
 
-1. Ett labb konto skapare lägger till andra användare i **labb skaparen** -rollen. Labb kontots skapare/administratör lägger till exempel till lärare i rollen **labb skapare** så att de kan skapa labb för sina klasser. 
-2. Sedan skapar de virtuella datorerna labb med virtuella datorer för deras klasser och skickar registrerings länkar till studenter i klassen. 
-3. Elever använder registreringslänken som de får från universitetslärarna för att registrera sig i labbet. När de har registrerats kan de använda virtuella datorer i labbarna för att utföra klass- och hemarbete. 
+1. Ett labb konto skapare lägger till andra användare i **labb skaparen** -rollen. Labb kontots skapare/administratör lägger till exempel till lärare till **labb skapare** rollen så att de kan skapa labb för sina klasser. 
+2. Sedan skapar läraren labb med virtuella datorer för sina klasser och skickar registrerings länkar till studenter i klassen. 
+3. Eleverna använder registrerings länken som de får från lärare att registrera sig på labbet. När de har registrerats kan de använda virtuella datorer i labbarna för att utföra klass- och hemarbete. 
 
 ## <a name="create-a-classroom-lab"></a>Skapa ett klassrumslabb
 I det här steget skapar du ett labb för din klass i Azure. 
@@ -151,7 +151,7 @@ Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet sta
 1. På sidan **Skicka inbjudan via e-post** anger du ett valfritt meddelande och väljer sedan **Skicka**. E-postmeddelandet innehåller automatiskt registrerings länken. Du kan hämta den här registrerings länken genom att välja **... (tre punkter)** i verktygsfältet och **registrerings länken**. 
 
     ![Skicka registrerings länk via e-post](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Du ser status för **inbjudan** i listan **användare** . Statusen bör ändras till att **skickas** och sedan **skickas till &lt;datum&gt;**. 
+4. Du ser status för **inbjudan** i listan **användare** . Statusen bör ändras till att **skickas** och sedan **skickas till &lt; datum &gt; **. 
 
     Mer information om hur du lägger till studenter i en klass och hur du hanterar användningen av labbet finns i [så här konfigurerar du elev användning](how-to-configure-student-usage.md).
 

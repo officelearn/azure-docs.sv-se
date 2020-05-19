@@ -2,14 +2,14 @@
 title: Vanliga frågor och svar – LUIS
 description: Den här artikeln innehåller svar på vanliga frågor om Language Understanding (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 3c7e191ab64d30ddb64f1c3ff4e31b9c20c87b5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a30dd1c55d1ee4314e5a9a2f14ffe832994c467
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101118"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592856"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Language Understanding
 
@@ -66,7 +66,7 @@ Om du vill överföra en LUIS-app till en annan Azure-prenumeration exporterar d
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>En fördefinierad entitet är taggad i ett exempel-uttryck i stället för min anpassade entitet. Hur gör jag för att åtgärda detta?
 
-I LUIS-portalen kan du märka text för den exakta entitet som du är intresse rad av. Om LUIS-portalen inte visar rätt enhets förutsägelse kan du behöva lägga till fler yttranden och namnge entiteten i texten eller lägga till en beskrivning (till exempel en funktion).
+I LUIS-portalen kan du märka text för den exakta entitet som du är intresse rad av. Om LUIS-portalen inte visar rätt enhets förutsägelse kan du behöva lägga till fler yttranden och namnge entiteten i texten eller lägga till en funktion.
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Jag försökte importera en app-eller versions fil, men jag fick ett fel meddelande, vad hände?
 
@@ -189,7 +189,7 @@ Se [träna med alla data](luis-how-to-train.md#train-with-all-data).
 ## <a name="app-publishing"></a>Publicera appar
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Vad är klient-ID: t i fönstret Lägg till en nyckel i din app?
-I Azure representerar en klient organisation eller organisation som är associerad med en tjänst. Hitta ditt klient-ID i Azure Portal i rutan **katalog-ID** genom att välja **Azure Active Directory** > **Hantera** > **Egenskaper**.
+I Azure representerar en klient organisation eller organisation som är associerad med en tjänst. Hitta ditt klient-ID i Azure Portal i rutan **katalog-ID** genom att välja **Azure Active Directory**  >  **Hantera**  >  **Egenskaper**.
 
 ![Klient-ID i Azure Portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -271,7 +271,7 @@ Skicka samma uttryck till LUIS från Luis- [slutpunkten](luis-get-started-create
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Lös problem i Azure Bot Service
 
-Om du använder Azure Bot Service och problemet är att **testet i Web Chat** returnerar `Sorry, my bot code is having an issue`, kontrollerar du loggarna:
+Om du använder Azure Bot Service och problemet är att **testet i Web Chat** returnerar `Sorry, my bot code is having an issue` , kontrollerar du loggarna:
 
 1. I Azure Portal för din robot, i avsnittet **robot Management** , väljer du **build**.
 1. Öppna kod redigeraren online.

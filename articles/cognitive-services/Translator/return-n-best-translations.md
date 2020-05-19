@@ -1,7 +1,7 @@
 ---
-title: Returnera N-bästa översättningar – Translator Text
+title: Returnera N-bästa översättningar – översättare
 titleSuffix: Azure Cognitive Services
-description: Returnera N-bästa översättningar med hjälp av Translator Text API.
+description: Returnera N-bästa översättningar med Translator.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: swmachan
 ROBOTS: NOINDEX
-ms.openlocfilehash: eff25877165ac365e0af77651147fcdd1eebe294
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1fe370070aa97befb418d27def32725bf0a148b3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837243"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592686"
 ---
 # <a name="how-to-return-n-best-translations"></a>Så här returnerar du N-bästa översättningar
 
 > [!NOTE]
-> Den här metoden är föråldrad. Den är inte tillgänglig i V 3.0 för Translator Text API.
+> Den här metoden är föråldrad. Den är inte tillgänglig i V 3.0 i Translator.
 
-Metoderna GetTranslations () och GetTranslationsArray () i API för Microsoft Translator inkluderar en valfri boolesk flagga "IncludeMultipleMTAlternatives".
+Metoderna GetTranslations () och GetTranslationsArray () i Translator innehåller en valfri boolesk flagga "IncludeMultipleMTAlternatives".
 Metoden kommer att returnera upp till maxTranslations alternativ där delta har angetts från den N-bästa listan över Translator-motorn.
 
 Signaturen är:

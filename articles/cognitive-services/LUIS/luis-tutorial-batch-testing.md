@@ -2,13 +2,13 @@
 title: 'Självstudie: batch-testning för att hitta problem – LUIS'
 description: Den här självstudien visar hur du använder batch-testning för att verifiera kvaliteten på din Language Understanding-app (LUIS).
 ms.topic: tutorial
-ms.date: 03/02/2020
-ms.openlocfilehash: c276f0b52f83937fbe3b6fd9e0b7c1a66f665095
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/07/2020
+ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78250485"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592601"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Självstudie: data uppsättningar för batch-test
 
@@ -24,7 +24,7 @@ Krav för batch-testning:
 
 När du använder en annan app än den här själv studie kursen ska du *inte* använda exemplet yttranden som redan har lagts till i din app.
 
-**I den här guiden får du lära dig att:**
+**I de här självstudierna får du lära dig att**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -37,11 +37,13 @@ När du använder en annan app än den här själv studie kursen ska du *inte* a
 
 ## <a name="import-example-app"></a>Importera exempelappen
 
-Importera en app som tar en pizza ordning, till `1 pepperoni pizza on thin crust`exempel.
+Importera en app som tar en pizza ordning, till exempel `1 pepperoni pizza on thin crust` .
 
 1.  Ladda ned och spara [JSON-filen för appen](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/pizza-with-machine-learned-entity.json?raw=true).
 
-1. Använd LUIS-portalen för för [hands versionen](https://preview.luis.ai/)för att importera JSON till en ny app, `Pizza app`ge appen ett namn.
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Importera JSON till en ny app, ge appen ett namn `Pizza app` .
+
 
 1. Välj **träna** i det övre högra hörnet i navigeringen för att träna appen.
 
@@ -74,7 +76,7 @@ JSON-exemplet innehåller en uttryck med en etikettad entitet som illustrerar va
 
 4. Välj filens fil placering `pizza-with-machine-learned-entity-test.json` .
 
-5. Ge data uppsättningen `pizza test` ett namn och välj **färdig**.
+5. Ge data uppsättningen ett namn `pizza test` och välj **färdig**.
 
     > [!div class="mx-imgBorder"]
     > ![Välj fil](./media/luis-tutorial-batch-testing/import-dataset-modal.png)

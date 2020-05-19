@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 33200f8807ad28ac160bb377b1107548f4e42d51
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219482"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83590816"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Skapa en Cognitive Services resurs med hjälp av Azure Portal
 
@@ -23,7 +23,7 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En giltig Azure-prenumeration – [skapa en kostnads fri](https://azure.microsoft.com/free/).
 
@@ -40,20 +40,20 @@ Använd den här snabb starten för att börja använda Azure Cognitive Services
     |                  |                                                      |                    |                               |                  |
     |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
     | Visuellt innehåll  | Content Moderator                                    | Ansikte               | Language Understanding (LUIS) | Textanalys   |
-    | Translator Text  | Bing-sökning v7 <br>(Webb, bild, nyheter, video, visualisering) | Anpassad sökning i Bing | Entitetssökning i Bing            | Automatiska förslag i Bing |
+    | Översättare  | Bing-sökning v7 <br>(Webb, bild, nyheter, video, visualisering) | Anpassad sökning i Bing | Entitetssökning i Bing            | Automatiska förslag i Bing |
     | Stavningskontroll i Bing |                                                      |                    |                               |                  |
     
     #### <a name="single-service-resource"></a>[Resurs för enskild tjänst](#tab/singleservice)
 
     Använd länkarna nedan för att skapa en resurs för de tillgängliga Cognitive Services:
 
-    | Visuellt innehåll                      | Tal                  | Språk                          | Beslut             | Search                 |
+    | Visuellt innehåll                      | Tal                  | Språk                          | Beslut             | Sök                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
     | [Dator vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Tal tjänster](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Avancerad läsare](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Avvikelseidentifiering](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing-sökning API-v7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
     | [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Talarigenkänning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Language Understanding (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Anpassad sökning i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
     | [Ansikte](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personanpassning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Entitetssökning i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
     | [Handskriftsigenkänning](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Textanalys](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Stavningskontroll i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
-    |           |                         | [Translator Text](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Automatiska förslag i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
+    |           |                         | [Översättare](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Automatiska förslag i Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
 
 3. Ange följande information på sidan **skapa** :

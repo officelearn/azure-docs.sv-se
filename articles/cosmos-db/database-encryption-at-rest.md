@@ -5,20 +5,20 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: db20388b5277e000ffe7055e9840742d6af7788e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 541c6f4a6c728844524af794f5e2063f4e352cce
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80062604"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592142"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Datakryptering i Azure Cosmos DB 
 
 Kryptering i vila är en fras som vanligt vis avser kryptering av data på ej beständiga lagrings enheter, till exempel solid state-enheter (SSD) och hård diskar (HDD). Cosmos DB lagrar dess primära databaser på SSD. Dess medie bilagor och säkerhets kopior lagras i Azure Blob Storage, som vanligt vis backas upp av hård diskar. Med den här versionen av kryptering i vila för Cosmos DB krypteras alla databaser, medie bilagor och säkerhets kopior. Dina data krypteras nu i överföring (via nätverket) och i vila (icke-flyktig lagring), vilket ger dig en kryptering från slut punkt till slut punkt.
 
-Som PaaS-tjänst är Cosmos DB mycket lätt att använda. Eftersom alla användar data som lagras i Cosmos DB krypteras i vila och under transport behöver du inte vidta några åtgärder. Ett annat sätt att göra detta är att kryptering i vila är "on" som standard. Det finns inga kontroller att inaktivera eller sätta på. Azure Cosmos DB använder AES-256-kryptering i alla regioner där kontot körs. Vi tillhandahåller den här funktionen medan vi fortsätter att uppfylla våra [service avtal för tillgänglighet och prestanda](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+Som PaaS-tjänst är Azure Cosmos DB mycket lätt att använda. Eftersom alla användar data som lagras i Azure Cosmos DB krypteras i vila och under transport behöver du inte vidta några åtgärder. Ett annat sätt att göra detta är att kryptering i vila är "on" som standard. Det finns inga kontroller att inaktivera eller sätta på. Azure Cosmos DB använder AES-256-kryptering i alla regioner där kontot körs. Vi tillhandahåller den här funktionen medan vi fortsätter att uppfylla våra [service avtal för tillgänglighet och prestanda](https://azure.microsoft.com/support/legal/sla/cosmos-db). Data som lagras i ditt Azure Cosmos-konto är automatiskt och sömlöst krypterade med nycklar som hanteras av Microsoft (tjänst hanterade nycklar). Du kan också välja att lägga till ett andra lager av kryptering med dina egna nycklar enligt beskrivningen i artikeln [Kundhanterade nycklar](how-to-setup-cmk.md) .
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementering av kryptering i vila för Azure Cosmos DB
 
@@ -59,5 +59,6 @@ A: emulatorn är ett fristående verktyg för utveckling/testning och använder 
 
 ## <a name="next-steps"></a>Nästa steg
 
-En översikt över Cosmos DB säkerhet och de senaste förbättringarna finns i [säkerhet för Azure Cosmos Database](database-security.md).
-Mer information om Microsoft-certifieringar finns i [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/).
+* Du kan välja att lägga till ett sekundärt krypterings lager med dina egna nycklar, Läs mer i artikeln [kund hanterade nycklar](how-to-setup-cmk.md) .
+* En översikt över Cosmos DB säkerhet och de senaste förbättringarna finns i [säkerhet för Azure Cosmos Database](database-security.md).
+* Mer information om Microsoft-certifieringar finns i [Azure Säkerhetscenter](https://azure.microsoft.com/support/trust-center/).

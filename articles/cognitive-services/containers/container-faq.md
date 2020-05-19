@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: faae149cc6cfe9140f7e6908f5eb92d3031ef6d8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690829"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592193"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Cognitive Services containers
 
@@ -22,16 +22,7 @@ ms.locfileid: "82690829"
 
 **F: Vad är tillgängligt?**
 
-S **:** med [stöd för behållare i Azure Cognitive Services](../cognitive-services-container-support.md) kan utvecklare använda samma intelligenta API: er som är tillgängliga i Azure, men med [fördelarna](../cognitive-services-container-support.md#features-and-benefits) med skapa behållare. Container support finns för närvarande i för hands version för en delmängd av Azure Cognitive Services, inklusive delar av:
-
-> [!div class="checklist"]
-> * [Avvikelseidentifiering][ad-containers]
-> * [Visuellt innehåll][cv-containers]
-> * [Ansikte][fa-containers]
-> * [Formigenkänning][fr-containers]
-> * [Language Understanding (LUIS)][lu-containers]
-> * [Speech Service API][sp-containers]
-> * [Textanalys][ta-containers]
+**A:** Med Azure Cognitive Services-behållare kan utvecklare använda samma intelligenta API: er som är tillgängliga i Azure, men med [fördelarna](../cognitive-services-container-support.md#features-and-benefits) med skapa behållare. Vissa behållare är tillgängliga som en [gated Preview](../cognitive-services-gating-process.md), vilket kan kräva att ett program får åtkomst. Andra behållare är offentligt tillgängliga som en icke-grind för hands version eller är allmänt tillgängliga. Du hittar en fullständig lista över behållare och deras tillgänglighet i stöd för [behållare i Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) -artikeln. 
 
 **F: finns det någon skillnad mellan Cognitive Services molnet och behållarna?**
 
@@ -62,7 +53,7 @@ Tyvärr stöds *inte* Cognitive Services-behållare internt i de suveräna molne
 
 **F: Hur uppdateras behållare till den senaste versionen?**
 
-**A:** Kunderna kan välja när de behållare som de har distribuerat ska uppdateras. Behållare kommer att markeras med standard [Docker](https://docs.docker.com/engine/reference/commandline/tag/) -Taggar `latest` , till exempel för att ange den senaste versionen. Vi uppmuntrar kunderna att hämta den senaste versionen av behållare när de släpps, check [Azure Container Registry Webhooks](../../container-registry/container-registry-webhook.md) för att få information om hur du får ett meddelande när en avbildning uppdateras.
+**A:** Kunderna kan välja när de behållare som de har distribuerat ska uppdateras. Behållare kommer att markeras med standard [Docker-Taggar](https://docs.docker.com/engine/reference/commandline/tag/) , till exempel `latest` för att ange den senaste versionen. Vi uppmuntrar kunderna att hämta den senaste versionen av behållare när de släpps, check [Azure Container Registry Webhooks](../../container-registry/container-registry-webhook.md) för att få information om hur du får ett meddelande när en avbildning uppdateras.
  
 **F: vilka versioner kommer att stödjas?**
 
@@ -80,7 +71,7 @@ Tyvärr stöds *inte* Cognitive Services-behållare internt i de suveräna molne
 
 **F: är de här behållarna kompatibla med OpenShift?** 
 
-Vi testar inte behållare med OpenShift, men normalt bör Cognitive Services behållare köras på alla plattformar som stöder Docker-avbildningar. Om du använder OpenShift rekommenderar vi att du kör behållarna `root-user`som.
+Vi testar inte behållare med OpenShift, men normalt bör Cognitive Services behållare köras på alla plattformar som stöder Docker-avbildningar. Om du använder OpenShift rekommenderar vi att du kör behållarna som `root-user` .
 
 **F: Hur gör jag för att ge feedback om produkter och funktions rekommendationer?**
 

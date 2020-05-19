@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: skapa en Apache Spark Notebook'
+title: 'Snabb start: skapa en Apache Spark för en Azure Synapse Analytics-anteckningsbok'
 description: Den här snabb starten visar hur du använder webb verktygen för att skapa en Apache Spark pool (för hands version) i Azure Synapse Analytics och köra en Spark SQL-fråga.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 47235ca0e420e0de9f6c4beb070e0b75b72e7549
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82786676"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592958"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en Apache Spark pool (förhands granskning) i Azure Synapse Analytics med hjälp av webb verktyg
 
@@ -25,7 +25,7 @@ I den här snabb starten får du lära dig hur du skapar en Apache Spark pool (f
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse Analytics-arbetsyta](quickstart-create-workspace.md)
@@ -33,7 +33,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -49,7 +49,7 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
 4. I fönstret **Egenskaper** anger du ett namn för antecknings boken.
 5. Klicka på **publicera**i verktygsfältet.
 6. Om det bara finns en Apache Spark pool i din arbets yta, är den markerad som standard. Använd List rutan för att välja rätt Apache Spark pool om ingen är markerad.
-7. Klicka på **Lägg till kod**. Standard språket är `Pyspark`. Du kommer att använda en blandning av Pyspark och Spark SQL, så att standard valet är bra.
+7. Klicka på **Lägg till kod**. Standard språket är `Pyspark` . Du kommer att använda en blandning av Pyspark och Spark SQL, så att standard valet är bra.
 8. Därefter skapar du ett enkelt Spark DataFrame-objekt som du kan ändra. I det här fallet skapar du den från kod. Det finns tre rader och tre kolumner:
 
    ```python
@@ -79,7 +79,7 @@ En antecknings bok är en interaktiv miljö som har stöd för olika programmeri
      demo_df.write.parquet('abfss://<<TheNameOfAStorageAccountFileSystem>>@<<TheNameOfAStorageAccount>>.dfs.core.windows.net/demodata/demo_df', mode='overwrite')
     ```
 
-    Om du använder Storage Explorer är det möjligt att se effekten av de två olika sätten att skriva en fil som används ovan. När inget fil system anges används standardvärdet i det här fallet `default>user>trusted-service-user>demo_df`. Data sparas på platsen för det angivna fil systemet.
+    Om du använder Storage Explorer är det möjligt att se effekten av de två olika sätten att skriva en fil som används ovan. När inget fil system anges används standardvärdet i det här fallet `default>user>trusted-service-user>demo_df` . Data sparas på platsen för det angivna fil systemet.
 
     Observera i formaten "CSV" och "Parquet" och skriv åtgärder som en katalog skapas med många partitionerade filer.
 
@@ -98,7 +98,7 @@ Structured Query Language (SQL) är det vanligaste språket som används för at
    SHOW TABLES
    ```
 
-   När du använder en bärbar dator med Azure Synapse Apache Spark-poolen får du en för `sqlContext` inställning som du kan använda för att köra frågor med Spark SQL. `%%sql`instruerar antecknings boken att `sqlContext` använda för inställningen för att köra frågan. Frågan hämtar de översta 10 raderna från en system tabell som ingår i alla Azure Synapse Apache Spark pooler som standard.
+   När du använder en bärbar dator med Azure Synapse Apache Spark-poolen får du en `sqlContext` för inställning som du kan använda för att köra frågor med Spark SQL. `%%sql`instruerar antecknings boken att använda för inställningen `sqlContext` för att köra frågan. Frågan hämtar de översta 10 raderna från en system tabell som ingår i alla Azure Synapse Apache Spark pooler som standard.
 
 2. Kör ytterligare en fråga för att visa data i `demo_df`.
 
@@ -119,7 +119,7 @@ Structured Query Language (SQL) är det vanligaste språket som används för at
 6. I kolumn fältet X-axel väljer du "State".
 7. I kolumn fältet Y-axel väljer du "lön".
 8. I fältet **agg regering** väljer du till "medel".
-9. Välj **Använd**.
+9. Välj **Tillämpa**.
 
    ![Diagramets utdata i Azure Synapse Spark](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Diagramets utdata i Azure Synapse Spark")
 

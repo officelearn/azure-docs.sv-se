@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c75c41012928b7bffb61a00a73f314e4c372b154
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 593ca5d63245ed664b5f63373d1d651129055544
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792351"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83592397"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
@@ -22,11 +22,11 @@ Azure Machine Learning tillhandahåller flera olika sätt att träna modeller, f
 
 + [Azure Machine Learning SDK för python](#python-sdk): python SDK tillhandahåller flera olika sätt att träna modeller, var och en med olika funktioner.
 
-    | Utbildnings metod | Beskrivning |
+    | Utbildnings metod | Description |
     | ----- | ----- |
     | [Kör konfiguration](#run-configuration) | Ett **allmänt sätt att träna modeller** är att använda ett utbildnings skript och köra konfiguration. Kör konfigurationen tillhandahåller den information som behövs för att konfigurera den utbildnings miljö som används för att träna din modell. Du kan ta en körnings konfiguration, ditt utbildnings skript och ett beräknings mål (inlärnings miljön) och köra ett utbildnings jobb. |
-    | [Automatiserad maskininlärning](#automated-machine-learning) | Med automatisk maskin inlärning kan du **träna modeller utan omfattande data vetenskap eller programmerings kunskap**. För personer med data vetenskap och programmerings bakgrund är det ett sätt att spara tid och resurser genom att automatisera val av algoritmer och justering av den valda parametern. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder automatisk maskin inlärning. |
-    | [Kostnadsberäknare](#estimators) | Uppskattnings klasser **gör det enkelt att träna modeller baserat på populära ramverk för maskin inlärning**. Det finns uppskattnings klasser för **Scikit-lära**, **PyTorch**, **TensorFlow**och **kedjor**. Det finns också en generisk uppskattning som kan användas med ramverk som inte redan har en dedikerad uppskattnings klass. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar. |
+    | [Automatisk maskin inlärning](#automated-machine-learning) | Med automatisk maskin inlärning kan du **träna modeller utan omfattande data vetenskap eller programmerings kunskap**. För personer med data vetenskap och programmerings bakgrund är det ett sätt att spara tid och resurser genom att automatisera val av algoritmer och justering av den valda parametern. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder automatisk maskin inlärning. |
+    | [Kostnadsberäknare](#estimators) | Uppskattnings klasser **gör det enkelt att träna modeller baserat på populära ramverk för maskin inlärning**. Det finns uppskattnings klasser för **Scikit – lära**, **PyTorch**, **TensorFlow**, **Chainer**och **Ray RLlib**. Det finns också en generisk uppskattning som kan användas med ramverk som inte redan har en dedikerad uppskattnings klass. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar. |
     | [Maskin inlärnings pipeline](#machine-learning-pipeline) | Pipelines är inte en annan utbildnings metod, men ett **sätt att definiera ett arbets flöde med modulära, återanvändbara steg**som kan innefatta utbildning som en del av arbets flödet. Maskin inlärnings pipeliner har stöd för automatisk maskin inlärning, uppskattningar och körning av konfiguration för att träna modeller. Eftersom pipelines inte fokuserar på utbildning, är orsakerna till att använda en pipeline mer varierade än andra utbildnings metoder. I allmänhet kan du använda en pipeline när:<br>* Du vill **Schemalägga obevakade processer** , t. ex. tids krävande utbildnings jobb eller förberedelse av data.<br>* Använd **flera steg** som är koordinerade över heterogena beräknings resurser och lagrings platser.<br>* Använd pipelinen som en **återanvändbar mall** för vissa scenarier, till exempel omskolning eller batch-poäng.<br>* **Spåra och version data källor, indata och utdata** för ditt arbets flöde.<br>* Ditt arbets flöde **implementeras av olika team som arbetar på vissa steg oberoende av varandra**. Steg kan sedan kopplas ihop i en pipeline för att implementera arbets flödet. |
 
 + [Azure Machine Learning SDK för python](#r-sdk): SDK använder Reticulate-paketet för att binda till Azure Machine learnings python SDK. På så sätt kan du komma åt kärn objekt och metoder som implementeras i python SDK från valfri R-miljö.
@@ -73,7 +73,7 @@ Definiera iterationer, inställningar för funktionalisering och andra inställn
 
 ### <a name="estimators"></a>Kostnadsberäknare
 
-Med uppskattningar är det enkelt att träna modeller med hjälp av populära ML-ramverk. Om du använder **Scikit – lära**, **PyTorch**, **TensorFlow**eller **kedjeer**bör du överväga att använda en uppskattning för utbildning. Det finns också en generisk uppskattning som kan användas med ramverk som inte redan har en dedikerad uppskattnings klass. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar.
+Med uppskattningar är det enkelt att träna modeller med hjälp av populära ML-ramverk. Om du använder **Scikit – lära**, **PyTorch**, **TensorFlow**, **Chainer**eller **Ray RLlib** bör du överväga att använda en uppskattning för utbildning. Det finns också en generisk uppskattning som kan användas med ramverk som inte redan har en dedikerad uppskattnings klass. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar.
 
 * [Vad är uppskattningar?](concept-azure-machine-learning-architecture.md#estimators)
 * [Självstudie: träna bild klassificerings modeller med MNIST data och scikit – lär dig använda Azure Machine Learning](tutorial-train-models-with-aml.md)

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6287b9b8e6129fd62a896e5ac1fcca29febbf01a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: af3620770a4b608e162368c2432575d36e11e19f
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478536"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118905"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och python
 
-Använd den här snabbstarten för att börja skicka sökbegäranden till API för bildsökning i Bing. Python-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Python, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att lära dig hur du skickar Sök begär anden till API för bildsökning i Bing. Python-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder:
+Om du vill köra det här exemplet som en Jupyter Notebook på en- [binder](https://mybinder.org)väljer du ikonen för att starta binder-binder:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
@@ -30,7 +30,7 @@ Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://my
 Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) med ytterligare fel hantering och anteckningar.
 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 2. x eller 3. x](https://www.python.org/)
 * [Python Imaging Library (PIL)](https://pillow.readthedocs.io/en/stable/index.html)
@@ -40,7 +40,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera följande moduler. Skapa en variabel för din prenumerationsnyckel, en sökslutpunkt och ett sökvillkor. `search_url`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+1. Skapa en ny Python-fil i valfri IDE eller redigeringsprogram och importera följande moduler. Skapa en variabel för din prenumerationsnyckel, en sökslutpunkt och ett sökvillkor. För `search_url` kan du använda den globala slut punkten i följande kod eller använda den anpassade slut [domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```python
     import requests
@@ -61,7 +61,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
 
 ## <a name="create-and-send-a-search-request"></a>Skapa och skicka en sökbegäran
 
-1. Skapa en ordlista för parametrarna i sökbegäran. Lägg till din sökterm i `q`-parametern. Använd ”offentlig” för den `license`-parameter som ska söka efter bilder på den offentliga domänen. Använd ”foto” för `imageType` om endast foton ska genomsökas.
+1. Skapa en ordlista för parametrarna i sökbegäran. Lägg till din sökterm i `q`-parametern. Ange `license` parametern till om `public` du vill söka efter avbildningar i den offentliga domänen. Välj att `imageType` `photo` bara söka efter foton.
 
     ```python
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
@@ -78,7 +78,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
 
 ## <a name="view-the-response"></a>Visa svaret
 
-1. Skapa en ny figur med fyra kolumner och fyra rader med hjälp av matplotlib-biblioteket. 
+1. Skapa en ny bild med fyra kolumner och fyra rader med hjälp av matplotlib-biblioteket. 
 
 2. Iterera figurens rader och kolumner och använd PIL-bibliotekets `Image.open()`-metod för att lägga till en bildminiatyr i varje område. 
 
@@ -151,7 +151,7 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 > [Självstudie om enkel app för bildsökning i Bing](../tutorial-bing-image-search-single-page-app.md)
 
 * [Vad är API:et för bildsökning i Bing?](../overview.md)  
-* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
-* [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Pris information för API:er för Bing-sökresultat](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+* [Hämta en åtkomst nyckel för gratis Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api). 
+* [Azure Cognitive Services-dokumentation](https://docs.microsoft.com/azure/cognitive-services).
+* [API för bildsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

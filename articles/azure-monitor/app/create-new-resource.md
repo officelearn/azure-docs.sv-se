@@ -28,7 +28,7 @@ Logga in på [Azure Portal](https://portal.azure.com)och skapa en Application In
    | ------------- |:-------------|:-----|
    | **Namn**      | `Unique value` | Namn som identifierar den app som du övervakar. |
    | **Resurs grupp**     | `myResourceGroup`      | Namnet på den nya eller befintliga resurs gruppen som värd för App Insights-data. |
-   | **Nationella** | `East US` | Välj en plats nära dig eller nära den plats där din app finns. |
+   | **Region** | `East US` | Välj en plats nära dig eller nära den plats där din app finns. |
    | **Resurs läge** | `Classic` eller `Workspace-based` | Arbets ytans baserade resurser finns för närvarande i en offentlig för hands version och gör att du kan skicka Application Insights telemetri till en gemensam Log Analytics arbets yta. Mer information finns i [artikeln om arbets ytor-baserade resurser](create-workspace-resource.md).
 
 > [!NOTE]

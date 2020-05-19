@@ -22,7 +22,7 @@ För att utvärdera virtuella VMware-datorer skapar du ett Azure Migrate-projekt
 --- | ---
 **Projekt gränser** | Du kan skapa flera projekt i en Azure-prenumeration.<br/><br/> Du kan identifiera och utvärdera upp till 35 000 virtuella VMware-datorer i ett enda [projekt](migrate-support-matrix.md#azure-migrate-projects). Ett projekt kan även innehålla fysiska servrar och virtuella Hyper-V-datorer, upp till utvärderings gränserna för var och en.
 **Identifiering** | Azure Migrates apparaten kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.
-**Utvärdering** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
+**Beskrivningar** | Du kan lägga till upp till 35 000 datorer i en enda grupp.<br/><br/> Du kan utvärdera upp till 35 000 virtuella datorer i en enda utvärdering.
 
 [Läs mer](concepts-assessment-calculation.md) om utvärderingar.
 
@@ -41,7 +41,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera. <br/> VMware Tools-versionen måste vara senare än 10.2.0.
 **PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill identifiera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
-**Begränsningar** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
+**Gränser** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
 
 
 
@@ -53,7 +53,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **vCenter Server** | Datorer som du vill identifiera och utvärdera måste hanteras av vCenter Server version 5,5, 6,0, 6,5 eller 6,7.
 **Behörigheter (utvärdering)** | vCenter Server skrivskyddat konto.
 **Behörigheter (app-Discovery)** | vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för **virtuella datorer > gäst åtgärder**.
-**Behörigheter (beroende visualisering)** | vCenter Server konto med skrivskyddad åtkomst och privilegier som är aktiverade för **virtuella datorer** > med**gäst verksamhet**.
+**Behörigheter (beroende visualisering)** | vCenter Server konto med skrivskyddad åtkomst och privilegier som är aktiverade för **virtuella datorer**med  >  **gäst verksamhet**.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate
@@ -87,7 +87,7 @@ Förutom att identifiera datorer kan Server utvärderingen identifiera appar, ro
 **VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera. <br/> VMware Tools-versionen måste vara senare än 10.2.0.
 **PowerShell** | Virtuella datorer måste ha PowerShell version 2,0 eller senare installerat.
 **Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill identifiera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
-**Begränsningar** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
+**Gränser** | För app-Discovery kan du identifiera upp till 10000 virtuella datorer på varje Azure Migrate-apparat.
 
 
 ## <a name="agentless-dependency-analysis-requirements"></a>Krav för beroende analys av agent

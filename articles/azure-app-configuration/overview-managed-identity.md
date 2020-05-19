@@ -89,7 +89,7 @@ Följande steg vägleder dig genom att skapa en användardefinierad identitet oc
     az identity create -resource-group myResourceGroup --name myUserAssignedIdentity
     ```
 
-    Observera `id` egenskapens värde i kommandots utdata.
+    Observera egenskapens värde i kommandots utdata `id` .
 
 1. Kör kommandot [AZ appconfig Identity Assign] för att tilldela den nya användar tilldelnings identiteten till det här konfigurations arkivet. Använd värdet för den `id` egenskap som du antecknade i föregående steg.
 

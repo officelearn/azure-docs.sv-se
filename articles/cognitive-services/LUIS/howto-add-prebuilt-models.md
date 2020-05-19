@@ -8,26 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: 0a733aff14b71c6378971c0b72a9ca1f3cd4cfc3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 653882db4b62d7731123faf7b177da44dbd74e3f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74013589"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83585002"
 ---
-# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Lägg till fördefinierade modeller för vanliga användnings scenarier 
+# <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Lägg till fördefinierade modeller för vanliga användnings scenarier
 
-LUIS innehåller en uppsättning förbyggda modeller för att snabbt lägga till vanliga användar scenarier i konversationen. Det här är ett snabbt och enkelt sätt att lägga till funktioner i ditt samtals klient program utan att behöva utforma modeller för dessa förmågor. 
-
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+LUIS innehåller en uppsättning förbyggda modeller för att snabbt lägga till vanliga användar scenarier i konversationen. Det här är ett snabbt och enkelt sätt att lägga till funktioner i ditt samtals klient program utan att behöva utforma modeller för dessa förmågor.
 
 ## <a name="add-a-prebuilt-domain"></a>Lägga till en fördefinierad domän
 
-1. På sidan **Mina appar** väljer du din app. Appen öppnas i avsnittet **build** i appen. 
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
 
-1. Välj **fördefinierade domäner** i det vänstra verktygsfältet. 
+1. Välj **fördefinierade domäner** i det vänstra verktygsfältet.
 
 1. Leta upp den domän som du vill lägga till i appen och välj sedan knappen **Lägg till domän** .
 
@@ -36,11 +35,12 @@ LUIS innehåller en uppsättning förbyggda modeller för att snabbt lägga till
 
 ## <a name="add-a-prebuilt-intent"></a>Lägg till en fördefinierad avsikt
 
-1. På sidan **Mina appar** väljer du din app. Appen öppnas i avsnittet **build** i appen. 
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
 
-1. På sidan **avsikter** väljer du **Lägg till fördefinierad domän avsikt** från verktygsfältet ovanför listan med intenter. 
+1. På sidan **avsikter** väljer du **Lägg till fördefinierad domän avsikt** från verktygsfältet ovanför listan med intenter.
 
-1. Välj **verktyg. Avbryt** avsikt från popup-dialogrutan. 
+1. Välj **verktyg. Avbryt** avsikt från popup-dialogrutan.
 
     > [!div class="mx-imgBorder"]
     > ![Lägg till fördefinierad avsikt](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
@@ -48,25 +48,26 @@ LUIS innehåller en uppsättning förbyggda modeller för att snabbt lägga till
 1. Klicka på knappen **Slutför** .
 
 ## <a name="add-a-prebuilt-entity"></a>Lägg till en fördefinierad entitet
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
+1. Välj **entiteter** på vänster sida.
 
-1. Öppna din app genom att klicka på namnet på sidan **Mina appar** och klicka sedan på **entiteter** på den vänstra sidan. 
+1. På sidan **entiteter** väljer du **Lägg till fördefinierad entitet**.
 
-1. På sidan **entiteter** klickar du på **Lägg till fördefinierad entitet**.
-
-1. I dialog rutan **Lägg till fördefinierade entiteter** väljer du den fördefinierade entiteten. 
+1. I dialog rutan **Lägg till fördefinierade entiteter** väljer du den fördefinierade entiteten.
 
     > [!div class="mx-imgBorder"]
     > ![Dialog rutan Lägg till fördefinierad entitet](./media/luis-prebuilt-domains/add-prebuilt-entity.png)
 
-1. Välj **Klar**. När entiteten har lagts till behöver du inte träna appen. 
+1. Välj **Done** (Klar). När entiteten har lagts till behöver du inte träna appen.
 
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Publicera för att Visa fördefinierad modell från förutsägelse slut punkt
 
-Det enklaste sättet att visa värdet för en fördefinierad modell är att fråga från den publicerade slut punkten. 
+Det enklaste sättet att visa värdet för en fördefinierad modell är att fråga från den publicerade slut punkten.
 
 ## <a name="entities-containing-a-prebuilt-entity-token"></a>Entiteter som innehåller en fördefinierad Entity-token
- 
-Om du har en enhet som har registrerats av enheten som är begränsad av en fördefinierad entitet, lägger du till en del komponent till den enhet som har lärts och lägger sedan till en begränsning för en fördefinierad entitet.
+
+Om du har en enhet som har registrerats av enheten som behöver en nödvändig funktion i en fördefinierad entitet, lägger du till en del komponent i entiteten med enheten och lägger sedan till en _nödvändig_ funktion i en fördefinierad entitet.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

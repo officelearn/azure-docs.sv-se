@@ -9,34 +9,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 238f390ac998a05f0c726dd9ed024550b9a5ba3d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 53572f4c5cce3ecd0c2e1dec90826e620841a852
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478523"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118705"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och ruby
 
 Använd den här snabbstarten för att göra ditt första anrop till API för bildsökning i Bing och få ett JSON-svar. Det här enkla Ruby-programmet skickar en sökfråga till API:et och visar rådataresultat.
 
-Även om det här programmet är skrivet i Ruby, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i ruby är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingImageSearchv7.rb).
-## <a name="prerequisites"></a>Krav
+
+## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste versionen av [Ruby](https://www.ruby-lang.org/en/downloads/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-Se även Priser för Cognitive Services –API för Bing-sökning.
+Mer information finns i [Cognitive Services priser – Bing-sökning API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. importera följande paket till din kodfil.
+1. Importera följande paket till din kod fil:
 
     ```ruby
     require 'net/https'
@@ -44,7 +45,7 @@ Se även Priser för Cognitive Services –API för Bing-sökning.
     require 'json'
     ```
 
-2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord. `uri`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunkten, sökväg för bild-API, din prenumerationsnyckel och sökord. För `uri` kan du använda den globala slut punkten i följande kod eller använda den anpassade slut [domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -54,7 +55,7 @@ Se även Priser för Cognitive Services –API för Bing-sökning.
 
 ## <a name="format-and-make-an-api-request"></a>Formatera och göra en API-begäran
 
-Använd variablerna från det sista steget för att formatera en sök-URL för API-begäran. Skicka sedan begäran.
+Använd variablerna från föregående steg för att formatera en Sök-URL för API-begäran. Skicka sedan begäran.
 
 ```ruby
 uri = URI(uri + path + "?q=" + URI.escape(term))
@@ -144,8 +145,8 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 
 ## <a name="see-also"></a>Se även
 
-* [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Vad är API:et för bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Prova en interaktivt demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).  
+* [Hämta en åtkomst nyckel för gratis Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).  
+* [Azure Cognitive Services-dokumentation](https://docs.microsoft.com/azure/cognitive-services).
+* [API för bildsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: 69ff58d6cdabe49000b00afecfc6b4ad1a3f2daa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a7e0cb41f32a60e4f00cb60cc3c86e40ab926785
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76841854"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735138"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Självstudie: skapa en iOS-app som startar den fördjupade läsaren med innehåll från ett foto (SWIFT)
 
@@ -22,11 +22,11 @@ Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särsk
 
 [Visuellt innehåll Cognitive Services Read API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) identifierar text innehåll i en avbildning med hjälp av Microsofts senaste igenkännings modeller och konverterar den identifierade texten till en maskin läsnings bar tecken ström.
 
-I den här självstudien skapar du en iOS-app från grunden och integrerar Read API och den fördjupade läsaren med hjälp av SDK för avancerad läsare. Ett komplett fungerande exempel på den här själv studie kursen finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/picture-to-immersive-reader-swift).
+I den här självstudien skapar du en iOS-app från grunden och integrerar Read API och den fördjupade läsaren med hjälp av SDK för avancerad läsare. Ett komplett fungerande exempel på den här själv studie kursen finns [här](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar exempel projekt egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
@@ -45,19 +45,19 @@ Välj **en app för enskild vy**.
 ## <a name="get-the-sdk-cocoapod"></a>Hämta SDK-CocoaPod
 Det enklaste sättet att använda SDK: n för avancerad läsare är via CocoaPods. Installera via Cocoapods:
 1. [Installera CocoaPods](http://guides.cocoapods.org/using/getting-started.html) – Följ guiden komma igång för att installera CocoaPods.
-2. Skapa en Podfile genom att `pod init` köra i ditt Xcode-projekts rot Katalog.
-3.  Lägg till CocoaPod till din Podfile genom att `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`lägga till. Din Podfile bör se ut så här, med målets namn, vilket ersätter Picture-to-intensivare-Reader-Swift:
+2. Skapa en Podfile genom `pod init` att köra i ditt Xcode-projekts rot Katalog.
+3.  Lägg till CocoaPod till din Podfile genom att lägga till `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'` . Din Podfile bör se ut så här, med målets namn, vilket ersätter Picture-to-intensivare-Reader-Swift:
  ```ruby
   platform :ios, '9.0'
 
   target 'picture-to-immersive-reader-swift' do
   use_frameworks!
   # Pods for picture-to-immersive-reader-swift
-  pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'
+  pod 'immersive-reader-sdk', :git => 'https://github.com/microsoft/immersive-reader-sdk.git'
   end
 ```
 4. I terminalen, i katalogen för ditt Xcode-projekt, kör du kommandot `pod install` för att installera SDK-Pod för avancerad läsare.
-5. Lägg `import immersive_reader_sdk` till alla filer som behöver referera till SDK: n.
+5. Lägg till `import immersive_reader_sdk` alla filer som behöver referera till SDK: n.
 6. Se till att öppna projektet genom att öppna `.xcworkspace` filen och inte `.xcodeproj` filen.
 
 ## <a name="acquire-an-azure-ad-authentication-token"></a>Hämta en Azure AD-autentiseringstoken

@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: b3f279ea50e9923e63f7d6090f4dbaca939eb16c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d1c2da10270747aa09ecbcfdc537df567b4cdfc9
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238969"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82929663"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Java
 
+Följ den här snabb starten om du vill lära dig att ringa till API för automatiska förslag i Bing och läsa JSON-svaret. Det här enkla Java-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
 
-Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Det här enkla Java-programmet skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingAutosuggestv7.java)
-
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
 * [Gson-biblioteket](https://github.com/google/gson)
@@ -44,7 +43,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa variabler för din prenumerations nyckel, API-värden och sökväg, din [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en Sök fråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för din prenumerations nyckel, API-värden och sökväg, din [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en Sök fråga. Använd den globala slut punkten nedan eller Använd den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -57,7 +56,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
 
 ## <a name="format-the-response"></a>Formatera svaret
 
-Skapa en metod med namnet `prettify()` för att formatera det svar som returneras från API:et för Bing-video. Använda Gson-bibliotekets `JsonParser` för att ta en JSON-sträng och konvertera den till ett objekt. Använd sedan `GsonBuilder()` och `toJson()` för att skapa den formaterade strängen.
+Skapa en metod med namnet `prettify()` för att formatera det svar som returneras från API:et för Bing-video. Använda Gson-bibliotekets `JsonParser` för att ta en JSON-sträng och konvertera den till ett objekt. Använd `GsonBuilder()` och `toJson()` för att skapa den formaterade strängen.
 
 ```java
 // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -71,9 +70,9 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-and-send-the-search-request"></a>Skapa och skicka sökbegäran
 
-1. Skapa en ny metod med `get_suggestions()` namnet och utför följande steg:
+1. Skapa en ny metod med namnet `get_suggestions()` och utför följande steg:
 
-   1. skapa URL:en för din begäran genom att kombinera din API-värd och sökväg och koda sökfrågan. Se till att URL-koda frågan innan du lägger till den. Skapa en parameter sträng för din fråga genom att lägga till marknads koden i `mkt=` parametern och din fråga till `q=` parametern.
+   1. Skapa URL: en för din begäran genom att kombinera din API-värd, sökväg och kodning av Sök frågan. Se till att URL-koda frågan innan du lägger till den. Skapa en parameter sträng för din fråga genom att lägga till marknads koden i `mkt=` parametern och din fråga till `q=` parametern.
     
       ```java
   
@@ -84,7 +83,7 @@ public static String prettify(String json_text) {
       }
       ```
     
-   2. Skapa en ny URL för begäran med API-värd, sökväg och parametrar som skapats ovan. 
+   2. Skapa en ny URL för begäran med API-värden, sökvägen och parametrarna som du skapade i föregående steg. 
     
        ```java
        //...
@@ -103,7 +102,7 @@ public static String prettify(String json_text) {
        //...
       ```
 
-   4. Läs i API-svaret till en `StringBuilder`. När svaret har registrerats stänger du `InputStreamReader` strömmen och returnerar svaret.
+   4. Lagra API-svaret i `StringBuilder` . När svaret har registrerats stänger du `InputStreamReader` strömmen och returnerar svaret.
 
        ```java
        //...
@@ -119,7 +118,7 @@ public static String prettify(String json_text) {
        return response.toString();
        ```
 
-2. I programmets huvud funktion, anropa `get_suggestions()`och skriv ut svaret med hjälp av. `prettify()`
+2. I appens huvud funktion, anropa `get_suggestions()` och skriv ut svaret med hjälp av `prettify()` .
     
     ```java
     public static void main(String[] args) {

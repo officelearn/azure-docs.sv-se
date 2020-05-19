@@ -4,10 +4,10 @@ description: Lär dig hur du skapar din första Azure-funktion för serverfri k�
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: 5aae60900a61c28f6c53f89b8e273daccb047eef
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
+ms.lasthandoff: 05/19/2020
 ms.locfileid: "83116205"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Skapa en Function-app i Linux i ett Azure App Service plan
@@ -34,7 +34,7 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
 
 1. På sidan **grundläggande** inställningar använder du funktionen appinställningar som anges i följande tabell.
 
-    | Inställningen      | Föreslaget värde  | Beskrivning |
+    | Inställningen      | Föreslaget värde  | Description |
     | ------------ | ---------------- | ----------- |
     | **Prenumeration** | Din prenumeration | Prenumerationen som den nya funktionsappen skapas under. |
     | **[Resurs grupp](../azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Namnet på den nya resursgrupp där du vill skapa funktionsappen. |
@@ -42,15 +42,15 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
     |**Publicera**| **Kod** (standard) | Alternativ för att publicera kodfiler eller en Docker-container. |
     | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.net Core** för C# och F # functions. |
     |**Version**| Versionsnummer | Välj den version av den installerade körnings miljön.  |
-    |**Nationella**| Önskad region | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
+    |**Region**| Önskad region | Välj en [plats](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som kommer att användas i dina funktioner. |
 
     :::image type="content" source="./media/create-function-app-linux-app-service-plan/function-app-create-basics-linux.png" alt-text="Sidan Grundläggande inställningar":::
 
 1. Välj **Nästa: värd**. Ange följande inställningar på sidan **värd** .
 
-    | Inställningen      | Föreslaget värde  | Beskrivning |
+    | Inställningen      | Föreslaget värde  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Lagringskonto](../storage/common/storage-account-create.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får bara innehålla siffror och gemena bokstäver. Du kan också använda ett befintligt konto som måste uppfylla kraven för [lagrings kontot](../azure-functions/functions-scale.md#storage-account-requirements). |
+    | **[Lagrings konto](../storage/common/storage-account-create.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Lagrings konto namn måste innehålla mellan 3 och 24 tecken och får bara innehålla siffror och gemena bokstäver. Du kan också använda ett befintligt konto som måste uppfylla kraven för [lagrings kontot](../azure-functions/functions-scale.md#storage-account-requirements). |
     |**Operativsystem**| **Linux** | Ett operativ system är i förväg valt för dig baserat på ditt val av körnings stack, men du kan ändra inställningen om det behövs. |
     | **[Planera](../azure-functions/functions-scale.md)** | **Förbrukning (utan server)** | Värdplan som definierar hur resurser allokeras till din funktionsapp. I standard **förbruknings** planen läggs resurser till dynamiskt enligt vad som krävs av dina funktioner. I den här värdbaserade [servern](https://azure.microsoft.com/overview/serverless-computing/) betalar du bara för den tid som dina funktioner körs. När du använder en App Service-plan måste du hantera [funktionsappens skalning](../azure-functions/functions-scale.md).  |
 
@@ -58,7 +58,7 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
 
 1. Välj **Nästa: övervakning**. Ange följande inställningar på sidan **övervakning** .
 
-    | Inställningen      | Föreslaget värde  | Beskrivning |
+    | Inställningen      | Föreslaget värde  | Description |
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../azure-functions/functions-monitoring.md)** | **Ja** (standard) | Skapar en Application Insights resurs av samma *app-namn* i den närmaste region som stöds. Genom att utöka den här inställningen eller välja **Skapa ny**kan du ändra Application Insights namn eller välja en annan region i ett [Azure-geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill lagra dina data. |
 

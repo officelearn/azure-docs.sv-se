@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: e39486f0daf1c865de3e53372d32a44fdcb8eb99
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: 3d67361ecd4e06fdf006e836011d2cab59e340b6
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399802"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82587875"
 ---
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Den här artikeln förutsätter att du har ett Azure-konto och en röst tjänst prenumeration. Om du inte har ett konto och en prenumeration kan du [prova att använda tal tjänsten kostnads fritt](../../../get-started.md).
 
@@ -25,12 +25,12 @@ Innan du kan göra något måste du installera talet SDK. Använd följande inst
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)en. Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
+Om du vill anropa tal tjänsten med hjälp av tal-SDK måste du skapa en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) . Den här klassen innehåller information om din prenumeration, till exempel din nyckel och tillhör ande region, slut punkt, värd eller token för auktorisering.
 
 > [!NOTE]
 > Oavsett om du utför tal igenkänning, tal syntes, översättning eller avsikts igenkänning, skapar du alltid en konfiguration.
 
-Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig):
+Det finns några sätt som du kan initiera en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) :
 
 * Med en prenumeration: skicka i en nyckel och tillhör ande region.
 * Med en slut punkt: skicka i en röst tjänst slut punkt. En nyckel eller autentiseringstoken är valfri.
@@ -45,20 +45,20 @@ auto config = SpeechConfig::FromSubscription("YourSubscriptionKey", "YourService
 
 ## <a name="initialize-a-recognizer"></a>Initiera en identifierare
 
-När du har skapat en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)är nästa steg att initiera en [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer). När du initierar en [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)måste du skicka den `speech_config`. Detta ger de autentiseringsuppgifter som tal tjänsten behöver för att verifiera din begäran.
+När du har skapat en [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) är nästa steg att initiera en [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) . När du initierar en måste [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) du skicka den `speech_config` . Detta ger de autentiseringsuppgifter som tal tjänsten behöver för att verifiera din begäran.
 
-Om du känner igen tal med hjälp av enhetens standard mikrofon ska du [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) se vad som ska se ut så här:
+Om du känner igen tal med hjälp av enhetens standard mikrofon [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) ska du se vad som ska se ut så här:
 
 ```cpp
 auto recognizer = SpeechRecognizer::FromConfig(config);
 ```
 
-Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) och ange `audioConfig` parametern när du initierar. [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)
+Om du vill ange enheten för ljud inspelning måste du skapa en [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) och ange `audioConfig` parametern när du initierar [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) .
 
 > [!TIP]
 > [Lär dig hur du hämtar enhets-ID: t för din enhet för ljud inspelning](../../../how-to-select-audio-input-devices.md).
 
-Lägg först till följande `using namespace` -instruktion efter dina `#include` definitioner.
+Lägg först till följande- `using namespace` instruktion efter dina `#include` definitioner.
 
 ```cpp
 using namespace Microsoft::CognitiveServices::Speech::Audio;
@@ -71,7 +71,7 @@ auto audioConfig = AudioConfig::FromDefaultMicrophoneInput();
 auto recognizer = SpeechRecognizer::FromConfig(config, audioConfig);
 ```
 
-Om du vill ange en ljudfil i stället för att använda en mikrofon måste du ändå ange en `audioConfig`. Men när du skapar [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig)en, i stället för att `FromDefaultMicrophoneInput`anropa, kommer du `FromWavFileOutput` att `filename` anropa och skicka parametern.
+Om du vill ange en ljudfil i stället för att använda en mikrofon måste du ändå ange en `audioConfig` . Men när du skapar en [`AudioConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audioconfig) , i stället för att anropa `FromDefaultMicrophoneInput` , kommer du `FromWavFileOutput` att anropa och skicka `filename` parametern.
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
@@ -83,20 +83,20 @@ auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
 [Igenkännings klassen](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) för tal SDK för C++ exponerar några metoder som du kan använda för tal igenkänning.
 
 * Identifiering av enstaka bild (async) – utför igenkänning i ett icke-blockerande (asynkront) läge. Detta kommer att identifiera en enda uttryck. Slutet på en enskild uttryck bestäms genom att lyssna efter tystnad i slutet eller tills maximalt 15 sekunders ljud bearbetas.
-* Kontinuerlig igenkänning (async) – initierar kontinuerlig igenkännings åtgärd asynkront. Användaren måste ansluta för att hantera händelser för att få igenkännings resultat. Anropa [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync)för att stoppa asynkron kontinuerlig igenkänning.
+* Kontinuerlig igenkänning (async) – initierar kontinuerlig igenkännings åtgärd asynkront. Användaren måste ansluta för att hantera händelser för att få igenkännings resultat. Anropa för att stoppa asynkron kontinuerlig igenkänning [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync) .
 
 > [!NOTE]
 > Läs mer om hur du [väljer ett tal igenkännings läge](../../../how-to-choose-recognition-mode.md).
 
 ### <a name="single-shot-recognition"></a>Igenkänning av enstaka bild
 
-Här är ett exempel på en asynkron igenkänning av enstaka bild [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync)med:
+Här är ett exempel på en asynkron igenkänning av enstaka bild med [`RecognizeOnceAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#recognizeonceasync) :
 
 ```cpp
 auto result = recognizer->RecognizeOnceAsync().get();
 ```
 
-Du måste skriva kod för att hantera resultatet. I [`result->Reason`](https://docs.microsoft.com/cpp/cognitive-services/speech/recognitionresult#reason)det här exemplet utvärderas:
+Du måste skriva kod för att hantera resultatet. I det här exemplet utvärderas [`result->Reason`](https://docs.microsoft.com/cpp/cognitive-services/speech/recognitionresult#reason) :
 
 * Skriver ut resultatet för igenkänning:`ResultReason::RecognizedSpeech`
 * Om det inte finns någon igenkännings matchning, informera användaren:`ResultReason::NoMatch`
@@ -130,22 +130,22 @@ switch (result->Reason)
 
 ### <a name="continuous-recognition"></a>Kontinuerlig igenkänning
 
-Kontinuerlig igenkänning är lite mer engagerande än igenkänning av enstaka steg. Det kräver att du prenumererar på `Recognizing`- `Recognized`,- `Canceled` och-händelserna för att få igenkännings resultatet. För att stoppa igenkänningen måste du anropa [StopContinuousRecognitionAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync). Här är ett exempel på hur kontinuerlig igenkänning utförs på en inspelnings fil.
+Kontinuerlig igenkänning är lite mer engagerande än igenkänning av enstaka steg. Det kräver att du prenumererar på `Recognizing` -, `Recognized` -och- `Canceled` händelserna för att få igenkännings resultatet. För att stoppa igenkänningen måste du anropa [StopContinuousRecognitionAsync](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#stopcontinuousrecognitionasync). Här är ett exempel på hur kontinuerlig igenkänning utförs på en inspelnings fil.
 
-Vi börjar med att definiera indatamängden och initiera en [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer):
+Vi börjar med att definiera indatamängden och initiera en [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) :
 
 ```cpp
 auto audioInput = AudioConfig::FromWavFileInput("YourAudioFile.wav");
 auto recognizer = SpeechRecognizer::FromConfig(config, audioInput);
 ```
 
-Nu ska vi skapa en variabel för att hantera läget för tal igenkänning. För att starta, deklarerar `promise<void>`vi en, eftersom vi i början av igenkänningen på ett säkert sätt kan anta att det inte är klart.
+Nu ska vi skapa en variabel för att hantera läget för tal igenkänning. För att starta, deklarerar vi en `promise<void>` , eftersom vi i början av igenkänningen på ett säkert sätt kan anta att det inte är klart.
 
 ```cpp
 promise<void> recognitionEnd;
 ```
 
-Vi kommer att prenumerera på de händelser som skickas [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer)från.
+Vi kommer att prenumerera på de händelser som skickas från [`SpeechRecognizer`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer) .
 
 * [`Recognizing`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognizing): Signal för händelser som innehåller mellanliggande igenkännings resultat.
 * [`Recognized`](https://docs.microsoft.com/cpp/cognitive-services/speech/asyncrecognizer#recognized): Signal för händelser som innehåller slutgiltiga igenkännings resultat (indikerar ett lyckat igenkännings försök).
@@ -191,7 +191,7 @@ recognizer->SessionStopped.Connect([&recognitionEnd](const SessionEventArgs& e)
     });
 ```
 
-Med allt konfigurerat kan vi anropa [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync).
+Med allt konfigurerat kan vi anropa [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechrecognizer#startcontinuousrecognitionasync) .
 
 ```cpp
 // Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
@@ -208,7 +208,7 @@ recognizer->StopContinuousRecognitionAsync().get();
 
 När du använder kontinuerlig igenkänning kan du aktivera dikterings bearbetning genom att använda motsvarande "Aktivera diktering"-funktion. Det här läget kommer att göra att tal konfigurations instansen tolkar ord beskrivningar av menings strukturer som interpunktion. Till exempel skulle uttryck "är du bor i stadens frågetecken" tolkas som texten "är du bor i staden?".
 
-Om du vill aktivera dikteringsläget använder du [`EnableDictation`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation) metoden på din. [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)
+Om du vill aktivera dikteringsläget använder du [`EnableDictation`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#enabledictation) metoden på din [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) .
 
 ```cpp
 config->EnableDictation();
@@ -216,10 +216,10 @@ config->EnableDictation();
 
 ## <a name="change-source-language"></a>Ändra käll språk
 
-En vanlig uppgift för tal igenkänning anger språk för indata (eller källa). Låt oss ta en titt på hur du ändrar indatamängds språk till tyska. Leta upp din [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig)kod i koden och Lägg sedan till den här raden direkt under den.
+En vanlig uppgift för tal igenkänning anger språk för indata (eller källa). Låt oss ta en titt på hur du ändrar indatamängds språk till tyska. Leta upp din kod i koden [`SpeechConfig`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig) och Lägg sedan till den här raden direkt under den.
 
 ```cpp
-config->SetSpeechRecognitionLanguage("fr-FR");
+config->SetSpeechRecognitionLanguage("de-DE");
 ```
 
 [`SetSpeechRecognitionLanguage`](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setspeechrecognitionlanguage)är en parameter som tar en sträng som ett argument. Du kan ange ett värde i listan över [språk](../../../language-support.md)som stöds.
@@ -231,7 +231,7 @@ Det finns några sätt att förbättra igenkännings precisionen med talet SDK. 
 > [!IMPORTANT]
 > Funktionen fras lista är bara tillgänglig på engelska.
 
-Om du vill använda en fras lista måste du [`PhraseListGrammar`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar) först skapa ett objekt och sedan lägga till vissa [`AddPhrase`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar#addphrase)ord och fraser med.
+Om du vill använda en fras lista måste du först skapa ett [`PhraseListGrammar`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar) objekt och sedan lägga till vissa ord och fraser med [`AddPhrase`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar#addphrase) .
 
 Eventuella ändringar [`PhraseListGrammar`](https://docs.microsoft.com/cpp/cognitive-services/speech/phraselistgrammar) börjar gälla nästa igenkänning eller efter en åter anslutning till tal-tjänsten.
 

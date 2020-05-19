@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/24/2019
 ms.author: swmachan
-ms.openlocfilehash: 3c5c74fc853b5a2425a58e1704aad43350cba212
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 252759139de7f53cd7875efeb7f477219092aa0b
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73837457"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584711"
 ---
 # <a name="unsupported-language-deployments"></a>Språkdistributioner som inte stöds
 
@@ -25,7 +25,7 @@ Med den kommande indragningen av Microsoft Translator-hubben kommer Microsoft at
 
 Nu har vi en process som gör att du kan distribuera dina modeller som inte stöds via den anpassade översättare.  Med den här processen kan du fortsätta att översätta innehåll med hjälp av det senaste v3-API: et.  Dessa modeller är värdar tills du väljer att avdistribuera dem, eller så blir språk paret tillgängligt i en anpassad översättare.  I den här artikeln beskrivs processen för att distribuera modeller med språk par som inte stöds.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att dina modeller ska vara kandidater för distribution måste de uppfylla följande kriterier:
 * Projektet som innehåller modellen måste ha migrerats från hubben till den anpassade översättare med hjälp av Migreringsverktyget.  Du hittar den [här](how-to-migrate.md)processen för att migrera projekt och arbets ytor.
@@ -57,4 +57,4 @@ Till skillnad från standard anpassade översättare-modeller är hubb modeller 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Träna en modell](how-to-train-model.md).
-- Börja använda din distribuerade anpassade översättnings modell via [Microsoft Translator text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Börja använda din distribuerade anpassade översättnings modell via [Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

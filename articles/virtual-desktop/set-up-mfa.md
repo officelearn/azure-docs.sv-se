@@ -23,7 +23,7 @@ När du först loggar in frågar klienten efter ditt användar namn, lösen ord 
 
 Även om det är praktiskt att komma ihåg autentiseringsuppgifterna, kan det också göra distributioner i företags scenarier eller personliga enheter mindre säkra. För att skydda dina användare måste du kontrol lera att klienten fortfarande ber om autentiseringsuppgifter för Azure Multi-Factor Authentication (MFA). I den här artikeln visas hur du konfigurerar principen för villkorlig åtkomst för Windows Virtual Desktop för att aktivera den här inställningen.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 Det här behöver du för att komma igång:
 
@@ -39,13 +39,13 @@ Det här behöver du för att komma igång:
 I det här avsnittet visas hur du skapar en princip för villkorlig åtkomst som kräver Multi-Factor Authentication när du ansluter till det virtuella Windows-skrivbordet.
 
 1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
-2. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
+2. Bläddra till **Azure Active Directory**  >  **säkerhet**  >  **villkorlig åtkomst**.
 3. Välj **ny princip**.
 4. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
 5. Under **Tilldelningar** väljer du **Användare och grupper**.
-   - Under **Inkludera**väljer du **Välj användare och grupper** > **användare och grupper** > väljer den grupp som skapades i förutsättnings stadiet.
+   - Under **Inkludera**väljer du **Välj användare och grupper**  >  **användare och grupper** > väljer den grupp som skapades i förutsättnings stadiet.
    - Välj **Done** (Klar).
-6. Under **molnappar eller åtgärder** > **inkluderar**väljer du **Välj appar**.
+6. Under **molnappar eller åtgärder**  >  **inkluderar**väljer du **Välj appar**.
    - Välj **Windows Virtual Desktop** (app-ID 9cdead84-a844-4324-93f2-b2e6bb768d07) och **Välj**sedan, och sedan **Slutför**.
    
      ![En skärm bild av sidan molnappar eller åtgärder. Klient program för virtuella Windows-datorer och Windows-appar för virtuella skriv bord är markerade i rött.](media/cloud-apps-enterprise.png)
@@ -53,8 +53,8 @@ I det här avsnittet visas hur du skapar en princip för villkorlig åtkomst som
      >[!NOTE]
      >Om du vill hitta app-ID: t för den app som du vill välja går du till **företags program** och väljer **Microsoft-program** i den nedrullningsbara menyn program typ.
 
-7. Under **åtkomst kontroller** > **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
-8. Under **Access Controls** > **session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och väljer sedan **Välj**.
+7. Under **åtkomst kontroller**  >  **tilldelar**väljer du **bevilja åtkomst**, **kräver Multi-Factor Authentication**och **väljer**sedan.
+8. Under **Access Controls**  >  -**session**väljer du **inloggnings frekvens**, anger värdet till **1** och enheten till **timmar**och väljer sedan **Välj**.
 9. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 10. Välj **skapa** för att aktivera principen.
 

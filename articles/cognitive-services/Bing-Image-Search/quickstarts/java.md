@@ -9,23 +9,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 979bd034b2f4d3665de64fe8ffdb33efc7a370cb
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1613b21658e3ecf89cfe895462258ec5b8b93c6d
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478578"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83118984"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-api-an-azure-cognitive-service"></a>Snabb start: Sök efter avbildningar med API för bildsökning i Bing, en Azure-tjänst för inlärning 
+# <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Snabb start: söka efter bilder med API för bildsökning i Bing och Java 
 
-Använd den här snabb starten för att skicka Sök begär anden till API för bildsökning i Bing i Azure Cognitive Services. Java-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att lära dig hur du skickar Sök begär anden till API för bildsökning i Bing i Azure Cognitive Services. Java-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7Quickstart.java) med ytterligare fel hantering och anteckningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Java Development Kit (JDK)](https://aka.ms/azure-jdks)
 
@@ -35,7 +35,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera följande bibliotek.
+1. Skapa ett nytt Java-projekt i din favorit-IDE eller-redigerare och importera följande bibliotek:
 
     ```java
     import java.net.*;
@@ -48,7 +48,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
     import com.google.gson.JsonParser;
     ```
 
-2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. `host`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. För `host` kan du använda den globala slut punkten i följande kod eller använda den anpassade slut [domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```java
     static String subscriptionKey = "enter key here";
@@ -59,7 +59,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruera sökbegäran och fråga
 
-1. Använd variablerna från det sista steget för att formatera en sök-URL för API-begäran. Sökordet måste vara URL-kodat innan det läggs till i begäran.
+Använd variablerna från föregående steg för att formatera en Sök-URL för API-begäran. URL – koda Sök termen innan du lägger till den i begäran.
 
     ```java
     // construct the search request URL (in the form of endpoint + query string)
@@ -70,7 +70,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
 
 ## <a name="receive-and-process-the-json-response"></a>Ta emot och bearbeta JSON-svaret
 
-1. Ta emot JSON-svar från API för bildsökning i Bing och konstruera resultatobjektet.
+1. Ta emot JSON-svaret från API för bildsökning i Bing och skapa resultat objekt.
 
     ```java
     // receive JSON body
@@ -79,7 +79,8 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
     ```
-2. Separera de Bing-relaterade HTTP-huvudena från JSON-texten
+2. Separera Bing-relaterade HTTP-huvuden från JSON-texten.
+
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -91,7 +92,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
     }
     ```
 
-3. Stäng dataströmmen och parsa svaret. Hämta det totala antalet returnerade sökresultat och miniatyr-URL:en till det första avbildningsresultatet.
+3. Stäng dataströmmen och parsa svaret. Hämta det totala antalet returnerade Sök Resultat och miniatyr-URL: en till den första bildens resultat.
 
     ```java
     stream.close();
@@ -160,9 +161,9 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 
 ## <a name="see-also"></a>Se även
 
-* [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
-* [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Vad är API:et för bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Prova en interaktivt demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
+* [Pris information för API:er för Bing-sökresultat](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* [Hämta en åtkomst nyckel för gratis Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+* [Azure Cognitive Services-dokumentation](https://docs.microsoft.com/azure/cognitive-services).
+* [API för bildsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

@@ -2,13 +2,13 @@
 title: Konfigurera Personanpassning
 description: Tjänst konfigurationen omfattar hur tjänsten behandlar förmåner, hur ofta tjänsten utforskar, hur ofta modellen omtränas och hur mycket data som lagras.
 ms.topic: conceptual
-ms.date: 02/19/2020
-ms.openlocfilehash: ac31a9f907defeb44dbd4748a4395d3aec34d30c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 04/29/2020
+ms.openlocfilehash: 8df851c70650f3d59efc4c7507ce4b1c8a00fbe3
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219361"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584662"
 ---
 # <a name="configure-personalizer-learning-loop"></a>Konfigurera en inlärnings slinga
 
@@ -18,6 +18,23 @@ Konfigurera inlärnings-slingan på sidan **konfiguration** i Azure Portal för 
 
 <a name="configure-service-settings-in-the-azure-portal"></a>
 <a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
+
+## <a name="planning-configuration-changes"></a>Planera konfigurations ändringar
+
+Eftersom en del konfigurations ändringar [återställer din modell](#settings-that-include-resetting-the-model)bör du planera dina konfigurations ändringar.
+
+Om du planerar att använda [lärlings läget](concept-apprentice-mode.md), se till att granska din anpassnings konfiguration innan du växlar till lärlings läge.
+
+<a name="clear-data-for-your-learning-loop"></a>
+
+## <a name="settings-that-include-resetting-the-model"></a>Inställningar som inkluderar återställning av modellen
+
+Följande åtgärder utlöser en omskolning av modellen med hjälp av data som är tillgängliga upp till de senaste 2 dagarna.
+
+* Annan
+* Utforskning
+
+Om du vill [Rensa](how-to-manage-model.md) alla data använder du sidan **modell-och inlärnings inställningar** .
 
 ## <a name="configure-rewards-for-the-feedback-loop"></a>Konfigurera förmåner för feedback-slingan
 
@@ -66,16 +83,7 @@ När du har ändrat det här värdet ska du se till att välja **Spara**.
 
 När du har ändrat det här värdet ska du se till att välja **Spara**.
 
-<a name="clear-data-for-your-learning-loop"></a>
 
-## <a name="settings-that-include-resetting-the-model"></a>Inställningar som inkluderar återställning av modellen
-
-Följande åtgärder omfattar en omedelbar omskolning av modellen med de senaste två dagarnas data.
-
-* Annan
-* Utforskning
-
-Om du vill [Rensa](how-to-manage-model.md) alla dina data använder du sidan * * modell och utbildnings inställningar * *.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -10,22 +10,22 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 43c528a1e9e46a67e895679b1a0fd04fef8900a7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 491481156f026e9887244064297d0790a965158e
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382967"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82735121"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Snabb start: kontrol lera stavningen med Stavningskontroll i Bing REST API och Java
 
-Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Java-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
+Använd den här snabbstarten för att göra ditt första anrop till REST API för stavningskontroll i Bing. Det här enkla Java-programmet skickar en begäran till API:et och returnerar en lista över föreslagna korrigeringar. Även om det här programmet är skrivet i Java, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * Java Development Kit (JDK) 7 eller senare.
 
-* Importera [Gson--2.8.5. jar](https://libraries.io/maven/com.google.code.gson%3Agson) -eller den mest aktuella [Gson](https://github.com/google/gson) -versionen. För kommando rads körning lägger du till `.jar` i din Java-mapp med huvud klassen.
+* Importera [Gson--2.8.5. jar](https://libraries.io/maven/com.google.code.gson%3Agson) -eller den mest aktuella [Gson](https://github.com/google/gson) -versionen. För kommando rads körning lägger du till i `.jar` din Java-mapp med huvud klassen.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
@@ -129,7 +129,7 @@ I programmets huvud funktion anropar du metoden check () som skapats ovan.
         }
 ```
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Skapa och kör ditt projekt.
 
@@ -140,7 +140,7 @@ Om du använder kommando raden använder du följande kommandon för att skapa o
 javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
 ```
 
-**Kör:**
+**Fungerar**
 ```bash
 java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
 ```

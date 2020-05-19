@@ -39,7 +39,7 @@ Det finns två typer av arbets boks resurser som kan hanteras program mässigt:
 
     ![Fliken Galleri mal len](./media/workbooks-automate/gallery-template.png)
 1. Kopiera JSON i Galleri mal len till Urklipp.
-2. Nedan visas ett exempel på en Azure Resource Manager mall som distribuerar en arbetsboksmall till Azure Monitor arbets boks galleriet. Klistra in JSON-filen som du kopierade i stället för `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>`. En referens Azure Resource Manager mall som skapar en mall för arbets böcker finns [här](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
+2. Nedan visas ett exempel på en Azure Resource Manager mall som distribuerar en arbetsboksmall till Azure Monitor arbets boks galleriet. Klistra in JSON-filen som du kopierade i stället för `<PASTE-COPIED-WORKBOOK_TEMPLATE_HERE>` . En referens Azure Resource Manager mall som skapar en mall för arbets böcker finns [här](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/ARM-template-for-creating-workbook-template).
 
     ```json
     {
@@ -77,7 +77,7 @@ Det finns två typer av arbets boks resurser som kan hanteras program mässigt:
         ]
     }
     ```
-1. I- `galleries` objektet fyller du `name` i och `category` -nycklarna med dina värden. Läs mer om [parametrar](#parameters) i nästa avsnitt.
+1. I- `galleries` objektet fyller du i `name` och- `category` nycklarna med dina värden. Läs mer om [parametrar](#parameters) i nästa avsnitt.
 2. Distribuera denna Azure Resource Manager-mall med hjälp av antingen [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template), [kommando rads gränssnittet](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-cli), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-powershell)osv.
 3. Öppna Azure Portal och navigera till galleriet för arbets boken som valts i Azure Resource Manager-mallen. I exempel mal len navigerar du till galleriet Azure Monitor arbets bok:
     1. Öppna Azure Portal och navigera till Azure Monitor
@@ -193,7 +193,7 @@ Den här mallen visar hur du distribuerar en enkel arbets bok som visar Hello Wo
 | Parameter | Förklaring |
 | :------------- |:-------------|
 | `workbookDisplayName` | Det egna namnet på arbets boken som används i galleriet eller sparade listor. Måste vara unikt i omfånget för resurs gruppen och källan |
-| `workbookType` | Galleriet som arbets boken visas under. Värden som stöds är arbets `tsg`bok, Azure Monitor osv. |
+| `workbookType` | Galleriet som arbets boken visas under. Värden som stöds är arbets bok, `tsg` Azure Monitor osv. |
 | `workbookSourceId` | ID för resurs instansen som arbets boken ska associeras med. Den nya arbets boken visas som är relaterad till den här resurs instansen – till exempel i resursens innehålls förteckning under _arbets bok_. Om du vill att arbets boken ska visas i arbets boks galleriet i Azure Monitor använder du strängen _Azure Monitor_ i stället för ett resurs-ID. |
 | `workbookId` | Unikt GUID för arbets boks instansen. Använd _[newGuid ()]_ för att automatiskt skapa ett nytt GUID. |
 | `kind` | Används för att ange om den skapade arbets boken är delad eller privat. Använd värdet _delat_ för delade arbets böcker och _användare_ för privata. |
@@ -210,7 +210,7 @@ Arbets boks typer ange vilken arbets boks Galleri typ den nya arbets boks instan
 | `usage` | Galleriet _mer_ under _användning_ i Application Insights |
 
 ### <a name="limitations"></a>Begränsningar
-Av teknisk anledning kan den här mekanismen inte användas för att skapa arbets boks instanser i galleriet för _arbets böcker_ i Application Insights. Vi arbetar på att lösa den här begränsningen. Under tiden rekommenderar vi att du använder galleriet för fel söknings guiden (workbookType `tsg`:) för att distribuera Application Insights relaterade arbets böcker.
+Av teknisk anledning kan den här mekanismen inte användas för att skapa arbets boks instanser i galleriet för _arbets böcker_ i Application Insights. Vi arbetar på att lösa den här begränsningen. Under tiden rekommenderar vi att du använder galleriet för fel söknings guiden (workbookType: `tsg` ) för att distribuera Application Insights relaterade arbets böcker.
 
 ## <a name="next-steps"></a>Nästa steg
 

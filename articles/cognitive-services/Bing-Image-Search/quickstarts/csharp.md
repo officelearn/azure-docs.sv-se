@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/31/2020
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 6d9ceac5a63a7a644989430b0349a16369c7133a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8018fa3935e780f8c4002483c5eebdade82b5f1c
+ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478622"
+ms.lasthandoff: 05/12/2020
+ms.locfileid: "83119027"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och C #
 
-Använd den här snabbstarten för att börja skicka sökbegäranden till API för bildsökning i Bing. C#-appen skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i C#, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabb starten för att lära dig hur du skickar Sök begär anden till API för bildsökning i Bing. C#-appen skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i C# är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) med ytterligare fel hantering och anteckningar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 * En version av [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/).
 * [Json.NET](https://www.newtonsoft.com/json) framework, tillgänglig som ett NuGet-paket.
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](https://www.mono-project.com/).
@@ -32,7 +32,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. skapa en ny konsollösning med namnet `BingSearchApisQuickStart` i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
+1. Skapa en ny konsol lösning `BingSearchApisQuickStart` som heter i Visual Studio. Lägg sedan till följande namn rymder i huvud kod filen:
 
     ```csharp
     using System;
@@ -42,7 +42,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
     using Newtonsoft.Json.Linq;
     ```
 
-2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. `uriBase`kan vara den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunkter, din prenumerationsnyckel och sökvillkor. För `uriBase` kan du använda den globala slut punkten i följande kod eller använda den anpassade slut [domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```csharp
     //...
@@ -59,7 +59,7 @@ Käll koden för det här exemplet finns [på GitHub](https://github.com/Azure-S
 
 ## <a name="create-a-struct-to-format-the-bing-image-search-response"></a>Skapa en struct för att formatera sökresultaten från Bing-bildsökningen
 
-Definiera en `SearchResult`-struct som ska innehålla bildsökningsresultatet och JSON-rubrikinformation.
+Definiera en `SearchResult` struct som innehåller bilds öknings resultatet och JSON-huvudinformationen.
 
 ```csharp
     namespace BingSearchApisQuickstart
@@ -77,7 +77,7 @@ Definiera en `SearchResult`-struct som ska innehålla bildsökningsresultatet oc
 
 ## <a name="create-a-method-to-send-search-requests"></a>Skapa en metod för att skicka sökförfrågningar
 
-Skapa en metod med namnet `BingImageSearch` för att utföra anrop till API:et och ange returtypen som `SearchResult`-structen som skapades tidigare.
+Skapa en metod med namnet `BingImageSearch` för att utföra anropet till API: et och ange retur typen till den `SearchResult` struct som skapades tidigare.
 
 ```csharp
 //...
@@ -95,9 +95,9 @@ namespace BingSearchApisQuickstart
 
 ## <a name="create-and-handle-an-image-search-request"></a>Skapa och hantera en bildsökningsbegäran
 
-Utför följande steg i metoden `BingImageSearch`.
+`BingImageSearch`Utför följande steg i-metoden:
 
-1. Konstruera URI för sökbegäran. Sökordet `SearchTerm` måste vara formaterat innan det läggs till i strängen.
+1. Konstruera URI för sökbegäran. Formatera `SearchTerm` Sök termen innan du lägger till den i strängen.
 
     ```csharp
     static SearchResult BingImageSearch(string SearchTerm){
@@ -115,7 +115,7 @@ Utför följande steg i metoden `BingImageSearch`.
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
     ```
 
-3. Skapa sökresultatsobjektet och extrahera Bing-HTTP-rubriker. Returnera seda `searchResult`.
+3. Skapa Sök Resultat objekt och extrahera Bing HTTP-huvudena. Returnera sedan `searchResult` .
 
     ```csharp
     // Create the result object for return
@@ -136,7 +136,7 @@ Utför följande steg i metoden `BingImageSearch`.
 
 ## <a name="process-and-view-the-response"></a>Bearbeta och visa svaret
 
-1. Anropa `BingImageSearch()` i huvudmetoden och lagra det returnerade svaret. Deserialisera sedan JSON till ett objekt.
+1. Anropa `BingImageSearch()` i huvudmetoden och lagra det returnerade svaret. Deserialisera sedan JSON till ett-objekt.
 
     ```csharp
     SearchResult result = BingImageSearch(searchTerm);
@@ -208,9 +208,9 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 
 ## <a name="see-also"></a>Se även
 
-* [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
-* [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) för API:er för Bing-sökning. 
-* [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-* [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Vad är API:et för bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Prova en interaktivt demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/).
+* [Pris information för API:er för Bing-sökresultat](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/). 
+* [Hämta en åtkomst nyckel för gratis Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api).
+* [Azure Cognitive Services-dokumentation](https://docs.microsoft.com/azure/cognitive-services).
+* [API för bildsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference).

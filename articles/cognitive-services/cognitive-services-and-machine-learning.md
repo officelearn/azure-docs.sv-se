@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: cde505e4c95de9b9693a0e9d260d7fa84f3e905b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec997c802f83b0d1eea54c0710b0ebc4684397fe
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75531487"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584628"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services och Machine Learning
 
@@ -108,8 +108,8 @@ Följande data kategoriserar varje tjänst enligt vilken typ av data den tillåt
 |[Tal-till-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Talöversättning](speech-service/speech-translation.md)|x|||
 |[Textanalys](./text-analytics/overview.md)|x|||
-|[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text-anpassad översättare](./translator/custom-translator/overview.md)||x||
+|[Översättare](./translator/translator-info-overview.md)|x|||
+|[Translator-anpassad översättare](./translator/custom-translator/overview.md)||x||
 
 * Personanpassa behöver bara träna data som samlas in av tjänsten (som de fungerar i real tid) för att utvärdera din princip och dina data. En personanpassare behöver inte ha stora historiska data uppsättningar för utbildning i front-eller batch. 
 

@@ -57,13 +57,13 @@ Följande är API-nivå ändringar i Azure Cosmos DB Java SDK 4. x. x jämfört 
 
 ![Azure Cosmos DB namngivnings konventioner för Java SDK](./media/migrate-java-v4-sdk/java-sdk-naming-conventions.png)
 
-* Azure Cosmos DB Java SDK 3. x och 4,0 hänvisar till klient resurserna som `Cosmos<resourceName>`. Till exempel `CosmosClient` `CosmosDatabase`,,, `CosmosContainer`. I version 2. x. x har Azure Cosmos DB Java SDK: er inget enhetligt namngivnings schema.
+* Azure Cosmos DB Java SDK 3. x och 4,0 hänvisar till klient resurserna som `Cosmos<resourceName>` . Till exempel,,, `CosmosClient` `CosmosDatabase` `CosmosContainer` . I version 2. x. x har Azure Cosmos DB Java SDK: er inget enhetligt namngivnings schema.
 
 * Azure Cosmos DB Java SDK 3. x. x och 4,0 erbjuder både synkronisering och asynkrona API: er.
 
-  * **Java SDK 4,0** : alla klasser tillhör Sync-API om inte klass namnet läggs till med `Async` efter. `Cosmos`
+  * **Java SDK 4,0** : alla klasser tillhör Sync-API om inte klass namnet läggs till med `Async` efter `Cosmos` .
 
-  * **Java SDK 3. x**: alla klasser tillhör det asynkrona API: et om inte klass namnet läggs till med `Async` efter. `Cosmos`
+  * **Java SDK 3. x**: alla klasser tillhör det asynkrona API: et om inte klass namnet läggs till med `Async` efter `Cosmos` .
 
   * **Asynkron Java SDK 2. x**: klass namn liknar synkronisering Java SDK 2. x. x, men namnet börjar med *async*.
 
@@ -81,14 +81,14 @@ I version 2. x av Azure Cosmos DB Java SDK utförs alla åtgärder på resurser 
 
 I Azure Cosmos DB Java SDK 4,0 är anpassade POJO och `JsonNodes` de två alternativen för att läsa och skriva dokumenten från Azure Cosmos dB.
 
-I Azure Cosmos DB Java SDK 3. x, exponeras `CosmosItemProperties` objektet av det offentliga API: t och hanteras som en dokument representation. Den här klassen exponeras inte längre offentligt i version 4,0.
+I Azure Cosmos DB Java SDK 3. x, `CosmosItemProperties` exponeras objektet av det offentliga API: t och hanteras som en dokument representation. Den här klassen exponeras inte längre offentligt i version 4,0.
 
 ### <a name="imports"></a>Kina
 
 * Azure Cosmos DB Java SDK 4,0-paket börjar med`com.azure.cosmos`
   * Azure Cosmos DB Java SDK 3. x. x-paket börjar med`com.azure.data.cosmos`
 
-* Azure Cosmos DB Java SDK 4,0 placerar flera klasser i ett kapslat `com.azure.cosmos.models`paket. Några av dessa paket är:
+* Azure Cosmos DB Java SDK 4,0 placerar flera klasser i ett kapslat paket `com.azure.cosmos.models` . Några av dessa paket är:
 
   * `CosmosContainerResponse`
   * `CosmosDatabaseResponse`
@@ -102,9 +102,9 @@ I Azure Cosmos DB Java SDK 3. x, exponeras `CosmosItemProperties` objektet av de
 
 ### <a name="accessors"></a>Accessorer
 
-Azure Cosmos DB Java SDK 4,0 visar `get` och `set` metoder för åtkomst till instans medlemmar. Till exempel har `CosmosContainer` `container.getId()` instansen och `container.setId()` -metoderna.
+Azure Cosmos DB Java SDK 4,0 visar `get` och `set` metoder för åtkomst till instans medlemmar. Till exempel `CosmosContainer` har instansen `container.getId()` och- `container.setId()` metoderna.
 
-Detta skiljer sig från Azure Cosmos DB Java SDK 3. x. x som visar ett Fluent-gränssnitt. Till exempel har `CosmosSyncContainer` `container.id()` en instans som är överbelastad för att hämta eller ange `id` värdet.
+Detta skiljer sig från Azure Cosmos DB Java SDK 3. x. x som visar ett Fluent-gränssnitt. Till exempel har en `CosmosSyncContainer` instans `container.id()` som är överbelastad för att hämta eller ange `id` värdet.
 
 ## <a name="code-snippet-comparisons"></a>Jämförelse av kodfragment
 

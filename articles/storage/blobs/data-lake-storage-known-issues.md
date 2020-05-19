@@ -111,7 +111,7 @@ Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats t
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Ett exempel:
+Diagnostikloggar kan inte aktive ras ännu med hjälp av Azure Portal. Du kan aktivera dem med hjälp av PowerShell. Till exempel:
 
 ```powershell
 #To login

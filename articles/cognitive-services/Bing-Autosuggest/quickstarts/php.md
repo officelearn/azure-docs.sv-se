@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 0aa309ba34abdfbe91493498ae6ec49785e0e0d4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6552c345678b6996f4a35e9e1fc7a1838505ff09
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238988"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930190"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och PHP
 
-Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Detta enkla PHP-program skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Följ den här snabb starten om du vill lära dig att ringa till API för automatiska förslag i Bing och läsa JSON-svaret. Detta enkla PHP-program skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i PHP är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Php 5.6. x](https://php.net/downloads.php) eller senare
 
@@ -31,8 +31,8 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
 
 1. Skapa ett nytt PHP-projekt i valfri IDE.
 2. Lägg till koden nedan.
-3. Ersätt värdet `subscriptionKey` med en giltig åtkomstnyckel för din prenumeration.
-4. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+3. Ersätt `subscriptionKey` värdet med en åtkomst nyckel som är giltig för din prenumeration.
+4. Använd den globala slut punkten i koden eller Använd den [anpassade under domänens](../../../cognitive-services/cognitive-services-custom-subdomains.md) slut punkt som visas i Azure Portal för din resurs.
 5. Kör programmet.
 
 ```php
@@ -80,7 +80,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-### <a name="response"></a>Svar
+## <a name="example-json-response"></a>Exempel på JSON-svar
 
 Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
 

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 03/24/2020
+ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 11dc0d4f80e14c293fde4e84b5e97d39fe594629
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d63bd0fc745a3305b9d2f8906a09626668d091b
+ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238958"
+ms.lasthandoff: 05/08/2020
+ms.locfileid: "82930275"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Snabb start: föreslå Sök frågor med Automatiska förslag i Bing REST API och Node. js
 
-Använd den här snabb starten för att börja ringa till API för automatiska förslag i Bing och hämta JSON-svaret. Detta enkla Node. js-program skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
+Följ den här snabb starten om du vill lära dig att ringa till API för automatiska förslag i Bing och läsa JSON-svaret. Detta enkla Node. js-program skickar en partiell Sök fråga till API: et och returnerar förslag för sökningar. Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingAutosuggestv7.js)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [Node. js 6](https://nodejs.org/en/download/) eller senare
 
@@ -37,7 +37,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     let https = require ('https');
     ```
 
-2. Skapa variabler för API-slutpunktens värd och sökväg, din prenumerations nyckel, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en sökterm. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunktens värd och sökväg, din prenumerations nyckel, [marknads kod](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)och en sökterm. Använd den globala slut punkten i följande kod eller Använd den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -74,19 +74,20 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
     }
     ```
 
-    1. I samma funktion använder du biblioteket för begäran för att skicka din fråga till API: et. `response_handler` definieras i nästa avsnitt.
+ 1. I samma funktion använder du biblioteket för begäran för att skicka din fråga till API: et. `response_handler`definieras i nästa avsnitt.
     
-        ```javascript
+    ```javascript
         //...
         let req = https.request(request_params, response_handler);
         req.end();
         ```
 
-## <a name="create-a-search-handler"></a>Skapa en Sök hanterare
+## Create a search handler
 
-1. Definiera en funktion med namnet `response_handler` som tar ett HTTP-anrop, `response`, som en parameter. Utför följande steg inom den här funktionen:
+1. Define a function named `response_handler` that takes an HTTP call, `response`, as a parameter. 
+Do the following steps within this function:
     
-    1. Definiera en variabel så att den innehåller brödtexten i JSON-svaret.  
+    1. Define a variable to contain the body of the JSON response.  
 
         ```javascript
         let response_handler = function (response) {
@@ -94,7 +95,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
         };
         ```
 
-    2. Lagra svarets brödtext när flaggan för **data** anropas.
+    2. Store the body of the response when the `data` flag is called
         
         ```javascript
         response.on ('data', function (d) {
@@ -102,7 +103,7 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
         });
         ```
 
-    3. När en **slut** flagga signaleras, användare `JSON.parse()` och `JSON.stringify()` för att skriva ut svaret.
+    3. When an `end` flag is signaled, use `JSON.parse()` and `JSON.stringify()` to print the response.
     
         ```javascript
         response.on ('end', function () {
@@ -115,11 +116,11 @@ Använd den här snabb starten för att börja ringa till API för automatiska f
         });
         ```
 
-2. Anropa `get_suggestions()` för att skicka begäran till API för automatiska förslag i Bing.
+2. Call `get_suggestions()` to send the request to the Bing Autosuggest API.
 
-## <a name="example-json-response"></a>Exempel på JSON-svar
+## Example JSON response
 
-Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följande exempel: 
+A successful response is returned in JSON, as shown in the following example: 
 
 ```json
 {

@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 6330a77f5971348c3f63fdaa7602ebba9ddf45ec
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
+ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186347"
+ms.lasthandoff: 05/01/2020
+ms.locfileid: "82691341"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Träna en formulär igenkännings modell med etiketter med hjälp av verktyget för att använda exempel etiketter
 
 I den här snabb starten använder du formulär tolken REST API med verktyget för att träna en anpassad modell med manuellt märkta data. Mer information om den här funktionen finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 
@@ -37,7 +37,7 @@ För att slutföra den här snabb starten måste du ha:
 Du använder Docker-motorn för att köra verktyget för etikettering. Följ de här stegen för att konfigurera Docker-behållaren. En introduktion till grunderna för Docker och containrar finns i [Docker-översikt](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> Etikett verktyget för OCR-form är också tillgängligt som ett projekt med öppen källkod på GitHub. Verktyget är ett webb program som skapats med hjälp av reagerar + Redux och är skrivet i TypeScript. Om du vill veta mer eller Contribute kan du se [OCR-verktyget för form etikettering](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application).
+> Etikett verktyget för OCR-form är också tillgängligt som ett projekt med öppen källkod på GitHub. Verktyget är ett TypeScript-webbprogram som skapats med hjälp av reagerar + Redux. Om du vill veta mer eller Contribute kan du läsa [OCR-verktyget etiketting Tool](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) lagrings platsen. Om du vill prova verktyget online går du till [FOTT-webbplatsen](https://fott.azurewebsites.net/).   
 
 1. Börja med att installera Docker på en värddator. I den här guiden visas hur du använder en lokal dator som värd. Om du vill använda en Docker-värd tjänst i Azure kan du läsa mer i guiden [distribuera exempel etikett verktyg](../deploy-label-tool.md) . 
 
@@ -56,7 +56,7 @@ Du använder Docker-motorn för att köra verktyget för etikettering. Följ de 
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
-1. Nu är du redo att köra behållaren med `docker run`.
+1. Nu är du redo att köra behållaren med `docker run` .
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
@@ -75,7 +75,7 @@ Se först till att alla utbildnings dokument har samma format. Om du har formul�
 Aktivera CORS på ditt lagrings konto. Välj ditt lagrings konto i Azure Portal och klicka på fliken **CORS** i det vänstra fönstret. Fyll i följande värden på den nedersta raden. Klicka sedan på **Spara** högst upp.
 
 * Tillåtna ursprung = * 
-* Tillåtna metoder = \[Markera alla\]
+* Tillåtna metoder = \[ Markera alla\]
 * Tillåtna huvuden = *
 * Exponerade rubriker = * 
 * Max ålder = 200
@@ -95,7 +95,7 @@ Fyll i fälten med följande värden:
 
 * **Visnings namn** – anslutningens visnings namn.
 * **Beskrivning** – din projekt beskrivning.
-* **SAS-URL** – URL: en för signaturen för delad åtkomst (SAS) för din Azure Blob Storage-behållare. Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Ange förfallo tid till en tid efter att du har använt tjänsten. Kontrol lera att behörigheterna **läsa**, **skriva**, **ta bort**och **lista** är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **SAS-URL** – URL: en för signaturen för delad åtkomst (SAS) för din Azure Blob Storage-behållare. Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Ange förfallo tid till en tid efter att du har använt tjänsten. Kontrol lera att behörigheterna **läsa**, **skriva**, **ta bort**och **lista** är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
 
 ![Anslutnings inställningar för verktyget för samplings etiketter](../media/label-tool/connections.png)
 
@@ -141,7 +141,7 @@ Därefter skapar du taggar (etiketter) och tillämpar dem på de text element so
     > * Varje tagg kan bara tillämpas en gång per sida. Om ett värde visas flera gånger i samma formulär skapar du olika taggar för varje instans. Till exempel: "faktura nummer 1", "faktura nummer 2" och så vidare.
     > * Taggar kan inte sträcka sig över sidor.
     > * Etikettera värden som de visas i formuläret. Försök inte att dela upp ett värde i två delar med två olika taggar. Ett adress fält ska till exempel märkas med en enda tagg även om det sträcker sig över flera rader.
-    > * Ta inte med nycklar i dina märkta&mdash;fält enbart värdena.
+    > * Ta inte med nycklar i dina märkta fält &mdash; enbart värdena.
     > * Tabell data ska identifieras automatiskt och är tillgängliga i den slutgiltiga JSON-filen för utdata. Men om modellen inte kan identifiera alla tabell data kan du tagga dessa fält manuellt. Tagga varje cell i tabellen med en annan etikett. Om dina formulär har tabeller med varierande antal rader, se till att du tagga minst ett formulär med största möjliga tabell.
 
 ![Huvud redigerings fönster i exempel etikett verktyg](../media/label-tool/main-editor.png)
@@ -161,7 +161,7 @@ Följande värde typer och varianter stöds för närvarande:
 * `number`
     * objekt`currency`
 * `date` 
-    * standard, `dmy`, `mdy`,`ymd`
+    * standard, `dmy` , `mdy` ,`ymd`
 * `time`
 * `integer`
 

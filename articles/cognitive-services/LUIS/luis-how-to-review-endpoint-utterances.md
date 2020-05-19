@@ -9,28 +9,27 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 05/07/2020
 ms.author: diberry
-ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c976d3b74badc4eeb5978af352fe425089f2fbfb
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219856"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584981"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Förbättra LUIS-appen genom att granska slut punkts yttranden
 
 Processen för att granska slut punkts yttranden för korrekta förutsägelser kallas [aktiv inlärning](luis-concept-review-endpoint-utterances.md). Active Learning samlar in slut punkts frågor och väljer användarens slut punkt yttranden att det är osäkert. Du kan granska dessa yttranden för att välja avsikten och markera entiteter för dessa Read-World-yttranden. Acceptera ändringarna i ditt exempel yttranden och träna och publicera. LUIS identifierar sedan yttranden mer noggrant.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 ## <a name="enable-active-learning"></a>Aktivera aktiv inlärning
 
-Om du vill aktivera aktiv inlärning måste du logga användar frågor. Detta åstadkommer du genom att anropa [slut punkts frågan](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) med parametern `log=true` QueryString och värdet.
+Om du vill aktivera aktiv inlärning måste du logga användar frågor. Detta åstadkommer du genom att anropa [slut punkts frågan](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) med `log=true` parametern QueryString och värdet.
 
 Använd LUIS-portalen för att skapa rätt slut punkts fråga.
 
-1. Välj din app i listan över appar i [Luis-portalen för förhands granskning](https://preview.luis.ai/).
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
 1. Gå till avsnittet **Hantera** och välj sedan **Azure-resurser**.
 1. För den tilldelade förutsägelse resursen väljer du **ändra**frågeparametrar.
 
@@ -42,7 +41,7 @@ Använd LUIS-portalen för att skapa rätt slut punkts fråga.
     > [!div class="mx-imgBorder"]
     > ![Använd LUIS-portalen för att spara loggar, vilket krävs för aktiv inlärning.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
 
-     Den här åtgärden ändrar exempel-URL genom att `log=true` lägga till parametern QueryString. Kopiera och Använd fråge-URL: en för den ändrade exemplet när du gör förutsägelse frågor till körnings slut punkten.
+     Den här åtgärden ändrar exempel-URL genom att lägga till `log=true` parametern QueryString. Kopiera och Använd fråge-URL: en för den ändrade exemplet när du gör förutsägelse frågor till körnings slut punkten.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Korrigera yttranden genom att korrigera avsikts förutsägelser
 
@@ -64,7 +63,7 @@ Om du är osäker på om du ska ta bort uttryck, antingen flyttar du den till no
 
 ## <a name="disable-active-learning"></a>Inaktivera aktiv inlärning
 
-Du inaktiverar aktiv inlärning genom att inte logga användar frågor. Detta åstadkommer du genom att ställa in [slut punkts frågan](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) med parametern `log=false` QueryString och värdet eller inte använda QueryString-värdet eftersom standardvärdet är false.
+Du inaktiverar aktiv inlärning genom att inte logga användar frågor. Detta åstadkommer du genom att ställa in [slut punkts frågan](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) med `log=false` parametern QueryString och värdet eller inte använda QueryString-värdet eftersom standardvärdet är false.
 
 ## <a name="next-steps"></a>Nästa steg
 

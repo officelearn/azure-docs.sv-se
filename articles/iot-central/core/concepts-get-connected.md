@@ -148,7 +148,7 @@ Flödet skiljer sig något beroende på om enheterna använder SAS-token eller X
 
 1. [Lägg till och verifiera ett rot-eller mellanliggande X. 509-certifikat](#connect-devices-using-x509-certificates) till ditt IoT Central-program.
 
-1. Generera löv certifikat för dina enheter med hjälp av rot-eller mellanliggande certifikat som du har lagt till i ditt IoT Central-program. Använd lägre enhets-ID: n `CNAME` som i blad certifikaten.
+1. Generera löv certifikat för dina enheter med hjälp av rot-eller mellanliggande certifikat som du har lagt till i ditt IoT Central-program. Använd lägre enhets-ID: n som `CNAME` i blad certifikaten.
 
 1. OEM: en blinkar varje enhet med ett enhets-ID, ett genererat löv-X. 509-certifikat och värdet för programmets **ID-omfång** .
 
@@ -231,7 +231,7 @@ När en riktig enhet ansluter till ditt IoT Central-program ändras enhetens sta
 
     Operatören kan koppla en enhet till en enhets mall från sidan **enheter** med knappen **migrera** .
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 Behåll eller cachelagra inte enhets anslutnings strängen som DPS returnerar när du först ansluter enheten. Om du vill återansluta en enhet går du igenom standard enhets registrerings flödet för att få rätt anslutnings sträng för enheten. Om enheten cachelagrar anslutnings strängen, körs enhetens program vara i risken att en inaktuell anslutnings sträng används, om IoT Central uppdaterar den underliggande Azure IoT-hubb som används.
 

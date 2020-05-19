@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eee2271b6d1fb51ff4b27c0d612306b1f7f8747a
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595610"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584730"
 ---
 # <a name="view-system-test-results"></a>Visa testresultat för system
 
@@ -102,6 +102,6 @@ Så här uppdaterar du distributions inställningarna:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Börja använda din distribuerade anpassade översättnings modell via [Microsoft Translator text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Börja använda din distribuerade anpassade översättnings modell via [Translator v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
 - Lär dig [hur du hanterar inställningar](how-to-manage-settings.md) för att dela din arbets yta, hantera prenumerations nyckel.
 - Lär dig [hur du migrerar din arbets yta och ditt projekt](how-to-migrate.md) från [Microsoft Translator Hub](https://hub.microsofttranslator.com)

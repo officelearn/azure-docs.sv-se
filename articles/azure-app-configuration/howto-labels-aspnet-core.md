@@ -29,7 +29,7 @@ I Azure Portal går du till **konfigurations Utforskaren** och hittar *TestApp: 
 > [!div class="mx-imgBorder"]
 > ![Meny alternativet Lägg till värde](media/labels-add-value.png)
 
-På skärmen **Lägg till värde** anger du **värdet** **röd** och en **utvecklings** **etikett** . Lämna **innehålls typen** tom. Välj **Använd**.
+På skärmen **Lägg till värde** anger du **värdet** **röd** och en **utvecklings** **etikett** . Lämna **innehålls typen** tom. Välj **Tillämpa**.
 
 ## <a name="load-configuration-values-with-a-specified-label"></a>Läs in konfigurations värden med en angiven etikett
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: a09b79992f669c296fe0a674179fde5f38e8fc8a
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
-ms.translationtype: HT
+ms.openlocfilehash: 4a96f0e887bb04aea6d451e08bd5d26d1cc6edca
+ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82149384"
+ms.lasthandoff: 04/29/2020
+ms.locfileid: "82587883"
 ---
 Kom igång med ansikts klient biblioteket för go. Följ de här stegen för att installera biblioteket och prova våra exempel för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
@@ -26,9 +26,9 @@ Använd klient biblioteket för ansikts tjänsten för att gå till:
 * [Identifiera ett ansikte](#identify-a-face)
 * [Ta en ögonblicks bild för datamigrering](#take-a-snapshot-for-data-migration)
 
-[Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [bibliotek käll kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [SDK Hämta](https://github.com/Azure/azure-sdk-for-go)
+[Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face)  |  [SDK-hämtning](https://github.com/Azure/azure-sdk-for-go)
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den senaste versionen av [Go](https://golang.org/dl/)
@@ -81,7 +81,7 @@ När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolf�
 
 #### <a name="macos"></a>[macOS](#tab/unix)
 
-Redigera din `.bash_profile`och Lägg till miljövariabeln:
+Redigera din `.bash_profile` och Lägg till miljövariabeln:
 
 ```bash
 export FACE_SUBSCRIPTION_KEY=<replace-with-your-product-name-key>
@@ -93,7 +93,7 @@ När du har lagt till miljövariabeln så kör `source .bash_profile` från kons
 
 ### <a name="create-a-go-project-directory"></a>Skapa en go-projektfil
 
-I ett konsol fönster (cmd, PowerShell, Terminal, bash) skapar du en ny arbets yta för ditt go-projekt `my-app`, med namnet och navigerar till den.
+I ett konsol fönster (cmd, PowerShell, Terminal, bash) skapar du en ny arbets yta för ditt go-projekt, med namnet `my-app` och navigerar till den.
 
 ```
 mkdir -p my-app/{src, bin, pkg}  
@@ -102,19 +102,19 @@ cd my-app
 
 Arbets ytan kommer att innehålla tre mappar:
 
-* **src** – den här katalogen kommer att innehålla källkod och paket. Alla paket som är installerade `go get` med kommandot finns i den här mappen.
+* **src** – den här katalogen kommer att innehålla källkod och paket. Alla paket som är installerade med `go get` kommandot finns i den här mappen.
 * **pkg** – den här katalogen kommer att innehålla de kompilerade go-paket-objekten. De här filerna har ett `.a` fil namns tillägg.
-* **bin** – den här katalogen innehåller de binära körbara filer som skapas när du `go install`kör.
+* **bin** – den här katalogen innehåller de binära körbara filer som skapas när du kör `go install` .
 
 > [!TIP]
-> Läs mer om strukturen för en Go-arbetsyta i [språk dokumentationen för go](https://golang.org/doc/code.html#Workspaces). Den här guiden innehåller information om `$GOPATH` hur `$GOROOT`du ställer in och.
+> Läs mer om strukturen för en Go-arbetsyta i [språk dokumentationen för go](https://golang.org/doc/code.html#Workspaces). Den här guiden innehåller information om hur du ställer in `$GOPATH` och `$GOROOT` .
 
 ### <a name="install-the-client-library-for-go"></a>Installera klient biblioteket för go
 
 Installera sedan klient biblioteket för Go:
 
 ```bash
-go get -u https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
+go get -u github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face
 ```
 
 eller i din lagringsplatskörning om du använder dep:
@@ -125,7 +125,7 @@ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/c
 
 ### <a name="create-a-go-application"></a>Skapa ett Go-program
 
-Skapa sedan en fil i **src** -katalogen med namnet `sample-app.go`:
+Skapa sedan en fil i **src** -katalogen med namnet `sample-app.go` :
 
 ```bash
 cd src
@@ -145,7 +145,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 |Name|Beskrivning|
 |---|---|
 |[BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#BaseClient) | Den här klassen representerar ditt tillstånd att använda ansikts tjänsten och du behöver den för alla ansikts funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser. |
-|[Klientsession](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
+|[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)|Den här klassen hanterar de grundläggande identifierings-och igenkännings aktiviteter som du kan göra med människo ansikten. |
 |[DetectedFace](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#DetectedFace)|Den här klassen representerar alla data som upptäcktes från ett enskilt ansikte i en bild. Du kan använda den för att hämta detaljerad information om FACET.|
 |[ListClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#ListClient)|Den här klassen hanterar molnbaserade **FaceList** -konstruktioner, som lagrar en stor uppsättning ansikten. |
 |[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)| Den här klassen hanterar molnbaserade **person** konstruktioner, som lagrar en uppsättning ansikten som tillhör en enda person.|
@@ -166,7 +166,7 @@ Dessa kod exempel visar hur du utför grundläggande uppgifter med klient biblio
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
 > [!NOTE] 
-> Den här snabb starten förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din ansikts nyckel `FACE_SUBSCRIPTION_KEY` och `FACE_ENDPOINT` din slut punkt, med namnet respektive.
+> Den här snabb starten förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din ansikts nyckel och din slut punkt, med namnet respektive `FACE_SUBSCRIPTION_KEY` `FACE_ENDPOINT` .
 
 Skapa en **huvud** funktion och Lägg till följande kod i den för att instansiera en klient med din slut punkt och nyckel. Du skapar ett **[CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer)** -objekt med din nyckel och använder det med slut punkten för att skapa ett **[klient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)** objekt. Den här koden instansierar också ett kontext objekt, vilket krävs för att skapa klient objekt. Den definierar också en fjärran sluten plats där några av exempel bilderna i den här snabb starten hittas.
 
@@ -214,9 +214,9 @@ Följande kod skriver ut matchnings informationen i-konsolen.
 
 ## <a name="create-and-train-a-person-group"></a>Skapa och träna en person grupp
 
-För att gå igenom det här scenariot måste du spara följande avbildningar till rot katalogen i projektet: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+För att gå igenom det här scenariot måste du spara följande avbildningar till rot katalogen i projektet: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
-Den här gruppen med bilder innehåller tre uppsättningar med bilder med en bild som motsvarar tre olika personer. Koden definierar tre **PersonGroup person** objekt och associerar dem med bildfiler som börjar med `woman`, `man`och. `child`
+Den här gruppen med bilder innehåller tre uppsättningar med bilder med en bild som motsvarar tre olika personer. Koden definierar tre **PersonGroup person** objekt och associerar dem med bildfiler som börjar med `woman` , `man` och `child` .
 
 ### <a name="create-persongroup"></a>Skapa PersonGroup
 
@@ -251,7 +251,7 @@ Följande kod tar en bild med flera ansikten och söker efter identiteten för v
 
 ### <a name="get-a-test-image"></a>Hämta en test avbildning
 
-Följande kod söker i roten i projektet efter en avbildning _test-image-person-Group. jpg_ och läser in den i program minnet. Du kan hitta avbildningen i samma lagrings platsen som de bilder som används i [skapa och träna en person grupp](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+Följande kod söker i roten i projektet efter en avbildning _test-image-person-Group. jpg_ och läser in den i program minnet. Du kan hitta avbildningen i samma lagrings platsen som de bilder som används i [skapa och träna en person grupp](#create-and-train-a-person-group): https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images .
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_id_source_get)]
 
@@ -345,7 +345,7 @@ Fråga sedan detta ID igen tills åtgärden har slutförts.
 
 När du har slutfört de här stegen kan du komma åt dina ansikts data-konstruktioner från din nya (mål) prenumeration.
 
-## <a name="run-the-application"></a>Köra appen
+## <a name="run-the-application"></a>Kör programmet
 
 Kör programmet Go med `go run [arguments]` kommandot från program katalogen.
 
@@ -357,7 +357,7 @@ go run sample-app.go
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portalen](../../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 Om du har skapat en **PersonGroup** i den här snabb starten och du vill ta bort den anropar du **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** -metoden. Om du har migrerat data med hjälp av ögonblicks bild funktionen i den här snabb starten måste du också ta bort **PersonGroup** som sparats till mål prenumerationen.

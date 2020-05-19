@@ -10,25 +10,25 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/26/2020
 ms.author: aahi
-ms.openlocfilehash: 0b4495616c750b2b3e8431e011d71ae8671af1ef
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 04ba4f99d80b1f9bb57ed8c493327655c91ac39d
+ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77912656"
+ms.lasthandoff: 05/09/2020
+ms.locfileid: "82995179"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library-for-go"></a>Snabb start: Använd Textanalys klient bibliotek för go
 
-[Referens dokumentation](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics) | [paket (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
+[Referens dokumentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-go/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics)  |  [Paket (GitHub)](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/textanalytics)  |  [Exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
 > [!NOTE]
 > Den här snabb starten gäller endast Textanalys version 2,1. För närvarande är ett v3-klient bibliotek för Go inte tillgängligt.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * En Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den senaste versionen av [Go](https://golang.org/dl/)
-* När du har en Azure <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="-prenumeration skapar du en textanalys"  target="_blank">resurs skapa en textanalys <span class="docon docon-navigate-external x-hidden-focus"></span> </a> resurs i Azure Portal för att hämta din nyckel och slut punkt. 
+* När du har en Azure-prenumeration <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" skapar du en textanalys resurs "  target="_blank"> skapa en textanalys resurs <span class="docon docon-navigate-external x-hidden-focus"></span> </a> i Azure Portal för att hämta din nyckel och slut punkt. 
     * Du behöver nyckeln och slut punkten från den resurs som du skapar för att ansluta ditt program till API för textanalys. Du kommer att göra detta senare i snabb starten.
     * Du kan använda den kostnads fria pris nivån för att testa tjänsten och senare uppgradera till en betald nivå för produktion.
 
@@ -40,12 +40,12 @@ I ett konsol fönster (cmd, PowerShell, Terminal, bash) skapar du en ny arbets y
 
 * **src** – den här katalogen innehåller käll kod och paket. Alla paket som installeras med `go get` kommandot kommer att finnas här.
 * **pkg** – den här katalogen innehåller de kompilerade go-paket-objekten. De här filerna har ett `.a` fil namns tillägg.
-* **bin** – den här katalogen innehåller de binära körbara filer som skapas när `go install`du kör.
+* **bin** – den här katalogen innehåller de binära körbara filer som skapas när du kör `go install` .
 
 > [!TIP]
-> Lär dig mer om strukturen för en [Go-arbetsyta](https://golang.org/doc/code.html#Workspaces). Den här guiden innehåller information om `$GOPATH` hur `$GOROOT`du ställer in och.
+> Lär dig mer om strukturen för en [Go-arbetsyta](https://golang.org/doc/code.html#Workspaces). Den här guiden innehåller information om hur du ställer in `$GOPATH` och `$GOROOT` .
 
-Skapa en arbets yta `my-app` med namnet och de under kataloger `src`som `pkg`krävs för `bin`,, och:
+Skapa en arbets yta `my-app` med namnet och de under kataloger som krävs för `src` , `pkg` , och `bin` :
 
 ```console
 $ mkdir -p my-app/{src, bin, pkg}  
@@ -68,7 +68,7 @@ $ dep ensure -add <https://github.com/Azure/azure-sdk-for-go/tree/master/service
 
 ### <a name="create-your-go-application"></a>Skapa ditt Go-program
 
-Skapa sedan en fil med namnet `src/quickstart.go`:
+Skapa sedan en fil med namnet `src/quickstart.go` :
 
 ```bash
 $ cd src
@@ -83,13 +83,13 @@ $ touch quickstart.go
 
 Textanalys-klienten är ett [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) -objekt som autentiserar till Azure med hjälp av din nyckel. Klienten tillhandahåller flera metoder för att analysera text, som en enskild sträng eller en batch. 
 
-Text skickas till API: et som en lista över `documents`, som är `dictionary` objekt som innehåller en kombination `id`av `text`,, `language` och attribut beroende på vilken metod som används. `text` Attributet lagrar texten som ska analyseras i ursprunget `language`och `id` kan vara vilket värde som helst. 
+Text skickas till API: et som en lista över `documents` , som är `dictionary` objekt som innehåller en kombination av `id` , `text` , och `language` attribut beroende på vilken metod som används. `text`Attributet lagrar texten som ska analyseras i ursprunget `language` och `id` kan vara vilket värde som helst. 
 
 Objektet Response är en lista som innehåller analys informationen för varje dokument. 
 
 ## <a name="code-examples"></a>Kodexempel
 
-De här kodfragmenten visar hur du gör följande med Textanalys klient biblioteket för python:
+De här kodfragmenten visar hur du gör följande med Textanalys klient biblioteket för Go:
 
 * [Autentisera klienten](#authenticate-the-client)
 * [Attitydanalys](#sentiment-analysis)
@@ -120,7 +120,7 @@ func GetTextAnalyticsClient() textanalytics.BaseClient {
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 
-Skapa en ny funktion som `SentimentAnalysis()` kallas och skapa en klient med `GetTextAnalyticsClient()` hjälp av metoden som skapades tidigare. Skapa en lista med [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) -objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att `id`innehålla `Language` ett- `text` och-attribut. `text` Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. 
+Skapa en ny funktion `SentimentAnalysis()` som kallas och skapa en klient med hjälp av `GetTextAnalyticsClient()` metoden som skapades tidigare. Skapa en lista med [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) -objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att innehålla ett `id` - `Language` och- `text` attribut. `text`Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. 
 
 Anropa klientens [sentiment ()-](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.Sentiment) funktion och hämta resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och sentiment poäng. En poäng närmare 0 anger ett negativt sentiment, medan ett resultat närmare 1 anger en positiv sentiment.
 
@@ -128,7 +128,7 @@ Anropa klientens [sentiment ()-](https://godoc.org/github.com/Azure/azure-sdk-fo
 
 anropa `SentimentAnalysis()` i projektet.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
@@ -139,7 +139,7 @@ Document ID: 4 , Sentiment Score: 1.00
 
 ## <a name="language-detection"></a>Språkidentifiering
 
-Skapa en ny funktion som `LanguageDetection()` kallas och skapa en klient med `GetTextAnalyticsClient()` hjälp av metoden som skapades tidigare. Skapa en lista med [LanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#LanguageInput) -objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att `id` innehålla ett `text` -och-attribut. `text` Attributet lagrar texten som ska analyseras och `id` kan vara vilket värde som helst. 
+Skapa en ny funktion `LanguageDetection()` som kallas och skapa en klient med hjälp av `GetTextAnalyticsClient()` metoden som skapades tidigare. Skapa en lista med [LanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#LanguageInput) -objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att innehålla ett- `id` och- `text` attribut. `text`Attributet lagrar texten som ska analyseras och `id` kan vara vilket värde som helst. 
 
 Anropa klientens [DetectLanguage ()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.DetectLanguage) och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och identifierat språk.
 
@@ -147,7 +147,7 @@ Anropa klientens [DetectLanguage ()](https://godoc.org/github.com/Azure/azure-sd
 
 Anropa `LanguageDetection()` i projektet.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Document ID: 0 , Language: English 
@@ -157,7 +157,7 @@ Document ID: 2 , Language: Chinese_Simplified
 
 ## <a name="entity-recognition"></a>Enhetsidentifiering
 
-Skapa en ny funktion som `ExtractEntities()` kallas och skapa en klient med `GetTextAnalyticsClient()` hjälp av metoden som skapades tidigare. Skapa en lista med [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) -objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att `id`innehålla `language`ett,- `text` och-attribut. `text` Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. 
+Skapa en ny funktion `ExtractEntities()` som kallas och skapa en klient med hjälp av `GetTextAnalyticsClient()` metoden som skapades tidigare. Skapa en lista med [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) -objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att innehålla ett `id` , `language` -och- `text` attribut. `text`Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst. 
 
 Anropa klientens [entiteter ()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.Entities) och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och resultat för extraherade enheter.
 
@@ -165,7 +165,7 @@ Anropa klientens [entiteter ()](https://godoc.org/github.com/Azure/azure-sdk-for
 
 anropa `ExtractEntities()` i projektet.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Document ID: 1
@@ -197,7 +197,7 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Extrahering av nyckelfraser
 
-Skapa en ny funktion som `ExtractKeyPhrases()` kallas och skapa en klient med `GetTextAnalyticsClient()` hjälp av metoden som skapades tidigare. Skapa en lista med [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) -objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att `id`innehålla `language`ett,- `text` och-attribut. `text` Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst.
+Skapa en ny funktion `ExtractKeyPhrases()` som kallas och skapa en klient med hjälp av `GetTextAnalyticsClient()` metoden som skapades tidigare. Skapa en lista med [MultiLanguageInput](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#MultiLanguageBatchInput) -objekt som innehåller dokumenten som du vill analysera. Varje-objekt kommer att innehålla ett `id` , `language` -och- `text` attribut. `text`Attributet lagrar texten som ska analyseras, `language` är språket i dokumentet och `id` kan vara vilket värde som helst.
 
 Anropa klientens diskussions [fraser ()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.KeyPhrases) och få resultatet. Iterera sedan igenom resultaten och skriv ut varje dokuments ID och extraherade nyckel fraser.
 
@@ -205,7 +205,7 @@ Anropa klientens diskussions [fraser ()](https://godoc.org/github.com/Azure/azur
 
 Anropa `ExtractKeyPhrases()` i projektet.
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 
 ```console
 Document ID: 1

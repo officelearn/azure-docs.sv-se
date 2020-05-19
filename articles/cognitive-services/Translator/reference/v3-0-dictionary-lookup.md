@@ -1,5 +1,5 @@
 ---
-title: Sök metod för Translator Text API ord lista
+title: Sök metod för översättnings ord lista
 titleSuffix: Azure Cognitive Services
 description: Sök metoden för ord listan innehåller alternativa översättningar för ett ord och ett litet antal idiomatiskt-fraser.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: bd27827441082698bb4e0b43e7dd22d5b7e66539
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b2d111f22b8ef36b20b93b65ff1ea6f7b52ea8f7
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76548959"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83584747"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3,0: Sök efter ord lista
+# <a name="translator-30-dictionary-lookup"></a>Translator 3,0: Sök efter ord
 
 Innehåller alternativa översättningar för ett ord och ett litet antal idiomatiskt-fraser. Varje översättning har en del av tal och en lista över tillbaka-översättningar. Back-translations gör det möjligt för en användare att förstå översättningen i sammanhanget. Exempel åtgärden för [ord listan](./v3-0-dictionary-examples.md) ger ytterligare ökad detalj nivå för att se exempel som använder sig av varje översättnings par.
 
-## <a name="request-url"></a>URL för begäran
+## <a name="request-url"></a>Begärans-URL
 
 Skicka en `POST` begäran till:
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 Parametrarna för begäran som skickades till frågesträngen är:
 
-| Frågeparameter  | Beskrivning |
+| Frågeparameter  | Description |
 | ------ | ----------- |
 | api-version <img width=200/>   | **Obligatorisk parameter**.<br/>Den version av API: t som klienten begär. Värdet måste vara`3.0` |
 | Från | **Obligatorisk parameter**.<br/>Anger språket för inmatad text. Käll språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary` omfånget. |
@@ -42,16 +42,16 @@ Parametrarna för begäran som skickades till frågesträngen är:
 
 Begärandehuvuden innehåller:
 
-| Rubriker  | Beskrivning |
+| Sidhuvuden  | Description |
 | ------ | ----------- |
 | Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
-| Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`. |
+| Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json` . |
 | Innehålls längd   | **Begär ande huvud för begäran**.<br/>Längden på begär ande texten. |
-| X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp `ClientTraceId`av en frågeparameter med namnet. |
+| X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId` . |
 
 ## <a name="request-body"></a>Begärandetext
 
-Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med namnet `Text`med en sträng egenskap som representerar den term som ska sökas.
+Bröd texten i begäran är en JSON-matris. Varje mat ris element är ett JSON-objekt med namnet med en sträng egenskap `Text` som representerar den term som ska sökas.
 
 ```json
 [
@@ -76,11 +76,11 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
     * `normalizedTarget`: En sträng som ger normaliserad form av denna term på mål språket. Det här värdet ska användas som ininformation för att [söka efter exempel](./v3-0-dictionary-examples.md).
 
-    * `displayTarget`: En sträng som ger termen på mål språket och i ett formulär som passar bäst för slut användar visning. I allmänhet skiljer sig detta bara från `normalizedTarget` vad som är Skift läges vis. Till exempel, ett korrekt substantiv som "Juan" kommer att `normalizedTarget = "juan"` ha `displayTarget = "Juan"`och.
+    * `displayTarget`: En sträng som ger termen på mål språket och i ett formulär som passar bäst för slut användar visning. I allmänhet skiljer sig detta bara från vad `normalizedTarget` som är Skift läges vis. Till exempel, ett korrekt substantiv som "Juan" kommer att ha `normalizedTarget = "juan"` och `displayTarget = "Juan"` .
 
     * `posTag`: En sträng som kopplar den här termen med en del av tal-taggen.
 
-        | Taggnamn | Beskrivning  |
+        | Taggnamn | Description  |
         |----------|--------------|
         | JUST      | Adjektiv   |
         | ADV      | Adverb      |
@@ -91,7 +91,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
         | BEREDD     | Prepositioner |
         | PRON     | Pronomen     |
         | VERB     | Verb        |
-        | ANDRA    | Annat        |
+        | ANDRA    | Övrigt        |
 
         Som en implementerings anteckning fastställdes dessa taggar av en del-av-tal-taggning av den engelska sidan och sedan den mest frekventa taggen för varje käll-/mål par. Så om människor ofta översätter ett spanskt ord till en annan del av tal-taggen på engelska kan taggarna bli fel (med avseende på det spanska ordet).
 
@@ -105,7 +105,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
         * `displayText`: En sträng som ger käll termen som är en back översättning av målet i ett formulär som passar bäst för slut användar visning.
 
-        * `numExamples`: Ett heltal som representerar antalet exempel som är tillgängliga för det här översättnings paret. Faktiska exempel måste hämtas med ett separat anrop till [Lookup-exempel](./v3-0-dictionary-examples.md). Talet är främst avsett för att under lätta visning i ett UX. Ett användar gränssnitt kan till exempel lägga till en hyperlänk i back-Translation om antalet exempel är större än noll och visar back översättning som oformaterad text om det inte finns några exempel. Observera att det faktiska antalet exempel som returneras av ett anrop till [uppslags exempel](./v3-0-dictionary-examples.md) kan vara `numExamples`mindre än, eftersom ytterligare filtrering kan tillämpas i farten för att ta bort "dåliga" exempel.
+        * `numExamples`: Ett heltal som representerar antalet exempel som är tillgängliga för det här översättnings paret. Faktiska exempel måste hämtas med ett separat anrop till [Lookup-exempel](./v3-0-dictionary-examples.md). Talet är främst avsett för att under lätta visning i ett UX. Ett användar gränssnitt kan till exempel lägga till en hyperlänk i back-Translation om antalet exempel är större än noll och visar back översättning som oformaterad text om det inte finns några exempel. Observera att det faktiska antalet exempel som returneras av ett anrop till [uppslags exempel](./v3-0-dictionary-examples.md) kan vara mindre än `numExamples` , eftersom ytterligare filtrering kan tillämpas i farten för att ta bort "dåliga" exempel.
         
         * `frequencyCount`: Ett heltal som representerar frekvensen för det här översättnings paret i data. Huvud syftet med det här fältet är att tillhandahålla ett användar gränssnitt med ett sätt att sortera tillbaka-översättningar så att de mest frekventa villkoren är första.
 
@@ -114,7 +114,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
 ## <a name="examples"></a>Exempel
 
-Det här exemplet visar hur du kan söka efter alternativa översättningar på spanska av `fly` den engelska termen.
+Det här exemplet visar hur du kan söka efter alternativa översättningar på spanska av den engelska termen `fly` .
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"

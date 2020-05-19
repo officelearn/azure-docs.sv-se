@@ -9,20 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 36ded3bd85cd7acdffbfe46b9e931a811994fa30
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
+ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81531108"
+ms.lasthandoff: 04/30/2020
+ms.locfileid: "82594176"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Träna en formulär igenkännings modell med etiketter med hjälp av REST API och python
 
 I den här snabb starten använder du formulär tolken REST API med python för att träna en anpassad modell med manuellt märkta data. Mer information om den här funktionen finns i avsnittet [träna med etiketter](../overview.md#train-with-labels) i översikten.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra den här snabb starten måste du ha:
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
@@ -63,7 +63,7 @@ Du behöver filer med OCR-resultat för att tjänsten ska kunna beakta motsvaran
 
 1. Anropa API för **[analys av layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** i Read layout-behållaren med indatafilen som en del av begär ande texten. Spara ID: t som finns i svarets **Åtgärds plats** rubrik.
 1. Anropa API: t för att **[analysera layout](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeLayoutResult)** med ÅTGÄRDS-ID från föregående steg.
-1. Hämta svaret och skriv innehållet till en fil. För varje käll formulär ska motsvarande OCR-fil ha det ursprungliga fil namnet bifogad med `.ocr.json`. OCR-JSON-utdata ska ha följande format. I [exempel-OCR-filen](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) finns ett fullständigt exempel. 
+1. Hämta svaret och skriv innehållet till en fil. För varje käll formulär ska motsvarande OCR-fil ha det ursprungliga fil namnet bifogad med `.ocr.json` . OCR-JSON-utdata ska ha följande format. I [exempel-OCR-filen](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) finns ett fullständigt exempel. 
 
     ```json
     {
@@ -118,9 +118,9 @@ Du behöver filer med OCR-resultat för att tjänsten ska kunna beakta motsvaran
 
 Etikettfiler innehåller nyckel värdes kopplingar som en användare har angett manuellt. De behövs för etiketterad data träning, men alla källfiler måste ha motsvarande etikett fil. Källfiler utan etiketter kommer att behandlas som vanliga utbildnings dokument. Vi rekommenderar fem eller fler märkta filer för tillförlitlig utbildning.
 
-När du skapar en etikett fil kan du välja att ange exakta regioner&mdash;för värdena i dokumentet. Detta ger inlärningen ännu högre noggrannhet. Regionerna är formaterade som en uppsättning av åtta värden som motsvarar fyra X, Y-koordinater: övre vänstra, övre högra, nedre högra och nedre vänstra. Koordinaternas värden är mellan noll och ett, skalas till sidans dimensioner.
+När du skapar en etikett fil kan du välja att ange exakta regioner &mdash; för värdena i dokumentet. Detta ger inlärningen ännu högre noggrannhet. Regionerna är formaterade som en uppsättning av åtta värden som motsvarar fyra X, Y-koordinater: övre vänstra, övre högra, nedre högra och nedre vänstra. Koordinaternas värden är mellan noll och ett, skalas till sidans dimensioner.
 
-För varje käll formulär bör motsvarande etikett fil ha det ursprungliga fil namnet bifogad med `.labels.json`. Etikett filen ska ha följande format. Se [exempel etikett filen](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.labels.json) för ett fullständigt exempel.
+För varje käll formulär bör motsvarande etikett fil ha det ursprungliga fil namnet bifogad med `.labels.json` . Etikett filen ska ha följande format. Se [exempel etikett filen](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.labels.json) för ett fullständigt exempel.
 
 ```json
 {
@@ -196,8 +196,8 @@ För varje käll formulär bör motsvarande etikett fil ha det ursprungliga fil 
 Om du vill träna en modell med märkta data anropar du det **[anpassade modell](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** -API: et för träna genom att köra följande python-kod. Innan du kör koden gör du följande ändringar:
 
 1. Ersätt `<Endpoint>` med slut punkts-URL: en för formulär igenkännings resursen.
-1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-1. Ersätt `<Blob folder name>` med mappnamnet i BLOB-behållaren där indata finns. Om dina data finns i roten lämnar du detta tomt och tar bort `"prefix"` fältet från bröd texten i http-begäran.
+1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
+1. Ersätt `<Blob folder name>` med mappnamnet i BLOB-behållaren där indata finns. Om dina data finns i roten lämnar du detta tomt och tar bort `"prefix"` fältet från bröd texten i HTTP-begäran.
 
 ```python
 ########### Python Form Recognizer Labeled Async Train #############
@@ -486,11 +486,8 @@ När processen har slutförts får du ett `202 (Success)` svar med JSON-innehål
               "page":1,
               "confidence":1,
               "elements":[ 
-                { 
-                  "$ref":"#/analyzeResult/readResults/0/lines/15/words/0"
-                }
-              ],
-              "fieldName":"total"
+                "#/analyzeResult/readResults/0/lines/15/words/0"
+              ]
             },
             "invoice #":{ 
               "type":"string",
@@ -509,11 +506,8 @@ När processen har slutförts får du ett `202 (Success)` svar med JSON-innehål
               "page":1,
               "confidence":1,
               "elements":[ 
-                { 
-                  "$ref":"#/analyzeResult/readResults/0/lines/12/words/0"
-                }
-              ],
-              "fieldName":"invoice #"
+                "#/analyzeResult/readResults/0/lines/12/words/0"
+              ]
             },
             "vat":{ 
               "type":"string",
@@ -532,11 +526,8 @@ När processen har slutförts får du ett `202 (Success)` svar med JSON-innehål
               "page":1,
               "confidence":0.9839357733726502,
               "elements":[ 
-                { 
-                  "$ref":"#/analyzeResult/readResults/0/lines/16/words/0"
-                }
-              ],
-              "fieldName":"vat"
+                "#/analyzeResult/readResults/0/lines/16/words/0"
+              ]
             },
             ...
           }

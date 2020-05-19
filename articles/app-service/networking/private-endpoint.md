@@ -69,7 +69,7 @@ Om du behöver använda kudu-konsolen eller kudu REST API (distribution med Azur
 - PrivateEndpointIP yourwebappname.azurewebsites.net 
 - PrivateEndpointIP yourwebappname.scm.azurewebsites.net 
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Pris information finns i [priser för privata Azure-länkar][pricing].
 

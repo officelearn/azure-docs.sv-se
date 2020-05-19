@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac7609d49631fb2ed16fa129f8dc4099cc166247
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d94f557ddd946d20020825e2bbb6babbd67d3af3
+ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769871"
+ms.lasthandoff: 05/03/2020
+ms.locfileid: "82734339"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Självstudie: använda Custom Vision med en IoT-enhet för att rapportera visuella tillstånd
 
@@ -31,9 +31,9 @@ De här självstudierna visar hur du:
 > * Använd appen för att träna ditt Custom Vision-projekt.
 > * Använd appen för att räkna med nya bilder i real tid och skicka resultatet till Azure.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar. 
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Krav
+## <a name="prerequisites"></a>Förutsättningar
 
 * [!INCLUDE [create-resources](includes/create-resources.md)]
     > [!IMPORTANT]
@@ -56,13 +56,13 @@ Appen IoT Visual Alerts körs i en kontinuerlig slinga och växlar mellan fyra o
 
 Följande filer hanterar appens huvud funktioner.
 
-| Fil | Beskrivning |
+| Fil | Description |
 |-------------|-------------|
 | [MainPage. XAML](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | Den här filen definierar XAML-användargränssnittet. Den är värd för webb kamera kontrollen och innehåller etiketterna som används för status uppdateringar.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Den här koden styr beteendet för XAML-ANVÄNDARGRÄNSSNITTET. Den innehåller bearbetnings koden för tillstånds datorn.|
 | [CustomVision\CustomVisionServiceWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionServiceWrapper.cs) | Den här klassen är en omslutning som hanterar integrering med Custom Vision Service.|
 | [CustomVision\CustomVisionONNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | Den här klassen är en omslutning som hanterar integrering med Windows ML för inläsning av ONNX-modellen och Poäng bilder mot den.|
-| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IotHubWrapper.cs) | Den här klassen är en omslutning som hanterar integrering med IoT Hub för att ladda upp resultat resultat till Azure.|
+| [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IoTHubWrapper.cs) | Den här klassen är en omslutning som hanterar integrering med IoT Hub för att ladda upp resultat resultat till Azure.|
 
 ## <a name="set-up-the-visual-alerts-app"></a>Konfigurera appen visuella aviseringar
 
@@ -71,12 +71,12 @@ Följ de här stegen för att få appen IoT Visual Alerts att köras på din dat
 1. Klona eller hämta [IoTVisualAlerts-exemplet](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts) på GitHub.
 1. Öppna lösningen _IoTVisualAlerts. SLN_ i Visual Studio
 1. Integrera ditt Custom Vision-projekt:
-    1. Uppdatera `ApiKey` variabeln med din utbildnings nyckel i _CustomVision\CustomVisionServiceWrapper.cs_ -skriptet.
+    1. Uppdatera _CustomVision\CustomVisionServiceWrapper.cs_ `ApiKey` variabeln med din utbildnings nyckel i CustomVision\CustomVisionServiceWrapper.cs-skriptet.
     1. Uppdatera sedan `Endpoint` variabeln med slut punkts-URL: en som är kopplad till din nyckel.
     1. Uppdatera `targetCVSProjectGuid` variabeln med motsvarande ID för det Custom vision projekt som du vill använda. 
 1. Konfigurera IoT Hub resursen:
     1. I _IoTHub\IotHubWrapper.cs_ -skriptet uppdaterar du `s_connectionString` variabeln med rätt anslutnings sträng för enheten. 
-    1. På Azure Portal läser du in IoT Hub-instansen, klickar på **IoT-enheter** under **Utforskaren**, väljer på din målenhet (eller skapar en vid behov) och letar rätt på anslutnings strängen under **primär anslutnings sträng**. Strängen kommer att innehålla ditt IoT Hub namn, enhets-ID och den delade åtkomst nyckeln. Det har följande format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}`.
+    1. På Azure Portal läser du in IoT Hub-instansen, klickar på **IoT-enheter** under **Utforskaren**, väljer på din målenhet (eller skapar en vid behov) och letar rätt på anslutnings strängen under **primär anslutnings sträng**. Strängen kommer att innehålla ditt IoT Hub namn, enhets-ID och den delade åtkomst nyckeln. Det har följande format: `{your iot hub name}.azure-devices.net;DeviceId={your device id};SharedAccessKey={your access key}` .
 
 ## <a name="run-the-app"></a>Kör appen
 
@@ -90,9 +90,9 @@ När du kör appen för första gången kommer den inte att ha någon kunskap om
 
 Om du vill konfigurera en modell måste du lägga appen i läget för att ställa in **inlärnings avbildningar** . Utför något av följande steg:
 * Om du kör appen på datorn använder du knappen i det övre högra hörnet i användar gränssnittet.
-* Om du kör appen på en IoT-enhet anropar du `EnterLearningMode` metoden på enheten via IoT Hub. Du kan anropa det via enhets posten på IoT Hub-menyn på Azure Portal eller med ett verktyg som [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer).
+* Om du kör appen på en IoT-enhet anropar du `EnterLearningMode` metoden på enheten via IoT Hub. Du kan anropa det via enhets posten på IoT Hub-menyn på Azure Portal eller med ett verktyg som [IoT Hub Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp).
  
-När appen går in i läget för att **fånga in inlärnings avbildningar** , kommer den att fånga om två avbildningar varje sekund tills den har nått mål antalet bilder. Som standard är målet 30 bilder, men du kan ange den här parametern genom att skicka det önskade antalet som ett argument till metoden `EnterLearningMode` IoT Hub. 
+När appen går in i läget för att **fånga in inlärnings avbildningar** , kommer den att fånga om två avbildningar varje sekund tills den har nått mål antalet bilder. Som standard är målet 30 bilder, men du kan ange den här parametern genom att skicka det önskade antalet som ett argument till `EnterLearningMode` metoden IoT Hub. 
 
 När appen fångar in bilder måste du exponera kameran för de typer av visuella tillstånd som du vill identifiera (till exempel ett tomt rum, ett rum med personer, ett tomt skriv bord med en leksaks Last bil och så vidare).
 
@@ -116,7 +116,7 @@ Upprepa den här processen med ditt eget scenario:
 
 När appen har laddat ned den tränade modellen, kommer den att växla till **bedömnings** läget och börja poängs bilder från kameran i en kontinuerlig slinga.
 
-Appen kommer att visa den översta taggen på skärmen för varje avbildnings avbildning. Om det inte går att identifiera det visuella läget visas **inga matchningar**. Appen skickar även dessa meddelanden till IoT Hub, och om det finns en klass som identifieras innehåller meddelandet etiketten, förtroende poängen och en egenskap som kallas `detectedClassAlert`, som kan användas av IoT Hub klienter som vill utföra snabb meddelanderoutning baserat på egenskaper.
+Appen kommer att visa den översta taggen på skärmen för varje avbildnings avbildning. Om det inte går att identifiera det visuella läget visas **inga matchningar**. Appen skickar även dessa meddelanden till IoT Hub, och om det finns en klass som identifieras innehåller meddelandet etiketten, förtroende poängen och en egenskap `detectedClassAlert` som kallas, som kan användas av IoT Hub klienter som vill utföra snabb meddelanderoutning baserat på egenskaper.
 
 Exemplet använder dessutom ett [Sense hat-bibliotek](https://github.com/emmellsoft/RPi.SenseHat) för att identifiera när den körs på en Raspberry Pi med en Sense hat-enhet, så att den kan använda den som en utmatnings visning genom att ställa in alla visnings lampor till röd när den identifierar en klass och är tom när den inte identifierar något.
 

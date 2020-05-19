@@ -2,13 +2,13 @@
 title: Gränser – LUIS
 description: Den här artikeln innehåller de kända gränserna för Azure Cognitive Services Language Understanding (LUIS). LUIS har flera gräns områden. Modell gräns kontroller för avsikter, entiteter och funktioner i LUIS. Kvot gränser baserat på nyckel typ. Tangent bords kombinationen styr LUIS-webbplatsen.
 ms.topic: reference
-ms.date: 04/02/2020
-ms.openlocfilehash: 0a734091ad2c9812f079d77c97c22872717aa7c9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/06/2020
+ms.openlocfilehash: 71f6126cbf9615d7f808f098202f29094a913982
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82103596"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593247"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Begränsningar för din LUIS-modell och nycklar
 LUIS har flera gräns områden. Den första är [modell gränsen](#model-limits), som styr avsikter, entiteter och funktioner i Luis. Det andra avsnittet är [kvot gränser](#key-limits) baserat på nyckel typ. Ett tredje begränsat utrymme är [tangentkombinationen](#keyboard-controls) för att kontrol lera Luis-webbplatsen. Ett fjärde område är [Mappning av världs regionen](luis-reference-regions.md) mellan Luis Authoring-webbplatsen och API: erna för Luis- [slutpunkt](luis-glossary.md#endpoint) .
@@ -28,8 +28,8 @@ Om din app överskrider LUIS-modellens gränser bör du överväga att använda 
 | Externa entiteter | inga gränser |
 | [Avsikter][intents]|500 per program: 499 anpassade avsikter och det krävs _ingen_ avsikt.<br>[Skickat](https://aka.ms/dispatch-tool) program har motsvarande 500-sändnings källor.|
 | [Listentiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnad: 20 000 objekt. Kanoniskt namn är * standard tecknen max. Synonym värden har ingen längd begränsning. |
-| [Kundlärt entiteter + roller](./luis-concept-entity-types.md):<br> sammansättning<br>gång<br>enhets roll|En gräns på antingen 100 överordnade entiteter eller 330 entiteter, beroende på vilken gräns användaren träffar först. En roll räknas som en entitet för den här begränsningen. Ett exempel är ett sammansatt objekt med en enkel entitet, som har två roller: 1 sammansatt + 1 enkla + 2 roller = 4 av 330-enheterna.<br>Del komponenter kan kapslas upp till 5 nivåer.|
-|Modell som en funktion| Det maximala antalet modeller som kan användas som en beskrivning (funktion) till en speciell modell som är 10 modeller. Det maximala antalet fras listor som används som en beskrivning (funktion) för en speciell modell som är 10 fras listor.|
+| [Kundlärt entiteter + roller](./luis-concept-entity-types.md):<br> sammansättning<br>gång<br>enhets roll|En gräns på antingen 100 överordnade entiteter eller 330 entiteter, beroende på vilken gräns användaren träffar först. En roll räknas som en entitet för den här begränsningen. Ett exempel är ett sammansatt objekt med en enkel entitet, som har två roller: 1 sammansatt + 1 enkla + 2 roller = 4 av 330-enheterna.<br>Underentiteter kan vara kapslade upp till 5 nivåer.|
+|Modell som en funktion| Det maximala antalet modeller som kan användas som en funktion för en speciell modell som är 10 modeller. Det maximala antalet fras listor som används som en funktion för en speciell modell som är 10 fras listor.|
 | [Förhands granskning-dynamiska List enheter](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listor med ~ 1 kB per förfrågan för förutsägelse slut punkt|
 | [Mönster](luis-concept-patterns.md)|500 mönster per program.<br>Den maximala längden för mönstret är 400 tecken.<br>3 mönster. alla entiteter per mönster<br>Högst 2 kapslade valfria texter i mönstret|
 | [Mönster. alla](./luis-concept-entity-types.md)|100 per program, 3 mönster. alla entiteter per mönster |
@@ -40,7 +40,7 @@ Om din app överskrider LUIS-modellens gränser bör du överväga att använda 
 | [Yttrande][utterances] | 500 tecken|
 | [Yttranden][utterances] | 15 000 per program-det finns ingen gräns för antalet yttranden per avsikt|
 | [5](luis-concept-version.md)| 100-versioner per program |
-| [Versions namn][luis-how-to-manage-versions] | 10 tecken som är begränsade till alfanumeriska tecken och punkter (.) |
+| [Versions namn][luis-how-to-manage-versions] | 128 tecken |
 
 * Standard tecken Max är 50 tecken.
 
@@ -48,18 +48,14 @@ Om din app överskrider LUIS-modellens gränser bör du överväga att använda 
 
 ## <a name="name-uniqueness"></a>Namn unikhet
 
-Använd följande unika namngivnings regler.
+Objekt namn måste vara unika jämfört med andra objekt på samma nivå.
 
-Följande måste vara unikt inom en LUIS-app:
-
-* versions namn
-* avsikt
-* entitetsrelation
-* roles
-
-Följande måste vara unikt inom omfånget som används:
-
-* fras lista
+|Objekt|Begränsningar|
+|--|--|
+|Avsikt, entitet|Alla namn på avsikt och entiteter måste vara unika i en version av en app.|
+|ML-enhets komponenter|Alla enhets komponenter som har registrerats av enheten (underordnade entiteter) måste vara unika inom entiteten för komponenter på samma nivå.|
+|Funktioner | Alla namngivna funktioner, till exempel fras listor, måste vara unika inom en version av en app.|
+|Entitetsroller|Alla roller på en entitet eller enhets komponent måste vara unika när de befinner sig på samma enhets nivå (överordnad, underordnad, grandchild osv.).|
 
 ## <a name="object-naming"></a>Objekt namn
 
@@ -78,7 +74,7 @@ Språk förståelsen har separata resurser, en typ för redigering och en typ f�
 
 ### <a name="authoring-resource-limits"></a>Redigera resurs gränser
 
-Använd _typen_, `LUIS.Authoring`när du filtrerar resurser i Azure Portal. LUIS begränsar 500 program per Azure Authoring-resurs.
+Använd _typen_, `LUIS.Authoring` när du filtrerar resurser i Azure Portal. LUIS begränsar 500 program per Azure Authoring-resurs.
 
 |Skapar resurs|Redigera TPS|
 |--|--|
@@ -91,7 +87,7 @@ Använd _typen_, `LUIS.Authoring`när du filtrerar resurser i Azure Portal. LUIS
 
 ### <a name="query-prediction-resource-limits"></a>Resurs gränser för fråga förutsägelse
 
-Använd _typen_, `LUIS`när du filtrerar resurser i Azure Portal. Slut punkts resursen för LUIS-som används i körnings miljön är bara giltig för slut punkts frågor.
+Använd _typen_, `LUIS` när du filtrerar resurser i Azure Portal. Slut punkts resursen för LUIS-som används i körnings miljön är bara giltig för slut punkts frågor.
 
 |Fråga förutsägelse resurs|Fråga TPS|
 |--|--|
@@ -110,7 +106,7 @@ Använd _typen_, `LUIS`när du filtrerar resurser i Azure Portal. Slut punkts re
 
 ## <a name="keyboard-controls"></a>Tangent bords kontroller
 
-|Tangent bords inmatare | Beskrivning |
+|Tangent bords inmatare | Description |
 |--|--|
 |Kontroll + E|växlar mellan token och entiteter i yttranden-listan|
 

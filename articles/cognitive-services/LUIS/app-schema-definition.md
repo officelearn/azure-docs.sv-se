@@ -1,0 +1,129 @@
+---
+title: App schema definition
+description: LUIS-appen representeras antingen i `.json` eller `.lu` och innehåller alla avsikter, entiteter, exempel yttranden, funktioner och inställningar.
+ms.topic: reference
+ms.date: 05/05/2020
+ms.openlocfilehash: 21b58f79ffd2baf553c6f8b07daa84473e620f77
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83599374"
+---
+# <a name="app-schema-definition"></a>App schema definition
+
+LUIS-appen representeras antingen i `.json` eller `.lu` och innehåller alla avsikter, entiteter, exempel yttranden, funktioner och inställningar.
+
+## <a name="format"></a>Format
+
+När du importerar och exporterar appen väljer du antingen `.json` eller `.lu` .
+
+|Format|Information|
+|--|--|
+|`.json`| Standard programmerings format|
+|`.lu`|Stöds av bot Frameworks [bot Builder verktyg](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown/docs/lu-file-format.md).|
+
+## <a name="version-7x"></a>Version 7. x
+
+* Om du flyttar till version 7. x representeras entiteterna som kapslade dator enheter.
+* Stöd för redigering av kapslade dator enheter med `enableNestedChildren` egenskap i följande redigerings-API: er:
+    * [Lägg till etikett](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)
+    * [Lägg till kommando etikett](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c09)
+    * [Granska etiketter](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c0a)
+    * [Föreslå slut punkts frågor för entiteter](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2e)
+    * [Föreslå slut punkts frågor för avsikter](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c2d)
+
+```json
+{
+  "luis_schema_version": "7.0.0",
+  "intents": [
+    {
+      "name": "None",
+      "features": []
+    }
+  ],
+  "entities": [],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [],
+  "prebuiltEntities": [],
+  "utterances": [],
+  "versionId": "0.1",
+  "name": "example-app",
+  "desc": "",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [],
+  "regex_features": [],
+  "patterns": [],
+  "settings": []
+}
+```
+
+## <a name="version-6x"></a>Version 6. x
+
+* Flyttar till version 6. x, Använd den nya enheten som du har [lärt dig](reference-entity-machine-learned-entity.md) för att representera dina entiteter.
+
+```json
+{
+  "luis_schema_version": "6.0.0",
+  "intents": [
+    {
+      "name": "None",
+      "features": []
+    }
+  ],
+  "entities": [],
+  "hierarchicals": [],
+  "composites": [],
+  "closedLists": [],
+  "prebuiltEntities": [],
+  "utterances": [],
+  "versionId": "0.1",
+  "name": "example-app",
+  "desc": "",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "phraselists": [],
+  "regex_features": [],
+  "patterns": [],
+  "settings": []
+}
+```
+
+## <a name="version-4x"></a>Version 4. x
+
+```json
+{
+  "luis_schema_version": "4.0.0",
+  "versionId": "0.1",
+  "name": "example-app",
+  "desc": "",
+  "culture": "en-us",
+  "tokenizerVersion": "1.0.0",
+  "intents": [
+    {
+      "name": "None"
+    }
+  ],
+  "entities": [],
+  "composites": [],
+  "closedLists": [],
+  "patternAnyEntities": [],
+  "regex_entities": [],
+  "prebuiltEntities": [],
+  "model_features": [],
+  "regex_features": [],
+  "patterns": [],
+  "utterances": [],
+  "settings": []
+}
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+* Migrera till [v3 redigerings-API: er](luis-migration-authoring-entities.md)

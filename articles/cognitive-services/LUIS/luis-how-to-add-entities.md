@@ -1,6 +1,5 @@
 ---
 title: Lägg till entiteter – LUIS
-titleSuffix: Azure Cognitive Services
 description: Skapa entiteter för att extrahera nyckel data från User yttranden i Language Understanding-appar (LUIS). Extraherade enhets data används av klient programmet för att fullfil kund förfrågningar.
 services: cognitive-services
 author: diberry
@@ -9,39 +8,37 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8be5dac2d1d5e8a5a3ceafff6b51b2d89e03993f
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220912"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83593297"
 ---
-# <a name="add-entities-to-extract-data"></a>Lägga till entiteter för att extrahera data 
+# <a name="add-entities-to-extract-data"></a>Lägga till entiteter för att extrahera data
 
 Skapa entiteter för att extrahera nyckel data från User yttranden i Language Understanding-appar (LUIS). Extraherade enhets data används av klient programmet för att fullfil kund förfrågningar.
 
 Entiteten representerar ett ord eller en fras i uttryck som du vill extrahera. Entiteter beskriver information som är relevant för avsikten och de är ibland nödvändiga för att din app ska kunna utföra sitt uppdrag. Du kan skapa entiteter när du lägger till ett exempel-uttryck till ett avsikts sätt eller förutom (före eller efter) lägger till ett exempel uttryck till ett avsikts sätt.
 
-[!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
-
 ## <a name="plan-entities-then-create-and-label"></a>Planera entiteter, sedan skapa och etiketter
 
-Enhets inlärda entiteter kan skapas från exemplet yttranden eller skapas från sidan **entiteter** . 
+Enhets inlärda entiteter kan skapas från exemplet yttranden eller skapas från sidan **entiteter** .
 
-I allmänhet är det en bra idé att ägna tid åt att planera entiteter innan du skapar en enhet som har lärts i portalen. Skapa sedan den enhets identifierade entiteten från exemplet uttryck med så mycket information som möjligt i del komponenterna och beskrivarna och begränsningarna som du vet vid tidpunkten. [Självstudien om desammansättnings bara entiteter](tutorial-machine-learned-entity.md) visar hur du använder den här metoden. 
+I allmänhet är det en bra idé att ägna tid åt att planera entiteter innan du skapar en enhet som har lärts i portalen. Skapa sedan den enhets identifierade entiteten från exemplet uttryck med så mycket information som möjligt i de underentiteter och funktioner du känner till vid tidpunkten. [Självstudien om desammansättnings bara entiteter](tutorial-machine-learned-entity.md) visar hur du använder den här metoden.
 
-Som en del av planeringen av entiteterna kanske du behöver text matchnings bara entiteter (till exempel färdiga entiteter, reguljära uttrycks enheter eller List enheter). Du kan skapa dessa från sidan **entiteter** innan de märks i exemplet yttranden. 
+Som en del av planeringen av entiteterna kanske du behöver text matchnings bara entiteter (till exempel färdiga entiteter, reguljära uttrycks enheter eller List enheter). Du kan skapa dessa från sidan **entiteter** innan de märks i exemplet yttranden.
 
-När du markerar etiketter kan du antingen etikettera enskilda entiteter och sedan bygga upp till en överordnad enhet som har lärts upp. Eller så kan du starta med en överordnad enhet som har lärts in och dela upp underordnade entiteter. 
+När du markerar etiketter kan du antingen etikettera enskilda entiteter och sedan bygga upp till en överordnad enhet som har lärts upp. Eller så kan du starta med en överordnad enhet som har lärts in och dela upp underordnade entiteter.
 
-> [!TIP] 
->Märk alla ord som kan indikera en entitet, även om orden inte används när de extraheras i klient programmet. 
+> [!TIP]
+>Märk alla ord som kan indikera en entitet, även om orden inte används när de extraheras i klient programmet.
 
 ## <a name="creating-an-entity-before-or-with-labeling"></a>Skapa en entitet före eller med etiketter
 
-Använd följande tabell för att lära dig vilka entiteter som du kan använda för att skapa eller lägga till varje entitet i appen. 
+Använd följande tabell för att lära dig vilka entiteter som du kan använda för att skapa eller lägga till varje entitet i appen.
 
 |Entitetstyp|Var du ska skapa entiteten i LUIS-portalen|
 |--|--|
@@ -52,7 +49,7 @@ Använd följande tabell för att lära dig vilka entiteter som du kan använda 
 |Fördefinierad entitet|Entiteter|
 |Fördefinierad domän entitet|Entiteter|
 
-Du kan skapa alla entiteter från sidan **entiteter** , eller så kan du skapa ett par entiteter som en del av etiketten på entiteten i exemplet uttryck på sidan **information om avsikt** . Du kan bara _namnge_ en entitet i ett exempel på en uttryck på sidan för **avsikts information** . 
+Du kan skapa alla entiteter från sidan **entiteter** , eller så kan du skapa ett par entiteter som en del av etiketten på entiteten i exemplet uttryck på sidan **information om avsikt** . Du kan bara _namnge_ en entitet i ett exempel på en uttryck på sidan för **avsikts information** .
 
 ## <a name="create-a-machine-learned-entity"></a>Skapa en enhet som har lärts in
 
@@ -64,11 +61,11 @@ Använda text matchnings entiteter ger flera sätt att extrahera data:
 
 |Text matchnings enheter|Syfte|
 |--|--|
-|[Lista entitet](#add-list-entities-for-exact-matches)|lista över kanoniska namn tillsammans med synonymer som alternativa formulär|
+|[Lista entitet](reference-entity-list.md)|lista över kanoniska namn tillsammans med synonymer som alternativa formulär|
 |Entitet för reguljära uttryck|matcha text med en entitet för reguljära uttryck|
-|[Fördefinierad entitet](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|matcha vanliga data typer, till exempel nummer, e-post, datum|
+|[Fördefinierad entitet](luis-reference-prebuilt-entities.md)|matcha vanliga data typer, till exempel nummer, e-post, datum|
 |Fördefinierad domän entitet|matcha med hjälp av valda ämnes domäner|
-|[Mönster. alla](#add-a-patternany-entity)| matcha entiteter som lätt kan förväxlas med den omgivande texten|  
+|[Mönster. alla](reference-entity-pattern-any.md)| matcha entiteter som lätt kan förväxlas med den omgivande texten|
 
 Färdiga entiteter fungerar utan att tillhandahålla några anpassade tränings data. De andra entiteterna behöver du ange antingen kund utbildnings data (t. ex. lista entitetens objekt) eller ett uttryck (till exempel ett reguljärt uttryck eller mönster. valfritt).
 
@@ -76,15 +73,17 @@ Färdiga entiteter fungerar utan att tillhandahålla några anpassade tränings 
 
 ### <a name="how-to-create-a-new-custom-entity"></a>Så här skapar du en ny anpassad entitet
 
-1. Gå till LUIS-portalen och gå till avsnittet **Hantera** och sedan sidan **entiteter** . 
-1. Välj **+ skapa**och välj sedan enhets typ. 
-1. Fortsätt att konfigurera entiteten och välj sedan **skapa** när du är färdig. 
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
+1. Välj sidan **entiteter** .
+1. Välj **+ skapa**och välj sedan enhets typ.
+1. Fortsätt att konfigurera entiteten och välj sedan **skapa** när du är färdig.
 
 ### <a name="add-list-entities-for-exact-matches"></a>Lägg till List enheter för exakta matchningar
 
-List entiteter representerar en fast, avslutad uppsättning relaterade ord. Medan du, som författare, kan ändra listan, kommer LUIS inte att utöka eller krympa listan. Du kan också importera till en befintlig List-entitet med hjälp av en [List Entity. JSON-format (referens-Entity-List. MD # exempel-JSON-to-import-List-Entity). 
+List entiteter representerar en fast, avslutad uppsättning relaterade ord. Medan du, som författare, kan ändra listan, kommer LUIS inte att utöka eller krympa listan. Du kan också importera till en befintlig lista entitet med en [list Entity. JSON-format](reference-entity-list.md#example-json-to-import-into-list-entity).
 
-I följande lista visas kanoniskt namn och synonymer. 
+I följande lista visas kanoniskt namn och synonymer.
 
 |Objekt namn för färg lista|Färg synonymer|
 |--|--|
@@ -92,61 +91,64 @@ I följande lista visas kanoniskt namn och synonymer.
 |Blå|Himmelsblå, Azure, kobolt|
 |Grön|Kelly, kalk|
 
-Använd proceduren för att skapa en lista med entiteter. När entiteten lista har skapats behöver du inte märka exempel yttranden i ett avsikts syfte. List objekt och synonymer matchas med hjälp av exakt text. 
-
+Använd proceduren för att skapa en lista med entiteter. När entiteten lista har skapats behöver du inte märka exempel yttranden i ett avsikts syfte. List objekt och synonymer matchas med hjälp av exakt text.
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
 1. I avsnittet **skapa** väljer du **entiteter** i den vänstra panelen och väljer sedan **+ skapa**.
 
-1. I dialog rutan **skapa en entitetstyp** anger du namnet på entiteten, t. ex. `Colors` och Select- **listan**.
-1. I dialog rutan **skapa en lista entitet** i rutan **Lägg till ny under lista...**, anger du List objekt namnet, till exempel `Green`, och lägger till synonymer.
+1. I dialog rutan **skapa en entitetstyp** anger du namnet på entiteten, t. ex `Colors` . och Select- **listan**.
+1. I dialog rutan **skapa en lista entitet** i rutan **Lägg till ny under lista...**, anger du List objekt namnet, till exempel `Green` , och lägger till synonymer.
 
     > [!div class="mx-imgBorder"]
-    > ![Skapa en lista med färger som en lista entitet på sidan entitets information.](media/how-to-add-entities/create-list-entity-of-colors.png) 
+    > ![Skapa en lista med färger som en lista entitet på sidan entitets information.](media/how-to-add-entities/create-list-entity-of-colors.png)
 
 1. När du är färdig med att lägga till List objekt och synonymer väljer du **skapa**.
 
-    Kom ihåg att **träna** appen när du är färdig med en grupp ändringar i appen. Träna inte appen efter en enda ändring. 
+    Kom ihåg att **träna** appen när du är färdig med en grupp ändringar i appen. Träna inte appen efter en enda ändring.
 
     > [!NOTE]
     > Den här proceduren visar hur du skapar och etiketterar en List-entitet från ett exempel på en uttryck på sidan **information om avsikt** . Du kan också skapa samma entitet från sidan **entiteter** .
 
 ## <a name="add-a-role-for-an-entity"></a>Lägg till en roll för en entitet
 
-En roll är en namngiven undertyp till en entitet, baserat på kontext. 
+En roll är en namngiven undertyp till en entitet, baserat på kontext.
 
 ### <a name="add-a-role-to-distinguish-different-contexts"></a>Lägg till en roll för att skilja på olika kontexter
 
-I följande uttryck finns det två platser, och varje anges semantiskt av orden runt den, till exempel `to` och: `from` 
+I följande uttryck finns det två platser, och varje anges semantiskt av orden runt den, till exempel `to` och `from` :
 
 `Pick up the package from Seattle and deliver to New York City.`
 
-I den här proceduren lägger `origin` du `destination` till och roller i en fördefinierad geographyV2-entitet.
-
+I den här proceduren lägger `origin` du till och `destination` roller i en fördefinierad geographyV2-entitet.
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
 1. I avsnittet **build** väljer du **entiteter** i den vänstra panelen.
 
 1. Välj **+ Lägg till en fördefinierad entitet**. Välj **geographyV2** och välj sedan **färdig**. Detta lägger till en fördefinierad entitet i appen.
-    
-    Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](reference-pattern-syntax.md#explicit-lists). 
 
-1. Välj den nyligen tillagda förskapade geographyV2-entiteten från listan **entiteter i entiteter** . 
-1. Om du vill lägga till en ny **+** roll väljer du bredvid **inga roller tillagda**.
-1. I text rutan **ange roll...** anger du namnet på rollen `Origin` och anger sedan. Lägg till ett andra roll namn `Destination` och ange sedan. 
+    Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](reference-pattern-syntax.md#explicit-lists).
+
+1. Välj den nyligen tillagda förskapade geographyV2-entiteten från listan **entiteter i entiteter** .
+1. Om du vill lägga till en ny roll väljer **+** du bredvid **inga roller tillagda**.
+1. I text rutan **ange roll...** anger du namnet på rollen `Origin` och anger sedan. Lägg till ett andra roll namn `Destination` och ange sedan.
 
     > [!div class="mx-imgBorder"]
     > ![Skärm bild som visar hur du lägger till ursprungs rollen till plats entiteten](media/how-to-add-entities//add-role-to-prebuilt-geographyv2-entity.png)
 
-    Rollen läggs till i den fördefinierade entiteten men läggs inte till i någon yttranden som använder den entiteten. 
+    Rollen läggs till i den fördefinierade entiteten men läggs inte till i någon yttranden som använder den entiteten.
 
 ### <a name="label-text-with-a-role-in-an-example-utterance"></a>Etikettext med en roll i ett exempel uttryck
-
-1. Gå till sidan information om avsikt, som har exempel yttranden som använder rollen. 
-1. Om du vill namnge med rollen väljer du enhets etiketten (heldragen linje under text) i exemplet uttryck och väljer sedan **Visa i entitetens palett** i list rutan. 
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
+1. Gå till sidan information om avsikt, som har exempel yttranden som använder rollen.
+1. Om du vill namnge med rollen väljer du enhets etiketten (heldragen linje under text) i exemplet uttryck och väljer sedan **Visa i entitetens palett** i list rutan.
 
     > [!div class="mx-imgBorder"]
-    > ![Skärm bild av val av vy i paletten entitet](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)   
+    > ![Skärm bild av val av vy i paletten entitet](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)
 
-    Paletten entitet öppnas till höger. 
+    Paletten entitet öppnas till höger.
 
-1. Välj entiteten och gå sedan till slutet av paletten och välj rollen. 
+1. Välj entiteten och gå sedan till slutet av paletten och välj rollen.
 
     > [!div class="mx-imgBorder"]
     > ![Skärm bild av val av vy i paletten entitet](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
@@ -158,29 +160,30 @@ I den här proceduren lägger `origin` du `destination` till och roller i en fö
 [Pattern. alla](luis-concept-entity-types.md) entiteter är bara giltiga i [mönster](luis-how-to-model-intent-pattern.md), inte exempel yttranden. Den här typen av entitet hjälper LUIS att hitta slutet av entiteter med varierande längd och val av ord. Eftersom entiteten används i ett mönster vet LUIS var slutet på entiteten finns i uttryck-mallen.
 
 ### <a name="steps-to-create-a-patternany-entity"></a>Steg för att skapa ett mönster. valfri entitet
-
+1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
+1. Öppna din app genom att välja namnet på sidan **Mina appar** .
 1. I avsnittet **skapa** väljer du **entiteter** i den vänstra panelen och väljer sedan **+ skapa**.
 
 1. I dialog rutan **Välj typ av enhet** anger du entitetsnamnet i rutan **namn** och väljer **mönster. vilken** **typ** som helst väljer du **skapa**.
 
-    När du [skapar en Pattern-uttryck](luis-how-to-model-intent-pattern.md) med hjälp av den här entiteten extraheras entiteten med en kombinerad algoritm för maskin inlärt och text matchning. 
+    När du [skapar en Pattern-uttryck](luis-how-to-model-intent-pattern.md) med hjälp av den här entiteten extraheras entiteten med en kombinerad algoritm för maskin inlärt och text matchning.
 
 ### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>Skapa en mönster mal len uttryck att använda mönstret. valfri entitet
 
-Om du vill använda mönstret. en entitet lägger du till ett mönster på sidan **mönster** i avsnittet **förbättra appens prestanda** med rätt klammerparentes, till exempel `Where is **{HumanResourcesFormTitle}** on the server?`.
+Om du vill använda mönstret. en entitet lägger du till ett mönster på sidan **mönster** i avsnittet **förbättra appens prestanda** med rätt klammerparentes, till exempel `Where is **{HumanResourcesFormTitle}** on the server?` .
 
-Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](reference-pattern-syntax.md#explicit-lists). 
+Om du tycker att mönstret extraherar entiteterna felaktigt när det innehåller en Pattern.any-entitet, kan du åtgärda problemet med hjälp av en [explicit lista](reference-pattern-syntax.md#explicit-lists).
 
 ## <a name="do-not-change-entity-type"></a>Ändra inte entitetstyp
 
-Med LUIS kan du inte ändra entitetens typ eftersom den inte vet vad som ska läggas till eller tas bort för att konstruera den entiteten. För att kunna ändra typen är det bättre att skapa en ny entitet av rätt typ med ett något annat namn. När entiteten har skapats tar du bort det gamla etikett namnet och lägger till det nya entitetsnamnet i varje uttryck. Ta bort den gamla entiteten när alla yttranden har bytt namn. 
+Med LUIS kan du inte ändra entitetens typ eftersom den inte vet vad som ska läggas till eller tas bort för att konstruera den entiteten. För att kunna ändra typen är det bättre att skapa en ny entitet av rätt typ med ett något annat namn. När entiteten har skapats tar du bort det gamla etikett namnet och lägger till det nya entitetsnamnet i varje uttryck. Ta bort den gamla entiteten när alla yttranden har bytt namn.
 
 <a name="create-a-pattern-from-an-utterance"></a>
 
 ## <a name="next-steps"></a>Nästa steg
 
-> [!div class="nextstepaction"] 
-> [Använd fördefinierade modeller](howto-add-prebuilt-models.md) 
+> [!div class="nextstepaction"]
+> [Använd fördefinierade modeller](howto-add-prebuilt-models.md)
 
 Läs mer om:
 * Hur man [tränar](luis-how-to-train.md)
@@ -193,4 +196,4 @@ Läs mer om:
 * [Koncept för data extrahering](luis-concept-data-extraction.md)
 
 
- 
+

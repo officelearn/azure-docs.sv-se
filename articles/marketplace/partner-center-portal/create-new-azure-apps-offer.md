@@ -6,17 +6,17 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
-ms.openlocfilehash: 22d6c37b59488633394d7f3ed5ca5b0c78371e7d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: 55d544ecf6c96335ca65255e1af695f7757b818c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790695"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699517"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
-Den här artikeln beskriver steg och överväganden för att skapa ett nytt Azure-programerbjudande på den kommersiella Marketplace. Du bör känna till dessa begrepp innan du skapar ett nytt erbjudande för Azure-program. 
+Den här artikeln beskriver steg och överväganden för att skapa ett nytt Azure-programerbjudande på den kommersiella Marketplace. Du bör känna till dessa begrepp innan du skapar ett nytt erbjudande för Azure-program.
 
 Innan du kan publicera ett nytt Azure-program kan du [skapa ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och se till att ditt konto har registrerats i det kommersiella Marketplace-programmet.
 
@@ -107,16 +107,16 @@ Mer information om publicerings krav för varje program plan finns i [lösnings 
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. På den vänstra menyn väljer du **kommersiell Marketplace** > -**Översikt**.
+1. På den vänstra menyn väljer du **kommersiell Marketplace**-  >  **Översikt**.
 
-1. På sidan Översikt väljer du **+ nytt erbjudande** > **Azure Application**.
+1. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Azure Application**.
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-azure-app.png)
 
 1. På sidan **nytt erbjudande** anger du ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
      * Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
-     * Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+     * Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
      * Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 1. Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -174,26 +174,19 @@ Det namn som du anger här visas för kunder som rubrik på din erbjudande lista
 
 #### <a name="search-results-summary"></a>Sammanfattning av Sök Resultat
 
-Ange en kort beskrivning av ditt erbjudande (upp till 100 tecken) som kan användas i Sök resultat.
+Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan användas i Sök resultat.
 
 #### <a name="long-summary"></a>Lång Sammanfattning
 
-Ange en längre Beskrivning av ditt erbjudande (upp till 256 tecken). Beskrivningen kan användas i Sök resultat.
+Ange en längre Beskrivning av erbjudandet, upp till 256 tecken. Beskrivningen kan användas i Sök resultat.
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
-Ange en längre Beskrivning av ditt erbjudande (upp till 3 000 tecken). Den här beskrivningen visas för kunder i Översikt över registreringen. Ta med ditt erbjudandes värde, viktiga fördelar, kategori-och/eller bransch associationer, inköps möjligheter för appar och eventuella uppgifter som krävs.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-SHere är några tips för att skriva din beskrivning:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-* Beskriv tydligt värdet på erbjudandet i de första meningarna i beskrivningen. Ta med följande objekt:
-  * Beskrivning av erbjudandet.
-  * Den typ av användare som har nytta av ditt erbjudande.
-  * Kund behov eller problem som erbjuder erbjudandet.
-* Kom ihåg att de första meningarna kan visas i Sök motorns resultat.
-* Förlita dig inte på funktioner och funktioner för att sälja erbjudandet. I stället fokuserar du på det värde som erbjudandet erbjuder.
-* Använd branschspecifika eller förmåns baserade ord.
-* Överväg att använda HTML-taggar för att formatera beskrivningen så att den blir mer intressant.
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### <a name="search-keywords"></a>Sök efter nyckelord
 
@@ -233,7 +226,7 @@ Alla tre logo typer krävs och används på olika platser i listan.
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar.
 
@@ -384,7 +377,7 @@ Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan f�
 
 Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en annan marknads plats kommer priset för den nya marknaden att beräknas enligt de aktuella växelkurserna. Granska alltid priset för varje marknad innan du publicerar. Priserna kan granskas med hjälp av länken "export priser (xlsx)" när du har sparat ändringarna.
 
-#### <a name="pricing"></a>Prissättning
+#### <a name="pricing"></a>Priser
 
 Ange priset per månad för den här planen.  Detta pris är utöver alla Azure-infrastrukturer eller program kostnader som du betalar per användning av de resurser som distribueras av den här lösningen.
 
@@ -422,7 +415,7 @@ På den här fliken kan du ladda upp distributions paketet som gör det möjligt
 
 På den här fliken kan du redigera utkast versionen av din tekniska konfiguration.
 
-**Version** – tilldela den aktuella versionen av den tekniska konfigurationen.  Öka den här versionen varje gången du publicerar en ändring på den här sidan. Versionen måste vara i formatet `{integer}.{integer}.{integer}`.
+**Version** – tilldela den aktuella versionen av den tekniska konfigurationen.  Öka den här versionen varje gången du publicerar en ändring på den här sidan. Versionen måste vara i formatet `{integer}.{integer}.{integer}` .
 
 **Paketfil** (. zip) – det här paketet innehåller alla mallfiler som behövs för den här planen, samt ytterligare resurser, paketerade som en `.zip` fil.
 
@@ -439,7 +432,7 @@ Högsta antal fil storlekar som stöds är:
 Alla nya erbjudanden för Azure-program måste också innehålla ett GUID för [Azure-partner kund användnings behörighet](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) .
 
 >[!Note]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 Hanterade program planer kräver ytterligare information på den här fliken.
 
@@ -458,7 +451,7 @@ Välj det här alternativet för att aktivera JIT-åtkomst (just-in-Time) för d
 
 Välj om du vill konfigurera **slutfört** eller **stegvis distributions läge** när du distribuerar den här planen: 
 
-* I **komplett läge**leder en omdistribution av programmet av kunden till att resurser i den hanterade resurs gruppen tas bort om resurserna inte har definierats i `mainTemplate.json`. 
+* I **komplett läge**leder en omdistribution av programmet av kunden till att resurser i den hanterade resurs gruppen tas bort om resurserna inte har definierats i `mainTemplate.json` . 
 * I **stegvist läge**lämnar en omdistribution av programmet befintliga resurser oförändrade.
 
 Läs mer om distributions lägen i [Azure Resource Manager distributions lägen](https://docs.microsoft.com/azure/azure-resource-manager/deployment-modes).
@@ -469,9 +462,9 @@ Ange en HTTPS webhook-slutpunkt för att ta emot aviseringar om alla CRUD-åtgä
 
 #### <a name="customize-allowed-customer-actions"></a>Anpassa tillåtna kund åtgärder
 
-Välj det här alternativet om du vill ange vilka åtgärder som kunder kan utföra på de hanterade resurserna`*/read`utöver de ""-åtgärder som är tillgängliga som standard. 
+Välj det här alternativet om du vill ange vilka åtgärder som kunder kan utföra på de hanterade resurserna utöver de " `*/read` "-åtgärder som är tillgängliga som standard. 
 
-Lista de ytterligare åtgärder som du vill att kunden ska utföra här, avgränsade med semikolon.  Mer information finns i [förstå neka tilldelningar för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). Om du till exempel vill tillåta att användare startar om virtuella datorer `Microsoft.Compute/virtualMachines/restart/action` kan du lägga till dem i de tillåtna åtgärderna.
+Lista de ytterligare åtgärder som du vill att kunden ska utföra här, avgränsade med semikolon.  Mer information finns i [förstå neka tilldelningar för Azure-resurser](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  Information om tillgängliga åtgärder finns i [Azure Resource Manager Resource Provider-åtgärder](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). Om du till exempel vill tillåta att användare startar om virtuella datorer kan du lägga till dem `Microsoft.Compute/virtualMachines/restart/action` i de tillåtna åtgärderna.
 
 #### <a name="global-azure--azure-government-cloud"></a>Globalt Azure/Azure Government-moln
 
@@ -519,7 +512,7 @@ Om du vill aktivera en testen het markerar du kryss rutan **Aktivera en testenhe
 Om du vill tillåta att test enheten distribueras åt dig skapar du och tillhandahåller en separat, unik Azure-prenumeration (krävs inte för Power BI test enheter).
 
 * **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och logi Kap par) – ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken **prenumerationer** på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (t. ex. "a83645ac-1234-5AB6-6789-1h234g764ghty").
-* **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper**och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns-URL [https://www.whatismytenantid.com](https://www.whatismytenantid.com)på:.
+* **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper**och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID med din domän namns-URL på: [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * **Namn på Azure AD-klient** (krävs för dynamisk 365) – ange ditt Azure Active Directory (AD) namn. Du hittar det här namnet genom att logga in på [Azure Portal](https://portal.azure.com/)i det övre högra hörnet ditt klient namn visas under ditt konto namn.
 * **ID för Azure AD-App** (krävs) – ange ditt Azure Active Directory (AD) [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på vänster-navigerings menyn, väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
 * **Azure Active Directory program klient hemlighet** (krävs) – ange [klient hemligheten](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)för Azure AD-programmet. Du hittar det här värdet genom att logga in på [Azure Portal](https://portal.azure.com/). Välj fliken **Azure Active Directory** på menyn till vänster-navigerings, Välj **Appregistreringar**och välj sedan appen Test Drive. Välj sedan **certifikat och hemligheter**, Välj **ny klient hemlighet**, ange en beskrivning, Välj **aldrig** under **upphör ande**och välj sedan **Lägg till**. Var noga med att kopiera värdet innan du lämnar den här sidan.)

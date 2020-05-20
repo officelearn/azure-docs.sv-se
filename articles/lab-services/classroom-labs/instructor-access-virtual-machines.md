@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 449ff8aafd6dec1e9c0ff16dc407155949fd1313
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4b4e6bf7b69f1b4c7664a104a0af70d9e486f08a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586175"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699956"
 ---
 # <a name="access-virtual-machines-as-a-student-from-the-educator-view"></a>Få åtkomst till virtuella datorer som student från lärare-vyn
 Den här artikeln visar hur lärare har åtkomst till sina virtuella datorer för klasser som de deltar i studenter. 
@@ -36,5 +36,6 @@ Här är ett scenario där den här funktionen kommer att hjälpa dig. En underv
 Se följande artiklar:
 
 - [Ansluta till en virtuell dator](how-to-use-classroom-lab.md#connect-to-the-vm)
-- [Ansluta till en virtuell dator med RDP på en Mac](connect-virtual-machine-mac-rdp.md)
+- [Ansluta till en virtuell dator med RDP på en Mac](connect-virtual-machine-mac-remote-desktop.md)
+- [Ansluta till en virtuell dator med RDP på en Chromebook](connect-virtual-machine-chromebook-remote-desktop.md)
 - [Använd fjärr skrivbord för virtuella Linux-datorer](how-to-use-remote-desktop-linux-student.md)

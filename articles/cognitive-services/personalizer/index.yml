@@ -3,7 +3,7 @@ title: Dokumentation om Personanpassning
 summary: Lär dig använda Personanpassning så att ditt program kan välja det bästa alternativet för användarna med utgångspunkt i deras beteende i realtid.
 metadata:
   ms.topic: landing-page
-  ms.date: 10/03/2019
+  ms.date: 05/01/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Dokumentation om Personanpassning
   titleSuffix: Azure Cognitive Services
   description: Personanpassning i Azure är en molnbaserad API-tjänst som gör det möjligt att välja det bästa alternativet att visa användarna och drar lärdom av beteende i realtid.
-  ms.openlocfilehash: c703673ec85cadb57e2cc69d1ee1a0d023d53436
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ef18921e9211bb1a3659fffc84bde922d500d0b0
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77525031"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83586328"
 landingContent:
 - title: Om Personanpassning
   linkLists:
@@ -79,7 +79,7 @@ landingContent:
     links:
     - text: Kodexempel
       url: https://github.com/Azure-Samples/cognitive-services-personalizer-samples
-    - text: REST-API:er
+    - text: REST API:er
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank
 - title: Om kunskapsförmedling
   linkLists:
@@ -101,6 +101,8 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
+    - text: Använda lärlingsläge
+      url: how-to-learning-behavior.md
     - text: Förbättra loopen med offlineutvärderingar
       url: concepts-offline-evaluation.md
     - text: Aktiva och inaktiva händelser

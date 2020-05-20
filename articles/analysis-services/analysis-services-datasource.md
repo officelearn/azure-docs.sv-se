@@ -4,15 +4,15 @@ description: Beskriver data källor och anslutningar som stöds för tabell 1200
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 71df537535003fe23902949c70b086a30a6b5049
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77461665"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698132"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -20,17 +20,17 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 ## <a name="azure-data-sources"></a>Azure-datakällor
 
-|Datakälla  |Minnesintern  |DirectQuery  |Obs! |
+|Datakälla  |Minnesintern  |DirectQuery  |Anteckningar |
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Ja      |    Ja      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
 |Azure Synapse Analytics (SQL Data Warehouse)      |   Ja      |   Ja       |<sup>[11.2](#azprovider)</sup>|
-|Azure Blob Storage      |   Ja       |    Nej      | <sup>[81.1](#tab1400a)</sup> |
-|Azure Table Storage     |   Ja       |    Nej      | <sup>[81.1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Ja        |  Nej        |<sup>[81.1](#tab1400a)</sup> |
-|Azure Data Lake Store gen1      |   Ja       |    Nej      |<sup>[81.1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   Ja       |    Nej      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     Ja     |   Nej       |<sup>[81.1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   Ja       |   Nej       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Azure Blob Storage      |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   Ja       |    Inga      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Ja        |  Inga        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store gen1      |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   Ja       |    Inga      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     Ja     |   Inga       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   Ja       |   Inga       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
 **Noter**   
@@ -42,37 +42,37 @@ Data källor och anslutningar som visas i guiden hämta data eller tabell import
 
 ## <a name="other-data-sources"></a>Andra datakällor
 
-|Datakälla | Minnesintern | DirectQuery |Obs!   |
+|Datakälla | Minnesintern | DirectQuery |Anteckningar   |
 |  --- | --- | --- | --- |
-|Access-databas     |  Ja | Nej |  |
-|Active Directory     |  Ja | Nej | <sup>[3-6](#tab1400b)</sup>  |
-|Analysis Services     |  Ja | Nej |  |
-|Analys plattforms system     |  Ja | Nej |  |
-|CSV-fil  |Ja | Nej |  |
-|Dynamics 365     |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Excel-arbetsbok     |  Ja | Nej |  |
-|Exchange      |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Mapp      |Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|IBM Informix  |Ja | Nej |  |
-|JSON-dokument      |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Rader från binär      | Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|MySQL-databas     | Ja | Nej |  |
-|OData-feed      |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|ODBC-fråga     | Ja | Nej |  |
-|OLE DB     |   Ja | Nej |  |
+|Access-databas     |  Ja | Inga |  |
+|Active Directory     |  Ja | Inga | <sup>[3-6](#tab1400b)</sup>  |
+|Analysis Services     |  Ja | Inga |  |
+|Analys plattforms system     |  Ja | Inga |  |
+|CSV-fil  |Ja | Inga |  |
+|Dynamics 365     |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Excel-arbetsbok     |  Ja | Inga |  |
+|Exchange      |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Mapp      |Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|IBM Informix  |Ja | Inga |  |
+|JSON-dokument      |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Rader från binär      | Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|MySQL-databas     | Ja | Inga |  |
+|OData-feed      |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|ODBC-fråga     | Ja | Inga |  |
+|OLE DB     |   Ja | Inga |  |
 |Oracle  | Ja  |Ja  | <sup>[1.9](#oracle)</sup> |
-|PostgreSQL-databas   | Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-objekt|  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|Salesforce-rapporter |Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|SAP HANA     |  Ja | Nej |  |
-|SAP Business Warehouse    |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
-|SharePoint-lista      |   Ja | Nej | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|PostgreSQL-databas   | Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-objekt|  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|Salesforce-rapporter |Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|SAP HANA     |  Ja | Inga |  |
+|SAP Business Warehouse    |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
+|SharePoint-lista      |   Ja | Inga | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
 |SQL Server |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
 |SQL Server informations lager |Ja   | Ja  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Sybase-databas     |  Ja | Nej |  |
+|Sybase-databas     |  Ja | Inga |  |
 |Teradata | Ja  | Ja  | <sup>[10](#teradata)</sup> |
-|TXT-fil  |Ja | Nej |  |
-|XML-tabell    |  Ja | Nej | <sup>[3-6](#tab1400b)</sup> |
+|TXT-fil  |Ja | Inga |  |
+|XML-tabell    |  Ja | Inga | <sup>[3-6](#tab1400b)</sup> |
 | | | |
 
 **Noter**   
@@ -87,17 +87,17 @@ Anslutning till lokala data källor från en Azure Analysis Services server krä
 
 ## <a name="understanding-providers"></a>Förstå leverantörer
 
-När du skapar tabell 1400 och högre modell projekt i Visual Studio, anger du som standard ingen dataprovider vid anslutning till en data källa med hjälp av **Hämta data**. I tabell 1400 och högre modeller används [Power Query](/power-query/power-query-what-is-power-query) -anslutningar för att hantera anslutningar, data frågor och kombinations program mellan data källan och Analysis Services. Dessa kallas ibland för *strukturerade* data käll anslutningar i dessa inställningar för anslutnings egenskaper. Du kan dock aktivera äldre data källor. När den är aktive rad kan du använda **guiden Importera tabell** för att ansluta till vissa data källor som traditionellt stöds i tabell 1200 och lägre modeller som *äldre*eller data källor för *Provider* . När du har angett som en data källa för en provider kan du ange en viss data leverantör och andra avancerade anslutnings egenskaper. Du kan till exempel ansluta till ett lokalt SQL Server informations lager eller till och med en Azure SQL Database som en äldre data källa. Du kan sedan välja OLE DB driv rutinen för SQL Server MSOLEDBSQL Data Provider. I det här fallet kan det vara bättre att välja en OLE DB dataprovider över Power Query anslutningen. 
+När du skapar tabell 1400 och högre modell projekt i Visual Studio, anger du som standard ingen dataprovider vid anslutning till en data källa med hjälp av **Hämta data**. I tabell 1400 och högre modeller används [Power Query](/power-query/power-query-what-is-power-query) -anslutningar för att hantera anslutningar, data frågor och kombinations program mellan data källan och Analysis Services. Dessa kallas ibland för *strukturerade* data käll anslutningar i dessa inställningar för anslutnings egenskaper. Du kan dock aktivera äldre data källor för ett modell projekt i Visual Studio. När den är aktive rad kan du använda **guiden Importera tabell** för att ansluta till vissa data källor som traditionellt stöds i tabell 1200 och lägre modeller som *äldre*eller data källor för *Provider* . När du har angett som en data källa för en provider kan du ange en viss data leverantör och andra avancerade anslutnings egenskaper. Du kan till exempel ansluta till ett lokalt SQL Server informations lager eller till och med en Azure SQL Database som en äldre data källa. Du kan sedan välja OLE DB driv rutinen för SQL Server MSOLEDBSQL Data Provider. I det här fallet kan det vara bättre att välja en OLE DB dataprovider över Power Query anslutningen. 
 
 När du använder guiden Importera tabell i Visual Studio kräver anslutningarna till en data källa en data leverantör. En standardprovider för data har valts. Du kan ändra data leverantören om det behövs. Vilken typ av provider du väljer kan bero på prestanda, om modellen använder minnes lagring eller DirectQuery, och vilken Analysis Services plattform som du distribuerar din modell till.
 
 ### <a name="specify-provider-data-sources-in-tabular-1400-and-higher-model-projects"></a>Ange providerns data källor i tabell 1400 och högre modell projekt
 
-Om du vill aktivera providerns data källor går du till Visual Studio, klickar på **verktyg** > **alternativ** > **Analysis Services tabell** > **data import**, väljer **Aktivera äldre data källor**.
+Om du vill aktivera providerns data källor går du till Visual Studio, klickar på **verktyg**  >  **alternativ**  >  **Analysis Services tabell**  >  **data import**, väljer **Aktivera äldre data källor**.
 
 ![Aktivera äldre data källor](media/analysis-services-datasource/aas-enable-legacy-datasources.png)
 
-När äldre data källor är aktiverade i **tabell modell Utforskaren**, högerklickar du på **data källor** > **Importera från data källa (bakåtkompatibelt)**.
+När äldre data källor är aktiverade i **tabell modell Utforskaren**, högerklickar du på **data källor**  >  **Importera från data källa (bakåtkompatibelt)**.
 
 ![Äldre data källor i tabell modell Utforskaren](media/analysis-services-datasource/aas-import-legacy-datasources.png)
 
@@ -107,7 +107,7 @@ Precis som med tabell 1200 modell projekt kan du använda **tabell import guiden
 
 
 ## <a name="impersonation"></a>Personifiering
-I vissa fall kan det vara nödvändigt att ange ett annat konto för personifiering. Personifierings konto kan anges i Visual Studio eller SSMS.
+I vissa fall kan det vara nödvändigt att ange ett annat konto för personifiering. Personifierings konto kan anges i Visual Studio eller SQL Server Management Studio (SSMS).
 
 För lokala data Källor:
 

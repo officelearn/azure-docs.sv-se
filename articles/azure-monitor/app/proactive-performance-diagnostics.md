@@ -4,12 +4,12 @@ description: Application Insights utför Smart analys av din app-telemetri och v
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687699"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697170"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Smart identifiering-prestanda avvikelser
 
@@ -57,7 +57,7 @@ Meddelanden om Smart identifiering är aktiverade som standard och skickas till 
 
 E-postmeddelanden om Smart identifiering av prestanda avvikelser är begränsade till en e-postadress per dag per Application Insights resurs. E-postmeddelandet skickas endast om det finns minst ett nytt problem som har upptäckts den dagen. Du får inte upprepas upprepade meddelanden. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 * *Så kommer Microsoft-personal att titta på mina data?*
   * Nej. Tjänsten är helt automatisk. Endast du får meddelanden. Dina data är [privata](../../azure-monitor/app/data-retention-privacy.md).
@@ -70,12 +70,12 @@ E-postmeddelanden om Smart identifiering av prestanda avvikelser är begränsade
 * *Kan jag skapa egna regler för avvikelse identifiering eller anpassa befintliga regler?*
 
   * Ännu inte, men du kan:
-    * [Konfigurera aviseringar](../../azure-monitor/app/alerts.md) som anger när ett mått korsar ett tröskelvärde.
+    * [Konfigurera aviseringar](/azure/azure-monitor/platform/alerts-log) som anger när ett mått korsar ett tröskelvärde.
     * [Exportera telemetri](../../azure-monitor/app/export-telemetry.md) till en [databas](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) eller [till Power BI](../../azure-monitor/app/export-power-bi.md ), där du kan analysera dem själv.
 * *Hur ofta utförs analysen?*
 
   * Vi kör analysen dagligen på Telemetrin från föregående dag (hela dagen i UTC-tidszonen).
-* *Detta ersätter [mått aviseringar](../../azure-monitor/app/alerts.md)?*
+* *Detta ersätter [mått aviseringar](/azure/azure-monitor/platform/alerts-log)?*
   * Nej.  Vi åtar mig inte att upptäcka varje beteende som du kan tänka på onormalt.
 
 
@@ -175,10 +175,10 @@ De här diagnostikverktygen hjälper dig att inspektera Telemetrin från din app
 
 * [Profilerare](profiler.md) 
 * [Fel sökning av ögonblicks bild](../../azure-monitor/app/snapshot-debugger.md)
-* [Analytics](../../azure-monitor/log-query/get-started-portal.md)
+* [Analys](../../azure-monitor/log-query/get-started-portal.md)
 * [Analytics-Smart diagnostik](../../azure-monitor/app/analytics.md)
 
 Smart identifiering är helt automatisk. Men kanske vill du konfigurera ytterligare aviseringar?
 
-* [Manuellt konfigurerade mått varningar](../../azure-monitor/app/alerts.md)
+* [Manuellt konfigurerade mått varningar](/azure/azure-monitor/platform/alerts-log)
 * [Webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md)

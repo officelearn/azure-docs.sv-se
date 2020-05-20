@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Säkerhetskopiera SAP HANA-databaser på vir
 description: I den här artikeln hittar du svar på vanliga frågor om hur du säkerhetskopierar SAP HANA databaser med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: f9e0d96439a79c2c3d2cb2caa00ff09be3ff790d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 56f98dddb00eb3ffc87eb27da73066de807a1ee1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660111"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701010"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer
 
@@ -49,9 +49,9 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet gör
 
 Genom att köra skriptet före registreringen anger du de behörigheter som krävs för att Azure ska kunna säkerhetskopiera SAP HANA-databaser. Du hittar mer information om skriptet för för [registrering.](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)
 
-### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>Kommer säkerhets kopieringar att fungera efter migrering av SAP HANA från 1,0 till 2,0?
+### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Kommer säkerhets kopieringar att fungera efter migrering av SAP HANA från SDC till MDC?
 
-Se [det här avsnittet](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) i fel söknings guiden.
+Se [det här avsnittet](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) i fel söknings guiden.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>Kan Azure HANA-säkerhetskopiering konfigureras mot en virtuell IP-adress (belastningsutjämnare) och inte en virtuell dator?
 

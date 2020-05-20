@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 17a6b7e46341ee0231ac88b849495cfc7e46ad88
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.date: 05/19/2020
+ms.openlocfilehash: 9c31c6ca4ccb5ff328faa5db1803134aa6b0c873
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839155"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701131"
 ---
 # <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Skapa en Power BI-app för Microsoft AppSource
 
@@ -23,8 +23,8 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
-3. På sidan Översikt väljer du **+ nytt erbjudande** > **Power BI tjänst program**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Power BI tjänst program**.
 
    ![Visar menyn till vänster-navigering.](./media/new-offer-pbi-app.png)
 
@@ -39,7 +39,7 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudandet-1** här, är `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`webb adressen för erbjudandet.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudandet-1** här, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -53,7 +53,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På den här sidan visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
+Den innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -96,7 +96,7 @@ På den här sidan kan du definiera kategorier och branscher som används för a
 
 Välj minst en och högst tre kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga sökområden för Marketplace och visas på sidan med erbjudande information. I erbjudande beskrivningen förklarar du hur ditt erbjudande stöder dessa kategorier.
 
-### <a name="industry"></a>Bransch
+### <a name="industry"></a>Industri
 
 Du kan också välja upp till två branscher och två lodräta under varje bransch. Även om kategorier används för att visa ditt erbjudande, används branschen och de lodräta i Sök filter och används i butik. Om Erbjudandet riktar sig till en viss bransch och/eller lodrät använder du en beskrivning av erbjudandet för att förklara hur erbjudandet stöder de valda branscher eller lodräta. Lämna avsnittet tomt om ditt erbjudande inte är branschspecifika.
 
@@ -104,22 +104,22 @@ Du kan också välja upp till två branscher och två lodräta under varje brans
 > När vi arbetar för att introducera nya branscher och lodräta funktioner för att förbättra identifieringen av erbjudandet, kan vissa branscher och lodräta inte visas i butik ännu. Branscher och lodräta som är markerade med en (*) är tillgängliga vid ett framtida datum. Alla publicerade erbjudanden kan upptäckas via nyckelords sökning.
 <p>&nbsp;
 
-| **Bransch** | **Under bransch** |
+| **Industri** | **Under bransch** |
 | --- | --- |
 | * Bil | * Bil |
 | Jordbruk | * Annat – segment |
 | Distribution | * Grossist<br>Paket-och paket leverans |
-| Utbildning | *Högre utbildning<br> * Primär och sekundär utbildning/K-12<br>* Bibliotek och Museums |
-| Ekonomiska tjänster | *Bank-och kapital<br> marknader* Försäkringsbokf |
-| Government | *Försvar och information (som används för att kallas för nationell och offentlig<br> säkerhet)* Allmän säkerhet och rättvisa<br>* Civila myndigheter |
-| Sjukvård (används för att kallas hälsa) | *Hälso betalare<br> * Hälso leverantör<br>* Farmaceutiska |
-| Tillverkning och resurser (används för att kallas produktion) | *Kemisk och Agrochemical<br> * Diskret tillverkning<br>* Energi |
-| Butiks-och konsument varor (som används för att kallas detalj handel) | *Konsument varor<br> * Detaljist |
-| * Media och kommunikation (som används för att anropa media och underhållning) | *Media och underhållning<br> * Marknaden |
-| Professionella tjänster | *Legal<br> * Partner Professional-tjänster |
+| Education | *Högre utbildning <br> * Primär och sekundär utbildning/K-12<br>* Bibliotek och Museums |
+| Ekonomiska tjänster | *Bank-och kapital <br> marknader* Försäkringsbokf |
+| Myndigheter | *Försvar och information (som används för att kallas för nationell och offentlig <br> säkerhet)* Allmän säkerhet och rättvisa<br>* Civila myndigheter |
+| Sjukvård (används för att kallas hälsa) | *Hälso betalare <br> * Hälso leverantör<br>* Farmaceutiska |
+| Tillverkning och resurser (används för att kallas produktion) | *Kemisk och Agrochemical <br> * Diskret tillverkning<br>* Energi |
+| Butiks-och konsument varor (som används för att kallas detalj handel) | *Konsument varor <br> * Detaljist |
+| * Media och kommunikation (som används för att anropa media och underhållning) | *Media och underhållning <br> * Marknaden |
+| Professionella tjänster | *Legal <br> * Partner Professional-tjänster |
 | * Arkitektur och konstruktion (används för att kallas arkitektur teknik) | * Annat – segment |
-| * Service och resa | *Hotell och fritid<br> * Resor och transport<br>* Restauranger och livsmedels tjänster |
-| * Andra branscher i offentlig sektor | *Skogsbruk och fiske<br> * Ideella föreningar |
+| * Service och resa | *Hotell och fritid <br> * Resor och transport<br>* Restauranger och livsmedels tjänster |
+| * Andra branscher i offentlig sektor | *Skogsbruk och fiske <br> * Ideella föreningar |
 | * Fastigheter | * Annat – segment |
 
 ### <a name="legal"></a>Juridisk information
@@ -159,34 +159,13 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
-Ange en längre Beskrivning av erbjudandet, upp till 3 000 tecken. Detta visas för kunder i Översikt över Marketplace-registrering.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Inkludera ett eller flera av följande i din beskrivning:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Det värde och de viktiga fördelar ditt erbjudande erbjuder.
-- Kategori-eller bransch kopplingar, eller både och.
-- Köp möjligheter i appen.
-- Eventuella uppgifter som krävs.
-
-Här följer några tips om hur du skriver beskrivningen:
-
-- Beskriv tydligt värdet för ditt erbjudande i de första meningarna i beskrivningen. Ta med följande objekt:
-  - Beskrivning av erbjudandet.
-  - Typen av användare som fördelar från erbjudandet.
-  - Kunden behöver eller utfärdar erbjudandena adresser.
-- Kom ihåg att de första meningarna kan visas i Sök resultaten.
-- Förlita dig inte på funktioner och funktioner för att sälja produkten. I stället fokuserar du på det värde som erbjudandet erbjuder.
-- Försök att använda branschspecifika vokabulär eller kunskapsbaserade orda lydelse.
-
-Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
-
-![Använda Rich Text Editor](./media/rich-text-editor.png)
-
-| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
-| --- | --- | --- |
-| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="search-keywords"></a>Sök efter nyckelord
 
@@ -223,7 +202,7 @@ Ange minst ett och upp till tre relaterade marknadsförings dokument i PDF-forma
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
 >[!NOTE]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 #### <a name="store-logos"></a>Butiks logo typer
 

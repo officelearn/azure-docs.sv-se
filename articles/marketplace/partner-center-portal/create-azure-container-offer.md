@@ -1,31 +1,28 @@
 ---
 title: Skapa ett Azure Container-erbjudande – Azure Marketplace
-description: Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande på Azure Marketplace.
+description: Lär dig hur du skapar och publicerar ett behållar erbjudande på Azure Marketplace.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
-ms.openlocfilehash: f2a3b6355fdaa8cd90525fac9d29324270dfad02
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: 75baddbefc2babf73fee18cafe07177a3f0fb6f2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791943"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701024"
 ---
 # <a name="create-an-azure-container-offer"></a>Skapa ett erbjudande för Azure Container
-
-> [!IMPORTANT]
-> Vi flyttar hantering av Azure Container-erbjudanden från Cloud Partner Portal till Partner Center. Innan du har migrerat dina erbjudanden följer du anvisningarna i [behållare](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) för Cloud Partner Portal att hantera dina erbjudanden.
 
 Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudande för Azure Marketplace. Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
-3. På sidan Översikt väljer du **+ nytt erbjudande** > för**Azure-behållare**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3. På sidan Översikt väljer du **+ nytt erbjudande**för  >  **Azure-behållare**.
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-azure-container.png)
 
@@ -37,7 +34,7 @@ Den här artikeln beskriver hur du skapar och publicerar ett behållar erbjudand
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -51,7 +48,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Exempel:
+Den här sidan visar olika länkar baserat på erbjudandet aktuella status. Till exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -68,12 +65,12 @@ När du publicerar erbjudandet till den kommersiella marknads platsen med partne
 
 1. **Välj ett mål för lead där du vill att vi ska skicka kund leads**. Partner Center stöder följande CRM-system:
 
-- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kund engagemang
-- [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) för kund engagemang
+   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
-> [!NOTE]
-> Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [https-slutpunkten](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra kundens lead-data och sedan exportera data till CRM-systemet.
+   > [!NOTE]
+   > Om ditt CRM-system inte finns med i listan ovan använder du [Azure Table](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) eller [https-slutpunkten](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) för att lagra kundens lead-data och sedan exportera data till CRM-systemet.
 
 2. Anslut ditt erbjudande till lead-målet när du publicerar i Partner Center.
 3. Bekräfta att anslutningen till lead-målet har kon figurer ATS korrekt. När du har publicerat den i Partner Center kommer vi att validera anslutningen och skicka ett test lead. Medan du för hands Grans kar erbjudandet innan det blir Live kan du också testa din lead-anslutning genom att försöka köpa erbjudandet själv i för hands versionen.
@@ -147,42 +144,13 @@ En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt oc
 
 En mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
-Ange en längre Beskrivning av erbjudandet, upp till 3 000 tecken. Detta visas för kunder i Översikt över Marketplace-registrering.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Inkludera ett eller flera av följande i din beskrivning:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Värdet och viktiga fördelar som ditt erbjudande ger
-- Kategori-eller bransch kopplingar, eller båda
-- Köp möjligheter i appen
-- Eventuella upplysningar som krävs
-
-Här följer några tips om hur du skriver beskrivningen:
-
-- Beskriv tydligt värdet för ditt erbjudande i de första meningarna i beskrivningen. Ta med följande objekt:
-  - Beskrivning av erbjudandet.
-  - Typ av användare som fördelar från erbjudandet
-  - Kunden behöver eller utfärdar erbjudandena adresser.
-- Kom ihåg att de första meningarna kan visas i Sök resultaten.
-- Förlita dig inte på funktioner och funktioner för att sälja produkten. I stället fokuserar du på det värde som erbjudandet erbjuder.
-- Försök att använda branschspecifika vokabulär eller kunskapsbaserade orda lydelse.
-
-Om du vill göra din erbjudande **Beskrivning** mer engagerande använder du RTF-redigeraren för att formatera beskrivningen. med numrering, punkter, fet stil, kursiv stil och indrag för att göra din beskrivning lättare att läsa.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Visar Rich Text Editor." border="false" :::
-
-- Använd den här List rutan om du vill använda ett stycke format för text.
-
-    :::image type="content" source="media/text-editor3.png" alt-text="Visar text stil kontrollen i Rich Text Editor." border="false":::
-
-- Använd dessa ikoner för att tillämpa numrering eller punkter på text.
-
-     :::image type="content" source="media/text-editor4.png" alt-text="Visar kontrollerna för punkt listor och siffror i text redigeraren." border="false":::
-
-- Använd dessa ikoner för att lägga till eller ta bort indrag till eller från text.
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Visar indrags kontrollerna i Rich Text Editor." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-link"></a>Länk till sekretess policy
 
@@ -216,7 +184,7 @@ Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bä
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
 >[!Note]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 #### <a name="store-logos"></a>Butiks logo typer
 
@@ -390,11 +358,11 @@ Ange följande information på fliken **avbildnings lagrings information** .
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Visar dialog rutan uppdatera container Registry.":::
 
-**Lösen ord för Azure Container Registry** – ange lösen ordet för det administratörs användar namn som är associerat med Azure Container Registry och har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Du kan hämta lösen ordet från Azure Portal genom att gå till **container Registry** > **åtkomst nycklar** eller med Azure CLI med [Kommandot show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+**Lösen ord för Azure Container Registry** – ange lösen ordet för det administratörs användar namn som är associerat med Azure Container Registry och har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Du kan hämta lösen ordet från Azure Portal genom att gå till **container Registry**  >  **åtkomst nycklar** eller med Azure CLI med [Kommandot show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Visar menyn snabb tangent.":::
 
-**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Inkludera namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/) > -**databaser** . Mer information finns i [Visa behållare register Arkiv i Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories).
+**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Inkludera namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser** . Mer information finns i [Visa behållare register Arkiv i Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories).
 
 > [!NOTE]
 > När du har angett namnet kan du inte ändra det. Använd ett unikt namn för varje erbjudande i ditt konto.

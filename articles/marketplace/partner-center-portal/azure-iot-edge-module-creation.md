@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/19/2020
+ms.openlocfilehash: 21fc51aef664b2ea9360c4d8ca8e722bb7bbb349
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857668"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701150"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Skapa, konfigurera och publicera ett IoT Edge modul-erbjudande på Azure Marketplace
 
@@ -21,8 +21,8 @@ Den här artikeln beskriver hur du skapar och publicerar en Sakernas Internet (I
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
-3. På sidan Översikt väljer du **+ ny erbjudande** > **IoT Edge modul**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3. På sidan Översikt väljer du **+ ny erbjudande**  >  **IoT Edge modul**.
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-iot-edge.png)
 
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du skapar och publicerar en Sakernas Internet (I
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -48,7 +48,7 @@ Välj **skapa** för att generera erbjudandet och fortsätt.
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och kommande) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -91,7 +91,7 @@ På den här sidan kan du definiera de kategorier som används för att gruppera
 
 #### <a name="category"></a>Kategori
 
-Välj minst en och högst fem kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga sökområden för Marketplace och visas på sidan med erbjudande information. I erbjudande beskrivningen förklarar du hur ditt erbjudande stöder dessa kategorier. På sidan bläddra visas alla IoT Edge moduler under kategorin **Sakernas Internet > IoT Edge modul** .
+Välj minst en och högst fem kategorier. Dessa kategorier används för att placera ditt erbjudande i lämpliga sökområden för Marketplace och visas på sidan med erbjudande information. I erbjudande beskrivningen förklarar du hur ditt erbjudande stöder dessa kategorier. På sidan bläddra visas alla IoT Edge moduler under kategorin **Sakernas Internet > IoT Edge modul**   .
 
 #### <a name="legal"></a>Juridisk information
 
@@ -144,46 +144,17 @@ Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken lån
 
 Ange en mer detaljerad beskrivning av ditt erbjudande. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
-Ange en längre Beskrivning av erbjudandet, upp till 3 000 tecken. Detta visas för kunder i Översikt över Marketplace-registrering.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Inkludera ett eller flera av följande i din beskrivning:
+IoT Edge-modulens erbjudanden måste innehålla ett stycke med minsta maskin varu krav längst ned i beskrivningen, till exempel:
 
-- Värdet och viktiga fördelar som ditt erbjudande ger
-- Kategori-eller bransch kopplingar, eller båda
-- Köp möjligheter i appen
-- Eventuella upplysningar som krävs
+- Minimi krav för maskin vara: linux x64 och ARM32 OS, 1 GB RAM, 500 MB lagrings utrymme
 
-IoT Edge-modulens erbjudanden måste innehålla ett stycke med minsta maskin varu krav längst ned i beskrivningen. Exempel:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-*Minimi krav för maskin vara: linux x64 och ARM32 OS, 1 GB RAM, 500 MB lagrings utrymme*
-
-Här följer några tips om hur du skriver beskrivningen:
-
-- Beskriv tydligt värdet för ditt erbjudande i de första meningarna i beskrivningen. Ta med följande objekt:
-    - Beskrivning av erbjudandet.
-    - Typen av användare som fördelar från erbjudandet.
-    - Kunden behöver eller utfärdar erbjudandena adresser.
-- Kom ihåg att de första meningarna kan visas i Sök resultaten.
-- Förlita dig inte på funktioner och funktioner för att sälja produkten. I stället fokuserar du på det värde som erbjudandet erbjuder.
-- Försök att använda branschspecifika vokabulär eller kunskapsbaserade orda lydelse.
-
-Om du vill göra din erbjudande **Beskrivning** mer engagerande använder du RTF-redigeraren för att formatera beskrivningen. Med RTF-redigeraren kan du lägga till siffror, punkter, fet, kursiv stil och indrag för att göra beskrivningen mer lättläst.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Visar Rich Text Editor." border="false":::
-
-- Om du vill ändra formatet på ditt innehåll markerar du den text som du vill formatera och väljer ett text format, som du ser i den här skärm bilden:
-
-     :::image type="content" source="media/text-editor3.png" alt-text="Visar text stil kontrollen i Rich Text Editor." border="false":::
-
-- Om du vill lägga till en punkt lista eller numrerad lista i texten använder du de alternativ som visas i den här skärm bilden:
-  
-    :::image type="content" source="media/text-editor4.png" alt-text="Visar kontrollerna för punkt listor och siffror i text redigeraren." border="false":::
-
-- Om du vill lägga till eller ta bort indrag i texten använder du de alternativ som visas i den här skärm bilden:
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Visar indrags kontrollerna i Rich Text Editor." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-url"></a>URL för sekretess policy
 
@@ -219,7 +190,7 @@ Om du vill veta mer om att skapa erbjudande listor, se [erbjudande lista med bä
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
 >[!Note]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 #### <a name="store-logos"></a>Butiks logo typer
 
@@ -362,7 +333,7 @@ Detta är plan information på Azure Portal:
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-azure-portal-plan-details.png" alt-text="Visar plan information på Azure Portal.":::
 
-## <a name="availability"></a>Tillgänglighet
+## <a name="availability"></a>Tillgängligt
 
 Om du vill dölja ditt publicerade erbjudande så att kunder inte kan söka, bläddra i eller köpa det på Marketplace, markerar du kryss rutan **Dölj plan** på fliken tillgänglighet.
 
@@ -397,11 +368,11 @@ Du kommer att ange följande information på fliken **avbildnings lagrings infor
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Visar dialog rutan uppdatera container Registry.":::
 
-**Lösen ord för Azure Container Registry**: Ange lösen ordet för det administratörs användar namn som är associerat med Azure Container Registry och har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Du kan hämta lösen ordet från Azure Portal genom att gå till **container Registry** > **åtkomst nycklar** eller med Azure CLI med [Kommandot show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+**Lösen ord för Azure Container Registry**: Ange lösen ordet för det administratörs användar namn som är associerat med Azure Container Registry och har behållar avbildningen. Användar namn och lösen ord krävs för att se till att ditt företag har åtkomst till registret. Du kan hämta lösen ordet från Azure Portal genom att gå till **container Registry**  >  **åtkomst nycklar** eller med Azure CLI med [Kommandot show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Visar åtkomst nyckel skärmen i Azure Portal.":::
 
-**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Du anger namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till [Container Registry](https://azure.microsoft.com/services/container-registry/) > **sidan**container Registry-databaser. Mer information finns i [Visa behållare register Arkiv i Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Observera att när namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
+**Databas namn inom Azure Container Registry**. Ange namnet på Azure Container Registry lagrings platsen som innehåller din avbildning. Du anger namnet på lagrings platsen när du push-överför avbildningen till registret. Du kan hitta namnet på lagrings platsen genom att gå till sidan [container Registry](https://azure.microsoft.com/services/container-registry/)-  >  **databaser**. Mer information finns i [Visa behållare register Arkiv i Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Observera att när namnet har angetts kan det inte ändras. Använd ett unikt namn för varje erbjudande i ditt konto.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Bildtaggar för nya versioner av ditt erbjudande
 

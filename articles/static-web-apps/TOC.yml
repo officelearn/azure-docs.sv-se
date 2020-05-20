@@ -1,0 +1,61 @@
+- name: Dokumentation om Azure Static Web Apps
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Om Static Web Apps
+      href: overview.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Skapa din första statiska webbapp
+      href: getting-started.md
+- name: Begrepp
+  items:
+    - name: API-stöd med Azure Functions
+      href: apis.md
+    - name: Vägar
+      href: routes.md
+    - name: Autentisering och auktorisering
+      href: authentication-authorization.md
+    - name: Komma åt användarinformation
+      href: user-information.md
+    - name: Granska pull-begäranden i förproduktionsmiljöer
+      href: review-publish-pull-requests.md
+    - name: Anpassad domän
+      href: custom-domain.md
+    - name: Versions- och arbetsflödeskonfiguration
+      href: github-actions-workflow.md
+- name: Anvisningar
+  items:
+    - name: Konfigurera lokal utveckling
+      href: local-development.md
+    - name: Lägga till ett API
+      href: add-api.md
+    - name: Konfigurera appinställningar
+      href: application-settings.md
+- name: Självstudier
+  items:
+    - name: Publicera från en generator av statiska webbplatser
+      items:
+        - name: Gatsby
+          href: publish-gatsby.md
+        - name: Hugo
+          href: publish-hugo.md
+        - name: VuePress
+          href: publish-vuepress.md
+    - name: Distribuera från ett ramverk
+      items:
+        - name: Next.js
+          href: deploy-nextjs.md
+        - name: Nuxt.js
+          href: deploy-nuxtjs.md
+- name: Resurser
+  items:
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      items:
+        - name: 'Publicera en JavaScript-app och ett JavaScript-API i Angular, React, Svelte eller Vue'
+          href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Skapa och publicera en statisk webbapp med Gatsby
+          href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - name: Kvoter
+      href: quotas.md

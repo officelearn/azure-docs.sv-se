@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254474"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701428"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Strömma data som indata till Stream Analytics
 
@@ -30,7 +30,7 @@ Stream Analytics stöder komprimering i alla data Ströms inmatnings källor. Ko
 
 ## <a name="create-edit-or-test-inputs"></a>Skapa, redigera eller testa indata
 
-Du kan använda [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)och [Visual Studio Code](quick-create-vs-code.md) för att lägga till och Visa eller redigera befintliga indata i streaming-jobbet. Du kan också testa inmatnings anslutningar och [testa frågor](stream-analytics-manage-job.md#test-your-query) från exempel data från Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md)och [Visual Studio Code](visual-studio-code-local-run.md). När du skriver en fråga listar du InInformationen i from-satsen. Du kan hämta listan med tillgängliga indata från sidan **fråga** i portalen. Om du vill använda flera indata kan `JOIN` du eller skriva flera `SELECT` frågor.
+Du kan använda [Azure Portal](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)och [Visual Studio Code](quick-create-vs-code.md) för att lägga till och Visa eller redigera befintliga indata i streaming-jobbet. Du kan också testa inmatnings anslutningar och [testa frågor](stream-analytics-manage-job.md#test-your-query) från exempel data från Azure Portal, [Visual Studio](stream-analytics-vs-tools-local-run.md)och [Visual Studio Code](visual-studio-code-local-run.md). När du skriver en fråga listar du InInformationen i from-satsen. Du kan hämta listan med tillgängliga indata från sidan **fråga** i portalen. Om du vill använda flera indata kan du `JOIN` eller skriva flera `SELECT` frågor.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Strömma data med Event Hubs
@@ -86,7 +86,7 @@ FROM Input
 
 Azure IoT Hub är en mycket skalbar händelse för att publicera prenumerationer som är optimerade för IoT-scenarier.
 
-Standard tidsstämpeln för händelser som kommer från en IoT Hub i Stream Analytics är tidsstämpeln som händelsen anlänt i IoT Hub, vilket `EventEnqueuedUtcTime`är. Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nyckelord.
+Standard tidsstämpeln för händelser som kommer från en IoT Hub i Stream Analytics är tidsstämpeln som händelsen anlänt i IoT Hub, vilket är `EventEnqueuedUtcTime` . Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nyckelord.
 
 ### <a name="iot-hub-consumer-groups"></a>Konsument grupper för IoT Hub
 
@@ -130,11 +130,11 @@ För scenarier med stora mängder ostrukturerade data som ska lagras i molnet er
 
 Logg bearbetning är ett scenario som ofta används för att använda Blob Storage-indata med Stream Analytics. I det här scenariot har telemetri-datafiler fångats från ett system och måste parsas och bearbetas för att extrahera meningsfulla data.
 
-Standard tids stämplingen för Blob Storage-händelser i Stream Analytics är tidsstämpeln som blobben senast ändrades, `BlobLastModifiedUtcTime`vilket är. Om en BLOB laddas upp till ett lagrings konto på 13:00 och Azure Stream Analytics jobbet startas med alternativet *nu* vid 13:01, hämtas inte blobben eftersom dess ändrade tid ligger utanför jobb körnings perioden.
+Standard tids stämplingen för Blob Storage-händelser i Stream Analytics är tidsstämpeln som blobben senast ändrades, vilket är `BlobLastModifiedUtcTime` . Om en BLOB laddas upp till ett lagrings konto på 13:00 och Azure Stream Analytics jobbet startas med alternativet *nu* vid 13:01, hämtas inte blobben eftersom dess ändrade tid ligger utanför jobb körnings perioden.
 
 Om en BLOB laddas upp till en lagrings konto behållare på 13:00 och Azure Stream Analytics jobbet startas med en *anpassad tid* på 13:00 eller tidigare, hämtas blobben när den ändrade tiden infaller inom jobb körnings perioden.
 
-Om ett Azure Stream Analytics jobb har startats med *nu* vid 13:00 och en BLOB överförs till lagrings konto behållaren vid 13:01, kommer Azure Stream Analytics att hämta bloben.
+Om ett Azure Stream Analytics jobb har startats med *nu* vid 13:00 och en BLOB överförs till lagrings konto behållaren vid 13:01, kommer Azure Stream Analytics att hämta bloben. Tidsstämpeln som tilldelas varje BLOB baseras bara på `BlobLastModifiedTime` . Mappen som blobben är i har ingen relation till den tidsstämpel som tilldelats. Om det till exempel finns en BLOB *-2019/10-01/00/B1. txt* med en `BlobLastModifiedTime` i 2019-11-11, är tidsstämpeln som tilldelas till denna BLOB 2019-11-11.
 
 Om du vill bearbeta data som en data ström med en tidstämpel i händelse nytto lasten måste du använda [tids stämplingen med](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) nyckelord. Ett Stream Analytics jobb hämtar data från Azure Blob Storage-indata varje sekund om BLOB-filen är tillgänglig. Om BLOB-filen inte är tillgänglig finns det en exponentiell backoff med en maximal tids fördröjning på 90 sekunder.
 
@@ -143,7 +143,7 @@ CSV-formaterade indata kräver en rubrik rad för att definiera fält för data 
 > [!NOTE]
 > Stream Analytics har inte stöd för att lägga till innehåll i en befintlig BLOB-fil. Stream Analytics visar varje fil bara en gång, och eventuella ändringar som inträffar i filen efter att jobbet har läst data bearbetas inte. Bästa praxis är att ladda upp alla data för en BLOB-fil samtidigt och sedan lägga till ytterligare nyare händelser till en annan, ny BLOB-fil.
 
-Att ladda upp ett mycket stort antal blobbar samtidigt kan orsaka att Stream Analytics hoppar över att läsa några blobbar i sällsynta fall. Vi rekommenderar att du överför blobbar minst 2 sekunder till Blob Storage. Om det här alternativet inte är möjligt kan du använda Event Hubs för att strömma stora mängder händelser. 
+I scenarier där många blobbar läggs till i kontinuerligt och Stream Analytics bearbetar Blobbarna när de läggs till, är det möjligt att vissa blobbar hoppas över i sällsynta fall på grund av dess granularitet `BlobLastModifiedTime` . Du kan minska detta genom att ladda upp blobar minst två sekunder från varandra. Om det här alternativet inte är möjligt kan du använda Event Hubs för att strömma stora mängder händelser.
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Konfigurera Blob Storage som data ström 
 
@@ -153,12 +153,12 @@ I följande tabell beskrivs varje egenskap på den **nya indata** -sidan i Azure
 | --- | --- |
 | **Inmatat alias** | Ett eget namn som du använder i jobbets fråga för att referera till den här indatamängden. |
 | **Prenumeration** | Välj den prenumeration där IoT Hub resursen finns. | 
-| **Lagringskonto** | Namnet på det lagrings konto där BLOB-filerna finns. |
+| **Lagrings konto** | Namnet på det lagrings konto där BLOB-filerna finns. |
 | **Lagrings konto nyckel** | Den hemliga nyckeln som är kopplad till lagrings kontot. Det här alternativet fylls i automatiskt om du inte väljer alternativet för att tillhandahålla Blob Storage-inställningar manuellt. |
 | **Container** | Container för BLOB-inflödet. Behållare tillhandahåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob Service. När du laddar upp en blob till Azure Blob Storage-tjänsten måste du ange en behållare för denna blob. Du kan välja antingen **Använd befintlig** behållare eller **Skapa ny** för att skapa en ny behållare.|
-| **Sök vägs mönster** (valfritt) | Den fil Sök väg som används för att hitta Blobbarna i den angivna behållaren. Om du vill läsa blobbar från behållarens rot ska du inte ange ett Sök vägs mönster. I sökvägen kan du ange en eller flera instanser av följande tre variabler: `{date}`, eller `{time}``{partition}`<br/><br/>Exempel 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2:`cluster1/logs/{date}`<br/><br/>`*` Specialtecknet är inte ett tillåtet värde för Path-prefixet. Endast giltiga <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob-tecken</a> tillåts. Lägg inte till behållar namn eller fil namn. |
-| **Datum format** (valfritt) | Om du använder date-variabeln i sökvägen är datum formatet där filerna är ordnade. Exempel: `YYYY/MM/DD` |
-| **Tids format** (valfritt) |  Om du använder tids variabeln i sökvägen är det tids formatet som filerna är ordnade i. För närvarande är `HH` det enda värde som stöds för timmar. |
+| **Sök vägs mönster** (valfritt) | Den fil Sök väg som används för att hitta Blobbarna i den angivna behållaren. Om du vill läsa blobbar från behållarens rot ska du inte ange ett Sök vägs mönster. I sökvägen kan du ange en eller flera instanser av följande tre variabler: `{date}` , `{time}` eller`{partition}`<br/><br/>Exempel 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exempel 2:`cluster1/logs/{date}`<br/><br/>`*`Specialtecknet är inte ett tillåtet värde för Path-prefixet. Endast giltiga <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob-tecken</a> tillåts. Lägg inte till behållar namn eller fil namn. |
+| **Datum format** (valfritt) | Om du använder date-variabeln i sökvägen är datum formatet där filerna är ordnade. Exempel: `YYYY/MM/DD` <br/><br/> När BLOB-indatatypen har `{date}` eller `{time}` i sin sökväg tittar mapparna i stigande tids ordning.|
+| **Tids format** (valfritt) |  Om du använder tids variabeln i sökvägen är det tids formatet som filerna är ordnade i. För närvarande är det enda värde som stöds `HH` för timmar. |
 | **Partitionsnyckeln** | Om din Indatatyp är partitionerad med en egenskap kan du lägga till namnet på den här egenskapen. Partitionsnyckel är valfria och används för att förbättra prestandan för din fråga om den innehåller en PARTITION BY-eller GROUP BY-sats i den här egenskapen. |
 | **Händelseserialiseringsformat** | Serialization-formatet (JSON, CSV, Avro eller [Other (protobuf, XML, tillverkarspecifika...)](custom-deserializer.md)) för den inkommande data strömmen.  Se till att JSON-formatet överensstämmer med specifikationen och inte innehåller inledande 0 för decimal tal. |
 | **Kodning** | För CSV och JSON är UTF-8 för närvarande det enda kodnings format som stöds. |

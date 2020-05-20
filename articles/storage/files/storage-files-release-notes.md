@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/19/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 97599d8113d20511882ec38928b221706e7f37b9
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0b8110e70ab681c0d9a4ad720f76c3f5a295fff9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682419"
+ms.locfileid: "83701194"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information om Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -47,6 +47,9 @@ Följande viktiga information gäller version 10.0.2.0 av den Azure File Sync ag
 
 Problem korrigerat i den här versionen:  
 - FileSyncSvc-agenten (Storage Sync agent) kraschar ofta när Azure File Sync v10-agenten har installerats.
+
+> [!Note]  
+>Den här versionen har inte överförts till servrar som är konfigurerade att uppdateras automatiskt när en ny version blir tillgänglig. Om du vill installera den här uppdateringen använder du Microsoft Update eller Microsoft Update katalog (se [KB4522412](https://support.microsoft.com/help/4522412) för Installationsinstruktioner).
 
 ## <a name="agent-version-10000"></a>Agent version 10.0.0.0
 Följande viktiga information gäller version 10.0.0.0 av Azure File Sync agent (lanserades den 9 april 2020).

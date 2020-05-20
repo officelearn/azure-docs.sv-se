@@ -23,6 +23,8 @@
           href: tutorial-create-store-locator.md
     - name: Självstudier om REST-API
       items:
+        - name: Skapa inomhuskartor
+          href: tutorial-creator-indoor-maps.md
         - name: Konfigurera geofence
           href: tutorial-geofence.md
         - name: Rumslig analys
@@ -49,6 +51,12 @@
       href: azure-maps-event-grid-integration.md
     - name: Välja rätt prisnivå
       href: choose-pricing-tier.md
+    - name: Skapare av inomhuskartor
+      items:
+        - name: Begrepp relaterade till inomhuskartor
+          href: creator-indoor-maps.md
+        - name: Fel och varningar vid ritningskonvertering
+          href: drawing-conversion-error-codes.md
     - name: Täckning
       items:
         - name: Täckning för geokodning
@@ -83,6 +91,8 @@
           href: how-to-manage-authentication.md
         - name: Hantera prisnivå
           href: how-to-manage-pricing-tier.md
+        - name: Hantera skapare
+          href: how-to-manage-creator.md
         - name: Visa användningsstatistik
           href: how-to-view-api-usage.md
     - name: 'Hämta mappningsdata från REST API:er'
@@ -201,12 +211,22 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Visa trafikdata
           href: how-to-show-traffic-android.md
+    - name: Utveckla med skapare av inomhuskartor
+      items:
+        - name: Modul för inomhuskartor
+          href: how-to-use-indoor-module.md
+        - name: Dynamisk formatering för inomhuskartor
+          href: indoor-map-dynamic-styling.md
+        - name: Visualiserare för ritningsfel
+          href: drawing-error-visualizer.md
     - name: Ge datafeedback
       href: how-to-use-feedback-tool.md
 - name: Referens
   items:
     - name: API- och parametertillägg
       items:
+        - name: Krav för ritningspaket
+          href: drawing-requirements.md
         - name: Förbrukningsmodell för fordon
           href: consumption-model.md
         - name: Utöka GeoJSON-format
@@ -251,6 +271,8 @@
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
         - name: Rumslig IO-modul
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/'
+        - name: Modulen Inomhus
+          href: 'https://aka.ms/am-indoor-module-websdk/'
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.maps/accounts
 - name: Resurser

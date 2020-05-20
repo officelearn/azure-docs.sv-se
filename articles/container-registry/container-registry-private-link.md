@@ -2,13 +2,13 @@
 title: Konfigurera privat länk
 description: Konfigurera en privat slut punkt i ett behållar register och aktivera åtkomst över en privat länk i ett lokalt virtuellt nätverk
 ms.topic: article
-ms.date: 05/07/2020
-ms.openlocfilehash: 46ec816d85a528fd3208026ef76dff8470154767
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 05/19/2020
+ms.openlocfilehash: 93cdbab8bcdaa9787373407fe8d6619dd5fd49c6
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982467"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701412"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Konfigurera en privat Azure-länk för ett Azure Container Registry 
 
@@ -24,9 +24,9 @@ Den här funktionen är tillgänglig i tjänst nivån **Premium** container Regi
 
 ## <a name="prerequisites"></a>Krav
 
-* För att kunna använda Azure CLI-stegen i den här artikeln rekommenderas Azure CLI version 2.2.0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli]. Eller kör i [Azure Cloud Shell](../cloud-shell/quickstart.md).
-* Om du inte redan har ett behållar register skapar du ett (Premium-nivå krävs) och [importerar](container-registry-import-images.md) en exempel `hello-world` avbildning, till exempel från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register.
-* Om du vill konfigurera register åtkomst med en privat länk i en annan Azure-prenumeration måste du registrera resurs leverantören för Azure Container Registry i den prenumerationen. Ett exempel:
+* För att kunna använda Azure CLI-stegen i den här artikeln rekommenderas Azure CLI version 2.6.0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli]. Eller kör i [Azure Cloud Shell](../cloud-shell/quickstart.md).
+* Om du inte redan har ett behållar register skapar du ett (Premium-nivå krävs) och [importerar](container-registry-import-images.md) en exempel avbildning, till exempel `hello-world` från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register.
+* Om du vill konfigurera register åtkomst med en privat länk i en annan Azure-prenumeration måste du registrera resurs leverantören för Azure Container Registry i den prenumerationen. Till exempel:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of private link>
@@ -114,7 +114,7 @@ REGISTRY_ID=$(az acr show --name $REGISTRY_NAME \
 
 Kör kommandot [AZ Network Private-Endpoint Create][az-network-private-endpoint-create] för att skapa registrets privata slut punkt.
 
-I följande exempel skapas *myPrivateEndpoint* för slut punkt och tjänst *anslutning.* Om du vill ange en container Registry-resurs för slut `--group-ids registry`punkten, pass:
+I följande exempel skapas *myPrivateEndpoint* för slut punkt och tjänst *anslutning.* Om du vill ange en container Registry-resurs för slut punkten, pass `--group-ids registry` :
 
 ```azurecli
 az network private-endpoint create \
@@ -160,7 +160,7 @@ DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
 
 ### <a name="create-dns-records-in-the-private-zone"></a>Skapa DNS-poster i den privata zonen
 
-Följande kommandon skapar DNS-poster i den privata zonen för register slut punkten och dess data slut punkt. Om du till exempel har ett register med namnet " *register* " i *westeurope* -regionen är `myregistry.azurecr.io` slut punkts namnen `myregistry.westeurope.data.azurecr.io`och. 
+Följande kommandon skapar DNS-poster i den privata zonen för register slut punkten och dess data slut punkt. Om du till exempel har ett register med namnet " *register* " i *westeurope* -regionen är slut punkts namnen `myregistry.azurecr.io` och `myregistry.westeurope.data.azurecr.io` . 
 
 > [!NOTE]
 > Om registret är [geo-replikerat](container-registry-geo-replication.md)skapar du ytterligare DNS-poster för varje repliks data slut punkt IP.
@@ -207,7 +207,7 @@ Konfigurera en privat länk när du skapar ett register eller Lägg till en priv
 
 1. När du skapar ett register i portalen väljer du **Premium**i **SKU**på fliken **grundläggande** .
 1. Välj fliken **nätverk** .
-1. I **nätverks anslutning**väljer du **privat slut punkt** > **+ Lägg till**.
+1. I **nätverks anslutning**väljer du **privat slut punkt**  >  **+ Lägg till**.
 1. Ange eller Välj följande information:
 
     | Inställningen | Värde |
@@ -282,7 +282,21 @@ Din privata länk har nu kon figurer ATS och är redo att användas.
 
 ## <a name="disable-public-access"></a>Inaktivera offentlig åtkomst
 
-För många scenarier inaktiverar du register åtkomst från offentliga nätverk. Den här konfigurationen förhindrar att klienter utanför det virtuella nätverket når register slut punkter. Så här inaktiverar du offentlig åtkomst med hjälp av portalen:
+För många scenarier inaktiverar du register åtkomst från offentliga nätverk. Den här konfigurationen förhindrar att klienter utanför det virtuella nätverket når register slut punkter. 
+
+### <a name="disable-public-access---cli"></a>Inaktivera offentlig åtkomst – CLI
+
+Om du vill inaktivera offentlig åtkomst med hjälp av Azure CLI kör du [AZ ACR Update][az-acr-update] och set `--public-network-enabled` till `false` . 
+
+> [!NOTE]
+> `public-network-enabled`Argumentet kräver Azure CLI 2.6.0 eller senare. 
+
+```azurecli
+az acr update --name $REGISTRY_NAME --public-network-enabled false
+```
+
+
+### <a name="disable-public-access---portal"></a>Inaktivera offentlig åtkomst – Portal
 
 1. I portalen navigerar du till ditt behållar register och väljer **inställningar > nätverk**.
 1. På fliken **offentlig åtkomst** , i **Tillåt offentlig åtkomst**, väljer du **inaktive rad**. Välj sedan **Spara**.
@@ -308,7 +322,7 @@ Name:   myregistry.privatelink.azurecr.io
 Address: 10.0.0.6
 ```
 
-Jämför det här resultatet med den offentliga IP- `nslookup` adressen i utdata för samma register över en offentlig slut punkt:
+Jämför det här resultatet med den offentliga IP-adressen i `nslookup` utdata för samma register över en offentlig slut punkt:
 
 ```console
 [...]
@@ -319,13 +333,13 @@ Address: 40.78.103.41
 
 ### <a name="registry-operations-over-private-link"></a>Register åtgärder via privat länk
 
-Kontrol lera också att du kan utföra register åtgärder från den virtuella datorn i under nätet. Skapa en SSH-anslutning till den virtuella datorn och kör [AZ ACR login][az-acr-login] för att logga in i registret. Beroende på konfigurationen av din virtuella dator kan du behöva använda prefixet för följande kommandon `sudo`med.
+Kontrol lera också att du kan utföra register åtgärder från den virtuella datorn i under nätet. Skapa en SSH-anslutning till den virtuella datorn och kör [AZ ACR login][az-acr-login] för att logga in i registret. Beroende på konfigurationen av din virtuella dator kan du behöva använda prefixet för följande kommandon med `sudo` .
 
 ```bash
 az acr login --name $REGISTRY_NAME
 ```
 
-Utföra register åtgärder, till `docker pull` exempel för att hämta en exempel avbildning från registret. Ersätt `hello-world:v1` med en avbildning och tagga lämplig för registret, med prefixet till inloggnings Server namnet för registret (alla gemener):
+Utföra register åtgärder, till exempel `docker pull` för att hämta en exempel avbildning från registret. Ersätt `hello-world:v1` med en avbildning och tagga lämplig för registret, med prefixet till inloggnings Server namnet för registret (alla gemener):
 
 ```bash
 docker pull myregistry.azurecr.io/hello-world:v1
@@ -337,7 +351,7 @@ Docker hämtar avbildningen till den virtuella datorn.
 
 Hantera ett registers privata slut punkts anslutningar med hjälp av Azure Portal eller med hjälp av kommandon i kommando gruppen [AZ ACR Private-Endpoint-Connection][az-acr-private-endpoint-connection] . Åtgärderna inkluderar Godkänn, ta bort, Visa, avvisa eller Visa information om ett registers privata slut punkts anslutningar.
 
-Om du till exempel vill visa en lista över anslutningar för privata slut punkter för ett register kör du kommandot [AZ ACR Private-Endpoint-Connection List][az-acr-private-endpoint-connection-list] . Ett exempel:
+Om du till exempel vill visa en lista över anslutningar för privata slut punkter för ett register kör du kommandot [AZ ACR Private-Endpoint-Connection List][az-acr-private-endpoint-connection-list] . Till exempel:
 
 ```azurecli
 az acr private-endpoint-connection list \
@@ -350,7 +364,7 @@ När du konfigurerar en privat slut punkts anslutning med hjälp av stegen i den
 
 Som du ser i den här artikeln, skapas DNS-poster i `privatelink.azurecr.io` zonen för registret och dess data slut punkter i de regioner där registret [replikeras](container-registry-geo-replication.md)när du lägger till en privat slut punkts anslutning till ett register. 
 
-Om du senare lägger till en ny replik måste du manuellt lägga till en ny zon post för data slut punkten i den regionen. Om du till exempel skapar en replik av *registret* på *europanorra* -platsen lägger du till en zon post för `myregistry.northeurope.data.azurecr.io`. Anvisningar finns i [Skapa DNS-poster i den privata zonen](#create-dns-records-in-the-private-zone) i den här artikeln.
+Om du senare lägger till en ny replik måste du manuellt lägga till en ny zon post för data slut punkten i den regionen. Om du till exempel skapar en replik av *registret* på *europanorra* -platsen lägger du till en zon post för `myregistry.northeurope.data.azurecr.io` . Anvisningar finns i [Skapa DNS-poster i den privata zonen](#create-dns-records-in-the-private-zone) i den här artikeln.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -3,12 +3,12 @@ title: Hur gör jag för att... i Azure Application Insights | Microsoft Docs
 description: Vanliga frågor och svar i Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536870"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701954"
 ---
 # <a name="how-do-i--in-application-insights"></a>Hur kan jag ... i Application Insights?
 ## <a name="get-an-email-when-"></a>Få ett e-postmeddelande när...
@@ -16,7 +16,7 @@ ms.locfileid: "81536870"
 Ange ett [webb test för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ### <a name="email-if-my-site-is-overloaded"></a>E-posta om min webbplats är överbelastad
-Ange en [avisering](../../azure-monitor/app/alerts.md) på **Server svars tiden**. Ett tröskelvärde mellan 1 och 2 sekunder bör fungera.
+Ange en [avisering](../../azure-monitor/platform/alerts-log.md) på **Server svars tiden**. Ett tröskelvärde mellan 1 och 2 sekunder bör fungera.
 
 ![](./media/how-do-i/030-server.png)
 
@@ -26,10 +26,10 @@ Om du vill ställa in en avisering på **Server undantag**kan du behöva göra [
 
 ### <a name="email-on-exceptions"></a>E-post vid undantag
 1. [Konfigurera undantags övervakning](../../azure-monitor/app/asp-net-exceptions.md)
-2. [Ange en avisering](../../azure-monitor/app/alerts.md) för måttet för antalet undantag
+2. [Ange en avisering](../../azure-monitor/platform/alerts-log.md) för måttet för antalet undantag
 
 ### <a name="email-on-an-event-in-my-app"></a>Skicka ett e-postmeddelande till en händelse i min app
-Låt oss anta att du vill få ett e-postmeddelande när en enskild händelse inträffar. Application Insights tillhandahåller inte den här funktionen direkt, men den kan [skicka en avisering när ett mått överskrider ett tröskelvärde](../../azure-monitor/app/alerts.md).
+Låt oss anta att du vill få ett e-postmeddelande när en enskild händelse inträffar. Application Insights tillhandahåller inte den här funktionen direkt, men den kan [skicka en avisering när ett mått överskrider ett tröskelvärde](../../azure-monitor/platform/alerts-log.md).
 
 Aviseringar kan anges för [anpassade mått](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), även om inte anpassade händelser. Skriv kod för att öka ett mått när händelsen inträffar:
 
@@ -65,11 +65,11 @@ Några saker att tänka på:
 * Eftersom e-postmeddelanden skickas både på "varning" och "felfri", kanske du vill överväga att fundera på att titta på en händelse i två tillstånd. I stället för händelsen "jobbet har slutförts" har du till exempel ett villkor för "pågående jobb" där du får e-postmeddelanden i början och slutet av ett jobb.
 
 ### <a name="set-up-alerts-automatically"></a>Konfigurera aviseringar automatiskt
-[Använd PowerShell för att skapa nya aviseringar](../../azure-monitor/app/alerts.md#automation)
+[Använd PowerShell för att skapa nya aviseringar](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Använd PowerShell för att hantera Application Insights
 * [Skapa nya resurser](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
-* [Skapa nya aviseringar](../../azure-monitor/app/alerts.md#automation)
+* [Skapa nya aviseringar](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Separera telemetri från olika versioner
 
@@ -120,7 +120,7 @@ Om du vill ha en lista över användare med data, till exempel vilka sidor de ti
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Minska trafiken från min app till Application Insights
 * I [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)inaktiverar du alla moduler som du inte behöver, t. ex. prestanda räknar insamlaren.
 * Använd [sampling och filtrering](../../azure-monitor/app/api-filtering-sampling.md) på SDK: n.
-* På dina webb sidor begränsar du antalet AJAX-anrop som rapporteras för varje sid visning. I skript utdraget `instrumentationKey:...` efter infogar du `,maxAjaxCallsPerView:3` : (eller ett lämpligt nummer).
+* På dina webb sidor begränsar du antalet AJAX-anrop som rapporteras för varje sid visning. I skript utdraget efter `instrumentationKey:...` infogar du: `,maxAjaxCallsPerView:3` (eller ett lämpligt nummer).
 * Om du använder [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)beräknar du summan av batchar med mått värden innan du skickar resultatet. Det finns en överlagring av TrackMetric () som tillhandahåller för det.
 
 Läs mer om [priser och kvoter](../../azure-monitor/app/pricing.md).
@@ -138,9 +138,9 @@ För att **dynamiskt stoppa och starta** insamling och överföring av telemetri
 
 ### <a name="other-applications"></a>Andra program
 Vi rekommenderar inte att du använder `TelemetryConfiguration.Active` singleton på konsolen eller ASP.net Core program.
-Om du skapade `TelemetryConfiguration` instansen själv `DisableTelemetry` - `true`Ställ in på.
+Om du skapade `TelemetryConfiguration` instansen själv-Ställ in `DisableTelemetry` på `true` .
 
-För ASP.NET Core program kan du komma `TelemetryConfiguration` åt instansen med [ASP.net Core beroende inmatning](/aspnet/core/fundamentals/dependency-injection/). Mer information finns i [ApplicationInsights för ASP.net Core Applications](../../azure-monitor/app/asp-net-core.md) -artikeln.
+För ASP.NET Core program kan du komma åt `TelemetryConfiguration` instansen med [ASP.net Core beroende inmatning](/aspnet/core/fundamentals/dependency-injection/). Mer information finns i [ApplicationInsights för ASP.net Core Applications](../../azure-monitor/app/asp-net-core.md) -artikeln.
 
 ## <a name="disable-selected-standard-collectors"></a>Inaktivera markerade standard insamlare
 Du kan inaktivera standard insamlare (till exempel prestanda räknare, HTTP-begäranden eller beroenden)
@@ -156,7 +156,7 @@ Bland de mått som du kan visa i mått Utforskaren finns en uppsättning system 
 ### <a name="if-you-see-no-performance-counter-data"></a>Om du inte ser några prestanda räknar data
 * **IIS-server** på din egen dator eller på en virtuell dator. [Installera statusövervakare](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Azure Web Site** – vi stöder inte prestanda räknare ännu. Det finns flera mått som du kan få som en standard del av kontroll panelen i Azure-webbplatsen.
-* **Unix server** - [Insamlad](../../azure-monitor/app/java-collectd.md) UNIX server-installation
+* **UNIX-server**  -  [Installera insamlad](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Visa fler prestanda räknare
 * Lägg först [till ett nytt diagram](../../azure-monitor/platform/metrics-charts.md) och se om räknaren finns i den grundläggande uppsättning som vi erbjuder.

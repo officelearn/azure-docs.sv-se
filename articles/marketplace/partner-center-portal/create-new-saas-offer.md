@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: b85846419ce5f6cd4093e198d83240817c95754a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 81b36532d09985d1e50fb3d0394d054d9a5e8250
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983065"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701170"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Skapa ett nytt SaaS-erbjudande på den kommersiella Marketplace
 
@@ -21,8 +21,8 @@ Om du vill börja skapa SaaS-erbjudanden (program vara som en tjänst) i den kom
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
-3. På sidan Översikt väljer du **+ ny erbjudande** > **program vara som en tjänst**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3. På sidan Översikt väljer du **+ ny erbjudande**  >  **program vara som en tjänst**.
 
    ![Visar menyn till vänster-navigering.](./media/new-offer-saas.png)
 
@@ -34,7 +34,7 @@ Om du vill börja skapa SaaS-erbjudanden (program vara som en tjänst) i den kom
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudandet-1** här, är `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`webb adressen för erbjudandet.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudandet-1** här, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -173,7 +173,7 @@ Microsoft tillhandahåller en standard kontrakts mal len.
 
 - **Använd standard kontraktet för Microsoft Commercial Marketplace?**
 
-För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft ett standard kontrakt för Microsofts kommersiella marknads plats för att under lätta transaktioner i Marketplace. I stället för att utforma anpassade villkor, kan kommersiella Marketplace-utgivare välja att erbjuda sin program vara under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång. Du hittar standard kontraktet på https://go.microsoft.com/fwlink/?linkid=2041178.
+För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft ett standard kontrakt för Microsofts kommersiella marknads plats för att under lätta transaktioner i Marketplace. I stället för att utforma anpassade villkor, kan kommersiella Marketplace-utgivare välja att erbjuda sin program vara under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång. Du hittar standard kontraktet på https://go.microsoft.com/fwlink/?linkid=2041178 .
 
 Du kan välja att använda standard kontraktet i stället för att ange egna anpassade villkor genom att markera kryss rutan Använd standard kontraktet för den kommersiella Marketplace.
 
@@ -227,28 +227,13 @@ Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt 
 - **Sök Nyckelord** – ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande på Marketplace.
 - **Komma igång-instruktioner** (krävs) – förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet.
 
-#### <a name="description"></a>**Beskrivning**
+#### <a name="description"></a>Description
 
-Det här fältet är obligatoriskt. Objekt som ska tas med i **beskrivningen**:
+Det här fältet är obligatoriskt.
 
-* Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen.  
-* Tänk på att de första meningarna kan visas i Sök motorns resultat.  
-* Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar.  
-* Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt.
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-Kärn komponenterna i dina värde förslag bör innefatta:
-
-* Beskrivning av produkten
-* Typ av användare som fördelar från produkten
-* Kunden behöver eller smärta om produkt adresser
-
-Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
-
-![Använda Rich Text Editor](./media/rich-text-editor.png)
-
-| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
-| --- | --- | --- |
-| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### <a name="links"></a>Länkar
 
@@ -279,7 +264,7 @@ Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-red
 - **Videor** (valfritt) – Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.
 
 >[!NOTE]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
@@ -309,7 +294,7 @@ Den här sidan definierar den tekniska information (URL-sökväg, webhook, klien
 
 - **Landnings sidans URL** (krävs) – definiera den plats-URL som kunderna ska landa efter när ditt erbjudande har hämtats från Marketplace. Den här URL: en är slut punkten som tar emot en token när en kund dirigeras till sidan. Denna token kan bytas ut mot etablerings information med hjälp av lösa i API: er som uppfyller kraven. Informationen och andra som du samlar in kan användas som en del av en kundinteraktiv webb sida som skapats i din upplevelse för att slutföra registreringen och aktivera köpet.
 
-- **Anslutning-webhook** (krävs) – för alla asynkrona händelser som Microsoft behöver skicka till dig för kundens räkning (till exempel SaaS-prenumerationen är ogiltig), så kräver vi att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https:\//Prod-1westus.Logic.Azure.com:443/Work). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Anslutning-webhook** (krävs) – för alla asynkrona händelser som Microsoft behöver skicka till dig för kundens räkning (till exempel SaaS-prenumerationen är ogiltig), så kräver vi att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https: \/ /Prod-1westus.Logic.Azure.com:443/Work). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Azure AD-klient-ID** (krävs) – inuti Azure Portal kräver vi att du [skapar en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -402,7 +387,7 @@ Du kan konfigurera en kostnads fri utvärderings version för varje plan i erbju
 >[!NOTE]
 >När ditt transactable-erbjudande har publicerats med en kostnads fri utvärderings version kan det inte inaktive ras för den planen. Kontrol lera att den här inställningen är korrekt för den första publiceringen för att undvika att behöva återskapa planen.
 
-För att få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings `isFreeTrial`version använder du den nya API-egenskapen som kommer att markeras som sant eller falskt. Mer information finns i API för [SaaS get-prenumeration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
+För att få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings version använder du den nya API `isFreeTrial` -egenskapen som kommer att markeras som sant eller falskt. Mer information finns i API för [SaaS get-prenumeration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
 >[!NOTE]
 >Kostnads fria utvärderings versioner stöds inte för planer som utnyttjar Marketplace-avläsning.
@@ -419,7 +404,7 @@ Välj **det här är en privat plan** för att göra din plan privat och endast 
 
 Tilldela den mål grupp som ska ha åtkomst till den här privata planen. Åtkomst tilldelas med klient-ID: n med alternativet att inkludera en beskrivning av varje tilldelad klient-ID. Högst 10 klient-ID: n kan läggas till, eller 20 000 kunders klient-ID om du importerar en. csv-kalkylbladsfilen.
 
-En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när organisationen eller appens utvecklare skapar en relation med Microsoft, till exempel när du registrerar dig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrollera klientorganisationen loggar du in på Azure-portalen med det konto du vill använda för att hantera din app. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med en domän namns- [https://www.whatismytenantid.com](https://www.whatismytenantid.com)URL på.
+En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när organisationen eller appens utvecklare skapar en relation med Microsoft, till exempel när du registrerar dig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrollera klientorganisationen loggar du in på Azure-portalen med det konto du vill använda för att hantera din app. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med en domän namns-URL på [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 Även om SaaS-erbjudanden använder klient-ID: n för att definiera en privat mål grupp kan andra erbjudande typer använda Azures prenumerations-ID (som också visas som GUID).
 

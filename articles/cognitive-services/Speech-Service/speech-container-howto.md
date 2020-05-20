@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: dc11d9d7dfa7ededa19e11c9e1bc38e1eaaec93f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 84000016af4b16bd0716c15e7c27b4ab56614532
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591036"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702164"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installera och kör tal tjänst behållare (förhands granskning)
 
@@ -35,7 +35,7 @@ Tal behållare gör det möjligt för kunderna att bygga en tal program arkitekt
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krav gäller innan du använder tal behållare:
 
@@ -47,7 +47,8 @@ Följande krav gäller innan du använder tal behållare:
 
 ## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
-Fyll i och skicka [fråge formuläret för Cognitive Services containers](https://aka.ms/cognitivegate) för att begära åtkomst till behållaren.
+Fyll i och skicka [formuläret för begäran](https://aka.ms/speechcontainerspreview/) för att begära åtkomst till behållaren. 
+
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -410,7 +411,7 @@ Det här kommandot:
 > [!NOTE]
 > Använd ett unikt port nummer om du kör flera behållare.
 
-| Containers | SDK-värd-URL | Protokoll |
+| Containrar | SDK-värd-URL | Protokoll |
 |--|--|--|
 | Tal till text och Custom Speech till text | `ws://localhost:5000` | WS |
 | Text till tal och anpassad text till tal | `http://localhost:5000` | HTTP |

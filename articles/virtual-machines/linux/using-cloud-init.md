@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 05/18/2019
+ms.date: 05/19/2019
 ms.author: danis
-ms.openlocfilehash: 8c591efeedc87926a0ed7b42de6c3267721cebab
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 989e265c83cb2a71d93453b0c3bcbc3e41079447
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657440"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701591"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-Init-stöd för virtuella datorer i Azure
 Den här artikeln beskriver det stöd som finns för [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-konfigurationer körs vid första start när resurserna har etablerats av Azure.  
@@ -44,6 +44,7 @@ Det finns två steg för att göra Cloud-Init tillgängligt för de påtecknade 
 ### <a name="canonical"></a>Canonical
 | Utgivare/version| Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
+|Kanoniskt 20,04 |UbuntuServer |18,04 – LTS |senaste |ja | ja |
 |Kanoniskt 18,04 |UbuntuServer |18,04 – LTS |senaste |ja | ja |
 |Kanoniskt 16,04|UbuntuServer |16.04-LTS |senaste |ja | ja |
 |Kanoniskt 14,04|UbuntuServer |14.04.5-LTS |senaste |ja | ja |
@@ -55,9 +56,10 @@ Det finns två steg för att göra Cloud-Init tillgängligt för de påtecknade 
 |RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 7,7-avbildningar har stöd för Cloud-Init tas detta bort 1 september 2020) | Ja-support från paket version: *18.5 -3. el7*|
 |RedHat 7,7 |RHEL |7-LVM | saknas| inga avbildnings uppdateringar att slutföra slutet av maj| Ja-support från paket version: *18.5 -3. el7*|
 |RedHat 7,7 |RHEL |7,7 | saknas| inga avbildnings uppdateringar att slutföra slutet av maj | Ja-support från paket version: *18.5 -3. el7*|
-|RedHat 7,7 (gen1) |RHEL – BYOS | RHEL – lvm77 | saknas|inga avbildnings uppdateringar att slutföra slutet av april  | Ja-support från paket version: *18.5 -3. el7*|
-|RedHat 8,1 (gen1) |RHEL |8,1 – CI |7.7.2019081601 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020|
-|RedHat 8,1 (Gen2) |RHEL |81 – CI-Gen2 |7.7.2019081601 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020 |
+|RedHat 7,7 (gen1) |RHEL – BYOS | RHEL – lvm77 | 7.7.2020051912 | inga avbildnings uppdateringar i flygning, för att slutföra slutet av maj  | Ja-support från paket version: *18.5 -3. el7*|
+|RedHat 7,7 (Gen2) |RHEL – BYOS | RHEL – lvm77 | 7.7.2020051913 |inga avbildnings uppdateringar i flygning, för att slutföra slutet av maj  | Ja-support från paket version: *18.5 -3. el7*|
+|RedHat 8,1 (gen1) |RHEL |8,1 – CI |8.1.2020042511 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020|
+|RedHat 8,1 (Gen2) |RHEL |81 – CI-Gen2 |8.1.2020042524 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020 |
 
 RedHat: RHEL 7,8-och 8,2-avbildningar (gen1 och Gen2) tillhandahålls med Cloud-init.
 
@@ -68,6 +70,8 @@ RedHat: RHEL 7,8-och 8,2-avbildningar (gen1 och Gen2) tillhandahålls med Cloud-
 |OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |Ja (Observera att det här är en förhands gransknings bild och när alla CentOS 7,7-avbildningar har stöd för Cloud-Init tas detta bort 1 september 2020) | Ja-support från paket version: *18.5 -3. el7. CentOS*|
 
 * CentOS 7,7-avbildningar som kommer att bli moln-init-aktiverade uppdateras här i juni 2020 
+* CentOS 7,8-avbildningar har tillhandahållits med Cloud-init.
+
 
 ### <a name="oracle"></a>Oracle
 

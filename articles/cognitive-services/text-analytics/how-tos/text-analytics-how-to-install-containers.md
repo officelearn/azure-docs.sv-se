@@ -11,17 +11,17 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: d22dcf221bef40edb8bb2bd346dd5964000a4a68
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: efe76323b4159af01f1eaf470d9c1833edd0a186
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588432"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702129"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och kör Textanalys-containrar
 
 > [!NOTE]
-> * Behållaren för Attitydanalys v3 är nu allmänt tillgänglig. Extraheringen av nyckel fraser och språk identifierings behållare är tillgängliga som en icke- [Gate offentlig för hands version](../../cognitive-services-gating-process.md).
+> * Behållaren för Attitydanalys v3 är nu allmänt tillgänglig. Extraheringen av nyckel fraser och språk identifierings behållare är tillgängliga som en icke-Gate offentlig för hands version.
 > * Enhets länkning och NER är för närvarande inte tillgängliga som en behållare.
 
 Med behållare kan du köra API: er för text analys i din egen miljö och passar dina specifika krav för säkerhet och data styrning. Textanalys behållare tillhandahåller avancerad naturlig språk bearbetning över rå text och innehåller tre huvud funktioner: sentiment analys, extrahering av nyckel fraser och språk identifiering. 
@@ -31,7 +31,7 @@ Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto]
 > [!IMPORTANT]
 > Det kostnads fria kontot är begränsat till 5 000 transaktioner per månad och bara <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">pris nivåerna <span class="docon docon-navigate-external x-hidden-focus"></span> </a> **kostnads fri** och **standard** är giltiga för behållare. Mer information om avgifter för transaktions begär Anden finns i [data begränsningar](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill köra någon av de Textanalys behållarna måste du ha värd datorn och behållar miljöerna.
 

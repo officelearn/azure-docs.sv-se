@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: ba21dfc900145ceeacab6c363e5de84b830282b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f65912d0e2ab322d73315828a98cc48274850fc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82109816"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696440"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -33,8 +33,8 @@ För att undvika påverkan av den här typen av avbrott rekommenderar vi att du 
 * [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans]
 * [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]
 * [Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events)
-* [Konfigurera varje programnivå i separata tillgänglighetsuppsättningar]
-* [Kombinera en lastbalanserare med tillgänglighetsuppsättningar]
+* [Konfigurera varje program nivå i separata tillgänglighets uppsättningar]
+* [Kombinera en Load Balancer med tillgänglighets uppsättningar]
 * [Använda tillgänglighets zoner för att skydda från data center nivå problem]
 
 ## <a name="use-availability-zones-to-protect-from-datacenter-level-failures"></a>Använda tillgänglighets zoner för att skydda från data center nivå problem
@@ -91,19 +91,12 @@ Om du planerar att använda virtuella datorer med ohanterade diskar följer du r
 
 1. **Förvara alla diskar (operativsystem och data) som är associerade med en virtuell dator i samma lagringskonto**
 2. **Granska [gränserna](../articles/storage/blobs/scalability-targets-premium-page-blobs.md) för antalet ohanterade diskar i ett Azure Storage konto** innan du lägger till fler virtuella hård diskar till ett lagrings konto
-3. **Använd ett separat lagrings konto för varje virtuell dator i en tillgänglighets uppsättning.** Dela inte Storage-konton med flera virtuella datorer i samma tillgänglighetsuppsättning. Det är acceptabelt för virtuella datorer över olika tillgänglighets uppsättningar för att dela lagrings konton om ![de rekommenderade säkerhets metoderna följer ohanterade diskar fd](./media/virtual-machines-common-manage-availability/umd-updated.png)
+3. **Använd ett separat lagrings konto för varje virtuell dator i en tillgänglighets uppsättning.** Dela inte Storage-konton med flera virtuella datorer i samma tillgänglighetsuppsättning. Det är acceptabelt för virtuella datorer över olika tillgänglighets uppsättningar för att dela lagrings konton om de rekommenderade säkerhets metoderna följer ![ ohanterade diskar fd](./media/virtual-machines-common-manage-availability/umd-updated.png)
 
 ## <a name="use-scheduled-events-to-proactively-respond-to-vm-impacting-events"></a>Använd schemalagda händelser för att proaktivt svara på händelser som påverkar virtuella datorer
 
 När du prenumererar på [schemalagda händelser](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-scheduled-events), meddelas din virtuella dator om kommande underhålls händelser som kan påverka den virtuella datorn. När schemalagda händelser aktive ras får den virtuella datorn en minimal tid innan underhålls aktiviteten utförs. Till exempel placeras värdar för OS-uppdateringar som kan påverka den virtuella datorn som händelser som anger påverkan, samt en tidpunkt då underhållet utförs om ingen åtgärd vidtas. Schema händelser köas också när Azure upptäcker ett överhäng ande maskin varu haveri som kan påverka den virtuella datorn, vilket gör att du kan bestämma när du vill utföra återställningen. Kunder kan använda händelsen för att utföra uppgifter före underhållet, till exempel spara status, redundansväxla till den sekundära och så vidare. När du har slutfört din logik för att hantera underhålls händelsen smidigt kan du godkänna den väntande schemalagda händelsen så att plattformen kan fortsätta med underhållet.
 
-## <a name="configure-each-application-tier-into-separate-availability-zones-or-availability-sets"></a>Konfigurera varje program nivå i separata tillgänglighets zoner eller tillgänglighets uppsättningar
-Om dina virtuella datorer är nästan identiska och har samma syfte för ditt program, rekommenderar vi att du konfigurerar en tillgänglighets zon eller tillgänglighets uppsättning för varje nivå i programmet.  Om du placerar två olika nivåer i samma tillgänglighets zon eller uppsättning kan alla virtuella datorer på samma program nivå startas om samtidigt. Genom att konfigurera minst två virtuella datorer i en tillgänglighets zon eller ange för varje nivå garanterar du att minst en virtuell dator på varje nivå är tillgänglig.
-
-Du kan till exempel lägga till alla virtuella datorer i klient delen av ditt program som kör IIS, Apache och Nginx i en enda tillgänglighets zon eller uppsättning. Se till att endast virtuella datorer i klient delen placeras i samma tillgänglighets zon eller uppsättning. På samma sätt kan du se till att endast virtuella datorer på datanivå placeras i en egen tillgänglighets zon eller ange, t. ex. dina replikerade SQL Server virtuella datorer eller dina MySQL-virtuella datorer.
-
-<!--Image reference-->
-   ![Programnivåer](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>Kombinera en belastningsutjämnare med tillgänglighets zoner eller uppsättningar
 Kombinera [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) med en tillgänglighets zon eller Ställ in för att få de flesta program återhämtning. Azure Load Balancer distribuerar trafiken mellan flera virtuella datorer. Azure Load Balancer ingår i standardnivån för Virtual Machines. Azure Load Balancer ingår inte i alla nivåer för Virtual Machines. Mer information om belastningsutjämning för virtuella datorer finns i [Belastningsutjämna virtuella datorer](../articles/virtual-machines/virtual-machines-linux-load-balance.md).
@@ -115,8 +108,7 @@ En själv studie kurs om belastnings utjämning över tillgänglighets zoner fin
 
 <!-- Link references -->
 [Konfigurera flera virtuella datorer i en tillgänglighetsuppsättning för redundans]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
-[Konfigurera varje programnivå i separata tillgänglighetsuppsättningar]: #configure-each-application-tier-into-separate-availability-zones-or-availability-sets
-[Kombinera en lastbalanserare med tillgänglighetsuppsättningar]: #combine-a-load-balancer-with-availability-zones-or-sets
+[Kombinera en Load Balancer med tillgänglighets uppsättningar]: #combine-a-load-balancer-with-availability-zones-or-sets
 [Avoid single instance virtual machines in availability sets]: #avoid-single-instance-virtual-machines-in-availability-sets
 [Använda hanterade diskar för virtuella datorer i en tillgänglighetsuppsättning]: #use-managed-disks-for-vms-in-an-availability-set
 [Använda tillgänglighets zoner för att skydda från data center nivå problem]: #use-availability-zones-to-protect-from-datacenter-level-failures

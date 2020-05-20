@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 31b8960f5617566a72545510cf03771f7a3bfcbd
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.date: 05/19/2020
+ms.openlocfilehash: 25b7a619f6d3e308de966ead5925133f6094d9c8
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82745010"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701088"
 ---
 # <a name="create-an-azure-virtual-machine-offer-in-the-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
 
@@ -61,8 +61,8 @@ Teknik teamet bör förstå följande Microsoft-tekniker:
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
-3. På sidan Översikt väljer du **+ nytt erbjud** > **Azure Virtual Machine**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3. På sidan Översikt väljer du **+ nytt erbjud**  >  **Azure Virtual Machine**.
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-azure-vm.png)
 
@@ -74,7 +74,7 @@ Teknik teamet bör förstå följande Microsoft-tekniker:
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och i Azure PowerShell och Azure CLI, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudandet-1** här, är `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`webb adressen för erbjudandet.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudandet-1** här, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -195,34 +195,13 @@ En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt oc
 
 Ange en längre Beskrivning av erbjudandet. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-#### <a name="description"></a>Beskrivning
+#### <a name="description"></a>Description
 
-Ange en detaljerad beskrivning av erbjudandet, upp till 3 000 tecken. Detta visas för kunder i Översikt över den kommersiella Marketplace-listan.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Inkludera ett eller flera av följande i din beskrivning:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Värdet och viktiga fördelar med ditt erbjudande
-- Kategori-eller bransch kopplingar, eller båda
-- Köp möjligheter i appen
-- Eventuella upplysningar som krävs
-
-Här följer några tips om hur du skriver beskrivningen:
-
-- Beskriv tydligt värdet på erbjudandet i de första meningarna i beskrivningen. Ta med följande objekt:
-  - Beskrivning av erbjudandet.
-  - Den typ av användare som har nytta av ditt erbjudande.
-  - Kund behov eller problem som erbjuder erbjudandet.
-- Kom ihåg att de första meningarna kan visas i Sök motorns resultat.
-- Förlita dig inte på funktioner och funktioner för att sälja erbjudandet. I stället fokuserar du på det värde som erbjudandet erbjuder.
-- Använd branschspecifika eller förmåns baserade ord.
-
-Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
-
-![Använda Rich Text Editor](./media/rich-text-editor.png)
-
-| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
-| --- | --- | --- |
-| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-link"></a>Länk till sekretess policy
 
@@ -280,7 +259,7 @@ Alla fyra logo typer krävs och används på olika platser i Marketplace-listan.
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar.
 
@@ -400,7 +379,7 @@ Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en 
 
 När du tar bort en marknad kommer kunder från den marknaden som använder aktiva distributioner inte att kunna skapa nya distributioner eller skala upp sina befintliga distributioner. Befintliga distributioner kommer inte att påverkas.
 
-#### <a name="pricing"></a>Prissättning
+#### <a name="pricing"></a>Priser
 
 **Licens modell** – Välj **användning-baserad månatlig fakturerings plan** för att konfigurera prissättningen för den här planen eller **Bring Your Own License** så att kunderna kan använda den här planen med sin befintliga licens.
 
@@ -527,7 +506,7 @@ Det **manuella validerings** steget i publicerings processen representerar en om
 
 På sidan **erbjudande översikt** visas en visuell representation av de steg som krävs för att publicera det här erbjudandet (både slutfört och pågående) och hur lång tid varje steg ska ta att slutföra.
 
-Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Exempel:
+Den här sidan innehåller länkar för att utföra åtgärder på det här erbjudandet baserat på det val du gör. Till exempel:
 
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)

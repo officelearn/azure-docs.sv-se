@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 1167846c399430bd2db2eaa3114628ebb63ce639
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f03d1cfeccf03614fe0a5828a05768a5ae3f56e2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592329"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699650"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Konfigurera ett labb som fokuserar på djup inlärning i naturlig språk bearbetning med hjälp av Azure Lab Services
 Den här artikeln visar hur du konfigurerar ett labb som fokuserar på djup inlärning i naturlig språk bearbetning (NLP) med hjälp av Azure Lab Services. NLP (Natural Language Processing) är en form av artificiell intelligens (AI) som gör det möjligt för datorer med översättning, tal igenkänning och andra funktioner för språk förståelse.  
@@ -40,7 +40,9 @@ Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa e
 | ------------ | ------------------ |
 | Storlek för virtuell dator (VM) | Liten GPU (Compute). Den här storleken passar bäst för beräknings intensiva och nätverks intensiva program som artificiell intelligens och djup inlärning. |
 | Avbildning av virtuell dator | [Data science Virtual Machine för Linux (Ubuntu)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Den här avbildningen innehåller ramverk för djup inlärning och verktyg för maskin inlärning och data vetenskap. Om du vill visa en fullständig lista över installerade verktyg på den här avbildningen kan du läsa följande artikel: [Vad ingår i DSVM?](../../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm). |
-| Aktivera anslutning till fjärr skrivbord | <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina Virtual Machines (VM) med hjälp av fjärr skrivbord (RDP).</p><p>**Viktigt**: om du aktiverar den här inställningen öppnas endast **RDP** -porten på Linux-datorer. Om RDP redan har installerats och kon figurer ATS på avbildningen av den virtuella datorn kan du/studenter ansluta till virtuella datorer via RDP utan att följa ytterligare steg. <p>Om den virtuella dator avbildningen inte har RDP installerat och konfigurerad, måste du ansluta till Linux-datorn med SSH för första gången och installera RDP-och GUI-paket så att du/studenter kan ansluta till Linux-datorn med RDP senare. Mer information finns i [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md). Sedan publicerar du avbildningen så att eleverna kan RDP i de virtuella student Linux-datorerna.  |
+| Aktivera anslutning till fjärr skrivbord | <p>Data science-avbildningen har redan kon figurer ATS för att använda X2Go så att lärare och studenter kan ansluta med ett GUI-fjärrskrivbord.  X2Go kräver *inte* att inställningen **Aktivera fjärr skrivbords anslutning** är aktive rad.  Den här inställningen måste aktive ras om du väljer att använda RDP i stället.
+
+>**Viktigt**! även om vi rekommenderar att du använder X2Go med data vetenskaps avbildningen, måste du ansluta till den virtuella Linux-datorn med SSH första gången och installera RDP-och GUI-paketen om du väljer att använda RDP.  Sedan kan du/studenter ansluta till den virtuella Linux-datorn med RDP senare.  Mer information finns i [Aktivera grafiskt fjärr skrivbord för virtuella Linux-datorer](how-to-enable-remote-desktop-linux.md).
 
 Data Science Virtual Machine för Linux-avbildningen ger de nödvändiga djup inlärnings ramverk och verktyg som krävs för den här typen av klass. När du har skapat mallen behöver du alltså inte anpassa den ytterligare. Det kan publiceras för studenter att använda. Klicka på knappen **publicera** på mallsida för att publicera mallen i labbet.  
 

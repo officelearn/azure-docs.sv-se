@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d68c36e7d6603cb8cdc906ad2a0280094e6e0e5
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484595"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698256"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Parsa JSON-och Avro-data i Azure Stream Analytics
 
@@ -19,7 +19,8 @@ Azure Stream Analytics att bearbeta händelser i CSV-, JSON-och Avro data format
 
 >[!NOTE]
 >AVRO-filer som skapats av Event Hub-insamling använder ett speciellt format som kräver att du använder funktionen *anpassad deserialisering* . Mer information finns i [läsa in indata i alla format med anpassade .net-deserialiserare](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
-
+>
+>AVRO-deserialisering stöder inte mappnings typen. Stream Analytics Stream Analytics kan inte läsa EventHub Capture-blobbar eftersom EventHub-fångsten använder Map.
 
 
 ## <a name="record-data-types"></a>Registrera data typer
@@ -69,7 +70,7 @@ Resultatet är:
 
 
 ### <a name="select-all-properties"></a>Välj alla egenskaper
-Du kan välja alla egenskaper för en kapslad post med jokertecknet *. Ta följande som exempel:
+Du kan välja alla egenskaper för en kapslad post med jokertecknet *. Se följande exempel:
 
 ```SQL
 SELECT

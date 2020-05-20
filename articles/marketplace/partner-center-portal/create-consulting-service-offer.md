@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.date: 05/19/2020
+ms.openlocfilehash: bd9d643708515855e81ac6729843388a690b2c45
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994358"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700952"
 ---
 # <a name="create-a-consulting-service-offer"></a>Skapa ett konsulttjänsterbjudande
 
@@ -32,8 +32,8 @@ Fördelar med att publicera till den kommersiella marknads platsen:
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
-3. På sidan Översikt väljer du **+ ny erbjudande** > **konsult tjänst**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3. På sidan Översikt väljer du **+ ny erbjudande**  >  **konsult tjänst**.
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-consulting-service.png)
 
@@ -45,7 +45,7 @@ Fördelar med att publicera till den kommersiella marknads platsen:
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet.
-- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -108,7 +108,7 @@ Välj **Spara utkast** innan du fortsätter.
 Här definierar du de erbjudande uppgifter som visas i Marketplace. Detta inkluderar erbjudandets namn, beskrivning, bilder och så vidare. Se till att följa de principer som beskrivs på [sidan för certifierings principer för kommersiella marknads platser](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) när du konfigurerar det här erbjudandet.
 
 > [!NOTE]
-> Erbjudande information krävs inte på engelska om erbjudande beskrivningen börjar med frasen, &quot;är det här programmet endast tillgängligt på [språk som inte är engelska]. &quot; Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
+> Erbjudande information krävs inte på engelska om erbjudande beskrivningen börjar med frasen, &quot; är det här programmet endast tillgängligt på [språk som inte är engelska]. &quot; Det går också att tillhandahålla en användbar länk för att erbjuda innehåll på ett annat språk än det som används i listan med erbjudande information.
 
 ### <a name="name"></a>Name
 
@@ -124,34 +124,13 @@ Namnet:
 
 Ange en kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt och används i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
-Ange en längre Beskrivning av erbjudandet, upp till 3 000 tecken. Detta visas för kunder i Översikt över Marketplace-registrering.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Inkludera ett eller flera av följande i din beskrivning:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Värdet och viktiga fördelar som ditt erbjudande ger
-- Kategori-eller bransch kopplingar, eller båda
-- Köp möjligheter i appen
-- Eventuella upplysningar som krävs
-
-Här följer några tips om hur du skriver beskrivningen:
-
-- Beskriv tydligt värdet för ditt erbjudande i de första meningarna i beskrivningen. Ta med följande objekt:
-  - Beskrivning av erbjudandet.
-  - Typen av användare som fördelar från erbjudandet.
-  - Kunden behöver eller utfärdar erbjudandena adresser.
-- Kom ihåg att de första meningarna kan visas i Sök resultaten.
-- Förlita dig inte på funktioner och funktioner för att sälja produkten. I stället fokuserar du på det värde som erbjudandet erbjuder.
-- Försök att använda branschspecifika vokabulär eller kunskapsbaserade orda lydelse.
-
-Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
-
-![Använda Rich Text Editor](./media/rich-text-editor.png)
-
-| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
-| --- | --- | --- |
-| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="keywords"></a>Nyckelord
 
@@ -174,7 +153,7 @@ Lägg till upp till tre (men minst en) stöd för PDF-dokument för ditt erbjuda
 Ange logo typer och avbildningar som ska användas med ditt erbjudande. Alla bilder måste vara i PNG-format. Suddiga bilder kommer att avvisas.
 
 >[!Note]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 #### <a name="store-logos"></a>Butiks logo typer
 

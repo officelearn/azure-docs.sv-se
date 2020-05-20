@@ -3,12 +3,12 @@ title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 01514847dcd38842d70c4caef2e38df9df3f620a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5c1ad55a86e80808b9055fd1b34a2d72209464a2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652079"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697077"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -62,19 +62,12 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för
 | **Möjliga orsaker**    | Mål platsen för säkerhets kopieringen kan ha uppdaterats från backint till fil systemet, eller så har den körbara filen backint ändrats |
 | **Rekommenderad åtgärd** | Utlös en fullständig säkerhets kopiering för att lösa problemet                   |
 
-### <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore
-
-| Felmeddelande      | <span style="font-weight:normal">Käll-och mål systemen för återställning är inkompatibla</span>    |
-| ------------------ | ------------------------------------------------------------ |
-| **Möjliga orsaker**    | Mål systemet för återställning är inte kompatibelt med källan |
-| **Rekommenderad åtgärd** | Se SAP NOTE [1642148](https://launchpad.support.sap.com/#/notes/1642148) för mer information om de återställnings typer som stöds idag |
-
 ### <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected
 
 | Felmeddelande      | <span style="font-weight:normal">SDC till MDC-uppgradering upptäcktes</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
 | **Möjliga orsaker**    | SAP HANA-instansen har uppgraderats från SDC till MDC. Säkerhets kopieringar kommer att Miss lyckas efter uppdateringen. |
-| **Rekommenderad åtgärd** | Följ stegen som beskrivs i [avsnittet Uppgradera från SAP HANA 1,0 till 2,0](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) för att lösa problemet |
+| **Rekommenderad åtgärd** | Följ stegen som anges i [SDC för att MDC uppgraderingen](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) för att lösa problemet |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
@@ -88,7 +81,7 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för
 |Felmeddelande  |Käll-och mål systemen för återställning är inkompatibla  |
 |---------|---------|
 |Möjliga orsaker   | Käll-och mål systemen som valts för återställning är inkompatibla        |
-|Rekommenderad åtgärd   |   Se till att återställnings scenariot inte finns i följande lista över möjliga inkompatibla återställningar: <br><br>   **Fall 1:** SYSTEMDB kan inte byta namn under återställningen.  <br><br> **Fall 2:** Source-SDC och Target-MDC: käll databasen kan inte återställas som SYSTEMDB eller klient organisations databasen på målet. <br><br> **Fall 3:** Source-MDC och Target-SDC: det går inte att återställa käll databasen (SYSTEMDB eller klient organisations databasen) till målet. <br><br>  Mer information finns i anmärkning 1642148 i Start [fönstret för SAP-support](https://launchpad.support.sap.com). |
+|Rekommenderad åtgärd   |   Se till att ditt återställnings scenario inte finns i följande lista över möjliga inkompatibla återställningar: <br><br>   **Fall 1:** SYSTEMDB kan inte byta namn under återställningen.  <br><br> **Fall 2:** Source-SDC och Target-MDC: käll databasen kan inte återställas som SYSTEMDB eller klient organisations databasen på målet. <br><br> **Fall 3:** Source-MDC och Target-SDC: det går inte att återställa käll databasen (SYSTEMDB eller klient organisations databasen) till målet. <br><br>  Mer information finns i anmärkning **1642148** i Start [fönstret för SAP-support](https://launchpad.support.sap.com). |
 
 ## <a name="restore-checks"></a>Återställnings kontroller
 
@@ -111,25 +104,83 @@ Observera följande punkter:
 
 I flera container-databaser för HANA är standard konfigurationen SYSTEMDB + 1 eller flera klient-databaser. Att återställa en hel SAP HANA instans innebär att återställa både SYSTEMDB-och klient databaser. En återställer SYSTEMDB först och fortsätter sedan för klient organisations databasen. System DB innebär i princip att åsidosätta system informationen på det valda målet. Den här återställningen åsidosätter också BackInt-relaterad information i mål instansen. Så när system databasen har återställts till en mål instans kör du skriptet för för registrering igen. Det går bara att återställa efterföljande klient databas återställningar.
 
-## <a name="upgrading-from-sap-hana-10-to-20"></a>Uppgraderar från SAP HANA 1,0 till 2,0
+## <a name="back-up-a-replicated-vm"></a>Säkerhetskopiera en replikerad virtuell dator
 
-Om du skyddar SAP HANA 1,0-databaser och vill uppgradera till 2,0 utför du följande steg:
+### <a name="scenario-1"></a>Scenario 1
 
-- [Stoppa skyddet](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) med Behåll data för den gamla SDC-databasen.
-- Genomför uppgraderingen. Efter slut för ande är HANA nu MDC med en system databas och klient organisations databas (er)
-- Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) med rätt information om (sid och MDC).
-- Omregistrera tillägget för samma dator i Azure Portal (säkerhets kopierings > Visa information – > Välj den relevanta Azure VM-> omregistrera).
-- Klicka på identifiera om databaser för samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 2 med rätt information (SYSTEMDB och klient organisations databasen, inte SDC).
-- Konfigurera säkerhets kopiering för dessa nya databaser.
+Den ursprungliga virtuella datorn replikerades med Azure Site Recovery eller virtuella Azure-säkerhetskopieringar. Den nya virtuella datorn har skapats för att simulera den gamla virtuella datorn. Det vill säga inställningarna är exakt desamma. (Detta beror på att den ursprungliga virtuella datorn togs bort och återställningen gjordes från VM-säkerhetskopiering eller Azure Site Recovery).
 
-## <a name="upgrading-without-an-sid-change"></a>Uppgradera utan en SID-ändring
+Det här scenariot kan innehålla två möjliga fall. Lär dig hur du säkerhetskopierar den replikerade virtuella datorn i båda fallen:
 
-Uppgraderingar av OS eller SAP HANA som inte orsakar en SID ändring kan hanteras enligt beskrivningen nedan:
+1. Den nya virtuella datorn har samma namn och finns i samma resurs grupp och prenumeration som den borttagna virtuella datorn.
 
-- [Stoppa skyddet](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) med Behåll data för databasen
-- Genomför uppgraderingen.
-- Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana)igen. Vi har vanligt vis sett uppgraderings processen som tar bort de nödvändiga rollerna. Genom att köra skriptet för för registrering kan du kontrol lera alla nödvändiga roller.
-- [Återuppta skyddet](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) av databasen igen
+    - Tillägget finns redan på den virtuella datorn, men är inte synligt för någon av tjänsterna
+    - Kör skriptet för för registrering
+    - Registrera tillägget på nytt för samma dator i Azure Portal (**Backup**  ->  **information om** säkerhets kopia-> Markera den relevanta Azure VM-> omregistrera)
+    - De redan befintliga säkerhetskopierade databaserna (från den borttagna virtuella datorn) bör sedan börja säkerhets kopie ras
+
+2. Den nya virtuella datorn som skapas har antingen:
+
+    - ett annat namn än den borttagna virtuella datorn
+    - samma namn som den borttagna virtuella datorn men finns i en annan resurs grupp eller prenumeration (jämfört med den borttagna virtuella datorn)
+
+    Gör i så fall följande steg:
+
+    - Tillägget finns redan på den virtuella datorn, men är inte synligt för någon av tjänsterna
+    - Kör skriptet för för registrering
+    - Om du identifierar och skyddar de nya databaserna börjar du se duplicera aktiva databaser i portalen. Undvik detta genom att [stoppa skyddet med Behåll data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) för de gamla databaserna. Fortsätt sedan med återstående steg.
+    - Identifiera databaserna för att aktivera säkerhets kopiering
+    - Aktivera säkerhets kopiering på dessa databaser
+    - De redan befintliga säkerhetskopierade databaserna (från den borttagna virtuella datorn) fortsätter att lagras i valvet (och deras säkerhets kopior bevaras enligt principen)
+
+### <a name="scenario-2"></a>Scenario 2
+
+Den ursprungliga virtuella datorn replikerades med Azure Site Recovery eller virtuella Azure-säkerhetskopieringar. Den nya virtuella datorn byggdes ut från innehållet – och används som mall. Det här är en ny virtuell dator med ett nytt SID.
+
+Följ de här stegen för att aktivera säkerhets kopiering på den nya virtuella datorn:
+
+- Tillägget finns redan på den virtuella datorn, men är inte synligt för någon av tjänsterna
+- Kör skriptet för för registrering. Två scenarier kan uppstå baserat på SID för den nya virtuella datorn:
+  - Den ursprungliga virtuella datorn och den nya virtuella datorn har samma SID. Skriptet för för registrering kommer att köras.
+  - Den ursprungliga virtuella datorn och den nya virtuella datorn har olika sid. Skriptet för för registrering kommer inte att fungera. Kontakta supporten för att få hjälp i det här scenariot.
+- Identifiera de databaser som du vill säkerhetskopiera
+- Aktivera säkerhets kopiering på dessa databaser
+
+## <a name="sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm"></a>SDC versions uppgradering eller MDC versions uppgradering på samma virtuella dator
+
+Uppgraderingar av operativ systemet, SDC versions ändring eller MDC versions ändring som inte orsakar en SID ändring kan hanteras på följande sätt:
+
+- Se till att den nya versionen av OS, SDC eller MDC stöds för närvarande [av Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
+- [Stoppa skyddet med Behåll data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) för databasen
+- Genomför uppgraderingen eller uppdateringen
+- Kör skriptet för för registrering igen. Vanligt vis tar uppgraderings processen bort de nödvändiga rollerna. Genom att köra skriptet för för registrering kan du kontrol lera alla nödvändiga roller
+- Återuppta skyddet av databasen igen
+
+## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>SDC till MDC-uppgradering utan ändring i SID
+
+Uppgraderingar från SDC till MDC som inte orsakar en SID ändring kan hanteras på följande sätt:
+
+- Se till att den nya MDC-versionen [stöds för närvarande av Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
+- [Stoppa skyddet med Behåll data](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) för den gamla SDC-databasen
+- Genomför uppgraderingen. Efter slut för ande är HANA-systemet nu MDC med system DB och klient databaser
+- Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) igen
+- Registrera tillägget på nytt för samma dator i Azure Portal (**Backup**  ->  **information om** säkerhets kopia-> Markera den relevanta Azure VM-> omregistrera)
+- Klicka på **identifiera om databaser** för samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 3 som SYSTEMDB och klient organisations databasen, inte SDC
+- Den äldre SDC-databasen fortsätter att finnas i valvet och har tidigare säkerhetskopierade data som kvarhålls enligt principen
+- Konfigurera säkerhets kopiering för dessa databaser
+
+## <a name="sdc-to-mdc-upgrade-with-a-change-in-sid"></a>SDC till MDC-uppgradering med en ändring i SID
+
+Uppgraderingar från SDC till MDC som orsakar en SID ändring kan hanteras på följande sätt:
+
+- Se till att den nya MDC-versionen [stöds för närvarande av Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
+- **Stoppa skyddet med Behåll data** för den gamla SDC-databasen
+- Genomför uppgraderingen. Efter slut för ande är HANA-systemet nu MDC med system DB och klient databaser
+- Kör [skriptet för för registrering](https://aka.ms/scriptforpermsonhana) med rätt information (ny sid-och MDC). På grund av en ändring i SID kan du stöta på problem med att köra skriptet. Kontakta Azure Backup support om du har problem.
+- Registrera tillägget på nytt för samma dator i Azure Portal (**Backup**  ->  **information om** säkerhets kopia-> Markera den relevanta Azure VM-> omregistrera)
+- Klicka på **identifiera om databaser** för samma virtuella dator. Den här åtgärden ska visa den nya databaser i steg 3 som SYSTEMDB och klient organisations databasen, inte SDC
+- Den äldre SDC-databasen kommer fortfarande att finnas kvar i valvet och har tidigare säkerhetskopierade data som kvarhålls enligt principen
+- Konfigurera säkerhets kopiering för dessa databaser
 
 ## <a name="re-registration-failures"></a>Försök att registrera igen
 
@@ -139,7 +190,7 @@ Kontrol lera om det finns ett eller flera av följande symptom innan du utlöser
 - Om **säkerhets kopierings status** fältet för det säkerhetskopierade objektet **visas kan du**utesluta alla andra orsaker som kan resultera i samma status:
 
   - Saknar behörighet att utföra säkerhetskopierade åtgärder på den virtuella datorn
-  - Den virtuella datorn har stängts av, så säkerhets kopieringen kan inte ske
+  - Den virtuella datorn stängs av, så säkerhets kopieringen kan inte ske
   - Nätverks problem
 
 Dessa symtom kan uppstå på grund av en eller flera av följande orsaker:

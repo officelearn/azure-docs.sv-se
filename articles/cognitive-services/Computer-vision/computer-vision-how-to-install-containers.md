@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 838b759f6b175b478dcd9b0559784975b5d24f70
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f1b6b9ffb53972aa81d6dd1150640b8db9dd7be9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593348"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698573"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installera och köra Läs behållare (förhands granskning)
 
@@ -26,7 +26,7 @@ En enda Docker-behållare, *Läs*, är tillgänglig för visuellt innehåll. Med
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste uppfylla följande krav innan du använder behållarna:
 
@@ -37,6 +37,8 @@ Du måste uppfylla följande krav innan du använder behållarna:
 |Visuellt innehåll resurs |För att du ska kunna använda behållaren måste du ha:<br><br>En Azure **visuellt innehåll** -resurs och den tillhör ande API-nyckeln slut punkts-URI. Båda värdena är tillgängliga på sidorna översikt och nycklar för resursen och krävs för att starta behållaren.<br><br>**{Api_key}**: en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}**: slut punkten enligt vad som anges på sidan **Översikt**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
+
+Fyll i och skicka [formuläret för begäran](https://aka.ms/VisionContainersPreview) för att begära åtkomst till behållaren. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b7580843bc5ad90ebc394c41e81f4d16f51ccb1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80891466"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701761"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Konfigurera NSG flödes loggar från en Azure Resource Manager mall
 
@@ -27,7 +27,7 @@ ms.locfileid: "80891466"
 > - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
-> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [REST-API](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
@@ -110,7 +110,7 @@ Nedan visas två exempel på kompletta mallar för att ställa in NSG Flow-logga
 ```
 
 > [!NOTE]
-> * Resurs namnet har formatet "överordnad resurs>/Child-resurs". Här är den överordnade resursen den regionala Network Watcher-instansen (format<RegionName>: NetworkWatcher_. Exempel: NetworkWatcher_centraluseuap)
+> * Resurs namnet har formatet "överordnad Resource_Child resurs". Här är den överordnade resursen den regionala Network Watcher-instansen (format: NetworkWatcher_RegionName. Exempel: NetworkWatcher_centraluseuap)
 > * targetResourceId är resurs-ID för mål NSG
 > * storageId är resurs-ID för mål lagrings kontot
 
@@ -156,13 +156,18 @@ Nedan visas två exempel på kompletta mallar för att ställa in NSG Flow-logga
 ## <a name="deploying-your-azure-resource-manager-template"></a>Distribuera din Azure Resource Manager-mall
 
 I den här självstudien förutsätter vi att du har en befintlig resurs grupp och en NSG. du kan aktivera flödes inloggning.
-Du kan spara alla ovanstående exempel mallar lokalt som `azuredeploy.json`. Uppdatera egenskapsvärdena så att de pekar på giltiga resurser i din prenumeration.
+Du kan spara alla ovanstående exempel mallar lokalt som `azuredeploy.json` . Uppdatera egenskapsvärdena så att de pekar på giltiga resurser i din prenumeration.
 
 Distribuera mallen genom att köra följande kommando i PowerShell.
 ```azurepowershell
+$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
 ```
+
+> [!NOTE]
+> Ovanstående kommandon distribuerar en resurs till resurs gruppen NetworkWatcherRG och inte den resurs grupp som innehåller NSG
 
 
 ## <a name="verifying-your-deployment"></a>Verifiera distributionen

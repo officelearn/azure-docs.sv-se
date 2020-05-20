@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0a890139f9d7a955a5c96262d6e5b8f275e61d0d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a5dbdc4baea0973797427672c9171b4bf841086f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675932"
+ms.locfileid: "83701386"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -93,7 +93,7 @@ Följande villkor gäller för försök Azure Cosmos DB prenumerationer:
 * Global replikering är tillgängligt i följande [Azure-regioner](https://azure.microsoft.com/regions/): centrala USA, norra europa och Sydostasien
 * Maximalt data flöde på 5 K RU/s vid etablering på container nivå.
 * Maximalt data flöde för 20 000 RU/s vid etablering på databas nivå.
-* Prenumerationerna upphör att gälla efter 30 dagar och kan utökas till maximalt 31 dagar.
+* Prenumerationerna upphör att gälla efter 30 dagar och kan utökas till maximalt 31 dagar. Efter förfallo datum raderas informationen som ingår.
 * Det går inte att skapa biljetter för Azure-Support för try Azure Cosmos DB-konton. Support ges dock för prenumeranter med befintliga support avtal.
 
 ## <a name="set-up-azure-cosmos-db"></a>Konfigurera Azure Cosmos DB

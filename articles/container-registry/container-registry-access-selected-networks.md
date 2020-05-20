@@ -1,14 +1,14 @@
 ---
-title: Konfigurera brand Väggs regler för tjänsten
+title: Konfigurera offentlig register åtkomst
 description: Konfigurera IP-regler för att aktivera åtkomst till ett Azure Container Registry från valda offentliga IP-adresser eller adress intervall.
 ms.topic: article
-ms.date: 05/04/2020
-ms.openlocfilehash: f6459061ca486b4bf229409e6ec1ed1bd808a474
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 05/19/2020
+ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984621"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702083"
 ---
 # <a name="configure-public-ip-network-rules"></a>Konfigurera regler för offentliga IP-nätverk
 
@@ -59,24 +59,46 @@ az acr network-rule add \
 
 ## <a name="disable-public-network-access"></a>Inaktivera offentlig nätverks åtkomst
 
-Om du vill begränsa trafiken till virtuella nätverk med hjälp av en [privat länk](container-registry-private-link.md)inaktiverar du den offentliga slut punkten i registret. Om du inaktiverar den offentliga slut punkten åsidosätts alla brand Väggs konfigurationer.
+Du kan också inaktivera den offentliga slut punkten i registret. Om du inaktiverar den offentliga slut punkten åsidosätts alla brand Väggs konfigurationer. Du kanske till exempel vill inaktivera offentlig åtkomst till ett register som skyddas i ett virtuellt nätverk med hjälp av en [privat länk](container-registry-private-link.md).
+
+### <a name="disable-public-access---cli"></a>Inaktivera offentlig åtkomst – CLI
+
+Om du vill inaktivera offentlig åtkomst med hjälp av Azure CLI kör du [AZ ACR Update][az-acr-update] och set `--public-network-enabled` till `false` . 
+
+> [!NOTE]
+> `public-network-enabled`Argumentet kräver Azure CLI 2.6.0 eller senare. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled false
+```
 
 ### <a name="disable-public-access---portal"></a>Inaktivera offentlig åtkomst – Portal
 
 1. I portalen navigerar du till ditt behållar register och väljer **inställningar > nätverk**.
-1. På fliken **offentlig åtkomst** , i **Tillåt offentlig åtkomst**, väljer du **inaktive rad**. Välj sedan **Spara**.
+1. På fliken **offentlig åtkomst** , i **Tillåt offentligt nätverks åtkomst**, väljer du **inaktive rad**. Välj sedan **Spara**.
 
 ![Inaktivera offentlig åtkomst][acr-access-disabled]
 
-## <a name="restore-default-registry-access"></a>Återställ standard register åtkomst
 
-Uppdatera standard åtgärden om du vill återställa registret för att tillåta åtkomst som standard. 
+## <a name="restore-public-network-access"></a>Återställ offentlig nätverks åtkomst
 
-### <a name="restore-default-registry-access---portal"></a>Återställa standard åtkomst till registret – portalen
+Om du vill återaktivera den offentliga slut punkten uppdaterar du nätverks inställningarna så att de tillåter offentlig åtkomst. Om du aktiverar den offentliga slut punkten åsidosätts alla brand Väggs konfigurationer. 
+
+### <a name="restore-public-access---cli"></a>Återställ offentlig åtkomst – CLI
+
+Kör [AZ ACR Update][az-acr-update] och Ställ in `--public-network-enabled` på `true` . 
+
+> [!NOTE]
+> `public-network-enabled`Argumentet kräver Azure CLI 2.6.0 eller senare. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled true
+```
+
+### <a name="restore-public-access---portal"></a>Återställ offentlig åtkomst – Portal
 
 1. I portalen navigerar du till ditt behållar register och väljer **inställningar > nätverk**.
-1. Under **brand vägg**väljer du varje adress intervall och väljer sedan ikonen Ta bort.
-1. På fliken **offentlig åtkomst** , i **Tillåt offentlig åtkomst**, väljer du **alla nätverk**. Välj sedan **Spara**.
+1. På fliken **offentlig åtkomst** , i **Tillåt offentligt nätverks åtkomst**, väljer du **alla nätverk**. Välj sedan **Spara**.
 
 ![Offentlig åtkomst från alla nätverk][acr-access-all-networks]
 

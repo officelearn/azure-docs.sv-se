@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7600eae27daf11c4fd02718abc25cef9006179e1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 23e3ccff11dc33858249565d3ad8396b19dd87c6
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683631"
+ms.locfileid: "83698884"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics Business Intelligence partners
 
@@ -27,7 +27,7 @@ Om du vill skapa en komplett informations lager lösning med Synapse SQL-pool i 
 | ------- | ----------- | -------------------- |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst ansluter hela organisationen genom ett nätverk av vävs virtualiserade BI-instanser ovanpå en delad gemensam analys infrastruktur|[Produkt sida](https://www.birst.com/)<br> |
 | ![ClearStory-data](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**ClearStory data (kontinuerliga affärs insikter)**<br>ClearStory-data möjliggör snabb cykel analys över olika data som lagras i Synapse SQL-poolen. ClearStory är en integrerad Spark-baserad plattform och analys av data åtkomst och harmonisering av olika data uppsättningar. De möjliggör snabba, samverkande utforskningar som har stöd för affärs användare för att få snabba insikter. |[Produkt sida](https://www.clearstorydata.com/product/continuous-insights/)<br> |
-| ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Dundas data visualisering är en ledande, global leverantör av program vara för Business Intelligence och data visualisering.  Dundas-instrumentpaneler, rapporter och visuella data analyser ger sömlös integrering i företags program, vilket möjliggör bättre beslut och snabbare insikter.|[Produkt sida](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/)<br> |
+| ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Dundas data visualisering är en ledande, global leverantör av program vara för Business Intelligence och data visualisering.  Dundas-instrumentpaneler, rapporter och visuella data analyser ger sömlös integrering i företags program, vilket möjliggör bättre beslut och snabbare insikter.|[Produkt sida](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dundas.dundas-bi)<br> |
 | ![IBM-Cognos](./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png) |**IBM Cognos-analys**<br>Cognos Analytics innehåller smarta självbetjänings funktioner som gör det enkelt, tydligt och enkelt att använda om du har erfarenhet av affärsanalytiker som undersöker Kinks i en omfattande leverans kedja eller en marknad som optimerar en enskild kampanj. Cognos Analytics använder AI och andra intelligenta funktioner för att göra den tunga att lyfta fram till att hjälpa data utforskningen och göra det enklare för användarna att få de svar de behöver|[Produkt sida](https://www.ibm.com/products/cognos-analytics)<br>|
 | ![Informations byggare](./media/sql-data-warehouse-partner-business-intelligence/informationbuilders_logo.png) |**Informations byggare (webfokus)**<br>Webfokusera Business Intelligence hjälper företag att använda data mer strategiskt över och utanför företaget. Det gör det möjligt för användare och administratörer att snabbt skapa instrument paneler som kombinerar innehåll från flera data källor och format. Den ger också robust säkerhet och omfattande styrning som möjliggör sömlös och säker delning av BI och Analytics-innehåll|[Produkt sida](https://www.informationbuilders.com/products/bi-and-analytics-platform)<br> |
 ![Jinfonet](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_logo.png) |**Jinfonet JReport**<br>JReport är en inbäddnings bara BI-lösning för företaget. Lösningen erbjuder en mängd funktioner som att skapa rapporter, instrument paneler och data analys i molnet, Big data och transaktions data källor. Genom att visualisera data kan du utföra din egen rapportering och data identifiering för smidig, direkt besluts fattande. |[Produkt sida](https://www.jinfonet.com/product/jreport-designer)<br> |

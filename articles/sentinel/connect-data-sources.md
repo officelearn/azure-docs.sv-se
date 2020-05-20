@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: yelevin
-ms.openlocfilehash: 5cb1f699f070bbb0c37d4b6adf5e919c7ec5d6cd
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 4060cfe08e91c87467a8ef6801adab6f027473bf
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82591983"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696864"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -104,7 +104,7 @@ Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-
 ## <a name="map-data-types-with-azure-sentinel-connection-options"></a>Mappa datatyper med anslutningsalternativ för Azure Sentinel
 
 
-| **Datatyp** | **Ansluta** | **Data koppling?** | **Kommentarer** |
+| **Datatyp** | **Så här ansluter du** | **Data koppling?** | **Kommentarer** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Ansluta AWS](connect-aws.md) | V | |
 | AzureActivity | Översikt över [Anslut Azure-aktivitet](connect-azure-activity.md) och [aktivitets loggar](../azure-monitor/platform/platform-logs-overview.md)| V | |
@@ -114,7 +114,7 @@ Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-
 | InformationProtectionLogs_CL  | [Azure Information Protection rapporter](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Ansluta till Azure Information Protection](connect-azure-information-protection.md)  | V | Detta använder vanligt vis **InformationProtectionEvents** -funktionen tillsammans med data typen. Mer information finns i [ändra rapporterna och skapa anpassade frågor](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
 | AzureNetworkAnalytics_CL  | Trafik [analys schema](../network-watcher/traffic-analytics.md) [Traffic analytics](../network-watcher/traffic-analytics.md) analys  | | |
 | CommonSecurityLog  | [Anslut CEF](connect-common-event-format.md)  | V | |
-| OfficeActivity | [Ansluta till Office 365](connect-office-365.md) | V | |
+| OfficeActivity | [Ansluta Office 365](connect-office-365.md) | V | |
 | SecurityEvents | [Ansluta till Windows säkerhetshändelser](connect-windows-security-events.md)  | V | Arbets böckerna för oskyddade protokoll finns i [arbets boks konfiguration för oskyddade protokoll](/azure/sentinel/quickstart-get-visibility#use-built-in-workbooks)  |
 | Syslog | [Ansluta till Syslog](connect-syslog.md) | V | |
 | Microsoft-brand vägg för webbaserade program (WAF) – (AzureDiagnostics) |[Anslut brand väggen för Microsoft-webbprogram](connect-microsoft-waf.md) | V | |
@@ -130,7 +130,7 @@ Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-
 | ASC-SecurityAlert  | [Ansluta till Azure Security Center](connect-azure-security-center.md)  | V | |
 | MCAS SecurityAlert  | [Anslut Microsoft Cloud App Security](connect-cloud-app-security.md)  | V | |
 | SecurityAlert | | | |
-| Sysmon (händelse) | [Anslut Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Anslut Windows-händelser](../azure-monitor/platform/data-sources-windows-events.md) <br> [Hämta Sysmon-parsern](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon-v10.42-Parser.txt)| X | Sysmon-samlingen installeras inte som standard på virtuella datorer. Mer information om hur du installerar Sysmon-agenten finns i [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
+| Sysmon (händelse) | [Anslut Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Anslut Windows-händelser](../azure-monitor/platform/data-sources-windows-events.md) <br> [Hämta Sysmon-parsern](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| X | Sysmon-samlingen installeras inte som standard på virtuella datorer. Mer information om hur du installerar Sysmon-agenten finns i [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
 | ConfigurationData  | [Automatisera VM-inventering](../automation/automation-vm-inventory.md)| X | |
 | ConfigurationChange  | [Automatisera spårning av virtuella datorer](../automation/change-tracking.md) | X | |
 | F5 BIG-IP | [Ansluta F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | X | |

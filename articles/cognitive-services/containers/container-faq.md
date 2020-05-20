@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592193"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701804"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Cognitive Services containers
 
@@ -22,7 +22,7 @@ ms.locfileid: "83592193"
 
 **F: Vad är tillgängligt?**
 
-**A:** Med Azure Cognitive Services-behållare kan utvecklare använda samma intelligenta API: er som är tillgängliga i Azure, men med [fördelarna](../cognitive-services-container-support.md#features-and-benefits) med skapa behållare. Vissa behållare är tillgängliga som en [gated Preview](../cognitive-services-gating-process.md), vilket kan kräva att ett program får åtkomst. Andra behållare är offentligt tillgängliga som en icke-grind för hands version eller är allmänt tillgängliga. Du hittar en fullständig lista över behållare och deras tillgänglighet i stöd för [behållare i Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) -artikeln. 
+**A:** Med Azure Cognitive Services-behållare kan utvecklare använda samma intelligenta API: er som är tillgängliga i Azure, men med [fördelarna](../cognitive-services-container-support.md#features-and-benefits) med skapa behållare. Vissa behållare är tillgängliga som en gated Preview-version som kan kräva att ett program får åtkomst. Andra behållare är offentligt tillgängliga som en icke-grind för hands version eller är allmänt tillgängliga. Du hittar en fullständig lista över behållare och deras tillgänglighet i stöd för [behållare i Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) -artikeln. 
 
 **F: finns det någon skillnad mellan Cognitive Services molnet och behållarna?**
 

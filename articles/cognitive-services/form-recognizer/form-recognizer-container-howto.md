@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 27ce3931e6808c5ba7ee0dbf9d3354220bbc0177
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a3860b2cedbdf8154658449349439f918775cb25
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592176"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701887"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Installera och kör formulär igenkännings behållare (förhands granskning)
 
@@ -31,7 +31,7 @@ För att minska komplexiteten och enkelt integrera en anpassad formulär igenkä
 
 Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du använder formulär igenkännings behållare måste du uppfylla följande krav:
 
@@ -67,7 +67,7 @@ Den här nyckeln används för att starta behållaren och är tillgänglig på s
 
 ## <a name="request-access-to-the-container-registry"></a>Begär åtkomst till behållar registret
 
-Fyll i och skicka [fråge formuläret för Cognitive Services containers](https://aka.ms/cognitivegate) för att begära åtkomst till behållaren.
+Fyll i och skicka [formuläret för begäran](https://aka.ms/FormRecognizerContainerRequestAccess) för att begära åtkomst till behållaren.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

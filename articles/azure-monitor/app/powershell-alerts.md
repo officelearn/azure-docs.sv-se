@@ -3,18 +3,18 @@ title: Använd PowerShell för att ställa in aviseringar i Application Insights
 description: Automatisera konfigurationen av Application Insights för att få e-postmeddelanden om mått ändringar.
 ms.topic: conceptual
 ms.date: 10/31/2016
-ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f35658b08eff7574448e3c72b103178b66acbbe0
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77669853"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701827"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Använd PowerShell för att ställa in aviseringar i Application Insights
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Du kan automatisera konfigurationen av [aviseringar](../../azure-monitor/app/alerts.md) i [Application Insights](../../azure-monitor/app/app-insights-overview.md).
+Du kan automatisera konfigurationen av [aviseringar](../../azure-monitor/platform/alerts-log.md) i [Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
 Dessutom kan du [ställa in Webhooks för att automatisera ditt svar på en avisering](../../azure-monitor/platform/alerts-webhooks.md).
 
@@ -89,7 +89,7 @@ Jag har ett program där jag använder [TrackMetric ()](../../azure-monitor/app/
 Samma regel kan användas för måttet som rapporteras med hjälp av [mått parametern](../../azure-monitor/app/api-custom-events-metrics.md#properties) för ett annat spårnings anrop, till exempel TrackEvent eller trackPageView.
 
 ## <a name="metric-names"></a>Mått namn
-| Måttnamn | Skärm namn | Beskrivning |
+| Måttnamn | Skärm namn | Description |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |Webbläsarundantag |Antal ej fångade undantag som har utlösts i webbläsaren. |
 | `basicExceptionServer.count` |Server undantag |Antal ohanterade undantag som har utlösts av appen |

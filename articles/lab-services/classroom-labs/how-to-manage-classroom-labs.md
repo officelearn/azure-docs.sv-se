@@ -13,34 +13,34 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a60f761e4ee575e3196bb1ccd3baa42f27221f8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4c2c02e47059d73e29da705fc9075721e080e636
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588181"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701787"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klass rums labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och tar bort ett klass rums labb. Det visar också hur du visar alla klass rums labb i ett labb konto. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i den här rollen. Labbägaren kan lägga till andra användare till rollen Lab Creator genom att använda stegen i följande artikel: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) (Lägg till en användare till rollen Lab Creator).
 
 ## <a name="create-a-classroom-lab"></a>Skapa ett klassrumslabb
 
 1. Gå till [webbplatsen för Azure Lab Services](https://labs.azure.com). Internet Explorer 11 stöds inte ännu. 
-2. Välj **Logga in** och ange dina autentiseringsuppgifter. Välj eller ange ett **användar-ID** som är medlem i rollen **labb skapare** i labb kontot och ange lösen ord. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
-3. Välj **nytt labb**. 
+1. Välj **Logga in** och ange dina autentiseringsuppgifter. Välj eller ange ett **användar-ID** som är medlem i rollen **labb skapare** i labb kontot och ange lösen ord. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
+1. Välj **nytt labb**. 
     
     ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-button.png)
-3. Utför följande i fönstret **Nytt labb**: 
+1. Utför följande i fönstret **Nytt labb**: 
     1. Ange ett **namn** på ditt labb. 
-    2. Välj **storlek på de virtuella datorer** som du behöver för klassen. En lista över tillgängliga storlekar finns i avsnittet [VM-storlekar](#vm-sizes) . 
-    3. Välj den **avbildning av virtuell dator** som du vill använda för klass rums labbet. Om du väljer en Linux-avbildning ser du ett alternativ för att aktivera anslutning till fjärr skrivbord för det. Mer information finns i [aktivera anslutning till fjärr skrivbord för Linux](how-to-enable-remote-desktop-linux.md).
+    1. Välj **storlek på de virtuella datorer** som du behöver för klassen. En lista över tillgängliga storlekar finns i avsnittet [VM-storlekar](#vm-sizes) . 
+    1. Välj den **avbildning av virtuell dator** som du vill använda för klass rums labbet. Om du väljer en Linux-avbildning ser du ett alternativ för att **aktivera anslutning till fjärr skrivbord**. Mer information finns i [aktivera anslutning till fjärr skrivbord för Linux](how-to-enable-remote-desktop-linux.md).
 
         Om du har loggat in med autentiseringsuppgifter för labb kontots ägare visas ett alternativ för att aktivera fler avbildningar för labbet. Mer information finns i [Aktivera avbildningar när labb skapas](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
-    4. Granska det **totala priset per timme** som visas på sidan. 
-    6. Välj **Spara**.
+    1. Granska det **totala priset per timme** som visas på sidan. 
+    1. Välj **Spara**.
 
         ![Nytt labb fönster](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 
@@ -70,24 +70,24 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
     ![Status för skapande av mall för virtuell dator](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. Utför följande steg på sidan **mall** : de här stegen är **valfria** för självstudierna.
 
-    2. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. Om det är en virtuell Linux-mall kan du välja om du vill ansluta med SSH eller RDP (om RDP är aktiverat).
+    1. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. Om det är en virtuell Linux-mall kan du välja om du vill ansluta med SSH eller ett användar gränssnitts fjärr skrivbord.  Det krävs ytterligare inställningar för att använda ett GUI-fjärrskrivbord. Mer information finns i [Aktivera grafiskt fjärr skrivbord för virtuella Linux-datorer](how-to-use-remote-desktop-linux-student.md) .
     1. Välj **Återställ lösen ord** för att återställa lösen ordet för den virtuella datorn. 
     1. Installera och konfigurera programvaran på mallen för den virtuella datorn. 
     1. **Stoppa** den virtuella datorn.  
     1. Ange en **beskrivning** för mallen
-10. Välj **publicera** i verktygsfältet på sidan **mall** . 
+9.  Välj **publicera** i verktygsfältet på sidan **mall** . 
 
     ![Knappen publicera mall](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
     > [!WARNING]
     > När du väl har publicerat kan du inte ångra publiceringen. 
-8. På sidan **publicera mall** anger du det antal virtuella datorer som du vill skapa i labbet och väljer sedan **publicera**. 
+10. På sidan **publicera mall** anger du det antal virtuella datorer som du vill skapa i labbet och väljer sedan **publicera**. 
 
     ![Publicera mall – antal virtuella datorer](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
 11. Du ser **statusen för att publicera** mallen på sidan. Den här processen kan ta upp till en timma. 
 
     ![Publicera mall – förlopp](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-4. Växla till sidan **Virtual Machines-pool** genom att välja virtuella datorer på den vänstra menyn eller genom att välja panelen virtuella datorer. Bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
+12. Växla till sidan **Virtual Machines-pool** genom att välja virtuella datorer på den vänstra menyn eller genom att välja panelen virtuella datorer. Bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
 
     ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 

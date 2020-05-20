@@ -58,6 +58,7 @@
       items:
         - name: Översikt över utdata
           href: stream-analytics-define-outputs.md
+          displayName: 'adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions'
         - name: Utdata till Cosmos DB
           href: stream-analytics-documentdb-output.md
         - name: Utdata till Azure SQL DB
@@ -127,14 +128,22 @@
           href: copy-job.md
         - name: Koppla jobb för tillförlitlighet
           href: stream-analytics-job-reliability.md
-        - name: Autentisera med hanterad identitet– ADLS Gen 1-utdata
-          href: stream-analytics-managed-identities-adls.md
         - name: Använda SQL-referensdata
           href: sql-reference-data.md
-        - name: Autentisera med hanterad identitet– blobutdata
-          href: blob-output-managed-identity.md
-        - name: Autentisera med hanterad identitet – Power BI
-          href: powerbi-output-managed-identity.md
+        - name: Autentisera med hanterad identitet
+          items:
+            - name: ADLS Gen 1
+              href: stream-analytics-managed-identities-adls.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Blob Storage
+              href: blob-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Power BI
+              href: powerbi-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Azure SQL-databas
+              href: sql-database-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
         - name: Kryptera dina data
           href: data-protection.md
     - name: Skapa lösningar
@@ -226,7 +235,19 @@
           href: stream-analytics-job-diagnostic-logs.md
         - name: Datafel
           href: data-errors.md
-    - name: Integrera med Machine Learning
+        - name: Felkoder
+          items:
+            - name: Konfigurationsfel
+              href: configuration-error-codes.md
+            - name: Datafel
+              href: data-error-codes.md
+            - name: Fel med extern tillgänglighet
+              href: external-availability-error-codes.md
+            - name: Externa fel
+              href: external-error-codes.md
+            - name: Interna fel
+              href: internal-error-codes.md
+    - name: Integrera med maskininlärning
       items:
         - name: Attitydanalys med maskininlärningsmodeller
           href: stream-analytics-machine-learning-integration-tutorial.md

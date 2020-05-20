@@ -48,6 +48,8 @@
       items:
         - name: Kundhanterade nycklar med Azure Key Vault
           href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Konfigurera inställningar för nätverksroutning
+      href: ../common/network-routing-preference.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Efterlevnadserbjudanden
       href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Utveckling

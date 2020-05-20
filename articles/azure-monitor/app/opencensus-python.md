@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6ef0675e3ae3f7a5da38138177f3033051723411
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bbc9fe8d53f231f590dba7e2bd493633c39a1383
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537116"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701515"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
 
@@ -19,7 +19,7 @@ Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av p
 
 ## <a name="prerequisites"></a>Krav
 
-- En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+- En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - Python-installation. Den här artikeln använder [python 3.7.0](https://www.python.org/downloads/), men tidigare versioner kommer förmodligen att fungera med mindre ändringar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
@@ -30,13 +30,13 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 Först måste du skapa en Application Insights resurs i Azure Monitor, vilket genererar en Instrumentation-nyckel (iKey). IKey används sedan för att konfigurera openräkning SDK för att skicka telemetridata till Azure Monitor.
 
-1. Välj **skapa ett** > **verktyg** > för resurs utvecklare**Application Insights**.
+1. Välj **skapa ett verktyg för resurs**  >  **utvecklare**  >  **Application Insights**.
 
    ![Lägga till en Application Insights resurs](./media/opencensus-python/0001-create-resource.png)
 
 1. En konfigurations ruta visas. Använd följande tabell för att fylla i inmatade fält.
 
-   | Inställning        | Värde           | Beskrivning  |
+   | Inställningen        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar den app som du övervakar |
    | **Resurs grupp**     | myResourceGroup      | Namn för den nya resurs gruppen som ska vara värd för Application Insights data |
@@ -55,7 +55,7 @@ python -m pip install opencensus-ext-azure
 En fullständig lista över paket och integreringar finns i [openräkning-paket](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus).
 
 > [!NOTE]
-> `python -m pip install opencensus-ext-azure` Kommandot förutsätter att du har en `PATH` miljö variabel uppsättning för python-installationen. Om du inte har konfigurerat den här variabeln måste du ge fullständig katalog Sök väg till den plats där din python-körbara fil finns. Resultatet är ett kommando som detta: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
+> `python -m pip install opencensus-ext-azure`Kommandot förutsätter att du har en `PATH` miljö variabel uppsättning för python-installationen. Om du inte har konfigurerat den här variabeln måste du ge fullständig katalog Sök väg till den plats där din python-körbara fil finns. Resultatet är ett kommando som detta: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure` .
 
 SDK använder tre Azure Monitor exportörer för att skicka olika typer av telemetri till Azure Monitor: spårning, mått och loggar. Mer information om dessa typer av telemetri finns i [Översikt över data plattformen](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform). Använd följande instruktioner för att skicka dessa typer av telemetri via de tre exportörerna.
 
@@ -68,7 +68,7 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
 ### <a name="trace"></a>Spårning
 
 > [!NOTE]
-> `Trace`i openräkning refererar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). `AzureExporter` Skickar `requests` och `dependency` telemetri till Azure Monitor.
+> `Trace`i openräkning refererar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing). `AzureExporter`Skickar `requests` och `dependency` telemetri till Azure Monitor.
 
 1. Först ska vi generera vissa spårnings data lokalt. I python-inaktivitet, eller valfritt redigerings program, anger du följande kod.
 
@@ -91,7 +91,7 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
         main()
     ```
 
-2. Genom att köra koden uppmanas du att ange ett värde upprepade gånger. Vid varje post skrivs värdet till gränssnittet och python-modulen för openräkning kommer att generera en motsvarande del av `SpanData`. Projektet openspanion definierar en [spårning som ett träd över spänner](https://opencensus.io/core-concepts/tracing/).
+2. Genom att köra koden uppmanas du att ange ett värde upprepade gånger. Vid varje post skrivs värdet till gränssnittet och python-modulen för openräkning kommer att generera en motsvarande del av `SpanData` . Projektet openspanion definierar en [spårning som ett träd över spänner](https://opencensus.io/core-concepts/tracing/).
     
     ```
     Enter a value: 4
@@ -105,7 +105,7 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-3. Även om `SpanData` du anger värden är användbart i demonstrations syfte, vi vill säga att vi vill generera till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING`. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om du anger värden är användbart i demonstrations syfte, vi vill säga att vi vill generera `SpanData` till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING` . Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -132,7 +132,7 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
         main()
     ```
 
-4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Den skapade `SpanData` kommer att skickas till Azure Monitor. Du hittar de utgivna span-data `dependencies`under. Mer information om utgående begär Anden finns i openräkningar python- [beroenden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency).
+4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Den skapade `SpanData` kommer att skickas till Azure Monitor. Du hittar de utgivna span-data under `dependencies` . Mer information om utgående begär Anden finns i openräkningar python- [beroenden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency).
 Mer information om inkommande begär Anden finns i openräkningar python- [begäranden](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request).
 
 #### <a name="sampling"></a>Samling
@@ -200,7 +200,7 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera mått data till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING`. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera mått data till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING` . Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     from datetime import datetime
@@ -248,11 +248,11 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
         main()
     ```
 
-4. Export verktyget skickar mått data till Azure Monitor med ett fast intervall. Standardvärdet är var 15: e sekund. Vi spårar ett enda mått, så dessa mått data, med det värde och den tidsstämpel som den innehåller, kommer att skickas varje intervall. Du kan hitta data under `customMetrics`.
+4. Export verktyget skickar mått data till Azure Monitor med ett fast intervall. Standardvärdet är var 15: e sekund. Vi spårar ett enda mått, så dessa mått data, med det värde och den tidsstämpel som den innehåller, kommer att skickas varje intervall. Du kan hitta data under `customMetrics` .
 
 #### <a name="standard-metrics"></a>Standard mått
 
-Som standard skickar mått export verktyget en uppsättning standard mått till Azure Monitor. Du kan inaktivera detta genom att `enable_standard_metrics` `False` ställa in flaggan på i konstruktorn för mått export verktyget.
+Som standard skickar mått export verktyget en uppsättning standard mått till Azure Monitor. Du kan inaktivera detta genom att ställa in `enable_standard_metrics` flaggan på `False` i konstruktorn för mått export verktyget.
 
     ```python
     ...
@@ -271,7 +271,7 @@ Nedan visas en lista över standard mått som har skickats för närvarande:
 - Processor användning för processor (procent andel)
 - Privata byte för process (byte)
 
-Du bör kunna se dessa mått i `performanceCounters`. Antalet inkommande begär anden skulle vara `customMetrics`under. Mer information finns i [prestanda räknare](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
+Du bör kunna se dessa mått i `performanceCounters` . Antalet inkommande begär anden skulle vara under `customMetrics` . Mer information finns i [prestanda räknare](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters).
 
 #### <a name="modify-telemetry"></a>Ändra telemetri
 
@@ -311,7 +311,7 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
     90
     ```
 
-3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera loggdata till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING`. Ändra koden från föregående steg baserat på följande kod exempel:
+3. Även om det är praktiskt att ange värden i demonstrations syfte, vill vi i slut ändan generera loggdata till Azure Monitor. Skicka anslutnings strängen direkt till export verktyget eller så kan du ange den i en miljö variabel `APPLICATIONINSIGHTS_CONNECTION_STRING` . Ändra koden från föregående steg baserat på följande kod exempel:
 
     ```python
     import logging
@@ -336,12 +336,12 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
         main()
     ```
 
-4. Export verktyget kommer att skicka loggdata till Azure Monitor. Du kan hitta data under `traces`. 
+4. Export verktyget kommer att skicka loggdata till Azure Monitor. Du kan hitta data under `traces` . 
 
 > [!NOTE]
-> `traces`i den här kontexten är inte samma `Tracing`sak som. `traces`avser den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler`. `Tracing`refererar till ett begrepp i openräkning och relaterar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+> `traces`i den här kontexten är inte samma sak som `Tracing` . `traces`avser den typ av telemetri som visas i Azure Monitor när du använder `AzureLogHandler` . `Tracing`refererar till ett begrepp i openräkning och relaterar till [distribuerad spårning](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
-5. Om du vill formatera dina logg meddelanden kan du `formatters` använda i det inbyggda python- [loggnings-API: et](https://docs.python.org/3/library/logging.html#formatter-objects).
+5. Om du vill formatera dina logg meddelanden kan du använda `formatters` i det inbyggda python- [loggnings-API: et](https://docs.python.org/3/library/logging.html#formatter-objects).
 
     ```python
     import logging
@@ -393,7 +393,7 @@ Mer information om hur du ändrar spårad telemetri innan det skickas till Azure
 
 #### <a name="sending-exceptions"></a>Skickar undantag
 
-En python-räkning spårar inte automatiskt och `exception` skickar telemetri. De skickas genom att `AzureLogHandler` använda undantag via python-loggnings biblioteket. Du kan lägga till anpassade egenskaper precis som med normal loggning.
+En python-räkning spårar inte automatiskt och skickar `exception` telemetri. De skickas genom att `AzureLogHandler` använda undantag via python-loggnings biblioteket. Du kan lägga till anpassade egenskaper precis som med normal loggning.
 
     ```python
     import logging
@@ -436,9 +436,9 @@ Du kan visa telemetri-data som har skickats från ditt program via fliken **logg
 
 I listan under **Active**:
 
-- För telemetri som skickas med Azure Monitor trace-export ören visas inkommande begär `requests`Anden under. Utgående eller aktiva begär Anden visas under `dependencies`.
-- För telemetri som skickas med Azure Monitor Metrics-exporten visas de skickade måtten under `customMetrics`.
-- För telemetri som skickas med Azure Monitor loggar exportör visas loggar under `traces`. Undantag visas under `exceptions`.
+- För telemetri som skickas med Azure Monitor trace-export ören visas inkommande begär Anden under `requests` . Utgående eller aktiva begär Anden visas under `dependencies` .
+- För telemetri som skickas med Azure Monitor Metrics-exporten visas de skickade måtten under `customMetrics` .
+- För telemetri som skickas med Azure Monitor loggar exportör visas loggar under `traces` . Undantag visas under `exceptions` .
 
 Mer detaljerad information om hur du använder frågor och loggar finns [i loggar i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-logs).
 
@@ -461,4 +461,4 @@ Mer detaljerad information om hur du använder frågor och loggar finns [i logga
 
 * [Tillgänglighetstester](../../azure-monitor/app/monitor-web-app-availability.md): Skapa tester som kan användas för att kontrollera att webbplatsen visas på webben.
 * [Smart diagnostik](../../azure-monitor/app/proactive-diagnostics.md): De här testerna körs automatiskt, så du behöver inte göra något för att konfigurera dem. De berättar om din app har ett ovanligt antal misslyckade begäranden.
-* [Mått aviseringar](../../azure-monitor/app/alerts.md): Ställ in aviseringar för att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.
+* [Mått aviseringar](../../azure-monitor/platform/alerts-log.md): Ställ in aviseringar för att varna dig om ett mått överskrider ett tröskelvärde. Du kan ställa in dem för anpassade mätningar som du kodar i din app.

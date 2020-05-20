@@ -5,14 +5,14 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 06e5a1a7b107f949dbb4945ef4d3116b9fa6d076
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656596"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697341"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Läsa ändringsflödet i Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Du kan arbeta med Azure Cosmos DB ändra feed med antingen en push-modell eller 
 
 Med en pull-modell kommer en server att fungera, vilket ofta begär den från en central arbetskö. Klienten, i det här fallet, innehåller inte bara affärs logik för bearbetning av ändringar utan även lagring av tillstånd för den senast bearbetade ändringen, hantering av belastnings utjämning över flera klienter som bearbetar ändringar parallellt och hanterar fel.
 
-När du läser från Azure Cosmos DB ändra feed rekommenderas du vanligt vis att använda en push-modell eftersom du inte behöver oroa dig för:
+När du läser från Azure Cosmos DB ändra feed rekommenderar vi vanligt vis att du använder en push-modell eftersom du inte behöver oroa dig för:
 
 - Avsöker ändrings flödet för framtida ändringar.
 - Lagrar tillstånd för den senast bearbetade ändringen. När du läser från ändrings flödet lagras det automatiskt i en [container](change-feed-processor.md#components-of-the-change-feed-processor).

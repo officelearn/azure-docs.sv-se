@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 14cb5a06e9f51269d05468d36ecb6cd2bf19e40c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: af7d47c98e4716df3a6cbd222c7d3c8def48e5fc
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643618"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701634"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>DNS-konfiguration för privat slutpunkt i Azure
 
@@ -36,7 +36,7 @@ Dina program behöver inte ändra anslutnings-URL: en. När du försöker matcha
 
 För Azure-tjänster använder du de rekommenderade zon namnen enligt beskrivningen i följande tabell:
 
-| Resurs typ för privat länk/under resurs |Privat DNS zonnamn | Namn på offentlig DNS-zon |
+| Resurs typ för privat länk/under resurs |Privat DNS zonnamn | Offentliga DNS-zon vidarebefordrare |
 |---|---|---|---|
 | SQL DB (Microsoft. SQL/Servers)/SQL Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft. SQL/Servers)/SQL Server  | privatelink.database.windows.net | database.windows.net |
@@ -54,7 +54,7 @@ För Azure-tjänster använder du de rekommenderade zon namnen enligt beskrivnin
 | Azure Database for PostgreSQL-enskild server (Microsoft. DBforPostgreSQL/servers)/postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 | Azure Database for MySQL (Microsoft. DBforMySQL/servers)/multisqlserver | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Azure Database for MariaDB (Microsoft. DBforMariaDB/servers)/mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
-| Azure Key Vault (Microsoft. nyckel valv/valv)/valv | privatelink.vaultcore.azure.net | vault.azure.net |
+| Azure Key Vault (Microsoft. nyckel valv/valv)/valv | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
 | Azure Kubernetes service – Kubernetes API (Microsoft. container service/managedClusters)/managedCluster | privatelink. {region}. azmk8s. io | {region}. azmk8s. io |
 | Azure Search (Microsoft. search/searchServices)/searchService | privatelink.search.windows.net | search.windows.net |
 | Azure Container Registry (Microsoft. ContainerRegistry/register)/register | privatelink.azurecr.io | azurecr.io |
@@ -150,7 +150,7 @@ För att konfigurera korrekt behöver du följande resurser:
 Följande diagram illustrerar DNS-matchningsfel från ett lokalt nätverk som villkorligt vidarebefordrar DNS-trafik till Azure, där lösningen görs av en privat DNS-zon som är [länkad till ett virtuellt nätverk.](../dns/private-dns-virtual-network-links.md)
 
 > [!IMPORTANT]
-> Den villkorliga vidarebefordran måste göras till den [offentliga DNS-zonen](#azure-services-dns-zone-configuration)   ex:  `database.windows.net`   , i stället för **privatelink**. Database.Windows.net
+> Den villkorliga vidarebefordran måste göras till den rekommenderade [**offentliga DNS-zonen vidarebefordrare**](#azure-services-dns-zone-configuration)    `database.windows.net`   , i stället för **privatelink**. Database.Windows.net
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Lokal vidarebefordran till Azure DNS":::
 

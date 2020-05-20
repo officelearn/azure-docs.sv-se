@@ -4,22 +4,18 @@ description: Lär dig mer om GROUP BY-satsen för Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: 8a3cbbafc066747b62f79934f2cd12301aa1ba17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b602b56d37cec0e23d31318f6675d031bdd6bcdb
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261609"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701003"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>GROUP BY-sats i Azure Cosmos DB
 
 GROUP BY-satsen delar in frågans resultat enligt värdena för en eller flera angivna egenskaper.
-
-> [!NOTE]
-> Azure Cosmos DB stöder för närvarande GROUP BY i .NET SDK 3,3 och senare samt Java Script SDK 3,4 och senare.
-> Stöd för andra språk-SDK: er är inte tillgängligt för tillfället, men det är planerat.
 
 ## <a name="syntax"></a>Syntax
 
@@ -41,7 +37,7 @@ GROUP BY-satsen delar in frågans resultat enligt värdena för en eller flera a
   
    Ett skalärt uttryck tillåts förutom skalära under frågor och skalära mängder. Varje skalärt uttryck måste innehålla minst en egenskaps referens. Det finns ingen gräns för antalet enskilda uttryck eller kardinalitet för varje uttryck.
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
   
   När en fråga använder en GROUP BY-sats kan SELECT-satsen bara innehålla del mängden av de egenskaper och system funktioner som ingår i GROUP BY-satsen. Ett undantag är [agg regerings system funktioner](sql-query-aggregates.md)som kan visas i SELECT-satsen utan att ingå i Group by-satsen. Du kan också alltid inkludera litterala värden i SELECT-satsen.
 
@@ -56,7 +52,12 @@ GROUP BY-satsen delar in frågans resultat enligt värdena för en eller flera a
 Frågor med en sammansatt systemfunktion och en under fråga med `GROUP BY` stöds inte. Följande fråga stöds exempelvis inte:
 
 ```sql
-SELECT COUNT(UniqueLastNames) FROM (SELECT AVG(f.age) FROM f GROUP BY f.lastName) AS UniqueLastNames
+SELECT COUNT(UniqueLastNames)
+FROM (
+SELECT AVG(f.age)
+FROM f
+GROUP BY f.lastName
+) AS UniqueLastNames
 ```
 
 ## <a name="examples"></a>Exempel
@@ -74,22 +75,24 @@ GROUP BY f.foodGroup
 Vissa resultat är (det översta nyckelordet används för att begränsa resultaten):
 
 ```json
-[{
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "foodGroup": "Meals, Entrees, and Side Dishes",
-  "foodGroupCount": 113
-},
-{
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta"
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products"
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes"
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs"
+    }
+]
 ```
 
 Den här frågan har två uttryck som används för att dividera resultat:
@@ -103,26 +106,28 @@ GROUP BY f.foodGroup, f.version
 Vissa resultat:
 
 ```json
-[{
-  "version": 1,
-  "foodGroup": "Nut and Seed Products",
-  "foodGroupCount": 133
-},
-{
-  "version": 1,
-  "foodGroup": "Finfish and Shellfish Products",
-  "foodGroupCount": 267
-},
-{
-  "version": 1,
-  "foodGroup": "Fast Foods",
-  "foodGroupCount": 371
-},
-{
-  "version": 1,
-  "foodGroup": "Sausages and Luncheon Meats",
-  "foodGroupCount": 244
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "foodGroup": "Cereal Grains and Pasta",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 133,
+        "foodGroup": "Nut and Seed Products",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 113,
+        "foodGroup": "Meals, Entrees, and Side Dishes",
+        "version": 1
+    },
+    {
+        "foodGroupCount": 64,
+        "foodGroup": "Spices and Herbs",
+        "version": 1
+    }
+]
 ```
 
 Den här frågan har en systemfunktion i GROUP BY-satsen:
@@ -136,22 +141,24 @@ GROUP BY UPPER(f.foodGroup)
 Vissa resultat:
 
 ```json
-[{
-  "foodGroupCount": 371,
-  "upperFoodGroup": "FAST FOODS"
-},
-{
-  "foodGroupCount": 267,
-  "upperFoodGroup": "FINFISH AND SHELLFISH PRODUCTS"
-},
-{
-  "foodGroupCount": 389,
-  "upperFoodGroup": "LEGUMES AND LEGUME PRODUCTS"
-},
-{
-  "foodGroupCount": 113,
-  "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
-}]
+[
+    {
+        "foodGroupCount": 183,
+        "upperFoodGroup": "CEREAL GRAINS AND PASTA"
+    },
+    {
+        "foodGroupCount": 133,
+        "upperFoodGroup": "NUT AND SEED PRODUCTS"
+    },
+    {
+        "foodGroupCount": 113,
+        "upperFoodGroup": "MEALS, ENTREES, AND SIDE DISHES"
+    },
+    {
+        "foodGroupCount": 64,
+        "upperFoodGroup": "SPICES AND HERBS"
+    }
+]
 ```
 
 Den här frågan använder både nyckelord och system funktioner i uttryck för objekt egenskaper:
@@ -165,16 +172,18 @@ GROUP BY ARRAY_CONTAINS(f.tags, {name: 'orange'}), f.version BETWEEN 0 AND 2
 Resultatet är:
 
 ```json
-[{
-  "correctVersion": true,
-  "containsOrangeTag": false,
-  "foodGroupCount": 8608
-},
-{
-  "correctVersion": true,
-  "containsOrangeTag": true,
-  "foodGroupCount": 10
-}]
+[
+    {
+        "foodGroupCount": 10,
+        "containsOrangeTag": true,
+        "correctVersion": true
+    },
+    {
+        "foodGroupCount": 8608,
+        "containsOrangeTag": false,
+        "correctVersion": true
+    }
+]
 ```
 
 ## <a name="next-steps"></a>Nästa steg

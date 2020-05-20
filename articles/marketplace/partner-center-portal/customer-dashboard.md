@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 4d9dc0315a5c87ed67390e8edb23d44ee55f242b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 37569eba0d351fdedcd68042af2e33b0e3947faa
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732775"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701512"
 ---
-# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Kund instrument panel på kommersiell Marketplace-analys
+# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Instrumentpanelen för kunder i Commercial Marketplace-analys
 
 Den här artikeln innehåller information om **kund instrument panelen** i Partner Center. Den här instrument panelen visar information om dina kunder, inklusive tillväxt trender, som presenteras i ett grafiskt och nedladdnings Bart format.
 
@@ -97,7 +97,8 @@ Tabellen **kund information** visar en numrerad lista över de 1000 främsta kun
 - Varje kolumn i rutnätet är sorterbar.
 - Data kan extraheras till en TSV-fil om antalet poster är mindre än 1000.
 - Om poster är över 1000 kommer exporterade data att placeras asynkront på en nedladdnings sida under de närmaste 30 dagarna.
-- Filter kan tillämpas på tabellen för att visa endast de data som du är intresse rad av. Data kan filtreras efter företags namn, kund-ID, marknads plats prenumerations-ID, typ av Azure-licens, datum för inhämtat, datum förlorat, kund-e-post, kund land/delstat/ort/post, kund språk osv.
+- Filter kan tillämpas på tabellen för att visa endast de data som du är intresse rad av. Data kan filtreras efter företags namn, kund-ID, marknads plats prenumerations-ID, typ av Azure-licens, förvärvs datum, datum förlorat, kund-e-post, kund land/delstat/ort/post, kund språk och så vidare.
+- När ett erbjudande köps av en skyddad kund kommer information i **kundens detaljerade data** att maskeras (* * * * * * * *).
 
 ### <a name="customer-page-filters"></a>Kund sid filter
 

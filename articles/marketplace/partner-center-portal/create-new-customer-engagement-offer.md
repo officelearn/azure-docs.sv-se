@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: cfec905d61daf961d9ca71026e9b7ec82f852bd5
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 7de57c9a69e60e8c342e067ff1e95a0f2cfadec8
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82734781"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699312"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Skapa ett erbjudande för Dynamics 365 for Customer Engagement & PowerApps
 
@@ -23,8 +23,8 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
-3. På sidan Översikt väljer du **+ nytt erbjudande** > **Dynamics 365 för kund engagemang & PowerApps**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3. På sidan Översikt väljer du **+ nytt erbjudande**  >  **Dynamics 365 för kund engagemang & PowerApps**.
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-dynamics-365-cepa.png)
 
@@ -36,7 +36,7 @@ Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Cent
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 - Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
-- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -112,7 +112,7 @@ På den här sidan kan du definiera de kategorier och branscher som ska använda
 
 Välj minst en och upp till tre kategorier. Dessa används för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Se till att du beskriver hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet.
 
-### <a name="industry"></a>Bransch
+### <a name="industry"></a>Industri
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
@@ -147,28 +147,13 @@ Det namn som du anger här visas för kunder som rubrik på din erbjudande lista
 
 Ange en kort beskrivning av erbjudandet, upp till 100 tecken. Beskrivningen kan användas i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
-Ange en längre Beskrivning av erbjudandet, upp till 3 000 tecken. Den här beskrivningen visas för kunder i Översikt över Marketplace-registrering. Ta med ditt erbjudandes värde, viktiga fördelar, kategori-och/eller bransch associationer, inköps möjligheter för appar och eventuella uppgifter som krävs.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Några tips för att skriva din beskrivning:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen. Ta med följande information i ditt värde:
-  - Beskrivning av produkten
-  - Typ av användare som fördelar från produkten
-  - Kunden behöver eller smärta om produkt adresser
-- Tänk på att de första meningarna kan visas i Sök motorns resultat.  
-- Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar.  
-- Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt.
-
-Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
-
-![Använda Rich Text Editor](./media/rich-text-editor.png)
-
-| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
-| --- | --- | --- |
-| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
-
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 ### <a name="search-keywords"></a>Sök efter nyckelord
 
@@ -205,7 +190,7 @@ Ange minst ett (och upp till tre) relaterade marknadsförings dokument här, til
 Ange logo typer och avbildningar för ditt erbjudande. Alla bilder måste vara i PNG-format.
 
 >[!NOTE]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 #### <a name="store-logos"></a>Butiks logo typer
 
@@ -222,7 +207,7 @@ Hjälte avbildningen är valfri. Om du anger ett värde måste du mäta 815 x 29
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst en skärm bild krävs, och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
 
@@ -232,7 +217,7 @@ Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande.
 
 Välj **Spara utkast** innan du fortsätter.
 
-## <a name="availability"></a>Tillgänglighet
+## <a name="availability"></a>Tillgängligt
 
 På den här sidan kan du definiera var och hur du vill göra ditt erbjudande tillgängligt.
 
@@ -323,9 +308,9 @@ Microsoft kan ta bort komplexiteten för att konfigurera en testen het genom att
 
 - **Test enhetens varaktighet** (krävs) – ange antalet timmar som test enheten ska vara aktiv. Efter den här tiden upphör sessionen och använder inte längre någon av dina licenser. Vi rekommenderar ett värde på 2-24 timmar beroende på hur komplex ditt erbjudande är. Denna varaktighet får bara anges i hela timmar (till exempel "2" timmar är giltig; "1,5" är inte). Användaren kan begära en ny session om de får slut på tid och vill komma åt test enheten igen.
 
-- **Instans-URL** (obligatorisk) – URL: en där kunden kommer att påbörja sin test-enhet. Normalt är URL: en för din Dynamics 365-instans som kör appen med exempel data installerat ( `https://testdrive.crm.dynamics.com`till exempel).
+- **Instans-URL** (obligatorisk) – URL: en där kunden kommer att påbörja sin test-enhet. Normalt är URL: en för din Dynamics 365-instans som kör appen med exempel data installerat (till exempel `https://testdrive.crm.dynamics.com` ).
 
-- **URL för instans webb-API** (krävs) – Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **Inställningar** \&gt; **Anpassning** \&gt; **Utvecklings resurser** \&gt; **Instans webb-API (tjänstens rot-URL)**, kopiera URL-adressen som finns `https://testdrive.crm.dynamics.com/api/data/v9.0`här (till exempel).
+- **URL för instans webb-API** (krävs) – Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **Inställningar** \& gt; **Anpassning** \& gt **Resurser** \& för utvecklare gt **Instans webb-API (tjänstens rot-URL)**, kopiera URL-adressen som finns här (till exempel `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Rollnamn** (obligatoriskt) – Ange namnet på den säkerhets roll som du har definierat i din anpassade Dynamics 365-testenhet. Namnet på säkerhets rollen tilldelas användaren under deras test enhet (till exempel Test-Drive-roll).
 
@@ -355,7 +340,7 @@ Om du vill att Microsoft ska kunna distribuera test enheten åt dig skapar du oc
 
 - **ID för Azure-prenumeration** (krävs för Azure Resource Manager-och logi Kap par) – ange prenumerations-ID för att bevilja åtkomst till dina Azure-Kontotjänster för rapportering och fakturering av resursanvändning. Vi rekommenderar att du [skapar en separat Azure-prenumeration](https://docs.microsoft.com/azure/billing/billing-create-subscription) som ska användas för test enheter om du inte redan har en. Du hittar ditt prenumerations-ID för Azure genom att logga in på [Azure Portal](https://portal.azure.com/) och navigera till fliken **prenumerationer** på den vänstra menyn. Om du väljer fliken visas ditt prenumerations-ID (till exempel "a83645ac-1234-5AB6-6789-1h234g764ghty").
 
-- **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper**och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp din organisations klient-ID med hjälp av din domän namn [https://www.whatismytenantid.com](https://www.whatismytenantid.com)-URL på –.
+- **Azure AD-klient-ID** (krävs) – ange ditt Azure Active Directory (AD) [klient organisations-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). Om du vill hitta detta ID loggar du in på [Azure Portal](https://portal.azure.com/), väljer fliken Active Directory på den vänstra menyn, väljer **Egenskaper**och letar efter **katalog-ID** -nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp din organisations klient-ID med hjälp av din domän namn-URL på – [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 - **Namn på Azure AD-klient** (krävs för dynamisk 365) – ange ditt Azure Active Directory (AD) namn. Du hittar det här namnet genom att logga in på [Azure Portal](https://portal.azure.com/)i det övre högra hörnet ditt klient namn visas under ditt konto namn.
 

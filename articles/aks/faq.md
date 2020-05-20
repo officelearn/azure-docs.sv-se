@@ -2,13 +2,13 @@
 title: Vanliga frågor och svar om Azure Kubernetes service (AKS)
 description: Hitta svar på några vanliga frågor om Azure Kubernetes service (AKS).
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 5ba776424462b3a8b586b1f90e83f409770e5597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/14/2020
+ms.openlocfilehash: 767b5b80aab7d98af92f86bf66cc2ff83242ff92
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123827"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677783"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor om Azure Kubernetes Service (AKS)
 
@@ -127,11 +127,7 @@ Windows Server-stöd för Node-pool innehåller vissa begränsningar som ingår 
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Erbjuder AKS ett service nivå avtal?
 
-AKS ger möjlighet att uppnå 99,95% tillgänglighet för API-servern med [drifts SLA SLA] [drift tid-sla.md].
-
-I ett service avtal (SLA) accepterar providern att återbetala kunden till kostnaden för tjänsten om den publicerade Service nivån inte är uppfylld. Eftersom AKS är kostnads fritt är ingen kostnad tillgänglig för åter betalning, så AKS har inget formellt service avtal. Men AKS strävar efter att behålla tillgänglighet för minst 99,5 procent för Kubernetes API-servern.
-
-Det är viktigt att känna till skillnaden mellan AKS-tjänstens tillgänglighet som avser drift tid av Kubernetes-kontroll planet och tillgängligheten för din speciella arbets belastning som körs på Azure Virtual Machines. Kontroll planet kan vara otillgängligt om kontroll planet inte är klart, men dina kluster arbets belastningar som körs på virtuella Azure-datorer kan fortfarande fungera. De virtuella Azure-datorerna är betalda resurser som de backas upp av ett finansiellt service avtal. Läs [här om du vill ha mer information](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) om service avtalet för Azure VM och hur du ökar tillgängligheten med funktioner som [Tillgänglighetszoner][availability-zones].
+AKS tillhandahåller SLA-garantier som en valfri extra tilläggs funktion med [SLA för drift tid][uptime-sla].
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Kan jag använda Azure reservation-rabatter på mina AKS-agent-noder?
 
@@ -211,7 +207,7 @@ Ingen AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte.
 [bcdr-bestpractices]: ./operator-best-practices-multi-region.md#plan-for-multiregion-deployment
 [availability-zones]: ./availability-zones.md
 [az-regions]: ../availability-zones/az-region.md
-[drift tid – SLA]./uptime-sla.mdd
+[uptime-sla]: ./uptime-sla.md
 
 <!-- LINKS - external -->
 [aks-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service
@@ -220,3 +216,4 @@ Ingen AKS är en hanterad tjänst och manipulering av IaaS-resurser stöds inte.
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 [csi-driver]: https://github.com/Azure/secrets-store-csi-driver-provider-azure
+[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/

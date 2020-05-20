@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 34a1495d1a14e35bc5a94bfc01f4034c6fd6de72
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598397"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677814"
 ---
 # <a name="creator-for-indoor-maps"></a>Skapare för inomhus Maps
 
@@ -35,7 +35,7 @@ Använd [Azure Maps data överförings-API](https://docs.microsoft.com/rest/api/
 
 ## <a name="convert-a-drawing-package"></a>Konvertera ett ritnings paket
 
-[Tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/data/conversion) konverterar ett överfört ritnings paket till insamlade kart data. Konverterings tjänsten verifierar även paketet. Verifierings problem delas in i två typer: fel och varningar. Om några fel upptäcks Miss lyckas konverterings processen. Om varningar identifieras kommer konverteringen att lyckas. Vi rekommenderar dock att du granskar och åtgärdar alla varningar. En varning innebär att en del av konverteringen ignorerades eller automatiskt korrigerades. Om du inte löser varningarna kan det leda till fel i senare processer. Mer information finns i [varningar och fel i Drawing Package](drawing-conversion-error-codes.md).
+[Tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/conversion) konverterar ett överfört ritnings paket till insamlade kart data. Konverterings tjänsten verifierar även paketet. Verifierings problem delas in i två typer: fel och varningar. Om några fel upptäcks Miss lyckas konverterings processen. Om varningar identifieras kommer konverteringen att lyckas. Vi rekommenderar dock att du granskar och åtgärdar alla varningar. En varning innebär att en del av konverteringen ignorerades eller automatiskt korrigerades. Om du inte löser varningarna kan det leda till fel i senare processer. Mer information finns i [varningar och fel i Drawing Package](drawing-conversion-error-codes.md).
 
 När ett fel inträffar innehåller konverterings tjänsten en länk till det fristående webb programmet [Azure Maps Drawing Error](drawing-error-visualizer.md) -program. Du kan använda fel Visualiseraren för att kontrol lera [varningar och fel för ritnings paket](drawing-conversion-error-codes.md) som uppstod under konverterings processen. När du har åtgärdat felen kan du försöka överföra och konvertera paketet.
 

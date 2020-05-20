@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1d97ae5692a4cdc328833ce4c01a8114506a960a
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 9fd7d6c6d472400afea05ac0cd87321a46dddb37
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779083"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677919"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Metod tips för Pod-säkerhet i Azure Kubernetes service (AKS)
 
@@ -30,7 +30,7 @@ Du kan också läsa metod tips för [kluster säkerhet][best-practices-cluster-s
 
 **Rekommendationer om bästa praxis** – att köra som en annan användare eller grupp och begränsa åtkomsten till de underliggande nodernas processer och tjänster, definiera Pod säkerhets kontext inställningar. Tilldela det lägsta antalet behörigheter som krävs.
 
-För att dina program ska kunna köras korrekt ska poddar köras som en definierad användare eller grupp och inte som *rot*. Med `securityContext` POD eller container kan du definiera inställningar som *runAsUser* eller *fsGroup* för att anta lämpliga behörigheter. Tilldela bara de nödvändiga användar-eller grupp behörigheterna och Använd inte säkerhets kontexten som ett sätt att anta ytterligare behörigheter. *RunAsUser*, behörighets eskalering och andra inställningar för Linux-funktioner är bara tillgängliga på Linux-noder och poddar.
+För att dina program ska kunna köras korrekt ska poddar köras som en definierad användare eller grupp och inte som *rot*. Med `securityContext` POD eller container kan du definiera inställningar som *RunAsUser* eller *fsGroup* för att anta lämpliga behörigheter. Tilldela bara de nödvändiga användar-eller grupp behörigheterna och Använd inte säkerhets kontexten som ett sätt att anta ytterligare behörigheter. *RunAsUser*, behörighets eskalering och andra inställningar för Linux-funktioner är bara tillgängliga på Linux-noder och poddar.
 
 När du kör som en icke-rot användare kan behållare inte bindas till de privilegierade portarna under 1024. I det här scenariot kan Kubernetes-tjänster användas för att dölja det faktum att en app körs på en viss port.
 
@@ -71,14 +71,17 @@ Arbeta med din kluster operatör för att fastställa vilka säkerhets kontext i
 
 Undvik att använda fasta eller delade autentiseringsuppgifter om du vill begränsa risken för att autentiseringsuppgifter exponeras i program koden. Autentiseringsuppgifter eller nycklar får inte inkluderas direkt i din kod. Om autentiseringsuppgifterna exponeras måste programmet uppdateras och omdistribueras. En bättre metod är att ge poddar sin egen identitet och sitt sätt att autentisera sig själva eller automatiskt hämta autentiseringsuppgifter från ett digitalt valv.
 
-Med följande [associerade AKS-projekt med öppen källkod][aks-associated-projects] kan du automatiskt autentisera poddar eller begära autentiseringsuppgifter och nycklar från ett digitalt valv:
+### <a name="use-azure-container-compute-upstream-projects"></a>Använd Azure Container Compute-projekt
 
-* Hanterade identiteter för Azure-resurser och
-* [Azure Key Vault Provider för hemligheter Store CSI-drivrutin](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+> [!IMPORTANT]
+> Associerade AKS-projekt med öppen källkod stöds inte av teknisk support för Azure. De tillhandahålls för användare att själv installera i kluster och samla in feedback från vår community.
 
-Associerade AKS-projekt med öppen källkod stöds inte av teknisk support för Azure. De erbjuds att samla in feedback och buggar från vår community. Dessa projekt rekommenderas inte för produktions användning.
+Med följande [associerade AKS-projekt med öppen källkod][aks-associated-projects] kan du automatiskt autentisera poddar eller begära autentiseringsuppgifter och nycklar från ett digitalt valv. Dessa projekt underhålls av Azure Container Compute Stream-teamet och ingår i en [bredare lista med projekt som är tillgängliga för användning](https://github.com/Azure/container-compute-upstream/blob/master/README.md#support).
 
-### <a name="use-pod-managed-identities"></a>Använda Pod-hanterade identiteter
+ * [Azure Active Directory Pod-identitet][aad-pod-identity]
+ * [Azure Key Vault Provider för hemligheter Store CSI-drivrutin](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+
+#### <a name="use-pod-managed-identities"></a>Använda Pod-hanterade identiteter
 
 En hanterad identitet för Azure-resurser gör att en POD autentiseras mot Azure-tjänster som stöder den, till exempel Storage eller SQL. Pod tilldelas en Azure-identitet som gör att de kan autentiseras för att Azure Active Directory och ta emot en digital token. Den här digitala token kan visas för andra Azure-tjänster som kontrollerar om Pod har behörighet att komma åt tjänsten och utföra de åtgärder som krävs. Den här metoden innebär att inga hemligheter krävs för databas anslutnings strängar, till exempel. Det förenklade arbets flödet för Pod-hanterad identitet visas i följande diagram:
 
@@ -88,7 +91,7 @@ Med en hanterad identitet behöver program koden inte innehålla autentiseringsu
 
 Mer information om Pod-identiteter finns i [Konfigurera ett AKS-kluster för att använda Pod hanterade identiteter och med dina program][aad-pod-identity]
 
-### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Använda Azure Key Vault med hemligheter Store CSI-drivrutin
+#### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Använda Azure Key Vault med hemligheter Store CSI-drivrutin
 
 Med Pod Identity Project kan du autentisera mot stöd för Azure-tjänster. För dina egna tjänster eller program utan hanterade identiteter för Azure-resurser kan du fortfarande autentisera med hjälp av autentiseringsuppgifter eller nycklar. Ett digitalt valv kan användas för att lagra dessa hemliga innehåll.
 

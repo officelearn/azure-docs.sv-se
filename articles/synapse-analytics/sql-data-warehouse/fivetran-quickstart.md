@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cf6c82b330a2672fdde39c3acf156a74cb57e34
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414275"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659989"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Snabb start: Fivetran med informations lager 
 
@@ -66,7 +66,7 @@ I den här snabb starten beskrivs hur du konfigurerar en ny Fivetran-användare 
 
 3. Lägg till en lämplig resurs klass till Fivetran-användaren. Vilken resurs klass du använder beror på vilket minne som krävs för att skapa ett columnstore-index. Till exempel är integreringar med produkter som Marketo och Salesforce kräver en högre resurs klass på grund av det stora antalet kolumner och den större mängden data som används av produkterna. En högre resurs klass kräver mer minne för att skapa columnstore-index.
 
-    Vi rekommenderar att du använder statiska resurs klasser. Du kan börja med `staticrc20` resurs klassen. `staticrc20` Resurs klassen allokerar 200 MB för varje användare, oavsett vilken prestanda nivå du använder. Om columnstore-indexeringen Miss lyckas på den ursprungliga resurs klass nivån ökar du resurs klassen.
+    Vi rekommenderar att du använder statiska resurs klasser. Du kan börja med `staticrc20` resurs klassen. `staticrc20`Resurs klassen allokerar 200 MB för varje användare, oavsett vilken prestanda nivå du använder. Om columnstore-indexeringen Miss lyckas på den ursprungliga resurs klass nivån ökar du resurs klassen.
 
     ```sql
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
@@ -82,5 +82,5 @@ För att ansluta till ditt data lager från ditt Fivetran-konto anger du de aute
 * Värd (ditt Server namn).
 * Lastning.
 * Databas.
-* Användare (användar namnet ska vara **\@fivetran server_name** där *server_name* är en del av din Azure-värd-URI: ** _\_Server namn_. Database.Windows.net**).
+* Användare (användar namnet ska vara **fivetran \@ _server_name_ ** där *Server_name* är en del av din Azure-värd-URI: ** _Server \_ namn_. Database.Windows.net**).
 * Ords.

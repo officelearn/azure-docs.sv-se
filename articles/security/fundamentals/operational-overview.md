@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443871"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674240"
 ---
 # <a name="azure-operational-security-overview"></a>Översikt över Azures drift säkerhet
 
@@ -60,7 +60,7 @@ Mer information finns i [tabellen Azure Backup-komponenter](/azure/backup/backup
 
 -   Aktiverar identitets-och åtkomst hantering (IAM) som en moln tjänst.
 -   Tillhandahåller central åtkomst hantering, enkel inloggning (SSO) och rapportering.
--   Stöder integrerad åtkomst hantering för [tusentals program](https://azure.microsoft.com/marketplace/active-directory/) på Azure Marketplace, inklusive Salesforce, Google Apps, Box och Concur.
+-   Stöder integrerad åtkomst hantering för [tusentals program](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) på Azure Marketplace, inklusive Salesforce, Google Apps, Box och Concur.
 
 Azure AD innehåller också en fullständig uppsättning [funktioner för identitets hantering](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), inklusive följande:
 

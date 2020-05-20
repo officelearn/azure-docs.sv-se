@@ -5,17 +5,18 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 1e41eb02f4b02078dbf4d42c46cab574cf8d0701
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.custom: monitoring
+ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204074"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675918"
 ---
-# <a name="azure-storage-analytics-logging"></a>Loggning med Azure-lagringsanalys
+# <a name="azure-storage-analytics-logging"></a>Analysloggning i Azure Storage
 
 Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäranden till en lagringstjänst. Den här informationen kan användas för att övervaka enskilda begäranden och för att diagnostisera problem med en lagringstjänst. Begär Anden loggas med bästa möjliga ansträngning.
 
@@ -24,7 +25,7 @@ Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäran
  Logg poster skapas endast om det finns begär Anden som görs mot tjänst slut punkten. Om ett lagrings konto till exempel har aktivitet i dess BLOB-slutpunkt men inte i dess tabell-eller Queue-slutpunkter, skapas bara loggar som rör Blob Service.
 
 > [!NOTE]
->  Lagringsanalysloggning är för närvarande endast tillgängligt för blob-, kö- och tabelltjänsterna. Premium Storage-konto stöds dock inte.
+>  Lagringsanalysloggning är för närvarande endast tillgängligt för blob-, kö- och tabelltjänsterna. Lagringsanalys loggning är också tillgängligt för [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) -konton med Premium-prestanda. Men det är inte tillgängligt för General-Purpose v2-konton med förstklassiga prestanda.
 
 ## <a name="requests-logged-in-logging"></a>Begär Anden som loggats i loggning
 ### <a name="logging-authenticated-requests"></a>Logga autentiserade begär Anden
@@ -51,10 +52,10 @@ Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäran
 
 ## <a name="how-logs-are-stored"></a>Så här lagras loggar
 
-Alla loggar lagras i block-blobar i en behållare med `$logs`namnet, som skapas automatiskt när Lagringsanalys har Aktiver ATS för ett lagrings konto. `$logs` Behållaren finns i BLOB-namnrymden för lagrings kontot, till exempel: `http://<accountname>.blob.core.windows.net/$logs`. Det går inte att ta bort den här behållaren när Lagringsanalys har Aktiver ATS, men innehållet kan tas bort. Om du använder ditt sökverktyg för att navigera till behållaren direkt visas alla blobar som innehåller dina loggnings data.
+Alla loggar lagras i block-blobar i en behållare med namnet `$logs` , som skapas automatiskt när Lagringsanalys har Aktiver ATS för ett lagrings konto. `$logs`Behållaren finns i BLOB-namnrymden för lagrings kontot, till exempel: `http://<accountname>.blob.core.windows.net/$logs` . Det går inte att ta bort den här behållaren när Lagringsanalys har Aktiver ATS, men innehållet kan tas bort. Om du använder ditt sökverktyg för att navigera till behållaren direkt visas alla blobar som innehåller dina loggnings data.
 
 > [!NOTE]
->  `$logs` Behållaren visas inte när en åtgärd för container listan utförs, till exempel list containers-åtgärden. Det måste nås direkt. Du kan till exempel använda List-blobar-åtgärden för att få åtkomst till blobarna `$logs` i behållaren.
+>  `$logs`Behållaren visas inte när en åtgärd för container listan utförs, till exempel list containers-åtgärden. Det måste nås direkt. Du kan till exempel använda List-blobar-åtgärden för att få åtkomst till blobarna i `$logs` behållaren.
 
 När förfrågningar loggas kommer Lagringsanalys att överföra mellanliggande resultat som block. Med jämna mellanrum kommer Lagringsanalys att bekräfta dessa block och göra dem tillgängliga som en blob. Det kan ta upp till en timme innan loggdata visas i blobarna i **$logs** container eftersom lagrings tjänsten tömmer logg skribenterna. Det kan finnas dubbla poster för loggar som skapats i samma timme. Du kan avgöra om en post är en dubblett genom att kontrol lera **RequestId** och **Åtgärds** nummer.
 
@@ -86,15 +87,15 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 
  I följande tabell beskrivs varje attribut i logg namnet:
 
-|Attribut|Beskrivning|
+|Attribut|Description|
 |---------------|-----------------|
-|`<service-name>`|Namnet på lagrings tjänsten. Till exempel: `blob`, `table`eller`queue`|
+|`<service-name>`|Namnet på lagrings tjänsten. Till exempel: `blob` , `table` eller`queue`|
 |`YYYY`|Årtalet med fyra siffror för loggen. Exempelvis: `2011`|
 |`MM`|Den två siffrorna i månaden för loggen. Exempelvis: `07`|
 |`DD`|Den två siffriga dagen för loggen. Exempelvis: `31`|
 |`hh`|Den två siffriga timmen som anger start timmen för loggarna, i UTC-format i 24 timmar. Exempelvis: `18`|
-|`mm`|Det två siffer numret som anger start minuten för loggarna. **Obs:**  Värdet stöds inte i den aktuella versionen av Lagringsanalys och värdet är alltid `00`.|
-|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Räknaren startar vid `000000`. Exempelvis: `000001`|
+|`mm`|Det två siffer numret som anger start minuten för loggarna. **Obs:**  Värdet stöds inte i den aktuella versionen av Lagringsanalys och värdet är alltid `00` .|
+|`<counter>`|En noll-baserad räknare med sex siffror som anger antalet logg-blobar som har genererats för lagrings tjänsten under en tids period. Räknaren startar vid `000000` . Exempelvis: `000001`|
 
  Följande är ett fullständigt exempel på logg namn som kombinerar exemplen ovan:
 
@@ -110,11 +111,11 @@ Information om hur du registrerar blobbar program mässigt finns i [räkna upp B
 
  Alla log-blobbar lagras med metadata som kan användas för att identifiera vilka loggnings data som bloben innehåller. I följande tabell beskrivs varje attribut för metadata:
 
-|Attribut|Beskrivning|
+|Attribut|Description|
 |---------------|-----------------|
 |`LogType`|Beskriver om loggen innehåller information som rör Läs-, Skriv-eller borttagnings åtgärder. Det här värdet kan innehålla en typ eller en kombination av alla tre, avgränsade med kommatecken.<br /><br /> Exempel 1:`write`<br /><br /> Exempel 2:`read,write`<br /><br /> Exempel 3:`read,write,delete`|
-|`StartTime`|Den tidigaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ`. Exempelvis: `2011-07-31T18:21:46Z`|
-|`EndTime`|Den senaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ`. Exempelvis: `2011-07-31T18:22:09Z`|
+|`StartTime`|Den tidigaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempelvis: `2011-07-31T18:21:46Z`|
+|`EndTime`|Den senaste tiden för en post i loggen i form av `YYYY-MM-DDThh:mm:ssZ` . Exempelvis: `2011-07-31T18:22:09Z`|
 |`LogVersion`|Versionen av logg formatet.|
 
  I följande lista visas kompletta exempel-metadata med hjälp av ovanstående exempel:
@@ -187,7 +188,7 @@ queueClient.SetServiceProperties(serviceProperties);
  Om du vill visa och analysera loggdata bör du hämta de blobbar som innehåller de loggdata som du är intresse rad av för en lokal dator. Många verktyg för lagrings surfning gör att du kan ladda ned blobbar från ditt lagrings konto. Du kan också använda det Azure Storage team som angavs med kommando rads verktyget [AzCopy](storage-use-azcopy-v10.md) för Azure Copy för att hämta logg data.  
  
 >[!NOTE]
-> `$logs` Behållaren är inte integrerad med event Grid, så du får inga meddelanden när loggfilerna skrivs. 
+> `$logs`Behållaren är inte integrerad med event Grid, så du får inga meddelanden när loggfilerna skrivs. 
 
  För att se till att du hämtar loggdata som du är intresse rad av och för att undvika att ladda ned samma logg data mer än en gång:  
 

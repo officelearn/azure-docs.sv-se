@@ -3,12 +3,12 @@ title: Skala upp en typ av Azure-Service Fabric Node
 description: Lär dig hur du skalar ett Service Fabric kluster genom att lägga till en skalnings uppsättning för virtuella datorer.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80998929"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674216"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skala upp en primär nodtyp för Service Fabric-klustret
 Den här artikeln beskriver hur du skalar upp en Service Fabric-klusters primära nodtyp genom att öka resurserna för virtuella datorer. Ett Service Fabric kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i. En dator eller en virtuell dator som ingår i ett kluster kallas för en nod. Skalnings uppsättningar för virtuella datorer är en Azure Compute-resurs som du använder för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster har [kon figurer ATS som en separat skalnings uppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster kan du skala en typ av klusternod lodrätt (ändra resurserna för noderna) eller uppgradera operativ systemet för de virtuella datorernas nodtyper.  Du kan skala klustret när som helst, även när arbets belastningar körs på klustret.  När klustret skalas, skalas programmen automatiskt.
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du skalar upp en Service Fabric-klusters primär
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Uppgradera storlek och operativ system för de virtuella datorernas primära nodtyp
+## <a name="process-to-upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Process för att uppgradera storlek och operativ system för de virtuella datorernas primära nodtyp
 Här är processen för att uppdatera VM-storlek och operativ system för de virtuella datorernas primära nodtypen.  Efter uppgraderingen är den primära nodtypen för virtuella datorer storlek standard D4_V2 och kör Windows Server 2016 Data Center med behållare.
 
 > [!WARNING]
@@ -41,43 +41,126 @@ Här är processen för att uppdatera VM-storlek och operativ system för de vir
 10. Ta bort nodens tillstånd för noderna från klustret.  Om hållbarhets nivån för den gamla skalnings uppsättningen är silver eller guld utförs det här steget automatiskt av systemet.
 11. Om du har distribuerat det tillstånds känsliga programmet i föregående steg kontrollerar du att programmet fungerar.
 
+## <a name="set-up-the-test-cluster"></a>Konfigurera test klustret
+
+Börja med att hämta de två uppsättningar av filer som vi behöver för den här själv studie kursen, före- [mallen]() och- [parametrarna]() och efter- [mallen]() och- [parametrarna]().
+
+Logga sedan in på ditt Azure-konto.
+
 ```powershell
-# Variables.
-$groupname = "sfupgradetestgroup"
-$clusterloc="southcentralus"  
-$subscriptionID="<your subscription ID>"
-
 # sign in to your Azure account and select your subscription
-Login-AzAccount -SubscriptionId $subscriptionID 
+Login-AzAccount -SubscriptionId "<your subscription ID>"
+```
 
-# Create a new resource group for your deployment and give it a name and a location.
-New-AzResourceGroup -Name $groupname -Location $clusterloc
+Den här självstudien vägleder dig genom scenariot med att skapa ett självsignerat certifikat. Om du vill använda ett befintligt certifikat från Azure Key Vault hoppar du över steget nedan och speglar i stället stegen i [använda ett befintligt certifikat för att distribuera klustret](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
 
-# Deploy the two node type cluster.
-New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.parameters.json" `
-    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.json" -Verbose
+### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Generera ett självsignerat certifikat och distribuera klustret
 
-# Connect to the cluster and check the cluster health.
-$ClusterName= "sfupgradetest.southcentralus.cloudapp.azure.com:19000"
-$thumb="F361720F4BD5449F6F083DDE99DC51A86985B25B"
+Först tilldelar du de variabler du behöver för Service Fabric kluster distribution. Justera värdena för `resourceGroupName` , `certSubjectName` , `parameterFilePath` och `templateFilePath` för ditt eget konto och din miljö:
 
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+```powershell
+# Assign deployment variables
+$resourceGroupName = "sftestupgradegroup"
+$certOutputFolder = "c:\certificates"
+$certPassword = "Password!1" | ConvertTo-SecureString -AsPlainText -Force
+$certSubjectName = "sftestupgrade.southcentralus.cloudapp.azure.com"
+$templateFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.json"
+$parameterFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.parameters.json"
+```
+
+> [!NOTE]
+> Kontrol lera att `certOutputFolder` platsen finns på den lokala datorn innan du kör kommandot för att distribuera ett nytt Service Fabric-kluster.
+
+Öppna sedan filen *Deploy-2NodeTypes-2ScaleSets. Parameters. JSON* och justera värdena för `clusterName` och `dnsName` för att motsvara de dynamiska värden som du angav i PowerShell och spara ändringarna.
+
+Distribuera sedan Service Fabric test kluster:
+
+```powershell
+# Deploy the initial test cluster
+New-AzServiceFabricCluster `
+    -ResourceGroupName $resourceGroupName `
+    -CertificateOutputFolder $certOutputFolder `
+    -CertificatePassword $certPassword `
+    -CertificateSubjectName $certSubjectName `
+    -TemplateFile $templateFilePath `
+    -ParameterFile $parameterFilePath
+```
+
+När distributionen är klar letar du upp *. pfx* -filen ( `$certPfx` ) på den lokala datorn och importerar den till certifikat arkivet:
+
+```powershell
+cd c:\certificates
+$certPfx = ".\sftestupgradegroup20200312121003.pfx"
+
+Import-PfxCertificate `
+     -FilePath $certPfx `
+     -CertStoreLocation Cert:\CurrentUser\My `
+     -Password (ConvertTo-SecureString Password!1 -AsPlainText -Force)
+```
+
+Åtgärden returnerar certifikatets tumavtryck, som du kommer att använda för att ansluta till det nya klustret och kontrol lera dess hälso status.
+
+### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Anslut till det nya klustret och kontrol lera hälso status
+
+Anslut till klustret och se till att alla dess noder är felfria (ersätter `clusterName` `thumb` variablerna och för klustret):
+
+```powershell
+# Connect to the cluster
+$clusterName = "sftestupgrade.southcentralus.cloudapp.azure.com:19000"
+$thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+
+Connect-ServiceFabricCluster `
+    -ConnectionEndpoint $clusterName `
+    -KeepAliveIntervalInSec 10 `
     -X509Credential `
     -ServerCertThumbprint $thumb  `
     -FindType FindByThumbprint `
     -FindValue $thumb `
     -StoreLocation CurrentUser `
-    -StoreName My 
+    -StoreName My
 
+# Check cluster health
 Get-ServiceFabricClusterHealth
+```
 
-# Deploy a new scale set into the primary node type.  Create a new load balancer and public IP address for the new scale set.
-New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.parameters.json" `
-    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.json" -Verbose
+Vi är redo att påbörja uppgraderings proceduren.
 
-# Check the cluster health again. All 15 nodes should be healthy.
+## <a name="upgrade-the-primary-node-type-vms"></a>Uppgradera den primära nodtypen av typen VM
+
+När du har bestämt dig för att uppgradera den primära nodtypen för virtuella datorer lägger du till en ny skalnings uppsättning till den primära nodtypen, så att den primära nodtypen nu har två skalnings uppsättningar. En [mall](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) och [parametrar](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) filer har angetts för att Visa nödvändiga ändringar. Den nya skalnings uppsättningens virtuella datorer är storleks standard D4_V2 och kör Windows Server 2016 Data Center med behållare. En ny belastningsutjämnare och en offentlig IP-adress läggs också till med den nya skalnings uppsättningen. 
+
+Sök efter den nya skalnings uppsättningen i mallen genom att söka efter resursen "Microsoft. Compute/virtualMachineScaleSets" som heter med parametern vmNodeType2Name. Den nya skalnings uppsättningen läggs till i den primära nodtypen med hjälp av egenskaperna->virtualMachineProfile->extensionProfile->tillägg->egenskaper->inställningar->nodeTypeRef inställning.
+
+### <a name="deploy-the-updated-template"></a>Distribuera den uppdaterade mallen
+
+Justera `parameterFilePath` och `templateFilePath` kör sedan följande kommando:
+
+```powershell
+# Deploy the new scale set into the primary node type along with a new load balancer and public IP
+$templateFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.json"
+$parameterFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+    -CertificateThumbprint $thumb `
+    -CertificateUrlValue $certUrlValue `
+    -SourceVaultValue $sourceVaultValue `
+    -Verbose
+```
+
+När distributionen är klar kontrollerar du kluster tillståndet igen och ser till att alla noder (i original och på den nya skalnings uppsättningen) är felfria.
+
+```powershell
 Get-ServiceFabricClusterHealth
+```
 
+## <a name="migrate-nodes-to-the-new-scale-set"></a>Migrera noder till den nya skalnings uppsättningen
+
+Nu är det dags att börja inaktivera noderna i den ursprungliga skalnings uppsättningen. Eftersom dessa noder blir inaktiverade migreras system tjänsterna och dirigeringsrouters till de virtuella datorerna i den nya skalnings uppsättningen eftersom den också är markerad som den primära nodtypen.
+
+```powershell
 # Disable the nodes in the original scale set.
 $nodeNames = @("_NTvm1_0","_NTvm1_1","_NTvm1_2","_NTvm1_3","_NTvm1_4")
 
@@ -85,36 +168,36 @@ Write-Host "Disabling nodes..."
 foreach($name in $nodeNames){
     Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
 }
+```
 
-Write-Host "Checking node status..."
-foreach($name in $nodeNames){
- 
-    $state = Get-ServiceFabricNode -NodeName $name 
+Använd Service Fabric Explorer för att övervaka migreringen av startnoder till den nya skalnings uppsättningen och förloppet för noder i den ursprungliga skalnings uppsättningen från att *inaktivera* till *inaktive rad* status.
 
-    $loopTimeout = 50
+> [!NOTE]
+> Det kan ta lite tid att slutföra den inaktiverade åtgärden för alla noder i den ursprungliga skalnings uppsättningen. För att garantera data konsekvens kan endast en Seed-nod ändras i taget. För varje Seed-nods ändring krävs en kluster uppdatering. att ersätta en Seed-nod kräver därför två kluster uppgraderingar (en varje för nod tillägg och borttagning). Om du uppgraderar de fem startnoderna i det här exempel scenariot uppstår tio kluster uppgraderingar.
 
-    do{
-        Start-Sleep 5
-        $loopTimeout -= 1
-        $state = Get-ServiceFabricNode -NodeName $name
-        Write-Host "$name state: " $state.NodeDeactivationInfo.Status
-    }
+## <a name="remove-the-original-scale-set"></a>Ta bort den ursprungliga skalnings uppsättningen
 
-    while (($state.NodeDeactivationInfo.Status -ne "Completed") -and ($loopTimeout -ne 0))
-    
+Ta bort skalnings uppsättningen när inaktive rings åtgärden har slutförts.
 
-    if ($state.NodeStatus -ne [System.Fabric.Query.NodeStatus]::Disabled)
-    {
-        Write-Error "$name node deactivation failed with state" $state.NodeStatus
-        exit
-    }
-}
+```powershell
+# Remove the original scale set
+$scaleSetName = "NTvm1"
 
-# Remove the scale set
-$scaleSetName="NTvm1"
-Remove-AzVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
+Remove-AzVmss `
+    -ResourceGroupName $resourceGroupName `
+    -VMScaleSetName $scaleSetName `
+    -Force
+
 Write-Host "Removed scale set $scaleSetName"
+```
 
+I Service Fabric Explorer kommer de borttagna noderna (och därmed *kluster hälso tillståndet*) nu att visas i *fel* tillstånd.
+
+## <a name="remove-the-old-load-balancer-and-update-dns-settings"></a>Ta bort den gamla belastningsutjämnaren och uppdatera DNS-inställningar
+
+Nu kan vi ta bort de resurser som är relaterade till den gamla primära nodtypen, från belastningsutjämnaren och den gamla offentliga IP-adressen. 
+
+```powershell
 $lbname="LB-sfupgradetest-NTvm1"
 $oldPublicIpName="PublicIP-LB-FE-0"
 $newPublicIpName="PublicIP-LB-FE-2"
@@ -131,16 +214,28 @@ Remove-AzLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 
 # Remove the old public IP
 Remove-AzPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+```
 
+Sedan uppdaterar vi DNS-inställningarna för den nya offentliga IP-adressen för att spegla inställningarna från den gamla primära IP-adressen för den primära noden.
+
+```powershell
 # Replace DNS settings of Public IP address related to new Primary Node Type with DNS settings of Public IP address related to old Primary Node Type
 $PublicIP = Get-AzPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
+```
 
+Läs mer i kluster hälsa
+
+```powershell
 # Check the cluster health
 Get-ServiceFabricClusterHealth
+```
 
+Slutligen tar du bort nodens tillstånd för var och en av de relaterade noderna. Om den gamla skalnings uppsättningens hållbarhets nivå var silver eller guld sker detta automatiskt.
+
+```powershell
 # Remove node state for the deleted nodes.
 foreach($name in $nodeNames){
     # Remove the node from the cluster
@@ -148,6 +243,8 @@ foreach($name in $nodeNames){
     Write-Host "Removed node state for node $name"
 }
 ```
+
+Klustrets primära Node-typ har nu uppgraderats. Kontrol lera att alla distribuerade program fungerar korrekt och att kluster hälsan är OK.
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [lägger till en nodtyp i ett kluster](virtual-machine-scale-set-scale-node-type-scale-out.md)

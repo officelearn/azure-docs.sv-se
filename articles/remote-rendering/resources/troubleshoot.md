@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b518b2b92ba6d2529ffdefce754a3b29b74fb21b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792623"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674287"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
@@ -50,7 +50,7 @@ Orsaken till det här problemet är en felaktig säkerhets inställning på DLL-
     Get-AppxPackage -Name Microsoft.HEVCVideoExtension
     ```
   
-    Det kommandot ska utdata `InstallLocation` från codecen, något som liknar:
+    Det kommandot ska utdata från `InstallLocation` codecen, något som liknar:
   
     ```cmd
     InstallLocation   : C:\Program Files\WindowsApps\Microsoft.HEVCVideoExtension_1.0.23254.0_x64__5wasdgertewe
@@ -94,7 +94,7 @@ Vi rekommenderar att du testar följande saker innan du gör en mer djupgående 
 * Är H265-kodeken installerad? Även om det bör finnas en återgång till H264,-kodeken har vi sett fall där den här återställningen inte fungerade korrekt. Se [system kraven](../overview/system-requirements.md#development-pc) för att installera den senaste grafik driv rutinen.
 * När du använder ett Unity-projekt stänger du Unity, tar bort de tillfälliga *biblioteks* -och *OBJ* -mapparna i projekt katalogen och läser in/bygger projektet igen. I vissa fall orsakade cachelagrade data att exemplet inte fungerar korrekt utan uppenbar anledning.
 
-Om dessa två steg inte var hjälp, krävs det att ta reda på om video ramar tas emot av klienten eller inte. Detta kan frågas program mässigt enligt beskrivningen i kapitlet [prestanda frågor på Server sidan](../overview/features/performance-queries.md) . Har `FrameStatistics struct` en medlem som anger hur många video bild rutor som har tagits emot. Om det här värdet är större än 0 och ökar med tiden tar klienten emot faktiska video ramar från servern. Det måste därför vara ett problem på klient sidan.
+Om dessa två steg inte var hjälp, krävs det att ta reda på om video ramar tas emot av klienten eller inte. Detta kan frågas program mässigt enligt beskrivningen i kapitlet [prestanda frågor på Server sidan](../overview/features/performance-queries.md) . `FrameStatistics struct`Har en medlem som anger hur många video bild rutor som har tagits emot. Om det här värdet är större än 0 och ökar med tiden tar klienten emot faktiska video ramar från servern. Det måste därför vara ett problem på klient sidan.
 
 ### <a name="common-client-side-issues"></a>Vanliga problem på klient Sidan
 
@@ -106,7 +106,7 @@ Se vissa [begränsningar för VM-storlek](../reference/limits.md#overall-number-
 
 I många fall visas modellen korrekt men finns utanför kamerans Frustum. En vanlig orsak är att modellen har exporter ATS med en avlägsen Pivot-of-Center-Pivot så att den klipps av kamerans avlägsen urklipps plan. Det hjälper dig att fråga modellens markerings ruta program mässigt och visualisera rutan med enhets uppdelad som en linje eller skriva ut dess värden till fel söknings loggen.
 
-Dessutom genererar konverterings processen en [utgående JSON-fil](../how-tos/conversion/get-information.md) tillsammans med den konverterade modellen. För att felsöka problem med modell placeringen är det värt att `boundingBox` titta på posten i [outputStatistics-avsnittet](../how-tos/conversion/get-information.md#the-outputstatistics-section):
+Dessutom genererar konverterings processen en [utgående JSON-fil](../how-tos/conversion/get-information.md) tillsammans med den konverterade modellen. För att felsöka problem med modell placeringen är det värt att titta på `boundingBox` posten i [outputStatistics-avsnittet](../how-tos/conversion/get-information.md#the-outputstatistics-section):
 
 ```JSON
 {
@@ -132,8 +132,8 @@ Dessutom genererar konverterings processen en [utgående JSON-fil](../how-tos/co
 Begränsnings rutan beskrivs som en `min` och `max` position i 3D-rymden, i meter. En koordinat på 1000,0 betyder att den är 1 kilometer bort från ursprunget.
 
 Det kan finnas två problem med den här avgränsnings rutan som leder till osynlig geometri:
-* **Rutan kan vara för långt bort**, så att objektet klipps ut helt på grund av ett långt plan Urklipp. `boundingBox` Värdena i det här fallet skulle se ut så här `min = [-2000, -5,-5], max = [-1990, 5,5]`:, med en stor förskjutning på x-axeln som ett exempel här. Du kan lösa den här typen av problem genom `recenterToOrigin` att aktivera alternativet i [modell konverterings konfigurationen](../how-tos/conversion/configure-model-conversion.md).
-* **Rutan kan centreras men vara av en storlek som är för stor**. Det innebär att låt kameran starta i mitten av modellen, att dess geometri klipps i alla riktningar. Typiska `boundingBox` värden i det här fallet skulle se ut så `min = [-1000,-1000,-1000], max = [1000,1000,1000]`här:. Orsaken till den här typen av problem är vanligt vis en enhets skalnings konflikt. Kompensera genom att ange ett [skalnings värde under konverteringen](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) eller markera käll modellen med rätt enheter. Skalning kan också tillämpas på rotnoden vid inläsning av modellen vid körning.
+* **Rutan kan vara för långt bort**, så att objektet klipps ut helt på grund av ett långt plan Urklipp. `boundingBox`Värdena i det här fallet skulle se ut så här: `min = [-2000, -5,-5], max = [-1990, 5,5]` , med en stor förskjutning på x-axeln som ett exempel här. Du kan lösa den här typen av problem genom att aktivera `recenterToOrigin` alternativet i [modell konverterings konfigurationen](../how-tos/conversion/configure-model-conversion.md).
+* **Rutan kan centreras men vara av en storlek som är för stor**. Det innebär att låt kameran starta i mitten av modellen, att dess geometri klipps i alla riktningar. Typiska `boundingBox` värden i det här fallet skulle se ut så här: `min = [-1000,-1000,-1000], max = [1000,1000,1000]` . Orsaken till den här typen av problem är vanligt vis en enhets skalnings konflikt. Kompensera genom att ange ett [skalnings värde under konverteringen](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) eller markera käll modellen med rätt enheter. Skalning kan också tillämpas på rotnoden vid inläsning av modellen vid körning.
 
 **Pipeline-renderingen omfattar inte åter givnings hookarna:**
 
@@ -145,12 +145,12 @@ Azure Remote rendering-hookar i Unity Render-pipeline för att göra en ram komp
 
 ### <a name="use-debug-when-compiling-for-unity-editor"></a>Använd fel sökning vid kompilering för Unity Editor
 
-Byt *build-typ* för unions lösningen till **Felsök**. När du testar ARR i Unity-redigeraren är definiera `UNITY_EDITOR` endast tillgänglig i "debug"-versioner. Observera att detta inte är relaterat till den build-typ som används för [distribuerade program](../quickstarts/deploy-to-hololens.md), där du bör föredra versions versioner.
+Byt *build-typ* för unions lösningen till **Felsök**. När du testar ARR i Unity-redigeraren `UNITY_EDITOR` är definiera endast tillgänglig i "debug"-versioner. Observera att detta inte är relaterat till den build-typ som används för [distribuerade program](../quickstarts/deploy-to-hololens.md), där du bör föredra versions versioner.
 
 ### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Kompileringsfel vid kompilering av Unity-exempel för HoloLens 2
 
 Vi har sett spurious-felen vid försök att kompilera Unity-exempel (snabb start, ShowCaseApp,..) för HoloLens 2. Visual Studio klagar på att det inte går att kopiera vissa filer så att de finns där. Om du når det här problemet:
-* Ta bort alla tillfälliga Unit-filer från projektet och försök igen.
+* Ta bort alla tillfälliga Unit-filer från projektet och försök igen. Det vill säga, Stäng Unity, ta bort de temporära *biblioteks* -och *OBJ* -mapparna i projekt katalogen och läsa in/utveckla projektet igen.
 * Se till att projekten finns i en katalog på disk med rimlig kort sökväg, eftersom kopierings steget ibland verkar köra problem med långa fil namn.
 * Om det inte hjälper kan det vara så att MS Sense stör kopierings steget. Om du vill konfigurera ett undantag kör du detta register kommando från kommando raden (kräver administratörs rättigheter):
     ```cmd
@@ -161,9 +161,9 @@ Vi har sett spurious-felen vid försök att kompilera Unity-exempel (snabb start
 
 Om återgivna objekt ser ut att flyttas tillsammans med huvud förflyttningar, kan det hända att du stöter på problem med LSR ( *sent Stage-projektion* ). Se avsnittet om [omprojektion av sena steg](../overview/features/late-stage-reprojection.md) för vägledning om hur du kan använda en sådan situation.
 
-En annan orsak till instabila hologram (wobbling, tänjning, Darr eller hopp) kan vara dåligt nätverks anslutning, särskilt otillräcklig nätverks bandbredd eller för hög latens. En bra indikator för nätverks anslutningens kvalitet är [prestanda statistik](../overview/features/performance-queries.md) svärdet `ARRServiceStats.VideoFramesReused`. Återanvändade ramar visar situationer där en gammal video RAM behövs återanvändas på klient sidan eftersom ingen ny video RAM var tillgänglig, till exempel på grund av paket förlust eller på grund av variationer i nätverks fördröjningen. Om `ARRServiceStats.VideoFramesReused` är ofta större än noll tyder detta på ett nätverks problem.
+En annan orsak till instabila hologram (wobbling, tänjning, Darr eller hopp) kan vara dåligt nätverks anslutning, särskilt otillräcklig nätverks bandbredd eller för hög latens. En bra indikator för nätverks anslutningens kvalitet är [prestanda statistik](../overview/features/performance-queries.md) svärdet `ARRServiceStats.VideoFramesReused` . Återanvändade ramar visar situationer där en gammal video RAM behövs återanvändas på klient sidan eftersom ingen ny video RAM var tillgänglig, till exempel på grund av paket förlust eller på grund av variationer i nätverks fördröjningen. Om `ARRServiceStats.VideoFramesReused` är ofta större än noll tyder detta på ett nätverks problem.
 
-Ett annat värde att titta på `ARRServiceStats.LatencyPoseToReceiveAvg`är. Det bör ständigt vara under 100 MS. Om du ser högre värden betyder det att du är ansluten till ett Data Center som är för långt bort.
+Ett annat värde att titta på är `ARRServiceStats.LatencyPoseToReceiveAvg` . Det bör ständigt vara under 100 MS. Om du ser högre värden betyder det att du är ansluten till ett Data Center som är för långt bort.
 
 En lista över eventuella begränsningar finns i [rikt linjerna för nätverks anslutning](../reference/network-requirements.md#guidelines-for-network-connectivity).
 

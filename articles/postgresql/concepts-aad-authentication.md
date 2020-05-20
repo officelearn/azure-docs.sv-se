@@ -6,22 +6,17 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fa9a4ebe64880ae136a8460d35200fb84abb6cf
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74769922"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660182"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Använda Azure Active Directory för autentisering med PostgreSQL
 
 Microsoft Azure Active Directory (Azure AD)-autentisering är en mekanism för att ansluta till Azure Database for PostgreSQL med hjälp av identiteter som definierats i Azure AD.
 Med Azure AD-autentisering kan du hantera användar identiteter för databaser och andra Microsoft-tjänster på en central plats, vilket fören klar behörighets hanteringen.
-
-> [!IMPORTANT]
-> Azure AD-autentisering för Azure Database for PostgreSQL är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Fördelarna med att använda Azure AD är:
 
@@ -57,7 +52,7 @@ När du använder Azure AD-autentisering finns det två administratörs konton f
 
 ## <a name="permissions"></a>Behörigheter
 
-Om du vill skapa nya användare som kan autentiseras med Azure AD måste du `azure_ad_admin` ha rollen i-databasen. Den här rollen tilldelas genom att konfigurera Azure AD-administratörskontot för en särskild Azure Database for PostgreSQL Server.
+Om du vill skapa nya användare som kan autentiseras med Azure AD måste du ha `azure_ad_admin` rollen i-databasen. Den här rollen tilldelas genom att konfigurera Azure AD-administratörskontot för en särskild Azure Database for PostgreSQL Server.
 
 Om du vill skapa en ny Azure AD Database-användare måste du ansluta som Azure AD-administratör. Detta visas i [Konfigurera och logga in med Azure AD för Azure Database for PostgreSQL](howto-configure-sign-in-aad-authentication.md).
 

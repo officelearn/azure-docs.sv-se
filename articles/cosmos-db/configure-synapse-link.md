@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: 384d4ebf211c80ac069889356f269407ba7d3d75
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 24f6f77f1371157ca1b57cfd85ac196cace822fc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598726"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675998"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Konfigurera och använda Azure Synapse-länken för Azure Cosmos DB (förhands granskning)
 
@@ -187,11 +187,15 @@ container.replace(containerProperties).block();
 
 ## <a name="connect-to-a-synapse-workspace"></a><a id="connect-to-cosmos-database"></a>Ansluta till en Synapse-arbetsyta
 
-Använd anvisningarna i [ansluta till Azure Synapse-länken]() om hur du kommer åt en Azure Cosmos DB databas från Azure Synapse Analytics Studio med Azure Synapse-länken.
+Använd anvisningarna i [ansluta till Azure Synapse-länken](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) om hur du kommer åt en Azure Cosmos DB databas från Azure Synapse Analytics Studio med Azure Synapse-länken.
 
 ## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a>Fråga med Synapse Spark
 
-Följ anvisningarna i artikeln [fråga Azure Cosmos DB analys lager]() om hur du frågar med Synapse Spark. Artikeln innehåller några exempel på hur du kan interagera med analys lagret från Synapse-gester. Dessa gester visas när du högerklickar på en behållare. Med gester kan du snabbt skapa kod och anpassa den efter dina behov. De är också perfekta för att identifiera data med ett enda klick.
+Följ anvisningarna i artikeln [fråga Azure Cosmos DB analys lager](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) om hur du frågar med Synapse Spark. Artikeln innehåller några exempel på hur du kan interagera med analys lagret från Synapse-gester. Dessa gester visas när du högerklickar på en behållare. Med gester kan du snabbt skapa kod och anpassa den efter dina behov. De är också perfekta för att identifiera data med ett enda klick.
+
+## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a>Komma igång med Azure Synpase Link-samples
+
+Du hittar exempel för att komma igång med Azure Synapse-länk på [GitHub](https://aka.ms/cosmosdb-synapselink-samples). Dessa demonstrerar lösningar från slut punkt till slut punkt med IoT och detalj handels scenarier.
 
 ## <a name="next-steps"></a>Nästa steg
 

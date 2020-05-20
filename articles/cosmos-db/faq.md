@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 976ff4d3be194bf33d2c01f06c66782caf8dad50
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 0a890139f9d7a955a5c96262d6e5b8f275e61d0d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608055"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675932"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Vanliga frågor och svar om olika API: er i Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Du kan också använda [Azure Cosmos DB emulatorn](local-emulator.md) för att u
 
 Om du vill ställa en teknisk fråga kan du publicera till någon av dessa två fråge-och svars Forum:
 
-* [MSDN-forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
+* [MSDN-forum](https://docs.microsoft.com/answers/topics/azure-cosmos-db.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow är bäst för programmerings frågor. Se till att din fråga är [i ämne](https://stackoverflow.com/help/on-topic) och [Ange så många detaljer som möjligt, så att frågan blir tydlig och kan besvaras](https://stackoverflow.com/help/how-to-ask).
 
 Om du vill begära nya funktioner skapar du en ny begäran på [användarens röst](https://feedback.azure.com/forums/263030-azure-cosmos-db).
@@ -173,7 +173,7 @@ SQL-frågespråket som stöds av SQL API-konton är en förbättrad delmängd av
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>Stöder SQL-API SQL agg regerings funktioner?
 
-SQL-API: et stöder låg latens agg regering i valfri skala `COUNT`via `MIN`mängd `MAX`funktioner `AVG`,, `SUM` , och via SQL-grammatik. Mer information finns i [mängd funktioner](sql-query-aggregates.md).
+SQL-API: et stöder låg latens agg regering i valfri skala via mängd funktioner,,, `COUNT` `MIN` `MAX` `AVG` och `SUM` via SQL-grammatik. Mer information finns i [mängd funktioner](sql-query-aggregates.md).
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>Hur tillhandahåller SQL-API samtidighet?
 

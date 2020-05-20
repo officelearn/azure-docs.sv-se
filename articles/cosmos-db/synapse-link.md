@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 714d587cc047887685f7f7c7f4f5a2bbc2310aa2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 709b442fde94d88adc7fe4cce16ee1a50bf06c6b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598628"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674361"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Vad är Azure Synapse-länk för Azure Cosmos DB (för hands version)?
 
@@ -35,11 +35,11 @@ Jämfört med traditionella ETL-baserade lösningar erbjuder Azure Synapse-länk
 
 ### <a name="reduced-complexity-with-no-etl-jobs-to-manage"></a>Minskad komplexitet utan ETL-jobb att hantera
 
-Med Azure Synapse-länken kan du direkt komma åt Azure Cosmos DB analys lager med hjälp av Azure Synapse Analytics utan komplex data förflyttning. Alla uppdateringar som görs i användnings data visas i analys lagret i nära real tid utan någon ETL eller ändra feed. Du kan köra storskalig analys mot analys lager från Synapse Analytics utan ytterligare datatransformering.
+Med Azure Synapse-länken kan du direkt komma åt Azure Cosmos DB analys lager med hjälp av Azure Synapse Analytics utan komplex data förflyttning. Alla uppdateringar som görs i användnings data visas i analys lagret i nära real tid utan ETL eller ändra feed-jobb. Du kan köra storskalig analys mot analys lager från Synapse Analytics utan ytterligare datatransformering.
 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Insikter i nära real tid i dina användnings data
 
-Nu kan du få omfattande insikter om dina drift data i nära real tid med hjälp av Azure Synapse-länken. ETL-baserade system tenderar att ha högre latens för att analysera dina drift data, på grund av många lager för att extrahera, transformera och läsa in användnings data. Med inbyggd integrering av Azure Cosmos DB analys lager med Azure Synapse Analytics kan du analysera drift data i nära real tid och aktivera nya affärs scenarier. 
+Nu kan du få omfattande insikter om dina drift data i nära real tid med hjälp av Azure Synapse-länken. ETL-baserade system tenderar att ha högre latens för att analysera dina drift data, på grund av många lager som behövs för att extrahera, transformera och läsa in drift data. Med inbyggd integrering av Azure Cosmos DB analys lager med Azure Synapse Analytics kan du analysera drift data i nära real tid och aktivera nya affärs scenarier. 
 
 
 ### <a name="no-impact-on-operational-workloads"></a>Ingen påverkan på drift arbets belastningar
@@ -54,7 +54,7 @@ Azure Cosmos DB Analytical Store är optimerat för att ge skalbarhet, elastiskh
 
 Med Azure Synapse-länken kan du få en kostnads optimerad, helt hanterad lösning för drift analys. Den eliminerar extra lager av lagring och data bearbetning som krävs i traditionella ETL-pipelines för att analysera drift data. 
 
-Azure Cosmos DB Analytical Store följer en förbruknings pris modell som baseras på data lagring och analys av Läs-och skriv frågor i operationsand. Du behöver inte etablera några data flöden, som du gör i dag för transaktionernas arbets belastningar. Genom att komma åt dina data med mycket elastiska beräknings motorer från Azure Synapse Analytics blir den totala kostnaden för att köra lagring och beräkning mycket effektiv.
+Azure Cosmos DB Analytical Store följer en förbruknings pris modell som baseras på data lagring och analys av Läs-och skriv åtgärder och frågor som körs. Du behöver inte etablera några data flöden, som du gör i dag för transaktionernas arbets belastningar. Genom att komma åt dina data med mycket elastiska beräknings motorer från Azure Synapse Analytics blir den totala kostnaden för att köra lagring och beräkning mycket effektiv.
 
 
 ### <a name="analytics-for-locally-available-globally-distributed-multi-master-data"></a>Analys för lokalt tillgängliga, globalt distribuerade, flera huvud data
@@ -99,7 +99,7 @@ Den här integrationen möjliggör följande HTAP-scenarier för olika användar
 
 * En data tekniker som vill göra data tillgängliga för konsumenter genom att skapa SQL-eller Spark-tabeller över Azure Cosmos DB behållare utan manuella ETL-processer.
 
-Mer information om stöd för Azure Synapse Analytics runtime för Azure Cosmos DB finns i [Azure Synapse Analytics for Cosmos DB support]().
+Mer information om stöd för Azure Synapse Analytics runtime för Azure Cosmos DB finns i [Azure Synapse Analytics for Cosmos DB support](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md).
 
 ## <a name="when-to-use-azure-synapse-link-for-azure-cosmos-db"></a>När ska jag använda Azure Synapse-länken för Azure Cosmos DB?
 
@@ -124,11 +124,11 @@ Synapse-länk rekommenderas inte om du söker efter traditionella informations l
 
 * Att komma åt Azure Cosmos DB analys lager med SQL Server utan Synapse är för närvarande överbelastad för hands version. Om du vill begära åtkomst, e-posta [Azure Cosmos DBS teamet](mailto:cosmosdbsynapselink@microsoft.com).
 
-* Det går inte att komma åt Azure Cosmos DB Analytics Store med SQL-etableringen för Synapse. 
+* Det går inte att komma åt Azure Cosmos DB Analytics Store med SQL-etableringen för Synapse.
 
 ## <a name="pricing"></a>Priser
 
-Fakturerings modellen för Azure Synapse-länken översätter kostnader som uppstår genom att använda Azure Cosmos DB analys lager och Synapse-körningsmiljön. Mer information finns i artikeln om priser för [Azure Cosmos DB analys lager](analytical-store-introduction.md#analytical-store-pricing) och [Azure Synapse Analytics]() .
+I fakturerings modellen för Azure Synapse-länken ingår kostnader som uppstår med hjälp av Azure Cosmos DB analys lager och Synapse Runtime. Mer information finns i artikeln om priser för [Azure Cosmos DB analys lager](analytical-store-introduction.md#analytical-store-pricing) och [Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) .
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -136,9 +136,9 @@ Mer information finns i följande dokument:
 
 * [Översikt över Azure Cosmos DB analys lager](analytical-store-introduction.md)
 
-* [Kom igång med Azure Synapse-länken för Azure Cosmos DB](configure-synapse-link.md) 
+* [Kom igång med Azure Synapse-länken för Azure Cosmos DB](configure-synapse-link.md)
  
-* [Vad stöds i körnings tiden för Azure Synapse Analytics]()
+* [Vad stöds i körnings tiden för Azure Synapse Analytics](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
 
 * [Vanliga frågor och svar om Azure Synapse-länken för Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 

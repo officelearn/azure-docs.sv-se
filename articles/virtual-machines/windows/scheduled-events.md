@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: 105279940546c8e5b40d1d8378b35f85af1ea98b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b688341b8814c52523821851bef4d7600105cafd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099554"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675873"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
@@ -47,21 +47,21 @@ Schemalagda händelser innehåller händelser i följande användnings fall:
 Azure-metadatatjänsten visar information om att köra Virtual Machines att använda en REST-slutpunkt som är tillgänglig från den virtuella datorn. Informationen är tillgänglig via en icke-dirigerad IP-adress så att den inte exponeras utanför den virtuella datorn.
 
 ### <a name="endpoint-discovery"></a>Slut punkts identifiering
-För VNET-aktiverade virtuella datorer är metadatatjänsten tillgänglig från en statisk icke-dirigerad IP- `169.254.169.254`adress. Den fullständiga slut punkten för den senaste versionen av Schemalagda händelser är: 
+För VNET-aktiverade virtuella datorer är metadatatjänsten tillgänglig från en statisk icke-dirigerad IP-adress `169.254.169.254` . Den fullständiga slut punkten för den senaste versionen av Schemalagda händelser är: 
 
  > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
 
 Om den virtuella datorn inte har skapats inom en Virtual Network, krävs standard fall för moln tjänster och klassiska virtuella datorer, men ytterligare logik krävs för att identifiera IP-adressen som ska användas. Se det här exemplet för att lära dig hur du [identifierar värd slut punkten](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Tillgänglighet för version och region
-Den Schemalagda händelser tjänsten har versions hantering. Versioner är obligatoriska och den aktuella versionen är `2019-01-01`.
+Den Schemalagda händelser tjänsten har versions hantering. Versioner är obligatoriska och den aktuella versionen är `2019-01-01` .
 
 | Version | Versions typ | Regioner | Viktig information | 
 | - | - | - | - |
 | 2019-01-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för den virtuella datorns skalnings uppsättning EventType ' Terminate ' |
 | 2017-11-01 | Allmän tillgänglighet | Alla | <li> Stöd har lagts till för VM-utavlägsning av händelse-Preempt för VM<br> | 
 | 2017-08-01 | Allmän tillgänglighet | Alla | <li> Tog bort anpassningsprefix-understreck från resurs namn för virtuella IaaS-datorer<br><li>Krav för metadata-huvud tillämpas för alla begär Anden | 
-| 2017-03-01 | Förhandsversion | Alla |<li>Första utgåvan |
+| 2017-03-01 | Förhandsgranskning | Alla |<li>Första utgåvan |
 
 > [!NOTE] 
 > Tidigare för hands versioner av schemalagda händelser som stöds {senaste} som API-version. Det här formatet stöds inte längre och kommer att bli inaktuellt i framtiden.
@@ -74,12 +74,12 @@ Schemalagda händelser har inaktiverats för tjänsten om den inte gör en begä
 ### <a name="user-initiated-maintenance"></a>Användarinitierad underhåll
 Användaren initierade underhåll av virtuella datorer via Azure Portal, API, CLI eller PowerShell resulterar i en schemalagd händelse. På så sätt kan du testa underhålls förberedelse logiken i programmet och göra det möjligt för ditt program att förbereda för att användaren har initierat underhåll.
 
-När en virtuell dator startas om schemaläggs en händelse av typen `Reboot`. När du distribuerar en virtuell dator schemaläggs en händelse av typen `Redeploy`.
+När en virtuell dator startas om schemaläggs en händelse av typen `Reboot` . När du distribuerar en virtuell dator schemaläggs en händelse av typen `Redeploy` .
 
 ## <a name="using-the-api"></a>Använda API: et
 
-### <a name="headers"></a>Rubriker
-När du frågar Metadata Service måste du ange rubriken `Metadata:true` för att se till att begäran inte har omdirigerats av misstag. `Metadata:true` Rubriken krävs för alla begär Anden om schemalagda händelser. Om du inte tar med rubriken i begäran får du ett felaktigt svar från begäran från Metadata Service.
+### <a name="headers"></a>Sidhuvuden
+När du frågar Metadata Service måste du ange rubriken `Metadata:true` för att se till att begäran inte har omdirigerats av misstag. `Metadata:true`Rubriken krävs för alla begär Anden om schemalagda händelser. Om du inte tar med rubriken i begäran får du ett felaktigt svar från begäran från Metadata Service.
 
 ### <a name="query-for-events"></a>Fråga efter händelser
 Du kan fråga efter Schemalagda händelser enkelt genom att göra följande anrop:
@@ -115,7 +115,7 @@ DocumentIncarnation är en ETag och ger ett enkelt sätt att kontrol lera om hä
 | Typ | Påverkar den här händelsen. <br><br> Värden: <br><ul><li> `Freeze`: Den virtuella datorn är schemalagd att pausas några sekunder. CPU-och nätverks anslutningen kan vara pausad, men det finns ingen inverkan på minnet eller öppna filer. <li>`Reboot`: Den virtuella datorn är schemalagd för omstart (icke-beständigt minne går förlorad). <li>`Redeploy`: Den virtuella datorn är schemalagd att flyttas till en annan nod (tillfälliga diskar går förlorade). <li>`Preempt`: Den virtuella datorn håller på att tas bort (tillfälliga diskar går förlorade). <li> `Terminate`: Den virtuella datorn är schemalagd att tas bort. |
 | ResourceType | Typ av resurs som den här händelsen påverkar. <br><br> Värden: <ul><li>`VirtualMachine`|
 | Resurser| Lista över resurser som den här händelsen påverkar. Detta är garanterat att innehålla datorer från högst en [uppdaterings domän](manage-availability.md), men de får inte innehålla alla datorer i UD. <br><br> Exempel: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| Händelse status | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges `NotBefore` i egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Ingen `Completed` eller liknande status har tillhandahållits. händelsen kommer inte längre att returneras när händelsen har slutförts.
+| Händelse status | Status för den här händelsen. <br><br> Värden: <ul><li>`Scheduled`: Den här händelsen är schemalagd att starta efter den tid som anges i `NotBefore` egenskapen.<li>`Started`: Den här händelsen har startats.</ul> Ingen `Completed` eller liknande status har tillhandahållits. händelsen kommer inte längre att returneras när händelsen har slutförts.
 | NotBefore| Tid när händelsen kan starta. <br><br> Exempel: <br><ul><li> Mån, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>Händelse schemaläggning
@@ -137,15 +137,15 @@ Schemalagda händelser levereras till:
  - Fristående Virtual Machines
  - Alla Virtual Machines i en moln tjänst      
  - Alla Virtual Machines i en tillgänglighets uppsättning      
- - Alla Virtual Machines i en placerings grupp för skalnings uppsättningar.         
+ - Alla Virtual Machines i en placerings grupp för skalnings uppsättningar (inklusive batch)        
 
 Därför bör du kontrol lera `Resources` fältet i händelsen för att identifiera vilka virtuella datorer som ska påverkas. 
 
 ### <a name="starting-an-event"></a>Starta en händelse 
 
-När du har lärt dig en kommande händelse och slutfört din logik för en `POST` korrekt avstängning kan du godkänna den utestående händelsen genom att ringa till metadatatjänsten med. `EventId` Detta visar att Azure kan förkorta den minsta meddelande tiden (om möjligt). 
+När du har lärt dig en kommande händelse och slutfört din logik för en korrekt avstängning kan du godkänna den utestående händelsen genom att `POST` ringa till metadatatjänsten med `EventId` . Detta visar att Azure kan förkorta den minsta meddelande tiden (om möjligt). 
 
-Följande är den JSON som förväntas `POST` i begär ande texten. Begäran bör innehålla en lista över `StartRequests`. Var `StartRequest` och en `EventId` innehåller för den händelse som du vill påskynda:
+Följande är den JSON som förväntas i `POST` begär ande texten. Begäran bör innehålla en lista över `StartRequests` . Var `StartRequest` och en innehåller `EventId` för den händelse som du vill påskynda:
 ```
 {
     "StartRequests" : [

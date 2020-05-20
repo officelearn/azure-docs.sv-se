@@ -2,31 +2,31 @@
 title: ta med fil
 description: ta med fil
 services: azure maps
-author: jinzh-azureiot
+author: anastasia-ms
 ms.service: azure-maps
 ms.topic: include
-ms.date: 11/29/2018
-ms.author: jinzh
+ms.date: 05/01/2020
+ms.author: v-stharr
 ms.custom: include file
-ms.openlocfilehash: cbf43f60a438c740c087ddd2344c982da09da634
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9eafc1ee2d873fbb0602c932eab57c45ddaeac08
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81007827"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673024"
 ---
-I följande tabell visas användnings gränsen för Azure Maps S0 pris nivå. Användnings gränsen är beroende av pris nivån. 
+I följande tabell visas användnings gränsen för Azure Maps S0 pris nivå. Användnings gränsen är beroende av pris nivån.
 
 | Resurs                              | Pris nivå gräns för S0 |
 |---------------------------------------|:---------------------:|
 | Maximal förfrågningsfrekvens per prenumeration |   50 begäranden per sekund  |
 
+I följande tabell visas den kumulativa data storleks gränsen för Azure Maps konton i en Azure-prenumeration. Tjänsten Azure Maps data är endast tillgänglig på pris nivån S1.
 
-I följande tabell visas data storleks gränsen för Azure Maps. Tjänsten Azure Maps data är endast tillgänglig på pris nivån S1.
-
-| Resurs                              | Gräns |
-|---------------------------------------|:---------------------:|
-| Maximal data storlek |   50 MB  |
+| Resurs                               | Gräns  |
+|----------------------------------------|:---------------------:|
+| Maximalt lagrings utrymme per Azure-prenumeration |   1 GB |
+| Maximal storlek per fil uppladdning           | 100 MB |
 
 
 Mer information om Azure Maps pris nivåer finns i [Azure Maps prissättning](https://azure.microsoft.com/pricing/details/azure-maps/).

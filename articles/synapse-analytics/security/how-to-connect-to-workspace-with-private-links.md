@@ -7,30 +7,35 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5a00fc44021278a8b910cf454b43b0bae2c3a1f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d217e6d49f33db099d54e6521073c56ec146c0b8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81432195"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660109"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Ansluta till din Azure Synapse-arbetsyta med privata länkar (förhands granskning)
 
 I den här artikeln får du lära dig hur du skapar privat slut punkt till din Azure Synapse-arbetsyta. Mer information finns i [privata länkar och privata slut punkter](https://docs.microsoft.com/azure/private-link/) .
 
-## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Steg 1: öppna din Azure Synapse-arbetsyta i Azure Portal
+## <a name="step-1-register-network-resource-provider"></a>Steg 1: registrera nätverks resurs leverantör
+
+Registrera nätverks resurs leverantören om du inte redan har gjort det. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Välj *Microsoft. Network* i listan över resurs leverantörer när du [registrerar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)dig. Om nätverks resurs leverantören redan är registrerad, Fortsätt sedan till steg 2.
+
+
+## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Steg 2: öppna din Azure Synapse-arbetsyta i Azure Portal
 
 Välj **privat slut punkts anslutning** under **säkerhet** och välj sedan **+ privat slut punkt**.
 ![Öppna Azure dataSynapses-arbetsyta i Azure Portal](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1.png)
 
-## <a name="step-2-select-your-subscription-and-region-details"></a>Steg 2: Välj din prenumeration och regions information
+## <a name="step-3-select-your-subscription-and-region-details"></a>Steg 3: Välj din prenumeration och regions information
 
 Välj din **prenumeration** och **resurs grupp**under fliken **grundläggande** i fönstret **skapa en privat slut punkt** . Ange ett **namn** på den privata slut punkt som du vill skapa. Välj den **region** där du vill att den privata slut punkten ska skapas.
 
 Privata slut punkter skapas i ett undernät. Prenumerationen, resurs gruppen och den region som valts filtrerar de privata slut punkterna. Välj **Nästa: resurs >** när du är färdig.
 ![Välj information om prenumeration och region](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
 
-## <a name="step-3-select-your-azure-synapse-workspace-details"></a>Steg 3: Välj din information om din Azure Synapse-arbetsyta
+## <a name="step-4-select-your-azure-synapse-workspace-details"></a>Steg 4: Välj din information om din Azure Synapse-arbetsyta
 
 Välj **Anslut till en Azure-resurs i min katalog** på fliken **resurs** . Välj den **prenumeration** som innehåller din Azure Synapse-arbetsyta. **Resurs typen** för att skapa privata slut punkter till en Azure Synapse-arbetsyta är *Microsoft. Synapse/arbets ytor*.
 

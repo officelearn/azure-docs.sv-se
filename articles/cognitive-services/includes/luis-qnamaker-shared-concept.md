@@ -9,12 +9,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
 ms.author: diberry
-ms.openlocfilehash: 02610e647e2138cbf52f86c22107feec2d61273b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c3631b4a2964c5e3a8d8267d1934a5822966342
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604968"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673449"
 ---
 Cognitive Services tillhandahåller två bearbetnings tjänster för naturligt språk, [language Understanding](../luis/what-is-luis.md) och [QNA Maker](../qnamaker/overview/overview.md), var och en med olika ändamål. Förstå när du ska använda varje tjänst och hur de ska komplettera varandra.
 
@@ -30,17 +30,20 @@ Language Understanding (LUIS) och QnA Maker lösa olika problem. LUIS bestämmer
 
 För att kunna välja rätt tjänst måste du förstå användar texten som kommer från klient programmet och vilken information som klient programmet behöver för att hämta från kognitiva tjänster.
 
-Om din Chat-robot tar emot `How do I get to the Human Resources building on the Seattle North campus?`texten använder du diagrammet nedan för att förstå hur varje tjänst fungerar med texten.
+Om din Chat-robot tar emot texten `How do I get to the Human Resources building on the Seattle North campus?` använder du diagrammet nedan för att förstå hur varje tjänst fungerar med texten.
 
 |Tjänst|Klient programmet fastställer|
 |--|--|
 |LUIS|**Bestämmer användarens avsikt** för text – tjänsten returnerar inte svaret på frågan. Den här texten klassificeras exempelvis som matchning av `FindLocation` avsikten.<br>|
-|QnA Maker|**Returnerar svaret till frågan** från en anpassad kunskaps bas. Till exempel bestäms den här texten som en fråga med det statiska textsvaret `Get on the #9 bus and get off at Franklin street`.|
+|QnA Maker|**Returnerar svaret till frågan** från en anpassad kunskaps bas. Till exempel bestäms den här texten som en fråga med det statiska textsvaret `Get on the #9 bus and get off at Franklin street` .|
 |||
+
+> [!div class="mx-imgBorder"]
+> ![Informations grafiken för att avgöra när du ska använda LUIS och när du ska använda QnA Maker](./luis-qna-maker-together-decision.png)
 
 ## <a name="when-do-you-use-luis"></a>När använder du LUIS?
 
-Använd LUIS när du behöver känna till avsikten med uttryck som en del av en process i chatt-roboten. Om du fortsätter med exempel texten `How do I get to the Human Resources building on the Seattle North campus?`, och du vet att användarens avsikt är att hitta en plats, kan du skicka information om uttryck (som dras ut med entiteter) till en annan tjänst, till exempel en transport server, för att få svaret.
+Använd LUIS när du behöver känna till avsikten med uttryck som en del av en process i chatt-roboten. Om du fortsätter med exempel texten, `How do I get to the Human Resources building on the Seattle North campus?` och du vet att användarens avsikt är att hitta en plats, kan du skicka information om uttryck (som dras ut med entiteter) till en annan tjänst, till exempel en transport server, för att få svaret.
 
 Du behöver inte kombinera LUIS och QnA Maker för att avgöra avsikten.
 
@@ -50,7 +53,7 @@ Du kan kombinera de två tjänsterna för den här uttryck, om Chat-roboten mås
 
 Använd QnA Maker när du har en statisk kunskaps bas med svar. Den här kunskaps basen är anpassad efter dina behov, som du har skapat med dokument som PDF-filer och URL: er.
 
-Fortsätt med exemplet uttryck, `How do I get to the Human Resources building on the Seattle North campus?`skicka texten som en fråga till din publicerade QNA Maker-tjänst och få det bästa svaret.
+Fortsätt med exemplet uttryck, `How do I get to the Human Resources building on the Seattle North campus?` Skicka texten som en fråga till din publicerade QNA Maker-tjänst och få det bästa svaret.
 
 Du behöver inte kombinera LUIS och QnA Maker för att fastställa svaret på frågan.
 
@@ -62,7 +65,7 @@ Om du skapar din QnA Maker kunskaps bas men vet att ämnes domänen ändras (til
 
 Ditt klient program måste övervaka både LUIS och QnA Maker svar för Scores. Om poängen från QnA Maker under vissa valfria gränser, använder du informationen om avsikten och entiteten som returnerades från LUIS för att skicka informationen till en tredjepartstjänst.
 
-Om du fortsätter med exempel texten `How do I get to the Human Resources building on the Seattle North campus?`, antar vi att QNA Maker returnerar en poäng med låg exakthet. Använd den avsikt som returnerades från LUIS `FindLocation` och eventuella extraherade entiteter, `Human Resources building` till `Seattle North campus`exempel och, för att skicka den här informationen till en mappnings-eller Sök tjänst för ett annat svar.
+Om du fortsätter med exempel texten, `How do I get to the Human Resources building on the Seattle North campus?` antar vi att QNA Maker returnerar en poäng med låg exakthet. Använd den avsikt som returnerades från LUIS `FindLocation` och eventuella extraherade entiteter, till exempel `Human Resources building` och `Seattle North campus` , för att skicka den här informationen till en mappnings-eller Sök tjänst för ett annat svar.
 
 Du kan presentera detta svar från tredje part för användaren för verifiering. När du har en användares godkännande kan du gå tillbaka till QnA Maker för att lägga till informationen för att utveckla din kunskap.
 
@@ -70,7 +73,7 @@ Du kan presentera detta svar från tredje part för användaren för verifiering
 
 Om din Chat-robot behöver mer information än vad som finns i tjänsten kan du använda båda tjänsterna och bearbeta båda svaren i klient programmet för att fortsätta via ett besluts träd.
 
-Använd verktyget bot Framework **[DISPATCH CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** för att hjälpa till att bygga en process som fungerar med båda tjänsterna. Det här verktyget skapar en LUIS app av avsikter som skickar mellan LUIS och QnA Maker som underordnade appar.
+Använd verktyget bot Framework **[DISPATCH CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)** för att hjälpa till att bygga en process som fungerar med båda tjänsterna. Det här verktyget skapar en LUIS app av avsikter som skickar mellan LUIS och QnA Maker som underordnade appar. [Läs mer](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=cs) om integrering med Luis-, QNA Maker-och bot-ramverket.
 
 Använd robot Builder-exemplet, **NLP med utsändning**, i [C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch) eller [Node. js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch), för att implementera den här typen av chatt-robot.
 

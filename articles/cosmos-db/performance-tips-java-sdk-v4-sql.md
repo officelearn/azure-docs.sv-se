@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: ce4e4d11ead41ee8cc4a4bd1d85f1fbad2af4b07
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: dca9babff198fc780e54df6e89149f2c4c8157bf
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982538"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677698"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Prestanda tips för Azure Cosmos DB Java SDK v4
 
@@ -24,7 +24,7 @@ ms.locfileid: "82982538"
 > 
 
 > [!IMPORTANT]  
-> Prestanda tipsen i den här artikeln är endast för Azure Cosmos DB Java SDK v4. Se Azure Cosmos DB Java SDK v4-viktig information, [maven-lagringsplatsen](https://mvnrepository.com/artifact/com.azure/azure-cosmos)och Azure Cosmos DB Java SDK v4 v4 [fel söknings guide](troubleshoot-java-sdk-v4-sql.md) för mer information. Om du använder en äldre version än v4 kan du läsa om hur du uppgraderar till v4 i [Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide.
+> Prestanda tipsen i den här artikeln är endast för Azure Cosmos DB Java SDK v4. Se Azure Cosmos DB Java SDK v4- [viktig](sql-api-sdk-java-v4.md)information, [maven-lagringsplatsen](https://mvnrepository.com/artifact/com.azure/azure-cosmos)och Azure Cosmos DB Java SDK v4 v4 [fel söknings guide](troubleshoot-java-sdk-v4-sql.md) för mer information. Om du använder en äldre version än v4 kan du läsa om hur du uppgraderar till v4 i [Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide.
 >
 
 Azure Cosmos DB är en snabb och flexibel distribuerad databas som skalar sömlöst med garanterad svars tid och data flöde. Du behöver inte göra större ändringar i arkitekturen eller skriva komplex kod för att skala databasen med Azure Cosmos DB. Att skala upp och ned är lika enkelt som att göra ett enda API-anrop eller SDK-metod anrop. Men eftersom Azure Cosmos DB nås via nätverks anrop finns det optimeringar på klient sidan som du kan göra för att uppnå högsta prestanda när du använder Azure Cosmos DB Java SDK v4.
@@ -92,7 +92,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     ![Bild av Azure Cosmos DB anslutnings princip](./media/performance-tips/same-region.png)
 
-    En app som samverkar med ett Azure Cosmos DB konto i flera regioner måste konfigurera [önskade platser]() för att se till att begär Anden kommer till en samordnad region.
+    En app som samverkar med ett Azure Cosmos DB konto i flera regioner måste konfigurera [önskade platser](tutorial-global-distribution-sql-api.md#preferred-locations) för att se till att begär Anden kommer till en samordnad region.
 
 * **Aktivera accelererat nätverk på den virtuella Azure-datorn för kortare svars tid.**
 
@@ -133,7 +133,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
     
     Geografisk samplacering kan ge dig bättre och mer konsekvent data flöde när du använder Sync API (se [samordna-klienter i samma Azure-region för prestanda](#collocate-clients)) men ändå inte förväntas överskrida asynkront API-genomflöde.
 
-    Vissa användare kan också vara okända med [projekt reaktor](https://projectreactor.io/), det reactive Streams-ramverk som används för att implementera Azure Cosmos DB Java SDK v4 async API. Om detta är ett problem rekommenderar vi att du läser vår introduktions [Guide för reaktorer](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) och tar en titt på den här [introduktionen för](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) att få en mer aktuell programmering för att bekanta dig. Om du redan har använt Azure Cosmos dB med ett asynkront gränssnitt och SDK: n som du använde Azure Cosmos DB asynkron Java SDK v2, kan du vara bekant med [reactivex-](http://reactivex.io/)/[RxJava](https://github.com/ReactiveX/RxJava) men vara osäker på vad som har ändrats i Project reaktor. I så fall kan du ta en titt på vår [reaktor vs. RxJava-guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) för att bli bekant.
+    Vissa användare kan också vara okända med [projekt reaktor](https://projectreactor.io/), det reactive Streams-ramverk som används för att implementera Azure Cosmos DB Java SDK v4 async API. Om detta är ett problem rekommenderar vi att du läser vår introduktions [Guide för reaktorer](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-pattern-guide.md) och tar en titt på den här [introduktionen för](https://tech.io/playgrounds/929/reactive-programming-with-reactor-3/Intro) att få en mer aktuell programmering för att bekanta dig. Om du redan har använt Azure Cosmos dB med ett asynkront gränssnitt och SDK: n som du använde Azure Cosmos DB asynkron Java SDK v2, kan du vara bekant med [reactivex-](http://reactivex.io/) / [RxJava](https://github.com/ReactiveX/RxJava) men vara osäker på vad som har ändrats i Project reaktor. I så fall kan du ta en titt på vår [reaktor vs. RxJava-guide](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) för att bli bekant.
 
     Följande kodfragment visar hur du initierar din Azure Cosmos DB-klient för asynkron API eller synkroniserings-API-åtgärd:
 
@@ -186,7 +186,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
         Om du använder Azure Cosmos DB som en referens databas (det vill säga databasen används för många punkt läsnings åtgärder och få Skriv åtgärder) kan det vara acceptabelt att ange *idleEndpointTimeout* till 0 (det vill säga ingen tids gräns).
 
 
-        | Konfigurations alternativ       | Standardvärde    |
+        | Konfigurations alternativ       | Standard    |
         | :------------------:       | :-----:    |
         | bufferPageSize             | 8192       |
         | connectionTimeout          | "PT1M"     |
@@ -278,7 +278,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
         });
     ```
 
-    Baserat på typen av arbete bör du använda en lämplig befintlig reaktor Scheduler för ditt arbete. Läs här [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html).
+    Baserat på typen av arbete bör du använda en lämplig befintlig reaktor Scheduler för ditt arbete. Läs här [``Schedulers``](https://projectreactor.io/docs/core/release/api/reactor/core/scheduler/Schedulers.html) .
 
     Mer information om Azure Cosmos DB Java SDK v4 finns i [Cosmos DB Directory för Azure SDK för Java-monorepo på GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-cosmos).
 
@@ -292,7 +292,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     * ***Inaktivera loggning av netttjänster***
 
-        Loggning av Netstore-bibliotek är chatt och måste stängas av (under tryckning av inloggnings konfigurationen kanske inte räcker) för att undvika ytterligare processor kostnader. Om du inte är i fel söknings läge inaktiverar du nett loggning helt. Så om du använder Log4J för att ta bort de ytterligare CPU-kostnader som ``org.apache.log4j.Category.callAppenders()`` uppstår vid nettning lägger du till följande rad i kodbasen:
+        Loggning av Netstore-bibliotek är chatt och måste stängas av (under tryckning av inloggnings konfigurationen kanske inte räcker) för att undvika ytterligare processor kostnader. Om du inte är i fel söknings läge inaktiverar du nett loggning helt. Så om du använder Log4J för att ta bort de ytterligare CPU-kostnader som uppstår vid ``org.apache.log4j.Category.callAppenders()`` nettning lägger du till följande rad i kodbasen:
 
         ```java
         org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
@@ -393,7 +393,7 @@ Mer information finns i [Windows](https://docs.microsoft.com/azure/virtual-netwo
 
     Komplexiteten i en fråga påverkar hur många enheter för programbegäran som används för en åtgärd. Antalet predikat, typen av predikat, antalet UDF: er och storleken på käll data uppsättningen påverkar kostnaden för frågor.
 
-    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) för att mäta antalet enheter för programbegäran som används av dessa åtgärder. Du kan också titta på motsvarande RequestCharge-egenskap i ResourceResponse\<T> eller FeedResponse\<T>.
+    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) för att mäta antalet enheter för programbegäran som används av dessa åtgärder. Du kan också titta på motsvarande RequestCharge-egenskap i ResourceResponse \< T> eller FeedResponse \< T>.
 
     #### <a name="async"></a>[Async](#tab/api-async)
 

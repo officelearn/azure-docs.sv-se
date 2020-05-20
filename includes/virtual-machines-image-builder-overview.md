@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/05/2020
+ms.date: 05/15/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 11a9b8609218a6cf56a789b18094d048e26d4af8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9bbf2288ac92c33c2b24af4e6a97882013a4ff1d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343345"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673466"
 ---
 Med standardiserade avbildningar av virtuella datorer kan organisationer migrera till molnet och säkerställa konsekvens i distributionerna. Bilder innehåller vanligt vis fördefinierade säkerhets-och konfigurations inställningar och nödvändig program vara. Att konfigurera din egen avbildnings pipeline kräver tid, infrastruktur och konfiguration, men med Azure VM Image Builder får du bara en enkel konfiguration som beskriver avbildningen, skickar den till tjänsten och avbildningen skapas och distribueras.
  
@@ -86,7 +86,8 @@ När du har identiteten som du behöver för att ge IT-behörighet kan du använ
 
 Behörigheter förklaras i detalj [här](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)och exemplen visar hur detta implementeras.
 
-> [OBS!] Tidigare med AIB använder du AIB SPN och ger SPN-behörighet till avbildnings resurs grupperna. Vi går vidare från den här modellen, så att du kan använda framtida funktioner. Från 1 juni 2020 kommer Image Builder inte att acceptera mallar som inte har någon tilldelad identitet, befintliga mallar måste skickas igen till tjänsten med en [användar identitet](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). Exemplen här visar redan hur du kan skapa en användardefinierad identitet och lägga till dem i en mall.
+> [!Note]
+> Tidigare med AIB använder du AIB SPN och ger SPN-behörighet till avbildnings resurs grupperna. Vi går vidare från den här modellen, så att du kan använda framtida funktioner. Från 26 maj 2020 kan Image Builder inte ta emot mallar som inte har någon tilldelad identitet, befintliga mallar måste skickas igen till tjänsten med en [användar identitet](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). Exemplen här visar redan hur du kan skapa en användardefinierad identitet och lägga till dem i en mall. Mer information finns i den här [dokumentationen](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) om den här ändringen och uppdateringar.
 
 ## <a name="costs"></a>Kostnader
 Du kommer att ådra dig några beräknings-, nätverks-och lagrings kostnader när du skapar, skapar och lagrar avbildningar med Azure Image Builder. Dessa kostnader liknar kostnaderna för att skapa anpassade avbildningar manuellt. För resurserna debiteras du enligt dina Azure-priser. 

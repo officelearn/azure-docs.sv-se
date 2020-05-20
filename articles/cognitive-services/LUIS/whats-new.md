@@ -2,13 +2,13 @@
 title: Vad är nytt – Language Understanding (LUIS)
 description: Den här artikeln uppdateras regelbundet med nyheter om Azure Cognitive Services API för Language Understanding.
 ms.topic: overview
-ms.date: 05/08/2020
-ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592805"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675950"
 ---
 # <a name="whats-new-in-language-understanding"></a>Vad är nytt i Language Understanding
 
@@ -21,12 +21,18 @@ Läs om vad som är nytt i tjänsten. Dessa objekt innehåller viktig informatio
 * Publicerad som **allmänt tillgänglig** (ga):
     * [Language Understanding behållare](luis-container-howto.md)
     * För hands versionen av portalen upphöjt till den [aktuella portalen](https://www.luis.ai), den [tidigare](https://previous.luis.ai) portalen är fortfarande tillgänglig
-    * Ny dator – lärt dig att skapa och märka entiteter
-    * [Uppgradera processen](migrate-from-composite-entity.md) från sammansatta och enkla entiteter till enheter som har lärts från enheten
+    * Nya skapande och etiketter för skapande av enheter i maskin inlärning
+    * [Uppgradera processen](migrate-from-composite-entity.md) från sammansatta och enkla entiteter till Machine Learning-entiteter
     * [Ställer in](how-to-application-settings-portal.md) stöd för normaliserade Word-varianter
 * Förhandsgranska redigering av API-ändringar
-    * App schema 7. x för kapslade dator enheter
+    * App schema 7. x för kapslade enheter för maskin inlärning
     * [Migrering till nödvändig funktion](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+* Nya resurser för utvecklare
+    * [Verktyg för kontinuerlig integrering](developer-reference-resource.md#continuous-integration-tools)
+    * Workshop – lär dig metod tips för [ _naturliga language Understanding_ (NLU) med Luis](developer-reference-resource.md#workshops)
+* [Kundhanterade nycklar](luis-encryption-of-data-at-rest.md) – kryptera alla data du använder i Luis genom att använda din egen nyckel
+* [AI show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (video) – Se de nya funktionerna i Luis
+
 
 
 ### <a name="march-2020"></a>Mars 2020
@@ -48,13 +54,13 @@ Läs om vad som är nytt i tjänsten. Dessa objekt innehåller viktig informatio
     * [Inbyggda italienska entiteter](luis-reference-prebuilt-entities.md#italian-entity-support) – ålder, valuta, dimension, nummer och procents ATS för en procentuell matchning har ändrats från v2.
 * Förbättrad användar upplevelse i [Preview.Luis.AI Portal](https://preview.luis.ai) – förbättringar etiketting-upplevelse som möjliggör skapande och fel sökning av komplexa modeller. Testa självstudierna för Preview-portalen:
     * [Endast avsikter](tutorial-intents-only.md)
-    * [Desammansättnings bar enhet som har registrerats av enheten](tutorial-machine-learned-entity.md)
+    * [Desammansättnings bar maskin inlärnings enhet](tutorial-machine-learned-entity.md)
 * Förhands språk förstå funktioner – [skapa sofistikerade språk modeller](luis-concept-entity-types.md) med mindre ansträngning.
 * Definiera Machine Learning-funktioner på modell nivå och aktivera modeller som ska användas som signaler till andra modeller, till exempel att använda entiteter som funktioner till avsikter och andra entiteter.
 * Nya, utökade [gränser](luis-limits.md) – högre max för fras listor och total fraser, ny modell som funktions gränser
 * Extrahera information från text i formatet djup hierarki-struktur, så att konversations program blir mer kraftfulla.
 
-    ![enhets bild som sparats av datorn](./media/whats-new/deep-entity-extraction-example.png)
+    ![enhets bild för maskin inlärning](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 september 2019
 

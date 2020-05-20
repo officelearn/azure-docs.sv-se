@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/23/2019
+ms.date: 05/12/2020
 ms.author: borisb
-ms.openlocfilehash: 0cee7c25960d567c75a14d8ad9ef95b3e7221862
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 27cc0c758a1f8cec5ad7f124f39c01c4e770676e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683421"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660524"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>VIRTUELLA Oracle-avbildningar och deras distribution på Microsoft Azure
 
@@ -30,26 +30,47 @@ Om du vill hämta en lista över tillgängliga avbildningar kör du följande ko
 az vm image list --publisher oracle -o table --all
 ```
 
-Från och med maj 2019 finns följande avbildningar:
+Från och med maj 2020 finns följande avbildningar:
 
 ```bash
 Offer                   Publisher    Sku                     Urn                                                          Version
 ----------------------  -----------  ----------------------  -----------------------------------------------------------  -------------
+oracle-database-19-3    Oracle       oracle-db-19300         Oracle:oracle-database-19-3:oracle-db-19300:19.3.0           19.3.0
 Oracle-Database-Ee      Oracle       12.1.0.2                Oracle:Oracle-Database-Ee:12.1.0.2:12.1.20170220             12.1.20170220
 Oracle-Database-Ee      Oracle       12.2.0.1                Oracle:Oracle-Database-Ee:12.2.0.1:12.2.20180725             12.2.20180725
 Oracle-Database-Ee      Oracle       18.3.0.0                Oracle:Oracle-Database-Ee:18.3.0.0:18.3.20181213             18.3.20181213
 Oracle-Database-Se      Oracle       12.1.0.2                Oracle:Oracle-Database-Se:12.1.0.2:12.1.20170220             12.1.20170220
 Oracle-Database-Se      Oracle       12.2.0.1                Oracle:Oracle-Database-Se:12.2.0.1:12.2.20180725             12.2.20180725
 Oracle-Database-Se      Oracle       18.3.0.0                Oracle:Oracle-Database-Se:18.3.0.0:18.3.20181213             18.3.20181213
-Oracle-Linux            Oracle       6.10                    Oracle:Oracle-Linux:6.10:6.10.20190506                       6.10.20190506
-Oracle-Linux            Oracle       6.8                     Oracle:Oracle-Linux:6.8:6.8.20190506                         6.8.20190506
-Oracle-Linux            Oracle       6.9                     Oracle:Oracle-Linux:6.9:6.9.20190506                         6.9.20190506
-Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux:7.3:7.3.20190506                         7.3.20190506
-Oracle-Linux            Oracle       7.4                     Oracle:Oracle-Linux:7.4:7.4.20190506                         7.4.20190506
+Oracle-Linux            Oracle       6.10                    Oracle:Oracle-Linux:6.10:6.10.00                             6.10.00
+Oracle-Linux            Oracle       6.8                     Oracle:Oracle-Linux:6.8:6.8.0                                6.8.0
+Oracle-Linux            Oracle       6.8                     Oracle:Oracle-Linux:6.8:6.8.20190529                         6.8.20190529
+Oracle-Linux            Oracle       6.9                     Oracle:Oracle-Linux:6.9:6.9.0                                6.9.0
+Oracle-Linux            Oracle       6.9                     Oracle:Oracle-Linux:6.9:6.9.20190529                         6.9.20190529
+Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux:7.3:7.3.0                                7.3.0
+Oracle-Linux            Oracle       7.3                     Oracle:Oracle-Linux:7.3:7.3.20190529                         7.3.20190529
+Oracle-Linux            Oracle       7.4                     Oracle:Oracle-Linux:7.4:7.4.1                                7.4.1
+Oracle-Linux            Oracle       7.4                     Oracle:Oracle-Linux:7.4:7.4.20190529                         7.4.20190529
+Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.1                                7.5.1
+Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.2                                7.5.2
 Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.20181207                         7.5.20181207
-Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.20190506                         7.5.20190506
-Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.20181207                         7.6.20181207
-Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.20190506                         7.6.20190506
+Oracle-Linux            Oracle       7.5                     Oracle:Oracle-Linux:7.5:7.5.20190529                         7.5.20190529
+Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.2                                7.6.2
+Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.3                                7.6.3
+Oracle-Linux            Oracle       7.6                     Oracle:Oracle-Linux:7.6:7.6.4                                7.6.4
+Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.1                                 7.7.1
+Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.2                                 7.7.2
+Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.3                                 7.7.3
+Oracle-Linux            Oracle       77                      Oracle:Oracle-Linux:77:7.7.4                                 7.7.4
+Oracle-Linux            Oracle       77-ci                   Oracle:Oracle-Linux:77-ci:7.7.01                             7.7.01
+Oracle-Linux            Oracle       77-ci                   Oracle:Oracle-Linux:77-ci:7.7.02                             7.7.02
+Oracle-Linux            Oracle       77-ci                   Oracle:Oracle-Linux:77-ci:7.7.03                             7.7.03
+Oracle-Linux            Oracle       8                       Oracle:Oracle-Linux:8:8.0.2                                  8.0.2
+Oracle-Linux            Oracle       8-ci                    Oracle:Oracle-Linux:8-ci:8.0.11                              8.0.11
+Oracle-Linux            Oracle       81                      Oracle:Oracle-Linux:81:8.1.0                                 8.1.0
+Oracle-Linux            Oracle       81-ci                   Oracle:Oracle-Linux:81-ci:8.1.0                              8.1.0
+Oracle-Linux            Oracle       ol77-ci-gen2            Oracle:Oracle-Linux:ol77-ci-gen2:7.7.1                       7.7.1
+Oracle-Linux            Oracle       ol77-gen2               Oracle:Oracle-Linux:ol77-gen2:7.7.01                         7.7.01
 Oracle-WebLogic-Server  Oracle       Oracle-WebLogic-Server  Oracle:Oracle-WebLogic-Server:Oracle-WebLogic-Server:12.1.2  12.1.2
 ```
 
@@ -104,7 +125,11 @@ Förutom att ha en HA-och DR-lösning som är konstruerad i Azure bör du ha en 
 Enligt Oracle support NOTE [dokument-ID 2178595,1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4), JD Edwards EnterpriseOne-versionerna 9,2 och senare, stöds i **alla offentliga moln** som uppfyller deras speciella `Minimum Technical Requirements` (MTR).  Du måste skapa anpassade avbildningar som uppfyller MTR-specifikationerna för operativ system-och program varu kompatibilitet. 
 
 
-## <a name="oracle-weblogic-server-virtual-machine-images"></a>Avbildningar av virtuella datorer i Oracle WebLogic-Server
+## <a name="oracle-weblogic-server-virtual-machine-offers"></a>Den virtuella datorn för Oracle WebLogic Server erbjuder
+
+Oracle och Microsoft samarbetar för att ta WebLogic-Server till Azure Marketplace i form av en samling med Azure Application erbjudanden.  Dessa erbjudanden beskrivs i artikeln [Oracle WebLogic Server Azure-program](oracle-weblogic.md).
+
+### <a name="oracle-weblogic-server-virtual-machine-images"></a>Avbildningar av virtuella datorer i Oracle WebLogic-Server
 
 * **Klustring stöds endast på Enterprise Edition.** Du är licensierad att endast använda WebLogic-kluster när du använder Enterprise-versionen av Oracle WebLogic Server. Använd inte kluster med Oracle WebLogic Server Standard Edition.
 * **UDP-multicast stöds inte.** Azure har stöd för UDP-unicast, men inte multicasting eller Broadcasting. Oracle WebLogic Server kan förlita sig på funktioner i Azure UDP unicast. För bästa resultat som förlitar sig på UDP unicast, rekommenderar vi att kluster storleken för WebLogic hålls statisk eller hålls kvar utan fler än 10 hanterade servrar.
@@ -125,7 +150,7 @@ Enligt Oracle support NOTE [dokument-ID 2178595,1](https://support.oracle.com/ep
     -Dweblogic.rjvm.enableprotocolswitch=true
     ```
 
-Relaterad information finns i KB-artikel **860340,1** på <https://support.oracle.com>.
+Relaterad information finns i KB-artikel **860340,1** på <https://support.oracle.com> .
 
 * **Begränsningar för dynamisk kluster-och belastnings utjämning.** Anta att du vill använda ett dynamiskt kluster i Oracle WebLogic-servern och exponera det genom en enda offentlig belastningsutjämnad slut punkt i Azure. Detta kan göras så länge du använder ett fast port nummer för var och en av de hanterade servrarna (inte dynamiskt tilldelade från ett intervall) och inte startar fler hanterade servrar än det finns datorer som administratören spårar. Det finns inte fler än en hanterad server per virtuell dator. Om konfigurationen leder till att fler Oracle WebLogic-servrar startas än det finns virtuella datorer (det vill säga där flera Oracle WebLogic-instanser delar samma virtuella dator), är det inte möjligt för mer än en av dessa instanser av Oracle WebLogic-servrar att binda till ett angivet port nummer. De andra på den virtuella datorn fungerar inte.
 

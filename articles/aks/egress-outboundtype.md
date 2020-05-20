@@ -4,12 +4,12 @@ description: Lär dig hur du definierar en anpassad utgående väg i Azure Kuber
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: babfd70a6a9732113531be13073af212a6820557
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733506"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677888"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Anpassa utgående kluster med en användardefinierad väg (förhands granskning)
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur du anpassar ett klusters utgående väg för att
 ## <a name="prerequisites"></a>Krav
 * Azure CLI-version 2.0.81 eller senare
 * Azure CLI Preview-tillägg version 0.4.28 eller senare
-* API-version `2020-01-01` av eller större
+* API-version av `2020-01-01` eller större
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>Installera det senaste för hands tillägget för Azure CLI-AKS
 Om du vill ange utgående typ för ett kluster måste du ha Azure CLI-AKS för hands versions version 0.4.18 eller senare. Installera Azure CLI-AKS för hands versions tillägg med hjälp av kommandot AZ Extension Add och Sök sedan efter eventuella tillgängliga uppdateringar med hjälp av följande kommando för AZ-tillägg:
@@ -40,29 +40,29 @@ az extension update --name aks-preview
 ```
 
 ## <a name="limitations"></a>Begränsningar
-* Under för hands `outboundType` versionen kan bara definieras i klustrets skapande tid och kan inte uppdateras efteråt.
-* AKS- `outboundType` kluster bör använda Azure cni under för hands versionen. Kubernetes kan konfigureras, användning kräver manuella kopplingar av routningstabellen till AKS-undernätet.
-* Inställningen `outboundType` kräver AKS `vm-set-type` -kluster med `VirtualMachineScaleSets` och. `load-balancer-sku` `Standard`
+* Under för hands versionen `outboundType` kan bara definieras i klustrets skapande tid och kan inte uppdateras efteråt.
+* `outboundType`AKS-kluster bör använda Azure cni under för hands versionen. Kubernetes kan konfigureras, användning kräver manuella kopplingar av routningstabellen till AKS-undernätet.
+* Inställningen `outboundType` kräver AKS-kluster med `vm-set-type` `VirtualMachineScaleSets` och `load-balancer-sku` `Standard` .
 * Inställningen `outboundType` till värdet `UDR` kräver en användardefinierad väg med giltig utgående anslutning för klustret.
-* Inställningen `outboundType` till värdet `UDR` innebär att den inkommande käll-IP-vägen till belastningsutjämnaren **inte matchar** klustrets utgående mål adress för utgående trafik.
+* Inställningen `outboundType` till värdet innebär att `UDR` den inkommande käll-IP-vägen till belastningsutjämnaren **inte matchar** klustrets utgående mål adress för utgående trafik.
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Översikt över utgående typer i AKS
 
-Ett AKS-kluster kan anpassas med en `outboundType` unik typ belastningsutjämnare eller användardefinierad routning.
+Ett AKS-kluster kan anpassas med en unik `outboundType` typ belastningsutjämnare eller användardefinierad routning.
 
 > [!IMPORTANT]
 > Utgående typ påverkar bara utgående trafik i klustret. Mer information finns i Konfigurera ingångs [styrenheter](ingress-basic.md) .
 
 ### <a name="outbound-type-of-loadbalancer"></a>Utgående typ av loadBalancer
 
-Om `loadBalancer` är inställt, slutför AKS följande konfiguration automatiskt. Belastningsutjämnaren används för utgående trafik genom en AKS tilldelad offentlig IP. En utgående typ som `loadBalancer` stöder Kubernetes-tjänster av `loadBalancer`typen, som förväntar sig utgående från BELASTNINGSUTJÄMNAREN som skapats av AKS-resurs leverantören.
+Om `loadBalancer` är inställt, slutför AKS följande konfiguration automatiskt. Belastningsutjämnaren används för utgående trafik genom en AKS tilldelad offentlig IP. En utgående typ som `loadBalancer` stöder Kubernetes-tjänster av typen `loadBalancer` , som förväntar sig utgående från belastningsutjämnaren som skapats av AKS-resurs leverantören.
 
 Följande inställningar utförs av AKS.
    * En offentlig IP-adress har allokerats för utgående kluster.
    * Den offentliga IP-adressen är tilldelad till belastnings Utjämnings resursen.
    * Backend-pooler för belastningsutjämnaren konfigureras för agent-noder i klustret.
 
-Nedan är en nätverkstopologi som distribueras i AKS-kluster som standard, som använder `outboundType` sig av `loadBalancer`.
+Nedan är en nätverkstopologi som distribueras i AKS-kluster som standard, som använder `outboundType` sig av `loadBalancer` .
 
 ![outboundtype – lb](media/egress-outboundtype/outboundtype-lb.png)
 
@@ -119,9 +119,6 @@ DEVSUBNET_NAME="${PREFIX}dev"
 Ange sedan prenumerations-ID: n.
 
 ```azure-cli
-# Get ARM Access Token and Subscription ID - This will be used for AuthN later.
-
-ACCESS_TOKEN=$(az account get-access-token -o tsv --query 'accessToken')
 
 # NOTE: Update Subscription Name
 # Set Default Azure Subscription to be Used via Subscription ID
@@ -318,7 +315,7 @@ az role assignment list --assignee $APPID --all -o table
 
 ### <a name="deploy-aks"></a>Distribuera AKS
 
-Slutligen kan AKS-klustret distribueras till det befintliga under nätet som vi har dedikerat för klustret. Det mål under nät som ska distribueras till definieras med miljövariabeln `$SUBNETID`. Vi har inte definierat `$SUBNETID` variabeln i föregående steg. Om du vill ange värdet för under nätets ID kan du använda följande kommando:
+Slutligen kan AKS-klustret distribueras till det befintliga under nätet som vi har dedikerat för klustret. Det mål under nät som ska distribueras till definieras med miljövariabeln `$SUBNETID` . Vi har inte definierat `$SUBNETID` variabeln i föregående steg. Om du vill ange värdet för under nätets ID kan du använda följande kommando:
 
 ```azurecli
 SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
@@ -361,7 +358,7 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
- Använd kommandot [AZ AKS get-credentials][az-aks-get-credentials] för att `kubectl` konfigurera för att ansluta till det nyligen skapade Kubernetes-klustret. 
+ Använd kommandot [AZ AKS get-credentials][az-aks-get-credentials] för att konfigurera `kubectl` för att ansluta till det nyligen skapade Kubernetes-klustret. 
 
  ```azure-cli
  az aks get-credentials -g $RG -n $AKS_NAME
@@ -399,7 +396,7 @@ kubectl apply -f internal-lb.yaml
 
 Eftersom utgående kluster typ har angetts som UDR, associerar-agent-noderna som backend-poolen för belastningsutjämnaren inte har slutförts automatiskt av AKS vid kluster skapande tid. En Association för Server delens pool hanteras dock av Kubernetes Azure Cloud Provider när Kubernetes-tjänsten distribueras.
 
-Distribuera programmet Azure röstning app genom att kopiera yaml nedan till en fil med namnet `example.yaml`.
+Distribuera programmet Azure röstning app genom att kopiera yaml nedan till en fil med namnet `example.yaml` .
 
 ```yaml
 apiVersion: apps/v1

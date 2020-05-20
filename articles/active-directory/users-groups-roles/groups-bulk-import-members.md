@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8902c3147bbe142fc58d4e2c3fa83601c8ccbba3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 5b83b0687db72c78a0c7788933acf07f5cb9e0ed
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203544"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679337"
 ---
-# <a name="bulk-import-group-members-in-azure-active-directory"></a>Grupp medlemmar i Mass import i Azure Active Directory
+# <a name="bulk-add-group-members-in-azure-active-directory"></a>Mass tillägg av grupp medlemmar i Azure Active Directory
 
 Med hjälp av Azure Active Directory-portalen (Azure AD) kan du lägga till ett stort antal medlemmar i en grupp genom att använda en fil med kommaavgränsade värden (CSV) för grupp medlemmar i Mass import.
 
@@ -35,7 +35,7 @@ Ladda ned och fyll i mallen för Mass uppladdning av CSV för att lägga till Az
 Raderna i en Hämtad CSV-mall är följande:
 
 - **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
-- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt*&gt;. Till exempel `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Vissa äldre versioner av mallen kan ha små variationer. För ändringar i grupp medlemskap kan du välja vilken identifierare som ska användas: medlems objekt-ID eller User Principal Name.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Till exempel `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Vissa äldre versioner av mallen kan ha små variationer. För ändringar i grupp medlemskap kan du välja vilken identifierare som ska användas: medlems objekt-ID eller User Principal Name.
 - **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
 ### <a name="additional-guidance"></a>Mer information
@@ -48,7 +48,7 @@ Raderna i en Hämtad CSV-mall är följande:
 ## <a name="to-bulk-import-group-members"></a>Till Mass import av grupp medlemmar
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett användar administratörs konto i organisationen. Grupp ägare kan också Mass import medlemmar av grupper som de äger.
-1. I Azure AD väljer du **grupper** > **alla grupper**.
+1. I Azure AD väljer du **grupper**  >  **alla grupper**.
 1. Öppna den grupp som du vill lägga till medlemmar i och välj sedan **medlemmar**.
 1. På sidan **medlemmar** väljer du **Importera medlemmar**.
 1. På sidan **medlemmar grupp medlemmar** väljer du **Hämta** för att hämta CSV-filmallen med obligatoriska grupp medlems egenskaper.
@@ -57,7 +57,7 @@ Raderna i en Hämtad CSV-mall är följande:
 
 1. Öppna CSV-filen och Lägg till en rad för varje grupp medlem som du vill importera till gruppen (obligatoriska värden är antingen **medlems objekt-ID** eller **användarens huvud namn**). Spara sedan filen.
 
-   ![CSV-filen innehåller namn och ID: n för de medlemmar som ska importeras](./media/groups-bulk-import-members/csv-file.png)
+    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="CSV-filen innehåller namn och ID: n för de medlemmar som ska importeras":::
 
 1. På sidan **medlemmar i grupp medlemmar** , under **överför din CSV-fil**, bläddrar du till filen. När du väljer filen startar valideringen av CSV-filen.
 1. När fil innehållet är verifierat visar sidan Mass import att **filen har laddats upp**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.

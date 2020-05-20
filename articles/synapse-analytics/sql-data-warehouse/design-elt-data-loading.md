@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 02/19/2020
+ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: e99fd898956e11a4827d023691111a47e5a790c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: faeab07ce7ec057981d23228461c2fa07600cdc1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744953"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660023"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Data inläsnings strategier för Synapse SQL-pool
 
@@ -29,7 +29,7 @@ SQL-poolen har stöd för många inläsnings metoder, inklusive populära SQL Se
 Med PolyBase och KOPIERINGs instruktionen kan du komma åt externa data som lagras i Azure Blob Storage eller Azure Data Lake Store via T-SQL-språket. Vi rekommenderar att du använder COPY-instruktionen för största möjliga flexibilitet vid inläsning.
 
 > [!NOTE]  
-> KOPIERINGs instruktionen är för närvarande en offentlig för hands version. Skicka e-post till följande distributions lista för att ge sqldwcopypreview@service.microsoft.comfeedback:.
+> KOPIERINGs instruktionen är för närvarande en offentlig för hands version. Skicka e-post till följande distributions lista för att ge feedback: sqldwcopypreview@service.microsoft.com .
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
@@ -68,7 +68,7 @@ Verktyg och tjänster som du kan använda för att flytta data till Azure Storag
 
 - [Azure ExpressRoute](../../expressroute/expressroute-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) service förbättrar nätverks data flöde, prestanda och förutsägbarhet. ExpressRoute är en tjänst som dirigerar dina data via en dedikerad privat anslutning till Azure. ExpressRoute-anslutningar dirigerar inte data via det offentliga Internet. Anslutningarna ger högre tillförlitlighet, snabbare hastighet, lägre fördröjning och högre säkerhet än vanliga anslutningar via det offentliga Internet.
 - [AzCopy-verktyget](../../storage/common/storage-choose-data-transfer-solution.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) flyttar data till Azure Storage över det offentliga Internet. Detta fungerar om data storlekarna är mindre än 10 TB. Om du vill utföra belastningen regelbundet med AZCopy testar du nätverks hastigheten för att se om den är acceptabel.
-- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) har en gateway som du kan installera på den lokala servern. Sedan kan du skapa en pipeline för att flytta data från din lokala server upp till Azure Storage. Information om hur du använder Data Factory med SQL Analytics finns i [inläsning av data för SQL Analytics](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+- [Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) har en gateway som du kan installera på den lokala servern. Sedan kan du skapa en pipeline för att flytta data från din lokala server upp till Azure Storage. Information om hur du använder Data Factory med SQL-poolen finns i [inläsning av data för SQL-pool](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Förbered data för inläsning
 
@@ -88,30 +88,43 @@ Definiera externa tabeller innebär att du anger data källan, formatet på text
 
 Vid inläsning av Parquet är SQL Data Type-mappningen:
 
-| **Data typen Parquet** | **SQL-datatyp** |
-| :-------------------: | :---------------: |
-|        tinyint        |      tinyint      |
-|       smallint        |     smallint      |
-|          int          |        int        |
-|        bigint         |      bigint       |
-|        boolean        |        bit        |
-|        double         |       float       |
-|         float         |       real        |
-|        double         |       money       |
-|        double         |    smallmoney     |
-|        sträng         |       nchar       |
-|        sträng         |     nvarchar      |
-|        sträng         |       char        |
-|        sträng         |      varchar      |
-|        binary         |      binary       |
-|        binary         |     varbinary     |
-|       timestamp       |       date        |
-|       timestamp       |   smalldatetime   |
-|       timestamp       |     datetime2     |
-|       timestamp       |     datetime      |
-|       timestamp       |       time        |
-|         date          |       date        |
-|        decimal        |      decimal      |
+|                         Typ av Parquet                         |   Parquet logiska typ (anteckning)   |  SQL-datatyp   |
+| :----------------------------------------------------------: | :-----------------------------------: | :--------------: |
+|                           BOOLESKT                            |                                       |       bit        |
+|                     BINÄR/BYTE_ARRAY                      |                                       |    varbinary     |
+|                            DOUBLE                            |                                       |      float       |
+|                            FLYTA                             |                                       |       real       |
+|                            INT32                             |                                       |       int        |
+|                            INT64                             |                                       |      bigint      |
+|                            INT96                             |                                       |    datetime2     |
+|                     FIXED_LEN_BYTE_ARRAY                     |                                       |      binary      |
+|                            BINARY                            |                 UTF8                  |     nvarchar     |
+|                            BINARY                            |                NOLLÄNGD                 |     nvarchar     |
+|                            BINARY                            |                 RÄKNING                  |     nvarchar     |
+|                            BINARY                            |                 UUID                  | uniqueidentifier |
+|                            BINARY                            |                DECIMAL                |     decimal      |
+|                            BINARY                            |                 JSON                  |  nvarchar(MAX)   |
+|                            BINARY                            |                 BSON                  |  varbinary(max)  |
+|                     FIXED_LEN_BYTE_ARRAY                     |                DECIMAL                |     decimal      |
+|                          BYTE_ARRAY                          |               INTERVALL                |  varchar (max),   |
+|                            INT32                             |             INT (8, sant)              |     smallint     |
+|                            INT32                             |            INT (16, sant)            |     smallint     |
+|                            INT32                             |             INT (32, sant)             |       int        |
+|                            INT32                             |            INT (8, falskt)            |     tinyint      |
+|                            INT32                             |            INT (16, falskt)             |       int        |
+|                            INT32                             |           INT (32, falskt)            |      bigint      |
+|                            INT32                             |                 DATE                  |       datum       |
+|                            INT32                             |                DECIMAL                |     decimal      |
+|                            INT32                             |            TID (MILLIS)             |       time       |
+|                            INT64                             |            INT (64, sant)            |      bigint      |
+|                            INT64                             |           INT (64, falskt)            |  decimal (20, 0)   |
+|                            INT64                             |                DECIMAL                |     decimal      |
+|                            INT64                             |         TID (MICROS/NANO)         |       time       |
+|                            INT64                             | TIDSSTÄMPEL (MILL/MICROS/NANOS) |    datetime2     |
+| [Komplex typ](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23lists&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=6Luk047sK26ijTzfvKMYc%2FNu%2Fz0AlLCX8lKKTI%2F8B5o%3D&reserved=0) |                 LISTA                  |   varchar(max)   |
+| [Komplex typ](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fgithub.com%2Fapache%2Fparquet-format%2Fblob%2Fmaster%2FLogicalTypes.md%23maps&data=02\|01\|kevin%40microsoft.com\|19f74d93f5ca45a6b73c08d7d7f5f111\|72f988bf86f141af91ab2d7cd011db47\|1\|0\|637215323617803168&sdata=FiThqXxjgmZBVRyigHzfh5V7Z%2BPZHjud2IkUUM43I7o%3D&reserved=0) |                  MAPPA                  |   varchar(max)   |
+
+
 
 Ett exempel på hur du skapar externa objekt finns i steget [skapa externa tabeller](load-data-from-azure-blob-storage-using-polybase.md#create-external-tables-for-the-sample-data) i inläsnings kursen.
 

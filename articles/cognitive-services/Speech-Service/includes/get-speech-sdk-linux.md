@@ -4,17 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: e47c8bc4dc814f1d4c5cb115a2da911544dd55f8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a93c478f0621bf62b710f58f3e6f06298bad9954
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399985"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673058"
 ---
 :::row:::
     :::column span="3":::
         Tal-SDK: n stöder endast **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**och **CentOS 7/8** i följande mål arkitekturer när de används med Linux:
-        - x64
     :::column-end:::
     :::column:::
         <br>
@@ -24,19 +23,21 @@ ms.locfileid: "81399985"
     :::column-end:::
 :::row-end:::
 
-> [!IMPORTANT]
-> När du använder Linux-ARM64 och använder C# – .NET Core 3. x (dotNet-SDK-3. x-paketet) krävs. Om du är mål för ARM32 eller ARM64 stöds inte python.
+- x86 (Debian/Ubuntu), x64, ARM32 (Debian/Ubuntu) och ARM64 (Debian/Ubuntu) för C++-utveckling
+- x64, ARM32 (Debian/Ubuntu) och ARM64 (Debian/Ubuntu) för Java
+- x64, ARM32 (Debian/Ubuntu) och ARM64 (Debian/Ubuntu) för .NET Core
+- x64 för python
 
-> [!NOTE]
-> X86-arkitekturerna för Ubuntu 16,04, Ubuntu 18,04 och Debian 9 stöder bara C++-utveckling med talet SDK.
+> [!IMPORTANT]
+> För C# på Linux-ARM64 krävs .NET Core 3. x (dotNet-SDK-3. x-paket).
 
 ### <a name="system-requirements"></a>Systemkrav
 
-För ett inbyggt program är tal-SDK: n beroende `libMicrosoft.CognitiveServices.Speech.core.so`av. Kontrol lera att mål arkitekturen (x86, x64) matchar programmet. Beroende på Linux-versionen kan det krävas ytterligare beroenden.
+För ett inbyggt program är tal-SDK: n beroende av `libMicrosoft.CognitiveServices.Speech.core.so` . Kontrol lera att mål arkitekturen (x86, x64) matchar programmet. Beroende på Linux-versionen kan det krävas ytterligare beroenden.
 
-- De delade biblioteken för GNU C-biblioteket (inklusive programmerings biblioteket för POSIX `libpthreads`-trådar)
-- OpenSSL-biblioteket (`libssl.so.1.0.0` eller `libssl.so.1.0.2`)
-- Det delade biblioteket för ALSA-program`libasound.so.2`()
+- De delade biblioteken för GNU C-biblioteket (inklusive programmerings biblioteket för POSIX-trådar `libpthreads` )
+- OpenSSL-biblioteket ( `libssl.so.1.0.0` eller `libssl.so.1.0.2` )
+- Det delade biblioteket för ALSA-program ( `libasound.so.2` )
 
 # <a name="ubuntu-16041804"></a>[Ubuntu 16.04/18.04](#tab/ubuntu)
 
@@ -60,10 +61,8 @@ sudo yum install alsa-lib openssl
 ```
 
 > [!IMPORTANT]
-> Följ anvisningarna för [hur du konfigurerar RHEL/CentOS 7 för tal-SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
-
-> [!TIP]
-> På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](../how-to-configure-openssl-linux.md).
+> - På RHEL/CentOS 7 följer du anvisningarna för [hur du konfigurerar RHEL/CentOS 7 för tal-SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 

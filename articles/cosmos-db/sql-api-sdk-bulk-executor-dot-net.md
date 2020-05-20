@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: bulk utförar .NET API, SDK &-resurser'
 description: Lär dig allt om bulk-utförar .NET API och SDK, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version av Azure Cosmos DB bulk utförar .NET SDK.
-author: tknandu
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/16/2020
-ms.author: ramkris
-ms.openlocfilehash: 1a8040fc397b526b540ce9343baa985cab49e2b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 23ba8b12651c4de05fd8fb0b2721839beb36a7a6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169404"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660454"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET bulk utförar-bibliotek: Hämta information 
 
@@ -22,8 +22,9 @@ ms.locfileid: "76169404"
 > * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
+> * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -33,7 +34,7 @@ ms.locfileid: "76169404"
 
 | |  |
 |---|---|
-| **Beskrivning**| Med .net bulk utförar-biblioteket kan klient program utföra Mass åtgärder på Azure Cosmos DB-konton. Det här biblioteket innehåller BulkImport-, BulkUpdate-och BulkDelete-namnrymder. BulkImport-modulen kan samla in dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning. BulkUpdate-modulen kan massredigera befintliga data i Azure Cosmos-behållare som korrigeringsfiler. BulkDelete-modulen kan Mass ta bort dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning.|
+| **Beskrivning**| Med .NET bulk utförar-biblioteket kan klient program utföra Mass åtgärder på Azure Cosmos DB-konton. Det här biblioteket innehåller BulkImport-, BulkUpdate-och BulkDelete-namnrymder. BulkImport-modulen kan samla in dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning. BulkUpdate-modulen kan massredigera befintliga data i Azure Cosmos-behållare som korrigeringsfiler. BulkDelete-modulen kan Mass ta bort dokument på ett optimerat sätt, så att det data flöde som har allokerats för en samling förbrukas i maximal omfattning.|
 |**SDK-hämtning**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **Mass utförar-bibliotek i GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API-dokumentation**|[Dokumentation om .NET API-referens](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|

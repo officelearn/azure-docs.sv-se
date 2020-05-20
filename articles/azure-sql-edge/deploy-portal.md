@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7dfc7b680c6b7d6b2a3641b25c0f82665143bde1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0ddfc445ee8bd67b39de4ddd013a25f20fd75315
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597424"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681217"
 ---
 # <a name="deploy-azure-sql-edge-preview"></a>Distribuera Azure SQL Edge (för hands version) 
 
@@ -119,4 +119,4 @@ I den här snabb starten har du distribuerat en SQL Edge-modul på en IoT Edge e
 ## <a name="next-steps"></a>Nästa steg
 
 - [Machine Learning och artificiell intelligens med ONNX i SQL Edge](onnx-overview.md).
-- Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med hjälp av IoT Edge.
+- [Skapa en IoT-lösning från slut punkt till slut punkt med SQL Edge med hjälp av IoT Edge](tutorial-deploy-azure-resources.md).

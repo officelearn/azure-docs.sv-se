@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3431576acbb01a0cc3a5f372460b28be05bf7ce7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437471"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684013"
 ---
 # <a name="sensor-partner-integration"></a>Sensorpartnerintegration
 
@@ -64,22 +64,27 @@ headers = {"Authorization": "Bearer " + access_token, …} 
 Följande exempel på python-kod ger åtkomst-token som kan användas för efterföljande API-anrop till FarmBeats.
 
 ```python
-import azure 
+import requests
+import json
+import msal
 
-from azure.common.credentials import ServicePrincipalCredentials 
-import adal 
-#FarmBeats API Endpoint 
-ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
-CLIENT_ID = "<Your Client ID>"   
-CLIENT_SECRET = "<Your Client Secret>"   
-TENANT_ID = "<Your Tenant ID>" 
-AUTHORITY_HOST = 'https://login.microsoftonline.com' 
-AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
-#Authenticating with the credentials 
-context = adal.AuthenticationContext(AUTHORITY) 
-token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
-#Should get an access token here 
-access_token = token_response.get('accessToken') 
+# Your service principal App ID
+CLIENT_ID = "<CLIENT_ID>"
+# Your service principal password
+CLIENT_SECRET = "<CLIENT_SECRET>"
+# Tenant ID for your Azure subscription
+TENANT_ID = "<TENANT_ID>"
+
+AUTHORITY_HOST = 'https://login.microsoftonline.com'
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID
+
+ENDPOINT = "https://<yourfarmbeatswebsitename-api>.azurewebsites.net"
+SCOPE = ENDPOINT + "/.default"
+
+context = msal.ConfidentialClientApplication(CLIENT_ID, authority=AUTHORITY, client_credential=CLIENT_SECRET)
+token_response = context.acquire_token_for_client(SCOPE)
+# We should get an access token here
+access_token = token_response.get('access_token')
 ```
 
 
@@ -90,13 +95,13 @@ Här är de vanligaste begärandehuvuden som måste anges när du gör ett API-a
 
 **Sidfot** | **Beskrivning och exempel**
 --- | ---
-Content-Type | Formatet för begäran (Content-Type: Application/<format>). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
+Content-Type | Formatet för begäran (Content-Type: Application/ <format> ). För FarmBeats Datahub-API: er är formatet JSON. Innehålls typ: Application/JSON
 Auktorisering | Anger den åtkomsttoken som krävs för att göra ett API-anrop. Auktorisering: innehavare <åtkomst-token>
 Acceptera | Svars formatet. För FarmBeats Datahub-API: er är formatet JSON. Acceptera: Application/JSON
 
 **API-begäranden**
 
-Om du vill göra en REST API-begäran kombinerar du HTTP-metoden (GET, POST eller tag), URL: en till API-tjänsten, Uniform Resource Identifier (URI) till en resurs att fråga, skicka data till, uppdatera eller ta bort och en eller flera HTTP-begärandehuvuden. API-tjänstens URL är den API-slutpunkt som du anger. Här är ett exempel: https://\<yourdatahub-webbplats-Name>. azurewebsites.net
+Om du vill göra en REST API-begäran kombinerar du HTTP-metoden (GET, POST eller tag), URL: en till API-tjänsten, Uniform Resource Identifier (URI) till en resurs att fråga, skicka data till, uppdatera eller ta bort och en eller flera HTTP-begärandehuvuden. API-tjänstens URL är den API-slutpunkt som du anger. Här är ett exempel: https:// \< yourdatahub-webbplats-name>. azurewebsites.net
 
 Alternativt kan du inkludera frågeparametrar på GET-anrop för att filtrera, begränsa storleken på och sortera data i svaren.
 
@@ -133,7 +138,7 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   ProductCode  | Enhetens produkt kod eller modell namn eller nummer. Till exempel EnviroMonitor # 6800. |
   Portar  | Port namn och-typ, som är digital eller analog.  |
   Name  | Namn för att identifiera resursen. Till exempel modell namn eller produkt namn. |
-  Beskrivning  | Ange en meningsfull beskrivning av modellen. |
+  Description  | Ange en meningsfull beskrivning av modellen. |
   Egenskaper  | Ytterligare egenskaper från tillverkaren. |
   **Enhet** |  |
   DeviceModelId  |ID för associerad enhets modell. |
@@ -142,7 +147,7 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   Plats    |Enhets-latitud (-90 till + 90), longitud (-180 till 180) och höjning (i meter). |
   ParentDeviceId | ID för den överordnade enhet som enheten är ansluten till. Om en nod till exempel är ansluten till en gateway har noden parentDeviceID som gateway. |
   Name  | Namn för att identifiera resursen. Enhets partner måste skicka ett namn som stämmer överens med enhets namnet på enhets partner sidan. Om enhetens namn är användardefinierat på enhets partner sidan, ska samma användardefinierade namn spridas till FarmBeats.  |
-  Beskrivning  | Ange en meningsfull beskrivning.  |
+  Description  | Ange en meningsfull beskrivning.  |
   Egenskaper  |Ytterligare egenskaper från tillverkaren.  |
   **SensorModel** |  |
   Typ (analog, digital)  |Nämna analog eller digital sensor.|
@@ -156,7 +161,7 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   SensorMeasures > djup  | Sensorns djup i centimeter. Till exempel mätningen av fukt 10 cm under marken.
   Beskrivning av SensorMeasures->  | Ge en meningsfull beskrivning av måttet.
   Name  | Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
-  Beskrivning  | Ange en meningsfull beskrivning av modellen.
+  Description  | Ange en meningsfull beskrivning av modellen.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
   **Mäta**  |  |
   HardwareId  | Unikt ID för sensorn som anges av tillverkaren.
@@ -165,7 +170,7 @@ FarmBeats Datahub har följande API: er som gör det möjligt för enhets partne
   Port > namn  |Namn och typ för den port som sensorn är ansluten till på enheten. Det måste vara samma namn som definieras i enhets modellen.
   DeviceId  | ID för den enhet som sensorn är ansluten till.
   Name  | Namn för att identifiera resursen. Till exempel sensor namn, produkt namn och modell nummer eller produkt kod.
-  Beskrivning  | Ange en meningsfull beskrivning.
+  Description  | Ange en meningsfull beskrivning.
   Egenskaper  | Ytterligare egenskaper från tillverkaren.
 
  Information om varje objekt och deras egenskaper finns i [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).

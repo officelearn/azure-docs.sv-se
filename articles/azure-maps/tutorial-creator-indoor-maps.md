@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5a7f64ead6d2e19242950002feed1cd1491dbacc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a49661ca8776f04d98cc04bbe7a07b8c388f91ee
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598768"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681663"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Använd skapare för att skapa inliggande kartor
 
@@ -28,7 +28,7 @@ I den här kursen får du lära dig hur du skapar inlednings kartor. I den här 
 > * Skapa en funktions stateset med hjälp av kart funktionerna och data i din data uppsättning
 > * Uppdatera din funktions stateset
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Skapa inomhus Maps:
 
@@ -57,7 +57,7 @@ API för data uppladdning är en tids krävande transaktion som implementerar de
 
 4. Ange ett värde för nyckeln på fliken **sidhuvud** `Content-Type` . Ritnings paketet är en zippad mapp, så Använd `application/octet-stream` värdet. På fliken **brödtext** väljer du **binär**. Klicka på **Välj fil** och välj ett ritnings paket.
 
-     ![data hantering](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![data hantering](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. Klicka på knappen blå **sändning** och vänta tills begäran har bearbetats. När begäran har slutförts går du till fliken **sidhuvud** i svaret. Kopiera värdet för **plats** nyckeln, som är `status URL` .
 

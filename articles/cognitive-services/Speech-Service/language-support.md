@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 3fe1b999fbdc03157778a1329e05e8c342183528
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 28c5c1258c0733cd23f7c4ad3c901360461d5bdc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587382"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682137"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -24,7 +24,7 @@ Språk stöd varierar beroende på funktioner i tal tjänster. Följande tabelle
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Både Microsoft Speech SDK och REST API stöder följande språk (lokala). För att förbättra noggrannheten erbjuds anpassning för en delmängd av språken genom uppladdning av ljud + mänskligt avskrifter eller relaterad text: meningar. Uttal-anpassning är för närvarande endast tillgängligt för `en-US` och `de-DE` . Läs mer om anpassning [här](how-to-custom-speech.md).
+Både Microsoft Speech SDK och REST API stöder följande språk (lokala). För att förbättra noggrannheten erbjuds anpassning för en delmängd av språken genom uppladdning av ljud + mänskligt avskrifter eller relaterad text: meningar. Uttal-anpassning erbjuds genom uppladdning av relaterad text: uttal. Läs mer om anpassning [här](how-to-custom-speech.md).
 
 <!--
 To get the AM and ML bits:
@@ -36,47 +36,49 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Nationell inställning  | Språk                          | Stöds | Anpassningar                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Ja       | Nej                                                |
-| `ar-BH` | Arabiska (Bahrain), modern standard | Yes       | Språkmodell                                    |
-| `ar-EG` | Arabiska (Egypten)                    | Yes       | Språkmodell                                    |
-| `ar-KW` | Arabiska (Kuwait)                   | Ja       | Nej                                                |
-| `ar-QA` | Arabiska (Qatar)                    | Ja       | Nej                                                |
-| `ar-SA` | Arabiska (Saudiarabien)             | Ja       | Nej                                                |
-| `ar-SY` | Arabiska (Syrien)                    | Yes       | Språkmodell                                    |
-| `ca-ES` | Katalanska                           | Yes       | Språkmodell                                    |
-| `da-DK` | Danska (Danmark)                  | Yes       | Språkmodell                                    |
-| `de-DE` | Tyska (Tyskland)                  | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `en-AU` | Engelska (Australien)               | Yes       | Akustisk modell<br>Språkmodell                  |
-| `en-CA` | Engelska (Kanada)                  | Yes       | Akustisk modell<br>Språkmodell                  |
-| `en-GB` | Engelska (Storbritannien)          | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `en-IN` | Engelska (Indien)                   | Yes       | Akustisk modell<br>Språkmodell                  |
-| `en-NZ` | Engelska (Nya Zeeland)             | Yes       | Akustisk modell<br>Språkmodell                  |
-| `en-US` | Engelska (USA)           | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `es-ES` | Spanska (Spanien)                   | Yes       | Akustisk modell<br>Språkmodell                  |
-| `es-MX` | Spanska (Mexiko)                  | Yes       | Akustisk modell<br>Språkmodell                  |
-| `fi-FI` | Finska (Finland)                 | Yes       | Språkmodell                                    |
-| `fr-CA` | Franska (Kanada)                   | Yes       | Akustisk modell<br>Språkmodell                  |
-| `fr-FR` | Franska (Frankrike)                   | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `gu-IN` | Gujarati (indiska)                 | Yes       | Språkmodell                                    |
-| `hi-IN` | Hindi (Indien)                     | Yes       | Akustisk modell<br>Språkmodell                  |
-| `it-IT` | Italienska (Italien)                   | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `ja-JP` | Japanska (Japan)                  | Yes       | Språkmodell                                    |
-| `ko-KR` | Koreanska (Korea)                    | Yes       | Språkmodell                                    |
-| `mr-IN` | Marathi (Indien)                   | Yes       | Språkmodell                                    |
-| `nb-NO` | Norska (bokmål) (Norge)       | Yes       | Språkmodell                                    |
-| `nl-NL` | Nederländska (Nederländerna)               | Yes       | Språkmodell                                    |
-| `pl-PL` | Polska (Polen)                   | Yes       | Språkmodell                                    |
-| `pt-BR` | Portugisiska (Brasilien)               | Yes       | Akustisk modell<br>Språkmodell<br>Uttal |
-| `pt-PT` | Portugisiska (Portugal)             | Yes       | Språkmodell                                    |
-| `ru-RU` | Ryska (Ryssland)                  | Yes       | Akustisk modell<br>Språkmodell                  |
-| `sv-SE` | Svenska (Sverige)                  | Yes       | Språkmodell                                    |
-| `ta-IN` | Tamiliska (Indien)                     | Yes       | Språkmodell                                    |
-| `te-IN` | Telugu (Indien)                    | Ja       | Nej                                                |
-| `th-TH` | Thailändska (Thailand)                   | Ja       | Nej                                                |
-| `tr-TR` | Turkiska (Turkiet)                  | Ja       | Nej                                                |
-| `zh-CN` | Kinesiska (mandariner, förenklad)    | Yes       | Akustisk modell<br>Språkmodell                  |
-| `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Yes       | Språkmodell                                    |
-| `zh-TW` | Kinesiska (Taiwan-mandariner)      | Yes       | Språkmodell                                    |
+| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Ja       | Inga                                                |
+| `ar-BH` | Arabiska (Bahrain), modern standard | Ja       | Språkmodell                                    |
+| `ar-EG` | Arabiska (Egypten)                    | Ja       | Språkmodell                                    |
+| `ar-IL` | Arabiska (Israel)                   | Ja       | Inga                                                |
+| `ar-KW` | Arabiska (Kuwait)                   | Ja       | Inga                                                |
+| `ar-PS` | Arabiska (Palestina)                | Ja       | Inga                                                |
+| `ar-QA` | Arabiska (Qatar)                    | Ja       | Inga                                                |
+| `ar-SA` | Arabiska (Saudiarabien)             | Ja       | Inga                                                |
+| `ar-SY` | Arabiska (Syrien)                    | Ja       | Språkmodell                                    |
+| `ca-ES` | Katalanska                           | Ja       | Språkmodell                                    |
+| `da-DK` | Danska (Danmark)                  | Ja       | Språkmodell                                    |
+| `de-DE` | Tyska (Tyskland)                  | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `en-AU` | Engelska (Australien)               | Ja       | Akustisk modell<br>Språkmodell                  |
+| `en-CA` | Engelska (Kanada)                  | Ja       | Akustisk modell<br>Språkmodell                  |
+| `en-GB` | Engelska (Storbritannien)          | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `en-IN` | Engelska (Indien)                   | Ja       | Akustisk modell<br>Språkmodell                  |
+| `en-NZ` | Engelska (Nya Zeeland)             | Ja       | Akustisk modell<br>Språkmodell                  |
+| `en-US` | Engelska (USA)           | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `es-ES` | Spanska (Spanien)                   | Ja       | Akustisk modell<br>Språkmodell                  |
+| `es-MX` | Spanska (Mexiko)                  | Ja       | Akustisk modell<br>Språkmodell                  |
+| `fi-FI` | Finska (Finland)                 | Ja       | Språkmodell                                    |
+| `fr-CA` | Franska (Kanada)                   | Ja       | Akustisk modell<br>Språkmodell                  |
+| `fr-FR` | Franska (Frankrike)                   | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `gu-IN` | Gujarati (indiska)                 | Ja       | Språkmodell                                    |
+| `hi-IN` | Hindi (Indien)                     | Ja       | Akustisk modell<br>Språkmodell                  |
+| `it-IT` | Italienska (Italien)                   | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `ja-JP` | Japanska (Japan)                  | Ja       | Språkmodell                                    |
+| `ko-KR` | Koreanska (Korea)                    | Ja       | Språkmodell                                    |
+| `mr-IN` | Marathi (Indien)                   | Ja       | Språkmodell                                    |
+| `nb-NO` | Norska (bokmål) (Norge)       | Ja       | Språkmodell                                    |
+| `nl-NL` | Nederländska (Nederländerna)               | Ja       | Språkmodell                                    |
+| `pl-PL` | Polska (Polen)                   | Ja       | Språkmodell                                    |
+| `pt-BR` | Portugisiska (Brasilien)               | Ja       | Akustisk modell<br>Språkmodell<br>Uttal |
+| `pt-PT` | Portugisiska (Portugal)             | Ja       | Språkmodell                                    |
+| `ru-RU` | Ryska (Ryssland)                  | Ja       | Akustisk modell<br>Språkmodell                  |
+| `sv-SE` | Svenska (Sverige)                  | Ja       | Språkmodell                                    |
+| `ta-IN` | Tamiliska (Indien)                     | Ja       | Språkmodell                                    |
+| `te-IN` | Telugu (Indien)                    | Ja       | Inga                                                |
+| `th-TH` | Thailändska (Thailand)                   | Ja       | Inga                                                |
+| `tr-TR` | Turkiska (Turkiet)                  | Ja       | Inga                                                |
+| `zh-CN` | Kinesiska (mandariner, förenklad)    | Ja       | Akustisk modell<br>Språkmodell                  |
+| `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Ja       | Språkmodell                                    |
+| `zh-TW` | Kinesiska (Taiwan-mandariner)      | Ja       | Språkmodell                                    |
 
 ## <a name="text-to-speech"></a>Text till tal
 
@@ -96,12 +98,12 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 |Nationell inställning  | Språk            | Kön | Röst namn  | Stöd för två språk | Format stöd |
 |--|--|--|--|--|--|
 | `de-DE` | Tyska (Tyskland)    | Kvinna | "de-KatjaNeural" | Ja. Engelska (USA) | Allmänt |
-| `en-AU` | Engelska (Australien) | Kvinna |  "en-AU-NatashaNeural" | No | Allmänt |
-| `en-CA` | Engelska (Kanada)    | Kvinna |  "en-CA-ClaraNeural"| No | Allmänt |
-| `en-GB` | Engelska (Storbritannien)        | Kvinna |  "en-GB-LibbyNeural"| No | Allmänt |
-|  |      | Kvinna |  "en-GB-MiaNeural" | No | Allmänt |
-| `en-US` | Engelska (USA)        | Kvinna |  "en-US-AriaNeural"| No | Allmänt, flera röst format är tillgängliga |
-|  |      | Man   | "en-US-GuyNeural" | No | Allmänt |
+| `en-AU` | Engelska (Australien) | Kvinna |  "en-AU-NatashaNeural" | Inga | Allmänt |
+| `en-CA` | Engelska (Kanada)    | Kvinna |  "en-CA-ClaraNeural"| Inga | Allmänt |
+| `en-GB` | Engelska (Storbritannien)        | Kvinna |  "en-GB-LibbyNeural"| Inga | Allmänt |
+|  |      | Kvinna |  "en-GB-MiaNeural" | Inga | Allmänt |
+| `en-US` | Engelska (USA)        | Kvinna |  "en-US-AriaNeural"| Inga | Allmänt, flera röst format är tillgängliga |
+|  |      | Man   | "en-US-GuyNeural" | Inga | Allmänt |
 | `es-ES` | Spanska (Spanien)     | Kvinna |  "es-ES-ElviraNeural"| Ja. Engelska (USA) | Allmänt |
 | `es-MX` | Spanska (Mexiko)    | Kvinna |  "es-MX-DaliaNeural" | Ja. Engelska (USA) | Allmänt |
 | `fr-CA` | Franska (Kanada)     | Kvinna |  "fr-CA-SylvieNeural" | Ja. Engelska (USA) | Allmänt |
@@ -109,13 +111,13 @@ Mer information om regional tillgänglighet finns i [regioner](regions.md#standa
 | `it-IT` | Italienska (Italien)     | Kvinna |  "IT-ElsaNeural"  | Ja. Engelska (USA) | Allmänt |
 | `ja-JP` | Japanska            | Kvinna |  "ja-JP-NanamiNeural" | Ja. Engelska (USA) | Allmänt |
 | `ko-KR` | Koreanska              | Kvinna |  "ko-KR-SunHiNeural" | Ja. Engelska (USA) | Allmänt |
-| `nb-NO` | Norska           | Kvinna | "NB-NO-IselinNeural" | No | Allmänt |
-| `pt-BR` | Portugisiska (Brasilien) | Kvinna |  "pt-BR-FranciscaNeural" | No | Allmänt |
-| `tr-TR` | Turkiska             | Kvinna | "TR-TR-EmelNeural" | No | Allmänt |
+| `nb-NO` | Norska           | Kvinna | "NB-NO-IselinNeural" | Inga | Allmänt |
+| `pt-BR` | Portugisiska (Brasilien) | Kvinna |  "pt-BR-FranciscaNeural" | Inga | Allmänt |
+| `tr-TR` | Turkiska             | Kvinna | "TR-TR-EmelNeural" | Inga | Allmänt |
 | `zh-CN` | Kinesiska (mandariner, förenklad)  | Kvinna |  "zh-CN-XiaoxiaoNeural"  | Ja. Engelska (USA) | Allmänt, flera röst format är tillgängliga |
 |  |  | Kvinna |  "zh-CN-XiaoyouNeural"  | Ja. Engelska (USA) | Röst för barn, optimerad för artikel-berättarröst |
 |  |  | Man |  "zh-CN-YunyangNeural"  | Ja. Engelska (USA) | Optimerad för nyhets läsning, flera röst format är tillgängliga |
-|  |  | Man |  "zh-CN-YunyeNeural"  | No | Optimerad för artikel-berättarröst |
+|  |  | Man |  "zh-CN-YunyeNeural"  | Inga | Optimerad för artikel-berättarröst |
 
 > [!IMPORTANT]
 > `en-US-JessaNeural`Rösten har ändrats till `en-US-AriaNeural` . Om du använde "Jessa" tidigare, konvertera till "Aria".

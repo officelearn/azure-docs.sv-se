@@ -1,14 +1,14 @@
 ---
 title: Lär dig att granska innehållet i virtuella datorer
 description: Lär dig hur Azure Policy använder gäst konfigurations agenten för att granska inställningar i virtuella datorer.
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 89f7cc3931971d70b441490f77b67ace89434c2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025228"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684290"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policys gäst konfiguration
 
@@ -18,7 +18,8 @@ Utöver att granska och [Reparera](../how-to/remediate-resources.md) Azure-resur
 - Programkonfiguration eller förekomst
 - Miljöinställningar
 
-För närvarande granskar de flesta Azure Policy principer för gäst konfiguration bara inställningarna på datorn. De använder inte konfigurationer. Undantaget är en inbyggd princip som [refereras nedan](#applying-configurations-using-guest-configuration).
+För närvarande granskar de flesta Azure Policy principer för gäst konfiguration bara inställningarna på datorn.
+De använder inte konfigurationer. Undantaget är en inbyggd princip som [refereras nedan](#applying-configurations-using-guest-configuration).
 
 ## <a name="resource-provider"></a>Resursprovider
 
@@ -28,11 +29,10 @@ Innan du kan använda gäst konfiguration måste du registrera resurs leverantö
 
 Om du vill granska inställningarna i en dator är ett [tillägg för virtuell dator](../../../virtual-machines/extensions/overview.md) aktiverat. Tillägget hämtar tillämplig princip tilldelning och motsvarande konfigurations definition.
 
-> [!Important]
-> Gäst konfigurations tillägget krävs för att utföra granskningar på virtuella Azure-datorer.
-> Tilldela följande princip definitioner för att distribuera tillägget i skala:
->   - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Windows-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->   - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Linux-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> [!IMPORTANT]
+> Gäst konfigurations tillägget krävs för att utföra granskningar på virtuella Azure-datorer. Tilldela följande princip definitioner för att distribuera tillägget i skala: 
+>  - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Windows-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>  - [Distribuera krav för att aktivera principen för gäst konfiguration på virtuella Linux-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>Begränsningar som angetts för tillägget
 
@@ -44,21 +44,21 @@ I datorn använder gäst konfigurations klienten lokala verktyg för att köra g
 
 I följande tabell visas en lista över de lokala verktyg som används för varje operativ system som stöds:
 
-|Operativsystem|Validerings verktyg|Obs!|
+|Operativsystem|Validerings verktyg|Anteckningar|
 |-|-|-|
 |Windows|[Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chefs INSPEC](https://www.chef.io/inspec/)| Om ruby och python inte finns på datorn installeras de av gäst konfigurations tillägget. |
 
 ### <a name="validation-frequency"></a>Validerings frekvens
 
-Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning tas emot, kontrol leras inställningarna för den konfigurationen på ett 15-minuters intervall.
-Resultat skickas till resurs leverantören för gäst konfigurationen när granskningen är klar. När en [utlösare](../how-to/get-compliance-data.md#evaluation-triggers) för princip utvärdering inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Den här uppdateringen gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen på datorn.
+Klienten för gäst konfiguration söker efter nytt innehåll var 5: e minut. När en gäst tilldelning har tagits emot, kontrol leras inställningarna för den konfigurationen på 15 minuters intervall. Resultat skickas till resurs leverantören för gäst konfigurationen när granskningen är klar. När en [utlösare](../how-to/get-compliance-data.md#evaluation-triggers) för princip utvärdering inträffar skrivs datorns tillstånd till resurs leverantören för gäst konfiguration. Den här uppdateringen gör att Azure Policy utvärdera Azure Resource Manager egenskaper. En utvärdering på begäran Azure Policy hämtar det senaste värdet från resurs leverantören för gäst konfigurationen. Den utlöser dock inte en ny granskning av konfigurationen på datorn.
 
 ## <a name="supported-client-types"></a>Klient typer som stöds
 
-Konfigurations principer för gäster är inklusive nya versioner. Äldre versioner av operativ system som är tillgängliga på Azure Marketplace ingår inte om gäst konfigurations agenten inte är kompatibel. I följande tabell visas en lista över operativ system som stöds på Azure-avbildningar:
+Konfigurations principer för gäster är inklusive nya versioner. Äldre versioner av operativ system som är tillgängliga på Azure Marketplace ingår inte om gäst konfigurations agenten inte är kompatibel.
+I följande tabell visas en lista över operativ system som stöds på Azure-avbildningar:
 
-|Utgivare|Name|Versioner|
+|Publisher|Name|Versioner|
 |-|-|-|
 |Canonical|Ubuntu Server|14,04 och senare|
 |Credativ|Debian|8 och senare|
@@ -76,19 +76,18 @@ Windows Server Nano Server stöds inte i någon version.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Nätverks krav för gäst konfigurations tillägg
 
-För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om ett nätverk i Azure inte tillåter utgående trafik konfigurerar du undantag med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) .
-[Service tag-](../../../virtual-network/service-tags-overview.md) GuestAndHybridManagement kan användas för att referera till gäst konfigurations tjänsten.
+För att kunna kommunicera med resurs leverantören för gäst konfiguration i Azure måste datorer ha utgående åtkomst till Azure-datacenter på port **443**. Om ett nätverk i Azure inte tillåter utgående trafik konfigurerar du undantag med regler för [nätverks säkerhets grupper](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . [Service tag-](../../../virtual-network/service-tags-overview.md) GuestAndHybridManagement kan användas för att referera till gäst konfigurations tjänsten.
 
-## <a name="azure-managed-identity-requirements"></a>Azure-hanterade identitets krav
+## <a name="managed-identity-requirements"></a>Krav för hanterade identiteter
 
 **DeployIfNotExists** -principerna som lägger till tillägget på virtuella datorer aktiverar också en systemtilldelad hanterad identitet, om det inte finns någon.
 
 > [!WARNING]
-> Undvik att aktivera användare som tilldelats hanterad identitet till virtuella datorer inom omfånget för principer som aktiverar systemtilldelad hanterad identitet. Den tilldelade identiteten kommer att ersättas och datorn slutar svara.
+> Undvik att aktivera användare som tilldelats hanterad identitet till virtuella datorer inom omfånget för principer som aktiverar systemtilldelad hanterad identitet. Användarens tilldelade identitet ersätts och datorn slutar svara.
 
 ## <a name="guest-configuration-definition-requirements"></a>Krav för konfigurations definition för gäst
 
-Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition. 
+Varje konfiguration för gransknings körning av gäst kräver två princip definitioner, en **DeployIfNotExists** -definition och en **AuditIfNotExists** -definition.
 
 **DeployIfNotExists** princip definition verifierar och korrigerar följande objekt:
 
@@ -106,13 +105,14 @@ Azure Policy använder **complianceStatus** -egenskapen för gäst konfiguration
 > [!NOTE]
 > **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat. Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
 
-Alla inbyggda principer för gäst konfiguration ingår i ett initiativ för att gruppera definitionerna för användning i tilldelningar. Den inbyggda för _ \[hands versionen med namnet\]Preview: granska lösen ords säkerhet i Linux-och Windows-datorer_ innehåller 18 principer. Det finns sex **DeployIfNotExists** -och **AuditIfNotExists** -par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
+Alla inbyggda principer för gäst konfiguration ingår i ett initiativ för att gruppera definitionerna för användning i tilldelningar. Den inbyggda för _ \[ hands versionen med namnet Preview \] : granska lösen ords säkerhet i Linux-och Windows-datorer_ innehåller 18 principer. Det finns sex **DeployIfNotExists** -och **AuditIfNotExists** -par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Granska operativ system inställningar efter bransch bas linjer
 
-Ett initiativ i Azure Policy ger möjlighet att granska inställningarna för operativ systemet efter en "bas linje". Definition, _ \[för hands\]version: granska virtuella Windows-datorer som inte matchar inställningarna för Azures säkerhets bas linje_ innehåller en uppsättning regler som baseras på Active Directory Grupprincip.
+Ett initiativ i Azure Policy ger möjlighet att granska inställningarna för operativ systemet efter en "bas linje". Definition, för _ \[ hands version \] : granska virtuella Windows-datorer som inte matchar inställningarna för Azures säkerhets bas linje_ innehåller en uppsättning regler som baseras på Active Directory Grupprincip.
 
-De flesta av inställningarna är tillgängliga som parametrar. Med parametrar kan du anpassa vad som granskas. Justera principen med dina krav eller mappa principen till information från tredje part, till exempel bransch regelverks standarder.
+De flesta av inställningarna är tillgängliga som parametrar. Med parametrar kan du anpassa vad som granskas.
+Justera principen med dina krav eller mappa principen till information från tredje part, till exempel bransch regelverks standarder.
 
 Vissa parametrar har stöd för ett heltals värde intervall. Till exempel kan inställningen högsta ålder för lösen ord granska inställningen gällande grupprincip. Ett "1, 70"-intervall bekräftar att användarna måste ändra sina lösen ord minst var 70 dag, men inte mindre än en dag.
 
@@ -144,7 +144,7 @@ Där `<version>` refererar till det aktuella versions numret.
 
 ### <a name="collecting-logs-remotely"></a>Samla in loggar via fjärr anslutning
 
-Det första steget i fel sökning av konfigurationer eller moduler för gäst konfiguration bör vara `Test-GuestConfigurationPackage` att använda cmdleten genom att följa stegen hur du [skapar en anpassad princip för gäst konfigurations granskning för Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
+Det första steget i fel sökning av konfigurationer eller moduler för gäst konfiguration bör vara att använda `Test-GuestConfigurationPackage` cmdleten genom att följa stegen hur du [skapar en anpassad princip för gäst konfigurations granskning för Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
 Om det inte lyckas kan insamling av klient loggar hjälpa till att diagnostisera problem.
 
 #### <a name="windows"></a>Windows

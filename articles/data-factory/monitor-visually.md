@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.openlocfilehash: 40b1b8d040c4b3ea76372920f88551fba35c5f26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: 01a4cd172b699cef009197d1fce1d5bae62f2925
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419450"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680640"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Övervaka Azure Data Factory visuellt
 
@@ -132,6 +132,21 @@ Du kan också Visa körnings historiken för en viss pipeline-körning.
 
 ![Visa historik för en pipeline-körning](media/monitor-visually/rerun-history-image2.png)
 
+## <a name="monitor-consumption"></a>Övervaka förbrukning
+
+Du kan se de resurser som förbrukas av en pipeline-körning genom att klicka på förbruknings ikonen bredvid kör. 
+
+![Övervaka förbrukning](media/monitor-visually/monitor-consumption-1.png)
+
+Om du klickar på ikonen öppnas en förbruknings rapport över resurser som används av pipeline-körningen. 
+
+![Övervaka förbrukning](media/monitor-visually/monitor-consumption-2.png)
+
+Du kan koppla dessa värden till [Azure-prissättningen calcula. hatt pipeline. Mer information om Azure Data Factory priser finns i [förstå priser](pricing-concepts.md).
+
+> [!NOTE]
+> De här värdena som returneras av pris kalkylatorn är en uppskattning. Det visar inte exakt det belopp du debiteras per Azure Data Factory 
+
 ## <a name="gantt-views"></a>Gantt-vyer
 
 Använd Gantt-vyer för att snabbt visualisera dina pipeliner och aktivitets körningar.
@@ -153,7 +168,7 @@ Välj **informations** ikonen längst ned till vänster. Välj sedan **guidade v
 
 ## <a name="alerts"></a>Aviseringar
 
-Du kan generera aviseringar för mått som stöds i Data Factory. Välj **övervaka** > **aviseringar & mått** på sidan Data Factory övervakning för att komma igång.
+Du kan generera aviseringar för mått som stöds i Data Factory. Välj **övervaka**  >  **aviseringar & mått** på sidan Data Factory övervakning för att komma igång.
 
 ![Sidan Data Factory Monitor](media/monitor-visually/alerts01.png)
 

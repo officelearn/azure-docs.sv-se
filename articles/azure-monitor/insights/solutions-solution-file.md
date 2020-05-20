@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 018fb457840e9ffe382ec1ed54df582ecfec8e49
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275183"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682851"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en hanterings lösnings fil i Azure (för hands version)
 > [!NOTE]
@@ -61,12 +61,12 @@ En exempel parameter visas nedan.
 
 I följande tabell beskrivs attributen för en parameter.
 
-| Attribut | Beskrivning |
+| Attribut | Description |
 |:--- |:--- |
 | typ |Parameterns datatyp. Den inmatnings kontroll som visas för användaren beror på data typen.<br><br>bool-List rutan<br>sträng – text ruta<br>int-text ruta<br>SecureString – lösen ords fält<br> |
 | category |Valfri kategori för parametern.  Parametrar i samma kategori grupperas tillsammans. |
 | control |Ytterligare funktioner för sträng parametrar.<br><br>datetime-datetime-kontrollen visas.<br>GUID-GUID-värdet genereras automatiskt och parametern visas inte. |
-| description |Valfri beskrivning för parametern.  Visas i en informations prat bubbla bredvid parametern. |
+| beskrivning |Valfri beskrivning för parametern.  Visas i en informations prat bubbla bredvid parametern. |
 
 ### <a name="standard-parameters"></a>Standard parametrar
 I följande tabell visas standard parametrarna för alla hanterings lösningar.  Dessa värden fylls i i stället för att fråga efter dem när din lösning installeras från Azure Marketplace eller snabb starts mallar.  Användaren måste ange värden för dem om lösningen installeras med en annan metod.
@@ -76,7 +76,7 @@ I följande tabell visas standard parametrarna för alla hanterings lösningar. 
 >
 >
 
-| Parameter | Typ | Beskrivning |
+| Parameter | Typ | Description |
 |:--- |:--- |:--- |
 | accountName |sträng |Azure Automation konto namn. |
 | pricingTier |sträng |Pris nivå för både Log Analytics arbets yta och Azure Automation konto. |
@@ -161,7 +161,7 @@ I det här fallet refererar du till variabel värden genom lösningen med syntax
 **DependsOn** -elementet anger ett [beroende](../../azure-resource-manager/templates/define-resource-dependency.md) för en annan resurs.  När lösningen har installerats skapas ingen resurs förrän alla dess beroenden har skapats.  Din lösning kan till exempel [starta en Runbook](solutions-resources-automation.md#runbooks) när den installeras med en [jobb resurs](solutions-resources-automation.md#automation-jobs).  Jobb resursen är beroende av Runbook-resursen för att se till att runbooken skapas innan jobbet skapas.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics arbets yta och Automation-konto
-Hanterings lösningar kräver att en [Log Analytics arbets yta](../../azure-monitor/platform/manage-access.md) innehåller vyer och ett [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) för att innehålla Runbooks och relaterade resurser.  Dessa måste vara tillgängliga innan resurserna i lösningen skapas och ska inte definieras i själva lösningen.  Användaren [anger en arbets yta och ett konto](solutions.md#log-analytics-workspace-and-automation-account) när de distribuerar din lösning, men som författare bör du tänka på följande saker.
+Hanterings lösningar kräver att en [Log Analytics arbets yta](../../azure-monitor/platform/manage-access.md) innehåller vyer och ett [Automation-konto](../../automation/automation-security-overview.md) för att innehålla Runbooks och relaterade resurser.  Dessa måste vara tillgängliga innan resurserna i lösningen skapas och ska inte definieras i själva lösningen.  Användaren [anger en arbets yta och ett konto](solutions.md#log-analytics-workspace-and-automation-account) när de distribuerar din lösning, men som författare bör du tänka på följande saker.
 
 
 ## <a name="solution-resource"></a>Lösnings resurs
@@ -206,7 +206,7 @@ Lösnings resursen har egenskaperna i följande tabell.  Detta inkluderar de res
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| workspaceResourceId |ID för Log Analytics arbets ytan i formulärets * \<resurs grupps-ID\<>/providers/Microsoft.operationalinsights/workspaces/\>-arbetsytans namn*. |
+| workspaceResourceId |ID för Log Analytics arbets ytan i formulärets * \< resurs grupps-ID>/providers/Microsoft.operationalinsights/workspaces/- \< arbetsytans namn \> *. |
 | referencedResources |Lista över resurser i lösningen som inte ska tas bort när lösningen tas bort. |
 | containedResources |Lista med resurser i lösningen som ska tas bort när lösningen tas bort. |
 

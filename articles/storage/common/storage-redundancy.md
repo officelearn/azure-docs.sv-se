@@ -10,12 +10,12 @@ ms.date: 05/11/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 65d898112396755bb2518cade0ac94c21bc52685
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c4d14c21174f9631a1ad72489d4c0bafe013572c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117724"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681349"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage redundans
 
@@ -138,24 +138,42 @@ Du kan fråga värdet för den **senaste synkroniseringstid** -egenskapen med Az
 
 ## <a name="summary-of-redundancy-options"></a>Sammanfattning av alternativ för redundans
 
-I följande tabell visas hur hållbar och tillgänglig data finns i ett specifikt scenario, beroende på vilken typ av redundans som gäller för ditt lagrings konto:
+Tabellerna i följande avsnitt sammanfattar de alternativ för redundans som är tillgängliga för Azure Storage
 
-| Scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
+### <a name="durability-and-availability-parameters"></a>Parametrar för hållbarhet och tillgänglighet
+
+I följande tabell beskrivs viktiga parametrar för varje alternativ för redundans:
+
+| Parameter                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| En nod i ett Data Center blir otillgänglig                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                  |
-| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Inga                              | Ja                              | Ja                                  | Ja                                  |
-| Ett områdes omfattande avbrott inträffar                                                                                     | Inga                              | Inga                               | Ja                                  | Ja                                  |
-| Läs åtkomst till data i den sekundära regionen om den primära regionen blir otillgänglig | Inga                              | Inga                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
 | Procentuell hållbarhet för objekt under ett angivet år<sup>1</sup>                                          | minst 99,999999999% (11 9) | minst 99,9999999999% (12 9-) | minst 99.99999999999999% (16 9) | minst 99.99999999999999% (16 9) |
-| Lagrings konto typer som stöds<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
 | Tillgänglighets-SLA för Läs begär Anden<sup>1</sup>  | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GRS | Minst 99,9% (99% för låg frekvent åtkomst nivå) för GZRS<br /><br />Minst 99,99% (99,9% för låg frekvent åtkomst nivå) för RA-GZRS |
 | Tillgänglighets-SLA för Skriv begär Anden<sup>1</sup>  | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) | Minst 99,9% (99% för låg frekvent åtkomst nivå) |
 
 <sup>1</sup> information om Azure Storage garantier för hållbarhet och tillgänglighet finns i [service avtalet för Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/).
 
-<sup>2</sup> information om lagrings konto typer finns i [Översikt över lagrings konto](storage-account-overview.md).
+### <a name="durability-and-availability-by-outage-scenario"></a>Scenario för hållbarhet och tillgänglighet efter avbrott
 
-Alla data för alla typer av lagrings konton kopieras enligt alternativen för redundans för lagrings kontot. Objekt som innehåller block-blobbar, tillägg av blobbar, sid blobbar, köer, tabeller och filer kopieras. Data på alla nivåer, inklusive Arkiv nivån, kopieras. Mer information om BLOB-nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md)lag rings nivåer.
+Följande tabell visar om dina data är beständiga och tillgängliga i ett specifikt scenario, beroende på vilken typ av redundans som gäller för ditt lagrings konto:
+
+| Avbrott-scenario                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
+| :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| En nod i ett Data Center blir otillgänglig                                                                 | Ja                             | Ja                              | Ja                                  | Ja                                 |
+| Ett helt data Center (zonindelade eller icke-zonindelade) blir otillgängligt                                           | Inga                              | Ja                              | Ja<sup>1</sup>                                  | Ja                                  |
+| Ett områdes omfattande avbrott uppstår i den primära regionen                                                                                     | Inga                              | Inga                               | Ja<sup>1</sup>                                  | Ja<sup>1</sup>                                  |
+| Läs behörighet till den sekundära regionen är tillgängligt om den primära regionen blir otillgänglig | Inga                              | Inga                               | Ja (med RA-GRS)                                   | Ja (med RA-GZRS)                                 |
+
+<sup>1</sup> växling vid fel krävs för att återställa Skriv tillgängligheten om den primära regionen blir otillgänglig. Mer information finns i [haveri beredskap och redundans för lagrings konton](storage-disaster-recovery-guidance.md).
+
+### <a name="supported-storage-account-types"></a>Typer av lagrings konton som stöds
+
+Följande tabell visar vilka alternativ för redundans som stöds av varje typ av lagrings konto. Information om lagrings konto typer finns i [Översikt över lagrings konto](storage-account-overview.md).
+
+| LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS                              |
+| :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
+| General-purpose v2<br /> General-purpose v1<br /> Block Blob Storage<br /> Blob Storage<br /> File Storage                | General-purpose v2<br /> Block Blob Storage<br /> File Storage                             | General-purpose v2<br /> General-purpose v1<br /> Blob Storage                     | General-purpose v2                     |
+
+Alla data för alla lagrings konton kopieras enligt alternativen för redundans för lagrings kontot. Objekt som innehåller block-blobbar, tillägg av blobbar, sid blobbar, köer, tabeller och filer kopieras. Data på alla nivåer, inklusive Arkiv nivån, kopieras. Mer information om BLOB-nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md)lag rings nivåer.
 
 Pris information för varje alternativ för redundans finns i [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).
 

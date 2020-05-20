@@ -3,12 +3,12 @@ title: Lagring av container avbildning
 description: Information om hur dina Docker-behållar avbildningar lagras i Azure Container Registry, inklusive säkerhet, redundans och kapacitet.
 ms.topic: article
 ms.date: 03/21/2018
-ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b738556e5a4f764cd47c72d964ee188d1344b336
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74456201"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683400"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Lagrings avbildnings lagring i Azure Container Registry
 
@@ -46,7 +46,7 @@ Fullständig information om priser finns i [Azure Container Registry prissättni
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om de olika Azure Container Registry SKU: er (Basic, standard, Premium) finns i [Azure Container Registry SKU: er](container-registry-skus.md).
+Mer information om register för standard-, standard-och Premium-behållare finns i [Azure Container Registry tjänst nivåer](container-registry-skus.md).
 
 <!-- IMAGES -->
 

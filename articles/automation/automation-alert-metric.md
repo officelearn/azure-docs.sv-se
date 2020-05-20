@@ -1,17 +1,17 @@
 ---
 title: Övervaka Azure Automation runbooks med mått varningar
-description: Den här artikeln vägleder dig genom övervakning Azure Automation runbooks baserade på mått
+description: Den här artikeln beskriver hur du övervakar Runbooks baserat på mått.
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0d30e3d18ecb279e26731346bca7bb7c12943cb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310546"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685407"
 ---
-# <a name="monitoring-runbooks-with-metric-alerts"></a>Övervaka Runbooks med mått varningar
+# <a name="monitor-runbooks-with-metric-alerts"></a>Övervaka runbook-flöden med måttaviseringar
 
 I den här artikeln får du lära dig hur du skapar aviseringar baserat på slut för ande status för Runbooks.
 
@@ -67,7 +67,7 @@ I Azure Portal navigerar du till ditt Automation-konto. Under **övervakning**v�
 > [!NOTE]
 > När du lägger till en e-postadress i en åtgärds grupp skickas ett e-postmeddelande med information om att adressen har lagts till i en åtgärds grupp.
 
-## <a name="notification"></a>Avisering
+## <a name="receive-notification"></a>Ta emot meddelande
 
 När aviserings villkoret är uppfyllt kör åtgärds gruppen den definierade åtgärden. I den här artikeln är ett e-postmeddelande som skickas. Följande bild är ett exempel på ett e-postmeddelande som du får när aviseringen har utlösts:
 

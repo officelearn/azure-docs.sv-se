@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1045f86db5e1a9ed1979a266937974045e401e27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275573"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684643"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Lösningar för övervakning av Azure-nätverk i Azure Monitor
 
@@ -150,7 +150,7 @@ Följande loggar stöds för nätverks säkerhets grupper:
 ### <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande instruktioner för att installera och konfigurera Azure Networking Analytics-lösningen:
 
-1. Aktivera Azure Network Security Group Analytics-lösningen från [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) eller genom att använda processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+1. Aktivera Azure Network Security Group Analytics-lösningen med hjälp av processen som beskrivs i [Lägg till Azure Monitor lösningar från Lösningsgalleriet](../../azure-monitor/insights/solutions.md).
 2. Aktivera diagnostikloggning för de [nätverks säkerhets grupps](../../virtual-network/virtual-network-nsg-manage-log.md) resurser som du vill övervaka.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Aktivera diagnostik för Azure Network Security-gruppen i portalen
@@ -218,8 +218,8 @@ Använda de uppdaterade lösningarna:
      | NetworkApplicationgateways &#124; där OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124; där ResourceType = = "APPLICATIONGATEWAYS" och OperationName = = "ApplicationGatewayPerformance" |
      | NetworkSecuritygroups | AzureDiagnostics &#124; där ResourceType = = "NETWORKSECURITYGROUPS" |
 
-   + För alla fält med suffixet \_s, \_d eller \_g i namnet ändrar du det första symbolen till gemener
-   + För fält som har suffixet \_o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen.
+   + För alla fält med suffixet \_ s, \_ d eller \_ g i namnet ändrar du det första symbolen till gemener
+   + För fält som har suffixet \_ o i namn delas data upp i enskilda fält baserat på de kapslade fält namnen.
 4. Ta bort *Azure Networking Analytics-lösningen (inaktuell)* .
    + Om du använder PowerShell använder du`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 

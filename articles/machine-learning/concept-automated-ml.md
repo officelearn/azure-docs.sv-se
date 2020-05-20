@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f328b86d07a997ea761b4381f1d6a2f8a1dae269
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983473"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683076"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Vad är automatisk maskin inlärning (AutoML)?
 
@@ -46,7 +46,7 @@ Regressions aktiviteter liknar klassificeringen och är också en gemensam över
 
 Det skiljer sig från klassificeringen där förutsägande utdatakolumner är kategoriska. Regressions modeller förutsäger numeriska utmatnings värden baserat på oberoende förförutsägelser. Syftet med regressionen är att hjälpa till att upprätta relationen mellan de oberoende förutsägande variablerna genom att uppskatta hur en variabel påverkar de andra. Till exempel, bil pris baserat på funktioner som gas mil, säkerhets klassificering osv. Läs mer och se ett exempel på [regression med automatiserad maskin inlärning](tutorial-auto-train-models.md).
 
-Se exempel på regression och automatiserad maskin inlärning för förutsägelser i dessa python-anteckningsböcker: [CPU-prestanda förutsägelse](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb), 
+Se exempel på regression och automatiserad maskin inlärning för förutsägelser i dessa python-anteckningsböcker: [CPU-prestanda förutsägelse](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb), 
 
 ### <a name="time-series-forecasting"></a>Prognoser för tids serier
 
@@ -93,7 +93,7 @@ Följande diagram illustrerar den här processen.
 ![Automatisk maskin inlärning](./media/concept-automated-ml/automl-concept-diagram2.png)
 
 
-Du kan också kontrol lera den loggade körnings informationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Inlärnings körningen genererar ett serialiserat objekt (`.pkl` fil) som innehåller modellen och data förbearbetningen.
+Du kan också kontrol lera den loggade körnings informationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Inlärnings körningen genererar ett serialiserat objekt ( `.pkl` fil) som innehåller modellen och data förbearbetningen.
 
 När modell byggnaden automatiseras, kan du också [lära dig hur viktiga eller relevanta funktioner är](how-to-configure-auto-train.md#explain) i de genererade modellerna.
 
@@ -110,9 +110,9 @@ I varje automatiserad maskin inlärnings experiment förbehandlas dina data med 
 
 ### <a name="automatic-preprocessing-standard"></a>Automatisk för bearbetning (standard)
 
-I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt eller normaliseras för att hjälpa algoritmerna att fungera bra.  I modell utbildningen används en av följande skalnings-eller normaliserings tekniker för varje modell.
+I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt eller normaliseras för att hjälpa algoritmerna att fungera bra.  I modell utbildningen används en av följande skalnings-eller normaliserings tekniker för varje modell. Lär dig hur autoML bidrar till [att förhindra överanpassning och obalanserade data](concept-manage-ml-pitfalls.md) i dina modeller.
 
-|&nbsp;&Skala&nbsp;normalisering| Beskrivning |
+|Skala &nbsp; & &nbsp; normalisering| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardisera funktioner genom att ta bort medelvärdet och skalan till enhets avvikelse  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transformerar funktioner genom att skala varje funktion efter minsta och högsta värde för kolumnen  |
@@ -154,7 +154,7 @@ Webb gränssnittet för automatisk ML använder alltid ett [fjärrberäknings m�
 Tänk på följande faktorer när du väljer Compute-målet:
 
  * **Välj en lokal beräkning**: om ditt scenario är om inledande utforskningar eller demonstrationer som använder små data och korta tåg (t. ex. sekunder eller ett par minuter per underordnad körning) kan utbildning på din lokala dator vara ett bättre alternativ.  Det finns ingen konfigurations tid, infrastruktur resurserna (din dator eller VM) är direkt tillgängliga.
- * **Välj ett fjärran slutet ml-beräknings kluster**: om du tränar med större data uppsättningar som i produktions träning skapar modeller som behöver längre tåg, ger fjärrberäkningen mycket bättre prestanda för slut punkt till slut `AutoML` punkt eftersom kommer att parallellisera tågen över klustrets noder. Vid en fjärrberäkning kommer start tiden för den interna infrastrukturen att läggas till cirka 1,5 minuter per underordnad körning, plus ytterligare minuter för kluster infrastrukturen om de virtuella datorerna inte är igång ännu.
+ * **Välj ett fjärran slutet ml-beräknings kluster**: om du tränar med större data uppsättningar som i produktions träning skapar modeller som behöver längre tåg, ger fjärrberäkningen mycket bättre prestanda för slut punkt till slut punkt eftersom `AutoML` kommer att parallellisera tågen över klustrets noder. Vid en fjärrberäkning kommer start tiden för den interna infrastrukturen att läggas till cirka 1,5 minuter per underordnad körning, plus ytterligare minuter för kluster infrastrukturen om de virtuella datorerna inte är igång ännu.
 
 ### <a name="pros-and-cons"></a>-Och nack delar
 Överväg dessa tekniker och nack delar när du väljer att använda lokala kontra fjärranslutna.
@@ -186,8 +186,19 @@ Tänk på följande faktorer när du väljer Compute-målet:
 | Registrera och visualisera experimentets information och mått i användar gränssnittet | ✓      | ✓     |                               |
 | Data guardrails                                            | ✓      | ✓     |                               |
 
+## <a name="many-models"></a>Många modeller 
 
-## <a name="automated-ml-in-azure-machine-learning"></a>Automatiserad ML i Azure Machine Learning
+[Många modeller Solution Accelerator](https://aka.ms/many-models) (för hands version) bygger på Azure Machine Learning och gör att du kan använda automatisk ml för att träna, hantera och hantera hundratals eller till och med tusentals maskin inlärnings modeller.
+
+Att till exempel skapa en modell __för varje instans eller individ__ i följande scenarier kan leda till förbättrade resultat:
+
+* Förutsäga försäljning för varje enskilt lager
+* Förutsägelse underhåll för hundratals olje brunnar
+* Skräddarsy en upplevelse för enskilda användare.
+
+Mer information finns i [många modeller Solution Accelerator](https://aka.ms/many-models) på GitHub.
+
+## <a name="automl-in-azure-machine-learning"></a>AutoML i Azure Machine Learning
 
 Azure Machine Learning erbjuder två upplevelser för att arbeta med automatiserade ML
 

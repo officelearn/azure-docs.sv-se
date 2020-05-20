@@ -12,38 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 05/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 396e1d9e6ad474d053ca803218d55396c073845d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261286"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680180"
 ---
 # <a name="more-details-about-features-in-preview"></a>Mer information om funktioner i förhands granskning
 I det här avsnittet beskrivs hur du använder funktioner som för hands version.
 
-## <a name="group-writeback"></a>Tillbakaskrivning av grupp
-Alternativet för tillbakaskrivning av grupp i valfria funktioner gör att du kan ångra **Office 365-grupper** till en skog med Exchange installerat. Det här är en grupp som alltid är hanterad i molnet. Om du har Exchange lokalt kan du skriva tillbaka de här grupperna till lokalt så att användare med en lokal Exchange-postlåda kan skicka och ta emot e-post från dessa grupper.
+## <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Azure AD Connect Sync v2 Endpoint API (offentlig för hands version) 
 
-Mer information om Office 365-grupper och hur du kan använda dem finns [här](https://aka.ms/O365g).
-
-En Office 365-grupp representeras som en distributions grupp i en lokal AD DS. Din lokala Exchange Server måste finnas i Exchange 2013 Cumulative Update 8 (lanseras i mars 2015) eller Exchange 2016 för att identifiera den nya grupp typen.
-
-**Anteckningar under för hands versionen**
-
-* Adress bokens attribut är för närvarande inte ifyllt i förhands granskningen. Utan det här attributet visas inte gruppen i GAL. Det enklaste sättet att fylla i det här attributet är att använda Exchange PowerShell `update-recipient`-cmdleten.
-* Endast skogar med Exchange-schemat är giltiga mål för grupper. Om inget utbyte upptäcktes går det inte att aktivera gruppen tillbakaskrivning.
-* Det finns för närvarande stöd för distribution av en Exchange-organisation med endast en skog. Om du har mer än en Exchange-organisation lokalt behöver du en lokal GALSync-lösning för att dessa grupper ska visas i dina andra skogar.
-* Funktionen för tillbakaskrivning av grupp hanterar inte säkerhets grupper eller distributions grupper.
-
-> [!NOTE]
-> En prenumeration på Azure AD Premium krävs för tillbakaskrivning av grupp.
-> 
->
+Vi har distribuerat en ny slut punkt (API) för Azure AD Connect som förbättrar prestandan för synkroniseringstjänsten i Azure Active Directory. Genom att använda den nya v2-slutpunkten får du märkbara prestanda vinster vid export och import till Azure AD. Den nya slut punkten stöder också synkronisering av grupper med upp till 250 000 medlemmar. Med den här slut punkten kan du också skriva tillbaka O365 Unified-grupper, utan högsta medlemskaps gräns, till din lokala Active Directory när tillbakaskrivning av grupp är aktive rad.   Mer information finns i [Azure AD Connect Sync v2 Endpoint API (offentlig för hands version)](how-to-connect-sync-endpoint-api-v2.md).
 
 ## <a name="user-writeback"></a>Tillbakaskrivning av användare
 > [!IMPORTANT]

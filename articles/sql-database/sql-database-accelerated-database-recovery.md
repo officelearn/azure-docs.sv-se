@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-ms.date: 03/24/2020
-ms.openlocfilehash: 57ca594dd067d15009de5e3abf7276fae48720d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: f259d423f465d93031c3a72855fd7aac4e320573
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238665"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684972"
 ---
 # <a name="accelerated-database-recovery"></a>Accelererad databas återställning
 
@@ -33,7 +33,7 @@ ms.locfileid: "80238665"
 
   Med hjälp av ADR trunkeras transaktions loggen aggressivt, även om det finns aktiva långvariga transaktioner, vilket förhindrar att den växer ur kontroll.
 
-## <a name="the-current-database-recovery-process"></a>Den aktuella databas återställnings processen
+## <a name="standard-database-recovery-process"></a>Standard process för databas återställning
 
 Databas återställningen i SQL Server följer [Aries](https://people.eecs.berkeley.edu/~brewer/cs262/Aries.pdf) -återställnings modellen och består av tre faser som illustreras i följande diagram och förklaras i detalj efter diagrammet.
 
@@ -95,7 +95,7 @@ De fyra viktiga komponenterna i ADR är:
 
 - **Beständiga versions lager (PVS)**
 
-  Det sparade versions lagret är en ny mekanism för SQL Database Engine för att bevara de rad versioner som genererats i själva databasen i stället `tempdb` för i det traditionella versions lagret. PVS möjliggör resurs isolering samt bättre tillgänglighet för läsbara sekundär servrar.
+  Det sparade versions lagret är en ny mekanism för SQL Database Engine för att bevara de rad versioner som genererats i själva databasen i stället för i det traditionella `tempdb` versions lagret. PVS möjliggör resurs isolering samt bättre tillgänglighet för läsbara sekundär servrar.
 
 - **Logisk återställning**
 

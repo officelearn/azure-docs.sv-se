@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5e0043ebba1a317dcc6798d6be74aac051d97012
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7db7f9548a3daa86a53dd37fbe088661e8b7b17e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597928"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685170"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Skapa Stream Analytics jobb i Azure SQL Edge (för hands version) 
 
@@ -22,6 +22,9 @@ Den här artikeln beskriver hur du skapar ett T-SQL streaming-jobb i Azure SQL E
 
 1. Skapa indata och utdata för det externa Stream-objektet
 2. Definiera frågan för strömnings jobb som en del av direkt uppspelnings jobbet.
+
+> [!NOTE]
+> Aktivera funktionen T-SQL-direktuppspelning i Azure SQL Edge genom att aktivera TF 11515 som ett start alternativ eller använda [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) -kommandot. Mer information om hur du aktiverar spårnings flaggor med hjälp av MSSQL. conf-filen finns i [Konfigurera med hjälp av MSSQL. conf-filen](configure.md#configure-using-mssqlconf-file). Detta krav kommer att tas bort i framtida uppdateringar av Azure SQL Edge (för hands version).
 
 ## <a name="configure-an-external-stream-input-and-output-object"></a>Konfigurera ett indata-och utgående objekt för extern ström
 

@@ -1,14 +1,14 @@
 ---
 title: Hämta information om efterlevnadsprinciper
 description: Azure Policy utvärderingar och effekter avgör efterlevnad. Lär dig hur du hämtar information om kompatibiliteten för dina Azure-resurser.
-ms.date: 02/01/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: d4d9c530a7f9c4683f522a08a30e23437d1774cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c75f078cb80d5e2dbc00a69817d223d4818d55b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194014"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684518"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -30,13 +30,13 @@ Resultatet av en slutförd utvärderings cykel är tillgängligt i `Microsoft.Po
 
 Utvärderingar av tilldelade principer och initiativ sker som resultatet av olika händelser:
 
-- En princip eller ett initiativ har nyligen tilldelats ett omfång. Det tar cirka 30 minuter för tilldelningen att tillämpas på det definierade omfånget. När den har tillämpats börjar utvärderings cykeln för resurser inom det omfånget mot den nyligen tilldelade principen eller initiativet, och beroende på vilka effekter som används av principen eller initiativet markeras resurserna som kompatibla eller icke-kompatibla. En stor princip eller ett initiativ som utvärderas mot en stor omfattning av resurser kan ta tid. Därför finns det ingen fördefinierad förväntad utvärdering av när utvärderings cykeln ska slutföras. När den är klar finns uppdaterade efterlevnadsprinciper i portalen och SDK: erna.
+- En princip eller ett initiativ har nyligen tilldelats ett omfång. Det tar cirka 30 minuter för tilldelningen att tillämpas på det definierade omfånget. När den har tillämpats börjar utvärderings cykeln för resurser inom det omfånget mot den nyligen tilldelade principen eller initiativet, och beroende på vilka effekter som används av principen eller initiativet markeras resurserna som kompatibla eller icke-kompatibla. En stor princip eller ett initiativ som utvärderas mot en stor omfattning av resurser kan ta tid. Därför finns det ingen fördefinierad förväntad utvärdering av när utvärderings cykeln har slutförts. När den är klar finns uppdaterade efterlevnadsprinciper i portalen och SDK: erna.
 
 - En princip eller ett initiativ som redan har tilldelats ett omfång uppdateras. Utvärderings cykeln och tids inställningen för det här scenariot är desamma som för en ny tilldelning i ett omfång.
 
 - En resurs distribueras till ett omfång med en tilldelning via Resource Manager, REST, Azure CLI eller Azure PowerShell. I det här scenariot blir Effect-händelsen (Lägg till, granska, neka, distribuera) och kompatibel status information för den enskilda resursen tillgänglig i portalen och SDK: er som är cirka 15 minuter senare. Den här händelsen orsakar ingen utvärdering av andra resurser.
 
-- Utvärderings cykel för standard kompatibilitet. En gång var 24: e timme utvärderas tilldelningarna automatiskt. En stor princip eller initiativ för många resurser kan ta tid, så det finns ingen fördefinierad förväntad utvärdering av när utvärderings cykeln ska slutföras. När den är klar finns uppdaterade efterlevnadsprinciper i portalen och SDK: erna.
+- Utvärderings cykel för standard kompatibilitet. En gång var 24: e timme utvärderas tilldelningarna automatiskt. En stor princip eller initiativ för många resurser kan ta tid, så det finns ingen fördefinierad förväntad utvärdering av när utvärderings cykeln har slutförts. När den är klar finns uppdaterade efterlevnadsprinciper i portalen och SDK: erna.
 
 - Resurs leverantören för [gäst konfigurationen](../concepts/guest-configuration.md) har uppdaterats med information om efterlevnad av en hanterad resurs.
 
@@ -44,7 +44,41 @@ Utvärderingar av tilldelade principer och initiativ sker som resultatet av olik
 
 ### <a name="on-demand-evaluation-scan"></a>Utvärderingsgenomsökning på begäran
 
-En utvärderings sökning för en prenumeration eller en resurs grupp kan startas med ett anrop till REST API. Den här inläsningen är en asynkron process. Det innebär att REST-slutpunkten för att starta genomsökningen inte väntar tills genomsökningen är klar för att svara. I stället tillhandahåller den en URI för att fråga om status för den begärda utvärderingen.
+En utvärderings sökning för en prenumeration eller en resurs grupp kan startas med Azure PowerShell eller ett anrop till REST API. Den här inläsningen är en asynkron process.
+
+#### <a name="on-demand-evaluation-scan---azure-powershell"></a>Utvärderings genomsökning på begäran – Azure PowerShell
+
+Genomsökningen efter kompatibiliteten startas med cmdleten [Start-AzPolicyComplianceScan](/powershell/module/az.policyinsights/start-azpolicycompliancescan) .
+
+Som standard `Start-AzPolicyComplianceScan` startar en utvärdering för alla resurser i den aktuella prenumerationen. Om du vill starta en utvärdering för en speciell resurs grupp använder du parametern **ResourceGroupName** . I följande exempel startas en kompatibilitetskontroll i den aktuella prenumerationen för resurs gruppen _MyRG_ :
+
+```azurepowershell-interactive
+Start-AzPolicyComplianceScan -ResourceGroupName MyRG
+```
+
+Du kan använda PowerShell för att vänta tills det asynkrona anropet har slutförts innan du ger resultatet utdata eller som körs i bakgrunden som ett [jobb](/powershell/module/microsoft.powershell.core/about/about_jobs). Om du vill använda ett PowerShell-jobb för att köra Kompatibilitetskontroll i bakgrunden använder du parametern **AsJob** och anger värdet till ett objekt, t. ex `$job` . i det här exemplet:
+
+```azurepowershell-interactive
+$job = Start-AzPolicyComplianceScan -AsJob
+```
+
+Du kan kontrol lera jobbets status genom att kontrol lera `$job` objektet. Jobbet är av typen `Microsoft.Azure.Commands.Common.AzureLongRunningJob` . Använd `Get-Member` på `$job` objektet för att se tillgängliga egenskaper och metoder.
+
+När kompatibilitetskontroll körs, kontrollerar du att `$job` objektet ger utdata, till exempel följande:
+
+```azurepowershell-interactive
+$job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+```
+
+När kompatibilitetskontroll har slutförts ändras egenskapen **State** till _slutförd_.
+
+#### <a name="on-demand-evaluation-scan---rest"></a>Utvärderings genomsökning på begäran – REST
+
+Som en asynkron process väntar REST-slutpunkten för att starta genomsökningen inte förrän genomsökningen är klar för att svara. I stället tillhandahåller den en URI för att fråga om status för den begärda utvärderingen.
 
 I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
 
@@ -56,19 +90,19 @@ Genomsökningen stöder utvärdering av resurser i en prenumeration eller i en r
 - Prenumeration
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 - Resursgrupp
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 Anropet returnerar status **202** . Som ingår i svars huvudet är en **plats** egenskap med följande format:
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
 `{ResourceContainerGUID}`skapas statiskt för det begärda omfånget. Om ett omfång redan kör en genomsökning på begäran startas inte en ny sökning. I stället ges den nya begäran samma `{ResourceContainerGUID}` **plats** -URI för status. Ett REST API **Get** -kommando till **platsen** URI returnerar en **202 som godkänts** medan utvärderingen pågår. När utvärderings genomsökningen har slutförts returneras statusen **200 OK** . Texten i en slutförd genomsökning är ett JSON-svar med statusen:
@@ -86,9 +120,9 @@ Följande tabell visar hur olika princip effekter fungerar med villkors utvärde
 
 | Resurs tillstånd | Verkan | Princip utvärdering | Kompatibilitetstillstånd |
 | --- | --- | --- | --- |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Sant | Icke-kompatibel |
 | Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
-| Ny | Audit, AuditIfNotExist\* | True | Icke-kompatibel |
+| Ny | Audit, AuditIfNotExist\* | Sant | Icke-kompatibel |
 | Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
 
 \* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
@@ -383,7 +417,7 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-Fältet **PrincipalOid** kan användas för att hämta en speciell användare med cmdleten `Get-AzADUser`Azure PowerShell. Ersätt **{principalOid}** med svaret som du fick från föregående exempel.
+Fältet **PrincipalOid** kan användas för att hämta en speciell användare med cmdleten Azure PowerShell `Get-AzADUser` . Ersätt **{principalOid}** med svaret som du fick från föregående exempel.
 
 ```azurepowershell-interactive
 PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
@@ -392,7 +426,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-Om du har en [Log Analytics](../../../log-analytics/log-analytics-overview.md) -arbetsyta `AzureActivity` med från [Aktivitetslogganalys-lösningen](../../../azure-monitor/platform/activity-log-collect.md) som är kopplad till din prenumeration kan du också Visa inkompatibla resultat från utvärderings cykeln med hjälp av enkla Kusto `AzureActivity` -frågor och tabellen. Med information i Azure Monitor loggar kan aviseringar konfigureras för att se om de inte uppfyller kraven.
+Om du har en [Log Analytics-arbetsyta](../../../log-analytics/log-analytics-overview.md) med `AzureActivity` från [Aktivitetslogganalys-lösningen](../../../azure-monitor/platform/activity-log-collect.md) som är kopplad till din prenumeration kan du också Visa inkompatibla resultat från utvärderings cykeln med hjälp av enkla Kusto-frågor och `AzureActivity` tabellen. Med information i Azure Monitor loggar kan aviseringar konfigureras för att se om de inte uppfyller kraven.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Azure Policy kompatibilitet med hjälp av Azure Monitor loggar" border="false":::
 

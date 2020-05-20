@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bfb2f2d1d0f6a0d11784847344cd3dbcafdb0959
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 5ba3ff2cc98e505486de9cf2337fe19024f97c62
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900998"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680465"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Flytta ditt Azure Automation-konto till en annan prenumeration
 
@@ -22,29 +22,26 @@ Med Azure Automation kan du flytta vissa resurser till en ny resurs grupp eller 
 
 Automation-kontot är en av de resurser som du kan flytta. I den här artikeln lär du dig att flytta Automation-konton till en annan resurs eller prenumeration. De övergripande stegen för att flytta ditt Automation-konto är:
 
-1. Ta bort dina lösningar.
+1. Inaktivera dina funktioner.
 2. Ta bort länken till arbets ytan.
 3. Flytta Automation-kontot.
 4. Ta bort och återskapa kör som-konton.
-5. Återaktivera dina lösningar.
+5. Återaktivera dina funktioner.
 
->[!NOTE]
->I den här artikeln arbetar du med modulen Azure PowerShell AZ. Du kan fortfarande använda AzureRM-modulen. Mer information om AZ-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
+## <a name="disable-features"></a>Inaktivera funktioner
 
-## <a name="remove-solutions"></a>Ta bort lösningar
-
-Om du vill ta bort länken till arbets ytan från ditt Automation-konto måste du ta bort dessa lösningar från arbets ytan:
+Om du vill ta bort länken till arbets ytan från ditt Automation-konto måste du inaktivera funktions resurserna i din arbets yta:
 
 - Ändringsspårning och inventering
 - Uppdateringshantering
 - Starta/stoppa virtuella datorer utanför arbetstid
 
 1. Leta reda på resursgruppen på Azure-portalen.
-2. Hitta varje lösning och välj **ta bort** på sidan **ta bort resurser** .
+2. Hitta varje funktion och välj **ta bort** på sidan ta bort resurser.
 
-    ![Skärm bild av borttagning av lösningar från Azure Portal](../media/move-account/delete-solutions.png)
+    ![Skärm bild som visar hur du tar bort funktions resurser från Azure Portal](../media/move-account/delete-solutions.png)
 
-Om du vill kan du ta bort lösningarna med hjälp av cmdleten [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
+Om du vill kan du ta bort resurserna med hjälp av cmdleten [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -54,15 +51,15 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM($workspaceName)" -ResourceGroupName $resourceGroupName
 ```
 
-### <a name="remove-alert-rules-for-the-startstop-vms-during-off-hours-solution"></a>Ta bort aviserings regler för lösningen "starta/stoppa virtuella datorer vid låg tid"
+### <a name="remove-alert-rules-for-startstop-vms-during-off-hours"></a>Ta bort aviserings regler för Starta/stoppa virtuella datorer när de inte används
 
-I den här lösningen måste du också ta bort de aviserings regler som skapats av lösningen.
+För Starta/stoppa virtuella datorer när de inte används måste du också ta bort aviserings reglerna som skapats av funktionen.
 
-1. I Azure Portal går du till din resurs grupp och väljer **övervaknings** > **aviseringar** > **Hantera aviserings regler**.
+1. I Azure Portal går du till din resurs grupp och väljer **övervaknings**  >  **aviseringar**  >  **Hantera aviserings regler**.
 
    ![Skärm bild av sidan aviseringar med val av hantera aviserings regler](../media/move-account/alert-rules.png)
 
-2. På sidan **regler** bör du se en lista över de aviseringar som kon figurer ATS i resurs gruppen. Lösningen skapar följande regler:
+2. På sidan regler bör du se en lista över de aviseringar som kon figurer ATS i resurs gruppen. Funktionen skapar följande regler:
 
     * AutoStop_VM_Child
     * ScheduledStartStop_Parent
@@ -70,12 +67,12 @@ I den här lösningen måste du också ta bort de aviserings regler som skapats 
 
 3. Välj reglerna en i taget och välj **ta bort** för att ta bort dem.
 
-    ![Skärm bild av sidan regler som ber dig bekräfta borttagningen av de valda reglerna](../media/move-account/delete-rules.png)
+    ![Skärm bild av sidan regler, begär bekräftelse av borttagning för de valda reglerna](../media/move-account/delete-rules.png)
 
     > [!NOTE]
-    > Om du inte ser några varnings regler på sidan **regler** ändrar du fältet **status** till **inaktiverat** för att visa inaktiverade aviseringar. Du kan ha inaktiverat dem.
+    > Om du inte ser några varnings regler på sidan regler ändrar du fältet **status** till **inaktiverat** för att visa inaktiverade aviseringar. 
 
-4. När du tar bort aviserings reglerna måste du ta bort åtgärds gruppen som skapats för lösnings aviseringarna "starta/stoppa virtuella datorer vid inaktive tid". I Azure Portal väljer du **övervaka** > **aviseringar** > **Hantera åtgärds grupper**.
+4. När du tar bort aviserings reglerna måste du ta bort åtgärds gruppen som skapats för Starta/stoppa virtuella datorer när de inte används meddelanden. I Azure Portal väljer du **övervaka**  >  **aviseringar**  >  **Hantera åtgärds grupper**.
 
 5. Välj **StartStop_VM_Notification**. 
 
@@ -93,7 +90,7 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 Nu kan du ta bort länken till arbets ytan:
 
-1. I Azure Portal väljer du **Automation-konto** > **relaterade resurser** > **länkad arbets yta**. 
+1. I Azure Portal väljer du **Automation-konto**  >  **relaterade resurser**  >  **länkad arbets yta**. 
 
 2. Välj **länken för att ta bort länkar** för arbets ytan från ditt Automation-konto.
 
@@ -103,7 +100,7 @@ Nu kan du ta bort länken till arbets ytan:
 
 Nu kan du flytta ditt Automation-konto och dess Runbooks. 
 
-1. I Azure Portal bläddrar du till resurs gruppen för ditt Automation-konto. Välj **Flytta** > **Flytta till en annan prenumeration**.
+1. I Azure Portal bläddrar du till resurs gruppen för ditt Automation-konto. Välj **Flytta**  >  **Flytta till en annan prenumeration**.
 
     ![Skärm bild av sidan resurs grupp, flytta till en annan prenumeration](../media/move-account/move-resources.png)
 
@@ -120,31 +117,31 @@ Nu kan du flytta ditt Automation-konto och dess Runbooks.
 2. Ta bort kör som-kontona, ett i taget, genom att välja **ta bort** på sidan **Egenskaper** . 
 
     > [!NOTE]
-    > Om du inte har behörighet att skapa eller Visa kör som-konton visas följande meddelande: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` mer information finns i [behörigheter som krävs för att konfigurera kör som-konton](../manage-runas-account.md#permissions).
+    > Om du inte har behörighet att skapa eller Visa kör som-konton visas följande meddelande: `You do not have permissions to create an Azure Run As account (service principal) and grant the Contributor role to the service principal.` Mer information finns i [behörigheter som krävs för att konfigurera kör som-konton](../manage-runas-account.md#permissions).
 
 3. När du har tagit bort kör som-kontona väljer du **skapa** under **Kör som-konto i Azure**. 
 
-4. På sidan **Lägg till Azure kör som-konto** väljer du **skapa** för att skapa kör som-kontot och tjänstens huvud namn. 
+4. På sidan Lägg till Azure kör som-konto väljer du **skapa** för att skapa kör som-kontot och tjänstens huvud namn. 
 
 5. Upprepa stegen ovan med det klassiska kör som-kontot i Azure.
 
-## <a name="enable-solutions"></a>Aktivera lösningar
+## <a name="enable-features"></a>Aktivera funktioner
 
-När du har återskapat kör som-kontona måste du återaktivera de lösningar som du har tagit bort innan du flyttar: 
+När du har återskapat kör som-kontona måste du återaktivera de funktioner som du inaktiverade innan du flyttade: 
 
-1. Aktivera lösningen Ändringsspårning och inventering genom att välja **ändringsspårning och inventering** i ditt Automation-konto. Välj Log Analytics arbets ytan som du flyttade över och välj **Aktivera**.
+1. Aktivera Ändringsspårning och inventering genom att välja **ändringsspårning och inventering** i ditt Automation-konto. Välj Log Analytics arbets ytan som du flyttade över och välj **Aktivera**.
 
-2. Upprepa steg 1 för lösningen "Uppdateringshantering".
+2. Upprepa steg 1 för Uppdateringshantering.
 
-    ![Skärm bild av återaktiverade lösningar i det flyttade Automation-kontot](../media/move-account/reenable-solutions.png)
+    ![Skärm bild som visar hur du återaktiverar funktioner i det flyttade Automation-kontot](../media/move-account/reenable-solutions.png)
 
-3. Datorer som är inbyggda med dina lösningar visas när du har anslutit till den befintliga Log Analytics-arbetsytan. Om du vill aktivera lösningen "starta/stoppa virtuella datorer vid låg belastning" måste du distribuera om lösningen. Under **relaterade resurser**väljer du **Starta/stoppa virtuella datorer** > **Läs mer om och aktiverar lösningen** > **skapa** för att starta distributionen.
+3. Datorer som är aktiverade med dina funktioner visas när du har anslutit den befintliga Log Analytics-arbetsytan. Om du vill aktivera funktionen Starta/stoppa virtuella datorer när de inte används måste du aktivera den igen. Under **relaterade resurser**väljer du **Starta/stoppa virtuella datorer**  >  **Läs mer om och aktiverar lösningen**  >  **skapa** för att starta distributionen.
 
-4. På sidan **Lägg till lösning** väljer du Log Analytics arbets yta och Automation-konto.
+4. På sidan Lägg till lösning väljer du Log Analytics arbets yta och Automation-konto.
 
     ![Skärm bild av menyn Lägg till lösning](../media/move-account/add-solution-vm.png)
 
-5. Konfigurera lösningen enligt beskrivningen i [lösningen starta/stoppa virtuella datorer vid inaktive ring av timmar i Azure Automation](../automation-solution-vm-management.md).
+5. Konfigurera funktionen enligt beskrivningen i [Starta/stoppa virtuella datorer när de inte används översikt](../automation-solution-vm-management.md).
 
 ## <a name="verify-the-move"></a>Verifiera flytten
 

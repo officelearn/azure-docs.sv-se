@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f711d0dbc2df2a5ab102b520fb0d166a459383c1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61483442"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684464"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure Storage erbjudanden för regelefterlevnad
 
@@ -37,7 +37,7 @@ Du hittar nedanstående krav på efterlevnad på Azure Storage för att säkerst
 ## <a name="us-government"></a>US Government
 
 * [DoD DISA L2, L4, L5](https://www.microsoft.com/trustcenter/compliance/disa)
-* [Berg 10 CFR del 810](https://aka.ms/AzureCompliance)
+* [DoE 10 CFR, del 810](https://aka.ms/AzureCompliance)
 * [ÖRON (US Export administrations regler)](https://aka.ms/AzureCompliance)
 * [FDA CFR title 21 part 11](https://aka.ms/AzureCompliance)
 * [FedRAMP](https://www.microsoft.com/trustcenter/compliance/fedramp)
@@ -46,13 +46,13 @@ Du hittar nedanstående krav på efterlevnad på Azure Storage för att säkerst
 * [NIST 800-171](https://www.microsoft.com/TrustCenter/Compliance/DISA#NISTRequirements)
 * [Avsnitt 508 VPAT](https://www.microsoft.com/trustcenter/compliance/accessibility)
 
-## <a name="industry"></a>Bransch
+## <a name="industry"></a>Industri
 
 * [23 NYCRR del 500](https://www.microsoft.com/trustcenter/compliance/NYCRR)
 * [APRA (Australien)](https://aka.ms/AzureCompliance)
 * [CDSA](https://www.microsoft.com/trustcenter/compliance/cdsa)
-* [DPP (STORBRITANNIEN)](https://aka.ms/AzureCompliance)
-* [FAKTA (STORBRITANNIEN)](https://www.microsoft.com/trustcenter/compliance/fact)
+* [DPP (Storbritannien)](https://aka.ms/AzureCompliance)
+* [FACT (Storbritannien)](https://www.microsoft.com/trustcenter/compliance/fact)
 * [FCA (STORBRITANNIEN)](https://aka.ms/AzureCompliance)
 * [FFIEC](https://www.microsoft.com/trustcenter/compliance/FFIEC)
 * [FISC (Japan)](https://www.microsoft.com/trustcenter/compliance/fisc)
@@ -64,7 +64,6 @@ Du hittar nedanstående krav på efterlevnad på Azure Storage för att säkerst
 * [MAS + ABS (Singapore)](https://aka.ms/AzureCompliance)
 * [MPAA](https://www.microsoft.com/trustcenter/compliance/mpaa)
 * [NEN-7510 (Nederländerna)](https://www.microsoft.com/trustcenter/compliance/nen-7510)
-* [NHS IG Toolkit (Storbritannien)](https://www.microsoft.com/trustcenter/Compliance/NHS)
 * [PCI DSS](https://www.microsoft.com/trustcenter/compliance/pci)
 * [Delade utvärderingar](https://aka.ms/AzureCompliance)
 * [SOX](https://www.microsoft.com/trustcenter/compliance/SOX)
@@ -74,7 +73,7 @@ Du hittar nedanstående krav på efterlevnad på Azure Storage för att säkerst
 * [BIR 2012 (Nederländerna)](https://www.microsoft.com/TrustCenter/Compliance/bir-2012)
 * [C5 (Tyskland)](https://www.microsoft.com/TrustCenter/Compliance/C5)
 * [CCSL/IRAP (Australien)](https://www.microsoft.com/trustcenter/compliance/ccsl)
-* [CS guld mark (Japan)](https://www.microsoft.com/trustcenter/compliance/cloud-security-mark)
+* [CS Gold Mark (Japan)](https://www.microsoft.com/trustcenter/compliance/cloud-security-mark)
 * [DJCP (Kina)](https://www.trustcenter.cn/compliance/default.html#DJCP)
 * [ENISA IAF (EU)](https://aka.ms/AzureCompliance)
 * [ENS (Spanien)](https://www.microsoft.com/trustcenter/compliance/spainens)
@@ -85,9 +84,9 @@ Du hittar nedanstående krav på efterlevnad på Azure Storage för att säkerst
 * [IT-Grundschutz arbets bok (Tyskland)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)
 * [LOPD (Spanien)](https://aka.ms/AzureCompliance)
 * [MTCS (Singapore)](https://www.microsoft.com/trustcenter/compliance/mtcs)
-* [Mitt nummer (Japan)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
+* [My Number (Japan)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
 * [NZ CC Framework (Nya Zeeland)](https://www.microsoft.com/trustcenter/compliance/nzcc)
-* [PASF (STORBRITANNIEN)](https://aka.ms/AzureCompliance)
+* [PASF (Storbritannien)](https://aka.ms/AzureCompliance)
 * [PDPA (Argentina)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#argentina)
 * [PIPEDA (Kanada)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#canadian_privacy_laws)
 * [TRUCS (Kina)](https://www.trustcenter.cn/compliance/default.html#TCS)

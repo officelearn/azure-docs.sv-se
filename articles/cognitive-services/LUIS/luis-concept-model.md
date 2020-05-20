@@ -3,12 +3,12 @@ title: Design med modeller – LUIS
 description: Språk förståelse tillhandahåller flera olika typer av modeller. Vissa modeller kan användas på fler än ett sätt.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 933588f96570e931cdc627aaae82bee1037bbdaa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591887"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683928"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Design med avsikts-och enhets modeller
 
@@ -36,9 +36,9 @@ Följande uttryck är ett **positivt exempel** för `OrderBook` avsikten och ett
 
 ## <a name="entities-extract-data"></a>Enheter extraherar data
 
-En entitet representerar en data enhet som du vill extrahera från uttryck. En enhet som har lärts in är en enhet på den översta nivån som innehåller underentiteter, som också är enhets belärt entiteter.
+En entitet representerar en data enhet som du vill extrahera från uttryck. En enhet för maskin inlärning är en enhet på den översta nivån som innehåller underentiteter, som också är maskin inlärnings enheter.
 
-Ett exempel på en enhet som har lärts in är en ordning för en plan biljett. Det här är en enskild transaktion med många mindre data enheter, till exempel datum, tid, antal platser, typ av säte, till exempel första klass eller turist klass, ursprungs plats, målplats och mål områdes val.
+Ett exempel på en enhet för maskin inlärning är en ordning för en plan biljett. Det här är en enskild transaktion med många mindre data enheter, till exempel datum, tid, antal platser, typ av säte, till exempel första klass eller turist klass, ursprungs plats, målplats och mål områdes val.
 
 ## <a name="intents-versus-entities"></a>Avsikter jämfört med entiteter
 
@@ -65,11 +65,11 @@ Modell dispositionen har följande delar:
 
 * [avsikter](#intents-classify-utterances)
     * [egenskaper](#features)
-* [enheter som har lärts till enheten](reference-entity-machine-learned-entity.md)
-    * underentiteter (även enhets belärt entiteter)
+* [enheter för maskin inlärning](reference-entity-machine-learned-entity.md)
+    * underentiteter (även maskin inlärnings enheter)
         * [egenskaper](#features)
             * [fras lista](luis-concept-feature.md)
-            * [entiteter som inte är](luis-concept-feature.md) baserade på enheten, till exempel [reguljära uttryck](reference-entity-regular-expression.md), [listor](reference-entity-list.md)och [färdiga entiteter](luis-reference-prebuilt-entities.md)
+            * [icke-utbildnings enheter](luis-concept-feature.md) som [reguljära uttryck](reference-entity-regular-expression.md), [listor](reference-entity-list.md)och [färdiga entiteter](luis-reference-prebuilt-entities.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>

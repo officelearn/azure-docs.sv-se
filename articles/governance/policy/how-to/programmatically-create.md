@@ -1,14 +1,14 @@
 ---
 title: Skapa principer programmässigt
 description: Den här artikeln vägleder dig genom program mässigt skapa och hantera principer för Azure Policy med Azure CLI, Azure PowerShell och REST API.
-ms.date: 01/31/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264549"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682131"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
@@ -72,7 +72,7 @@ Det första steget mot bättre insyn i resurserna är att skapa och tilldela pri
    Kommandot skapar en princip definition med namnet _Granska lagrings konton som är öppna i offentliga nätverk_.
    Mer information om andra parametrar som du kan använda finns i [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
-   När anropas utan plats parametrar `New-AzPolicyDefinition` , sparar standard princip definitionen i den valda prenumerationen av sessionens kontext. Om du vill spara definitionen på en annan plats använder du följande parametrar:
+   När anropas utan plats parametrar, `New-AzPolicyDefinition` sparar standard princip definitionen i den valda prenumerationen av sessionens kontext. Om du vill spara definitionen på en annan plats använder du följande parametrar:
 
    - **SubscriptionId** – Spara i en annan prenumeration. Kräver ett _GUID_ -värde.
    - **ManagementGroupName** – Spara till en hanterings grupp. Kräver ett _sträng_ värde.
@@ -87,7 +87,7 @@ Det första steget mot bättre insyn i resurserna är att skapa och tilldela pri
 
    Ersätt _conto sorg_ med namnet på den avsedda resurs gruppen.
 
-   **Omfattnings** parametern i `New-AzPolicyAssignment` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg som egenskapen **ResourceID** i `Get-AzResourceGroup` returnerar. Mönstret för **omfånget** för varje behållare är följande. Ersätt `{rName}`, `{rgName}`, `{subId}`, och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID och namn på hanterings gruppen.
+   **Omfattnings** parametern i `New-AzPolicyAssignment` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg som egenskapen **ResourceID** i `Get-AzResourceGroup` returnerar. Mönstret för **omfånget** för varje behållare är följande. Ersätt `{rName}` , `{rgName}` , `{subId}` , och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID och namn på hanterings gruppen.
    `{rType}`ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
    - Klusterresursen`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
@@ -133,10 +133,10 @@ Använd följande procedur för att skapa en princip definition.
 
    ```console
    # For defining a policy in a subscription
-   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
 
    # For defining a policy in a management group
-   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
    ```
 
    Ersätt föregående {subscriptionId} med ID: t för din prenumeration eller {managementGroupId} med ID: t för din [hanterings grupp](../../management-groups/overview.md).
@@ -162,7 +162,7 @@ Använd följande procedur för att skapa en princip tilldelning och tilldela pr
 1. Skapa princip tilldelningen med följande anrop:
 
    ```console
-   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
+   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2019-09-01" @<path to Assignment JSON file>
    ```
 
    Ersätt exempel information i &lt; &gt; symboler med dina egna värden.
@@ -205,10 +205,10 @@ Använd följande procedur för att skapa en princip definition:
    Kommandot skapar en princip definition med namnet _Granska lagrings konton som är öppna i offentliga nätverk_.
    Mer information om andra parametrar som du kan använda finns i [AZ policy definition Create](/cli/azure/policy/definition#az-policy-definition-create).
 
-   När anropas utan plats parametrar `az policy definition creation` , sparar standard princip definitionen i den valda prenumerationen av sessionens kontext. Om du vill spara definitionen på en annan plats använder du följande parametrar:
+   När anropas utan plats parametrar, `az policy definition creation` sparar standard princip definitionen i den valda prenumerationen av sessionens kontext. Om du vill spara definitionen på en annan plats använder du följande parametrar:
 
-   - **--prenumeration** – Spara till en annan prenumeration. Kräver ett _GUID_ -värde för prenumerations-ID eller ett _sträng_ värde för prenumerations namnet.
-   - **--hantering-grupp** – Spara i en hanterings grupp. Kräver ett _sträng_ värde.
+   - **prenumeration** – Spara till en annan prenumeration. Kräver ett _GUID_ -värde för prenumerations-ID eller ett _sträng_ värde för prenumerations namnet.
+   - **hantering-grupp** – Spara i en hanterings grupp. Kräver ett _sträng_ värde.
 
 1. Använd följande kommando för att skapa en princip tilldelning. Ersätt exempel information i &lt; &gt; symboler med dina egna värden.
 
@@ -216,7 +216,7 @@ Använd följande procedur för att skapa en princip definition:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Parametern **--scope** i `az policy assignment create` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg. Mönster för **--omfattning** för varje behållare är följande. Ersätt `{rName}`, `{rgName}`, `{subId}`, och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID och namn på hanterings gruppen. `{rType}`ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
+   **Omfattnings** parametern i `az policy assignment create` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg. Mönstret för **omfånget** för varje behållare är följande. Ersätt `{rName}` , `{rgName}` , `{subId}` , och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID och namn på hanterings gruppen. `{rType}`ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
    - Klusterresursen`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resurs grupp –`/subscriptions/{subID}/resourceGroups/{rgName}`
@@ -245,4 +245,4 @@ Läs följande artiklar om du vill ha mer information om kommandon och frågor i
 - [Azure PowerShell moduler](/powershell/module/az.resources/#policies)
 - [Azure CLI-princip kommandon](/cli/azure/policy?view=azure-cli-latest)
 - [Azure Policy insikter Resource Provider REST API referens](/rest/api/policy-insights)
-- [Organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).
+- [Organisera dina resurser i Azure-hanteringsgrupper](../../management-groups/overview.md).

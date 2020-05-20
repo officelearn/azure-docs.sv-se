@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
-ms.openlocfilehash: 3aecaf45a04c1428968791a71abece783c7eb7c0
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 05/19/2020
+ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891321"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683068"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -42,10 +42,10 @@ Mer information finns i [Konfigurera autentisering för Azure Machine Learning r
 
 Azure Machine Learning stöder två typer av autentisering för webb tjänster: nyckel och token. Varje webb tjänst kan bara aktivera en form av autentisering i taget.
 
-|Autentiseringsmetod|Beskrivning|Azure Container Instances|AKS|
+|Autentiseringsmetod|Description|Azure Container Instances|AKS|
 |---|---|---|---|
-|Tangent|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
-|Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgängligt| Inaktiverat som standard |
+|Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverat som standard|
+|Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgänglig| Inaktiverat som standard |
 
 Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
 
@@ -99,7 +99,7 @@ Mer information om hanterade identiteter finns i [hanterade identiteter för Azu
 
 Vi rekommenderar inte att administratörer återkallar åtkomsten av den hanterade identiteten till de resurser som anges i tabellen ovan. Du kan återställa åtkomsten med hjälp av åtgärden omsynkronisera nycklar.
 
-Azure Machine Learning skapar ett ytterligare program (namnet börjar med `aml-` eller `Microsoft-AzureML-Support-App-`) med åtkomst på deltagar nivå i din prenumeration för varje region för arbets yta. Om du till exempel har en arbets yta i USA, östra och en i Nord Europa i samma prenumeration, ser du två av dessa program. Med dessa program kan Azure Machine Learning hjälpa dig att hantera beräknings resurser.
+Azure Machine Learning skapar ett ytterligare program (namnet börjar med `aml-` eller `Microsoft-AzureML-Support-App-` ) med åtkomst på deltagar nivå i din prenumeration för varje region för arbets yta. Om du till exempel har en arbets yta i USA, östra och en i Nord Europa i samma prenumeration, ser du två av dessa program. Med dessa program kan Azure Machine Learning hjälpa dig att hantera beräknings resurser.
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
@@ -116,7 +116,7 @@ Du kan också aktivera Azures privata länk för din arbets yta. Med privat län
 > [!IMPORTANT]
 > Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. 
 
-`hbi_workspace` Flaggan styr mängden data som Microsoft samlar in i diagnostiska syfte och möjliggör ytterligare kryptering i Microsoft-hanterade miljöer. Dessutom möjliggör det följande:
+`hbi_workspace`Flaggan styr mängden data som Microsoft samlar in i diagnostiska syfte och möjliggör ytterligare kryptering i Microsoft-hanterade miljöer. Dessutom möjliggör det följande:
 
 * Startar kryptering av den lokala Scratch-disken i ditt Amlcompute-kluster förutsatt att du inte har skapat några tidigare kluster i den prenumerationen. Annars måste du skapa ett support ärende för att aktivera kryptering av den virtuella datorns arbets kluster 
 * Rensar upp den lokala Scratch-disken mellan körningar
@@ -146,8 +146,6 @@ Om du vill använda egna (Kundhanterade) nycklar för att kryptera Azure Cosmos 
 
 Om du vill aktivera etablering av en Cosmos DB instans i din prenumeration med Kundhanterade nycklar utför du följande åtgärder:
 
-* Aktivera Kundhanterade nyckel funktioner för Cosmos DB. För tillfället måste du begära åtkomst för att använda den här funktionen. Om du vill göra det kontaktar [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com)du.
-
 * Registrera Azure Machine Learning och Azure Cosmos DB resurs leverantörer i din prenumeration, om de inte redan har gjort det.
 
 * Auktorisera Machine Learning-appen (i identitets-och åtkomst hantering) med deltagar behörigheter för din prenumeration.
@@ -163,7 +161,7 @@ Om du vill aktivera etablering av en Cosmos DB instans i din prenumeration med K
         > [!NOTE]
         > Den här Key Vault-instansen kan vara annorlunda än nyckel valvet som skapas av Azure Machine Learning när du etablerar arbets ytan. Om du vill använda samma Key Vault-instans för arbets ytan skickar du samma nyckel valv medan du konfigurerar arbets ytan med hjälp av [parametern key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-Den här Cosmos DB-instansen skapas i en Microsoft-hanterad resurs grupp i din prenumeration. Den hanterade resurs gruppen har namnet i formatet `<AML Workspace Resource Group Name><GUID>`.
+Den här Cosmos DB-instansen skapas i en Microsoft-hanterad resurs grupp i din prenumeration. Den hanterade resurs gruppen har namnet i formatet `<AML Workspace Resource Group Name><GUID>` .
 
 > [!IMPORTANT]
 > * Om du behöver ta bort den här Cosmos DB-instansen måste du ta bort arbets ytan Azure Machine Learning som använder den. 
@@ -188,7 +186,7 @@ Ett exempel på hur du skapar en arbets yta med en befintlig Azure Container Reg
 
 Du kan kryptera en distribuerad Azure Container instance-resurs (ACI) med Kundhanterade nycklar. Den Kundhanterade nyckeln som används för ACI kan lagras i Azure Key Vault för din arbets yta. Information om hur du skapar en nyckel finns i [kryptera data med en kundhanterad nyckel](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
 
-Om du vill använda nyckeln när du distribuerar en modell till Azure Container instance skapar du en ny distributions konfiguration med hjälp av `AciWebservice.deploy_configuration()`. Ange viktig information med hjälp av följande parametrar:
+Om du vill använda nyckeln när du distribuerar en modell till Azure Container instance skapar du en ny distributions konfiguration med hjälp av `AciWebservice.deploy_configuration()` . Ange viktig information med hjälp av följande parametrar:
 
 * `cmk_vault_base_url`: URL: en för nyckel valvet som innehåller nyckeln.
 * `cmk_key_name`: Namnet på nyckeln.
@@ -215,7 +213,7 @@ Med den här processen kan du kryptera både data och OS-disken för de distribu
 
 OS-disken för varje Compute-nod som lagras i Azure Storage krypteras med Microsoft-hanterade nycklar i Azure Machine Learning lagrings konton. Detta beräknings mål är tillfälligt och kluster skalas vanligt vis ned när inga körningar placeras i kö. Den underliggande virtuella datorn är avetablerad och OS-disken tas bort. Azure Disk Encryption stöds inte för OS-disken.
 
-Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Om du vill kan du använda disken för att mellanlagra tränings data. Disken är krypterad som standard för arbets ytor där `hbi_workspace` parametern har angetts till `TRUE`. Den här miljön är endast kort livs längd under körningen och krypterings stödet är begränsat till endast systemhanterade nycklar.
+Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Om du vill kan du använda disken för att mellanlagra tränings data. Disken är krypterad som standard för arbets ytor där `hbi_workspace` parametern har angetts till `TRUE` . Den här miljön är endast kort livs längd under körningen och krypterings stödet är begränsat till endast systemhanterade nycklar.
 
 #### <a name="azure-databricks"></a>Azure Databricks
 
@@ -247,7 +245,7 @@ Microsoft kan samla in information om icke-användare, t. ex. resurs namn (till 
 
 Microsoft rekommenderar även att inte lagra känslig information (till exempel konto nyckel hemligheter) i miljövariabler. Miljövariabler loggas, krypteras och lagras av oss. Undvik att använda känslig information som användar namn eller namn på hemliga projekt på samma sätt som när du namnger [run_id](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py). Den här informationen kan visas i telemetri loggar som är tillgängliga för Microsoft Support tekniker.
 
-Du kan välja att inte använda diagnostikdata som samlas in genom att `hbi_workspace` ange parametern `TRUE` till medan du konfigurerar arbets ytan. Den här funktionen stöds när du använder AzureML python SDK, CLI, REST API: er eller Azure Resource Manager mallar.
+Du kan välja att inte använda diagnostikdata som samlas in genom `hbi_workspace` att ange parametern till `TRUE` medan du konfigurerar arbets ytan. Den här funktionen stöds när du använder AzureML python SDK, CLI, REST API: er eller Azure Resource Manager mallar.
 
 ### <a name="microsoft-generated-data"></a>Microsoft-genererade data
 

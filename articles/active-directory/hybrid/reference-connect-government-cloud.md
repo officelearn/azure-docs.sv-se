@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdc99ca50255bd9b75828f0a051f364c5218471
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 217cf8822fcd8ef515ac9ce2dacdac3682e5fd12
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115497"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680176"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Hybrid identitets överväganden för Azure Government molnet
 
@@ -41,7 +41,7 @@ Innan du distribuerar direktautentisering för direkt autentisering kontrollerar
 |URL |Hur den används|
 |-----|-----|
 |&#42;. msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|Agenten använder dessa URL: er för att kommunicera med moln tjänsten Azure AD. |
-|mscrl.microsoft.us:80 </br>crl.microsoft.us:80 </br>ocsp.msocsp.us:80 </br>www.microsoft.us:80| Agenten använder dessa URL: er för att verifiera certifikat.|
+|`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| Agenten använder dessa URL: er för att verifiera certifikat.|
 |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;. microsoftonline.us </br>&#42;. microsoftonline-p.us </br>&#42;. msauth.net </br>&#42;. msauthimages.net </br>&#42;. msecnd.net</br>&#42;. msftauth.net </br>&#42;. msftauthimages.net</br>&#42;. phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctdl.windowsupdate.us:80| Agenten använder dessa URL: er under registrerings processen.
 
 ### <a name="install-the-agent-for-the-azure-government-cloud"></a>Installera agenten för Azure Government molnet
@@ -76,7 +76,7 @@ Om du använder direktautentisering som inloggnings metod krävs ingen ytterliga
 
 ### <a name="roll-out-seamless-single-sign-on"></a>Distribuera sömlös enkel inloggning
 
-Du kan gradvis Distribuera Azure AD sömlös enkel inloggning till dina användare med hjälp av följande instruktioner. Du börjar med att lägga till Azure AD-URL: en [https://autologon.microsoft.us](https://autologon.microsoft.us) till alla eller valda användares intranät zons inställningar genom att använda Grupprincip i Active Directory.
+Du kan gradvis Distribuera Azure AD sömlös enkel inloggning till dina användare med hjälp av följande instruktioner. Du börjar med att lägga till Azure AD-URL: en `https://autologon.microsoft.us` till alla eller valda användares intranät zons inställningar genom att använda Grupprincip i Active Directory.
 
 Du måste också aktivera princip inställningen **Tillåt uppdateringar till statusfältet via skript genom att Grupprincip**.
 
@@ -89,16 +89,16 @@ I Mozilla Firefox används inte Kerberos-autentisering automatiskt. Varje använ
 1. Kör Firefox och ange **About: config**   i adress fältet. Stäng alla aviseringar som du kan se.
 1. Sök efter **nätverket. inställningar för Negotiate-auth. Trusted-URI: er**   . Den här inställningen visar de webbplatser som är betrodda av Firefox för Kerberos-autentisering.
 1. Högerklicka på Preference-namnet och välj sedan **ändra**.
-1. Ange  [**https://autologon.microsoft.us**](https://autologon.microsoft.us**)   i rutan.
+1. Ange `https://autologon.microsoft.us` i rutan.
 1. Välj **OK**   och öppna sedan webbläsaren igen.
 
 ### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge baserat på krom (alla plattformar)
 
-Om du har åsidosatt  `AuthNegotiateDelegateAllowlist`   `AuthServerAllowlist`   -eller-princip inställningarna i din miljö kontrollerar du att du lägger till Azure AD-URL: en [https://autologon.microsoft.us](https://autologon.microsoft.us) till dem.
+Om du har åsidosatt  `AuthNegotiateDelegateAllowlist`   `AuthServerAllowlist`   -eller-princip inställningarna i din miljö kontrollerar du att du lägger till Azure AD-URL: en `https://autologon.microsoft.us` till dem.
 
 ### <a name="google-chrome-all-platforms"></a>Google Chrome (alla plattformar)
 
-Om du har åsidosatt  `AuthNegotiateDelegateWhitelist`   `AuthServerWhitelist`   -eller-princip inställningarna i din miljö kontrollerar du att du lägger till Azure AD-URL: en [https://autologon.microsoft.us](https://autologon.microsoft.us) till dem.
+Om du har åsidosatt  `AuthNegotiateDelegateWhitelist`   `AuthServerWhitelist`   -eller-princip inställningarna i din miljö kontrollerar du att du lägger till Azure AD-URL: en `https://autologon.microsoft.us` till dem.
 
 ## <a name="next-steps"></a>Nästa steg
 

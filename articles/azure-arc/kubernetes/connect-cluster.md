@@ -1,0 +1,217 @@
+---
+title: Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
+services: azure-arc
+ms.service: azure-arc
+ms.date: 05/19/2020
+ms.topic: article
+author: mlearned
+ms.author: mlearned
+description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
+keywords: Kubernetes, båge, Azure, K8s, behållare
+ms.openlocfilehash: 9b37ad264dc8a8a6c653c25ddf6ac0fcb4065f9b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680816"
+---
+# <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
+
+Anslut ett Kubernetes-kluster till Azure-bågen. 
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Kontrol lera att du har följande krav:
+
+* Ett Kubernetes-kluster som är igång
+* Du behöver åtkomst med kubeconfig och kluster administratörs åtkomst. 
+* Användaren eller tjänstens huvud namn som används med `az login` och- `az connectedk8s connect` kommandon måste ha behörigheterna Läs och skriv för resurs typen Microsoft. Kubernetes/connectedclusters.
+* Senaste versionen av *connectedk8s* och *k8sconfiguration* -tillägg
+
+## <a name="supported-regions"></a>Regioner som stöds
+
+* USA, östra
+* Europa, västra
+
+## <a name="network-requirements"></a>Nätverkskrav
+
+Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er fungerar.
+
+* TCP på port 443-->`https://:443`
+* TCP på port 9418-->`git://:9418`
+
+| Slut punkt (DNS)                                                                                               | Description                                                                                                                 |
+| ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| `https://management.azure.com`                                                                                 | Krävs för att agenten ska kunna ansluta till Azure och registrera klustret                                                        |
+| `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Data planens slut punkt för agenten för att push-överföra status och hämta konfigurations information                                      |
+| `https://docker.io`                                                                                            | Krävs för att hämta behållar avbildningar                                                                                         |
+| `https://github.com`, git://github.com                                                                         | Exempel på GitOps-databaser finns på GitHub. Konfigurations agenten kräver anslutning till den git-slutpunkt som du anger. |
+| `https://login.microsoftonline.com`                                                                            | Krävs för att hämta och uppdatera Azure Resource Manager tokens                                                                                    |
+| `https://azurearcfork8s.azurecr.io`                                                                            | Krävs för att hämta behållar avbildningar för Azure Arc-agenter                                                                  |
+
+## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registrera de två providers för Azure Arc-aktiverade Kubernetes:
+
+```console
+az provider register --namespace Microsoft.Kubernetes
+Registering is still on-going. You can monitor using 'az provider show -n Microsoft.Kubernetes'
+
+az provider register --namespace Microsoft.KubernetesConfiguration
+Registering is still on-going. You can monitor using 'az provider show -n Microsoft.KubernetesConfiguration'
+```
+
+Registreringen är en asynkron process. Registreringen kan ta ungefär 10 minuter. Du kan övervaka registrerings processen med följande kommandon:
+
+```console
+az provider show -n Microsoft.Kubernetes -o table
+```
+
+```console
+az provider show -n Microsoft.KubernetesConfiguration -o table
+```
+
+## <a name="install-azure-cli-extensions"></a>Installera Azure CLI-tillägg
+
+Installera `connectedk8s` tillägget, som hjälper dig att ansluta Kubernetes-kluster till Azure:
+
+```console
+az extension add --name connectedk8s
+```
+
+Installera `k8sconfiguration` tillägget:
+
+```console
+az extension add --name k8sconfiguration
+```
+
+Kör följande kommandon för att uppdatera tilläggen till de senaste versionerna.
+
+```console
+az extension update --name connectedk8s
+az extension update --name k8sconfiguration
+```
+
+## <a name="create-a-resource-group"></a>Skapa en resursgrupp
+
+Använd en resurs grupp för att lagra metadata för klustret.
+
+Skapa först en resurs grupp som ska innehålla den anslutna kluster resursen.
+
+```console
+az group create --name AzureArcTest -l EastUS -o table
+```
+
+**Utdataparametrar**
+
+```console
+Location    Name
+----------  ------------
+eastus      AzureArcTest
+```
+
+## <a name="connect-a-cluster"></a>Anslut ett kluster
+
+Nu ska vi ansluta vårt Kubernetes-kluster till Azure. Arbets flödet för `az connectedk8s connect` ser ut så här:
+
+1. Kontrol lera anslutningen till ditt Kubernetes-kluster: via `KUBECONFIG` , `~/.kube/config` eller`--kube-config`
+1. Distribuera Azure Arc-agenter för Kubernetes med Helm 3, i `azure-arc` namn området
+
+```console
+az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
+```
+
+**Utdataparametrar**
+
+```console
+Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
+Helm release deployment succeeded
+
+{
+  "aadProfile": {
+    "clientAppId": "",
+    "serverAppId": "",
+    "tenantId": ""
+  },
+  "agentPublicKeyCertificate": "...",
+  "agentVersion": "0.1.0",
+  "id": "/subscriptions/57ac26cf-a9f0-4908-b300-9a4e9a0fb205/resourceGroups/AzureArcTest/providers/Microsoft.Kubernetes/connectedClusters/AzureArcTest1",
+  "identity": {
+    "principalId": null,
+    "tenantId": null,
+    "type": "None"
+  },
+  "kubernetesVersion": "v1.15.0",
+  "location": "eastus",
+  "name": "AzureArcTest1",
+  "resourceGroup": "AzureArcTest",
+  "tags": {},
+  "totalNodeCount": 1,
+  "type": "Microsoft.Kubernetes/connectedClusters"
+}
+```
+
+## <a name="verify-connected-cluster"></a>Verifiera anslutet kluster
+
+Lista de anslutna klustren:
+
+```console
+az connectedk8s list -g AzureArcTest
+```
+
+**Utdataparametrar**
+
+```console
+Command group 'connectedk8s' is in preview. It may be changed/removed in a future release.
+Name           Location    ResourceGroup
+-------------  ----------  ---------------
+AzureArcTest1  eastus      AzureArcTest
+```
+
+Azure Arc-aktiverade Kubernetes distribuerar några operatörer till `azure-arc` namn området. Du kan visa dessa distributioner och poddar här:
+
+```console
+kubectl -n azure-arc get deploy,po
+```
+
+**Utdataparametrar**
+
+```console
+NAME                                        READY   UP-TO-DATE AVAILABLE AGE
+deployment.apps/cluster-metadata-operator   1/1     1           1        16h
+deployment.apps/clusteridentityoperator     1/1     1           1        16h
+deployment.apps/config-agent                1/1     1           1        16h
+deployment.apps/controller-manager          1/1     1           1        16h
+deployment.apps/flux-logs-agent             1/1     1           1        16h
+deployment.apps/metrics-agent               1/1     1           1        16h
+deployment.apps/resource-sync-agent         1/1     1           1        16h
+
+NAME                                            READY   STATUS   RESTART AGE
+pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
+pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
+pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
+pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
+pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
+pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
+pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
+```
+
+## <a name="azure-arc-agents-for-kubernetes"></a>Azure Arc-agenter för Kubernetes
+
+Azure Arc-aktiverade Kubernetes består av några agenter (operatörer) som körs i ditt kluster och som har distribuerats till `azure-arc` namn området.
+
+* `deploy/config-agent`: bevakar det anslutna klustret för käll kontroll konfigurations resurser som tillämpas på klustret och uppdaterar kompatibilitetstillstånd
+* `deploy/controller-manager`: är en operatör av operatörer och dirigerar interaktioner mellan Azure båg-komponenter
+
+## <a name="delete-a-connected-cluster"></a>Ta bort ett anslutet kluster
+
+Du kan ta bort en `Microsoft.Kubernetes/connectedcluster` resurs med hjälp av Azure CLI eller Azure Portal.
+
+Azure CLI-kommandot `az connectedk8s delete` tar bort `Microsoft.Kubernetes/connectedCluster` resursen i Azure. Azure CLI tar bort alla associerade `sourcecontrolconfiguration` resurser i Azure. Azure CLI använder Helm Uninstall för att ta bort agenterna i klustret.
+
+Azure Portal tar bort `Microsoft.Kubernetes/connectedcluster` resursen i Azure och tar bort alla associerade `sourcecontrolconfiguration` resurser i Azure.
+
+Om du vill ta bort agenterna i klustret måste du köra `az connectedk8s delete` eller `helm uninstall azurearcfork8s` .
+
+## <a name="next-steps"></a>Nästa steg
+
+* [Använda GitOps i ett anslutet kluster](./use-gitops-connected-cluster.md)
+* [Använd Azure Policy för att styra kluster konfigurationen](./use-azure-policy.md)

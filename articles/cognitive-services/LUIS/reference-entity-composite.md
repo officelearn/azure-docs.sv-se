@@ -10,19 +10,19 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 81299751affe5f59e1132950ccb80844fcc1fae3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588912"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681389"
 ---
 # <a name="composite-entity"></a>Sammansatt entitet
 
 En sammansatt entitet består av andra entiteter, till exempel färdiga entiteter, enkla, reguljära uttryck och list enheter. Separata entiteter utgör en hel entitet.
 
 > [!CAUTION]
-> Den här entiteten är **inaktuell**. Migrera till den enhet som sparats av [datorn](reference-entity-machine-learned-entity.md).
+> Den här entiteten är **inaktuell**. Migrera till [entiteten för maskin inlärning](reference-entity-machine-learned-entity.md).
 
 **Den här entiteten passar bra när data:**
 

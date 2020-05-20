@@ -2,13 +2,13 @@
 title: Funktioner – LUIS
 description: Lägg till funktioner i en språk modell för att ge tips om hur du identifierar indatatyper som du vill etikettera eller klassificera.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/14/2020
+ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591904"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682157"
 ---
 # <a name="machine-learning-ml-features"></a>Funktioner för Machine Learning (ML)
 
@@ -38,9 +38,9 @@ Använd en fras lista när du behöver LUIS-appen för att kunna generalisera oc
 Med en fras lista anser LUIS kontext och generalizes för att identifiera objekt som liknar, men inte en exakt text matchning.
 
 Steg för att använda en fras lista:
-* Börja med en enhet som har lärts från enheten
+* Börja med en enhet för maskin inlärning
     * Lägga till exempelyttranden
-    * Etikett med en enhet som har lärts från enheten
+    * Etikett med en enhet för maskin inlärning
 * Lägg till en fras lista
     * Lägg till ord med liknande betydelse – Lägg **inte** till varje möjligt ord eller fras. Lägg i stället till några ord eller fraser i taget, och sedan träna och publicera.
     * Granska och Lägg till föreslagna ord
@@ -54,7 +54,7 @@ Ett exempel på ord som kan behöva en fras lista för att öka betydelsen är m
 Om du vill extrahera de medicinska villkoren:
 * Börja med att skapa exempel yttranden och etikettera medicinska villkor inom dessa yttranden.
 * Skapa sedan en fras lista med exempel på villkoren i ämnes domänen. Den här fras listan ska innehålla den faktiska termen som du har märkt och andra termer som beskriver samma koncept.
-* Lägg till fras listan i entiteten eller underentiteten som extraherar det koncept som används i fras listan. Det vanligaste scenariot är en komponent (underordnad) till en enhet som har lärts ur enheten. Om fras listan ska användas för alla syften eller entiteter markerar du fras listan som en global fras lista. `enabledForAllModels`Flaggan styr det här modell omfånget i API: et.
+* Lägg till fras listan i entiteten eller underentiteten som extraherar det koncept som används i fras listan. Det vanligaste scenariot är en komponent (underordnad) till en enhet för maskin inlärning. Om fras listan ska användas för alla syften eller entiteter markerar du fras listan som en global fras lista. `enabledForAllModels`Flaggan styr det här modell omfånget i API: et.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -88,9 +88,21 @@ Om n till exempel enhet för leverans adress innehåller en gatuadress för gatu
     * Land (underentitet)
     * Post nummer (underentitet)
 
+## <a name="nested-subentities-with-features"></a>Kapslade underentiteter med funktioner
+
+En dator som är förhandlad underordnad visar att det finns ett begrepp för den överordnade entiteten, om överordnad är en annan underordnad entitet eller den översta Värdet för underentiteten fungerar som en funktion till dess överordnade.
+
+En underentitet kan ha både en fras lista som en funktion och en modell (en annan entitet) som en funktion.
+
+När underentiteten har en fras lista höjer detta konceptets vokabulär, men kommer inte att lägga till någon information till JSON-svaret för förutsägelsen.
+
+När underentiteten har en funktion i en annan entitet innehåller JSON-svaret de extraherade data för den andra entiteten.
+
 ## <a name="required-features"></a>Nödvändiga funktioner
 
 En nödvändig funktion måste finnas för att modellen ska returneras från förutsägelse slut punkten. Använd en nödvändig funktion när du vet att inkommande data måste matcha funktionen.
+
+Om uttryck-texten inte matchar den nödvändiga funktionen extraheras den inte.
 
 **En obligatorisk funktion använder en entitet som inte är en enhet**:
 * Entitet för reguljära uttryck
@@ -143,7 +155,7 @@ Den vanligaste användningen av en global funktion är att lägga till ytterliga
 
 Eftersom användaren förväntas använda det andra språket för ett avsikts-eller entitets-objekt ska det läggas till i en fras lista med fras listan konfigurerad som en global funktion.
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 Lär dig [metod tips](luis-concept-best-practices.md).
 
 ## <a name="next-steps"></a>Nästa steg

@@ -4,12 +4,12 @@ description: Lär dig hur du använder kluster autoskalning för att automatiskt
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 3ebbeab82031ddc037c7885e7453e603a8f440a1
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: f40d13b6b9a37f4c5efcc73e52b631bd2eec659a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509252"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683557"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster så att det uppfyller program kraven i Azure Kubernetes service (AKS)
 
@@ -81,7 +81,7 @@ Det tar några minuter att skapa klustret och konfigurera inställningarna för 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Ändra inställningarna för kluster autoskalning
 
 > [!IMPORTANT]
-> Om du har flera resurspooler i ditt AKS-kluster går du vidare till [avsnittet autoskalning med flera agenter](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Kluster med flera agenter kräver att `az aks nodepool` kommando uppsättningen använder kommandot för att ändra egenskaper för Node-pooler i stället `az aks`för.
+> Om du har flera resurspooler i ditt AKS-kluster går du vidare till [avsnittet autoskalning med flera agenter](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Kluster med flera agenter kräver `az aks nodepool` att kommando uppsättningen använder kommandot för att ändra egenskaper för Node-pooler i stället för `az aks` .
 
 I föregående steg för att skapa ett AKS-kluster eller uppdatera en befintlig Node-pool, angavs det lägsta antalet noder för klustrets Autoskala till *1*, och det maximala antalet noder hade angetts till *3*. När dina program kräver ändringar kan du behöva justera antalet noder i den automatiska skalnings tjänsten för klustret.
 
@@ -99,7 +99,7 @@ az aks update \
 Exemplet ovan uppdaterar kluster autoskalning på den enskild Node-poolen i *myAKSCluster* till minst *1* och högst *5* noder.
 
 > [!NOTE]
-> Du kan inte ange ett högre lägsta antal noder än vad som för närvarande har angetts för Node-poolen. Om du till exempel har angett till *1*för antal, kan du inte uppdatera det minsta antalet till *3*.
+Den automatiska skalnings tjänsten för klustret kommer att fatta beslut baserat på de lägsta och högsta antal som angetts för varje nod, men den tillämpar inte dem. Om du till exempel anger ett minsta antal på 5 när det aktuella antalet noder är 3, skalar inte automatiskt poolen upp till 5. Om du ändrar det lägsta antalet i Node-poolen till ett värde som är högre än det aktuella antalet noder, kommer den här nya gränsen att respekteras när det finns tillräckligt många unschedulable-poddar som skulle kräva 2 nya ytterligare noder och utlösa en autoskalning-händelse. När detta inträffar kommer den nya minsta antalet att respekteras för klustrets autoskalning.
 
 Övervaka prestanda för dina program och tjänster och justera antalet noder i den automatiska skalnings tjänsten för klustret så att de matchar de nödvändiga prestanda.
 
@@ -145,7 +145,7 @@ az aks update \
   --cluster-autoscaler-profile scan-interval=30s
 ```
 
-När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Ett exempel:
+När du aktiverar klustrets automatiska skalning på nodkonfigurationer i klustret, använder dessa kluster även profilen för autoskalning i klustret. Till exempel:
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -162,7 +162,7 @@ az aks nodepool update \
 
 ### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>Ställ in klustrets profil för autoskalning när du skapar ett AKS-kluster
 
-Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Ett exempel:
+Du kan också använda *klustret-autoskalning-profil* parameter när du skapar klustret. Till exempel:
 
 ```azurecli-interactive
 az aks create \
@@ -226,7 +226,7 @@ Du bör se loggar som liknar följande exempel så länge det finns loggar att h
 
 ![Log Analytics loggar](media/autoscaler/autoscaler-logs.png)
 
-Klustrets autoskalning kommer också att skriva ut hälso status till en configmap `cluster-autoscaler-status`med namnet. Kör följande `kubectl` kommando för att hämta loggarna. En hälso status rapporteras för varje noduppsättning som kon figurer ATS med klustrets autoskalning.
+Klustrets autoskalning kommer också att skriva ut hälso status till en configmap med namnet `cluster-autoscaler-status` . Kör följande kommando för att hämta loggarna `kubectl` . En hälso status rapporteras för varje noduppsättning som kon figurer ATS med klustrets autoskalning.
 
 ```
 kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml

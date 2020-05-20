@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3b1b134afbc4a13d7888281a82609d444cee377
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663070"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682868"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Lägga till Azure Automation resurser i en hanterings lösning (för hands version)
 > [!NOTE]
@@ -33,7 +33,7 @@ Den här artikeln förutsätter att du redan är bekant med följande informatio
 - Så här [skapar du Resource Manager-mallar](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Automation-konto
-Alla resurser i Azure Automation finns i ett [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview).  Som det beskrivs i [Log Analytics arbets yta och Automation-konto]( solutions.md#log-analytics-workspace-and-automation-account) ingår inte Automation-kontot i hanterings lösningen, men det måste finnas innan lösningen installeras.  Om den inte är tillgänglig kommer lösningen inte att installeras.
+Alla resurser i Azure Automation finns i ett [Automation-konto](../../automation/automation-security-overview.md).  Som det beskrivs i [Log Analytics arbets yta och Automation-konto]( solutions.md#log-analytics-workspace-and-automation-account) ingår inte Automation-kontot i hanterings lösningen, men det måste finnas innan lösningen installeras.  Om den inte är tillgänglig kommer lösningen inte att installeras.
 
 Namnet på varje Automation-resurs innehåller namnet på Automation-kontot.  Detta görs i lösningen med parametern **accountName** som i följande exempel för en Runbook-resurs.
 
@@ -73,7 +73,7 @@ Egenskaperna för Runbooks beskrivs i följande tabell.
 | runbookType |Anger typerna av Runbook. <br><br> Skript – PowerShell-skript <br>PowerShell – PowerShell-arbetsflöde <br> GraphPowerShell – grafisk PowerShell-skript Runbook <br> GraphPowerShellWorkflow – grafisk PowerShell Workflow-Runbook |
 | logProgress |Anger om [status poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbooken. |
 | logVerbose |Anger om [utförliga poster](../../automation/automation-runbook-output-and-messages.md) ska genereras för runbooken. |
-| description |Valfri beskrivning för runbooken. |
+| beskrivning |Valfri beskrivning för runbooken. |
 | publishContentLink |Anger Runbook-innehållet. <br><br>URI-URI till Runbook-innehållet.  Detta är en. ps1-fil för PowerShell-och skript-Runbooks och en exporterad grafisk Runbook-fil för en graf-Runbook.  <br> version – Runbook-versionen för din egen spårning. |
 
 
@@ -192,7 +192,7 @@ Egenskaperna för schema resurser beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| description |Valfri beskrivning av schemat. |
+| beskrivning |Valfri beskrivning av schemat. |
 | startTime |Anger start tiden för ett schema som ett DateTime-objekt. En sträng kan anges om den kan konverteras till ett giltigt DateTime-värde. |
 | isEnabled |Anger om schemat är aktiverat. |
 | interval |Typ av intervall för schemat.<br><br>day<br>timme |
@@ -262,7 +262,7 @@ Egenskaperna för variabla resurser beskrivs i följande tabell.
 
 | Egenskap | Beskrivning |
 |:--- |:--- |
-| description | Valfri beskrivning för variabeln. |
+| beskrivning | Valfri beskrivning för variabeln. |
 | isEncrypted | Anger om variabeln ska krypteras. |
 | typ | Den här egenskapen har för närvarande ingen påverkan.  Data typen för variabeln bestäms av det initiala värdet. |
 | värde | Värde för variabeln. |
@@ -270,14 +270,14 @@ Egenskaperna för variabla resurser beskrivs i följande tabell.
 > [!NOTE]
 > Egenskapen **Type** har för närvarande ingen inverkan på variabeln som skapas.  Data typen för variabeln bestäms av värdet.  
 
-Om du anger det ursprungliga värdet för variabeln måste det konfigureras som rätt datatyp.  I följande tabell visas de olika data typerna som är tillåtna och deras syntax.  Observera att värden i JSON förväntas alltid stå inom citat tecken med specialtecken inom citat tecken.  Ett sträng värde skulle till exempel anges med citat tecken runt strängen (med escape-tecken (\\)) medan ett numeriskt värde anges med en uppsättning citat tecken.
+Om du anger det ursprungliga värdet för variabeln måste det konfigureras som rätt datatyp.  I följande tabell visas de olika data typerna som är tillåtna och deras syntax.  Observera att värden i JSON förväntas alltid stå inom citat tecken med specialtecken inom citat tecken.  Ett sträng värde skulle till exempel anges med citat tecken runt strängen (med escape-tecken ( \\ )) medan ett numeriskt värde anges med en uppsättning citat tecken.
 
 | Datatyp | Beskrivning | Exempel | Matchar |
 |:--|:--|:--|:--|
-| sträng   | Omge värde med dubbla citat tecken.  | "\"Hello World\"" | "Hello World" |
+| sträng   | Omge värde med dubbla citat tecken.  | " \" Hello World \" " | "Hello World" |
 | numeric  | Numeriskt värde med enkla citat tecken.| "64" | 64 |
 | boolean  | **Sant** eller **falskt** inom citat tecken.  Observera att det här värdet måste vara gemener. | värdet | true |
-| datetime | Serialiserat datum värde.<br>Du kan använda cmdleten ConvertTo-JSON i PowerShell för att generera det här värdet för ett visst datum.<br>Exempel: get-date "5/24/2017 13:14:57" \| ConvertTo-JSON | "\\/Date (1495656897378)\\/" | 2017-05-24 13:14:57 |
+| datetime | Serialiserat datum värde.<br>Du kan använda cmdleten ConvertTo-JSON i PowerShell för att generera det här värdet för ett visst datum.<br>Exempel: get-date "5/24/2017 13:14:57" \| ConvertTo-JSON | " \\ /Date (1495656897378) \\ /" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduler
 Din hanterings lösning behöver inte definiera [globala moduler](../../automation/automation-integration-modules.md) som används av dina runbooks eftersom de alltid kommer att vara tillgängliga i ditt Automation-konto.  Du måste inkludera en resurs för alla andra moduler som används av dina runbooks.

@@ -12,16 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92fbd254f223e2c7eb70a4e86bb7e904294395e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8ff291592efc73415cce74ff666117851bb53e8a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597711"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681014"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Lägg till Facebook som identitets leverantör för externa identiteter
 
 Du kan lägga till Facebook i dina självbetjänings registrerings användar flöden (för hands version) så att användarna kan logga in på dina program med sina egna Facebook-konton. För att användarna ska kunna logga in med Facebook måste du först aktivera självbetjänings [registrering](self-service-sign-up-user-flow.md) för din klient. När du har lagt till Facebook som identitets leverantör konfigurerar du ett användar flöde för programmet och väljer Facebook som ett av inloggnings alternativen.
+> [!NOTE]
+> Användare kan bara använda sina Facebook-konton för att registrera sig via appar med hjälp av självbetjänings registrering och användar flöden. Användare kan inte bjudas in och lösa in sina inbjudningar med ett Facebook-konto.
 
 ## <a name="create-an-app-in-the-facebook-developers-console"></a>Skapa en app i Facebook-utvecklarens konsol
 
@@ -53,7 +55,9 @@ Om du vill använda ett Facebook-konto som [identitets leverantör](identity-pro
 18. Om du vill göra ditt Facebook-program tillgängligt för Azure AD väljer du status väljaren längst upp till höger på sidan och **aktiverar det för att göra** programmet offentligt och väljer sedan **Växla läge**. I det här läget bör statusen ändras från **utveckling** till **Live**.
     
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Konfigurera ett Facebook-konto som en identitets leverantör
+Nu ska du ange Facebook-klient-ID och klient hemlighet, antingen genom att ange den i Azure AD-portalen eller med hjälp av PowerShell. Du kan testa Facebook-konfigurationen genom att registrera dig via ett användar flöde i en app som är aktive rad för självbetjänings registrering.
 
+### <a name="to-configure-facebook-federation-in-the-azure-ad-portal"></a>Så här konfigurerar du Facebook Federation i Azure AD-portalen
 1. Logga in på [Azure Portal](https://portal.azure.com) som global administratör för din Azure AD-klient.
 2. Under **Azure-tjänster**väljer du **Azure Active Directory**.
 3. På den vänstra menyn väljer du **externa identiteter**.
@@ -64,8 +68,38 @@ Om du vill använda ett Facebook-konto som [identitets leverantör](identity-pro
    ![Skärm bild som visar sidan Lägg till social identitetsprovider](media/facebook-federation/add-social-identity-provider-page.png)
 
 7. Välj **Spara**.
+### <a name="to-configure-facebook-federation-by-using-powershell"></a>Konfigurera Facebook Federation med hjälp av PowerShell
+1. Installera den senaste versionen av Azure AD PowerShell för Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
+2. Kör följande kommando: `Connect-AzureAD` .
+3. Logga in med det hanterade globala administratörs kontot vid inloggnings meddelandet.  
+4. Kör följande kommando: 
+   
+   `New-AzureADMSIdentityProvider -Type Facebook -Name Facebook -ClientId [Client ID] -ClientSecret [Client secret]`
+ 
+   > [!NOTE]
+   > Använd klient-ID och klient hemlighet från den app som du skapade ovan i Facebook Developer Console. Mer information finns i artikeln [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) . 
+
+## <a name="how-do-i-remove-facebook-federation"></a>Hur gör jag för att ta bort Facebook-federationen?
+Du kan ta bort installationen av Facebook-federationen. Om du gör det kommer alla användare som har registrerat sig genom användar flöden med sina Facebook-konton inte längre att kunna logga in. 
+
+### <a name="to-delete-facebook-federation-in-the-azure-ad-portal"></a>Ta bort Facebook-federationen i Azure AD-portalen: 
+1. Gå till [Azure Portal](https://portal.azure.com). Välj **Azure Active Directory** i den vänstra rutan. 
+2. Välj **externa identiteter**.
+3. Välj **alla identitets leverantörer**.
+4. Välj snabb menyn (**...**) på **Facebook** -raden och välj sedan **ta bort**. 
+5. Bekräfta borttagningen genom att välja **Ja** .
+
+### <a name="to-delete-facebook-federation-by-using-powershell"></a>Ta bort Facebook-federationen med hjälp av PowerShell: 
+1. Installera den senaste versionen av Azure AD PowerShell för Graph module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
+2. Kör `Connect-AzureAD`.  
+4. Logga in med det hanterade globala administratörs kontot i inloggnings meddelandet.  
+5. Ange följande kommando:
+
+    `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
+
+   > [!NOTE]
+   > Mer information finns i [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Bjud in externa användare för samarbete](add-users-administrator.md)
 - [Lägga till självbetjänings registrering i en app](self-service-sign-up-user-flow.md)

@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
+ms.date: 05/19/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 568bcdcfd8ae50fff58964ecc74176b151db22a4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: eae10b7ae8cd14fd120e969c39c05a8ba2525003
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121328"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681542"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning
 
@@ -91,7 +91,6 @@ Mer information finns i avsnittet om [kryptering i vilo](concept-enterprise-secu
 > * Du måste ha en befintlig Azure Key Vault som innehåller en krypterings nyckel.
 > * Du måste ha en åtkomst princip i Azure Key Vault som beviljar __Get__-, __wrap__-och __unwrap__ -åtkomst till __Azure Cosmos DB__ programmet.
 > * Azure Key Vault måste vara i samma region där du planerar att skapa Azure Machine Learning-arbetsytan.
-> * Din prenumeration måste ha stöd för __Kundhanterade nycklar__ för Azure Cosmos dB.
 
 Använd följande kommandon __för att lägga till Azure Machine Learning-appen som deltagare__:
 
@@ -134,8 +133,6 @@ __Om du vill lägga till en åtkomst princip i nyckel valvet använder du följa
     ```azurecli-interactive
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
-
-Om __du vill aktivera Kundhanterade nycklar för Azure Cosmos DB__skickar du e-post till azurecosmosdbcmk@service.microsoft.com med ditt Azure-prenumerations-ID. Mer information finns i [Konfigurera Kundhanterade nycklar för ditt Azure Cosmos-konto](..//cosmos-db/how-to-setup-cmk.md).
 
 Använd följande steg __för att hämta värdena__ för `cmk_keyvault` (ID för Key Vault) och `resource_cmk_uri` PARAMETRARNA (nyckel-URI) som behövs för den här mallen:
 

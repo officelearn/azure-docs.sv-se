@@ -1,6 +1,6 @@
 ---
-title: Felsöka problem med Windows Update-agenten i Azure Automation Uppdateringshantering
-description: Lär dig hur du felsöker och löser problem med Windows Update-agenten med hjälp av Uppdateringshantering-lösningen.
+title: Felsök problem med Windows Update-agenten i Azure Automation
+description: Den här artikeln beskriver hur du felsöker och löser problem med Windows Update-agenten under Uppdateringshantering.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e9af9c6472f49ebccd36e8d73688636c98918ff1
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996445"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680840"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Felsök problem med Windows Update-agenten
 
-Det kan finnas många orsaker till att datorn inte visas som klar (felfri) i Uppdateringshantering. Du kan kontrol lera hälso tillståndet för en Windows Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. Följande är tre beredskaps tillstånd för en dator:
+Det kan finnas många orsaker till att datorn inte visas som klar (felfri) under en Uppdateringshantering distribution. Du kan kontrol lera hälso tillståndet för en Windows Hybrid Runbook Worker-agent för att fastställa det underliggande problemet. Följande är tre beredskaps tillstånd för en dator:
 
 * Klart: Hybrid Runbook Worker har distribuerats och setts senast för en timme sedan.
 * Frånkopplad: Hybrid Runbook Worker distribueras och lästes senast en timme sedan.
-* Inte konfigurerad: det Hybrid Runbook Worker inte att hitta eller slutföra registreringen.
+* Inte konfigurerad: det Hybrid Runbook Worker inte att hitta eller slutföra distributionen.
 
 > [!NOTE]
 > Det kan finnas en liten fördröjning mellan det Azure Portal visar och datorns aktuella tillstånd.
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du kör fel sökaren för Azure-datorer från Az
 
 ## <a name="start-the-troubleshooter"></a>Starta fel sökaren
 
-För Azure-datorer kan du starta sidan Felsök uppdaterings agent genom att välja länken **Felsök** under kolumnen **Uppdatera agent beredskap** i portalen. För datorer som inte är Azure-datorer går länken till den här artikeln. Se [offline-instruktionerna](#troubleshoot-offline) för att felsöka en dator som inte är en Azure-dator.
+För Azure-datorer kan du starta sidan Felsök uppdaterings agent genom att välja länken **Felsök** under kolumnen **Uppdatera agent beredskap** i portalen. För datorer som inte är Azure-datorer går länken till den här artikeln. Se [Felsöka offline](#troubleshoot-offline) för att felsöka en dator som inte är en Azure-dator.
 
 ![Skärm bild av Uppdateringshantering listan över virtuella datorer](../media/update-agent-issues/vm-list.png)
 
@@ -89,7 +89,7 @@ Proxy-och brand Väggs konfigurationer måste tillåta att Hybrid Runbook Worker
 
 ### <a name="monitoring-agent-service-status"></a>Övervaknings agent tjänst status
 
-Den här kontrollen avgör om Log Analytics agent för Windows (`healthservice`) körs på datorn. Mer information om hur du felsöker tjänsten finns i [Log Analytics agent för Windows körs inte](hybrid-runbook-worker.md#mma-not-running).
+Den här kontrollen avgör om Log Analytics agent för Windows ( `healthservice` ) körs på datorn. Mer information om hur du felsöker tjänsten finns i [Log Analytics agent för Windows körs inte](hybrid-runbook-worker.md#mma-not-running).
 
 Information om hur du installerar om Log Analytics agent för Windows finns i [Installera agenten för Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
@@ -208,4 +208,4 @@ CheckResultMessageArguments : {}
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Felsöka hybrid Runbook Worker](hybrid-runbook-worker.md)
+[Felsök hybrid Runbook Worker problem](hybrid-runbook-worker.md).

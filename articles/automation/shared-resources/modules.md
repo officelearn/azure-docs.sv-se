@@ -1,6 +1,6 @@
 ---
 title: Använda moduler i Azure Automation
-description: Med Azure Automation kan du importera PowerShell-moduler för att aktivera cmdletar i Runbooks och DSC-resurser i DSC-konfigurationer.
+description: Den här artikeln beskriver hur du använder PowerShell-moduler för att aktivera cmdletar i Runbooks och DSC-resurser i DSC-konfigurationer.
 services: automation
 ms.service: automation
 author: mgoedtel
@@ -8,16 +8,16 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 84fdb5a9cf3c22048473cd00ee6f8e7ac36c9097
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 14b26c4c5a72ef2919aca1f872b198257b9f37f7
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864308"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685363"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Använda moduler i Azure Automation
 
-Med Azure Automation kan du importera PowerShell-moduler för att aktivera cmdletar i Runbooks och DSC-resurser i DSC-konfigurationer. Moduler som används i Azure Automation inkluderar:
+Azure Automation använder ett antal PowerShell-moduler för att aktivera cmdletar i Runbooks och DSC-resurser i DSC-konfigurationer. Moduler som stöds är:
 
 * [Azure PowerShell AZ. Automation](/powershell/azure/new-azureps-module-az?view=azps-1.1.0).
 * [Azure PowerShell AzureRM. Automation](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-6.13.0).
@@ -31,19 +31,16 @@ När du skapar ett Automation-konto importerar Azure Automation vissa moduler so
 När Automation kör Runbook-och DSC-kompileringar, läses modulerna in i sand lådor där Runbooks kan köras och DSC-konfigurationerna kan kompileras. Automation placerar även DSC-resurser i moduler på DSC-pull-servern automatiskt. Datorer kan hämta resurserna när de använder DSC-konfigurationer.
 
 >[!NOTE]
->Se till att bara importera de moduler som dina runbooks och DSC-konfigurationer faktiskt behöver. Vi rekommenderar inte att du importerar root AZ-modulen. Den innehåller många andra moduler som du kanske inte behöver, vilket kan orsaka prestanda problem. Importera enskilda moduler, till exempel AZ. Compute, i stället.
-
->[!NOTE]
->I den här artikeln används modulen Azure PowerShell AZ. Du kan fortfarande använda AzureRM-modulen. Mer information om AZ-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
+>Se till att bara importera de moduler som dina runbooks och DSC-konfigurationer kräver. Vi rekommenderar inte att du importerar root AZ-modulen. Den innehåller många andra moduler som du kanske inte behöver, vilket kan orsaka prestanda problem. Importera enskilda moduler, till exempel AZ. Compute, i stället.
 
 ## <a name="default-modules"></a>Standardmoduler
 
 I följande tabell visas moduler som Azure Automation importerar som standard när du skapar ett Automation-konto. Automation kan importera nyare versioner av dessa moduler. Du kan dock inte ta bort den ursprungliga versionen från ditt Automation-konto, även om du tar bort en nyare version. Observera att dessa standardmoduler innehåller flera AzureRM-moduler. 
 
-Automation importerar inte root AZ-modulen automatiskt till nya eller befintliga Automation-konton. Mer information om hur du arbetar med dessa moduler finns i [migrera till AZ-moduler](#migrating-to-az-modules).
+Automation importerar inte root AZ-modulen automatiskt till nya eller befintliga Automation-konton. Mer information om hur du arbetar med dessa moduler finns i [migrera till AZ-moduler](#migrate-to-az-modules).
 
 > [!NOTE]
-> Vi rekommenderar inte att du ändrar moduler och Runbooks i Automation-konton som innehåller [Starta/stoppa virtuella datorer när de inte används-lösningen i Azure Automation](../automation-solution-vm-management.md).
+> Vi rekommenderar inte att ändra moduler och Runbooks i Automation-konton som används för att distribuera den [Starta/stoppa virtuella datorer när de inte används](../automation-solution-vm-management.md) funktionen.
 
 |Modulnamn|Version|
 |---|---|
@@ -57,7 +54,7 @@ Automation importerar inte root AZ-modulen automatiskt till nya eller befintliga
 | AzureRM.Sql | 1.0.3 |
 | AzureRM.Storage | 1.0.3 |
 | ComputerManagementDsc | 5.0.0.0 |
-| GPRegistryPolicyParser | 0.2 |
+| GPRegistryPolicyParser | 0,2 |
 | Microsoft. PowerShell. Core | 0 |
 | Microsoft. PowerShell. Diagnostics |  |
 | Microsoft. PowerShell. Management |  |
@@ -74,7 +71,7 @@ Automation importerar inte root AZ-modulen automatiskt till nya eller befintliga
 
 ## <a name="az-modules"></a>AZ-moduler
 
-För AZ. Automation har majoriteten av cmdletarna samma namn som de som används för AzureRM-modulerna, förutom att *AzureRM* -prefixet har ändrats till *AZ*. En lista över AZ-moduler som inte följer denna namngivnings konvention finns i [listan över undantag](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
+För AZ. Automation har majoriteten av cmdletarna samma namn som de som används för AzureRM-modulerna, förutom att `AzureRM` prefixet har ändrats till `Az` . En lista över AZ-moduler som inte följer denna namngivnings konvention finns i [listan över undantag](/powershell/azure/migrate-from-azurerm-to-az#update-cmdlets-modules-and-parameters).
 
 ## <a name="internal-cmdlets"></a>Interna cmdletar
 
@@ -93,7 +90,7 @@ Azure Automation stöder den interna `Orchestrator.AssetManagement.Cmdlets` modu
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
 |Vänta-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
-Observera att de interna cmdletarna skiljer sig från namn från AZ-och AzureRM-cmdletarna. Interna cmdlet-namn innehåller inte ord som "Azure" eller "AZ" i substantiv, men Använd Word *Automation*. Vi rekommenderar användning av AZ-eller AzureRM-cmdletar under körning av Runbook i en Azure-sandbox eller på en Windows-Hybrid Runbook Worker. De kräver färre parametrar och körs i kontexten för jobbet som redan körs.
+Observera att de interna cmdletarna skiljer sig från namn från AZ-och AzureRM-cmdletarna. Interna cmdlet-namn innehåller inte ord som `Azure` eller `Az` i substantiv, men Använd ordet `Automation` . Vi rekommenderar användning av AZ-eller AzureRM-cmdletar under körning av Runbook i en Azure-sandbox eller på en Windows-Hybrid Runbook Worker. De kräver färre parametrar och körs i kontexten för jobbet som redan körs.
 
 Använd AZ-eller AzureRM-cmdletar för att manipulera Automation-resurser utanför en Runbook-kontext. 
 
@@ -107,31 +104,18 @@ Azure Automation stöder anpassade PowerShell-moduler som du skapar för använd
 
 Azure Automation kan importera en anpassad modul så att dess cmdlets är tillgängliga. I bakgrunden lagras modulen och används i Azure-sandbox, precis som i andra moduler.
 
-## <a name="migrating-to-az-modules"></a>Migrera till AZ-moduler
+## <a name="migrate-to-az-modules"></a>Migrera till AZ-moduler
 
-### <a name="migration-considerations"></a>Överväganden vid migrering
+Det här avsnittet beskriver hur du migrerar till AZ-modulerna i Automation. Mer information finns i [migrera Azure PowerShell från AzureRM till AZ](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0). 
 
-Det här avsnittet innehåller överväganden för att ta hänsyn till när du migrerar till AZ-modulerna i Automation. Mer information finns i [migrera Azure PowerShell från AzureRM till AZ](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.7.0). 
+Vi rekommenderar inte att du kör AzureRM-moduler och AZ-moduler i samma Automation-konto. När du är säker på att du vill migrera från AzureRM till AZ, är det bäst att fullständigt genomföra en fullständig migrering. Automation återanvänder ofta sandbox i Automation-kontot för att spara vid start tider. Om du inte gör en fullständig flyttning av modulen kan du starta ett jobb som bara använder AzureRM-moduler och sedan starta ett annat jobb som bara använder AZ-moduler. Sand boxen kraschar snart och du får ett fel meddelande om att modulerna inte är kompatibla. I den här situationen uppstår slumpmässiga krascher för en viss Runbook eller konfiguration. 
 
-#### <a name="use-of-azurerm-modules-and-az-modules-in-the-same-automation-account"></a>Användning av AzureRM-moduler och AZ-moduler i samma Automation-konto
+>[!NOTE]
+>När du skapar ett nytt Automation-konto, även efter migrering till AZ-moduler, installerar Automation AzureRM-modulerna som standard. Du kan fortfarande uppdatera självstudiernas Runbooks med AzureRM-cmdletarna. Du bör dock inte köra dessa Runbooks.
 
- Vi rekommenderar inte att du kör AzureRM-moduler och AZ-moduler i samma Automation-konto. När du är säker på att du vill migrera från AzureRM till AZ, är det bäst att fullständigt genomföra en fullständig migrering. Automation återanvänder ofta sandbox i Automation-kontot för att spara vid start tider. Om du inte gör en fullständig flyttning av modulen kan du starta ett jobb som bara använder AzureRM-moduler och sedan starta ett annat jobb som bara använder AZ-moduler. Sand boxen kraschar snart och du får ett fel meddelande om att modulerna inte är kompatibla. I den här situationen uppstår slumpmässiga krascher för en viss Runbook eller konfiguration. 
-
-#### <a name="importing-az-modules-into-the-powershell-session"></a>Importera AZ-moduler till PowerShell-sessionen
-
-Om du importerar en AZ-modul till ditt Automation-konto importeras modulen inte automatiskt till PowerShell-sessionen som används av Runbooks. Moduler importeras till PowerShell-sessionen i följande situationer:
-
-* När en Runbook anropar en cmdlet från en modul.
-* När en Runbook importerar modulen explicit med cmdleten [import-module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) .
-* När en Runbook importerar en annan beroende modul.
-
-#### <a name="testing-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Testa dina runbooks och DSC-konfigurationer innan du migrerar en modul
+### <a name="test-your-runbooks-and-dsc-configurations-prior-to-module-migration"></a>Testa dina runbooks och DSC-konfigurationer innan du migrerar en modul
 
 Se till att testa alla Runbooks och DSC-konfigurationer noggrant, i ett separat Automation-konto, innan du migrerar till AZ-modulerna. 
-
-#### <a name="updates-for-tutorial-runbooks"></a>Uppdateringar för själv studie Runbooks 
-
-När du skapar ett nytt Automation-konto, även efter migrering till AZ-moduler, installerar Automation AzureRM-modulerna som standard. Du kan fortfarande uppdatera självstudiernas Runbooks med AzureRM-cmdletarna. Du bör dock inte köra dessa Runbooks.
 
 ### <a name="stop-and-unschedule-all-runbooks-that-use-azurerm-modules"></a>Stoppa och ta bort schemat för alla Runbooks som använder AzureRM-moduler
 
@@ -139,18 +123,24 @@ För att se till att du inte kör några befintliga Runbooks eller DSC-konfigura
 
 När du är redo att ta bort dina scheman kan du antingen använda Azure Portal eller cmdleten [Remove-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/remove-azurermautomationschedule?view=azurermps-6.13.0) . Se [ta bort ett schema](schedules.md#remove-a-schedule).
 
-### <a name="remove-the-azurerm-modules"></a>Ta bort AzureRM-modulerna
+### <a name="remove-azurerm-modules"></a>Ta bort AzureRM-moduler
 
 Det är möjligt att ta bort AzureRM-modulerna innan du importerar AZ-modulerna. Men om du gör det kan du avbryta synkronisering av käll kontroll och köra skript som fortfarande är schemalagda att fungera. Om du bestämmer dig för att ta bort modulerna, se [Avinstallera AzureRM](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-3.8.0#uninstall-azurerm).
 
-### <a name="import-the-az-modules"></a>Importera AZ-modulerna
+### <a name="import-az-modules"></a>Importera AZ-moduler
+
+Om du importerar en AZ-modul till ditt Automation-konto importeras modulen inte automatiskt till PowerShell-sessionen som används av Runbooks. Moduler importeras till PowerShell-sessionen i följande situationer:
+
+* När en Runbook anropar en cmdlet från en modul.
+* När en Runbook importerar modulen explicit med cmdleten [import-module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-7) .
+* När en Runbook importerar en annan beroende modul.
 
 Du kan importera AZ-modulerna i Azure Portal. Kom ihåg att endast importera de AZ-moduler som du behöver, inte hela AZ. Automation-modulen. Eftersom [AZ. Accounts](https://www.powershellgallery.com/packages/Az.Accounts/1.1.0) är ett beroende för de andra AZ-modulerna måste du importera den här modulen innan andra.
 
 1. Från ditt Automation-konto, under **delade resurser**, väljer du **moduler**. 
 2. Välj **Bläddra i galleriet**.  
-3. I Sök fältet anger du modulnamnet (till exempel `Az.Accounts`). 
-4. På sidan **PowerShell-modul** väljer du **Importera** för att importera modulen till ditt Automation-konto.
+3. I Sök fältet anger du modulnamnet (till exempel `Az.Accounts` ). 
+4. På sidan PowerShell-modul väljer du **Importera** för att importera modulen till ditt Automation-konto.
 
     ![Skärm bild av importera moduler till ditt Automation-konto](../media/modules/import-module.png)
 
@@ -223,7 +213,7 @@ Ta med en sammanfattning, beskrivning och hjälp-URI för varje cmdlet i modulen
   }
   ```
 
-  Genom att ange den här informationen visas hjälp `Get-Help` text via cmdleten i PowerShell-konsolen. Den här texten visas också i Azure Portal.
+  Genom att ange den här informationen visas hjälp text via `Get-Help` cmdleten i PowerShell-konsolen. Den här texten visas också i Azure Portal.
 
   ![Skärm bild av hjälp för integrations modul](../media/modules/module-activity-description.png)
 
@@ -233,7 +223,7 @@ Om modulen ansluter till en extern tjänst definierar du en Anslutnings typ med 
 
 ![Använd en anpassad anslutning i Azure Portal](../media/modules/connection-create-new.png)
 
-I följande Runbook-exempel används en Contoso-tillgång `ContosoConnection` som kallas för att komma åt contoso-resurser och returnera data från den externa tjänsten. I det här exemplet mappas fälten till egenskaperna `UserName` och `Password` för ett `PSCredential` objekt och skickas sedan till cmdleten.
+I följande Runbook-exempel används en Contoso-tillgång `ContosoConnection` som kallas för att komma åt contoso-resurser och returnera data från den externa tjänsten. I det här exemplet mappas fälten till `UserName` `Password` egenskaperna och för ett `PSCredential` objekt och skickas sedan till cmdleten.
 
   ```powershell
   $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
@@ -258,7 +248,7 @@ Du kan aktivera liknande beteende för dina cmdlets genom att tillåta att de ac
 
 Definiera utdatatypen för alla cmdletar i modulen. Genom att definiera en utdatatyp för en cmdlet kan du använda IntelliSense i design tid för att avgöra cmdletens utmatnings egenskaper under redigeringen. Den här metoden är särskilt användbar vid redigering av grafiska Runbook-jobb för vilka design tids kunskaper är en nyckel till en enkel användar upplevelse med modulen.
 
-Lägg `[OutputType([<MyOutputType>])]`till, `MyOutputType` där är en giltig typ. Läs mer om `OutputType` [funktionerna i OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Följande kod är ett exempel på att lägga `OutputType` till i en-cmdlet:
+Lägg till `[OutputType([<MyOutputType>])]` , där `MyOutputType` är en giltig typ. Läs mer om `OutputType` [funktionerna i OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute). Följande kod är ett exempel på att lägga till `OutputType` i en-cmdlet:
 
   ```powershell
   function Get-ContosoUser {
@@ -307,7 +297,7 @@ Modulen bör inte vara beroende av unika register inställningar på en värd. E
 
 ### <a name="module-file-paths"></a>Fil Sök vägar för modul
 
-Se till att alla filer i modulen har sökvägar med färre än 140 tecken. Alla sökvägar som är över 140 tecken orsakar problem med att importera runbooks. Automation kan inte importera en fil med Sök vägs storlek över 140 tecken till PowerShell- `Import-Module`sessionen med.
+Se till att alla filer i modulen har sökvägar med färre än 140 tecken. Alla sökvägar som är över 140 tecken orsakar problem med att importera runbooks. Automation kan inte importera en fil med Sök vägs storlek över 140 tecken till PowerShell-sessionen med `Import-Module` .
 
 ## <a name="import-modules"></a>Importera moduler
 
@@ -347,7 +337,7 @@ Så här importerar du en modul direkt från PowerShell-galleriet:
 
 1. Gå till https://www.powershellgallery.com och Sök efter den modul som ska importeras.
 2. Under **installations alternativ**på fliken **Azure Automation** väljer du **distribuera till Azure Automation**. Den här åtgärden öppnar Azure Portal. 
-3. På sidan **Importera** väljer du ditt Automation-konto och väljer **OK**.
+3. På sidan Importera väljer du ditt Automation-konto och väljer **OK**.
 
 ![Skärm bild av modulen för PowerShell-galleriet import](../media/modules/powershell-gallery.png)
 
@@ -370,7 +360,7 @@ Så här tar du bort en modul i Azure Portal:
 
 1. Gå till ditt Automation-konto. Under **delade resurser**väljer du **moduler**. 
 2. Välj den modul som du vill ta bort. 
-3. På sidan **modul** väljer du **ta bort**. Om den här modulen är en av [standardmodulerna](#default-modules)återställs den till den version som fanns när Automation-kontot skapades.
+3. På sidan modul väljer du **ta bort**. Om den här modulen är en av [standardmodulerna](#default-modules)återställs den till den version som fanns när Automation-kontot skapades.
 
 ### <a name="delete-modules-by-using-powershell"></a>Ta bort moduler med PowerShell
 

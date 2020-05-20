@@ -1,14 +1,14 @@
 ---
 title: Redigera principer för mat ris egenskaper för resurser
 description: Lär dig att arbeta med mat ris parametrar och matris språk uttryck, utvärdera [*]-aliaset och lägga till element med Azure Policy definitions regler.
-ms.date: 11/26/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3d30f76d555386e5ab8041a0b8cc82b5b60e28e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280669"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684248"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
@@ -103,8 +103,8 @@ Använd följande kommandon om du vill använda den här strängen med varje SDK
 
 ### <a name="array-conditions"></a>Mat ris villkor
 
-Princip regel [villkoren](../concepts/definition-structure.md#conditions) som en _mat ris_
-**typ** parameter kan användas med är begränsad till `in` och. `notIn` Vidta följande princip definition med villkor `equals` som exempel:
+Princip regel [villkoren](../concepts/definition-structure.md#conditions) som en _mat ris_ 
+ **typ** parameter kan användas med är begränsad till `in` och `notIn` . Vidta följande princip definition med villkor `equals` som exempel:
 
 ```json
 {
@@ -136,14 +136,14 @@ Försöket att skapa princip definitionen via Azure Portal leder till ett fel me
 
 - "Det gick inte att parameterstyrda principen {GUID} på grund av verifierings fel. Kontrol lera att princip parametrarna är korrekt definierade. Det inre undantaget för utvärderings resultatet av språk uttrycket [parameters (' allowedLocations ')] är type ' matris ', förväntad typ är sträng '. "
 
-Den förväntade **typen** av villkor `equals` är _sträng_. Eftersom **allowedLocations** har definierats som **typ** _mat ris_, utvärderar principmodulen språk uttryck och genererar felet. `in` Med villkoret `notIn` och förväntar sig princip motorn **typ** _mat ris_ i språk uttrycket. Lös det här fel meddelandet genom att `equals` ändra till `in` antingen `notIn`eller.
+Den förväntade **typen** av villkor `equals` är _sträng_. Eftersom **allowedLocations** har definierats som **typ** _mat ris_, utvärderar principmodulen språk uttryck och genererar felet. Med `in` `notIn` villkoret och förväntar sig princip motorn **typ** _mat ris_ i språk uttrycket. Lös det här fel meddelandet genom att ändra `equals` till antingen `in` eller `notIn` .
 
 ### <a name="evaluating-the--alias"></a>Utvärdera [*]-aliaset
 
-Alias som ** \[ \* ** är kopplade till deras namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen ** \[ \* ** gör det möjligt att utvärdera varje element i matrisen individuellt, med logiska och mellan dem. Det finns tre standard scenarier för utvärdering av objekt per objekt är användbart i: _ingen_, _alla_eller _alla_ element matchar. För komplexa scenarier använder du [Count](../concepts/definition-structure.md#count).
+Alias som är **\[\*\]** kopplade till deras namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen **\[\*\]** gör det möjligt att utvärdera varje element i matrisen individuellt, med logiska och mellan dem. Det finns tre standard scenarier för utvärdering av objekt per objekt är användbart i: _ingen_, _alla_eller _alla_ element matchar. För komplexa scenarier använder du [Count](../concepts/definition-structure.md#count).
 
 Princip motorn utlöser **effekterna** i **sedan** bara när **IF** -regeln utvärderas som sant.
-Det här faktum är viktigt att förstå i samband med hur ** \[ \* ** man utvärderar varje enskilt element i matrisen.
+Det här faktum är viktigt att förstå i samband med hur man **\[\*\]** utvärderar varje enskilt element i matrisen.
 
 Exempel princip regeln för scenario tabellen nedan:
 
@@ -179,7 +179,7 @@ Exempel princip regeln för scenario tabellen nedan:
 ]
 ```
 
-Ersätt `<field>` med `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`för varje villkors exempel nedan.
+Ersätt med för varje villkors exempel `<field>` nedan `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"` .
 
 Följande resultat är resultatet av kombinationen av villkoret och exempel princip regeln och matrisen med befintliga värden ovan:
 
@@ -196,10 +196,10 @@ Följande resultat är resultatet av kombinationen av villkoret och exempel prin
 
 ## <a name="the-append-effect-and-arrays"></a>Lägg till effekter och matriser
 
-[Lägg till-resultatet](../concepts/effects.md#append) fungerar på olika sätt beroende på om **information. fältet** är ett ** \[ \* ** alias eller inte.
+[Lägg till-resultatet](../concepts/effects.md#append) fungerar på olika sätt beroende på om **information. fältet** är ett **\[\*\]** alias eller inte.
 
-- Om du inte ** \[ \* ** använder ett alias ersätter append hela matrisen med egenskapen **Value**
-- När ett ** \[ \* ** alias läggs till lägger till egenskapen **Value** till den befintliga matrisen eller skapar den nya matrisen
+- Om du inte **\[\*\]** använder ett alias ersätter append hela matrisen med egenskapen **Value**
+- När ett **\[\*\]** alias läggs till lägger till egenskapen **Value** till den befintliga matrisen eller skapar den nya matrisen
 
 Mer information finns i [Lägg till exempel](../concepts/effects.md#append-examples).
 

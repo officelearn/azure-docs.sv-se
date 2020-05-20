@@ -3,14 +3,14 @@ title: Kom igång med Azure Service Fabric CLI
 description: Lär dig hur du använder Azure Service Fabric CLI. Lär dig hur du ansluter till ett kluster och hanterar program.
 author: jeffj6123
 ms.topic: conceptual
-ms.date: 1/16/2020
+ms.date: 5/19/2020
 ms.author: jejarry
-ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3714f8401def9bed68e4b0845d025734a480cb3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258946"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681796"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -30,7 +30,8 @@ Service Fabric CLI är tänkt att stödja den senaste runtime-versionen av Servi
 
 | CLI-version   | runtime-version som stöds |
 |---------------|---------------------------|
-| Senaste (~ = 9)  | Senaste (~ = 7)              |
+| Senaste (~ = 10) | Senaste (~ = 7,1)            |
+| 9.0.0         | 7.1                       |
 | 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
@@ -210,7 +211,7 @@ Kommandot ger följande utdata:
 }
 ```
 
-## <a name="tips-and-troubleshooting"></a>Felsökning och tips
+## <a name="tips-and-troubleshooting"></a>Tips och felsökning
 
 Här följer några förslag och tips för lösning av vanliga problem.
 
@@ -240,7 +241,7 @@ Kontrollera att den angivna kluster-slutpunkten är tillgänglig och lyssnar. Ko
 
 ### <a name="detailed-logs"></a>Detaljerade loggar
 
-Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. `--debug` Flaggan ökar utförligheten för utdata.
+Detaljerade loggar är ofta användbara när du felsöker eller rapporterar problem. `--debug`Flaggan ökar utförligheten för utdata.
 
 ### <a name="command-help-and-syntax"></a>Hjälp och syntax för kommandon
 

@@ -8,12 +8,13 @@ ms.date: 03/30/2018
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b5d8add293a2ba8f14dc2d2fb8ba3b4228f455b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: monitoring
+ms.openlocfilehash: 10768ca4c6fbe4afc322fa9a7045c7cc4fe6f175
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176234"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681301"
 ---
 # <a name="azure-storage-metrics-migration"></a>Migrering av Azure Storage mått
 
@@ -45,7 +46,7 @@ Om du läser mått data program mässigt måste du införa det nya mått schemat
 
 | Gammalt mått | Nytt mått |
 | ------------------- | ----------------- |
-| **Kapaciteten**            | **BlobCapacity** med dimension **BlobType** lika med **BlockBlob** eller **PageBlob** |
+| **Kapacitet**            | **BlobCapacity** med dimension **BlobType** lika med **BlockBlob** eller **PageBlob** |
 | **ObjectCount**        | **BlobCount** med dimension **BlobType** lika med **BlockBlob** eller **PageBlob** |
 | **ContainerCount**      | **ContainerCount** |
 
@@ -97,14 +98,14 @@ Följande mått är nya erbjudanden som de gamla måtten inte stöder:
 | **SASThrottlingError** | Transaktioner med dimension **ResponseType** som är lika med **ClientThrottlingError** eller **ServerBusyError** och dimensions **autentisering** är lika med **SAS** |
 | **ServerOtherError** | Transaktioner med dimension **ResponseType** lika med **ServerOtherError** |
 | **ServerTimeoutError** | Transaktioner med dimension **ResponseType** lika med **ServerTimeoutError** |
-| **Klart** | Transaktioner med dimensions **ResponseType** som är lika med **lyckad** |
+| **Resultatet** | Transaktioner med dimensions **ResponseType** som är lika med **lyckad** |
 | **ThrottlingError** | **Transaktioner** med dimension **ResponseType** lika med **ClientThrottlingError** eller **ServerBusyError**|
 | **TotalBillableRequests** | **Transaktioner** |
 | **TotalEgress** | **Utgående** |
 | **TotalIngress** | **Ingress** |
 | **TotalRequests** | **Transaktioner** |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 ### <a name="how-should-i-migrate-existing-alert-rules"></a>Hur migrerar jag befintliga aviserings regler?
 

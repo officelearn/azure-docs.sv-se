@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: f7e30fd0d53af7ee61d919b56e9ffcd1f1b6bd36
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 760c56ad6179a7bf94f19e004e2fbbece3908198
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207606"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683501"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastnings lösning i Azure Automation
 
@@ -104,7 +104,7 @@ I följande tabell visas de Runbooks som lösningen distribuerar till ditt Autom
 
 Alla överordnade Runbooks inkluderar `WhatIf` parametern. När värdet är true, stöder parametern information om det exakta beteende som Runbook tar när den körs utan parametern och kontrollerar att rätt virtuella datorer är riktade. En Runbook utför bara sina definierade åtgärder när `WhatIf` parametern har angetts till false.
 
-|Runbook | Parametrar | Beskrivning|
+|Runbook | Parametrar | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Anropas från den överordnade runbooken. Denna Runbook skapar aviseringar per resurs för det automatiska stopp scenariot.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: true eller false  | Skapar eller uppdaterar Azures aviserings regler på virtuella datorer i mål prenumerationen eller resurs grupperna. <br> `VMList`är en kommaavgränsad lista över virtuella datorer. Till exempel `vm1, vm2, vm3`.<br> `WhatIf`aktiverar validering av Runbook-logik utan att köra.|
@@ -114,25 +114,25 @@ Alla överordnade Runbooks inkluderar `WhatIf` parametern. När värdet är true
 |ScheduledStartStop_Base_Classic | CloudServiceName<br> Åtgärd: starta eller stoppa<br> VMList  | Utför åtgärden starta eller stoppa i den klassiska VM-gruppen genom att Cloud Services. |
 |ScheduledStartStop_Child | VMName <br> Åtgärd: starta eller stoppa <br> ResourceGroupName | Anropas från den överordnade runbooken. Kör en start-eller stopp åtgärd för det schemalagda steget.|
 |ScheduledStartStop_Child_Classic | VMName<br> Åtgärd: starta eller stoppa<br> ResourceGroupName | Anropas från den överordnade runbooken. Kör en start-eller stopp åtgärd för det schemalagda stoppet för klassiska virtuella datorer. |
-|ScheduledStartStop_Parent | Åtgärd: starta eller stoppa <br>VMList <br> WhatIf: true eller false | Startar eller stoppar alla virtuella datorer i prenumerationen. Redigera variablerna `External_Start_ResourceGroupNames` och `External_Stop_ResourceGroupNames` för att endast köra på dessa mål resurs grupper. Du kan också undanta vissa virtuella datorer genom att `External_ExcludeVMNames` uppdatera variabeln.|
-|SequencedStartStop_Parent | Åtgärd: starta eller stoppa <br> WhatIf: true eller false<br>VMList| Skapar taggar med namnet **sequencestart** och **sequencestop** på varje virtuell dator för vilken du vill starta/stoppa aktivitet. Dessa taggnamn är Skift läges känsliga. Taggens värde måste vara ett positivt heltal (1, 2, 3) som motsvarar den ordning som du vill starta eller stoppa. <br>**Obs!** virtuella datorer måste finnas i resurs grupper som `External_Start_ResourceGroupNames`har `External_Stop_ResourceGroupNames`definierats `External_ExcludeVMNames` i variablerna, och. De måste ha lämpliga taggar för att åtgärder ska börja gälla.|
+|ScheduledStartStop_Parent | Åtgärd: starta eller stoppa <br>VMList <br> WhatIf: true eller false | Startar eller stoppar alla virtuella datorer i prenumerationen. Redigera variablerna `External_Start_ResourceGroupNames` och `External_Stop_ResourceGroupNames` för att endast köra på dessa mål resurs grupper. Du kan också undanta vissa virtuella datorer genom att uppdatera `External_ExcludeVMNames` variabeln.|
+|SequencedStartStop_Parent | Åtgärd: starta eller stoppa <br> WhatIf: true eller false<br>VMList| Skapar taggar med namnet **sequencestart** och **sequencestop** på varje virtuell dator för vilken du vill starta/stoppa aktivitet. Dessa taggnamn är Skift läges känsliga. Taggens värde måste vara ett positivt heltal (1, 2, 3) som motsvarar den ordning som du vill starta eller stoppa. <br>**Obs!** virtuella datorer måste finnas i resurs grupper som har definierats i `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variablerna, och. De måste ha lämpliga taggar för att åtgärder ska börja gälla.|
 
 ### <a name="variables"></a>Variabler
 
-I följande tabell visas variablerna som skapas i ditt Automation-konto. Ändra endast variabler som föregås `External`av. Om du ändrar variabler med `Internal` prefixet får du oönskade effekter.
+I följande tabell visas variablerna som skapas i ditt Automation-konto. Ändra endast variabler som föregås av `External` . Om du ändrar variabler med prefixet får du `Internal` oönskade effekter.
 
 > [!NOTE]
 > Begränsningar i VM-namn och resurs grupp är i stort sett resultatet av varierande storlek. Se [variabel till gångar i Azure Automation](https://docs.microsoft.com/azure/automation/shared-resources/variables).
 
-|Variabel | Beskrivning|
+|Variabel | Description|
 |---------|------------|
-|External_AutoStop_Condition | Den villkorliga operator som krävs för att konfigurera villkoret innan en avisering utlöses. Godkända värden är `GreaterThan`, `GreaterThanOrEqual`, `LessThan`och `LessThanOrEqual`.|
+|External_AutoStop_Condition | Den villkorliga operator som krävs för att konfigurera villkoret innan en avisering utlöses. Godkända värden är `GreaterThan` , `GreaterThanOrEqual` , `LessThan` och `LessThanOrEqual` .|
 |External_AutoStop_Description | Aviseringen för att stoppa den virtuella datorn om PROCESSORns procents ATS överstiger tröskelvärdet.|
 |External_AutoStop_Frequency | Utvärderings frekvensen för regeln. Den här parametern accepterar inmatade i TimeSpan-format. Möjliga värden är mellan 5 och 6 timmar. |
 |External_AutoStop_MetricName | Namnet på det prestanda mått som Azure-aviserings regeln ska konfigureras för.|
 |External_AutoStop_Severity | Allvarlighets grad för måttets avisering, som kan vara mellan 0 och 4. |
-|External_AutoStop_Threshold | Tröskelvärdet för den Azure Alert-regel som anges i `External_AutoStop_MetricName`variabeln. Procent värden sträcker sig från 1 till 100.|
-|External_AutoStop_TimeAggregationOperator | Tids mängds operatorn som används för den valda fönster storleken för att utvärdera villkoret. Godkända värden är `Average`, `Minimum` `Maximum` `Total`,, och `Last`.|
+|External_AutoStop_Threshold | Tröskelvärdet för den Azure Alert-regel som anges i variabeln `External_AutoStop_MetricName` . Procent värden sträcker sig från 1 till 100.|
+|External_AutoStop_TimeAggregationOperator | Tids mängds operatorn som används för den valda fönster storleken för att utvärdera villkoret. Godkända värden är `Average` ,,, `Minimum` `Maximum` `Total` och `Last` .|
 |External_AutoStop_TimeWindow | Storleken på fönstret där Azure analyserar valda mått för att utlösa en avisering. Den här parametern accepterar inmatade i TimeSpan-format. Möjliga värden är mellan 5 och 6 timmar.|
 |External_EnableClassicVMs| Värde som anger om klassiska virtuella datorer är riktade mot lösningen. Standardvärdet är true. Ställ in den här variabeln på falskt för Azure Cloud Solution Provider (CSP)-prenumerationer. Klassiska virtuella datorer kräver ett [klassiskt kör som-konto](automation-create-standalone-account.md#create-a-classic-run-as-account).|
 |External_ExcludeVMNames | Kommaavgränsad lista över VM-namn som ska undantas, begränsade till 140 virtuella datorer. Om du lägger till fler än 140 virtuella datorer i listan kan virtuella datorer som är inställda på att undantas oavsiktligt startas eller stoppas.|
@@ -146,9 +146,9 @@ I följande tabell visas variablerna som skapas i ditt Automation-konto. Ändra 
 |Internal_ResourceGroupName | Namnet på resurs gruppen för Automation-kontot.|
 
 >[!NOTE]
->Standardvärdet `External_WaitTimeForVMRetryInSeconds`har uppdaterats från 600 till 2100 för variabeln. 
+>`External_WaitTimeForVMRetryInSeconds`Standardvärdet har uppdaterats från 600 till 2100 för variabeln. 
 
-I alla scenarier, variablerna `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames`, `External_ExcludeVMNames` och är nödvändiga för att rikta in virtuella datorer, förutom de kommaavgränsade VM-listorna för **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**och **ScheduledStartStop_Parent** Runbooks. Det innebär att de virtuella datorerna måste tillhöra mål resurs grupper för att start-och stopp åtgärder ska inträffa. Logiken fungerar ungefär som Azure Policy, i så att du kan rikta prenumerationen eller resurs gruppen och ha åtgärder som ärvts av nyskapade virtuella datorer. Den här metoden gör att du inte behöver ha ett separat schema för varje virtuell dator och hantera startar och stoppas i stor skala.
+I alla scenarier, variablerna `External_Start_ResourceGroupNames` , `External_Stop_ResourceGroupNames` och `External_ExcludeVMNames` är nödvändiga för att rikta in virtuella datorer, förutom de kommaavgränsade VM-listorna för **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent**och **ScheduledStartStop_Parent** Runbooks. Det innebär att de virtuella datorerna måste tillhöra mål resurs grupper för att start-och stopp åtgärder ska inträffa. Logiken fungerar ungefär som Azure Policy, i så att du kan rikta prenumerationen eller resurs gruppen och ha åtgärder som ärvts av nyskapade virtuella datorer. Den här metoden gör att du inte behöver ha ett separat schema för varje virtuell dator och hantera startar och stoppas i stor skala.
 
 ### <a name="schedules"></a>Scheman
 
@@ -156,9 +156,9 @@ I följande tabell visas alla standard scheman som skapats i ditt Automation-kon
 
 Aktivera inte alla scheman, eftersom detta kan skapa överlappande schema åtgärder. Det är bäst att bestämma vilka optimeringar du vill göra och ändra dem på lämpligt sätt. I exempel scenarierna i översikts avsnittet finns ytterligare förklaring.
 
-|Schema namn | Frekvens | Beskrivning|
+|Schema namn | Frekvens | Description|
 |--- | --- | ---|
-|Schedule_AutoStop_CreateAlert_Parent | Var 8:e timme | Kör **AutoStop_CreateAlert_Parent** Runbook var 8: e timme, vilket i sin tur stoppar de VM-baserade `External_Start_ResourceGroupNames`värdena `External_Stop_ResourceGroupNames`i variablerna, och `External_ExcludeVMNames` . Alternativt kan du ange en kommaavgränsad lista över virtuella datorer med hjälp av- `VMList` parametern.|
+|Schedule_AutoStop_CreateAlert_Parent | Var 8:e timme | Kör **AutoStop_CreateAlert_Parent** Runbook var 8: e timme, vilket i sin tur stoppar de VM-baserade värdena i `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variablerna, och. Alternativt kan du ange en kommaavgränsad lista över virtuella datorer med hjälp av- `VMList` parametern.|
 |Scheduled_StopVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** Runbook med en parameter på `Stop` varje dag vid den angivna tiden.Stoppar automatiskt alla virtuella datorer som uppfyller reglerna som definierats av variabel till gångar.Aktivera det **schemalagda schemat för schemalagda StartVM**.|
 |Scheduled_StartVM | Användardefinierad, daglig | Kör **ScheduledStopStart_Parent** Runbook med ett parameter värde på `Start` varje dag vid den angivna tiden. Startar automatiskt alla virtuella datorer som uppfyller reglerna som definierats av variabel till gångar.Aktivera det **schemalagda schemat för schemalagda StopVM**.|
 |Sekvenserad – StopVM | 1:00 AM (UTC), varje fredag | Kör **Sequenced_StopStop_Parent** Runbook med ett parameter värde på `Stop` varje fredag vid den angivna tiden.I tur och ordning stoppas alla virtuella datorer med en tagg **SequenceStop** som definieras av lämpliga variabler. Mer information om tagg värden och till gångs variabler finns i [Runbooks](#runbooks).Aktivera relaterat schema, **sekvenserat-StartVM**.|
@@ -199,11 +199,11 @@ Om du väljer lösningen visas lösnings sidan **Starta-Stop-VM [Workspace]** . 
 
 Du kan utföra ytterligare analyser av jobb posterna genom att klicka på Ring panelen. Instrument panelen för lösningen visar jobb historik och fördefinierade loggs öknings frågor. Växla till logganalys-portalen i Log Analytics om du vill söka utifrån dina Sök frågor.
 
-## <a name="update-the-solution"></a>Uppdatera lösningen
+## <a name="update-the-feature"></a>Uppdatera funktionen
 
-Om du har distribuerat en tidigare version av den här lösningen tar du bort den från ditt konto innan du distribuerar en uppdaterad version. Följ stegen för att [ta bort lösningen](#remove-the-solution) och följ sedan stegen för att [distribuera lösningen](automation-solution-vm-management-enable.md).
+Om du har distribuerat en tidigare version av den här lösningen tar du bort den från ditt konto innan du distribuerar en uppdaterad version. Följ stegen för att [ta bort lösningen](#remove-the-feature) och följ sedan stegen för att [distribuera lösningen](automation-solution-vm-management-enable.md).
 
-## <a name="remove-the-solution"></a>Ta bort lösningen
+## <a name="remove-the-feature"></a>Ta bort funktionen
 
 Om du inte längre behöver använda lösningen kan du ta bort den från Automation-kontot. Att ta bort lösningen tar bara bort Runbooks. De scheman eller variabler som skapades när lösningen lades till tas inte bort. Ta bort dessa till gångar manuellt om du inte använder dem med andra Runbooks.
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: dda292909b7b90579666cd83d460fc4051c9456c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7cedc19c1b2a19fb26677a9426300d19c5396bd4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598131"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682743"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
@@ -248,10 +248,10 @@ SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where Geo
   
 #### <a name="specifying-numeric-expressions-and-scalar-system-functions-as-number-and-date"></a>Ange numeriska uttryck och skalära system funktioner som tal och datum
 
-I det här exemplet används ett numeriskt uttryck (- `(10/2))` och skalära system funktioner ( `SYSDATETIME` ) som argument för *tal* och *datum*.
+I det här exemplet används ett numeriskt uttryck ((10/2)) och skalära system funktioner (SYSDATETIME) som argument för tal och datum.
   
 ```sql
-SELECT Date_Bucket(week,-(10/2), SYSDATETIME());
+SELECT Date_Bucket(week,(10/2), SYSDATETIME());
 ```
 
 #### <a name="specifying-an-aggregate-window-function-as-number"></a>Ange en sammansatt fönster funktion som antal

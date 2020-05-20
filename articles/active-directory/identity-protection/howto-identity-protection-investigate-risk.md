@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23105a78e2ba34cf6a45f749ebfdd6b034ebf0dc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253486"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680157"
 ---
 # <a name="how-to-investigate-risk"></a>Gör så här: Undersök risker
 
@@ -26,7 +26,7 @@ I alla tre rapporter kan du hämta händelser i. CSV-format för ytterligare ana
 
 Organisationer kan dra nytta av Microsoft Graph API-integreringar för att samla in data med andra källor som de kan ha åtkomst till som en organisation.
 
-De tre rapporterna finns i **Azure Portal** > **Azure Active Directory** > **säkerhet**.
+De tre rapporterna finns i **Azure Portal**  >  **Azure Active Directory**  >  **säkerhet**.
 
 ## <a name="navigating-the-reports"></a>Navigera i rapporterna
 
@@ -74,6 +74,9 @@ Administratörer kan sedan välja att vidta åtgärder för dessa händelser. Ad
 
 - Bekräfta inloggnings problem
 - Bekräfta inloggning på ett säkert sätt
+
+> [!NOTE] 
+> Identitets skyddet utvärderar risker för alla autentiserings flöden, oavsett om de är interaktiva eller icke-interaktiva. I inloggnings rapporten visas dock bara de interaktiva inloggnings programmen. Du kan se riskfyllda inloggningar som inträffat på icke-interaktiva inloggningar, men inloggningen visas inte i rapporten Azure AD-inloggningar.
 
 ## <a name="risk-detections"></a>Riskidentifieringar
 

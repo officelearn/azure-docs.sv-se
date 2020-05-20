@@ -1,6 +1,6 @@
 ---
-title: Felsöka Azure Automation Uppdateringshantering
-description: Lär dig hur du felsöker och löser problem med Uppdateringshantering-lösningen i Azure Automation.
+title: Felsöka Azure Automation Uppdateringshantering problem
+description: Den här artikeln beskriver hur du felsöker och löser problem med Azure Automation Uppdateringshantering.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,28 +8,25 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f936b62349a534e6193a3c628c66c49d1a58b681
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 64df2e0f17322f8e650ede9d4453d90c36252135
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790838"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680016"
 ---
-# <a name="troubleshoot-issues-with-the-update-management-solution"></a>Felsök problem med Uppdateringshantering-lösningen
+# <a name="troubleshoot-update-management-issues"></a>Felsöka Uppdateringshantering problem
 
-Den här artikeln beskriver problem som du kan köra när du använder Uppdateringshantering-lösningen. Det finns en agent fel sökare för Hybrid Runbook Worker agenten för att fastställa det underliggande problemet. Mer information om fel sökning finns i [Felsöka problem med Windows Update-agenten](update-agent-issues.md) och [Felsöka problem med problem med Linux-uppdaterings agenten](update-agent-issues-linux.md). Information om andra onboarding-problem finns i [Felsöka lösning onboarding](onboarding.md).
-
->[!NOTE]
->Om du hittar problem när du registrerar lösningen på en virtuell dator (VM) kontrollerar du **Operations Manager** loggen under **program-och tjänst loggar** på den lokala datorn. Sök efter händelser med händelse-ID 4502 och händelse information som `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent`innehåller.
+Den här artikeln beskriver problem som du kan köra när du distribuerar Uppdateringshantering-funktionen på dina datorer. Det finns en agent fel sökare för Hybrid Runbook Worker agenten för att fastställa det underliggande problemet. Mer information om fel sökning finns i [Felsöka problem med Windows Update-agenten](update-agent-issues.md) och [Felsöka problem med problem med Linux-uppdaterings agenten](update-agent-issues-linux.md). Information om andra funktions distributions problem finns i [fel sökning av problem med funktions distribution](onboarding.md).
 
 >[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
+>Om du stöter på problem när du distribuerar Uppdateringshantering på en virtuell dator kontrollerar du **Operations Manager** loggen under **program-och tjänst loggar** på den lokala datorn. Sök efter händelser med händelse-ID 4502 och händelse information som innehåller `Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent` .
 
 ## <a name="scenario-you-receive-the-error-failed-to-enable-the-update-solution"></a>Scenario: du får felet "Det gick inte att aktivera uppdaterings lösningen"
 
 ### <a name="issue"></a>Problem
 
-När du försöker aktivera Uppdateringshantering-lösningen i ditt Automation-konto får du följande fel meddelande:
+När du försöker aktivera Uppdateringshantering i ditt Automation-konto får du följande fel meddelande:
 
 ```error
 Error details: Failed to enable the Update solution
@@ -41,9 +38,9 @@ Det här felet kan inträffa av följande orsaker:
 
 * Kraven på nätverks brand väggen för den Log Analytics agenten kanske inte är korrekt konfigurerade. Den här situationen kan orsaka att agenten inte kan köras när DNS-webbadresserna matchas.
 
-* Lösningens mål är felkonfigurerad och datorn får inte uppdateringar som förväntat.
+* Uppdateringshantering mål är felkonfigurerad och datorn får inte uppdateringar som förväntat.
 
-* Du kan också se att datorn visar statusen `Non-compliant` under **kompatibilitet**. Samtidigt rapporterar **agent Desktop Analytics** agenten som `Disconnected`.
+* Du kan också se att datorn visar statusen `Non-compliant` under **kompatibilitet**. Samtidigt rapporterar **agent Desktop Analytics** agenten som `Disconnected` .
 
 ### <a name="resolution"></a>Lösning
 
@@ -53,9 +50,9 @@ Det här felet kan inträffa av följande orsaker:
 
 * Gå till [nätverks konfiguration](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) och lär dig om vilka adresser och portar som måste tillåtas för att Log Analytics agenten ska fungera.
 
-* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som får konfigureras för lösningen. Om din dator visas på arbets ytan men inte på * * Uppdateringshantering-portalen, måste du ange omfattnings konfigurationen som mål för datorerna. Mer information om omfattnings konfigurationen finns i [onboard Machines på arbets ytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Sök efter problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som har kon figurer ats för uppdateringshantering. Om din dator visas på arbets ytan men inte i Uppdateringshantering portal måste du ange omfattnings konfigurationen som mål för datorerna. Mer information om omfattnings konfigurationen finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
-* Ta bort arbets konfigurationen genom att följa stegen i [ta bort en Windows hybrid Runbook Worker](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) eller [ta bort en Linux-hybrid Runbook Worker](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
+* Ta bort arbets konfigurationen genom att följa stegen i [ta bort hybrid Runbook Worker från en lokal Windows-dator](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) eller [ta bort hybrid Runbook Worker från en lokal Linux-dator](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker). 
 
 ## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>Scenario: ersatt uppdatering anges som saknas i Uppdateringshantering
 
@@ -69,7 +66,7 @@ Ersatta uppdateringar anges felaktigt som nekade, så att de kan anses vara ej t
 
 ### <a name="resolution"></a>Lösning
 
-När en ersatt uppdatering blir 100 procent inte tillämplig, bör du ändra godkännande tillstånd för den uppdateringen till `Declined`. Ändra godkännande tillstånd för alla uppdateringar:
+När en ersatt uppdatering blir 100 procent inte tillämplig, bör du ändra godkännande tillstånd för den uppdateringen till `Declined` . Ändra godkännande tillstånd för alla uppdateringar:
 
 1. I Automation-kontot väljer du **uppdateringshantering** för att Visa dator status. Se [Visa uppdaterings bedömningar](../manage-update-multi.md#view-an-update-assessment).
 
@@ -122,9 +119,9 @@ Det här problemet kan orsakas av lokala konfigurations problem eller av en fela
 
 4. Om du inte ser datorn i frågeresultatet har den nyligen checkats in. Det finns förmodligen ett lokalt konfigurations problem och du bör [installera om agenten](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
 
-5. Om din dator visas i frågeresultatet kontrollerar du om det finns problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som har kon figurer ATS för lösningen. 
+5. Om din dator visas i frågeresultatet kontrollerar du om det finns problem med omfattnings konfigurationen. [Omfattnings konfigurationen](../automation-onboard-solutions-from-automation-account.md#scope-configuration) avgör vilka datorer som har kon figurer ats för uppdateringshantering. 
 
-6. Om datorn visas på arbets ytan men inte i Uppdateringshantering måste du konfigurera omfattnings konfigurationen så att den passar datorn. Information om hur du gör detta finns i [onboard Machines på arbets ytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+6. Om datorn visas på arbets ytan men inte i Uppdateringshantering måste du konfigurera omfattnings konfigurationen så att den passar datorn. Information om hur du gör detta finns i [Aktivera datorer i arbets ytan](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
 7. Kör den här frågan i din arbets yta.
 
@@ -142,7 +139,7 @@ Det här problemet kan orsakas av lokala konfigurations problem eller av en fela
 
 ### <a name="issue"></a>Problem
 
-När du arbetar med lösningar i ditt Automation-konto uppstår följande fel:
+När du arbetar med funktions distributioner i ditt Automation-konto inträffar följande fel:
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions
@@ -281,11 +278,11 @@ Datorerna visas i argumenten ARG, men visas fortfarande inte i den dynamiska gru
 
 7. Upprepa stegen ovan för alla datorer som inte har visats i förhands granskningen.
 
-## <a name="scenario-components-for-update-management-solution-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Scenario: komponenter för Uppdateringshantering lösning aktive rad, medan den virtuella datorn fortsätter att visas som konfigurerad
+## <a name="scenario-update-management-components-enabled-while-vm-continues-to-show-as-being-configured"></a><a name="components-enabled-not-working"></a>Scenario: Uppdateringshantering-komponenter aktive ras, medan den virtuella datorn fortsätter att visas som konfigurerad
 
 ### <a name="issue"></a>Problem
 
-Du kan fortsätta att se följande meddelande på en virtuell dator 15 minuter efter onboarding:
+Du kan fortsätta att se följande meddelande på en VM 15 minuter efter att distributionen har påbörjats:
 
 ```error
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
@@ -299,7 +296,7 @@ Det här felet kan inträffa av följande orsaker:
 
 * Det finns dubbla dator namn med olika käll dator-ID. Det här scenariot inträffar när en virtuell dator med ett visst dator namn skapas i olika resurs grupper och rapporteras till samma logistik agent arbets yta i prenumerationen.
 
-* Den virtuella dator avbildningen kan komma från en klonad dator som inte har förberetts med system förberedelse (Sysprep) med Log Analytics agent för Windows installerat.
+* Den VM-avbildning som distribueras kan komma från en klonad dator som inte har förberetts med system förberedelse (Sysprep) med Log Analytics agent för Windows installerat.
 
 ### <a name="resolution"></a>Lösning
 
@@ -319,11 +316,11 @@ Gå till [nätverks planering](../automation-update-management.md#ports) och lä
 
 Byt namn på de virtuella datorerna för att säkerställa unika namn i deras miljö.
 
-#### <a name="onboarded-image-from-cloned-machine"></a>Inbyggd avbildning från klonad dator
+#### <a name="deployed-image-from-cloned-machine"></a>Distribuerad avbildning från klonad dator
 
 Om du använder en klonad bild har olika dator namn samma käll dator-ID. Om så är fallet:
 
-1. I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen `MicrosoftDefaultScopeConfig-Updates` efter omfattnings konfigurationen om den visas. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
+1. I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter `MicrosoftDefaultScopeConfig-Updates` omfattnings konfigurationen om den visas. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
 
 2. Kör följande cmdlet.
 
@@ -411,7 +408,7 @@ Använd [dynamiska grupper](../automation-update-management-groups.md) för dina
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
 
-6. När du hittar berörda datorer redigerar du de uppdaterings distributioner som är riktade mot dessa datorer och tar sedan bort och läser dem `SourceComputerId` så att de motsvarar rätt värde.
+6. När du hittar berörda datorer redigerar du de uppdaterings distributioner som är riktade mot dessa datorer och tar sedan bort och läser dem så att `SourceComputerId` de motsvarar rätt värde.
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Scenario: uppdateringar installeras utan distribution
 
@@ -425,9 +422,9 @@ I Windows installeras uppdateringar automatiskt så snart de är tillgängliga. 
 
 ### <a name="resolution"></a>Lösning
 
-`HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` Register nyckeln har standardinställningen 4: `auto download and install`.
+`HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU`Register nyckeln har standardinställningen 4: `auto download and install` .
 
-För Uppdateringshantering-klienter rekommenderar vi att du anger den här nyckeln `auto download but do not auto install`till 3:.
+För Uppdateringshantering-klienter rekommenderar vi att du anger den här nyckeln till 3: `auto download but do not auto install` .
 
 Mer information finns i [Konfigurera automatiska uppdateringar](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
@@ -443,7 +440,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 ### <a name="cause"></a>Orsak
 
-Datorn har redan publicerats till en annan arbets yta för Uppdateringshantering.
+Datorn har redan distribuerats till en annan arbets yta för Uppdateringshantering.
 
 ### <a name="resolution"></a>Lösning
 
@@ -591,7 +588,7 @@ Om uppdateringarna körs lokalt kan du försöka ta bort och installera om agent
 
 Detta händer ofta om datorerna har kon figurer ATS för att hämta uppdateringar från WSUS eller Microsoft Endpoint Configuration Manager, men WSUS och Configuration Manager inte har godkänt uppdateringarna.
 
-Du kan kontrol lera om datorerna har kon figurer ATS för WSUS och SCCM genom att referera `UseWUServer` register nyckeln till register nycklarna i [Konfigurera automatiska uppdateringar genom att redigera register avsnittet i den här artikeln](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
+Du kan kontrol lera om datorerna har kon figurer ATS för WSUS och SCCM genom `UseWUServer` att referera register nyckeln till register nycklarna i [Konfigurera automatiska uppdateringar genom att redigera register avsnittet i den här artikeln](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
 
 Om uppdateringar inte har godkänts i WSUS installeras de inte. Du kan söka efter ej godkända uppdateringar i Log Analytics genom att köra följande fråga.
 
@@ -616,5 +613,5 @@ KB2267602 är [Windows Defender-definitionsuppdateringen](https://www.microsoft.
 Om du inte ser problemet eller inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support.
 
 * Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) , det officiella Microsoft Azure kontot för att förbättra kund upplevelsen.
 * Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

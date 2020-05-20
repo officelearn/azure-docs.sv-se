@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdacee476fbc25154fe225700730f1b8f7f872ec
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677990"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682264"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Program typer för Microsoft Identity Platform
 
@@ -25,7 +25,7 @@ Slut punkten för Microsoft Identity Platform (v 2.0) stöder autentisering för
 
 ## <a name="the-basics"></a>Grunderna
 
-Du måste registrera varje app som använder Microsoft Identity Platform-slutpunkten på den nya [Appregistreringar portalen](https://go.microsoft.com/fwlink/?linkid=2083908). Registrerings processen för appen samlar in och tilldelar dessa värden för din app:
+Du måste registrera varje app som använder Microsoft Identity Platform-slutpunkten i Azure Portal [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908). Registrerings processen för appen samlar in och tilldelar dessa värden för din app:
 
 * Ett **program (klient) ID** som unikt identifierar din app
 * En **omdirigerings-URI** som du kan använda för att dirigera svar tillbaka till appen
@@ -42,13 +42,19 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Appar med en sida (Java Script)
 
-Många moderna appar har en app-klient med en enda sida som främst är skriven i Java Script. De skrivs ofta med hjälp av ett ramverk som till exempel vinkel, reagera eller Vue. Slut punkten för Microsoft Identity Platform stöder de här apparna med hjälp av det [implicita flödet för OAuth 2,0](v2-oauth2-implicit-grant-flow.md).
+Många moderna appar har en fristående app från en sida som främst är skriven i Java Script, ofta med ett ramverk som vinkel, reagera eller Vue. Slut punkten för Microsoft Identity Platform stöder de här apparna med hjälp av [OAuth 2,0 Authorization Code Flow](v2-oauth2-auth-code-flow.md).
 
-I det här flödet tar appen emot token direkt från Microsoft Identity Platform reservering-slutpunkten utan server-till-Server-utbyten. All autentisering för autentisering och hantering av sessioner sker helt i JavaScript-klienten, utan extra sid omdirigeringar.
+I det här flödet tar appen emot en kod från Microsoft Identity Platform `authorize` -slutpunkten och löser den för token och uppdateringstoken med hjälp av webb förfrågningar över webbplatser. Uppdateringstoken upphör att gälla var 24: e timme och appen måste begära en annan kod.
 
-![Visar flödet för implicit autentisering](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Kod flöde för SPA-appar](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
-Om du vill se hur det här scenariot fungerar kan du prova något av kod exemplen för en enda sida i avsnittet [komma igång med Microsoft Identity Platform](v2-overview.md#getting-started) .
+Om du vill se hur det här scenariot fungerar går du till [självstudien: Logga in användare och anropa Microsoft Graph-API: t från ett Java Script spa med auth Code Flow](tutorial-v2-javascript-auth-code.md).
+
+### <a name="authorization-code-flow-vs-implicit-flow"></a>Authorization Code Flow jämfört med implicit flöde
+
+För de flesta historiken av OAuth 2,0 var det [implicita flödet](v2-oauth2-implicit-grant-flow.md) det rekommenderade sättet att bygga appar på en sida. Med borttagning av [cookies från tredje part](reference-third-party-cookies-spas.md) och [mer uppmärksamhet](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) på säkerhets problem kring det implicita flödet har vi flyttat till Authorization Code Flow för appar på en sida.
+
+För att säkerställa kompatibiliteten för din app i Safari och andra sekretess medveten webbläsare rekommenderar vi inte längre att använda det implicit flödet och rekommenderar i stället godkännande flödet.
 
 ## <a name="web-apps"></a>Webbappar
 
@@ -77,7 +83,8 @@ Du kan se till att användarens identitet genom att verifiera ID-token med en of
 
 Om du vill se det här scenariot kan du prova någon av inloggnings kod exemplen för webbappar i avsnittet [komma igång med Microsoft Identity Platform](v2-overview.md#getting-started) .
 
-Förutom enkel inloggning kan en webbapp ha åtkomst till en annan webb tjänst, till exempel en REST API. I det här fallet deltar webb Server appen i en kombinerad OpenID Connect-och OAuth 2,0-flöde genom att använda [kod flödet för oauth 2,0-auktorisering](active-directory-v2-protocols.md). Mer information om det här scenariot finns [i komma igång med webbappar och webb-API: er](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+Förutom enkel inloggning kan en webbapp ha åtkomst till en annan webb tjänst, till exempel en REST API. I det här fallet deltar webb Server appen i en kombinerad OpenID Connect-och OAuth 2,0-flöde genom att använda [kod flödet för oauth 2,0-auktorisering](v2-oauth2-auth-code-flow.md). Mer information om det här scenariot finns [i komma igång med webbappar och webb-API: er](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+
 
 ## <a name="web-apis"></a>Webb-API:er
 
@@ -120,3 +127,7 @@ I det här flödet samverkar appen direkt med `/token` slut punkten för att få
 ![Visar daemon-flödet för app-autentisering](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Om du vill bygga en daemon-app läser du [dokumentationen för klient information](v2-oauth2-client-creds-grant-flow.md)eller försöker med en [.net-exempel App](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+
+## <a name="next-steps"></a>Nästa steg
+
+Nu när du är bekant med de typer av program som stöds av Microsoft Identity Platform kan du läsa mer om [OAuth 2,0 och OpenID Connect](active-directory-v2-protocols.md) för att få en förståelse för de protokoll komponenter som används i de olika scenarierna.

@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecd49b340810f92727f0fc98f84031c8cbf68179
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481185"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680132"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd klient begränsningar för att hantera åtkomst till SaaS-molnprogram
 
@@ -30,7 +30,7 @@ Azure Active Directory-lösningen (Azure AD) till denna utmaning är en funktion
 
 Med klient begränsningar kan organisationer ange listan över klienter som användarna får åtkomst till. Azure AD beviljar sedan bara åtkomst till dessa tillåtna klienter.
 
-Den här artikeln fokuserar på klient begränsningar för Office 365, men funktionen bör fungera med alla SaaS Cloud-appar som använder moderna autentiseringsprotokoll med Azure AD för enkel inloggning. Om du använder SaaS-appar med en annan Azure AD-klient än den klient organisation som används av Office 365 ser du till att alla begärda klienter är tillåtna. Mer information om SaaS-molnappar finns på [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Den här artikeln fokuserar på klient begränsningar för Office 365, men funktionen bör fungera med alla SaaS Cloud-appar som använder moderna autentiseringsprotokoll med Azure AD för enkel inloggning. Om du använder SaaS-appar med en annan Azure AD-klient än den klient organisation som används av Office 365 ser du till att alla begärda klienter är tillåtna. Mer information om SaaS-molnappar finns på [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
@@ -74,7 +74,7 @@ Infoga två HTTP-huvuden för varje inkommande begäran till login.microsoftonli
 
 Rubrikerna måste innehålla följande element:
 
-- För att *begränsa åtkomst till klienter använder du*ett värde av \<listan\>över tillåtna klient organisationer, som är en kommaavgränsad lista över klienter som du vill ge användare åtkomst till. Alla domäner som är registrerade med en klient kan användas för att identifiera klient organisationen i den här listan. Om du till exempel vill tillåta åtkomst till både Contoso-och Fabrikam-klienter ser namnet/värde-paret ut så här: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- För att *begränsa åtkomst till klienter använder du*ett värde av \< listan över tillåtna klient organisationer \> , som är en kommaavgränsad lista över klienter som du vill ge användare åtkomst till. Alla domäner som är registrerade med en klient kan användas för att identifiera klient organisationen i den här listan. Om du till exempel vill tillåta åtkomst till både Contoso-och Fabrikam-klienter ser namnet/värde-paret ut så här: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - För *begränsning av åtkomst kontexten*använder du ett värde för ett enda katalog-ID och anger vilken klient som ska ange innehavarens begränsningar. Om du till exempel vill deklarera contoso som den klient som anger principen för klient begränsningar, ser namn/värde-paret ut så här: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
@@ -113,13 +113,13 @@ Precis som med andra rapporter i Azure Portal kan du använda filter för att an
 - **Användare**
 - **Program**
 - **Status**
-- **Date**
+- **Ikraftträdande**
 - **Datum (UTC)** (där UTC är UTC Universal Time)
 - **MFA auth-metod** (multifaktorautentisering)
 - **MFA auth-information** (information om multifaktorautentisering)
 - **MFA-resultat**
 - **IP-adress**
-- **Klientsession**
+- **Client**
 - **Användar**
 - **Position**
 - **Mål klient-ID**
@@ -155,7 +155,7 @@ Fiddler är en kostnads fri webb fel söknings proxy som kan användas för att 
 
    1. I verktyget Fiddler Web-Felsökning väljer du menyn **regler** och väljer **Anpassa regler...** för att öppna CustomRules-filen.
 
-   2. Lägg till följande rader i början av `OnBeforeRequest` funktionen. Ersätt \<klient organisations domänen\> med en domän som är registrerad hos din klient `contoso.onmicrosoft.com`organisation (till exempel). Ersätt \<katalog-\> ID med klient organisationens GUID-identifierare för Azure AD.
+   2. Lägg till följande rader i början av `OnBeforeRequest` funktionen. Ersätt \< klient organisations domänen \> med en domän som är registrerad hos din klient organisation (till exempel `contoso.onmicrosoft.com` ). Ersätt \< katalog-ID \> med klient organisationens GUID-identifierare för Azure AD.
 
       ```JScript.NET
       if (
@@ -169,7 +169,7 @@ Fiddler är en kostnads fri webb fel söknings proxy som kan användas för att 
       }
       ```
 
-      Om du behöver tillåta flera klienter kan du använda ett kommatecken för att avgränsa klient namnen. Ett exempel:
+      Om du behöver tillåta flera klienter kan du använda ett kommatecken för att avgränsa klient namnen. Till exempel:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

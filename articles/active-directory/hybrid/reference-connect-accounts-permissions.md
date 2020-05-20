@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23508535c1853cd056bb162c254cda5f7f86d7fe
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253772"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681746"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -149,9 +149,9 @@ Vilka behörigheter du behöver beror på vilka valfria funktioner du aktiverar.
 | Offentlig Exchange-e-postmapp |Läs behörighet till attributen som dokumenteras i den [offentliga Exchange-e-postmappen](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) för offentliga mappar. | 
 | Tillbakaskrivning av lösenord |Skriv behörigheter till de attribut som dokumenteras i [komma igång med lösen ords hantering](../authentication/howto-sspr-writeback.md) för användare. |
 | Tillbakaskrivning av enheter |Behörigheter som beviljats med ett PowerShell-skript enligt beskrivningen i [tillbakaskrivning av enhet](how-to-connect-device-writeback.md). |
-| Tillbakaskrivning av grupp |Gör att du kan ångra **Office 365-grupper** till en skog med Exchange installerat.  Mer information finns i [tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback).|
+| Tillbakaskrivning av grupp |Gör att du kan ångra **Office 365-grupper** till en skog med Exchange installerat.|
 
-## <a name="upgrade"></a>Uppgradera
+## <a name="upgrade"></a>Upgrade
 När du uppgraderar från en version av Azure AD Connect till en ny version behöver du följande behörigheter:
 
 >[!IMPORTANT]
@@ -175,7 +175,7 @@ Om du använder anpassade inställningar ansvarar du för att skapa kontot innan
 ### <a name="adsync-service-account"></a>ADSync-tjänstkonto
 Synkroniseringstjänsten kan köras under olika konton. Den kan köras under ett **virtuellt tjänst konto** (VSA), ett **grupphanterat tjänst konto** (gMSA/SMSA) eller ett vanligt användar konto. De alternativ som stöds har ändrats med 2017 april-versionen av Connect när du gör en ny installation. Om du uppgraderar från en tidigare version av Azure AD Connect är dessa ytterligare alternativ inte tillgängliga.
 
-| Typ av konto | Installations alternativ | Beskrivning |
+| Typ av konto | Installations alternativ | Description |
 | --- | --- | --- |
 | [Virtuellt tjänst konto](#virtual-service-account) | Express och anpassad, 2017 april och senare | Detta är det alternativ som används för alla Express installationer, förutom för installationer på en domänkontrollant. För anpassad är det standard alternativet om inte ett annat alternativ används. |
 | [Grupphanterat tjänstkonto](#group-managed-service-account) | Anpassad, 2017 april och senare | Om du använder en fjärran sluten SQL Server rekommenderar vi att du använder ett grupphanterat tjänst konto. |
@@ -260,13 +260,13 @@ Mer information om hur du hanterar eller återställer lösen ordet för Azure A
 ## <a name="related-documentation"></a>Relaterad dokumentation
 Om du inte läst dokumentationen om [att integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)innehåller följande tabell länkar till närliggande ämnen.
 
-|Hjälpavsnitt |Länk|  
+|Ämne |Länk|  
 | --- | --- |
 |Ladda ned Azure AD Connect | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Installera med standardinställningar | [Snabbinstallation av Azure AD Connect](how-to-connect-install-express.md)|
 |Installera med anpassade inställningar | [Anpassad installation av Azure AD Connect](./how-to-connect-install-custom.md)|
 |Uppgradera från DirSync | [Uppgradera från Azure AD-synkroniseringsverktyget (DirSync)](how-to-dirsync-upgrade-get-started.md)|
-|Efter installationen | [Verifiera installationen och tilldela licenser](how-to-connect-post-installation.md)|
+|Efter installation | [Verifiera installationen och tilldela licenser](how-to-connect-post-installation.md)|
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om hur du [integrerar dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md).

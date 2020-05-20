@@ -1,5 +1,5 @@
 ---
-title: Så här kör du Jupyter-anteckningsböcker i din arbets yta
+title: Köra Jupyter Notebooks på arbetsytan
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du kör en Jupyter Notebook utan att lämna arbets ytan i Azure Machine Learning Studio.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 67da2cb31d59838bb3ad2b964530d85d8be9be4c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783661"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681438"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Så här kör du Jupyter-anteckningsböcker i din arbets yta
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Köra Jupyter Notebooks på arbetsytan
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Lär dig hur du kör dina Jupyter-anteckningsböcker direkt i din arbets yta i Azure Machine Learning Studio. Även om du kan starta [Jupyter](https://jupyter.org/) eller [JupyterLab](https://jupyterlab.readthedocs.io)kan du även redigera och köra dina antecknings böcker utan att lämna arbets ytan.
@@ -31,7 +31,7 @@ Se hur du kan:
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://aka.ms/AMLFree) konto innan du börjar.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://aka.ms/AMLFree) innan du börjar.
 * En Machine Learning-arbetsyta. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).
 
 ## <a name="create-notebooks"></a><a name="create"></a>Skapa antecknings böcker
@@ -62,7 +62,7 @@ Din arbets yta innehåller en **exempel** -mapp med antecknings böcker utformad
 
 Ett exempel finns i [Självstudier: skapa ditt första ml experiment](tutorial-1st-experiment-sdk-setup.md#azure).
 
-### <a name="a-nameterminal-use-files-from-git-and-version-my-files"></a><a name="terminal">Använd filer från git och version mina filer
+### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a>Använd filer från git och version mina filer
 
 Du kan komma åt alla git-åtgärder med hjälp av ett terminalfönster. Alla git-filer och mappar kommer att lagras i fil systemet för arbets ytan.
 
@@ -101,7 +101,7 @@ Du kan också starta Jupyter eller JupyterLab från antecknings bokens verktygsf
 
 ### <a name="useful-keyboard-shortcuts"></a>Användbara kortkommandon
 
-|Tangentbord  |Action  |
+|Tangentbord  |Åtgärd  |
 |---------|---------|
 |SKIFT + RETUR     |  Köra en cell       |
 |Ctrl + M (Windows)     |  Aktivera/Inaktivera fliken svällning i antecknings boken.       |
@@ -140,14 +140,14 @@ I verktygsfältet Notebook kan du ändra den miljö som antecknings boken körs 
 
 Dessa åtgärder ändrar inte antecknings läget eller värdena för några variabler i antecknings boken:
 
-|Action  |Resultat  |
+|Åtgärd  |Resultat  |
 |---------|---------| --------|
 |Stoppa kärnan     |  Stoppar eventuell cell som körs. Om du kör en cell startas kerneln om automatiskt. |
 |Navigera till en annan arbets yta-sektion     |     Celler som körs stoppas. |
 
 Dessa åtgärder återställer antecknings bokens tillstånd och återställer alla variabler i antecknings boken.
 
-|Action  |Resultat  |
+|Åtgärd  |Resultat  |
 |---------|---------| --------|
 | Ändra kernel | Notebook använder ny kernel |
 | Ändra beräkning    |     Antecknings boken använder automatiskt den nya beräkningen. |
@@ -161,7 +161,7 @@ Antecknings boken hittar automatiskt alla Jupyter-kernels som är installerade p
 
 1. Välj [**öppna terminalen**](#terminal) i antecknings bokens verktygsfält.
 1. Använd terminalfönstret för att skapa en ny miljö.
-1. Aktivera miljön.  Till exempel när du har `newenv`skapat:
+1. Aktivera miljön.  Till exempel när du har skapat `newenv` :
 
     ```shell
     source activate newenv

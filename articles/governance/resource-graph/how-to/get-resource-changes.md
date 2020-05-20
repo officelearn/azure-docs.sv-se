@@ -1,14 +1,14 @@
 ---
 title: Hämta resursändringar
 description: Lär dig hur du hittar när en resurs har ändrats, hämta en lista över de egenskaper som har ändrats och utvärdera differenserna.
-ms.date: 10/09/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d53148f302d82a7563520036f327406ca4a86040
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873037"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681049"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
@@ -40,8 +40,8 @@ Det första steget i att se vad som har ändrats på en resurs är att hitta än
 
 **ResourceChanges** -slutpunkten accepterar följande parametrar i begär ande texten:
 
-- **resourceId** \[krävs\]: Azure-resursen för att leta efter ändringar på.
-- **intervall** \[krävs\]: en egenskap med _Start_ - _och slutdatum för_ när du ska söka efter en ändrings händelse med **Zulu Time Zone (Z)**.
+- **resourceId** \[ krävs \] : Azure-resursen för att leta efter ändringar på.
+- **intervall** \[ krävs \] : en egenskap med _Start_ - _end_ och slutdatum för när du ska söka efter en ändrings händelse med **Zulu Time Zone (Z)**.
 - **fetchPropertyChanges** (valfritt): en boolesk egenskap som anger om Response-objektet innehåller egenskaps ändringar.
 
 Exempel på begär ande text:
@@ -289,3 +289,4 @@ Jämför resultaten genom att antingen använda egenskapen **ändringar** i **re
 - Se språket som används i [Start frågor](../samples/starter.md).
 - Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md).
 - Lär dig mer om hur du [utforskar resurser](../concepts/explore-resources.md).
+- Vägledning om hur du arbetar med frågor med hög frekvens finns i [rikt linjer för begränsade begär Anden](../concepts/guidance-for-throttled-requests.md).

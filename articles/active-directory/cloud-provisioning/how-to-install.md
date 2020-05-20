@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 764071eeaf368ecf78679632cffbd6964db40aa5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263353"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681044"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Installera agenten för Azure AD Connect-molnetablering
 Det här dokumentet vägleder dig genom installations processen för den Azure Active Directory (Azure AD) Connect-programetablerings agenten och hur du konfigurerar den för första gången i Azure Portal.
@@ -35,7 +35,7 @@ Följ dessa steg om du vill installera agenten.
 
 1. Logga in på den server som du ska använda med företags administratörens behörigheter.
 1. Gå till Azure Portal. Välj **Azure Active Directory**till vänster.
-1. Välj **Hantera etablering (för hands version)** > **Granska alla agenter**.
+1. Välj **Hantera etablering (för hands version)**  >  **Granska alla agenter**.
 1. Hämta Azure AD Connect etablerings agenten från Azure Portal.
 
    ![Hämta lokal agent](media/how-to-install/install9.png)</br>
@@ -64,8 +64,8 @@ Agent verifiering sker i Azure Portal och på den lokala server som kör agenten
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 Följ dessa steg om du vill kontrol lera att agenten visas av Azure.
 
-1. Logga in på Azure-portalen.
-1. Välj **Azure Active Directory** > **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)**.
+1. Logga in på Azure Portal.
+1. Välj **Azure Active Directory**  >  **Azure AD Connect**till vänster. I mitten väljer du **Hantera etablering (för hands version)**.
 
    ![Azure Portal](media/how-to-install/install6.png)</br>
 
@@ -77,20 +77,13 @@ Följ dessa steg om du vill kontrol lera att agenten visas av Azure.
 
    ![Skärmen lokala etablerings agenter](media/how-to-install/verify1.png)</br>
 
-### <a name="verify-the-port"></a>Verifiera porten
-Följ dessa steg för att kontrol lera att Azure lyssnar på port 443 och att agenten kan kommunicera med den.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-Det här testet kontrollerar att dina agenter kan kommunicera med Azure via port 443. Öppna en webbläsare och gå till föregående URL från servern där agenten är installerad.
-
-![Verifiering av portens tillgänglighet](media/how-to-install/verify2.png)
 
 ### <a name="on-the-local-server"></a>På den lokala servern
 Kontrol lera att agenten körs genom att följa dessa steg.
 
 1.  Logga in på servern med ett administratörs konto.
-1.  Öppna **tjänster** genom att antingen navigera till den eller genom att **Starta** > **köra** > **Services. msc**.
+1.  Öppna **tjänster** genom att antingen navigera till den eller genom att **Starta**  >  **köra**  >  **Services. msc**.
 1.  Under **tjänster**kontrollerar du att **Microsoft Azure AD ansluter agent uppdaterings** **agenten och Microsoft Azure AD ansluta etablerings agenten** är där och att deras status är *igång*.
 
     ![Sidan tjänster](media/how-to-troubleshoot/troubleshoot1.png)

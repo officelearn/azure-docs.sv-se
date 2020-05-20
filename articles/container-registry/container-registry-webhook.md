@@ -3,12 +3,12 @@ title: Webhooks för att svara på register åtgärder
 description: Lär dig hur du använder Webhooks för att utlösa händelser när push-eller pull-åtgärder sker i dina register databaser.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5e6fd2d9f4c7727365a8e2fe3893aafebfeb7bd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74454370"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685026"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Använda Azure Container Registry Webhooks
 
@@ -18,7 +18,7 @@ Mer information om webhook-begäranden finns i [Azure Container Registry webhook
 
 ## <a name="prerequisites"></a>Krav
 
-* Azure-containerregister – Skapa ett containerregister i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md). [Azure Container Registry SKU: er](container-registry-skus.md) har olika Webhooks-kvoter.
+* Azure-containerregister – Skapa ett containerregister i din Azure-prenumeration. Använd till exempel [Azure Portal](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md). [Azure Container Registry tjänst nivåerna](container-registry-skus.md) har olika Webhooks-kvoter.
 * Docker CLI – Om du vill konfigurera den lokala datorn som en Docker-värd och komma åt Docker CLI-kommandona installerar du [Docker-motorn](https://docs.docker.com/engine/installation/).
 
 ## <a name="create-webhook---azure-portal"></a>Skapa webhook – Azure Portal
@@ -32,7 +32,7 @@ Mer information om webhook-begäranden finns i [Azure Container Registry webhook
 | Värde | Beskrivning |
 |---|---|
 | Webhook-namn | Det namn som du vill ge webhooken. Det får bara innehålla bokstäver och siffror och måste vara 5-50 tecken långt. |
-| Location | För ett [geo-replikerat](container-registry-geo-replication.md) register anger du Azure-regionen för register repliken. 
+| Plats | För ett [geo-replikerat](container-registry-geo-replication.md) register anger du Azure-regionen för register repliken. 
 | Tjänst-URI | URI: n där webhooken ska skicka POST meddelanden. |
 | Anpassade rubriker | Rubriker som du vill skicka tillsammans med POST-begäran. De bör vara i formatet "nyckel: värde". |
 | Utlösnings åtgärder | Åtgärder som utlöser webhooken. Åtgärderna omfattar push-överföring av bilder, bild borttagning, Helm-diagram-push, Helm Chart Delete och image Quarantine. Du kan välja en eller flera åtgärder för att utlösa webhooken. |

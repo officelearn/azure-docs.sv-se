@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 593ca5d63245ed664b5f63373d1d651129055544
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/13/2020
+ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592397"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683004"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
@@ -111,6 +111,18 @@ Med designern kan du träna modeller med hjälp av ett dra och släpp-gränssnit
 + [Klassificering: förutse omsättning, begär och försäljning](how-to-designer-sample-classification-churn.md)
 + [Klassificering med anpassat R-skript: förutsäga flyg fördröjningar](how-to-designer-sample-classification-flight-delay.md)
 + [Text klassificering: Wikipedia SP 500-datauppsättning](how-to-designer-sample-text-classification.md)
+
+## <a name="many-models-solution-accelerator"></a>Många modeller lösnings Accelerator
+
+[Många modeller Solution Accelerator](https://aka.ms/many-models) (för hands version) bygger på Azure Machine Learning och gör det möjligt att träna, hantera och hantera hundratals eller till och med tusentals maskin inlärnings modeller.
+
+Att till exempel skapa en modell __för varje instans eller individ__ i följande scenarier kan leda till förbättrade resultat:
+
+* Förutsäga försäljning för varje enskilt lager
+* Förutsägelse underhåll för hundratals olje brunnar
+* Skräddarsy en upplevelse för enskilda användare.
+
+Mer information finns i [många modeller Solution Accelerator](https://aka.ms/many-models) på GitHub.
 
 ## <a name="cli"></a>CLI
 

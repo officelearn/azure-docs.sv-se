@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/23/2020
-ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 05/15/2020
+ms.openlocfilehash: 59c7a34e975a53226b032827feae436202c8fa30
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594329"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683317"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Söknings omvandling i data flöde för mappning
 
@@ -41,13 +41,19 @@ Lookup-omvandlingen stöder bara likhets matchningar. Om du vill anpassa uppslag
 
 Alla kolumner från båda strömmarna ingår i utdata. Om du vill släppa dubbletter eller oönskade kolumner lägger du till en [Select-omvandling](data-flow-select.md) efter sökningens omvandling. Kolumner kan också tas bort eller byta namn i en Sink-omvandling.
 
+### <a name="non-equi-joins"></a>Icke-Equi kopplingar
+
+Om du vill använda en villkorlig operator som inte är lika med (! =) eller större än (>) i Sök villkoren ändrar du List rutan operator mellan de två kolumnerna. Icke-Equi anslutningar kräver att minst en av de två strömmarna skickas via **fast** sändning på fliken **optimera** .
+
+![Icke-Equi sökning](media/data-flow/non-equi-lookup.png "Icke-Equi sökning")
+
 ## <a name="analyzing-matched-rows"></a>Analysera matchade rader
 
 Efter uppslags omvandlingen kan funktionen `isMatch()` användas för att se om sökningen matchar enskilda rader.
 
 ![Sök mönster](media/data-flow/lookup111.png "Sök mönster")
 
-Ett exempel på det här mönstret är att använda den villkorliga delnings omvandlingen `isMatch()` för att dela upp funktionen. I exemplet ovan går matchande rader genom den översta strömmen och icke-matchande rader flödar genom ```NoMatch``` data strömmen.
+Ett exempel på det här mönstret är att använda den villkorliga delnings omvandlingen för att dela upp `isMatch()` funktionen. I exemplet ovan går matchande rader genom den översta strömmen och icke-matchande rader flödar genom ```NoMatch``` data strömmen.
 
 ## <a name="testing-lookup-conditions"></a>Testa Sök villkor
 
@@ -92,4 +98,4 @@ SQLProducts, DimProd lookup(ProductID == ProductKey,
 Nästa steg
 
 * Transformeringarna [Join](data-flow-join.md) och [exists](data-flow-exists.md) tar båda i flera Stream-indata
-* Använd en [villkorlig Split](data-flow-conditional-split.md) -omvandling ```isMatch()``` med för att dela upp rader för matchande och icke-matchande värden
+* Använd en [villkorlig Split-omvandling](data-flow-conditional-split.md) med ```isMatch()``` för att dela upp rader för matchande och icke-matchande värden

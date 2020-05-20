@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 4b02039c86f43e6bebed58dfff475816f09a3da1
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 00cf806bf6575fd96af435abf8d0b3dd8734338a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890148"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679653"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Likhet och bedömning i Azure Kognitiv sökning
 
@@ -25,7 +25,7 @@ Sök poängen beräknas baserat på statistiska egenskaper för data och frågan
 
 Sök Resultat värden kan upprepas i en resultat uppsättning. Om flera träffar har samma Sök poäng, är ordningen för samma poäng objekt inte definierad och är inte stabil. Kör frågan igen så kan du se objekt förändrings positionen, särskilt om du använder den kostnads fria tjänsten eller en fakturerbar tjänst med flera repliker. Om två objekt har samma poäng finns det ingen garanti för att det visas först.
 
-Om du vill dela upp anknyten mellan upprepade Poäng kan du lägga till en **$OrderBy** -sats i första ordningen efter poäng och sedan Sortera efter ett annat sorterbart fält `$orderby=search.score() desc,Rating desc`(till exempel). Mer information finns i [$OrderBy](https://docs.microsoft.com/azure/search/search-query-odata-orderby).
+Om du vill dela upp anknyten mellan upprepade Poäng kan du lägga till en **$OrderBy** -sats i första ordningen efter poäng och sedan Sortera efter ett annat sorterbart fält (till exempel `$orderby=search.score() desc,Rating desc` ). Mer information finns i [$OrderBy](https://docs.microsoft.com/azure/search/search-query-odata-orderby).
 
 > [!NOTE]
 > A `@search.score = 1.00` indikerar en oväntad resultat uppsättning. Poängen är enhetlig för alla resultat. Oväntade resultat inträffar när fråge formuläret är suddigt Sök-, jokertecken-eller regex-frågor eller ett **$filter** -uttryck. 
@@ -36,7 +36,9 @@ Du kan anpassa hur olika fält rangordnas genom att definiera en anpassad *bedö
 
 En bedömnings profil är en del av index definitionen, som består av viktade fält, funktioner och parametrar. Mer information om att definiera en finns i [bedömnings profiler](index-add-scoring-profiles.md).
 
-## <a name="scoring-statistics"></a>Bedömnings statistik
+<a name="scoring-statistics"></a>
+
+## <a name="scoring-statistics-and-sticky-sessions-preview"></a>Bedömnings statistik och tröga sessioner (för hands version)
 
 För skalbarhet distribuerar Azure Kognitiv sökning varje index vågrätt genom en horisontell partitionering process, vilket innebär att delar av ett index är fysiskt åtskilda.
 
@@ -45,13 +47,21 @@ Som standard beräknas poängen för ett dokument baserat på statistiska egensk
 Om du föredrar att beräkna poängen baserat på de statistiska egenskaperna för alla Shards kan du göra det genom att lägga till *scoringStatistics = global* som en [frågeparameter](https://docs.microsoft.com/rest/api/searchservice/search-documents) (eller lägga till *"scoringStatistics": "global"* som en text parameter för [förfrågan](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
   Content-Type: application/json
-  api-key: [admin key]  
+  api-key: [admin or query key]  
 ```
+Om du använder scoringStatistics ser du till att alla Shards i samma replik ger samma resultat. Detta är att olika repliker kan skilja sig något från varandra när de alltid uppdateras med de senaste ändringarna i ditt index. I vissa fall kanske du vill att användarna ska få mer konsekventa resultat under en "frågenod". I sådana scenarier kan du ange en `sessionId` som del av dina frågor. `sessionId`Är en unik sträng som du skapar för att referera till en unik användarsession.
+
+```http
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+  Content-Type: application/json
+  api-key: [admin or query key]  
+```
+Så länge samma `sessionId` används görs ett försök att utföra en bästa anpassning till samma replik, vilket ökar konsekvensen av resultat som användarna ser. 
 
 > [!NOTE]
-> En Admin-API-nyckel krävs för `scoringStatistics` parametern.
+> Att återanvända samma `sessionId` värden upprepade gånger kan störa belastnings utjämningen av förfrågningarna mellan repliker och samtidigt påverka Sök tjänstens prestanda negativt. Värdet som används som sessionId får inte inledas med ett _-värde.
 
 ## <a name="similarity-ranking-algorithms"></a>Algoritmer för rangordning av likhet
 

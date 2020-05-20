@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b23c2b81d281f787914e32818d768d2d531537f4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983083"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682224"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Tjänstfunktioner för Azure AD Connect-synkronisering
 
@@ -34,12 +34,12 @@ I det här avsnittet beskrivs hur följande funktioner i **tjänsten Azure AD Co
 
 Dessa inställningar konfigureras av [Azure Active Directory-modulen för Windows PowerShell](https://aka.ms/aadposh). Ladda ned och installera den separat från Azure AD Connect. De cmdletar som beskrivs i det här avsnittet introducerades i [2016 mars-utgåvan (build 9031,1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Om du inte har de cmdlets som beskrivs i det här avsnittet, eller om de inte genererar samma resultat, kontrollerar du att du kör den senaste versionen.
 
-Om du vill se konfigurationen i din Azure AD-katalog `Get-MsolDirSyncFeatures`kör du.  
+Om du vill se konfigurationen i din Azure AD-katalog kör du `Get-MsolDirSyncFeatures` .  
 ![Get-MsolDirSyncFeatures-resultat](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
 
 Många av de här inställningarna kan bara ändras av Azure AD Connect.
 
-Följande inställningar kan konfigureras av `Set-MsolDirSyncFeature`:
+Följande inställningar kan konfigureras av `Set-MsolDirSyncFeature` :
 
 | DirSyncFeature | Kommentar |
 | --- | --- |
@@ -53,16 +53,16 @@ När du har aktiverat en funktion kan den inte inaktive ras igen.
 > 
 > 
 
-Följande inställningar konfigureras av Azure AD Connect och kan inte ändras av `Set-MsolDirSyncFeature`:
+Följande inställningar konfigureras av Azure AD Connect och kan inte ändras av `Set-MsolDirSyncFeature` :
 
 | DirSyncFeature | Kommentar |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: aktiverar tillbakaskrivning av enhet](how-to-connect-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect synkronisering: Katalog tillägg](how-to-connect-sync-feature-directory-extensions.md) |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Tillåter att ett attribut placeras i karantän när det är en dubblett av ett annat objekt, i stället för att hela objektet skickas under exporten. |
+| [DuplicateProxyAddressResiliency <br/> DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Tillåter att ett attribut placeras i karantän när det är en dubblett av ett annat objekt, i stället för att hela objektet skickas under exporten. |
 | Hash-synkronisering av lösenord |[Implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md) |
 |Direktautentisering|[Användarinloggning med Azure Active Directory-direktautentisering](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[För hands version: grupp tillbakaskrivning](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |Tillbakaskrivning av grupp|
 | UserWriteback |Stöds inte för närvarande. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Återhämtning av duplicerat attribut

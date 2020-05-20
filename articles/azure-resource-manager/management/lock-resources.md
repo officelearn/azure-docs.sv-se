@@ -2,13 +2,13 @@
 title: Lås resurser för att förhindra ändringar
 description: Förhindra att användare uppdaterar eller tar bort kritiska Azure-resurser genom att använda ett lås för alla användare och roller.
 ms.topic: conceptual
-ms.date: 02/07/2020
-ms.openlocfilehash: 70fb189adb634b7ac24afe7cc8b94738117da5ef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 6bd595e3c676c8521470a1f5a00fe782e83dc840
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274013"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683746"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Låsa resurser för att förhindra oväntade ändringar
 
@@ -25,17 +25,23 @@ Till skillnad från rollbaserad åtkomstkontroll använder du hanteringslås fö
 
 Resource Manager-lås gäller endast för åtgärder som sker i hanteringsplanet, som består av åtgärder som skickas till `https://management.azure.com`. Låsen begränsar inte hur resurser utför sina egna funktioner. Resursändringar är begränsade, men resursåtgärder är inte begränsade. Ett skrivskyddat lås på en SQL Database hindrar dig till exempel från att ta bort eller ändra databasen. Det hindrar dig inte från att skapa, uppdatera eller ta bort data i databasen. Datatransaktioner tillåts eftersom dessa åtgärder inte skickas till `https://management.azure.com`.
 
-Att använda **ReadOnly** kan leda till oväntade resultat eftersom vissa åtgärder som inte verkar ändra resursen verkligen kräver åtgärder som blockeras av låset. Det **skrivskyddade** låset kan tillämpas på resursen eller resurs gruppen som innehåller resursen. Några vanliga exempel på åtgärder som blockeras av ett **skrivskyddat** lås är:
+## <a name="considerations-before-applying-locks"></a>Att tänka på innan du använder lås
 
-* Ett **skrivskyddat** lås på ett lagrings konto förhindrar att alla användare visar nycklarna. Åtgärden för att visa nycklar hanteras via en POST-begäran eftersom nycklarna som returneras är tillgängliga för skrivåtgärder.
+Att använda Lås kan leda till oväntade resultat eftersom vissa åtgärder som inte verkar ändra resursen verkligen kräver åtgärder som blockeras av låset. Några vanliga exempel på åtgärder som blockeras av lås är:
 
-* Ett **skrivskyddat** lås på en app service resurs förhindrar att Visual Studio-Server Explorer visar filer för resursen, eftersom denna interaktion kräver skriv åtkomst.
+* Ett skrivskyddat lås på ett **lagrings konto** förhindrar att alla användare visar nycklarna. Åtgärden för att visa nycklar hanteras via en POST-begäran eftersom nycklarna som returneras är tillgängliga för skrivåtgärder.
 
-* Ett **skrivskyddat** lås på en resurs grupp som innehåller en virtuell dator hindrar alla användare från att starta eller starta om den virtuella datorn. De här åtgärderna kräver en POST-begäran.
+* Ett skrivskyddat lås på en **App Service** resurs förhindrar att Visual Studio-Server Explorer visar filer för resursen, eftersom denna interaktion kräver skriv åtkomst.
+
+* Ett skrivskyddat lås på en **resurs grupp** som innehåller en **virtuell dator** hindrar alla användare från att starta eller starta om den virtuella datorn. De här åtgärderna kräver en POST-begäran.
+
+* Ett skrivskyddat lås på en **prenumeration** förhindrar att **Azure Advisor** fungerar korrekt. Advisor kan inte lagra resultatet av sina frågor.
+
+* Ett borttagnings lås på **resurs gruppen** som skapats av **Azure Backup tjänsten** medför att säkerhets kopieringen Miss lyckas. Tjänsten har stöd för högst 18 återställnings punkter. När det är låst kan säkerhets kopierings tjänsten inte rensa återställnings punkter. Mer information finns i vanliga frågor och svar om hur du [säkerhetskopierar virtuella Azure-datorer](../../backup/backup-azure-vm-backup-faq.md).
 
 ## <a name="who-can-create-or-delete-locks"></a>Vem kan skapa eller ta bort lås
 
-Om du vill skapa eller ta bort hanterings lås måste du `Microsoft.Authorization/*` ha `Microsoft.Authorization/locks/*` åtkomst till eller åtgärder. Av de inbyggda rollerna har endast **Ägare** och **Administratör för användaråtkomst** åtkomst till dessa åtgärder.
+Om du vill skapa eller ta bort hanterings lås måste du ha åtkomst till `Microsoft.Authorization/*` eller `Microsoft.Authorization/locks/*` åtgärder. Av de inbyggda rollerna har endast **Ägare** och **Administratör för användaråtkomst** åtkomst till dessa åtgärder.
 
 ## <a name="managed-applications-and-locks"></a>Hanterade program och lås
 
@@ -56,10 +62,6 @@ Observera att tjänsten innehåller en länk till en **hanterad resurs grupp**. 
 Om du vill ta bort allt för tjänsten, inklusive resurs gruppen låst infrastruktur, väljer du **ta bort** för tjänsten.
 
 ![Ta bort tjänst](./media/lock-resources/delete-service.png)
-
-## <a name="azure-backups-and-locks"></a>Azure-säkerhetskopieringar och lås
-
-Om du låser resurs gruppen som skapats av Azure Backup tjänsten kommer säkerhets kopieringarna att Miss lyckas. Tjänsten har stöd för högst 18 återställnings punkter. Med ett **CanNotDelete** -lås kan säkerhets kopierings tjänsten inte rensa återställnings punkter. Mer information finns i vanliga frågor och svar om hur du [säkerhetskopierar virtuella Azure-datorer](../../backup/backup-azure-vm-backup-faq.md).
 
 ## <a name="portal"></a>Portalen
 

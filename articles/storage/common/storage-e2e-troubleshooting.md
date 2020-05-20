@@ -9,12 +9,13 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: monitoring
+ms.openlocfilehash: 9b4accd14785aedee06850d5a79dc9835086306a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610980"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680380"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Felsökning från slutpunkt till slutpunkt med Azure Storage-mått och -loggning, AzCopy och Message Analyzer
 
@@ -85,7 +86,7 @@ I den här självstudien använder vi Message Analyzer för att arbeta med tre o
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Konfigurera loggning och mått på Server Sidan
 
-Först måste vi konfigurera Azure Storage loggning och mått, så att vi kan analysera data från tjänst sidan. Du kan konfigurera loggning och mått på flera olika sätt – via [Azure Portal](https://portal.azure.com), genom att använda PowerShell eller program mässigt. Se [Aktivera mått](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) och [Aktivera loggning](storage-analytics-logging.md#enable-storage-logging) för information om hur du konfigurerar loggning och mått.
+Först måste vi konfigurera Azure Storage loggning och mått, så att vi kan analysera data från tjänst sidan. Du kan konfigurera loggning och mått på flera olika sätt – via [Azure Portal](https://portal.azure.com), genom att använda PowerShell eller program mässigt. Se [Aktivera mått](storage-analytics-metrics.md#enable-metrics-by-using-the-azure-portal) och [Aktivera loggning](storage-analytics-logging.md#enable-storage-logging) för information om hur du konfigurerar loggning och mått.
 
 ### <a name="configure-net-client-side-logging"></a>Konfigurera loggning av .NET-klient Sidan
 
@@ -141,9 +142,9 @@ Mer information om hur du lägger till och anpassar mått diagram finns i [Anpas
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Använda AzCopy för att kopiera Server loggar till en lokal katalog
 
-Azure Storage skriver serverns loggdata till blobbar, medan mått skrivs till tabeller. Log-blobbar är tillgängliga i den välkända `$logs` behållaren för ditt lagrings konto. Log-blobbar namnges hierarkiskt efter år, månad, dag och timme, så att du enkelt kan hitta det tidsintervall som du vill undersöka. I `storagesample` kontot är `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`till exempel behållaren för log-Blobbarna för 01/02/2015, från 8-9 am,. De enskilda Blobbarna i den här behållaren namnges sekventiellt, från `000000.log`och med.
+Azure Storage skriver serverns loggdata till blobbar, medan mått skrivs till tabeller. Log-blobbar är tillgängliga i den välkända `$logs` behållaren för ditt lagrings konto. Log-blobbar namnges hierarkiskt efter år, månad, dag och timme, så att du enkelt kan hitta det tidsintervall som du vill undersöka. I kontot är till exempel `storagesample` behållaren för log-Blobbarna för 01/02/2015, från 8-9 am, `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800` . De enskilda Blobbarna i den här behållaren namnges sekventiellt, från och med `000000.log` .
 
-Du kan använda kommando rads verktyget AzCopy för att hämta dessa loggfiler på Server sidan till en valfri plats på den lokala datorn. Du kan till exempel använda följande kommando för att ladda ned loggfilerna för BLOB-åtgärder som ägde rum den 2 januari 2015 till mappen `C:\Temp\Logs\Server`. Ersätt `<storageaccountname>` med namnet på ditt lagrings konto:
+Du kan använda kommando rads verktyget AzCopy för att hämta dessa loggfiler på Server sidan till en valfri plats på den lokala datorn. Du kan till exempel använda följande kommando för att ladda ned loggfilerna för BLOB-åtgärder som ägde rum den 2 januari 2015 till mappen `C:\Temp\Logs\Server` . Ersätt `<storageaccountname>` med namnet på ditt lagrings konto:
 
 ```azcopy
 azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
@@ -308,11 +309,11 @@ Nu när du har lärt dig att använda Message Analyzer för att analysera dina l
 
 | Att undersöka... | Använd filter uttryck... | Uttrycket gäller för loggen (klient, Server, nätverk, alla) |
 | --- | --- | --- |
-| Oväntade fördröjningar i meddelande leverans i en kö |AzureStorageClientDotNetV4. Description innehåller "försök att försöka igen." |Klient |
+| Oväntade fördröjningar i meddelande leverans i en kö |AzureStorageClientDotNetV4. Description innehåller "försök att försöka igen." |Client |
 | HTTP-ökning i PercentThrottlingError |Inkommande. Response. StatusCode = = 500 &#124;&#124; HTTP. Response. StatusCode = = 503 |Nätverk |
 | Ökning i PercentTimeoutError |Inkommande. Response. StatusCode = = 500 |Nätverk |
 | Ökning i PercentTimeoutError (alla) |* StatusCode = = 500 |Alla |
-| Ökning i PercentNetworkError |AzureStorageClientDotNetV4. EventLogEntry. level < 2 |Klient |
+| Ökning i PercentNetworkError |AzureStorageClientDotNetV4. EventLogEntry. level < 2 |Client |
 | HTTP 403-meddelanden (Förbjudet) |Inkommande. Response. StatusCode = = 403 |Nätverk |
 | HTTP 404-meddelanden (Hittades inte) |Inkommande. Response. StatusCode = = 404 |Nätverk |
 | 404 (alla) |* StatusCode = = 404 |Alla |

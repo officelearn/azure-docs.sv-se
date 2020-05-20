@@ -1,7 +1,7 @@
 ---
-title: Enhets typ som har registrerats av enheten – LUIS
+title: Enhets typ för maskin inlärning – LUIS
 titleSuffix: Azure Cognitive Services
-description: Den enhet som har lärts är den önskade entiteten för att skapa LUIS-program.
+description: Enheten för maskin inlärning är den prioriterade entiteten för att skapa LUIS-program.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ddaf5c921f92aeaefd8a8b0cb13602bc70a4dd5d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585597"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684578"
 ---
-# <a name="machine-learned-entity"></a>Maskininlärd enhet
+# <a name="machine-learning-entity"></a>Enhet för maskin inlärning
 
-Den enhet som har lärts är den önskade entiteten för att skapa LUIS-program.
+Enheten för maskin inlärning är den prioriterade entiteten för att skapa LUIS-program.
 
 
 ## <a name="example-json"></a>Exempel-JSON
@@ -38,7 +38,7 @@ Här är några exempelyttranden:
 
 #### <a name="v3-prediction-endpoint-response"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Eftersom en enhet som har lärts in kan ha många underentiteter med nödvändiga funktioner, är detta bara ett exempel. Den bör betraktas som en vägledning för vad din entitet kommer att returnera.
+Eftersom en maskin inlärnings enhet kan ha många underentiteter med nödvändiga funktioner, är detta bara ett exempel. Den bör betraktas som en vägledning för vad din entitet kommer att returnera.
 
 Överväg frågan:
 
@@ -348,6 +348,6 @@ Den här entiteten är inte tillgänglig i körnings miljön för v2-förutsäge
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om den enhets information som datorn har lärt dig, inklusive en [själv studie kurs](tutorial-machine-learned-entity.md), [koncept](luis-concept-entity-types.md#design-entities-for-decomposition)och [instruktions guide](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Lär dig mer om enheten för maskin inlärning, inklusive en [själv studie kurs](tutorial-machine-learned-entity.md), [koncept](luis-concept-entity-types.md#design-entities-for-decomposition)och [instruktions guide](luis-how-to-add-entities.md#create-a-machine-learned-entity).
 
 Lär dig mer om entiteten [lista](reference-entity-list.md) och [reguljära uttryck](reference-entity-regular-expression.md) .

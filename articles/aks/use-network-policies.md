@@ -5,12 +5,12 @@ description: Lär dig hur du skyddar trafik som flödar in och ut ur poddar med 
 services: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.openlocfilehash: ca0b6d4acd48dde0ea381ab37080fb6af1fb936c
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 7e494c6ac89289a9b271d16b871b8a22e1ca9e6a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854221"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683205"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Skydda trafik mellan poddar med hjälp av nätverks principer i Azure Kubernetes service (AKS)
 
@@ -55,7 +55,7 @@ Båda implementeringarna använder Linux- *program varan iptables* för att geno
 | Plattformar som stöds                      | Linux                      | Linux                       |
 | Nätverks alternativ som stöds             | Azure-CNI                  | Azure-CNI och Kubernetes       |
 | Efterlevnad med Kubernetes-specifikation | Alla princip typer som stöds |  Alla princip typer som stöds |
-| Ytterligare funktioner                      | Inga                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du `calicoctl` använder CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
+| Ytterligare funktioner                      | Inga                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du använder `calicoctl` CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
 | Support                                  | Stöds av support-och teknik teamet för Azure | Calico community-support. Mer information om ytterligare avgiftsbelagd support finns i [Support alternativ för Project Calico][calico-support]. |
 | Loggning                                  | Regler som läggs till/tas bort i program varan iptables loggas på varje värd under */var/log/Azure-NPM.log* | Mer information finns i [Calico-komponent loggar][calico-logs] |
 
@@ -81,7 +81,7 @@ Följande exempel skript:
 * Skapar ett tjänst huvud namn för Azure Active Directory (Azure AD) för användning med AKS-klustret.
 * Tilldelar *deltagar* behörighet för AKS-kluster tjänstens huvud namn i det virtuella nätverket.
 * Skapar ett AKS-kluster i det definierade virtuella nätverket och aktiverar nätverks principen.
-    * Alternativet *Azure* Network Policy används. Använd `--network-policy calico` parametern för att använda Calico som alternativet nätverks princip i stället. Obs: Calico kan användas med antingen `--network-plugin azure` eller. `--network-plugin kubenet`
+    * Alternativet _Azure Network_ policy används. Använd parametern för att använda Calico som alternativet nätverks princip i stället `--network-policy calico` . Obs: Calico kan användas med antingen `--network-plugin azure` eller `--network-plugin kubenet` .
 
 Observera att du kan använda en hanterad identitet för behörigheter i stället för att använda ett huvud namn för tjänsten. Mer information finns i [använda hanterade identiteter](use-managed-identity.md).
 
@@ -146,7 +146,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Neka all inkommande trafik till en POD
 
-Innan du definierar regler för att tillåta speciell nätverks trafik måste du först skapa en nätverks princip för att neka all trafik. Den här principen ger dig en start punkt för att börja vitlista endast den önskade trafiken. Du kan också tydligt se att trafiken bryts när nätverks principen tillämpas.
+Innan du definierar regler för att tillåta speciell nätverks trafik måste du först skapa en nätverks princip för att neka all trafik. Den här principen ger dig en start punkt för att börja skapa en lista över tillåtna för den önskade trafiken. Du kan också tydligt se att trafiken bryts när nätverks principen tillämpas.
 
 För exempel programmets miljö och trafik regler ska vi först skapa ett namn område som heter *utveckling* för att köra exemplet poddar:
 
@@ -191,7 +191,7 @@ exit
 
 ### <a name="create-and-apply-a-network-policy"></a>Skapa och tillämpa en nätverks princip
 
-Nu när du har bekräftat att du kan använda den grundläggande NGINX-webbsidan i exempel backend-pod, skapar du en nätverks princip som nekar all trafik. Skapa en fil med `backend-policy.yaml` namnet och klistra in följande yaml-manifest. I det här manifestet används en *podSelector* för att koppla principen till poddar som har *appen: webapp, roll: Server dels* etikett, t. ex. ditt exempel nginx pod. Inga regler har definierats i *ingress*, så all inkommande trafik till Pod nekas:
+Nu när du har bekräftat att du kan använda den grundläggande NGINX-webbsidan i exempel backend-pod, skapar du en nätverks princip som nekar all trafik. Skapa en fil med namnet `backend-policy.yaml` och klistra in följande yaml-manifest. I det här manifestet används en *podSelector* för att koppla principen till poddar som har *appen: webapp, roll: Server dels* etikett, t. ex. ditt exempel nginx pod. Inga regler har definierats i *ingress*, så all inkommande trafik till Pod nekas:
 
 ```yaml
 kind: NetworkPolicy
@@ -474,9 +474,9 @@ Mer information om principer finns i [Kubernetes Network policies][kubernetes-ne
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/reference/calicoctl/
 [calico-support]: https://www.tigera.io/tigera-products/calico/
-[calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
+[calico-logs]: https://docs.projectcalico.org/maintenance/troubleshoot/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->

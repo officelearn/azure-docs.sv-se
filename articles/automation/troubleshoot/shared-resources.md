@@ -1,6 +1,6 @@
 ---
-title: Felsöka delade resurser i Azure Automation
-description: Lär dig hur du felsöker och löser problem med Azure Automation delade resurser.
+title: Felsöka Azure Automation problem med delade resurser
+description: Den här artikeln beskriver hur du felsöker och löser problem med Azure Automation delade resurser.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,19 +8,16 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c59e8ec67777a9cfebc12508b197e1237a61df4a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864206"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680880"
 ---
-# <a name="troubleshoot-shared-resources-in-azure-automation"></a>Felsöka delade resurser i Azure Automation
+# <a name="troubleshoot-shared-resource-issues"></a>Felsöka problem med delade resurser
 
-Den här artikeln beskriver lösningar på problem som kan uppstå när du använder [delade resurser](../automation-intro.md#shared-resources) i Azure Automation.
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM just nu. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
+Den här artikeln beskriver problem som kan uppstå när du använder [delade resurser](../automation-intro.md#shared-resources) i Azure Automation.
 
 ## <a name="modules"></a>Moduler
 
@@ -170,6 +167,6 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 Om den här artikeln inte löser problemet kan du prova någon av följande kanaler för ytterligare support:
 
 * Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport). Detta är det officiella Microsoft Azure kontot för att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) . Detta är det officiella Microsoft Azure kontot för att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 * Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support**.
 

@@ -7,34 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: b54905e201ee7a6dbf4c6837960a6e0b63057ea9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.openlocfilehash: 35cac2c05a8603313bb2bbe1bde3817dc88c6ed2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80549043"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682620"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänstbegränsningar i Azure Cognitive Search
 
 De maximala gränserna för lagring, arbets belastningar och kvantiteter av index och andra objekt beror på om du [etablerar Azure kognitiv sökning](search-create-service-portal.md) på kostnads nivåer som är **kostnads fria**, **Basic**, **standard**eller **Storage** .
 
-+ **Kostnads fri** är en delad tjänst för flera innehavare som medföljer din Azure-prenumeration. Indexerings-och fråge förfrågningar körs på repliker och partitioner som används av andra klienter.
++ **Kostnads fri** är en delad tjänst för flera innehavare som medföljer din Azure-prenumeration. 
 
 + **Basic** tillhandahåller dedikerade data bearbetnings resurser för produktions arbets belastningar i en mindre skala, men delar en nätverks infrastruktur med andra klienter.
 
-+ **Standard** körs på dedikerade datorer med mer lagrings-och bearbetnings kapacitet på alla nivåer. Standard är fyra nivåer: S1, S2, S3 och S3 HD.
++ **Standard** körs på dedikerade datorer med mer lagrings-och bearbetnings kapacitet på alla nivåer. Standard är fyra nivåer: S1, S2, S3 och S3 HD. S3 High densitet (S3 HD) är utformad för [flera innehavare](search-modeling-multitenant-saas-applications.md) och stora mängder små index (3000 index per tjänst). S3 HD tillhandahåller inte [indexerings funktionen](search-indexer-overview.md) och data inmatningen måste utnyttja API: er som skickar data från källan till indexet. 
 
-+ **Optimerade lagrings enheter** på dedikerade datorer med mer total lagring, lagrings bandbredd och minne än **standard**. Optimerad lagring levereras på två nivåer: L1 och L2
-
-> [!NOTE]
-> Från och med 1 juli är alla nivåer allmänt tillgängliga, inklusive den optimerade lagrings nivån. Du hittar alla priser på sidan med [pris information](https://azure.microsoft.com/pricing/details/search/) .
-
-  S3 High densitet (S3 HD) är utformad för specifika arbets belastningar: [flera innehavare](search-modeling-multitenant-saas-applications.md) och stora mängder små index (3000 index per tjänst). Den här nivån tillhandahåller inte [funktionen Indexer](search-indexer-overview.md). På S3 HD måste data inmatningen utnyttja push-metoden, med API-anrop för att skicka data från källan till indexet. 
-
-> [!NOTE]
-> En tjänst tillhandahålls på en angiven nivå. Att flytta nivåer för att få kapacitet innebär att tillhandahålla en ny tjänst (det finns ingen uppgradering på plats). Mer information finns i [Välj en SKU eller nivå](search-sku-tier.md). Mer information om hur du justerar kapacitet i en tjänst som du redan har etablerad finns i [skala resurs nivåer för frågor och indexering av arbets belastningar](search-capacity-planning.md).
->
++ **Optimerade lagrings enheter** på dedikerade datorer med mer total lagring, lagrings bandbredd och minne än **standard**. Den här nivån riktar sig mot stora och långsamma index. Optimerad lagring kommer i två nivåer: L1 och L2.
 
 ## <a name="subscription-limits"></a>Prenumerationsgränser
 [!INCLUDE [azure-search-limits-per-subscription](../../includes/azure-search-limits-per-subscription.md)]
@@ -46,12 +37,12 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 ## <a name="index-limits"></a>Index gränser
 
-| Resurs | Kostnadsfri | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resurs | Kostnadsfri | Basic &nbsp; <sup>1</sup>  | S1 | S2 | S3 | S3 &nbsp; HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |10 |10 |
 | Maximalt antal enkla fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
 | Maximalt antal komplexa samlings fält per index |40 |40 |40 |40 |40 |40 |40 |40 |
-| Maximalt antal element i alla komplexa samlingar per&nbsp;dokument<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximalt antal element i alla komplexa samlingar per dokument &nbsp; <sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximalt djup för komplexa fält |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximalt antal [förslag](https://docs.microsoft.com/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximala [bedömnings profiler](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
@@ -59,10 +50,7 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 <sup>1</sup> Basic-tjänster som skapats före december 2017 har lägre gränser (5 i stället för 15) för index. Basic-nivån är den enda SKU: n med en lägre gräns på 100 fält per index.
 
-<sup>2</sup> det finns ett mycket stort antal element i komplexa samlingar per dokument som för närvarande orsakar hög lagrings användning. Detta är ett känt problem. Under tiden är en gräns på 3000 en säker övre gräns för alla tjänst nivåer. Den här gränsen tillämpas endast för indexerings åtgärder som använder den tidigaste allmänt tillgängliga API-versionen (GA) som stöder komplexa typ fält (`2019-05-06`) och senare. Om du inte vill avbryta klienter som använder tidigare för hands versions-API-versioner (som stöder komplexa typ fält) kommer vi inte att genomdriva den här gränsen för indexerings åtgärder som använder dessa för hands versions API-versioner. Observera att för hands versions-API-versioner inte är avsedda att användas för produktions scenarier och vi rekommenderar att kunderna flyttar till den senaste GA API-versionen.
-
-> [!NOTE]
-> Även om den maximala kapaciteten för ett enskilt index vanligt vis begränsas av tillgängligt lagrings utrymme, finns det högst övre gränser för det totala antalet dokument som kan lagras i ett enda index. Den här gränsen är cirka 24 000 000 000 dokument per index för Basic-, S1-, S2-och S3 search-tjänster och 2 000 000 000-dokument per index för S3HD search Services. Varje element i en komplex samling räknas som separata dokument för dessa gränser.
+<sup>2</sup> det finns ett mycket stort antal element i komplexa samlingar per dokument som för närvarande orsakar hög lagrings användning. Detta är ett känt fel. Under tiden är en gräns på 3000 en säker övre gräns för alla tjänst nivåer. Den här gränsen tillämpas endast för indexerings åtgärder som använder den tidigaste allmänt tillgängliga API-versionen (GA) som stöder komplexa typ fält ( `2019-05-06` ) och senare. Om du inte vill avbryta klienter som använder tidigare för hands versions-API-versioner (som stöder komplexa typ fält) kommer vi inte att genomdriva den här gränsen för indexerings åtgärder som använder dessa för hands versions API-versioner. Observera att för hands versions-API-versioner inte är avsedda att användas för produktions scenarier och vi rekommenderar att kunderna flyttar till den senaste GA API-versionen.
 
 <a name="document-limits"></a>
 
@@ -72,20 +60,23 @@ Från och med oktober 2018 finns det inte längre några begränsningar för ant
 
 För att avgöra om din tjänst har dokument gränser använder du [REST API Hämta tjänst statistik](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). Dokument gränser avspeglas i svaret, med `null` indikeringar utan gränser.
 
+> [!NOTE]
+> Även om det inte finns några dokument gränser som tillhandahålls av tjänsten, finns det en Shard gräns på ungefär 24 000 000 000 dokument per index för Sök tjänsterna Basic, S1, S2 och S3. För S3 HD är Shard-gränsen 2 000 000 000 dokument per index. Varje element i en komplex samling räknas som ett separat dokument med avseende på Shard-gränser.
+
 ### <a name="document-size-limits-per-api-call"></a>Dokument storleks gränser per API-anrop
 
 Maximal dokument storlek vid anrop till ett index-API är cirka 16 megabyte.
 
 Dokument storleken är faktiskt en gräns för storleken på innehållet i index-API-begäran. Eftersom du kan skicka en batch med flera dokument till index-API: et samtidigt beror storleks gränsen på det realistiska sättet på hur många dokument som finns i gruppen. För en batch med ett enda dokument är maximal dokument storlek 16 MB JSON.
 
-Kom ihåg att undanta data som inte går att köra från begäran för att bevara storleken på dokumentet. Bilder och andra binära data är inte direkt frågor och bör inte lagras i indexet. Om du vill integrera data som inte går att köra i Sök resultaten definierar du ett fält som inte går att söka i och lagrar en URL-referens till resursen.
+Kom ihåg att endast de fält som kan användas av en Sök tjänst när du uppskattar dokument storleken. Eventuella binära data eller bild data i käll dokumenten bör utelämnas från dina beräkningar.  
 
 ## <a name="indexer-limits"></a>Indexerings gränser
 
 Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som helhet, men större data uppsättningar kan kräva mer indexerings tid än vad som tillåts. Om ett indexerings jobb inte kan slutföras inom den högsta tillåtna tiden kan du prova att köra det enligt ett schema. Scheduler håller reda på indexerings status. Om ett schemalagt indexerings jobb avbryts av någon anledning kan indexeraren Hämta var den senast slutade vid nästa schemalagda körning.
 
 
-| Resurs | Kostnads&nbsp;fri<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resurs | Kostnads fri &nbsp; <sup>1</sup> | Basic &nbsp; <sup>2</sup>| S1 | S2 | S3 | S3 &nbsp; HD &nbsp; <sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Ej tillämpligt |10 |10 |
 | Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Ej tillämpligt |10 |10 |
@@ -95,7 +86,7 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 | Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Ej tillämpligt  |24 timmar |24 timmar |
 | Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Ej tillämpligt  |2 timmar |2 timmar |
 | BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Ej tillämpligt  |256 |256 |
-| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4&nbsp;miljoner |8&nbsp;miljoner |16&nbsp;miljoner |Ej tillämpligt |4&nbsp;miljoner |4&nbsp;miljoner |
+| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32 000 |64 000 |4 &nbsp; miljoner |8 &nbsp; miljoner |16 &nbsp; miljoner |Ej tillämpligt |4 &nbsp; miljoner |4 &nbsp; miljoner |
 
 <sup>1</sup> kostnads fria tjänster har indexeraren maximal körnings tid på 3 minuter för BLOB-källor och 1 minut för alla andra data källor. För AI-indexering som anropar Cognitive Services är kostnads fria tjänster begränsade till 20 kostnads fria transaktioner per dag, där en transaktion definieras som ett dokument som passerar genom anriknings pipelinen.
 
@@ -105,14 +96,14 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 
 <sup>4</sup> maximalt 30 kunskaper per färdigheter.
 
-<sup>5</sup> kognitiv sökning arbets belastningar och bild analys i Azure Blob-indexering har kortare körnings tider än vanlig text indexering. Bild analys och naturlig språk bearbetning är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft. Körnings tiden sänktes för att ge andra jobb i kön en möjlighet att köra.  
+<sup>5</sup> AI-anrikning och bild analys är i beräknings intensiva och använder oproportionerliga mängder tillgängliga processor kraft. Körnings tiden för dessa arbets belastningar har förkort ATS för att ge andra jobb i kön fler möjligheter att köra.  
 
 > [!NOTE]
-> Som det anges i [index gränserna](#index-limits)kommer indexerarna också att genomdriva den övre gränsen på 3000 element i alla komplexa samlingar per dokument som börjar med den senaste ga API-versionen som stöder`2019-05-06`komplexa typer () och senare. Det innebär att om du har skapat din indexerare med en tidigare API-version kommer du inte att omfattas av den här gränsen. För att bevara maximal kompatibilitet kommer en indexerare som har skapats med en tidigare API-version och sedan uppdaterats med `2019-05-06` en API-version eller senare fortfarande att **undantas** från gränserna. Kunderna bör vara medvetna om den negativa effekten av att ha mycket stora komplexa samlingar (som tidigare nämnts) och vi rekommenderar starkt att du skapar alla nya indexerare med den senaste GA API-versionen.
+> Som det anges i [index gränserna](#index-limits)kommer indexerarna också att genomdriva den övre gränsen på 3000 element i alla komplexa samlingar per dokument som börjar med den senaste ga API-versionen som stöder komplexa typer ( `2019-05-06` ) och senare. Det innebär att om du har skapat din indexerare med en tidigare API-version kommer du inte att omfattas av den här gränsen. För att bevara maximal kompatibilitet kommer en indexerare som har skapats med en tidigare API-version och sedan uppdaterats med en API `2019-05-06` -version eller senare fortfarande att **undantas** från gränserna. Kunderna bör vara medvetna om den negativa effekten av att ha mycket stora komplexa samlingar (som tidigare nämnts) och vi rekommenderar starkt att du skapar alla nya indexerare med den senaste GA API-versionen.
 
 ## <a name="synonym-limits"></a>Synonym gränser
 
-Det högsta tillåtna antalet synonym Maps varierar beroende på pris nivå. Varje regel kan ha upp till 20 expansionar, där en expansion är en motsvarande period. Till exempel skulle "katt", Association med "Kitty", "Feline" och "Felis" (släktet för katter) räknas som 3 expansionar.
+Det maximala antalet synonym Maps varierar efter nivå. Varje regel kan ha upp till 20 expansionar, där en expansion är en motsvarande period. Till exempel skulle "katt", Association med "Kitty", "Feline" och "Felis" (släktet för katter) räknas som 3 expansionar.
 
 | Resurs | Kostnadsfri | Basic | S1 | S2 | S3 | S3 – HD |L1 | L2 |
 | -------- | -----|------ |----|----|----|-------|---|----|
@@ -125,11 +116,11 @@ FRÅGOR per sekund-uppskattningar måste utvecklas oberoende av varje kund. Inde
 
 Uppskattningar är mer förutsägbara när de beräknas på tjänster som körs på dedikerade resurser (Basic-och standard-nivåer). Du kan beräkna frågor per sekund mer noggrant eftersom du har kontroll över fler parametrar. Information om hur du använder uppskattning finns i [Azure kognitiv sökning prestanda och optimering](search-performance-optimization.md).
 
-För lagrings optimerade nivåer bör du förvänta dig ett lägre flöde för frågor och högre latens än standard-nivåerna.  Metoden för att uppskatta de frågeresultat som du kommer att uppleva är densamma som för standard-nivåerna.
+För lagrings optimerade nivåer (L1 och L2) bör du förvänta dig ett lägre flöde för frågor och högre latens än standard-nivåerna. 
 
 ## <a name="data-limits-ai-enrichment"></a>Data begränsningar (AI-anrikning)
 
-En [pipeline för AI-anrikning](cognitive-search-concept-intro.md) som gör anrop till en textanalys resurs för [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), [sentiment-analys](cognitive-search-skill-sentiment.md), [språk identifiering](cognitive-search-skill-language-detection.md)och [identifiering av PII](cognitive-search-skill-pii-detection.md) är beroende av data begränsningar. Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+En [pipeline för AI-anrikning](cognitive-search-concept-intro.md) som gör anrop till en textanalys resurs för [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), [sentiment-analys](cognitive-search-skill-sentiment.md), [språk identifiering](cognitive-search-skill-language-detection.md)och [identifiering av personlig information](cognitive-search-skill-pii-detection.md) omfattas av data begränsningar. Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Begränsnings gränser
 

@@ -3,12 +3,12 @@ title: Begränsa åtkomst med hjälp av en tjänst slut punkt
 description: Begränsa åtkomsten till ett Azure Container Registry med hjälp av en tjänst slut punkt i ett virtuellt Azure-nätverk
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: da5ab67d6658d8760565353e2a690c53d862d0ed
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 5a3cc9638fb12853e0e26f3806c17dc47f522249
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982589"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685050"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Begränsa åtkomsten till ett behållar register med hjälp av en tjänst slut punkt i ett virtuellt Azure-nätverk
 
@@ -19,7 +19,7 @@ Den här artikeln visar hur du konfigurerar en tjänst slut punkt för behållar
 > [!IMPORTANT]
 > Azure Container Registry stöder nu [Azures privata länk](container-registry-private-link.md), vilket möjliggör att privata slut punkter från ett virtuellt nätverk placeras i ett register. Privata slut punkter är tillgängliga i det virtuella nätverket med hjälp av privata IP-adresser. Vi rekommenderar att du använder privata slut punkter i stället för tjänst slut punkter i de flesta nätverks scenarier.
 
-Konfiguration av en slut punkt för en Registry-tjänst är tillgänglig i tjänst nivån **Premium** container Registry. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry-nivåer](container-registry-skus.md).
+Konfiguration av en slut punkt för en Registry-tjänst är tillgänglig i tjänst nivån **Premium** container Registry. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry tjänst nivåer](container-registry-skus.md).
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
@@ -32,9 +32,9 @@ Konfiguration av en slut punkt för en Registry-tjänst är tillgänglig i tjän
 
 * För att kunna använda Azure CLI-stegen i den här artikeln krävs Azure CLI version 2.0.58 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
-* Om du inte redan har ett behållar register måste du skapa ett (Premium-SKU krävs) och skicka en `hello-world` exempel avbildning, till exempel från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register. 
+* Om du inte redan har ett behållar register kan du skapa en (Premium-nivå krävs) och skicka en exempel avbildning, till exempel `hello-world` från Docker Hub. Använd till exempel [Azure Portal][quickstart-portal] eller [Azure CLI][quickstart-cli] för att skapa ett register. 
 
-* Om du vill begränsa register åtkomsten med hjälp av en tjänst slut punkt i en annan Azure-prenumeration registrerar du resurs leverantören för Azure Container Registry i den prenumerationen. Ett exempel:
+* Om du vill begränsa register åtkomsten med hjälp av en tjänst slut punkt i en annan Azure-prenumeration registrerar du resurs leverantören för Azure Container Registry i den prenumerationen. Till exempel:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -132,7 +132,7 @@ docker pull mycontainerregistry.azurecr.io/hello-world:v1
 
 Docker hämtar avbildningen till den virtuella datorn.
 
-Det här exemplet visar att du kan komma åt den privata behållar registret via nätverks åtkomst regeln. Registret kan dock inte nås från en inloggnings värd som inte har någon konfigurerad nätverks åtkomst regel. Om du försöker logga in från en annan värd med `az acr login` hjälp av `docker login` kommandot eller kommandot ser utdata ut ungefär så här:
+Det här exemplet visar att du kan komma åt den privata behållar registret via nätverks åtkomst regeln. Registret kan dock inte nås från en inloggnings värd som inte har någon konfigurerad nätverks åtkomst regel. Om du försöker logga in från en annan värd med hjälp av `az acr login` kommandot eller `docker login` kommandot ser utdata ut ungefär så här:
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
@@ -152,7 +152,7 @@ Om du vill se en lista över nätverks regler som har kon figurer ATS för regis
 az acr network-rule list --name mycontainerregistry 
 ```
 
-För varje regel som har kon figurer ATS kör du kommandot [AZ ACR Network-Rule Remove Remove][az-acr-network-rule-remove] för att ta bort den. Ett exempel:
+För varje regel som har kon figurer ATS kör du kommandot [AZ ACR Network-Rule Remove Remove][az-acr-network-rule-remove] för att ta bort den. Till exempel:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.

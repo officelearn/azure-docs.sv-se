@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: b8af654e14d8a5fa48c60ae62c590c4c99e66edb
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: c5862ee90a12240e7293647fae6af4f18f30c164
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891522"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680397"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Hantera & öka kvoter för resurser med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,15 +114,9 @@ Om du vill ange kvoter på arbets ytans nivå går du till valfri arbets yta i d
 
 ## <a name="view-your-usage-and-quotas"></a>Visa användning och kvoter
 
-Att visa din kvot för olika resurser, till exempel Virtual Machines, lagring, nätverk, är enkelt genom Azure Portal.
+Azure Machine Learning Compute hanteras separat från andra Azure-resurs kvoter i din prenumeration. Om du vill visa den här kvoten måste du öka detalj nivån för Machine Learning tjänster.  
 
-1. Välj **alla tjänster** i den vänstra rutan och välj sedan **prenumerationer** under kategorin Allmänt.
-
-1. I listan över prenumerationer väljer du den prenumeration vars kvot du söker.
-
-   **Det finns en**varning, särskilt för att Visa Azure Machine Learning beräknings kvoten. Som nämnts ovan separeras kvoten från beräknings kvoten för din prenumeration.
-
-1. I den vänstra rutan väljer du **Machine Learning tjänst** och väljer sedan en arbets yta i listan som visas
+1. I den vänstra rutan väljer du **Machine Learning tjänst** och väljer sedan en arbets yta i listan som visas.
 
 1. På nästa blad går du till **avsnittet support och fel sökning** och väljer **användning och kvoter** för att visa dina aktuella kvot gränser och användning.
 
@@ -132,6 +126,12 @@ Att visa din kvot för olika resurser, till exempel Virtual Machines, lagring, n
     + **Prenumerationsvy:** På så sätt kan du Visa din användning av kärn kvoten för VM-serien, expandera den efter arbets ytan och utöka den ytterligare med hjälp av de faktiska kluster namnen. Den här vyn är optimal för att snabbt komma igång med information om kärn användningen för en viss VM-serie för att se avbrottet per arbets yta och ytterligare av de underliggande klustren för var och en av dessa arbets ytor. Den allmänna konventionen i den här vyn är (användning/kvot), där användningen är det aktuella antalet skalade kärnor och kvoten är det logiska maximala antalet kärnor som resursen kan skalas till. För varje **arbets yta**skulle kvoten vara kvoten för arbets ytans nivå (enligt beskrivningen ovan) som anger det maximala antalet kärnor som du kan skala till för en viss VM-serie. För ett **kluster** på samma sätt är kvoten i själva verket de kärnor som motsvarar det högsta antalet noder som klustret kan skala till som definieras av egenskapen max_nodes.
 
     + **Vyn arbets yta:** På så sätt kan du Visa din användning av kärn kvoten per arbets yta, expandera den av VM-serien och utöka den ytterligare genom att utöka den med de faktiska kluster namnen. Den här vyn är optimal för att snabbt komma igång med information om kärn användningen för en viss arbets yta för att se upprensningen av VM-familjer och ytterligare av de underliggande klustren för var och en av dessa familjer.
+
+Att visa din kvot för olika Azure-resurser, till exempel Virtual Machines, lagring, nätverk, är enkelt genom Azure Portal.
+
+1. Välj **alla tjänster** i den vänstra rutan och välj sedan **prenumerationer** under kategorin Allmänt.
+
+1. I listan över prenumerationer väljer du den prenumeration vars kvot du söker.
 
 ## <a name="request-quota-increases"></a>Begär kvotökningar
 

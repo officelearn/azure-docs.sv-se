@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 39b543c5f886b22d488198873b75cf76555692fa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 005c035468a4225f96e8ef69b2ef31a82bf7eedb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731652"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682828"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -109,7 +109,7 @@ Det tar lite tid att sprida ändringar av brand Väggs regeln. När du har ändr
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Hur gör jag för att Access Docker Registry HTTP API v2?
 
-ACR stöder Docker Registry HTTP API v2. API: er kan nås på `https://<your registry login server>/v2/`. Exempel: `https://mycontainerregistry.azurecr.io/v2/`
+ACR stöder Docker Registry HTTP API v2. API: er kan nås på `https://<your registry login server>/v2/` . Exempel: `https://mycontainerregistry.azurecr.io/v2/`
 
 ### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>Hur gör jag för att ta bort alla manifest som inte refereras till av någon tagg i en lagrings plats?
 
@@ -125,7 +125,7 @@ För PowerShell:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-Obs: du kan lägga `-y` till i kommandot Ta bort för att hoppa över bekräftelsen.
+Obs: du kan lägga till `-y` i kommandot Ta bort för att hoppa över bekräftelsen.
 
 Mer information finns i [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
@@ -170,7 +170,7 @@ Du måste köra Azure CLI-behållaren genom att montera Docker-socketen:
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock azuresdk/azure-cli-python:dev
 ```
 
-I behållaren installerar `docker`du:
+I behållaren installerar du `docker` :
 
 ```bash
 apk --update add docker
@@ -196,9 +196,9 @@ Ja, du kan använda betrodda avbildningar i Azure Container Registry, eftersom [
 
 ####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Var finns filen för tumavtrycket?
 
-Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
+Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata` :
 
-* Offentliga nycklar och certifikat för alla roller (förutom Delegerings roller) lagras i `root.json`.
+* Offentliga nycklar och certifikat för alla roller (förutom Delegerings roller) lagras i `root.json` .
 * Offentliga nycklar och certifikat för Delegerings rollen lagras i JSON-filen för den överordnade rollen (till exempel `targets.json` för `targets/releases` rollen).
 
 Vi rekommenderar att du verifierar dessa offentliga nycklar och certifikat efter den övergripande TUF-verifieringen som gjorts av Docker-och Notary-klienten.
@@ -207,14 +207,14 @@ Vi rekommenderar att du verifierar dessa offentliga nycklar och certifikat efter
 
 ACR stöder [anpassade roller](container-registry-roles.md) som ger olika behörighets nivåer. Specifikt, `AcrPull` och `AcrPush` roller gör det möjligt för användare att ta emot och/eller push-avbildningar utan behörighet att hantera register resursen i Azure.
 
-* Azure Portal: ditt register-> Access Control (IAM)-> Lägg till ( `AcrPull` Välj `AcrPush` eller för rollen).
+* Azure Portal: ditt register-> Access Control (IAM)-> Lägg till (Välj `AcrPull` eller `AcrPush` för rollen).
 * Azure CLI: hitta resurs-ID för registret genom att köra följande kommando:
 
   ```azurecli
   az acr show -n myRegistry
   ```
   
-  Sedan kan du tilldela rollen `AcrPull` eller `AcrPush` till en användare (följande exempel använder `AcrPull`):
+  Sedan kan du tilldela `AcrPull` rollen eller `AcrPush` till en användare (följande exempel använder `AcrPull` ):
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
@@ -246,7 +246,7 @@ Den tilldelas sedan kan autentisera och komma åt avbildningar i registret.
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-Om du bara använder rollen `AcrPull` eller `AcrPush` , har den tilldelade tilldelas inte behörighet att hantera register resursen i Azure. Till exempel `az acr list` eller `az acr show -n myRegistry` visar inte registret.
+Om du bara använder `AcrPull` `AcrPush` rollen eller, har den tilldelade tilldelas inte behörighet att hantera register resursen i Azure. Till exempel `az acr list` eller `az acr show -n myRegistry` visar inte registret.
 
 ### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Hur gör jag för att aktivera automatisk avbildnings karantän för ett register?
 
@@ -254,7 +254,7 @@ Bild karantänen är för närvarande en förhands gransknings funktion i ACR. D
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Hur gör jag för att aktivera anonym pull-åtkomst?
 
-Att konfigurera ett Azure Container Registry för anonym (offentlig) pull-åtkomst är för närvarande en för hands versions funktion. Om du vill aktivera offentlig åtkomst öppnar du ett support ärende https://aka.ms/acr/support/create-ticketpå. Mer information finns i [Azure feedback-forumet](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Att konfigurera ett Azure Container Registry för anonym (offentlig) pull-åtkomst är för närvarande en för hands versions funktion. Om du vill aktivera offentlig åtkomst öppnar du ett support ärende på https://aka.ms/acr/support/create-ticket . Mer information finns i [Azure feedback-forumet](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostik-och hälso kontroller
@@ -313,7 +313,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen `/etc/sysconfig/docker`för Docker daemon. Exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker` . Till exempel:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -323,15 +323,15 @@ Så här löser du felet:
    sudo systemctl restart docker.service
    ```
 
-Information om `--signature-verification` kan hittas genom att köra `man dockerd`.
+Information om `--signature-verification` kan hittas genom att köra `man dockerd` .
 
 ### <a name="az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required"></a>AZ ACR-inloggningen lyckades men Docker Miss lyckas med fel: obehörig: autentisering krävs
 
-Se till att du använder en URL för gemener, till exempel `docker push myregistry.azurecr.io/myimage:latest`, även om register resurs namnet är versaler eller blandade fall, t `myRegistry`. ex..
+Se till att du använder en URL för gemener, till exempel, `docker push myregistry.azurecr.io/myimage:latest` även om register resurs namnet är versaler eller blandade fall, t `myRegistry` . ex..
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Aktivera och hämta fel söknings loggarna i Docker daemon    
 
-Börja `dockerd` med `debug` alternativet. Först skapar du konfigurations filen för Docker daemon`/etc/docker/daemon.json`() om den inte finns och lägger till `debug` alternativet:
+Börja `dockerd` med `debug` alternativet. Först skapar du konfigurations filen för Docker daemon ( `/etc/docker/daemon.json` ) om den inte finns och lägger till `debug` alternativet:
 
 ```json
 {    
@@ -347,7 +347,7 @@ sudo service docker restart
 
 Information finns i [Docker-dokumentationen](https://docs.docker.com/engine/admin/#enable-debugging).    
 
- * Loggarna kan genereras på olika platser, beroende på ditt system. För Ubuntu 14,04 är `/var/log/upstart/docker.log`det till exempel.    
+ * Loggarna kan genereras på olika platser, beroende på ditt system. För Ubuntu 14,04 är det till exempel `/var/log/upstart/docker.log` .    
 Mer information finns i [Docker-dokumentationen](https://docs.docker.com/engine/admin/#read-the-logs) .    
 
  * För Docker för Windows genereras loggarna under% LOCALAPPDATA%/Docker/. Det kan dock innehålla all fel söknings information än.    
@@ -360,21 +360,21 @@ Mer information finns i [Docker-dokumentationen](https://docs.docker.com/engine/
     docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
     chroot /host
     ```
-    Nu har du åtkomst till alla filer på den virtuella datorn som `dockerd`kör. Loggen är på `/var/log/docker.log`.
+    Nu har du åtkomst till alla filer på den virtuella datorn som kör `dockerd` . Loggen är på `/var/log/docker.log` .
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Nya användar behörigheter kanske inte träder i kraft omedelbart efter uppdateringen
 
 När du tilldelar nya behörigheter (nya roller) till ett huvud namn för tjänsten kanske ändringen inte träder i kraft omedelbart. Det finns två möjliga orsaker:
 
 * Azure Active Directory roll tilldelnings fördröjning. Normalt är det snabbt, men det kan ta minuter på grund av spridnings fördröjning.
-* Behörighets fördröjning på ACR-token-Server. Detta kan ta upp till 10 minuter. Du kan `docker logout` åtgärda problemet och sedan autentisera igen med samma användare efter 1 minut:
+* Behörighets fördröjning på ACR-token-Server. Detta kan ta upp till 10 minuter. Du kan åtgärda problemet `docker logout` och sedan autentisera igen med samma användare efter 1 minut:
 
   ```bash
   docker logout myregistry.azurecr.io
   docker login myregistry.azurecr.io
   ```
 
-ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen är att ta med hemreplikeringen skapa i mallen men hoppa över den genom att lägga `"condition": false` till enligt nedan:
+ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen är att ta med hemreplikeringen skapa i mallen men hoppa över den genom att lägga till `"condition": false` enligt nedan:
 
 ```json
 {
@@ -392,8 +392,8 @@ ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen ä
 
 ### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>Autentiseringsinformation anges inte i rätt format för direkta REST API-anrop
 
-Du kan stöta `InvalidAuthenticationInfo` på `curl` ett fel, särskilt med verktyget med alternativet `-L` `--location` (för att följa omdirigeringar).
-Till exempel hämtar bloben med `curl` alternativet with `-L` Basic Authentication:
+Du kan stöta `InvalidAuthenticationInfo` på ett fel, särskilt med `curl` verktyget med alternativet `-L` `--location` (för att följa omdirigeringar).
+Till exempel hämtar bloben med `curl` `-L` alternativet with Basic Authentication:
 
 ```bash
 curl -L -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest
@@ -430,12 +430,12 @@ Webbläsaren kanske inte kan skicka begäran om att hämta databaser eller tagga
 * Ad-blockerare
 * DNS-fel
 
-Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen och din anslutning. Prova att `az acr check-health -n yourRegistry` köra med Azure CLI för att kontrol lera om din miljö kan ansluta till container Registry. Dessutom kan du också försöka med en Incognito eller privat session i webbläsaren för att undvika inaktuella webbläsares cacheminnen eller cookies.
+Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen och din anslutning. Prova `az acr check-health -n yourRegistry` att köra med Azure CLI för att kontrol lera om din miljö kan ansluta till container Registry. Dessutom kan du också försöka med en Incognito eller privat session i webbläsaren för att undvika inaktuella webbläsares cacheminnen eller cookies.
 
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Varför Miss tar pull-eller push-begäran med otillåten åtgärd?
 
-Här följer några scenarier där åtgärder kanske inte tillåts:
-* Klassiska register stöds inte längre. Uppgradera till en [SKU](https://aka.ms/acr/skus) som stöds med hjälp av [AZ acr Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) eller Azure Portal.
+Här följer några scenarier där åtgärder kan vara otillåtna:
+* Klassiska register stöds inte längre. Uppgradera till en [tjänst nivå](https://aka.ms/acr/skus) som stöds med hjälp av [AZ acr Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) eller Azure Portal.
 * Avbildningen eller databasen kanske är låst så att den inte kan tas bort eller uppdateras. Du kan använda kommandot [AZ ACR show databas](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) för att visa aktuella attribut.
 * Vissa åtgärder är inte tillåtna om bilden är i karantän. Lär dig mer om [karantän](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
@@ -479,7 +479,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 ### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?
 
-Om du skickar en lokal källmapp till `az acr build` kommandot undantas `.git` mappen från det överförda paketet som standard. Du kan skapa en `.dockerignore` fil med följande inställning. Den meddelar kommandot att återställa alla filer under `.git` i det överförda paketet. 
+Om du skickar en lokal källmapp till `az acr build` kommandot `.git` undantas mappen från det överförda paketet som standard. Du kan skapa en `.dockerignore` fil med följande inställning. Den meddelar kommandot att återställa alla filer under `.git` i det överförda paketet. 
 
 `!.git/**`
 

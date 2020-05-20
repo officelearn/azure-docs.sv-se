@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: Aro, OpenShift, AZ Aro, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: cfc28577f089ef22457e9f66ff08106969a5a4b2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857388"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681433"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Skapa ett privat kluster i Azure Red Hat OpenShift 4
 
@@ -77,7 +77,7 @@ Med en Red Hat pull-hemlighet kan ditt kluster få åtkomst till Red Hat contain
 
 Behåll den sparade `pull-secret.txt` filen någonstans säkert – den kommer att användas i varje kluster som skapas.
 
-När du kör `az aro create` kommandot kan du referera till din pull-hemlighet med `--pull-secret @pull-secret.txt` hjälp av parametern. Kör `az aro create` från den katalog där du sparade `pull-secret.txt` filen. Annars ersätter `@pull-secret.txt` du med `@<path-to-my-pull-secret-file`.
+När du kör `az aro create` kommandot kan du referera till din pull-hemlighet med hjälp av `--pull-secret @pull-secret.txt` parametern. Kör `az aro create` från den katalog där du sparade `pull-secret.txt` filen. Annars ersätter du `@pull-secret.txt` med `@<path-to-my-pull-secret-file` .
 
 Om du kopierar din pull-hemlighet eller refererar till den i andra skript, ska din pull-hemlighet formateras som en giltig JSON-sträng.
 
@@ -194,21 +194,23 @@ az aro create \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
-  --worker-subnet worker-subnet
+  --worker-subnet worker-subnet \
+  --apiserver-visibility Private \
+  --ingress-visibility Private
   # --domain foo.example.com # [OPTIONAL] custom domain
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
 
-När du `az aro create` har kört kommandot tar det vanligt vis cirka 35 minuter att skapa ett kluster.
+När du har kört `az aro create` kommandot tar det vanligt vis cirka 35 minuter att skapa ett kluster.
 
 >[!IMPORTANT]
-> Om du väljer att ange en anpassad domän, till exempel **foo.example.com**, blir OpenShift-konsolen tillgänglig på en URL, till exempel `https://console-openshift-console.apps.foo.example.com`, i stället för den inbyggda domänen `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
+> Om du väljer att ange en anpassad domän, till exempel **foo.example.com**, blir OpenShift-konsolen tillgänglig på en URL, till exempel `https://console-openshift-console.apps.foo.example.com` , i stället för den inbyggda domänen `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 >
-> Som standard använder OpenShift självsignerade certifikat för alla vägar som skapas på `*.apps.<random>.<location>.aroapp.io`.  Om du väljer Anpassad DNS måste du efter att ha anslutit till klustret följa OpenShift-dokumentationen för att [Konfigurera en anpassad certifikat utfärdare för din](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) ingångs kontroll och [anpassad ca för din API-Server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+> Som standard använder OpenShift självsignerade certifikat för alla vägar som skapas på `*.apps.<random>.<location>.aroapp.io` .  Om du väljer Anpassad DNS måste du efter att ha anslutit till klustret följa OpenShift-dokumentationen för att [Konfigurera en anpassad certifikat utfärdare för din](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) ingångs kontroll och [anpassad ca för din API-Server](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
 ## <a name="connect-to-the-private-cluster"></a>Anslut till det privata klustret
 
-Du kan logga in på klustret med hjälp `kubeadmin` av användaren.  Kör följande kommando för att hitta lösen ordet för `kubeadmin` användaren.
+Du kan logga in på klustret med hjälp av `kubeadmin` användaren.  Kör följande kommando för att hitta lösen ordet för `kubeadmin` användaren.
 
 ```azurecli-interactive
 az aro list-credentials \
@@ -216,7 +218,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword`.
+Följande exempel på utdata visar att lösen ordet är i `kubeadminPassword` .
 
 ```json
 {
@@ -237,7 +239,7 @@ Du kan hitta kluster konsolens URL genom att köra följande kommando, som ser u
 >[!IMPORTANT]
 > För att kunna ansluta till ett privat Azure Red Hat OpenShift-kluster måste du utföra följande steg från en värd som antingen finns i Virtual Network du skapade eller i en Virtual Network som [peer](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) -kopplas med den Virtual Network klustret har distribuerats till.
 
-Starta konsol-URL: en i en webbläsare och logga `kubeadmin` in med autentiseringsuppgifterna.
+Starta konsol-URL: en i en webbläsare och logga in med `kubeadmin` autentiseringsuppgifterna.
 
 ![Inloggnings skärm för Azure Red Hat OpenShift](media/aro4-login.png)
 
@@ -247,7 +249,7 @@ När du är inloggad i OpenShift-webbkonsolen klickar du på **?** längst upp t
 
 ![Inloggnings skärm för Azure Red Hat OpenShift](media/aro4-download-cli.png)
 
-Du kan också hämta den senaste versionen av CLI-versionen som är lämplig för <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>din dator från.
+Du kan också hämta den senaste versionen av CLI-versionen som är lämplig för din dator från <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/> .
 
 ## <a name="connect-using-the-openshift-cli"></a>Anslut med OpenShift CLI
 
@@ -260,7 +262,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 >[!IMPORTANT]
 > För att kunna ansluta till ett privat Azure Red Hat OpenShift-kluster måste du utföra följande steg från en värd som antingen finns i Virtual Network du skapade eller i en Virtual Network som [peer](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) -kopplas med den Virtual Network klustret har distribuerats till.
 
-Logga in på OpenShift-klustrets API-server med hjälp av följande kommando. Ersätt ** \<kubeadmin-lösenordet>** med det lösen ord som du nyss hämtade.
+Logga in på OpenShift-klustrets API-server med hjälp av följande kommando. Ersätt ** \< kubeadmin-lösenordet>** med det lösen ord som du nyss hämtade.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>

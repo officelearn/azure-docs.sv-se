@@ -1,6 +1,6 @@
 ---
-title: Felsöka onboarding av Azure Automation hanterings lösningar
-description: Lär dig hur du felsöker fel i Azure Automation lösning.
+title: Felsöka problem med distribution av Azure Automation-funktioner
+description: Den här artikeln beskriver hur du felsöker och löser problem som uppstår när du distribuerar Azure Automation-funktioner.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,16 +8,16 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 371094ecba5168fd32a7af9fb81a71eb722efc91
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 27b93e77e7b813e73496d15c4003e999daff10d5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836537"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681278"
 ---
-# <a name="troubleshoot-solution-onboarding"></a>Felsöka lösnings registrering
+# <a name="troubleshoot-feature-deployment-issues"></a>Felsöka funktions distributions problem
 
-Du kan få fel meddelanden när du registrerar Azure Automation Uppdateringshantering-lösningen eller Ändringsspårning-och inventerings lösningen. I den här artikeln beskrivs de olika fel som kan uppstå och hur du kan lösa dem.
+Du kan få fel meddelanden när du distribuerar Azure Automation Uppdateringshantering-funktionen eller Ändringsspårning-och inventerings funktionen på dina virtuella datorer. I den här artikeln beskrivs de fel som kan uppstå och hur du löser dem.
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -39,7 +39,7 @@ Avregistrera noden från Azure Automation tillstånds konfiguration och registre
 
 #### <a name="issue"></a>Problem
 
-När du ansluter via en proxyserver som avslutar HTTPS-trafik och sedan krypterar om trafiken med ett nytt certifikat tillåts inte anslutningen av tjänsten.
+När du ansluter via en proxy som avslutar HTTPS-trafik och sedan krypterar om trafiken med ett nytt certifikat tillåts inte anslutningen av tjänsten.
 
 #### <a name="cause"></a>Orsak
 
@@ -51,11 +51,11 @@ Det finns för närvarande ingen lösning på problemet.
 
 ## <a name="general-errors"></a>Allmänna fel
 
-### <a name="scenario-onboarding-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenario: onboarding Miss lyckas med meddelandet "lösningen kan inte aktive ras"
+### <a name="scenario-feature-deployment-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenario: funktions distributionen Miss lyckas med meddelandet "lösningen kan inte aktive ras"
 
 #### <a name="issue"></a>Problem
 
-Du får ett av följande meddelanden när du försöker publicera en virtuell dator till en lösning:
+Du får ett av följande meddelanden när du försöker aktivera en funktion på en virtuell dator:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -71,13 +71,13 @@ Felet beror på felaktig eller saknas behörighet på den virtuella datorn eller
 
 #### <a name="resolution"></a>Lösning
 
-Se till att du har rätt [behörigheter som krävs för att publicera datorer](../automation-role-based-access-control.md#onboarding-permissions)och försök sedan att publicera lösningen igen. Om du får fel meddelandet `The solution cannot be enabled on this VM because the permission to read the workspace is missing`kontrollerar du att du har `Microsoft.OperationalInsights/workspaces/read` behörighet att kunna hitta om den virtuella datorn har publicerats i en arbets yta.
+Se till att du har rätt [behörigheter för funktions distribution](../automation-role-based-access-control.md#onboarding-permissions)och försök sedan att distribuera funktionen igen. Om du får fel meddelandet `The solution cannot be enabled on this VM because the permission to read the workspace is missing` kontrollerar du att du har `Microsoft.OperationalInsights/workspaces/read` behörighet att kunna se om den virtuella datorn är aktive rad för en arbets yta.
 
-### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: onboarding Miss lyckas med meddelandet "Det gick inte att konfigurera Automation-konto för diagnostisk loggning"
+### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenario: funktions distributionen Miss lyckas med meddelandet "Det gick inte att konfigurera Automation-konto för diagnostisk loggning"
 
 #### <a name="issue"></a>Problem
 
-Följande meddelande visas när du försöker publicera en virtuell dator till en lösning:
+Följande meddelande visas när du försöker aktivera en funktion på en virtuell dator:
 
 ```error
 Failed to configure automation account for diagnostic logging
@@ -89,13 +89,13 @@ Felet kan bero på att pris nivån inte matchar prenumerationens fakturerings mo
 
 #### <a name="resolution"></a>Lösning
 
-Skapa din Log Analytics arbets yta manuellt och upprepa onboarding-processen för att välja den arbets yta som skapats.
+Skapa din Log Analytics arbets yta manuellt och upprepa funktions distributions processen för att välja den arbets yta som skapats.
 
 ### <a name="scenario-computergroupqueryformaterror"></a><a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problem
 
-Den här felkoden innebär att frågan för den sparade Sök dator gruppen som används för att rikta lösningen inte är korrekt formaterad. 
+Den här felkoden innebär att frågan för den sparade Sök dator gruppen som används för att rikta funktionen inte är korrekt formaterad. 
 
 #### <a name="cause"></a>Orsak
 
@@ -103,7 +103,7 @@ Du kan ha ändrat frågan, eller så kan systemet ha ändrat det.
 
 #### <a name="resolution"></a>Lösning
 
-Du kan ta bort frågan för lösningen och sedan publicera lösningen igen, vilket skapar frågan igen. Du hittar frågan på din arbets yta under **sparade sökningar**. Namnet på frågan är **MicrosoftDefaultComputerGroup**och frågans kategori är namnet på den associerade lösningen. Om flera lösningar är aktiverade visar **MicrosoftDefaultComputerGroup** -frågan flera gånger under **sparade sökningar**.
+Du kan ta bort frågan för funktionen och sedan aktivera funktionen igen, vilket skapar frågan igen. Du hittar frågan på din arbets yta under **sparade sökningar**. Namnet på frågan är **MicrosoftDefaultComputerGroup**och frågans kategori är namnet på den associerade funktionen. Om flera funktioner är aktiverade visar **MicrosoftDefaultComputerGroup** -frågan flera gånger under **sparade sökningar**.
 
 ### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Scenario: PolicyViolation
 
@@ -117,10 +117,10 @@ En princip blockerar åtgärden från att slutföras.
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill distribuera lösningen måste du överväga att ändra den angivna principen. Eftersom det finns många olika typer av principer som kan definieras beror ändringarna som krävs på den princip som överträds. Om en princip exempelvis definieras i en resurs grupp som nekar behörighet att ändra innehållet i vissa resurser, kan du välja någon av följande korrigeringar:
+För att kunna distribuera funktionen måste du överväga att ändra den angivna principen. Eftersom det finns många olika typer av principer som kan definieras beror ändringarna som krävs på den princip som överträds. Om en princip exempelvis definieras i en resurs grupp som nekar behörighet att ändra innehållet i vissa resurser, kan du välja någon av följande korrigeringar:
 
 * Ta bort principen helt.
-* Försök att publicera lösningen till en annan resurs grupp.
+* Försök att aktivera funktionen för en annan resurs grupp.
 * Ommålering av principen till en speciell resurs, till exempel ett Automation-konto.
 * Ändra den uppsättning resurser som principen är konfigurerad att neka.
 
@@ -138,26 +138,26 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Orsak
 
-Det här felet uppstår när du fortfarande har lösningar aktiva på din Log Analytics arbets yta som är beroende av ditt Automation-konto och Log Analytics arbets yta som är länkad.
+Det här felet uppstår när du fortfarande har funktioner som är aktiva i arbets ytan Log Analytics som är beroende av ditt Automation-konto och Log Analytics arbets yta som är länkad.
 
 ### <a name="resolution"></a>Lösning
 
-Ta bort följande lösningar från arbets ytan om du använder dem:
+Ta bort resurserna för följande funktioner från din arbets yta om du använder dem:
 
 * Uppdateringshantering
 * Ändringsspårning och inventering
 * Starta/stoppa virtuella datorer utanför arbetstid
 
-När du har tagit bort lösningarna kan du ta bort länken till arbets ytan. Det är viktigt att du rensar befintliga artefakter från dessa lösningar från din arbets yta och ditt Automation-konto:
+När du har tagit bort funktions resurserna kan du ta bort länken till arbets ytan. Det är viktigt att du rensar befintliga artefakter från dessa funktioner från din arbets yta och ditt Automation-konto:
 
 * För Uppdateringshantering tar du bort **uppdaterings distributioner (scheman)** från ditt Automation-konto.
-* För starta/stoppa virtuella datorer när de inte används tar du bort eventuella lås på lösnings komponenter i Automation-kontot under **Inställningar** > **Lås**. Mer information finns i [ta bort starta/stoppa virtuella datorer när de inte används-lösningen](../automation-solution-vm-management.md#remove-the-solution).
+* För starta/stoppa virtuella datorer när de inte används tar du bort eventuella lås på funktions komponenter i ditt Automation-konto under **Inställningar**  >  **Lås**. Mer information finns i [ta bort funktionen](../automation-solution-vm-management.md#remove-the-feature).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics för Windows-tilläggsbegäranden
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-En installation av Log Analytics agent för Windows-tillägget kan Miss Miss av olika orsaker. I följande avsnitt beskrivs onboarding-problem som kan orsaka fel under distributionen av Log Analytics agent för Windows-tillägg.
+En installation av Log Analytics agent för Windows-tillägget kan Miss Miss av olika orsaker. I följande avsnitt beskrivs funktions distributions problem som kan orsaka fel under distributionen av Log Analytics-agenten för Windows-tillägg.
 
 >[!NOTE]
 >Log Analytics agent för Windows är namnet som används för närvarande i Azure Automation för Microsoft Monitoring Agent (MMA).
@@ -245,5 +245,5 @@ Försök att installera Log Analytics agent för Windows-tillägg när den virtu
 Om du inte ser problemet här eller om du inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support:
 
 * Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Azure-support ansluter Azure-communityn till svar, support och experter.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) , det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Azure-support ansluter Azure-communityn till svar, support och experter.
 * Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support**.

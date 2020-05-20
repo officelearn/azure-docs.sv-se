@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 38088503fee016651a8c1c9a1f57ad4bbe102456
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257155"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682478"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Data vetenskap med ett Linux-Data Science Virtual Machine i Azure
 
@@ -29,9 +29,9 @@ I den här genom gången analyserar vi [spambase](https://archive.ics.uci.edu/ml
 Innan du kan använda en Linux-DSVM måste du ha följande krav:
 
 * **Azure-prenumeration**. Information om hur du skaffar en Azure-prenumeration finns i [skapa ett kostnads fritt Azure-konto idag](https://azure.microsoft.com/free/).
-* [**Linux-data science Virtual Machine**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Information om hur du etablerar den virtuella datorn finns i [etablera Linux-data science Virtual Machine](linux-dsvm-intro.md).
+* [**Linux-data science Virtual Machine**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Information om hur du etablerar den virtuella datorn finns i [etablera Linux-data science Virtual Machine](linux-dsvm-intro.md).
 * [**X2Go**](https://wiki.x2go.org/doku.php) installerat på datorn med en öppen xfce-session. Mer information finns i [Installera och konfigurera X2Go-klienten](linux-dsvm-intro.md#x2go).
-* Om du vill ha en smidigare rullnings upplevelse, går du `gfx.xrender.enabled` till DSVM Firefox-webbläsare och `about:config`växlar flaggan i. [Läs mer](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Överväg också att `mousewheel.enable_pixel_scrolling` ställa `False`in på. [Läs mer](https://support.mozilla.org/questions/981140).
+* Om du vill ha en smidigare rullnings upplevelse, går du till DSVM Firefox-webbläsare och växlar `gfx.xrender.enabled` flaggan i `about:config` . [Läs mer](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Överväg också att ställa in `mousewheel.enable_pixel_scrolling` på `False` . [Läs mer](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning konto**. Om du inte redan har ett kan du registrera dig för ett nytt konto på [Start sidan för Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Ladda ned spambase-datauppsättningen
@@ -64,11 +64,11 @@ mv headers spambaseHeaders.data
 
 Data uppsättningen har flera typer av statistik för varje e-post:
 
-* Kolumner som **Word\_FREQ\_Word** anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **Word\_-FREQ\_** till exempel är **1**, *gör*1% av alla ord i e-postmeddelandet.
-* Kolumner som **char\_FREQ\_char** anger procent andelen alla tecken i e-postmeddelandet som är *char*.
-* **längd på stor begynnelse\_är den längsta längden för en sekvens med versaler.\_\_**
-* **genomsnittlig genomsnittlig längd på versaler\_är den genomsnittliga längden för alla sekvenser med versaler.\_\_**
-* **Summa\_för\_kapital\_körnings längd** är den totala längden för alla sekvenser med versaler.
+* Kolumner som **Word \_ FREQ \_ _Word_ ** anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **Word- \_ FREQ \_ ** till exempel är **1**, *gör*1% av alla ord i e-postmeddelandet.
+* Kolumner som **char \_ FREQ \_ _char_ ** anger procent andelen alla tecken i e-postmeddelandet som är *char*.
+* **längd på stor begynnelse \_ \_ \_ ** är den längsta längden för en sekvens med versaler.
+* ** \_ \_ \_ genomsnittlig genomsnittlig längd på versaler** är den genomsnittliga längden för alla sekvenser med versaler.
+* **Summa för kapital \_ körnings \_ längd \_ ** är den totala längden för alla sekvenser med versaler.
 * **spam** anger om e-postmeddelandet ansågs vara skräp post eller inte (1 = spam, 0 = inte skräp post).
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>Utforska data uppsättningen med R Open
@@ -313,7 +313,7 @@ predictSpam.service(1, 1, 1)
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-Anaconda-distributionen i DSVM levereras med en Jupyter Notebook, en plattforms oberoende miljö för att dela python-, R-eller Julia-kod och-analys. Jupyter Notebook nås via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösen ord på https://\<DSVM DNS-namn eller IP\>-adress: 8000/. Alla konfigurationsfiler för JupyterHub finns i/etc/jupyterhub.
+Anaconda-distributionen i DSVM levereras med en Jupyter Notebook, en plattforms oberoende miljö för att dela python-, R-eller Julia-kod och-analys. Jupyter Notebook nås via JupyterHub. Du loggar in med ditt lokala Linux-användarnamn och lösen ord på https:// \< DSVM DNS-namn eller IP-adress \> : 8000/. Alla konfigurationsfiler för JupyterHub finns i/etc/jupyterhub.
 
 > [!NOTE]
 > Om du vill använda python-paketfilen (via `pip` kommandot) från en Jupyter Notebook i den aktuella kärnan, använder du det här kommandot i cellen Code:
@@ -323,7 +323,7 @@ Anaconda-distributionen i DSVM levereras med en Jupyter Notebook, en plattforms 
 >    ! {sys.executable} -m pip install numpy -y
 >   ```
 > 
-> Om du vill använda Conda-installationsprogrammet ( `conda` via kommandot) från en Jupyter Notebook i den aktuella kärnan använder du det här kommandot i en kod cell:
+> Om du vill använda Conda-installationsprogrammet (via `conda` kommandot) från en Jupyter Notebook i den aktuella kärnan använder du det här kommandot i en kod cell:
 >
 >   ```Python
 >    import sys
@@ -368,7 +368,7 @@ Så här läser du in och konfigurerar data uppsättningen:
 För att utforska data:
 
 1. Välj fliken **utforska** .
-1. Om du vill se information om variabel typer och viss sammanfattnings statistik väljer du **sammanfattnings** > **körning**.
+1. Om du vill se information om variabel typer och viss sammanfattnings statistik väljer du **sammanfattnings**  >  **körning**.
 1. Om du vill visa andra typer av statistik om varje variabel väljer du andra alternativ, t. ex. **Beskriv** eller **grunderna**.
 
 Du kan också använda fliken **utforska** för att generera inblickade områden. För att rita ett histogram med data:
@@ -492,16 +492,16 @@ Nu ska vi utforska data och köra några frågor med hjälp av SQuirreL SQL, ett
 
 Kom igång genom att öppna SQuirreL SQL på **program** -menyn. Så här konfigurerar du driv rutinen:
 
-1. Välj **Windows** > **View-drivrutiner**.
+1. Välj **Windows**  >  **View-drivrutiner**.
 1. Högerklicka på **postgresql** och välj **ändra driv rutin**.
-1. Välj **extra klass Sök väg** > **Lägg till**.
+1. Välj **extra klass Sök väg**  >  **Lägg till**.
 1. För **fil namn**anger du **/usr/share/Java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
 1. Välj **Öppna**.
 1. Välj **list driv rutiner**. För **klass namn**väljer du **org. postgresql. driver**och väljer sedan **OK**.
 
 Så här konfigurerar du anslutningen till den lokala servern:
 
-1. Välj alias för **Windows** > -**vy.**
+1. Välj alias för **Windows**-  >  **vy.**
 1. Välj **+** knappen för att skapa ett nytt alias. För det nya aliasnamnet anger du **spam-databasen**. 
 1. För **driv rutin**väljer du **postgresql**.
 1. Ange URL: en till **JDBC: postgresql://localhost/spam**.
@@ -513,7 +513,7 @@ Så här konfigurerar du anslutningen till den lokala servern:
 Så här kör du några frågor:
 
 1. Välj fliken **SQL** .
-1. I rutan fråga högst upp på fliken **SQL** anger du en grundläggande fråga som `SELECT * from data;`.
+1. I rutan fråga högst upp på fliken **SQL** anger du en grundläggande fråga som `SELECT * from data;` .
 1. Tryck på CTRL + RETUR för att köra frågan. Som standard returnerar SQuirreL SQL de första 100 raderna från frågan.
 
 Det finns många fler frågor som du kan köra för att utforska dessa data. Hur *skiljer sig* ordet ofta mellan skräp post och Ham?

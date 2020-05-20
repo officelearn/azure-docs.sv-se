@@ -1,14 +1,14 @@
 ---
 title: Felsöka vanliga fel
 description: 'Lär dig hur du felsöker problem med de olika SDK: erna när du frågar Azure-resurser med Azure Resource Graph.'
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f881db4f75bcee8c13221717596442ac29a4b1ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1b3758e52641bc27341c5da0ced9e811263c02b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74303908"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683234"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Felsöka fel med Azure Resource Graph
 
@@ -19,6 +19,25 @@ Du kan stöta på fel när du frågar Azure-resurser med Azure Resource Graph. I
 De flesta fel är resultatet av ett problem när du kör en fråga med Azure Resource Graph. När en fråga Miss lyckas innehåller SDK information om den misslyckade frågan. Den här informationen anger problemet så att det kan åtgärdas och en senare fråga lyckas.
 
 ## <a name="general-errors"></a>Allmänna fel
+
+### <a name="scenario-throttled-requests"></a><a name="throttled"></a>Scenario: begränsade begär Anden
+
+#### <a name="issue"></a>Problem
+
+Kunder som gör stora eller ofta förekommande resurs frågor har ärenden som är begränsade.
+
+#### <a name="cause"></a>Orsak
+
+Azure Resource Graph allokerar ett kvot nummer för varje användare baserat på ett tids periods fönster. En användare kan till exempel skicka högst 15 frågor inom varje 5-sekunders period utan att vara begränsad. Kvot svärdet bestäms av många faktorer och kan komma att ändras. Mer information finns i avsnittet [om begränsning i Azure Resource Graph](../overview.md#throttling).
+
+#### <a name="resolution"></a>Lösning
+
+Det finns flera metoder för att hantera begränsade begär Anden:
+
+- [Gruppera frågor](../concepts/guidance-for-throttled-requests.md#grouping-queries)
+- [Spridning av frågor](../concepts/guidance-for-throttled-requests.md#staggering-queries)
+- [Fråga parallellt](../concepts/guidance-for-throttled-requests.md#query-in-parallel)
+- [Sid brytning](../concepts/guidance-for-throttled-requests.md#pagination)
 
 ### <a name="scenario-too-many-subscriptions"></a><a name="toomanysubscription"></a>Scenario: för många prenumerationer
 
@@ -65,11 +84,11 @@ Kunder som frågar Azure Resource Graph REST API får ett _500_ -svar (internt S
 
 #### <a name="cause"></a>Orsak
 
-Azures resurs diagram REST API bara stöd för `Content-Type` en av **program/JSON**. Vissa REST verktyg eller agenter som standard är **text/plain**, vilket inte stöds av REST API.
+Azures resurs diagram REST API bara stöd `Content-Type` för en av **program/JSON**. Vissa REST verktyg eller agenter som standard är **text/plain**, vilket inte stöds av REST API.
 
 #### <a name="resolution"></a>Lösning
 
-Kontrol lera att verktyget eller agenten som du använder för att fråga Azure Resource Graph har REST API `Content-Type` huvud som kon figurer ATS för **Application/JSON**.
+Kontrol lera att verktyget eller agenten som du använder för att fråga Azure Resource Graph har REST API huvud `Content-Type` som kon figurer ATS för **Application/JSON**.
 
 ### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Scenario: ingen Läs behörighet för alla prenumerationer i listan
 
@@ -79,7 +98,7 @@ Kunder som uttryckligen skickar en lista över prenumerationer med en Azure-resu
 
 #### <a name="cause"></a>Orsak
 
-Om kunden inte har Läs behörighet till alla angivna prenumerationer, nekas begäran på grund av brist på rätt behörighet.
+Om kunden inte har Läs behörighet till alla angivna prenumerationer nekas begäran på grund av brist på rätt behörighet.
 
 #### <a name="resolution"></a>Lösning
 

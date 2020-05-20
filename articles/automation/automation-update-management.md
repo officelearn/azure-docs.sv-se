@@ -1,18 +1,18 @@
 ---
-title: Uppdateringshantering i Azure Automation
-description: I den här artikeln beskrivs den Uppdateringshantering funktionen som hanterar uppdateringar för dina Windows-och Linux-datorer.
+title: Översikt över Azure Automation Uppdateringshantering
+description: Översikt över den Uppdateringshantering-funktion som hanterar uppdateringar för dina Windows-och Linux-datorer
 services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca5d8c35aea06143e058aade473282a038212605
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: d3a3a19673ecb6edb82f0512f318298865c8ed24
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872164"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681284"
 ---
-# <a name="update-management-in-azure-automation"></a>Uppdateringshantering i Azure Automation
+# <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
 Du kan använda Uppdateringshantering i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-datorer i Azure, i lokala miljöer och i andra moln miljöer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agent datorer och hantera processen för att installera nödvändiga uppdateringar för servrar.
 
@@ -79,7 +79,7 @@ I följande tabell visas de operativ system som stöds för utvärdering av uppd
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner enligt listan i Automation-kontot och Log Analytics [mappnings tabellen](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)för arbets ytan. 
 
-|Operativsystem  |Obs!  |
+|Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows Server 2019 (Data Center/Data Center Core/standard)<br><br>Windows Server 2016 (Data Center/Data Center Core/standard)<br><br>Windows Server 2012 R2 (Data Center/standard)<br><br>Windows Server 2012 || 
 |Windows Server 2008 R2 (RTM och SP1 standard)| Uppdateringshantering stöder endast utvärderingar för det här operativ systemet. Uppdatering stöds inte eftersom [hybrid Runbook Worker](automation-windows-hrw-install.md) inte stöds för Windows Server 2008 R2. |
@@ -96,7 +96,7 @@ I följande tabell visas de operativ system som stöds för utvärdering av uppd
 
 I följande tabell visas operativ system som inte stöds:
 
-|Operativsystem  |Obs!  |
+|Operativsystem  |Anteckningar  |
 |---------|---------|
 |Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.        |
 |Windows Server 2016 Nano Server     | Stöds inte.       |
@@ -153,7 +153,7 @@ Om din Operations Manager hanterings grupp är [ansluten till en Log Analytics a
 * Uppdatera distributions-MP
 
 > [!NOTE]
-> Om du har en Operations Manager 1807-eller 2019-hanteringsserver ansluten till en Log Analytics arbets yta med agenter som kon figurer ATS i hanterings gruppen för att samla in loggdata måste `IsAutoRegistrationEnabled` du åsidosätta parametern och ange den som sann i regeln **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
+> Om du har en Operations Manager 1807-eller 2019-hanteringsserver ansluten till en Log Analytics arbets yta med agenter som kon figurer ATS i hanterings gruppen för att samla in loggdata måste du åsidosätta parametern `IsAutoRegistrationEnabled` och ange den som sann i regeln **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
 
 Mer information om uppdateringar av hanterings paket finns i [anslut Operations Manager till Azure Monitor loggar](../azure-monitor/platform/om-agents.md).
 
@@ -166,7 +166,7 @@ Mer information om uppdateringar av hanterings paket finns i [anslut Operations 
 
 I följande tabell beskrivs de anslutna källor som Uppdateringshantering stöder:
 
-| Ansluten källa | Stöds | Beskrivning |
+| Ansluten källa | Stöds | Description |
 | --- | --- | --- |
 | Windows-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och startar sedan installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och startar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
@@ -207,20 +207,20 @@ Följ anvisningarna i [ansluta datorer utan Internet åtkomst](../azure-monitor/
 
 I följande tabell definieras de klassificeringar som Uppdateringshantering stöder för Windows-uppdateringar. 
 
-|Klassificering  |Beskrivning  |
+|Klassificering  |Description  |
 |---------|---------|
 |Kritiska uppdateringar     | En uppdatering för ett särskilt problem som åtgärdar en kritisk, ej säkerhetsrelaterad bugg.        |
 |Säkerhetsuppdateringar     | En uppdatering för en produktspecifik, säkerhetsrelaterad fråga.        |
 |Samlade uppdateringar     | En kumulativ uppsättning snabb korrigeringar som är paketerade tillsammans för enkel distribution.        |
 |Funktionspaket     | Nya produkt funktioner som distribueras utanför en produkt lansering.        |
-|Service pack     | En kumulativ uppsättning snabb korrigeringar som tillämpas på ett program.        |
+|Service Pack     | En kumulativ uppsättning snabb korrigeringar som tillämpas på ett program.        |
 |Definitionsuppdateringar     | En uppdatering av virus-eller andra definitionsfiler.        |
 |Verktyg     | Ett verktyg eller en funktion som hjälper till att slutföra en eller flera uppgifter.        |
 |Uppdateringar     | En uppdatering av ett program eller en fil som är installerad för närvarande.        |
 
 Nästa tabell definierar de klassificeringar som stöds för Linux-uppdateringar.
 
-|Klassificering  |Beskrivning  |
+|Klassificering  |Description  |
 |---------|---------|
 |Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett enskilt problem eller ett produktspecifik, säkerhetsrelaterat problem.         |
 |Övriga uppdateringar     | Alla andra uppdateringar som inte är kritiska eller som inte är av säkerhets uppdateringar.        |

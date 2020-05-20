@@ -1,14 +1,14 @@
 ---
 title: Vägledning för begränsade begäranden
 description: Lär dig att gruppera, sprida, ta sid brytning och fråga parallellt för att undvika att förfrågningar begränsas av Azure Resource Graph.
-ms.date: 12/02/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259856"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682057"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
 
@@ -23,17 +23,17 @@ Den här artikeln beskriver fyra områden och mönster som rör skapandet av fr�
 
 ## <a name="understand-throttling-headers"></a>Förstå begränsningsrubriker
 
-Azure Resource Graph allokerar kvot nummer för varje användare baserat på ett tids periods fönster. En användare kan till exempel skicka högst 15 frågor inom varje 5-sekunders period utan att vara begränsad. Kvot svärdet bestäms av många faktorer och kan komma att ändras.
+Azure Resource Graph allokerar ett kvot nummer för varje användare baserat på ett tids periods fönster. En användare kan till exempel skicka högst 15 frågor inom varje 5-sekunders period utan att vara begränsad. Kvot svärdet bestäms av många faktorer och kan komma att ändras.
 
 I varje fråge svar lägger Azure Resource Graph till två begränsnings rubriker:
 
 - `x-ms-user-quota-remaining`(int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
 - `x-ms-user-quota-resets-after`(hh: mm: SS): tids perioden tills en användares kvot användning återställs.
 
-För att illustrera hur rubrikerna fungerar, ska vi titta på ett fråge svar som har sidhuvud och värden för `x-ms-user-quota-remaining: 10` och. `x-ms-user-quota-resets-after: 00:00:03`
+För att illustrera hur rubrikerna fungerar, ska vi titta på ett fråge svar som har sidhuvud och värden för `x-ms-user-quota-remaining: 10` och `x-ms-user-quota-resets-after: 00:00:03` .
 
 - Inom de kommande 3 sekunderna kan högst 10 frågor skickas utan begränsning.
-- I 3 sekunder kommer värdena `x-ms-user-quota-remaining` för och `x-ms-user-quota-resets-after` att återställas till `15` `00:00:05` respektive.
+- I 3 sekunder kommer värdena för `x-ms-user-quota-remaining` och att `x-ms-user-quota-resets-after` återställas till `15` `00:00:05` respektive.
 
 Om du vill se ett exempel på hur du använder rubrikerna för att _backoff_ på fråge förfrågningar, se exemplet i [query parallellt](#query-in-parallel).
 
@@ -185,7 +185,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>Sidnumrering
+## <a name="pagination"></a>Sid brytning
 
 Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge svar, kan du behöva [fylla i frågorna](./work-with-data.md#paging-results) för att få den fullständiga data uppsättningen som du letar efter. Vissa Azure Resource Graph-klienter hanterar dock sid brytning annorlunda än andra.
 
@@ -228,14 +228,14 @@ Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge sv
 
 ## <a name="still-get-throttled"></a>Är du fortfarande begränsad?
 
-Om du får en begränsning efter ovanstående rekommendationer kan du kontakta teamet på [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
+Om du får en begränsning efter ovanstående rekommendationer kan du kontakta teamet på [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com) .
 
 Ange följande information:
 
 - Din specifika användnings fall och affärs driv rutin behöver en högre begränsnings gräns.
 - Hur många resurser har du åtkomst till? Hur många av returneras från en enda fråga?
 - Vilka typer av resurser är du intresse rad av?
-- Vad är ditt fråge mönster? X-frågor per Y-sekunder osv.
+- Vad är ditt fråge mönster? X-frågor per Y-sekunder och så vidare.
 
 ## <a name="next-steps"></a>Nästa steg
 

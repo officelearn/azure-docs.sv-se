@@ -1,14 +1,14 @@
 ---
 title: Arbetsflöden för att utforma princip som kod
 description: Lär dig att utforma arbets flöden för att distribuera dina Azure Policy-definitioner som kod och validera resurserna automatiskt.
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187740"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684265"
 ---
 # <a name="design-policy-as-code-workflows"></a>Arbetsflöden för att utforma princip som kod
 
@@ -17,7 +17,7 @@ När du fortskrider på resan med moln styrning vill du byta från manuellt hant
 - Infrastruktur som kod: metoden att behandla innehållet som definierar dina miljöer, allt från Resource Manager-mallar för att Azure Policy definitioner till Azure-ritningar som käll kod.
 - DevOps: föreningen av personer, processer och produkter för att möjliggöra kontinuerlig leverans av värde till våra slutanvändare.
 
-Princip som kod är kombinationen av dessa idéer. Behåll i princip definitionerna i käll kontrollen och när en ändring görs, testa och validera den ändringen. Det bör dock inte vara den omfattning av principer som används i infrastrukturen som kod eller DevOps.
+Princip som kod är kombinationen av dessa idéer. Använd i princip definitionerna i käll kontrollen och när en ändring görs, testa och validera den ändringen. Det bör dock inte vara den omfattning av principer som används i infrastrukturen som kod eller DevOps.
 
 Validerings steget bör också vara en komponent i andra kontinuerliga integreringar eller arbets flöden för kontinuerlig distribution. Exempel på detta är att distribuera en program miljö eller virtuell infrastruktur. Genom att göra Azure Policy validera en tidig komponent i bygg-och distributions processen kan program-och drift teamen upptäcka om deras ändringar inte är av klagomål, långa innan det är för sent och de försöker distribuera i produktion.
 
@@ -87,7 +87,7 @@ Precis som princip definitioner, när du lägger till eller uppdaterar ett befin
 
 När Automation har vidtagit de nyligen skapade eller uppdaterade definitionerna för principer eller initiativ och gjort uppdateringen till objektet i Azure, är det dags att testa ändringarna som har gjorts. Antingen principen eller de initiativ som den är en del av bör sedan tilldelas resurser i miljön längst bort från produktionen. Den här miljön är vanligt vis _dev_.
 
-Tilldelningen ska använda [enforcementMode](./assignment-structure.md#enforcement-mode) _inaktiverat_ så att inga resurser skapas och uppdateringar blockeras, men att befintliga resurser fortfarande granskas för att följa den uppdaterade princip definitionen. Även med enforcementMode rekommenderar vi att tilldelnings omfånget är antingen en resurs grupp eller en prenumeration som används särskilt för att verifiera principer.
+Tilldelningen ska använda [enforcementMode](./assignment-structure.md#enforcement-mode) _inaktiverat_ så att inga resurser skapas och uppdateringar blockeras, men att befintliga resurser fortfarande granskas för att följa den uppdaterade princip definitionen. Även med enforcementMode rekommenderar vi att tilldelnings omfånget är antingen en resurs grupp eller en prenumeration som specifikt gäller att verifiera principer.
 
 > [!NOTE]
 > Även om tvingande läge är användbart, är det inte en ersättning för att noggrant testa en princip definition under olika förhållanden. Princip definitionen bör testas med `PUT` och `PATCH` REST API anrop, kompatibla och icke-kompatibla resurser och Edge-fall som en egenskap som saknas i resursen.
@@ -99,7 +99,7 @@ När tilldelningen har distribuerats kan du använda princip-SDK: n för att [H�
 Om valideringen av tilldelningen uppfyller förväntningarna är nästa steg att validera reparation.
 Principer som använder antingen [deployIfNotExists](./effects.md#deployifnotexists) eller [Modify](./effects.md#modify) kan omvandlas till en reparations uppgift och korrigera resurser från ett icke-kompatibelt tillstånd.
 
-Det första steget för att göra detta är att bevilja princip tilldelningen den roll tilldelning som definierats i princip definitionen. Den här roll tilldelningen ger princip tilldelningen hanterad identitet tillräckligt med behörighet för att göra nödvändiga ändringar för att göra resursen kompatibel.
+Det första steget för att åtgärda resurser är att bevilja princip tilldelningen den roll tilldelning som definierats i princip definitionen. Den här roll tilldelningen ger princip tilldelningen hanterad identitet tillräckligt med behörighet för att göra nödvändiga ändringar för att göra resursen kompatibel.
 
 När princip tilldelningen har rätt behörighet använder du princip-SDK: n för att utlösa en reparations aktivitet mot en uppsättning resurser som är kända för att vara inkompatibla. Tre tester bör utföras mot dessa åtgärdade uppgifter innan du fortsätter:
 
@@ -111,7 +111,7 @@ Genom att testa både de uppdaterade utvärderings resultaten och miljön ger du
 
 ### <a name="update-to-enforced-assignments"></a>Uppdatera till framtvingade tilldelningar
 
-När alla verifierings grindar har slutförts uppdaterar du tilldelningen för att använda **enforcementMode** av _aktive rad_. Den här ändringen bör inlednings vis göras i samma miljö som från produktionen. När miljön har verifierats som fungerar som förväntat, kommer ändringen att begränsas till att omfatta nästa miljö och så vidare tills principen distribueras till produktions resurser.
+När alla verifierings grindar har slutförts uppdaterar du tilldelningen för att använda **enforcementMode** av _aktive rad_. Vi rekommenderar att du gör den här ändringen inlednings vis i samma miljö från produktion. När miljön har verifierats som fungerar som förväntat, kommer ändringen att begränsas till att omfatta nästa miljö och så vidare tills principen distribueras till produktions resurser.
 
 ## <a name="process-integrated-evaluations"></a>Bearbeta integrerade utvärderingar
 

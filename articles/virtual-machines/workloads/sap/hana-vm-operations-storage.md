@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/10/2020
+ms.date: 05/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0d8228586c0e20e4314331339aa2f2c46a38c9a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: aa3096f43952c047620b310412b27c434fc5fb06
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792164"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682600"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Lagringskonfigurationer för virtuella Azure-datorer för SAP HANA
 
@@ -55,6 +55,9 @@ I den lokala världen var du sällan medveten om I/O-undersystemen och dess funk
 - Aktivera Skriv aktivitet med minst 250 MB/SEK för **/Hana/data** med 16 mb och 64 MB i/O-storlekar
 
 Med tanke på att låg latens svars tider är avgörande för DBMS-system, även om DBMS, som SAP HANA, behåller data i minnet. Den kritiska sökvägen i lagrings utrymmet ligger vanligt vis runt transaktions logg skrivningar i DBMS-systemen. Men även åtgärder som att skriva lagrings punkter eller läsa in data i minnet efter krasch återställning kan vara avgörande. Därför är det **obligatoriskt** att utnyttja Azure Premium-diskar för **/Hana/data** -och **/Hana/log** -volymer. För att uppnå det lägsta genomflödet av **/Hana/log** och **/Hana/data** som du vill av SAP måste du skapa en RAID 0 med MDADM eller LVM över flera Azure Premium Storage-diskar. Och använder RAID-volymerna som **/Hana/data** -och **/Hana/log** -volymer. 
+
+> [!IMPORTANT]
+>De tre SAP HANA fil grupperna/data,/log och/Shared får inte placeras i en standard-eller rot volym grupp.  Vi rekommenderar starkt att du följer rikt linjerna för Linux-leverantörer som vanligt vis skapar enskilda volym grupper för/data,/log och/Shared.
 
 **Rekommendation: som stripe-storlekar för RAID 0 rekommenderar vi att rekommendationen används:**
 
@@ -258,13 +261,13 @@ Tänk på följande viktiga överväganden när du överväger Azure NetApp File
 - Azure NetApp Files erbjuder [export princip](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): du kan kontrol lera tillåtna klienter, åtkomst typ (Läs&Skriv, skrivskyddad, osv.). 
 - Azure NetApp Files funktionen är inte en zon medveten än. För närvarande är Azure NetApp Files funktionen inte distribuerad i alla tillgänglighets zoner i en Azure-region. Var medveten om potentiella fördröjnings konsekvenser i vissa Azure-regioner.  
 - Det är viktigt att de virtuella datorerna distribueras i närheten av Azure NetApp-lagringen för låg latens. 
-- Användar-ID för <b>sid</b>-adm och grupp-ID `sapsys` för på de virtuella datorerna måste matcha konfigurationen i Azure NetApp Files. 
+- Användar-ID för <b>sid</b>-adm och grupp-ID för `sapsys` på de virtuella datorerna måste matcha konfigurationen i Azure NetApp Files. 
 
 > [!IMPORTANT]
 > För SAP HANA arbets belastningar är låg latens kritiskt. Arbeta med din Microsoft-representant för att säkerställa att de virtuella datorerna och Azure NetApp Files volymerna distribueras i nära närhet.  
 
 > [!IMPORTANT]
-> Om det finns ett matchnings fel mellan användar-ID för <b>sid</b>-adm och `sapsys` grupp-ID för mellan den virtuella datorn och Azure NetApp-konfigurationen, visas behörigheterna för filer på Azure NetApp-volymer, monterade på virtuella `nobody`datorer, som. Se till att ange rätt användar-ID för <b>sid</b>-adm och grupp-ID `sapsys`för, när [ett nytt system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) ska Azure NetApp Files.
+> Om det finns ett matchnings fel mellan användar-ID för <b>sid</b>-adm och grupp-ID för `sapsys` mellan den virtuella datorn och Azure NetApp-konfigurationen, visas behörigheterna för filer på Azure NetApp-volymer, monterade på virtuella datorer, som `nobody` . Se till att ange rätt användar-ID för <b>sid</b>-adm och grupp-ID för `sapsys` , när [ett nytt system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) ska Azure NetApp Files.
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Storlek för HANA-databas på Azure NetApp Files
 
@@ -283,7 +286,7 @@ När du designar infrastrukturen för SAP i Azure bör du vara medveten om någr
 > [!IMPORTANT]
 > Oberoende av kapaciteten som du distribuerar på en enskild NFS-volym förväntas data flödet till platå i intervallet 1.2 – 1,4 GB/SEK som används av en konsument i en virtuell dator. Detta måste göra med den underliggande arkitekturen i ANF-erbjudandet och relaterade Linux-sessionsgränser runt NFS. Prestanda-och data flödes numren som dokumenteras i artikeln prestandatest [resultat för Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) utfördes mot en delad NFS-volym med flera virtuella klient datorer och på grund av flera sessioner. Det scenariot är annorlunda för det scenario vi mäter i SAP. Där vi mäter data flödet från en enskild virtuell dator mot en NFS-volym. finns på ANF.
 
-För att uppfylla de lägsta data flödes kraven för SAP för data och logg, och enligt `/hana/shared`rikt linjerna för, skulle de rekommenderade storlekarna se ut så här:
+För att uppfylla de lägsta data flödes kraven för SAP för data och logg, och enligt rikt linjerna för `/hana/shared` , skulle de rekommenderade storlekarna se ut så här:
 
 | Volym | Storlek<br /> Premium Storage nivå | Storlek<br /> Ultra Storage-nivå | NFS-protokoll som stöds |
 | --- | --- | --- |
@@ -298,7 +301,7 @@ För att uppfylla de lägsta data flödes kraven för SAP för data och logg, oc
 Därför kan du överväga att distribuera liknande data flöde för de ANF-volymer som anges för Ultra disk Storage redan. Tänk också på storlekarna för de storlekar som anges för volymerna för de olika VM SKU: erna som utförda i de Ultra disk-tabellerna redan.
 
 > [!TIP]
-> Du kan ändra storlek på Azure NetApp Files volymer dynamiskt, utan att `unmount` behöva volymerna, stoppa de virtuella datorerna eller stoppa SAP HANA. Det gör det möjligt att uppfylla ditt program både förväntat och oförutsedda data flödes krav.
+> Du kan ändra storlek på Azure NetApp Files volymer dynamiskt, utan att behöva `unmount` volymerna, stoppa de virtuella datorerna eller stoppa SAP HANA. Det gör det möjligt att uppfylla ditt program både förväntat och oförutsedda data flödes krav.
 
 Dokumentation om hur du distribuerar en SAP HANA skalbar konfiguration med en standby-nod med hjälp av NFS v 4.1-volymer som finns i ANF publiceras i [SAP HANA skala ut med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 

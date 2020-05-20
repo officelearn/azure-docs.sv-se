@@ -1,6 +1,6 @@
 ---
-title: Felsöka problem med Linux-uppdaterings agenten i Azure Automation Uppdateringshantering
-description: Lär dig hur du felsöker och löser problem med Linux Windows Update-agenten med hjälp av Uppdateringshantering-lösningen.
+title: Felsöka problem med Linux-uppdaterings agenten i Azure Automation
+description: Den här artikeln beskriver hur du felsöker och löser problem med Windows Update-agenten för Linux i Uppdateringshantering.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: a4082ddfd8c092a6f9223a0894f21bc734b6efb6
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f1351b29a0102a374b75d832687d66c3b5572c75
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997020"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680870"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Felsök problem med Linux-uppdaterings agent
 
@@ -22,7 +22,7 @@ Det kan finnas många orsaker till att datorn inte visas som klar (felfri) i Upp
 
 * Klart: Hybrid Runbook Worker har distribuerats och setts senast för en timme sedan.
 * Frånkopplad: Hybrid Runbook Worker distribueras och lästes senast en timme sedan.
-* Inte konfigurerad: det Hybrid Runbook Worker inte att hitta eller slutföra registreringen.
+* Inte konfigurerat: det Hybrid Runbook Worker inte att hitta eller så har distributionen inte slutat.
 
 > [!NOTE]
 > Det kan finnas en liten fördröjning mellan det Azure Portal visar och datorns aktuella tillstånd.
@@ -70,7 +70,7 @@ Den här kontrollen säkerställer att Log Analytics-agenten för Linux är inst
 
 ### <a name="log-analytics-agent-status"></a>Log Analytics agent status
 
-Den här kontrollen säkerställer att Log Analytics-agenten för Linux körs. Om agenten inte körs kan du köra följande kommando för att försöka starta om den. Mer information om hur du felsöker agenten finns i [Linux hybrid Runbook Worker fel sökning](hybrid-runbook-worker.md#linux).
+Den här kontrollen säkerställer att Log Analytics-agenten för Linux körs. Om agenten inte körs kan du köra följande kommando för att försöka starta om den. Mer information om hur du felsöker agenten finns i [Linux-felsöka hybrid Runbook Worker problem](hybrid-runbook-worker.md#linux).
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -78,13 +78,13 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### <a name="multihoming"></a>Multihoming
 
-Den här kontrollen avgör om agenten rapporterar till flera arbets ytor. Multihoming stöds inte av Uppdateringshantering.
+Den här kontrollen avgör om agenten rapporterar till flera arbets ytor. Uppdateringshantering stöder inte multihoming.
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
 Den här kontrollen kontrollerar om Log Analytics-agenten för Linux har Hybrid Runbook Worker-paketet. Det här paketet krävs för att Uppdateringshantering ska fungera. Mer information finns i [Log Analytics agent för Linux körs inte](hybrid-runbook-worker.md#oms-agent-not-running).
 
-Uppdateringshantering laddar ned Hybrid Runbook Worker paket från slut punkten för åtgärder. Om Hybrid Runbook Worker inte körs och [slut punkten för åtgärder](#operations-endpoint) Miss lyckas kan uppdateringen Miss lyckas.
+Uppdateringshantering laddar ned Hybrid Runbook Worker paket från slut punkten för åtgärder. Om Hybrid Runbook Worker inte körs och [slut punkts](#operations-endpoint) kontrollen för åtgärder Miss lyckas kan uppdateringen Miss lyckas.
 
 ### <a name="hybrid-runbook-worker-status"></a>Hybrid Runbook Worker status
 
@@ -184,4 +184,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du felsöker ytterligare problem med dina hybrid Runbook Worker finns i [Felsöka hybrid Runbook Worker](hybrid-runbook-worker.md).
+[Felsök hybrid Runbook Worker problem](hybrid-runbook-worker.md).

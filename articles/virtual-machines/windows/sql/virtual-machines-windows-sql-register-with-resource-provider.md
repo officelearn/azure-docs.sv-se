@@ -14,14 +14,14 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d9c1cff53d5d0f0385d3d61938c7fb6309efb7b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60c07fbf0f68897c0936cab13ebbe1505bc84079
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985396"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682575"
 ---
-# <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en SQL Server virtuell dator i Azure med providern för SQL VM-resurs
+# <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en virtuell dator med SQL Server i Azure med SQL VM-resursprovidern
 
 Den här artikeln beskriver hur du registrerar SQL Server virtuell dator (VM) i Azure med providern för SQL VM-resurs. När du registrerar med resurs leverantören skapas den **virtuella SQL-datorns** _resurs_ i din prenumeration, som är en separat resurs från den virtuella dator resursen. När du avregistrerar SQL Server VM från resurs leverantören tas den **virtuella SQL-datorn** bort _, men den faktiska virtuella datorn tas_ inte bort. 
 
@@ -51,11 +51,6 @@ Genom att distribuera en SQL Server VM Azure Marketplace-avbildning via Azure Po
    ---
 
 Om du vill använda en SQL VM-adressresurs måste du först [Registrera din prenumeration med resurs leverantören](#register-subscription-with-rp), vilket ger resurs leverantören möjlighet att skapa resurser i den aktuella prenumerationen.
-
-Om du vill ha mer information om fördelarna med att använda SQL VM Resource Provider kan du titta på den här [channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) -videon: 
-
-<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Dra nytta av SQL VM Resource Provider när du själv installerar SQL Server på Azure-Microsoft Channel 9-video"></iframe>
-
 
 ## <a name="prerequisites"></a>Krav
 
@@ -128,7 +123,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 Om [SQL Server IaaS agent Extension](virtual-machines-windows-sql-server-agent-extension.md) inte har installerats på den virtuella datorn, är rekommendationen att registreras hos resurs leverantören för SQL-VM i Lightweight-läge. Detta kommer att installera SQL IaaS-tillägget i [lättviktigt läge](#management-modes) och förhindra att SQL Server tjänsten startar om. Du kan sedan uppgradera till fullständigt läge när som helst, men om du gör det startas tjänsten om SQL Server tjänsten så att du kan vänta tills en schemalagd underhålls period är aktiv. 
 
-Ange SQL Server`PAYG`licens typ som antingen betala per användning () för att betala per användning, Azure Hybrid-förmån (`AHUB`) för att använda din egen licens eller haveri beredskap (`DR`) för att aktivera den [kostnads fria Dr Replica-licensen](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure).
+Ange SQL Server licens typ som antingen betala `PAYG` per användning () för att betala per användning, Azure Hybrid-förmån ( `AHUB` ) för att använda din egen licens eller haveri beredskap ( `DR` ) för att aktivera den [kostnads fria Dr Replica-licensen](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure).
 
 Kluster instanser för växling vid fel och distributioner med flera instanser kan bara registreras med resurs leverantören för SQL-VM i Lightweight-läge. 
 
@@ -178,7 +173,7 @@ Använd följande PowerShell-kommando om du vill registrera SQL Server VM direkt
 
 SQL Server 2008 och 2008 R2 som är installerade på Windows Server 2008 (_inte R2_) kan registreras med resurs leverantören för SQL-VM i [läget noagent](#management-modes). Det här alternativet säkerställer efterlevnad och tillåter att SQL Server VM övervakas i Azure Portal med begränsad funktionalitet.
 
-Ange antingen `AHUB`, `PAYG`eller `DR` som **sqlLicenseType**, och `SQL2008-WS2008` eller `SQL2008R2-WS2008`som **sqlImageOffer**. 
+Ange antingen `AHUB` , `PAYG` eller `DR` som **sqlLicenseType**, och `SQL2008-WS2008` eller `SQL2008R2-WS2008` som **sqlImageOffer**. 
 
 För att registrera din SQL Server 2008 eller 2008 R2 på Windows Server 2008-instansen använder du följande AZ CLI-eller PowerShell-kodfragment: 
 
@@ -461,8 +456,8 @@ Inga. Det finns ingen avgift kopplad till registrering med den virtuella SQL VM-
 Det påverkas inte när du använder *Noagent* -och *Lightweight* hanterbarhets läge. Det finns minimal påverkan när du använder läget *fullständig* hantering från två tjänster som är installerade på operativ systemet. Dessa kan övervakas via aktivitets hanteraren och visas i den inbyggda konsolen för Windows-tjänster. 
 
 De två tjänst namnen är:
-- `SqlIaaSExtensionQuery`(Visnings namn- `Microsoft SQL Server IaaS Query Service`)
-- `SQLIaaSExtension`(Visnings namn- `Microsoft SQL Server IaaS Agent`)
+- `SqlIaaSExtensionQuery`(Visnings namn- `Microsoft SQL Server IaaS Query Service` )
+- `SQLIaaSExtension`(Visnings namn- `Microsoft SQL Server IaaS Agent` )
 
 
 ## <a name="next-steps"></a>Nästa steg

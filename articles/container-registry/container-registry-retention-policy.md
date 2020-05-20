@@ -3,18 +3,20 @@ title: Princip för att behålla otaggade manifest
 description: Lär dig hur du aktiverar en bevarande princip i ditt Azure Container Registry för automatisk borttagning av otaggade manifest efter en definierad period.
 ms.topic: article
 ms.date: 10/02/2019
-ms.openlocfilehash: 912616b6ab95cdff91e70477c7d6de476ccfdfa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74454808"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683454"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Ange en bevarande princip för otaggade manifest
 
-Azure Container Registry ger dig möjlighet att ange en *bevarande princip* för lagrade avbildnings manifest som inte har några associerade Taggar (*otaggade manifest*). När en bevarande princip aktive ras raderas otaggade manifest i registret automatiskt efter ett antal dagar som du anger. Den här funktionen förhindrar att registret fyller i artefakter som inte behövs och hjälper dig att spara pengar på lagrings kostnaderna. Om `delete-enabled` attributet för ett otaggade manifest är inställt på `false`, kan manifestet inte tas bort och bevarande principen gäller inte.
+Azure Container Registry ger dig möjlighet att ange en *bevarande princip* för lagrade avbildnings manifest som inte har några associerade Taggar (*otaggade manifest*). När en bevarande princip aktive ras raderas otaggade manifest i registret automatiskt efter ett antal dagar som du anger. Den här funktionen förhindrar att registret fyller i artefakter som inte behövs och hjälper dig att spara pengar på lagrings kostnaderna. Om `delete-enabled` attributet för ett otaggade manifest är inställt på `false` , kan manifestet inte tas bort och bevarande principen gäller inte.
 
 Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för att köra kommando exemplen i den här artikeln. Om du vill använda det lokalt, krävs version 2.0.74 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
+
+En bevarande princip är en funktion i **bidrags** behållar register. Information om register tjänst nivåer finns i [Azure Container Registry tjänst nivåer](container-registry-skus.md).
 
 > [!IMPORTANT]
 > Den här funktionen är för närvarande en för hands version och vissa [begränsningar gäller](#preview-limitations). Förhandsversioner är tillgängliga för dig under förutsättning att du godkänner de [kompletterande användningsvillkoren][terms-of-use]. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
@@ -24,7 +26,6 @@ Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för 
 
 ## <a name="preview-limitations"></a>Begränsningar för förhandsversion
 
-* Endast ett **Premium** container Registry kan konfigureras med en bevarande princip. Information om register tjänst nivåer finns i [Azure Container Registry SKU: er](container-registry-skus.md).
 * Du kan bara ange en bevarande princip för otaggade manifest.
 * Bevarande principen gäller för närvarande endast för manifest som är omärkta *efter* att principen har Aktiver ATS. Befintliga otaggade manifest i registret omfattas inte av principen. Om du vill ta bort befintliga otaggade manifest, se exempel i [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
@@ -58,7 +59,7 @@ az acr config retention update --registry myregistry --status enabled --days 0 -
 
 Om du aktiverar föregående princip med en kvarhållningsperiod på 0 dagar kan du snabbt verifiera att otaggade manifest tas bort:
 
-1. Skicka en avbildning av `hello-world:latest` en bild till ditt register eller Ersätt en annan valfri test avbildning.
+1. Skicka en avbildning av en bild `hello-world:latest` till ditt register eller Ersätt en annan valfri test avbildning.
 1. Avtagga `hello-world:latest` avbildningen, till exempel med hjälp av kommandot [AZ ACR databas Avtagga][az-acr-repository-untag] . Det otaggade manifestet finns kvar i registret.
     ```azurecli
     az acr repository untag --name myregistry --image hello-world:latest
@@ -73,7 +74,7 @@ Om du vill se bevarande principen som angetts i ett register kör du kommandot [
 az acr config retention show --registry myregistry
 ```
 
-Om du vill inaktivera en bevarande princip i ett register kör du kommandot [AZ ACR config rekvarhållning Update][az-acr-config-retention-update] och anger `--status disabled`:
+Om du vill inaktivera en bevarande princip i ett register kör du kommandot [AZ ACR config rekvarhållning Update][az-acr-config-retention-update] och anger `--status disabled` :
 
 ```azurecli
 az acr config retention update --registry myregistry --status disabled --type UntaggedManifests

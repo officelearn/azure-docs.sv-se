@@ -3,21 +3,21 @@ title: Skapa eller ändra en direkt peering med hjälp av Azure Portal
 titleSuffix: Azure
 description: Skapa eller ändra en direkt peering med hjälp av Azure Portal
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: dcd6aaf584691005dd071a7aba5958070f598978
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/19/2020
+ms.author: derekol
+ms.openlocfilehash: 59b9079b500817c31586c0a566082a867d7e7f41
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81681082"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683992"
 ---
 # <a name="create-or-modify-a-direct-peering-by-using-the-azure-portal"></a>Skapa eller ändra en direkt peering med hjälp av Azure Portal
 
-I den här artikeln beskrivs hur du skapar en Microsoft Direct-peering med hjälp av Azure Portal. Den här artikeln visar också hur du kontrollerar status för resursen, uppdaterar den eller tar bort och avetablerar den.
+Den här artikeln beskriver hur du skapar en Microsoft Direct-peering för en Internet-leverantör eller en Internet Exchange-Provider med hjälp av Azure Portal. Den här artikeln visar också hur du kontrollerar status för resursen, uppdaterar den eller tar bort och avetablerar den.
 
 Om du vill kan du slutföra den här guiden med hjälp av Azure [PowerShell](howto-direct-powershell.md).
 
@@ -32,10 +32,35 @@ Om du vill kan du slutföra den här guiden med hjälp av Azure [PowerShell](how
 
 ### <a name="create-a-direct-peering"></a><a name=create></a>Skapa en direkt peering
 
-Du kan skapa en ny peering-begäran med hjälp av **peering** -resursen.
+Som Internet leverantör eller Internet Exchange-Provider kan du skapa en ny direkt peering-begäran genom att [skapa en peering]( https://go.microsoft.com/fwlink/?linkid=2129593).
 
-#### <a name="launch-resource-and-configure-basic-settings"></a>Starta resurs och konfigurera grundläggande inställningar
-[!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
+1. På sidan **skapa en peering** , på fliken **grundläggande** , fyller du i rutorna som visas här:
+
+
+    ![Registrera Peering Service](./media/setup-basics-tab.png)
+
+2. Välj din Azure-prenumeration.
+
+3. För resurs grupp kan du antingen välja en befintlig resurs grupp i list rutan eller skapa en ny grupp genom att välja Skapa ny. Vi ska skapa en ny resurs grupp för det här exemplet.
+
+4. Namnet motsvarar resurs namnet och kan vara allt du väljer.
+
+5. Regionen väljs automatiskt om du väljer en befintlig resurs grupp. Om du väljer att skapa en ny resurs grupp måste du också välja den Azure-region där du vill att resursen ska finnas.
+
+    >[!NOTE]
+    > Den region där en resurs grupp finns är oberoende av den plats där du vill skapa peering med Microsoft. Men det är en bra idé att organisera dina peering-resurser i resurs grupper som finns i de närmaste Azure-regionerna. För peering i Ashburn kan du till exempel skapa en resurs grupp i USA, östra eller östra 2; USA.
+
+6. Välj ditt ASN i rutan **PeerASN** .
+
+    >[!IMPORTANT]
+    >Du kan bara välja ett ASN med ValidationState som godkänd innan du skickar en peering-begäran. Om du precis skickat in din PeerAsn-begäran, vänta i 12 timmar eller så att ASN-associationen kan godkännas. Om det ASN du väljer är väntande verifiering visas ett fel meddelande. Om du inte ser det ASN du behöver välja, kontrollerar du att du har valt rätt prenumeration. Om så är fallet kontrollerar du om du redan har skapat PeerAsn genom att använda **[associera peer-ASN till Azure-prenumerationen](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+
+7. Välj **Nästa: konfiguration** för att fortsätta.
+
+
+
+    ![Registrera Peering Service](./media/setup-direct-basics-filled-tab.png)
+
 
 #### <a name="configure-connections-and-submit"></a>Konfigurera anslutningar och skicka
 [!INCLUDE [direct-peering-configuration](./includes/direct-portal-configuration.md)]

@@ -8,22 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/20/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 38c98a65ac0b0f95a9a6e111a79b5dede04912c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 543320adb490ff51b0394fb26137ebc977d2c04b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82229756"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679564"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
 I den här artikeln får du lära dig hur du konfigurerar Azure Active Directory B2C (Azure AD B2C) att fungera som en Security Assertion Markup Language (SAML) identitets leverantör (IdP) till dina program.
-
-[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="scenario-overview"></a>Scenarioöversikt
 
@@ -90,9 +88,9 @@ Om du inte redan har ett certifikat kan du använda ett självsignerat certifika
         -CertStoreLocation "Cert:\CurrentUser\My"
     ```
 
-1. Öppna **hantera användar certifikat** > **aktuella användare** > **personliga** > **certifikat** > *yourappname.yourtenant.onmicrosoft.com*
-1. Välj åtgärden för certifikat **> åtgärden** > **alla aktiviteter** > **Exportera**
-1. Välj **Ja** > **Nästa** > **Ja, exportera den privata nyckeln** > **Nästa**
+1. Öppna **hantera användar certifikat**  >  **aktuella användare**  >  **personliga**  >  **certifikat**  >  *yourappname.yourtenant.onmicrosoft.com*
+1. Välj åtgärden för certifikat > **åtgärden**  >  **alla aktiviteter**  >  **Exportera**
+1. Välj **Ja**  >  **Nästa**  >  **Ja, exportera den privata nyckeln**  >  **Nästa**
 1. Acceptera standardinställningarna för **export fil format**
 1. Ange ett lösen ord för certifikatet
 
@@ -102,7 +100,7 @@ Sedan laddar du upp certifikatet för SAML Assertion och svars signering till Az
 
 1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till Azure AD B2C klienten.
 1. Under **principer**väljer du **identitets miljö ramverk** och sedan **princip nycklar**.
-1. Välj **Lägg till**och välj sedan **alternativ** > **Ladda upp**.
+1. Välj **Lägg till**och välj sedan **alternativ**  >  **Ladda upp**.
 1. Ange ett **namn**, till exempel *SamlIdpCert*. Prefixet *B2C_1A_* läggs automatiskt till i namnet på din nyckel.
 1. Ladda upp certifikatet med hjälp av upload File-kontrollen.
 1. Ange certifikatets lösen ord.
@@ -178,7 +176,7 @@ Nu när din klient organisation kan utfärda SAML-intyg måste du skapa principe
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Lägg till följande XML-kodfragment precis `<RelyingParty>` före elementet. Denna XML skriver över Orchestration-steg 7 i _SignUpOrSignIn_ -användar resan. Om du startade från en annan mapp i Start paketet, eller anpassat din användar resa genom att lägga till eller ta bort Orchestration-steg, kontrollerar du att numret ( `order` i-elementet) är justerat med det som anges i användar resan för steget token Issuer (till exempel i de andra startpaket-mapparna det är steg `LocalAccounts`4 för, `SocialAccounts` 6 för och `SocialAndLocalAccountsWithMfa`9 för).
+1. Lägg till följande XML-kodfragment precis före `<RelyingParty>` elementet. Denna XML skriver över Orchestration-steg 7 i _SignUpOrSignIn_ -användar resan. Om du startade från en annan mapp i Start paketet, eller anpassat din användar resa genom att lägga till eller ta bort Orchestration-steg, kontrollerar du att numret (i `order` -elementet) är justerat med det som anges i användar resan för steget token Issuer (till exempel i de andra startpaket-mapparna det är steg 4 för `LocalAccounts` , 6 för `SocialAccounts` och 9 för `SocialAndLocalAccountsWithMfa` ).
 
     ```XML
     <UserJourneys>
@@ -275,7 +273,7 @@ Din anpassade princip och Azure AD B2C klient är nu klara. Skapa sedan en progr
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
 1. Ange ett **namn** för programmet. Till exempel *SAMLApp1*.
 1. Under **konto typer som stöds**väljer du **konton endast i den här organisations katalogen**
-1. Under **omdirigerings-URI**väljer du **webb**och `https://localhost`anger sedan. Du ändrar det här värdet senare i program registreringens manifest.
+1. Under **omdirigerings-URI**väljer du **webb**och anger sedan `https://localhost` . Du ändrar det här värdet senare i program registreringens manifest.
 1. Välj **Registrera**.
 
 ### <a name="42-update-the-app-manifest"></a>4,2 uppdatera app-manifestet
@@ -287,7 +285,7 @@ För SAML-appar finns det flera egenskaper som du måste konfigurera i program r
 
 #### <a name="identifieruris"></a>identifierUris
 
-`identifierUris` Är en sträng samling som innehåller användardefinierade URI: er som unikt identifierar en webbapp inom den Azure AD B2C klienten. Tjänste leverantören måste ange det här värdet i `Issuer` elementet i en SAML-begäran.
+`identifierUris`Är en sträng samling som innehåller användardefinierade URI: er som unikt identifierar en webbapp inom den Azure AD B2C klienten. Tjänste leverantören måste ange det här värdet i `Issuer` elementet i en SAML-begäran.
 
 #### <a name="samlmetadataurl"></a>samlMetadataUrl
 
@@ -297,7 +295,7 @@ Metadata är information som används i SAML-protokollet för att exponera konfi
 
 Om det finns egenskaper som anges *i URL: en för SAML* -metadata och i program registreringens manifest, **slås de samman**. Egenskaperna som anges i URL: en för metadata bearbetas först och prioriteras.
 
-I den här självstudien, som använder SAML-testprogrammet, använder du `samlMetadataUrl`följande värde för:
+I den här självstudien, som använder SAML-testprogrammet, använder du följande värde för `samlMetadataUrl` :
 
 ```JSON
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
@@ -305,11 +303,11 @@ I den här självstudien, som använder SAML-testprogrammet, använder du `samlM
 
 #### <a name="replyurlswithtype-optional"></a>replyUrlsWithType (valfritt)
 
-Om du inte anger en URI för metadata kan du uttryckligen ange svars-URL: en. Denna valfria egenskap `AssertionConsumerServiceUrl` representerar (`SingleSignOnService` URL: en i tjänste leverantörens metadata) och `BindingType` antas vara. `HTTP POST`
+Om du inte anger en URI för metadata kan du uttryckligen ange svars-URL: en. Denna valfria egenskap representerar `AssertionConsumerServiceUrl` ( `SingleSignOnService` URL: en i tjänste leverantörens metadata) och `BindingType` antas vara `HTTP POST` .
 
 Om du väljer att konfigurera svars-URL: en och en utloggnings-URL i applikations manifestet utan att använda metadata för tjänste leverantören, verifierar Azure AD B2C inte signaturen för SAML-begäran eller kryptera SAML-svaret.
 
-I den här självstudien, där du använder SAML-testprogrammet, `url` anger du `replyUrlsWithType` egenskapen till värdet som visas i följande JSON-kodfragment.
+I den här självstudien, där du använder SAML-testprogrammet, anger du `url` egenskapen `replyUrlsWithType` till värdet som visas i följande JSON-kodfragment.
 
 ```JSON
 "replyUrlsWithType":[
@@ -322,9 +320,9 @@ I den här självstudien, där du använder SAML-testprogrammet, `url` anger du 
 
 #### <a name="logouturl-optional"></a>logoutUrl (valfritt)
 
-Den här valfria egenskapen representerar `Logout` URL:`SingleLogoutService` en (URL i den förlitande partens metadata `BindingType` ) och för detta antas som `Http-Redirect`.
+Den här valfria egenskapen representerar `Logout` URL: en ( `SingleLogoutService` URL i den förlitande partens metadata) och `BindingType` för detta antas som `Http-Redirect` .
 
-I den här självstudien, som använder SAML-testprogrammet `logoutUrl` , `https://samltestapp2.azurewebsites.net/logout`lämnar du in inställt på:
+I den här självstudien, som använder SAML-testprogrammet, lämnar `logoutUrl` du in inställt på `https://samltestapp2.azurewebsites.net/logout` :
 
 ```JSON
 "logoutUrl": "https://samltestapp2.azurewebsites.net/logout",

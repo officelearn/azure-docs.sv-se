@@ -8,17 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: bc3c572aeb72328bc4708d27052756623ccd7701
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7b75f03afc587d9616997b1df48b9c5c5166cb89
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200977"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681718"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -31,7 +30,7 @@ Den här tabellen är en lista över närliggande ämnen:
 --------- | --------- |
 Steg för att uppgradera från Azure AD Connect | Olika metoder för att [Uppgradera från en tidigare version till den senaste versionen av](how-to-upgrade-previous-version.md) Azure AD Connect.
 Nödvändiga behörigheter | För behörigheter som krävs för att tillämpa en uppdatering, se [konton och behörigheter](reference-connect-accounts-permissions.md#upgrade).
-Hämta| [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Ladda ned| [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >Att släppa en ny version av Azure AD Connect är en process som kräver flera kvalitets kontroll steg för att säkerställa drifts funktionerna i tjänsten, och medan vi går igenom den här processen kommer versions numret för en ny version och versions statusen att uppdateras för att avspegla det senaste tillståndet.
@@ -55,10 +54,12 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 05/07/2020: har släppts för nedladdning
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
-- Ett problem har åtgärd ATS där omarkerade domäner skulle bli felaktigt valt i guidens användar gränssnitt.
-- Ett problem har åtgärd ATS i ADSyncConfig PowerShell-modulen, där DSACLS-kommandot som används i alla cmdletar för set-ADSync *-behörighet skulle orsaka något av följande fel:
-     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
-     - `GrantAcls : No GUID Found for computer …`
+Den här snabb korrigeringen åtgärdar ett problem där omarkerade domäner har marker ATS felaktigt i användar gränssnittet i guiden om endast grandchild-behållare valdes.
+
+
+>[!NOTE]
+>Den här versionen krävs för att använda det nya Azure AD Connect Sync v2 Endpoint API.  Mer information finns i [Azure AD Connect Sync v2 Endpoint API (offentlig för hands version)](how-to-connect-sync-endpoint-api-v2.md).
+
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -82,7 +83,10 @@ Den här snabb korrigeringen åtgärdar ett problem i build-1.5.20.0 om du har k
 04/09/2020: har släppts för nedladdning
 
 ### <a name="fixed-issues"></a>Åtgärdade problem
-Den här snabb korrigeringen löser ett problem med build-1.5.18.0 om du har grupp filtrerings funktionen aktive rad och använder mS-DS-ConsistencyGuid som käll ankare.
+- Den här snabb korrigeringen löser ett problem med build-1.5.18.0 om du har grupp filtrerings funktionen aktive rad och använder mS-DS-ConsistencyGuid som käll ankare.
+- Ett problem har åtgärd ATS i ADSyncConfig PowerShell-modulen, där DSACLS-kommandot som används i alla cmdletar för set-ADSync *-behörighet skulle orsaka något av följande fel:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 > [!IMPORTANT]
 > Om du har klonat in från regeln för att **ansluta till AD-gruppen** och inte har klonat **in från regel för vanlig synkronisering i AD-gruppen** och planerar att uppgradera, slutför du följande steg som en del av uppgraderingen:
@@ -117,7 +121,6 @@ Den här snabb korrigeringen löser ett problem med build-1.5.18.0 om du har gru
 - Ett problem har åtgärd ATS när Azure Active Directory Sync-kontot som aktiverar katalog tillägg eller PHS Miss lyckas på grund av att kontot inte har spridits över alla tjänst repliker före försöket att använda. 
 - Ett fel har åtgärd ATS i komprimerings verktyget för synkroniseringsfel som inte hanterade surrogat tecken korrekt. 
 - En bugg har åtgärd ATS i den automatiska uppgradering som gjorde att servern avbröts av Scheduler. 
-- Ett fel har åtgärd ATS på sidan domän-/OU-filtrering som skulle ta bort körnings profilerna för en domän genom att helt enkelt expandera domän trädet utan att göra några ändringar.
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Versionsstatus
@@ -567,7 +570,7 @@ Lås åtkomst till AD DS-kontot genom att implementera följande behörighets ä
 *   Ta bort alla ACE: er för det angivna objektet, förutom åtkomst till sig själv. Vi vill behålla standard behörigheterna när det kommer till dig själv.
 *   Tilldela följande behörigheter:
 
-Typ     | Name                          | Åtkomst               | Gäller för
+Typ     | Name                          | Access               | Gäller för
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig kontroll         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig kontroll         | Det här objektet  |
@@ -1337,7 +1340,6 @@ Namnet har ändrats från Azure AD Sync till Azure AD Connect.
 **Nya för hands versions funktioner:**
 
 * [Tillbakaskrivning av användare](how-to-connect-preview.md#user-writeback)
-* [Tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback)
 * [Tillbakaskrivning av enheter](how-to-connect-device-writeback.md)
 * [Katalogtillägg](how-to-connect-preview.md)
 

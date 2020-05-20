@@ -4,17 +4,17 @@ description: Extrahera data från uttryck text med avsikter och entiteter. Lär 
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 3b6b09fd1066a9caa745cddf30d76e2843c3f56c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589728"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682188"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
 LUIS ger dig möjlighet att hämta information från en användares naturliga språk yttranden. Informationen extraheras på ett sätt som kan användas av ett program, program eller en chatt-robot för att vidta åtgärder. I följande avsnitt lär du dig vilka data som returneras från avsikter och entiteter med exempel på JSON.
 
-De hårda data som ska extraheras är de data som lagras på datorn eftersom det inte är en exakt text matchning. Data extrahering av de datorbaserade [enheterna](luis-concept-entity-types.md) måste vara en del av [redigerings cykeln](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig.
+De hårda data som ska extraheras är maskin inlärnings data eftersom det inte är en exakt text matchning. Data extrahering av [enheter](luis-concept-entity-types.md) för maskin inlärning måste vara en del av [redigerings cykeln](luis-concept-app-iteration.md) tills du är säker på att du får de data du förväntar dig.
 
 ## <a name="data-location-and-key-usage"></a>Data plats och nyckel användning
 LUIS extraherar data från användarens uttryck vid den publicerade [slut punkten](luis-glossary.md#endpoint). **Https-begäran** (post eller get) innehåller uttryck samt vissa valfria konfigurationer som till exempel mellanlagrings-eller produktions miljöer.
@@ -245,7 +245,7 @@ Vissa appar måste kunna hitta nya och nya namn, till exempel produkter eller f�
 
 ## <a name="patternany-entity-data"></a>Mönster. alla entitets data
 
-[Mönster.](reference-entity-pattern-any.md) det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar. Entiteten som används i mönstret måste hittas för att mönstret ska kunna användas. 
+[Mönster.](reference-entity-pattern-any.md) det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar. Entiteten som används i mönstret måste hittas för att mönstret ska kunna användas.
 
 ## <a name="sentiment-analysis"></a>Sentimentanalys
 Om sentiment-analysen konfigureras vid [publiceringen](luis-how-to-publish-app.md#sentiment-analysis)innehåller Luis JSON-svaret sentiment analys. Läs mer om sentiment-analys i [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) -dokumentationen.

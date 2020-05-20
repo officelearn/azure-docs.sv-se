@@ -3,12 +3,12 @@ title: App schema definition
 description: LUIS-appen representeras antingen i `.json` eller `.lu` och innehåller alla avsikter, entiteter, exempel yttranden, funktioner och inställningar.
 ms.topic: reference
 ms.date: 05/05/2020
-ms.openlocfilehash: 21b58f79ffd2baf553c6f8b07daa84473e620f77
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: dbbeb4eacbe8e07cf080b3a1527ca39c2b9a5991
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599374"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684354"
 ---
 # <a name="app-schema-definition"></a>App schema definition
 
@@ -25,8 +25,8 @@ När du importerar och exporterar appen väljer du antingen `.json` eller `.lu` 
 
 ## <a name="version-7x"></a>Version 7. x
 
-* Om du flyttar till version 7. x representeras entiteterna som kapslade dator enheter.
-* Stöd för redigering av kapslade dator enheter med `enableNestedChildren` egenskap i följande redigerings-API: er:
+* Om du flyttar till version 7. x visas entiteterna som kapslade enheter för maskin inlärning.
+* Stöd för redigering av kapslade enheter för maskin inlärning med `enableNestedChildren` egenskap i följande redigerings-API: er:
     * [Lägg till etikett](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)
     * [Lägg till kommando etikett](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c09)
     * [Granska etiketter](https://westus.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c0a)
@@ -64,7 +64,7 @@ När du importerar och exporterar appen väljer du antingen `.json` eller `.lu` 
 
 ## <a name="version-6x"></a>Version 6. x
 
-* Flyttar till version 6. x, Använd den nya enheten som du har [lärt dig](reference-entity-machine-learned-entity.md) för att representera dina entiteter.
+* Flyttar till version 6. x, Använd den nya [enheten för maskin inlärning](reference-entity-machine-learned-entity.md) för att representera dina entiteter.
 
 ```json
 {

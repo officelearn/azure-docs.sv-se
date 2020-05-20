@@ -1,6 +1,6 @@
 ---
-title: Data som ska samlas in när du öppnar ett ärende för Microsoft Azure Automation | Microsoft Docs
-description: I den här artikeln beskrivs en del av den information som du ska samla in innan du öppnar ett ärende för Azure Automation med Microsoft Azure stöd.
+title: Data som ska samlas in när ett ärende öppnas för Microsoft Azure Automation | Microsoft Docs
+description: Den här artikeln beskriver den information som ska samlas in innan du öppnar ett ärende för Azure Automation med Microsoft Azure support.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
-ms.openlocfilehash: e1d5d791a58f301991819b41757b9021f6e30fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2f97d0b889186324aef9613847e3eddbfe1eb02
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679407"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684842"
 ---
-# <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Data som du behöver samla in när du öppnar ett ärende för Microsoft Azure Automation
+# <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Data som ska samlas in när ett ärende öppnas för Microsoft Azure Automation
 
 I den här artikeln beskrivs en del av den information som du ska samla in innan du öppnar ett ärende för Azure Automation med Microsoft Azure stöd. Den här informationen krävs inte för att öppna ärendet. Det kan dock hjälpa Microsoft att lösa problemet snabbare. Du kan också uppmanas att utföra dessa data av support teknikern när du har öppnat ärendet.
 
@@ -92,5 +92,5 @@ Förutom de [grundläggande data posterna](#basic-data)samlar du in följande in
 Om du behöver mer hjälp:
 
 * Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) , det officiella Microsoft Azure kontot för att förbättra kund upplevelsen genom att ansluta Azure-communityn till rätt resurser: svar, support och experter.
 * Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

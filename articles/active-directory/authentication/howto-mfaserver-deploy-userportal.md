@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1869fac973cd4cd68e1e91be89c25fdf1427f6a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8b7d3945adaf75949ef36b50a5e56a02fde1548
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653200"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680917"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -69,7 +69,7 @@ Följ anvisningarna nedan om du vill distribuera användarportalen:
    > [!NOTE]
    > Detta TLS/SSL-certifikat är vanligt vis ett offentligt signerat TLS/SSL-certifikat.
 
-4. Öppna en webbläsare från valfri dator och gå till URL: en där användar portalen installerades (exempel: `https://mfa.contoso.com/MultiFactorAuth`). Se till att inga certifikatvarningar eller fel visas.
+4. Öppna en webbläsare från valfri dator och gå till URL: en där användar portalen installerades (exempel: `https://mfa.contoso.com/MultiFactorAuth` ). Se till att inga certifikatvarningar eller fel visas.
 
 ![Installation av MFA-serveranvändarportal](./media/howto-mfaserver-deploy-userportal/install.png)
 
@@ -105,10 +105,10 @@ Om du installerar användarportalen på en annan server än Azure Multi-Factor A
     * Leta reda på nyckeln **"USE_WEB_SERVICE_SDK"** och ändra **värde="false"** till **värde="true"**
     * Leta rätt på nycklarna **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** och ändra **värde=""** till **värde="DOMAIN\User"** där DOMAIN\User är ett tjänstkonto som är en del av gruppen "PhoneFactor Admins".
     * Leta reda på nyckeln **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** och ändra **värde=""** till **värde="Password"** där Password är lösenordet för tjänstkontot som angavs på föregående rad.
-    * Hitta värdet **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** och ändra URL-adressen till URL: en för webbtjänst-SDK som vi installerade i steg 2.
+    * Hitta värdet `https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx` och ändra URL-platshållaren till URL:en för webbtjänst-SDK:n vi installerade i steg 2.
     * Spara filen Web.Config och stäng Anteckningar.
 
-6. Öppna en webbläsare från valfri dator och gå till URL: en där användar portalen installerades (exempel: `https://mfa.contoso.com/MultiFactorAuth`). Se till att inga certifikatvarningar eller fel visas.
+6. Öppna en webbläsare från valfri dator och gå till URL: en där användar portalen installerades (exempel: `https://mfa.contoso.com/MultiFactorAuth` ). Se till att inga certifikatvarningar eller fel visas.
 
 Om du har frågor om hur du konfigurerar ett TLS/SSL-certifikat på en IIS-server kan du läsa artikeln [så här konfigurerar du SSL i IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 
@@ -130,7 +130,7 @@ Valfri konfiguration:
 
 Azure Multi-Factor Authentication-servern tillhandahåller flera alternativ för användarportalen. Följande tabell innehåller en lista över dessa alternativ och en förklaring av hur de används.
 
-| Inställningar för användarportalen | Beskrivning |
+| Inställningar för användarportalen | Description |
 |:--- |:--- |
 | URL till användarportalen | Ange URL:en till den plats där portalen finns. |
 | Primär autentisering | Ange vilken typ av autentisering som ska användas för inloggning på portalen. Du kan välja mellan Windows-, RADIUS- eller LDAP-autentisering. |

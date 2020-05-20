@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: aa9fd230f59b5e46576e78beb0436c85449d3c5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b46e8efb252224f83603000777b2e342f7e7ab9d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80256920"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684435"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat-uppdatering av infrastruktur för Red Hat Enterprise Linux virtuella datorer på begäran i Azure
  Med [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kan moln leverantörer, till exempel Azure, spegla innehåll i Red Hat-värdbaserade databaser, skapa anpassade databaser med Azure-särskilt innehåll och göra det tillgängligt för slutanvändarens virtuella datorer.
@@ -49,7 +49,7 @@ För en fullständig avbildnings lista kan `az vm image list --publisher redhat 
 
 ### <a name="images-connected-to-non-eus-repositories"></a>Avbildningar som är anslutna till icke-EUS-databaser
 
-Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till icke-EUS-lagringsplatser, kommer du att uppgraderas till den senaste `sudo yum update`RHEL-versionen när du kör. Om du till exempel etablerar en virtuell dator från en RHEL 7,4 PAYG-avbildning `sudo yum update`och kör, slutar du med en RHEL 7,7-dator (den senaste lägre versionen i RHEL7-serien).
+Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till icke-EUS-lagringsplatser, kommer du att uppgraderas till den senaste RHEL-versionen när du kör `sudo yum update` . Om du till exempel etablerar en virtuell dator från en RHEL 7,4 PAYG-avbildning och kör `sudo yum update` , slutar du med en RHEL 7,7-dator (den senaste lägre versionen i RHEL7-serien).
 
 Avbildningar som är anslutna till icke-EUS-lagringsplatser kommer inte att innehålla ett lägre versions nummer i SKU: n. SKU: n är det tredje elementet i URN (fullständigt namn på avbildningen). Till exempel är alla följande avbildningar kopplade till icke-EUS-databaser:
 
@@ -66,7 +66,7 @@ Observera att SKU: erna antingen är 7-LVM eller 7-RAW. Den lägre versionen ang
 
 ### <a name="images-connected-to-eus-repositories"></a>Bilder som är anslutna till EUS-databaser
 
-Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till EUS-lagringsplatserna uppgraderas du inte till den senaste RHEL-versionen `sudo yum update`när du kör. Detta beror på att avbildningarna som är anslutna till EUS-lagringsplatser också är versions låsta till sin speciella lägre version.
+Om du etablerar en virtuell dator från en RHEL-avbildning som är ansluten till EUS-lagringsplatserna uppgraderas du inte till den senaste RHEL-versionen när du kör `sudo yum update` . Detta beror på att avbildningarna som är anslutna till EUS-lagringsplatser också är versions låsta till sin speciella lägre version.
 
 Bilder som är anslutna till EUS-lagringsplatser kommer att innehålla ett lägre versions nummer i SKU: n. Till exempel är alla följande avbildningar kopplade till EUS-databaser:
 
@@ -111,7 +111,7 @@ Använd följande instruktioner för att låsa en RHEL VM till en viss del versi
     ```
 
     >[!NOTE]
-    > Ovanstående instruktion kommer att låsa den lägre RHEL-versionen till den aktuella del versionen. Ange en speciell del version om du vill uppgradera och låsa till en senare version som inte är den senaste. `echo 7.5 > /etc/yum/vars/releasever` Kommer till exempel att låsa din RHEL-version till RHEL 7,5
+    > Ovanstående instruktion kommer att låsa den lägre RHEL-versionen till den aktuella del versionen. Ange en speciell del version om du vill uppgradera och låsa till en senare version som inte är den senaste. Kommer till exempel att `echo 7.5 > /etc/yum/vars/releasever` låsa din RHEL-version till RHEL 7,5
 
 1. Uppdatera din virtuella RHEL-dator
     ```bash
@@ -144,7 +144,7 @@ Kör följande som rot:
 
 RHUI är tillgängligt i alla regioner där RHEL på begäran-avbildningar är tillgängliga. Den innehåller för närvarande alla offentliga regioner som visas på sidan [Azure status Dashboard](https://azure.microsoft.com/status/) , Azure amerikanska myndigheter och Microsoft Azure Tyskland regioner.
 
-Om du använder en nätverks konfiguration för att ytterligare begränsa åtkomsten från virtuella RHEL PAYG-datorer kontrollerar du att följande IP- `yum update` adresser är tillåtna för att fungera beroende på vilken miljö du befinner dig i:
+Om du använder en nätverks konfiguration för att ytterligare begränsa åtkomsten från virtuella RHEL PAYG-datorer kontrollerar du att följande IP-adresser är tillåtna för `yum update` att fungera beroende på vilken miljö du befinner dig i:
 
 
 ```
@@ -170,15 +170,15 @@ Om du använder en nätverks konfiguration för att ytterligare begränsa åtkom
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Uppdatera utgången RHUI-klient certifikat på en virtuell dator
 
-Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7,4 (avbildnings-URN `RedHat:RHEL:7.4:7.4.2018010506`:), kommer du att uppleva anslutnings problem till RHUI på grund av ett nu utgånget TLS/SSL-klientcertifikat. Felet som visas kan se ut som _"SSL-peer avvisade certifikatet som förfallet"_ eller _"fel: det går inte att hämta metadata för databas (repomd. xml) för databasen:... Verifiera sökvägen och försök igen_. Du kan åtgärda det här problemet genom att uppdatera RHUI-klient paketet på den virtuella datorn med hjälp av följande kommando:
+Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7,4 (avbildnings-URN: `RedHat:RHEL:7.4:7.4.2018010506` ), kommer du att uppleva anslutnings problem till RHUI på grund av ett nu utgånget TLS/SSL-klientcertifikat. Felet som visas kan se ut som _"SSL-peer avvisade certifikatet som förfallet"_ eller _"fel: det går inte att hämta metadata för databas (repomd. xml) för databasen:... Verifiera sökvägen och försök igen_. Du kan åtgärda det här problemet genom att uppdatera RHUI-klient paketet på den virtuella datorn med hjälp av följande kommando:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 ```
 
-Om du kör `sudo yum update` kan du också uppdatera klient certifikat paketet (beroende på din RHEL-version), trots att "utgången SSL-certifikat" fel visas för andra lagrings platser. Om den här uppdateringen lyckas, ska normal anslutning till andra RHUI-lagringsplatser återställas så att du kan köra `sudo yum update` den.
+`sudo yum update`Om du kör kan du också uppdatera klient certifikat paketet (beroende på din RHEL-version), trots att "utgången SSL-certifikat" fel visas för andra lagrings platser. Om den här uppdateringen lyckas, ska normal anslutning till andra RHUI-lagringsplatser återställas så att du kan köra den `sudo yum update` .
 
-Om du stöter på ett 404-fel när `yum update`du kör en kan du prova följande för att uppdatera yum-cachen:
+Om du stöter på ett 404-fel när du kör en `yum update` kan du prova följande för att uppdatera yum-cachen:
 ```bash
 sudo yum clean all;
 sudo yum makecache
@@ -191,7 +191,7 @@ Följ dessa steg om du får problem med att ansluta till Azure-RHUI från den vi
 
     1. Kontrol lera om `/etc/yum.repos.d/rh-cloud.repo` filen innehåller en referens till `rhui-[1-3].microsoft.com` i `baseurl` `[rhui-microsoft-azure-rhel*]` avsnittet i filen. Om så är fallet använder du den nya Azure-RHUI.
 
-    1. Om den pekar på en plats med följande mönster, `mirrorlist.*cds[1-4].cloudapp.net`krävs en konfigurations uppdatering. Du använder den gamla ögonblicks bilden av den virtuella datorn och du måste uppdatera den så att den pekar på den nya Azure-RHUI.
+    1. Om den pekar på en plats med följande mönster, `mirrorlist.*cds[1-4].cloudapp.net` krävs en konfigurations uppdatering. Du använder den gamla ögonblicks bilden av den virtuella datorn och du måste uppdatera den så att den pekar på den nya Azure-RHUI.
 
 1. Åtkomst till Azure-värdbaserade RHUI är begränsad till virtuella datorer inom [IP-intervallen för Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653).
 
@@ -241,6 +241,6 @@ Den här proceduren är endast avsedd som referens. RHEL PAYG-avbildningarna har
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Om du vill skapa en Red Hat Enterprise Linux virtuell dator från en Azure Marketplace PAYG-avbildning och använda Azure-värdbaserade RHUI går du till [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
+* Om du vill skapa en Red Hat Enterprise Linux virtuell dator från en Azure Marketplace PAYG-avbildning och använda Azure-värdbaserade RHUI går du till [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
 * Om du vill veta mer om Red Hat-bilderna i Azure går du till [dokumentations sidan](./redhat-images.md).
 * Information om Red Hat support-principer för alla versioner av RHEL finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .

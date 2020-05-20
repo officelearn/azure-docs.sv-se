@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0cc0cd7233d0c16cae8389fcddd50a16cf96bd2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383630"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683636"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konvertera resurs klasser till arbets belastnings grupper
 
@@ -27,7 +27,7 @@ Arbets belastnings grupper tillhandahåller en mekanism för att isolera och inn
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Förstå den befintliga resurs klass konfigurationen
 
-Arbets belastnings grupper kräver en `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parameter med namnet som anger procent andelen totala system resurser som allokeras per begäran.  Resursallokering görs för [resurs klasser](resource-classes-for-workload-management.md#what-are-resource-classes) genom att allokera samtidiga platser.  Använd sys. dm_workload_management_workload_groups_stats `REQUEST_MIN_RESOURCE_GRANT_PERCENT` <link tbd> DMV för att avgöra värdet som ska anges för.  Frågan nedan returnerar exempelvis ett värde som kan användas för `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametern för att skapa en arbets belastnings grupp som liknar staticrc40.
+Arbets belastnings grupper kräver en parameter `REQUEST_MIN_RESOURCE_GRANT_PERCENT` med namnet som anger procent andelen totala system resurser som allokeras per begäran.  Resursallokering görs för [resurs klasser](resource-classes-for-workload-management.md#what-are-resource-classes) genom att allokera samtidiga platser.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`Använd sys. dm_workload_management_workload_groups_stats DMV för att avgöra värdet som ska anges för <link tbd> .  Frågan nedan returnerar exempelvis ett värde som kan användas för `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametern för att skapa en arbets belastnings grupp som liknar staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -38,11 +38,11 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Arbets belastnings grupper arbetar baserat på procent av övergripande system resurser.  
 
-Eftersom arbets belastnings grupper fungerar baserat på procent andelen av övergripande system resurser, när du skalar upp och ned, ändras procent andelen resurser som har allokerats till statiska resurs klasser i förhållande till de totala system resurserna.  Staticrc40 vid DW1000c allokerar till exempel 9,6% av de totala system resurserna.  Vid DW2000c tilldelas 19,2%.  Den här modellen är liknande om du vill skala upp för samtidighet jämfört med att allokera fler resurser per begäran.
+Eftersom arbets belastnings grupper fungerar baserat på procent andelen av övergripande system resurser, när du skalar upp och ned, ändras procent andelen resurser som har allokerats till statiska resurs klasser i förhållande till de totala system resurserna.  Staticrc40 vid DW1000c allokerar till exempel 19,2% av de totala system resurserna.  Vid DW2000c tilldelas 9,6%.  Den här modellen är liknande om du vill skala upp för samtidighet jämfört med att allokera fler resurser per begäran.
 
 ## <a name="create-workload-group"></a>Skapa arbets belastnings grupp
 
-Med känd `REQUEST_MIN_RESOURCE_GRANT_PERCENT`kan du använda SYNTAXEN skapa arbets belastnings <link> grupp för att skapa arbets belastnings gruppen.  Du kan också ange en `MIN_PERCENTAGE_RESOURCE` som är större än noll för att isolera resurser för arbets belastnings gruppen.  Du kan också ange `CAP_PERCENTAGE_RESOURCE` mindre än 100 för att begränsa den mängd resurser som arbets belastnings gruppen kan använda.  
+Med känd kan `REQUEST_MIN_RESOURCE_GRANT_PERCENT` du använda syntaxen skapa arbets belastnings grupp <link> för att skapa arbets belastnings gruppen.  Du kan också ange en `MIN_PERCENTAGE_RESOURCE` som är större än noll för att isolera resurser för arbets belastnings gruppen.  Du kan också ange `CAP_PERCENTAGE_RESOURCE` mindre än 100 för att begränsa den mängd resurser som arbets belastnings gruppen kan använda.  
 
 Exemplet nedan anger `MIN_PERCENTAGE_RESOURCE` för att tilldela 9,6% av system resurserna till `wgDataLoads` och garanterar att en fråga kan köra alla tider.  Dessutom `CAP_PERCENTAGE_RESOURCE` är inställt på 38,4% och begränsar den här arbets belastnings gruppen till fyra samtidiga begär Anden.  Genom att ange `QUERY_EXECUTION_TIMEOUT_SEC` parametern till 3600 avbryts alla frågor som körs i mer än en timme automatiskt.
 
@@ -59,7 +59,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 Tidigare genomfördes mappningen av frågor till resurs klasser med [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Om du vill uppnå samma funktioner och mappa begär anden till arbets belastnings grupper använder du KLASSIFICERINGs-syntaxen [skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Med sp_addrolemember får du bara mappa resurser till en begäran baserat på en inloggning.  En klassificerare innehåller ytterligare alternativ förutom inloggning, till exempel:
     - etikett
     - session
-    - `AdfLogin` tid i exemplet nedan tilldelar frågor från inloggningen som också har [alternativ etiketten](sql-data-warehouse-develop-label.md) inställd till `factloads` den arbets belastnings grupp `wgDataLoads` som du skapade ovan.
+    - tid i exemplet nedan tilldelar frågor från `AdfLogin` inloggningen som också har [alternativ etiketten](sql-data-warehouse-develop-label.md) inställd till `factloads` den arbets belastnings grupp som du `wgDataLoads` skapade ovan.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER wcDataLoads WITH  

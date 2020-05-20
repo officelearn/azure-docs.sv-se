@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 1db23bb1176a41b4b9bac548b737fbd13fbe82c4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203322"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685244"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Mass återställning av borttagna användare i Azure Active Directory
 
@@ -35,7 +35,7 @@ Hämta och fyll i CSV-mallen för att hjälpa dig att återställa Azure AD-anv�
 Raderna i en Hämtad CSV-mall är följande:
 
 - **Versions nummer**: den första raden som innehåller versions numret måste inkluderas i överförings-CSV-filen.
-- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt*&gt;. Till exempel `Object ID [objectId] Required`. Vissa äldre versioner av mallen kan ha små variationer.
+- **Kolumn rubriker**: kolumn rubrikernas format är &lt; *objekt namnet* &gt; [PropertyName] &lt; *obligatoriskt eller tomt* &gt; . Till exempel `Object ID [objectId] Required`. Vissa äldre versioner av mallen kan ha små variationer.
 - **Exempel rad**: vi har inkluderat i mallen en rad exempel på acceptabla värden för varje kolumn. Du måste ta bort exempel raden och ersätta den med dina egna poster.
 
 ### <a name="additional-guidance"></a>Mer information
@@ -48,14 +48,14 @@ Raderna i en Hämtad CSV-mall är följande:
 ## <a name="to-bulk-restore-users"></a>För Mass återställning av användare
 
 1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är en användar administratör i Azure AD-organisationen.
-1. I Azure AD väljer **du användare** > **borttagna**.
+1. I Azure AD väljer **du användare**  >  **borttagna**.
 1. På sidan **borttagna användare** väljer du **Mass återställning** för att ladda upp en giltig CSV-fil med egenskaper för de användare som ska återställas.
 
-   ![Välj kommandot Mass återställning på sidan borttagna användare](./media/users-bulk-restore/bulk-restore.png)
+    ![Välj kommandot Mass återställning på sidan borttagna användare](./media/users-bulk-restore/bulk-restore.png)
 
 1. Öppna CSV-mallen och Lägg till en rad för varje användare som du vill återställa. Det enda obligatoriska värdet är **ObjectID**. Spara sedan filen.
 
-   ![Välj en lokal CSV-fil där du visar de användare som du vill lägga till](./media/users-bulk-restore/upload-button.png)
+    :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="Välj en lokal CSV-fil där du visar de användare som du vill lägga till":::
 
 1. På sidan **Mass återställning** , under **överför din CSV-fil**, bläddrar du till filen. När du väljer filen och klickar på **Skicka**, startar verifieringen av CSV-filen.
 1. När fil innehållet verifieras visas **filen har laddats upp**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.

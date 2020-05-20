@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546934"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684398"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Bearbeta data uppsättningar i stor skala med hjälp av Data Factory och batch
 > [!NOTE]
@@ -130,9 +130,9 @@ Du använder [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.co
 
    ![Mappstruktur för mappar och undermappar](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`och `outputfolder` är mappar på den översta nivån `mycontainer`i. `inputfolder` Mappen innehåller undermappar med datum-och TIDSSTÄMPLAR (åååå-mm-dd-HH).
+   `Inputfolder`och `outputfolder` är mappar på den översta nivån i `mycontainer` . `inputfolder`Mappen innehåller undermappar med datum-och tidsstämplar (åååå-mm-dd-HH).
 
-   Om du använder Storage Explorer, i nästa steg, laddar du upp filer med följande namn: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`och så vidare. I det här steget skapas automatiskt mapparna.
+   Om du använder Storage Explorer, i nästa steg, laddar du upp filer med följande namn: `inputfolder/2015-11-16-00/file.txt` , `inputfolder/2015-11-16-01/file.txt` och så vidare. I det här steget skapas automatiskt mapparna.
 
 1. Skapa en textfil **. txt-fil** på datorn med innehåll som har nyckelordet **Microsoft**. Ett exempel är "testa anpassad aktivitet Microsoft-test anpassad aktivitet Microsoft".
 
@@ -140,9 +140,9 @@ Du använder [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.co
 
    ![Mappar för indatamängd](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Om du använder Storage Explorer laddar du upp **filen. txt** -filen till en **behållare**. Välj **Kopiera** i verktygsfältet för att skapa en kopia av blobben. I dialog rutan **Kopiera BLOB** ändrar du **målets BLOB-namn** till `inputfolder/2015-11-16-00/file.txt`. Upprepa det här steget för `inputfolder/2015-11-16-01/file.txt`att `inputfolder/2015-11-16-02/file.txt`skapa `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt`,, och så vidare. Den här åtgärden skapar automatiskt mapparna.
+   Om du använder Storage Explorer laddar du upp **filen. txt** -filen till en **behållare**. Välj **Kopiera** i verktygsfältet för att skapa en kopia av blobben. I dialog rutan **Kopiera BLOB** ändrar du **målets BLOB-namn** till `inputfolder/2015-11-16-00/file.txt` . Upprepa det här steget för att skapa,,, `inputfolder/2015-11-16-01/file.txt` `inputfolder/2015-11-16-02/file.txt` `inputfolder/2015-11-16-03/file.txt` `inputfolder/2015-11-16-04/file.txt` och så vidare. Den här åtgärden skapar automatiskt mapparna.
 
-1. Skapa en annan behållare `customactivitycontainer`med namnet. Överför den anpassade aktivitetens zip-fil till den här behållaren.
+1. Skapa en annan behållare med namnet `customactivitycontainer` . Överför den anpassade aktivitetens zip-fil till den här behållaren.
 
 #### <a name="visual-studio"></a>Visual Studio
 Installera Visual Studio 2012 eller senare för att skapa en anpassad batch-aktivitet som ska användas i Data Factory-lösningen.
@@ -180,19 +180,19 @@ Metoden har några viktiga komponenter som du behöver förstå:
 
    a. Starta Visual Studio 2012/2013/2015.
 
-   b. Välj **Arkiv** > **nytt** > **projekt**.
+   b. Välj **Arkiv**  >  **nytt**  >  **projekt**.
 
-   c. Expandera **mallar**och välj **Visual C\#**. I den här genom gången använder du\#C, men du kan använda valfritt .net-språk för att utveckla den anpassade aktiviteten.
+   c. Expandera **mallar**och välj **Visual C \# **. I den här genom gången använder du C \# , men du kan använda valfritt .net-språk för att utveckla den anpassade aktiviteten.
 
    d. Välj **klass bibliotek** i listan över projekt typer till höger.
 
    e. Ange **MyDotNetActivity** som **namn**.
 
-   f. Välj **C:\\ADF** för **platsen**. Skapa mappen **ADF** om den inte finns.
+   f. Välj **C: \\ ADF** för **platsen**. Skapa mappen **ADF** om den inte finns.
 
    g. Klicka på **OK** för att skapa projektet.
 
-1. Välj **verktyg** > **NuGet Package Manager** > **Package**Manager-konsolen.
+1. Välj **verktyg**  >  **NuGet Package Manager**  >  **Package**Manager-konsolen.
 
 1. Kör följande kommando i Package Manager-konsolen för att importera Microsoft. Azure. Management. DataFactories:
 
@@ -396,13 +396,13 @@ Metoden har några viktiga komponenter som du behöver förstå:
 
 1. Kompilera projektet. Välj **build** på menyn och välj sedan build- **lösning**.
 
-1. Starta Utforskaren och gå till mappen **bin\\-felsökning** eller **bin-\\bin** . Valet av mapp beror på typen av version.
+1. Starta Utforskaren och gå till mappen bin- ** \\ Felsökning** eller **bin- \\ bin** . Valet av mapp beror på typen av version.
 
-1. Skapa en zip-fil **MyDotNetActivity. zip** som innehåller alla binärfiler i mappen ** \\bin\\-felsökning** . Du kanske vill inkludera MyDotNetActivity. **PDB** -fil så att du får ytterligare information, till exempel rad numret i käll koden som orsakade problemet när ett fel uppstår.
+1. Skapa en zip-fil **MyDotNetActivity. zip** som innehåller alla binärfiler i mappen ** \\ bin- \\ Felsökning** . Du kanske vill inkludera MyDotNetActivity. **PDB** -fil så att du får ytterligare information, till exempel rad numret i käll koden som orsakade problemet när ett fel uppstår.
 
    ![Mapplistan bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
 
-1. Ladda upp **MyDotNetActivity. zip** som en blob till BLOB- `customactivitycontainer` behållaren i blob-lagringen som den länkade tjänsten StorageLinkedService i ADFTutorialDataFactory använder. Skapa BLOB-behållaren `customactivitycontainer` om den inte redan finns.
+1. Ladda upp **MyDotNetActivity. zip** som en blob till BLOB-behållaren `customactivitycontainer` i blob-lagringen som den länkade tjänsten StorageLinkedService i ADFTutorialDataFactory använder. Skapa BLOB-behållaren `customactivitycontainer` om den inte redan finns.
 
 #### <a name="execute-method"></a>Kör metod
 Det här avsnittet innehåller mer information om koden i Execute-metoden.
@@ -482,7 +482,7 @@ Det här avsnittet innehåller mer information om koden i Execute-metoden.
 ### <a name="create-the-data-factory"></a>Skapa data fabriken
 I avsnittet [Skapa anpassad aktivitet](#create-the-custom-activity) har du skapat en anpassad aktivitet och överfört zip-filen med binärfiler och PDB-filen till en BLOB-behållare. I det här avsnittet skapar du en data fabrik med en pipeline som använder den anpassade aktiviteten.
 
-Data uppsättningen för den anpassade aktiviteten representerar blobarna (filerna) i indatafilen (`mycontainer\\inputfolder`) i Blob Storage. Den utgående data uppsättningen för aktiviteten representerar utgående blobbar i mappen utdata (`mycontainer\\outputfolder`) i Blob Storage.
+Data uppsättningen för den anpassade aktiviteten representerar blobarna (filerna) i indatafilen ( `mycontainer\\inputfolder` ) i Blob Storage. Den utgående data uppsättningen för aktiviteten representerar utgående blobbar i mappen utdata ( `mycontainer\\outputfolder` ) i Blob Storage.
 
 Ta bort en eller flera filer i mapparna för indatafiler:
 
@@ -578,7 +578,7 @@ I det här steget skapar du en länkad tjänst för batch-kontot som används f�
    d. Ange batch-URI för **batchUri** JSON-egenskapen.
 
       > [!IMPORTANT]
-      > URL: en från **Batch-konto** -bladet har följande format \<:\>AccountName. \<region\>. batch.Azure.com. För egenskapen **batchUri** i JSON-skriptet måste du ta bort A88 "AccountName". * * från URL: en. Ett exempel är `"batchUri": "https://eastus.batch.azure.com"`.
+      > URL: en från **Batch-konto** -bladet har följande format \< : \> AccountName \< . region \> . batch.Azure.com. För egenskapen **batchUri** i JSON-skriptet måste du ta bort A88 "AccountName". * * från URL: en. Ett exempel är `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -659,13 +659,13 @@ I det här steget skapar du data uppsättningar som representerar indata och utd
     }
     ```
 
-    Du skapar en pipeline senare i den här genom gången med start tiden 2015-11-16T00:00:00Z och slut tiden 2015-11-16T05:00:00Z. Det är schemalagt att producera data varje timme, så det finns fem indata/utdata-segment (mellan **00**:\> 00:00- **05**: 00:00).
+    Du skapar en pipeline senare i den här genom gången med start tiden 2015-11-16T00:00:00Z och slut tiden 2015-11-16T05:00:00Z. Det är schemalagt att producera data varje timme, så det finns fem indata/utdata-segment (mellan **00**: 00:00- \> **05**: 00:00).
 
     **Frekvensen** och **intervallet** för indata-datauppsättningen anges till **timme** och **1**, vilket innebär att indata sektorn är tillgänglig varje timme.
 
     Start tiden för varje sektor representeras av **SliceStart** system-variabel i föregående JSON-kodfragment. Här är start tiderna för varje sektor.
 
-    | **Sektor** | **Starttid**          |
+    | **Sektor** | **Start tid**          |
     |-----------|-------------------------|
     | 1         | 2015-11-16T**00**: 00:00 |
     | 2         | 2015-11-16T**01**: 00:00 |
@@ -675,7 +675,7 @@ I det här steget skapar du data uppsättningar som representerar indata och utd
 
     **FolderPath** beräknas med hjälp av året, månaden, dagen och Tim delen av sektor start tiden (**SliceStart**). Så här mappas en inmapp till en sektor.
 
-    | **Sektor** | **Starttid**          | **Mapp för indatamängd**  |
+    | **Sektor** | **Start tid**          | **Mapp för indatamängd**  |
     |-----------|-------------------------|-------------------|
     | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16 –**00** |
     | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16 –**01** |
@@ -720,9 +720,9 @@ I det här steget skapar du en annan data uppsättning av typen AzureBlob för a
     }
     ```
 
-    En utgående BLOB/fil genereras för varje ingående sektor. Här är hur en utdatafil namnges för varje sektor. Alla utdatafiler genereras i en mapp för utdata `mycontainer\\outputfolder`.
+    En utgående BLOB/fil genereras för varje ingående sektor. Här är hur en utdatafil namnges för varje sektor. Alla utdatafiler genereras i en mapp för utdata `mycontainer\\outputfolder` .
 
-    | **Sektor** | **Starttid**          | **Utdatafil**       |
+    | **Sektor** | **Start tid**          | **Utdatafil**       |
     |-----------|-------------------------|-----------------------|
     | 1         | 2015-11-16T**00**: 00:00 | 2015-11-16 –**00. txt** |
     | 2         | 2015-11-16T**01**: 00:00 | 2015-11-16 –**01. txt** |
@@ -793,9 +793,9 @@ I det här steget skapar du en pipeline med en aktivitet, den anpassade aktivite
 
    * Endast en aktivitet finns i pipelinen och är av typen **DotNetActivity**.
    * **AssemblyName** har angetts till namnet på dll- **MyDotNetActivity. dll**.
-   * **EntryPoint** är inställd på **MyDotNetActivityNS. MyDotNetActivity**. Det är i \<princip\>namn område. \<className\> i din kod.
+   * **EntryPoint** är inställd på **MyDotNetActivityNS. MyDotNetActivity**. Det är i princip \< namn område \> . \< className \> i din kod.
    * **PackageLinkedService** är inställt på **StorageLinkedService**, som pekar på blob-lagringen som innehåller den anpassade aktivitetens zip-fil. Om du använder olika lagrings konton för in-och utdatafiler och den anpassade aktivitetens zip-fil måste du skapa en annan länkad lagrings tjänst. I den här artikeln förutsätter vi att du använder samma lagrings konto.
-   * **PackageFile** har angetts till **customactivitycontainer/MyDotNetActivity. zip**. \<Det har formatet containerforthezip\>/\<nameofthezip. zip\>.
+   * **PackageFile** har angetts till **customactivitycontainer/MyDotNetActivity. zip**. Det har formatet \< containerforthezip \> / \< nameofthezip. zip \> .
    * Den anpassade aktiviteten tar **InputDataset** som indata och **OutputDataset** som utdata.
    * Egenskapen **linkedServiceName** för den anpassade aktiviteten pekar på **AzureBatchLinkedService**, som talar om för Data Factory att den anpassade aktiviteten måste köras i batch.
    * **Samtidighets** inställningen är viktig. Om du använder standardvärdet, vilket är 1, även om du har två eller fler Compute-noder i batch-poolen bearbetas sektorerna ett efter ett annat. Därför drar du inte nytta av den parallella bearbetnings funktionen i batch. Om du ställer in **samtidighet** till ett högre värde innebär det att två sektorer (motsvarar två aktiviteter i batch) kan bearbetas på samma gång. I det här fallet används båda de virtuella datorerna i batch-poolen. Ställ in samtidighets egenskapen på rätt sätt.
@@ -828,7 +828,7 @@ I det här steget ska du testa pipelinen genom att släppa filer i inmapparna. B
 
 1. Använd portalen för att visa de uppgifter som är associerade med sektorerna och se vilken virtuell dator varje sektor kördes på. Mer information finns i avsnittet [Data Factory och batch-integrering](#data-factory-and-batch-integration) .
 
-1. Utdatafilerna visas under `mycontainer` i `outputfolder` i Blob Storage.
+1. Utdatafilerna visas under `mycontainer` i i `outputfolder` Blob Storage.
 
    ![Utdatafiler i lagring](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -849,7 +849,7 @@ I det här steget ska du testa pipelinen genom att släppa filer i inmapparna. B
 
     ![Kör](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. När sektorn har körts och statusen är **klar**kontrollerar du innehållet i utdatafilen för den här sektorn (**2015-11-16 01. txt**). Utdatafilen visas under `mycontainer` i `outputfolder` i Blob Storage. Det ska finnas en rad för varje fil i sektorn.
+1. När sektorn har körts och statusen är **klar**kontrollerar du innehållet i utdatafilen för den här sektorn (**2015-11-16 01. txt**). Utdatafilen visas under `mycontainer` i i `outputfolder` Blob Storage. Det ska finnas en rad för varje fil i sektorn.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -865,7 +865,7 @@ I det här steget ska du testa pipelinen genom att släppa filer i inmapparna. B
 >
 
 #### <a name="data-factory-and-batch-integration"></a>Data Factory-och batch-integrering
-Data Factorys tjänsten skapar ett jobb i batch med namnet `adf-poolname:job-xxx`.
+Data Factorys tjänsten skapar ett jobb i batch med namnet `adf-poolname:job-xxx` .
 
 ![Batch-jobb](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
@@ -884,11 +884,11 @@ Fel sökning består av några grundläggande tekniker.
 
    ![Struktur för inmatade mappar](./media/data-factory-data-processing-using-batch/image3.png)
 
-1. I **execute** -metoden för din anpassade aktivitet använder du **IActivityLogger** -objektet för att logga information som hjälper dig att felsöka problem. De loggade meddelandena visas i filen användare\_0. log.
+1. I **execute** -metoden för din anpassade aktivitet använder du **IActivityLogger** -objektet för att logga information som hjälper dig att felsöka problem. De loggade meddelandena visas i filen användare \_ 0. log.
 
    På bladet **OutputDataset** väljer du sektorn för att se bladet **data sektor** för den sektorn. Under **aktivitets körningar**visas en aktivitets körning för sektorn. Om du väljer **Kör** i kommando fältet kan du starta en annan aktivitets körning för samma sektor.
 
-   När du väljer aktivitets körningen visas bladet **aktivitets körnings information** med en lista över loggfiler. Du ser loggade meddelanden i filen\_användare 0. log. När ett fel inträffar visas tre aktivitets körningar eftersom antalet återförsök har angetts till 3 i pipeline/Activity-JSON. När du väljer aktivitets körningen visas de loggfiler som du kan granska för att felsöka felet.
+   När du väljer aktivitets körningen visas bladet **aktivitets körnings information** med en lista över loggfiler. Du ser loggade meddelanden i \_ filen användare 0. log. När ett fel inträffar visas tre aktivitets körningar eftersom antalet återförsök har angetts till 3 i pipeline/Activity-JSON. När du väljer aktivitets körningen visas de loggfiler som du kan granska för att felsöka felet.
 
    ![Blad för OutputDataset och data sektor](./media/data-factory-data-processing-using-batch/image18.png)
 
@@ -920,7 +920,7 @@ Fel sökning består av några grundläggande tekniker.
    ![OutputDataset-bladets körnings alternativ](./media/data-factory-data-processing-using-batch/image21.png)
 
    > [!NOTE]
-   > En behållare finns i blob-lagringen `adfjobs`med namnet. Den här behållaren tas inte bort automatiskt, men du kan ta bort den på ett säkert sätt när du har testat lösningen. På samma sätt skapar Data Factory-lösningen ett batch-jobb `adf-\<pool ID/name\>:job-0000000001`med namnet. Du kan ta bort det här jobbet när du har testat lösningen om du vill.
+   > En behållare finns i blob-lagringen med namnet `adfjobs` . Den här behållaren tas inte bort automatiskt, men du kan ta bort den på ett säkert sätt när du har testat lösningen. På samma sätt skapar Data Factory-lösningen ett batch-jobb med namnet `adf-\<pool ID/name\>:job-0000000001` . Du kan ta bort det här jobbet när du har testat lösningen om du vill.
    >
    >
 1. Den anpassade aktiviteten använder inte **app. config** -filen från ditt paket. Om din kod läser eventuella anslutnings strängar från konfigurations filen fungerar det därför inte vid körning. Den bästa metoden när du använder batch är att lagra alla hemligheter i Azure Key Vault. Använd sedan ett certifikat baserat tjänstens huvud namn för att skydda nyckel valvet och distribuera certifikatet till batch-poolen. Den anpassade .NET-aktiviteten kan komma åt hemligheter från nyckel valvet vid körning. Denna generiska lösning kan skalas till vilken typ av hemlighet som helst, inte bara en anslutnings sträng.
@@ -930,7 +930,7 @@ Fel sökning består av några grundläggande tekniker.
 #### <a name="extend-the-sample"></a>Utöka exemplet
 Du kan utöka det här exemplet för att lära dig mer om Data Factory-och batch-funktioner. För att till exempel bearbeta sektorer i ett annat tidsintervall, utför följande steg:
 
-1. Lägg till följande undermappar i `inputfolder`: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 och 2015-11-16-09. Placera indatafilerna i dessa mappar. Ändra slut tiden för pipelinen från `2015-11-16T05:00:00Z` till. `2015-11-16T10:00:00Z` I **diagramvyn** dubbelklickar du på **InputDataset** och bekräftar att de angivna segmenten är klara. Dubbelklicka på **OutputDataset** för att se statusen för de utgående segmenten. Om de har statusen **klar** kontrollerar du mappen utdata för utdatafilerna.
+1. Lägg till följande undermappar i `inputfolder` : 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 och 2015-11-16-09. Placera indatafilerna i dessa mappar. Ändra slut tiden för pipelinen från `2015-11-16T05:00:00Z` till `2015-11-16T10:00:00Z` . I **diagramvyn** dubbelklickar du på **InputDataset** och bekräftar att de angivna segmenten är klara. Dubbelklicka på **OutputDataset** för att se statusen för de utgående segmenten. Om de har statusen **klar** kontrollerar du mappen utdata för utdatafilerna.
 
 1. Öka eller minska **samtidighets** inställningen för att förstå hur den påverkar lösningens prestanda, särskilt bearbetningen i batch. Mer information om **samtidiga** inställningar finns i "steg 4: skapa och köra pipelinen med en anpassad aktivitet".
 
@@ -960,7 +960,7 @@ Du kan utöka det här exemplet för att lära dig mer om Data Factory-och batch
 När du har bearbetat data kan du använda det med online-verktyg som Power BI. Här följer länkar som hjälper dig att förstå Power BI och hur du använder det i Azure:
 
 * [Utforska en data uppsättning i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Kom igång med Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Komma igång med Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Uppdatera data i Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure och Power BI: grundläggande översikt](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 

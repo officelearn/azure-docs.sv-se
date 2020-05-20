@@ -1,6 +1,6 @@
 ---
 title: Hantera certifikat i Azure Automation
-description: Azure Automation säkert lagrar certifikat så att Runbooks och DSC-konfigurationer kan komma åt dem för att autentisera mot Azure och resurser från tredje part. I den här artikeln förklaras information om certifikat och hur du arbetar med dem i både text-och grafisk redigering.
+description: Den här artikeln beskriver hur du arbetar med certifikat för åtkomst av Runbooks och DSC-konfigurationer.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2793679fb4588d00ea4e37340b19183398cb9d90
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: bf7e6d0ed8d6e318e6a78d25bcc7764f6302ef22
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864325"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685369"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Hantera certifikat i Azure Automation
 
@@ -23,14 +23,11 @@ Azure Automation lagrar certifikat säkert för åtkomst av Runbooks och DSC-kon
 >[!NOTE]
 >Säkra till gångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa till gångar krypteras och lagras i Automation med hjälp av en unik nyckel som genereras för varje Automation-konto. Automation lagrar nyckeln i den systemhanterade Key Vaults tjänsten. Innan du lagrar en säker till gång läser Automation in nyckeln från Key Vault och använder den för att kryptera till gången. 
 
->[!NOTE]
->Den här artikeln visar hur du använder modulen Azure PowerShell AZ. Du kan fortfarande använda AzureRM-modulen. Mer information om AZ-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
-
 ## <a name="powershell-cmdlets-to-access-certificates"></a>PowerShell-cmdletar för att komma åt certifikat
 
 Cmdletarna i följande tabell skapar och hanterar Automation-certifikat med PowerShell. De levereras som en del av [AZ-modulerna](modules.md#az-modules).
 
-|Cmdlet |Beskrivning|
+|Cmdlet |Description|
 | --- | ---|
 |[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Hämtar information om ett certifikat som ska användas i en Runbook-eller DSC-konfiguration. Du kan bara hämta själva certifikatet med hjälp av den interna `Get-AutomationCertificate` cmdleten.|
 |[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Skapar ett nytt certifikat i Automation.|
@@ -41,14 +38,14 @@ Cmdleten [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-a
 
 ## <a name="internal-cmdlets-to-access-certificates"></a>Interna cmdlets för att komma åt certifikat
 
-Den interna cmdleten i följande tabell används för att komma åt certifikat i dina runbooks. Denna cmdlet ingår i den globala modulen `Orchestrator.AssetManagement.Cmdlets`. Mer information finns i [interna cmdletar](modules.md#internal-cmdlets).
+Den interna cmdleten i följande tabell används för att komma åt certifikat i dina runbooks. Denna cmdlet ingår i den globala modulen `Orchestrator.AssetManagement.Cmdlets` . Mer information finns i [interna cmdletar](modules.md#internal-cmdlets).
 
-| Intern cmdlet | Beskrivning |
+| Intern cmdlet | Description |
 |:---|:---|
 |`Get-AutomationCertificate`|Hämtar ett certifikat som ska användas i en Runbook-eller DSC-konfiguration. Returnerar ett [system. Security. Cryptography. X509Certificates. X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) -objekt.|
 
 > [!NOTE] 
-> Du bör undvika att använda variabler i `Name` -parametern `Get-AutomationCertificate` i en Runbook-eller DSC-konfiguration. Sådana variabler kan komplicera identifieringen av beroenden mellan Runbooks och DSC-konfigurationer och automation-variabler i design läge.
+> Du bör undvika att använda variabler i- `Name` parametern i `Get-AutomationCertificate` en Runbook-eller DSC-konfiguration. Sådana variabler kan komplicera identifieringen av beroenden mellan Runbooks och DSC-konfigurationer och automation-variabler i design läge.
 
 ## <a name="python-2-functions-to-access-certificates"></a>Python 2-funktioner för att få åtkomst till certifikat
 
@@ -67,7 +64,7 @@ När du skapar ett nytt certifikat laddar du upp en CER-eller PFX-fil som ska au
 
 ### <a name="create-a-new-certificate-with-the-azure-portal"></a>Skapa ett nytt certifikat med Azure Portal
 
-1. Från ditt Automation-konto väljer du **till gångar** > **certifikat** > **Lägg till ett certifikat**.
+1. Från ditt Automation-konto väljer du **till gångar**  >  **certifikat**  >  **Lägg till ett certifikat**.
 1. I fältet **namn** anger du ett namn för certifikatet.
 1. Om du vill bläddra efter en **CER** -eller **PFX** -fil går du till **överför en certifikat fil**och väljer **Välj en fil**. Om du väljer en **. pfx** -fil anger du ett lösen ord och anger om det kan exporteras.
 1. Välj **skapa** för att spara den nya certifikat till gången.
@@ -130,7 +127,7 @@ New-AzResourceGroupDeployment -Name NewCert -ResourceGroupName TestAzureAuto -Te
 
 ## <a name="get-a-certificate"></a>Hämta ett certifikat
 
-Använd den interna `Get-AutomationCertificate` cmdleten för att hämta ett certifikat. Du kan inte använda cmdleten [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) eftersom den returnerar information om certifikat till gången, men inte själva certifikatet.
+Använd den interna cmdleten för att hämta ett certifikat `Get-AutomationCertificate` . Du kan inte använda cmdleten [Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0) eftersom den returnerar information om certifikat till gången, men inte själva certifikatet.
 
 ### <a name="textual-runbook-example"></a>Exempel på text Runbook
 
@@ -146,7 +143,7 @@ Add-AzureCertificate -ServiceName $serviceName -CertToDeploy $cert
 
 ### <a name="graphical-runbook-example"></a>Exempel på grafisk Runbook
 
-Lägg till en aktivitet för den `Get-AutomationCertificate` interna cmdleten i en grafisk Runbook genom att högerklicka på certifikatet i fönstret Bibliotek och välja **Lägg till på arbets ytan**.
+Lägg till en aktivitet för den interna `Get-AutomationCertificate` cmdleten i en grafisk Runbook genom att högerklicka på certifikatet i fönstret Bibliotek och välja **Lägg till på arbets ytan**.
 
 ![Skärm bild som visar hur du lägger till ett certifikat på arbets ytan](../media/certificates/automation-certificate-add-to-canvas.png)
 

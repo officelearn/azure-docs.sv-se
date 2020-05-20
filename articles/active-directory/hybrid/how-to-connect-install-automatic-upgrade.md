@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0632fbc3208befe197c15ffdbf2d9a4e7b2d7a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926484"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680212"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: Automatisk uppgradering
 Den här funktionen introducerades med build- [1.1.105.0 (lanserades februari 2016)](reference-connect-version-history.md#111050).  Funktionen uppdaterades i [build-1.1.561](reference-connect-version-history.md#115610) och stöder nu ytterligare scenarier som tidigare inte stöds.
@@ -35,15 +35,15 @@ Automatisk uppgradering är aktiverat som standard för följande:
 * AD-kontot är standard MSOL_s kontot som skapats av Express inställningar och DirSync.
 * Har färre än 100 000 objekt i metaversum.
 
-Det aktuella läget för automatisk uppgradering kan visas med PowerShell-cmdleten `Get-ADSyncAutoUpgrade`. Det har följande tillstånd:
+Det aktuella läget för automatisk uppgradering kan visas med PowerShell-cmdleten `Get-ADSyncAutoUpgrade` . Det har följande tillstånd:
 
-| Status | Kommentar |
+| Stat | Kommentar |
 | --- | --- |
 | Enabled |Automatisk uppgradering har Aktiver ATS. |
 | Inaktiverad |Anges endast av systemet. Systemet är **för närvarande inte** behörigt att ta emot automatiska uppgraderingar. |
 | Disabled |Automatisk uppgradering har inaktiverats. |
 
-Du kan ändra mellan **aktiverat** och **inaktiverat** med `Set-ADSyncAutoUpgrade`. Endast systemet bör ställa in tillståndet **inaktiverat**.  Innan 1.1.750.0-cmdleten Set-ADSyncAutoUpgrade blockeras autouppgradering om status för automatisk uppgradering var inställd på pausad. Den här funktionen har nu ändrats så att den inte blockerar autouppgradering.
+Du kan ändra mellan **aktiverat** och **inaktiverat** med `Set-ADSyncAutoUpgrade` . Endast systemet bör ställa in tillståndet **inaktiverat**.  Innan 1.1.750.0-cmdleten Set-ADSyncAutoUpgrade blockeras autouppgradering om status för automatisk uppgradering var inställd på pausad. Den här funktionen har nu ändrats så att den inte blockerar autouppgradering.
 
 Automatisk uppgradering använder Azure AD Connect Health för uppgraderings infrastrukturen. För att automatisk uppgradering ska fungera kontrollerar du att du har öppnat URL: erna i proxyservern för **Azure AD Connect Health** som dokumenteras i [URL: er för Office 365 och IP-adressintervall](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -55,7 +55,7 @@ Om din Connect-installation inte uppgraderas som förväntat följer du de här 
 
 Först bör du inte förvänta dig att den automatiska uppgraderingen ska försöka utföras första dagen som en ny version släpps. Det finns en avsiktlig slumpmässighet innan en uppgradering görs, så du får ingen varning om att installationen inte uppgraderas direkt.
 
-Om du tror att något inte är rätt kan du först `Get-ADSyncAutoUpgrade` köra för att säkerställa att automatisk uppgradering är aktiverat.
+Om du tror att något inte är rätt kan du först köra `Get-ADSyncAutoUpgrade` för att säkerställa att automatisk uppgradering är aktiverat.
 
 Kontrol lera sedan att du har öppnat de nödvändiga URL: erna i proxyservern eller brand väggen. Automatisk uppdatering använder Azure AD Connect Health enligt beskrivningen i [översikten](#overview). Om du använder en proxyserver kontrollerar du att hälsan har kon figurer ATS för att använda en [proxyserver](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Testa också [hälso anslutningen](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) till Azure AD.
 
@@ -75,7 +75,7 @@ Resultat koden har ett prefix med en översikt över statusen.
 
 Här är en lista över de vanligaste meddelanden som du hittar. Ingen lista visas, men resultat meddelandet bör vara avmarkerat med det som problemet är.
 
-| Resultat meddelande | Beskrivning |
+| Resultat meddelande | Description |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Det gick inte att skriva till registret. |
@@ -92,7 +92,7 @@ Här är en lista över de vanligaste meddelanden som du hittar. Ingen lista vis
 | UpgradeNotSupportedAdfsSignInMethod | Du har valt ADFS som inloggnings metod. |
 | UpgradeNotSupportedCustomizedSyncRules |Du har lagt till dina egna anpassade regler i konfigurationen. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Du har aktiverat funktionen [tillbakaskrivning av enhet](how-to-connect-device-writeback.md) . |
-| UpgradeNotSupportedGroupWritebackEnabled |Du har aktiverat funktionen för [tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback) . |
+| UpgradeNotSupportedGroupWritebackEnabled |Du har aktiverat funktionen för tillbakaskrivning av grupp. |
 | UpgradeNotSupportedInvalidPersistedState |Installationen är inte en snabb inställning eller en DirSync-uppgradering. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |Du har fler än 100 000 objekt i metaversum. |
 | UpgradeNotSupportedMultiForestSetup |Du ansluter till fler än en skog. Express installation ansluter bara till en skog. |

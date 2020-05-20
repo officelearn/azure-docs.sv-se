@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 05/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0090f02382e024e5539383328b55d58798002d63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19d0be6a032868c6683cd5b6bbfa7f07306171fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79117130"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683443"
 ---
 | Resurs | Basic | Standard | Premium |
 |---|---|---|---|
@@ -24,15 +24,15 @@ ms.locfileid: "79117130"
 | Ladda ned bandbredd MBps<sup>2</sup> | 30 | 60 | 100 |
 | Ladda upp bandbredd MBps<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 500 |
-| Geo-replikering | E.t. | E.t. | [Stöds][geo-replication] |
-| Förtroende för innehåll | E.t. | E.t. | [Stöds][content-trust] |
-| Åtkomst till virtuellt nätverk | E.t. | E.t. | [Förhandsgranskning][vnet] |
-| Integrering av privata länkar | E.t. | E.t. | [Förhandsgranskning][plink] |
-| Kundhanterade nycklar | E.t. | E.t. | [Förhandsgranskning][cmk] |
-| Databas – begränsade behörigheter | E.t. | E.t. | [Förhandsgranskning][token]|
-| &bull;Token | E.t. | E.t. | 20 000 |
-| &bull;Omfångs kartor | E.t. | E.t. | 20 000 |
-| &bull;Mappning av databaser per område | E.t. | E.t. | 500 |
+| Geo-replikering | Ej tillämpligt | Ej tillämpligt | [Tillåtna][geo-replication] |
+| Förtroende för innehåll | Ej tillämpligt | Ej tillämpligt | [Tillåtna][content-trust] |
+| Privat länk med privata slut punkter | Ej tillämpligt | Ej tillämpligt | [Tillåtna][plink] |
+| Åtkomst till tjänst slut punktens VNet | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskningsvyn][vnet] |
+| Kundhanterade nycklar | Ej tillämpligt | Ej tillämpligt | [Tillåtna][cmk] |
+| Databas – begränsade behörigheter | Ej tillämpligt | Ej tillämpligt | [Förhandsgranskningsvyn][token]|
+| &bull;Token | Ej tillämpligt | Ej tillämpligt | 20 000 |
+| &bull;Omfångs kartor | Ej tillämpligt | Ej tillämpligt | 20 000 |
+| &bull;Mappning av databaser per område | Ej tillämpligt | Ej tillämpligt | 500 |
 
 
 <sup>1</sup> De angivna lagrings gränserna är mängden lagrings utrymme som *ingår* för varje nivå. Du debiteras ytterligare en daglig taxa per GiB för avbildnings lagring över dessa gränser. Mer information om priser finns i [Azure Container Registry prissättning][pricing].

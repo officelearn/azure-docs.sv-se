@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: cynthn
-ms.openlocfilehash: aeacfdc07e5349dfce45b209da1d78bddf870f33
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3d55efb15454f0b1dfe5ac1101a8a53eb1c9aa8f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83269588"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683948"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>För hands version: Använd Kundhanterade nycklar för att kryptera avbildningar
 
-Galleri avbildningar lagras som Managed disks, så de krypteras automatiskt med kryptering på Server sidan. Kryptering på Server sidan använder 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Mer information om de kryptografiska modulerna underliggande Azure Managed disks finns i [Cryptography-API: nästa generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Galleri avbildningar lagras som Managed disks, så de krypteras automatiskt med kryptering på Server sidan. Kryptering på Server sidan använder 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Mer information om de kryptografiska modulerna underliggande Azure Managed disks finns i [Cryptography-API: nästa generation](/windows/desktop/seccng/cng-portal)
 
 Du kan förlita dig på plattforms hanterade nycklar för kryptering av dina avbildningar, eller så kan du hantera kryptering med hjälp av dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar kan du ange en *kundhanterad nyckel* som ska användas för att kryptera och dekryptera alla diskar i dina avbildningar. 
 
@@ -24,7 +24,7 @@ Kryptering på Server sidan med Kundhanterade nycklar använder Azure Key Vault.
 
 Om du vill använda Kundhanterade nycklar för avbildningar behöver du först en Azure Key Vault. Sedan skapar du en disk krypterings uppsättning. Disk krypterings uppsättningen används sedan när du skapar avbildnings versioner.
 
-Mer information om hur du skapar och använder disk krypterings uppsättningar finns i [hanterade nycklar för kunder](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+Mer information om hur du skapar och använder disk krypterings uppsättningar finns i [hanterade nycklar för kunder](./windows/disk-encryption.md#customer-managed-keys).
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -72,7 +72,7 @@ Om den inte returneras `Registered` använder du följande för att registrera p
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Om du vill ange en disk krypterings uppsättning till för en avbildnings version använder du [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) med `-TargetRegion` parametern. 
+Om du vill ange en disk krypterings uppsättning till för en avbildnings version använder du [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) med `-TargetRegion` parametern. 
 
 ```azurepowershell-interactive
 
@@ -194,4 +194,4 @@ Du kan skapa en virtuell dator från ett delat avbildnings galleri och använda 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [disk kryptering på Server sidan](/windows/disk-encryption.md)).
+Läs mer om [disk kryptering på Server sidan](./windows/disk-encryption.md).

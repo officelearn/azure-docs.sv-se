@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 3839fb325b1ed0c052f7a4e8955e9a9fda51fc5f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 291dbdd874e3d657ff171d7e08ea6a1ee7e5999f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569659"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683097"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Öppna ett support ärende för Azure Stack Edge och Azure Data Box Gateway
 
@@ -27,9 +27,9 @@ Den här artikeln gäller Azure Stack Edge och Azure Data Box Gateway som hanter
 Utför följande steg för att skapa en support förfrågan:
 
 1. Gå till din Azure Stack Edge-eller Data Box Gateways ordning. Gå till avsnittet **support + fel sökning** och välj sedan **ny supportbegäran**.
-   
+
 2. I **ny supportbegäran**, på fliken **grundläggande** , vidtar du följande steg:
-    
+
     1. I list rutan **ärende typ** väljer du **teknisk**.
     2. Välj din **prenumeration**.
     3. Under **tjänst**kontrollerar du **Mina tjänster**. Välj **Azure Stack kant-och data Box Gateway**i list rutan.
@@ -42,7 +42,7 @@ Utför följande steg för att skapa en support förfrågan:
         ![Grundläggande inställningar](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. Gör så här på fliken **information** :
-    
+
     1. Ange start datum och start tid för problemet.
     2. Ange en **Beskrivning** av problemet.
     3. I **fil uppladdning**väljer du mappikonen för att bläddra bland andra filer som du vill ladda upp.
@@ -67,16 +67,16 @@ Utför följande steg för att skapa en support förfrågan:
 
 Den här informationen gäller endast för Azure Stack enhet. Processen för att rapportera maskin varu problem är följande:
 
-1. Öppna ett support ärende från Azure Portal för ett maskin varu problem. Under **problem typ**väljer du **Azure Stack maskin vara**. Välj under **typen av problem** som **maskin varu fel**. 
+1. Öppna ett support ärende från Azure Portal för ett maskin varu problem. Under **problem typ**väljer du **Azure Stack maskin vara**. Välj under **typen av problem** som **maskin varu fel**.
 
     ![Maskin varu problem](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-hardware-issue-1.png)
 
-    När du har skapat support ärendet kontaktar en support tekniker så snart som möjligt för att fortsätta med din begäran. 
+    När du har skapat support ärendet kontaktar en support tekniker så snart som möjligt för att fortsätta med din begäran.
 
-2. Om Microsoft Support bestämmer att detta är ett maskin varu problem inträffar en av följande åtgärder: 
+2. Om Microsoft Support bestämmer att detta är ett maskin varu problem inträffar en av följande åtgärder:
 
-    - En fält ersättnings enhet (FRU) för den felande maskin varu delen skickas. För närvarande är strömförsörjnings enheten den enda FRU som stöds. 
-    - Microsoft utför en fullständig system ersättning (FSR) eller en enhets växling för andra delar av problem.
+    * En fält ersättnings enhet (FRU) för den felande maskin varu delen skickas. För närvarande är strömförsörjnings enheter och hård diskar de enda FRUs som stöds.
+    * Endast FRUs ersätts inom nästa arbets dag, allt annat kräver att en fullständig system ersättning (FSR) skickas.
 
 3. Om ett support ärende höjs före 4:30 lokal tid (måndag till fredag) skickas en tekniker på plats nästa arbets dag till din plats för att utföra en FRU-eller fullständig enhets ersättning.
 
@@ -84,11 +84,11 @@ Den här informationen gäller endast för Azure Stack enhet. Processen för att
 
 När du har skapat ett supportärende kan du hantera ärendets livscykel på portalen.
 
-#### <a name="to-manage-your-support-requests"></a>Så här hanterar du dina support ärenden
+### <a name="to-manage-your-support-requests"></a>Så här hanterar du dina support ärenden
 
 1. Öppna sidan hjälp och support genom att gå till **bläddra > hjälp + support**.
 
-    ![Hantera support förfrågningar](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-manage-support-request-1.png)   
+    ![Hantera support förfrågningar](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-manage-support-request-1.png)
 
 2. En lista över de **senaste support förfrågningarna** visas i **Hjälp + Support**.
 
@@ -96,7 +96,6 @@ När du har skapat ett supportärende kan du hantera ärendets livscykel på por
 
 3. Välj och klicka på en support förfrågan. Du kan visa status och information för den här begäran. Klicka på **+ nytt meddelande** om du vill följa upp den här begäran.
 
-   
 ## <a name="next-steps"></a>Nästa steg
 
 Lär dig hur du [felsöker problem som rör Azure Stack Edge](azure-stack-edge-troubleshoot.md).

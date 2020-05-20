@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 7c843b45b5a398aaaa1aab66f80961560477cf18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 794c88556fb69aae11c582afd03f548480469e34
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128082"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684705"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Samla in telemetridata för Sök trafik analys
 
@@ -48,7 +48,7 @@ När du har en Application Insights resurs kan du följa [instruktionerna för s
 
 En genväg som fungerar för vissa projekt typer av Visual Studio avspeglas i följande steg. Den skapar en resurs och registrerar din app på bara några få klick.
 
-1. För Visual Studio-och ASP.net-utveckling öppnar du din lösning och väljer **projekt** > **Lägg till Application Insights Telemetry**.
+1. För Visual Studio-och ASP.net-utveckling öppnar du din lösning och väljer **projekt**  >  **Lägg till Application Insights Telemetry**.
 
 1. Klicka på **Kom igång**.
 
@@ -236,4 +236,4 @@ Instrumentera ditt sökprogram för att få kraftfull och insiktad information o
 
 Du hittar mer information om [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) och besöker sidan med [priser](https://azure.microsoft.com/pricing/details/application-insights/) för att lära dig mer om deras olika tjänst nivåer.
 
-Lär dig mer om att skapa fantastiska rapporter. Mer information finns i [komma igång med Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) .
+Lär dig mer om att skapa fantastiska rapporter. Mer information finns i [komma igång med Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started) .

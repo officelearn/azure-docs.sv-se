@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 0542106f70e96b6c2f63e8ca03d2532de191d365
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6452a826cfb6f7ceb65e6e89cdd42d683ee463b1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79477178"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682714"
 ---
 # <a name="technical-guide-to-the-solution-template-for-predictive-maintenance-in-aerospace"></a>Teknisk guide till lösnings mal len för förutsägande underhåll i Aerospace
 
@@ -91,7 +91,7 @@ För mallen för förutsägelse underhåll för Aerospace-lösning består den A
 Azure Stream Analyticss frågan kan hittas av:
 
 * Anslut till Azure Portal
-* ![Hitta Stream Analytics jobb](./media/predictive-maintenance-technical-guide/icon-stream-analytics.png) Stream Analytics ikonen som genererades när lösningen distribuerades (*till exempel* **maintenancesa02asapbi** och **maintenancesa02asablob** för lösningen för förebyggande underhåll)
+* Hitta Stream Analytics jobb ![ Stream Analytics ikonen ](./media/predictive-maintenance-technical-guide/icon-stream-analytics.png) som genererades när lösningen distribuerades (*till exempel* **maintenancesa02asapbi** och **maintenancesa02asablob** för lösningen för förebyggande underhåll)
 * Valt
   
   * ***Indata*** för att Visa frågans indata
@@ -113,7 +113,7 @@ I det här avsnittet beskrivs nödvändiga [pipeliner och aktiviteter](../../dat
 
 ![Azure Data Factory](./media/predictive-maintenance-technical-guide/azure-data-factory.png)
 
-Två av pipelinen i den här fabriken innehåller [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript som används för att partitionera och samla in data. När detta anges finns skripten i det [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under installationen. Deras plats är: maintenancesascript\\\\-\\\\skriptets Hive\\ \\ (eller https://[ditt lösnings namn]. blob. Core. Windows. net/maintenancesascript).
+Två av pipelinen i den här fabriken innehåller [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skript som används för att partitionera och samla in data. När detta anges finns skripten i det [Azure Storage](https://azure.microsoft.com/services/storage/) konto som skapades under installationen. Deras plats är: maintenancesascript \\ \\ -Skriptets \\ \\ Hive \\ \\ (eller https://[ditt lösnings namn]. blob. Core. Windows. net/maintenancesascript).
 
 Precis som med [Azure Stream Analytics](#azure-stream-analytics-1) frågor, har [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) -skripten implicit kunskap om det inkommande data formatet och måste ändras baserat på ditt data format.
 
@@ -142,7 +142,7 @@ Den [här pipelinen](../../data-factory/concepts-pipelines-activities.md) inneh�
 När data generatorn har startats börjar pipelinen att dehydratiseras och de olika komponenterna i lösningen börjar i åtgärd efter de kommandon som utfärdas av data fabriken. Det finns två sätt att övervaka pipelinen.
 
 * Ett av de Stream Analytics jobben skriver rå inkommande data till Blob Storage. Om du klickar på Blob Storage komponent i din lösning från skärmen har du distribuerat lösningen och klickar sedan på öppna i den högra panelen, så tar du till [Azure Portal](https://portal.azure.com/). När du är där klickar du på blobbar. I nästa panel visas en lista över behållare. Klicka på **maintenancesadata**. I nästa panel finns mappen **rawData** . Inuti mappen rawData finns mappar med namn som timme = 17 och timme = 18. Förekomsten av dessa mappar anger att rå data genereras på din dator och lagras i Blob Storage. Du bör se CSV-filer med begränsade storlekar i MB i dessa mappar.
-* Det sista steget i pipelinen är att skriva data (till exempel förutsägelser från maskin inlärning) till SQL Database. Du kan behöva vänta högst tre timmar innan data visas i SQL Database. Ett sätt att övervaka hur mycket data som är tillgängligt i SQL Database är genom [Azure Portal](https://portal.azure.com/). På den vänstra panelen, letar du upp ![SQL-](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) ikonen SQL-databaser och klickar på den. Leta sedan reda på databasens **pmaintenancedb** och klicka på den. Klicka på hantera på nästa sida längst ned.
+* Det sista steget i pipelinen är att skriva data (till exempel förutsägelser från maskin inlärning) till SQL Database. Du kan behöva vänta högst tre timmar innan data visas i SQL Database. Ett sätt att övervaka hur mycket data som är tillgängligt i SQL Database är genom [Azure Portal](https://portal.azure.com/). På den vänstra panelen, letar du upp SQL-ikonen SQL-databaser ![ ](./media/predictive-maintenance-technical-guide/icon-SQL-databases.png) och klickar på den. Leta sedan reda på databasens **pmaintenancedb** och klicka på den. Klicka på hantera på nästa sida längst ned.
    
     ![Ikonen hantera](./media/predictive-maintenance-technical-guide/icon-manage.png)
    
@@ -159,7 +159,7 @@ Power BI ansluter till en Azure SQL Database som data källa där förutsägelse
 
 Obs! 
 1.    När du distribuerar din lösning visas en förutsägelse i databasen inom tre timmar. Pbix-filen som medföljde Generator-hämtningen innehåller vissa Dirigerings data så att du kan skapa Power BI instrument panelen direkt. 
-2.    I det här steget är förutsättningen att ladda ned och installera den kostnads fria program varan [Power BI Skriv bordet](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/).
+2.    I det här steget är förutsättningen att ladda ned och installera den kostnads fria program varan [Power BI Skriv bordet](https://docs.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop).
 
 Följande steg vägleder dig om hur du ansluter pbix-filen till den SQL Database som har varit i kraft vid den tidpunkt då lösnings distributionen innehåller data (till exempel förutsägelse resultat) för visualisering.
 
@@ -169,29 +169,29 @@ Följande steg vägleder dig om hur du ansluter pbix-filen till den SQL Database
    
    * När **Azure SQL Database** i lösningens diagram blir grönt, klickar du på det och sedan på **Öppna**.
    * Du ser en ny webbflik/fönster som visar Azure Portal sidan. Klicka på **resurs grupper** på den vänstra panelen.
-   * Välj den prenumeration som du använder för att distribuera lösningen och välj sedan **"YourSolutionName\_ResourceGroup"**.
-   * I den nya popup-panelen klickar du på ![ikonen för](./media/predictive-maintenance-technical-guide/icon-sql.png) SQL-ikonen för att få åtkomst till din databas. Ditt databas namn är intill den här ikonen (till exempel **' pmaintenancedb '**) och **databas Server namnet** visas under egenskapen Server namn och bör se ut ungefär som **YourSolutionName.Database.Windows.net**.
+   * Välj den prenumeration som du använder för att distribuera lösningen och välj sedan **"YourSolutionName \_ ResourceGroup"**.
+   * I den nya popup-panelen klickar du på ![ ikonen för SQL-ikonen ](./media/predictive-maintenance-technical-guide/icon-sql.png) för att få åtkomst till din databas. Ditt databas namn är intill den här ikonen (till exempel **' pmaintenancedb '**) och **databas Server namnet** visas under egenskapen Server namn och bör se ut ungefär som **YourSolutionName.Database.Windows.net**.
    * Ditt **användar namn** och **lösen ord** för databasen är samma som det användar namn och lösen ord som tidigare registrerades under distributionen av lösningen.
 2. Uppdatera data källan för den kall Sök vägs rapport filen med Power BI Desktop.
    
-   * I mappen där du laddade ned och zippa Generator-filen dubbelklickar du på filen **PowerBI\\PredictiveMaintenanceAerospace. pbix** . Om du ser ett varnings meddelande när du öppnar filen, ignorera dem. Klicka på **Redigera frågor**överst i filen.
+   * I mappen där du laddade ned och zippa Generator-filen dubbelklickar du på filen **PowerBI \\ PredictiveMaintenanceAerospace. pbix** . Om du ser ett varnings meddelande när du öppnar filen, ignorera dem. Klicka på **Redigera frågor**överst i filen.
      
      ![Redigera frågor](./media/predictive-maintenance-technical-guide/edit-queries.png)
-   * Du ser två tabeller, **RemainingUsefulLife** och **PMResult**. Markera den första tabellen och klicka ![på ikonen](./media/predictive-maintenance-technical-guide/icon-query-settings.png) frågeinställningar bredvid **"källa"** under **"tillämpade steg"** på den högra panelens **inställnings** panel. Ignorera eventuella varnings meddelanden som visas.
+   * Du ser två tabeller, **RemainingUsefulLife** och **PMResult**. Markera den första tabellen och klicka på ![ ikonen frågeinställningar ](./media/predictive-maintenance-technical-guide/icon-query-settings.png) bredvid **"källa"** under **"tillämpade steg"** på den högra panelens **inställnings** panel. Ignorera eventuella varnings meddelanden som visas.
    * Ersätt **"Server"** och **"Database"** i fönstret för popup-fönster med dina egna Server-och databas namn och klicka sedan på **OK**. För Server namn, se till att du anger port 1433 (**YourSolutionName.Database.Windows.net, 1433**). Lämna databas fältet som **pmaintenancedb**. Ignorera varnings meddelandena som visas på skärmen.
    * I nästa popup-fönster visas två alternativ i den vänstra rutan (**Windows** och **databas**). Klicka på **"databas"**, Fyll i ditt **"username"** och **"Password"** (användar namn och lösen ord som du angav när du först distribuerade lösningen och skapade en Azure SQL Database). I ***Välj vilken nivå som inställningarna ska tillämpas på***kontrollerar du alternativet på databas nivå. Klicka sedan på **Anslut**.
-   * Klicka på den andra tabellens **PMResult** klicka ![sedan på](./media/predictive-maintenance-technical-guide/icon-navigation.png) navigerings ikonen bredvid **"källa"** under **"tillämpade steg"** på den högra panelens **inställnings** panel och uppdatera Server-och databas namnen som i ovanstående steg och klicka på OK.
+   * Klicka på den andra tabellens **PMResult** klicka sedan på ![ navigerings ikonen ](./media/predictive-maintenance-technical-guide/icon-navigation.png) bredvid **"källa"** under **"tillämpade steg"** på den högra panelens **inställnings** panel och uppdatera Server-och databas namnen som i ovanstående steg och klicka på OK.
    * När du har gå tillbaka till föregående sida stänger du fönstret. Ett meddelande visas – klicka på **Använd**. Klicka slutligen på knappen **Spara** för att spara ändringarna. Din Power BI-fil har nu upprättat en anslutning till servern. Om visualiseringarna är tomma ser du till att ta bort valen i visualiseringarna för att visualisera alla data genom att klicka på rader gummi-ikonen i det övre högra hörnet av förklaringarna. Använd knappen Uppdatera för att visa nya data på visualiseringarna. Först ser du bara Dirigerings data i dina visualiseringar när data fabriken har schemalagts att uppdateras var tredje timme. Efter 3 timmar visas nya förutsägelser i dina visualiseringar när du uppdaterar data.
 3. Valfritt Publicera instrument panelen för kall bana till [Power BI online](https://www.powerbi.com/). Det här steget behöver ett Power BI konto (eller ett Office 365-konto).
    
    * Klicka på **publicera** och få sekunder senare visas ett fönster som visar publicering till Power BI lyckades! med en grön bock markering. Klicka på länken nedan "Open PredictiveMaintenanceAerospace. pbix in Power BI". Detaljerade instruktioner finns i [publicera från Power BI Desktop](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop).
-   * För att skapa en ny instrument panel: **+** Klicka på tecknet bredvid avsnittet **instrument paneler** i det vänstra fönstret. Ange namnet "demonstration av förebyggande underhåll" för den nya instrument panelen.
-   * När du har öppnat rapporten klickar du ![på Fäst](./media/predictive-maintenance-technical-guide/icon-pin.png) ikon för att fästa alla visualiseringar på instrument panelen. Detaljerade instruktioner finns i [fästa en panel på en Power BI instrument panel från en rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
+   * För att skapa en ny instrument panel: Klicka på **+** tecknet bredvid avsnittet **instrument paneler** i det vänstra fönstret. Ange namnet "demonstration av förebyggande underhåll" för den nya instrument panelen.
+   * När du har öppnat rapporten klickar du på ![ Fäst ikon ](./media/predictive-maintenance-technical-guide/icon-pin.png) för att fästa alla visualiseringar på instrument panelen. Detaljerade instruktioner finns i [fästa en panel på en Power BI instrument panel från en rapport](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report).
      Gå till instrument panels sidan och justera storleken och platsen för dina visualiseringar och redigera deras titlar. Detaljerade anvisningar om hur du redigerar dina paneler finns i [Redigera en panel – ändra storlek, flytta, byta namn, fästa, ta bort, Lägg till hyperlänk](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename). Här är ett exempel på en instrument panel med en del kall vägs visualiseringar fästa på den.  Beroende på hur länge du kör data generatorn kan dina siffror på visualiseringarna vara olika.
      <br/>
      ![Slutgiltig vy](./media/predictive-maintenance-technical-guide/final-view.png)
      <br/>
-   * Om du vill schemalägga uppdatering av data håller du mus pekaren över **PredictiveMaintenanceAerospace** -datauppsättningen, klickar ![på ikonen](./media/predictive-maintenance-technical-guide/icon-elipsis.png) ellips och väljer sedan **Schemalägg uppdatering**.
+   * Om du vill schemalägga uppdatering av data håller du mus pekaren över **PredictiveMaintenanceAerospace** -datauppsättningen, klickar på ![ ikonen ellips ](./media/predictive-maintenance-technical-guide/icon-elipsis.png) och väljer sedan **Schemalägg uppdatering**.
      <br/>
      > [!NOTE]
      > Om du ser ett varnings meddelande klickar du på **Redigera autentiseringsuppgifter** och kontrollerar att autentiseringsuppgifterna för databasen är desamma som de som beskrivs i steg 1.
@@ -222,7 +222,7 @@ Följande steg vägleder dig hur du visualiserar datautdata från Stream Analyti
    * Klicka på data uppsättning **aircraftmonitor** i avsnittet data uppsättningar för den vänstra panelen.
    * Klicka på **linje diagrams** ikonen.
    * Klicka på **bearbetad** i fönstret **fält** så att det visas under axel i fönstret **visualiseringar** .
-   * Klicka på "S11" och "\_S11 Alert" så att båda visas under "värden". Klicka på den lilla pilen bredvid **aviseringen\_** **S11** och S11, ändra sum till Average.
+   * Klicka på "S11" och "S11 \_ Alert" så att båda visas under "värden". Klicka på den lilla pilen bredvid ** \_ aviseringen** **S11** och S11, ändra sum till Average.
    * Klicka på **Spara** högst upp och ge rapporten namnet "aircraftmonitor". Rapporten med namnet "aircraftmonitor" visas i avsnittet **rapporter** i **navigerings** fönstret till vänster.
    * Klicka på den **visuella ikonen fäst** i det övre högra hörnet i det här linje diagrammet. Ett fönster för att fästa på instrument panelen kan visas så att du kan välja en instrument panel. Välj demonstration av förebyggande underhåll och klicka sedan på Fäst.
    * Hovra över musen över den här panelen på instrument panelen, klicka på ikonen "redigera" i det övre högra hörnet för att ändra titeln till "flottan av sensor 11 vs. Threshold 48,26" och under rubrik till "genomsnitt över flottan över tid".

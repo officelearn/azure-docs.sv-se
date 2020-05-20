@@ -2,17 +2,17 @@
 title: Användbart exempel yttranden – LUIS
 description: Yttranden är indata från användaren som appen behöver tolka. Samla in fraser som du tror att användarna kommer att ange. Inkludera yttranden som betyder samma sak, men som har utformats annorlunda i ord-längd och ord placering.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592873"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685266"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vilka bra yttranden är för din LUIS-app
 
-**Yttranden** är indata från användaren som appen behöver tolka. För att träna LUIS att extrahera avsikter och entiteter från dem är det viktigt att samla in en mängd olika exempel yttranden för varje avsikt. Active Learning eller processen att fortsätta träna på nya yttranden är viktigt för att kunna registrera information som LUIS tillhandahåller.
+**Yttranden** är indata från användaren som appen behöver tolka. För att träna LUIS att extrahera avsikter och entiteter från dem är det viktigt att samla in en mängd olika exempel yttranden för varje avsikt. Aktiv inlärning, eller processen att fortsätta träna på nya yttranden, är nödvändig för maskin inlärnings information som LUIS tillhandahåller.
 
 Samla in yttranden som du tror att användarna kommer att ange. Ta med yttranden, vilket innebär att samma sak är konstruerad på olika sätt:
 
@@ -84,7 +84,7 @@ Ange versions inställningar via LUIS-portalen, gå till avsnittet **Hantera** p
 
 ### <a name="word-forms"></a>Ord former
 
-Normaliserade **ord former** ignorerar skillnaderna i ord som expanderar bortom roten. Till exempel orden `run` , `running` och `runs` ändras baserat på verb.
+Normaliserade **ord former** ignorerar skillnaderna i ord som expanderar bortom roten.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 
@@ -126,7 +126,7 @@ Utvecklare bör börja testa sitt LUIS-program med verklig trafik genom att skic
 
 När din modell har tränat, publicerat och tagit emot [slut punkts](luis-glossary.md#endpoint) frågor, [granskar du yttranden](luis-how-to-review-endpoint-utterances.md) som föreslås av Luis. LUIS väljer slut punkts yttranden som har låga Poäng för antingen avsikten eller entiteten.
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 Granska [metod tips](luis-concept-best-practices.md) och Använd dem som en del av din vanliga redigerings cykel.
 

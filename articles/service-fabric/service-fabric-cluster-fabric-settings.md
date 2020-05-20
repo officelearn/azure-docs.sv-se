@@ -3,12 +3,12 @@ title: Ändra kluster inställningar för Azure Service Fabric
 description: I den här artikeln beskrivs de infrastruktur inställningar och de uppgraderings principer för infrastruktur resurser som du kan anpassa.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: c2e280af814a3e10ad84c5ba07fc376868fcd851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 05b0b132f45e1cc7fbb136c46a7596f480941178
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416249"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682989"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric-klusterinställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -23,7 +23,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/http
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ApplicationCertificateValidationPolicy|sträng, standard är "ingen"|Statisk| Detta validerar inte Server certifikatet. lyckas med begäran. Se config ServiceCertificateThumbprints för den kommaavgränsade listan över tumavtrycken för de fjärrcertifikat som den omvända proxyn kan lita på. Se config ServiceCommonNameAndIssuer för namn på certifikat mottagare och utfärdarens tumavtryck för de fjärrcertifikat som den omvända proxyn kan lita på. Läs mer i en [säker anslutning för omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 |BodyChunkSize |Uint, standard är 16384 |Dynamisk| Anger storleken på för segmentet i byte som används för att läsa bröd texten. |
@@ -46,23 +46,23 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/http/ServiceCommonNameAndIssuer
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, standard är ingen|Dynamisk| Mottagar namn och utfärdarens tumavtryck för de fjärrcertifikat som den omvända proxyn kan lita på. Läs mer i en [säker anslutning för omvänd proxy](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, standardvärdet är 0|Statisk|MinReplicaSetSize för BackupRestoreService |
 |PlacementConstraints|sträng, standard är ""|Statisk|    PlacementConstraints för BackupRestore-tjänsten |
 |SecretEncryptionCertThumbprint|sträng, standard är ""|Dynamisk|Tumavtryck för X509-certifikatet för hemlig kryptering |
-|SecretEncryptionCertX509StoreName|sträng, standard är "My"|    Dynamisk|    Detta anger det certifikat som ska användas för kryptering och dekryptering av namn på autentiseringsuppgifter för X. 509 certifikat arkiv som används för kryptering av kryptering av autentiseringsuppgifter som används av tjänsten för säkerhets kopierings återställning |
+|SecretEncryptionCertX509StoreName|sträng, rekommenderat värde är "My" (inget standardvärde) |    Dynamisk|    Detta anger det certifikat som ska användas för kryptering och dekryptering av namn på autentiseringsuppgifter för X. 509 certifikat arkiv som används för kryptering av kryptering av autentiseringsuppgifter som används av tjänsten för säkerhets kopierings återställning |
 |TargetReplicaSetSize|int, standardvärdet är 0|Statisk| TargetReplicaSetSize för BackupRestoreService |
 
 ## <a name="clustermanager"></a>ClusterManager
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AllowCustomUpgradeSortPolicies | Bool, standard är falskt |Dynamisk|Huruvida sorterings principer för anpassade uppgraderingar är tillåtna. Detta används för att utföra 2-fas uppgradering som aktiverar den här funktionen. Service Fabric 6,5 lägger till stöd för att ange sorterings princip för uppgraderings domäner under kluster-eller program uppgraderingar. Principer som stöds är numeriska, lexicographical, ReverseNumeric och ReverseLexicographical. Standardvärdet är numeriskt. För att kunna använda den här funktionen måste kluster manifest inställningen ClusterManager/AllowCustomUpgradeSortPolicies anges till true som ett andra konfigurations uppgraderings steg efter uppgraderingen av SF 6,5-koden. Det är viktigt att detta görs i två faser, annars kan kod uppgraderingen bli förvirrad om uppgraderings ordningen under den första uppgraderingen.|
 |EnableDefaultServicesUpgrade | Bool, standard är falskt |Dynamisk|Aktivera uppgradering av standard tjänster under program uppgradering. Standard beskrivningarna för tjänsten skrivs över efter uppgraderingen. |
@@ -77,7 +77,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |MaxDataMigrationTimeout |Tid i sekunder, standard är 600 |Dynamisk|Ange TimeSpan i sekunder. Maximal tids gräns för återställnings åtgärder för datamigrering efter att en Fabric-uppgradering har ägt rum. |
 |MaxOperationRetryDelay |Tid i sekunder, standard är 5|Dynamisk| Ange TimeSpan i sekunder. Maximal fördröjning för interna återförsök när fel påträffas. |
 |MaxOperationTimeout |Tid i sekunder, standard är MaxValue |Dynamisk| Ange TimeSpan i sekunder. Maximal global tids gräns för internt bearbetnings åtgärder på ClusterManager. |
-|MaxTimeoutRetryBuffer | Tid i sekunder, standard är 600 |Dynamisk|Ange TimeSpan i sekunder. Den maximala åtgärds tids gränsen vid internt försök på grund av timeout `<Original Time out> + <MaxTimeoutRetryBuffer>`. Ytterligare timeout har lagts till i steg om MinOperationTimeout. |
+|MaxTimeoutRetryBuffer | Tid i sekunder, standard är 600 |Dynamisk|Ange TimeSpan i sekunder. Den maximala åtgärds tids gränsen vid internt försök på grund av timeout `<Original Time out> + <MaxTimeoutRetryBuffer>` . Ytterligare timeout har lagts till i steg om MinOperationTimeout. |
 |MinOperationTimeout | Tid i sekunder, standard är 60 |Dynamisk|Ange TimeSpan i sekunder. Den minsta globala tids gränsen för internt bearbetnings åtgärder på ClusterManager. |
 |MinReplicaSetSize |Int, standard är 3 |Tillåts inte|MinReplicaSetSize för ClusterManager. |
 |PlacementConstraints | sträng, standard är "" |Tillåts inte|PlacementConstraints för ClusterManager. |
@@ -93,28 +93,28 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="common"></a>Common
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PerfMonitorInterval |Tid i sekunder, standard är 1 |Dynamisk|Ange TimeSpan i sekunder. Intervall för prestanda övervakning. Om du ställer in till 0 eller negativt värde inaktive ras övervakningen. |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, standard är ingen|Dynamisk|Anger att princip defragmenteringen ska följa när noder töms. För ett angivet mått 0 anger att SF ska försöka defragmentera noder jämnt över UDs och fd; 1 anger att noderna måste defragmenteras |
 
 ## <a name="defragmentationmetrics"></a>DefragmentationMetrics
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyBoolValueMap, standard är ingen|Dynamisk|Anger den uppsättning mått som ska användas för defragmentering och inte för belastnings utjämning. |
 
 ## <a name="defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, standard är ingen|Dynamisk|Fastställer antalet lediga noder som behövs för att ta klustret defragmenterat genom att ange antingen procent i intervall [0,0-1,0] eller antal tomma noder som antal >= 1,0 |
 
 ## <a name="diagnostics"></a>Diagnostik
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AdminOnlyHttpAudit |Bool, standard är sant | Dynamisk | Exkludera HTTP-begäranden som inte påverkar klustrets tillstånd från granskning. Öppet endast begär anden av typen "GET" utesluts. men det kan komma att ändras. |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool, standard är sant | Dynamisk |Huruvida personifiering krävs vid åtkomst till diagnostiska lager för programmets räkning. |
@@ -134,7 +134,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ProducerInstances |Sträng | Dynamisk |Listan över DCA producent instanser. |
 
 ## <a name="dnsservice"></a>DNS service
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|bool, standard är falskt|Statisk|Flaggan för att aktivera stöd för DNS-frågor för partitionerade tjänster. Funktionen är inaktive rad som standard. Mer information finns i [Service Fabric DNS-tjänsten.](service-fabric-dnsservice.md)|
 |InstanceCount|int, standard är-1|Statisk|Standardvärdet är-1 vilket innebär att DNS service körs på varje nod. Onebox behållaravbildningen måste anges till 1 eftersom DNS service använder välkänd port 53, så den kan inte ha flera instanser på samma dator.|
@@ -144,7 +144,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="eventstoreservice"></a>EventStoreService
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |MinReplicaSetSize|int, standardvärdet är 0|Statisk|MinReplicaSetSize för EventStore-tjänsten |
 |PlacementConstraints|sträng, standard är ""|Statisk|    PlacementConstraints för EventStore-tjänsten |
@@ -152,7 +152,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="fabricclient"></a>FabricClient
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |Tid i sekunder, standard är 2 |Dynamisk|Ange TimeSpan i sekunder. Timeout-intervall för anslutning för varje tid som klienten försöker öppna en anslutning till gatewayen.|
 |HealthOperationTimeout |Tid i sekunder, standard är 120 |Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för ett rapport meddelande som skickats till Health Manager. |
@@ -167,7 +167,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="fabrichost"></a>Fabrichost returnerar
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |Int, standard är 10 |Dynamisk|Detta är det högsta antalet för vilka systemet försöker att aktivera igen innan det upprättas. |
 |ActivationMaxRetryInterval |Tid i sekunder, standard är 300 |Dynamisk|Ange TimeSpan i sekunder. Max återförsöksintervall för aktivering. Vid varje fort löp ande fel beräknas återförsöksintervall som min (ActivationMaxRetryInterval; Antal kontinuerliga haverier * ActivationRetryBackoffInterval). |
@@ -183,7 +183,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="fabricnode"></a>FabricNode
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ClientAuthX509FindType |sträng, standard är "FindByThumbprint" |Dynamisk|Anger hur du söker efter certifikat i arkivet som anges av ClientAuthX509StoreName-stödda värde: FindByThumbprint; FindBySubjectName. |
 |ClientAuthX509FindValue |sträng, standard är "" | Dynamisk|Sök filter värde som används för att hitta certifikatet för standard administratörs rollen FabricClient. |
@@ -207,7 +207,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="failovermanager"></a>FailoverManager
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AllowNodeStateRemovedForSeedNode|Bool, standard är falskt |Dynamisk|Flagga för att ange om det ska vara tillåtet att ta bort ett nod-tillstånd för en Seed-nod |
 |BuildReplicaTimeLimit|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (3600)|Dynamisk|Ange TimeSpan i sekunder. Tids gränsen för att skapa en tillstånds känslig replik. efter vilken en varnings hälso rapport ska initieras |
@@ -233,7 +233,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="faultanalysisservice"></a>FaultAnalysisService
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |CompletedActionKeepDurationInSeconds | Int, standard är 604800 |Statisk| Detta är ungefär hur länge du ska behålla åtgärder som är i ett terminalfönster. Detta beror också på StoredActionCleanupIntervalInSeconds; eftersom arbetet att rensa bara görs med det intervallet. 604800 är 7 dagar. |
 |DataLossCheckPollIntervalInSeconds|int, standard är 5|Statisk|Detta är tiden mellan de kontroller som systemet utför och väntar på att data ska gå förlorade. Antalet gånger som data förlust numret markeras per intern iteration är DataLossCheckWaitDurationInSeconds/detta. |
@@ -250,14 +250,14 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="federation"></a>Federation
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |LeaseDuration |Tid i sekunder, standard är 30 |Dynamisk|Varaktigheten som ett lån varar mellan en nod och dess grannar. |
 |LeaseDurationAcrossFaultDomain |Tid i sekunder, standard är 30 |Dynamisk|Varaktigheten som ett lån varar mellan en nod och dess grannar över fel domäner. |
 
 ## <a name="filestoreservice"></a>FileStoreService
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AcceptChunkUpload|Bool, standard är sant|Dynamisk|Config för att avgöra om fil lagrings tjänsten accepterar överföring av segmentbaserade filer eller inte vid kopiering av programpaket. |
 |AnonymousAccessEnabled | Bool, standard är sant |Statisk|Aktivera/inaktivera anonym åtkomst till FileStoreService-resurserna. |
@@ -271,7 +271,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, standard är gemensamt:: TimeSpan:: FromMinutes (5)|Dynamisk|Ange TimeSpan i sekunder. Tidsintervall mellan kontroll av disk utrymme för rapportering av hälso tillstånds händelse när disken är nära slut. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, standard är gemensamt:: TimeSpan:: FromMinutes (15)|Dynamisk|Ange TimeSpan i sekunder. Tidsintervallet mellan att kontrol lera om det finns tillräckligt med utrymme på disken vid kontroll av disk utrymme för rapportering av hälso tillstånds händelser. |
 |EnableImageStoreHealthReporting |bool, standard är sant    |Statisk|Config för att avgöra om fil lagrings tjänsten ska rapportera sitt hälso tillstånd. |
-|FreeDiskSpaceNotificationSizeInKB|Int64, standard är 25\*1024 |Dynamisk|Storleken på det lediga disk utrymme som kan uppstå under hälso varningen. Det minsta värdet för den här config-och FreeDiskSpaceNotificationThresholdPercentage-konfigurationen används för att avgöra sändning av hälso varningen. |
+|FreeDiskSpaceNotificationSizeInKB|Int64, standard är 25 \* 1024 |Dynamisk|Storleken på det lediga disk utrymme som kan uppstå under hälso varningen. Det minsta värdet för den här config-och FreeDiskSpaceNotificationThresholdPercentage-konfigurationen används för att avgöra sändning av hälso varningen. |
 |FreeDiskSpaceNotificationThresholdPercentage|Double, standard är 0,02 |Dynamisk|Procent andelen ledigt disk utrymme under vilken hälso varning kan uppstå. Det minsta värdet för den här config-och FreeDiskSpaceNotificationInMB-konfigurationen används för att avgöra sändning av hälso varning. |
 |GenerateV1CommonNameAccount| bool, standard är sant|Statisk|Anger om du vill generera ett konto med användar namnet v1 generations algoritm. Från och med Service Fabric version 6,1; ett konto med v2-generering skapas alltid. V1-kontot krävs för uppgraderingar från/till versioner som inte stöder V2-generering (före 6,1).|
 |MaxCopyOperationThreads | Uint, standardvärdet är 0 |Dynamisk| Det maximala antalet parallella filer som sekundärt kan kopiera från primär. 0 = = antal kärnor. |
@@ -300,14 +300,14 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="healthmanager"></a>HealthManager
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, standard är falskt |Statisk|Utvärderings princip för kluster hälsa: Aktivera utvärdering av hälso tillstånd per program typ. |
 |MaxSuggestedNumberOfEntityHealthReports|Int, standard är 100 |Dynamisk|Det maximala antalet hälso rapporter som en entitet kan ha innan du får problem med övervaknings logiken för hälso rapporter. Varje hälsoentitet ska ha ett relativt litet antal hälso rapporter. Om antalet rapporter hamnar ovanför det här talet. Det kan finnas problem med övervaknings enhetens implementering. En entitet med för många rapporter flaggas via en varnings hälso rapport när entiteten utvärderas. |
 
 ## <a name="healthmanagerclusterhealthpolicy"></a>HealthManager/ClusterHealthPolicy
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ConsiderWarningAsError |Bool, standard är falskt |Statisk|Utvärderings princip för kluster hälsa: varningar behandlas som fel. |
 |MaxPercentUnhealthyApplications | Int, standardvärdet är 0 |Statisk|Utvärderings princip för kluster hälsa: Max procent av felaktiga program som tillåts för klustret är felfri. |
@@ -315,14 +315,14 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |MaxPercentDeltaUnhealthyNodes|int, standard är 10|Statisk|Hälso utvärderings princip för kluster uppgradering: maximalt antal felaktiga noder i procent tillåts för att klustret ska vara felfritt |
 |MaxPercentUpgradeDomainDeltaUnhealthyNodes|int, standard är 15|Statisk|Hälso utvärderings princip för kluster uppgradering: högsta procent andel av antal felaktiga noder i en uppgraderings domän som tillåts för att klustret ska vara felfritt |
 
 ## <a name="hosting"></a>Värd
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ActivationMaxFailureCount |Heltal, standard är 10 |Dynamisk|Antal gånger det inte gick att aktivera system försök innan det får upp |
 |ActivationMaxRetryInterval |Tid i sekunder, standard är 300 |Dynamisk|Vid varje kontinuerlig aktivering, försöker systemet att aktivera igen för upp till ActivationMaxFailureCount. ActivationMaxRetryInterval anger vänte tid i intervallet innan ett nytt försök efter varje aktiverings fel |
@@ -377,7 +377,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="httpgateway"></a>HttpGateway
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ActiveListeners |Uint, standard är 50 |Statisk| Antalet läsningar att publicera i http-server kön. Detta styr antalet samtidiga förfrågningar som kan uppfyllas av HttpGateway. |
 |HttpGatewayHealthReportSendInterval |Tid i sekunder, standard är 30 |Statisk|Ange TimeSpan i sekunder. Intervallet då http-gatewayen skickar ackumulerade hälso rapporter till hälso chefen. |
@@ -387,7 +387,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="imagestoreservice"></a>ImageStoreService
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |Enabled |Bool, standard är falskt |Statisk|Flaggan Enabled för ImageStoreService. Standard: falskt |
 |MinReplicaSetSize | Int, standard är 3 |Statisk|MinReplicaSetSize för ImageStoreService. |
@@ -399,7 +399,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="ktllogger"></a>KtlLogger
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AutomaticMemoryConfiguration |Int, standard är 1 |Dynamisk|Flagga som anger om minnes inställningarna ska konfigureras automatiskt och konfigureras dynamiskt. Om värdet är noll används inställningarna för minnes konfigurationen direkt och ändras inte utifrån system villkoren. Om någon sedan konfigureras minnes inställningarna automatiskt och kan ändras baserat på system villkor. |
 |MaximumDestagingWriteOutstandingInKB | Int, standardvärdet är 0 |Dynamisk|Antalet KB som tillåter den delade loggen att gå före den dedikerade loggen. Använd 0 om du vill indikera ingen gräns.
@@ -411,13 +411,13 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |WriteBufferMemoryPoolMinimumInKB |Int, standard är 8388608 |Dynamisk|Antalet KB som ursprungligen allokeras för lagringspoolen för skrivcache. Använd 0 om du vill indikera att ingen gräns standard ska vara konsekvent med SharedLogSizeInMB nedan. |
 
 ## <a name="managedidentitytokenservice"></a>ManagedIdentityTokenService
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |IsEnabled|bool, standard är falskt|Statisk|Flagga som styr närvaro och status för den hanterade identitetsprovider i klustret. Detta är ett krav för att använda funktionen för hanterade identiteter i Service Fabric program.|
 
 ## <a name="management"></a>Hantering
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AutomaticUnprovisionInterval|TimeSpan, standard är gemensamt:: TimeSpan:: FromMinutes (5)|Dynamisk|Ange TimeSpan i sekunder. Rensnings intervallet som tillåts för avregistrering av program typ under automatisk rensning av program typ.|
 |AzureStorageMaxConnections | Int, standard är 5000 |Dynamisk|Maximalt antal samtidiga anslutningar till Azure Storage. |
@@ -434,29 +434,29 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap, standard är ingen|Dynamisk|Anger uppsättningen MetricActivityThresholds för måtten i klustret. Balanseringen fungerar om maxNodeLoad är större än MetricActivityThresholds. För defragments mått definierar du mängden belastning som är lika med eller lägre som Service Fabric kommer att betrakta noden som Tom |
 
 ## <a name="metricbalancingthresholds"></a>MetricBalancingThresholds
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, standard är ingen|Dynamisk|Anger uppsättningen MetricBalancingThresholds för måtten i klustret. Balanseringen fungerar om maxNodeLoad/minNodeLoad är större än MetricBalancingThresholds. Defragmentering fungerar om maxNodeLoad/minNodeLoad i minst en FD eller UD är mindre än MetricBalancingThresholds. |
 
 ## <a name="metricloadstickinessforswap"></a>MetricLoadStickinessForSwap
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, standard är ingen|Dynamisk|Bestämmer den del av belastningen som fastnar med repliken när den byts ut tar värdet mellan 0 (inläsningen fungerar inte med repliken) och 1 (belastnings käppar med replik – standard) |
 
 ## <a name="namingservice"></a>NamingService
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |GatewayServiceDescriptionCacheLimit |Int, standardvärdet är 0 |Statisk|Det maximala antalet poster som behålls i cachen för LRU service-beskrivning på namngivnings-gatewayen (inställt på 0 för ingen begränsning). |
 |MaxClientConnections |Int, standard är 1000 |Dynamisk|Det högsta tillåtna antalet klient anslutningar per Gateway. |
 |MaxFileOperationTimeout |Tid i sekunder, standard är 30 |Dynamisk|Ange TimeSpan i sekunder. Den längsta tillåtna tids gränsen för fil lagrings tjänst åtgärden. Begär Anden som anger en större tids gräns kommer att avvisas. |
 |MaxIndexedEmptyPartitions |Int, standard är 1000 |Dynamisk|Det maximala antalet tomma partitioner som ska fortsätta att indexeras i Notification cache för att synkronisera åter anslutning av klienter. Alla tomma partitioner ovanför det här antalet tas bort från indexet i stigande versions ordning. Att återansluta klienter kan fortfarande synkronisera och ta emot missade uppdateringar av partitionen. men protokollet för synkronisering blir dyrare. |
-|MaxMessageSize |Int, standard är 4\*1024\*1024 |Statisk|Maximal meddelande storlek för kommunikation mellan klienter när du använder namn. DOS-avgrepp, Standardvärdet är 4 MB. |
+|MaxMessageSize |Int, standard är 4 \* 1024 \* 1024 |Statisk|Maximal meddelande storlek för kommunikation mellan klienter när du använder namn. DOS-avgrepp, Standardvärdet är 4 MB. |
 |MaxNamingServiceHealthReports | Int, standard är 10 |Dynamisk|Det maximala antalet långsamma åtgärder som namngivningen av lagrings tjänsten rapporterar i en tidpunkt. Om 0; alla långsamma åtgärder skickas. |
 |MaxOperationTimeout |Tid i sekunder, standard är 600 |Dynamisk|Ange TimeSpan i sekunder. Maximal tids gräns som tillåts för klient åtgärder. Begär Anden som anger en större tids gräns kommer att avvisas. |
 |MaxOutstandingNotificationsPerClient |Int, standard är 1000 |Dynamisk|Det maximala antalet väntande meddelanden innan en klient registrering tvingas stängas av gatewayen. |
@@ -472,38 +472,38 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |TargetReplicaSetSize |Int, standard är 7 |Tillåts inte|Antalet replik uppsättningar för varje partition i Naming Service arkivet. Om du ökar antalet replik uppsättningar ökar Tillförlitlighets nivån för informationen i Naming Service Store. att minska ändringen att informationen kommer att gå förlorad till följd av nodfel. till en kostnad av ökad belastning på Windows Fabric och hur lång tid det tar att utföra uppdateringar av namngivnings data.|
 
 ## <a name="nodebufferpercentage"></a>NodeBufferPercentage
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, standard är ingen|Dynamisk|Procent andel för Node-kapacitet per mått namn; används som en buffert för att hålla en viss kostnads fri plats på en nod för redundansväxlingen. |
 
 ## <a name="nodecapacities"></a>NodeCapacities
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeCapacityCollectionMap |Statisk|En samling nod kapaciteter för olika mått. |
 
 ## <a name="nodedomainids"></a>NodeDomainIds
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodeFaultDomainIdCollection |Statisk|Beskriver de fel domäner som en nod tillhör. Fel domänen definieras via en URI som beskriver nodens plats i data centret.  Fel domänens URI: er har formatet fd:/fd/följt av ett URI-söksegment.|
 |UpgradeDomainId |sträng, standard är "" |Statisk|Beskriver uppgraderings domänen som en nod tillhör. |
 
 ## <a name="nodeproperties"></a>NodeProperties
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup |NodePropertyCollectionMap |Statisk|En samling sträng nyckel/värde-par för Node-egenskaper. |
 
 ## <a name="paas"></a>PaaS
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ClusterId |sträng, standard är "" |Tillåts inte|X509 certifikat arkiv som används av infrastruktur resurser för konfigurations skydd. |
 
 ## <a name="performancecounterlocalstore"></a>PerformanceCounterLocalStore
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |Räknare |Sträng | Dynamisk |Kommaavgränsad lista över prestanda räknare som ska samlas in. |
 |IsEnabled |Bool, standard är sant | Dynamisk |Flagga anger om prestanda räknar samlingen på den lokala noden är aktive rad. |
@@ -513,7 +513,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AffinityConstraintPriority | Int, standardvärdet är 0 | Dynamisk|Anger prioriteten för tillhörighets begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
 |ApplicationCapacityConstraintPriority | Int, standardvärdet är 0 | Dynamisk|Anger prioriteten för kapacitets begränsning: 0: hårt; 1: mjuk; negativt: ignorera. |
@@ -578,7 +578,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ApplicationUpgradeMaxReplicaCloseDuration | Tid i sekunder, standard är 900 |Dynamisk|Ange TimeSpan i sekunder. Den tid som systemet väntar innan tjänst värdar som har repliker som fastnar i slutet av program uppgraderingen avbryts.|
 |FabricUpgradeMaxReplicaCloseDuration | Tid i sekunder, standard är 900 |Dynamisk| Ange TimeSpan i sekunder. Hur länge systemet ska vänta innan tjänst värdar som har repliker som fastnar i slutet under uppgraderingen av infrastrukturen avslutas. |
@@ -591,7 +591,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ServiceReconfigurationApiHealthDuration | Tid i sekunder, standard är 30 |Dynamisk| Ange TimeSpan i sekunder. ServiceReconfigurationApiHealthDuration definierar hur länge vi väntar på att ett tjänst-API ska köras innan vi rapporterar fel. Detta gäller för API-anrop som påverkar tillgänglighet.|
 
 ## <a name="replication"></a>Replikering
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan, standard är gemensamt:: TimeSpan:: FromMilliseconds (15)|Statisk|Ange TimeSpan i sekunder. Anger hur lång tid som replikeraren väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas tillbaka. Andra åtgärder som tas emot under den här tids perioden kommer att få sina bekräftelser tillbaka i ett enda meddelande – > minskning av nätverks trafiken, men eventuellt minska data flödet hos replikeraren.|
 |MaxCopyQueueSize|uint, standard är 1024|Statisk|Detta är det maximala värdet definierar den inledande storleken för kön som upprätthåller replikeringen. Observera att det måste vara en potens av 2. Om kön växer till den här storleks åtgärden begränsas den mellan de primära och sekundära replikerarna.|
@@ -608,53 +608,53 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |RetryInterval|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (5)|Statisk|Ange TimeSpan i sekunder. När en åtgärd bryts eller avvisas, bestämmer den här timern hur ofta replikeringen ska försöka skicka åtgärden igen.|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |IsEnabled|bool, standard är falskt |Statisk|Kontrollerar om tjänsten är aktive rad i klustret eller inte. |
 
 ## <a name="runas"></a>RunAs
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|RunAsAccountName |sträng, standard är "" |Dynamisk|Anger namnet på RunAs-kontot. Detta krävs endast för konto typen "DomainUser" eller "ManagedServiceAccount". Giltiga värden är "domän \ användare"user@domaineller "". |
+|RunAsAccountName |sträng, standard är "" |Dynamisk|Anger namnet på RunAs-kontot. Detta krävs endast för konto typen "DomainUser" eller "ManagedServiceAccount". Giltiga värden är "domän \ användare" eller " user@domain ". |
 |RunAsAccountType|sträng, standard är "" |Dynamisk|Anger RunAs-kontots typ. Detta krävs för alla giltiga RunAs-avsnitt som giltiga värden är "DomainUser/NetworkService/ManagedServiceAccount/LocalSystem".|
 |RunAsPassword|sträng, standard är "" |Dynamisk|Anger RunAs-kontots lösen ord. Detta krävs endast för konto typen "DomainUser". |
 
 ## <a name="runas_dca"></a>RunAs_DCA
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|RunAsAccountName |sträng, standard är "" |Dynamisk|Anger namnet på RunAs-kontot. Detta krävs endast för konto typen "DomainUser" eller "ManagedServiceAccount". Giltiga värden är "domän \ användare"user@domaineller "". |
+|RunAsAccountName |sträng, standard är "" |Dynamisk|Anger namnet på RunAs-kontot. Detta krävs endast för konto typen "DomainUser" eller "ManagedServiceAccount". Giltiga värden är "domän \ användare" eller " user@domain ". |
 |RunAsAccountType|sträng, standard är "" |Dynamisk|Anger RunAs-kontots typ. Detta krävs för alla giltiga RunAs-avsnitt som giltiga värden är "lokal användare/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|sträng, standard är "" |Dynamisk|Anger RunAs-kontots lösen ord. Detta krävs endast för konto typen "DomainUser". |
 
 ## <a name="runas_fabric"></a>RunAs_Fabric
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|RunAsAccountName |sträng, standard är "" |Dynamisk|Anger namnet på RunAs-kontot. Detta krävs endast för konto typen "DomainUser" eller "ManagedServiceAccount". Giltiga värden är "domän \ användare"user@domaineller "". |
+|RunAsAccountName |sträng, standard är "" |Dynamisk|Anger namnet på RunAs-kontot. Detta krävs endast för konto typen "DomainUser" eller "ManagedServiceAccount". Giltiga värden är "domän \ användare" eller " user@domain ". |
 |RunAsAccountType|sträng, standard är "" |Dynamisk|Anger RunAs-kontots typ. Detta krävs för alla giltiga RunAs-avsnitt som giltiga värden är "lokal användare/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|sträng, standard är "" |Dynamisk|Anger RunAs-kontots lösen ord. Detta krävs endast för konto typen "DomainUser". |
 
 ## <a name="runas_httpgateway"></a>RunAs_HttpGateway
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|RunAsAccountName |sträng, standard är "" |Dynamisk|Anger namnet på RunAs-kontot. Detta krävs endast för konto typen "DomainUser" eller "ManagedServiceAccount". Giltiga värden är "domän \ användare"user@domaineller "". |
+|RunAsAccountName |sträng, standard är "" |Dynamisk|Anger namnet på RunAs-kontot. Detta krävs endast för konto typen "DomainUser" eller "ManagedServiceAccount". Giltiga värden är "domän \ användare" eller " user@domain ". |
 |RunAsAccountType|sträng, standard är "" |Dynamisk|Anger RunAs-kontots typ. Detta krävs för alla giltiga RunAs-avsnitt som giltiga värden är "lokal användare/DomainUser/NetworkService/ManagedServiceAccount/LocalSystem". |
 |RunAsPassword|sträng, standard är "" |Dynamisk|Anger RunAs-kontots lösen ord. Detta krävs endast för konto typen "DomainUser". |
 
 ## <a name="security"></a>Säkerhet
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip**| **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|sträng, standard är ""|Statisk|Slut punkts format för AAD-certifikat, standard Azure-kommersiell, anges för miljö som inte är standard\/, till{0}exempel Azure Government https:/login.microsoftonline.us//federationmetadata/2007-06/federationmetadata.XML |
+|AADCertEndpointFormat|sträng, standard är ""|Statisk|Slut punkts format för AAD-certifikat, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \/ /login.microsoftonline.us/ {0} /federationmetadata/2007-06/federationmetadata.XML |
 |AADClientApplication|sträng, standard är ""|Statisk|Ursprungligt klient program namn eller ID som representerar Fabric-klienter |
 |AADClusterApplication|sträng, standard är ""|Statisk|Webb-API-programnamn eller ID som representerar klustret |
-|AADLoginEndpoint|sträng, standard är ""|Statisk|Inloggnings slut punkt för AAD, standard Azure-kommersiell, anges för miljö som inte är standard,\/till exempel Azure Government https:/login.microsoftonline.us " |
+|AADLoginEndpoint|sträng, standard är ""|Statisk|Inloggnings slut punkt för AAD, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \/ /login.microsoftonline.us " |
 |AADTenantId|sträng, standard är ""|Statisk|Klient-ID (GUID) |
 |AcceptExpiredPinnedClusterCertificate|bool, standard är falskt|Dynamisk|Flagga som anger om utgångna kluster certifikat som deklarerats av tumavtryck endast ska accepteras för kluster certifikat; för att hålla klustret Alive. |
 |AdminClientCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken av certifikat som används av klienter i administratörs rollen. Det är en kommaavgränsad lista med namn. |
-|AADTokenEndpointFormat|sträng, standard är ""|Statisk|AAD-token-slutpunkt, standard Azure-kommersiell, anges för miljö som inte är standard,\/till exempel{0}Azure Government https:/login.microsoftonline.us/" |
+|AADTokenEndpointFormat|sträng, standard är ""|Statisk|AAD-token-slutpunkt, standard Azure-kommersiell, anges för miljö som inte är standard, till exempel Azure Government https: \/ /login.microsoftonline.us/ {0} " |
 |AdminClientClaims|sträng, standard är ""|Dynamisk|Alla möjliga anspråk som förväntas från administratörs klienter; samma format som ClientClaims; den här listan läggs internt till i ClientClaims. du behöver inte heller lägga till samma poster i ClientClaims. |
 |AdminClientIdentities|sträng, standard är ""|Dynamisk|Windows-identiteter för Fabric-klienter i administratörs rollen; används för att auktorisera privilegierade infrastruktur åtgärder. Det är en kommaavgränsad lista. varje post är ett domän konto namn eller grupp namn. För enkelhetens skull. kontot som kör Fabric. exe tilldelas automatiskt administratörs rollen. så är grupp ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|sträng, standard är/Home/sfuser/sfusercerts |Statisk|Mapp där AppRunAsAccountGroup X509-certifikat och privata nycklar finns |
@@ -662,7 +662,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |CertificateHealthReportingInterval|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (3600 * 8)|Statisk|Ange TimeSpan i sekunder. Ange intervall för certifikat hälso rapportering; Standardvärdet 8 timmar; Om du anger 0 inaktive ras hälso rapportering för certifikat |
 |ClientCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken av certifikat som används av klienter för att kommunicera med klustret. klustret använder den här auktoriserade inkommande anslutningen. Det är en kommaavgränsad lista med namn. |
 |ClientClaimAuthEnabled|bool, standard är falskt|Statisk|Anger om anspråksbaserad autentisering är aktiverat på klienter. inställningen true anger ClientRoleEnabled. |
-|ClientClaims|sträng, standard är ""|Dynamisk|Alla möjliga anspråk som förväntas från klienter för anslutning till gateway. Detta är en "or"-lista: \| \| ClaimsEntry \| \| ClaimsEntry ClaimsEntry... varje ClaimsEntry är en "och"-lista: ClaimType = ClaimValue && ClaimType = ClaimValue && ClaimType = ClaimValue... |
+|ClientClaims|sträng, standard är ""|Dynamisk|Alla möjliga anspråk som förväntas från klienter för anslutning till gateway. Detta är en "OR"-lista: ClaimsEntry \| \| ClaimsEntry \| \| ClaimsEntry... varje ClaimsEntry är en "och"-lista: ClaimType = ClaimValue && ClaimType = ClaimValue && ClaimType = ClaimValue... |
 |ClientIdentities|sträng, standard är ""|Dynamisk|Windows-identiteter för FabricClient; namngivning av Gateway använder detta för att auktorisera inkommande anslutningar. Det är en kommaavgränsad lista. varje post är ett domän konto namn eller grupp namn. För enkelhetens skull. det konto som kör Fabric. exe tillåts automatiskt. Därför är Group ServiceFabricAllowedUsers och ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, standard är falskt|Statisk|Anger om klient rollen är aktive rad; När värdet är true; klienter tilldelas roller baserat på deras identiteter. För v2; Om du aktiverar detta innebär det att klienten inte finns i AdminClientCommonNames/AdminClientIdentities bara kan köra skrivskyddade åtgärder. |
 |ClusterCertThumbprints|sträng, standard är ""|Dynamisk|Tumavtrycken för certifikat som får ansluta till klustret. en kommaavgränsad lista med namn. |
@@ -689,13 +689,13 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="securityadminclientx509names"></a>Säkerhet/AdminClientX509Names
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, standard är ingen|Dynamisk|Det här är en lista med paret "namn" och "värde". Varje "namn" är av certifikatets gemensamma namn eller DnsName för X509-certifikat som har behörighet för administratörs klient åtgärder. För ett angivet "namn" är "värde" en kommaavgränsad lista över certifikat tumavtrycken för utfärdande av utfärdare, om den inte är tom, måste den direkta utfärdaren av administratörs klient certifikat finnas i listan. |
 
 ## <a name="securityclientaccess"></a>Säkerhet/ClientAccess
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ActivateNode |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för aktivering av en nod. |
 |CancelTestCommand |sträng, standardvärdet är "admin" |Dynamisk| Avbryter en speciell TestCommand – om den är i flygning. |
@@ -718,47 +718,47 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |DeleteNetwork|sträng, standardvärdet är "admin" |Dynamisk|Tar bort ett behållar nätverk |
 |DeleteService |sträng, standardvärdet är "admin" |Dynamisk|Säkerhets konfiguration för borttagning av tjänst. |
 |DeleteVolume|sträng, standardvärdet är "admin"|Dynamisk|Tar bort en volym.| 
-|EnumerateProperties |sträng är standard "administratörs\|\|användare" | Dynamisk|Säkerhets konfiguration för uppräkning av namngivnings egenskaper. |
-|EnumerateSubnames |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för namngivning av URI-uppräkning. |
+|EnumerateProperties |sträng är standard "administratörs \| \| användare" | Dynamisk|Säkerhets konfiguration för uppräkning av namngivnings egenskaper. |
+|EnumerateSubnames |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för namngivning av URI-uppräkning. |
 |FileContent |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för klient fil överföring i avbildnings arkivet (externt till kluster). |
 |FileDownload |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för avbildnings lagrings klient fil hämtnings initiering (extern till kluster). |
 |FinishInfrastructureTask |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att slutföra infrastruktur uppgifter. |
-|GetChaosReport | sträng är standard "administratörs\|\|användare" |Dynamisk| Hämtar status för kaos inom ett angivet tidsintervall. |
-|GetClusterConfiguration | sträng är standard "administratörs\|\|användare" | Dynamisk|Inducerar GetClusterConfiguration på en partition. |
-|GetClusterConfigurationUpgradeStatus | sträng är standard "administratörs\|\|användare" |Dynamisk| Inducerar GetClusterConfigurationUpgradeStatus på en partition. |
-|GetFabricUpgradeStatus |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för avsökning av uppgraderings status för kluster. |
+|GetChaosReport | sträng är standard "administratörs \| \| användare" |Dynamisk| Hämtar status för kaos inom ett angivet tidsintervall. |
+|GetClusterConfiguration | sträng är standard "administratörs \| \| användare" | Dynamisk|Inducerar GetClusterConfiguration på en partition. |
+|GetClusterConfigurationUpgradeStatus | sträng är standard "administratörs \| \| användare" |Dynamisk| Inducerar GetClusterConfigurationUpgradeStatus på en partition. |
+|GetFabricUpgradeStatus |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för avsökning av uppgraderings status för kluster. |
 |GetFolderSize |sträng, standardvärdet är "admin" |Dynamisk|Säkerhets konfiguration för FileStoreService-mappens hämtnings storlek |
 |GetNodeDeactivationStatus |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att kontrol lera status för inaktive ring. |
-|GetNodeTransitionProgress | sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för att få förloppet för en nod över gångs kommando. |
-|GetPartitionDataLossProgress | sträng är standard "administratörs\|\|användare" | Dynamisk|Hämtar förloppet för ett anrop till API-anrop för anrop av data förlust. |
-|GetPartitionQuorumLossProgress | sträng är standard "administratörs\|\|användare" |Dynamisk| Hämtar förloppet för ett anrop till API-anrop för Invoke-kvorum. |
-|GetPartitionRestartProgress | sträng är standard "administratörs\|\|användare" |Dynamisk| Hämtar förloppet för ett API-anrop för Restart-partition. |
+|GetNodeTransitionProgress | sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för att få förloppet för en nod över gångs kommando. |
+|GetPartitionDataLossProgress | sträng är standard "administratörs \| \| användare" | Dynamisk|Hämtar förloppet för ett anrop till API-anrop för anrop av data förlust. |
+|GetPartitionQuorumLossProgress | sträng är standard "administratörs \| \| användare" |Dynamisk| Hämtar förloppet för ett anrop till API-anrop för Invoke-kvorum. |
+|GetPartitionRestartProgress | sträng är standard "administratörs \| \| användare" |Dynamisk| Hämtar förloppet för ett API-anrop för Restart-partition. |
 |GetSecrets|sträng, standardvärdet är "admin"|Dynamisk|Hämta hemliga värden |
-|GetServiceDescription |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för tjänst meddelanden för lång avsökning och läsning av tjänst beskrivningar. |
+|GetServiceDescription |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för tjänst meddelanden för lång avsökning och läsning av tjänst beskrivningar. |
 |GetStagingLocation |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för klient lagrings plats för avbildnings klient. |
 |GetStoreLocation |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för klient lagrings plats i avbildnings arkivet. |
 |GetUpgradeOrchestrationServiceState|sträng, standardvärdet är "admin"| Dynamisk|Inducerar GetUpgradeOrchestrationServiceState på en partition |
 |GetUpgradesPendingApproval |sträng, standardvärdet är "admin" |Dynamisk| Inducerar GetUpgradesPendingApproval på en partition. |
-|GetUpgradeStatus |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för avsökning av program uppgraderings status. |
+|GetUpgradeStatus |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för avsökning av program uppgraderings status. |
 |InternalList |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager (intern). |
 |InvokeContainerApi|sträng, standardvärdet är "admin"|Dynamisk|Anropa container-API |
 |InvokeInfrastructureCommand |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för kommandon för hantering av infrastruktur uppgifter. |
-|InvokeInfrastructureQuery |sträng är standard "administratörs\|\|användare" | Dynamisk|Säkerhets konfiguration för frågor om infrastruktur uppgifter. |
-|Visa lista |sträng är standard "administratörs\|\|användare" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager. |
+|InvokeInfrastructureQuery |sträng är standard "administratörs \| \| användare" | Dynamisk|Säkerhets konfiguration för frågor om infrastruktur uppgifter. |
+|Visa lista |sträng är standard "administratörs \| \| användare" | Dynamisk|Säkerhets konfiguration för klient fil List åtgärd i avbildnings lager. |
 |MoveNextFabricUpgradeDomain |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta kluster uppgraderingar med en explicit uppgraderings domän. |
 |MoveNextUpgradeDomain |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta program uppgraderingar med en explicit uppgraderings domän. |
 |MoveReplicaControl |sträng, standardvärdet är "admin" | Dynamisk|Flytta repliken. |
-|NameExists |sträng är standard "administratörs\|\|användare" | Dynamisk|Säkerhets konfiguration för att namnge URI-kontroller. |
+|NameExists |sträng är standard "administratörs \| \| användare" | Dynamisk|Säkerhets konfiguration för att namnge URI-kontroller. |
 |NodeControl |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för start; stoppas och starta om noderna. |
 |NodeStateRemoved |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för status för rapporterings nod har tagits bort. |
-|Pinga |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för klient-pingar. |
+|Pinga |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för klient-pingar. |
 |PredeployPackageToNode |sträng, standardvärdet är "admin" |Dynamisk| API för för distribution. |
-|PrefixResolveService |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för klagomåls-baserad tjänstens prefix matchning. |
-|PropertyReadBatch |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för Läs åtgärder för namngivnings egenskapen. |
+|PrefixResolveService |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för klagomåls-baserad tjänstens prefix matchning. |
+|PropertyReadBatch |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för Läs åtgärder för namngivnings egenskapen. |
 |PropertyWriteBatch |sträng, standardvärdet är "admin" |Dynamisk|Säkerhetskonfigurationer för namngivning av egenskaps Skriv åtgärder. |
 |ProvisionApplicationType |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för etablering av program typ. |
 |ProvisionFabric |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för MSI och/eller kluster manifest etablering. |
-|Söka i data |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för frågor. |
+|Söka i data |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för frågor. |
 |RecoverPartition |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av en partition. |
 |RecoverPartitions |sträng, standardvärdet är "admin" | Dynamisk|Säkerhets konfiguration för återställning av partitioner. |
 |RecoverServicePartitions |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för återställning av tjänst partitioner. |
@@ -768,14 +768,14 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ReportFault |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för rapporterings fel. |
 |ReportHealth |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för rapporterings hälsa. |
 |ReportUpgradeHealth |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återuppta program uppgraderingar med den aktuella uppgraderings processen. |
-|ResetPartitionLoad |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för återställnings belastning för en failoverUnit. |
-|ResolveNameOwner |sträng är standard "administratörs\|\|användare" | Dynamisk|Säkerhets konfiguration för matchning av namngivning av URI-ägare. |
-|ResolvePartition |sträng är standard "administratörs\|\|användare" | Dynamisk|Säkerhets konfiguration för att lösa system tjänster. |
-|ResolveService |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för klagomåls-baserad tjänst upplösning. |
-|ResolveSystemService|sträng är standard "administratörs\|\|användare"|Dynamisk| Säkerhets konfiguration för att lösa system tjänster |
+|ResetPartitionLoad |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för återställnings belastning för en failoverUnit. |
+|ResolveNameOwner |sträng är standard "administratörs \| \| användare" | Dynamisk|Säkerhets konfiguration för matchning av namngivning av URI-ägare. |
+|ResolvePartition |sträng är standard "administratörs \| \| användare" | Dynamisk|Säkerhets konfiguration för att lösa system tjänster. |
+|ResolveService |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för klagomåls-baserad tjänst upplösning. |
+|ResolveSystemService|sträng är standard "administratörs \| \| användare"|Dynamisk| Säkerhets konfiguration för att lösa system tjänster |
 |RollbackApplicationUpgrade |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återställa program uppgraderingar. |
 |RollbackFabricUpgrade |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för att återställa kluster uppgraderingar. |
-|ServiceNotifications |sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för händelsebaserade tjänst aviseringar. |
+|ServiceNotifications |sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för händelsebaserade tjänst aviseringar. |
 |SetUpgradeOrchestrationServiceState|sträng, standardvärdet är "admin"| Dynamisk|Inducerar SetUpgradeOrchestrationServiceState på en partition |
 |StartApprovedUpgrades |sträng, standardvärdet är "admin" |Dynamisk| Inducerar StartApprovedUpgrades på en partition. |
 |StartChaos |sträng, standardvärdet är "admin" |Dynamisk| Startar kaos – om det inte redan har startats. |
@@ -786,7 +786,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |StartPartitionQuorumLoss |sträng, standardvärdet är "admin" |Dynamisk| Inducerar kvorum förlust på en partition. |
 |StartPartitionRestart |sträng, standardvärdet är "admin" |Dynamisk| Startar om några eller alla repliker av en partition. |
 |StopChaos |sträng, standardvärdet är "admin" |Dynamisk| Stoppar kaos – om det har startats. |
-|ToggleVerboseServicePlacementHealthReporting | sträng är standard "administratörs\|\|användare" |Dynamisk| Säkerhets konfiguration för att växla utförlig ServicePlacement-HealthReporting. |
+|ToggleVerboseServicePlacementHealthReporting | sträng är standard "administratörs \| \| användare" |Dynamisk| Säkerhets konfiguration för att växla utförlig ServicePlacement-HealthReporting. |
 |UnprovisionApplicationType |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för avetablering av program typ. |
 |UnprovisionFabric |sträng, standardvärdet är "admin" |Dynamisk| Säkerhets konfiguration för MSI och/eller kluster manifest avetableras. |
 |UnreliableTransportControl |sträng, standardvärdet är "admin" |Dynamisk| Otillförlitlig transport för att lägga till och ta bort beteenden. |
@@ -798,43 +798,43 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="securityclientcertificateissuerstores"></a>Säkerhet/ClientCertificateIssuerStores
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, standard är ingen |Dynamisk|X509 utfärdarens certifikat Arkiv för klient certifikat; Namn = clientIssuerCN; Värde = kommaavgränsad lista över butiker |
 
 ## <a name="securityclientx509names"></a>Säkerhet/ClientX509Names
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, standard är ingen|Dynamisk|Det här är en lista med paret "namn" och "värde". Varje "namn" är av certifikatets gemensamma namn eller DnsName för X509-certifikat som har behörighet för klient åtgärder. För ett angivet "namn" är "värde" en kommaavgränsad lista över certifikat tumavtrycken för utfärdande av utfärdare, om den inte är tom, måste den direkta utfärdaren av klient certifikat finnas i listan.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Säkerhet/ClusterCertificateIssuerStores
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, standard är ingen |Dynamisk|X509 utfärdarens certifikat Arkiv för kluster certifikat; Namn = clusterIssuerCN; Värde = kommaavgränsad lista över butiker |
 
 ## <a name="securityclusterx509names"></a>Säkerhet/ClusterX509Names
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, standard är ingen|Dynamisk|Det här är en lista med paret "namn" och "värde". Varje "namn" är av certifikatets gemensamma namn eller DnsName för X509-certifikat som har auktoriserats för kluster åtgärder. För ett angivet "namn" är "värde" en kommaavgränsad lista över certifikat tumavtrycken för utfärdande av utfärdare, om den inte är tom, måste den direkta utfärdaren av kluster certifikat finnas i listan.|
 
 ## <a name="securityservercertificateissuerstores"></a>Säkerhet/ServerCertificateIssuerStores
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|IssuerStoreKeyValueMap, standard är ingen |Dynamisk|X509 utfärdarens certifikat Arkiv för Server certifikat; Namn = serverIssuerCN; Värde = kommaavgränsad lista över butiker |
 
 ## <a name="securityserverx509names"></a>Säkerhet/ServerX509Names
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, standard är ingen|Dynamisk|Det här är en lista med paret "namn" och "värde". Varje "namn" är av certifikatets gemensamma namn eller DnsName för X509-certifikat som är auktoriserade för Server åtgärder. För ett angivet "namn" är "värde" en kommaavgränsad lista över certifikat tumavtrycken för utfärdande av utfärdare, om den inte är tom, måste den direkta utfärdaren av Server certifikat finnas i listan.|
 
 ## <a name="setup"></a>Installation
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|sträng, standard är ""| Statisk |Nätverks namnet som ska användas när ett behållar nätverk konfigureras.|
 |ContainerNetworkSetup|bool, standard är falskt (Linux) och standard är sant (Windows)| Statisk |Om ett behållar nätverk ska konfigureras.|
@@ -847,19 +847,19 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="tokenvalidationservice"></a>TokenValidationService
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |Leverantörer |sträng, standard är "DSTS" |Statisk|Kommaavgränsad lista över providers för token-verifiering som ska aktive ras (giltiga providrar är: DSTS; AAD). För närvarande kan endast en enda Provider aktive ras när som helst. |
 
 ## <a name="traceetw"></a>Spårning/ETW
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |Nivå |Int, standard är 4 | Dynamisk |Spårnings-ETW-nivå kan ta värden 1, 2, 3, 4. För att stödjas måste du hålla spårnings nivån på 4 |
 
 ## <a name="transactionalreplicator"></a>TransactionalReplicator
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | Tid i sekunder, standard är 0,015 | Statisk | Ange TimeSpan i sekunder. Anger hur lång tid som replikeraren väntar efter att ha tagit emot en åtgärd innan en bekräftelse skickas tillbaka. Andra åtgärder som tas emot under den här tids perioden kommer att få sina bekräftelser tillbaka i ett enda meddelande – > minskning av nätverks trafiken, men eventuellt minska data flödet hos replikeraren. |
 |MaxCopyQueueSize |Uint, standard är 16384 | Statisk |Detta är det maximala värdet definierar den inledande storleken för kön som upprätthåller replikeringen. Observera att det måste vara en potens av 2. Om kön växer till den här storleks åtgärden begränsas den mellan de primära och sekundära replikerarna. |
@@ -871,17 +871,17 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ReplicatorAddress |sträng, standard är "localhost: 0" | Statisk | Slut punkten i form av en sträng-IP: port som används av Windows Fabric Replicator för att upprätta anslutningar till andra repliker för att kunna skicka/ta emot-åtgärder. |
 
 ## <a name="transport"></a>Transport
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** |**Uppgradera princip** |**Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** |**Uppgradera princip** |**Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (60)|Statisk|Ange TimeSpan i sekunder. Tids gränsen för anslutnings installationen på både inkommande och mottagande sida (inklusive säkerhets förhandling i säkert läge) |
 |FrameHeaderErrorCheckingEnabled|bool, standard är sant|Statisk|Standardinställning för fel kontroll i ram rubriken i icke-säkert läge. komponent inställningen åsidosätter detta. |
 |MessageErrorCheckingEnabled|bool, standard är falskt|Statisk|Standardinställning för fel kontroll av meddelande huvud och brödtext i icke-säkert läge. komponent inställningen åsidosätter detta. |
 |ResolveOption|sträng, standard är "ospecificerad"|Statisk|Anger hur FQDN matchas.  Giltiga värden är "ospecificerade/IPv4/IPv6". |
-|SendTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (300)|Dynamisk|Ange TimeSpan i sekunder. Sändnings tids gräns för att identifiera fastnad anslutning. TCP-felrapporter är inte tillförlitliga i vissa miljöer. Detta kan behöva justeras enligt tillgänglig nätverks bandbredd och storlek på utgående data (\*MaxMessageSize\/\*SendQueueSizeLimit). |
+|SendTimeout|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (300)|Dynamisk|Ange TimeSpan i sekunder. Sändnings tids gräns för att identifiera fastnad anslutning. TCP-felrapporter är inte tillförlitliga i vissa miljöer. Detta kan behöva justeras enligt tillgänglig nätverks bandbredd och storlek på utgående data ( \* MaxMessageSize \/ \* SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | Bool, standard är sant |Statisk| Automatisk avsökning och uppgraderings åtgärd baserat på en mål tillstånds fil. |
 |AutoupgradeInstallEnabled|Bool, standard är falskt|Statisk|Automatisk avsökning, etablering och installation av kod uppgraderings åtgärd baserat på en mål tillstånds fil.|
@@ -896,7 +896,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 
 ## <a name="upgradeservice"></a>UpgradeService
 
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |BaseUrl | sträng, standard är "" |Statisk|BaseUrl för UpgradeService. |
 |ClusterId | sträng, standard är "" |Statisk|ClusterId för UpgradeService. |
@@ -914,7 +914,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |X509StoreName | sträng, standard är "My"|Dynamisk|X509StoreName för UpgradeService. |
 
 ## <a name="userservicemetriccapacities"></a>UserServiceMetricCapacities
-| **ProfileServiceApplicationProxy** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
+| **Parameter** | **Tillåtna värden** | **Uppgradera princip** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
 |PropertyGroup| UserServiceMetricCapacitiesMap, standard är ingen | Statisk | En samling med gränser för resurs styrning av användar tjänster måste vara statisk eftersom den påverkar logik för automatisk identifiering |
 

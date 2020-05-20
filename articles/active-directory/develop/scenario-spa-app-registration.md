@@ -1,48 +1,81 @@
 ---
-title: Registrera appar på en sida – Microsoft Identity Platform | Azure
+title: Registrera program med en enda sida (SPA) | Azure
+titleSuffix: Microsoft identity platform
 description: Lär dig hur du skapar ett program med en enda sida (app Registration)
 services: active-directory
-author: navyasric
+author: hahamil
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
-ms.author: nacanuma
+ms.date: 05/19/2020
+ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 6f690a8b3436a45d434ccad2bbaa7d2a1b0b76aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882156"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682394"
 ---
 # <a name="single-page-application-app-registration"></a>Program med en sida: app-registrering
 
-På den här sidan förklaras registrerings information för appar för ett enda sid program (SPA).
+Utför följande steg för att registrera ett program med en enda sida (SPA) i Microsoft Identity Platform. Registrerings stegen skiljer sig mellan MSAL. js 1,0, som stöder det implicita tilldelnings flödet och MSAL. js 2,0, som stöder auktoriseringskod med PKCE.
 
-Följ stegen för att [Registrera ett nytt program med Microsoft Identity Platform](quickstart-register-app.md)och välj de konton som stöds för programmet. SPA-scenariot har stöd för autentisering med konton i din organisation eller i alla organisationer och personliga Microsoft-konton.
+## <a name="create-the-app-registration"></a>Skapa registrerings appen
 
-Läs sedan de specifika aspekter av program registrering som gäller för program på en enda sida.
+Börja med att utföra följande steg för att skapa den första appens registrering för både MSAL. js 1,0-och 2,0-baserade program.
 
-## <a name="register-a-redirect-uri"></a>Registrera en omdirigerings-URI
+1. Logga in på [Azure-portalen](https://portal.azure.com). Om ditt konto har åtkomst till flera klienter väljer du filtret **katalog + prenumeration** på den översta menyn och väljer sedan den klient som ska innehålla den app-registrering som du håller på att skapa.
+1. Sök efter och välj **Azure Active Directory**.
+1. Under **Hantera**väljer du **Appregistreringar**.
+1. Välj **ny registrering**, ange ett **namn** för programmet och välj de **konto typer som stöds** för programmet. Ange **ingen** **omdirigerings-URI**. En beskrivning av de olika konto typerna finns i [Registrera ett nytt program med hjälp av Azure Portal](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+1. Välj **Registrera** för att skapa appens registrering.
 
-Det implicita flödet skickar token i en omdirigering till ett program med en enda sida som körs i en webbläsare. Det är därför viktigt att registrera en omdirigerings-URI där ditt program kan ta emot tokens. Se till att omdirigerings-URI: n matchar exakt URI för ditt program.
+Konfigurera sedan appens registrering med en **omdirigerings-URI** för att ange var Microsoft Identity Platform ska omdirigera klienten tillsammans med alla säkerhetstoken. Använd de steg som är lämpliga för den version av MSAL. js som du använder i ditt program:
 
-I [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2083908)går du till ditt registrerade program. På sidan **autentisering** i programmet väljer du **webb** plattformen. Ange värdet för omdirigerings-URI för programmet i fältet **omdirigerings-URI** .
+- [MSAL. js 2,0 med auth Code Flow](#redirect-uri-msaljs-20-with-auth-code-flow) (rekommenderas)
+- [MSAL. js 1,0 med implicit flöde](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="enable-the-implicit-flow"></a>Aktivera det implicita flödet
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Omdirigerings-URI: MSAL. js 2,0 med auth Code Flow
 
-På sidan samma **autentisering** , under **Avancerade inställningar**, måste du även aktivera **implicit beviljande**. Om ditt program bara loggar in användare och hämtar ID-token, räcker det att markera kryss rutan **ID-token** .
+Följ dessa steg om du vill lägga till en omdirigerings-URI för en app som använder MSAL. js 2,0 eller senare. MSAL. js 2.0 + stöder auktoriseringskod med PKCE och CORS som svar på [webbläsare tredjeparts cookie-restriktioner](reference-third-party-cookies-spas.md). Det implicita tilldelnings flödet stöds inte i MSAL. js 2.0 +.
 
-Om ditt program också behöver hämta åtkomsttoken för att anropa API: er, måste du även markera kryss rutan **åtkomsttoken** . Mer information finns i [ID-tokens](./id-tokens.md) och [åtkomsttoken](./access-tokens.md).
+1. I Azure Portal väljer du den app-registrering som du skapade tidigare i [skapa appens registrering](#create-the-app-registration).
+1. Välj **autentisering**under **Hantera**och välj sedan **Lägg till en plattform**.
+1. Under **webb program**väljer du den **enda sidans program** panel.
+1. Under **omdirigerings-URI**anger du en [omdirigerings-URI](reply-url.md). Markera **inte** någon av kryss rutorna under **implicit tilldelning**.
+1. Välj **Konfigurera** för att slutföra tillägg av omdirigerings-URI.
 
-## <a name="api-permissions"></a>API-behörigheter
+Du har nu slutfört registreringen av ett enda webb program (SPA) och konfigurerat en omdirigerings-URI som klienten ska omdirigeras till och eventuella säkerhetstoken kommer att skickas. Genom att konfigurera omdirigerings-URI: n med hjälp av program panelen på en **sida** i fönstret **Lägg till en plattform** konfigureras program registreringen för att stödja AUKTORISERINGSKOD med PKCE och CORS.
 
-Program med en enda sida kan anropa API: er åt den inloggade användaren. De måste begära delegerade behörigheter. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Omdirigerings-URI: MSAL. js 1,0 med implicit flöde
+
+Följ dessa steg om du vill lägga till en omdirigerings-URI för en app med en enda sida som använder MSAL. js 1,3 eller tidigare och det implicita tilldelnings flödet. Program som använder MSAL. js 1,3 eller tidigare stöder inte auth Code Flow.
+
+1. I Azure Portal väljer du den app-registrering som du skapade tidigare i [skapa appens registrering](#create-the-app-registration).
+1. Välj **autentisering**under **Hantera**och välj sedan **Lägg till en plattform**.
+1. Under **webb program**väljer du en fönster ruta med **en sida** .
+1. Under **omdirigerings-URI**anger du en [omdirigerings-URI](reply-url.md).
+1. Aktivera det **implicita flödet**:
+    - Om ditt program loggar in användare väljer du **ID-token**.
+    - Om ditt program också behöver anropa ett skyddat webb-API väljer du **åtkomsttoken**. Mer information om dessa typer av token finns i [ID-token](id-tokens.md) och [åtkomsttoken](access-tokens.md).
+1. Välj **Konfigurera** för att slutföra tillägg av omdirigerings-URI.
+
+Du har nu slutfört registreringen av ett enda webb program (SPA) och konfigurerat en omdirigerings-URI som klienten ska omdirigeras till och eventuella säkerhetstoken kommer att skickas. Genom att välja en eller båda av **ID-tokens** och **åtkomsttoken**har du aktiverat det implicita tilldelnings flödet.
+
+## <a name="note-about-authorization-flows"></a>Information om auktoriserings flöden
+
+Som standard kan en app-registrering som skapats med hjälp av konfiguration med en enda sida-plattform Aktivera kod flödet för auktorisering. Ditt program måste använda MSAL. js 2,0 eller senare för att kunna dra nytta av det här flödet.
+
+Som nämnts tidigare är program med en sida som använder MSAL. js 1,3 begränsade till det implicita tilldelnings flödet. Aktuella [OAuth 2,0-rekommenderade metoder](v2-oauth2-auth-code-flow.md) rekommenderar att du använder Authorization Code Flow i stället för det implicita flödet för SPAs. Om du har en token med begränsad livs längd hjälper det också ditt program att anpassa sig till [moderna webbläsare cookies sekretess begränsningar](reference-third-party-cookies-spas.md), till exempel Safari ITP.
+
+När alla dina produktions program med en enda sida som representeras av en registrerad app-registrering använder MSAL. js 2,0 och koden för auktoriseringskod, avmarkerar du kryss rutan för den implicita beviljande inställningen i fönstret **Authentication** för appens registrering i Azure Portal. Program som använder MSAL. js 1. x och det implicita flödet kan fortsätta att fungera, men om du lämnar det implicita flödet aktiverat (markerat).
 
 ## <a name="next-steps"></a>Nästa steg
+
+Konfigurera sedan appens kod så att den använder den app-registrering som du skapade i föregående steg:.
 
 > [!div class="nextstepaction"]
 > [Appens kod konfiguration](scenario-spa-app-configuration.md)

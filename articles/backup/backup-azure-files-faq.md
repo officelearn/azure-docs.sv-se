@@ -3,16 +3,16 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b19fd11e6784a188a18f6a613eef5ff4f77764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aaa0d47b540a1c3eacd9efebda84f22b83529a28
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105649"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680987"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
-Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
+Den här artikeln innehåller vanliga frågor och svar om hur du säkerhetskopierar Azure Files. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också skicka frågor om Azure Backup tjänsten i [Microsoft Q&A för Azure Backup](https://docs.microsoft.com/answers/topics/azure-backup.html).
 
 Om du snabbt vill titta igenom avsnitten i denna artikel kan du använda länkarna till höger, under **Innehåll i artikeln**.
 
@@ -80,9 +80,80 @@ Alla ögonblicks bilder som tas av Azure Backup kan nås genom att Visa ögonbli
 
 Mer information om maximal kvarhållning finns i [support mat ris](azure-file-share-support-matrix.md) . Azure Backup utför beräkningar i real tid av antalet ögonblicks bilder när du anger Retentions värden när du konfigurerar säkerhets kopierings principen. Så snart antalet ögonblicks bilder som motsvarar dina definierade kvarhållning överskrider 200 visas en varning i portalen där du uppmanas att justera dina kvarhållning-värden. Detta är så att du inte överskrider gränsen för maximalt antal ögonblicks bilder som stöds av Azure Files för alla fil resurser vid en viss tidpunkt.
 
-### <a name="what-happens-when-i-change-the-backup-policy-for-an-azure-file-share"></a>Vad händer om jag ändrar säkerhetskopieringspolicyn för en Azure-filresurs?
+### <a name="what-is-the-impact-on-existing-recovery-points-and-snapshots-when-i-modify-the-backup-policy-for-an-azure-file-share-to-switch-from-daily-policy-to-gfs-policy"></a>Vad är påverkan på befintliga återställnings punkter och ögonblicks bilder när jag ändrar säkerhets kopierings principen för en Azure-filresurs för att växla från "daglig princip" till "GFS policy"?
 
-När en ny princip tillämpas på en eller flera filresurser följs schemat och kvarhållningstiden för den nya principen. Om kvarhållningen utökas markeras befintliga återställningspunkter för att behålla dem enligt den nya principen. Om kvarhållningen minskar markeras de för rensning vid nästa rensningsjobb och tas bort.
+När du ändrar en daglig säkerhets kopierings princip till GFS-principen (lägger till vecko Visa per månad/årlig kvarhållning) är beteendet följande:
+
+- **Kvarhållning**: om du lägger till veckovis/månads Visa/årligen kvarhållning som en del av att ändra principen, kommer alla framtida återställnings punkter som skapats som en del av den schemalagda säkerhets kopian att märkas enligt den nya principen. Alla befintliga återställnings punkter betraktas fortfarande som dagliga återställnings punkter och kommer därför inte att märkas som varje vecka/månad/år.
+
+- **Rensningar av ögonblicks bilder och återställnings punkter**:
+
+  - Om den dagliga kvarhållning är utökad uppdateras utgångs datumet för de befintliga återställnings punkterna enligt det dagliga kvarhållningsintervallet som kon figurer ATS i den nya principen.
+  - Om daglig kvarhållning minskas markeras befintliga återställnings punkter och ögonblicks bilder för borttagning i nästa rensnings körnings jobb enligt det dagliga kvarhållningsintervallet som kon figurer ATS i den nya principen och tas sedan bort.
+
+Här är ett exempel på hur det fungerar:
+
+#### <a name="existing-policy-p1"></a>Befintlig princip [P1]
+
+|Bevarande typ |Schema |Kvarhållning  |
+|---------|---------|---------|
+|Varje dag    |    Varje dag med 8 PM    |  100 dagar       |
+
+#### <a name="new-policy-modified-p1"></a>Ny princip [ändrad P1]
+
+| Bevarande typ | Schema                       | Kvarhållning |
+| -------------- | ------------------------------ | --------- |
+| Varje dag          | Varje dag kl. 9 PM              | 50 dagar   |
+| Varje vecka         | På söndag till 9 PM              | 3 veckor   |
+| Månadsvis        | Den senaste måndagen vid 9 PM         | 1 månad   |
+| Varje år         | I Jan den tredje söndagen med 9 PM | 4 år   |
+
+#### <a name="impact"></a>Påverkan
+
+1. Utgångs datumet för befintliga återställnings punkter justeras enligt det dagliga kvarhållningsintervallet för den nya principen: det vill säga 50 dagar. Därför kommer alla återställnings punkter som är äldre än 50 dagar att markeras för borttagning.
+
+2. De befintliga återställnings punkterna märks inte som varje vecka/månad/år baserat på ny princip.
+
+3. Alla framtida säkerhets kopieringar kommer att utlösas enligt det nya schemat: det vill säga kl. 9 PM.
+
+4. Utgångs datumet för alla framtida återställnings punkter kommer att justeras med den nya principen.
+
+>[!NOTE]
+>Princip ändringarna påverkar bara de återställnings punkter som skapats som en del av det schemalagda säkerhets kopierings jobbet. För säkerhets kopiering på begäran avgörs kvarhållning av värdet för **kvarhållning till** som anges vid tidpunkten för säkerhets kopieringen.
+
+### <a name="what-is-the-impact-on-existing-recovery-points-when-i-modify-an-existing-gfs-policy"></a>Vad påverkar befintliga återställnings punkter när jag ändrar en befintlig GFS-princip?
+
+När en ny princip tillämpas på fil resurser görs alla framtida schemalagda säkerhets kopieringar enligt schemat som kon figurer ATS i den ändrade principen.  Kvarhållning av alla befintliga återställnings punkter justeras enligt de nya kvarhållningsintervallet som kon figurer ATS. Så om kvarhållning har utökats markeras befintliga återställnings punkter som behålls enligt den nya principen. Om kvarhållning minskas markeras de för rensning i nästa rensnings jobb och tas sedan bort.
+
+Här är ett exempel på hur det fungerar:
+
+#### <a name="existing-policy-p2"></a>Befintlig princip [P2]
+
+| Bevarande typ | Schema           | Kvarhållning |
+| -------------- | ------------------ | --------- |
+| Varje dag          | Varje dag med 8 PM | 50 dagar   |
+| Varje vecka         | På måndag till 8 PM  | 3 veckor   |
+
+#### <a name="new-policy-modified-p2"></a>Ny princip [ändrad P2]
+
+| Bevarande typ | Schema               | Kvarhållning |
+| -------------- | ---------------------- | --------- |
+| Varje dag          | Varje dag kl. 9 PM     | 10 dagar   |
+| Varje vecka         | På måndag till 9 PM      | 2 veckor   |
+| Månadsvis        | Den senaste måndagen vid 9 PM | 2 månader  |
+
+#### <a name="impact-of-change"></a>Effekt av ändring
+
+1. Utgångs datumet för befintliga dagliga återställnings punkter justeras enligt det nya värdet för daglig kvarhållning, vilket är 10 dagar. Det innebär att alla dagliga återställnings punkter som är äldre än 10 dagar tas bort.
+
+2. Förfallo datumet för befintliga vecko återställnings punkter justeras enligt det nya vecko kvarhållning svärdet, som är två veckor. En veckovis återställnings punkt som är äldre än två veckor kommer att tas bort.
+
+3. De månatliga återställnings punkterna skapas bara som en del av framtida säkerhets kopieringar baserat på den nya princip konfigurationen.
+
+4. Utgångs datumet för alla framtida återställnings punkter kommer att justeras med den nya principen.
+
+>[!NOTE]
+>Princip ändringarna påverkar bara de återställnings punkter som skapats som en del av den schemalagda säkerhets kopieringen. För säkerhets kopiering på begäran bestäms kvarhållning av värdet för **kvarhållning till** som anges vid tidpunkten för säkerhets kopieringen.
 
 ## <a name="next-steps"></a>Nästa steg
 

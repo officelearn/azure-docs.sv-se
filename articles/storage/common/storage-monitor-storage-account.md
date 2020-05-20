@@ -8,12 +8,13 @@ ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: monitoring
+ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268293"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684673"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Övervaka ett lagringskonto i Azure-portalen
 
@@ -111,10 +112,10 @@ Du kan skapa aviseringar som meddelar dig när tröskelvärden har nåtts för l
 Du kan lägga till Azure Storage Mät diagram för alla dina lagrings konton till portalens instrument panel.
 
 1. Välj Klicka på **Redigera instrument panel** när du visar instrument panelen i [Azure Portal](https://portal.azure.com).
-1. I **panel galleriet**väljer du **hitta paneler efter** > **typ**.
-1. Välj **Skriv** > **lagrings konton**.
+1. I **panel galleriet**väljer du **hitta paneler efter**  >  **typ**.
+1. Välj **Skriv**  >  **lagrings konton**.
 1. I **resurser**väljer du det lagrings konto vars mått du vill lägga till på instrument panelen.
-1. Välj **Kategorier** > **övervakning**.
+1. Välj **Kategorier**  >  **övervakning**.
 1. Dra och släpp diagram panelen på instrument panelen för måttet som du vill visa. Upprepa för alla mått som du vill ska visas på instrument panelen. I följande bild markeras diagrammet "blobbar-totalt antal förfrågningar" som ett exempel, men alla diagram är tillgängliga för placering på instrument panelen.
 
    ![Panel galleri i Azure Portal](./media/storage-monitor-storage-account/storage-customize-dashboard.png)

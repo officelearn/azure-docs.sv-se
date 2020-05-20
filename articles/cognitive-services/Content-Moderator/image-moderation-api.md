@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd6228ea50968c98c5ba151b8af9a0c2fa829582
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81404266"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684062"
 ---
 # <a name="learn-image-moderation-concepts"></a>Lär dig om bild moderator koncept
 
-Använd Content Moderator dator redigering och [gransknings verktyget för mänskligt-in-loop](Review-Tool-User-Guide/human-in-the-loop.md) till måttliga bilder för vuxna och vågat innehåll. Skanna bilder för text innehåll och extrahera texten och identifiera ansikten. Du kan matcha bilder mot anpassade listor och vidta ytterligare åtgärder.
+Använd Content Moderator datorns verktyg för redigering av bilder och [gransknings verktyg](Review-Tool-User-Guide/human-in-the-loop.md) till måttliga bilder för vuxna och vågat innehåll. Skanna bilder för text innehåll och extrahera texten och identifiera ansikten. Du kan matcha bilder mot anpassade listor och vidta ytterligare åtgärder.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Utvärdera för vuxna och vågat innehåll
 
@@ -147,4 +147,4 @@ Om du vill ha fler nyanserade-fall använder du [gransknings verktyget](Review-T
 
 ## <a name="next-steps"></a>Nästa steg
 
-Testa API- [konsolen för bild moderator](try-image-api.md) och Använd REST API kod exempel. Se även avsnittet avbildnings moderator i snabb starten för [.NET SDK](dotnet-sdk-quickstart.md) om du är bekant med Visual Studio och C#.
+Testa API- [konsolen för bild moderator](try-image-api.md) och Använd REST API kod exempel. Se även [granskningar, arbets flöden och jobb](./review-api.md) för att lära dig hur du ställer in mänsklig granskning.

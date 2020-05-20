@@ -3,14 +3,14 @@ title: GEO-replikera ett register
 description: Kom igång med att skapa och hantera ett geo-replikerat Azure Container Registry, vilket gör att registret kan betjäna flera regioner med regionala repliker med flera huvud servrar.
 author: stevelas
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: d238de30e458261a11c941c03ac127c732ca8d3d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea5e3dffaafb691a667bad3ef0014389e1604e27
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74456444"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682784"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
@@ -63,9 +63,9 @@ Användning av funktionen för geo-replikering i Azure Container Registry ger f�
 
 Konfiguration av geo-replikering är så enkelt som att klicka på regioner på en karta. Du kan också hantera geo-replikering med hjälp av verktyg som [AZ ACR Replication](/cli/azure/acr/replication) -kommandon i Azure CLI, eller distribuera ett register som är aktiverat för geo-replikering med en [Azure Resource Manager-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
-Geo-replikering är en funktion som endast finns i [Premium-register](container-registry-skus.md). Om ditt register ännu inte är Premium kan du ändra från Basic och Standard till Premium i [Azure-portalen](https://portal.azure.com):
+Geo-replikering är en funktion i [Premium register](container-registry-skus.md). Om ditt register ännu inte är Premium kan du ändra från Basic och Standard till Premium i [Azure-portalen](https://portal.azure.com):
 
-![Växla SKU:er i Azure-portalen](media/container-registry-skus/update-registry-sku.png)
+![Växla tjänst nivåer i Azure Portal](media/container-registry-skus/update-registry-sku.png)
 
 För att konfigurera geo-replikering för Premium-registret loggar du in på Azure-portalen på https://portal.azure.com.
 
@@ -92,9 +92,11 @@ ACR börjar synkronisera avbildningar mellan de konfigurerade replikerna. När d
 ## <a name="considerations-for-using-a-geo-replicated-registry"></a>Att tänka på när du använder ett geo-replikerat register
 
 * Varje region i ett geo-replikerat register är oberoende när den har kon figurer ATS. Azure Container Registry service avtal gäller för varje geo-replikerad region.
-* När du push-överför eller hämtar bilder från ett geo-replikerat register skickar Azure Traffic Manager i bakgrunden begäran till registret i den region som är närmast dig.
+* När du push-överför eller hämtar bilder från ett geo-replikerat register skickar Azure Traffic Manager i bakgrunden begäran till registret i den region som är närmast dig vad gäller nätverks fördröjning.
 * När du har push-överfört en avbildning eller tagga till den närmaste regionen tar det lite tid för Azure Container Registry att replikera manifest och lager till de återstående regioner som du har valt. Större bilder tar längre tid att replikera än de mindre. Bilder och taggar synkroniseras i de replikerade regionerna med en eventuell konsekvens modell.
-* Om du vill hantera arbets flöden som är beroende av push-uppdateringar till en geo-replikerad, rekommenderar vi att du konfigurerar [Webhooks](container-registry-webhook.md) så att de svarar på push-händelserna. Du kan ställa in regionala webhookar i ett geo-replikerat register för att spåra push-händelser när de är klara i de geo-replikerade regionerna.
+* För att hantera arbets flöden som är beroende av push-uppdateringar till ett geo-replikerat register, rekommenderar vi att du konfigurerar [Webhooks](container-registry-webhook.md) så att de svarar på push-händelserna. Du kan ställa in regionala webhookar i ett geo-replikerat register för att spåra push-händelser när de är klara i de geo-replikerade regionerna.
+* För att hantera blobbar som representerar innehålls lager använder Azure Container reregister data slut punkter. Du kan aktivera [dedikerade data slut punkter](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints-preview) för ditt register i var och en av dina registers geo-replikerade regioner. Med dessa slut punkter kan du konfigurera regler för att begränsa brand Väggs åtkomst.
+* Om du konfigurerar en [privat länk](container-registry-private-link.md) för registret med privata slut punkter i ett virtuellt nätverk, aktive ras dedikerade data slut punkter i varje geo-replikerad region som standard. 
 
 ## <a name="delete-a-replica"></a>Ta bort en replik
 
@@ -105,12 +107,15 @@ Så här tar du bort en replik i Azure Portal:
 1. Navigera till Azure Container Registry och välj **replikeringar**.
 1. Välj namnet på en replik och välj **ta bort**. Bekräfta att du vill ta bort repliken.
 
-> [!NOTE]
-> Du kan inte ta bort register repliken i *hem regionen* för registret, det vill säga den plats där du skapade registret. Du kan bara ta bort hem repliken genom att ta bort själva registret.
+Så här använder du Azure CLI för att ta bort en replik av *registret* i regionen USA, östra:
+
+```azurecli
+az acr replication delete --name eastus --registry myregistry
+```
 
 ## <a name="geo-replication-pricing"></a>Prissättning för Geo-replikering
 
-Geo-replikering är en funktion i [Premium SKU](container-registry-skus.md) för Azure Container Registry. När du replikerar ett register till din önskade regioner debiteras du avgifter för Premium-register för varje region.
+Geo-replikering är en funktion i [Premium service-nivån](container-registry-skus.md) för Azure Container Registry. När du replikerar ett register till din önskade regioner debiteras du avgifter för Premium-register för varje region.
 
 I föregående exempel konsoliderade Contoso två register till ett och lade till repliker i USA, östra; Kanada, centrala samt Europa, västra. Contoso betalade då fyra gånger Premium per månad, utan ytterligare konfiguration eller hantering. Varje region hämtar nu sina avbildningar lokalt, vilket förbättrar prestanda och tillförlitlighet utan utgående nätverksavgifter från USA, västra till Kanada och USA, östra.
 
@@ -118,7 +123,7 @@ I föregående exempel konsoliderade Contoso två register till ett och lade til
  
 En Docker-klient som skickar en avbildning till ett geo-replikerat register får inte skicka alla avbildnings lager och dess manifest till en enda replikerad region. Detta kan inträffa eftersom Azure Traffic Manager dirigerar register begär anden till det nätverks närmast replikerade registret. Om registret har två *närliggande* replikerade regioner kan bild lager och manifestet distribueras till de två platserna och push-åtgärden Miss lyckas när manifestet verifieras. Det här problemet beror på hur DNS-namnet på registret matchas på vissa Linux-värdar. Det här problemet uppstår inte i Windows, som tillhandahåller en DNS-cache på klient sidan.
  
-Om det här problemet uppstår är en lösning att tillämpa en DNS-cache `dnsmasq` på klient sidan, till exempel på Linux-värden. Detta säkerställer att register namnet matchas konsekvent. Om du använder en virtuell Linux-dator i Azure för att skicka till ett register, se alternativ i alternativ [för DNS-namnmatchning för virtuella Linux-datorer i Azure](../virtual-machines/linux/azure-dns.md).
+Om det här problemet uppstår är en lösning att tillämpa en DNS-cache på klient sidan, till exempel `dnsmasq` på Linux-värden. Detta säkerställer att register namnet matchas konsekvent. Om du använder en virtuell Linux-dator i Azure för att skicka till ett register, se alternativ i alternativ [för DNS-namnmatchning för virtuella Linux-datorer i Azure](../virtual-machines/linux/azure-dns.md).
 
 Om du vill optimera DNS-matchningen till den närmaste repliken när du skickar avbildningar konfigurerar du ett geo-replikerat register i samma Azure-regioner som källan till push-åtgärderna eller den närmaste regionen när du arbetar utanför Azure.
 

@@ -3,12 +3,12 @@ title: Ord lista – LUIS
 description: Ord listan förklarar termer som du kan stöta på när du arbetar med LUIS-API-tjänsten.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589677"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681610"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Ord lista för språk förståelse för vanliga ord listor och koncept
 Ord listan Language Understanding (LUIS) förklarar termer som du kan stöta på när du arbetar med LUIS-tjänsten.
@@ -139,9 +139,9 @@ Enhets schemat är den struktur som du definierar för enheter som har lärts in
 
 ### <a name="entitys-subentity"></a>Entitetens underentitet
 
-En underordnad entitet är en underordnad enhet till en enhet som har lärts ur enheten.
+En underordnad entitet är en underordnad entitet till en enhet för maskin inlärning.
 
-### <a name="non-machine-learned-entity"></a>Enheten har inte belärts
+### <a name="non-machine-learning-entity"></a>Enhet som inte är en maskin inlärning
 
 En entitet som använder text matchning för att extrahera data:
 * Lista entitet
@@ -164,7 +164,7 @@ Se fördefinierad modell post för [fördefinierad entitet](#prebuilt-entity)
 
 I Machine Learning är en funktion en egenskap som hjälper modellen att identifiera ett visst koncept. Det är ett tips som LUIS kan använda, men inte en hård regel.
 
-Den här termen kallas även en funktion som kan identifieras av en **[dator](luis-concept-feature.md)**.
+Termen kallas även för **[maskin inlärnings funktion](luis-concept-feature.md)**.
 
 Dessa tips används tillsammans med etiketterna för att lära dig hur du förutsäger nya data. LUIS stöder både fras listor och använder andra modeller som funktioner.
 
@@ -199,6 +199,10 @@ En (maskin inlärt) modell är en funktion som gör en förutsägelse av indata.
 ## <a name="normalized-value"></a>Normaliserat värde
 
 Du lägger till värden i dina [list](#list-entity) enheter. Vart och ett av dessa värden kan ha en lista över en eller flera synonymer. Endast det normaliserade värdet returneras i svaret.
+
+## <a name="overfitting"></a>Överanpassning
+
+Överanpassning sker när modellen är fixated för de här exemplen och kan inte generalisera sig bra.
 
 ## <a name="owner"></a>Ägare
 
@@ -260,7 +264,7 @@ LUIS-kvoten är begränsningen för Azure-prenumerations nivån. LUIS-kvoten kan
 
 ## <a name="schema"></a>Schema
 
-Ditt schema innehåller dina avsikter och entiteter tillsammans med underentiteterna. Schemat planeras ursprungligen för att sedan itereras över tid. Schemat omfattar inte appinställningar, funktioner eller exempel yttranden. 
+Ditt schema innehåller dina avsikter och entiteter tillsammans med underentiteterna. Schemat planeras ursprungligen för att sedan itereras över tid. Schemat omfattar inte appinställningar, funktioner eller exempel yttranden.
 
 ## <a name="sentiment-analysis"></a>Attitydanalys
 Sentiment-analys ger positiva eller negativa värden för yttranden som tillhandahålls av [textanalys](../text-analytics/overview.md).

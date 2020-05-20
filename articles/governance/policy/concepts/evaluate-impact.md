@@ -1,14 +1,14 @@
 ---
 title: Utvärdera effekten av en ny Azure Policy-definition
 description: Förstå den process som ska följas när du introducerar en ny princip definition i din Azure-miljö.
-ms.date: 09/23/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 394f87c0328bce46d4c7177a336a7861991ad0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9844e8435452b388c934c5969898fe01d23fb47
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187757"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684296"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Utvärdera effekten av en ny Azure Policy-definition
 
@@ -33,8 +33,7 @@ Därför bör princip definitionerna vara så tätt definierade och fokuserade p
 
 ## <a name="audit-existing-resources"></a>Granska befintliga resurser
 
-Innan du tittar på att hantera nya eller uppdaterade resurser med den nya princip definitionen är det bäst att se hur det utvärderar en begränsad del av befintliga resurser, till exempel en resurs grupp för test. Använd [tvångs läget](./assignment-structure.md#enforcement-mode)
-_inaktiverat_ (DoNotEnforce) i princip tilldelningen för att förhindra att [påverkan](./effects.md) utlöses eller att aktivitets logg poster skapas.
+Innan du tittar på att hantera nya eller uppdaterade resurser med den nya princip definitionen är det bäst att se hur det utvärderar en begränsad del av befintliga resurser, till exempel en resurs grupp för test. Använd [tvångs läget](./assignment-structure.md#enforcement-mode) _inaktiverat_ (DoNotEnforce) i princip tilldelningen för att förhindra att [påverkan](./effects.md) utlöses eller att aktivitets logg poster skapas.
 
 Det här steget ger dig möjlighet att utvärdera resultatet av kompatibiliteten för den nya principen på befintliga resurser utan att påverka arbets flödet. Kontrol lera att inga kompatibla resurser är markerade som icke-kompatibla (_falskt positiva_) och att alla resurser som du förväntar dig inte är kompatibla markeras korrekt.
 När den första del mängden av resurserna verifieras som förväntat expanderar du utvärderingen till alla befintliga resurser.

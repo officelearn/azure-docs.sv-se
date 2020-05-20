@@ -8,12 +8,13 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 0bbffacc0a8c47950b8637e826d1d5db9fbdb234
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: monitoring
+ms.openlocfilehash: 71f2acfc7c1d227d89f96f753572f4631f4cad65
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605067"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684655"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -359,7 +360,7 @@ Lagrings tjänsten beräknar bara Metric- **AverageE2ELatency** för lyckade beg
 #### <a name="investigating-client-performance-issues"></a>Undersöka problem med klient prestanda
 Möjliga orsaker till att klienten svarar långsamt är att ha ett begränsat antal anslutningar eller trådar, eller ha ont om resurser, till exempel processor, minne eller nätverks bandbredd. Du kanske kan lösa problemet genom att ändra klient koden så att den blir mer effektiv (till exempel genom att använda asynkrona anrop till lagrings tjänsten) eller genom att använda en större virtuell dator (med fler kärnor och mer minne).
 
-För tabell-och Queue Services kan Nagle-algoritmen också orsaka hög **AverageE2ELatency** jämfört med **AverageServerLatency**: Mer information finns i post [Nagle-algoritmen är inte läsvänlig mot små begär Anden](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Du kan inaktivera Nagle-algoritmen i koden med hjälp av **ServicePointManager** -klassen i namn området **system.net** . Du bör göra detta innan du gör några anrop till tabellen eller Queue Services i ditt program eftersom detta inte påverkar anslutningar som redan är öppna. Följande exempel kommer från metoden **Application_Start** i en arbets roll.
+För tabell-och Queue Services kan Nagle-algoritmen också orsaka hög **AverageE2ELatency** jämfört med **AverageServerLatency**: Mer information finns i post [Nagle-algoritmen är inte läsvänlig mot små begär Anden](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). Du kan inaktivera Nagle-algoritmen i koden med hjälp av **ServicePointManager** -klassen i namn området **system.net** . Du bör göra detta innan du gör några anrop till tabellen eller Queue Services i ditt program eftersom detta inte påverkar anslutningar som redan är öppna. Följande exempel kommer från metoden **Application_Start** i en arbets roll.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -516,24 +517,24 @@ Logg poster:
 
 | Begär ID | Åtgärds text |
 | --- | --- |
-| 07b26a5d-... |Startar synkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
+| 07b26a5d-... |Startar synkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringToSign = HEAD............ x-MS-client-Request-ID: 07b26a5d-.... x-MS-date: tis, 03 jun 2014 10:33:11 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: container. |
 | 07b26a5d-... |Väntar på svar. |
-| 07b26a5d-... |Svaret togs emot. Status kod = 200, begäran-ID = eeead849-... Content-MD5 =, ETag = &quot;0x8D14D2DC63D059B&quot;. |
+| 07b26a5d-... |Svaret togs emot. Status kod = 200, begäran-ID = eeead849-... Content-MD5 =, ETag = &quot; 0x8D14D2DC63D059B &quot; . |
 | 07b26a5d-... |Svarshuvuden har bearbetats och fortsätter med resten av åtgärden. |
 | 07b26a5d-... |Laddar ned svars text. |
 | 07b26a5d-... |Åtgärden har slutförts. |
-| 07b26a5d-... |Startar synkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
+| 07b26a5d-... |Startar synkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringToSign = ta bort........... x-MS-client-Request-ID: 07b26a5d-.... x-MS-date: tis, 03 jun 2014 10:33:12 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: container. |
 | 07b26a5d-... |Väntar på svar. |
 | 07b26a5d-... |Svaret togs emot. Status kod = 202, begäran-ID = 6ab2a4cf-..., Content-MD5 =, ETag =. |
 | 07b26a5d-... |Svarshuvuden har bearbetats och fortsätter med resten av åtgärden. |
 | 07b26a5d-... |Laddar ned svars text. |
 | 07b26a5d-... |Åtgärden har slutförts. |
-| e2d06d78-... |Startar asynkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`.</td> |
+| e2d06d78-... |Startar asynkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` .</td> |
 | e2d06d78-... |StringToSign = HEAD............ x-MS-client-Request-ID: e2d06d78-.... x-MS-date: tis, 03 jun 2014 10:33:12 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: container. |
 | e2d06d78-... |Väntar på svar. |
-| de8b1c3c-... |Startar synkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`. |
+| de8b1c3c-... |Startar synkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt` . |
 | de8b1c3c-... |StringToSign = Lägg... 64. qCmF + TQLPhq/YYK50mP9ZQ = =...... x-MS-BLOB-Type: BlockBlob. x-MS-client-Request-ID: de8b1c3c-.... x-MS-date: tis, 03 jun 2014 10:33:12 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer/blobCreated. txt. |
 | de8b1c3c-... |Förbereder att skriva data i begäran. |
 | e2d06d78-... |Ett undantag uppstod i väntan på svar: fjärrservern returnerade ett fel: (404) hittades inte.. |
@@ -541,7 +542,7 @@ Logg poster:
 | e2d06d78-... |Svarshuvuden har bearbetats och fortsätter med resten av åtgärden. |
 | e2d06d78-... |Laddar ned svars text. |
 | e2d06d78-... |Åtgärden har slutförts. |
-| e2d06d78-... |Startar asynkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
+| e2d06d78-... |Startar asynkron begäran till `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | e2d06d78-... |StringToSign = Lägg... 0......... x-MS-client-Request-ID: e2d06d78-.... x-MS-date: tis, 03 jun 2014 10:33:12 GMT. x-MS-version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: container. |
 | e2d06d78-... |Väntar på svar. |
 | de8b1c3c-... |Skriver data för begäran. |
@@ -565,13 +566,13 @@ I följande tabell visas ett exempel på Server sidans logg meddelande från log
 | Name | Värde |
 | --- | --- |
 | Start tid för begäran | 2014-05-30T06:17:48.4473697 Z |
-| Åtgärds typ     | GetBlobProperties            |
+| Åtgärdstyp     | GetBlobProperties            |
 | Status för begäran     | SASAuthorizationError        |
 | HTTP-statuskod   | 404                            |
 | Autentiseringstyp| Säkerhets                          |
 | Typ av tjänst       | Blob                         |
-| URL för begäran         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
-| &nbsp;                 |   ? sa = 2014-02-14&SR = c&si = policy&sig = XXXXX&;API-version = 2014-02-14 |
+| Begärans-URL         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
+| &nbsp;                 |   ? sa = 2014-02-14&SR = c&si = policy&sig = XXXXX &; API-version = 2014-02-14 |
 | Rubrik för begäran-ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -814,7 +815,7 @@ Du hittar mer information om [vad som är Application Insights](../../azure-moni
 Mer information om analyser i Azure Storage finns i följande resurser:
 
 * [Övervaka ett lagringskonto i Azure-portalen](storage-monitor-storage-account.md)
-* [Lagringsanalys](storage-analytics.md)
+* [Lagrings analys](storage-analytics.md)
 * [Mått för lagrings analys](storage-analytics-metrics.md)
 * [Schema för lagrings analysens mått tabell](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Lagringsanalysloggar](storage-analytics-logging.md)

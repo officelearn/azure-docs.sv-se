@@ -1,6 +1,6 @@
 ---
-title: Felsöka konfiguration av Azure Automation tillstånd
-description: Den här artikeln innehåller information om hur du felsöker Azure Automation tillstånds konfiguration.
+title: Felsöka konfigurations problem med Azure Automation tillstånd
+description: Den här artikeln beskriver hur du felsöker och löser konfigurations problem med Azure Automation tillstånd.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c9e7b6d93fb4bbc3e3b05d9346ec84197665a55
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 6e057f5c9525f3b4ca373897c865990eb29835c0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995296"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681375"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Felsöka konfigurations problem med Azure Automation tillstånd
 
-Den här artikeln innehåller information om fel sökning av problem som uppstår när du kompilerar eller distribuerar konfigurationer i Azure Automation tillstånds konfiguration.
+Den här artikeln innehåller information om hur du felsöker och löser problem som uppstår när du kompilerar eller distribuerar konfigurationer i Azure Automation tillstånds konfiguration. Allmän information om tillstånds konfigurations funktionen finns i [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md).
 
 ## <a name="diagnose-an-issue"></a>Diagnostisera ett problem
 
@@ -42,7 +42,7 @@ Om konfigurationen kompileras korrekt, men inte fungerar när den används på e
 
 Du kan installera `xDscDiagnostics` modulen på den lokala datorn genom att följa anvisningarna i [installera modulen stabil version](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-Använd `xDscDiagnostics` [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0)för att installera modulen på din Azure-dator. Du kan också använda alternativet **Kör kommando** i Azure Portal genom att följa stegen i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../../virtual-machines/windows/run-command.md).
+`xDscDiagnostics`Använd [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0)för att installera modulen på din Azure-dator. Du kan också använda alternativet **Kör kommando** i Azure Portal genom att följa stegen i [köra PowerShell-skript i din virtuella Windows-dator med kommandot kör](../../virtual-machines/windows/run-command.md).
 
 Information om hur du använder **xDscDiagnostics**finns i [använda xDscDiagnostics för att analysera DSC-loggar](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). Se även [xDscDiagnostics-cmdletar](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
@@ -66,7 +66,7 @@ Det här felet är ett tillfälligt problem som har planer ATS att lösas.
 
 ### <a name="resolution"></a>Lösning
 
-Använd cmdleten [Remove-AzAutomationDscConfiguration]https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0 (för att ta bort konfigurationen).
+Använd cmdleten [Remove-AzAutomationDscConfiguration] ( https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0 för att ta bort konfigurationen).
 
 ## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>Scenario: det gick inte att registrera DSC-agenten
 
@@ -119,13 +119,13 @@ Använd följande steg för att omregistrera den felande DSC-noden.
 
 #### <a name="step-1-unregister-the-node"></a>Steg 1: avregistrera noden
 
-1. I Azure Portal går du till **Start** > **Automation-konton** > (ditt Automation-konto) > **tillstånds konfiguration (DSC)**.
+1. I Azure Portal går du till **Start**  >  **Automation-konton** > (ditt Automation-konto) > **tillstånds konfiguration (DSC)**.
 1. Välj **noder**och välj noden som har problem.
 1. Välj **avregistrera** för att avregistrera noden.
 
 #### <a name="step-2-uninstall-the-dsc-extension-from-the-node"></a>Steg 2: Avinstallera DSC-tillägget från noden
 
-1. I Azure Portal går du till **Start sidan** > för**virtuella datorer** > (misslyckad nod) > **tillägg**.
+1. I Azure Portal går du till **Start sidan**för  >  **virtuella datorer** > (misslyckad nod) > **tillägg**.
 1. Välj **Microsoft. PowerShell. DSC**, PowerShell DSC-tillägget.
 1. Välj **Avinstallera** för att avinstallera tillägget.
 
@@ -151,7 +151,7 @@ If (($certs.Count) -gt 0)
 
 #### <a name="step-4-reregister-the-failing-node"></a>Steg 4: registrera om den felaktiga noden
 
-1. I Azure Portal går du till **Start** > **Automation-konton** > (ditt Automation-konto) > **tillstånds konfiguration (DSC)**.
+1. I Azure Portal går du till **Start**  >  **Automation-konton** > (ditt Automation-konto) > **tillstånds konfiguration (DSC)**.
 1. Välj **noder**.
 1. Välj **Lägg till**.
 1. Välj noden som misslyckats.
@@ -176,7 +176,7 @@ Det här felet uppstår vanligt vis när noden tilldelas till ett konfigurations
 * Kontrol lera att du har tilldelats noden med konfigurations namnet för noden och inte konfigurations namnet.
 * Du kan tilldela en nods konfiguration till en nod med hjälp av Azure Portal eller med en PowerShell-cmdlet.
 
-  * I Azure Portal går du till **Start** > **Automation-konton** > (ditt Automation-konto) > **tillstånds konfiguration (DSC)**. Välj sedan en nod och välj **tilldela konfiguration av nod**.
+  * I Azure Portal går du till **Start**  >  **Automation-konton** > (ditt Automation-konto) > **tillstånds konfiguration (DSC)**. Välj sedan en nod och välj **tilldela konfiguration av nod**.
   * Använd cmdleten [set-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0) .
 
 ## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>Scenario: inga nodkonfigurationer (MOF-filer) skapades när en konfiguration kompilerades
@@ -191,7 +191,7 @@ Compilation completed successfully, but no node configuration **.mof** files wer
 
 ### <a name="cause"></a>Orsak
 
-När uttrycket efter `Node` nyckelordet i DSC-konfigurationen utvärderas till `$null`skapas inga nodkonfigurationer.
+När uttrycket efter `Node` nyckelordet i DSC-konfigurationen utvärderas till skapas `$null` inga nodkonfigurationer.
 
 ### <a name="resolution"></a>Lösning
 
@@ -230,11 +230,11 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 ### <a name="cause"></a>Orsak
 
-Du har använt en autentiseringsuppgift i en konfiguration men angav inte korrekt `ConfigurationData` för att `PSDscAllowPlainTextPassword` anges till sant för varje konfiguration av noden.
+Du har använt en autentiseringsuppgift i en konfiguration men angav inte korrekt för att `ConfigurationData` anges `PSDscAllowPlainTextPassword` till sant för varje konfiguration av noden.
 
 ### <a name="resolution"></a>Lösning
 
-Kontrol lera `ConfigurationData` att du har angett `PSDscAllowPlainTextPassword` till true för varje nods konfiguration som nämns i konfigurationen. Mer information finns [i kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](../automation-dsc-compile.md).
+Kontrol lera att du `ConfigurationData` har angett `PSDscAllowPlainTextPassword` till true för varje nods konfiguration som nämns i konfigurationen. Mer information finns [i kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration](../automation-dsc-compile.md).
 
 ## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenario: fel vid bearbetning av "fel bearbetnings tillägg" vid aktivering av en dator från ett DSC-tillägg
 
@@ -292,7 +292,7 @@ Det här meddelandet inträffar när det är problem med anslutningen mellan nod
 
 ### <a name="resolution"></a>Lösning
 
-Ta reda på om din nod finns i ett virtuellt privat nätverk (VPN) eller har andra problem med att ansluta till Azure. Mer information finns i [Felsöka fel vid integrering av lösningar](onboarding.md).
+Ta reda på om din nod finns i ett virtuellt privat nätverk (VPN) eller har andra problem med att ansluta till Azure. Se [fel sökning av problem med funktions distribution](onboarding.md).
 
 ## <a name="scenario-failure-with-a-general-error-when-applying-a-configuration-in-linux"></a><a name="failure-linux-temp-noexec"></a>Scenario: fel med ett allmänt fel vid tillämpning av en konfiguration i Linux
 
@@ -306,7 +306,7 @@ This event indicates that failure happens when LCM is processing the configurati
 
 ### <a name="cause"></a>Orsak
 
-Om **katalogen/tmp** -platsen är inställd på `noexec`, kan den aktuella versionen av DSC inte tillämpa konfigurationer.
+Om **katalogen/tmp** -platsen är inställd på `noexec` , kan den aktuella versionen av DSC inte tillämpa konfigurationer.
 
 ### <a name="resolution"></a>Lösning
 
@@ -338,12 +338,12 @@ DSC-konfigurationer som tar lång tid att kompilera kan orsaka det här felet.
 
 ### <a name="resolution"></a>Lösning
 
-Du kan göra så att dina DSC-konfigurationer kan parsas `ModuleName` snabbare genom att uttryckligen inkludera parametern för eventuella [import-dscresource Keyword Supports-](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1) anrop.
+Du kan göra så att dina DSC-konfigurationer kan parsas snabbare genom att uttryckligen inkludera `ModuleName` parametern för eventuella [import-dscresource Keyword Supports-](https://docs.microsoft.com/powershell/scripting/dsc/configurations/import-dscresource?view=powershell-5.1) anrop.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Om du inte ser problemet här eller om du inte kan lösa problemet kan du prova någon av följande kanaler för ytterligare support:
 
 * Få svar från Azure-experter via [Azure-forum](https://azure.microsoft.com/support/forums/).
-* Anslut till [@AzureSupport](https://twitter.com/azuresupport), det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Azure-support ansluter Azure-communityn till svar, support och experter.
+* Anslut till [@AzureSupport](https://twitter.com/azuresupport) , det officiella Microsoft Azure kontot för att förbättra kund upplevelsen. Azure-support ansluter Azure-communityn till svar, support och experter.
 * Filen en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/)och välj **få support**.

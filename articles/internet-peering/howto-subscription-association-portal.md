@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75912153"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683958"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Associera peer-ASN till en Azure-prenumeration med hjälp av portalen
 
@@ -55,22 +55,8 @@ Registrera dig för peering Resource Provider i prenumerationen genom att följa
     > ![Registreringen är klar](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Skapa PeerAsn
-Du kan skapa en ny PeerAsn-resurs för att associera ett autonomt system nummer (ASN) med Azure-prenumerationen. Du kan koppla flera ASN: er till en prenumeration genom att skapa en **PeerAsn** för varje ASN som du behöver associera.
+Som Internet leverantör eller Internet Exchange-Provider kan du skapa en ny PeerAsn-resurs för att associera ett autonomt system nummer (ASN) med en Azure-prenumeration. Du kan koppla flera ASN: er till en prenumeration genom att gå till [sidan associera en PeerASN](https://go.microsoft.com/fwlink/?linkid=2129592) för varje ASN som du behöver associera.
 
-1. Klicka på **skapa en resurs** > **Se alla**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Sök PeerAsn](./media/peerasn-seeall.png)
-
-1. Sök efter *PeerAsn* i sökrutan och tryck på *RETUR* på tangent bordet. Klicka på **PeerAsn** -resurs i resultatet.
-
-    > [!div class="mx-imgBorder"]
-    > ![Starta PeerAsn](./media/peerasn-launch.png)
-
-1. När **PeerAsn** har startats klickar du på **skapa**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Skapa PeerAsn](./media/peerasn-create.png)
 
 1. På fliken **associera en peer-ASN** , under fliken **grundläggande** , fyller du i fälten som visas nedan.
 

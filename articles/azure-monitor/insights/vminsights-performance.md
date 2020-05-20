@@ -5,17 +5,23 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: a50ba39777e6a9d3d609e584c0c7d872f2a65f35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/31/2020
+ms.openlocfilehash: 1ea6d09609d1b7b3f7ba7297a040447d1fc24756
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283726"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684394"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Så här diagramerar du prestanda med Azure Monitor for VMs
 
 Azure Monitor for VMs innehåller en uppsättning prestanda diagram som riktar sig mot flera nyckeltal (KPI: er) för att hjälpa dig att avgöra hur väl en virtuell dator fungerar. Diagrammen visar resursutnyttjande under en viss tids period, så att du kan identifiera Flask halsar, avvikelser eller växla till ett perspektiv som visar varje dator för att Visa resursutnyttjande baserat på det mått som valts. Även om det finns många element som ska övervägas vid hantering av prestanda, Azure Monitor for VMs övervaka viktiga prestanda indikatorer för operativ systemet som rör processor, minne, nätverkskort och disk användning. Prestanda kompletterar hälso övervaknings funktionen och hjälper till att exponera problem som indikerar ett möjligt fel i system komponenten, stöder justering och optimering för att uppnå effektivitet eller stöd för kapacitets planering.  
+
+## <a name="limitations"></a>Begränsningar
+Följande är begränsningar i prestanda insamling med Azure Monitor for VMs.
+
+- **Tillgängligt minne** är inte tillgängligt för virtuella datorer som kör Red Hat Linux (RHEL) 6. Det här måttet beräknas från **MemAvailable** som introducerades i [kernel version 3,14](http://www.man7.org/linux/man-pages/man1/free.1.html).
+- Mått är bara tillgängliga för data diskar på virtuella Linux-datorer med hjälp av EXT fil familjen (EXT2, EXT3, EXT4).
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Perspektiv för flera virtuella datorer från Azure Monitor
 

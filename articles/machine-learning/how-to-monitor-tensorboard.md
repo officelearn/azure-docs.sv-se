@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 02/27/2020
-ms.openlocfilehash: b6b7e47acdbc5bd059e17e512731bd09c8580798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3df37126281a6654a6113f31895ddee276784c1c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78195387"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681460"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualisera experiment körningar och mät värden med TensorBoard och Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -87,7 +87,7 @@ tf_code = requests.get("https://raw.githubusercontent.com/tensorflow/tensorflow/
 with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
     file.write(tf_code.text)
 ```
-I MNIST-kod filen mnist_with_summaries. py, Observera att det finns rader som anropar `tf.summary.scalar()`, `tf.summary.histogram()` `tf.summary.FileWriter()` osv. Dessa metoder grupperar, loggar och tagar nyckel mått för dina experiment i körnings historiken. `tf.summary.FileWriter()` Är särskilt viktigt när den serialiserar data från de inloggade experiment måtten, vilket gör att TensorBoard kan generera visualiseringar av dem.
+I MNIST-kod filen mnist_with_summaries. py, Observera att det finns rader som anropar `tf.summary.scalar()` , `tf.summary.histogram()` `tf.summary.FileWriter()` osv. Dessa metoder grupperar, loggar och tagar nyckel mått för dina experiment i körnings historiken. `tf.summary.FileWriter()`Är särskilt viktigt när den serialiserar data från de inloggade experiment måtten, vilket gör att TensorBoard kan generera visualiseringar av dem.
 
  ### <a name="configure-experiment"></a>Konfigurera experiment
 
@@ -166,7 +166,7 @@ run = exp.submit(tf_estimator)
 
 ### <a name="launch-tensorboard"></a>Starta TensorBoard
 
-Du kan starta TensorBoard under din körning eller när den är klar. I följande skapar vi en TensorBoard objekt instans, `tb`som använder experiment körnings historiken som lästs in i `run`och sedan startar TensorBoard med- `start()` metoden. 
+Du kan starta TensorBoard under din körning eller när den är klar. I följande skapar vi en TensorBoard objekt instans, `tb` som använder experiment körnings historiken som lästs in i `run` och sedan startar TensorBoard med- `start()` metoden. 
   
 [TensorBoard-konstruktorn](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) tar en matris med körningar, så var noga med att skicka den som en matris med ett enda element.
 
@@ -194,11 +194,11 @@ Följande kod konfigurerar ett exempel experiment, påbörjar loggnings processe
 
 ### <a name="set-up-experiment"></a>Konfigurera experiment
 
-Följande kod ställer in ett nytt experiment och namnger körnings katalogen `root_run`. 
+Följande kod ställer in ett nytt experiment och namnger körnings katalogen `root_run` . 
 
 ```python
 from azureml.core import Workspace, Experiment
-import azuremml.core
+import azureml.core
 
 # set experiment name and run name
 ws = Workspace.from_config()
@@ -225,7 +225,7 @@ data = {
 
 ### <a name="run-experiment-and-log-metrics"></a>Köra experiment-och logg mått
 
-För den här koden tränar vi en linjär Regressions modell och logg nyckel mått, alpha- `alpha`koefficienten och genomsnitts fel `mse`i kvadratvärdet, i körnings historiken.
+För den här koden tränar vi en linjär Regressions modell och logg nyckel mått, alpha-koefficienten `alpha` och genomsnitts fel i kvadratvärdet, `mse` i körnings historiken.
 
 ```Python
 from tqdm import tqdm
@@ -233,7 +233,7 @@ alphas = [.1, .2, .3, .4, .5, .6 , .7]
 # try a bunch of alpha values in a Linear Regression (aka Ridge regression) mode
 for alpha in tqdm(alphas):
   # create child runs and fit lines for the resulting models
-  with root_run.child_run("alpha" + str(alpha)) as run
+  with root_run.child_run("alpha" + str(alpha)) as run:
  
    reg = Ridge(alpha=alpha)
    reg.fit(data["train"]["x"], data["train"]["y"])    
@@ -251,7 +251,7 @@ for alpha in tqdm(alphas):
 
 Med SDK: s metod för [export_to_tensorboard ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) kan vi exportera körnings historiken för vårt Azure Machine Learning-experiment till tensorboard-loggar, så att vi kan visa dem via tensorboard.  
 
-I följande kod skapar vi mappen `logdir` i vår aktuella arbets katalog. I den här mappen kommer vi att exportera våra experiment körnings historik och `root_run` loggar från och sedan markera att kör som slutförd. 
+I följande kod skapar vi mappen `logdir` i vår aktuella arbets katalog. I den här mappen kommer vi att exportera våra experiment körnings historik och loggar från `root_run` och sedan markera att kör som slutförd. 
 
 ```Python
 from azureml.tensorboard.export import export_to_tensorboard

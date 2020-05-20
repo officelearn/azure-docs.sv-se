@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686460"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683296"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Pivot-transformering i data flöde för mappning
 
@@ -27,7 +27,7 @@ Pivot-transformeringen kräver tre olika indata: Gruppera efter kolumner, pivot-
 
 ### <a name="group-by"></a>Gruppera efter
 
-![Gruppera efter alternativ](media/data-flow/pivot2.png "[Gruppera efter alternativ")
+![Gruppera efter alternativ](media/data-flow/pivot2.png "Gruppera efter alternativ")
 
 Välj vilka kolumner som ska aggregera de pivoterade kolumnerna. Utdata kommer att gruppera alla rader med samma grupp efter värden till en rad. Agg regeringen som görs i den pivoterade kolumnen görs över varje grupp.
 
@@ -63,7 +63,7 @@ I hjälp bilden nedan visas hur olika Pivot-komponenter interagerar med varandra
 
 Om inga värden anges i konfiguration av Pivot-nyckel kommer de pivoterade kolumnerna att genereras dynamiskt vid körning. Antalet pivoterade kolumner motsvarar antalet unika värden för Pivot-nycklar multiplicerat med antalet pivottabeller. Eftersom detta kan vara ett ändrat nummer, visar UX inte kolumnens metadata på fliken **Granska** och det kommer inte att finnas någon kolumn spridning. Om du vill omvandla dessa kolumner använder du [kolumn mönster](concepts-data-flow-column-pattern.md) funktionerna i mappa data flöde. 
 
-Om de angivna värdena för en piltangent anges visas de pivoterade kolumnerna i metadata. e kolumn namn kommer att vara tillgängliga för dig i inspektions-och mottagar mappningen.
+Om de angivna värdena för en piltangent anges visas de pivoterade kolumnerna i metadata. Kolumn namnen är tillgängliga för dig i inspektions-och mottagar mappningen.
 
 ### <a name="generate-metadata-from-drifted-columns"></a>Generera metadata från inaktiverade kolumner
 
@@ -73,7 +73,7 @@ Pivot genererar nya kolumn namn dynamiskt baserat på rad värden. Du kan lägga
 
 ### <a name="sinking-pivoted-columns"></a>Handfat med pivoterade kolumner
 
-Även om pivoterade kolumner är dynamiska kan de fortfarande skrivas till mål data lagret. Aktivera **Tillåt schema avvikelse** i mottagar inställningarna. På så sätt kan du skriva kolumner som inte ingår i metadata. metadata för kolumnen, men med alternativet schema avvikelse kan du ange data på ett land.
+Även om pivoterade kolumner är dynamiska kan de fortfarande skrivas till mål data lagret. Aktivera **Tillåt schema avvikelse** i mottagar inställningarna. På så sätt kan du skriva kolumner som inte ingår i metadata. Du kommer inte att se de nya dynamiska namnen i metadata för kolumnen, men du kan använda alternativet schema drifts alternativ för att landa data.
 
 ### <a name="rejoin-original-fields"></a>Koppla från ursprungliga fält
 

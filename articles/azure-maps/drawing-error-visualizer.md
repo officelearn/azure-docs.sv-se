@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e1b5b16d5522285f2d028303f3295cc1fb740330
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598817"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681951"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Använda Azure Maps ritnings fel visualiserare
 
-Ritnings fel Visualiseraren är ett fristående webb program som visar [varningar från ritnings paket och fel som](drawing-conversion-error-codes.md) upptäckts under konverterings processen. Webb programmet för fel visualiserare består av en statisk sida som du kan använda utan att ansluta till Internet.  Du kan använda fel Visualiseraren för att åtgärda fel och varningar i enlighet med [kraven för ritnings paket](drawing-requirements.md). [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/data/conversion) returnerar bara ett svar med en länk till fel visualiseraren endast när ett fel upptäcks.
+Ritnings fel Visualiseraren är ett fristående webb program som visar [varningar från ritnings paket och fel som](drawing-conversion-error-codes.md) upptäckts under konverterings processen. Webb programmet för fel visualiserare består av en statisk sida som du kan använda utan att ansluta till Internet.  Du kan använda fel Visualiseraren för att åtgärda fel och varningar i enlighet med [kraven för ritnings paket](drawing-requirements.md). [Azure Maps Conversion API](https://docs.microsoft.com/rest/api/maps/conversion) returnerar bara ett svar med en länk till fel visualiseraren endast när ett fel upptäcks.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan ladda ned ritnings fel Visualiseraren måste du:
 
@@ -90,7 +90,7 @@ När _ConversionWarningsAndErrors. JSON_ -filen har lästs in visas en lista öv
 
 ## <a name="next-steps"></a>Nästa steg
 
-När ditt [Draw-paket uppfyller kraven](drawing-requirements.md)kan du använda [tjänsten Azure Maps data uppsättning](https://docs.microsoft.com/rest/api/maps/data/conversion) för att konvertera ritnings paketet till en data uppsättning. Sedan kan du använda webb modulen inomhus Maps för att utveckla ditt program. Läs mer i följande artiklar:
+När ditt [Draw-paket uppfyller kraven](drawing-requirements.md)kan du använda [tjänsten Azure Maps data uppsättning](https://docs.microsoft.com/rest/api/maps/conversion) för att konvertera ritnings paketet till en data uppsättning. Sedan kan du använda webb modulen inomhus Maps för att utveckla ditt program. Läs mer i följande artiklar:
 
 > [!div class="nextstepaction"]
 > [Fel koder för ritnings konvertering](drawing-conversion-error-codes.md)

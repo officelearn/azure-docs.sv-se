@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 0d73d0b395547c281a2dbbe6a6ac5e8dc6dfd849
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598901"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681997"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Fel och varningar för ritnings konvertering
 
-Med [tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/data/conversion) kan du konvertera uppladdade ritnings paket till kart data. Ritnings paketen måste följa [kraven för ritnings paketet](drawing-requirements.md). Om ett eller flera krav inte uppfylls kommer konverterings tjänsten att returnera fel eller varningar. Den här artikeln innehåller konverterings fel och varnings koder, med rekommendationer om hur du löser dem. Den innehåller också några exempel på ritningar som kan orsaka att konverterings tjänsten returnerar dessa koder.
+Med [tjänsten Azure Maps Conversion](https://docs.microsoft.com/rest/api/maps/conversion) kan du konvertera uppladdade ritnings paket till kart data. Ritnings paketen måste följa [kraven för ritnings paketet](drawing-requirements.md). Om ett eller flera krav inte uppfylls kommer konverterings tjänsten att returnera fel eller varningar. Den här artikeln innehåller konverterings fel och varnings koder, med rekommendationer om hur du löser dem. Den innehåller också några exempel på ritningar som kan orsaka att konverterings tjänsten returnerar dessa koder.
 
 Konverterings tjänsten kommer att lyckas om det finns några konverterings varningar. Vi rekommenderar dock att du granskar och åtgärdar alla varningar. En varning innebär att en del av konverteringen ignorerades eller automatiskt åtgärdades. Om du inte löser varningarna kan det leda till fel i senare processer.
 
@@ -73,7 +73,7 @@ Kontrol lera varje **unexpectedGeometryInLayer** -varning och flytta den inkompa
 
 Bilden nedan visar en entitetstyp som inte stöds som ett text objekt med flera rader på ett etikett lager.
   
-![Exempel på ett text objekt med flera rader på etikett lagret](./media/drawing-conversion-error-codes/multiline.png)
+![Exempel på ett text objekt med flera rader på etikett lagret](./media/drawing-conversion-error-codes/multi-line.png)
 
 #### <a name="how-to-fix-unsupportedfeaturerepresentation"></a>*Så här åtgärdar du unsupportedFeatureRepresentation*
 
@@ -494,7 +494,7 @@ Bilden nedan visar ett vertikalt inträngande område utan överlappande lodrät
 
 Följande bild visar ett lodrätt inträngande område som överlappar mer än ett lodrätt inträngande område på en intilliggande nivå.
 
-![Exempel på en vertikal inträngning 2](./media/drawing-conversion-error-codes/vrt.png)
+![Exempel på en vertikal inträngning 2](./media/drawing-conversion-error-codes/vrt-1.png)
 
 #### <a name="how-to-fix-verticalpenetrationerror"></a>Så här åtgärdar du verticalPenetrationError
 

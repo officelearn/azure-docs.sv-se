@@ -4,19 +4,19 @@ description: Skapa entiteter för att extrahera nyckel data från User yttranden
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585580"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684541"
 ---
 # <a name="pattern-syntax"></a>Mönstersyntax
 
 Pattern-syntax är en mall för en uttryck. Mallen ska innehålla ord och entiteter som du vill matcha samt de ord och [skiljetecken](luis-reference-application-settings.md#punctuation-normalization) som du vill ignorera. Det är **inte** ett reguljärt uttryck.
 
 > [!CAUTION]
-> Mönster innehåller bara de datorer som har lärt sin föräldrar, inte underentiteter.
+> Mönster inkluderar bara föräldrar med Machine Learning-entiteter, inte underentiteter.
 
 Entiteter i mönster omges av klammerparenteser, `{}` . Mönster kan innehålla entiteter och entiteter med roller. [Mönster. alla](luis-concept-entity-types.md#patternany-entity) är en entitet som endast används i mönster.
 
@@ -56,8 +56,8 @@ En kombination av **gruppering** med **valfri** syntax har en gräns på 3 kapsl
 
 |Tillåts|Exempel|
 |--|--|
-|Yes|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
-|No|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
+|Ja|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
+|Inga|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Kapslade gränser för grupper med eller-ing-syntax
 
@@ -65,8 +65,8 @@ En kombination av **gruppering** med **eller-ing-** syntaxen har en gräns på 2
 
 |Tillåts|Exempel|
 |--|--|
-|Yes|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
-|No|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
+|Ja|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
+|Inga|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntax för att lägga till en entitet i en mönster mall
 Om du vill lägga till en entitet i mönster mal len omger du entitetsnamnet med klammerparenteser, till exempel `Who does {Employee} manage?` .

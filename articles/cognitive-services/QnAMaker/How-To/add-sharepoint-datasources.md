@@ -3,12 +3,12 @@ title: SharePoint-filer – QnA Maker
 description: Lägg till säkra SharePoint-datakällor i kunskaps basen för att utöka kunskaps basen med frågor och svar som kan skyddas med Active Directory.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80294884"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660306"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Lägg till en säker SharePoint-datakälla i kunskaps basen
 
@@ -27,12 +27,12 @@ Om QnA Maker Knowledge Base Manager inte är Active Directory Manager måste du 
 
 Du kan lägga till alla [filtyper](../Concepts/content-types.md) som stöds av QNA Maker från en SharePoint-webbplats till din kunskaps bas. Du kan behöva bevilja [behörigheter](#permissions) om fil resursen är skyddad.
 
-1. I biblioteket med SharePoint-webbplatsen väljer du filens ellips-meny, `...`.
+1. I biblioteket med SharePoint-webbplatsen väljer du filens ellips-meny, `...` .
 1. Kopiera filens URL.
 
    ![Hämta SharePoint-filens URL genom att välja filens ellips-meny och sedan kopiera URL: en.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. I QnA Maker Portal, på sidan **Inställningar** , lägger du [till URL: en](manage-knowledge-bases.md#edit-knowledge-base) i kunskaps basen.
+1. I QnA Maker Portal, på sidan **Inställningar** , lägger du till URL: en i kunskaps basen.
 
 ### <a name="images-with-sharepoint-files"></a>Bilder med SharePoint-filer
 
@@ -44,7 +44,7 @@ Lägg till avbildningen med följande markdown-syntax:
 ![Explanation or description of image](URL of public image)
 ```
 
-Texten i hakparenteserna, `[]`förklarar bilden. URL: en i parenteser `()`, är den direkta länken till bilden.
+Texten i hakparenteserna, `[]` förklarar bilden. URL: en i parenteser, `()` är den direkta länken till bilden.
 
 När du testar QnA-paret i den interaktiva test panelen visas bilden i stället för markdown-texten på den QnA Maker portalen. Detta validerar att avbildningen kan hämtas offentligt från klient programmet.
 
@@ -113,7 +113,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Active Directory Manager loggar in på Azure Portal och öppnar **[företags program](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**.
 
-1. Sök efter `QnAMakerPortalSharePoint` Välj QNA Maker-appen.
+1. Sök efter `QnAMakerPortalSharePoint` välj QNA Maker-appen.
 
     [![Sök efter QnAMakerPortalSharePoint i listan över företags appar](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 

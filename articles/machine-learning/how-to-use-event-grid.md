@@ -1,7 +1,7 @@
 ---
 title: Utlös händelser i ML-arbetsflöden
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du utlöser en händelse driven program, processer eller CI/CD-arbetsflöden baserat på Azure Machine Learning händelser för att förenkla din ML-livscykel.
+description: Konfigurera händelse drivna program, processer eller CI/CD Machine Learning-arbetsflöden i Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 03/11/2020
-ms.openlocfilehash: 236cc46bb6f9e5ed95e4a49068ac41ae77a736f5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 79bea443ea576ba0c17c1a8150c305d7cd2320ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982878"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655795"
 ---
-# <a name="trigger-event-driven-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Utlös händelse drivna program, processer eller CI/CD-arbetsflöden som baseras på Azure Machine Learning händelser (för hands version)
+# <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Utlös program, processer eller CI/CD-arbetsflöden baserat på Azure Machine Learning händelser (förhands granskning)
 
 I den här artikeln får du lära dig hur du konfigurerar händelse drivna program, processer eller CI/CD-arbetsflöden som baseras på Azure Machine Learning händelser, till exempel e-postmeddelanden för fel meddelanden eller ML pipelines, när vissa villkor upptäcks av [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
 
@@ -47,7 +47,7 @@ Mer information om händelse källor och händelse hanterare finns i [Vad är ev
 
 Azure Machine Learning innehåller händelser i olika punkter av Machine Learning-livscykel: 
 
-| Händelsetyp | Beskrivning |
+| Händelsetyp | Description |
 | ---------- | ----------- |
 | `Microsoft.MachineLearningServices.RunCompleted` | Utlöses när en körning av Machine Learning-experiment har slutförts |
 | `Microsoft.MachineLearningServices.ModelRegistered` | Utlöses när en maskin inlärnings modell registreras i arbets ytan |

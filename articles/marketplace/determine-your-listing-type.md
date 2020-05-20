@@ -1,18 +1,18 @@
 ---
-title: Fastställ publicerings alternativet på Microsofts butiker för kommersiella marknads platser
-description: I den här artikeln beskrivs villkoren för berättigande och publicerings krav för partner som försöker förstå hur man publicerar appar till Microsoft AppSource och Azure Marketplace.
+title: Fastställ publicerings alternativet – Microsoft Commercial Marketplace
+description: Den här artikeln beskriver berättiganderegler och krav för publicering av erbjudanden till Microsoft AppSource och Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: e91ca0334276dbe9118eb0e40d042f598e8b3c0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92a24a59038eb74a6a2f6a738005ff8aadf35ff0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81415744"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658055"
 ---
 # <a name="determine-your-publishing-option"></a>Fastställa publiceringsalternativ
 

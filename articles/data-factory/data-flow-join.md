@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/02/2020
-ms.openlocfilehash: 9b720470ac406ed0730e6243262dcf33d2df169a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/15/2020
+ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233437"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683365"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Koppla omvandling i data flöde för mappning
 
@@ -50,7 +50,7 @@ Kors koppling matar ut den kors produkten av de två strömmarna baserat på ett
 
 Du kan använda den här anslutnings typen för icke-Equi kopplingar och ```OR``` villkor.
 
-Om du vill skapa en fullständig kartesiska-produkt explicit använder du den härledda kolumn omvandlingen i var och en av de två oberoende strömmarna innan du börjar med att skapa en syntetisk nyckel att matcha på. Du kan till exempel skapa en ny kolumn i en härledd kolumn i ```SyntheticKey``` varje data ström som kallas ```1```och ange den som lika med. Använd ```a.SyntheticKey == b.SyntheticKey``` sedan som ditt anpassade kopplings uttryck.
+Om du vill skapa en fullständig kartesiska-produkt explicit använder du den härledda kolumn omvandlingen i var och en av de två oberoende strömmarna innan du börjar med att skapa en syntetisk nyckel att matcha på. Du kan till exempel skapa en ny kolumn i en härledd kolumn i varje data ström som kallas ```SyntheticKey``` och ange den som lika med ```1``` . Använd sedan ```a.SyntheticKey == b.SyntheticKey``` som ditt anpassade kopplings uttryck.
 
 > [!NOTE]
 > Se till att inkludera minst en kolumn från varje sida av din vänstra och högra relation i en anpassad kors koppling. Om du kör kors kopplingar med statiska värden i stället för kolumner från varje sida leder det till en fullständig genomsökning av hela data uppsättningen, vilket leder till att data flödet fungerar dåligt.
@@ -61,7 +61,13 @@ Om du vill skapa en fullständig kartesiska-produkt explicit använder du den h�
 1. Välj **Anslutnings typ**
 1. Välj vilka nyckel kolumner som du vill matcha på för dig som kopplings villkor. Som standard söker data flödet efter likhet mellan en kolumn i varje data ström. Om du vill jämföra via ett beräknat värde hovrar du över kolumn List rutan och väljer **beräknad kolumn**.
 
-![Koppla omvandling](media/data-flow/join.png "Slå ihop")
+![Koppla omvandling](media/data-flow/join.png "Anslut")
+
+### <a name="non-equi-joins"></a>Icke-Equi kopplingar
+
+Om du vill använda en villkorlig operator som inte är lika med (! =) eller större än (>) i kopplings villkoren ändrar du List rutan operator mellan de två kolumnerna. Icke-Equi anslutningar kräver att minst en av de två strömmarna skickas via **fast** sändning på fliken **optimera** .
+
+![Icke-Equi koppling](media/data-flow/non-equi-join.png "Icke-Equi koppling")
 
 ## <a name="optimizing-join-performance"></a>Optimera anslutningens prestanda
 
@@ -98,7 +104,7 @@ När du testar kopplings Transformationerna med data förhands granskning i fel 
 
 ### <a name="inner-join-example"></a>Exempel på inre koppling
 
-Exemplet nedan är en JOIN-omvandling med `JoinMatchedData` namnet som tar vänster `TripData` ström och rätt `TripFare`ström.  Kopplings villkoret är det `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` uttryck som returnerar true om `hack_license`kolumnerna `vendor_id`,, `pickup_datetime` och visas i varje Stream- `medallion`matchning. `joinType` Är `'inner'`. Vi aktiverar sändning i endast den vänstra strömmen så att `broadcast` det har `'left'`ett värde.
+Exemplet nedan är en JOIN-omvandling med namnet `JoinMatchedData` som tar vänster ström `TripData` och rätt ström `TripFare` .  Kopplings villkoret är det uttryck `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` som returnerar true om `hack_license` `medallion` kolumnerna,, `vendor_id` och visas `pickup_datetime` i varje Stream-matchning. `joinType`Är `'inner'` . Vi aktiverar sändning i endast den vänstra strömmen så att det `broadcast` har ett värde `'left'` .
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 
@@ -120,7 +126,7 @@ TripData, TripFare
 
 ### <a name="custom-cross-join-example"></a>Exempel på anpassat kors koppling
 
-Exemplet nedan är en JOIN-omvandling med `JoiningColumns` namnet som tar vänster `LeftStream` ström och rätt `RightStream`ström. Den här omvandlingen tar i två strömmar och kopplas ihop alla rader där `leftstreamcolumn` kolumnen är större än `rightstreamcolumn`kolumnen. `joinType` Är `cross`. Sändning har inte Aktiver `broadcast` ATS `'none'`har värde.
+Exemplet nedan är en JOIN-omvandling med namnet `JoiningColumns` som tar vänster ström `LeftStream` och rätt ström `RightStream` . Den här omvandlingen tar i två strömmar och kopplas ihop alla rader där kolumnen `leftstreamcolumn` är större än kolumnen `rightstreamcolumn` . `joinType`Är `cross` . Sändning har inte Aktiver ATS `broadcast` har värde `'none'` .
 
 I Data Factory UX ser den här omvandlingen ut som på bilden nedan:
 

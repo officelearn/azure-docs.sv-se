@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 86f4eab266aabccd25e1269e1942e535f6af5436
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591852"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683916"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Mönster förbättrar förutsägelse noggrannhet
 Mönster är utformade för att förbättra precisionen när flera yttranden är mycket lika.  Ett mönster gör att du kan få bättre precision för en avsikt utan att tillhandahålla många fler yttranden.
@@ -36,16 +36,16 @@ Om en app har mellan 10 och 20 yttranden med olika längd på mening, olika ord 
 Mönster löser följande situationer:
 
 * Poängen för avsikt är låg
-* Rätt avsikt är inte det översta resultatet, men för nära det högsta resultatet. 
+* Rätt avsikt är inte det översta resultatet, men för nära det högsta resultatet.
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Mönster är inte en garanti för avsikt
 Mönster använder en blandning av förutsägelse teknik. Att ange ett avsikts sätt för en mall uttryck i ett mönster är inte en garanti för avsikts förutsägelse, men det är en stark signal.
 
 <a name="patterns-do-not-improve-entity-detection"/></a>
 
-## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Mönster ger inte bättre identifiering av enhets identifiering
+## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>Mönster kan inte förbättra identifiering av maskin inlärnings enheter
 
-Ett mönster är främst avsett att hjälpa till att förutsäga avsikter och roller. _Mönstret. en_ entitet används för att extrahera fria formulär enheter. När mönster använder entiteter kan ett mönster inte identifiera en enhet som har lärts ur enheten.
+Ett mönster är främst avsett att hjälpa till att förutsäga avsikter och roller. _Mönstret. en_ entitet används för att extrahera fria formulär enheter. När mönster använder entiteter kan ett mönster inte identifiera en enhet för maskin inlärning.
 
 Vänta inte att se förbättrad enhets förutsägelse om du komprimerar flera yttranden till ett enda mönster. För att enkla entiteter ska kunna startas måste du lägga till yttranden eller använda List entiteter, annars går det inte att starta mönstret.
 
@@ -59,13 +59,13 @@ Med tillräckligt många exempel yttranden skulle LUIS kunna öka förutsägelse
 Ett mönster matchas baserat på identifiering av entiteterna inuti mönstret först och sedan verifieras resten av orden och ord ordningen för mönstret. Entiteter krävs i mönstret för ett mönster som ska matchas. Mönstret används på token-nivå, inte på Character-nivå.
 
 ## <a name="pattern-only-apps"></a>Endast Pattern-appar
-Du kan bygga en app med avsikter som inte har något exempel yttranden, så länge det finns ett mönster för varje avsikt. För en app-only-app bör mönstret inte innehålla enhets enheter, eftersom dessa kräver exempel yttranden.
+Du kan bygga en app med avsikter som inte har något exempel yttranden, så länge det finns ett mönster för varje avsikt. För en app-only-app bör mönstret inte innehålla enheter för maskin inlärning eftersom dessa kräver exempel yttranden.
 
 ## <a name="patternany-entity"></a>Entiteten Pattern.any
 
 [!INCLUDE [Pattern.any entity - concepts](./includes/pattern-any-entity.md)]
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 Lär dig [metod tips](luis-concept-best-practices.md).
 
 ## <a name="pattern-syntax"></a>Mönstersyntax

@@ -6,16 +6,16 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18
-ms.date: 12/09/2019
-ms.openlocfilehash: 9ef54707f7fac3dd1328e29f6d05f62c1dee2561
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: 36c04480c46cea904b072c659c5c2642a28e1f27
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78194911"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647571"
 ---
-# <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Kör Apache Oozie i HDInsight Hadoop-kluster med Enterprise Security Package
+# <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Kör Apache Oozie i Azure HDInsight-kluster med Enterprise Security Package
 
 Apache Oozie är ett arbets flödes-och samordnings system som hanterar Apache Hadoop-jobb. Oozie är integrerat med Hadoop-stacken och stöder följande jobb:
 
@@ -26,7 +26,7 @@ Apache Oozie är ett arbets flödes-och samordnings system som hanterar Apache H
 
 Du kan också använda Oozie för att schemalägga jobb som är speciella för ett system, t. ex. Java-program eller Shell-skript.
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 Ett Azure HDInsight Hadoop kluster med Enterprise Security Package (ESP). Se [Konfigurera HDInsight-kluster med ESP](./apache-domain-joined-configure-using-azure-adds.md).
 
@@ -194,9 +194,9 @@ Oozie för arbets flödes definitioner skrivs i Apache Hadoop process Definition
 
      - Hive Server 2-och Hive Server 1-åtgärder kör en fråga i en Hive-tabell med HDInsight.
 
-     Hive-åtgärderna använder de autentiseringsuppgifter som definierats i avsnittet autentiseringsuppgifter för autentisering med hjälp av `cred` nyckelordet i åtgärds elementet.
+     Hive-åtgärderna använder de autentiseringsuppgifter som definierats i avsnittet autentiseringsuppgifter för autentisering med hjälp av nyckelordet `cred` i åtgärds elementet.
 
-6. Använd följande kommando för att kopiera `workflow.xml` filen till: `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`
+6. Använd följande kommando för att kopiera `workflow.xml` filen till `/user/<domainuser>/examples/apps/map-reduce/workflow.xml` :
 
     ```bash
     hdfs dfs -put workflow.xml /user/<domainuser>/examples/apps/map-reduce/workflow.xml
@@ -230,11 +230,11 @@ Oozie för arbets flödes definitioner skrivs i Apache Hadoop process Definition
    hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
 
-   - Använd `adl://home` URI för `nameNode` egenskapen om du har Azure Data Lake Storage gen1 som primär kluster lagring. Om du använder Azure Blob Storage ändrar du detta till `wasb://home`. Om du använder Azure Data Lake Storage Gen2 ändrar du detta till `abfs://home`.
+   - Använd `adl://home` URI för `nameNode` egenskapen om du har Azure Data Lake Storage gen1 som primär kluster lagring. Om du använder Azure Blob Storage ändrar du till `wasb://home` . Om du använder Azure Data Lake Storage Gen2 ändrar du till `abfs://home` .
    - Ersätt `domainuser` med ditt användar namn för domänen.  
    - Ersätt `ClusterShortName` med det korta namnet för klustret. Om kluster namnet till exempel är https:// *[exempel länk]* sechadoopcontoso.azurehdisnight.net, `clustershortname` är de första sex tecknen i klustret: **sechad**.  
    - Ersätt `jdbcurlvalue` med JDBC-URL: en från Hive-konfigurationen. Ett exempel är JDBC: hive2://headnodehost: 10001/; transportMode = http.
-   - Om du vill spara filen väljer du Ctrl + X, `Y`anger och väljer sedan **RETUR**.
+   - Om du vill spara filen väljer du Ctrl + X, anger `Y` och väljer sedan **RETUR**.
 
    Den här egenskaps filen måste finnas lokalt när du kör Oozie-jobb.
 
@@ -331,7 +331,7 @@ Ranger-gransknings loggarna för Hive Server 2-åtgärder visar Oozie som kör �
 
 ## <a name="configure-user-authorization-in-oozie"></a>Konfigurera användarauktorisering i Oozie
 
-Oozie har en konfiguration för användarautentisering som kan blockera användare från att stoppa eller ta bort andra användares jobb. Om du vill aktivera den här konfigurationen `oozie.service.AuthorizationService.security.enabled` ställer `true`du in på. 
+Oozie har en konfiguration för användarautentisering som kan blockera användare från att stoppa eller ta bort andra användares jobb. Om du vill aktivera den här konfigurationen ställer du in `oozie.service.AuthorizationService.security.enabled` på `true` . 
 
 Mer information finns i avsnittet om [installation och konfiguration av Apache-Oozie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 

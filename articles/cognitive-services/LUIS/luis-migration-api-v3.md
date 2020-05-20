@@ -2,14 +2,14 @@
 title: 'Förutsägelse slut punkt ändringar i v3-API: et'
 description: 'Slut punkten v3-API: er för fråga förutsägelse har ändrats. Använd den här guiden för att lära dig hur du migrerar till API: er för version 3-slutpunkt.'
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d6e5981bcdc81383454c65d3cf7b6c1195b70a4a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81530393"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653861"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Förutsägelse slut punkt ändringar för v3
 
@@ -39,7 +39,7 @@ V3 gjorde följande ändringar som en del av över gången till GA:
     * [OrdinalV1](luis-reference-prebuilt-ordinal.md)
     * [GeographyV2](luis-reference-prebuilt-geographyv2.md)
     * [DatetimeV2](luis-reference-prebuilt-datetimev2.md)
-    * Namn på mätbar enhets nyckel `units` från till`unit`
+    * Namn på mätbar enhets nyckel från `units` till`unit`
 
 * Begär ande text JSON-ändring:
     * från `preferExternalEntities` till`preferExternalEntities`
@@ -73,16 +73,9 @@ API: et förutsägelser är inte längre i minst 9 månader efter för hands ver
 
 ### <a name="changes-by-slot-name-and-version-name"></a>Ändringar efter plats namn och versions namn
 
-Formatet på v3-slut punktens HTTP-anrop har ändrats.
+[Formatet på v3-slut punktens HTTP-](developer-reference-resource.md#rest-endpoints) anrop har ändrats.
 
-Om du vill fråga efter version måste du först [publicera via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) med `"directVersionPublish":true`. Fråga slut punkten som refererar till versions-ID: t i stället för plats namnet.
-
-|FÖRUTSÄGELSE-API-VERSION|METODSIGNATUR|URL|
-|--|--|--|
-|V3|HÄMTA|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/slots/<b>{slot-Name}</b>/predict? fråga =<b>{query}</b>|
-|V3|POST|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/slots/<b>{slot-Name}</b>/predict|
-|V2|HÄMTA|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/versions/<b>{version-ID}</b>/predict? fråga =<b>{query}</b>|
-|V2|POST|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>förutsägelse</b>/<b>v 3.0</b>/Apps/<b>{app-ID}</b>/versions/<b>{version-ID}</b>/predict|
+Om du vill fråga efter version måste du först [publicera via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) med `"directVersionPublish":true` . Fråga slut punkten som refererar till versions-ID: t i stället för plats namnet.
 
 |Giltiga värden för`SLOT-NAME`|
 |--|
@@ -95,12 +88,12 @@ Om du vill fråga efter version måste du först [publicera via API](https://wes
 
 V3-API: et har olika parametrar för frågesträng.
 
-|PARAM-namn|Typ|Version|Standardvärde|Syfte|
+|PARAM-namn|Typ|Version|Standard|Syfte|
 |--|--|--|--|--|
 |`log`|boolean|V2 & V3|falskt|Lagra fråga i logg filen. Standardvärdet är false.|
 |`query`|sträng|Endast v3|Ingen standard – det krävs i GET-begäran|**I v2**är uttryck som ska förutsägas i `q` parametern. <br><br>**I v3**skickas funktionerna i- `query` parametern.|
-|`show-all-intents`|boolean|Endast v3|falskt|Returnera alla avsikter med motsvarande Poäng i objektet **förutsägelse. avsikter** . Avsikter returneras som objekt i ett överordnat `intents` objekt. Detta ger program mässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give`. I v2 returnerades dessa i en matris. |
-|`verbose`|boolean|V2 & V3|falskt|**I v2**returnerades alla förväntade avsikter när värdet är true. Om du behöver alla förutsägande syften använder du v3-parametrarna för `show-all-intents`.<br><br>**I v3**innehåller den här parametern endast information om entitetens metadata för entitet förutsägelse.  |
+|`show-all-intents`|boolean|Endast v3|falskt|Returnera alla avsikter med motsvarande Poäng i objektet **förutsägelse. avsikter** . Avsikter returneras som objekt i ett överordnat `intents` objekt. Detta ger program mässig åtkomst utan att behöva hitta avsikten i en matris: `prediction.intents.give` . I v2 returnerades dessa i en matris. |
+|`verbose`|boolean|V2 & V3|falskt|**I v2**returnerades alla förväntade avsikter när värdet är true. Om du behöver alla förutsägande syften använder du v3-parametrarna för `show-all-intents` .<br><br>**I v3**innehåller den här parametern endast information om entitetens metadata för entitet förutsägelse.  |
 |`timezoneOffset`|sträng|V2|-|Tids zonen som används för datetimeV2-entiteter.|
 |`datetimeReference`|sträng|V3|-|[Tids zonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) som används för datetimeV2-entiteter. Ersätter `timezoneOffset` från v2.|
 
@@ -119,7 +112,7 @@ V3-API: et har olika parametrar för frågesträng.
 }
 ```
 
-|Egenskap|Typ|Version|Standardvärde|Syfte|
+|Egenskap|Typ|Version|Standard|Syfte|
 |--|--|--|--|--|
 |`dynamicLists`|matris|Endast v3|Krävs inte.|Med [dynamiska listor](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) kan du utöka en befintlig utbildad och publicerad List-entitet, redan i Luis-appen.|
 |`externalEntities`|matris|Endast v3|Krävs inte.|[Externa entiteter](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) ger din Luis-app möjlighet att identifiera och märka enheter under körning, som kan användas som funktioner till befintliga entiteter. |
@@ -135,7 +128,7 @@ JSON-svaret har ändrats för att ge bättre programmerings åtkomst till de dat
 
 
 
-De översta JSON-egenskaperna för v2 är, `verbose` när har angetts till true, vilket returnerar alla intentor och deras resultat i `intents` egenskapen:
+De översta JSON-egenskaperna för v2 är, när `verbose` har angetts till true, vilket returnerar alla intentor och deras resultat i `intents` egenskapen:
 
 ```JSON
 {
@@ -160,7 +153,7 @@ De största JSON-egenskaperna för v3 är:
 }
 ```
 
-`intents` Objektet är en osorterad lista. Anta inte att det första barnet i `intents` motsvarar. `topIntent` Använd i stället `topIntent` värdet för att hitta poängen:
+`intents`Objektet är en osorterad lista. Anta inte att det första barnet i `intents` motsvarar `topIntent` . Använd i stället `topIntent` värdet för att hitta poängen:
 
 ```nodejs
 const topIntentName = response.prediction.topIntent;
@@ -169,7 +162,7 @@ const score = intents[topIntentName];
 
 Ändringarna i svars-JSON-schemat tillåter:
 
-* Ta bort distinktionen mellan ursprunglig `query`uttryck, och returnerade `prediction`förutsägelser.
+* Ta bort distinktionen mellan ursprunglig uttryck, `query` och returnerade förutsägelser `prediction` .
 * Enklare programmerings åtkomst till förväntade data. I stället för att räkna upp genom en matris i v2 kan du komma åt värden efter **namn** för både avsikter och entiteter. För förväntade enhets roller returneras roll namnet eftersom det är unikt i hela appen.
 * Data typer, om de fastställs, är uppfyllda. Numeriska värden returneras inte längre som strängar.
 * Skillnaden mellan den första prioriterade förutsägelse informationen och ytterligare metadata som returneras i `$instance` objektet.
@@ -178,9 +171,9 @@ const score = intents[topIntentName];
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>Markera placering av entiteter i yttranden
 
-**I v2**har en entitet marker ATS i en uttryck med `startIndex` och. `endIndex`
+**I v2**har en entitet marker ATS i en uttryck med `startIndex` och `endIndex` .
 
-**I v3**markeras entiteten med `startIndex` och `entityLength`.
+**I v3**markeras entiteten med `startIndex` och `entityLength` .
 
 #### <a name="access-instance-for-entity-metadata"></a>Åtkomst `$instance` för entitets-metadata
 
@@ -188,7 +181,7 @@ Om du behöver entitetens metadata måste frågesträngen använda `verbose=true
 
 #### <a name="each-predicted-entity-is-represented-as-an-array"></a>Varje förväntad entitet representeras som en matris
 
-`prediction.entities.<entity-name>` Objektet innehåller en matris eftersom varje entitet kan förutsägas mer än en gång i uttryck.
+`prediction.entities.<entity-name>`Objektet innehåller en matris eftersom varje entitet kan förutsägas mer än en gång i uttryck.
 
 <a name="prebuilt-entities-with-new-json"></a>
 
@@ -220,9 +213,9 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 #### <a name="entity-role-name-instead-of-entity-name"></a>Enhets roll namn i stället för entitetsnamnet
 
-I v2 returnerade `entities` matrisen alla förväntade entiteter med entitetens namn som unik identifierare. I v3, om entiteten använder roller och förutsägelsen för en Entity-roll, är den primära identifieraren roll namnet. Detta är möjligt eftersom entiteternas roll namn måste vara unika i hela appen, inklusive andra modell namn (avsikt, entitet).
+I v2 `entities` returnerade matrisen alla förväntade entiteter med entitetens namn som unik identifierare. I v3, om entiteten använder roller och förutsägelsen för en Entity-roll, är den primära identifieraren roll namnet. Detta är möjligt eftersom entiteternas roll namn måste vara unika i hela appen, inklusive andra modell namn (avsikt, entitet).
 
-I följande exempel: Överväg en uttryck som innehåller texten, `Yellow Bird Lane`. Den här texten är förväntad som en `Location` anpassad entitets roll `Destination`för.
+I följande exempel: Överväg en uttryck som innehåller texten, `Yellow Bird Lane` . Den här texten är förväntad som en anpassad `Location` entitets roll för `Destination` .
 
 |Uttryck-text|Entitetsnamn|Rollnamn|
 |--|--|--|

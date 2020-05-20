@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2020
-ms.openlocfilehash: 471ccddd31fd6c9f332bdaa8ea76b7bda25ac191
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/15/2020
+ms.openlocfilehash: df3e107b111161284c697aa8f619eed96443a893
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117792"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651840"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -96,6 +96,11 @@ Många resurs leverantörer registreras automatiskt, men du kan behöva registre
 
 ### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Varför får jag inget åtkomst fel meddelande när jag öppnar Log Analytics från en virtuell dator? 
 Om du vill visa VM-loggar måste du beviljas med Läs behörighet till de arbets ytor som lagrar de virtuella dator loggarna. I dessa fall måste administratören bevilja dig behörigheter i Azure.
+
+## <a name="metrics"></a>Mått
+
+### <a name="why-are-metrics-from-the-guest-os-of-my-azure-virtual-machine-not-showing-up-in-metrics-explorer"></a>Varför visas inte mått från gäst operativ systemet för min virtuella Azure-dator i Metrics Explorer?
+[Plattforms mått](insights/monitor-azure-resource.md#monitoring-data) samlas in automatiskt för Azure-resurser. Du måste utföra vissa konfigurationer om du vill samla in mått från gäst operativ systemet på en virtuell dator. För en virtuell Windows-dator installerar du diagnostiskt tillägg och konfigurerar Azure Monitor Sink enligt beskrivningen i [Installera och konfigurera Windows Azure Diagnostics Extension (wad)](platform/diagnostics-extension-windows-install.md). För Linux installerar du teleympkvistar-agenten enligt beskrivningen i [samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar](platform/collect-custom-metrics-linux-telegraf.md).
 
 ## <a name="alerts"></a>Aviseringar
 
@@ -508,6 +513,10 @@ De flesta Application Insights data har en fördröjning på under 5 minuter. Vi
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
 
 Microsoft FAQ (vanliga frågor och svar) är en lista över vanliga frågor om Azure Monitor för behållare. Om du har ytterligare frågor om lösningen går du till [diskussions forumet](https://feedback.azure.com/forums/34192--general-feedback) och publicerar dina frågor. När en fråga ofta är tillfrågad, lägger vi till den i den här artikeln så att den snabbt och enkelt kan hittas.
+
+### <a name="health-feature-is-in-private-preview"></a>Hälso funktionen finns i privat förhands granskning
+
+Vi planerar att göra en serie ändringar för att lägga till funktioner och adressera din feedback. Hälso funktionen kommer att övergå till en privat för hands version i slutet av juni 2020 och ytterligare information finns i följande [Azure updates-meddelande](https://azure.microsoft.com/updates/ci-health-limited-preview/).
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>Vad representerar *andra processer* under vyn Node?
 

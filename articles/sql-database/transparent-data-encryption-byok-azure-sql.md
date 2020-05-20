@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: fe85fed9268e1a4248ef373d577c89e58c01eba5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 7c9cdf6ee671083420ae8d8fad393110353b8e1a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792045"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657031"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
 
@@ -159,7 +159,7 @@ För att återställa en säkerhets kopia krypterad med ett TDE-skydd från Key 
 > [!IMPORTANT]
 > Det kan aldrig finnas fler än en TDE-skydds uppsättning för en server. Det är nyckeln markerat med "gör nyckeln till standard TDE skydd" på bladet Azure Portal. Flera ytterligare nycklar kan dock länkas till en server utan att markera dem som TDE skydd. Dessa nycklar används inte för att skydda DEK, men kan användas vid återställning från en säkerhets kopia, om säkerhets kopierings filen krypteras med nyckeln med motsvarande tumavtryck.
 
-Om den nyckel som behövs för att återställa en säkerhets kopia inte längre är tillgänglig för mål servern, returneras följande fel meddelande på återställnings försöket: "mål servern `<Servername>` har inte åtkomst till alla AKV-URI: er \<som skapats mellan tidsstämpel #1> och \<tidsstämpel #2>. Försök igen när du har återställt alla AKV-URI: er. "
+Om den nyckel som behövs för att återställa en säkerhets kopia inte längre är tillgänglig för mål servern, returneras följande fel meddelande på återställnings försöket: "mål servern `<Servername>` har inte åtkomst till alla AKV-URI: er som skapats mellan \< tidsstämpel #1> och \< tidsstämpel #2>. Försök igen när du har återställt alla AKV-URI: er. "
 
 För att minimera den, kör cmdleten [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) för målet SQL Database logisk server eller [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) för mål hanterad instans för att returnera listan över tillgängliga nycklar och identifiera de som saknas. Se till att mål servern för återställningen har åtkomst till alla nycklar som behövs för att säkerställa att alla säkerhets kopior kan återställas. Dessa nycklar behöver inte markeras som TDE-skydd.
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.author: diberry
-ms.openlocfilehash: fc9f44739cd57eb46179ff17eba1d4f73d968799
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b9466bf52b3650216408a8f0906f3208dfae42d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585631"
+ms.locfileid: "83653903"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Skapa en ny LUIS-app i LUIS-portalen
 Det finns ett par olika sätt att skapa en LUIS-app. Du kan skapa en LUIS-app i LUIS-portalen eller via LUIS redigerings- [API: er](developer-reference-resource.md).
@@ -45,10 +45,10 @@ Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
 
 ## <a name="create-new-app-in-luis"></a>Skapa en ny app i LUIS
 
-1. På sidan **Mina appar** väljer du din prenumeration och redigerar resurs och sedan **skapa**. Om du använder en kostnads fri utvärderings nyckel lär du dig hur du [skapar en redigerings resurs](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
+1. På sidan **Mina appar** väljer du din **prenumeration**och **redigerar resurs** och sedan **skapa**. Om du använder en kostnads fri utvärderings nyckel lär du dig hur du [skapar en redigerings resurs](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal).
 
-    ![Lista över LUIS-appar](./media/create-app-in-portal.png)
-
+> [!div class="mx-imgBorder"]
+> ![Lista över LUIS-appar](./media/create-app-in-portal.png)
 
 1. I dialog rutan anger du namnet på programmet, till exempel `Pizza Tutorial` .
 
@@ -64,7 +64,7 @@ Du kan skapa en ny app med API: erna för redigering på ett par olika sätt:
     > [!div class="mx-imgBorder"]
     > ![Listan över intenta med ingen avsikt skapad utan exempel yttranden.](media/pizza-tutorial-new-app-empty-intent-list.png)
 
-## <a name="other-actions-available"></a>Andra åtgärder är tillgängliga
+## <a name="other-actions-available-on-my-apps-page"></a>Andra åtgärder som är tillgängliga på sidan Mina appar
 
 Verktygsfältet kontext innehåller andra åtgärder:
 

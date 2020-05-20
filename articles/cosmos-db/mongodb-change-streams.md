@@ -1,32 +1,32 @@
 ---
 title: Ändra strömmar i Azure Cosmos DBs API för MongoDB
-description: Lär dig hur du använder ändrings strömmar i Azure Cosmos DBs API för MongoDB för att hämta de ändringar som gjorts i dina data.
-author: timsander1
+description: Lär dig hur du använder ändrings strömmar n Azure Cosmos DBs API för MongoDB för att hämta de ändringar som gjorts i dina data.
+author: srchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.author: tisande
-ms.openlocfilehash: 7a6060448175530ada5ba95ceda470056a7be002
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.date: 11/16/2019
+ms.author: srchi
+ms.openlocfilehash: cc6b74a56d2a538d35e324090832e6c7e03e609f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872155"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647300"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Ändra strömmar i Azure Cosmos DBs API för MongoDB
 
 [Ändra feed](change-feed.md) -stöd i Azure Cosmos DBS API för MongoDB är tillgängligt med hjälp av API: et för ändrings strömmar. Med hjälp av API: et för ändrings strömmar kan dina program få ändringarna som gjorts i samlingen eller till objekten i en enda Shard. Senare kan du vidta ytterligare åtgärder baserat på resultaten. Ändringar av objekt i samlingen samlas i ordningen av deras ändrings tid och sorterings ordningen garanteras per Shard nyckel.
 
-> [!NOTE]
-> Om du vill använda ändrings strömmar skapar du kontot med version 3,6 av Azure Cosmos DB s API för MongoDB eller en senare version. Om du kör exemplen för ändrings data strömmar mot en tidigare version kan du `Unrecognized pipeline stage name: $changeStream` se felet.
+[!NOTE]
+Om du vill använda ändrings strömmar skapar du kontot med version 3,6 av Azure Cosmos DB s API för MongoDB eller en senare version. Om du kör exemplen för ändrings data strömmar mot en tidigare version kan du se `Unrecognized pipeline stage name: $changeStream` felet.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
 Följande begränsningar gäller när du använder ändrings strömmar:
 
-* Egenskaperna `operationType` och `updateDescription` stöds inte ännu i utmatnings dokumentet.
-* `insert`Operations `update`typerna, `replace` och stöds för närvarande. 
+* `operationType`Egenskaperna och `updateDescription` stöds inte ännu i utmatnings dokumentet.
+* `insert` `update` `replace` Operations typerna, och stöds för närvarande. 
 * Borttagnings åtgärden eller andra händelser stöds inte ännu.
 
 På grund av dessa begränsningar krävs $match steg, $project Stage och fullDocument alternativ som du ser i föregående exempel.
@@ -39,11 +39,11 @@ Följande felkoder och meddelanden stöds när du använder ändrings strömmar:
 
 * **Http-felkod 16500** -när ändrings data strömmen är begränsad returneras en tom sida.
 
-* **NamespaceNotFound (OperationType ogiltig)** – om du kör ändrings ström för samlingen som inte finns, eller om samlingen har släppts, returneras ett `NamespaceNotFound` fel. Eftersom `operationType` egenskapen inte kan returneras i utdatafilen returneras `operationType Invalidate` `NamespaceNotFound` felet i stället för felet.
+* **NamespaceNotFound (OperationType ogiltig)** – om du kör ändrings ström för samlingen som inte finns, eller om samlingen har släppts, `NamespaceNotFound` returneras ett fel. Eftersom `operationType` egenskapen inte kan returneras i utdatafilen returneras felet i stället för `operationType Invalidate` felet `NamespaceNotFound` .
 
 ## <a name="examples"></a>Exempel
 
-I följande exempel visas hur du hämtar ändrings strömmar för alla objekt i samlingen. I det här exemplet skapas en markör som tittar på objekt när de infogas, uppdateras eller ersätts. `$match` Stage, `$project` Stage och `fullDocument` option krävs för att hämta ändrings strömmar. Det finns för närvarande inte stöd för att titta efter borttagnings åtgärder med ändrings strömmar. Som en lösning kan du lägga till en mjuk markör för de objekt som tas bort. Du kan till exempel lägga till ett attribut i objektet som kallas "borttaget". När du vill ta bort objektet kan du ange "borttagen" `true` och ange ett TTL-värde för objektet. Eftersom uppdatering av borttaget till `true` är en uppdatering visas den här ändringen i ändrings data strömmen.
+I följande exempel visas hur du hämtar ändrings strömmar för alla objekt i samlingen. I det här exemplet skapas en markör som tittar på objekt när de infogas, uppdateras eller ersätts. `$match`Stage, `$project` Stage och `fullDocument` option krävs för att hämta ändrings strömmar. Det finns för närvarande inte stöd för att titta efter borttagnings åtgärder med ändrings strömmar. Som en lösning kan du lägga till en mjuk markör för de objekt som tas bort. Du kan till exempel lägga till ett attribut i objektet som kallas "borttaget". När du vill ta bort objektet kan du ange "borttagen" `true` och ange ett TTL-värde för objektet. Eftersom uppdatering av borttaget till `true` är en uppdatering visas den här ändringen i ändrings data strömmen.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -61,7 +61,7 @@ while (!cursor.isExhausted()) {
     }
 }
 ```
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 var pipeline = new EmptyPipelineDefinition<ChangeStreamDocument<BsonDocument>>()
@@ -89,8 +89,8 @@ I följande exempel visas hur du kan få ändringar i objekten i en enda Shard. 
 ```javascript
 var cursor = db.coll.watch(
     [
-        {
-            $match: {
+        { 
+            $match: { 
                 $and: [
                     { "fullDocument.a": 1 }, 
                     { "operationType": { $in: ["insert", "update", "replace"] } }
@@ -102,6 +102,23 @@ var cursor = db.coll.watch(
     { fullDocument: "updateLookup" });
 
 ```
+
+## <a name="current-limitations"></a>Aktuella begränsningar
+
+Följande begränsningar gäller när du använder ändrings strömmar:
+
+* `operationType`Egenskaperna och `updateDescription` stöds inte ännu i utmatnings dokumentet.
+* `insert` `update` `replace` Operations typerna, och stöds för närvarande. Borttagnings åtgärden eller andra händelser stöds inte ännu.
+
+På grund av dessa begränsningar krävs $match steg, $project Stage och fullDocument alternativ som du ser i föregående exempel.
+
+## <a name="error-handling"></a>Felhantering
+
+Följande felkoder och meddelanden stöds när du använder ändrings strömmar:
+
+* **Http-felkod 429** -när ändrings data strömmen är begränsad returneras en tom sida.
+
+* **NamespaceNotFound (OperationType ogiltig)** – om du kör ändrings ström för samlingen som inte finns, eller om samlingen har släppts, `NamespaceNotFound` returneras ett fel. Eftersom `operationType` egenskapen inte kan returneras i utdatafilen returneras felet i stället för `operationType Invalidate` felet `NamespaceNotFound` .
 
 ## <a name="next-steps"></a>Nästa steg
 

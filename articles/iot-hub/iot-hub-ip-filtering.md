@@ -5,14 +5,14 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/22/2017
+ms.date: 05/12/2020
 ms.author: robinsh
-ms.openlocfilehash: b1550254e969e96fbc83c4c344189d414a8fa8d3
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 74ee9506d7b21e5f0654c8a46976b4d5c63b5197
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995513"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649370"
 ---
 # <a name="use-ip-filters"></a>Använda IP-filter
 
@@ -28,9 +28,12 @@ Det finns två specifika användnings fall när det är användbart att blockera
 
 ## <a name="how-filter-rules-are-applied"></a>Hur filter regler tillämpas
 
-IP-filter regler tillämpas på IoT Hub service nivå. Därför gäller IP-filter reglerna för alla anslutningar från enheter och backend-appar med valfritt protokoll som stöds.
+IP-filter regler tillämpas på IoT Hub service nivå. Därför gäller IP-filter reglerna för alla anslutningar från enheter och backend-appar med valfritt protokoll som stöds. Klienter som läser direkt från den [inbyggda Event Hub-kompatibla slut punkten](iot-hub-devguide-messages-read-builtin.md) (inte via IoT Hub anslutnings strängen) är dock inte kopplade till IP-filter reglerna. 
 
-Alla anslutnings försök från en IP-adress som matchar en IP-regel som avvisar i din IoT-hubb får en otillåten 401 status kod och beskrivning. Svars meddelandet nämner inte IP-regeln.
+Alla anslutnings försök från en IP-adress som matchar en IP-regel som avvisar i din IoT-hubb får en otillåten 401 status kod och beskrivning. Svars meddelandet nämner inte IP-regeln. Att avvisa IP-adresser kan förhindra andra Azure-tjänster, till exempel Azure Stream Analytics, Azure-Virtual Machines eller Device Explorer i Azure Portal att interagera med IoT Hub.
+
+> [!NOTE]
+> Om du måste använda Azure Stream Analytics (ASA) för att läsa meddelanden från en IoT Hub med aktiverat IP-filter använder du det Event Hub-kompatibla namnet och slut punkten för din IoT Hub för att manuellt lägga till en [Event Hubs Stream-indata](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) i ASA.
 
 ## <a name="default-setting"></a>Standardinställning
 
@@ -62,12 +65,6 @@ Alternativet **Lägg till** är inaktiverat när du når Max gränsen på 10 IP-
 
 Om du vill redigera en befintlig regel väljer du de data som du vill ändra, gör ändringen och väljer **Spara** för att spara din redigering.
 
-> [!NOTE]
-> Att avvisa IP-adresser kan förhindra andra Azure-tjänster (till exempel Azure Stream Analytics, Azure Virtual Machines eller Device Explorer i portalen) från att samverka med IoT Hub.
-
-> [!WARNING]
-> Om du använder Azure Stream Analytics (ASA) för att läsa meddelanden från en IoT-hubb där IP-filtrering är aktiverat, använder du det Event Hub-kompatibla namnet och slut punkten för din IoT Hub för att manuellt lägga till en [Event Hubs Stream-indata](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs#stream-data-from-event-hubs) i ASA.
-
 ## <a name="delete-an-ip-filter-rule"></a>Ta bort en regel för IP-filter
 
 Om du vill ta bort en IP-filterlista väljer du pappers korgs ikonen på raden och väljer sedan **Spara**. Regeln tas bort och ändringen sparas.
@@ -84,7 +81,7 @@ Om du vill hämta aktuella IP-filter för din IoT Hub kör du:
 az resource show -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs
 ```
 
-Detta kommer att returnera ett JSON-objekt där dina befintliga IP-filter visas `properties.ipFilterRules` under nyckeln:
+Detta kommer att returnera ett JSON-objekt där dina befintliga IP-filter visas under `properties.ipFilterRules` nyckeln:
 
 ```json
 {
@@ -120,7 +117,7 @@ Om du vill ta bort ett befintligt IP-filter i IoT Hub kör du:
 az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules <ipFilterIndexToRemove>
 ```
 
-Observera att `<ipFilterIndexToRemove>` måste motsvara ordningen av IP-filter i din IoT Hubs `properties.ipFilterRules`.
+Observera att `<ipFilterIndexToRemove>` måste motsvara ordningen av IP-filter i din IoT Hubs `properties.ipFilterRules` .
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>Hämta och uppdatera IP-filter med Azure PowerShell
 

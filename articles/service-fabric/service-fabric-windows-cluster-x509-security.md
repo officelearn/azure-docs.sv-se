@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: cf7d418d8bca8f690acf29ba701fdc54ced1ca6c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 1277af2e8f9de575fbe51ea0f43bbcfd2812e610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562006"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653637"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Skydda ett fristående kluster i Windows med hjälp av X. 509-certifikat
 Den här artikeln beskriver hur du skyddar kommunikationen mellan de olika noderna i det fristående Windows-klustret. Det beskriver också hur du autentiserar klienter som ansluter till det här klustret med hjälp av X. 509-certifikat. Autentisering garanterar att endast behöriga användare kan komma åt klustret och distribuerade program och utföra hanterings uppgifter. Certifikat säkerhet ska vara aktiverat på klustret när klustret skapas.  
@@ -248,12 +248,24 @@ Om du använder utfärdare av utfärdare måste ingen konfigurations uppgraderin
 ## <a name="acquire-the-x509-certificates"></a>Hämta X. 509-certifikaten
 För att skydda kommunikationen i klustret måste du först skaffa X. 509-certifikat för klusternoderna. För att begränsa anslutning till det här klustret till auktoriserade datorer/användare måste du dessutom hämta och installera certifikat för klient datorerna.
 
-För kluster som kör produktions arbets belastningar använder du ett [certifikat för certifikat utfärdare (ca)](https://en.wikipedia.org/wiki/Certificate_authority)-signerat X. 509-certifikat för att skydda klustret. Mer information om hur du hämtar dessa certifikat finns i [så här hämtar du ett certifikat](https://msdn.microsoft.com/library/aa702761.aspx).
+För kluster som kör produktions arbets belastningar använder du ett [certifikat för certifikat utfärdare (ca)](https://en.wikipedia.org/wiki/Certificate_authority)-signerat X. 509-certifikat för att skydda klustret. Mer information om hur du hämtar dessa certifikat finns i [så här hämtar du ett certifikat](https://msdn.microsoft.com/library/aa702761.aspx). 
+
+Det finns ett antal egenskaper som certifikatet måste ha för att fungera korrekt:
+
+* Certifikatets Provider måste vara **Microsoft Enhanced RSA och AES Cryptographic Provider**
+
+* När du skapar en RSA-nyckel kontrollerar du att nyckeln är **2048 bitar**.
+
+* Tillägget för nyckel användning har värdet **digital signatur, nyckel chiffrering (a0)**
+
+* Det utökade nyckel användnings tillägget har värden för **serverautentisering** (OID: 1.3.6.1.5.5.7.3.1) och **klientautentisering** (OID: 1.3.6.1.5.5.7.3.2)
 
 För kluster som du använder i test syfte kan du välja att använda ett självsignerat certifikat.
 
+Mer information finns i [vanliga frågor och svar om certifikat](https://docs.microsoft.com/azure/service-fabric/cluster-security-certificate-management#troubleshooting-and-frequently-asked-questions).
+
 ## <a name="optional-create-a-self-signed-certificate"></a>Valfritt: skapa ett självsignerat certifikat
-Ett sätt att skapa ett självsignerat certifikat som kan skyddas på rätt sätt är att använda skriptet CertSetup. ps1 i mappen Service Fabric SDK i katalogen C:\Program\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Redigera den här filen om du vill ändra standard namnet för certifikatet. (Leta efter värdet CN = ServiceFabricDevClusterCert.) Kör det här skriptet `.\CertSetup.ps1 -Install`som.
+Ett sätt att skapa ett självsignerat certifikat som kan skyddas på rätt sätt är att använda skriptet CertSetup. ps1 i mappen Service Fabric SDK i katalogen C:\Program\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Redigera den här filen om du vill ändra standard namnet för certifikatet. (Leta efter värdet CN = ServiceFabricDevClusterCert.) Kör det här skriptet som `.\CertSetup.ps1 -Install` .
 
 Exportera certifikatet till en PFX-fil med ett skyddat lösen ord. Hämta först tumavtrycket för certifikatet. 
 1. Från **Start** -menyn, kör **Hantera dator certifikat**. 
@@ -292,7 +304,7 @@ När du har certifikat kan du installera dem på klusternoderna. Dina noder mås
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Ange nu åtkomst kontroll för det här certifikatet så att Service Fabric processen, som körs under nätverks tjänst kontot, kan använda det genom att köra följande skript. Ange tumavtrycket för certifikatet och **nätverks tjänsten** för tjänst kontot. Du kan kontrol lera att åtkomst kontrol listorna på certifikatet är korrekta genom att öppna certifikatet i **Starta** > **Hantera dator certifikat** och titta på **alla aktiviteter** > **hantera privata nycklar**.
+3. Ange nu åtkomst kontroll för det här certifikatet så att Service Fabric processen, som körs under nätverks tjänst kontot, kan använda det genom att köra följande skript. Ange tumavtrycket för certifikatet och **nätverks tjänsten** för tjänst kontot. Du kan kontrol lera att åtkomst kontrol listorna på certifikatet är korrekta genom att öppna certifikatet i **Starta**  >  **Hantera dator certifikat** och titta på **alla aktiviteter**  >  **hantera privata nycklar**.
    
     ```powershell
     param
@@ -338,7 +350,7 @@ När du har konfigurerat säkerhets avsnittet i filen ClusterConfig. X509. Multi
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
-När du har konfigurerat det fristående fristående Windows-klustret och har konfigurerat de autentiserade klienterna för att ansluta till den, följer du stegen i avsnittet [Anslut till ett kluster med hjälp av PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) för att ansluta till den. Exempel:
+När du har konfigurerat det fristående fristående Windows-klustret och har konfigurerat de autentiserade klienterna för att ansluta till den, följer du stegen i avsnittet [Anslut till ett kluster med hjälp av PowerShell](service-fabric-connect-to-secure-cluster.md#connect-to-a-cluster-using-powershell) för att ansluta till den. Till exempel:
 
 ```powershell
 $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $True;  StoreLocation = 'LocalMachine';  StoreName = "MY";  ServerCertThumbprint = "057b9544a6f2733e0c8d3a60013a58948213f551";  FindType = 'FindByThumbprint';  FindValue = "057b9544a6f2733e0c8d3a60013a58948213f551"   }
@@ -355,7 +367,7 @@ Om du vill ta bort klustret ansluter du till noden i klustret där du laddade ne
 ```
 
 > [!NOTE]
-> Felaktig certifikat konfiguration kan förhindra att klustret kommer igång under distributionen. Om du vill själv diagnostisera säkerhets problem kan du titta i Loggboken Group- **program och tjänst loggar** > **Microsoft-Service Fabric**.
+> Felaktig certifikat konfiguration kan förhindra att klustret kommer igång under distributionen. Om du vill själv diagnostisera säkerhets problem kan du titta i Loggboken Group- **program och tjänst loggar**  >  **Microsoft-Service Fabric**.
 > 
 > 
 

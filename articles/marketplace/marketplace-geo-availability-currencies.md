@@ -1,18 +1,18 @@
 ---
-title: Geografisk tillgänglighet och valuta support för den kommersiella Marketplace | Azure Marketplace
-description: Geografisk tillgänglighet på den kommersiella marknaden
+title: Geografisk tillgänglighet och valuta support för Microsofts kommersiella marknads platser
+description: Geografisk tillgänglighet och valuta stöd för transaktioner i den kommersiella marknads platsen
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2020
 ms.author: dsindona
-ms.openlocfilehash: 83906e6270ed41c2ea8f489c5a5312d32a565a29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16d41879321c7cbaa4f38bcba83d83d39f30ee13
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687590"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657866"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Geografisk tillgänglighet och valuta support för kommersiella marknads platser
 
@@ -67,13 +67,13 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Fiji                                | FJ        | AUD          |
 | Finland                             | FI        | EUR          |
 | Frankrike                              | FR        | EUR          |
-| Georgien                             | GE        | USD          |
+| Georgia                             | GE        | USD          |
 | Tyskland                             | DE        | EUR          |
 | Ghana                               | GH        | USD          |
 | Grekland                              | GR        | EUR          |
 | Guatemala                           | GT        | USD          |
 | Honduras                            | HN        | USD          |
-| Hongkong                       | HK        | USD          |
+| Folkrepubliken Kinas särskilda administrativa region Hongkong                       | HK        | USD          |
 | Ungern                             | HU        | EUR          |
 | Island                             | IS        | EUR          |
 | Indien                               | IN        | INR          |
@@ -85,7 +85,7 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Jamaica                             | JM        | USD          |
 | Japan                               | JP        | JPY          |
 | Jordanien                              | JO        | USD          |
-| Kazakhstan                          | KZ        | USD          |
+| Kazakstan                          | KZ        | USD          |
 | Kenya                               | KE        | USD          |
 | Korea (södra)                       | KR        | KRW          |
 | Kuwait                              | KW        | USD          |
@@ -101,13 +101,13 @@ Kommersiella Marketplace-erbjudanden kan köpas i 141-geografiska områden som d
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MK        | USD          |
-| Mexiko                              | MX        | USD          |
+| Mexico                              | MX        | USD          |
 | Moldavien                             | MD        | USD          |
 | Monaco                              | MC        | EUR          |
 | Mongoliet                            | MN        | USD          |
 | Montenegro                          | ME        | USD          |
 | Marocko                             | MA        | USD          |
-| Namibia                             | Ej tillämpligt        | USD          |
+| Namibia                             | NA        | USD          |
 | Nepal                               | NP        | USD          |
 | Nederländerna                         | NL        | EUR          |
 | Nicaragua                           | NI        | USD          |

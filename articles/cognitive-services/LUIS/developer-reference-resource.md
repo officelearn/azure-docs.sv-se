@@ -2,13 +2,13 @@
 title: Utvecklings resurser – Language Understanding
 description: 'SDK: er, REST API: er, CLI, hjälper dig att utveckla Language Understanding-appar (LUIS) i ditt programmeringsspråk. Hantera dina Azure-resurser och LUIS-förutsägelser.'
 ms.topic: reference
-ms.date: 05/05/2020
-ms.openlocfilehash: 820811c53f143c9747cd11f45cafb075398b080b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: c86dad46b09c2f761e73f38187b4824c0a17406f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589014"
+ms.locfileid: "83655561"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>SDK-, REST-och CLI-utvecklarresurser för Language Understanding (LUIS)
 
@@ -53,15 +53,16 @@ Både redigerings-och förutsägelse slut punkts-API: er är tillgängliga från
 
 LUIS har för närvarande två typer av slut punkter:
 
-* redigering av utbildnings slut punkten
-* fråga förutsägelse på körnings slut punkten.
+* **redigering** av utbildnings slut punkten
+* fråga **förutsägelse** på körnings slut punkten.
 
 |Syfte|URL|
 |--|--|
-|Redigering av utbildnings slut punkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
-|V2-körning-alla förutsägelser för runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
-|V3 runtime-versioner förutsägelse på runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
-|V3 körnings plats förutsägelse på runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|V2-redigering av utbildnings slut punkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appID}/`|
+|V3-redigering av utbildnings slut punkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/authoring/v3.0-preview/apps/{appID}/`|
+|V2-förutsägelse – alla förutsägelser på runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q={q}[&timezoneOffset][&verbose][&spellCheck][&staging][&bing-spell-check-subscription-key][&log]`|
+|V3 förutsägelse-versioner förutsägelse på runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/versions/{versionId}/predict?query={query}[&verbose][&log][&show-all-intents]`|
+|V3 förutsägelse av förutsägelser på runtime-slutpunkt|`https://{your-resource-name}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/{appId}/slots/{slotName}/predict?query={query}[&verbose][&log][&show-all-intents]`|
 
 I följande tabell förklaras parametrarna, med klammerparenteser `{}` , i föregående tabell.
 
@@ -87,7 +88,7 @@ I följande tabell förklaras parametrarna, med klammerparenteser `{}` , i före
 |Python|[Redigering och förutsägelse](sdk-authoring.md?pivots=programming-language-python)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[Redigering](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[Redigering](sdk-authoring.md?pivots=programming-language-python)<br>[Förutsägelse med REST](luis-get-started-get-intent-from-rest.md)
 
 
-### <a name="containers"></a>Containers
+### <a name="containers"></a>Containrar
 
 Language Understanding (LUIS) innehåller en [behållare](luis-container-howto.md) för att tillhandahålla lokala och befintliga versioner av din app.
 
@@ -97,7 +98,16 @@ Language Understanding ger möjlighet att hantera din app och dess modeller i et
 
 Import och export av dessa format är tillgängligt från API: erna och från LUIS-portalen. Portalen innehåller import och export som en del av listan över appar och versioner.
 
-## <a name="other-tools-and-sdks"></a>Andra verktyg och SDK: er
+## <a name="workshops"></a>Workshops
+
+* GitHub: (Workshop) [konversational-AI: NLU med Luis](https://github.com/GlobalAICommunity/Workshop-Conversational-AI)
+
+## <a name="continuous-integration-tools"></a>Verktyg för kontinuerlig integrering
+
+* GitHub: (för hands version) [utveckla en Luis-app med hjälp av DevOps-metoder](https://github.com/Azure-Samples/LUIS-DevOps-Template)
+* GitHub: [NLU. DevOps](https://github.com/microsoft/NLU.DevOps) -verktyg som stöder kontinuerlig integrering och distribution av NLU-tjänster.
+
+## <a name="bot-framework-tools"></a>Verktyg för bot Framework
 
 Bot Framework är tillgängligt som [en SDK](https://github.com/Microsoft/botframework) på en rad olika språk och som en tjänst med hjälp av [Azure bot service](https://dev.botframework.com/).
 
@@ -109,7 +119,6 @@ Bot Framework innehåller [flera verktyg](https://github.com/microsoft/botbuilde
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) – generera automatiskt omvänt C#/typescript-klasser för dina Luis-intentor och entiteter.
 * [Bot Framework-emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) – ett Skriv bords program som gör det möjligt för bot-utvecklare att testa och felsöka robotar som skapats med bot Framework SDK
 * [Bot Framework Composer](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) – ett integrerat utvecklingsverktyg för utvecklare och flera disciplin team för att bygga robotar och konversations upplevelser med Microsoft bot Framework
-* [Microsoft/NLU. DevOps](https://github.com/microsoft/NLU.DevOps) -verktyg som stöder kontinuerlig integrering och distribution av NLU-tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 

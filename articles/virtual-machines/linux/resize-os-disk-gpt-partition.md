@@ -1,6 +1,6 @@
 ---
-title: Ändra storlek på en OS-disk med en GPT-partition | Microsoft Docs
-description: Den här artikeln innehåller anvisningar om hur du ändrar storlek på en OS-disk med GPT-partition.
+title: Ändra storlek på en OS-disk som har en GPT-partition | Microsoft Docs
+description: Den här artikeln innehåller anvisningar om hur du ändrar storlek på en OS-disk som har en GPT-partition.
 services: virtual-machines-linux
 documentationcenter: ''
 author: kailashmsft
@@ -14,27 +14,27 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: f863233f0a34271841cc8e973f9aa3ca9416ceeb
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 7c408e8e29b3f9ac423a6104c40242f11f93a171
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858995"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651088"
 ---
-# <a name="resize-an-os-disk-with-a-gpt-partition"></a>Ändra storlek på en OS-disk med en GPT-partition
+# <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Ändra storlek på en OS-disk som har en GPT-partition
 
 > [!NOTE]
-> Det här scenariot gäller endast för OS-diskar med en GPT-partition.
+> Det här scenariot gäller endast för OS-diskar som har GPT-partitioner (GUID Partition Table).
 
-Den här artikeln beskriver hur du ökar storleken på OS-disken med en GPT-partition i Linux.
+Den här artikeln beskriver hur du ökar storleken på en OS-disk som har en GPT-partition i Linux. 
 
 ## <a name="identify-whether-the-os-disk-has-an-mbr-or-gpt-partition"></a>Identifiera om OS-disken har en MBR-eller GPT-partition
 
-Använd kommandot **part** för att identifiera om diskpartitionen har skapats med antingen en Master Boot Record-partition (MBR) eller en GPT-partition (GUID Partition Table).
+Använd kommandot **part** för att identifiera om diskpartitionen har skapats med antingen en Master Boot Record-partition (MBR) eller en GPT-partition.
 
 ### <a name="mbr-partition"></a>MBR-partition
 
-I följande utdata visar **partitionstabellen** värdet **MSDOS**, som identifierar en **MBR** -partition.
+I följande utdata visar **partitionstabellen** värdet **MSDOS**. Det här värdet identifierar en MBR-partition.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -50,7 +50,7 @@ Number  Start   End     Size    Type     File system  Flags
 
 ### <a name="gpt-partition"></a>GPT-partition
 
-I följande utdata visar **partitionstabellen** värdet **GPT**och identifierar en GPT-partition.
+I följande utdata visar **partitionstabellen** ett **GPT**-värde. Det här värdet identifierar en GPT-partition.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -76,16 +76,16 @@ Följande instruktioner gäller för Linux-godkända distributioner.
 > [!NOTE]
 > Innan du fortsätter kan du göra en säkerhets kopia av den virtuella datorn eller ta en ögonblicks bild av din OS-disk.
 
-### <a name="ubuntu-16x-and-18x"></a>Ubuntu 16. x och 18. x
+### <a name="ubuntu"></a>Ubuntu
 
 Öka storleken på operativ system disken i Ubuntu 16. x och 18. x:
 
 1. Stoppa den virtuella datorn.
-1. Öka storleken på OSDisk från portalen.
+1. Öka storleken på operativ system disken från portalen.
 1. Starta om den virtuella datorn och logga sedan in på den virtuella datorn som en **rot** användare.
-1. OSDisk kommer nu att visa en större fil system storlek.
+1. Kontrol lera att operativ system disken nu visar en större fil system storlek.
 
-Som du ser i följande exempel, har OS-disken ändrats storlek från portalen till 100 GB, eftersom **/dev/sda1** -filsystemet som är monterat **/** nu visar 97 GB.
+Som du ser i följande exempel har OS-disken ändrat storlek från portalen till 100 GB. **/Dev/sda1** -filsystemet som är monterat **/** nu visar 97 GB.
 
 ```
 user@myvm:~# df -Th
@@ -102,17 +102,17 @@ tmpfs          tmpfs      65M     0   65M   0% /run/user/1000
 user@myvm:~#
 ```
 
-### <a name="suse-12-sp4suse-sles-12-for-sap-suse-sles-15-and-suse-sles-15-for-sap"></a>SUSE 12 SP4, SUSE SLES 12 för SAP, SUSE SLES 15 och SUSE SLES 15 för SAP
+### <a name="suse"></a>SUSE
 
-För att öka storleken på operativ system disken i SUSE 12 SP4, SUSE SLES 15 och SUSE SLES 15 för SAP:
+För att öka storleken på operativ system disken i SUSE 12 SP4, SUSE SLES 12 för SAP, SUSE SLES 15 och SUSE SLES 15 för SAP:
 
 1. Stoppa den virtuella datorn.
-1. Öka storleken på OSDisk från portalen.
+1. Öka storleken på operativ system disken från portalen.
 1. Starta om den virtuella datorn.
 
 Utför följande steg när den virtuella datorn har startats om:
 
-   1. Få åtkomst till den virtuella datorn som en **rot användare** med följande kommando:
+   1. Få åtkomst till den virtuella datorn som en **rot** användare med hjälp av följande kommando:
    
       `#sudo su`
 
@@ -124,11 +124,11 @@ Utför följande steg när den virtuella datorn har startats om:
 
       `#sgdisk -e /dev/sda`
 
-   1. Ändra storlek på partitionen utan att ta bort den med hjälp av följande kommando. Det **delade** kommandot har ett alternativ med namnet **resizepart** för att ändra storlek på partitionen utan att ta bort den. Talet 4 efter resizepart indikerar storleks ändring av den fjärde (fjärde) partitionen.
+   1. Ändra storlek på partitionen utan att ta bort den med hjälp av följande kommando. Det **delade** kommandot har ett alternativ med namnet **resizepart** för att ändra storlek på partitionen utan att ta bort den. Talet 4 efter **resizepart** indikerar storleks ändring av den fjärde partitionen.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
 
-   1. Kör `#lsblk` kommandot för att kontrol lera om partitionen har ökat.
+   1. Kör kommandot **#lsblk** för att kontrol lera om partitionen har ökat.
 
       Följande utdata visar att **/dev/sda4** -partitionen har storleksändrats till 98,5 GB.
 
@@ -143,7 +143,7 @@ Utför följande steg när den virtuella datorn har startats om:
       └─sdb1   8:17   0   20G  0 part /mnt/resource
       ```
       
-   1. Identifiera typ av fil system på OSDisk med hjälp av följande kommando:
+   1. Identifiera typ av fil system på OS-disken med hjälp av följande kommando:
 
       `blkid`
 
@@ -187,7 +187,7 @@ Utför följande steg när den virtuella datorn har startats om:
 
       ```#resize2fs /dev/sda4```
 
-   1. Kontrol lera den ökade fil system storleken för **DF**med följande kommando:
+   1. Kontrol lera den ökade fil system storleken för **DF**genom att använda följande kommando:
 
       `#df -Th`
 
@@ -208,17 +208,19 @@ Utför följande steg när den virtuella datorn har startats om:
       user@myvm:~ #
       ```
 
-Som du ser i föregående exempel kan vi se att fil system storleken för OSDisk har ökat.
+I föregående exempel kan vi se att fil system storleken för operativ system disken har ökat.
 
-### <a name="rhel-7x-with-lvm"></a>RHEL 7. x med LVM
+### <a name="rhel"></a>RHEL
+
+Öka storleken på operativ system disken i RHEL 7. x med LVM:
 
 1. Stoppa den virtuella datorn.
-1. Öka storleken på OSDisk från portalen.
+1. Öka storleken på operativ system disken från portalen.
 1. Starta den virtuella datorn.
 
 Utför följande steg när den virtuella datorn har startats om:
 
-   1. Få åtkomst till den virtuella datorn som en **rot användare** med följande kommando:
+   1. Få åtkomst till den virtuella datorn som en **rot** användare med hjälp av följande kommando:
    
       `#sudo su`
 
@@ -230,7 +232,7 @@ Utför följande steg när den virtuella datorn har startats om:
 
       `#sgdisk -e /dev/sda`
 
-   1. Ändra storlek på partitionen utan att ta bort den med hjälp av följande kommando. Det **delade** kommandot har ett alternativ med namnet **resizepart** för att ändra storlek på partitionen utan att ta bort den. Talet 4 efter resizepart indikerar storleks ändring av den fjärde (fjärde) partitionen.
+   1. Ändra storlek på partitionen utan att ta bort den med hjälp av följande kommando. Det **delade** kommandot har ett alternativ med namnet **resizepart** för att ändra storlek på partitionen utan att ta bort den. Talet 4 efter **resizepart** indikerar storleks ändring av den fjärde partitionen.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
     
@@ -259,7 +261,7 @@ Utför följande steg när den virtuella datorn har startats om:
       └─sdb1              8:17   0   50G  0 part /mnt/resource
       ```
 
-   1. Använd följande kommando för att ändra storlek på den **fysiska volymen (PV)**:
+   1. Använd följande kommando för att ändra storlek på den fysiska volymen (PV):
 
       `#pvresize /dev/sda4`
 
@@ -275,7 +277,7 @@ Utför följande steg när den virtuella datorn har startats om:
       /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
       ```
 
-   1. I följande exempel `/dev/mapper/rootvg-rootlv` ändras storleken från 2 GB till 12 GB (en ökning på 10 GB) med hjälp av följande kommando, som också ändrar storlek på fil systemet:
+   1. I följande exempel ändras storleken på **/dev/mapper/rootvg-rootlv** från 2 GB till 12 GB (en ökning på 10 GB) genom följande kommando. Det här kommandot ändrar även storlek på fil systemet.
 
       `#lvresize -r -L +10G /dev/mapper/rootvg-rootlv`
 
@@ -297,7 +299,7 @@ Utför följande steg när den virtuella datorn har startats om:
       data blocks changed from 524288 to 3145728
       ```
          
-   1. Kontrol lera `/dev/mapper/rootvg-rootlv` om fil system storleken har ökat eller om du inte använder följande kommando:
+   1. Kontrol lera om **/dev/mapper/rootvg-rootlv** har en större fil system storlek genom att använda följande kommando:
 
       `#df -Th /`
 
@@ -310,8 +312,8 @@ Utför följande steg när den virtuella datorn har startats om:
       [user@myvm ~]#
       ```
 
-      > [!NOTE]
-      > Om du vill använda samma procedur för att ändra storlek på en annan logisk volym ändrar du namnet på **LV** i steg 7
+   > [!NOTE]
+   > Om du vill använda samma procedur för att ändra storlek på en annan logisk volym ändrar du namnet på **LV** i steg 7.
 
 ## <a name="next-steps"></a>Nästa steg
 

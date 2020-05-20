@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: dd199bc0245ab1daa090f88b1e92216c714042ee
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 68310f504e94e50be9fbd4ce49055a4b318ab5d5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864453"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659501"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -27,7 +27,7 @@ Det här avsnittet beskriver felet vid säkerhets kopiering av virtuella Azure-d
   * För att se till att det inte finns några ögonblicks bilds tillägg måste [du avinstallera tillägg för att framtvinga inläsning och sedan försöka säkerhetskopiera igen](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout).
 * Kontrol lera att den virtuella datorn är ansluten till Internet.
   * Kontrol lera att ingen annan säkerhets kopierings tjänst körs.
-* Från `Services.msc`, se till att tjänsten **Windows Azure gästa Gent** **körs**. Om tjänsten **Windows Azure gästa Gent** saknas installerar du den från [säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
+* Från `Services.msc` , se till att tjänsten **Windows Azure gästa Gent** **körs**. Om tjänsten **Windows Azure gästa Gent** saknas installerar du den från [säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent).
 * **Händelse loggen** kan visa säkerhets kopierings problem som kommer från andra säkerhets kopierings produkter, t. ex. Windows Server Backup, och inte på grund av Azure Backup. Använd följande steg för att fastställa om problemet är med Azure Backup:
   * Om det uppstår ett fel med en post **säkerhets kopia** i händelse källan eller meddelandet kontrollerar du om säkerhets kopieringen av Azure IaaS VM-säkerhetskopiering lyckades och om en återställnings punkt skapades med den önskade ögonblicks bild typen.
   * Om Azure Backup fungerar är problemet troligt vis en annan lösning för säkerhets kopiering.
@@ -93,7 +93,7 @@ Säkerhets kopieringen misslyckades på grund av ett problem med Windows-tjänst
 Felkod: ExtensionFailedVssWriterInBadState <br/>
 Fel meddelande: ögonblicks bild åtgärden misslyckades eftersom VSS-skrivare befann sig i ett felaktigt tillstånd.
 
-Starta om VSS-skrivare som är i ett felaktigt tillstånd. Kör ```vssadmin list writers```i en upphöjd kommando tolk. Utdata innehåller alla VSS-skrivare och deras tillstånd. För varje VSS-skrivare med ett tillstånd som inte är **[1] stabil**för att starta om VSS Writer kör du följande kommandon från en upphöjd kommando tolk:
+Starta om VSS-skrivare som är i ett felaktigt tillstånd. Kör i en upphöjd kommando tolk ```vssadmin list writers``` . Utdata innehåller alla VSS-skrivare och deras tillstånd. För varje VSS-skrivare med ett tillstånd som inte är **[1] stabil**för att starta om VSS Writer kör du följande kommandon från en upphöjd kommando tolk:
 
 * ```net stop serviceName```
 * ```net start serviceName```
@@ -134,7 +134,7 @@ Om du ser behörigheter i **MachineKeys** -katalogen som skiljer sig från stand
 2. Ta bort alla certifikat som har **utfärdats till** är den klassiska distributions modellen eller **Windows Azure CRP Certificate Generator**:
 
    * [Öppna certifikat på en lokal dator konsol](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in).
-   * Under **personliga** > **certifikat**kan du ta bort alla certifikat som har **utfärdats till** är den klassiska distributions modellen eller **Windows Azure CRP Certificate Generator**.
+   * Under **personliga**  >  **certifikat**kan du ta bort alla certifikat som har **utfärdats till** är den klassiska distributions modellen eller **Windows Azure CRP Certificate Generator**.
 3. Utlös ett jobb för säkerhets kopiering av virtuella datorer.
 
 ## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState-Extension-tillstånd stöds inte för säkerhets kopiering
@@ -145,7 +145,7 @@ Fel meddelande: det går inte att använda tilläggs tillstånd för säkerhets 
 Säkerhets kopierings åtgärden misslyckades på grund av ett inkonsekvent tillstånd för säkerhets kopierings tillägget. Följ dessa anvisningar för att lösa problemet:
 
 * Kontrollera att gästagenten är installerad och svarar.
-* Från Azure Portal går du till **virtuella datorer** > **alla inställningar** > **tillägg**
+* Från Azure Portal går du till **virtuella datorer**  >  **alla inställningar**  >  **tillägg**
 * Välj säkerhetskopieringstillägget VmSnapshot eller VmSnapshotLinux och klicka på **Avinstallera**.
 * Försök att säkerhetskopiera igen efter att du har tagit bort säkerhets kopierings tillägget
 * Vid nästföljande säkerhetskopiering installeras det nya tillägget med önskat tillstånd.
@@ -197,7 +197,7 @@ Detta säkerställer att ögonblicksbilderna tas via värden i stället för gä
 | **Felkod**: VmNotInDesirableState <br/> **Fel meddelande**: den virtuella datorn är inte i ett tillstånd som tillåter säkerhets kopieringar. |<ul><li>Om den virtuella datorn är i ett tillfälligt tillstånd mellan att **köra** och **stänga**av, väntar du tills status har ändrats. Utlös sedan säkerhets kopierings jobbet. <li> Om den virtuella datorn är en virtuell Linux-dator och använder den säkerhetsförbättrade Linux-modulen för Linux, utelämnar du sökvägen **/var/lib/waagent** för Azure Linux-agenten från säkerhets principen och kontrollerar att säkerhets kopierings tillägget är installerat.  |
 | VM-agenten finns inte på den virtuella datorn: <br>Installera eventuella nödvändiga komponenter och VM-agenten. Starta sedan om åtgärden. |Läs mer om [installation av VM-agenten och hur du verifierar installationen av VM-agenten](#vm-agent). |
 | **Felkod**: ExtensionSnapshotFailedNoSecureNetwork <br/> **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att skapa en säker kanal för nätverkskommunikation. | <ol><li> Öppna Registereditorn genom att köra **regedit. exe** i förhöjd läge. <li> Identifiera alla versioner av .NET Framework som finns i systemet. De finns under hierarkin för register nyckeln **HKEY_LOCAL_MACHINE \software\microsoft**. <li> Lägg till följande nyckel för varje .NET Framework som finns i register nyckeln: <br> **SchUseStrongCrypto "= DWORD: 00000001**. </ol>|
-| **Felkod**: ExtensionVCRedistInstallationFailure <br/> **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att installera Visual C++ Redistributable för Visual Studio 2012. | Gå till C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk.  |
+| **Felkod**: ExtensionVCRedistInstallationFailure <br/> **Fel meddelande**: ögonblicks bild åtgärden misslyckades på grund av att det inte gick att installera Visual C++ Redistributable för Visual Studio 2012. | <li> Navigera till `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` och installera vcredist2013_x64.<br/>Kontrol lera att värdet för register nyckeln som tillåter tjänst installationen har värdet korrekt. Det vill säga ange **startvärdet** i **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** till **3** och inte **4**. <br><br>Om du fortfarande har problem med installationen startar du om installations tjänsten genom att köra **msiexec/unregister** följt av **msiexec/register** från en upphöjd kommando tolk. <br><br><li> Kontrol lera händelse loggen för att kontrol lera om du har märker åtkomst till relaterade problem. Exempel: *Product: Microsoft Visual C++ 2013 x64 minimal körning-12.0.21005--Error 1401. Det gick inte att skapa nyckeln: Software\Classes.  Systemfel 5.  Kontrol lera att du har tillräcklig åtkomst till nyckeln eller kontakta en support tekniker.* <br><br> Se till att administratören eller användar kontot har tillräcklig behörighet för att uppdatera register nyckeln **HKEY_LOCAL_MACHINE \software\classes**. Ange tillräckliga behörigheter och starta om Windows Azures gästa Gent.<br><br> <li> Om du har antivirus produkter på plats ser du till att de har rätt undantags regler för att tillåta installationen.    |
 | **Felkod**: UserErrorRequestDisallowedByPolicy <BR> **Fel meddelande**: en ogiltig princip har kon figurer ATS på den virtuella datorn som förhindrar ögonblicks bild åtgärden. | Om du har en Azure Policy som [styr Taggar i din miljö](https://docs.microsoft.com/azure/governance/policy/tutorials/govern-tags)kan du antingen överväga att ändra principen från en [neka](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny) -förändring till en [ändrings funktion](https://docs.microsoft.com/azure/governance/policy/concepts/effects#modify)eller skapa resurs gruppen manuellt enligt det [namngivnings schema som krävs av Azure Backup](https://docs.microsoft.com/azure/backup/backup-during-vm-creation#azure-backup-resource-group-for-virtual-machines).
 
 ## <a name="jobs"></a>Jobb

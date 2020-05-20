@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0ba86d6955805fc97743a1a51aa586b179d82235
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: cc89c0052097ba9250370334386943ec4107140c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869867"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655320"
 ---
-# <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Etablera data flöde för en databas i Azure Cosmos DB
+# <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db"></a>Etablera standard (manuell) genom strömning på en databas i Azure Cosmos DB
 
-Den här artikeln beskriver hur du etablerar data flöde på en databas i Azure Cosmos DB. Du kan etablera data flöde för en enskild [behållare](how-to-provision-container-throughput.md), eller för en databas och dela data flödet bland behållare i den. Information om hur du använder data flödes nivå och databas nivå genom strömning finns i avsnittet [användnings fall för etablering av data flöde på behållare och databaser](set-throughput.md) . Du kan etablera dataflöde på databasnivå med hjälp av Azure-portalen eller Azure Cosmos DB-SDK:er.
+Den här artikeln beskriver hur du etablerar standard-genomflödet (manuell) i en databas i Azure Cosmos DB. Du kan etablera data flöde för en enskild [behållare](how-to-provision-container-throughput.md), eller för en databas och dela data flödet bland behållare i den. Information om hur du använder data flödes nivå och databas nivå genom strömning finns i avsnittet [användnings fall för etablering av data flöde på behållare och databaser](set-throughput.md) . Du kan etablera dataflöde på databasnivå med hjälp av Azure-portalen eller Azure Cosmos DB-SDK:er.
 
 ## <a name="provision-throughput-using-azure-portal"></a>Etablera dataflöde med hjälp av Azure-portalen
 
@@ -84,5 +84,6 @@ I följande artiklar finns information om etablerade data flöden i Azure Cosmos
 
 * [Skala etablerat dataflöde globalt](scaling-throughput.md)
 * [Etablera dataflöde på containrar och databaser](set-throughput.md)
-* [Etablera dataflöde för en container](how-to-provision-container-throughput.md)
+* [Så här etablerar du standard (manuell) data flöde för en behållare](how-to-provision-container-throughput.md)
+* [Så här etablerar du data flöde för autoskalning för en behållare](how-to-provision-autoscale-throughput.md)
 * [Begärandeenheter och dataflöde i Azure Cosmos DB](request-units.md)

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/07/2020
+ms.date: 05/12/2020
 ms.author: radeltch
-ms.openlocfilehash: 4fd01764c183098a8bd78d502eea7ab173fa22cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a89c848f5c6e57aba01c7156cdc61f9e69c30d0b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80293905"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660168"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Offentlig slut punkts anslutning för Virtual Machines med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet
 
@@ -78,7 +78,7 @@ Konfigurationen skulle se ut så här:
 
 ![Kontrol lera anslutningen till offentliga slut punkter med nätverks säkerhets grupper](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-public.png)
 
-### <a name="important-considerations"></a>Att tänka på
+### <a name="important-considerations"></a>Viktiga överväganden
 
 - Du kan använda ytterligare en offentlig Load Balancer för flera virtuella datorer i samma undernät för att få en utgående anslutning till den offentliga slut punkten och optimera kostnaden  
 - Använd [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview) för att styra vilka offentliga slut punkter som är tillgängliga från de virtuella datorerna. Du kan tilldela nätverks säkerhets gruppen antingen till under nätet eller till varje virtuell dator. Använd om möjligt [service märken](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) för att minska komplexiteten i säkerhets reglerna.  
@@ -129,7 +129,7 @@ Arkitekturen skulle se ut så här:
 
 ![Utgående anslutning med Azure-brandvägg](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall.png)
 
-### <a name="important-considerations"></a>Att tänka på
+### <a name="important-considerations"></a>Viktiga överväganden
 
 - Azure-brandväggen är en molnbaserad inbyggd tjänst med inbyggd hög tillgänglighet och har stöd för zonindelade-distribution.
 - Kräver ytterligare ett undernät som måste ha namnet AzureFirewallSubnet. 
@@ -154,7 +154,7 @@ Arkitekturen skulle se ut så här:
 4. Skapa en Azure Firewall-regel för att tillåta utgående anslutning till angivna offentliga slut punkter. Exemplet visar hur du tillåter åtkomst till den offentliga slut punkten för Azure Management API.  
    1. Välj regler, nätverks regel samling och klicka sedan på Lägg till regel samling för nätverk.  
    1. Namn: **MyOutboundRule**, ange prioritet, Välj åtgärden **Tillåt**.  
-   1. Tjänst: name **ToAzureAPI**.  Protokoll: Välj **valfritt**. Käll adress: Ange intervallet för under nätet där de virtuella datorerna och Standard Load Balancer distribueras till exempel: **11.97.0.0/24**. Mål portar: ange <b>*</b>.  
+   1. Tjänst: name **ToAzureAPI**.  Protokoll: Välj **valfritt**. Käll adress: Ange intervallet för under nätet där de virtuella datorerna och Standard Load Balancer distribueras till exempel: **11.97.0.0/24**. Mål portar: ange <b>*</b> .  
    1. Spara
    1. När du fortfarande är placerad i Azure-brandväggen väljer du Översikt. Anteckna den privata IP-adressen för Azure-brandväggen.  
 5. Skapa väg till Azure-brandvägg  
@@ -162,7 +162,7 @@ Arkitekturen skulle se ut så här:
    1. Ange namn MyRouteTable, Välj prenumeration, resurs grupp och plats (matchar platsen för ditt virtuella nätverk och brand vägg).  
    1. Spara  
 
-   Brand Väggs regeln skulle se ut ![så här: utgående anslutning med Azure-brandvägg](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
+   Brand Väggs regeln skulle se ut så här: ![ utgående anslutning med Azure-brandvägg](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Skapa användardefinierad väg från under nätet för dina virtuella datorer till den privata IP-adressen för **MyAzureFirewall**.
    1. När du är placerad i routningstabellen klickar du på vägar. Välj Lägg till. 
@@ -173,10 +173,10 @@ Arkitekturen skulle se ut så här:
 
 Du kan använda proxy för att tillåta pacemaker-anrop till den offentliga slut punkten för Azure Management API.  
 
-### <a name="important-considerations"></a>Att tänka på
+### <a name="important-considerations"></a>Viktiga överväganden
 
   - Om det redan finns företags-proxy på plats kan du dirigera utgående anrop till offentliga slut punkter via den. Utgående anrop till offentliga slut punkter hamnar i företags kontroll punkten.  
-  - Se till att proxykonfigurationen tillåter utgående anslutning till Azures hanterings-API:`https://management.azure.com`  
+  - Se till att proxykonfigurationen tillåter utgående anslutning till Azure Management API: `https://management.azure.com` och`https://login.microsoftonline.com`  
   - Se till att det finns en väg från de virtuella datorerna till proxyn  
   - Proxyn hanterar endast HTTP/HTTPS-anrop. Om det finns ytterligare behov att göra utgående samtal till en offentlig slut punkt över olika protokoll (som RFC) behövs en alternativ lösning  
   - Proxyservern måste ha hög tillgänglighet för att undvika instabilitet i pacemaker-klustret  
@@ -219,6 +219,10 @@ Om du vill tillåta att pacemaker kommunicerar med Azures hanterings-API utför 
      # Take the cluster out of maintenance mode
      sudo pcs property set maintenance-mode=false
      ```
+
+## <a name="other-solutions"></a>Andra lösningar
+
+Om utgående trafik dirigeras via brand vägg för tredje part kontrollerar du att brand Väggs konfigurationen tillåter utgående anslutning till Azures hanterings-API: `https://management.azure.com` och `https://login.microsoftonline.com` .  
 
 ## <a name="next-steps"></a>Nästa steg
 

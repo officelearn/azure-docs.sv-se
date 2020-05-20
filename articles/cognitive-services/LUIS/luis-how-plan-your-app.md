@@ -2,13 +2,13 @@
 title: Planera din app-LUIS
 description: Disponera relevanta appar och entiteter och skapa sedan dina program planer i Language Understanding intelligenta tjänster (LUIS).
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: dfed27a05973a2ea2e9a97eaa1c233b847b33d87
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/14/2020
+ms.openlocfilehash: 3463078309978ae34918f27a9d75c1dabd59ae66
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382296"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654125"
 ---
 # <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>Planera ditt LUIS-AppData med ämnes domän och data extrahering
 
@@ -27,12 +27,12 @@ Tänk på vilka [avsikter](luis-concept-intent.md) som är viktiga för programm
 
 Låt oss ta exemplet på en rese app, med funktioner för att boka en flygning och kontrol lera väder på användarens mål. Du kan definiera `BookFlight` och `GetWeather` avsikten för dessa åtgärder.
 
-I en mer komplex app med fler funktioner har du fler syften och du bör definiera dem noggrant så att avsikterna inte är för speciella. Till exempel `BookFlight` och `BookHotel` kan behöva vara separata avsikter, men `BookInternationalFlight` det `BookDomesticFlight` kan vara för likt.
+I en mer komplex app med fler funktioner har du fler syften och du bör definiera dem noggrant så att avsikterna inte är för speciella. Till exempel `BookFlight` och kan `BookHotel` behöva vara separata avsikter, men `BookInternationalFlight` `BookDomesticFlight` det kan vara för likt.
 
 > [!NOTE]
 > Vi rekommenderar att du bara använder så många syften som du behöver för att utföra funktionerna i din app. Om du definierar för många avsikter blir det svårare för LUIS att klassificera yttranden korrekt. Om du definierar för få kan de vara så generella att de överlappar varandra.
 
-Om du inte behöver identifiera övergripande användar avsikt lägger du till alla exempel på användarens yttranden till `None` avsikten. Om din app växer för att kräva fler avsikter kan du skapa dem senare.
+Om du inte behöver identifiera övergripande användar avsikt lägger du till alla exempel på användarens yttranden till avsikten `None` . Om din app växer för att kräva fler avsikter kan du skapa dem senare.
 
 ## <a name="create-example-utterances-for-each-intent"></a>Skapa exempel-yttranden för varje avsikt
 
@@ -48,6 +48,30 @@ När du bestämmer vilka entiteter som ska användas i appen, Tänk på att det 
 
 > [!TIP]
 > LUIS erbjuder [färdiga entiteter](luis-prebuilt-entities.md) för vanliga scenarier med konversations användare. Överväg att använda färdiga entiteter som utgångs punkt för program utvecklingen.
+
+## <a name="resolution-with-intent-or-entity"></a>Matchning med avsikt eller entitet?
+
+I många fall, särskilt när du arbetar med naturlig konversation, tillhandahåller användare en uttryck som kan innehålla mer än en funktion eller avsikt. För att lösa detta är en allmän tumregel att förstå att åter givningen av utdata kan göras i både avsikter och entiteter. Den här presentationen ska mappas till dina klient program åtgärder och behöver inte begränsas till avsikten.
+
+**Int-** överordnad-ties är det begrepp som åtgärder (som vanligt vis betraktas som avsikter) kan också fångas in som entiteter och förlitas i det här formuläret i utdata-JSON där du kan mappa den till en speciell åtgärd. _Negation_ är en vanlig användning för att utnyttja detta beroende av både avsikt och enhet för fullständig extrahering.
+
+Tänk på följande två yttranden som är mycket nära att tänka på när du väljer det, men som har olika resultat:
+
+|Yttrande|
+|--|
+|`Please schedule my flight from Cairo to Seattle`|
+|`Cancel my flight from Cairo to Seattle`|
+
+I stället för att ha två separata intentor skapar du en enda avsikt med en `FlightAction` Machine Learning-entitet. Machine Learning-entiteten bör extrahera information om åtgärden för både en schemaläggning och en avbrotts förfrågan samt antingen en ursprungs plats eller en målplats.
+
+`FlightAction`Entiteten är strukturerad i följande väckning-schema för Machine Learning-entiteten och-underentiteter:
+
+* FlightAction
+    * Åtgärd
+    * Ursprung
+    * Mål
+
+För att hjälpa extraheringen lägga till funktioner i underentiteterna. Du väljer dina funktioner baserat på den vokabulär som du förväntar dig att se i User yttranden och de värden som du vill ska returneras i förutsägelse svaret.
 
 ## <a name="next-steps"></a>Nästa steg
 

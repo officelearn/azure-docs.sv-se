@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: 9ddac229fc38a91a8b97b24dc2807080b2295758
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34dbde25106dbb82fb9548ad53f368230f2c728c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250561"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654406"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics-tillägg för virtuella datorer för Linux
 
@@ -43,6 +43,7 @@ Följande tabell innehåller en mappning av versionen av Log Analytics VM-tillä
 
 | Version för Log Analytics Linux VM-tillägg | Log Analytics agent paket version | 
 |--------------------------------|--------------------------|
+| 1.13.9 | 1.13.3-3 |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0 – 9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -86,7 +87,7 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.7",
+    "typeHandlerVersion": "1.13",
     "autoUpgradeMinorVersion": true,
     "settings": {
       "workspaceId": "myWorkspaceId"
@@ -99,7 +100,7 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 ```
 
 >[!NOTE]
->Schemat ovan förutsätter att det kommer att placeras på rot nivån i mallen. Om du antecknar den i den virtuella dator resursen i mallen ska `type` egenskaperna `name` och ändras, [enligt beskrivningen.](#template-deployment)
+>Schemat ovan förutsätter att det kommer att placeras på rot nivån i mallen. Om du antecknar den i den virtuella dator resursen i mallen `type` `name` ska egenskaperna och ändras, enligt beskrivningen. [further down](#template-deployment)
 
 ### <a name="property-values"></a>Egenskaps värden
 

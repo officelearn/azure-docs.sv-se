@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 5d6cbf873ac1b76c24f5907a47038157b22e5680
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120121"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634124"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Aktivera och hantera mjuk borttagning för blobbar
 
@@ -137,7 +137,21 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[.NET V12 SDK](#tab/dotnet)
+
+Om du vill aktivera mjuk borttagning uppdaterar du en BLOB-klients tjänst egenskaper:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_EnableSoftDelete":::
+
+Om du vill återställa blobar som tagits bort av misstag kan du anropa Undelete på dessa blobbar. Kom ihåg att om du anropar **Undelete**, både på aktiva och mjuka borttagna blobbar, återställs alla tillhör ande mjuka borttagna ögonblicks bilder som aktiva. I följande exempel anropar Undelete för alla mjuka borttagna och aktiva blobbar i en behållare:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
+
+Om du vill återställa till en angiven blob-version måste du först anropa Undelete på en blob och sedan kopiera önskad ögonblicks bild över blobben. I följande exempel återställs en Block-Blob till den senast skapade ögonblicks bilden:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
+
+# <a name="net-v11-sdk"></a>[.NET V11 SDK](#tab/dotnet11)
 
 Om du vill aktivera mjuk borttagning uppdaterar du en BLOB-klients tjänst egenskaper:
 
@@ -153,7 +167,7 @@ serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-Om du vill återställa blobar som tagits bort av misstag kan du anropa Undelete på dessa blobbar. Kom ihåg att om du anropar **Undelete-BLOB**, både på aktiva och mjuka borttagna blobar, återställs alla tillhör ande mjuka borttagna ögonblicks bilder som aktiva. I följande exempel anropar Undelete för alla mjuka borttagna och aktiva blobbar i en behållare:
+Om du vill återställa blobar som tagits bort av misstag kan du anropa Undelete på dessa blobbar. Kom ihåg att om du anropar **Undelete**, både på aktiva och mjuka borttagna blobbar, återställs alla tillhör ande mjuka borttagna ögonblicks bilder som aktiva. I följande exempel anropar Undelete för alla mjuka borttagna och aktiva blobbar i en behållare:
 
 ```csharp
 // Recover all blobs in a container
@@ -177,7 +191,7 @@ IEnumerable<IListBlobItem> allBlobVersions = container.ListBlobs(
 CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)version).IsSnapshot &&
     ((CloudBlockBlob)version).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);
-```
+```  
 
 ---
 

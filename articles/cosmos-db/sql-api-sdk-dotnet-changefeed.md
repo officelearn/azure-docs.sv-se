@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB .NET Change feed processor-API, viktig information om SDK
 description: Lär dig allt om Change feeds processor-API och SDK, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version av .NET Change feed processor SDK.
-author: ealsur
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/30/2019
-ms.author: maquaran
-ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: e39cef33d8d402b6e04c6b9952cae21848e02424
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619448"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660424"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET Change feed processor SDK: Hämta och viktig information
 
@@ -23,8 +23,9 @@ ms.locfileid: "80619448"
 > * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
+> * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -47,8 +48,8 @@ ms.locfileid: "80619448"
 ### <a name="v2-builds"></a>v2-versioner
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Lade till en ny `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` Metod och motsvarande offentligt `ICheckpointPartitionProcessorFactory`gränssnitt. Detta gör att en implementering av `IPartitionProcessor` gränssnittet kan använda inbyggd mekanism för kontroll punkter. Den nya fabriken liknar den befintliga `IPartitionProcessorFactory`, förutom att dess `Create` metod även använder- `ILeaseCheckpointer` parametern.
-* Endast en av de två metoderna, `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` eller `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`, kan användas för samma `ChangeFeedProcessorBuilder` instans.
+* Lade till en ny metod `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` och motsvarande offentligt gränssnitt `ICheckpointPartitionProcessorFactory` . Detta gör att en implementering av `IPartitionProcessor` gränssnittet kan använda inbyggd mekanism för kontroll punkter. Den nya fabriken liknar den befintliga `IPartitionProcessorFactory` , förutom att dess `Create` metod även använder- `ILeaseCheckpointer` parametern.
+* Endast en av de två metoderna, `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` eller `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` , kan användas för samma `ChangeFeedProcessorBuilder` instans.
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
 * Förbättringar av stabilitet och diagnos:
@@ -56,13 +57,13 @@ ms.locfileid: "80619448"
     * Åtgärden för att läsa ändrings flödet på den problematiska partitionen avbryts.
     * Change feed processor-instansen tappar ägarskap för det problematiska lånet. Det borttagna lånet hämtas under nästa steg för att erhålla lånet som utförs av samma eller olika processor instanser för förändrings flödet. På så sätt börjar läsning av ändrings flöde över.
     * Ett problem rapporteras till hälso övervakaren. Standard övervakaren för hälso skickar alla rapporterade problem till spårnings loggen.
-  * En ny offentlig egenskap har lagts `ChangeFeedProcessorOptions.ChangeFeedTimeout`till:. Standardvärdet för den här egenskapen är 10 minuter.
-  * Ett nytt offentligt Enum-värde har `Monitoring.MonitoredOperation.ReadChangeFeed`lagts till:. När värdet för `HealthMonitoringRecord.Operation` är inställt `Monitoring.MonitoredOperation.ReadChangeFeed`på, anger det att hälso problemet är relaterat till att läsa ändrings flöde.
+  * En ny offentlig egenskap har lagts till: `ChangeFeedProcessorOptions.ChangeFeedTimeout` . Standardvärdet för den här egenskapen är 10 minuter.
+  * Ett nytt offentligt Enum-värde har lagts till: `Monitoring.MonitoredOperation.ReadChangeFeed` . När värdet för `HealthMonitoringRecord.Operation` är inställt på `Monitoring.MonitoredOperation.ReadChangeFeed` , anger det att hälso problemet är relaterat till att läsa ändrings flöde.
 
 ### <a name="227"></a><a name="2.2.7"/>2.2.7
 * Förbättrad strategi för belastnings utjämning för scenariot när du hämtar alla lån tar längre tid än lånets förfallo intervall, t. ex. på grund av nätverks problem:
   * I den här scenario belastnings Utjämnings algoritmen som används för att betrakta lån som utgångna, vilket orsakar att stjäla lån från aktiva ägare. Detta kan utlösa onödig åter balansering av många lån.
-  * Det här problemet åtgärdas i den här versionen genom att undvika återförsök vid en konflikt vid förvärv av utgånget lån som ägaren inte har ändrat och posponing förvärvat lån till nästa belastnings utjämning iteration.
+  * Det här problemet åtgärdas i den här versionen genom att undvika återförsök vid en konflikt vid förvärv av utgånget lån som ägaren inte har ändrat och uppskjutande av lån till nästa belastnings utjämning iteration.
 
 ### <a name="226"></a><a name="2.2.6"/>2.2.6
 * Förbättrad hantering av observatörs undantag.
@@ -77,7 +78,7 @@ ms.locfileid: "80619448"
 ### <a name="224"></a><a name="2.2.4"/>2.2.4
 * Den nya egenskapen ChangeFeedProcessorOptions. StartContinuation har lagts till för att stödja start av ändrings flöde från begär ande token för begäran Detta används endast när en Lease-samling är tom eller om ett lån inte har angetts för ContinuationToken. För lån i en Lease-samling som har ContinuationToken angetts används ContinuationToken och ChangeFeedProcessorOptions. StartContinuation ignoreras.
 
-### <a name="223"></a><a name="2.2.3"/>2.2.3
+### <a name="223"></a><a name="2.2.3"/>punkt
 * Stöd har lagts till för att använda anpassade Arkiv för att bevara fortsättnings-token per partition.
   * Till exempel kan ett anpassat leasing lager Azure Cosmos DB en lånad samling partitionerad på ett anpassat sätt.
   * Anpassade hyres lager kan använda nya utöknings punkter ChangeFeedProcessorBuilder. WithLeaseStoreManager (ILeaseStoreManager) och ILeaseStoreManager offentliga gränssnitt.
@@ -96,7 +97,7 @@ ms.locfileid: "80619448"
 * Förbättringar av mindre diagnostik.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
-* Nytt API,&lt;aktivitet IReadOnlyList&lt;RemainingPartitionWork&gt; &gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync () har lagts till. Detta kan användas för att få uppskattat arbete för varje partition.
+* Nytt API, aktivitet &lt; IReadOnlyList &lt; RemainingPartitionWork &gt; &gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync () har lagts till. Detta kan användas för att få uppskattat arbete för varje partition.
 * Stöder Microsoft. Azure. DocumentDB SDK 2,0. Kräver Microsoft. Azure. DocumentDB 2,0 eller senare.
 
 ### <a name="206"></a><a name="2.0.6"/>2.0.6
@@ -158,7 +159,7 @@ ms.locfileid: "80619448"
 * Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versionerna 1,21 och senare.
 
 ### <a name="120"></a><a name="1.2.0"/>1.2.0
-* Lägger till stöd för .NET standard 2,0. Paketet stöder `netstandard2.0` nu och `net451` Ramverks-monikers.
+* Lägger till stöd för .NET standard 2,0. Paketet stöder nu `netstandard2.0` och `net451` Ramverks-monikers.
 * Kompatibel med [SQL SDK](sql-api-sdk-dotnet.md) -versioner 1.17.0 och senare.
 * Kompatibel med [SQL .net Core SDK](sql-api-sdk-dotnet-core.md) -versioner 1.5.1 och senare.
 
@@ -192,7 +193,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | [2.2.6](#2.2.6) |29 januari 2019 |--- |
 | [2.2.5](#2.2.5) |13 december 2018 |--- |
 | [2.2.4](#2.2.4) |29 november 2018 |--- |
-| [2.2.3](#2.2.3) |19 november 2018 |--- |
+| [punkt](#2.2.3) |19 november 2018 |--- |
 | [2.2.2](#2.2.2) |31 oktober 2018 |--- |
 | [2.2.1](#2.2.1) |24 oktober 2018 |--- |
 | [1.3.3](#1.3.3) |08 maj, 2018 |--- |
@@ -203,7 +204,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | [1.1.0](#1.1.0) |13 augusti 2017 |--- |
 | [1.0.0](#1.0.0) |Den 07 juli 2017 |--- |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

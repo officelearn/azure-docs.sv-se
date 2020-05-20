@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: b020cbd15ba17609b7a476ccda9b1e814405341e
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d594f3cf556fe311e0b7400a23fd61d0336fe5f1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858780"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651130"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Vanliga frågor om Azure Storage-migrering
 
@@ -263,11 +263,11 @@ Ge andra personer åtkomst till lagrings resurserna:
 
 -   Om du öppnar AzCopy från kommando raden Microsoft Azure Storage skriver du **AzCopy**. Kommando raden installeras tillsammans med AzCopy.
 
--   Om du har installerat 32-bitars versionen finns den här: **% ProgramFiles (x86)%\\Microsoft SDK\\Azure\\-AzCopy**.
+-   Om du har installerat 32-bitars versionen finns den här: **% ProgramFiles (x86)% \\ Microsoft SDK \\ Azure- \\ AzCopy**.
 
--   Om du har installerat 64-bitars versionen finns den här: **% ProgramFiles%\\Microsoft SDK\\Azure\\AzCopy**.
+-   Om du har installerat 64-bitars versionen finns den här: **% ProgramFiles% \\ Microsoft SDK \\ Azure \\ AzCopy**.
 
-**Hur gör jag för att använder du en anpassad HTTPS-domän med mitt lagrings konto? Hur gör jag för att t. ex. "\/https:/mystorageaccountname.blob.Core.Windows.net/images/image.gif" visas som "\/https:/www.contoso.com/images/image.gif"?**
+**Hur gör jag för att använder du en anpassad HTTPS-domän med mitt lagrings konto? Hur gör jag för att t. ex. "https: \/ /mystorageaccountname.blob.Core.Windows.net/images/image.gif" visas som "https: \/ /www.contoso.com/images/image.gif"?**
 
 TLS/SSL stöds för närvarande inte på lagrings konton med anpassade domäner.
 Men du kan använda icke-HTTPS-anpassade domäner. Mer information finns i [Konfigurera ett eget domän namn för din Blob Storage-slutpunkt](../blobs/storage-custom-domain-name.md).
@@ -288,9 +288,9 @@ Geo-redundant lagring med Läs behörighet krävs för att få åtkomst till red
 
 -   Om du använder Geo-redundant lagring med Läs behörighet kan du när som helst komma åt data från den sekundära regionen. Använd någon av följande metoder:  
 
-    - **AzCopy**: Lägg till **sekundär** till lagrings kontots namn i URL: en för att få åtkomst till den sekundära slut punkten. Exempel:  
+    - **AzCopy**: Lägg till **sekundär** till lagrings kontots namn i URL: en för att få åtkomst till den sekundära slut punkten. Till exempel:  
 
-      https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
+      `https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd`
 
     - **SAS-token**: Använd en SAS-token för att komma åt data från slut punkten. Mer information finns i [använda signaturer för delad åtkomst](storage-sas-overview.md).
 

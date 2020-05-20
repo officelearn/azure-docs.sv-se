@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 05/05/2020
-ms.openlocfilehash: b0a596ee4c576ff98be302b15a86a8758b11ce25
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01e7e6c84be13db839338928f8086bcceb2ea169
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598593"
+ms.locfileid: "83654415"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Förstärka inlärningen (för hands version) med Azure Machine Learning
 
@@ -35,7 +35,7 @@ I den här artikeln får du lära dig att:
 
 Den här artikeln baseras på [RLlib Pong-exemplet](https://aka.ms/azureml-rl-pong) som finns i Azure Machine Learning Notebooks GitHub- [lagringsplats](https://aka.ms/azureml-rl-notebooks).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kör den här koden i någon av följande miljöer. Vi rekommenderar att du försöker Azure Machine Learning beräknings instans för den snabbaste start upplevelsen. De förstärkta exempel antecknings böckerna är tillgängliga för att snabbt kunna klona och köra Azure Machine Learning beräknings instanser.
 
@@ -49,7 +49,7 @@ Kör den här koden i någon av följande miljöer. Vi rekommenderar att du för
  - Din egen Jupyter Notebook Server
 
     - Installera [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Installera [Azure Machine Learning HUVUDWEBBADRESS SDK](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&branch=harnvirdebug):`pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Installera [Azure Machine Learning HUVUDWEBBADRESS SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py):`pip install --upgrade azureml-contrib-reinforcementlearning`
     - Skapa en [konfigurations fil för arbets ytor](how-to-configure-environment.md#workspace).
     - Kör den virtuella [datorn för installation](https://aka.ms/azure-rl-env-setup) av virtuella nätverk för att öppna nätverks portar som används för distribuerad förstärknings inlärning.
 
@@ -210,7 +210,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Skapa en uppskattad uppskattnings utbildning
 
-I det här avsnittet får du lära dig hur du använder [ReinforcementLearningEstimator](https://review.docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&branch=harnvirdebug) för att skicka ett utbildnings jobb till Azure Machine Learning.
+I det här avsnittet får du lära dig hur du använder [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) för att skicka ett utbildnings jobb till Azure Machine Learning.
 
 Azure Machine Learning använder uppskattnings klasser för att kapsla in kör konfigurations information. På så sätt kan du enkelt ange hur skript körningen ska konfigureras. Mer information om mönster för Azure Machine Learning uppskattningar finns i [så här tränar du modeller med hjälp av uppskattningar](how-to-train-ml-models.md).
 

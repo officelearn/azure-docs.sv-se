@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/17/2020
-ms.openlocfilehash: 2cb53d0c88d8c29da2bd8bf52d6536555d56c76e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/05/2020
+ms.openlocfilehash: 1121b5324368f8b8c6c062868f5072f4a0e7ac86
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283947"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654369"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Övervaka virtuella Azure-datorer med Azure Monitor
 Den här artikeln beskriver hur du använder Azure Monitor för att samla in och analysera övervaknings data från virtuella Azure-datorer för att upprätthålla deras hälsa. Virtuella datorer kan övervakas för tillgänglighet och prestanda med Azure Monitor som [andra Azure](monitor-azure-resource.md)-resurser, men de är unika för andra resurser eftersom du också behöver övervaka gäst operativ systemet och de arbets belastningar som körs i den. 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du använder Azure Monitor för att samla in och
 ## <a name="differences-from-other-azure-resources"></a>Skillnader jämfört med andra Azure-resurser
 [Övervakning av Azure-resurser med Azure Monitor](monitor-azure-resource.md) beskriver övervaknings data som genereras av Azure-resurser och hur du kan använda funktionerna i Azure Monitor för att analysera och varna för dessa data. Du kan samla in och agera på samma övervaknings data från virtuella Azure-datorer med följande skillnader:
 
-- [Plattforms mått](../platform/data-platform-metrics.md) samlas in automatiskt för virtuella datorer men bara för den [virtuella värden](#monitoring-data). Du behöver en agent för att samla in prestanda data från gäst operativ systemet. 
+-  [Plattforms mått](../platform/data-platform-metrics.md) samlas in automatiskt för virtuella datorer men bara för den [virtuella värden](#monitoring-data). Du behöver en agent för att samla in prestanda data från gäst operativ systemet. 
 - Virtuella datorer genererar inte [resurs loggar](../platform/platform-logs-overview.md) som ger inblick i åtgärder som utförts i en Azure-resurs. Du kan använda en agent för att samla in loggdata från gäst operativ systemet.
 - Du kan skapa [diagnostikinställningar](../platform/diagnostic-settings.md) för en virtuell dator för att skicka plattforms mått till andra mål, till exempel lagrings-och händelse nav, men du kan inte konfigurera diagnostikinställningar i Azure Portal. 
 
@@ -121,7 +121,6 @@ az monitor diagnostic-settings create \
 --resource /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm \
 --metrics '[{"category": "AllMetrics","enabled": true}]' \
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace
-
 ```
 
 ## <a name="monitoring-in-the-azure-portal"></a>Övervakning i Azure Portal 
@@ -133,11 +132,11 @@ När du har konfigurerat insamling av övervaknings data för en virtuell dator 
 
 ![Övervakning i Azure Portal](media/monitor-vm-azure/monitor-menu.png)
 
-| Meny alternativ | Beskrivning |
+| Meny alternativ | Description |
 |:---|:---|
 | Översikt | Visar [plattforms mått](../platform/data-platform-metrics.md) för den virtuella dator värden. Klicka på en graf för att arbeta med dessa data i [mått Utforskaren](../platform/metrics-getting-started.md). |
 | Aktivitetslogg | [Aktivitets logg](../platform/activity-log-view.md) poster som filtrerats för den aktuella virtuella datorn. |
-| Insights | Öppnar [Azure Monitor for VMS](../insights/vminsights-overview.md) med kartan för den aktuella virtuella datorn vald. |
+| Insikter | Öppnar [Azure Monitor for VMS](../insights/vminsights-overview.md) med kartan för den aktuella virtuella datorn vald. |
 | Aviseringar | Visar [aviseringar](../platform/alerts-overview.md) för den aktuella virtuella datorn.  |
 | Mått | Öppna [Metrics Explorer](../platform/metrics-getting-started.md) med scopet inställt på den aktuella virtuella datorn. |
 | Diagnostikinställningar | Aktivera och konfigurera [diagnostik-tillägg](../platform/diagnostics-extension-overview.md) för den aktuella virtuella datorn. |
@@ -149,12 +148,13 @@ När du har konfigurerat insamling av övervaknings data för en virtuell dator 
 ## <a name="analyzing-metric-data"></a>Analysera mått data
 Du kan analysera mått för virtuella datorer med hjälp av Metric Explorer genom att öppna **mått** från den virtuella datorns meny. Mer information om hur du använder det här verktyget finns i [komma igång med Azure Metrics Explorer](../platform/metrics-getting-started.md) . 
 
-Det finns två namn områden som används av virtuella datorer för mått:
+Det finns tre namn områden som används av virtuella datorer för mått:
 
-| Namnområde | Beskrivning |
-|:---|:---|
-| Virtuell värddator | Värd mått samlas in automatiskt för alla virtuella Azure-datorer. Detaljerad lista över mått på [Microsoft. Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). |
-| Gäst för virtuell dator | Gäst operativ systemets mått samlas in från virtuella datorer med diagnostiskt tillägg installerat och konfigurerat att skicka till Azure Monitor mottagare. |
+| Namnområde | Description | Krav |
+|:---|:---|:---|
+| Virtuell värddator | Värd mått samlas in automatiskt för alla virtuella Azure-datorer. Detaljerad lista över mått på [Microsoft. Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Samlas in automatiskt utan konfiguration krävs. |
+| Gäst (klassisk) | Begränsad uppsättning prestanda data för gäst operativ system och program. Tillgängligt i Metrics Explorer men inte andra Azure Monitor funktioner som mått varningar.  | [Diagnostiskt tillägg](../platform/diagnostics-extension-overview.md) installerat. Data läses från Azure Storage.  |
+| Gäst för virtuell dator | Prestanda data för gäst operativ system och program är tillgängliga för alla Azure Monitor funktioner med hjälp av mått. | För Windows är [diagnostiskt tillägg installerat](../platform/diagnostics-extension-overview.md) med Azure Monitor mottagare aktiverat. För Linux har du [installerat en teleympkvistar-agent](../platform/collect-custom-metrics-linux-telegraf.md). |
 
 ![Mått](media/monitor-vm-azure/metrics.png)
 

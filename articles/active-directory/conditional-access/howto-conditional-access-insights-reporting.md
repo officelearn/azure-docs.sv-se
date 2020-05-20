@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4113328a5de02c36b7285c837bd5314d11e526b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690421"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641591"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Villkorlig åtkomst insikter och rapportering
 
@@ -36,9 +36,6 @@ Följande roller kan komma åt insikter och rapportering:
 
 Användare behöver också en av följande Log Analytics arbets ytans roller:  
 
-- Läsare 
-- Övervaknings läsare 
-- Log Analytics läsare 
 - Deltagare  
 - Ägare 
 
@@ -54,7 +51,7 @@ Om du inte har integrerat Azure AD-loggar med Azure Monitor loggar måste du utf
 För att komma åt arbets boken insikter och rapportering:  
 
 1. Logga in på **Azure-portalen**.
-1. Bläddra till **Azure Active Directory** > **säkerhet** > för**villkorlig åtkomst** > **och rapportering**.
+1. Bläddra till **Azure Active Directory**  >  **säkerhet**för  >  **villkorlig åtkomst**  >  **och rapportering**.
 
 ### <a name="get-started-select-parameters"></a>Kom igång: Välj parametrar 
 
@@ -112,11 +109,11 @@ Om volymerna för inloggningar överskrider fråge kapaciteten för Log Analytic
 
 ### <a name="can-i-save-my-parameter-selections"></a>Kan jag spara mina parameter val?  
 
-Du kan spara dina parameter val längst upp i arbets boken genom att gå till **Azure Active Directory** > **arbets böcker** > **villkorlig åtkomst insikter och rapportering**. Här hittar du arbets boks mal len där du kan redigera arbets boken och spara en kopia på din arbets yta, inklusive parameter valen, i **Mina rapporter** eller **delade rapporter**. 
+Du kan spara dina parameter val längst upp i arbets boken genom att gå till **Azure Active Directory**  >  **arbets böcker**  >  **villkorlig åtkomst insikter och rapportering**. Här hittar du arbets boks mal len där du kan redigera arbets boken och spara en kopia på din arbets yta, inklusive parameter valen, i **Mina rapporter** eller **delade rapporter**. 
 
 ### <a name="can-i-edit-and-customize-the-workbook-with-additional-queries"></a>Kan jag redigera och anpassa arbets boken med fler frågor? 
 
-Du kan redigera och anpassa arbets boken genom att gå till **Azure Active Directory** > **arbets böcker** > **villkorlig åtkomst insikter och rapportering**. Här hittar du arbets boks mal len där du kan redigera arbets boken och spara en kopia på din arbets yta, inklusive parameter valen, i **Mina rapporter** eller **delade rapporter**. Om du vill börja redigera frågorna klickar du på **Redigera** överst i arbets boken.  
+Du kan redigera och anpassa arbets boken genom att gå till **Azure Active Directory**  >  **arbets böcker**  >  **villkorlig åtkomst insikter och rapportering**. Här hittar du arbets boks mal len där du kan redigera arbets boken och spara en kopia på din arbets yta, inklusive parameter valen, i **Mina rapporter** eller **delade rapporter**. Om du vill börja redigera frågorna klickar du på **Redigera** överst i arbets boken.  
  
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/13/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa9b090627b6f27a54b67c361b45b6f99e3a6338
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 584fc48aad6a64f8df54088e6dbfd990e8e112e8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982385"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655315"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Ändringsflödesprocessorn i Azure Cosmos DB
 
@@ -39,7 +39,7 @@ För att bättre förstå hur dessa fyra delar av ändra flödes processor funge
 
 ## <a name="implementing-the-change-feed-processor"></a>Implementera bearbetning av Change feeds-processorn
 
-Posten är alltid den övervakade behållaren, från en `Container` instans som du anropar: `GetChangeFeedProcessorBuilder`
+Posten är alltid den övervakade behållaren, från en `Container` instans som du anropar `GetChangeFeedProcessorBuilder` :
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -50,16 +50,16 @@ Ett exempel på ett ombud skulle vara:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Slutligen definierar du ett namn för processor instansen `WithInstanceName` med och som är behållaren för att underhålla låne status med `WithLeaseContainer`.
+Slutligen definierar du ett namn för processor instansen med `WithInstanceName` och som är behållaren för att underhålla låne status med `WithLeaseContainer` .
 
-Genom `Build` att anropa får du den processor instans som du kan starta genom `StartAsync`att anropa.
+`Build`Genom att anropa får du den processor instans som du kan starta genom att anropa `StartAsync` .
 
 ## <a name="processing-life-cycle"></a>Bearbetnings livs cykel
 
 Den normala livs cykeln för en värd instans är:
 
 1. Läs ändrings flödet.
-1. Om det inte finns några ändringar kan du försätta i vilo läge under en `WithPollInterval` fördefinierad tid (anpassningsbar med i-verktyget) och gå till #1.
+1. Om det inte finns några ändringar kan du försätta i vilo läge under en fördefinierad tid (anpassningsbar med `WithPollInterval` i-verktyget) och gå till #1.
 1. Om det finns ändringar skickar du dem till **ombudet**.
 1. När ombudet har slutfört bearbetningen **av ändringarna uppdaterar**du leasing lagret med den senaste bearbetade tidpunkten och går till #1.
 
@@ -71,15 +71,21 @@ För att förhindra att en ändrings flödes processor får "fastnat" och samtid
 
 Dessutom kan du använda [uppskattningen ändra feed](how-to-use-change-feed-estimator.md) för att övervaka förloppet för dina byte av Change feed processor när de läser ändrings flödet. Förutom övervakningen om processorn för förändrings flödet får "fastnat" och försöker igen med samma batch med ändringar, kan du också förstå om din process för ändrings flöden håller på att förfalla efter tillgängliga resurser som processor, minne och nätverks bandbredd.
 
+## <a name="deployment-unit"></a>Distributions enhet
+
+En distributions enhet för en enda ändrings container processor består av en eller flera instanser med samma `processorName` konfiguration som den lånade behållaren. Du kan ha många distributions enheter där var och en har ett annat affärs flöde för ändringarna och varje distributions enhet som består av en eller flera instanser. 
+
+Du kan till exempel ha en distributions enhet som utlöser ett externt API när som helst när du gör en ändring i din behållare. En annan distributions enhet kan flytta data i real tid varje tillfälle då en ändring sker. När en ändring sker i den övervakade behållaren får alla dina distributions enheter ett meddelande.
+
 ## <a name="dynamic-scaling"></a>Dynamisk skalning
 
-Som vi nämnt under introduktionen kan bytet av byte-processorn distribuera data bearbetningen över flera instanser automatiskt. Du kan distribuera flera instanser av ditt program med hjälp av Change feed-processorn och dra nytta av det, de enda viktiga kraven är:
+Som nämnts tidigare kan du ha en eller flera instanser inom en distributions enhet. För att kunna dra nytta av beräknings distributionen inom distributions enheten är de enda viktiga kraven:
 
 1. Alla instanser bör ha samma konfiguration för låne behållare.
-1. Alla instanser ska ha samma arbets flödes namn.
-1. Varje instans måste ha ett annat instans namn (`WithInstanceName`).
+1. Alla instanser bör ha samma `processorName` .
+1. Varje instans måste ha ett annat instans namn ( `WithInstanceName` ).
 
-Om dessa tre villkor är uppfyllda, kommer byte av byte-processorn att använda en algoritm för samma distribution, distribuera alla lån i leasing behållaren över alla instanser som körs och parallellisera-beräkning. Ett lån kan bara ägas av en instans vid en specifik tidpunkt, så det maximala antalet instanser är lika med antalet lån.
+Om dessa tre villkor är uppfyllda, använder Change container-processorn med en algoritm för likvärdig distribution och distribuerar alla lån i leasing behållaren över alla instanser som körs av distributions enheten och parallellisera-beräkning. Ett lån kan bara ägas av en instans vid en specifik tidpunkt, så det maximala antalet instanser är lika med antalet lån.
 
 Antalet instanser kan utökas och krympas dynamiskt, och processorn för förändrings flödet justerar belastningen dynamiskt genom att distribuera om enligt detta.
 
@@ -100,7 +106,7 @@ Du debiteras för ru: er som förbrukas, eftersom data förflyttning in och ut u
 Nu kan du fortsätta med att lära dig mer om att ändra flödes processor i följande artiklar:
 
 * [Översikt över ändra feed](change-feed.md)
-* [Ändra feed-pull-modell](change-feed-pull-model.md)
+* [Hämtningsmodell för ändringsflöde](change-feed-pull-model.md)
 * [Så här migrerar du från biblioteket Change feed processor](how-to-migrate-from-change-feed-library.md)
 * [Använda ändringsflödesövervakaren](how-to-use-change-feed-estimator.md)
 * [Starttid för ändringsflödesprocessor](how-to-configure-change-feed-start-time.md)

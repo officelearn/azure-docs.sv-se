@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: b342c4319064bd00681c914585e541ab0bc3e17e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 954562f3f88276b5aef7dbd4e2237d180a4c2e40
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585665"
+ms.locfileid: "83653948"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicera din aktiva, utbildade app till en mellanlagrings-eller produktions slut punkt
 
@@ -57,7 +57,7 @@ Till exempel, för en app som skapas på [www.Luis.AI](https://www.luis.ai), om 
 När du har valt plats, konfigurerar du publicerings inställningarna för:
 
 * Sentimentanalys
-* Stavnings korrigering – v2 endast förutsägelse slut punkt
+* [Stavnings korrigering](luis-tutorial-bing-spellcheck.md) – v2 endast förutsägelse slut punkt
 * Tal Prima
 
 När du har publicerat är de här inställningarna tillgängliga för granskning på sidan hantera **publicerings inställningar** i avsnittet **Hantera** . Du kan ändra inställningarna med varje publicering. Om du avbryter en publicering avbryts även eventuella ändringar som du har gjort under publiceringen.
@@ -78,7 +78,7 @@ Du behöver inte ange en Textanalys nyckel och det finns ingen fakturerings avgi
 
 Sentiment-data är ett resultat mellan 1 och 0 som anger positiv (närmare 1) eller negativ (närmare 0) sentiment av data. Sentiment-etiketten för `positive` , `neutral` , och `negative` är per kultur som stöds. För närvarande stöder endast engelska sentiment-etiketter.
 
-Mer information om JSON-slutpunktens svar med sentiment-analys finns i [sentiment-analys](luis-concept-data-extraction.md#sentiment-analysis)
+Mer information om JSON-slutpunktens svar med sentiment-analys finns i [sentiment-analys](luis-reference-prebuilt-sentiment.md)
 
 ## <a name="spelling-correction"></a>Stavnings korrigering
 

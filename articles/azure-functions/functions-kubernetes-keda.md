@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 5c050eb38e47ce2ab9d11e5c92eb7bdd3ac8e572
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: eab0a54d30f2cd2829779dbfc6081445f5be0a71
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121702"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648839"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions på Kubernetes med KEDA
 
@@ -28,7 +28,7 @@ Om du vill köra funktioner i ditt Kubernetes-kluster måste du installera KEDA-
 
 ### <a name="installing-with-helm"></a>Installera med Helm
 
-Det finns olika sätt att installera KEDA i ett Kubernetes-kluster inklusive Helm.  Distributions alternativen finns dokumenterade på [KEDA-webbplatsen](https://keda.sh/docs/deploy/).
+Det finns olika sätt att installera KEDA i ett Kubernetes-kluster inklusive Helm.  Distributions alternativen finns dokumenterade på [KEDA-webbplatsen](https://keda.sh/docs/1.4/deploy/).
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Distribuera en Function-app till Kubernetes
 
@@ -67,7 +67,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## <a name="uninstalling-keda-from-kubernetes"></a>Avinstallerar KEDA från Kubernetes
 
-Steg för att avinstallera KEDA dokumenteras [på KEDA-webbplatsen](https://keda.sh/deploy/).
+Steg för att avinstallera KEDA dokumenteras [på KEDA-webbplatsen](https://keda.sh/docs/1.4/deploy/).
 
 ## <a name="supported-triggers-in-keda"></a>Utlösare som stöds i KEDA
 

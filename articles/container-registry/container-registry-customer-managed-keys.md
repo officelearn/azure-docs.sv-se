@@ -4,12 +4,12 @@ description: Lär dig mer om kryptering – resten av Azure Container Registry o
 ms.topic: article
 ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: d9cd10401e7f645a8edd269184a56dc27544a8c8
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a81305be13fd824e7674346aadcaddb83787322d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927332"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683480"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Kryptera registret med en kundhanterad nyckel
 
@@ -17,7 +17,7 @@ När du lagrar bilder och andra artefakter i ett Azure Container Registry krypte
 
 Kryptering på Server sidan med Kundhanterade nycklar stöds genom integrering med [Azure Key Vault](../key-vault/general/overview.md). Du kan skapa egna krypterings nycklar och lagra dem i ett nyckel valv eller använda Azure Key Vault s API: er för att generera nycklar. Med Azure Key Vault kan du också granska nyckel användningen.
 
-Den här funktionen är tillgänglig i tjänst nivån **Premium** container Registry. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry SKU: er](container-registry-skus.md).
+Den här funktionen är tillgänglig i tjänst nivån **Premium** container Registry. Information om nivåer och gränser för register tjänster finns i [Azure Container Registry tjänst nivåer](container-registry-skus.md).
 
    
 ## <a name="things-to-know"></a>Saker att känna till
@@ -51,7 +51,7 @@ az identity create \
   --name <managed-identity-name> 
 ```
 
-I kommandot utdata noterar du följande värden: `id` och. `principalId` Du behöver dessa värden i senare steg för att konfigurera register åtkomst till nyckel valvet.
+I kommandot utdata noterar du följande värden: `id` och `principalId` . Du behöver dessa värden i senare steg för att konfigurera register åtkomst till nyckel valvet.
 
 ```JSON
 {
@@ -111,7 +111,7 @@ az keyvault key create \
   --vault-name <key-vault-name>
 ```
 
-Anteckna nyckelns ID i kommandot utdata `kid`. Du använder det här ID: t i nästa steg:
+Anteckna nyckelns ID i kommandot utdata `kid` . Du använder det här ID: t i nästa steg:
 
 ```JSON
 [...]
@@ -200,7 +200,7 @@ När du skapar ett nyckel valv för en kundhanterad nyckel, på fliken **grundl�
 Konfigurera en princip för nyckel valvet så att identiteten kan komma åt den.
 
 1. Navigera till ditt nyckel valv.
-1. Välj **Inställningar** > **åtkomst principer > + Lägg till åtkomst princip**.
+1. Välj **Inställningar**  >  **åtkomst principer > + Lägg till åtkomst princip**.
 1. Välj **nyckel behörigheter**och välj **Hämta**, **unwrap Key**och **wrap Key**.
 1. Välj **Välj huvud** namn och Välj resurs namnet för den hanterade identiteten som tilldelats av användaren.  
 1. Välj **Lägg till**och välj sedan **Spara**.
@@ -210,14 +210,14 @@ Konfigurera en princip för nyckel valvet så att identiteten kan komma åt den.
 ### <a name="create-key"></a>Skapa nyckel
 
 1. Navigera till ditt nyckel valv.
-1. Välj **Inställningar** > **nycklar**.
+1. Välj **Inställningar**  >  **nycklar**.
 1. Välj **+ generera/importera** och ange ett unikt namn för nyckeln.
 1. Acceptera återstående standardvärden och välj **skapa**.
 1. När du har skapat väljer du nyckeln och noterar den aktuella nyckel versionen.
 
 ### <a name="create-azure-container-registry"></a>Skapa Azure Container Registry
 
-1. Välj **skapa en resurs** > **behållare** > **container Registry**.
+1. Välj **skapa en resurs**  >  **behållare**  >  **container Registry**.
 1. På fliken **grundläggande** , Välj eller skapa en resurs grupp och ange ett register namn. I **SKU**väljer du **Premium**.
 1. På fliken **kryptering** i **kundhanterad nyckel**väljer du **aktive rad**.
 1. I **identitet**väljer du den hanterade identitet som du skapade.
@@ -234,7 +234,7 @@ Om du vill se krypterings status för registret i portalen går du till registre
 
 Du kan också använda en Resource Manager-mall för att skapa ett register och aktivera kryptering med en kundhanterad nyckel. 
 
-Följande mall skapar ett nytt behållar register och en användardefinierad hanterad identitet. Kopiera följande innehåll till en ny fil och spara det med ett fil namn, till `CMKtemplate.json`exempel.
+Följande mall skapar ett nytt behållar register och en användardefinierad hanterad identitet. Kopiera följande innehåll till en ny fil och spara det med ett fil namn, till exempel `CMKtemplate.json` .
 
 ```JSON
 {
@@ -418,7 +418,7 @@ Använd registrets **krypterings** inställningar för att uppdatera nyckel vers
 Till exempel för att skapa och konfigurera en ny nyckel version:
 
 1. I portalen navigerar du till ditt register. 
-1. Under **Inställningar**väljer du **krypterings** > **ändrings nyckel**.
+1. Under **Inställningar**väljer du **krypterings**  >  **ändrings nyckel**.
 1. Välj **Välj nyckel**
     
     ![Rotera nyckel i Azure Portal](./media/container-registry-customer-managed-keys/rotate-key.png)
@@ -448,14 +448,14 @@ Du kan konfigurera ett registers systemtilldelad hanterad identitet för att få
 Så här aktiverar du registrets systemtilldelade identitet i portalen:
 
 1. I portalen navigerar du till ditt register. 
-1. Välj **Inställningar** >  **identitet**.
+1. Välj **Inställningar**  >   **identitet**.
 1. Under **systemtilldelat**, ställer du in **status** **på på**. Välj **Spara**.
 1. Kopiera identitetens **objekt-ID** .
 
 Så här ger du identitets åtkomst till ditt nyckel valv:
 
 1. Navigera till ditt nyckel valv.
-1. Välj **Inställningar** > **åtkomst principer > + Lägg till åtkomst princip**.
+1. Välj **Inställningar**  >  **åtkomst principer > + Lägg till åtkomst princip**.
 1. Välj **nyckel behörigheter**och välj **Hämta**, **unwrap Key**och **wrap Key**.
 1. Välj **Välj huvud namn** och Sök efter objekt-ID: t för den systemtilldelade hanterade identiteten eller namnet på registret.  
 1. Välj **Lägg till**och välj sedan **Spara**.
@@ -463,7 +463,7 @@ Så här ger du identitets åtkomst till ditt nyckel valv:
 Så här uppdaterar du registrets krypterings inställningar för att använda identiteten:
 
 1. I portalen navigerar du till ditt register. 
-1. Under **Inställningar**väljer du **krypterings** > **ändrings nyckel**.
+1. Under **Inställningar**väljer du **krypterings**  >  **ändrings nyckel**.
 1. I **identitet**väljer du **tilldelat system**och väljer **Spara**.
 
 ### <a name="key-vault-firewall"></a>Key Vault brand vägg

@@ -3,12 +3,12 @@ title: Hantera säkerhetskopierade SAP HANA databaser på virtuella Azure-datore
 description: I den här artikeln lär du dig vanliga uppgifter för att hantera och övervaka SAP HANA databaser som körs på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 89fd7f23163d301817e767771257d9bc6f4ed526
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c810a049fafcbce6d4c840557b101e5226343ab7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480070"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660159"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Hantera och övervaka säkerhetskopierade SAP HANA-databaser
 
@@ -64,17 +64,25 @@ Säkerhets kopieringar körs enligt princip schemat. Du kan köra en säkerhets 
 1. I menyn valv klickar du på **säkerhets kopierings objekt**.
 2. I **säkerhets kopierings objekt**väljer du den virtuella dator som kör SAP HANA databasen och klickar sedan på **Säkerhetskopiera nu**.
 3. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Klicka sedan på **OK**.
-4. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb** > **pågår**. Det kan ta en stund att skapa den första säkerhets kopieringen, beroende på databasens storlek.
+4. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb**  >  **pågår**. Det kan ta en stund att skapa den första säkerhets kopieringen, beroende på databasens storlek.
 
 ### <a name="hana-native-client-integration"></a>HANA inbyggd klient integrering
 
-Fullständiga säkerhets kopieringar på begäran som utlöses från någon av de HANA-ursprungliga klienterna visas nu som en fullständig säkerhets kopia på sidan **säkerhets kopierings objekt** .
+#### <a name="backup"></a>Backup
+
+Säkerhets kopiering på begäran som utlöses från någon av de HANA-ursprungliga klienterna (till **Backint**) visas i listan säkerhets kopia på sidan **säkerhets kopierings objekt** .
 
 ![Senaste säkerhets kopierings körning](./media/sap-hana-db-manage/last-backups.png)
 
-Dessa ad-hoc-fullständiga säkerhets kopieringar visas också i listan över återställnings punkter för återställning.
+Du kan också [övervaka dessa säkerhets kopior](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) från sidan **säkerhets kopierings jobb** .
+
+Dessa säkerhets kopior på begäran visas också i listan över återställnings punkter för återställning.
 
 ![Lista över återställnings punkter](./media/sap-hana-db-manage/list-restore-points.png)
+
+#### <a name="restore"></a>Återställ
+
+Återställningar som utlöses från HANA-ursprungliga klienter (med **Backint**) för att återställa till samma dator kan [övervakas](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) från sidan **säkerhets kopierings jobb** .
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Kör SAP HANA inbyggd klient säkerhets kopiering på en databas med Azure Backup aktiverat
 
@@ -82,7 +90,7 @@ Om du vill ta en lokal säkerhets kopia (med HANA Studio/cockpit) för en databa
 
 1. Vänta tills alla säkerhets kopieringar eller loggar för databasen har slutförts. Kontrol lera statusen i SAP HANA Studio/cockpit.
 2. Inaktivera logg säkerhets kopior och ange säkerhets kopierings katalogen till fil systemet för relevant databas.
-3. Det gör du genom att dubbelklicka på **systemdb** > **konfiguration** > **Välj databas** > **filter (logg)**.
+3. Det gör du genom att dubbelklicka på **systemdb**  >  **konfiguration**  >  **Välj databas**  >  **filter (logg)**.
 4. Ange **enable_auto_log_backup** till **Nej**.
 5. Ange **log_backup_using_backint** till **false**.
 6. Utför en fullständig säkerhets kopiering på begäran av databasen.

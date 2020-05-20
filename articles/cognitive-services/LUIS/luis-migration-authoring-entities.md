@@ -1,24 +1,24 @@
 ---
-title: Migrera till v3-enhet med maskin inlärd
-description: V3-redigeringen tillhandahåller en ny entitetstyp, den dator som har lärts, tillsammans med möjligheten att lägga till relationer till den enhet som har registrerats av enheten och andra entiteter eller funktioner i programmet.
+title: Migrera till v3-enhet för maskin inlärning
+description: V3-redigeringen innehåller en ny entitetstyp, en enhet för maskin inlärning, tillsammans med möjligheten att lägga till relationer i enheten för maskin inlärning och andra entiteter eller funktioner i programmet.
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 79fbe261f597f55ca6caff468d4d5c154a273c42
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: aaa5472f25a5eca5ceadf979c57a83874ce4cb6e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593230"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684590"
 ---
 # <a name="migrate-to-v3-authoring-entity"></a>Migrera till v3-redigering av entitet
 
-V3-redigeringen tillhandahåller en ny entitetstyp, den dator som har lärts, tillsammans med möjligheten att lägga till relationer till den enhet som har registrerats av enheten och andra entiteter eller funktioner i programmet.
+V3-redigeringen innehåller en ny entitetstyp, en enhet för maskin inlärning, tillsammans med möjligheten att lägga till relationer i enheten för maskin inlärning och andra entiteter eller funktioner i programmet.
 
 ## <a name="entities-are-decomposable-in-v3"></a>Entiteter är sammanställnings bara i v3
 
-Entiteter som skapats med v3-redigering av API: er, antingen med hjälp av [API: er](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) eller med portalen, gör att du kan skapa en modell för skiktad enhet med en överordnad och underordnad Den överordnade enheten är känd som den **enhet som har lärts** in, och de underordnade är kända som **underentiteter** till den enhet som har lärts in.
+Entiteter som skapats med v3-redigering av API: er, antingen med hjälp av [API: er](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview) eller med portalen, gör att du kan skapa en modell för skiktad enhet med en överordnad och underordnad Den överordnade enheten är känd som en **enhet för maskin inlärning** och de underordnade är kända som **underentiteter** till den inlärda enheten.
 
-Varje underentitet är också en enhets medveten entitet, men med de tillagda konfigurations alternativen för funktioner.
+Varje underentitet är också en maskin inlärnings enhet, men med de tillagda konfigurations alternativen för funktioner.
 
 * De **funktioner som krävs** är regler som garanterar att en entitet extraheras när den matchar en funktion. Regeln definieras av den obligatoriska funktionen i modellen:
     * [Fördefinierad entitet](luis-reference-prebuilt-entities.md)
@@ -54,36 +54,36 @@ När du migrerar bör du tänka på följande i migrerings planen:
     * Entiteter
         * Hierarkisk entitet
         * Sammansatt entitet
-    * Roller – roller kan bara tillämpas på en enhet som har lärts (överordnad). Roller kan inte tillämpas på underentiteter
+    * Roller – roller kan bara tillämpas på en dator-inlärning (överordnad) entitet. Roller kan inte tillämpas på underentiteter
     * Batch-tester och mönster som använder hierarkiska och sammansatta entiteter
 
-När du utformar din migrering, lämna tid för att granska de slutliga enhets identifierade entiteterna efter att alla hierarkiska och sammansatta entiteter har migrerats. När en rak migrering fungerar, efter att du har gjort ändringen och granskat batch-testresultat och förutsägelse-JSON, kan det mer enhetliga JSON-nätverket leda till att du gör ändringar så att den slutliga informationen som skickas till klient sidan är ordnad annorlunda. Detta liknar kod omstrukturering och bör behandlas med samma gransknings process som organisationen har på plats.
+När du utformar din migrering, lämna tid för att granska de slutliga enheterna för maskin inlärning när alla hierarkiska och sammansatta entiteter har migrerats. När en rak migrering fungerar, efter att du har gjort ändringen och granskat batch-testresultat och förutsägelse-JSON, kan det mer enhetliga JSON-nätverket leda till att du gör ändringar så att den slutliga informationen som skickas till klient sidan är ordnad annorlunda. Detta liknar kod omstrukturering och bör behandlas med samma gransknings process som organisationen har på plats.
 
 Om du inte har batch-test för din v2-modell och migrerar batch-test till v3-modellen som en del av migreringen, kommer du inte att kunna verifiera hur migreringen påverkar resultatet av slut punkten.
 
 ## <a name="migrating-from-v2-entities"></a>Migrera från v2 entiteter
 
-När du börjar flytta till v3-redigerings modellen bör du fundera över hur du flyttar till den enhet som har lärts och dess underentiteter och funktioner.
+När du börjar flytta till v3-redigerings modellen bör du fundera över hur du flyttar till entiteten för maskin inlärning och dess underentiteter och funktioner.
 
 I följande tabell noterar du vilka entiteter som behöver migrera från en v2 till en v3-enhets design.
 
 |V2 redigerings enhets typ|V3-redigering av enhets typ|Exempel|
 |--|--|--|
 |Sammansatt entitet|Enheten har lärts|[Lära sig mer](#migrate-v2-composite-entity)|
-|Hierarkisk entitet|Enhets roll som har registrerats av enheten|[Lära sig mer](#migrate-v2-hierarchical-entity)|
+|Hierarkisk entitet|enhets roll för Machine-Learning|[Lära sig mer](#migrate-v2-hierarchical-entity)|
 
 ## <a name="migrate-v2-composite-entity"></a>Migrera den sammansatta v2-entiteten
 
-Varje underordnad av v2-kompositen bör representeras av en underordnad enhet till den v3-enhet som har registrerats. Om den sammansatta underordnade är ett fördefinierat, reguljärt uttryck eller en List-entitet, ska detta användas som en nödvändig funktion på underentiteten.
+Varje underordnad av v2-kompositen bör representeras av en underordnad enhet för v3-enheten för maskin inlärning. Om den sammansatta underordnade är ett fördefinierat, reguljärt uttryck eller en List-entitet, ska detta användas som en nödvändig funktion på underentiteten.
 
-Att tänka på när du planerar att migrera en sammansatt entitet till en enhet som har lärts ur enheten:
+Att tänka på när du planerar att migrera en sammansatt entitet till en enhet för maskin inlärning:
 * Det går inte att använda underordnade entiteter i mönster
 * Underordnade entiteter delas inte längre
 * Underordnade entiteter måste märkas om de inte har använts av datorn
 
 ### <a name="existing-features"></a>Befintliga funktioner
 
-Alla fras listor som används för att öka ord i den sammansatta entiteten ska användas som en funktion för antingen den enhet som har lärts (överordnad), underentiteten (underordnad) eller avsikten (om fras listan bara gäller en avsikt). Planera att lägga till funktionen i entiteten där den bör öka markant. Lägg inte till funktionen allmänt till den dator som är inlärd (överordnad), om den mest ökar förutsägelsen för en underordnad enhet (underordnad).
+Alla fras listor som används för att öka ord i den sammansatta entiteten ska användas som en funktion för antingen den (överordnade) entiteten, underentiteten (underordnad) entiteten eller avsikten (om fras listan bara gäller för ett avsikt). Planera att lägga till funktionen i entiteten där den bör öka markant. Lägg inte till funktionen allmänt i den Machine-Learning (överordnade) entiteten, om den inte kommer att öka förutsägelsen för en underordnad enhet (underordnad).
 
 ### <a name="new-features"></a>Nya funktioner
 
@@ -106,7 +106,7 @@ Följande tabell visar migreringen:
 
 |V2-modeller|V3-modeller|
 |--|--|
-|Överordnad komponent enhet med namnet`Order`|Överordnad dator – inlärd entitet med namnet`Order`|
+|Överordnad komponent enhet med namnet`Order`|Överordnad maskin inlärnings enhet med namnet`Order`|
 |Underordnade-fördefinierade datetimeV2|* Migrera en fördefinierad entitet till en ny app.<br>* Lägg till nödvändig funktion på överordnad datetimeV2.|
 |Entitet med underordnad lista för toppings|* Migrera List entiteten till en ny app.<br>* Lägg sedan till en nödvändig funktion på den överordnade entiteten lista.|
 
@@ -116,7 +116,7 @@ Följande tabell visar migreringen:
 I v2-redigering tillhandahölls en hierarkisk entitet innan befintliga roller i LUIS. Båda har samma syfte att extrahera entiteter baserat på Sammanhangs användning. Om du har hierarkiska entiteter kan du tänka på dem som enkla entiteter med roller.
 
 I v3-redigering:
-* En roll kan tillämpas på den dator som har lärts (överordnad) entiteten.
+* En roll kan tillämpas på den dator-inlärning (överordnade) entiteten.
 * Det går inte att använda en roll för några underentiteter.
 
 Den här entiteten är endast ett exempel. Din egen enhets migrering kan kräva andra överväganden.
@@ -132,7 +132,7 @@ Följande tabell visar migreringen:
 
 |V2-modeller|V3-modeller|
 |--|--|
-|Överordnad komponent enhet med namnet`Order`|Överordnad dator – inlärd entitet med namnet`Order`|
+|Överordnad komponent enhet med namnet`Order`|Överordnad maskin inlärnings enhet med namnet`Order`|
 |Underordnad-hierarkisk entitet med ursprunglig och slutgiltig pizza-topping|* Lägg till roll för `Order` varje topping.|
 
 ## <a name="api-change-constraint-replaced-with-required-feature"></a>API-ändrings begränsning ersatt med nödvändig funktion

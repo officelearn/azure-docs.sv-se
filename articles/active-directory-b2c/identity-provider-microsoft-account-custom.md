@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56c25ce417a17024843de1b9b16f57740de1e9fc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188128"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636967"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Microsoft-konto att använda anpassade principer i Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du aktiverar inloggning för användare från en Mic
 ## <a name="prerequisites"></a>Krav
 
 - Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
-- Om du inte redan har en Microsoft-konto skapar du en på [https://www.live.com/](https://www.live.com/).
+- Om du inte redan har en Microsoft-konto skapar du en på [https://www.live.com/](https://www.live.com/) .
 
 ## <a name="register-an-application"></a>Registrera ett program
 
@@ -38,8 +38,8 @@ Om du vill aktivera inloggning för användare med en Microsoft-konto måste du 
 1. Välj **alla tjänster** i det övre vänstra hörnet av Azure Portal och Sök sedan efter och välj **Appregistreringar**.
 1. Välj **ny registrering**.
 1. Ange ett **namn** för ditt program. Till exempel *MSAapp1*.
-1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)**.
-1. Under **omdirigerings-URI (valfritt)** väljer du `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` **webb** och anger i text rutan. Ersätt `your-tenant-name` med ditt Azure AD B2C klient namn.
+1. Under **konto typer som stöds**väljer du **konton i valfri organisations katalog (alla Azure AD-klienter-flera klienter) och personliga Microsoft-konton (t. ex. Skype, Xbox)**.
+1. Under **omdirigerings-URI (valfritt)** väljer du **webb** och anger `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` i text rutan. Ersätt `<tenant-name>` med ditt Azure AD B2C klient namn.
 1. Välj **register**
 1. Registrera **program-ID (klient)** som visas på sidan program översikt. Du behöver detta när du konfigurerar anspråks leverantören i ett senare avsnitt.
 1. Välj **certifikat & hemligheter**
@@ -69,10 +69,10 @@ Nu när du har skapat programmet i din Azure AD-klient måste du lagra programme
 1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 1. På sidan Översikt väljer du **ID för identitets miljö**.
 1. Välj **princip nycklar** och välj sedan **Lägg till**.
-1. För **alternativ**väljer `Manual`du.
+1. För **alternativ**väljer du `Manual` .
 1. Ange ett **namn** för princip nyckeln. Till exempel `MSASecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
 1. I **hemlighet**anger du den klient hemlighet som du registrerade i föregående avsnitt.
-1. För **nyckel användning**väljer `Signature`du.
+1. För **nyckel användning**väljer du `Signature` .
 1. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -148,7 +148,7 @@ Fortsätt till nästa avsnitt om inga fel visas i portalen.
 Nu har du konfigurerat identitets leverantören, men den är inte tillgänglig ännu på någon av registrerings-eller inloggnings skärmarna. Om du vill göra det tillgängligt skapar du en dubblett av en befintlig användar resa och ändrar den så att den även har Microsoft-konto identitets leverantör.
 
 1. Öppna filen *TrustFrameworkBase. XML* från start paketet.
-1. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"`.
+1. Sök efter och kopiera hela innehållet i **UserJourney** -elementet som innehåller `Id="SignUpOrSignIn"` .
 1. Öppna *TrustFrameworkExtensions. XML* och hitta **UserJourneys** -elementet. Om elementet inte finns lägger du till ett.
 1. Klistra in hela innehållet i **UserJourney** -elementet som du kopierade som ett underordnat objekt till **UserJourneys** -elementet.
 1. Byt namn på användar resans ID. Till exempel `SignUpSignInMSA`.
@@ -157,8 +157,8 @@ Nu har du konfigurerat identitets leverantören, men den är inte tillgänglig �
 
 **ClaimsProviderSelection** -elementet är detsamma som en identitetsprovider på en registrerings-eller inloggnings skärm. Om du lägger till ett **ClaimsProviderSelection** -element för en Microsoft-konto visas en ny-knapp när en användare hamnar på sidan.
 
-1. I filen *TrustFrameworkExtensions. XML* letar du reda på **OrchestrationStep** -elementet som `Order="1"` innehåller i användar resan som du skapade.
-1. Lägg till följande-element under **ClaimsProviderSelects**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `MicrosoftAccountExchange`:
+1. I filen *TrustFrameworkExtensions. XML* letar du reda på **OrchestrationStep** -elementet som innehåller `Order="1"` i användar resan som du skapade.
+1. Lägg till följande-element under **ClaimsProviderSelects**. Ange värdet för **TargetClaimsExchangeId** till ett lämpligt värde, till exempel `MicrosoftAccountExchange` :
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
@@ -208,7 +208,7 @@ Uppdatera den förlitande parten (RP) som initierar användar resan som du har s
       "exp": 1562365200,
       "nbf": 1562361600,
       "ver": "1.0",
-      "iss": "https://your-b2c-tenant.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
+      "iss": "https://<tenant-name>.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
       "sub": "20000000-0000-0000-0000-000000000000",
       "aud": "30000000-0000-0000-0000-000000000000",
       "acr": "b2c_1a_signupsigninmsa",

@@ -4,13 +4,13 @@ description: Lär dig mer om de steg som krävs för att aktivera de nya Azure M
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 65c2220bd3e9ea93e562b256e84796aed9046d00
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/18/2020
+ms.openlocfilehash: e66ae6aa0b9b7e309fbd6fcc3699cb873a266bbe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211413"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647889"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Arbets yta-baserade Application Insights resurser (förhands granskning)
 
@@ -40,9 +40,7 @@ Om du klickar på den blå länk texten tas du till den associerade Log Analytic
 
 ## <a name="copy-the-connection-string"></a>Kopiera anslutningssträngen
 
-[Anslutnings strängen]() identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
-
-![Klicka och kopiera Instrumentation-tangenten](./media/create-new-resource/instrumentation-key.png)
+[Anslutnings strängen](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identifierar den resurs som du vill associera dina telemetridata med. Du kan också ändra de slut punkter som resursen kommer att använda som mål för din telemetri. Du måste kopiera anslutnings strängen och lägga till den i programmets kod eller till en miljö variabel.
 
 ## <a name="monitoring-configuration"></a>Övervaknings konfiguration
 
@@ -192,6 +190,10 @@ Fullständig Azure CLI-dokumentation för det här kommandot finns i [Azure CLI-
 När en arbets yta-baserad Application Insights resurs har skapats kan du ändra den associerade Log Analytics-arbetsytan.
 
 I fönstret Application Insights resurs väljer du **Egenskaper**  >  **ändra arbets yta**  >  **Log Analytics arbets ytor**
+
+## <a name="export-telemetry"></a>Exportera telemetri
+
+Äldre funktioner för kontinuerlig export stöds inte för arbets ytans resurser. I stället väljer du **diagnostikinställningar**  >  **Lägg till diagnostisk inställning** inifrån din Application Insights-resurs. Du kan välja alla tabeller eller en delmängd av tabeller för att arkivera till ett lagrings konto eller strömma till en Azure Event Hub.
 
 ## <a name="next-steps"></a>Nästa steg
 

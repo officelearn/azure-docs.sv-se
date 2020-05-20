@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 05/18/2019
 ms.author: danis
-ms.openlocfilehash: 1f0395956fa6977be5d1d6f4f4faf06b84c094d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c591efeedc87926a0ed7b42de6c3267721cebab
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79465047"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657440"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-Init-stöd för virtuella datorer i Azure
 Den här artikeln beskriver det stöd som finns för [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-konfigurationer körs vid första start när resurserna har etablerats av Azure.  
@@ -30,7 +30,7 @@ VM-etablering är den process där Azure ska passera din virtuella dator skapa p
 Azure har stöd för två etablerings agenter [Cloud-Init](https://cloudinit.readthedocs.io)och [Azure Linux-agenten (Wala)](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux).
 
 ## <a name="cloud-init-overview"></a>Översikt över Cloud-Init
-[Cloud-Init](https://cloudinit.readthedocs.io) är en metod som används ofta för att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom Cloud-Init anropas under den första start processen finns det inga ytterligare steg eller nödvändiga agenter för att tillämpa konfigurationen.  Mer information om hur du formaterar `#cloud-config` filer eller andra indata på rätt sätt finns på webbplatsen för [Cloud-Init-dokumentation](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`filer är textfiler kodade i base64.
+[Cloud-Init](https://cloudinit.readthedocs.io) är en metod som används ofta för att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom Cloud-Init anropas under den första start processen finns det inga ytterligare steg eller nödvändiga agenter för att tillämpa konfigurationen.  Mer information om hur du formaterar `#cloud-config` filer eller andra indata på rätt sätt finns på [webbplatsen för Cloud-Init-dokumentation](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`filer är textfiler kodade i base64.
 
 Cloud-Init fungerar även över distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-Init använder automatiskt det inbyggda paket hanterings verktyget för distribution som du väljer.
 
@@ -52,19 +52,22 @@ Det finns två steg för att göra Cloud-Init tillgängligt för de påtecknade 
 | Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |ja | Ja-support från paket version: *18.2-1. el7_6.2*|
-|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 7,7-avbildningar har stöd för Cloud-Init tas det bort mellan 2020, meddelande om detta kommer att ges) | Ja-support från paket version: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL |7 – RAW | saknas| inga avbildnings uppdateringar att slutföra slutet av april 2020| Ja-support från paket version: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL |7-LVM | saknas| inga avbildnings uppdateringar att slutföra slutet av april| Ja-support från paket version: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL |7,7 | saknas| inga avbildnings uppdateringar att slutföra slutet av april | Ja-support från paket version: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL – BYOS | RHEL – lvm77 | saknas|inga avbildnings uppdateringar att slutföra slutet av april  | Ja-support från paket version: *18.5 -3. el7*|
+|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 7,7-avbildningar har stöd för Cloud-Init tas detta bort 1 september 2020) | Ja-support från paket version: *18.5 -3. el7*|
+|RedHat 7,7 |RHEL |7-LVM | saknas| inga avbildnings uppdateringar att slutföra slutet av maj| Ja-support från paket version: *18.5 -3. el7*|
+|RedHat 7,7 |RHEL |7,7 | saknas| inga avbildnings uppdateringar att slutföra slutet av maj | Ja-support från paket version: *18.5 -3. el7*|
+|RedHat 7,7 (gen1) |RHEL – BYOS | RHEL – lvm77 | saknas|inga avbildnings uppdateringar att slutföra slutet av april  | Ja-support från paket version: *18.5 -3. el7*|
+|RedHat 8,1 (gen1) |RHEL |8,1 – CI |7.7.2019081601 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020|
+|RedHat 8,1 (Gen2) |RHEL |81 – CI-Gen2 |7.7.2019081601 | Ja (Observera att det här är en förhands gransknings bild och när alla RHEL 8,1-avbildningar har stöd för Cloud-Init tas detta bort den 1 augusti 2020) | Nej, ETA för fullständig support juni 2020 |
+
+RedHat: RHEL 7,8-och 8,2-avbildningar (gen1 och Gen2) tillhandahålls med Cloud-init.
 
 ### <a name="centos"></a>CentOS
 
 | Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |Ja (Observera att det här är en förhands gransknings bild och när alla CentOS 7,7-avbildningar har stöd för Cloud-Init tas det bort mellan 2020, meddelande om detta kommer att ges) | Ja-support från paket version: *18.5 -3. el7. CentOS*|
+|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |Ja (Observera att det här är en förhands gransknings bild och när alla CentOS 7,7-avbildningar har stöd för Cloud-Init tas detta bort 1 september 2020) | Ja-support från paket version: *18.5 -3. el7. CentOS*|
 
-* CentOS 7,7-avbildningar som kommer att bli moln-init-aktiverade uppdateras här i mars 2020 
+* CentOS 7,7-avbildningar som kommer att bli moln-init-aktiverade uppdateras här i juni 2020 
 
 ### <a name="oracle"></a>Oracle
 
@@ -72,8 +75,15 @@ Det finns två steg för att göra Cloud-Init tillgängligt för de påtecknade 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |Oracle 7,7 |Oracle – Linux |77 – CI |7.7.01| förhands gransknings bild (Observera att det här är en förhands gransknings bild, och den när alla Oracle 7,7-avbildningar har stöd för Cloud-Init tas detta bort mid 2020. | Nej, i för hands versionen är paketet: *18.5-3.0.1. el7*
 
-### <a name="debian--suse-sles"></a>Debian & SuSE SLES
-Vi arbetar för för hands versionen och förväntar dig uppdateringar i februari och mars 2020.
+### <a name="suse-sles"></a>SuSE SLES
+| Utgivare/version | Erbjudande | SKU | Version | avbildnings moln – init Ready | stöd för Cloud-Init-paket i Azure|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+|SUSE SLES 15 SP1 |SUSE |SLES-15-SP1-Basic |Cloud-Init-för hands version| Mer information finns i [SUSE Cloud-Init-bloggen](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) | Nej, i för hands versionen. |
+|SUSE SLES 15 SP1 |SUSE |SLES-15-SP1-Basic |Gen2 – Cloud-Init – för hands version| Mer information finns i [SUSE Cloud-Init-bloggen](https://suse.com/c/clout-init-coming-to-suse-images-in-azure/) | Nej, i för hands versionen. |
+
+
+### <a name="debian"></a>Debian
+Vi arbetar för för hands versions stöd och förväntar dig uppdateringar i juni 2020.
 
 För närvarande har Azure Stack stöd för etablering av moln-init-aktiverade avbildningar.
 
@@ -85,7 +95,7 @@ Vi förbättrar konfigurationen av virtuella datorer så att de använder Cloud-
 
 Cloud-Init kan inte bearbeta Azure-tillägg, så WALA krävs fortfarande i avbildningen för att bearbeta tillägg, men måste ha sin etablerings kod inaktive rad för de verifierade Linux distributioner-avbildningar som konverteras till att etableras av Cloud-Init, men de har WALA installerade och konfigurationen är korrekt.
 
-Om du inte inkluderar Azure CLI `--custom-data` -växeln vid etablerings tiden när du skapar en virtuell dator, tar Cloud-Init-eller Wala de minsta etablerings parametrarna för virtuella datorer som krävs för att etablera den virtuella datorn och slutföra distributionen med standardvärdena.  Om du refererar till Cloud-Init-konfigurationen med `--custom-data` -växeln kommer det som finns i dina anpassade data att vara tillgängligt för Cloud-Init när den virtuella datorn startas.
+Om du inte inkluderar Azure CLI-växeln vid etablerings tiden när du skapar en virtuell dator, `--custom-data` tar Cloud-Init-eller Wala de minsta etablerings parametrarna för virtuella datorer som krävs för att etablera den virtuella datorn och slutföra distributionen med standardvärdena.  Om du refererar till Cloud-Init-konfigurationen med `--custom-data` -växeln kommer det som finns i dina anpassade data att vara tillgängligt för Cloud-Init när den virtuella datorn startas.
 
 Cloud-Init-konfigurationer som tillämpas på virtuella datorer har inga tidsbegränsningar och kommer inte att leda till att en distribution upphör genom timeout. Detta gäller inte för WALA, om du ändrar standardvärdet för WALA för att bearbeta anpassade data, kan det inte överskrida den totala tids gränsen för VM-etablering för 40mins, i så fall kommer den virtuella datorns skapande att Miss förklaras.
 
@@ -107,7 +117,7 @@ package_upgrade: true
 packages:
   - httpd
 ```
-Tryck `ctrl-X` på för att stänga filen, `y` Skriv för att spara filen och `enter` Klicka för att bekräfta fil namnet vid avslut.
+Tryck på `ctrl-X` för att stänga filen, Skriv `y` för att spara filen och klicka `enter` för att bekräfta fil namnet vid avslut.
 
 Det sista steget är att skapa en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm) . 
 
@@ -125,10 +135,10 @@ az vm create \
 När den virtuella datorn har skapats visar Azure CLI information som är unik för din distribution. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.  Det tar lite tid för den virtuella datorn att skapas, paketen som ska installeras och appen att starta. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Du kan använda SSH i den virtuella datorn och använda stegen som beskrivs i avsnittet fel sökning för att Visa Cloud-Init-loggarna. 
 
 ## <a name="troubleshooting-cloud-init"></a>Felsöka Cloud-Init
-När den virtuella datorn har etablerats kommer Cloud-Init att köras genom alla moduler och skript som definierats i `--custom-data` för att konfigurera den virtuella datorn.  Om du behöver felsöka fel eller utelämnanden från konfigurationen måste du söka efter modulnamnet (`disk_setup` eller `runcmd` till exempel) i den Cloud-Init-logg som finns i **/var/log/Cloud-init.log**.
+När den virtuella datorn har etablerats kommer Cloud-Init att köras genom alla moduler och skript som definierats i för `--custom-data` att konfigurera den virtuella datorn.  Om du behöver felsöka fel eller utelämnanden från konfigurationen måste du söka efter modulnamnet ( `disk_setup` eller `runcmd` till exempel) i den Cloud-Init-logg som finns i **/var/log/Cloud-init.log**.
 
 > [!NOTE]
-> Alla fel i moduler resulterar inte i ett oåterkalleligt Cloud-Init-övergripande konfigurations fel. Om skriptet till exempel Miss `runcmd` lyckas med modulen, kommer Cloud-Init fortfarande att rapportera etableringen eftersom runcmd-modulen kördes.
+> Alla fel i moduler resulterar inte i ett oåterkalleligt Cloud-Init-övergripande konfigurations fel. `runcmd`Om skriptet till exempel Miss lyckas med modulen, kommer Cloud-Init fortfarande att rapportera etableringen eftersom runcmd-modulen kördes.
 
 Mer information om Cloud-Init-loggning finns i dokumentationen om [Cloud-Init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 

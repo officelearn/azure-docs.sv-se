@@ -3,12 +3,12 @@ title: Distribuera resurser till klient organisationen
 description: Beskriver hur du distribuerar resurser i klient omfånget i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8a3748c0948238b588a01f7d91780693a2c5bf3a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d72b4a63e564732a9a4baaf8b8cd94d0f165e12a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930071"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653333"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Skapa resurser på klient nivå
 
@@ -19,7 +19,7 @@ När din organisation är vuxen kan du behöva definiera och tilldela [principer
 Du kan distribuera följande resurs typer på klient nivå:
 
 * [distributioner](/azure/templates/microsoft.resources/deployments) – för kapslade mallar som distribueras till hanterings grupper eller prenumerationer.
-* managementGroups
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
@@ -44,7 +44,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 ## <a name="required-access"></a>Nödvändig åtkomst
 
-Huvud kontot som distribuerar mallen måste ha behörighet att skapa resurser i klient omfånget. Huvud kontot måste ha behörighet att köra distributions åtgärder (`Microsoft.Resources/deployments/*`) och för att skapa de resurser som definierats i mallen. Om du till exempel vill skapa en hanterings grupp måste huvudobjektet ha deltagar behörighet för klient omfånget. Huvud kontot måste ha ägar behörighet för att skapa roll tilldelningar.
+Huvud kontot som distribuerar mallen måste ha behörighet att skapa resurser i klient omfånget. Huvud kontot måste ha behörighet att köra distributions åtgärder ( `Microsoft.Resources/deployments/*` ) och för att skapa de resurser som definierats i mallen. Om du till exempel vill skapa en hanterings grupp måste huvudobjektet ha deltagar behörighet för klient omfånget. Huvud kontot måste ha ägar behörighet för att skapa roll tilldelningar.
 
 Den globala administratören för Azure Active Directory har inte automatiskt behörighet att tilldela roller. Om du vill aktivera mall distributioner i klient omfånget måste den globala administratören utföra följande steg:
 
@@ -92,7 +92,7 @@ För distributioner på klient nivå måste du ange en plats för distributionen
 
 Du kan ange ett namn för distributionen eller använda standard distributions namnet. Standard namnet är namnet på mallfilen. Om du till exempel distribuerar en mall med namnet **azuredeploy. JSON** skapas ett standard distributions namn för **azuredeploy**.
 
-För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation`använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
+För varje distributions namn är platsen oföränderlig. Du kan inte skapa en distribution på en plats om det finns en befintlig distribution med samma namn på en annan plats. Om du får fel koden `InvalidDeploymentLocation` använder du antingen ett annat namn eller samma plats som den tidigare distributionen för det namnet.
 
 ## <a name="use-template-functions"></a>Använda mall funktioner
 

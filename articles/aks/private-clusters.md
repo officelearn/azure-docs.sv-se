@@ -4,12 +4,12 @@ description: Lär dig hur du skapar ett privat Azure Kubernetes service-kluster 
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: 4f0d702a213c4c34024c043edc50d25e6696cbc1
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: a09781efd58c29acbd8ca445b58b89c04daa94f8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610946"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674368"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Skapa ett privat Azure Kubernetes service-kluster
 
@@ -76,7 +76,7 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 3. I det vänstra fönstret väljer du länken **virtuellt nätverk** .  
 4. Skapa en ny länk för att lägga till det virtuella nätverket för den virtuella datorn i den privata DNS-zonen. Det tar några minuter för DNS-zon-länken att bli tillgänglig.  
 5. Gå tillbaka till MC_ *-resurs gruppen i Azure Portal.  
-6. Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet har formatet *AKS-VNet-\**.  
+6. Välj det virtuella nätverket i den högra rutan. Det virtuella nätverks namnet har formatet *AKS-VNet- \* *.  
 7. Välj **peering**i det vänstra fönstret.  
 8. Välj **Lägg till**, Lägg till det virtuella nätverket för den virtuella datorn och skapa sedan peering.  
 9. Gå till det virtuella nätverket där du har den virtuella datorn, Välj **peering**, Välj det virtuella AKS-nätverket och skapa sedan peer-kopplingen. Om adress intervallen för det virtuella AKS-nätverket och den virtuella DATORns virtuella nätverk är i konflikt med varandra, Miss lyckas peering. Mer information finns i [peering för virtuella nätverk][virtual-network-peering].
@@ -102,13 +102,13 @@ Som nämnts är VNet-peering ett sätt att komma åt ditt privata kluster. Om du
 * Det går inte att använda IP-auktoriserade intervall för den privata API-serverns slut punkt, de gäller bara för den offentliga API-servern
 * Tillgänglighetszoner stöds för närvarande för vissa regioner, se början av det här dokumentet 
 * [Begränsningar för Azure Private Link-tjänsten][private-link-service] gäller för privata kluster.
-* Inget stöd för virtuella noder i ett privat kluster för att snurra privat Azure Container Instances (ACI) i ett privat virtuellt Azure-nätverk
 * Inget stöd för integrering av Azure DevOps-integreringen med privata kluster
 * För kunder som behöver aktivera Azure Container Registry för att fungera med privata AKS måste det Container Registry virtuella nätverket vara peer-kopplat med agent klustrets virtuella nätverk.
 * Inget aktuellt stöd för Azure dev Spaces
 * Inget stöd för att konvertera befintliga AKS-kluster till privata kluster
 * Om du tar bort eller ändrar den privata slut punkten i kundens undernät kommer klustret att sluta fungera. 
 * Azure Monitor för behållar real tids data stöds inte för närvarande.
+* SLA för drift tid stöds inte för närvarande.
 
 
 <!-- LINKS - internal -->

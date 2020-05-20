@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 4/3/2020
-ms.openlocfilehash: 6a1d2f6079280002c868702a6547c8fd359a7c21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/13/2020
+ms.openlocfilehash: 7c74829955085b3aa25043b25101fdaab10d7e6d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310123"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659589"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database utan Server
 
@@ -45,7 +45,7 @@ Mer kostnads information finns i [fakturering](sql-database-serverless.md#billin
 
 ## <a name="scenarios"></a>Scenarier
 
-Server lös är pris – prestanda som är optimerad för enkla databaser med ett oförutsägbart användnings mönster som kan ge en fördröjning i beräknings belastningen efter inaktiva användnings perioder. Den etablerade beräknings nivån är däremot pris-och prestanda optimerad för enskilda databaser eller flera databaser i elastiska pooler med en högre genomsnittlig användning som inte ger någon fördröjning i data bearbetningen.
+Nivån med serverlös databehandling är pris/prestanda-optimerad för enstaka databaser med oförutsägbart användningsmönster som inte störs av viss fördröjning i databehandlingen efter inaktiva perioder. Nivån med etablerad databehandling är å andra sidan pris/prestanda-optimerad för enstaka eller flera databaser i elastiska pooler med högre genomsnittlig användning där det inte får förekomma en sådan fördröjning.
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Lämpliga scenarier för Server lös data behandling
 
@@ -67,7 +67,7 @@ I följande tabell sammanfattas skillnader mellan server lös beräknings nivå 
 |:---|:---|:---|
 |**Användnings mönster för databas**| Intermittent, oförutsägbar användning med lägre genomsnittlig beräknings användning över tid. |  Vanliga användnings mönster med högre genomsnittlig beräknings användning över tid, eller flera databaser med elastiska pooler.|
 | **Prestanda hanterings ansträngning** |Lower|Högre|
-|**Beräknings skalning**|Automatisk|Manuell|
+|**Beräknings skalning**|Automatiskt|Manuell|
 |**Beräknings svars tid**|Lägre efter inaktiva perioder|Direkt|
 |**Fakturerings precision**|Per sekund|Per timme|
 
@@ -132,6 +132,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 |Granskning|Visa gransknings poster.<br>Uppdaterar eller visar gransknings principen.|
 |Datamaskning|Lägga till, ändra, ta bort eller Visa regler för data maskering|
 |Transparent datakryptering|Visa status eller status för transparent data kryptering|
+|Sårbarhetsbedömning|Ad hoc-sökningar och regelbundna sökningar om det är aktiverat|
 |Fråga (prestanda) data lager|Ändra eller Visa inställningar för frågearkivet|
 |Autojustera|Program och verifiering av rekommendationer för automatisk justering, till exempel automatisk indexering|
 |Databas kopiering|Skapa databas som kopia.<br>Exportera till en BACPAC-fil.|
@@ -143,7 +144,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 Funktionen för att återuppta automatiskt utlöses även under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.
 
-### <a name="connectivity"></a>Anslutningar
+### <a name="connectivity"></a>Anslutning
 
 Om en server lös databas har pausats kommer den första inloggningen att återuppta databasen och returnera ett fel som anger att databasen inte är tillgänglig med felkoden 40613. När databasen har återupptagits måste inloggningen göras om för att upprätta anslutningen. Databas klienter med logik för anslutnings försök ska inte behöva ändras.
 
@@ -256,11 +257,11 @@ En server lös databas kan flyttas till en allokerad beräknings nivå på samma
 
 ### <a name="use-powershell"></a>Använd PowerShell
 
-Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med hjälp av kommandot [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) i PowerShell med `MaxVcore`argumenten `MinVcore`, `AutoPauseDelayInMinutes` och.
+Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med hjälp av kommandot [set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) i PowerShell med `MaxVcore` `MinVcore` `AutoPauseDelayInMinutes` argumenten, och.
 
 ### <a name="use-azure-cli"></a>Använda Azure CLI
 
-Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med kommandot [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) i Azure CLI med argumenten `capacity`, `min-capacity`och `auto-pause-delay` .
+Att ändra den maximala eller lägsta virtuella kärnor och den autopausade fördröjningen utförs med kommandot [AZ SQL DB Update](/cli/azure/sql/db#az-sql-db-update) i Azure CLI med `capacity` `min-capacity` `auto-pause-delay` argumenten, och.
 
 
 ## <a name="monitoring"></a>Övervakning
@@ -281,7 +282,7 @@ Resurspoolen är den inre resurs hanterings gränserna för en databas, oavsett 
 
 Mät värden för att övervaka resursanvändningen för Appaketet och poolen för en server lös databas visas i följande tabell:
 
-|Entitet|Mått|Beskrivning|Enheter|
+|Entitet|Metric|Beskrivning|Enheter|
 |---|---|---|---|
 |Appaket|app_cpu_percent|Procent andelen av virtuella kärnor som används av appen i förhållande till högsta tillåtna virtuella kärnor för appen.|Procent|
 |Appaket|app_cpu_billed|Mängden data som debiteras för appen under rapporterings perioden. Det belopp som betalas under perioden är produkten av det här måttet och vCore enhets pris. <br><br>Värdena för det här måttet bestäms genom agg regering över tid för maximalt CPU-använt och minne som används varje sekund. Om det använda beloppet är mindre än det lägsta belopp som har angetts som den lägsta virtuella kärnor och minsta mängden minne, faktureras det lägsta mängd som har allokerats.För att kunna jämföra CPU med minne i fakturerings syfte normaliseras minnet till enheter av virtuella kärnor genom att skala om mängden minne i GB med 3 GB per vCore.|vCore sekunder|

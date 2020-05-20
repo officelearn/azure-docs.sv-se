@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e50dd636c1bd9403d5eca2157e4e46772418f92c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2f4751440d719a542d39f8d8e83260c8cb628de0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592907"
+ms.locfileid: "83659284"
 ---
 # <a name="language-understanding-luis-container-limitations"></a>Language Understanding (LUIS) begränsningar för behållare
 
@@ -35,7 +35,7 @@ Du kan använda ett LUIS-program om det **inte innehåller** något av följande
 
 App-konfigurationer som inte stöds|Information|
 |--|--|
-|Container kulturer stöds inte| Nederländska ( `nl-NL` )<br>Japanska ( `ja-JP` )<br>Tyska stöds endast med 1.0.2- [tokenizer](luis-language-support.md#custom-tokenizer-versions).|
+|Container kulturer stöds inte| De nederländska ( `nl-NL` ), japanska ( `ja-JP` ) och tyska ( `de-DE` ) språken stöds bara med 1.0.2- [tokenizer](luis-language-support.md#custom-tokenizer-versions).|
 |Entiteter som inte stöds för alla kulturer|Fördefinierad enhets [fras](luis-reference-prebuilt-keyphrase.md) för alla kulturer|
 |Entiteter som inte stöds för engelska ( `en-US` ) kultur|[GeographyV2](luis-reference-prebuilt-geographyV2.md) fördefinierade entiteter|
 |Tal Prima|Externa beroenden stöds inte i behållaren.|

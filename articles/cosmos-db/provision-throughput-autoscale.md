@@ -1,101 +1,89 @@
 ---
-title: Skapa Azure Cosmos-behållare och databaser i autoskalning av allokerat data flöde.
-description: Lär dig mer om fördelar, användnings fall och hur du etablerar Azure Cosmos-databaser och behållare i autoskalning av etablerat data flöde.
+title: Skapa Azure Cosmos-behållare och databaser i autoskalning-läge.
+description: Lär dig mer om fördelarna, användnings fall och hur du etablerar Azure Cosmos-databaser och behållare i autoskalning-läge.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 81a13dcb7955a7d46f485416bf9b7e4e7be4d9ac
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/11/2020
+ms.openlocfilehash: 533cd8fa69c01b8a36ff5e314ce61a4b624e62ec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791722"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655820"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-with-autoscale-provisioned-throughput"></a>Skapa Azure Cosmos-behållare och databaser med autoskalning av allokerat data flöde
+# <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Skapa Azure Cosmos-behållare och databaser med autoskalning av data flöde
 
-Med Azure Cosmos DB kan du konfigurera dina behållare med standard (manuellt) tillhandahållet data flöde eller autoskalning av allokerat data flöde. I den här artikeln beskrivs fördelarna med och användnings fall för autoskalning.
+Med Azure Cosmos DB kan du ange antingen standard (manuell) eller autoskalning av allokerat data flöde på dina databaser och behållare. I den här artikeln beskrivs fördelarna med och användnings fall för autoskalning av allokerat data flöde. 
 
-> [!NOTE]
-> Du kan bara [Aktivera autoskalning för nya databaser och behållare](#create-db-container-autoscale) . Den är inte tillgänglig för befintliga behållare och databaser.
+Autoskalning av allokerat data flöde passar bra för verksamhets kritiska arbets belastningar som har varierande eller oförutsägbara trafik mönster, och kräver service avtal för hög prestanda och skalning. 
 
-Förutom standard etablering av data flöde kan du nu konfigurera Azure Cosmos-behållare med automatiskt skalning av allokerat data flöde. Behållare och databaser som kon figurer ATS i autoskalning av allokerat data flöde kommer **automatiskt att skala det etablerade data flödet baserat på dina program behov utan att påverka tillgänglighet, svars tid, data flöde eller prestanda för arbets belastningen globalt.**
+Med autoskalning kan Azure Cosmos DB **automatiskt och skala data flödet (ru/s)** i din databas eller behållare direkt baserat på användning, utan att påverka tillgänglighet, svars tid, data flöde eller prestanda för arbets belastningen. 
 
-När du konfigurerar behållare och databaser i autoskalning måste du ange det maximala data `Tmax` flödet som inte överskrids. Behållare kan sedan skala sitt genomflöde så att `0.1*Tmax < T < Tmax`. Med andra ord skalar behållare och databaser direkt utifrån arbets belastnings behoven, från så lågt som 10% av det maximala data flöde svärdet som du har konfigurerat till det konfigurerade maximala data flöde svärdet. När du har konfigurerat autoskalning kan du ändra inställningen för`Tmax`maximal data flöde () för en databas eller behållare vid varje tidpunkt. Med alternativet för autoskalning är 400 RU/s minsta data flöde per behållare eller databas inte längre tillämpligt.
+## <a name="benefits-of-autoscale"></a>Fördelar med autoskalning
 
-För det angivna maximala data flödet i behållaren eller databasen tillåter systemet drift inom den beräknade lagrings gränsen. Om lagrings gränsen överskrids justeras det maximala data flödet automatiskt till ett högre värde. När du använder data flöde för databas nivå med autoskalning beräknas antalet behållare som tillåts i en databas som `0.001*TMax`:. Om du till exempel etablerar 20 000 AutoScale RU/s kan databasen ha 20 behållare.
+Azure Cosmos-databaser och behållare som är konfigurerade med autoskalning av allokerat data flöde har följande fördelar:
 
-## <a name="benefits-of-autoscale-provisioned-throughput"></a><a id="autoscale-benefits"></a>Fördelar med autoskalning av allokerat data flöde
+* **Enkel:** Autoskalning tar bort komplexiteten vid hantering av RU/s med anpassat skript eller manuellt skalnings kapacitet. 
 
-Azure Cosmos-behållare som kon figurer ATS med autoskalning har följande fördelar:
+* **Skalbarhet:** Databaser och behållare skalar automatiskt det etablerade data flödet vid behov. Det uppstår inget avbrott i klient anslutningar, program eller påverkan på Azure Cosmos DB service avtal.
 
-* **Enkel:** Behållare med autoskalning tar bort komplexiteten för att hantera etablerade data flöden (ru: er) och kapacitet manuellt för olika behållare.
+* **Kostnads effektiv:** Med automatisk skalning kan du optimera din RU/s-användning och kostnads användning genom att skala ned när den inte används. Du betalar bara för de resurser som dina arbets belastningar behöver per timme.
 
-* **Skalbarhet:** Behållare med autoskalning sömlöst skalar den allokerade data flödes kapaciteten vid behov. Det uppstår inget avbrott i klient anslutningar, program och de påverkar inte några befintliga service avtal.
+* **Hög tillgänglighet:** Databaser och behållare som använder autoskalning använder samma globalt distribuerade, feltoleranta Azure Cosmos DB server del för att säkerställa data hållbarhet och hög tillgänglighet.
 
-* **Kostnads effektiv:** När du använder behållare som kon figurer ATS med autoskalning betalar du bara för de resurser som dina arbets belastningar behöver per timme.
+## <a name="use-cases-of-autoscale"></a>Använda fall av autoskalning
 
-* **Hög tillgänglighet:** Behållare med autoskalning använder samma globalt distribuerade, feltoleranta och hög tillgängliga Server del för att säkerställa data hållbarhet och hög tillgänglighet.
+Användnings fall för autoskalning är:
 
-## <a name="use-cases-of-autoscale-provisioned-throughput"></a><a id="autoscale-usecases"></a>Användnings fall för autoskalning av allokerat data flöde
+* **Varierande eller oförutsägbara arbets belastningar:** När arbets belastningarna har varierande eller oförutsägbara toppar i användning, hjälper autoskalning till att automatiskt skala upp och ned baserat på användning. Exempel omfattar detalj handels webbplatser som har olika trafik mönster beroende på säsongs beroende; IOT-arbetsbelastningar som har toppar vid olika tidpunkter under dagen. branschspecifika program som ser högsta användning några gånger i månaden eller år, med mera. Med autoskalning behöver du inte längre etablera för topp-eller genomsnitts kapacitet manuellt. 
 
-Användnings fall för Azure Cosmos-behållare som kon figurer ATS med autoskalning inkluderar:
+* **Nya program:** Om du utvecklar ett nytt program och inte vet om det data flöde (RU/s) du behöver gör autoskalning det enkelt att komma igång. Du kan börja med autoskalning-punkten 400-4000 RU/s, övervaka din användning och fastställa rätt RU/s över tid.
 
-* **Variabla arbets belastningar:** När du kör ett program med hög användning med en högsta användning på 1 timme till flera timmar varje dag eller flera gånger per år. Exempel är program för personal, budgetering och drift rapportering. För sådana scenarier kan behållare som kon figurer ATS med autoskalning användas, och du behöver inte längre etablera manuellt för antingen hög kapacitet eller genomsnitts kapacitet.
+* **Program som används sällan:** Om du har ett program som bara används under ett fåtal timmar flera gånger per dag, vecka eller månad, till exempel en program-/webb-/blogg webbplats med låg volym – autoskalning justerar kapaciteten för att hantera högsta användning och skalar ned när den är över. 
 
-* **Oförutsägbara arbets belastningar:** När du kör arbets belastningar där det finns en databas användning under dagen, men även toppar av aktiviteter som är svåra att förutsäga. Ett exempel är en trafik plats som ser en överspänning av aktivitet när väder prognoser ändras. Behållare som kon figurer ATS med autoskalning justera kapaciteten för att uppfylla behoven för programmets högsta belastning och skala ned när aktivitetens överspänning är över.
+* **Arbets belastningar för utveckling och testning:** Om du eller ditt team använder Azure Cosmos-databaser och behållare under arbets tid, men inte behöver dem på nätter eller helger, hjälper autoskalning till att spara kostnader genom att skala ned till ett minimum när det inte används. 
 
-* **Nya program:** Om du distribuerar ett nytt program och är osäker på hur mycket allokerat data flöde (t. ex. hur många ru: er) du behöver. Med behållare som kon figurer ATS med automatisk skalning kan du automatiskt skala till kapacitets behoven och kraven för ditt program.
+* **Schemalagda produktions arbets belastningar/frågor:** Om du har en serie med schemalagda begär Anden, åtgärder eller frågor som du vill köra under inaktiva perioder kan du enkelt göra det med autoskalning. När du behöver köra arbets belastningen skalas data flödet automatiskt till vad som behövs och skalas ned efteråt. 
 
-* **Program som används sällan:** Om du har ett program som bara används för några timmar flera gånger per dag eller vecka eller månad, till exempel en program-/webb-/blogg webbplats med låg volym.
+Att skapa en anpassad lösning för dessa problem kräver inte bara en enorma del av tiden, utan även en introduktion till komplexitet i programmets konfiguration eller kod. Med automatisk skalning kan du använda ovanstående scenarier i rutan och ta bort behovet av anpassad eller manuell skalning av kapaciteten. 
 
-* **Utvecklings-och test databaser:** Om du har utvecklare som använder behållare under arbets tid, men inte behöver dem på nätter eller helger. Med behållare som kon figurer ATS med autoskalning skalas de ned till ett minimum när de inte används.
+## <a name="how-autoscale-provisioned-throughput-works"></a>Så här fungerar autoskalning av allokerat data flöde
 
-* **Schemalagda produktions arbets belastningar/frågor:** När du har en serie med schemalagda begär Anden/åtgärder/frågor på en enda behållare, och om det finns inaktiva perioder där du vill köra med ett absolut lågt data flöde, kan du nu enkelt göra det. När en schemalagd fråga/begäran skickas till en behållare som kon figurer ATS med automatisk skalning, skalar den automatiskt upp så mycket som behövs och kör åtgärden.
+När du konfigurerar behållare och databaser med autoskalning anger du det maximala data flödet som `Tmax` krävs. Azure Cosmos DB skalar genom strömningen `T` `0.1*Tmax <= T <= Tmax` . Om du till exempel ställer in maximalt data flöde på 20 000 RU/s skalas data flödet mellan 2000 och 20 000 RU/s. Eftersom skalning är automatiskt och momentant, kan du, när som helst, använda upp till etableringen `Tmax` utan fördröjning. 
 
-Lösningar på tidigare problem kräver inte bara en enorma del av tiden i implementeringen, men de introducerar också komplexitet i konfigurationen eller din kod och kräver ofta manuella åtgärder för att åtgärda dem. Med autoskalning kan du använda ovanstående scenarier i rutan så att du inte behöver oroa dig för dessa problem längre.
+Varje timme debiteras du för det högsta data flödet som `T` systemet skalas till inom timmen.
 
-## <a name="comparison--standard-manual-vs-autoscale-provisioned-throughput"></a>Jämförelse – standard (manuell) jämfört med autoskalning av allokerat data flöde
+Start punkten för autoskalning av maximalt data flöde `Tmax` börjar på 4000 ru/s, som skalar mellan 400-4000 ru/s. Du kan ange `Tmax` i steg om 1000 ru/s och ändra värdet när som helst.  
 
-|  | Behållare som kon figurer ATS med standard-allokerat data flöde  | Behållare som kon figurer ATS med autoskalning av allokerat data flöde |
-|---------|---------|---------|
-| **Etablerat dataflöde** | Manuellt etablerad. | Automatiskt och automatiskt skalas baserat på användnings mönster för arbets belastning. |
-| **Hastighets begränsning av begär Anden/åtgärder (429)**  | Kan inträffa om förbrukningen överskrider den etablerade kapaciteten. | Sker inte om det data flöde som förbrukas är inom det maximala data flöde som du väljer med autoskalning.   |
-| **Kapacitetsplanering** |  Du måste utföra en första kapacitets planering och tillhandahålla det data flöde du behöver. |    Du behöver inte bekymra dig om kapacitets planering. Systemet tar automatiskt hand om kapacitets planering och kapacitets hantering. |
-| **Prissättning** | Manuellt etablerade RU/s per timme. | För enstaka Skriv regions konton betalar du för det data flöde som används per timme med hjälp av den automatiska skalningen RU/s per tim pris. <br/><br/>För konton med flera Skriv regioner finns det ingen extra kostnad för autoskalning. Du betalar för det data flöde som används per timme med samma taxa för flera huvud-RU/s per timme. |
-| **Passar bäst för arbets belastnings typer** |  Förutsägbara och stabila arbets belastningar|   Oförutsedda och varierande arbets belastningar  |
-
-## <a name="create-a-database-or-a-container-with-autoscale"></a><a id="create-db-container-autoscale"></a>Skapa en databas eller en behållare med autoskalning
-
-Du kan konfigurera autoskalning för nya databaser eller behållare när du skapar dem via Azure Portal. Använd följande steg för att skapa en ny databas eller behållare, aktivera autoskalning och ange maximalt data flöde (RU/s).
-
-1. Logga in på [Azure Portal](https://portal.azure.com) eller [Azure Cosmos DB Explorer.](https://cosmos.azure.com/)
-
-1. Gå till ditt Azure Cosmos DB-konto och öppna fliken **datautforskaren** .
-
-1. Välj **ny behållare.** Ange ett namn för din databas, behållare och en partitionsnyckel. Under **data flöde**väljer du alternativet **autoskalning** och väljer det maximala data flöde (ru/s) som databasen eller behållaren inte får överskrida när du använder alternativet för autoskalning.
-
-   ![Skapa en behållare och konfigurera autoskalning genom strömning](./media/provision-throughput-autoscale/create-container-autoscale-mode.png)
-
-1. Välj **OK**.
-
-Du kan skapa en delad data flödes databas med autoskalning genom att välja **data flödes alternativet etablera databas** .
+## <a name="enable-autoscale-on-existing-resources"></a>Aktivera autoskalning på befintliga resurser ##
+Använd [Azure Portal](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) för att aktivera autoskalning på en befintlig databas eller behållare. Du kan växla mellan autoskalning och standard (manuellt) allokerat data flöde när som helst. Mer information finns i den här [dokumentationen](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) .
 
 ## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a>Data flödes-och lagrings gränser för autoskalning
 
-I följande tabell visas de maximala gränserna för alla och lagrings gränser för olika alternativ i autoskalning:
+För ett värde av `Tmax` kan databasen eller containern lagra totalt `0.01 * Tmax GB` . När den här lagrings mängden uppnås ökas det högsta antalet RU/s automatiskt baserat på det nya lagring svärdet, utan att ditt program påverkas. 
 
-|Maximal data flödes gräns  |Maximal lagrings gräns  |
-|---------|---------|
-|4000 RU/s  |   50 GB    |
-|20 000 RU/s  |  200 GB  |
-|100 000 RU/s    |  1 TB   |
-|500 000 RU/s    |  5 TB  |
+Om du till exempel börjar med maximalt RU/s av 50 000 RU/s (skalas mellan 5000-50 000 RU/s) kan du lagra upp till 500 GB data. Om du överskrider 500 GB, t. ex. lagrings utrymmet är 600 GB, blir de nya maximalt RU/s 60 000 RU/s (skalas mellan 6000-60 000 RU/s).
+
+När du använder data flöde med databas nivå med autoskalning kan du låta de första 25 behållarna dela med största antal RU/s på 4000 (skalas mellan 400-4000 RU/s), förutsatt att du inte överskrider 40 GB lagrings utrymme. Mer information finns i den här [dokumentationen](autoscale-faq.md#can-i-change-the-max-rus-on-the-database-or-container) .
+
+## <a name="comparison--containers-configured-with-manual-vs-autoscale-throughput"></a>Jämförelse – behållare som kon figurer ATS med manuella vs-genomflöde med autoskalning
+Mer information finns i den här [dokumentationen](how-to-choose-offer.md) om hur du väljer mellan standard (manuell) och autoskalning av data flöde.  
+
+|| Behållare med standard (manuell) data flöde  | Behållare med autoskalning av data flöde |
+|---------|---------|---------|
+| **Allokerat data flöde (RU/s)** | Manuellt etablerad. | Automatiskt och automatiskt skalas baserat på användnings mönster för arbets belastning. |
+| **Hastighets begränsning av begär Anden/åtgärder (429)**  | Kan inträffa om förbrukningen överskrider den etablerade kapaciteten. | Kommer inte att ske om du använder RU/s i det data flödes intervall som du har angett för autoskalning.    |
+| **Kapacitetsplanering** |  Du måste utföra kapacitets planering och tillhandahålla det exakta genomflödet du behöver. |    Systemet tar automatiskt hand om kapacitets planering och kapacitets hantering. |
+| **Prissättning** | Du betalar för manuellt etablerade RU/s per timme med hjälp av [Standard (manuell) ru/s per tim pris](https://azure.microsoft.com/pricing/details/cosmos-db/). | Du betalar per timme för flest RU/s-systemet skalas upp till inom timmen. <br/><br/> För enstaka Skriv regions konton betalar du för de RU/s som används per timme med hjälp av den [automatiska skalningen ru/s per tim pris](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>För konton med flera Skriv regioner finns det ingen extra kostnad för autoskalning. Du betalar för det data flöde som används per timme med samma [taxa för flera huvud-ru/s per timme](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Passar bäst för arbets belastnings typer** |  Förutsägbara och stabila arbets belastningar|   Oförutsedda och varierande arbets belastningar  |
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Läs [vanliga frågor och svar om autoskalning](autoscale-faq.md).
-* Läs mer om [logiska partitioner](partition-data.md).
-* Lär dig hur du [etablerar data flöde i en Azure Cosmos-behållare](how-to-provision-container-throughput.md).
-* Lär dig hur du [etablerar data flöde i en Azure Cosmos-databas](how-to-provision-database-throughput.md).
+* Lär dig hur du [väljer mellan manuell och autoskalning av data flöde](how-to-choose-offer.md).
+* Lär dig hur du [etablerar autoskalning genom strömning på en Azure Cosmos-databas eller-behållare](how-to-provision-autoscale-throughput.md).
+* Läs mer om [partitionering](partition-data.md) i Azure Cosmos dB.
+
+

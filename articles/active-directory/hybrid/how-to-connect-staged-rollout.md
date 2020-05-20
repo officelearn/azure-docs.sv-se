@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/12/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b7536704d68e96429d715705a0518410db399a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112328"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644156"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrera till molnbaserad autentisering med stegvis distribution (för hands version)
 
@@ -38,8 +38,8 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 -   Du har en Azure Active Directory-klient (Azure AD) med federerade domäner.
 
 -   Du har valt att flytta till något av två alternativ:
-    - **Ange ett** - *lösen ord för synkronisering av lösen ord (Sync)* + *sömlös enkel inloggning (SSO)*
-    - **Alternativ B** - *-* + direktautentisering*sömlös SSO*
+    - **Alternativ A**  -  *hash-synkronisering av lösen ord (synkronisering)*  +  *sömlös enkel inloggning (SSO)*
+    - **Alternativ B**  -  *direktautentisering*  +  *sömlös SSO*
     
     Även om *sömlös enkel inloggning* är valfritt, rekommenderar vi att du aktiverar det för att få en tyst inloggnings upplevelse för användare som kör domänanslutna datorer inifrån ett företags nätverk.
 
@@ -51,6 +51,7 @@ En översikt över funktionen finns i "Azure Active Directory: Vad är mellanlag
 
 -   Om du vill aktivera *sömlös SSO* på en speciell Active Directory skog måste du vara domän administratör.
 
+
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
 Följande scenarier stöds för stegvis distribution. Funktionen fungerar endast för:
@@ -58,6 +59,7 @@ Följande scenarier stöds för stegvis distribution. Funktionen fungerar endast
 - Användare som är etablerade i Azure AD med hjälp av Azure AD Connect. Den gäller inte enbart för moln användare.
 
 - Användarens inloggnings trafik för webbläsare och *moderna autentiserings* klienter. Program eller moln tjänster som använder äldre autentisering kommer tillbaka till federerade autentiserings flöden. Ett exempel kan vara Exchange Online med modern autentisering inaktive rad eller Outlook 2010, som inte stöder modern autentisering.
+- Grupp storleken är för närvarande begränsad till 50 000 användare.  Om du har grupper som är större än 50 000 användare, rekommenderar vi att du delar upp den här gruppen över flera grupper för mellanlagrad distribution.
 
 ## <a name="unsupported-scenarios"></a>Scenarier som inte stöds
 
@@ -78,6 +80,9 @@ Följande scenarier stöds inte för stegvis distribution:
 
 - När du först lägger till en säkerhets grupp för stegvis distribution är du begränsad till 200 användare för att undvika en UX-timeout. När du har lagt till gruppen kan du lägga till fler användare direkt till den, efter behov.
 
+>[!NOTE]
+> Eftersom klient organisationens slut punkter inte skickar inloggnings tips, stöds de inte för mellanlagrad distribution.  SAML-program använder klientens slut punkter och har inte heller stöd för mellanlagrad distribution.
+
 ## <a name="get-started-with-staged-rollout"></a>Kom igång med stegvis distribution
 
 Om du vill testa inloggningen för *lösen ords-hash-synkronisering* med hjälp av stegvis distribution följer du anvisningarna i nästa avsnitt.
@@ -86,7 +91,7 @@ Information om vilka PowerShell-cmdletar som ska användas finns i för [hands v
 
 ## <a name="pre-work-for-password-hash-sync"></a>För arbete för synkronisering av lösen ords-hash
 
-1. Aktivera *hash-synkronisering* av lösen ord från sidan [valfria funktioner](how-to-connect-install-custom.md#optional-features) i Azure AD Connect. 
+1. Aktivera *hash-synkronisering av lösen ord*   från sidan [valfria funktioner](how-to-connect-install-custom.md#optional-features)   i Azure AD Connect. 
 
    ![Skärm bild av sidan med valfria funktioner i Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -112,27 +117,27 @@ Vi rekommenderar att du aktiverar *sömlös SSO* oberoende av inloggnings metode
 
 ## <a name="pre-work-for-seamless-sso"></a>För hands arbete för sömlös enkel inloggning
 
-Aktivera *sömlös SSO* på Active Directory skogar med hjälp av PowerShell. Om du har mer än en Active Directory skog aktiverar du den för varje skog individuellt.  *Sömlös SSO* utlöses endast för användare som har valts för stegvis distribution. Den befintliga Federations konfigurationen påverkas inte.
+Aktivera *sömlös SSO*   på Active Directory skogar med hjälp av PowerShell. Om du har mer än en Active Directory skog aktiverar du den för varje skog individuellt.  *Sömlös SSO* utlöses endast för användare som har valts för stegvis distribution. Den befintliga Federations konfigurationen påverkas inte.
 
 Aktivera *sömlös SSO* genom att göra följande:
 
 1. Logga in på Azure AD Connect-servern.
 
-2. Gå till mappen *% ProgramFiles\\% Microsoft Azure Active Directory Connect.* 
+2. Gå till mappen *% ProgramFiles% \\ Microsoft Azure Active Directory Connect*   .
 
 3. Importera den *sömlösa SSO* PowerShell-modulen genom att köra följande kommando: 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Kör PowerShell som administratör. I PowerShell anropar `New-AzureADSSOAuthenticationContext`du. Det här kommandot öppnar ett fönster där du kan ange klient organisationens autentiseringsuppgifter för global administratör.
+4. Kör PowerShell som administratör. I PowerShell anropar du  `New-AzureADSSOAuthenticationContext` . Det här kommandot öppnar ett fönster där du kan ange klient organisationens autentiseringsuppgifter för global administratör.
 
-5. Anropa `Get-AzureADSSOStatus | ConvertFrom-Json`. Det här kommandot visar en lista över Active Directory skogar (se listan "domäner") där funktionen har Aktiver ATS. Som standard är den inställd på false på klient nivå.
+5. Anropa  `Get-AzureADSSOStatus | ConvertFrom-Json` . Det här kommandot visar en lista över Active Directory skogar (se listan "domäner") där funktionen har Aktiver ATS. Som standard är den inställd på false på klient nivå.
 
    ![Exempel på Windows PowerShell-utdata](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Anropa `$creds = Get-Credential`. Ange domän administratörs behörighet för den avsedda Active Directory skogen vid prompten.
+6. Anropa  `$creds = Get-Credential` . Ange domän administratörs behörighet för den avsedda Active Directory skogen vid prompten.
 
-7. Anropa `Enable-AzureADSSOForest -OnPremCredentials $creds`. Det här kommandot skapar AZUREADSSOACC-datornamnet från den lokala domänkontrollanten för den Active Directory skog som krävs för *sömlös SSO*.
+7. Anropa `Enable-AzureADSSOForest -OnPremCredentials $creds` . Det här kommandot skapar AZUREADSSOACC-datornamnet från den lokala domänkontrollanten för den Active Directory skog som krävs för *sömlös SSO*.
 
 8. *Sömlös SSO* kräver att URL: er är i zonen Intranät. Om du vill distribuera dessa URL: er med hjälp av grup principer, se [snabb start: Azure AD sömlös enkel inloggning](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature).
 
@@ -146,9 +151,9 @@ Om du vill distribuera en speciell funktion (*vidarekoppling*, *lösen ords-hash
 
 Du kan distribuera ett av följande alternativ:
 
-- **Alternativ en** - *lösenordsskyddad hash-synkronisering* + *sömlös SSO*
-- **Alternativ B** - *-* + direktautentisering*sömlös SSO*
-- **Not supported** - *Lösen ords-hash* + *-* + synkronisering som inte stöds i*sömlös autentisering sömlös SSO*
+- **Alternativ A**  -  *hash-synkronisering*  +  av lösen ord *sömlös SSO*
+- **Alternativ B**  -  *direktautentisering*  +  *sömlös SSO*
+- **Stöds inte**  -  *hash-synkronisering*  +  av lösen ord *direktautentisering*  +  *sömlös SSO*
 
 Gör följande:
 

@@ -2,19 +2,25 @@
 title: Markdown-format – QnA Maker
 description: Nedan visas en lista med markdown-format som du kan använda i QnA Maker svars text.
 ms.topic: reference
-ms.date: 01/09/2020
-ms.openlocfilehash: 3fb7d73afdfd5ab7f1fb56a685b21538b97c8ea4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/19/2020
+ms.openlocfilehash: 38532783c38263b3f1364e30125414958eab1394
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77045399"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652764"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>Markdown-format som stöds i QnA Maker svars text
 
 QnA Maker lagrar svars text som markdown. Det finns många varianter av markdown. Använd denna referens för att se till att svars texten returneras och visas korrekt.
 
 Använd **[CommonMark](https://commonmark.org/help/tutorial/index.html)** -självstudien för att validera din markdown. I självstudien finns **en funktion för** att snabbt kopiera och klistra in.
+
+## <a name="when-to-use-rich-text-editing-versus-markdown"></a>När du ska använda Rich-Text-redigering jämfört med markdown
+
+Med [text redigering](How-To/edit-knowledge-base.md#add-an-editorial-qna-set) av svar kan du, som författare, använda verktygsfältet Formatering för att snabbt välja och formatera text.
+
+Markdown är ett bättre verktyg när du behöver generera innehåll automatiskt för att skapa kunskaps banker som ska importeras som en del av en CI/CD-pipeline eller för [batch-testning](Quickstarts/batch-testing.md).
 
 ## <a name="supported-markdown-format"></a>Markdown-format som stöds
 
@@ -35,7 +41,7 @@ En ny rad mellan 2 meningar.|`\n\n`|`How can I create a bot with \n\n QnA Maker?
 |Escape-markdown symboler|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![format för kursiv stil-URL](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
 |Ordnad lista|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>I föregående exempel används automatisk numrering som är inbyggd i markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>I föregående exempel används explicit numrering.|![format för ordnad lista](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
 |Osorterad lista|`\n * item1 \n * item2`<br>eller<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|![format för osorterad lista](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|Kapslade listor|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Du kan kapsla in sorterade och osorterade listor tillsammans. Fliken, `\t`anger indrags nivån för det underordnade elementet.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format för kapslad osorterad lista](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format för kapslad ordnad lista](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+|Kapslade listor|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>Du kan kapsla in sorterade och osorterade listor tillsammans. Fliken, `\t` anger indrags nivån för det underordnade elementet.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format för kapslad osorterad lista](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format för kapslad ordnad lista](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 * QnA Maker bearbetar inte bilden på något sätt. Det är klient programmets roll för att återge avbildningen.
 
@@ -43,10 +49,10 @@ Om du vill lägga till innehåll med hjälp av Update/replace-API: er för kunsk
 
 | Bevara HTML  | Representation i API-begäran  | Representation i KB |
 |-----------|---------|-------------------------|
-| Ja | \&lt; br\&gt; | &lt;br&gt; |
-| Ja | \&lt; H3\&gt; rubrik\&lt;/H3\&gt; | &lt;H3&gt;-&lt;rubrik/H3&gt; |
+| Ja | \&lt; br \& gt; | &lt;br&gt; |
+| Ja | \&lt; H3 \& gt; rubrik \& lt;/H3 \& gt; | &lt;H3- &gt; rubrik &lt; /H3&gt; |
 
-Dessutom konverteras CR LF (\r\n) till \n i KB. LF (\n) behålls i befintligt skick. Om du vill undanta en escape-sekvens som a \t eller \n kan du använda omvänt snedstreck, till exempel\\\\:\\\\"r n"\\\\och "t"
+Dessutom konverteras CR LF (\r\n) till \n i KB. LF (\n) behålls i befintligt skick. Om du vill undanta en escape-sekvens som a \t eller \n kan du använda omvänt snedstreck, till exempel: " \\ \\ r \\ \\ n" och " \\ \\ t"
 
 ## <a name="next-steps"></a>Nästa steg
 

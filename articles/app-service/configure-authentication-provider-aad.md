@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 60a5d50b511fc9db02daa9b7e74eedfe40eeb7a5
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: c03a7b89fee188d8a22cfb8ddcd73920ce43f43a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/18/2020
-ms.locfileid: "82609909"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649149"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Konfigurera din App Service-eller Azure Functions-app för att använda Azure AD-inloggning
 
@@ -125,9 +125,34 @@ Du kan registrera interna klienter för att tillåta autentisering till webb-API
 1. När appens registrering har skapats kopierar du värdet för **program-ID (klient)**.
 1. Välj **API-behörigheter**  >  **Lägg till en behörighet**  >  **Mina API: er**.
 1. Välj den app-registrering som du skapade tidigare för din App Service-app. Om du inte ser appens registrering ser du till att du har lagt till **user_impersonation** omfattning i [skapa en app-registrering i Azure AD för din app service-app](#register).
-1. Välj **user_impersonation**och välj sedan **Lägg till behörigheter**.
+1. Under **delegerade behörigheter**väljer du **user_impersonation**och väljer sedan **Lägg till behörigheter**.
 
 Nu har du konfigurerat ett internt klient program som kan komma åt din App Service-app för en användares räkning.
+
+## <a name="configure-a-daemon-client-application-for-service-to-service-calls"></a>Konfigurera ett daemon-klientprogram för tjänst-till-tjänst-anrop
+
+Ditt program kan hämta en token för att anropa ett webb-API som finns i din App Service-eller Function-app åt sig själv (inte för en användares räkning). Det här scenariot är användbart för icke-interaktiva daemon-program som utför uppgifter utan en inloggad användare. Den använder standard beviljast OAuth 2,0 [-klientautentiseringsuppgifter.](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)
+
+1. I [Azure Portal]väljer du **Active Directory**  >  **Appregistreringar**  >  **ny registrering**.
+1. På sidan **Registrera ett program** anger du ett **namn** för daemon-appens registrering.
+1. För ett daemon-program behöver du inte en omdirigerings-URI så att du kan behålla detta tomt.
+1. Välj **Skapa**.
+1. När appens registrering har skapats kopierar du värdet för **program-ID (klient)**.
+1. Välj **certifikat & hemligheter**  >  **ny klient hemlighet**  >  **Lägg till**. Kopiera klientens hemliga värde som visas på sidan. Den visas inte igen.
+
+Du kan nu [begära en åtkomsttoken med hjälp av klient-ID och klient hemlighet](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) genom `resource` att ange parametern till **program-ID-URI: n** för mål programmet. Den resulterande åtkomsttoken kan sedan visas för mål appen med hjälp av standard- [OAuth 2,0-Authorization-huvudet](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource)och App Service autentisering/auktorisering validerar och använder token som vanligt för att ange att anroparen (ett program i det här fallet, inte en användare) autentiseras.
+
+Detta gör att _alla_ klient program i Azure AD-klienten kan begära en åtkomsttoken och autentisera till mål programmet. Om du även vill framtvinga _behörighet_ att endast tillåta vissa klient program måste du utföra en del ytterligare konfiguration.
+
+1. [Definiera en app-roll](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) i manifestet för den app-registrering som representerar den app service eller Function-app som du vill skydda.
+1. På den app-registrering som representerar klienten som måste auktoriseras väljer du **API-behörigheter**  >  **Lägg till en behörighet**  >  **Mina API: er**.
+1. Välj den app-registrering som du skapade tidigare. Om du inte ser appens registrering ser du till att du har [lagt till en app-roll](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
+1. Under **program behörigheter**väljer du den app-roll som du skapade tidigare och väljer sedan **Lägg till behörigheter**.
+1. Se till att klicka på **bevilja administratörs medgivande** för att auktorisera klient programmet för att begära behörighet.
+1. Precis som i föregående scenario (innan några roller lades till) kan du nu [begära en åtkomsttoken](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) för samma mål `resource` , och åtkomsttoken innehåller ett `roles` anspråk som innehåller de app-roller som har auktoriserats för klient programmet.
+1. I appens mål App Service-eller Function-kod kan du nu kontrol lera att de förväntade rollerna finns i token (detta utförs inte av App Service autentisering/auktorisering). Mer information finns i [användar anspråk för åtkomst](app-service-authentication-how-to.md#access-user-claims).
+
+Nu har du konfigurerat ett daemon-klientcertifikat som kan komma åt din App Service-app med sin egen identitet.
 
 ## <a name="next-steps"></a><a name="related-content"> </a>Nästa steg
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6212e74ecbf8327d3939138de2e92868f29b0f1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6aaed8d56bb254e5a6385c770f97b5238a5747b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77058455"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647435"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Självstudie: Konfigurera en hörn OnDemand för automatisk användar etablering
 
@@ -39,7 +39,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du har:
 * Ett användar konto i hörn OnDemand med administratörs behörighet.
 
 > [!NOTE]
-> Integreringen med Azure AD Provisioning förlitar sig på [webb tjänsten för hörn OnDemand](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf). Den här tjänsten är tillgänglig för de viktigaste OnDemand-teamen.
+> Integreringen med Azure AD Provisioning förlitar sig på [webb tjänsten för hörn OnDemand](https://www.cornerstoneondemand.com/). Den här tjänsten är tillgänglig för de viktigaste OnDemand-teamen.
 
 ## <a name="add-cornerstone-ondemand-from-the-azure-marketplace"></a>Lägg till ett hörn OnDemand från Azure Marketplace
 
@@ -81,7 +81,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 Följ dessa steg om du vill konfigurera automatisk användar etablering för ett hörn OnDemand i Azure AD.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program** > **alla programs** > **hörn OnDemand**.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **företags program**  >  **alla programs**  >  **hörn OnDemand**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
@@ -103,7 +103,7 @@ Följ dessa steg om du vill konfigurera automatisk användar etablering för ett
 
     * I rutan **Administratörs lösen ord** fyller du i lösen ordet som motsvarar administratörens användar namn.
 
-    * I rutan **domän** fyller du i webb tjänstens URL för hörn ondemandn. Till exempel finns tjänsten på `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx`och för contoso är `https://ws-contoso.csod.com/feed30/clientdataservice.asmx`domänen. Mer information om hur du hämtar webb tjänstens URL finns i [den här PDF-filen](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
+    * I rutan **domän** fyller du i webb tjänstens URL för hörn ondemandn. Till exempel finns tjänsten på `https://ws-[corpname].csod.com/feed30/clientdataservice.asmx` och för contoso är domänen `https://ws-contoso.csod.com/feed30/clientdataservice.asmx` . Mer information om hur du hämtar webb tjänstens URL finns i [den här PDF-filen](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_Web_Services_-_User-OU_Technical_Specification_v20160222.pdf).
 
 6. När du har fyllt i rutorna som visas i steg 5 väljer du **Testa anslutning** för att kontrol lera att Azure AD kan ansluta till ett hörn OnDemand. Om anslutningen Miss lyckas kontrollerar du att ditt konto för ditt hörn OnDemand har administratörs behörighet och försöker igen.
 

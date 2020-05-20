@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a442cb094f87852c9d4f781d378f5886f3a4a42
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273415"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652128"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -40,6 +40,9 @@ Azure Backup Server ärver många av funktionerna för säkerhets kopiering av a
 ## <a name="choose-an-installation-platform"></a>Välj en installations plattform
 
 Det första steget för att få Azure Backup Server igång är att konfigurera en Windows Server. Servern kan vara i Azure eller lokalt.
+
+* För att skydda lokala arbets belastningar måste MABS-servern finnas lokalt.
+* För att skydda arbets belastningar som körs på virtuella Azure-datorer måste MABS-servern finnas i Azure, som körs som en virtuell Azure-dator.
 
 ### <a name="using-a-server-in-azure"></a>Använda en server i Azure
 
@@ -183,9 +186,9 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     Använd följande värden för SSRS-konfiguration:
     * Tjänst konto: Använd det inbyggda kontot ska vara nätverks tjänst
-    * Webb tjänstens URL: virtuell katalog ska vara ReportServer_\<SQLInstanceName>
-    * Databas: DatabaseName ska vara ReportServer $\<SQLInstanceName>
-    * Webb portalens URL: ' virtuell katalog ' ska vara\<Reports_ SQLInstanceName>
+    * Webb tjänstens URL: virtuell katalog ska vara ReportServer_ \< SQLInstanceName>
+    * Databas: DatabaseName ska vara ReportServer $ \< SQLInstanceName>
+    * Webb portalens URL: ' virtuell katalog ' ska vara Reports_ \< SQLInstanceName>
 
     [Läs mer](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
 
@@ -237,7 +240,7 @@ MABS använder System Center Data Protection Manager Protection Agent. [Här fö
 
 I följande avsnitt beskrivs hur du uppdaterar skydds agenter för klient datorer.
 
-1. I administratörskonsol säkerhets kopierings server väljer du **hanterings** > **agenter**.
+1. I administratörskonsol säkerhets kopierings server väljer du **hanterings**  >  **agenter**.
 
 2. I visningsfönstret väljer du de klient datorer som du vill uppdatera skydds agenten för.
 
@@ -288,11 +291,11 @@ När du känner till statusen för Azure-anslutningen och Azure-prenumerationen 
 
 | Anslutnings tillstånd | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Active |Tillåtet |Tillåtet |Tillåtet |Tillåtet |
-| Ansluten |Upphörd |Stoppad |Stoppad |Tillåtet |Tillåtet |
+| Ansluten |Aktiv |Tillåts |Tillåts |Tillåts |Tillåts |
+| Ansluten |Upphörd |Stoppad |Stoppad |Tillåts |Tillåts |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Tillåtet |Tillåtet |
-| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Tillåtet |Tillåtet |
+| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Tillåts |Tillåts |
+| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Tillåts |Tillåts |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställning från förlust av anslutning

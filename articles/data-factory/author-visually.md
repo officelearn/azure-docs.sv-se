@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 12/19/2019
-ms.openlocfilehash: e7de92878dac72470c0b65d1cf18c1a2d526a0bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: bf0aeb3b73f2b12e723269a792d67d7f6185894f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418498"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674570"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visuell redigering i Azure Data Factory
 
@@ -34,6 +34,14 @@ Klicka på Penn ikonen för att öppna arbets **ytan redigering**.
 Här skapar du pipelines, aktiviteter, data uppsättningar, länkade tjänster, data flöden, utlösare och integrerings körningar som utgör din fabrik. För att komma igång med att skapa en pipeline med hjälp av redigerings arbets ytan, se [Kopiera data med kopierings aktiviteten](tutorial-copy-data-portal.md). 
 
 Den förvalda visuella redigerings upplevelsen fungerar direkt med Data Factory tjänsten. Azure databaser git eller GitHub-integration stöds också för att tillåta käll kontroll och samarbete för arbete på dina data Factory-pipeliner. Läs mer om skillnaderna mellan dessa redigerings upplevelser i [käll kontroll i Azure Data Factory](source-control.md).
+
+### <a name="properties-pane"></a>Egenskapsfönster
+
+För resurser på högsta nivå, till exempel pipelines, data uppsättningar och data flöden, kan du redigera egenskaper på hög nivå i rutan egenskaper till höger på arbets ytan. Fönstret Egenskaper innehåller egenskaper som namn, beskrivning, anteckningar och andra övergripande egenskaper. Under resurser som pipeline-aktiviteter och data flödes omvandlingar redige ras med hjälp av panelen längst ned på arbets ytan. 
+
+![Redigera arbets yta](media/author-visually/properties-pane.png)
+
+Fönstret Egenskaper öppnas bara som standard när en resurs skapas. Om du vill redigera det klickar du på ikonen egenskaper som finns i det övre högra hörnet på arbets ytan.
 
 ## <a name="expressions-and-functions"></a>Uttryck och funktioner
 

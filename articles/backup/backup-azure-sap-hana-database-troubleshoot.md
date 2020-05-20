@@ -3,12 +3,12 @@ title: Felsöka fel vid säkerhets kopiering av SAP HANA databaser
 description: Beskriver hur du felsöker vanliga fel som kan uppstå när du använder Azure Backup för att säkerhetskopiera SAP HANA-databaser.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 6520f106011b632da2725f456aeb278c7748ddc9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 01514847dcd38842d70c4caef2e38df9df3f620a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79459318"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652079"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Felsöka säkerhets kopiering av SAP HANA databaser på Azure
 
@@ -22,7 +22,7 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för
 
 ### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
 
-| **Fel meddelande**      | <span style="font-weight:normal">Azure Backup har inte de roll behörigheter som krävs för att utföra säkerhets kopiering</span>    |
+| **Felmeddelande**      | <span style="font-weight:normal">Azure Backup har inte de roll behörigheter som krävs för att utföra säkerhets kopiering</span>    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Möjliga orsaker**    | Rollen kan ha skrivits över.                          |
 | **Rekommenderad åtgärd** | Lös problemet genom att köra skriptet från rutan för att **hitta databas** eller ladda ned det [här](https://aka.ms/scriptforpermsonhana). Du kan också lägga till rollen SAP_INTERNAL_HANA_SUPPORT till säkerhets kopierings användaren för arbets belastningen (AZUREWLBACKUPHANAUSER). |
@@ -82,6 +82,13 @@ Se [kraven](tutorial-backup-sap-hana-db.md#prerequisites) och [Vad skriptet för
 | ------------------ | ------------------------------------------------------------ |
 | **Möjliga orsaker**    | De sekundära parametrarna har angetts felaktigt för Azure Backup |
 | **Rekommenderad åtgärd** | Kontrol lera om följande (backint) parametrar har angetts:<br/>\*[catalog_backup_using_backint: sant]<br/>\*[enable_accumulated_catalog_backup: falskt]<br/>\*[parallel_data_backup_backint_channels: 1]<br/>\*[log_backup_timeout_s: 900)]<br/>\*[backint_response_timeout: 7200]<br/>Om det finns backint-baserade parametrar i värden tar du bort dem. Om parametrarna inte finns på VÄRDnivå men har ändrats manuellt på en databas nivå, återställer du dem till lämpliga värden enligt beskrivningen ovan. Du kan också köra [stoppa skyddet och behålla säkerhets kopierings data](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) från Azure Portal och sedan välja **återuppta säkerhets kopiering**. |
+
+### <a name="usererrorincompatiblesrctargetsystemsforrestore"></a>UserErrorIncompatibleSrcTargetSystemsForRestore
+
+|Felmeddelande  |Käll-och mål systemen för återställning är inkompatibla  |
+|---------|---------|
+|Möjliga orsaker   | Käll-och mål systemen som valts för återställning är inkompatibla        |
+|Rekommenderad åtgärd   |   Se till att återställnings scenariot inte finns i följande lista över möjliga inkompatibla återställningar: <br><br>   **Fall 1:** SYSTEMDB kan inte byta namn under återställningen.  <br><br> **Fall 2:** Source-SDC och Target-MDC: käll databasen kan inte återställas som SYSTEMDB eller klient organisations databasen på målet. <br><br> **Fall 3:** Source-MDC och Target-SDC: det går inte att återställa käll databasen (SYSTEMDB eller klient organisations databasen) till målet. <br><br>  Mer information finns i anmärkning 1642148 i Start [fönstret för SAP-support](https://launchpad.support.sap.com). |
 
 ## <a name="restore-checks"></a>Återställnings kontroller
 

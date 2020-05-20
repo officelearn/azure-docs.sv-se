@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 3c1c385a87fc302d180729ec2e4bcd1c4a315f6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 43a5360965c13df3227ecbc0c716327346244ebd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75981471"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653620"
 ---
 # <a name="azure-advanced-threat-detection"></a>Avancerad hotidentifiering i Azure
 
@@ -268,7 +268,7 @@ SQL Database hot detektorer använder någon av följande identifierings metoder
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway brand vägg för webbaserade program
 
-[Brand vägg för webbaserade program (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) är en funktion i [Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) som skyddar webb program som använder en Programgateway för standard funktioner för [program leverans](https://kemptechnologies.com/in/application-delivery-controllers) . Brand väggen för webbaserade program gör detta genom att skydda dem mot de flesta [Öppna webb program säkerhets projekt (OWASP) med de 10 vanligaste webb sårbarheterna](https://www.owasp.org/index.php/Top_10_2010-Main).
+[Brand vägg för webbaserade program (WAF)](../../app-service/environment/app-service-app-service-environment-web-application-firewall.md) är en funktion i [Azure Application Gateway](../../application-gateway/application-gateway-web-application-firewall-overview.md) som skyddar webb program som använder en Programgateway för standard funktioner för [program leverans](https://kemptechnologies.com/in/application-delivery-controllers) . Brand väggen för webbaserade program gör detta genom att skydda dem mot de flesta [Öppna webb program säkerhets projekt (OWASP) med de 10 vanligaste webb sårbarheterna](https://owasp.org/www-project-top-ten/).
 
 ![Application Gateway brand Väggs diagram för webb program](./media/threat-detection/azure-threat-detection-fig13.png)
 

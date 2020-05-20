@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 31ad373b1544fc601a9c37e05e324a9c1dfb3f73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3a38b9a02894eafd3ef6df657680d2e2a58a7e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183795"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638380"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Logga in med ett Android-program i Azure Active Directory B2C
 
@@ -70,12 +70,12 @@ Exemplet är en ändring av exemplet som tillhandahålls av [AppAuth](https://op
 Du kan konfigurera kommunikation med Azure AD B2C genom att antingen ange identifierings-URI eller genom att ange både behörighets slut punkt och token slut punkt URI. I båda fallen behöver du följande information:
 
 * Klient-ID (t. ex. contoso.onmicrosoft.com)
-* Användar flödes namn (t.\_ex\_. B2C 1-registrering)
+* Användar flödes namn (t. ex. B2C \_ 1 \_ -registrering)
 
-Om du väljer att automatiskt identifiera auktoriserings-och token-slutpunkts-URI: erna måste du hämta information från identifierings-URI: n. Identifierings-URI kan genereras genom att ersätta klient\_-ID: t\_och princip namnet i följande URL:
+Om du väljer att automatiskt identifiera auktoriserings-och token-slutpunkts-URI: erna måste du hämta information från identifierings-URI: n. Identifierings-URI: n kan genereras genom att ersätta `<tenant-id>` och `<policy-name>` i följande URL:
 
 ```java
-String mDiscoveryURI = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/v2.0/.well-known/openid-configuration?p=<Policy_Name>";
+String mDiscoveryURI = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/v2.0/.well-known/openid-configuration";
 ```
 
 Du kan sedan hämta token för auktorisering och token för slut punkt och skapa ett AuthorizationServiceConfiguration-objekt genom att köra följande:
@@ -99,12 +99,12 @@ AuthorizationServiceConfiguration.fetchFromIssuer(
   });
 ```
 
-I stället för att använda identifiering för att hämta slut punkts-URI: erna för auktorisering och token, kan\_du också ange dem\_explicit genom att ersätta klient-ID: t och princip namnet i URL: en nedan:
+I stället för att använda identifiering för att hämta slut punkts-URI: erna för auktorisering och token, kan du också ange dem explicit genom att ersätta `<tenant-id>` och `<policy-name>` i URL: erna nedan:
 
 ```java
-String mAuthEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/authorize?p=<Policy_Name>";
+String mAuthEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/authorize";
 
-String mTokenEndpoint = "https://<Tenant_name>.b2clogin.com/<Tenant_ID>/oauth2/v2.0/token?p=<Policy_Name>";
+String mTokenEndpoint = "https://<tenant-name>.b2clogin.com/<tenant-id>/<policy-name>/oauth2/v2.0/token";
 ```
 
 Kör följande kod för att skapa AuthorizationServiceConfiguration-objektet:

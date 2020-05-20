@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 74d1d44fdba5a6752a269863b2a68bd7022af18e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 270afa70ca281762d9efabcd7663bf7504a469bd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115490"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654989"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Om Azure Network MSP-partner
 
@@ -26,12 +26,12 @@ Kunder kan köpa MSP-hanterade tjänster i Azure Marketplace eller direkt från 
 
 ## <a name="azure-marketplace-offers-by-azure-networking-msp-partners"></a><a name="msp"></a>Azure Marketplace-erbjudanden från Azure Network MSP-partner
 
-Använd länkarna i det här avsnittet för mer information om hanterade moln nätverks tjänster som erbjuds av Azure Network MSP-partner. Om din moln nätverks tjänst partner inte visas i avsnittet nedan, ber du leverantören att kontakta oss. De kan kontakta oss genom att skicka ett e ManagedVirtualWAN@microsoft.com-postmeddelande till. 
+Använd länkarna i det här avsnittet för mer information om hanterade moln nätverks tjänster som erbjuds av Azure Network MSP-partner. Om din moln nätverks tjänst partner inte visas i avsnittet nedan, ber du leverantören att kontakta oss. De kan kontakta oss genom att skicka ett e-postmeddelande till ManagedVirtualWAN@microsoft.com . 
 
 | **MSP** | **Cloud Network Transformation Services** | **Hanterade ExpressRoute** | **Hanterat virtuellt WAN** |
 | ---| ---| ---| ---|
 |[ANS-grupp Storbritannien](https://www.ans.co.uk/)|[Azure Managed SVC + 10wk-implementering för ANS-glas](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/ans_group.glassms)|||||
-|[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Aryaka Azure Virtual WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.aryaka_azure_virtual_wan?tab=Overview) | | |
+|[Aryaka Networks](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)||[Aryaka Azure Connect](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview)|[Aryaka Azure Virtual WAN](https://azuremarketplace.microsoft.com/marketplace/apps/aryaka.cloudconnect_azure_19?tab=Overview) | | |
 |[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|[Konsult tjänster för nätverks omvandling: 1 – personal bedömning](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/bt-americas-inc.network-transformation-consulting); [BT Cloud Connect Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-001?tab=Overview)|[BT Cloud Connect Azure-ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-003?tab=Overview)|[BT Cloud Connect Azure-VWAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bt-americas-inc.bt-cca-lh-002?tab=Overview)|||
 |[Samutvecklande](https://www.coevolve.com/services/azure-networking-services/)|||[Hanterad virtuell WAN-gräns för VMware SD – WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/coevolveptylimited1581027739259.managed-vmware-sdwan-edge?tab=Overview)|||
 |[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|[Nätverks optimering på Azure: 2 – HR-utvärdering](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/colttechnologyservices.azure_networking)|||||

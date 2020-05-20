@@ -1,24 +1,24 @@
 ---
-title: Leverantörer av moln lösningar | Azure Marketplace
-description: Utgivare kan nu sälja sina erbjudanden via partner kanalen för Microsoft Cloud Solution Provider (CSP).
+title: Cloud Solution Provider – Microsoft Commercial Marketplace
+description: Lär dig hur du säljer dina erbjudanden via program partner kanalen för Microsoft Cloud Solution Provider (CSP) på den kommersiella Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: b962610c585df288a9cb3297ed8e09c8abc5ac0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: d7f14728f5acbcb76d3109d76b6de3c691e35543
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160655"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658088"
 ---
-# <a name="cloud-solution-providers"></a>Leverantörer av molnlösningar
+# <a name="cloud-solution-provider-program"></a>Cloud Solution Provider-program
 
-Program varu erbjudanden kan uppnå miljon tals kvalificerade Microsoft-kunder som betjänas av partners i Cloud Solution Provider (CSP)-programmet, utöver offentlig tillgänglighet för erbjudanden via [Microsoft-butiker](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace).
+Den här artikeln förklarar hur du konfigurerar ditt erbjudande som ska vara tillgängligt för CSP-programmet (Cloud Solution Provider). Förutom att publicera dina erbjudanden via [en kommersiell Marketplace-butiker](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)kan du också sälja via CSP-programmet för att uppnå miljon tals kvalificerade Microsoft-kunder som programmet hanterar.
 
-Utgivare konfigurerar erbjudanden för tillgänglighet i CSP-programmet för en valbarhet, för ett nytt erbjudande eller ett befintligt erbjudande, och gör det möjligt för partner att sälja dina produkter och skapa sammanställda lösningar för kunder.
+Du kan konfigurera nya eller befintliga erbjudanden för tillgänglighet i CSP-programmet på ett valbart sätt, vilket gör det möjligt för CSP-partner att sälja dina produkter och skapa paketerade lösningar för kunder.
 
 Utgivare ansvarar för att tillhandahålla stöd för att ge support för att ge slutanvändarna möjlighet att ge support för partner i CSP-programmet och/eller kunder att kontakta dig. Det är en bra idé att tillhandahålla partner i CSP-programmet med användar dokumentation, utbildning och tjänst hälso-och avbrotts meddelanden (i förekommande fall) så att partner i CSP-programmet är utrustade för att hantera support förfrågningar på nivå 1 från kunder.  
 

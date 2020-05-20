@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ffadca550a3a28b0ab490dd43c3b884602c93df
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186938"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638486"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Skydda ett Azure API Management-API med Azure AD B2C
 
@@ -67,17 +67,17 @@ Sedan hämtar du den välkända konfigurations-URL: en för en av dina Azure AD 
     ![Välkänd URI-hyperlänk på sidan kör nu i Azure Portal](media/secure-apim-with-b2c-token/portal-01-policy-link.png)
 
 1. Välj hyperlänken för att bläddra till OpenID Connect-välkända konfigurations sidan.
-1. Registrera `issuer` värdet på sidan som öppnas i webbläsaren, till exempel:
+1. Registrera värdet på sidan som öppnas i webbläsaren, `issuer` till exempel:
 
-    `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
+    `https://<tenant-name>.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
     Du använder det här värdet i nästa avsnitt när du konfigurerar ditt API i Azure API Management.
 
-Du bör nu ha två URL: er som har registrerats för användning i nästa avsnitt: den OpenID Connect-välkända konfigurations slut punkts-URL: en och utfärdar-URI: n. Ett exempel:
+Du bör nu ha två URL: er som har registrerats för användning i nästa avsnitt: den OpenID Connect-välkända konfigurations slut punkts-URL: en och utfärdar-URI: n. Till exempel:
 
 ```
-https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
-https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
+https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 ```
 
 ## <a name="configure-inbound-policy-in-azure-api-management"></a>Konfigurera inkommande princip i Azure API Management
@@ -88,7 +88,7 @@ Nu är du redo att lägga till den inkommande principen i Azure API Management s
 1. Välj **API:er**.
 1. Välj det API som du vill skydda med Azure AD B2C.
 1. Välj fliken **Design**.
-1. Under **inkommande bearbetning**väljer ** \< / ** du för att öppna princip kod redigeraren.
+1. Under **inkommande bearbetning**väljer **\</\>** du för att öppna princip kod redigeraren.
 1. Placera följande `<validate-jwt>` tagg inuti `<inbound>` principen.
 
     1. Uppdatera `url` värdet i `<openid-config>` elementet med principens välkända konfigurations-URL.
@@ -99,12 +99,12 @@ Nu är du redo att lägga till den inkommande principen i Azure API Management s
     <policies>
         <inbound>
             <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+                <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
                 <audiences>
                     <audience>44444444-0000-0000-0000-444444444444</audience>
                 </audiences>
                 <issuers>
-                    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
                 </issuers>
             </validate-jwt>
             <base />
@@ -123,18 +123,18 @@ Om du vill anropa API: et behöver du både en åtkomsttoken som utfärdats av A
 
 ### <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
-Du behöver först en token som utfärdats av Azure AD B2C att använda `Authorization` i rubriken i Postman. Du kan få en genom att använda funktionen **Kör nu** i ditt inloggnings-eller inloggnings användar flöde som du har skapat som en av kraven.
+Du behöver först en token som utfärdats av Azure AD B2C att använda i `Authorization` rubriken i Postman. Du kan få en genom att använda funktionen **Kör nu** i ditt inloggnings-eller inloggnings användar flöde som du har skapat som en av kraven.
 
 1. Bläddra till Azure AD B2C-klienten i [Azure Portal](https://portal.azure.com).
 1. Under **principer**väljer du **användar flöden (principer)**.
 1. Välj ett befintligt inloggnings-eller inloggnings användar flöde, till exempel *B2C_1_signupsignin1*.
 1. För **program**väljer du *webapp1*.
-1. För **svars**-URL `https://jwt.ms`väljer du.
+1. För **svars-URL**väljer du `https://jwt.ms` .
 1. Välj **Kör användar flöde**.
 
     ![Sidan kör användar flöde för registrering av inloggnings användar flöde i Azure Portal](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
 
-1. Slutför inloggningsprocessen. Du bör omdirigeras till `https://jwt.ms`.
+1. Slutför inloggningsprocessen. Du bör omdirigeras till `https://jwt.ms` .
 1. Registrera det kodade token-värdet som visas i webbläsaren. Du använder det här token-värdet för Authorization-huvudet i Postman.
 
     ![Kodat token-värde visas på jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
@@ -146,7 +146,7 @@ Ett klient program (i det här fallet Postman) som anropar ett publicerat API m�
 1. Bläddra till din Azure API Management-tjänstinstans i [Azure Portal](https://portal.azure.com).
 1. Välj **Prenumerationer**.
 1. Välj ellipsen för **produkten: obegränsad**och välj sedan **Visa/Dölj nycklar**.
-1. Registrera den **primära nyckeln** för produkten. Du använder den här nyckeln för `Ocp-Apim-Subscription-Key` sidhuvudet i din http-begäran i Postman.
+1. Registrera den **primära nyckeln** för produkten. Du använder den här nyckeln för `Ocp-Apim-Subscription-Key` sidhuvudet i din HTTP-begäran i Postman.
 
 ![Sidan prenumerations nyckel med Visa/Dölj-nycklar markerade i Azure Portal](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
 
@@ -154,15 +154,15 @@ Ett klient program (i det här fallet Postman) som anropar ett publicerat API m�
 
 När du har registrerat åtkomst-token och APIM prenumerations nyckel är du nu redo att testa om du har konfigurerat säker åtkomst till API: et korrekt.
 
-1. Skapa en ny `GET` begäran i [Postman](https://www.getpostman.com/). För fråge-URL: en anger du slut punkten för Utskicks listan för API: et som du har publicerat som en av kraven. Ett exempel:
+1. Skapa en ny `GET` begäran i [Postman](https://www.getpostman.com/). För fråge-URL: en anger du slut punkten för Utskicks listan för API: et som du har publicerat som en av kraven. Till exempel:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
 1. Lägg sedan till följande rubriker:
 
-    | Nyckel | Värde |
+    | Tangent | Värde |
     | --- | ----- |
-    | `Authorization` | Kodat token-värde som du registrerade tidigare `Bearer ` , föregås av (inklusive utrymmet efter "Bearer") |
+    | `Authorization` | Kodat token-värde som du registrerade tidigare, föregås av `Bearer ` (inklusive utrymmet efter "Bearer") |
     | `Ocp-Apim-Subscription-Key` | APIM prenumerations nyckel som du registrerade tidigare |
 
     URL: en för **Get** -begäran och **rubrikerna** bör se ut ungefär så här:
@@ -217,7 +217,7 @@ Om du ser `401` status koden har du verifierat att endast anropare med en giltig
 
 ## <a name="support-multiple-applications-and-issuers"></a>Stöd för flera program och utfärdare
 
-Flera program interagerar vanligt vis med en enda REST API. Om du vill aktivera API: et för att acceptera token som är avsedda för flera program, `<audiences>` lägger du till deras program-ID i elementet i den inkommande APIM-principen.
+Flera program interagerar vanligt vis med en enda REST API. Om du vill aktivera API: et för att acceptera token som är avsedda för flera program, lägger du till deras program-ID i `<audiences>` elementet i den inkommande APIM-principen.
 
 ```XML
 <!-- Accept tokens intended for these recipient applications -->
@@ -227,19 +227,19 @@ Flera program interagerar vanligt vis med en enda REST API. Om du vill aktivera 
 </audiences>
 ```
 
-På samma sätt kan du lägga till slut punkts-URI: er till `<issuers>` ELEMENTET i APIM inkommande princip för att ge stöd för flera token-utfärdare.
+På samma sätt kan du lägga till slut punkts-URI: er till `<issuers>` elementet i APIM inkommande princip för att ge stöd för flera token-utfärdare.
 
 ```XML
 <!-- Accept tokens from multiple issuers -->
 <issuers>
-    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
     <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
 </issuers>
 ```
 
 ## <a name="migrate-to-b2clogincom"></a>Migrera till b2clogin.com
 
-Om du har ett APIM-API som validerar token som utfärdats av `login.microsoftonline.com` den äldre slut punkten bör du migrera API: et och de program som anropar det för att använda token som utfärdats av [b2clogin.com](b2clogin.md).
+Om du har ett APIM-API som validerar token som utfärdats av den äldre `login.microsoftonline.com` slut punkten bör du migrera API: et och de program som anropar det för att använda token som utfärdats av [b2clogin.com](b2clogin.md).
 
 Du kan följa den här allmänna processen för att utföra en mellanlagrad migrering:
 
@@ -253,14 +253,14 @@ I följande exempel APIM inkommande princip visas hur du accepterar tokens som u
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-            <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+            <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
             <audiences>
                 <audience>44444444-0000-0000-0000-444444444444</audience>
                 <audience>66666666-0000-0000-0000-666666666666</audience>
             </audiences>
             <issuers>
                 <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
-                <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
             </issuers>
         </validate-jwt>
         <base />

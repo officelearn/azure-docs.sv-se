@@ -5,16 +5,17 @@ description: Lär dig hur du använder python i Azure Machine Learning designer 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.openlocfilehash: a2bd9845cd29c7d139e2042f39b4697847639207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: designer
+ms.openlocfilehash: e27844f9f534ea4db1aba53c12fb3947e7269846
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455799"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644459"
 ---
 # <a name="execute-python-code-in-azure-machine-learning-designer"></a>Köra python-kod i Azure Machine Learning designer
 
@@ -47,7 +48,7 @@ Den här artikeln använder exempel data uppsättningen, **bil pris data (RAW)**
     ![Anslut data uppsättningar](media/how-to-designer-python/connect-dataset.png)
         
 
-1. Anteckna vilken indataport du använder. Designern tilldelar den vänstra Indataporten till variabeln `dataset1` och den mittersta Indataporten till `dataset2`. 
+1. Anteckna vilken indataport du använder. Designern tilldelar den vänstra Indataporten till variabeln `dataset1` och den mittersta Indataporten till `dataset2` . 
 
 Inmatnings moduler är valfria eftersom du kan generera eller importera data direkt i **execute Python-skript** .
 
@@ -74,7 +75,7 @@ I det här exemplet använder du Pandas för att kombinera två kolumner som fin
     
     ![Kör python-pipeline](media/how-to-designer-python/execute-python-pipeline.png)
 
-    Start punkts skriptet måste innehålla funktionen `azureml_main`. Det finns två funktions parametrar som mappar till de två portarna för att **köra python** -modulen.
+    Start punkts skriptet måste innehålla funktionen `azureml_main` . Det finns två funktions parametrar som mappar till de två portarna för att **köra python** -modulen.
 
     Returvärdet måste vara ett Pandas-Dataframe. Du kan returnera upp till två dataframes som utdata i modulen.
     

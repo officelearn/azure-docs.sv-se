@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189709"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636421"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure AD B2C
 
@@ -40,7 +40,7 @@ ROPC-flödet (Resource Owner Password Credential) är ett OAuth-standardautentis
 
    Sedan visas en slut punkt som till exempel:
 
-   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/v2.0/.well-known/openid-configuration`
 
 
 ## <a name="register-an-application"></a>Registrera ett program
@@ -50,18 +50,18 @@ ROPC-flödet (Resource Owner Password Credential) är ett OAuth-standardautentis
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
 Använd ditt favorit-API utvecklings program för att generera ett API-anrop och granska svaret för att felsöka ditt användar flöde. Skapa ett anrop som detta med informationen i följande tabell som brödtext i POST-begäran:
-- Ersätt * \<yourtenant.onmicrosoft.com>* med namnet på din B2C-klient.
-- Ersätt * \<B2C_1A_ROPC_Auth>* med det fullständiga namnet på din resurs ägar lösen ord princip för autentiseringsuppgifter.
-- Ersätt * \<bef2222d56-552f-4a5b-b90a-1988a7d634c3->* med program-ID: t från registreringen.
+- Ersätt * \< klient organisations namnet>. onmicrosoft.com* med namnet på din B2C-klient.
+- Ersätt * \< B2C_1A_ROPC_Auth>* med det fullständiga namnet på din resurs ägar lösen ord princip för autentiseringsuppgifter.
+- Ersätt * \< bef2222d56-552f-4a5b-b90a-1988a7d634c3->* med program-ID: t från registreringen.
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-| Nyckel | Värde |
+| Tangent | Värde |
 | --- | ----- |
 | användarnamn | leadiocl@outlook.com |
 | password | Passxword1 |
 | grant_type | password |
-| omfång | OpenID \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| omfång | OpenID \< bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
@@ -70,8 +70,8 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 Förfrågningen om faktisk POST ser ut ungefär så här:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -94,9 +94,9 @@ Ett lyckat svar med offline-åtkomst ser ut som i följande exempel:
 
 Skapa ett POST samtal som det som visas här med informationen i följande tabell som brödtext i begäran:
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-| Nyckel | Värde |
+| Tangent | Värde |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

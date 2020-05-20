@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f834924a564f92fe7050a1236701701af7f5229
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76512971"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647264"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Design överväganden för Azure Active Directory hybrid identitet – nästa steg
 Nu när du har fyllt i definieringen av dina krav och undersökt alla alternativ för din mobila enhetshanteringslösning, är du redo att ta nästa steg för att distribuera stöd för den infrastruktur som är rätt för dig och din organisation.
@@ -37,8 +37,8 @@ Konceptuell och procedurmässig planering, distribution och administration av in
 Övervakning av följande resurser innehåller ofta de senaste nyheterna och uppdateringarna om mobila enhets hanterings lösningar:
 
 * [Microsoft Enterprise Mobility-bloggen](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Microsoft i moln bloggen](https://blogs.technet.com/b/in_the_cloud/)
-* [Microsoft Intune blogg](https://blogs.technet.com/b/microsoftintune/)
+* [Microsoft i moln bloggen](https://cloudblogs.microsoft.com/)
+* [Microsoft Intune blogg](https://techcommunity.microsoft.com/t5/intune-customer-success/welcome-to-the-new-intune-customer-success-blog/ba-p/281367)
 * [Microsoft Endpoint Configuration Manager-blogg](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## <a name="see-also"></a>Se även

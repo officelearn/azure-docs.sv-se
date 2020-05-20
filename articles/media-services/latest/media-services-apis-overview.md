@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: eacdfe8211c97e75b6609f5e11b681f84ae55846
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5afa5b5620532865233e38ccb5889b37b2100854
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472092"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648536"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -54,7 +54,7 @@ I följande figur representerar talen flödet för förfrågningarna i kronologi
    * Resurs-URI för REST-Media Services.
    * Azure AD-App-värden: klient-ID och klient hemlighet.
 
-   För att hämta alla nödvändiga värden, se [åtkomst Azure Media Services API med Azure CLI](access-api-cli-how-to.md).
+   För att hämta alla nödvändiga värden, se [åtkomst Azure Media Services-API](access-api-cli-how-to.md).
 
 2. Azure AD-åtkomsttoken skickas till mellan nivån.
 4. Mellan nivån skickar begäran till Azure Media-REST API med Azure AD-token.
@@ -84,7 +84,7 @@ Namnen på filer/blobbar i en till gång måste följa både BLOB- [namnets krav
 
 ## <a name="long-running-operations"></a>Tids krävande åtgärder
 
-Åtgärderna som marker ATS `x-ms-long-running-operation` med i Azure Media Services [Swagger-filer](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långvariga åtgärder. 
+Åtgärderna som marker ATS med `x-ms-long-running-operation` i Azure Media Services [Swagger-filer](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långvariga åtgärder. 
 
 Mer information om hur du spårar asynkrona Azure-åtgärder finns i [asynkrona åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
@@ -148,7 +148,7 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 
 ## <a name="see-also"></a>Se även
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+För att hämta alla nödvändiga värden, se [åtkomst Azure Media Services-API](access-api-cli-how-to.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

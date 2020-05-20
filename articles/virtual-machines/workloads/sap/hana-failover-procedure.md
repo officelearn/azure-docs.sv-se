@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f3b37a6336c578ed25d8ab9553bc1ea9c79872f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6454903a7c37da30e317e29c126109b39b14efbc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117215"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660579"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Redundans för haveriberedskap
 
@@ -39,7 +39,7 @@ Om du vill återställa till de senaste ögonblicks bilderna med replikerad lagr
 Om du vill att flera SAP HANA instanser ska växlas över kör du kommandot azure_hana_dr_failover flera gånger. Vid begäran anger du SAP HANA SID som du vill redundansväxla och återställa. 
 
 
-Du kan testa DR-redundansväxlingen även utan att påverka den faktiska replikeringsrelationen. Om du vill utföra en redundanstest följer du stegen i avsnittet "utföra en test-DR-redundans-azure_hana_test_dr_failover" i [Microsoft Snapshot Tools för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf). 
+Du kan testa DR-redundansväxlingen även utan att påverka den faktiska replikeringsrelationen. Om du vill utföra en redundanstest följer du stegen i avsnittet "utföra en test-DR-redundans-azure_hana_test_dr_failover" i [Microsoft Snapshot Tools för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf). 
 
 >[!IMPORTANT]
 >Kör *inte* några produktions transaktioner på instansen som du skapade på Dr-platsen genom att **testa en redundansväxling**. Kommandot azure_hana_test_dr_failover skapar en uppsättning volymer som inte har någon relation till den primära platsen. Därför går det *inte* att synkronisera tillbaka till den primära platsen. 
@@ -117,7 +117,7 @@ Följ de här stegen:
 
 Kör skriptet för att övervaka statusen för din Storage Replication-förlopp `azure_hana_replication_status` . Det här kommandot måste köras från en enhet som kör på återställnings platsen för haverier att fungera som förväntat. Kommandot fungerar oavsett om replikering är aktiv. Kommandot kan köras för varje HANA-stor instans enhet av din klient på haveri beredskaps platsen. Den kan inte användas för att hämta information om start volymen. 
 
-Mer information om kommandot och dess utdata finns i "Hämta status för DR-replikering-azure_hana_replication_status" i [Microsoft Snapshot-verktyg för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.2/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.2.1.pdf).
+Mer information om kommandot och dess utdata finns i "Hämta status för DR-replikering-azure_hana_replication_status" i [Microsoft Snapshot-verktyg för SAP HANA på Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.3/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.3.pdf).
 
 
 ## <a name="next-steps"></a>Nästa steg

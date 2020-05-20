@@ -1,22 +1,22 @@
 ---
-title: Publicerings guide för kommersiell Marketplace
-description: En översikt över den kommersiella marknads platsen för app-och tjänst utgivare.
+title: Publicerings guide för Microsoft kommersiell Marketplace
+description: En översikt över den kommersiella marknads platsen för Microsoft-partner som vill publicera erbjudanden till Microsoft AppSource och Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/12/2020
 ms.author: dsindona
-ms.openlocfilehash: c41a24ecb3e12618ac8cfcdfb756a33114f0f8a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03921a5bf5635ee001f78ca67e4ac24839bd03c5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262000"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657856"
 ---
 # <a name="commercial-marketplace-publishing-guide"></a>Publicerings guide för kommersiell Marketplace
 
-Publicerings guiden för Marketplace är utformad för att hjälpa nya och befintliga utgivare att lära sig hur man använder butiker på [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com) för att utveckla sitt företag i samarbete med Microsoft genom att visa program och tjänster.
+Den här publicerings guiden är utformad för att hjälpa nya och befintliga utgivare att lära sig hur man visar program och tjänster på den kommersiella Marketplace butiker, [Azure Marketplace](https://azuremarketplace.microsoft.com) och [Microsoft AppSource](https://appsource.microsoft.com), för att utveckla sin verksamhet i samarbete med Microsoft.
 
 >[!Note]
 >Marketplace här hänvisar till både Azure Marketplace och AppSource.  Se [en Marketplace, två butiker](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace) för mer information.
@@ -30,7 +30,7 @@ Den här guiden omfattar följande ämnen:
 
 Den här guiden innehåller både teknisk och affärs information om de steg som du måste vidta innan du kan lista dina program och tjänster. Använd innehålls förteckningen för att gå till olika avsnitt i guiden och gå direkt till viktiga ämnen.
 
-Om du har frågor om Azure Marketplace och AppSource kan du skicka oss ett meddelande under**Marketplace**-insändning av **problem typ** > . Vårt onboarding-team för Marketplace kommer att vara glad att hjälpa dig! 
+Om du har frågor om Azure Marketplace och AppSource kan du skicka oss ett meddelande under Marketplace-insändning av **problem typ**  >  **Marketplace Onboarding**. Vårt onboarding-team för Marketplace kommer att vara glad att hjälpa dig! 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Förmåner för deltagande i Marketplace 
 

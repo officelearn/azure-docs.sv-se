@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
-ms.reviewer: valthom, logicappspm
+ms.reviewer: valthom, estfan, logicappspm
 ms.topic: article
-ms.date: 03/31/2020
+ms.date: 05/14/2020
 tags: connectors
-ms.openlocfilehash: 737c5b90b216156ca08346f4a64fd0b421ad6c19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17143257fcb6b9c71bb56e1f4c4958dce503c234
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410277"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652460"
 ---
 # <a name="connect-to-an-ibm-mq-server-from-azure-logic-apps"></a>Ansluta till en IBM MQ-Server från Azure Logic Apps
 
@@ -33,6 +33,7 @@ Här är de officiellt IBM WebSphere MQ-versioner som stöds:
   * MQ 7,5
   * MQ 8,0
   * MQ 9,0
+  * MQ 9,1
 
 ## <a name="prerequisites"></a>Krav
 
@@ -88,10 +89,10 @@ När din Logi Kap par försöker ansluta till din lokala MQ-Server kan du få f�
 
   1. Öppna Start-menyn på datorn där den lokala data Gateway-tjänsten körs, leta upp och välj **hantera användar certifikat**.
 
-  1. När Windows Certificate Manager-verktyget har öppnats går du till mappen **certifikat – lokal dator** >  för**betrodda rot certifikat utfärdare** och installerar certifikatet.
+  1. När Windows Certificate Manager-verktyget har öppnats går du till mappen **certifikat – lokal dator**för  >   **betrodda rot certifikat utfärdare** och installerar certifikatet.
 
      > [!IMPORTANT]
-     > Se till att du installerar certifikat i arkivet **certifikat – lokal dator** > **betrodd rot certifikat utfärdare** .
+     > Se till att du installerar certifikat i arkivet **certifikat – lokal dator**  >  **betrodd rot certifikat utfärdare** .
 
 * MQ-servern kräver att du definierar den chiffersviter som du vill använda för SSL-anslutningar. SsLStream i .NET tillåter dock inte att du anger ordningen för chiffrering av specifikationer. För att undvika den här begränsningen kan du ändra konfigurationen för MQ-servern så att den matchar den första chiffer-specifikationen i den svit som anslutningen skickar i SSL-förhandlingen.
 
@@ -101,7 +102,7 @@ När din Logi Kap par försöker ansluta till din lokala MQ-Server kan du få f�
 
 1. I din Logic app, under utlösaren eller en annan åtgärd, väljer du **nytt steg**.
 
-1. I sökrutan anger `mq`du och väljer åtgärden **Bläddra meddelande** .
+1. I sökrutan anger du `mq` och väljer åtgärden **Bläddra meddelande** .
 
    ![Välj åtgärd för att bläddra meddelande](media/connectors-create-api-mq/browse-message.png)
 
@@ -117,7 +118,7 @@ När din Logi Kap par försöker ansluta till din lokala MQ-Server kan du få f�
    | **Standardvärde** | Ange ett värde för att avgöra hur lång tid det tar innan ett meddelande kommer till en tom kö. Om inget anges hämtas det första meddelandet i kön och det finns ingen tids åtgång i väntan på att ett meddelande ska visas. |
    |||
 
-   Ett exempel:
+   Till exempel:
 
    ![Egenskaper för åtgärden "Bläddra meddelande"](media/connectors-create-api-mq/browse-message-properties.png)
 

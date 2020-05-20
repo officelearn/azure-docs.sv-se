@@ -16,12 +16,12 @@ ms.workload: data-services
 ms.custom: seodec18
 ms.date: 04/28/2020
 ms.author: shvija
-ms.openlocfilehash: 0fb5da965a9b13667b8a128e83a5a4cd2c2b28d7
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b9dcf35b3ea178894a0387e650b6814c0f920926
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691847"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649794"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Konfigurera diagnostikloggar för en Azure-händelsehubb
 
@@ -55,7 +55,7 @@ Diagnostikloggar är inaktiverade som standard. Följ dessa steg om du vill akti
 
 Event Hubs fångar diagnostikloggar för följande kategorier:
 
-| Kategori | Beskrivning | 
+| Kategori | Description | 
 | -------- | ----------- | 
 | Arkiv loggar | Samlar in information om [Event Hubs avbildnings](event-hubs-capture-overview.md) åtgärder, särskilt loggar som rör avbildnings fel. |
 | Drift loggar | Avbilda alla hanterings åtgärder som utförs på Azure Event Hubs-namnrymden. Data åtgärder samlas inte in på grund av den stora mängden data åtgärder som utförs på Azure Event Hubs. |
@@ -148,6 +148,16 @@ Autoskalning log JSON innehåller element som anges i följande tabell:
 | ResourceId | Azure Resource Manager resurs-ID. |
 | Meddelande | Informations meddelande som innehåller information om åtgärder för automatisk ökning. Meddelandet innehåller det tidigare och aktuella värdet för data flödes enheten för en specifik namnrymd och vad som utlöste data flödes enheter. |
 
+Här är ett exempel på en autoskalning-händelse: 
+
+```json
+{
+    "TrackingId": "fb1b3676-bb2d-4b17-85b7-be1c7aa1967e",
+    "Message": "Scaled-up EventHub TUs (UpdateStartTimeUTC: 5/13/2020 7:48:36 AM, PreviousValue: 1, UpdatedThroughputUnitValue: 2, AutoScaleReason: 'IncomingMessagesPerSecond reached 2170')",
+    "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name"
+}
+```
+
 ## <a name="kafka-coordinator-logs-schema"></a>Kafka-koordinator loggar schema
 Kafka Coordinator log JSON innehåller element som anges i följande tabell:
 
@@ -199,8 +209,8 @@ Event Hubs virtuellt nätverk (VNet) Connection Event JSON innehåller element s
 | SubscriptionId | ID för Azure-prenumeration |
 | NamespaceName | Namn på namnområde |
 | IP-adress | IP-adress för en klient som ansluter till Event Hubs tjänsten |
-| Action | Åtgärd som utförs av den Event Hubs tjänsten vid utvärdering av anslutnings begär Anden. Åtgärder som stöds **accepterar anslutning** och **neka anslutning**. |
-| Orsak | Innehåller en orsak till varför åtgärden utfördes |
+| Åtgärd | Åtgärd som utförs av den Event Hubs tjänsten vid utvärdering av anslutnings begär Anden. Åtgärder som stöds **accepterar anslutning** och **neka anslutning**. |
+| Anledning | Innehåller en orsak till varför åtgärden utfördes |
 | Antal | Antal förekomster för den aktuella åtgärden |
 | ResourceId | Azure Resource Manager resurs-ID. |
 
@@ -227,7 +237,7 @@ Kund hanterad nyckel användar logg JSON innehåller element som anges i följan
 | Kategori | Typ av kategori för ett meddelande. Det är ett av följande värden: **fel** och **information** |
 | ResourceId | Internt resurs-ID, som innehåller ID för Azure-prenumeration och namn område |
 | KeyVault | Namnet på Key Vault resursen |
-| Tangent | Namnet på den Key Vault nyckeln. |
+| Nyckel | Namnet på den Key Vault nyckeln. |
 | Version | Key Vault nyckelns version |
 | Åtgärd | Namnet på en åtgärd som utförs för att betjäna förfrågningar |
 | Kod | Statuskod |

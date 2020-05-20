@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/03/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: affdbfba125b7e9b3f3fe250a56af30e9efe816e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.date: 04/03/2020
+ms.openlocfilehash: 9b5771197c3e2de109af1a3b3475ab28fcbd6453
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611014"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647755"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interagera med Apache Kafka kluster i Azure HDInsight med hjälp av en REST-proxy
 
@@ -56,6 +56,8 @@ Klient program bör hämta en OAuth-token för REST-slut punkts begär Anden. To
 
 ## <a name="create-a-kafka-cluster-with-rest-proxy-enabled"></a>Skapa ett Kafka-kluster med REST proxy aktiverat
 
+I stegen nedan används Azure Portal. Ett exempel på hur du använder Azure CLI finns i [skapa Apache KAFKA rest-proxy-kluster med Azure CLI](tutorial-cli-rest-proxy.md).
+
 1. Under arbets flödet för skapande av Kafka-kluster går du till fliken **säkerhet + nätverk** och markerar alternativet **Aktivera Kafka rest proxy** .
 
      ![Aktivera Kafka REST proxy och välj säkerhets grupp](./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png)
@@ -75,7 +77,7 @@ Klient program bör hämta en OAuth-token för REST-slut punkts begär Anden. To
 Du kan använda python-koden nedan för att interagera med REST-proxyn på ditt Kafka-kluster. Följ dessa steg om du vill använda kod exemplet:
 
 1. Spara exempel koden på en dator med python installerat.
-1. Installera nödvändiga python-beroenden genom `pip3 install msal`att köra.
+1. Installera nödvändiga python-beroenden genom att köra `pip3 install msal` .
 1. Ändra kod avsnittet **Konfigurera dessa egenskaper** och uppdatera följande egenskaper för din miljö:
 
     |Egenskap |Beskrivning |
@@ -92,7 +94,7 @@ Den här koden utför följande åtgärd:
 1. Hämtar en OAuth-token från Azure AD.
 1. Visar hur du gör en begäran till Kafka REST proxy.
 
-Mer information om hur du hämtar OAuth-tokens i python finns i [python AuthenticationContext-klass](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Du kan se en fördröjning när `topics` den inte skapas eller tas bort via Kafka rest-proxyn visas där. Den här fördröjningen beror på cache-uppdateringen.
+Mer information om hur du hämtar OAuth-tokens i python finns i [python AuthenticationContext-klass](https://docs.microsoft.com/python/api/adal/adal.authentication_context.authenticationcontext?view=azure-python). Du kan se en fördröjning när den `topics` inte skapas eller tas bort via KAFKA rest-proxyn visas där. Den här fördröjningen beror på cache-uppdateringen.
 
 ```python
 #Required python packages

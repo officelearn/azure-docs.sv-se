@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/16/2020
-ms.openlocfilehash: 23823e3952adcad6c7047636a24596e930927f6f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/19/2020
+ms.openlocfilehash: 86ff08ed01ea09497c14e91b4c891988569e2df1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857352"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657937"
 ---
 # <a name="co-sell-partner-engagement"></a>Deltagande i partnersäljsamarbete
 
@@ -22,9 +22,9 @@ Om du är en partner kan du använda Microsoft Co-sälja-programmet för att arb
 
 Microsoft erbjuder tre partner Sälj initiativ:
 
-* *Sälj partner*: du kan sälja Microsoft-teknik via egna säljare.
-* *Tjänster Co-Sälj*: säljare och partners samarbetar för att sälja ditt projekt eller hanterade tjänster med Microsoft Technology Embedded.
-* *IP-Co-Sälj*: säljare och partners samarbetar för att sälja din repeterbara, paketerade IP-lösning. *
+* *Sälj partner* – du kan sälja Microsoft-teknik via egna säljare.
+* *Tjänster* – säljare och partners samarbetar för att sälja ditt projekt eller hanterade tjänster med Microsoft Technology Embedded.
+* *IP-* partner – säljare och partners samarbetar för att sälja din repeterbara, paketerade IP-lösning. *
 
 \*Några av de här IP-relaterade lösningarna kan få ytterligare incitament när de har sålts och distribuerats med Microsoft Field Sales-team.
 
@@ -32,5 +32,6 @@ Microsoft erbjuder tre partner Sälj initiativ:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om att [sälja med Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
-- Lär dig mer om [alternativet Co-Sälj i Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
+* Läs mer om att [sälja med Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
+* Läs mer om [alternativet Co-Sälj i Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md).
+* Läs [guiden för medsälj partner engagemang](https://aka.ms/Co-sellPartnerengagementguidepartnerlink) (PDF).

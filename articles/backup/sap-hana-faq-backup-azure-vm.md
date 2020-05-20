@@ -3,12 +3,12 @@ title: Vanliga frågor och svar – Säkerhetskopiera SAP HANA-databaser på vir
 description: I den här artikeln hittar du svar på vanliga frågor om hur du säkerhetskopierar SAP HANA databaser med hjälp av tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a46c4d6cccc00452a56567880400ef5779e6aed4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9e0d96439a79c2c3d2cb2caa00ff09be3ff790d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80155400"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660111"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer
 
@@ -60,6 +60,18 @@ För närvarande har vi inte möjlighet att konfigurera lösningen mot en virtue
 ### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>Jag har en SAP HANA system replikering (HSR), hur ska jag konfigurera säkerhets kopiering för den här installationen?
 
 De primära och sekundära noderna i HSR kommer att behandlas som två egna, icke-relaterade virtuella datorer. Du måste konfigurera säkerhets kopiering på den primära noden och när redundansen inträffar måste du konfigurera säkerhets kopiering på den sekundära noden (som nu blir den primära noden). Det finns ingen automatisk "redundans" av säkerhets kopian till den andra noden.
+
+### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Hur kan jag flytta en säkerhets kopia på begäran till det lokala fil systemet i stället för Azure-valvet?
+
+1. Vänta tills den pågående säkerhets kopieringen har slutförts för den önskade databasen (kontroll från Studio för slut för ande)
+1. Inaktivera logg säkerhets kopior och ange katalog säkerhets kopian till **fil systemet** för den önskade databasen med hjälp av följande steg:
+1. Dubbelklicka på **SYSTEMDB**  ->  **konfiguration**  ->  **Välj databas**  ->  **filter (logg)**
+    1. Ange enable_auto_log_backup till **Nej**
+    1. Ange log_backup_using_backint till **falskt**
+1. Ta en säkerhets kopia på begäran på önskad databas och vänta tills säkerhets kopieringen och katalogen har slutförts.
+1. Återgå till de tidigare inställningarna så att säkerhets kopieringar kan flöda till Azure-valvet:
+    1. Ange enable_auto_log_backup till **Ja**
+    1. Ange log_backup_using_backint till **Sant**
 
 ## <a name="restore"></a>Återställ
 

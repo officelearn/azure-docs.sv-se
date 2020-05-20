@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4673bcb71fc2f45c3b02f8fe5e463184395e8ef8
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: a92e64311d8a4f5e87c5be3d00c1c23898db551d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891283"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648360"
 ---
 # <a name="azure-event-grid-trigger-for-azure-functions"></a>Azure Event Grid utlösare för Azure Functions
 
@@ -21,13 +21,13 @@ Information om konfiguration och konfigurations information finns i [översikten
 
 ## <a name="example"></a>Exempel
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Ett exempel på en HTTP-utlösare finns i [ta emot händelser till en HTTP-slutpunkt](../event-grid/receive-events.md).
 
 ### <a name="c-2x-and-higher"></a>C# (2. x och högre)
 
-I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som binder till `EventGridEvent`:
+I följande exempel visas en [C#-funktion](functions-dotnet-class-library.md) som binder till `EventGridEvent` :
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -53,7 +53,7 @@ Mer information finns i paket, [attribut](#attributes-and-annotations), [konfigu
 
 ### <a name="version-1x"></a>Version 1. x
 
-I följande exempel visas en funktion 1. x [C#-funktion](functions-dotnet-class-library.md) som binder till `JObject`:
+I följande exempel visas en funktion 1. x [C#-funktion](functions-dotnet-class-library.md) som binder till `JObject` :
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -97,7 +97,7 @@ Här är bindnings data i *Function. JSON* -filen:
 
 ### <a name="version-2x-and-higher"></a>Version 2. x och högre
 
-Här är ett exempel som binder till `EventGridEvent`:
+Här är ett exempel som binder till `EventGridEvent` :
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -114,7 +114,7 @@ Mer information finns i paket, [attribut](#attributes-and-annotations), [konfigu
 
 ### <a name="version-1x"></a>Version 1. x
 
-Här är funktioner 1. x C#-skript kod som binder till `JObject`:
+Här är funktioner 1. x C#-skript kod som binder till `JObject` :
 
 ```cs
 #r "Newtonsoft.Json"
@@ -207,7 +207,7 @@ Det här avsnittet innehåller följande exempel:
 * [Event Grid utlösare, sträng parameter](#event-grid-trigger-string-parameter)
 * [Event Grid trigger, POJO-parameter](#event-grid-trigger-pojo-parameter)
 
-I följande exempel visas utlösarens bindning i [Java](functions-reference-java.md) som använder bindningen och utskriften av en händelse, först mottagandet `String` händelsen som och sekund som POJO.
+I följande exempel visas utlösarens bindning i [Java](functions-reference-java.md) som använder bindningen och utskriften av en händelse, först mottagandet händelsen som `String` och sekund som POJO.
 
 ### <a name="event-grid-trigger-string-parameter"></a>Event Grid utlösare, sträng parameter
 
@@ -263,13 +263,13 @@ Vid ankomsten avserialiseras händelsens JSON-nyttolast till ```EventSchema``` P
   }
 ```
 
-I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `EventGridTrigger` anteckningen för parametrar vars värde kommer från EventGrid. Parametrar med dessa anteckningar gör att funktionen körs när en händelse tas emot.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden `Optional<T>`med hjälp av.
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `EventGridTrigger` anteckningen för parametrar vars värde kommer från EventGrid. Parametrar med dessa anteckningar gör att funktionen körs när en händelse tas emot.  Den här anteckningen kan användas med inbyggda Java-typer, Pojo eller null-värden med hjälp av `Optional<T>` .
 
 ---
 
 ## <a name="attributes-and-annotations"></a>Attribut och anteckningar
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 Använd attributet [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) i [C#-klass bibliotek](functions-dotnet-class-library.md).
 
@@ -307,15 +307,15 @@ Med [EventGridTrigger](https://github.com/Azure/azure-functions-java-library/blo
 
 I följande tabell förklaras de egenskaper för bindnings konfigurationen som du anger i filen *Function. JSON* . Det finns inga konstruktorer eller egenskaper att ange i `EventGridTrigger` attributet.
 
-|function. JSON-egenskap |Beskrivning|
+|function. JSON-egenskap |Description|
 |---------|---------|
-| **bastyp** | Required-måste anges till `eventGridTrigger`. |
-| **position** | Required-måste anges till `in`. |
+| **typ** | Required-måste anges till `eventGridTrigger` . |
+| **position** | Required-måste anges till `in` . |
 | **Namn** | Obligatoriskt – variabel namnet som används i funktions koden för den parameter som tar emot händelse data. |
 
 ## <a name="usage"></a>Användning
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 I Azure Functions 1. x kan du använda följande parameter typer för utlösaren Event Grid:
 
@@ -327,7 +327,7 @@ I Azure Functions 2. x och högre kan du också välja att använda följande pa
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Definierar egenskaper för fälten som är gemensamma för alla händelse typer.
 
 > [!NOTE]
-> I functions v1 om du försöker binda till `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`visas ett "föråldrat" meddelande i kompilatorn som gör att du kan `Microsoft.Azure.EventGrid.Models.EventGridEvent` använda i stället. Om du vill använda den nyare typen refererar du till [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet-paketet och `EventGridEvent` fullständigt kvalificerar typ namnet genom att `Microsoft.Azure.EventGrid.Models`prefixet.
+> I functions v1 om du försöker binda till `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent` visas ett "föråldrat" meddelande i kompilatorn som gör att du kan använda `Microsoft.Azure.EventGrid.Models.EventGridEvent` i stället. Om du vill använda den nyare typen refererar du till [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet-paketet och fullständigt kvalificerar `EventGridEvent` typ namnet genom att prefixet `Microsoft.Azure.EventGrid.Models` .
 
 # <a name="c-script"></a>[C#-skript](#tab/csharp-script)
 
@@ -341,19 +341,19 @@ I Azure Functions 2. x och högre kan du också välja att använda följande pa
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Definierar egenskaper för fälten som är gemensamma för alla händelse typer.
 
 > [!NOTE]
-> I functions v1 om du försöker binda till `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`visas ett "föråldrat" meddelande i kompilatorn som gör att du kan `Microsoft.Azure.EventGrid.Models.EventGridEvent` använda i stället. Om du vill använda den nyare typen refererar du till [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet-paketet och `EventGridEvent` fullständigt kvalificerar typ namnet genom att `Microsoft.Azure.EventGrid.Models`prefixet. Information om hur du refererar till NuGet-paket i en C#-skript funktion finns i [använda NuGet-paket](functions-reference-csharp.md#using-nuget-packages)
+> I functions v1 om du försöker binda till `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent` visas ett "föråldrat" meddelande i kompilatorn som gör att du kan använda `Microsoft.Azure.EventGrid.Models.EventGridEvent` i stället. Om du vill använda den nyare typen refererar du till [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet-paketet och fullständigt kvalificerar `EventGridEvent` typ namnet genom att prefixet `Microsoft.Azure.EventGrid.Models` . Information om hur du refererar till NuGet-paket i en C#-skript funktion finns i [använda NuGet-paket](functions-reference-csharp.md#using-nuget-packages)
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i `name` egenskapen *Function. JSON* -filen.
+Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen *Function. JSON* -filen `name` .
 
 # <a name="python"></a>[Python](#tab/python)
 
-Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i `name` egenskapen *Function. JSON* - `func.EventGridEvent`filen, skriven som.
+Event Grid-instansen är tillgänglig via den parameter som kon figurer ATS i egenskapen *Function. JSON* `name` -filen, skriven som `func.EventGridEvent` .
 
 # <a name="java"></a>[Java](#tab/java)
 
-Den Event Grid händelse instansen är tillgänglig via den parameter som `EventGridTrigger` är kopplad till attributet, `EventSchema`skriven som en. Se [exemplet](#example) för mer information.
+Den Event Grid händelse instansen är tillgänglig via den parameter som är kopplad till `EventGridTrigger` attributet, skriven som en `EventSchema` . Se [exemplet](#example) för mer information.
 
 ---
 
@@ -393,7 +393,7 @@ Egenskaperna på den högsta nivån i Event JSON-data är desamma bland alla hä
 
 Förklaringar av vanliga och event-/regionsspecifika egenskaper finns i [händelse egenskaper](../event-grid/event-schema.md#event-properties) i Event Grid-dokumentationen.
 
-`EventGridEvent` Typen definierar bara egenskaperna på den översta nivån. `Data` egenskapen är en `JObject`.
+`EventGridEvent`Typen definierar bara egenskaperna på den översta nivån. `Data` egenskapen är en `JObject` .
 
 ## <a name="create-a-subscription"></a>Skapa en prenumeration
 
@@ -401,13 +401,13 @@ Om du vill börja ta emot Event Grid HTTP-begäranden skapar du en Event Grid-pr
 
 ### <a name="azure-portal"></a>Azure Portal
 
-För funktioner som du utvecklar i Azure Portal med Event Grid utlösare väljer du **Lägg till Event Grid prenumeration**.
+För funktioner som du utvecklar i Azure Portal med Event Grid utlösare väljer du **integration** och väljer sedan **Event Grid utlösare** och väljer **Skapa event Grid prenumeration**.
 
-![Skapa prenumeration i portalen](media/functions-bindings-event-grid/portal-sub-create.png)
+:::image type="content" source="media/functions-bindings-event-grid/portal-sub-create.png" alt-text="Anslut en ny händelse prenumeration till utlösaren i portalen.":::
 
-När du väljer den här länken öppnar portalen sidan **Skapa händelse prenumeration** med slut PUNKTens URL förifylld.
+När du väljer den här länken, öppnar portalen sidan **Skapa händelse prenumeration** med den aktuella utlösare som redan har definierats.
 
-![Förifyllt slut punkts-URL](media/functions-bindings-event-grid/endpoint-url.png)
+:::image type="content" source="media/functions-bindings-event-grid/endpoint-url.png" alt-text="Skapa händelse prenumeration med funktions slut punkten redan definierad" :::
 
 Mer information om hur du skapar prenumerationer med hjälp av Azure Portal finns i avsnittet [Skapa anpassad händelse-Azure Portal](../event-grid/custom-event-quickstart-portal.md) i Event Grid-dokumentationen.
 
@@ -556,7 +556,7 @@ Använd ett verktyg som [Postman](https://www.getpostman.com/) eller [sväng](ht
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
     ```
 
-`functionName` Parametern måste vara det namn som anges i `FunctionName` attributet.
+`functionName`Parametern måste vara det namn som anges i `FunctionName` attributet.
 
 Följande skärm bilder visar rubrikerna och begär ande texten i Postman:
 

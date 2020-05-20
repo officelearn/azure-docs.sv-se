@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6316165ba08d055be1186995e2fe2ad5a0079fb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330728"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636084"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Genom gång: Lägg till REST API Claims-utbyten till anpassade principer i Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Du kan också utforma interaktionen som en teknisk profil för validering. Detta
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Förbereda en REST API-slutpunkt
 
-I den här genom gången ska du ha en REST API som verifierar om en användares Azure AD B2C objectId är registrerat i Server dels systemet. Om det är registrerat returnerar REST API saldot för användar kontot. Annars registrerar REST API det nya kontot i katalogen och returnerar Startsaldot `50.00`.
+I den här genom gången ska du ha en REST API som verifierar om en användares Azure AD B2C objectId är registrerat i Server dels systemet. Om det är registrerat returnerar REST API saldot för användar kontot. Annars registrerar REST API det nya kontot i katalogen och returnerar Startsaldot `50.00` .
 
 Följande JSON-kod illustrerar data Azure AD B2C skickas till din REST API-slutpunkt. 
 
@@ -59,7 +59,7 @@ Installationen av REST API slut punkten ligger utanför omfånget för den här 
 
 Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körning. Du kan deklarera anspråk i avsnittet [anspråks schema](claimsschema.md) . 
 
-1. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+1. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
 1. Leta upp [ClaimsSchema](claimsschema.md) -elementet. Om elementet inte finns lägger du till det.
 1. Lägg till följande anspråk i **ClaimsSchema** -elementet.  
@@ -77,7 +77,7 @@ Ett anspråk ger tillfällig lagring av data under en Azure AD B2C princip körn
 
 ## <a name="configure-the-restful-api-technical-profile"></a>Konfigurera teknisk profil för RESTful-API 
 
-En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för samverkan med din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i en `InputClaims` samling och tar emot data tillbaka i `OutputClaims` en samling. Hitta **ClaimsProviders** -elementet i <em>**`TrustFrameworkExtensions.xml`**</em> filen och Lägg till en ny anspråks leverantör enligt följande:
+En [RESTful-teknisk profil](restful-technical-profile.md) ger stöd för samverkan med din egen RESTful-tjänst. Azure AD B2C skickar data till RESTful-tjänsten i en `InputClaims` samling och tar emot data tillbaka i en `OutputClaims` samling. Hitta **ClaimsProviders** -elementet i <em>**`TrustFrameworkExtensions.xml`**</em> filen och Lägg till en ny anspråks leverantör enligt följande:
 
 ```xml
 <ClaimsProvider>
@@ -117,11 +117,11 @@ Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` ange
 
 [Användar resan](userjourneys.md) anger explicita sökvägar genom vilka en princip tillåter ett förlitande parts program att hämta önskade anspråk för en användare. En användar resa representeras som en Orchestration-sekvens som måste följas av för en lyckad transaktion. Du kan lägga till eller ta bort Orchestration-steg. I det här fallet lägger du till ett nytt Orchestration-steg som används för att utöka den information som ges till programmet efter att användaren loggat in eller loggar in via REST API-anropet.
 
-1. Öppna bas filen för din princip. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+1. Öppna bas filen för din princip. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> .
 1. Sök efter `<UserJourneys>` elementet. Kopiera hela elementet och ta sedan bort det.
-1. Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
-1. `<UserJourneys>` Klistra in i tilläggs filen efter slutet av `<ClaimsProviders>` elementet.
-1. Leta upp `<UserJourney Id="SignUpOrSignIn">`och Lägg till följande Orchestration-steg före det sista.
+1. Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
+1. Klistra in i `<UserJourneys>` tilläggs filen efter slutet av `<ClaimsProviders>` elementet.
+1. Leta upp `<UserJourney Id="SignUpOrSignIn">` och Lägg till följande Orchestration-steg före det sista.
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -131,7 +131,7 @@ Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` ange
     </OrchestrationStep>
     ```
 
-1. Återtvingar det senaste Orchestration-steget genom `Order` att ändra till `8`. Dina sista steg i dirigeringen bör se ut ungefär så här:
+1. Återtvingar det senaste Orchestration-steget genom att ändra `Order` till `8` . Dina sista steg i dirigeringen bör se ut ungefär så här:
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -148,7 +148,7 @@ Kommentarerna ovan `AuthenticationType` och `AllowInsecureAuthInProduction` ange
 
 ## <a name="include-a-claim-in-the-token"></a>Inkludera ett anspråk i token 
 
-Om du vill `balance` återgå tillbaka till det förlitande part programmet lägger du till ett utgående anspråk <em> `SocialAndLocalAccounts/` </em> i filen. Om du lägger till ett utgående anspråk utfärdas anspråket till token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part och Lägg `balance` till som ett utgående anspråk.
+Om du vill återgå `balance` tillbaka till det förlitande part programmet lägger du till ett utgående anspråk i <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> filen. Om du lägger till ett utgående anspråk utfärdas anspråket till token efter en lyckad användar resa och skickas till programmet. Ändra det tekniska profil elementet i avsnittet förlitande part och Lägg till `balance` som ett utgående anspråk.
  
 ```xml
 <RelyingParty>
@@ -209,9 +209,6 @@ Spara de filer som du ändrade: *TrustFrameworkBase. XML*och *TrustFrameworkExte
   ...
 }
 ```
-
-## <a name="next-steps"></a>Nästa steg
-
 
 ## <a name="next-steps"></a>Nästa steg
 

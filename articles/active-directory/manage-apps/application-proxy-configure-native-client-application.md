@@ -11,27 +11,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.reviewer: japere
-ms.custom: it-pro, has-adal-ref
+ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a649a6fab1fe85efc4edcfd2d3151ab85302101b
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 442e1515159afc1df79bb6f5f1f747ce0800fef7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610283"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647231"
 ---
 # <a name="how-to-enable-native-client-applications-to-interact-with-proxy-applications"></a>Så här aktiverar du interna klient program för att interagera med proxyprogram
 
-Du kan använda Azure Active Directory (Azure AD) Application Proxy för att publicera webbappar, men det kan också användas för att publicera interna klient program som har kon figurer ATS med Azure AD Authentication Library (ADAL). Interna klient program skiljer sig från webbappar eftersom de är installerade på en enhet, medan webb program nås via en webbläsare.
+Du kan använda Azure Active Directory (Azure AD) Application Proxy för att publicera webbappar, men det kan också användas för att publicera interna klient program som är konfigurerade med Microsoft Authentication Library (MSAL). Interna klient program skiljer sig från webbappar eftersom de är installerade på en enhet, medan webb program nås via en webbläsare.
 
 För att stödja interna klient program, accepterar programproxy Azure AD-utfärdade tokens som skickas i huvudet. Application Proxy-tjänsten utför autentiseringen för användarna. Den här lösningen använder inte Application-token för autentisering.
 
 ![Förhållandet mellan slutanvändare, Azure AD och publicerade program](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Om du vill publicera interna program använder du Azure AD Authentication Library, som tar hand om autentiseringen och stöder många klient miljöer. Programproxyn passar in i det [inbyggda programmet för webb-API-scenario](../azuread-dev/native-app.md).
+Om du vill publicera interna program använder du Microsoft Authentication Library, som tar hand om autentiseringen och stöder många klient miljöer. Programproxyn passar i den [Skriv bords app som anropar ett webb-API för ett inloggat användar](https://docs.microsoft.com/azure/active-directory/develop/authentication-flows-app-scenarios#desktop-app-that-calls-a-web-api-on-behalf-of-a-signed-in-user) scenario.
 
 Den här artikeln vägleder dig genom de fyra stegen för att publicera ett internt program med programproxy och Azure AD-autentiseringspaket.
 
@@ -56,8 +56,7 @@ Du måste nu registrera ditt program i Azure AD, enligt följande:
    - Om du bara vill rikta dig till konton som är interna för din organisation väljer du **konton i den här organisations katalogen**.
    - Om du bara vill rikta in dig på affärs-eller utbildnings kunder väljer du **konton i valfri organisations katalog**.
    - Om du vill rikta in dig på den bredaste uppsättningen Microsoft-identiteter väljer du **konton i alla organisations kataloger och personliga Microsoft-konton**.
-
-1. I rubriken **omdirigerings-URI** väljer du **offentlig klient (mobil & Desktop)** och anger sedan omdirigerings-URI för programmet.
+1. Under **omdirigerings-URI**väljer du **offentlig klient (mobilt & Desktop)** och anger sedan omdirigerings-URI `https://login.microsoftonline.com/common/oauth2/nativeclient` för programmet.
 1. Välj och Läs **Microsofts plattforms principer**och välj sedan **Registrera**. En översikts sida för den nya program registreringen skapas och visas.
 
 Mer detaljerad information om hur du skapar en ny program registrering finns i [integrera program med Azure Active Directory](../develop/quickstart-register-app.md).
@@ -69,39 +68,57 @@ Nu när du har registrerat ditt interna program kan du ge det åtkomst till andr
 1. Välj **API-behörigheter**i list rutan på sidan ny program registrering. Sidan **API-behörigheter** för den nya program registreringen visas.
 1. Välj **Lägg till en behörighet**. Sidan **begär API-behörigheter** visas.
 1. Under **Välj en API** -inställning väljer du de **API: er som min organisation använder**. En lista visas med de program i din katalog som exponerar API: er.
-1. Skriv i sökrutan eller rulla för att hitta det proxy-program som du publicerade i [steg 1: publicera ditt proxy-program](#step-1-publish-your-proxy-application)och välj sedan proxy-programmet.
+1. Skriv i sökrutan eller rulla för att hitta det proxy-program som du publicerade i [steg 1: publicera ditt proxy-program](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-native-client-application#step-1-publish-your-proxy-application)och välj sedan proxy-programmet.
 1. I listan **vilken typ av behörigheter kräver ditt program?** rubrik väljer du behörighets typ. Om det interna programmet behöver åtkomst till proxyprogram-API: et som den inloggade användaren väljer du **delegerade behörigheter**.
 1. I rubriken **Välj behörigheter** väljer du önskad behörighet och väljer **Lägg till behörigheter**. Sidan **API-behörigheter** för ditt ursprungliga program visar nu proxy-programmet och behörighets-API: et som du har lagt till.
 
-## <a name="step-4-edit-the-active-directory-authentication-library"></a>Steg 4: redigera Active Directory-autentiseringsbibliotek
+## <a name="step-4-add-the-microsoft-authentication-library-to-your-code-net-c-sample"></a>Steg 4: Lägg till Microsoft Authentication Library till din kod (.NET C#-exempel)
 
-Redigera den interna program koden i ADAL (Authentication context) i Active Directory-autentiseringsbibliotek () för att inkludera följande text:
+Redigera den interna program koden i MSAL (Authentication Library) för att inkludera följande text: 
 
-```
+```         
 // Acquire Access Token from AAD for Proxy Application
-AuthenticationContext authContext = new AuthenticationContext("https://login.microsoftonline.com/<Tenant ID>");
-AuthenticationResult result = await authContext.AcquireTokenAsync("< External Url of Proxy App >",
-        "<App ID of the Native app>",
-        new Uri("<Redirect Uri of the Native App>"),
-        PromptBehavior.Never);
+IPublicClientApplication clientApp = PublicClientApplicationBuilder
+.Create(<App ID of the Native app>)
+.WithDefaultRedirectUri() // will automatically use the default Uri for native app
+.WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
+.Build();
 
-//Use the Access Token to access the Proxy Application
-HttpClient httpClient = new HttpClient();
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-HttpResponseMessage response = await httpClient.GetAsync("< Proxy App API Url >");
+AuthenticationResult authResult = null;
+var accounts = await clientApp.GetAccountsAsync();
+IAccount account = accounts.FirstOrDefault();
+
+IEnumerable<string> scopes = new string[] {"<Scope>"};
+
+try
+ {
+    authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
+ }
+    catch (MsalUiRequiredException ex)
+ {
+     authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();                
+ }
+
+if (authResult != null)
+ {
+  //Use the Access Token to access the Proxy Application
+
+  HttpClient httpClient = new HttpClient();
+  HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+  HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
+ }
 ```
 
 Du hittar den information som krävs i exempel koden i Azure AD-portalen. gör så här:
 
 | Information krävs | Så här hittar du det i Azure AD-portalen |
 | --- | --- |
-| \<Klient-ID> | **Azure Active Directory** > **Properties**egenskaper > **katalog-ID** |
-| \<Extern URL för proxy-app> | **Företags program** > *din proxy Application* > **Application Proxy** > **extern URL** |
-| \<App-ID för den inbyggda appen> | **Företags program** >  > **Egenskaper***your native application* > för**program-ID** |
-| \<Omdirigerings-URI för den interna appen> | **Azure Active Directory** > **App registrations**Appregistreringar > *ditt ursprungliga program* > **omdirigerings-URI: er** |
-| \<URL för proxy app-API> | **Azure Active Directory** > **App registrations**Appregistreringar > API **/namn-namn** för*det ursprungliga Application* > **API-behörighet** >  |
+| \<Klient-ID> | **Azure Active Directory**  >  **Egenskaper**  >  **Katalog-ID** |
+| \<App-ID för den inbyggda appen> | **Program registrering**  >  *ditt ursprungliga program*  >  **Översikt**  >  **Program-ID** |
+| \<Omfattning> | **Program registrering**  >  *ditt ursprungliga program*  >  **API-behörigheter** > Klicka på behörighets-API: t (user_impersonation) > en panel med texten **user_impersonation** visas till höger. > området är URL: en i redigerings rutan.
+| \<URL för proxy-app> | den externa URL: en och sökvägen till API: et
 
-När du har redigerat ADAL med dessa parametrar kan användarna autentisera till interna klient program även när de befinner sig utanför företags nätverket.
+När du redigerar MSAL-koden med dessa parametrar kan användarna autentisera till interna klient program även när de är utanför företags nätverket.
 
 ## <a name="next-steps"></a>Nästa steg
 

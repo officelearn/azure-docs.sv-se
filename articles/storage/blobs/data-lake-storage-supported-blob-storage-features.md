@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: ab704f53e608e7021f53a5d4b0a3e06c2ab807a1
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 5be7c9800076cfaf361a3e752162e14d10f22655
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007451"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650753"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Blob Storage-funktioner som är tillgängliga i Azure Data Lake Storage Gen2
 
@@ -26,9 +26,9 @@ I den här tabellen visas de Blob Storage-funktioner som du kan använda med Azu
 > [!NOTE]
 > Support nivån avser endast hur funktionen stöds med Data Lake Storage Gen2. 
 >
-> [Premium-Performance Block Blob Storage-konton](storage-blob-create-account-block-blob.md) för data Lake Storage Gen2 finns för närvarande i offentlig för hands version. Support-nivåer för dessa typer av konton visas i kolumnen **Premium Block Blob Storage-konton** .
+> [BlockBlobStorage-konton för Premium-prestanda](storage-blob-create-account-block-blob.md) för data Lake Storage Gen2 finns för närvarande i offentlig för hands version. Support-nivåer för dessa typer av konton visas i kolumnen **BlockBlobStorage (Premium)** .
 
-|Blob Storage funktion |Allmänna-syfte v2-lagrings konton|Premiumkonton för blockbloblagring |Relaterade artiklar |
+|Blob Storage funktion |Allmänt-syfte v2 |BlockBlobStorage (Premium) |Relaterade artiklar |
 |---------------|-------------------|---|
 |Frekvent åtkomstnivå|Allmänt tillgänglig|Stöds inte|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
 |Lågfrekvent åtkomstnivå|Allmänt tillgänglig|Stöds inte|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
@@ -39,6 +39,7 @@ I den här tabellen visas de Blob Storage-funktioner som du kan använda med Azu
 |Blob Storage Azure CLI-kommandon|Allmänt tillgänglig|Förhandsgranskning|[Snabb start: skapa, ladda ned och lista blobar med Azure CLI](storage-quickstart-blobs-cli.md)|
 |API: er för Blob Storage|Allmänt tillgänglig|Förhandsgranskning|[Snabb start: klient biblioteket för Azure Blob Storage-V12 för .NET](storage-quickstart-blobs-dotnet.md)<br>[Snabb start: hantera blobbar med Java V12 SDK](storage-quickstart-blobs-java.md)<br>[Snabb start: hantera blobbar med python V12 SDK](storage-quickstart-blobs-python.md)<br>[Snabb start: hantera blobbar med Java Script V12 SDK i Node. js](storage-quickstart-blobs-nodejs.md)|
 |Diagnostikloggar|Allmänt tillgänglig|Förhandsgranskning <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Analysloggning i Azure Storage](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Logga in Azure Monitor|Förhandsgranskning |Stöds inte ännu|[Övervaknings Azure Storage](../common/monitor-storage.md)|
 |Arkiv åtkomst nivå|Förhandsgranskning|Stöds inte|[Azure Blob Storage: nivåer för frekvent åtkomst, lågfrekvent åtkomst och arkivlagring](storage-blob-storage-tiers.md)|
 |Principer för livs cykel hantering|Förhandsgranskning|Stöds inte ännu|[Hantera Azure Blob Storage-livscykeln](storage-lifecycle-management-concepts.md)|
 |Ändringsfeed|Stöds inte ännu|Stöds inte ännu|[Ändra feed-stöd i Azure Blob Storage](storage-blob-change-feed.md)|
@@ -49,7 +50,6 @@ I den här tabellen visas de Blob Storage-funktioner som du kan använda med Azu
 |Ögonblicksbilder|Stöds inte ännu|Stöds inte ännu|[Skapa och hantera en BLOB-ögonblicksbild i .NET](storage-blob-snapshots.md)|
 |Mjuk borttagning|Stöds inte ännu|Stöds inte ännu|[Mjuk borttagning för Azure Storage-blobar](storage-blob-soft-delete.md)|
 |Statiska webbplatser|Stöds inte ännu|Stöds inte ännu|[Vara värd för en statisk webbplats i Azure Storage](storage-blob-static-website.md)|
-|Logga in Azure Monitor|Stöds inte ännu|Stöds inte ännu|Ännu inte tillgängligt|
 
 <div id="diagnostic-logging"><sup>1</sup> För Premium Block Blob Storage-konton går det inte att aktivera diagnostikloggar (klassisk) med hjälp av Azure Portal. Aktivera dem med hjälp av PowerShell.</div>
 

@@ -3,16 +3,16 @@ title: Så här skapar du principer för gäst konfiguration för Windows
 description: Lär dig hur du skapar en princip för Azure Policy gäst konfiguration för Windows.
 ms.date: 03/20/2020
 ms.topic: how-to
-ms.openlocfilehash: a75525b25945dd9548d7c293d5965cc67eb463dc
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: d72b9b2dbf4c9f88f94fcfea2a99e6b27fd1fccd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509626"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647774"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Så här skapar du principer för gäst konfiguration för Windows
 
-Innan du skapar anpassade principer är det en bra idé att läsa den konceptuella översikts informationen på sidan [Azure policy gäst konfiguration](../concepts/guest-configuration.md).
+Innan du skapar anpassade princip definitioner, är det en bra idé att läsa den konceptuella översikts informationen på sidan [Azure policy gäst konfiguration](../concepts/guest-configuration.md).
  
 Information om hur du skapar principer för gäst konfiguration för Linux finns på sidan [hur du skapar principer för gäst konfiguration för Linux](./guest-configuration-create-linux.md)
 
@@ -32,7 +32,14 @@ Använd följande åtgärder för att skapa en egen konfiguration för att verif
 
 ## <a name="install-the-powershell-module"></a>Installera PowerShell-modulen
 
-Att skapa en gäst konfigurations artefakt, automatiserad testning av artefakten, skapa en princip definition och publicera principen, är helt automatiserad med modulen för gäst konfiguration i PowerShell. Modulen kan installeras på en dator som kör Windows, macOS eller Linux med PowerShell 6,2 eller senare som körs lokalt, eller med [Azure Cloud Shell](https://shell.azure.com)eller med [Azure PowerShell Core Docker-avbildningen](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+Modulen för gäst konfiguration automatiserar processen med att skapa anpassat innehåll, inklusive:
+
+- Skapar en innehålls artefakt för gäst konfiguration (. zip)
+- Automatiserad testning av artefakten
+- Skapa en princip definition
+- Publicera principen
+
+Modulen kan installeras på en dator som kör Windows, macOS eller Linux med PowerShell 6,2 eller senare som körs lokalt, eller med [Azure Cloud Shell](https://shell.azure.com)eller med [Azure PowerShell Core Docker-avbildningen](https://hub.docker.com/r/azuresdk/azure-powershell-core).
 
 > [!NOTE]
 > Kompilering av konfigurationer stöds inte ännu i Linux.
@@ -79,7 +86,7 @@ En översikt över DSC-begrepp och terminologi finns i [Översikt över POWERSHE
 
 När gäst konfigurationen granskar en dator:
 
-1. Agenten körs `Test-TargetResource` först för att avgöra om konfigurationen är i rätt tillstånd.
+1. Agenten körs först `Test-TargetResource` för att avgöra om konfigurationen är i rätt tillstånd.
 1. Det booleska värde som returneras av funktionen avgör om Azure Resource Managers status för gäst tilldelningen ska vara kompatibel/inte kompatibel.
 1. Providern kör `Get-TargetResource` för att returnera det aktuella läget för varje inställning så att information är tillgänglig både om varför en dator inte är kompatibel och för att bekräfta att det aktuella läget är kompatibelt.
 
@@ -183,13 +190,13 @@ Configuration AuditBitLocker
 AuditBitLocker ./Config
 ```
 
-Spara filen med namnet `config.ps1` i projektmappen. Kör den i PowerShell genom att köra `./config.ps1` i terminalen. En ny MOF-fil kommer att skapas.
+Spara filen med namnet `config.ps1` i projektmappen. Kör den i PowerShell genom att köra `./config.ps1` i terminalen. En ny MOF-fil skapas.
 
-`Node AuditBitlocker` Kommandot är inte tekniskt obligatoriskt, utan skapar en fil med `AuditBitlocker.mof` namnet istället för standardvärdet `localhost.mof`. Med hjälp av MOF-filnamn följer du konfigurationen och gör det enkelt att ordna många filer när de körs i stor skala.
+`Node AuditBitlocker`Kommandot är inte tekniskt obligatoriskt, utan skapar en fil med namnet `AuditBitlocker.mof` istället för standardvärdet `localhost.mof` . Med hjälp av MOF-filnamn följer du konfigurationen och gör det enkelt att ordna många filer när de körs i stor skala.
 
 När MOF-filen kompileras måste de stödfiler paketeras tillsammans. Det slutförda paketet används av gäst konfigurationen för att skapa Azure Policy-definitioner.
 
-`New-GuestConfigurationPackage` Cmdleten skapar paketet. Moduler som krävs av konfigurationen måste vara tillgängliga i `$Env:PSModulePath`. Parametrar för `New-GuestConfigurationPackage` cmdleten när Windows-innehåll skapas:
+`New-GuestConfigurationPackage`Cmdleten skapar paketet. Moduler som krävs av konfigurationen måste vara tillgängliga i `$Env:PSModulePath` . Parametrar för `New-GuestConfigurationPackage` cmdleten när Windows-innehåll skapas:
 
 - **Namn**: namn på gäst konfigurations paket.
 - **Konfiguration**: den fullständiga sökvägen till det kompilerade DSC-konfigurationsobjektet.
@@ -283,7 +290,7 @@ $uri = publish `
   -blobName 'AuditBitlocker'
 ```
 
-När ett anpassat princip paket för gäst konfiguration har skapats och överförts skapar du princip definitionen för gäst konfiguration. `New-GuestConfigurationPolicy` Cmdleten tar ett anpassat princip paket och skapar en princip definition.
+När ett anpassat princip paket för gäst konfiguration har skapats och överförts skapar du princip definitionen för gäst konfiguration. `New-GuestConfigurationPolicy`Cmdleten tar ett anpassat princip paket och skapar en princip definition.
 
 Parametrar för `New-GuestConfigurationPolicy` cmdleten:
 
@@ -308,7 +315,7 @@ New-GuestConfigurationPolicy `
     -Verbose
 ```
 
-Följande filer skapas av `New-GuestConfigurationPolicy`:
+Följande filer skapas av `New-GuestConfigurationPolicy` :
 
 - **auditIfNotExists. JSON**
 - **deployIfNotExists. JSON**
@@ -316,7 +323,15 @@ Följande filer skapas av `New-GuestConfigurationPolicy`:
 
 Cmdlet-utdata returnerar ett objekt som innehåller initiativets visnings namn och sökväg.
 
-Publicera sedan princip definitionerna med hjälp av `Publish-GuestConfigurationPolicy` cmdleten. Cmdleten har bara **Sök vägs** parametern som pekar på platsen för de JSON-filer som skapas `New-GuestConfigurationPolicy`av.
+> [!Note]
+> Den senaste modulen för gäst konfiguration innehåller en ny parameter:
+> - **Tag** lägger till ett eller flera märkes filter i princip definitionen
+>   - Se avsnittet [filtrera gäst konfigurations principer med hjälp av Taggar](#filtering-guest-configuration-policies-using-tags).
+> - **Kategori** anger fältet Kategori metadata i princip definitionen
+>   - Om parametern inte är inkluderad är kategorin som standard gäst konfiguration.
+> Dessa funktioner är i för hands version och kräver version 1.20.1, som kan installeras med hjälp av modulen `Install-Module GuestConfiguration -AllowPrerelease` .
+
+Publicera sedan princip definitionerna med hjälp av `Publish-GuestConfigurationPolicy` cmdleten. Cmdleten har bara **Sök vägs** parametern som pekar på platsen för de JSON-filer som skapas av `New-GuestConfigurationPolicy` .
 
 Om du vill köra kommandot Publicera måste du ha åtkomst till skapa principer i Azure. De särskilda kraven för auktorisering finns dokumenterade på sidan [Azure policy översikt](../overview.md) . Den bästa inbyggda rollen är **resurs princip deltagare**.
 
@@ -324,7 +339,7 @@ Om du vill köra kommandot Publicera måste du ha åtkomst till skapa principer 
 Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
 ```
 
-`Publish-GuestConfigurationPolicy` Cmdleten accepterar sökvägen från PowerShell-pipeline. Den här funktionen innebär att du kan skapa principfiler och publicera dem i en enda uppsättning skickas-kommandon.
+`Publish-GuestConfigurationPolicy`Cmdleten accepterar sökvägen från PowerShell-pipeline. Den här funktionen innebär att du kan skapa principfiler och publicera dem i en enda uppsättning skickas-kommandon.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy `
@@ -355,7 +370,38 @@ $role.AssignableScopes.Add("/subscriptions/$subscriptionid")
 New-AzRoleDefinition -Role $role
 ```
 
-### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Använda parametrar i anpassade gäst konfigurations principer
+### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrera principer för gäst konfiguration med Taggar
+
+> [!Note]
+> Den här funktionen är i för hands version och kräver version 1.20.1 för modulen för gäst konfiguration, som kan installeras med hjälp av `Install-Module GuestConfiguration -AllowPrerelease` .
+
+Princip definitionerna som skapas av cmdlets i modulen gäst konfiguration kan eventuellt innehålla ett filter för taggar. **Tag** -parametern för `New-GuestConfigurationPolicy` stöder en matris med hash som innehåller enskilda taggar. Taggarna läggs till i `If` avsnittet i princip definitionen och kan inte ändras av en princip tilldelning.
+
+Ett exempel på en princip definition som filtrerar efter Taggar anges nedan.
+
+```json
+"if": {
+  "allOf" : [
+    {
+      "allOf": [
+        {
+          "field": "tags.Owner",
+          "equals": "BusinessUnit"
+        },
+        {
+          "field": "tags.Role",
+          "equals": "Web"
+        }
+      ]
+    },
+    {
+      // Original Guest Configuration content
+    }
+  ]
+}
+```
+
+### <a name="using-parameters-in-custom-guest-configuration-policy-definitions"></a>Använda parametrar i anpassade princip definitioner för gäst konfiguration
 
 Gäst konfiguration stöder åsidosättande egenskaper för en konfiguration vid körning. Den här funktionen innebär att värdena i MOF-filen i paketet inte måste betraktas som statiska. Värdena för åsidosättningar tillhandahålls via Azure Policy och påverkar inte hur konfigurationerna skapas eller kompileras.
 
@@ -386,12 +432,132 @@ New-GuestConfigurationPolicy
     -Version 1.0.0
 ```
 
+## <a name="extending-guest-configuration-with-third-party-tools"></a>Utöka gäst konfigurationen med verktyg från tredje part
+
+> [!Note]
+> Den här funktionen är i för hands version och kräver version 1.20.1 för modulen för gäst konfiguration, som kan installeras med hjälp av `Install-Module GuestConfiguration -AllowPrerelease` .
+> I version 1.20.1 är den här funktionen bara tillgänglig för princip definitioner som granskar Windows-datorer
+
+Artefakt paketen för gäst konfiguration kan utökas till att omfatta verktyg från tredje part.
+Att utöka gäst konfigurationen kräver utveckling av två komponenter.
+
+- En önskad tillstånds konfigurations resurs som hanterar all aktivitet som rör hantering av verktyget från tredje part
+  - Installera
+  - Anropa
+  - Konvertera utdata
+- Innehåll i rätt format för verktyget för att konsumeras internt
+
+DSC-resursen kräver anpassad utveckling om det inte redan finns en community-lösning.
+Community-lösningar kan identifieras genom att söka PowerShell-galleriet efter taggen [GuestConfiguration](https://www.powershellgallery.com/packages?q=Tags%3A%22GuestConfiguration%22).
+
+> [!Note]
+> Gäst konfigurationens utöknings barhet är en "ta med din egen licens"-scenario. Se till att du uppfyller villkoren för alla verktyg från tredje part innan du använder.
+
+När DSC-resursen har installerats i utvecklings miljön använder du **FilesToInclude** -parametern för `New-GuestConfigurationPackage` att ta med innehåll för plattformen från tredje part i innehålls artefakten.
+
+### <a name="step-by-step-creating-a-content-artifact-that-uses-third-party-tools"></a>Steg för steg, skapa en innehålls artefakt som använder verktyg från tredje part
+
+Endast `New-GuestConfigurationPackage` cmdleten kräver en ändring från steg-för-steg-vägledningen för artefakter för DSC-innehåll. I det här exemplet använder du `gcInSpec` modulen för att utöka gäst konfigurationen till att granska Windows-datorer med hjälp av INSPEC-plattformen snarare än den inbyggda modulen som används i Linux. Community-modulen underhålls som ett [projekt med öppen källkod i GitHub](https://github.com/microsoft/gcinspec).
+
+Installera nödvändiga moduler i utvecklings miljön:
+
+```azurepowershell-interactive
+Install-Module GuestConfiguration, gcInSpec
+```
+
+Börja med att skapa YaML-filen som används av INSPEC. Filen innehåller grundläggande information om miljön. Ett exempel anges nedan:
+
+```YaML
+name: wmi_service
+title: Verify WMI service is running
+maintainer: Microsoft Corporation
+summary: Validates that the Windows Service 'winmgmt' is running
+copyright: Microsoft Corporation
+license: MIT
+version: 1.0.0
+supports:
+  - os-family: windows
+```
+
+Spara filen i en mapp med namnet `wmi_service` i projekt katalogen.
+
+Skapa sedan ruby-filen med den inspeca-språkabstraktion som används för att granska datorn.
+
+```Ruby
+control 'wmi_service' do
+  impact 1.0
+  title 'Verify windows service: winmgmt'
+  desc 'Validates that the service, is installed, enabled, and running'
+
+  describe service('winmgmt') do
+    it { should be_installed }
+    it { should be_enabled }
+    it { should be_running }
+  end
+end
+
+```
+
+Spara filen i en ny mapp som heter `controls` inuti `wmi_service` katalogen.
+
+Slutligen skapar du en konfiguration, importerar **GuestConfiguration** Resource module och använder `gcInSpec` resursen för att ange namnet på den inspeca profilen.
+
+```powershell
+# Define the configuration and import GuestConfiguration
+Configuration wmi_service
+{
+    Import-DSCResource -Module @{ModuleName = 'gcInSpec'; ModuleVersion = '2.0.0'}
+    node 'wmi_service'
+    {
+        gcInSpec wmi_service
+        {
+            InSpecProfileName       = 'wmi_service'
+            InSpecVersion           = '3.9.3'
+            WindowsServerVersion    = '2016'
+        }
+    }
+}
+
+# Compile the configuration to create the MOF files
+wmi_service -out ./Config
+```
+
+Nu bör du ha en projekt struktur enligt nedan:
+
+```file
+/ wmi_service
+    / Config
+        wmi_service.mof
+    / wmi_service
+        wmi_service.yml
+        / controls
+            wmi_service.rb 
+```
+
+De stödfiler som krävs måste paketeras tillsammans. Det slutförda paketet används av gäst konfigurationen för att skapa Azure Policy-definitioner.
+
+`New-GuestConfigurationPackage`Cmdleten skapar paketet. För innehåll från tredje part använder du parametern **FilesToInclude** för att lägga till INSPEC-innehåll i paketet. Du behöver inte ange **ChefProfilePath** som för Linux-paket.
+
+- **Namn**: namn på gäst konfigurations paket.
+- **Konfiguration**: kompilerad fullständig sökväg till konfigurations dokument.
+- **Sökväg**: sökväg till utmatnings katalog. Den här parametern är valfri. Om det inte anges skapas paketet i den aktuella katalogen.
+- **FilesoInclude**: fullständig sökväg till INSPEC-profil.
+
+Kör följande kommando för att skapa ett paket med den konfiguration som angavs i föregående steg:
+
+```azurepowershell-interactive
+New-GuestConfigurationPackage `
+  -Name 'wmi_service' `
+  -Configuration './Config/wmi_service.mof' `
+  -FilesToInclude './wmi_service'
+```
+
 ## <a name="policy-lifecycle"></a>Princip livs cykel
 
 Om du vill släppa en uppdatering av principen finns det två fält som kräver åtgärd.
 
 - **Version**: när du kör `New-GuestConfigurationPolicy` cmdleten måste du ange ett versions nummer som är större än det som för närvarande är publicerat. Egenskapen uppdaterar versionen av gäst konfigurations tilldelningen så att agenten identifierar det uppdaterade paketet.
-- **contentHash**: den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som `New-GuestConfigurationPackage`skapats av. Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
+- **contentHash**: den här egenskapen uppdateras automatiskt av `New-GuestConfigurationPolicy` cmdleten. Det är ett hash-värde för det paket som skapats av `New-GuestConfigurationPackage` . Egenskapen måste vara korrekt för den `.zip` fil som du publicerar. Om endast egenskapen **contentUri** uppdateras, accepterar inte tillägget innehålls paketet.
 
 Det enklaste sättet att frigöra ett uppdaterat paket är att upprepa processen som beskrivs i den här artikeln och ange ett uppdaterat versions nummer. Den processen garanterar att alla egenskaper har uppdaterats korrekt.
 
@@ -419,7 +585,7 @@ Parametrar för `Protect-GuestConfigurationPackage` cmdleten:
 - **Sökväg**: fullständig sökväg till gäst konfigurations paketet.
 - **Certifikat**: kod signerings certifikat för att signera paketet. Den här parametern stöds bara vid signering av innehåll för Windows.
 
-GuestConfiguration-agenten förväntar sig att certifikatets offentliga nyckel finns i "betrodda rot certifikat utfärdare" på Windows- `/usr/local/share/ca-certificates/extra` datorer och i sökvägen på Linux-datorer. För noden för att verifiera signerat innehåll installerar du certifikatets offentliga nyckel på datorn innan du tillämpar den anpassade principen. Den här processen kan utföras med hjälp av valfri teknik i den virtuella datorn eller med hjälp av Azure Policy. [Här](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)finns en exempel mall.
+GuestConfiguration-agenten förväntar sig att certifikatets offentliga nyckel finns i "betrodda rot certifikat utfärdare" på Windows-datorer och i sökvägen `/usr/local/share/ca-certificates/extra` på Linux-datorer. För noden för att verifiera signerat innehåll installerar du certifikatets offentliga nyckel på datorn innan du tillämpar den anpassade principen. Den här processen kan utföras med hjälp av valfri teknik i den virtuella datorn eller med hjälp av Azure Policy. [Här](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)finns en exempel mall.
 Principen för Key Vault åtkomst måste tillåta att beräknings resurs leverantören får åtkomst till certifikat under distributioner. Detaljerade anvisningar finns i [konfigurera Key Vault för virtuella datorer i Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
 
 Följande är ett exempel för att exportera den offentliga nyckeln från ett signerings certifikat som ska importeras till datorn.
@@ -429,7 +595,7 @@ $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq
 $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
-När innehållet har publicerats lägger du till en tagg med `GuestConfigPolicyCertificateValidation` namn och `enabled` värde för alla virtuella datorer där kod signering ska krävas. Se [taggens exempel](../samples/built-in-policies.md#tags) för hur taggar kan levereras i skala med hjälp av Azure policy. När den här taggen är på plats kan princip definitionen som genereras med `New-GuestConfigurationPolicy` hjälp av cmdlet: en aktivera kravet via gäst konfigurations tillägget.
+När innehållet har publicerats lägger du till en tagg med namn `GuestConfigPolicyCertificateValidation` och värde `enabled` för alla virtuella datorer där kod signering ska krävas. Se [taggens exempel](../samples/built-in-policies.md#tags) för hur taggar kan levereras i skala med hjälp av Azure policy. När den här taggen är på plats kan princip definitionen som genereras med hjälp av cmdlet: en `New-GuestConfigurationPolicy` Aktivera kravet via gäst konfigurations tillägget.
 
 ## <a name="troubleshooting-guest-configuration-policy-assignments-preview"></a>Fel sökning av princip tilldelningar för gäst konfiguration (för hands version)
 

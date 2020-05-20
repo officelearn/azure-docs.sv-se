@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 054f1449d6f06225633bf0647cac93ca42f2b59b
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929017"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652048"
 ---
 # <a name="azure-stack-edge-technical-specifications"></a>Tekniska specifikationer för Azure Stack Edge
 
-Maskin varu komponenterna i Microsoft Azure Stack gräns enheten följer de tekniska specifikationer och regler som beskrivs i den här artikeln. De tekniska specifikationerna beskriver strömförsörjnings enheter (PSUs), lagrings kapacitet, höljen och miljö standarder. 
+Maskin varu komponenterna i Microsoft Azure Stack gräns enheten följer de tekniska specifikationer och regler som beskrivs i den här artikeln. De tekniska specifikationerna beskriver strömförsörjnings enheter (PSUs), lagrings kapacitet, höljen och miljö standarder.
 
 ## <a name="compute-memory-specifications"></a>Beräkning, minnes krav
 
@@ -28,15 +28,13 @@ Azure Stack Edge-enheten har följande specifikationer för beräkning och minne
 | Processor    | 2 X 10 kärnor                     |
 | Minne              | 128 GB RAM-minne                  |
 
-
 ## <a name="fpga-specifications"></a>FPGA-specifikationer
 
-En fält programmerbar grind mat ris (FPGA) ingår på varje Azure Stack Edge-enhet som aktiverar Machine Learning (ML) scenarier. 
+En fält programmerbar grind mat ris (FPGA) ingår på varje Azure Stack Edge-enhet som aktiverar Machine Learning (ML) scenarier.
 
 | Specifikation           | Värde                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Tillgängliga DNN-modeller (djup neurala Network) är desamma som de som [stöds av moln FPGA instanser](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
-
+| FPGA   | Intel Arria 10 <br> Tillgängliga DNN-modeller (djup neurala Network) är desamma som de som [stöds av moln FPGA instanser](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).|
 
 ## <a name="power-supply-unit-specifications"></a>Specifikationer för strömförsörjnings enhet
 
@@ -49,6 +47,11 @@ Azure Stack Edge-enheten har två 100-240 V-strömförsörjnings enheter (PSUs) 
 | Val av spännings intervall | Automatisk mellan: 100-240 V AC |
 | Hot pluggable           | Ja                        |
 
+### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Specifikationer för Azure Stack Edge-ström sladd per region
+
+Din Azure Stack Edge-enhet behöver en ström sladd som varierar beroende på din Azure-region.
+Tekniska specifikationer för alla ström kablar som stöds finns i [Azure Stack Edge Power Gateway-specifikationer per region](azure-stack-edge-technical-specifications-power-cords-regional.md).
+
 <!--## Power consumption statistics
 
 The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge device.-->
@@ -57,7 +60,7 @@ The following table lists the typical power consumption data (actual values may 
 
 Din Azure Stack Edge-enhet har 6 nätverks gränssnitt, PORT1-PORT6.
 
-| Specifikation           | Beskrivning                 |
+| Specifikation           | Description                 |
 |-------------------------|----------------------------|
 |  Nätverksgränssnitt    | 2 x 1 GbE-gränssnitt – 1 för hantering som inte kan konfigureras av användaren används för installationen. Det andra gränssnittet kan konfigureras av användaren, kan användas för dataöverföring och är DHCP som standard. <br>2 x 25 GbE-gränssnitt – dessa kan även fungera som 10 GbE-gränssnitt. Dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska. <br> 2 x 25 GbE-gränssnitt – dessa datagränssnitt kan konfigureras av användaren som DHCP (standard) eller statiska.                  |
 
@@ -133,7 +136,6 @@ I det här avsnittet visas de specifikationer som är relaterade till inne slutn
 |    Energi             |    Kommissionens förordning (EU) nr 617/2013                                                                                                                                                                                        |
 |    RoHS           |    EN 50581:2012                                                                                                                                                                                        |
 
-
 ### <a name="operating-temperature-de-rating-specifications"></a>Specifikationer för drifts temperatur avklassificering
 
 |     Värdering av drifts temperatur     |     Temperatur intervall för omgivning                                                         |
@@ -141,7 +143,6 @@ I det här avsnittet visas de specifikationer som är relaterade till inne slutn
 |    Upp till 35 ° c (95 °F)                       |    Maximal temperatur minskas med 1 ° c/300 m (1 °F/547 ft) över 950 m (3 117 ft).    |
 |    35 ° c till 40 ° c (95 °F till 104 °F)            |    Maximal temperatur minskas med 1 ° c/175 m (1 °F/319 ft) över 950 m (3 117 ft).    |
 |    40 ° c till 45 ° c (104 °F till 113 °F)           |    Maximal temperatur minskas med 1 ° c/125 m (1 °F/228 ft) över 950 m (3 117 ft).    |
-
 
 ## <a name="next-steps"></a>Nästa steg
 

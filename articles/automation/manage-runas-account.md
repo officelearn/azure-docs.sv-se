@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: d77fc756530115ff828c79a3b444c1152ffe5c5a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 68d04603ba9f0633bfa55598790b790055384fdb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608685"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648151"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -34,9 +34,9 @@ Kör som-kontot hanterar resurser för [distributions modeller i Resource Manage
 
 * Skapar ett Azure AD-program med ett självsignerat certifikat och ett tjänstobjektskonto för programmet i Azure AD och rollen Deltagare tilldelas för kontot i din aktuella prenumeration. Du kan ändra certifikat inställningen till ägare eller en annan roll. Mer information finns i [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).
   
-* Skapar en Automation-certifikat till `AzureRunAsCertificate` gång med namnet i det angivna Automation-kontot. Certifikat till gången innehåller certifikatets privata nyckel som Azure AD-programmet använder.
+* Skapar en Automation-certifikat till gång med namnet `AzureRunAsCertificate` i det angivna Automation-kontot. Certifikat till gången innehåller certifikatets privata nyckel som Azure AD-programmet använder.
   
-* Skapar en Automation-anslutning till `AzureRunAsConnection` gång med namnet i det angivna Automation-kontot. Anslutnings till gången innehåller program-ID, klient-ID, prenumerations-ID och tumavtryck för certifikatet.
+* Skapar en Automation-anslutning till gång med namnet `AzureRunAsConnection` i det angivna Automation-kontot. Anslutnings till gången innehåller program-ID, klient-ID, prenumerations-ID och tumavtryck för certifikatet.
 
 ### <a name="azure-classic-run-as-account"></a>Klassiskt Kör som-konto i Azure
 
@@ -46,9 +46,9 @@ Det klassiska kör som-kontot i Azure utför följande uppgifter.
 
   * Skapar ett hanterings certifikat i prenumerationen.
 
-  * Skapar en Automation-certifikat till `AzureClassicRunAsCertificate` gång med namnet i det angivna Automation-kontot. Certifikattillgången innehåller den privata nyckelns certifikat som används av hanteringscertifikatet.
+  * Skapar en Automation-certifikat till gång med namnet `AzureClassicRunAsCertificate` i det angivna Automation-kontot. Certifikattillgången innehåller den privata nyckelns certifikat som används av hanteringscertifikatet.
 
-  * Skapar en Automation-anslutning till `AzureClassicRunAsConnection` gång med namnet i det angivna Automation-kontot. Anslutnings till gången innehåller prenumerations namnet, prenumerations-ID och certifikatets till gångs namn.
+  * Skapar en Automation-anslutning till gång med namnet `AzureClassicRunAsConnection` i det angivna Automation-kontot. Anslutnings till gången innehåller prenumerations namnet, prenumerations-ID och certifikatets till gångs namn.
 
 >[!NOTE]
 >Det klassiska kör som-kontot i Azure skapas inte som standard på samma gång när du skapar ett Automation-konto. Det här kontot skapas individuellt enligt stegen som beskrivs längre fram i den här artikeln.
@@ -66,15 +66,15 @@ Om du vill skapa eller uppdatera ett Kör som-konto måste du ha vissa behörigh
 |Skapa Azure AD-program|[New-AzADApplication](https://docs.microsoft.com/powershell/module/az.resources/new-azadapplication)     | Programutvecklare, roll<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure AD > app-registreringar |
 |Lägg till en autentiseringsuppgift i programmet.|[New-AzADAppCredential](https://docs.microsoft.com/powershell/module/az.resources/new-azadappcredential)     | Program administratör eller global administratör<sup>1</sup>         |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure AD > app-registreringar|
 |Skapa och hämta en Azure AD-tjänstens huvud namn|[New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal)</br>[Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal)     | Program administratör eller global administratör<sup>1</sup>        |[Azure AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure AD > app-registreringar|
-|Tilldela eller hämta RBAC-rollen för det angivna huvudobjektet|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administratör för användar åtkomst eller ägare eller ha följande behörigheter:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Prenumeration](../role-based-access-control/role-assignments-portal.md)</br>Start > prenumerationer \<> prenumerations namn\> -Access Control (IAM)|
+|Tilldela eller hämta RBAC-rollen för det angivna huvudobjektet|[New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)</br>[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleAssignment)      | Administratör för användar åtkomst eller ägare eller ha följande behörigheter:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br> | [Prenumeration](../role-based-access-control/role-assignments-portal.md)</br>Start > prenumerationer > \< prenumerations namn \> -Access Control (IAM)|
 |Skapa eller ta bort ett Automation-certifikat|[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate)</br>[Remove-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationcertificate)     | Deltagare i resurs gruppen         |Resurs grupp för Automation-konto|
 |Skapa eller ta bort en Automation-anslutning|[New-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationconnection)</br>[Remove-AzAutomationConnection](https://docs.microsoft.com/powershell/module/az.automation/remove-azautomationconnection)|Deltagare i resurs gruppen |Resurs grupp för Automation-konto|
 
 <sup>1</sup> användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) om alternativet för Azure AD-klientens **användare kan registrera program** på sidan användar inställningar är inställt på **Ja**. Om program registrerings inställningen är **Nej**måste användaren som utför den här åtgärden vara som definieras i den här tabellen.
 
-Om du inte är medlem i prenumerationens Active Directory instans innan du lägger till den globala administratörs rollen för prenumerationen läggs du till som gäst. I så fall får du en `You do not have permissions to create…` varning på sidan Lägg till Automation-konto. 
+Om du inte är medlem i prenumerationens Active Directory instans innan du lägger till den globala administratörs rollen för prenumerationen läggs du till som gäst. I så fall får du en `You do not have permissions to create…` Varning på sidan Lägg till Automation-konto. 
 
-Om du är medlem i prenumerationens Active Directory instans när rollen global administratör tilldelas, kan du också få en `You do not have permissions to create…` varning på sidan Lägg till Automation-konto. I så fall kan du begära borttagning från prenumerationens Active Directory instans och sedan begära att du lägger till den igen, så att du blir fullständig användare i Active Directory.
+Om du är medlem i prenumerationens Active Directory instans när rollen global administratör tilldelas, kan du också få en `You do not have permissions to create…` Varning på sidan Lägg till Automation-konto. I så fall kan du begära borttagning från prenumerationens Active Directory instans och sedan begära att du lägger till den igen, så att du blir fullständig användare i Active Directory.
 
 För att kontrol lera att den situation som genererar fel meddelandet har åtgärd ATS:
 
@@ -105,15 +105,15 @@ I följande lista finns kraven för att skapa ett Kör som-konto i PowerShell. D
 
 * Windows 10 eller Windows Server 2016 med Azure Resource Manager modulerna 3.4.1 och senare. PowerShell-skriptet har inte stöd för tidigare versioner av Windows.
 * Azure PowerShell 1.0 och senare. Information om PowerShell 1.0-versionen finns i [Installera och konfigurera Azure PowerShell](/powershell/azureps-cmdlets-docs).
-* Ett Automation-konto, som refereras till som värde för parametrarna `AutomationAccountName` och `ApplicationDisplayName` .
+* Ett Automation-konto, som refereras till som värde för `AutomationAccountName` parametrarna och `ApplicationDisplayName` .
 * Behörigheter som motsvarar de som anges i de [behörigheter som krävs för att konfigurera kör som-konton](#permissions).
 
-Slutför nästa steg för att `SubscriptionId`Hämta `ResourceGroupName`värdena för,, och, som är obligatoriska parametrar för PowerShell-skriptet.
+Slutför nästa steg för att hämta värdena för `SubscriptionId` , `ResourceGroupName` , och `AutomationAccountName` , som är obligatoriska parametrar för PowerShell-skriptet.
 
 1. I Azure Portal väljer du **Automation-konton**.
 1. På sidan Automation-konton väljer du ditt Automation-konto.
 1. I avsnittet konto inställningar väljer du **Egenskaper**.
-1. Anteckna värdena för **namn**, **prenumerations-ID**och **resurs grupp** på sidan Egenskaper. Dessa värden motsvarar värdena för parametrarna `AutomationAccountName`, `SubscriptionId`och `ResourceGroupName` för PowerShell-skriptet.
+1. Anteckna värdena för **namn**, **prenumerations-ID**och **resurs grupp** på sidan Egenskaper. Dessa värden motsvarar värdena för `AutomationAccountName` parametrarna, och för `SubscriptionId` PowerShell- `ResourceGroupName` skriptet.
 
    ![Egenskaps sida för Automation-konto](media/manage-runas-account/automation-account-properties.png)
 
@@ -347,7 +347,7 @@ Om du har skapat ett klassiskt kör som-konto med ett offentligt företags certi
 .\New-RunAsAccount.ps1 -ResourceGroup <ResourceGroupName> -AutomationAccountName <NameofAutomationAccount> -SubscriptionId <SubscriptionId> -ApplicationDisplayName <DisplayNameofAADApplication> -SelfSignedCertPlainPassword <StrongPassword> -CreateClassicRunAsAccount $true  -EnvironmentName AzureUSGovernment
 ```
 
-Om du har skapat ett klassiskt kör som-konto med ett självsignerat offentligt certifikat (**CER** -fil) skapar skriptet och sparar det i mappen för temporära filer på datorn. Du hittar den i användar profilen `%USERPROFILE%\AppData\Local\Temp`som du använde för att köra PowerShell-sessionen.
+Om du har skapat ett klassiskt kör som-konto med ett självsignerat offentligt certifikat (**CER** -fil) skapar skriptet och sparar det i mappen för temporära filer på datorn. Du hittar den i användar profilen `%USERPROFILE%\AppData\Local\Temp` som du använde för att köra PowerShell-sessionen.
 
 ## <a name="deleting-a-run-as-or-classic-run-as-account"></a>Ta bort ett Kör som-konto eller ett klassiskt kör som-konto
 
@@ -439,7 +439,7 @@ Du kan styra automatiseringen av automatisering mot resurser i Azure genom att k
 >[!IMPORTANT]
 >När du har kört skriptet **Update-AutomationRunAsAccountRoleAssignments. ps1** fungerar Runbooks som har åtkomst Key Vault genom användningen av kör som-konton inte längre. Innan du kör skriptet bör du granska Runbooks i ditt konto för anrop till Azure Key Vault. Om du vill ge åtkomst till Key Vault från Azure Automation runbooks måste du [lägga till kör som-kontot i Key Vault behörigheter](#add-permissions-to-key-vault).
 
-Om du behöver begränsa ytterligare vad som kan utföras av tjänstens huvud namn kan du lägga till andra resurs typer till `NotActions` elementet i den anpassade roll definitionen. I följande exempel begränsas åtkomsten till `Microsoft.Compute/*`. Om du lägger till den här resurs `NotActions` typen i för roll definitionen kommer rollen inte att kunna komma åt någon beräknings resurs. Mer information om roll definitioner finns i [förstå roll definitioner för Azure-resurser](../role-based-access-control/role-definitions.md).
+Om du behöver begränsa ytterligare vad som kan utföras av tjänstens huvud namn kan du lägga till andra resurs typer till `NotActions` elementet i den anpassade roll definitionen. I följande exempel begränsas åtkomsten till `Microsoft.Compute/*` . Om du lägger till den här resurs typen i `NotActions` för roll definitionen kommer rollen inte att kunna komma åt någon beräknings resurs. Mer information om roll definitioner finns i [förstå roll definitioner för Azure-resurser](../role-based-access-control/role-definitions.md).
 
 ```powershell
 $roleDefinition = Get-AzRoleDefinition -Name 'Automation RunAs Contributor'

@@ -10,18 +10,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 05/12/2020
 ms.author: borisb
-ms.openlocfilehash: c737189650d571fb62a770707e84ed15c5a37a57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 649d96a158682752e0d4a31bf7ec73eb7c442f0f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870504"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660539"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Översikt över Oracle-program och Azure-lösningar på Azure
 
-Den här artikeln beskriver funktioner för att köra Oracle-lösningar med Azure-infrastruktur. Se även detaljerade introduktioner till tillgängliga [Oracle VM-avbildningar](oracle-vm-solutions.md) på Azure Marketplace och möjligheten att sammanföra [Azure med Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
+Den här artikeln beskriver funktioner för att köra Oracle-lösningar med Azure-infrastruktur. Se även detaljerade introduktioner till tillgängliga [WebLogic Server Azure-program](oracle-weblogic.md), [Oracle VM-avbildningar](oracle-vm-solutions.md) på Azure Marketplace och möjligheten att sammanföra [Azure med Oracle Cloud Infrastructure (OCI)](oracle-oci-overview.md).
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Oracle-databaser på Azure-infrastruktur
 
@@ -35,9 +35,13 @@ Du kan också välja att konfigurera Oracle Database på en icke-Oracle Linux av
 
 Du kan också konfigurera med flera anslutna diskar och förbättra databasens prestanda genom att installera ASM (automatisk lagrings hantering i Oracle).
 
+## <a name="weblogic-server-with-azure-service-integrations"></a>WebLogic-Server med Azure Service integrations
+
+Välj bland en mängd olika WebLogic Server Azure-program för att påskynda moln resan.  Det finns flera förkonfigurerade integreringar för Azure-tjänster, inklusive databas, Azure App gateway och Azure Active Directory.
+
 ## <a name="applications-on-oracle-linux-and-weblogic-server"></a>Program på Oracle Linux-och WebLogic-Server
 
-Kör företags program i Azure på Oracle-operativsystem som stöds. Följande avbildningar är tillgängliga på Azure Marketplace:
+Kör företags program i Azure på Oracle-operativsystem som stöds. Följande avbildningar av virtuella datorer är tillgängliga på Azure Marketplace:
 
 * 12.1.2 för Oracle WebLogic-Server
 
@@ -55,7 +59,7 @@ Kör företags program i Azure på Oracle-operativsystem som stöds. Följande a
 
 * Säkerhetskopiera dina virtuella Oracle-datorer med [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)
 
-* Säkerhetskopiera dina Oracle Database med Oracle-RMAN och alternativt använda [Azure Blob-säkring](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) för att montera ett [Azure-Blob Storage-konto med hög redudant](https://docs.microsoft.com/azure/storage/common/storage-redundancy) och skriv dina rman-säkerhetskopieringar till det för extra återhämtning.
+* Säkerhetskopiera dina Oracle Database med Oracle-RMAN och alternativt använda [Azure Blob-säkring](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) för att montera ett [mycket redundant Azure Blob Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-redundancy) och skriva dina rman-säkerhetskopieringar till det för extra återhämtning.
 
 ## <a name="integration-of-azure-with-oci"></a>Integrering av Azure med OCI
 
@@ -89,6 +93,8 @@ Använd Oracle Database Cloud Services (autonom databas, RAC, Exadata, DBaaS, en
 Distribution av Oracle-program i Azure baseras på en "ta med din egen licens"-modell. Vi förutsätter att du är korrekt licensierad till att använda Oracle-programvara och att du har ett aktuellt support avtal på plats med Oracle. Oracle har garanterat licens mobilitet från lokal plats till Azure. Se [vanliga frågor och svar om](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)Oracle – Azure.
 
 ## <a name="next-steps"></a>Nästa steg
+
+* Lär dig mer om [Azure-program med WebLogic](oracle-weblogic.md) och de Azure-tjänsteintegrationer som de stöder.
 
 * Lär dig mer om att distribuera [VM-avbildningar](oracle-vm-solutions.md) i Azure-infrastrukturen.
 

@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
-ms.openlocfilehash: 31b9d4d57e38adcd079082a4f32770c4cbc8fbb3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/13/2020
+ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736206"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642321"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategier för att autentisera service för Marketplace-mätning
 
@@ -44,9 +44,9 @@ Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](htt
 
 #### <a name="http-method"></a>HTTP-metod
 
-**POST**
+**EFTER**
 
-#### <a name="request-url"></a>*Request URL*
+#### <a name="request-url"></a>*Begärans-URL*
 
 **`https://login.microsoftonline.com/*{tenantId}*/oauth2/token`**
 
@@ -57,7 +57,7 @@ Mer information om dessa tokens finns [Azure Active Directory åtkomsttoken](htt
 |  `tenantId`         |   Sant         | Klient-ID för det registrerade Azure AD-programmet.   |
 | | | |
 
-#### <a name="request-header"></a>*Begärandehuvud*
+#### <a name="request-header"></a>*Begär ande huvud*
 
 |  **Huvudnamn**    |  **Obligatoriskt**  |  **Beskrivning**          |
 |  ------------------ |--------------- | ------------------------  |
@@ -118,7 +118,7 @@ Följ till exempel stegen nedan för att autentisera med en virtuell Windows-dat
     * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
     * [Azure-SDK:er](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
 
-1. Hämta en åtkomsttoken för program-ID för Marketplace för avläsning av`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`tjänst () med system identitet, RDP till den virtuella datorn, öppna PowerShell-konsolen och kör kommandot nedan
+1. Hämta en åtkomsttoken för program-ID för Marketplace för avläsning av tjänst ( `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` ) med system identitet, RDP till den virtuella datorn, öppna PowerShell-konsolen och kör kommandot nedan
 
     ```powershell
     # curl is an alias to Web-Invoke PowerShell command
@@ -141,7 +141,7 @@ Följ till exempel stegen nedan för att autentisera med en virtuell Windows-dat
     $managedappId = $resourceGroupInfo.managedBy 
     ```
 
-1. Tjänsten för avläsning av program vara måste rapportera användning på `resourceID`ett, `resourceUsageId` och om ett hanterat program.
+1. Tjänsten för avläsning av program vara måste rapportera användning på ett `resourceID` , och `resourceUsageId` om ett hanterat program.
 
     ```powershell
     # Get resourceUsageId from the managed app
@@ -151,7 +151,7 @@ Följ till exempel stegen nedan för att autentisera med en virtuell Windows-dat
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
     ```
 
-1. Använd [API för Marketplace för avläsning](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) av program vara för att generera användning.
+1. Använd [API för Marketplace för avläsning](./marketplace-metering-service-apis.md) av program vara för att generera användning.
 
 ## <a name="next-steps"></a>Nästa steg
 

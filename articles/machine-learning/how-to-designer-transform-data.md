@@ -5,16 +5,17 @@ description: Lär dig hur du omformar data i Azure Machine Learning designer fö
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 05/04/2020
-ms.openlocfilehash: 5296ac54cab403ef78b3e8bd32fe5ebe6ea43119
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.custom: designer
+ms.openlocfilehash: 718023424834ffca7a026dc5b3d35b8fb11fe633
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82842882"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644291"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transformera data i Azure Machine Learning designer (förhands granskning)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,7 +72,7 @@ I det här avsnittet använder du [modulen dela data](algorithm-module-reference
 
 1. I informations fönstret för moduler till höger om arbets ytan anger du **delnings läge** till **reguljärt uttryck**.
 
-1. Ange det **reguljära uttrycket**: `\"native-country" United-States`.
+1. Ange det **reguljära uttrycket**: `\"native-country" United-States` .
 
     Det **reguljära uttrycks** läget testar en enskild kolumn för ett värde. Mer information om modulen dela data finns på [referens sidan relaterad algoritm](algorithm-module-reference/split-data.md).
 
@@ -111,7 +112,7 @@ Nu när din pipeline har kon figurer ATS för att dela data måste du ange var d
     > [!NOTE]
     > Den här artikeln förutsätter att du har åtkomst till ett data lager som är registrerat på den aktuella Azure Machine Learning-arbetsytan. Instruktioner för hur du konfigurerar ett data lager finns i [Anslut till Azure Storage Services](how-to-access-data.md#azure-machine-learning-studio).
 
-    Om du inte har ett data lager kan du skapa ett nu. I den här artikeln sparas data uppsättningarna till det standard-Blob Storage-konto som är kopplat till arbets ytan. Den sparar data uppsättningarna i `azureml` behållaren i en ny mapp med namnet. `data`
+    Om du inte har ett data lager kan du skapa ett nu. I den här artikeln sparas data uppsättningarna till det standard-Blob Storage-konto som är kopplat till arbets ytan. Den sparar data uppsättningarna i `azureml` behållaren i en ny mapp med namnet `data` .
 
 1.  Välj modulen **Exportera data** som är ansluten till den *högra*porten i modulen **dela data** .
 
@@ -125,9 +126,9 @@ Nu när din pipeline har kon figurer ATS för att dela data måste du ange var d
 
     **Fil format**: CSV
 
-1. Bekräfta att **export data** -modulen är ansluten till den vänstra porten för **delnings data** har **sökvägen** `/data/us-income`.
+1. Bekräfta att **export data** -modulen är ansluten till den vänstra porten för **delnings data** har **sökvägen** `/data/us-income` .
 
-1. Bekräfta att modulen för **export data** är ansluten till rätt port har **sökvägen** `/data/non-us-income`.
+1. Bekräfta att modulen för **export data** är ansluten till rätt port har **sökvägen** `/data/non-us-income` .
 
     Din pipeline och dina inställningar bör se ut så här:
     
@@ -155,11 +156,11 @@ När pipelinen är klar kan du Visa dina resultat genom att navigera till blob-l
 
 1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar**. 
 
-1. Välj ikonen](media/how-to-designer-transform-data/visualize-icon.png) visualisera ikon ![bredvid **resultat DataSet1**. 
+1. Välj ikonen visualisera ikon ![ ](media/how-to-designer-transform-data/visualize-icon.png) bredvid **resultat DataSet1**. 
 
 1. Kontrol lera att kolumnen "ursprungligt land" endast innehåller värdet "United-stats".
 
-1. Välj ikonen](media/how-to-designer-transform-data/visualize-icon.png) visualisera ikon ![bredvid **resultat DataSet2**. 
+1. Välj ikonen visualisera ikon ![ ](media/how-to-designer-transform-data/visualize-icon.png) bredvid **resultat DataSet2**. 
 
 1. Kontrol lera att kolumnen "ursprungligt land" inte innehåller värdet "United-stats".
 

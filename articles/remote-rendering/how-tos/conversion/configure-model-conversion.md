@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: eb287b812c477b2e472c48d7bd8f44574a398bac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83f80f893620a225c928be2ad7ad1679b3a9c465
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681576"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652227"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurera modellkonverteringen
 
@@ -18,7 +18,7 @@ I det här kapitlet dokumenteras alternativen för modell konvertering.
 
 ## <a name="settings-file"></a>Inställnings fil
 
-Om en fil som `ConversionSettings.json` heter finns i behållaren indata i indata-modellen, används den för att tillhandahålla ytterligare konfiguration för modell konverterings processen.
+Om en fil `ConversionSettings.json` som heter finns i behållaren indata i indata-modellen, används den för att tillhandahålla ytterligare konfiguration för modell konverterings processen.
 
 Innehållet i filen bör uppfylla följande JSON-schema:
 
@@ -39,6 +39,7 @@ Innehållet i filen bör uppfylla följande JSON-schema:
         "generateCollisionMesh" : { "type" : "boolean", "default" : true },
         "unlitMaterials" : { "type" : "boolean", "default" : false },
         "fbxAssumeMetallic" : { "type" : "boolean", "default" : true },
+        "deduplicateMaterials" : { "type" : "boolean", "default" : true },
         "axis" : {
             "type" : "array",
             "items" : {
@@ -79,6 +80,10 @@ Om det inte är det avsedda beteendet ska den här parametern anges till "Single
 
 * `material-override`– Med den här parametern kan bearbetning av material [anpassas under konverteringen](override-materials.md).
 
+### <a name="material-de-duplication"></a>Material avduplicering
+
+* `deduplicateMaterials`– Med den här parametern aktive ras eller inaktive ras automatisk avduplicering av material som delar samma egenskaper och strukturer. Avdupliceringen sker efter att material åsidosättningar har bearbetats. Den är aktive rad som standard.
+
 ### <a name="color-space-parameters"></a>Parametrar för färg område
 
 Åter givnings motorn förväntar sig att färg värden ska vara i linjärt avstånd.
@@ -88,7 +93,7 @@ Om en modell definieras med hjälp av gamma avstånd ska dessa alternativ anges 
 * `gammaToLinearVertex`-Konvertera hörn färger från gamma avstånd till linjärt utrymme
 
 > [!NOTE]
-> För FBX-filer är inställningarna inställda på `true` som standard. För alla andra filtyper är `false`standardvärdet.
+> För FBX-filer är inställningarna inställda på `true` som standard. För alla andra filtyper är standardvärdet `false` .
 
 ### <a name="scene-parameters"></a>Scen parametrar
 
@@ -99,12 +104,12 @@ Om en modell definieras med hjälp av gamma avstånd ska dessa alternativ anges 
 
 Varje läge har olika körnings prestanda. I `dynamic` läget skalas prestanda kostnaden linjärt med antalet [entiteter](../../concepts/entities.md) i diagrammet, även om ingen del flyttas. Den bör endast användas när du flyttar delar individuellt krävs för programmet, till exempel en animering av explosions visning.
 
-`static` Läget exporterar det fullständiga scen diagrammet, men delar i det här grafen har en konstant transformering i förhållande till dess rot del. Rotnoden för objektet kan dock fortfarande flyttas, roteras eller skalas utan betydande prestanda kostnad. Dessutom returnerar [spatiala frågor](../../overview/features/spatial-queries.md) enskilda delar och varje del kan ändras genom [tillstånds åsidosättningar](../../overview/features/override-hierarchical-state.md). Med det här läget är det försumbara omkostnaderna för körning per objekt försumbara. Det är idealiskt för stora scener där du fortfarande behöver kontroll per objekt men utan omvandlingar per objekt.
+`static`Läget exporterar det fullständiga scen diagrammet, men delar i det här grafen har en konstant transformering i förhållande till dess rot del. Rotnoden för objektet kan dock fortfarande flyttas, roteras eller skalas utan betydande prestanda kostnad. Dessutom returnerar [spatiala frågor](../../overview/features/spatial-queries.md) enskilda delar och varje del kan ändras genom [tillstånds åsidosättningar](../../overview/features/override-hierarchical-state.md). Med det här läget är det försumbara omkostnaderna för körning per objekt försumbara. Det är idealiskt för stora scener där du fortfarande behöver kontroll per objekt men utan omvandlingar per objekt.
 
-`none` Läget har den lägsta omkostnaden för körning och även lite bättre inläsnings tider. Det går inte att kontrol lera eller omvandla enskilda objekt i det här läget. Användnings fall är t. ex. Photogrammetry modeller som inte har ett meningsfullt scen diagram på den första platsen.
+`none`Läget har den lägsta omkostnaden för körning och även lite bättre inläsnings tider. Det går inte att kontrol lera eller omvandla enskilda objekt i det här läget. Användnings fall är t. ex. Photogrammetry modeller som inte har ett meningsfullt scen diagram på den första platsen.
 
 > [!TIP]
-> Många program kommer att läsa in flera modeller. Du bör optimera konverterings parametrarna för varje modell beroende på hur den ska användas. Om du till exempel vill visa modellen för en bil som användaren kan ta isär och granska i detalj måste du konvertera den till `dynamic` ett läge. Men om du dessutom vill placera bilen i en show Room-miljö kan den modellen konverteras med inställningen till eller `sceneGraphMode` till `static` och med `none`.
+> Många program kommer att läsa in flera modeller. Du bör optimera konverterings parametrarna för varje modell beroende på hur den ska användas. Om du till exempel vill visa modellen för en bil som användaren kan ta isär och granska i detalj måste du konvertera den till ett `dynamic` läge. Men om du dessutom vill placera bilen i en show Room-miljö kan den modellen konverteras med `sceneGraphMode` inställningen till eller till och med `static` `none` .
 
 ### <a name="physics-parameters"></a>Fysik parametrar
 
@@ -120,7 +125,7 @@ Varje läge har olika körnings prestanda. I `dynamic` läget skalas prestanda k
 
 ### <a name="coordinate-system-overriding"></a>Koordinera system åsidosättning
 
-* `axis`– Om du vill åsidosätta koordinatsystemet för enhet – vektorer. Standardvärden `["+x", "+y", "+z"]`är. I teorin har FBX-formatet ett sidhuvud där dessa vektorer är definierade och konverteringen använder den informationen för att transformera scenen. GlTF-formatet definierar också ett fast koordinatsystem. I praktiken har vissa till gångar antingen felaktig information i sidhuvudet eller sparats med en annan konvention för koordinerade system. Med det här alternativet kan du åsidosätta koordinatsystemet. Exempel: `"axis" : ["+x", "+z", "-y"]` utbyte Z-axeln och y-axeln och behåll koordinatsystemet genom att invertera Y-axelns riktning.
+* `axis`– Om du vill åsidosätta koordinatsystemet för enhet – vektorer. Standardvärden är `["+x", "+y", "+z"]` . I teorin har FBX-formatet ett sidhuvud där dessa vektorer är definierade och konverteringen använder den informationen för att transformera scenen. GlTF-formatet definierar också ett fast koordinatsystem. I praktiken har vissa till gångar antingen felaktig information i sidhuvudet eller sparats med en annan konvention för koordinerade system. Med det här alternativet kan du åsidosätta koordinatsystemet. Exempel: `"axis" : ["+x", "+z", "-y"]` utbyte Z-axeln och y-axeln och behåll koordinatsystemet genom att invertera Y-axelns riktning.
 
 ### <a name="vertex-format"></a>Hörn format
 
@@ -152,7 +157,7 @@ Följande `vertex` avsnitt i `.json` filen är valfritt. För varje del som inte
     ...
 ```
 
-Genom att tvinga en komponent `NONE`till garanterar vi att utmatnings nätet inte har respektive data ström.
+Genom att tvinga en komponent till `NONE` garanterar vi att utmatnings nätet inte har respektive data ström.
 
 #### <a name="component-formats-per-vertex-stream"></a>Komponent format per hörn ström
 
@@ -173,7 +178,7 @@ De här formaten är tillåtna för respektive komponenter:
 
 Minnes formaten för formaten är följande:
 
-| Format | Beskrivning | Byte per hörn |
+| Format | Description | Byte per hörn |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|full flytt ALS precision med två komponenter|8
 |16_16_FLOAT|två komponenter halv flytt ALS precision|4
@@ -185,8 +190,8 @@ Minnes formaten för formaten är följande:
 #### <a name="best-practices-for-component-format-changes"></a>Metod tips för komponent format ändringar
 
 * `position`: Det är sällsynt att minskad noggrannhet räcker. **16_16_16_16_FLOAT** introducerar märkbara kvantifieringsfel-artefakter, även för små modeller.
-* `normal`, `tangent`, `binormal`: Vanligt vis ändras de här värdena tillsammans. Om det inte finns några märkbara belysnings artefakter som orsakas av normala kvantifieringsfel, finns det ingen anledning att öka deras noggrannhet. I vissa fall kan dessa komponenter ställas in på **ingen**:
-  * `normal`, `tangent`och `binormal` behövs bara när minst ett material i modellen ska tändas. I ARR är det fallet när ett [PBR-material](../../overview/features/pbr-materials.md) används i modellen när som helst.
+* `normal`, `tangent` , `binormal` : Vanligt vis ändras de här värdena tillsammans. Om det inte finns några märkbara belysnings artefakter som orsakas av normala kvantifieringsfel, finns det ingen anledning att öka deras noggrannhet. I vissa fall kan dessa komponenter ställas in på **ingen**:
+  * `normal`, `tangent` och `binormal` behövs bara när minst ett material i modellen ska tändas. I ARR är det fallet när ett [PBR-material](../../overview/features/pbr-materials.md) används i modellen när som helst.
   * `tangent`och `binormal` behövs bara när något av tänd materialet använder en normal kart struktur.
 * `texcoord0`, `texcoord1` : Textur koordinater kan använda mindre precision (**16_16_FLOAT**) när värdena ligger i `[0; 1]` intervallet och när de adresserade texturerna har en maximal storlek på 2048 x 2048 bild punkter. Om dessa gränser överskrids påverkas kvaliteten på textur mappningen.
 
@@ -194,9 +199,9 @@ Minnes formaten för formaten är följande:
 
 Anta att du har en Photogrammetry-modell som har belysnings-bakade i texturerna. Allt som behövs för att rendera modellen är hörn positioner och textur koordinater.
 
-Som standard måste konverteraren anta att du vill använda PBR-material i en modell vid en viss tidpunkt, så att den genererar `normal`, `tangent`och `binormal` data åt dig. Det innebär att minnes användningen per hörn är `position` (12 byte) + `texcoord0` (8 byte) + `normal` (4 byte) + `tangent` (4 byte) + `binormal` (4 byte) = 32 byte. Större modeller av den här typen kan enkelt ha många miljoner formhörn som resulterar i modeller som kan ta upp flera gigabyte av minnet. Sådana stora mängder data påverkar prestanda och du kan till och med få slut på minne.
+Som standard måste konverteraren anta att du vill använda PBR-material i en modell vid en viss tidpunkt, så att den genererar `normal` , `tangent` och `binormal` data åt dig. Det innebär att minnes användningen per hörn är `position` (12 byte) + `texcoord0` (8 byte) + `normal` (4 byte) + `tangent` (4 byte) + `binormal` (4 byte) = 32 byte. Större modeller av den här typen kan enkelt ha många miljoner formhörn som resulterar i modeller som kan ta upp flera gigabyte av minnet. Sådana stora mängder data påverkar prestanda och du kan till och med få slut på minne.
 
-Att veta att du aldrig behöver dynamisk belysning i modellen och att du vet att alla textur koordinater `[0; 1]` är inom räckhåll, du `normal`kan `tangent`ange, `binormal` och `NONE` till `texcoord0` och till hälften precision`16_16_FLOAT`(), vilket resulterar i endast 16 byte per hörn. Genom att klippa ut nät data på hälften kan du läsa in större modeller och eventuellt förbättra prestanda.
+Att veta att du aldrig behöver dynamisk belysning i modellen och att du vet att alla textur koordinater är inom `[0; 1]` räckhåll, du kan ange `normal` , `tangent` och `binormal` till `NONE` och `texcoord0` till hälften precision ( `16_16_FLOAT` ), vilket resulterar i endast 16 byte per hörn. Genom att klippa ut nät data på hälften kan du läsa in större modeller och eventuellt förbättra prestanda.
 
 ## <a name="typical-use-cases"></a>Typiska användnings fall
 
@@ -206,15 +211,15 @@ Det finns vissa klasser av användnings fall som är kvalificerade för specifik
 
 ### <a name="use-case-architectural-visualization--large-outdoor-maps"></a>Användnings fall: arkitektur visualisering/stora utomhus kartor
 
-* Dessa typer av scener är ofta statiska, vilket innebär att de inte behöver rörliga delar. Detta `sceneGraphMode` kan anges till `static` eller till och med `none`, vilket förbättrar körnings prestandan. Med `static` läget kan scenens rotnod fortfarande flyttas, roteras och skalas, till exempel för att dynamiskt växla mellan 1:1-skala (för första personens vy) och en tabells övre vy.
+* Dessa typer av scener är ofta statiska, vilket innebär att de inte behöver rörliga delar. Detta `sceneGraphMode` kan anges till eller till och `static` med `none` , vilket förbättrar körnings prestandan. Med `static` läget kan scenens rotnod fortfarande flyttas, roteras och skalas, till exempel för att dynamiskt växla mellan 1:1-skala (för första personens vy) och en tabells övre vy.
 
 * När du behöver flytta delar runt, innebär det vanligt vis att du behöver stöd för raycasts eller andra [spatialdata](../../overview/features/spatial-queries.md), så att du kan välja dessa delar på första plats. Å andra sidan, om du inte planerar att flytta något runt, är det mycket troligt att du inte behöver den för att delta i spatiala frågor och därmed kan stänga av `generateCollisionMesh` flaggan. Den här växeln har betydande påverkan på konverterings tider, inläsnings tider och även uppdaterings kostnader per ram.
 
-* Om programmet inte använder [styckat plan](../../overview/features/cut-planes.md)bör `opaqueMaterialDefaultSidedness` flaggan stängas av. Prestanda ökningen är vanligt vis 20%-30%. Klipp ut plan kan fortfarande användas, men det finns ingen back-ansikten när du tittar på de inre delarna av objekt, vilket ser till att det är självklart. Mer information finns i [enkel sida åter givning](../../overview/features/single-sided-rendering.md).
+* Om programmet inte använder [styckat plan](../../overview/features/cut-planes.md)bör flaggan stängas `opaqueMaterialDefaultSidedness` av. Prestanda ökningen är vanligt vis 20%-30%. Klipp ut plan kan fortfarande användas, men det finns ingen back-ansikten när du tittar på de inre delarna av objekt, vilket ser till att det är självklart. Mer information finns i [enkel sida åter givning](../../overview/features/single-sided-rendering.md).
 
 ### <a name="use-case-photogrammetry-models"></a>Användnings fall: Photogrammetry-modeller
 
-När du återger Photogrammetry-modeller behöver du vanligt vis inte använda något scen diagram, så du `sceneGraphMode` kan `none`ställa in på. Eftersom dessa modeller sällan innehåller ett komplext scen diagram som börjar med, bör effekten av det här alternativet vara obetydlig, men.
+När du återger Photogrammetry-modeller behöver du vanligt vis inte använda något scen diagram, så du kan ställa in `sceneGraphMode` på `none` . Eftersom dessa modeller sällan innehåller ett komplext scen diagram som börjar med, bör effekten av det här alternativet vara obetydlig, men.
 
 Eftersom belysning redan är bakadet i texturerna behövs ingen dynamisk belysning. Därför:
 
@@ -225,9 +230,9 @@ Eftersom belysning redan är bakadet i texturerna behövs ingen dynamisk belysni
 
 I dessa användnings fall har modellerna ofta mycket hög detalj nivå i en liten volym. Åter givningen är kraftigt optimerad för att hantera sådana fall bra. De flesta optimeringar som nämns i föregående användnings fall gäller dock inte här:
 
-* Enskilda delar bör vara valbara och flyttbara, så `sceneGraphMode` måste vara kvar på `dynamic`.
+* Enskilda delar bör vara valbara och flyttbara, så `sceneGraphMode` måste vara kvar på `dynamic` .
 * Ray-sändningar är vanligt vis en integrerad del av programmet, så att nät i kollisionen måste genereras.
-* Klipp ut plan ser bättre ut `opaqueMaterialDefaultSidedness` när flaggan är aktive rad.
+* Klipp ut plan ser bättre ut när `opaqueMaterialDefaultSidedness` flaggan är aktive rad.
 
 ## <a name="next-steps"></a>Nästa steg
 

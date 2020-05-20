@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 2b62ee971c2cff84f60bad1be4304631513fed22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9384b974463c963cc130e7ca0d4a9ee815a92e53
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186330"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647720"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Förstå Azure Cosmos DB-fakturan
 
@@ -181,7 +181,7 @@ Vi ska tänka på följande exempel, där vi har ett Azure Cosmos-konto med fler
 
 Den totala månads fakturan blir (förutsatt att 30 dagar/720 timmar per månad) beräknas enligt följande:
 
-|**Timmar**  |**RU/s** |**Objekt** |**Användning (varje timme)** |**Kostnad** |
+|**Tider**  |**RU/s** |**Objekt** |**Användning (varje timme)** |**Kostnad** |
 |---------|---------|---------|-------|-------|
 |[0-100] |D1:10 000 <br/>D2:30 000 <br/>C1:20 000 |Data flödes faktura för container i USA, västra (alla regioner är skrivbara)  | `D1: 10K RU/sec/100 * $0.016 * 100 hours = $160` <br/>`D2: 30 K RU/sec/100 * $0.016 * 100 hours = $480` <br/>`C1: 20 K RU/sec/100 *$0.016 * 100 hours = $320` |$960  |
 | | |Data flödes faktura för 2 ytterligare regioner: östra USA, norra Europa (alla regioner är skrivbara)  |`(2 + 1) * (60 K RU/sec /100 * $0.016) * 100 hours = $2,880`  |$2 880  |
@@ -208,8 +208,8 @@ Med Azure Cosmos DB kostnads fri nivå får du de första 400 RU/s och 5 GB lagr
 - Nu ska vi anta att du lägger till en annan databas eller behållare med 1000 RU/s och 10 GB lagrings utrymme i samma konto.
 - Din faktura kommer nu att visa en avgift för 1000 RU/s och 10 GB lagrings utrymme. 
 
-### <a name="billing-example---container-or-database-with-autoscale-throughput"></a>Fakturerings exempel – behållare eller databas med autoskalning av data flöde
-- Anta att du skapar en databas eller behållare med automatisk skalning aktiverat, med en maximal RU/s på 4000 RU/s. Den här resursen kommer automatiskt att skalas mellan 400 RU/s-4000 RU/s. 
+### <a name="billing-example---container-with-autoscale-throughput"></a>Fakturerings exempel – behållare med autoskalning av data flöde
+- Låt oss anta att du på ett kostnads fritt konto skapar en behållare med automatisk skalning aktiverat, med en maximal RU/s på 4000 RU/s. Den här resursen kommer automatiskt att skalas mellan 400 RU/s-4000 RU/s. 
 - Anta att det är minst 400 RU/s att resursen är i timmen 1 till timme 10. Under timme 11 skalas resursen upp till 1000 RU/s och sedan tillbaka till 400 RU/s inom timmen.
 - I timmar 1 till och med 10 faktureras du $0 för data flödet, eftersom 400 RU/s har täckts av den kostnads fria nivån. 
 - I timmar 11 faktureras du för en effektiv 1000 RU/s-400 RU/s = 600 RU/s, eftersom det här är den högsta RU/s i timmen. Detta är 6 enheter om 100 RU/s för timmen, så den totala data flödes kostnaden för timmen är 6 enheter * $0,012 = $0,072. 
@@ -246,7 +246,7 @@ Nu ska vi tänka på ett annat exempel, där du vill proaktivt uppskatta din fak
 
 |**Data flödes kostnad** | | | |
 |----|----|----|----|
-|Åtgärdstyp| Begär Anden per sekund| Gmsn. RU/begäran| Ru: er krävs|
+|Åtgärds typ| Begär Anden per sekund| Gmsn. RU/begäran| Ru: er krävs|
 |Skriva| 100 | 5 | 500|
 |Läsa| 400| 1| 400|
 
@@ -290,7 +290,7 @@ Det du har köpt på ett effektivt sätt är en kredit på $8 per timme, för 10
 |Köpt reserverad kapacitet|$0,0064 (20% rabatt) |100 RU/SEK eller $8 kapacitet för inköpt |– $8|– $5 760 |
 |Netto faktura|||0,50 USD |$360 |
 
-## <a name="next-steps"></a>Efterföljande moment
+## <a name="next-steps"></a>Nästa steg
 
 Härnäst kan du fortsätta med att lära dig mer om kostnads optimering i Azure Cosmos DB med följande artiklar:
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6a6cc8e5931f3e29c242f51a6e062441953228ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337420"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636988"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integrera REST API Claims-utbyten i Azure AD B2C anpassad princip
 
@@ -61,7 +61,7 @@ Du kan lägga till ett REST API-anrop i alla steg i användar resan som definier
 
 ## <a name="sending-data"></a>Skickar data
 
-I [RESTful tekniska profil](restful-technical-profile.md)innehåller `InputClaims` elementet en lista över anspråk att skicka till din RESTful-tjänst. Du kan mappa namnet på ditt anspråk till namnet som definierats i RESTful-tjänsten, ange ett standardvärde och använda [anspråk matchare](claim-resolver-overview.md).
+I [RESTful tekniska profil](restful-technical-profile.md) `InputClaims` innehåller elementet en lista över anspråk att skicka till din RESTful-tjänst. Du kan mappa namnet på ditt anspråk till namnet som definierats i RESTful-tjänsten, ange ett standardvärde och använda [anspråk matchare](claim-resolver-overview.md).
 
 Du kan konfigurera hur inloggade anspråk skickas till RESTful-anspråks leverantören med hjälp av SendClaimsIn-attributet. Möjliga värden är:
 
@@ -74,7 +74,7 @@ När du har konfigurerat **Body** -alternativet kan du med REST API teknisk prof
 
 ## <a name="receiving-data"></a>Tar emot data
 
-Elementet i den [tekniska RESTful-profilen](restful-technical-profile.md) innehåller en lista över anspråk som returneras av REST API. `OutputClaims` Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i REST API. Du kan också ta med anspråk som inte returneras av REST API identitets leverantören, så länge som du ställer in attributet DefaultValue.
+`OutputClaims`Elementet i den [tekniska RESTful-profilen](restful-technical-profile.md) innehåller en lista över anspråk som returneras av REST API. Du kan behöva mappa namnet på det anspråk som definierats i principen till det namn som definierats i REST API. Du kan också ta med anspråk som inte returneras av REST API identitets leverantören, så länge som du ställer in attributet DefaultValue.
 
 De utgående anspråk som parsas av RESTful-anspråks leverantören förväntar sig alltid att parsa ett fast JSON-Body-svar, till exempel:
 
@@ -162,7 +162,7 @@ I en RESTful teknisk profil kanske du vill skicka den aktuella sessionens språk
 
 ## <a name="handling-error-messages"></a>Hantera fel meddelanden
 
-Din REST API kan behöva returnera ett fel meddelande, till exempel "användaren kunde inte hittas i CRM-systemet". Om ett fel inträffar ska REST API returnera ett HTTP 409-fel meddelande (konflikt svars status kod). Mer information finns i [teknisk profil för RESTful](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster&anchor=returning-error-message).
+Din REST API kan behöva returnera ett fel meddelande, till exempel "användaren kunde inte hittas i CRM-systemet". Om ett fel inträffar ska REST API returnera ett HTTP 409-fel meddelande (konflikt svars status kod). Mer information finns i [teknisk profil för RESTful](restful-technical-profile.md#returning-error-message).
 
 Detta kan endast uppnås genom att anropa en REST API teknisk profil från en teknisk verifierings profil. Detta gör att användaren kan korrigera data på sidan och köra verifieringen igen när sidan skickas.
 

@@ -1,6 +1,6 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: machine-learning
 author: nibaccam
 ms.service: machine-learning
@@ -16,4 +16,4 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75527067"
 ---
-**Gäller för:** ![ja](media/aml-applies-to-skus/yes.png)Basic Edition ![ja](media/aml-applies-to-skus/yes.png)Enterprise Edition &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [Upgrade to Enterprise edition](../articles/machine-learning/how-to-manage-workspace.md#upgrade)(uppgradera till Enterprise Edition) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  
+**gäller för:** ![ Ja ](media/aml-applies-to-skus/yes.png) Basic Edition ![ Ja ](media/aml-applies-to-skus/yes.png) Enterprise Edition &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ([Uppgradera till Enterprise Edition](../articles/machine-learning/how-to-manage-workspace.md#upgrade))  

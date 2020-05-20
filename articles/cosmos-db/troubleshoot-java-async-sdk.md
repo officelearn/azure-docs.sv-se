@@ -3,18 +3,18 @@ title: Diagnostisera och Felsök Azure Cosmos DB asynkron Java SDK v2
 description: Använd funktioner som loggning på klient sidan och andra verktyg från tredje part för att identifiera, diagnostisera och felsöka Azure Cosmos DB problem i asynkron Java SDK v2.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 04fa8d65ffb822fcd37f6da1bf3074a4e6a1d088
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 10ad2fa3eb03254894c51fff66389ec3a8da4c38
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982623"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651887"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-azure-cosmos-db-async-java-sdk-v2-with-sql-api-accounts"></a>Felsöka problem när du använder Azure Cosmos DB asynkron Java SDK v2 med SQL API-konton
 
@@ -25,7 +25,7 @@ ms.locfileid: "82982623"
 > 
 
 > [!IMPORTANT]
-> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Överväg att använda Azure Cosmos DB Java SDK v4 för ditt projekt. Följ anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) för att uppgradera. 
+> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Du bör uppgradera projektet till [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) och sedan läsa [fel söknings guiden](troubleshoot-java-sdk-v4-sql.md)för Azure Cosmos DB Java SDK v4. Följ anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) för att uppgradera. 
 >
 > Den här artikeln beskriver fel sökning för Azure Cosmos DB asynkron Java SDK v2. Mer information finns i avsnittet Azure Cosmos DB async Java SDK v2, [versions anmärkningar](sql-api-sdk-async-java.md), [maven-lagringsplats](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) och [prestanda tips](performance-tips-async-java.md) .
 >
@@ -83,7 +83,7 @@ Följ även [anslutnings gränsen på en värddator](#connection-limit-on-host).
 
 #### <a name="http-proxy"></a>HTTP-proxy
 
-Om du använder en HTTP-proxy kontrollerar du att den har stöd för det antal anslutningar som kon figurer `ConnectionPolicy`ATS i SDK.
+Om du använder en HTTP-proxy kontrollerar du att den har stöd för det antal anslutningar som kon figurer ATS i SDK `ConnectionPolicy` .
 Annars är det problem med ansikts anslutning.
 
 #### <a name="invalid-coding-pattern-blocking-netty-io-thread"></a>Ogiltigt kodnings mönster: blockerar nett IO-tråd
@@ -156,7 +156,7 @@ Lösningen är att ändra den tråd som du utför för arbete som tar tid. Defin
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
 ```
-Du kan behöva utföra arbete som tar tid, till exempel hårt belastat arbete eller blockera IO. I det här fallet byter du tråd till en arbets tagare som tillhandahålls `customScheduler` av med hjälp `.observeOn(customScheduler)` av API: et.
+Du kan behöva utföra arbete som tar tid, till exempel hårt belastat arbete eller blockera IO. I det här fallet byter du tråd till en arbets tagare som tillhandahålls av med `customScheduler` hjälp av `.observeOn(customScheduler)` API: et.
 
 ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-applycustomscheduler"></a>Asynkron Java SDK v2 (maven com. Microsoft. Azure:: Azure-cosmosdb)
 
@@ -170,7 +170,7 @@ createObservable
             // ...
         );
 ```
-Genom att `observeOn(customScheduler)`använda, släpper du den uppdelade IO-tråden och växlar till din egen anpassade tråd från den anpassade Schemaläggaren. Den här ändringen löser problemet. Du får inte längre `io.netty.handler.timeout.ReadTimeoutException` ett problem.
+Genom att använda `observeOn(customScheduler)` , släpper du den uppdelade IO-tråden och växlar till din egen anpassade tråd från den anpassade Schemaläggaren. Den här ändringen löser problemet. Du får inte `io.netty.handler.timeout.ReadTimeoutException` längre ett problem.
 
 ### <a name="connection-pool-exhausted-issue"></a>Uttömdt problem i anslutningspoolen
 
@@ -258,7 +258,7 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 Mer information finns i [hand boken för sfl4j-loggning](https://www.slf4j.org/manual.html).
 
 ## <a name="os-network-statistics"></a><a name="netstats"></a>Nätverks statistik för operativ system
-Kör kommandot netstat för att få en uppfattning om hur många anslutningar som finns i tillstånd som `ESTABLISHED` och `CLOSE_WAIT`.
+Kör kommandot netstat för att få en uppfattning om hur många anslutningar som finns i tillstånd som `ESTABLISHED` och `CLOSE_WAIT` .
 
 I Linux kan du köra följande kommando.
 ```bash
@@ -268,7 +268,7 @@ Filtrera resultatet till endast anslutningar till Azure Cosmos DB slut punkten.
 
 Antalet anslutningar till Azure Cosmos DB-slutpunkten i `ESTABLISHED` tillstånd kan inte vara större än den konfigurerade storleken på anslutningspoolen.
 
-Många anslutningar till Azure Cosmos DB slut punkten kan vara i det `CLOSE_WAIT` här läget. Det kan finnas mer än 1 000. Ett tal som högt indikerar att anslutningar upprättas och avsluts snabbt. Den här situationen kan orsaka problem. Mer information finns i avsnittet [vanliga problem och lösningar] .
+Många anslutningar till Azure Cosmos DB slut punkten kan vara i det här `CLOSE_WAIT` läget. Det kan finnas mer än 1 000. Ett tal som högt indikerar att anslutningar upprättas och avsluts snabbt. Den här situationen kan orsaka problem. Mer information finns i avsnittet [vanliga problem och lösningar] .
 
  <!--Anchors-->
 [Vanliga fel och lösningar]: #common-issues-workarounds

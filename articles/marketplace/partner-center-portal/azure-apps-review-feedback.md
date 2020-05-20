@@ -1,26 +1,26 @@
 ---
-title: Hantera gransknings feedback för Azure Apps-erbjudande på Microsofts kommersiella marknads plats
-description: Hur du hanterar gransknings feedback för Azure apps erbjuder att lista eller sälja på Azure Marketplace, AppSource eller via program varan för Cloud Solution Provider (CSP) med hjälp av den kommersiella Marketplace-portalen på Microsoft Partner Center.
+title: Granska feedback för Azure Apps-erbjudanden – Microsoft Commercial Marketplace
+description: Hur du hanterar feedback för ditt Azure-programerbjudande från Microsoft Azure Marketplace gransknings teamet. Du kan komma åt feedback i Azure DevOps med dina autentiseringsuppgifter för ditt partner Center.
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 464f4d5434c8c0b8615e24eb1a323ae66a52273c
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: c9e441512177d731c5ad47b66b454e5722483507
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744873"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659848"
 ---
-# <a name="handling-review-feedback-for-azure-apps-offer-before-publishing-in-the-azure-marketplace"></a>Hantera gransknings feedback för Azure Apps-erbjudande innan du publicerar på Azure Marketplace
+# <a name="handling-review-feedback-for-azure-application-offers"></a>Hantera gransknings feedback för Azure-programerbjudanden
 
-Den här artikeln förklarar hur du får åtkomst till Azure DevOps-miljön som används av Microsoft Azure Marketplace gransknings teamet. Om det finns kritiska problem i ditt erbjudande om Azure-program under **Microsoft gransknings** steg kan du logga in på systemet för att visa detaljerad information om de här problemen (granska feedback). När du har åtgärdat alla dessa problem måste du skicka erbjudandet igen för att fortsätta att publicera det på Azure Marketplace. Följande diagram illustrerar hur den här återställnings processen relaterar till publicerings processen.
+Den här artikeln förklarar hur du får åtkomst till feedback från Microsoft Azure Marketplace gransknings teamet i [Azure DevOps](https://azure.microsoft.com/services/devops/). Om det finns kritiska problem i ditt erbjudande om Azure-program under **Microsoft gransknings** steg kan du logga in på systemet för att visa detaljerad information om de här problemen (granska feedback). När du har åtgärdat alla problem måste du skicka erbjudandet igen för att fortsätta att publicera det på Azure Marketplace. Följande diagram illustrerar hur den här återställnings processen relaterar till publicerings processen.
 
 ![Granska feedback process](./media/review-feedback-process.png)
 
-Normalt refereras gransknings problem som pull-begäran (PR). Varje PR är länkat till ett online [Azure-DevOps](https://azure.microsoft.com/services/devops/) (tidigare kallat Visual Studio Team Services-objekt (VSTS)) som innehåller information om problemet. Följande bild visar ett exempel på Partner Center-upplevelsen om problem påträffas under granskningar. 
+Normalt refereras gransknings problem som en pull-begäran (PR). Varje PR är länkat till ett Azure DevOps-objekt online som innehåller information om problemet. Följande bild visar ett exempel på Partner Center-upplevelsen om problem påträffas under granskningar. 
 
 ![Publiceringsstatus](./media/publishing-status.png)
 
@@ -30,40 +30,23 @@ PR som innehåller detaljerad information om sändningen visas i länken "Visa c
 
 Alla användare med åtkomst till rollen "utvecklare" i Partner Center har åtkomst för att se PR-objekten som refereras till i granska feedback.
 
-<!---
-To view the PR items referenced in review feedback, publishers must first be granted proper authorization. Otherwise, new publishers receive a 401 - Not Authorized response page when trying to view PRs. To request access to this Azure DevOps repository, perform the following steps:
-
-1. Collect the following information:
-    * Your publisher name and ID
-    * Offer type (Azure app), offer name, and SKU ID
-    * The pull request link, for example: `https://solutiontemplates.visualstudio.com/marketplacesolutions/_git/contoso/pullrequest/<number>`. This URL can be retrieved from the notification message or the address of the 401 response page.
-    * The email address(es) of the individuals from your publishing organization that you want access granted to. This list should include the owner address(es) you provided when registering as a publisher on the Cloud Partner Portal (or Partner Center??).
-1. Create a support incident. In the title bar of the Cloud Partner Portal (??), select the **Help** button, then choose **Support** from the menu. Your default web browser should launch and navigate to the Microsoft new support incident page. (You may have to sign in first.)
-1. Specify the **Problem type** as **marketplace onboarding** and **Category** as **Access problem**, then select **Start request**.
-
-    ![Create an incident](./media/create-an-incident.png)
-
-1. In **Step 1 of 2** page, supply your contact information and select **Continue**.
-1. In **Step 2 of 2** page, specify an incident title (for example Request Azure DevOps access) and supply the information you collected in the first step (above). Read and accept the agreement, then select **Submit**.
-
-If the incident creation was successful, a confirmation page is displayed. Save the confirmation information on this page for your reference. The Microsoft Support Team should reply to your access request within a few business days. --->
-
 ## <a name="reviewing-the-pull-request"></a>Granska pull-begäran
 
 Använd följande procedur för att granska problem som dokumenteras i pull-begäran.
 
-1. I formuläret **gransknings** avsnitt i publicerings steg klickar du på en PR-länk för att starta webbläsaren och gå till sidan **Översikt** (start) för detta. Följande bild visar ett exempel på Start sidan för kritiska problem för erbjudandet för Contoso-exempelprogrammet. Den här sidan innehåller användbar sammanfattnings information om de gransknings problem som finns i Azure-appen.
+1. I formuläret **gransknings** avsnitt i publicerings steg väljer du en PR-länk för att starta webbläsaren och gå till sidan **Översikt** (start) för den här PR. Följande bild visar ett exempel på Start sidan för kritiska problem för erbjudandet för Contoso-exempelprogrammet. Den här sidan innehåller användbar sammanfattnings information om de gransknings problem som finns i Azure-appen.
 
     [![Start sida för pull-begäran](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Klicka på bilden för att expandera.*
 
-1. Valfritt Till höger i fönstret, i avsnittet **principer**, klickar du på problem meddelandet (i det här exemplet: **princip valideringen misslyckades**) för att undersöka lågnivå information om problemet, inklusive de associerade loggfilerna. Fel visas vanligt vis längst ned i loggfilerna.
+1. Valfritt På höger sida av fönstret, i avsnittet **principer**, väljer du ärende meddelandet (i det här exemplet: **princip valideringen misslyckades**) för att undersöka lågnivå information om problemet, inklusive de associerade loggfilerna. Fel visas vanligt vis längst ned i loggfilerna.
+
 1. På menyn på vänster sida av start sidan väljer du **filer** för att visa de filer som utgör de tekniska till gångarna för det här erbjudandet. Microsoft-granskarna bör ha lagt till kommentarer som beskriver de identifierade kritiska problemen. I följande exempel har två problem identifierats.
 
     [![Start sida för pull-begäran](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Klicka på bilden för att expandera.*
 
-1. Klicka på varje kommentar-nod i det vänstra trädet för att navigera till kommentaren i kontexten för den omgivande koden. Åtgärda problemet som beskrivs i kommentaren genom att korrigera käll koden i teamets projekt.
+1. Välj varje kommentar-nod i det vänstra trädet för att navigera till kommentaren i kontexten för den omgivande koden. Åtgärda problemet som beskrivs i kommentaren genom att korrigera käll koden i teamets projekt.
 
 >[!Note]
 >Du kan inte redigera ditt erbjudandes tekniska till gångar i gransknings teamets Azure DevOps-miljö. För utgivare är detta en skrivskyddad miljö för den inneslutna käll koden. Du kan dock lämna svar på kommentarer till Microsoft gransknings teamets fördel.

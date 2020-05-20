@@ -1,26 +1,26 @@
 ---
-title: Azure Marketplace IoT Edge-moduler
-description: IoT Edge modul erbjuder Azure Marketplace för app-och tjänst utgivare.
+title: Azure Marketplace IoT Edge-modulen erbjuder
+description: Lär dig mer om hur du publicerar IoT Edge modul erbjudanden i Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 762d9947046f159e992f09211bfcd76ff8d6712e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49f86a79eb5358d27c15d93004db396436c3e680
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81684341"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657953"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
-[Azure IoT Edges](https://azure.microsoft.com/services/iot-edge/) plattformen backas upp av Azure-molnet.  Den här plattformen gör det möjligt för användare att distribuera moln arbets belastningar för att köra direkt på IoT-enheter.  En IoT Edge-modul kan köra offline-arbetsbelastningar och utföra data analys lokalt. Med den här typen av erbjudande kan du spara bandbredd, skydda lokala och känsliga data och erbjuda svars tid med låg latens.  Nu har du möjlighet att dra nytta av dessa förbyggda arbets belastningar. Fram till nu var bara en fåtal av lösningar från första part från Microsoft tillgängliga.  Du var tvungen att investera tiden och resurserna för att skapa dina egna anpassade IoT-lösningar.
+[Azure IoT Edges](https://azure.microsoft.com/services/iot-edge/) plattformen backas upp av Microsoft Azure.  Den här plattformen gör det möjligt för användare att distribuera moln arbets belastningar för att köra direkt på IoT-enheter.  En IoT Edge-modul kan köra offline-arbetsbelastningar och utföra data analys lokalt. Med den här typen av erbjudande kan du spara bandbredd, skydda lokala och känsliga data och erbjuda svars tid med låg latens.  Nu har du möjlighet att dra nytta av dessa förbyggda arbets belastningar. Fram till nu var bara en fåtal av lösningar från första part från Microsoft tillgängliga.  Du var tvungen att investera tiden och resurserna för att skapa dina egna anpassade IoT-lösningar.
 
-Genom att introducera [IoT Edge modulerna på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1)har vi nu ett enda mål för utgivare att exponera och sälja sina lösningar till IoT-publiken. IoT-utvecklare kan i slut ända hitta och köpa funktioner för att påskynda utvecklingen av lösningen.  
+Med [IoT Edge moduler på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1)har vi nu ett enda mål för utgivare att exponera och sälja sina lösningar till IoT-publiken. IoT-utvecklare kan i slut ända hitta och köpa funktioner för att påskynda utvecklingen av lösningen.  
 
-## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Viktiga fördelar med IoT Edge moduler på Azure Marketplace:
+## <a name="key-benefits-of-iot-edge-modules-in-azure-marketplace"></a>Viktiga fördelar med IoT Edge moduler på Azure Marketplace
 
 | **För utgivare**    | **För kunder (IoT-utvecklare)**  |
 | :------------------- | :-------------------|

@@ -1,29 +1,28 @@
 ---
-title: Microsoft AppSource och Azure Marketplace konsult tjänster
-description: I den här artikeln beskrivs villkor för berättigande och publicerings krav för nya konsult tjänst erbjudanden i Microsoft AppSource och Azure Marketplace.
-services: Marketplace, Compute, Storage, Networking, Blockchain, Security
+title: Konsult tjänster på Microsofts kommersiella marknads platser
+description: I den här artikeln beskrivs villkoren för berättigande och publicerings krav för nya konsult tjänst erbjudanden i Microsoft AppSource och Azure Marketplace.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: e5f22a681a9a5cbed4eceea2f70faa1cb21c07bc
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: fc0a82617346f60b90de34b379b4a0a114faf804
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994843"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658083"
 ---
-# <a name="consulting-services-for-microsoft-appsource-and-azure-marketplace"></a>Konsult tjänster för Microsoft AppSource och Azure Marketplace
+# <a name="consulting-service-offers"></a>Konsult tjänst erbjudanden
 
-Microsoft AppSource och Azure Marketplace-konsulttjänster ger Microsoft Systems Integrator-partner fördelarna med att ansluta sina kunder till tjänster som stöder och utökar användningen av Azure. Dessa konsult tjänster hjälper kunderna att bedöma, utvärdera och distribuera affärs lösningar som ger ytterligare deras affärs mål och mål.  
+I den här artikeln beskrivs villkoren och kraven för att publicera nya konsult tjänster på den kommersiella marknads platsen. Konsult tjänster ger Microsoft System Integrator-partner fördelarna med att ansluta sina kunder till tjänster som stöder och utökar användningen av Azure. Dessa konsult tjänster hjälper kunderna att bedöma, utvärdera och distribuera affärs lösningar som ger ytterligare deras affärs mål och mål.  
 
 Konsult tjänster erbjuder kundspecifika engagemang. Utgivare har möjlighet att fastställa registrerings typ, omfattning, varaktighet och pris struktur (fast pris eller kostnads fri). Erbjudanden har en definierad agenda för slut produkter till kunden. Leads tas emot via ett meddelande i partners CRM-system, och partner syftar till att svara på kunder inom 48 timmar.
 
 ## <a name="compare-consulting-services"></a>Jämför konsult tjänster
 
-Marketplace-butiker justeras med mål grupper och moln produkter så att kunderna kan hitta vad de behöver. Varje butik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Följande tabell sammanfattar de här alternativen:
+Den kommersiella Marketplace butiker, Microsoft AppSource och Azure Marketplace, justeras med mål grupper och moln produkter så att kunderna kan hitta vad de behöver. Varje butik har särskilda publicerings alternativ som hjälper dig att maximera publicerings investeringen. Följande tabell sammanfattar de här alternativen:
 
 |         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
@@ -31,7 +30,7 @@ Marketplace-butiker justeras med mål grupper och moln produkter så att kundern
 |Relevans för lösning      |Tekniska appar som skapats för eller bygger på Azure|Affärsappar som använder eller utökar Dynamics 365, Power BI, Office 365, Azure (tillägg-eller tilläggs färdiga appar)|
 |Publicerings alternativ      |Kontakta mig, utvärderings version, Transact eller tjänster för Azure|Kontakta mig, utvärderings version eller tjänster för Dynamics 365 och Power BI|
 |Produkt upplevelse      |Azure Portal|Dynamics 365, Office 365, Office-klientprogram| 
-|Annat      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics 365 och Power BI|
+|Övrigt      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics 365 och Power BI|
 ||
 
 Konsult tjänst erbjudanden som baseras på Dynamics 365, Power Apps och Power BI är berättigade att listas på AppSource. Om du vill ha mer information kan du hämta PDF-filen med [rikt linjer för Microsoft AppSource konsult tjänster](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) .
@@ -86,7 +85,7 @@ System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 
 |---------|----------|----------|----------|
 | Australien | Belgien | Kanada | Danmark |
 | Finland  | Frankrike | Tyskland  | Indien   |
-| Italien    | Japan  |  Mexiko  |  Nederländerna  |
+| Italien    | Japan  |  Mexico  |  Nederländerna  |
 |  Nya Zeeland  |  Norge  |  Polen  | Sydafrika |
 |  Spanien  | Sverige  | Schweiz  |  USA  |
 | Storbritannien  |
@@ -95,14 +94,6 @@ System-Integrator-partner kan skicka konsult tjänst erbjudanden för följande 
 ## <a name="register-for-consulting-services-in-the-commercial-marketplace"></a>Registrera dig för konsult tjänster på den kommersiella marknaden
 
 Börja med att [Registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) företags informationen på Marketplace. En fullständig check lista över registrerings kraven finns i [bli utgivare i Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher). 
-
-<!---
-**What to expect after registration**
-The Onboarding Team will reach out in 1 to 3 business days with a welcome email, which will include your Cloud Partner Portal sign-in information. [Cloud Partner Portal](https://cloudpartner.azure.com) is the offer listing portal where publishers submit listing information and submissions.
-
->[!Note]
->Partners need to register only once to become a publisher. After you become a publisher and receive your welcome email and Partner Center sign-in information, you don't need to re-register to publish different listing types.
---->
 
 ## <a name="prepare-your-publishing-artifacts"></a>Förbereda dina publicerings artefakter
 Innan du registrerar dig kan du börja samla in och förbereda innehållet som gör att du kan lista tydliggör värdet för din tjänst och din lösning till mål kunden. 
@@ -169,9 +160,9 @@ Exempel:
 
 När innehålls gransknings teamet har granskat dina erbjudande beskrivningar och erbjudande sammanfattningar tillämpas följande kriterier:
 
-|Erbjudandetyp  |Krävs |Rekommenderas  |
+|Erbjudandetyp  |Obligatorisk |Rekommenderas  |
 |---------|---------|---------|
-|**Utvärdering**    |   Ta med en detaljerad agenda för utvärderingar av flera dagar eller flera veckor, och tydliggör vilken slut produkt som kunden kan vänta sig.      |    Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.     |
+|**Beskrivningar**    |   Ta med en detaljerad agenda för utvärderingar av flera dagar eller flera veckor, och tydliggör vilken slut produkt som kunden kan vänta sig.      |    Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.     |
 |**Genom gång**    |   Tydliggör vilken slut produkt som kunden kan förväntar sig. Kom ihåg att du måste tillhandahålla en *kortfattad* person. Om du tillhandahåller en virtuell tjänst väljer du en annan erbjudande typ.    |  Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.       |
 |**Implementering**    |  Ta med en detaljerad agenda för implementeringar av flera dagar eller flera veckor och tydliggör vilka tekniska artefakter, tekniska artefakter eller andra artefakter som en kund förväntar sig som ett resultat av ärendet.       |    Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.     |
 |**Konceptbevis**    |    Tydliggör vilka tekniska förändringar, tekniska artefakter eller andra artefakter som en kund kan förväntar sig som ett resultat av ärendet.     | Optimera din erbjudande Sammanfattning med dina främsta SEO-Nyckelord.        |
@@ -181,12 +172,12 @@ När innehålls gransknings teamet har granskat dina erbjudande beskrivningar oc
 I Partner Center kan du lägga till formatering i din lista genom att använda [markdown](/contribute/markdown-reference), ett enkelt design språk som hjälper dig att lägga till polska till din lista.
 
 Här följer några markdown-tips:
-* För *kursiv* formatering lägger du till en asterisk\*(), utan blank steg, i början och slutet av ett ord eller en serie med ord (Skriv \*exempelvis innehåll * för att formatera ett ord som *innehåll*). Formatera din *erbjudande Sammanfattning* i kursiv stil.
+* För *kursiv* formatering lägger du till en asterisk ( \* ), utan blank steg, i början och slutet av ett ord eller en serie med ord (Skriv exempelvis \* innehåll * för att formatera ett ord som *innehåll*). Formatera din *erbjudande Sammanfattning* i kursiv stil.
 * Infoga en rad brytning efter ett kolon (:) för att införa en punkt lista eller numrerad lista.
-* Om du vill skapa en punkt lista skriver du en asterisk\*() följt av ett blank steg för varje punkt element (till exempel \*[blank steg] första ord med innehåll).
-* Skapa rubriker genom att skriva ett eller flera pund tecken (\#) följt av ett blank steg (till exempel # # # [Space] Agenda/slut produkt).
+* Om du vill skapa en punkt lista skriver du en asterisk ( \* ) följt av ett blank steg för varje punkt element (till exempel \* [blank steg] första ord med innehåll).
+* Skapa rubriker genom att skriva ett eller flera pund tecken ( \# ) följt av ett blank steg (till exempel # # # [Space] Agenda/slut produkt).
 * Lägg till en rad brytning efter varje rubrik.
-* För **fet** formatering, Lägg till en dubbel asterisk\*\*(), utan blank steg, i början och slutet av ett ord eller en serie med ord (Skriv \* \*till exempel innehåll\* \* för att formatera ett ord som **innehåll**).
+* För **fet** formatering, Lägg till en dubbel asterisk ( \* \* ), utan blank steg, i början och slutet av ett ord eller en serie med ord (Skriv till exempel \* \* innehåll \* \* för att formatera ett ord som **innehåll**).
 
 ## <a name="next-steps"></a>Nästa steg
 

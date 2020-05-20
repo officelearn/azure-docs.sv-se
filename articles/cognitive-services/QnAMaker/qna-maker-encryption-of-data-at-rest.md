@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: egeaney
-ms.openlocfilehash: bd64321a6a7afbac61a63365c77a75120f837e83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 99c21ece202f8d9867045d506574dd7718bd455e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79372099"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653659"
 ---
 # <a name="qna-maker-encryption-of-data-at-rest"></a>QnA Maker kryptering av data i vila
 
@@ -52,6 +52,11 @@ Tjänsten QnA Maker använder CMK från tjänsten Azure Search. Följ de här st
 ## <a name="regional-availability"></a>Regional tillgänglighet
 
 Kundhanterade nycklar är tillgängliga i alla Azure Search regioner.
+
+## <a name="encryption-of-data-in-transit"></a>Kryptering av data under överföring
+
+QnA Maker portalen körs i användarens webbläsare. Varje åtgärd utlöser ett direkt anrop till respektive kognitiva tjänst-API. Därför är QnA Maker kompatibel för data under överföring.
+Men eftersom QnA Maker Portal tjänsten ligger i västra USA är den fortfarande inte idealisk för kunder som inte är USA. 
 
 ## <a name="next-steps"></a>Nästa steg
 

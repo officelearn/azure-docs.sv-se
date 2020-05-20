@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 570e84b3a545736aad6983c7f0d8c0f0296ca589
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d073bc82b3a9e42e443caa5d3e7855fd4eb5b98b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431818"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658907"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Azure Synapse SQL-arkitektur 
 
@@ -117,4 +117,4 @@ Diagrammet nedan visar en replikerad tabell som cachelagras på den första dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du vet lite om Synapse SQL, lär dig hur du snabbt [skapar en SQL-pool](../quickstart-create-sql-pool.md) och [läser in exempel data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-Data-Warehouse-load-Sample-databases.MD). Eller så börjar du [använda SQL på begäran](../quickstart-sql-on-demand.md). Om du inte har erfarenhet av Azure kan [Azure-ordlistan](../../azure-glossary-cloud-terminology.md) vara till hjälp om du stöter på ny terminologi. 
+Nu när du vet lite om Synapse SQL, lär dig hur du snabbt [skapar en SQL-pool](../quickstart-create-sql-pool-portal.md) och [läser in exempel data](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./SQL-Data-Warehouse-load-Sample-databases.MD). Eller så börjar du [använda SQL på begäran](../quickstart-sql-on-demand.md). Om du inte har erfarenhet av Azure kan [Azure-ordlistan](../../azure-glossary-cloud-terminology.md) vara till hjälp om du stöter på ny terminologi. 

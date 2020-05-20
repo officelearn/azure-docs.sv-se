@@ -2,13 +2,13 @@
 title: Redigera en kunskaps bas – QnA Maker
 description: Med QnA Maker kan du hantera innehållet i kunskaps basen genom att tillhandahålla en användarvänlig redigerings upplevelse.
 ms.topic: conceptual
-ms.date: 04/06/2020
-ms.openlocfilehash: 3cf5dcedd4d2cfa82fda002b71abca1e5bea4b18
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756737"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650875"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Redigera QnA-par i kunskaps basen
 
@@ -16,21 +16,68 @@ Med QnA Maker kan du hantera innehållet i kunskaps basen genom att tillhandahå
 
 QnA-par läggs till från en data källa, till exempel en fil eller URL, eller läggs till som en redaktionell källa. En redaktionell källa visar att QnA-paret lades till i QnA-portalen manuellt. Alla QnA-par är tillgängliga för redigering.
 
+<a name="add-an-editorial-qna-set"></a>
+
 ## <a name="add-an-editorial-qna-pair"></a>Lägg till ett redigerings QnA-par
+
 1. Logga in på [QNA-portalen](https://www.qnamaker.ai/)och välj sedan den kunskaps bas som QNA-paret ska läggas till i.
 1. På sidan **Redigera** i kunskaps basen väljer du **Lägg till QNA-par** för att lägga till ett nytt QNA-par.
 
-1. I den nya QnA pair-raden lägger du till obligatoriska **frågor** och **svars** fält. De andra fälten är valfria. Alla fält kan ändras när som helst.
+    > [!div class="mx-imgBorder"]
+    > ![Lägg till QnA-par](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
-1. Du kan också lägga till **alternativa formuleringen**. Alternativa formuleringen är en form av frågan som är mycket annorlunda från den ursprungliga frågan men som bör ge samma svar.
+1. I den nya QnA pair-raden lägger du till obligatoriska frågor och svars fält. De andra fälten är valfria. Alla fält kan ändras när som helst.
+
+1. Du kan också lägga till **[alternativa formuleringen](../Quickstarts/add-question-metadata-portal.md#add-additional-alternatively-phrased-questions)**. Alternativa formuleringen är en form av frågan som är mycket annorlunda från den ursprungliga frågan men som bör ge samma svar.
 
     När din kunskaps bas publiceras och du har aktiverat [aktiv inlärning](use-active-learning.md) , samlar QNA Maker in alternativa formuleringen-alternativ som du kan acceptera. Dessa val väljs för att öka förutsägelse noggrannheten.
 
-1. Du kan också lägga till **metadata**. Om du vill visa metadata väljer du **visnings alternativ** på snabb menyn. Metadata innehåller filter för de svar som klient programmet, till exempel en chatt-robot, tillhandahåller.
+1. Du kan också lägga till **[metadata](../Quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)**. Om du vill visa metadata väljer du **visnings alternativ** på snabb menyn. Metadata innehåller filter för de svar som klient programmet, till exempel en chatt-robot, tillhandahåller.
 
-1. Du kan också lägga till **uppföljnings**anvisningarna. Följ anvisningarna innehåller ytterligare konversations Sök vägar till klient programmet för att presentera för användaren.
+1. Du kan också lägga till **[uppföljnings](multiturn-conversation.md)** anvisningarna. Följ anvisningarna innehåller ytterligare konversations Sök vägar till klient programmet för att presentera för användaren.
 
 1. Välj **Spara och träna** för att se förutsägelser, inklusive det nya QNA-paret.
+
+## <a name="rich-text-editing-for-answer"></a>Omfattande text redigering för svar
+
+Text redigering av svars texten ger dig markdown format från ett enkelt verktygsfält.
+
+1. Välj text områden för ett svar, verktygsfältet RTF-redigerare visas på QnA-adresspar-raden.
+
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild av RTF-redigeraren med frågan och svaret på en QnA pair-rad.](../media/qnamaker-how-to-edit-kb/rich-text-control-qna-pair-row.png)
+
+    Text som redan finns i svaret visas som den ska när användaren ser den från en robot.
+
+1. Redigera texten. Välj formateringsfunktioner i verktygsfältet text redigering eller Använd växlings funktionen för att växla till markdown-syntax.
+
+    > [!div class="mx-imgBorder"]
+    > ![Använd Rich Text Editor för att skriva och formatera text och Spara som markdown.](../media/qnamaker-how-to-edit-kb/rich-text-display-image.png)
+
+    |Funktioner i Rich-Text-redigeraren|Kortkommando|
+    |--|--|
+    |Växla mellan Rich-Text Editor och markdown. `</>`|CTRL+M|
+    |Breda. **T**|Prod + LB|
+    |Kursiv stil, visas med kursivt ** _i_**|CTRL + I|
+    |Osorterad lista||
+    |Ordnad lista||
+    |Stycke format||
+    |Bild – Lägg till en avbildning som är tillgänglig från en offentlig URL.|CTRL + G|
+    |Lägg till länk till offentligt tillgänglig URL.|CTRL + K|
+    |Uttrycks symbol – Lägg till från ett urval av uttrycks symboler.|CTRL + E|
+    |Avancerad meny – ångra|CTRL + Z|
+    |Avancerad meny – gör om|CTRL + Y|
+
+1. Lägg till en bild till svaret med hjälp av ikonen bild i verktygsfältet RTF. Den inbyggda redigeraren behöver den allmänt tillgängliga bild-URL: en och den alternativa texten för avbildningen.
+
+
+    > [!div class="mx-imgBorder"]
+    > ![Använd RTF-redigeraren för att lägga till en offentligt tillgänglig bild och dess alternativ text.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+
+1. Lägg till en länk till en URL genom att antingen välja texten i svaret och sedan välja länk ikonen i verktygsfältet eller genom att välja länk ikonen i verktygsfältet och sedan ange ny text och URL: en.
+
+    > [!div class="mx-imgBorder"]
+    > ![Använd RTF-redigeraren för att lägga till en offentligt tillgänglig bild och dess alternativ text.](../media/qnamaker-how-to-edit-kb/add-link-to-answer-rich-text-editor.png)
 
 ## <a name="edit-a-qna-pair"></a>Redigera ett QnA-par
 
@@ -70,6 +117,12 @@ Lägg till metadata uppsättningar genom att först välja **visnings alternativ
 Välj regelbundet **Spara och träna** efter att du har redigerat ändringarna för att undvika att förlora ändringar.
 
 ![Lägg till metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
+
+## <a name="when-to-use-rich-text-editing-versus-markdown"></a>När du ska använda Rich-Text-redigering jämfört med markdown
+
+Med [text redigering](#add-an-editorial-qna-set) av svar kan du, som författare, använda verktygsfältet Formatering för att snabbt välja och formatera text.
+
+[Markdown](../reference-markdown-format.md) är ett bättre verktyg när du behöver generera innehåll automatiskt för att skapa kunskaps banker som ska importeras som en del av en CI/CD-pipeline eller för [batch-testning](../Quickstarts/batch-testing.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

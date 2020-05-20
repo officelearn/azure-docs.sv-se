@@ -5,14 +5,14 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 1a3ec22b9d1375f1c438d24791389284c1d4ee84
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 461602aee6d88f8d8f829fcf89e3433a8185e34d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982555"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658938"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Prestanda tips för Azure Cosmos DB asynkron Java SDK v2
 
@@ -24,7 +24,7 @@ ms.locfileid: "82982555"
 > 
 
 > [!IMPORTANT]  
-> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Överväg att använda Azure Cosmos DB Java SDK v4 för ditt projekt. Om du vill uppgradera följer du anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
+> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Du bör uppgradera projektet till [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) och sedan läsa guiden Azure Cosmos DB Java SDK v4- [prestanda tips](performance-tips-java-sdk-v4-sql.md). Följ anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) -guide och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) för att uppgradera. 
 > 
 > Prestanda tipsen i den här artikeln är endast för Azure Cosmos DB asynkron Java SDK v2. Mer information finns i [viktig](sql-api-sdk-async-java.md)information om Azure Cosmos DB ASYNC Java SDK v2, [maven-lagringsplatsen](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)och Azure Cosmos DB asynkron Java SDK v2- [felsöknings guide](troubleshoot-java-async-sdk.md) .
 >
@@ -97,7 +97,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
         Om du använder Azure Cosmos DB som en referens databas (det vill säga databasen används för många punkt läsnings åtgärder och få Skriv åtgärder) kan det vara acceptabelt att ange *idleEndpointTimeout* till 0 (det vill säga ingen tids gräns).
 
 
-        | Konfigurations alternativ       | Standardvärde    |
+        | Konfigurations alternativ       | Standard    |
         | :------------------:       | :-----:    |
         | bufferPageSize             | 8192       |
         | connectionTimeout          | "PT1M"     |
@@ -154,7 +154,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
 * **Använd namn baserat adressering**
 
-    Använd namnbaserade adressering, där länkar har formatet `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, i stället för SelfLinks (\_Self), som har formatet `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` för att undvika att hämta ResourceIds för alla resurser som används för att skapa länken. Som de här resurserna kommer att återskapas (eventuellt med samma namn) är det inte säkert att de cachelagrar dem.
+    Använd namnbaserade adressering, där länkar har formatet `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId` , i stället för SelfLinks ( \_ Self), som har formatet `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` för att undvika att hämta ResourceIds för alla resurser som används för att skapa länken. Som de här resurserna kommer att återskapas (eventuellt med samma namn) är det inte säkert att de cachelagrar dem.
 
    <a id="tune-page-size"></a>
 
@@ -209,13 +209,13 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
       });
     ```
 
-    Baserat på typen av arbete bör du använda den aktuella befintliga RxJava Scheduler för ditt arbete. Läs här [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
+    Baserat på typen av arbete bör du använda den aktuella befintliga RxJava Scheduler för ditt arbete. Läs här [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html) .
 
     Mer information finns på [GitHub-sidan](https://github.com/Azure/azure-cosmosdb-java) för Azure Cosmos DB ASYNKRON Java SDK v2.
 
 * **Inaktivera loggning av netttjänster**
 
-    Loggning av Netstore-bibliotek är chatt och måste stängas av (under tryckning av inloggnings konfigurationen kanske inte räcker) för att undvika ytterligare processor kostnader. Om du inte är i fel söknings läge inaktiverar du nett loggning helt. Så om du använder Log4J för att ta bort de ytterligare CPU-kostnader som ``org.apache.log4j.Category.callAppenders()`` uppstår vid nettning lägger du till följande rad i kodbasen:
+    Loggning av Netstore-bibliotek är chatt och måste stängas av (under tryckning av inloggnings konfigurationen kanske inte räcker) för att undvika ytterligare processor kostnader. Om du inte är i fel söknings läge inaktiverar du nett loggning helt. Så om du använder Log4J för att ta bort de ytterligare CPU-kostnader som uppstår vid ``org.apache.log4j.Category.callAppenders()`` nettning lägger du till följande rad i kodbasen:
 
     ```java
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
@@ -296,7 +296,7 @@ För andra plattformar (Red Hat, Windows, Mac osv.), se dessa instruktionerhttps
 
     Komplexiteten i en fråga påverkar hur många enheter för programbegäran som används för en åtgärd. Antalet predikat, typen av predikat, antalet UDF: er och storleken på käll data uppsättningen påverkar kostnaden för frågor.
 
-    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) för att mäta antalet enheter för programbegäran som används av dessa åtgärder. Du kan också titta på motsvarande RequestCharge-egenskap i ResourceResponse\<T> eller FeedResponse\<T>.
+    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) för att mäta antalet enheter för programbegäran som används av dessa åtgärder. Du kan också titta på motsvarande RequestCharge-egenskap i ResourceResponse \< T> eller FeedResponse \< T>.
 
     ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-requestcharge"></a>Asynkron Java SDK v2 (maven com. Microsoft. Azure:: Azure-cosmosdb)
 

@@ -6,14 +6,14 @@ ms.service: azure-arc
 ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
-ms.date: 03/24/2020
+ms.date: 05/18/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac0a795c98673eba30531f586ff634c62673cdd6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 52c53cc10fe6517be6083a14c98daa9e6ff3b56f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980957"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648083"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ansluta hybrid datorer till Azure från Azure Portal
 
@@ -21,9 +21,9 @@ Du kan aktivera Azure Arc for Servers (för hands version) för ett eller ett li
 
 Den här metoden kräver att du har administratörs behörighet på datorn för att installera och konfigurera agenten. I Linux, med hjälp av rot kontot och i Windows, är du medlem i den lokala gruppen Administratörer.
 
-Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](overview.md#prerequisites) resurser uppfyller kraven.
+Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](agent-overview.md#prerequisites) resurser uppfyller kraven.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="generate-the-installation-script-from-the-azure-portal"></a>Generera installations skriptet från Azure Portal
 
@@ -48,7 +48,7 @@ Skriptet för att automatisera nedladdningen och installationen, och för att up
 1. På sidan **generera skript** i list rutan **operativ system** väljer du det operativ system som skriptet ska köras på.
 
 1. Om datorn kommunicerar via en proxyserver för att ansluta till Internet väljer du **Nästa: proxyserver**. 
-1. På fliken **proxyserver** anger du IP-adressen för proxyservern eller namnet och port numret som datorn ska använda för att kommunicera med proxyservern. Ange värdet i formatet `http://<proxyURL>:<proxyport>`. 
+1. På fliken **proxyserver** anger du IP-adressen för proxyservern eller namnet och port numret som datorn ska använda för att kommunicera med proxyservern. Ange värdet i formatet `http://<proxyURL>:<proxyport>` . 
 1. Välj **Granska + generera**.
 
 1. På fliken **Granska och skapa** granskar du sammanfattnings informationen och väljer sedan **Hämta**. Om du fortfarande behöver göra ändringar väljer du **föregående**.
@@ -57,13 +57,13 @@ Skriptet för att automatisera nedladdningen och installationen, och för att up
 
 ### <a name="install-manually"></a>Installera manuellt
 
-Du kan installera den anslutna dator agenten manuellt genom att köra Windows Installer-paketet *AzureConnectedMachineAgent. msi*. 
+Du kan installera den anslutna dator agenten manuellt genom att köra Windows Installer-paketet *AzureConnectedMachineAgent. msi*. Du kan ladda ned den senaste versionen av [Windows agent Windows Installer-paketet](https://aka.ms/AzureConnectedMachineAgent) från Microsoft Download Center. 
 
 > [!NOTE]
 > * Du måste ha *Administratörs* behörighet för att installera eller avinstallera agenten.
 > * Du måste först hämta och kopiera installations paketet till en mapp på mål servern eller från en delad nätverksmapp. Om du kör installations paketet utan några alternativ startas en installations guide som du kan följa för att installera agenten interaktivt.
 
-Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs senare i artikeln när du har installerat agenten. Detta anger proxyserverns system miljö variabel `https_proxy`.
+Om datorn behöver kommunicera via en proxyserver till tjänsten måste du köra ett kommando som beskrivs senare i artikeln när du har installerat agenten. Detta anger proxyserverns system miljö variabel `https_proxy` .
 
 Om du inte känner till kommando rads alternativen för Windows Installer-paket kan du läsa mer om kommando rads alternativ i [msiexec](https://docs.microsoft.com/windows/win32/msi/standard-installer-command-line-options) och [kommando rads alternativ i msiexec](https://docs.microsoft.com/windows/win32/msi/command-line-options).
 
@@ -73,13 +73,13 @@ Du kan till exempel köra installations programmet med `/?` parametern för att 
 msiexec.exe /i AzureConnectedMachineAgent.msi /?
 ```
 
-Kör följande kommando för att installera agenten tyst och skapa en installations logg `C:\Support\Logs` fil i den mapp som finns.
+Kör följande kommando för att installera agenten tyst och skapa en installations logg fil i den `C:\Support\Logs` mapp som finns.
 
 ```dos
 msiexec.exe /i AzureConnectedMachineAgent.msi /qn /l*v "C:\Support\Logs\Azcmagentsetup.log"
 ```
 
-Filer för den anslutna dator agenten installeras som standard i *C:\Program Files\AzureConnectedMachineAgent*. Om agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
+Om agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### <a name="install-with-the-scripted-method"></a>Installera med den skriptbaserade metoden
 
@@ -87,7 +87,9 @@ Filer för den anslutna dator agenten installeras som standard i *C:\Program Fil
 
 1. Öppna en upphöjd PowerShell-kommandotolk.
 
-1. Ändra till den mapp eller resurs som du kopierade skriptet till och kör det på servern genom att `./OnboardingScript.ps1` köra skriptet.
+1. Ändra till den mapp eller resurs som du kopierade skriptet till och kör det på servern genom att köra `./OnboardingScript.ps1` skriptet.
+
+Om agenten inte startar efter att installationen har slutförts, kontrollerar du i loggarna om det finns detaljerad fel information. Logg katalogen är *%ProgramFiles%\AzureConnectedMachineAgentAgent\logs*.
 
 ### <a name="configure-the-agent-proxy-setting"></a>Konfigurera agentens proxyinställningar
 
@@ -132,7 +134,7 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-Kör följande kommandon för att ladda ned och installera `--proxy` agenten, inklusive parametern för att konfigurera agenten för att kommunicera via proxyservern:
+Kör följande kommandon för att ladda ned och installera agenten, inklusive `--proxy` parametern för att konfigurera agenten för att kommunicera via proxyservern:
 
 ```bash
 # Download the installation package.

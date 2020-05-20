@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: srchi
-ms.openlocfilehash: c78a7d26100d3c3454cd96e2ac79e1767e5efcdb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f00acf3580130d85d6eaeaee4d52eb748d20aa7b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597221"
+ms.locfileid: "83656656"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Vad är Azure Cosmos DB Analytical Store (för hands version)?
 
@@ -48,7 +48,7 @@ Om dina operativa tabeller till exempel är i följande format:
 
 Rad arkivet behåller ovanstående data i ett serialiserat format, per rad, på disken. Det här formatet möjliggör snabbare transaktionella läsningar, skrivningar och operativa frågor, till exempel "returnera information om Product1". Men eftersom data mängden växer stor och om du vill köra komplexa analys frågor på data kan det vara dyrt. Om du till exempel vill hämta "försäljnings trender för en produkt under kategorin" utrustning "i olika affär senheter och månader" måste du köra en komplex fråga. Stora genomsökningar i den här data uppsättningen kan bli dyra när det gäller data flöde och kan också påverka prestandan för transaktions arbets belastningar som påverkar dina real tids program och-tjänster.
 
-Analys lager, som är en kolumn lagring, passar bättre för sådana frågor eftersom det serialiserar likartade data fält tillsammans och minskar diskens IOPS.
+Analys lager, som är en kolumn lagring, passar bättre för sådana frågor eftersom det serialiserar likartade data fält tillsammans och minskar disken IOPS.
 
 Följande bild visar transaktions rad lagring jämfört med analytisk kolumn lagring i Azure Cosmos DB:
 

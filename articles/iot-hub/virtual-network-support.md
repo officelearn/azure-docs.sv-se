@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 04/28/2020
+ms.date: 05/12/2020
 ms.author: jlian
-ms.openlocfilehash: c0d01ae6507864373a79282476846d6f96adf83b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61d24ac9f99a7c7b2b4d9ca6f3fd7b0a338341b8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231449"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652361"
 ---
 # <a name="iot-hub-support-for-virtual-networks"></a>IoT Hub stöd för virtuella nätverk
 
@@ -46,10 +46,7 @@ I den här artikeln beskrivs hur du uppnår dessa mål med hjälp av [privata sl
 
 ## <a name="ingress-connectivity-to-iot-hub-using-private-endpoints"></a>Ingress-anslutning till IoT Hub med hjälp av privata slut punkter
 
-En privat slut punkt är en privat IP-adress som tilldelas i ett kundägda VNET via vilken en Azure-resurs kan kontaktas. Genom att ha en privat slut punkt för din IoT-hubb kommer du att kunna tillåta tjänster som körs i ditt VNET för att uppnå IoT Hub utan att trafik måste skickas till IoT Hub offentliga slut punkter. På samma sätt kan enheter som arbetar i din lokala dator använda [virtuella privata nätverk (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privata peering för att få anslutning till ditt VNet i Azure och därefter till din IoT Hub (via dess privata slut punkt). Därför kan kunder som vill begränsa anslutningen till sina offentliga slut punkter för IoT Hub (eller eventuellt helt blockera det) uppnå målet genom att använda [IoT Hub brand Väggs regler](./iot-hub-ip-filtering.md) och samtidigt behålla anslutningen till hubben med hjälp av den privata slut punkten.
-
-> [!NOTE]
-> Huvud fokus för den här installationen är för enheter i ett lokalt nätverk. Den här installationen rekommenderas inte för enheter som distribueras i ett WAN-nätverk.
+En privat slut punkt är en privat IP-adress som tilldelas i ett kundägda VNET via vilken en Azure-resurs kan kontaktas. Genom att ha en privat slut punkt för din IoT-hubb kommer du att kunna tillåta tjänster som körs i ditt VNET för att uppnå IoT Hub utan att trafik måste skickas till IoT Hub offentliga slut punkter. På samma sätt kan enheter som arbetar i din lokala dator använda [virtuella privata nätverk (VPN)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) eller [ExpressRoute](https://azure.microsoft.com/services/expressroute/) privata peering för att få anslutning till ditt VNet i Azure och därefter till din IoT Hub (via dess privata slut punkt). Därför kan kunder som vill begränsa anslutningen till sina offentliga slut punkter i IoT Hub (eller eventuellt helt blockera det) uppnå målet genom att använda [IoT Hub IP-filter](./iot-hub-ip-filtering.md) och [konfigurera routning så att inga data skickas till den inbyggda slut punkten](#built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint). Den här metoden behåller anslutningen till deras hubb med hjälp av den privata slut punkten för enheter. Huvud fokus för den här installationen är för enheter i ett lokalt nätverk. Den här installationen rekommenderas inte för enheter som distribueras i ett WAN-nätverk.
 
 ![IoT Hub offentlig slut punkt](./media/virtual-network-support/virtual-network-ingress.png)
 
@@ -85,7 +82,7 @@ Följ dessa steg om du vill konfigurera en privat slut punkt:
     az provider register --namespace Microsoft.Devices --wait --subscription  <subscription-name>
     ```
 
-2. Gå till fliken **anslutningar för privata slut punkter** på din IoT Hub portal (den här fliken är bara tillgänglig för i IoT-hubbar i de [regioner](#regional-availability-private-endpoints)som stöds **+** ) och klicka på signera för att lägga till en ny privat slut punkt.
+2. Gå till fliken **anslutningar för privata slut punkter** på din IoT Hub portal (den här fliken är bara tillgänglig för i IoT-hubbar i de [regioner som stöds](#regional-availability-private-endpoints)) och klicka på **+** signera för att lägga till en ny privat slut punkt.
 
 3. Ange prenumeration, resurs grupp, namn och region för att skapa den nya privata slut punkten i (vi rekommenderar att privat slut punkt skapas i samma region som hubben. mer information finns i [avsnittet om regional tillgänglighet](#regional-availability-private-endpoints) ).
 
@@ -95,8 +92,19 @@ Följ dessa steg om du vill konfigurera en privat slut punkt:
 
 6. Klicka på **Nästa: Taggar**och om du vill kan du även ange taggar för resursen.
 
-7. Klicka på **Granska + skapa** för att skapa din privata slut punkts resurs.
+7. Klicka på **Granska + skapa** för att skapa en privat länk resurs.
 
+### <a name="built-in-event-hub-compatible-endpoint-doesnt-support-access-over-private-endpoint"></a>Inbyggd Event Hub-kompatibel slut punkt stöder inte åtkomst över privat slut punkt
+
+Den [inbyggda Event Hub-kompatibla slut punkten](iot-hub-devguide-messages-read-builtin.md) stöder inte åtkomst över privat slut punkt. När den har kon figurer ATS är en IoT Hub-privat slut punkt endast för inkommande anslutningar. Användning av data från inbyggd Event Hub-kompatibel slut punkt kan bara göras via det offentliga Internet. 
+
+IoT Hubens [IP-filter](iot-hub-ip-filtering.md) styr också inte offentlig åtkomst till den inbyggda slut punkten. Om du vill blockera offentlig nätverks åtkomst fullständigt till din IoT-hubb måste du: 
+
+1. Konfigurera åtkomst till privat slut punkt för IoT Hub
+1. Inaktivera offentlig nätverks åtkomst genom att använda IP-filter för att blockera alla IP-adresser
+1. Inaktivera den inbyggda slut punkten för Event Hub genom att konfigurera [routning för att inte skicka data till den](iot-hub-devguide-messages-d2c.md)
+1. Inaktivera [reserv vägen](iot-hub-devguide-messages-d2c.md#fallback-route)
+1. Konfigurera utgående trafik till andra Azure-resurser med [Azure första parts betrodda tjänster](#egress-connectivity-from-iot-hub-to-other-azure-resources)
 
 ### <a name="pricing-private-endpoints"></a>Priser (privata slut punkter)
 
@@ -196,7 +204,7 @@ En hanterad tjänst identitet kan tilldelas till navet vid resurs etablerings ti
 }
 ```
 
-När du har angett värdena för din `name`resurs `location`, `SKU.name` och `SKU.tier`du kan använda Azure CLI för att distribuera resursen i en befintlig resurs grupp med hjälp av:
+När du har angett värdena för din `name` resurs `location` , `SKU.name` och `SKU.tier` du kan använda Azure CLI för att distribuera resursen i en befintlig resurs grupp med hjälp av:
 
 ```azurecli-interactive
 az deployment group create --name <deployment-name> --resource-group <resource-group-name> --template-file <template-file.json>
@@ -319,9 +327,9 @@ await registryManager.ExportDevicesAsync(
 
 Så här använder du den här regionen – begränsad version av Azure IoT SDK: er med stöd för virtuella nätverk för C#, Java och Node. js:
 
-1. Skapa en miljö variabel med `EnableStorageIdentity` namnet och ange dess värde `1`till.
+1. Skapa en miljö variabel med namnet `EnableStorageIdentity` och ange dess värde till `1` .
 
-2. Hämta SDK: [Java](https://aka.ms/vnetjavasdk) | [C#](https://aka.ms/vnetcsharpsdk) | [Node. js](https://aka.ms/vnetnodesdk)
+2. Hämta SDK: [Java](https://aka.ms/vnetjavasdk)  |  [C#](https://aka.ms/vnetcsharpsdk)  |  [Node. js](https://aka.ms/vnetnodesdk)
  
 För python laddar du ned vår begränsade version från GitHub.
 

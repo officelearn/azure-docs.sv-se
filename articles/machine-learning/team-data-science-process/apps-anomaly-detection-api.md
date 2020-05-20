@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: a09094cf0d1bd3c2e299e968d7de8410dcd9c3cb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 269cadc50d55c4b986c55f489cecd7fa17922ba8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76721888"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656554"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API för Machine Learning avvikelse identifiering
 
@@ -24,7 +24,7 @@ ms.locfileid: "76721888"
 > Det här objektet är under underhåll. Vi rekommenderar att du använder [API-tjänsten för avvikelse detektor](https://azure.microsoft.com/services/cognitive-services/anomaly-detector/) som drivs av ett galleri med Machine Learning algoritmer under Azure Cognitive Services för att identifiera avvikelser från affärs-, drift-och IoT-mått.
 
 ## <a name="overview"></a>Översikt
-[API för avvikelse identifiering](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) är ett exempel som skapats med Azure Machine Learning som identifierar avvikelser i Time Series-data med numeriska värden som är jämnt fördelade i tid.
+[API för avvikelse identifiering](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2) är ett exempel som skapats med Azure Machine Learning som identifierar avvikelser i Time Series-data med numeriska värden som är jämnt fördelade i tid.
 
 Detta API kan identifiera följande typer av avvikande mönster i tids serie data:
 
@@ -39,29 +39,29 @@ Identifierings erbjudandet för avvikelse identifiering innehåller användbara 
 * [Webb programmet](https://anomalydetection-aml.azurewebsites.net/) hjälper dig att utvärdera och visualisera resultaten av API: er för avvikelse identifiering på dina data.
 
 > [!NOTE]
-> Testa **den avvikande Insights-lösning** som drivs av [detta API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
+> Testa **den avvikande Insights-lösning** som drivs av [detta API](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2)
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 -->
 
 ## <a name="api-deployment"></a>API-distribution
-Om du vill använda API: et måste du distribuera det till din Azure-prenumeration där den kommer att vara värd för en Azure Machine Learning-webbtjänst.  Du kan göra detta från [Azure AI Gallery](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Detta distribuerar två Azure Machine Learning Studio (klassiska) webb tjänster (och deras relaterade resurser) till din Azure-prenumeration – en för avvikelse identifiering med säsongs beroende-identifiering och en utan säsongs beroende identifiering.  När distributionen har slutförts kommer du att kunna hantera dina API: er från sidan [Azure Machine Learning Studio (klassiska) webb tjänster](https://services.azureml.net/webservices/) .  Från den här sidan kan du hitta dina slut punkts platser, API-nycklar och exempel kod för att anropa API: et.  Mer detaljerade instruktioner finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Om du vill använda API: et måste du distribuera det till din Azure-prenumeration där den kommer att vara värd för en Azure Machine Learning-webbtjänst.  Du kan göra detta från [Azure AI Gallery](https://gallery.azure.ai/MachineLearningAPI/Anomaly-Detection-2).  Detta distribuerar två Azure Machine Learning Studio (klassiska) webb tjänster (och deras relaterade resurser) till din Azure-prenumeration – en för avvikelse identifiering med säsongs beroende-identifiering och en utan säsongs beroende identifiering.  När distributionen har slutförts kommer du att kunna hantera dina API: er från sidan [Azure Machine Learning Studio (klassiska) webb tjänster](https://services.azureml.net/webservices/) .  Från den här sidan kan du hitta dina slut punkts platser, API-nycklar och exempel kod för att anropa API: et.  Mer detaljerade instruktioner finns [här](/azure/machine-learning/studio/manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Skalar API: et
 Som standard har din distribution en kostnads fri fakturerings plan för utveckling/testning som innehåller 1 000 transaktioner/månad och 2 beräknings timmar/månad.  Du kan uppgradera till en annan plan efter behov.  Information om prissättningen för olika planer finns [här](https://azure.microsoft.com/pricing/details/machine-learning/) under "Production Web API-prissättning".
 
 ## <a name="managing-aml-plans"></a>Hantera AML-planer
-Du kan hantera din fakturerings plan [här](https://services.azureml.net/plans/).  Plan namnet kommer att baseras på det resurs grupps namn som du valde när du distribuerade API: et, plus en sträng som är unik för din prenumeration.  Anvisningar om hur du uppgraderar planen finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) under avsnittet "hantera fakturerings planer".
+Du kan hantera din fakturerings plan [här](https://services.azureml.net/plans/).  Plan namnet kommer att baseras på det resurs grupps namn som du valde när du distribuerade API: et, plus en sträng som är unik för din prenumeration.  Anvisningar om hur du uppgraderar planen finns [här](/azure/machine-learning/studio/manage-new-webservice) under avsnittet "hantera fakturerings planer".
 
 ## <a name="api-definition"></a>API-definition
 Webb tjänsten tillhandahåller ett REST-baserat API över HTTPS som kan användas på olika sätt, till exempel ett webb-eller mobil program, R, python, Excel osv.  Du skickar dina Time Series-data till den här tjänsten via ett REST API samtal och kör en kombination av de tre avvikelse typerna som beskrivs nedan.
 
 ## <a name="calling-the-api"></a>Anropar API: et
-För att anropa API: et måste du känna till slut punkts platsen och API-nyckeln.  Dessa två krav, tillsammans med exempel kod för att anropa API: n, är tillgängliga på sidan [Azure Machine Learning Studio (klassiska) webb tjänster](https://services.azureml.net/webservices/) .  Navigera till önskat API och klicka sedan på fliken "konsumera" för att hitta dem.  Du kan anropa API: et som ett Swagger-API (det vill säga med URL `format=swagger`-parametern) eller som ett icke-Swagger-API (det vill `format` säga utan URL-parametern).  I exempel koden används Swagger-formatet.  Nedan visas en exempel förfrågan och ett svar i icke-Swagger format.  De här exemplen är till säsongs beroende-slutpunkten.  Den icke-säsongs beroende slut punkten liknar.
+För att anropa API: et måste du känna till slut punkts platsen och API-nyckeln.  Dessa två krav, tillsammans med exempel kod för att anropa API: n, är tillgängliga på sidan [Azure Machine Learning Studio (klassiska) webb tjänster](https://services.azureml.net/webservices/) .  Navigera till önskat API och klicka sedan på fliken "konsumera" för att hitta dem.  Du kan anropa API: et som ett Swagger-API (det vill säga med URL `format=swagger` -parametern) eller som ett icke-Swagger-API (det vill säga utan `format` URL-parametern).  I exempel koden används Swagger-formatet.  Nedan visas en exempel förfrågan och ett svar i icke-Swagger format.  De här exemplen är till säsongs beroende-slutpunkten.  Den icke-säsongs beroende slut punkten liknar.
 
 ### <a name="sample-request-body"></a>Exempel på begär ande text
-Begäran innehåller två objekt: `Inputs` och. `GlobalParameters`  I exempel förfrågan nedan skickas vissa parametrar explicit medan andra inte (Rulla nedåt för en fullständig lista över parametrar för varje slut punkt).  Parametrar som inte skickas uttryckligen i begäran kommer att använda standardvärdena som anges nedan.
+Begäran innehåller två objekt: `Inputs` och `GlobalParameters` .  I exempel förfrågan nedan skickas vissa parametrar explicit medan andra inte (Rulla nedåt för en fullständig lista över parametrar för varje slut punkt).  Parametrar som inte skickas uttryckligen i begäran kommer att använda standardvärdena som anges nedan.
 
     {
                 "Inputs": {
@@ -111,7 +111,7 @@ Figuren nedan visar ett exempel på avvikelser som Poäng-API: et kan identifier
 ### <a name="detectors"></a>Detektorer
 API: t för avvikelse identifiering stöder identifierare i tre breda kategorier. Information om speciella indataparametrar och utdata för varje detektor finns i följande tabell.
 
-| Detektor kategori | Igenkänning | Beskrivning | Indataparametrar | Utdata |
+| Detektor kategori | Igenkänning | Description | Indataparametrar | Utdata |
 | --- | --- | --- | --- | --- |
 | Insamling av identifieringar |TSpike detektor |Identifiera toppar och DIP utifrån värdena från första och tredje kvartilen |*tspikedetector. känslighet:* tar heltals värde i intervallet 1-10, standard: 3; Högre värden kommer att fånga mer extrema värden, vilket gör det mindre känsligt |TSpike: binära värden – 1 om en insamling/DIP identifieras, 0 |
 | Insamling av identifieringar | ZSpike detektor |Identifiera toppar och DIP utifrån hur långt Datapoints är från deras medelvärde |*zspikedetector. känslighet:* ta heltals värde i intervallet 1-10, standard: 3; Högre värden kommer att fånga fler extrema värden vilket gör det mindre känsligt |ZSpike: binära värden – 1 om en insamling/DIP identifieras, 0 |
@@ -121,7 +121,7 @@ API: t för avvikelse identifiering stöder identifierare i tre breda kategorier
 ### <a name="parameters"></a>Parametrar
 Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 
-| Indataparametrar | Beskrivning | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
+| Indataparametrar | Description | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
 | --- | --- | --- | --- | --- | --- |
 | detektorer. historywindow |Historik (i antal data punkter) som används för avvikelse beräkning |500 |heltal |10-2000 |Tids serie beroende |
 | detektorer. spikesdips | Om endast toppar, endast DIP eller båda ska identifieras |Båda |räknas upp |Både, toppar, DIP |Båda |
@@ -131,10 +131,10 @@ Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 | zspikedetector. känslighet |Känslighet för ZSpike detektor |3 |heltal |1-10 |3-5 (lägre värden betyder mer känsligt) |
 | postprocess.tailRows |Antal senaste data punkter som ska behållas i resultatet av utdata |0 |heltal |0 (Behåll alla data punkter) eller ange antalet punkter som ska behållas i resultatet |Ej tillämpligt |
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 API: et kör alla identifieringar i dina tids serie data och returnerar avvikelser och binära inöknings indikatorer för varje tidpunkt. I tabellen nedan visas utdata från API: et.
 
-| Utdata | Beskrivning |
+| Utdata | Description |
 | --- | --- |
 | Tid |Tidsstämplar från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |
 | Data |Värden från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |
@@ -157,7 +157,7 @@ Identifierarna i säsongs beroende-slutpunkten liknar dem i den icke-säsongs be
 
 Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 
-| Indataparametrar | Beskrivning | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
+| Indataparametrar | Description | Standardinställning | Typ | Giltigt intervall | Föreslaget intervall |
 | --- | --- | --- | --- | --- | --- |
 | preprocess. aggregationInterval |Agg regerings intervall i sekunder för agg regering av indatamängds tids serier |0 (ingen agg regering utförs) |heltal |0: hoppa över agg regering, > 0 annars |5 minuter till 1 dag, tids serie beroende |
 | preprocess. aggregationFunc |Funktion som används för att aggregera data till angiven AggregationInterval |medelvärde |räknas upp |medelvärde, Summa, längd |Ej tillämpligt |
@@ -174,10 +174,10 @@ Mer detaljerad information om dessa indataparametrar finns i tabellen nedan:
 | säsongs beroende. Transform |Om trender (och) trend komponenter ska tas bort innan avvikelse identifiering tillämpas |tids säsong |räknas upp |ingen, avsäsong, deseasontrend |Ej tillämpligt |
 | postprocess.tailRows |Antal senaste data punkter som ska behållas i resultatet av utdata |0 |heltal |0 (Behåll alla data punkter) eller ange antalet punkter som ska behållas i resultatet |Ej tillämpligt |
 
-### <a name="output"></a>Resultat
+### <a name="output"></a>Utdata
 API: et kör alla identifieringar i dina tids serie data och returnerar avvikelser och binära inöknings indikatorer för varje tidpunkt. I tabellen nedan visas utdata från API: et.
 
-| Utdata | Beskrivning |
+| Utdata | Description |
 | --- | --- |
 | Tid |Tidsstämplar från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |
 | OriginalData |Värden från rå data, eller sammanställda (och/eller) imputerade data om agg regeringen (och/eller) data som saknas Imputation används |

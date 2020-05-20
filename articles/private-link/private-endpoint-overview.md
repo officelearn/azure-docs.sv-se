@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: c0cf8a91ee1dbdd70f1b911dba24fb69ee7bc0e3
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 429a342fcc5dd69e1ae8d0be5611e908e216b2d1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744396"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659690"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -35,7 +35,9 @@ Azure Private Endpoint är ett nätverksgränssnitt som ger dig en privat och s�
 Här följer några viktiga uppgifter om privata slut punkter: 
 - Med privat slut punkt kan du ansluta mellan konsumenter från samma VNet, regionalt peer-virtuella nätverk, globalt peered virtuella nätverk och lokalt med hjälp av [VPN](https://azure.microsoft.com/services/vpn-gateway/) eller [Express Route](https://azure.microsoft.com/services/expressroute/) och tjänster som drivs av en privat länk.
  
-- När du skapar en privat slut punkt skapas även ett skrivskyddat nätverks gränssnitt för resursens livs cykel. Gränssnittet tilldelas en privat IP-adress från det undernät som mappar till den privata länk resursen.
+- Nätverks anslutningar kan endast initieras av klienter som ansluter till den privata slut punkten. tjänst leverantörer har ingen konfiguration för routning för att initiera anslutningar till tjänst konsumenter. Anslutningar kan bara upprättas i en enda riktning.
+
+- När du skapar en privat slut punkt skapas även ett skrivskyddat nätverks gränssnitt för resursens livs cykel. Gränssnittet tilldelas dynamiskt privata IP-adresser från under nätet som mappar till den privata länk resursen. värdet för den privata IP-adressen förblir oförändrat för hela livs cykeln för den privata slut punkten.
  
 - Den privata slut punkten måste distribueras i samma region som det virtuella nätverket. 
  
@@ -83,7 +85,7 @@ Du kan helt låsa dina arbets belastningar från att komma åt offentliga slut p
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Åtkomst till en privat länk resurs med hjälp av godkännande arbets flöde 
 Du kan ansluta till en privat länk resurs med hjälp av följande metoder för godkännande av anslutning:
-- **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Microsoft. \<Provider>/<resource_type>/privateendpointconnectionapproval/Action
+- **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Microsoft. \< Provider>/<resource_type>/privateEndpointConnectionApproval/action
 - **Manuell** begäran när du inte har behörighet som krävs och vill begära åtkomst. Ett arbets flöde för godkännande kommer att initieras. Den privata slutpunkten och efterföljande privata slutpunktsanslutning skapas i ett väntande tillstånd. Ägaren till den privata länkresursen ansvarar för att godkänna anslutningen. När den har godkänts är den privata slut punkten aktive rad för att skicka trafik normalt, som du ser i följande arbets flödes diagram för godkännande.  
 
 ![arbets flödes godkännande](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -115,7 +117,7 @@ Fullständig detaljerad information om metod tips och rekommendationer för att 
 Följande tabell innehåller en lista med kända begränsningar när du använder privata slut punkter: 
 
 
-|Begränsning |Beskrivning |Åtgärd  |
+|Begränsning |Description |Åtgärd  |
 |---------|---------|---------|
 |Regler för nätverks säkerhets gruppen (NSG) och användardefinierade vägar gäller inte för privat slut punkt    |NSG stöds inte för privata slut punkter. Medan undernät som innehåller den privata slut punkten kan ha NSG kopplade till sig, gäller inte reglerna för trafik som bearbetas av den privata slut punkten. Du måste ha [aktiverat tvingande nätverks principer](disable-private-endpoint-network-policy.md) för att distribuera privata slut punkter i ett undernät. NSG tillämpas fortfarande på andra arbets belastningar som finns i samma undernät. Vägar i alla klient under nät kommer att använda ett/32-prefix, och om du ändrar standarduppförandet för routning krävs ett liknande UDR  | Styr trafiken genom att använda NSG regler för utgående trafik på käll klienter. Distribuera enskilda vägar med/32-prefix för att åsidosätta privata slut punkts vägar. NSG flödes loggar och övervaknings information för utgående anslutningar stöds fortfarande och kan användas        |
 

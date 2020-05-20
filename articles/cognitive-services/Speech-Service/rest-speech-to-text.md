@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/13/2020
 ms.author: yinhew
-ms.openlocfilehash: 2f102199c14ba9611a83e3ed3b31ebcd189624d6
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 555ae9e48f538c1100bab8b35ce61742baa88451
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978628"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659831"
 ---
 # <a name="speech-to-text-rest-api"></a>REST API för tal-till-text
 
@@ -43,7 +43,7 @@ Ersätt `<REGION_IDENTIFIER>` med den identifierare som matchar regionen för di
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
 
 > [!NOTE]
-> Språk parametern måste läggas till i URL: en för att undvika att ett HTTP-4xx-fel tas emot. Till exempel är språket inställt på amerikansk engelska med slut punkten västra USA: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
+> Språk parametern måste läggas till i URL: en för att undvika att ett HTTP-4xx-fel tas emot. Till exempel är språket inställt på amerikansk engelska med slut punkten västra USA: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US` .
 
 ## <a name="query-parameters"></a>Frågeparametrar
 
@@ -51,24 +51,24 @@ Dessa parametrar kan ingå i frågesträngen för REST-begäran.
 
 | Parameter | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| `language` | Identifierar det talade språk som identifieras. Se [vilka språk som stöds](language-support.md#speech-to-text). | Krävs |
-| `format` | Anger resultat formatet. Godkända värden är `simple` och `detailed`. Enkla resultat inkluderar `RecognitionStatus`, `DisplayText`, `Offset`och `Duration`. Detaljerade svar innehåller fyra olika representationer av visnings text. Standardinställningen är `simple`. | Valfri |
-| `profanity` | Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `masked`, som ersätter svordomar med asterisker, `removed`som tar bort alla svordomar från resultatet, eller `raw`som innehåller svordomarna i resultatet. Standardinställningen är `masked`. | Valfri |
-| `pronunciationScoreParams` | Anger parametrar för visning av uttal i igenkännings resultat, som utvärderar uttal av tal ingångar, med indikatorer på precision, Fluency, fullständighet osv. Den här parametern är en Base64-kodad JSON som innehåller flera detaljerade parametrar. Se [uttal av bedömnings parametrar](#pronunciation-assessment-parameters) för hur du skapar den här parametern. | Valfri |
-| `cid` | När du använder [Custom Speech Portal](how-to-custom-speech.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slut punkts-ID** som finns på **distributions** sidan. Använd **slut punkts-ID** som argument för `cid` parametern frågesträng. | Valfri |
+| `language` | Identifierar det talade språk som identifieras. Se [vilka språk som stöds](language-support.md#speech-to-text). | Obligatorisk |
+| `format` | Anger resultat formatet. Godkända värden är `simple` och `detailed` . Enkla resultat inkluderar `RecognitionStatus` , `DisplayText` , `Offset` och `Duration` . Detaljerade svar innehåller fyra olika representationer av visnings text. Standardinställningen är `simple`. | Valfritt |
+| `profanity` | Anger hur du hanterar svordomar i igenkännings resultat. Godkända värden är `masked` , som ersätter svordomar med asterisker, `removed` som tar bort alla svordomar från resultatet, eller `raw` som innehåller svordomarna i resultatet. Standardinställningen är `masked`. | Valfritt |
+| `cid` | När du använder [Custom Speech Portal](how-to-custom-speech.md) för att skapa anpassade modeller kan du använda anpassade modeller via deras **slut punkts-ID** som finns på **distributions** sidan. Använd **slut punkts-ID** som argument för `cid` parametern frågesträng. | Valfritt |
 
 ## <a name="request-headers"></a>Begärandehuvuden
 
 I den här tabellen listas obligatoriska och valfria sidhuvuden för begäran om tal till text.
 
-|Huvud| Beskrivning | Obligatorisk/valfri |
+|Sidhuvud| Description | Obligatorisk/valfri |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen den här rubriken `Authorization` eller krävs. |
-| `Authorization` | En autentiseringstoken föregås av ordet `Bearer`. Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken `Ocp-Apim-Subscription-Key` eller krävs. |
-| `Content-type` | Beskriver formatet och codecen för de angivna ljud data. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus`. | Krävs |
-| `Transfer-Encoding` | Anger att segmenterade ljud data ska skickas i stället för en enda fil. Använd endast den här rubriken om du segmenterar ljuddata. | Valfri |
-| `Expect` | Skicka `Expect: 100-continue`om du använder segmenterad överföring. Tal tjänsten bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljud data. |
-| `Accept` | Om det anges måste det vara `application/json`. Tal tjänsten ger resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid `Accept`inkludera. | Valfritt, men rekommenderas. |
+| `Ocp-Apim-Subscription-Key` | Din prenumerations nyckel för röst tjänst. | Antingen den här rubriken eller `Authorization` krävs. |
+| `Authorization` | En autentiseringstoken föregås av ordet `Bearer` . Mer information finns i [Autentisering](#authentication). | Antingen den här rubriken eller `Ocp-Apim-Subscription-Key` krävs. |
+| `Pronunciation-Assessment` | Anger parametrar för visning av uttal i igenkännings resultat, som utvärderar uttal av tal ingångar, med indikatorer på precision, Fluency, fullständighet osv. Den här parametern är en Base64-kodad JSON som innehåller flera detaljerade parametrar. Se [uttal av bedömnings parametrar](#pronunciation-assessment-parameters) för hur du skapar den här rubriken. | Valfritt |
+| `Content-type` | Beskriver formatet och codecen för de angivna ljud data. Godkända värden är `audio/wav; codecs=audio/pcm; samplerate=16000` och `audio/ogg; codecs=opus` . | Obligatorisk |
+| `Transfer-Encoding` | Anger att segmenterade ljud data ska skickas i stället för en enda fil. Använd endast den här rubriken om du segmenterar ljuddata. | Valfritt |
+| `Expect` | Skicka om du använder segmenterad överföring `Expect: 100-continue` . Tal tjänsten bekräftar den första begäran och väntar på ytterligare data.| Krävs om du skickar segmenterade ljud data. |
+| `Accept` | Om det anges måste det vara `application/json` . Tal tjänsten ger resultat i JSON. Vissa ramverk för begäran tillhandahåller ett inkompatibelt standardvärde. Det är en bra idé att alltid inkludera `Accept` . | Valfritt, men rekommenderas. |
 
 ## <a name="audio-formats"></a>Ljud format
 
@@ -88,12 +88,12 @@ I den här tabellen listas obligatoriska och valfria parametrar för uttal-utvä
 
 | Parameter | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
-| ReferenceText | Texten som uttalet kommer att utvärderas mot. | Krävs |
-| GradingSystem | Punkt systemet för resultat kalibrering. Godkända värden är `FivePoint` och `HundredMark`. Standardinställningen är `FivePoint`. | Valfri |
-| Precision | Utvärderings precisionen. Godkända värden är `Phoneme`, som visar poängen på den fullständiga text-, Word-och fonem- `Word`nivån, som visar poängen på den fullständiga text-och ord nivån `FullText`, som bara visar poängen på hela text nivån. Standardinställningen är `Phoneme`. | Valfri |
-| Dimension | Definierar kriterierna för utdata. Godkända värden är `Basic`, som bara visar noggrannhets poängen, `Comprehensive` visar poängen på fler dimensioner (t. ex. Fluency Poäng och total poäng på nivån full text nivå, fel typ på ord nivå). Kontrol lera [svars parametrar](#response-parameters) för att se definitioner av olika Poäng dimensioner och ord fel typer. Standardinställningen är `Basic`. | Valfri |
-| EnableMiscue | Aktiverar miscue-beräkning. Med det här alternativet kommer uttalade ord att jämföras med referens texten och markeras med utelämnanden/infogning baserat på jämförelsen. Godkända värden är `False` och `True`. Standardinställningen är `False`. | Valfri |
-| ScenarioId | Ett GUID som anger ett anpassat punkt system. | Valfri |
+| ReferenceText | Texten som uttalet kommer att utvärderas mot. | Obligatorisk |
+| GradingSystem | Punkt systemet för resultat kalibrering. Godkända värden är `FivePoint` och `HundredMark` . Standardinställningen är `FivePoint`. | Valfritt |
+| Precision | Utvärderings precisionen. Godkända värden är `Phoneme` , som visar poängen på den fullständiga text-, Word-och fonem-nivån, `Word` som visar poängen på den fullständiga text-och ord nivån, `FullText` som bara visar poängen på hela text nivån. Standardinställningen är `Phoneme`. | Valfritt |
+| Dimension | Definierar kriterierna för utdata. Godkända värden är `Basic` , som bara visar noggrannhets poängen, `Comprehensive` visar poängen på fler dimensioner (t. ex. Fluency Poäng och total poäng på nivån full text nivå, fel typ på ord nivå). Kontrol lera [svars parametrar](#response-parameters) för att se definitioner av olika Poäng dimensioner och ord fel typer. Standardinställningen är `Basic`. | Valfritt |
+| EnableMiscue | Aktiverar miscue-beräkning. Med det här alternativet kommer uttalade ord att jämföras med referens texten och markeras med utelämnanden/infogning baserat på jämförelsen. Godkända värden är `False` och `True` . Standardinställningen är `False`. | Valfritt |
+| ScenarioId | Ett GUID som anger ett anpassat punkt system. | Valfritt |
 
 Nedan visas ett exempel på en JSON som innehåller parametrarna för uttal-utvärdering:
 
@@ -106,13 +106,16 @@ Nedan visas ett exempel på en JSON som innehåller parametrarna för uttal-utv�
 }
 ```
 
-Följande exempel kod visar hur du skapar uttal-bedömnings parametrarna i URL-Frågeparametern:
+Följande exempel kod visar hur du skapar uttal-bedömnings parametrarna i `Pronunciation-Assessment` rubriken:
 
 ```csharp
-var pronunciationScoreParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
-var pronunciationScoreParamsBytes = Encoding.UTF8.GetBytes(pronunciationScoreParamsJson);
-var pronunciationScoreParams = Convert.ToBase64String(pronunciationScoreParamsBytes);
+var pronAssessmentParamsJson = $"{{\"ReferenceText\":\"Good morning.\",\"GradingSystem\":\"HundredMark\",\"Granularity\":\"FullText\",\"Dimension\":\"Comprehensive\"}}";
+var pronAssessmentParamsBytes = Encoding.UTF8.GetBytes(pronAssessmentParamsJson);
+var pronAssessmentHeader = Convert.ToBase64String(pronAssessmentParamsBytes);
 ```
+
+>[!NOTE]
+>Funktionen för ututtals bedömning är för närvarande bara tillgänglig i `westus` och- `eastasia` regioner. Och den här funktionen är för närvarande bara tillgänglig på `en-US` språket.
 
 ## <a name="sample-request"></a>Exempel förfrågan
 
@@ -128,11 +131,17 @@ Transfer-Encoding: chunked
 Expect: 100-continue
 ```
 
+Om du vill aktivera uttal av uttal kan du lägga till under rubrik. Se [uttal av bedömnings parametrar](#pronunciation-assessment-parameters) för hur du skapar den här rubriken.
+
+```HTTP
+Pronunciation-Assessment: eyJSZWZlcm...
+```
+
 ## <a name="http-status-codes"></a>HTTP-statuskoder
 
 HTTP-statuskoden för varje svar visar att de lyckas eller vanliga fel.
 
-| HTTP-statuskod | Beskrivning | Möjlig orsak |
+| HTTP-statuskod | Description | Möjlig orsak |
 |------------------|-------------|-----------------|
 | `100` | Fortsätt | Den första begäran har accepterats. Fortsätt med att skicka resten av data. (Används med segmenterad överföring) |
 | `200` | OK | Begäran lyckades. svars texten är ett JSON-objekt. |
@@ -142,7 +151,7 @@ HTTP-statuskoden för varje svar visar att de lyckas eller vanliga fel.
 
 ## <a name="chunked-transfer"></a>Segmenterad överföring
 
-Segmenterad överföring (`Transfer-Encoding: chunked`) kan hjälpa till att minska svars tiden för igenkänning. Det gör att röst tjänsten kan börja bearbeta ljud filen medan den överförs. REST API innehåller inte partiella eller interimistiska resultat.
+Segmenterad överföring ( `Transfer-Encoding: chunked` ) kan hjälpa till att minska svars tiden för igenkänning. Det gör att röst tjänsten kan börja bearbeta ljud filen medan den överförs. REST API innehåller inte partiella eller interimistiska resultat.
 
 I det här kod exemplet visas hur du skickar ljud i segment. Endast det första segmentet ska innehålla ljud filens rubrik. `request`är ett `HttpWebRequest` objekt som är kopplat till lämplig REST-slutpunkt. `audioFile`är sökvägen till en ljudfil på disk.
 
@@ -178,16 +187,16 @@ using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="response-parameters"></a>Svars parametrar
 
-Resultat tillhandahålls som JSON. `simple` Formatet innehåller dessa fält på den översta nivån.
+Resultat tillhandahålls som JSON. `simple`Formatet innehåller dessa fält på den översta nivån.
 
-| Parameter | Beskrivning  |
+| Parameter | Description  |
 |-----------|--------------|
 |`RecognitionStatus`|Status, till exempel `Success` för lyckad igenkänning. Se nästa tabell.|
 |`DisplayText`|Den tolkade texten efter versaler, interpunktion, inverterad text normalisering (konvertering av talade text till kortare former, till exempel 200 för "200" eller "Dr. Smith" för "läkare Smith") och svordomar. Presentera bara på framgång.|
 |`Offset`|Den tid (i 100 – nanosekunder) som det identifierade talet börjar i ljud strömmen.|
 |`Duration`|Varaktigheten (i 100 – nanosekunder) av tal som identifieras i ljud strömmen.|
 
-`RecognitionStatus` Fältet kan innehålla följande värden:
+`RecognitionStatus`Fältet kan innehålla följande värden:
 
 | Status | Beskrivning |
 |--------|-------------|
@@ -198,25 +207,25 @@ Resultat tillhandahålls som JSON. `simple` Formatet innehåller dessa fält på
 | `Error` | Ett internt fel inträffade i igenkännings tjänsten och det gick inte att fortsätta. Försök igen om möjligt. |
 
 > [!NOTE]
-> Om ljudet bara består av svordomar och `profanity` frågeparametern är inställt på `remove`, returnerar inte tjänsten ett tal resultat.
+> Om ljudet bara består av svordomar och `profanity` frågeparametern är inställt på `remove` , returnerar inte tjänsten ett tal resultat.
 
-`detailed` Formatet innehåller ytterligare former av identifierade resultat.
+`detailed`Formatet innehåller ytterligare former av identifierade resultat.
 När du använder `detailed` formatet `DisplayText` anges det som `Display` för varje resultat i `NBest` listan.
 
 Objektet i `NBest` listan kan innehålla:
 
-| Parameter | Beskrivning |
+| Parameter | Description |
 |-----------|-------------|
 | `Confidence` | Förtroende poängen för posten från 0,0 (ingen exakthet) till 1,0 (full exakthet) |
 | `Lexical` | Den tolkade textens lexikala text: de faktiska orden som identifieras. |
 | `ITN` | Den tolkade textens ("kanoniska") form av den tolkade texten, med telefonnummer, siffror, förkortningar ("läkare Smith" till "Dr Smith") och andra transformeringar som tillämpas. |
 | `MaskedITN` | REDUNDANSVÄXLINGAR-formuläret med anspråks mask tillämpas vid begäran. |
-| `Display` | Visnings formatet för den tolkade texten, med interpunktion och Skift läge tillagda. Den här parametern är samma som `DisplayText` anges när format är inställt på `simple`. |
+| `Display` | Visnings formatet för den tolkade texten, med interpunktion och Skift läge tillagda. Den här parametern är samma som `DisplayText` anges när format är inställt på `simple` . |
 | `AccuracyScore` | Poängen som anger Talts uttal. |
 | `FluencyScore` | Poängen som anger Fluency för det tal som anges. |
 | `CompletenessScore` | Poängen som indikerar att det angivna talet är klart genom att beräkna förhållandet mellan uttalade ord och hela ingången. |
 | `PronScore` | Det övergripande resultatet som anger uttal av det tal som anges. Detta beräknas från `AccuracyScore` `FluencyScore` och `CompletenessScore` med vikt. |
-| `ErrorType` | Det här värdet anger om ett ord utelämnas, infogas eller blir dåligt uttalad jämfört med `ReferenceText`. Möjliga värden är `None` (vilket innebär inget fel på det här ordet `Omission`) `Insertion` , `Mispronunciation`och. |
+| `ErrorType` | Det här värdet anger om ett ord utelämnas, infogas eller blir dåligt uttalad jämfört med `ReferenceText` . Möjliga värden är `None` (vilket innebär inget fel på det här ordet), `Omission` `Insertion` och `Mispronunciation` . |
 
 ## <a name="sample-responses"></a>Exempel svar
 

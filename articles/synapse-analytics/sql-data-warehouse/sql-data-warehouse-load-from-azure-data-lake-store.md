@@ -11,19 +11,19 @@ ms.date: 04/08/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: f26aafc771998ea73d1a4f97f0e960a94f6775c3
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 193b1d5ff37eace127c8d5473b102842f4fa2a8c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626725"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654501"
 ---
-# <a name="load-data-from-azure-data-lake-storage-for-sql-analytics"></a>Läs in data från Azure Data Lake Storage för SQL Analytics
+# <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Läs in data från Azure Data Lake Storage för Synapse SQL
 
 Den här guiden beskriver hur du använder PolyBase-externa tabeller för att läsa in data från Azure Data Lake Storage. Även om du kan köra adhoc-frågor på data som lagras i Data Lake Storage rekommenderar vi att du importerar data för bästa prestanda.
 
 > [!NOTE]  
-> Ett alternativ till att läsa in är [kopierings instruktionen](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för närvarande i offentlig för hands version.  KOPIERINGs instruktionen ger störst flexibilitet. Skicka ett e-postmeddelande till följande distributions lista för att ge feedback om KOPIERINGs sqldwcopypreview@service.microsoft.cominstruktionen:.
+> Ett alternativ till att läsa in är [kopierings instruktionen](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) för närvarande i offentlig för hands version.  KOPIERINGs instruktionen ger störst flexibilitet. Skicka ett e-postmeddelande till följande distributions lista för att ge feedback om KOPIERINGs instruktionen: sqldwcopypreview@service.microsoft.com .
 >
 > [!div class="checklist"]
 >
@@ -218,7 +218,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 Det är bäst att skapa statistik med en kolumn direkt efter en belastning. Det finns några val för statistik. Om du till exempel skapar en statistik med en kolumn på varje kolumn kan det ta lång tid att bygga om all statistik. Om du vet att vissa kolumner inte kommer att finnas i frågesyntaxen kan du hoppa över att skapa statistik för dessa kolumner.
 
-Om du väljer att skapa en statistik med en kolumn på varje kolumn i varje tabell, kan du använda exemplet `prc_sqldw_create_stats` på den lagrade procedur koden i [statistik](sql-data-warehouse-tables-statistics.md) artikeln.
+Om du väljer att skapa en statistik med en kolumn på varje kolumn i varje tabell, kan du använda exemplet på den lagrade procedur koden `prc_sqldw_create_stats` i [statistik](sql-data-warehouse-tables-statistics.md) artikeln.
 
 I följande exempel visas en start punkt för att skapa statistik. Den skapar statistik med en kolumn för varje kolumn i tabellen dimension och i varje kopplings kolumn i fakta tabellerna. Du kan alltid lägga till en eller flera kolumn statistik i andra fakta tabell kolumner senare.
 

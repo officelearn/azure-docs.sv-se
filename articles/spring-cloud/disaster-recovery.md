@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
-ms.openlocfilehash: e8f32f574a4ff7be0cc3cc7915b8203b53824c63
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 81ca6b2c365b0dd8a249a337f51d78516cb2cc61
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792334"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657190"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Haveri beredskap för Azure våren Cloud
 
@@ -50,7 +50,7 @@ Du behöver två tjänst instanser av Azure våren Cloud som distribueras i två
 3. Skapa en Traffic Manager och två slut punkter: [skapa en Traffic Manager profil med hjälp av Azure Portal](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
 
 Här är Traffic Manager-profilen:
-* Traffic Manager DNS-namn:http://asc-bcdr.trafficmanager.net
+* Traffic Manager DNS-namn:`http://asc-bcdr.trafficmanager.net`
 * Slut punkts profiler: 
 
 | Profil | Typ | Mål | Prioritet | Anpassade huvud inställningar |

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c28872e6cffa973f01b3f5a87c423d9dd93a2aa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7dfb863da9f06cfc0c81944aa4037933cdd650ad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259110"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649180"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Så här delegerar du användar registrering och produkt prenumeration
 
@@ -48,7 +48,7 @@ Nu måste du skapa **Delegerings slut punkten**. Det måste utföra ett antal å
 
 1. Ta emot en begäran i följande format:
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation=signin&ReturnUrl = {URL till käll sidan} &salt = {string} &sig = {String}*
+   > *http: \/ /www.yourwebsite.com/apimdelegation?operation=SignIn&ReturnUrl = {URL till käll sidan} &salt = {String} &sig = {String}*
    > 
    > 
    
@@ -74,7 +74,7 @@ Nu måste du skapa **Delegerings slut punkten**. Det måste utföra ett antal å
    * [begär en token för enkel inloggning (SSO)] via API Management REST API
    * Lägg till en returnUrl-frågeparameter till URL: en för SSO som du har fått från API-anropet ovan:
      
-     > till exempelhttps://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url 
+     > till exempel`https://customer.portal.azure-api.net/signin-sso?token&returnUrl=/return/url` 
      > 
      > 
    * omdirigera användaren till den ovan producerade URL: en
@@ -105,7 +105,7 @@ Se sedan till att Delegerings slut punkten utför följande åtgärder:
 
 1. Ta emot en begäran i följande format:
    
-   > *http:\//www.yourwebsite.com/apimdelegation? åtgärd = {åtgärd} &Produktnr = {produkt att prenumerera på} &userId = {User-förfrågan} &salt = {string} &sig = {sträng}*
+   > *http: \/ /www.yourwebsite.com/apimdelegation? åtgärd = {åtgärd} &Produktnr = {produkt att prenumerera på} &userId = {User-förfrågan} &salt = {String} &sig = {sträng}*
    >
    
     Frågeparametrar för ärende om produkt prenumeration:

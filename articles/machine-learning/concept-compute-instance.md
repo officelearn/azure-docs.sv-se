@@ -1,5 +1,5 @@
 ---
-title: Vad är en Azure Machine Learning beräknings instans?
+title: Vad är en Azure Machine Learning-beräkningsinstans?
 titleSuffix: Azure Machine Learning
 description: Lär dig mer om Azure Machine Learning Compute-instansen, en fullständigt hanterad molnbaserad arbets Station.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 280851b2fea0b8100a7d0f8ec8105109a41c8c83
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7afbfcc7830374c07850d1f634eb5e29fb459597
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283932"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654913"
 ---
-# <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning beräknings instans?
+# <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
 En Azure Machine Learning beräknings instans (för hands version) är en fullständigt hanterad molnbaserad arbets station för data forskare. 
 
@@ -35,7 +35,7 @@ En beräknings instans är en fullständigt hanterad molnbaserad arbets station 
 |----|----|
 |Produktivitet|Data forskare kan bygga och distribuera modeller med integrerade antecknings böcker och följande verktyg i webbläsaren:<br/>– Jupyter<br/>- JupyterLab<br/>– RStudio|
 |Hanterad & säker|Minska din säkerhets storlek och Lägg till efterlevnad med företagets säkerhets krav. Beräknings instanser ger robusta hanterings principer och säkra nätverkskonfigurationer som:<br/><br/>– Automatisk etablering från Resource Manager-mallar eller Azure Machine Learning SDK<br/>- [Rollbaserad åtkomst kontroll (RBAC)](/azure/role-based-access-control/overview)<br/>- [Stöd för virtuella nätverk](how-to-enable-virtual-network.md#compute-instance)<br/>– SSH-princip för att aktivera/inaktivera SSH-åtkomst|
-|Förkonfigurerad&nbsp;eller&nbsp;ml|Spara tid på installations aktiviteter med förkonfigurerade och uppdaterade ML-paket, ramverk för djup inlärning, GPU-drivrutiner.|
+|Förkonfigurerad &nbsp; eller &nbsp; ml|Spara tid på installations aktiviteter med förkonfigurerade och uppdaterade ML-paket, ramverk för djup inlärning, GPU-drivrutiner.|
 |Helt anpassningsbar|Brett stöd för virtuella Azure-datorer, inklusive GPU: er och beständiga anpassningar på låg nivå, till exempel installation av paket och driv rutiner gör avancerade scenarier till en enkelt. |
 
 ## <a name="tools-and-environments"></a><a name="contents"></a>Verktyg och miljöer
@@ -51,7 +51,6 @@ De här verktygen och miljöerna är installerade på beräknings instansen:
 |Intel MPI-bibliotek||
 |Azure CLI ||
 |Azure Machine Learning exempel ||
-|Azure Machine Learning EDAT-motor ||
 |Docker||
 |Nginx||
 |NCCL 2,0 ||
@@ -68,9 +67,8 @@ De här verktygen och miljöerna är installerade på beräknings instansen:
 |Anaconda Python||
 |Jupyter och tillägg||
 |Jupyterlab och tillägg||
-|Visual Studio-koden ||
 [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)</br>från PyPI|`azureml-sdk[notebooks,contrib,automl,explain]`</br>`azureml-contrib-datadrift`</br>`azureml-telemetry`</br>`azureml-tensorboard`</br>`azureml-contrib-opendatasets`</br>`azureml-opendatasets`</br>`azureml-contrib-reinforcementlearning`</br>`azureml-mlflow`</br>`azureml-contrib-interpret` |
-|Andra PyPI-paket|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
+|Andra PyPI-paket|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda-paket|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Djup inlärnings paket|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
 |ONNX-paket|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
@@ -104,7 +102,7 @@ Filerna i fil resursen är tillgängliga från alla beräknings instanser i samm
 
 Du kan också klona de senaste Azure Machine Learning exemplen till din mapp under katalogen användarfiler i fil resursen för arbets ytan.
 
-Att skriva små filer kan vara långsammare på nätverks enheter än att skriva till den virtuella datorn.  Om du skriver många små filer kan du försöka använda en katalog direkt på beräknings instansen, till exempel `/tmp` en katalog. Observera att de här filerna inte är tillgängliga från andra beräknings instanser i arbets ytan.
+Att skriva små filer kan vara långsammare på nätverks enheter än att skriva till den virtuella datorn.  Om du skriver många små filer kan du försöka använda en katalog direkt på beräknings instansen, till exempel en `/tmp` katalog. Observera att de här filerna inte är tillgängliga från andra beräknings instanser i arbets ytan.
 
 ## <a name="managing-a-compute-instance"></a>Hantera en beräknings instans
 

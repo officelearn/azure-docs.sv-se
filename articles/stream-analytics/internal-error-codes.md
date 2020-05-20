@@ -6,24 +6,16 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: c8c792d548fc953cb5d059f322ad1f3139c91562
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2e101747322baac860cbde02aca341171aa0cc1d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597739"
+ms.locfileid: "83658344"
 ---
 # <a name="azure-stream-analytics-internal-error-codes"></a>Interna fel koder för Azure Stream Analytics
 
 Du kan använda aktivitets loggar och resurs loggar för att felsöka oväntade beteenden från ditt Azure Stream Analytics-jobb. Den här artikeln innehåller en beskrivning av varje intern felkod. Interna fel är allmänna fel som uppstår i Stream Analyticss plattformen när Stream Analytics inte kan särskilja om felet är ett internt tillgänglighets fel eller en bugg i systemet.
-
-## <a name="kafkainvalidrequest"></a>KafkaInvalidRequest
-
-* **Orsak**: begäran som skickades till Kafka-servern är ogiltig.
-
-## <a name="kafkainputerror"></a>KafkaInputError
-
-* **Orsak**: Kafka-indatamängden påträffade ett problem.
 
 ## <a name="cosmosdboutputbatchsizetoolarge"></a>CosmosDBOutputBatchSizeTooLarge
 

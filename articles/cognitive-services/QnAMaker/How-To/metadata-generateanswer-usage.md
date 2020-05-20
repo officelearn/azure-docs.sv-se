@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: diberry
-ms.openlocfilehash: 9beb6dbbba1c5855b8bfa97fc02f50aa59225d78
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8785484efec119f15ef53feefbd6e94181cd159a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80474850"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659558"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer-API och metadata
 
@@ -64,7 +64,7 @@ Du anropar GenerateAnswer med en HTTP POST-begäran. Exempel kod som visar hur d
 POST-begäran använder:
 
 * Obligatoriska [URI-parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* Nödvändig huvud egenskap, `Authorization`, för säkerhet
+* Nödvändig huvud egenskap, `Authorization` , för säkerhet
 * Egenskaper för nödvändig [brödtext](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
 
 GenerateAnswer-URL: en har följande format:
@@ -73,7 +73,7 @@ GenerateAnswer-URL: en har följande format:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Kom ihåg att ange egenskapen HTTP-huvud `Authorization` för med ett värde i strängen `EndpointKey` med ett avslutande blank steg och sedan den slut punkts nyckel som finns på sidan **Inställningar** .
+Kom ihåg att ange egenskapen HTTP-huvud för `Authorization` med ett värde i strängen `EndpointKey` med ett avslutande blank steg och sedan den slut punkts nyckel som finns på sidan **Inställningar** .
 
 Ett exempel på en JSON-text ser ut så här:
 
@@ -168,7 +168,7 @@ Föregående JSON begärde bara svar som är 30% eller högre än tröskel poän
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Använd metadata för att filtrera svar efter anpassade metadata-Taggar
 
-Genom att lägga till metadata kan du filtrera Svaren efter dessa metadata-taggar. Lägg till kolumnen metadata från menyn **visnings alternativ** . Lägg till metadata i kunskaps basen genom att välja **+** metadata-ikonen för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
+Genom att lägga till metadata kan du filtrera Svaren efter dessa metadata-taggar. Lägg till kolumnen metadata från menyn **visnings alternativ** . Lägg till metadata i kunskaps basen genom att välja metadata- **+** ikonen för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
 
 ![Skärm bild av lägga till metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -228,7 +228,7 @@ Svaret på GenerateAnswer innehåller motsvarande metadatainformation för den m
 
 Som standard söker QnA Maker igenom frågor och svar. Om du bara vill söka igenom frågor, för att generera ett svar, använder du `RankerType=QuestionOnly` i inläggs texten i GenerateAnswer-begäran.
 
-Du kan söka igenom den publicerade KB, använda `isTest=false`eller i test-KB med `isTest=true`.
+Du kan söka igenom den publicerade KB, använda `isTest=false` eller i test-KB med `isTest=true` .
 
 ```json
 {
@@ -256,4 +256,4 @@ Du kan söka igenom den publicerade KB, använda `isTest=false`eller i test-KB m
 På sidan **publicera** finns också information om hur du [genererar ett svar](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) med Postman eller sväng.
 
 > [!div class="nextstepaction"]
-> [Skapa en kunskaps bas robot](../tutorials/integrate-qnamaker-luis.md)
+> [Få analyser om din kunskapsbas](../how-to/get-analytics-knowledge-base.md)

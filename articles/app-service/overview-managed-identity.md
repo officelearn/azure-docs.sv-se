@@ -6,24 +6,21 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 875d2bbebdfa95c6d180979399d876eb2afc01b4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c9cc96af42c6cfb83b43e3a0c56f16bdb917025
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81392524"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649104"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
+Det här avsnittet visar hur du skapar en hanterad identitet för App Service och Azure Functions program och hur du använder den för att få åtkomst till andra resurser. 
+
 > [!Important] 
-> Hanterade identiteter för App Service och Azure Functions fungerar inte som förväntat om din app migreras mellan prenumerationer/klienter. Appen måste skaffa en ny identitet, som du kan göra genom att inaktivera och aktivera funktionen på nytt. Se [ta bort en identitet](#remove) nedan. Underordnade resurser måste också ha åtkomst principer uppdaterade för att använda den nya identiteten.
+> Hanterade identiteter för App Service och Azure Functions fungerar inte som förväntat om din app migreras mellan prenumerationer/klienter. Appen behöver skaffa en ny identitet, vilket görs genom att inaktivera och aktivera funktionen på nytt. Se [ta bort en identitet](#remove) nedan. Underordnade resurser måste också ha åtkomst principer uppdaterade för att använda den nya identiteten.
 
-Det här avsnittet visar hur du skapar en hanterad identitet för App Service och Azure Functions program och hur du använder den för att få åtkomst till andra resurser. Med en hanterad identitet från Azure Active Directory (Azure AD) kan din app enkelt komma åt andra Azure AD-skyddade resurser som Azure Key Vault. Identiteten hanteras av Azure-plattformen och kräver inte att du etablerar eller roterar några hemligheter. Mer information om hanterade identiteter i Azure AD finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
-
-Ditt program kan beviljas två typer av identiteter:
-
-- En **systemtilldelad identitet** är kopplad till ditt program och tas bort om din app tas bort. En app kan bara ha en tilldelad identitet.
-- En **användardefinierad identitet** är en fristående Azure-resurs som kan tilldelas till din app. En app kan ha flera användare tilldelade identiteter.
+[!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
 ## <a name="add-a-system-assigned-identity"></a>Lägg till en tilldelad identitet
 
@@ -79,7 +76,7 @@ Följande steg vägleder dig genom att skapa en webbapp och tilldela den en iden
 
 Följande steg vägleder dig genom att skapa en webbapp och tilldela den en identitet med hjälp av Azure PowerShell:
 
-1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview)och kör `Login-AzAccount` sedan för att skapa en anslutning till Azure.
+1. Om det behövs installerar du Azure PowerShell med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview)och kör sedan `Login-AzAccount` för att skapa en anslutning till Azure.
 
 2. Skapa ett webb program med hjälp av Azure PowerShell. Fler exempel på hur du använder Azure PowerShell med App Service finns i [App Service PowerShell-exempel](../app-service/samples-powershell.md):
 
@@ -113,7 +110,7 @@ En resurs av typen `Microsoft.Web/sites` kan skapas med en identitet genom att i
 ```
 
 > [!NOTE]
-> Ett program kan ha både tilldelade och användarspecifika identiteter på samma tidpunkt. I det här fallet skulle `type` egenskapen vara`SystemAssigned,UserAssigned`
+> Ett program kan ha både tilldelade och användarspecifika identiteter på samma tidpunkt. I det här fallet `type` skulle egenskapen vara`SystemAssigned,UserAssigned`
 
 Genom att lägga till den systemtilldelade typen kan Azure Skapa och hantera identiteten för ditt program.
 
@@ -191,7 +188,7 @@ En resurs av typen `Microsoft.Web/sites` kan skapas med en identitet genom att i
 ```
 
 > [!NOTE]
-> Ett program kan ha både tilldelade och användarspecifika identiteter på samma tidpunkt. I det här fallet skulle `type` egenskapen vara`SystemAssigned,UserAssigned`
+> Ett program kan ha både tilldelade och användarspecifika identiteter på samma tidpunkt. I det här fallet `type` skulle egenskapen vara`SystemAssigned,UserAssigned`
 
 Genom att lägga till en användardefinierad typ anger Azure att använda den användar tilldelnings identitet som angetts för ditt program.
 
@@ -259,21 +256,21 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 **IDENTITY_ENDPOINT** är en lokal URL som din app kan begära token från. Om du vill hämta en token för en resurs gör du en HTTP GET-begäran till den här slut punkten, inklusive följande parametrar:
 
-> | Parameternamn    | I     | Beskrivning                                                                                                                                                                                                                                                                                                                                |
+> | Parameternamn    | I     | Description                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | Söka i data  | Azure AD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.    |
 > | api-version       | Söka i data  | Den version av token API som ska användas. Använd "2019-08-01" eller senare.                                                                                                                                                                                                                                                                 |
-> | X-IDENTITY-HEADER | Huvud | Värdet för IDENTITY_HEADER-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).                                                                                                                                                                                                    |
-> | client_id         | Söka i data  | Valfritt Klient-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id`, `mi_res_id`eller `object_id`. Om alla ID-parametrar`client_id`( `principal_id`, `object_id`,, `mi_res_id`och) utelämnas används den systemtilldelade identiteten.                                             |
-> | principal_id      | Söka i data  | Valfritt Ägar-ID för den användar tilldelnings identitet som ska användas. `object_id`är ett alias som kan användas i stället. Kan inte användas på en begäran som innehåller client_id, mi_res_id eller object_id. Om alla ID-parametrar`client_id`( `principal_id`, `object_id`,, `mi_res_id`och) utelämnas används den systemtilldelade identiteten. |
-> | mi_res_id         | Söka i data  | Valfritt Azure-resurs-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id`, `client_id`eller `object_id`. Om alla ID-parametrar`client_id`( `principal_id`, `object_id`,, `mi_res_id`och) utelämnas används den systemtilldelade identiteten.                                      |
+> | X-IDENTITY-HEADER | Sidhuvud | Värdet för IDENTITY_HEADER-miljövariabeln. Den här rubriken används för att minska risken för förfalskning av SSRF-attacker (Server sidans begäran).                                                                                                                                                                                                    |
+> | client_id         | Söka i data  | Valfritt Klient-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id` , `mi_res_id` eller `object_id` . Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten.                                             |
+> | principal_id      | Söka i data  | Valfritt Ägar-ID för den användar tilldelnings identitet som ska användas. `object_id`är ett alias som kan användas i stället. Kan inte användas på en begäran som innehåller client_id, mi_res_id eller object_id. Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten. |
+> | mi_res_id         | Söka i data  | Valfritt Azure-resurs-ID för den användar tilldelnings identitet som ska användas. Kan inte användas på en begäran som innehåller `principal_id` , `client_id` eller `object_id` . Om alla ID-parametrar ( `client_id` , `principal_id` ,, `object_id` och `mi_res_id` ) utelämnas används den systemtilldelade identiteten.                                      |
 
 > [!IMPORTANT]
 > Om du försöker hämta tokens för användarspecifika identiteter måste du inkludera en av de valfria egenskaperna. Annars försöker token-tjänsten hämta en token för en tilldelad identitet, som kan vara eller inte finns.
 
 Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 
-> | Egenskapsnamn | Beskrivning                                                                                                                                                                                                                                        |
+> | Egenskapsnamn | Description                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | Den begärda åtkomsttoken. Den anropande webb tjänsten kan använda denna token för att autentisera till den mottagande webb tjänsten.                                                                                                                               |
 > | client_id     | Klient-ID för den identitet som användes.                                                                                                                                                                                                       |
@@ -285,7 +282,7 @@ Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 Svaret är detsamma som [svaret på Azure AD service-till-service-](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)åtkomsttoken.
 
 > [!NOTE]
-> En äldre version av det här protokollet, med hjälp av API-versionen "2017-09-01" `secret` , använde rubriken `X-IDENTITY-HEADER` i stället för och `clientid` accepterar bara egenskapen för användar tilldelning. Den returnerade också `expires_on` i ett tidsstämpel-format. MSI_ENDPOINT kan användas som ett alias för IDENTITY_ENDPOINT och MSI_SECRET kan användas som ett alias för IDENTITY_HEADER.
+> En äldre version av det här protokollet, med hjälp av API-versionen "2017-09-01", använde `secret` rubriken i stället för `X-IDENTITY-HEADER` och accepterar bara `clientid` egenskapen för användar tilldelning. Den returnerade också `expires_on` i ett tidsstämpel-format. MSI_ENDPOINT kan användas som ett alias för IDENTITY_ENDPOINT och MSI_SECRET kan användas som ett alias för IDENTITY_HEADER.
 
 ### <a name="rest-protocol-examples"></a>Exempel på REST-protokoll
 
@@ -400,7 +397,7 @@ Mer information om Microsoft. Azure. Services. AppAuthentication och de åtgärd
 
 För Java-program och-funktioner är det enklaste sättet att arbeta med en hanterad identitet via [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java). Det här avsnittet visar hur du kommer igång med biblioteket i din kod.
 
-1. Lägg till en referens till [Azure SDK-biblioteket](https://mvnrepository.com/artifact/com.microsoft.azure/azure). För Maven-projekt kan du lägga till det här kodfragmentet i `dependencies` avsnittet i PROJEKTets Pom-fil:
+1. Lägg till en referens till [Azure SDK-biblioteket](https://mvnrepository.com/artifact/com.microsoft.azure/azure). För Maven-projekt kan du lägga till det här kodfragmentet i `dependencies` avsnittet i projektets Pom-fil:
 
     ```xml
     <dependency>

@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 76f920ad6aae68defb567a7a6623d1ffd488af5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1191c01ce3f62f34c351cefd29a5e40aa68bfd3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80874865"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658398"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Förhindra överanpassning och obalanserade data med automatiserad maskin inlärning
 
@@ -58,17 +58,17 @@ I samband med automatisk ML är de första tre objekten ovan de **bästa metoder
 
 Att använda **mer data** är det enklaste och bästa möjliga sättet att förhindra överanpassning, och som en extra bonus ökar precisionen ofta. När du använder mer data blir det svårare för modellen att memorera exakta mönster, och det tvingas att uppnå lösningar som är mer flexibla för att hantera fler villkor. Det är också viktigt att känna igen **statistisk kompensation**för att säkerställa att dina utbildnings data inte innehåller isolerade mönster som inte finns i real tids förutsägelse data. Det här scenariot kan vara svårt att lösa eftersom det kanske inte finns överanvändning mellan dina tåg-och test uppsättningar, men det kan finnas överanvändning i jämförelse med Live test-data.
 
-Mål läckage är ett liknande problem, där du kanske inte ser överanvändning mellan träna/test-uppsättningar, men i stället visas den i förutsägelse tiden. Mål läckage uppstår när din modell "fuskar" under utbildningen genom att ha åtkomst till data som den inte bör ha vid förutsägelse tiden. Om ditt problem till exempel är att förutsäga på måndagen är ett råvaru pris på fredag, men en av dina funktioner av misstag som innehåller data från torsdagar, som skulle vara data modellen kommer inte att ha vid förutsägelse, eftersom den inte kan se i framtiden. Mål läckage är ett enkelt misstag att sakna, men karakteriseras ofta av onormalt hög precision för ditt problem. Om du försöker förutsäga börs priset och tränat en modell med 95% noggrannhet, finns det troligen mål som läcker i dina funktioner.
+**Mål läckage** är ett liknande problem, där du kanske inte ser överanvändning mellan träna/test-uppsättningar, men i stället visas den i förutsägelse tiden. Mål läckage uppstår när din modell "fuskar" under utbildningen genom att ha åtkomst till data som den inte bör ha vid förutsägelse tiden. Om ditt problem till exempel är att förutsäga på måndagen är ett råvaru pris på fredag, men en av dina funktioner av misstag som innehåller data från torsdagar, som skulle vara data modellen kommer inte att ha vid förutsägelse, eftersom den inte kan se i framtiden. Mål läckage är ett enkelt misstag att sakna, men karakteriseras ofta av onormalt hög precision för ditt problem. Om du försöker förutsäga börs priset och tränat en modell med 95% noggrannhet, finns det troligen mål som läcker i dina funktioner.
 
-Att ta bort funktioner kan också bidra till överanpassning genom att förhindra att modellen har för många fält att använda för att komma ihåg vissa mönster, vilket gör att det blir mer flexibelt. Det kan vara svårt att mäta kvantitativt, men om du kan ta bort funktioner och behålla samma precision har du förmodligen gjort modellen mer flexibel och minskat risken för överanpassning.
+Att **ta bort funktioner** kan också bidra till överanpassning genom att förhindra att modellen har för många fält att använda för att komma ihåg vissa mönster, vilket gör att det blir mer flexibelt. Det kan vara svårt att mäta kvantitativt, men om du kan ta bort funktioner och behålla samma precision har du förmodligen gjort modellen mer flexibel och minskat risken för överanpassning.
 
 ### <a name="best-practices-automated-ml-implements"></a>Metod tips automatiserad ML implementeras
 
-Regulariseringshastigheten är en process för att minimera en kostnads funktion för att beivra komplexa och över-anpassade modeller. Det finns olika typer av regulariseringshastigheten-funktioner, men i allmänhet tar de med sig en koefficient för modell effektiv storlek, varians och komplexitet. Med automatisk ML används L1 (lasso), L2 (Ridge) och ElasticNet (L1 och L2 samtidigt) i olika kombinationer med olika modell inställningar för en modell som styr överanpassningen. I enkla termer varierar automatiserade ML till hur mycket en modell är reglerad och väljer det bästa resultatet.
+**Regulariseringshastigheten** är en process för att minimera en kostnads funktion för att beivra komplexa och över-anpassade modeller. Det finns olika typer av regulariseringshastigheten-funktioner, men i allmänhet tar de med sig en koefficient för modell effektiv storlek, varians och komplexitet. Med automatisk ML används L1 (lasso), L2 (Ridge) och ElasticNet (L1 och L2 samtidigt) i olika kombinationer med olika modell inställningar för en modell som styr överanpassningen. I enkla termer varierar automatiserade ML till hur mycket en modell är reglerad och väljer det bästa resultatet.
 
-Med automatisk ML implementeras även explicita begränsningar för modell komplexitet för att förhindra överanpassning. I de flesta fall är den här implementeringen särskilt för besluts träd eller skogs-algoritmer, där det enskilda trädets max djup är begränsat och det totala antalet träd som används i skogs-eller Ensemble-teknikerna är begränsade.
+Med automatisk ML implementeras även explicita **begränsningar för modell komplexitet** för att förhindra överanpassning. I de flesta fall är den här implementeringen särskilt för besluts träd eller skogs-algoritmer, där det enskilda trädets max djup är begränsat och det totala antalet träd som används i skogs-eller Ensemble-teknikerna är begränsade.
 
-Kors validering (ka) är en process där du tar många del mängder av dina fullständiga tränings data och tränar en modell på varje delmängd. Idén är att en modell kan få "fram" och ha stor precision med en delmängd, men genom att använda många del uppsättningar kan modellen inte uppnå denna höga noggrannhet varje gång. När du gör CV anger du en data uppsättning för en verifierings spärr, anger dina CV-vikningar (antal del mängder) och automatiserade ML tränar din modell och justerar de båda parametrarna för att minimera fel i validerings uppsättningen. En ka-vikning kan vara överdrivet, men genom att använda många av dem minskar sannolikheten att den slutliga modellen är överdrivet. Kompromissen är att ka resulterar i längre inlärnings tider och därmed högre kostnad, eftersom i stället för att träna en modell en gång, träna den en gång för varje *n* CV-deluppsättning. 
+**Kors validering (ka)** är en process där du tar många del mängder av dina fullständiga tränings data och tränar en modell på varje delmängd. Idén är att en modell kan få "fram" och ha stor precision med en delmängd, men genom att använda många del uppsättningar kan modellen inte uppnå denna höga noggrannhet varje gång. När du gör CV anger du en data uppsättning för en verifierings spärr, anger dina CV-vikningar (antal del mängder) och automatiserade ML tränar din modell och justerar de båda parametrarna för att minimera fel i validerings uppsättningen. En ka-vikning kan vara överdrivet, men genom att använda många av dem minskar sannolikheten att den slutliga modellen är överdrivet. Kompromissen är att ka resulterar i längre inlärnings tider och därmed högre kostnad, eftersom i stället för att träna en modell en gång, träna den en gång för varje *n* CV-deluppsättning. 
 
 > [!NOTE]
 > Kors validering är inte aktiverat som standard. den måste konfigureras i automatiserade ML-inställningar. Men när kors validering har kon figurer ATS och en verifierings data uppsättning har angetts automatiseras processen. Se 
@@ -83,7 +83,7 @@ Eftersom klassificerings algoritmer ofta utvärderas efter precision, är det et
 
 Dessutom genererar automatiserade ML-körningar följande diagram automatiskt, som kan hjälpa dig att förstå rätthet i klassificeringen av din modell och identifiera modeller som kan påverkas av data som är fördelade.
 
-Diagram| Beskrivning
+Diagram| Description
 ---|---
 [Förvirring mat ris](how-to-understand-automated-ml.md#confusion-matrix)| Utvärderar de korrekt klassificerade etiketterna mot de faktiska etiketterna i data. 
 [Precision – återkalla](how-to-understand-automated-ml.md#precision-recall-chart)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet mellan hittade etikett instanser av data 

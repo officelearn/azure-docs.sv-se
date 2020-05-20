@@ -12,16 +12,16 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: ed8dd902ac490b4e6a0f172029bf3ffa1d44acee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86cd3d2f7675ca5111c29be278c9433ec7f66945
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81251851"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653044"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Autentisera till Azure Synapse Analytics
 
-Lär dig att autentisera till SQL Analytics i Azure Synapse med hjälp av Azure Active Directory (AAD) eller SQL Server autentisering.
+Lär dig att autentisera till Synapse SQL i Azure Synapse med hjälp av Azure Active Directory (AAD) eller SQL Server autentisering.
 
 Om du vill ansluta till en SQL-pool måste du skicka säkerhets uppgifter för autentisering. När du upprättar en anslutning konfigureras vissa anslutnings inställningar som en del av upprättandet av sessionen.  
 
@@ -80,7 +80,7 @@ Azure Active Directory användare visas för närvarande inte i SSDT Object Expl
 
 ### <a name="find-the-details"></a>Hitta informationen
 
-* Stegen för att konfigurera och använda Azure Active Directory autentisering är nästan identiska för Azure SQL Database och SQL Analytics i Azure Synapse. Följ de detaljerade stegen i avsnittet [ansluta till SQL Database eller SQL-pool med Azure Active Directory autentisering](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* Stegen för att konfigurera och använda Azure Active Directory autentisering är nästan identiska för Azure SQL Database och Synapse SQL i Azure Synapse. Följ de detaljerade stegen i avsnittet [ansluta till SQL Database eller SQL-pool med Azure Active Directory autentisering](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Skapa anpassade databas roller och Lägg till användare i rollerna. Ge sedan detaljerade behörigheter till rollerna. Mer information finns i [komma igång med databas motor behörigheter](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Nästa steg

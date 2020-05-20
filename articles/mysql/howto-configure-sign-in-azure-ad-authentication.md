@@ -6,21 +6,16 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 0403edadd491609c2c88d5b5ac6980d97163f8d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1fa34deaa12400a164602d38b6b2d349a64850c6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299013"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652247"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
 I den här artikeln får du stegvisa anvisningar om hur du konfigurerar Azure Active Directory åtkomst med Azure Database for MySQL och hur du ansluter med hjälp av en Azure AD-token.
-
-> [!IMPORTANT]
-> Azure AD-autentisering för Azure Database for MySQL är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Ange Azure AD admin-användare
 
@@ -136,7 +131,7 @@ Du autentiseras nu till MySQL-servern med Azure AD-autentisering.
 
 Om du vill lägga till en Azure AD-användare till din Azure Database for MySQL databas utför du följande steg efter att du har anslutit (se senare avsnitt om hur du ansluter):
 
-1. Se först till att Azure AD- `<user>@yourtenant.onmicrosoft.com` användaren är en giltig användare i Azure AD-klienten.
+1. Se först till att Azure AD-användaren `<user>@yourtenant.onmicrosoft.com` är en giltig användare i Azure AD-klienten.
 2. Logga in på Azure Database for MySQL-instansen som administratörs användare för Azure AD.
 3. Skapa användare `<user>@yourtenant.onmicrosoft.com` i Azure Database for MySQL.
 
@@ -201,7 +196,7 @@ De flesta driv rutiner stöds, men se till att använda inställningarna för at
   * DBD:: MySQL: stöds
   * NET:: MySQL: stöds inte
 * Go
-  * Go-SQL-driv rutin: stöds, `?tls=true&allowCleartextPasswords=true` Lägg till i anslutnings sträng
+  * Go-SQL-driv rutin: stöds, Lägg till `?tls=true&allowCleartextPasswords=true` i anslutnings sträng
 
 ## <a name="next-steps"></a>Nästa steg
 

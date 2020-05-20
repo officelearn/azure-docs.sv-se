@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Application insikter med Azure Func
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 0b4d0f43d00a919c589a11c81df2818f3a058ed8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6218e5163212540f2132020dffea520d34b77cc4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121598"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648861"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -21,7 +21,10 @@ Eftersom den nödvändiga Application Insights Instrumentation är inbyggd i Azu
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights priser och begränsningar
 
-Du kan prova Application Insights integration med Function-appar kostnads fritt. Det finns en daglig gräns för hur mycket data som kan bearbetas kostnads fritt. Du kan trycka på den här gränsen under testningen. Azure tillhandahåller Portal-och e-postaviseringar när du närmar dig den dagliga gränsen. Om du saknar dessa aviseringar och nått gränsen visas inte nya loggar i Application Insights frågor. Var medveten om gränsen för att undvika onödig fel söknings tid. Mer information finns [i hantera priser och data volymer i Application Insights](../azure-monitor/app/pricing.md).
+Du kan prova Application Insights integration med Azure Functions kostnads fritt. Det finns en daglig gräns för hur mycket data som kan bearbetas kostnads fritt. Du kan trycka på den här gränsen under testningen. Azure tillhandahåller Portal-och e-postaviseringar när du närmar dig den dagliga gränsen. Om du saknar dessa aviseringar och nått gränsen visas inte nya loggar i Application Insights frågor. Var medveten om gränsen för att undvika onödig fel söknings tid. Mer information finns [i hantera priser och data volymer i Application Insights](../azure-monitor/app/pricing.md).
+
+> [!IMPORTANT]
+> Application Insights har en [samplings](../azure-monitor/app/sampling.md) funktion som kan skydda dig från att skapa för mycket telemetri-data vid slutförda körningar vid tider med hög belastning. Sampling är aktiverat som standard. Om du verkar saknas data kan du behöva justera samplings inställningarna så att de passar just ditt övervaknings scenario. Läs mer i [Konfigurera sampling](#configure-sampling).
 
 Den fullständiga listan med Application Insights funktioner som är tillgängliga för din Function-app beskrivs i [Application Insights för Azure Functions funktioner som stöds](../azure-monitor/app/azure-functions-supported-features.md).
 
@@ -61,10 +64,10 @@ Information om hur du använder Application Insights finns i Application Insight
 Följande områden i Application Insights kan vara användbara när du ska utvärdera beteende, prestanda och fel i dina funktioner:
 
 | Undersök
- | Beskrivning |
+ | Description |
 | ---- | ----------- |
 | **[Fel](../azure-monitor/app/asp-net-exceptions.md)** |  Skapa diagram och aviseringar baserat på funktions fel och Server undantag. **Åtgärds namnet** är funktions namnet. Felen i beroenden visas inte om du inte implementerar anpassad telemetri för beroenden. |
-| **[Historik](../azure-monitor/app/performance-counters.md)** | Analysera prestanda problem genom att Visa resursutnyttjande och data flöde per **moln roll instanser**. Dessa data kan vara användbara för fel sökning av scenarier där funktioner är bogging de underliggande resurserna. |
+| **[Prestanda](../azure-monitor/app/performance-counters.md)** | Analysera prestanda problem genom att Visa resursutnyttjande och data flöde per **moln roll instanser**. Dessa data kan vara användbara för fel sökning av scenarier där funktioner är bogging de underliggande resurserna. |
 | **[Mått](../azure-monitor/app/metrics-explorer.md)** | Skapa diagram och aviseringar som baseras på mått. Mått inkluderar antalet funktions anrop, körnings tid och lyckade kostnader. |
 | **[Live-mått](../azure-monitor/app/live-stream.md)** | Visa mått data när de skapas i nära real tid. |
 
@@ -87,7 +90,7 @@ requests
 
 De tabeller som är tillgängliga visas på fliken **schema** till vänster. Du kan hitta data som genererats av funktions anrop i följande tabeller:
 
-| Tabell | Beskrivning |
+| Tabell | Description |
 | ----- | ----------- |
 | **Anden** | Loggar som skapats av körningen och med funktions kod. |
 | **begäran** | En begäran för varje funktions anrop. |
@@ -115,7 +118,7 @@ Du kan använda Application Insights utan någon anpassad konfiguration. Standar
 
 Azure Functions loggen innehåller en *kategori* för varje logg. Kategorin visar vilken del av körnings koden eller din funktions kod som skrev loggen. Följande diagram beskriver de huvudsakliga kategorierna för loggar som körs av körnings miljön. 
 
-| Kategori | Beskrivning |
+| Kategori | Description |
 | ----- | ----- | 
 | Host.Results | Loggarna visar som **begär Anden** i Application Insights. De indikerar en funktion som lyckats eller misslyckats. Alla dessa loggar skrivs på `Information` nivå. Om du filtrerar på `Warning` eller ovanför visas inte någon av dessa data. |
 | Host. Aggregator | Dessa loggar ger räknare och medelvärden för funktions anrop under en [konfigurerbar](#configure-the-aggregator) tids period. Standard perioden är 30 sekunder eller 1 000 resultat, beroende på vilket som kommer först. Loggarna är tillgängliga i tabellen **customMetrics** i Application Insights. Exempel är antalet körningar, lyckade kostnader och varaktighet. Alla dessa loggar skrivs på `Information` nivå. Om du filtrerar på `Warning` eller ovanför visas inte någon av dessa data. |
@@ -139,7 +142,7 @@ Azure Functions loggen innehåller också en *logg nivå* med varje logg. [LogLe
 |Information | 2 |
 |Varning     | 3 |
 |Fel       | 4 |
-|Kritisk    | 5 |
+|Kritiskt    | 5 |
 |Inga        | 6 |
 
 Logg nivån `None` förklaras i nästa avsnitt. 
@@ -272,9 +275,6 @@ Application Insights har en [samplings](../azure-monitor/app/sampling.md) funkti
   }
 }
 ```
-
-> [!NOTE]
-> [Sampling](../azure-monitor/app/sampling.md) är aktiverat som standard. Om du verkar saknas data kan du behöva justera samplings inställningarna så att de passar just ditt övervaknings scenario.
 
 ## <a name="write-logs-in-c-functions"></a>Skriva loggar i C#-funktioner
 
@@ -655,7 +655,7 @@ I Application Insights väljer du **Live Metrics Stream**. [Exempel logg poster]
 
 ![Visa Live Metrics Stream i portalen](./media/functions-monitoring/live-metrics-stream.png) 
 
-### <a name="visual-studio-code"></a>Visual Studio-koden
+### <a name="visual-studio-code"></a>Visuell Studio-kod
 
 [!INCLUDE [functions-enable-log-stream-vs-code](../../includes/functions-enable-log-stream-vs-code.md)]
 

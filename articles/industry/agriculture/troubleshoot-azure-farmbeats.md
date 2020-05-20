@@ -5,16 +5,16 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: a40c64910260a2d63a529d25e1089fb618fcec1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b82d415d5e0cf18250123f3483e196aa040285dd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81113498"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656815"
 ---
 # <a name="troubleshoot"></a>Felsöka
 
-Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats. Om du behöver ytterligare hjälp kan du kontakta vårt [support forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller farmbeatssupport@microsoft.comskicka e-post till oss.
+Den här artikeln innehåller lösningar på vanliga problem med Azure FarmBeats. Om du behöver ytterligare hjälp kan du kontakta vårt [support forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats) eller skicka e-post till oss farmbeatssupport@microsoft.com .
 
 > [!NOTE]
   > Om du har installerat FarmBeats under april och jobben Miss lyckas med ett tomt fel meddelande kanske inte installationen har tilldelats någon batch-kvot för att prioritera support för kritiska hälso-och säkerhets organisationer. Mer information finns [här](https://azure.microsoft.com/blog/update-2-on-microsoft-cloud-services-continuity/) . Du måste begära att virtuella datorer ska tilldelas batch-kontot för att kunna köra jobben.
@@ -88,11 +88,11 @@ Information om hur du hämtar loggar finns i avsnittet ["samla in loggar manuell
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>":"<value>"
+          "<sensor measure name (as defined in the Sensor Model)>":<value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }
@@ -105,12 +105,12 @@ Information om hur du hämtar loggar finns i avsnittet ["samla in loggar manuell
 **Korrigerande åtgärd**
 
 1. I Datahub Swagger går du till partner-API: et.
-2. Välj **Hämta** > **prova** > att**köra**.
+2. Välj **Hämta**  >  **prova**att  >  **köra**.
 
 > [!NOTE]
 > Partner-ID för den sensor partner som du är intresse rad av.
 
-3. Gå tillbaka till partner-API: et och välj **get\</ID>**.
+3. Gå tillbaka till partner-API: et och välj **get/ \< ID>**.
 4. Ange partner-ID: t från steg 3 och välj sedan **Kör**.
 
    API-svaret ska ha Event Hubs anslutnings strängen.
@@ -133,7 +133,7 @@ När du tar bort en enhet kan du stöta på något av följande vanliga fel scen
 
 1. Ta bort sensorer som är kopplade till enheten via Accelerator.  
 2. Om du vill koppla sensorer till en annan enhet ber du din enhets partner att göra det.  
-3. Ta bort enheten med hjälp av `DELETE API` ett anrop och ange parametern Force som *True*.  
+3. Ta bort enheten med hjälp av ett `DELETE API` anrop och ange parametern Force som *True*.  
 
 **Meddelande**: "enheten refereras till i enheter som ParentDeviceId: det finns en eller flera enheter som är associerade med den här enheten som underordnade enheter. Ta bort dem och ta sedan bort enheten. "  
 
@@ -205,7 +205,7 @@ Om du redan har beviljats åtkomst och använt det här felet kan du försöka i
 
     1. Logga in på [Azure Portal](https://portal.azure.com).
     2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
-    3. Välj lagrings konto lagring * * * * * > **behållare** > **batch-prep-Files** > **to_vm** > **config. ini**
+    3. Välj lagrings konto lagring * * * * * > **behållare**  >  **batch-prep-Files**  >  **to_vm**  >  **config. ini**
     4. Välj **Redigera**
     5. Uppdatera användar namnet i avsnittet sentinel_account
 
@@ -250,7 +250,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>Sentinel: högsta antalet anslutningar har uppnåtts
 
-**Jobb fel meddelande**: "maximalt antal samtidiga flöden som uppnås av användarens\<användar namn>". "
+**Jobb fel meddelande**: "maximalt antal samtidiga flöden som uppnås av användarens \< användar namn>". "
 
 **Betydelse**: om ett jobb Miss lyckas eftersom det maximala antalet anslutningar har uppnåtts, används samma kontroll konto i flera jobb.
 
@@ -261,7 +261,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 ### <a name="sentinel-server-refused-connection"></a>Sentinel-Server: nekad anslutning
 
-**Jobb fel meddelande**: "servern nekade anslutning på http://172.30.175.69:8983/solr/dhus:."
+**Jobb fel meddelande**: "servern nekade anslutning på: http://172.30.175.69:8983/solr/dhus ."
 
 **Korrigerande åtgärd**: det här problemet kan inträffa om några underhålls aktiviteter utförs på Sentinel-servern.
 
@@ -287,9 +287,9 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
-3. På instrument panelen för **resurs gruppen** söker du efter *datahublogs\* * lagrings konto. Till exempel *datahublogsmvxmq*.  
+3. På instrument panelen för **resurs gruppen** söker du efter *datahublogs \* * lagrings konto. Till exempel *datahublogsmvxmq*.  
 4. I kolumnen **namn** väljer du lagrings konto för att visa instrument panelen för **lagrings kontot** .
-5. I fönstret **datahubblogs\* ** väljer du **Öppna i Utforskaren** för att visa **Open Azure Storage Explorer** -programmet.
+5. I fönstret **datahubblogs \* ** väljer du **Öppna i Utforskaren** för att visa **Open Azure Storage Explorer** -programmet.
 6. I det vänstra fönstret väljer du **BLOB-behållare**och väljer sedan **jobb loggar** för Azure Data Factory loggar eller **appinsights-loggar** för App Service loggar.
 7. Välj **Hämta** och hämta loggarna till en lokal mapp på datorn.
 
@@ -299,9 +299,9 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Sök efter resurs gruppen FarmBeats Accelerator i **sökrutan.**
-3. På instrument panelen för **resurs gruppen** söker du efter *lagrings\* * lagrings kontot. Till exempel *storagedop4k\**.
+3. På instrument panelen för **resurs gruppen** söker du efter *lagrings \* * lagrings kontot. Till exempel *storagedop4k \* *.
 4. Välj lagrings kontot i kolumnen **namn** om du vill visa instrument panelen för **lagrings kontot** .
-5. I fönstret **lagring\* ** väljer du **Öppna i Utforskaren** för att öppna Azure Storage Explorer programmet.
+5. I fönstret **lagring \* ** väljer du **Öppna i utforskaren** för att öppna Azure Storage Explorer programmet.
 6. I det vänstra fönstret väljer du **BLOB-behållare**och väljer sedan **jobb loggar** för Azure Data Factory loggar eller **appinsights-loggar** för App Service loggar.
 7. Välj **Hämta** och hämta loggarna till en lokal mapp på datorn.
 

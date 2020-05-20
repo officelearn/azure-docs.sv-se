@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: 0a29ee1536c7c808fe7d15c0abe26f27042bc962
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: e60fa73af9bd33c22f8489520b683f244dc46302
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196252"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655947"
 ---
 # <a name="log-analytics-agent-overview"></a>Översikt över Log Analytics agent
 Azure Log Analytics-agenten har utvecklats för omfattande hantering av virtuella datorer i alla moln, lokala datorer och de som övervakas av [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Windows-och Linux-agenterna skickar insamlade data från olika källor till din Log Analytics arbets yta i Azure Monitor, samt alla unika loggar eller mått som definierats i en övervaknings lösning. Log Analytics agenten stöder också insikter och andra tjänster i Azure Monitor som [Azure Monitor for VMS](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/)och [Azure Automation](../../automation/automation-intro.md).
@@ -39,11 +39,11 @@ Det kostar inget att Log Analytics agent, men du kan debiteras avgifter för inm
 ## <a name="data-collected"></a>Insamlade data
 I följande tabell visas de typer av data som du kan konfigurera en Log Analytics arbets yta att samla in från alla anslutna agenter. Se [vad som övervakas av Azure Monitor?](../monitor-reference.md) för en lista med insikter, lösningar och andra lösningar som använder Log Analytics-agenten för att samla in andra typer av data.
 
-| Datakälla | Beskrivning |
+| Datakälla | Description |
 | --- | --- |
 | [Händelse loggar i Windows](data-sources-windows-events.md) | Information som skickas till händelse loggnings systemet i Windows. |
 | [Syslog](data-sources-syslog.md)                     | Information som skickas till händelse loggnings systemet i Linux. |
-| [Historik](data-sources-performance-counters.md)  | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
+| [Prestanda](data-sources-performance-counters.md)  | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
 | [IIS-loggar](data-sources-iis-logs.md)                 | Användnings information för IIS-webbplatser som körs på gäst operativ systemet. |
 | [Anpassade loggar](data-sources-custom-logs.md)           | Händelser från textfiler på både Windows-och Linux-datorer. |
 
@@ -70,7 +70,7 @@ Om du använder System Center Operations Manager 2012 R2 eller senare:
 
 Det finns flera metoder för att installera Log Analytics-agenten och ansluta datorn till Azure Monitor beroende på dina behov. I följande tabell beskrivs varje metod för att avgöra vilken som fungerar bäst i din organisation.
 
-|Källa | Metod | Beskrivning|
+|Källa | Metod | Description|
 |-------|-------------|-------------|
 |Azure VM| [Manuellt från Azure Portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Ange de virtuella datorer som ska distribueras från arbets ytan Log Analytics. |
 | | Log Analytics VM-tillägg för [Windows](../../virtual-machines/extensions/oms-windows.md) eller [Linux](../../virtual-machines/extensions/oms-linux.md) med hjälp av Azure CLI eller med en Azure Resource Manager-mall | Tillägget installerar Log Analytics agent på virtuella Azure-datorer och registrerar dem i en befintlig Azure Monitor arbets yta. |
@@ -91,7 +91,7 @@ Följande versioner av Windows-operativsystemet stöds officiellt för Windows-a
 * Windows Server 2016, version 1709 och 1803
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 SP2 (x64), 2008 R2
-* Windows 10 Enterprise och Pro
+* Windows 10 Enterprise (inklusive multi-session) och Pro
 * Windows 8 Enterprise och Pro 
 * Windows 7 SP1
 
@@ -130,7 +130,7 @@ Från och med versioner som publicerats efter 2018 augusti gör vi följande än
 
 I följande tabell visas de paket som krävs för Linux-distributioner som stöds av-agenten som agenten ska installeras på.
 
-|Nödvändigt paket |Beskrivning |Lägsta version |
+|Nödvändigt paket |Description |Lägsta version |
 |-----------------|------------|----------------|
 |Glibc |    GNU C-bibliotek | 2.5-12 
 |Openssl    | OpenSSL-bibliotek | 1.0. x eller 1.1. x |

@@ -7,16 +7,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: be9a9d6b93068adc6d09db9b9ac23de9abd6a69f
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 7e4ec8a5772f0fbc1c0e67ba07a172daeac9b91b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005162"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657897"
 ---
-# <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads plats
+# <a name="common-questions-about-microsoft-commercial-marketplace"></a>Vanliga frågor om Microsofts kommersiella marknads platser
 
-Den här artikeln besvarar vanliga frågor om Microsofts kommersiella marknads plats.
+Den här artikeln besvarar vanliga frågor om den kommersiella Marketplace.
 
 ## <a name="general"></a>Allmänt
 
@@ -308,7 +308,7 @@ Kunder kan avbryta prenumerationer inom en angiven tidsram för att få pengarna
 
 Här är några resurser som hjälper dig att komma igång:
 
-- [Introduktion till Microsofts kommersiella marknads plats](https://docs.microsoft.com/learn/commercial-marketplace/intro-commercial-marketplace/intro-commercial-marketplace/)
+- [Introduktion till Microsofts kommersiella marknads plats](/azure/marketplace/marketplace-publishers-guide)
 - [Microsofts partner hubb för marknads plats](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 - [Välkommen till den kommersiella marknadsplatsen](https://docs.microsoft.com/azure/marketplace/)
 

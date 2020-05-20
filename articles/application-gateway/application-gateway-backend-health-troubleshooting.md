@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: a16120194b1b8015466005f42336828c2b4ace6c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c51d79d55f77468030100fa10973e2a31148ceae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983848"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648437"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Felsök problem med Server delens hälsa i Application Gateway
 ==================================================
@@ -81,13 +81,13 @@ När du har fått en felaktig backend-server status för alla servrar i en backe
 Det meddelande som visas i kolumnen **information** innehåller mer detaljerade insikter om problemet och utifrån dessa kan du börja felsöka problemet.
 
 > [!NOTE]
-> Standard avsöknings förfrågan skickas i \<formatet protokoll\>://127.0.0.1:\<port\>/. Till exempel http://127.0.0.1:80 för en http-avsökning på port 80. Endast HTTP-statuskod på 200 till 399 betraktas som felfria. Protokoll-och mål porten ärvs från HTTP-inställningarna. Om du vill att Application Gateway ska avsöka på ett annat protokoll, värd namn eller sökväg och identifiera en annan status kod som felfri, konfigurerar du en anpassad avsökning och kopplar den till HTTP-inställningarna.
+> Standard avsöknings förfrågan skickas i formatet \< protokoll \> ://127.0.0.1: \< port \> /. Till exempel http://127.0.0.1:80 för en http-avsökning på port 80. Endast HTTP-statuskod på 200 till 399 betraktas som felfria. Protokoll-och mål porten ärvs från HTTP-inställningarna. Om du vill att Application Gateway ska avsöka på ett annat protokoll, värd namn eller sökväg och identifiera en annan status kod som felfri, konfigurerar du en anpassad avsökning och kopplar den till HTTP-inställningarna.
 
 <a name="error-messages"></a>Felmeddelanden
 ------------------------
 #### <a name="backend-server-timeout"></a>Timeout för backend-server
 
-**Meddelande:** Tiden det tar för Server delen att svara på Application\'Gateway s hälso avsökning är över tids gränsen för avsöknings inställningen.
+**Meddelande:** Tiden det tar för Server delen att svara på Application Gateway \' s hälso avsökning är över tids gränsen för avsöknings inställningen.
 
 **Orsak:** När Application Gateway skickar en HTTP (S)-avsöknings förfrågan till backend-servern, väntar den på ett svar från backend-servern för en konfigurerad period. Om backend-servern inte svarar inom den konfigurerade perioden (timeout-värdet), markeras den som ohälsosam tills den börjar svara inom den angivna tids perioden igen.
 
@@ -109,7 +109,7 @@ Följ dessa steg om du vill öka timeout-värdet:
 
 **Orsak:** Om backend-poolen är av typen IP-adress/FQDN eller App Service, matchar Application Gateway IP-adressen för FQDN som anges via Domain Name System (DNS) (anpassat eller Azure standard) och försöker ansluta till servern på TCP-porten som anges i HTTP-inställningarna. Men om det här meddelandet visas föreslår det att Application Gateway inte kunde matcha IP-adressen för det FQDN som angetts.
 
-**Lösning**
+**Lösning:**
 
 1.  Kontrol lera att det fullständiga domän namnet som angavs i backend-poolen är korrekt och att det är en offentlig domän och försök sedan att lösa den från den lokala datorn.
 
@@ -155,9 +155,9 @@ Kontrol lera också om någon NSG/UDR/brand vägg blockerar åtkomsten till IP-a
     ```
 1.  Om du inte hittar några problem med NSG eller UDR kontrollerar du Server dels servern för programrelaterade problem som hindrar klienter från att upprätta en TCP-session på de konfigurerade portarna. Några saker att kontrol lera:
 
-    a.  Öppna en kommando tolk (Win + R-\> cmd), ange `netstat`och välj RETUR.
+    a.  Öppna en kommando tolk (Win + R- \> cmd), ange `netstat` och välj RETUR.
 
-    b.  Kontrol lera om servern lyssnar på den port som har kon figurer ATS. Ett exempel:
+    b.  Kontrol lera om servern lyssnar på den port som har kon figurer ATS. Till exempel:
     ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
@@ -168,15 +168,15 @@ Kontrol lera också om någon NSG/UDR/brand vägg blockerar åtkomsten till IP-a
 
 #### <a name="http-status-code-mismatch"></a>Felaktig HTTP-statuskod
 
-**Meddelande:** Status koden för Server delens\'http-svar matchade inte avsöknings inställningen. Förväntades: {HTTPStatusCode0} togs emot: {HTTPStatusCode1}.
+**Meddelande:** Status koden för Server delens \' HTTP-svar matchade inte avsöknings inställningen. Förväntades: {HTTPStatusCode0} togs emot: {HTTPStatusCode1}.
 
-**Orsak:** När TCP-anslutningen har upprättats och en TLS-handskakning görs (om TLS är aktiverat) skickar Application Gateway avsökningen som en HTTP GET-begäran till backend-servern. Som tidigare beskrivits är standard avsökningen \<till\>protokoll://127.0.0.1\<:\>port/, och det tar hänsyn till svars status koder i Rage 200 till 399 som felfria. Om servern returnerar någon annan status kod så markeras den som ohälsosam med det här meddelandet.
+**Orsak:** När TCP-anslutningen har upprättats och en TLS-handskakning görs (om TLS är aktiverat) skickar Application Gateway avsökningen som en HTTP GET-begäran till backend-servern. Som tidigare beskrivits är standard avsökningen till \< protokoll \> ://127.0.0.1: \< port \> /, och det tar hänsyn till svars status koder i Rage 200 till 399 som felfria. Om servern returnerar någon annan status kod så markeras den som ohälsosam med det här meddelandet.
 
 **Lösning:** Beroende på backend-serverns svarskod kan du utföra följande steg. Några av de vanliga status koderna visas här:
 
 | **Fel** | **Åtgärder** |
 | --- | --- |
-| Fel kod för avsöknings status kod: mottaget 401 | Kontrol lera om backend-servern kräver autentisering. Application Gateway avsökningar kan inte skicka autentiseringsuppgifter för autentisering just nu. Antingen tillåter \"HTTP 401\" i en avsöknings status kod matchning eller avsökning till en sökväg där servern inte kräver autentisering. | |
+| Fel kod för avsöknings status kod: mottaget 401 | Kontrol lera om backend-servern kräver autentisering. Application Gateway avsökningar kan inte skicka autentiseringsuppgifter för autentisering just nu. Antingen tillåter \" HTTP 401 \" i en avsöknings status kod matchning eller avsökning till en sökväg där servern inte kräver autentisering. | |
 | Fel kod för avsöknings status kod: mottaget 403 | Åtkomst förbjuden. Kontrol lera om åtkomst till sökvägen tillåts på backend-servern. | |
 | Fel kod för avsöknings status kod: mottaget 404 | Sidan hittades inte. Kontrol lera om värd namns Sök vägen är tillgänglig på backend-servern. Ändra värd namnet eller Sök vägs parametern till ett tillgängligt värde. | |
 | Fel kod för avsöknings status kod: mottaget 405 | Avsöknings begär Anden för Application Gateway använder HTTP GET-metoden. Kontrol lera om servern tillåter den här metoden. | |
@@ -189,7 +189,7 @@ Följ [dessa steg](https://docs.microsoft.com/azure/application-gateway/applicat
 
 #### <a name="http-response-body-mismatch"></a>Felaktigt innehåll i HTTP-svar
 
-**Meddelande:** Innehållet i Server delens\'http-svar matchade inte avsöknings inställningen. Mottagen svars texten innehåller inte {String}.
+**Meddelande:** Innehållet i Server delens \' HTTP-svar matchade inte avsöknings inställningen. Mottagen svars texten innehåller inte {String}.
 
 **Orsak:** När du skapar en anpassad avsökning har du ett alternativ för att markera en backend-server som felfri genom att matcha en sträng från svars texten. Du kan till exempel konfigurera Application Gateway att godkänna "obehörig" som en sträng som ska matchas. Om Server delens svar för avsöknings förfrågan innehåller strängen **obehörig**, så markeras den som felfri. Annars kommer den att markeras som ohälsosam med det här meddelandet.
 
@@ -202,6 +202,10 @@ Följ [dessa steg](https://docs.microsoft.com/azure/application-gateway/applicat
 1.  Om de inte matchar ändrar du avsöknings konfigurationen så att har rätt sträng värde att acceptera.
 
 Läs mer om [matchning av Application Gateway avsökning](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+
+>[!NOTE]
+> Information om SNI beteende och skillnader mellan v1-och v2-SKU finns på sidan [TLS-översikt](ssl-overview.md) för alla TLS-relaterade fel meddelanden.
+
 
 #### <a name="backend-server-certificate-invalid-ca"></a>Backend-servercertifikat ogiltigt CA
 
@@ -218,7 +222,7 @@ För att ett TLS/SSL-certifikat ska vara betrott måste certifikatet på backend
 
 1.  Ange `certmgr.msc` och välj RETUR. Du kan också söka efter Certificate Manager på **Start** -menyn.
 
-1.  Leta upp certifikatet, vanligt vis `\Certificates - Current User\\Personal\\Certificates\`i, och öppna det.
+1.  Leta upp certifikatet, vanligt vis i `\Certificates - Current User\\Personal\\Certificates\` , och öppna det.
 
 1.  Välj rot certifikat och välj sedan **Visa certifikat**.
 
@@ -253,7 +257,7 @@ Mer information om hur du extraherar och laddar upp betrodda rot certifikat i Ap
 > [!NOTE]
 > Det här felet kan också inträffa om backend-servern inte utbyter hela kedjan av certifikatet, inklusive roten > mellanliggande (om tillämpligt) > löv under TLS-handskakningen. För att verifiera kan du använda OpenSSL-kommandon från vilken klient som helst och ansluta till backend-servern med hjälp av de konfigurerade inställningarna i Application Gateway avsökningen.
 
-Ett exempel:
+Till exempel:
 ```
 OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
@@ -280,7 +284,7 @@ Om utdata inte visar den fullständiga kedjan av det certifikat som returneras, 
 
 **Meddelande:** Server dels certifikatets eget namn (CN) matchar inte avsökningens värd huvud.
 
-**Orsak:** Application Gateway kontrollerar om värd namnet som anges i Server delens HTTP-inställningar matchar det CN som presenteras av backend-serverns TLS/SSL-certifikat. Detta är Standard_v2 och WAF_v2 SKU-beteendet. Standard-och WAF SKU: n Servernamnindikator (SNI) har angetts som FQDN i Server delens adresspool.
+**Orsak:** Application Gateway kontrollerar om värd namnet som anges i Server delens HTTP-inställningar matchar det CN som presenteras av backend-serverns TLS/SSL-certifikat. Detta är Standard_v2 och WAF_v2 SKU-beteende (v2). Standard-och WAF SKU: n (v1) Servernamnindikator (SNI) anges som FQDN i Server delens adresspool. Mer information om SNI-beteende och skillnader mellan v1-och v2-SKU finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md).
 
 I v2-SKU: n, om det finns en standard avsökning (ingen anpassad avsökning har kon figurer ATS och associerats), kommer SNI att ställas in från det värdnamn som anges i HTTP-inställningarna. Eller, om "Välj värdnamn från Server dels adress" anges i HTTP-inställningarna, där backend-adresspoolen innehåller ett giltigt fullständigt domän namn, tillämpas den här inställningen.
 
@@ -290,7 +294,7 @@ Om **Välj värd namn från Server dels adress** har angetts i http-inställning
 
 Om du får det här fel meddelandet matchar inte CN för Server dels certifikatet det värdnamn som kon figurer ATS i den anpassade avsökningen eller HTTP-inställningarna (om **Välj värd namn från Server dels HTTP-inställningar** är markerat). Om du använder en standard avsökning får värd namnet värdet **127.0.0.1**. Om detta inte är ett önskat värde bör du skapa en anpassad avsökning och koppla den till HTTP-inställningarna.
 
-**Lösa**
+**Lösning:**
 
 Följ dessa anvisningar för att lösa problemet.
 
@@ -302,7 +306,7 @@ För Windows:
 
 1.  Ange **certmgr. msc** och välj RETUR. Du kan också söka efter Certificate Manager på **Start** -menyn.
 
-1.  Leta upp certifikatet (vanligt vis `\Certificates - Current User\\Personal\\Certificates`i) och öppna certifikatet.
+1.  Leta upp certifikatet (vanligt vis i `\Certificates - Current User\\Personal\\Certificates` ) och öppna certifikatet.
 
 1.  På fliken **information** kontrollerar du certifikatets **ämne**.
 
@@ -319,7 +323,7 @@ För Linux med OpenSSL:
 
 #### <a name="backend-certificate-is-invalid"></a>Server dels certifikatet är ogiltigt
 
-**Meddelande:** Server dels certifikatet är ogiltigt. Det aktuella datumet ligger inte inom \"det giltiga\" från \"och det\" giltiga datum intervallet för certifikatet.
+**Meddelande:** Server dels certifikatet är ogiltigt. Det aktuella datumet ligger inte inom det \" giltiga från \" och det \" giltiga \" datum intervallet för certifikatet.
 
 **Orsak:** Varje certifikat kommer med ett giltighets intervall och HTTPS-anslutningen blir inte säker om serverns TLS/SSL-certifikat är giltigt. Aktuella data måste vara inom **giltigt från** och **giltigt till** -intervallet. Om det inte är det anses certifikatet vara ogiltigt och det kommer att skapa ett säkerhets problem där Application Gateway markerar backend-servern som ohälsosam.
 
@@ -353,7 +357,7 @@ Detta kan bero på en eller flera av följande orsaker:
 1.  Den anpassade DNS-servern har kon figurer ATS på ett virtuellt nätverk som inte kan matcha offentliga domän namn.
 1.  Application Gateway är i ett ohälsosamt tillstånd.
 
-**Lösa**
+**Lösning:**
 
 1.  Kontrol lera om din NSG blockerar åtkomsten till portarna 65503-65534 (v1 SKU) eller 65200-65535 (v2 SKU) från **Internet**:
 

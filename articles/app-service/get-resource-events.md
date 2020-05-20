@@ -4,12 +4,12 @@ description: Lär dig hur du hämtar resurs händelser via aktivitets loggar och
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-ms.openlocfilehash: 1fd283f95823a67319dc467a3a1d6251193182da
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7075e3eacc85198e22a9aa0e53f67a22416b2678
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124745"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649069"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Hämta resurs händelser i Azure App Service
 
@@ -41,29 +41,7 @@ Medan aktivitets loggarna är användarspecifika är det en ny [Event Grid](http
 
 Du kan även använda Event Grid med Logic Apps för att bearbeta data var som helst, utan att skriva någon kod. Event Grid kopplar samman datakällor och händelsehanterare. Använd exempelvis Event Grid för att direkt utlösa att en funktion utan server kör bildanalys varje gång ett nytt foto läggs till i en bloblagringscontainer.
 
-### <a name="supported-event-types"></a>Händelse typer som stöds
-| Händelsetyp |Beskrivning|
-| -----------| ------------- |
-| Microsoft. Web/Sites | Webapp |
-| BackupOperationCompleted |Webapp-säkerhets kopiering har slutförts|
-| BackupOperationFailed | Det gick inte att säkerhetskopiera webapp|
-| RestoreOperationStarted |Återställning från säkerhets kopia har startat|
-| RestoreOperationCompleted |Återställningen från säkerhets kopieringen har slutförts|
-| RestoreOperationFailed |Det gick inte att återställa från säkerhets kopia|
-| SlotSwapStarted |Plats växlingen har startat|
-| SlotSwapCompleted |Plats växlingen har slutförts|
-| SlotSwapFailed |Plats växlingen misslyckades|
-| SlotSwapWithPreviewStarted |Plats växlingen med för hands versionen har startat|
-| SlotSwapWithPreviewCancelled |Plats växlingen med förhands granskning misslyckades|
-| AppUpdated | |
-| Startas | Webapp startades om |
-| Stoppad | Webapp stoppades |
-| ChangedAppSettings | Appens inställningar på webapp har ändrats |
-| - | - |
-| Microsoft. Web/Server grupper | (App Service plan) |
-| AspUpdated | App Service-planen har uppdaterats. Objektet Event innehåller information om de egenskaper som har ändrats. |
-| Skalanpassa upp/ned | App Service-planen har skalats upp eller ned. Händelseobjektet innehåller antalet instanser.|
-
+[Visa egenskaper och schema för Azure App Service händelser.](https://docs.microsoft.com/azure/event-grid/event-schema-app-service)
 
 ## <a name="next-steps"></a><a name="nextsteps"></a>Nästa steg
 * [Fråga efter loggar med Azure Monitor](../azure-monitor/log-query/log-query-overview.md)

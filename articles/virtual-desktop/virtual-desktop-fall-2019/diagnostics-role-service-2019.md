@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e529144198d0c635e74955e98d47dd46ac4fb733
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615154"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657246"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identifiera och diagnostisera problem
 
@@ -36,7 +36,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 ## <a name="diagnose-issues-with-powershell"></a>Diagnostisera problem med PowerShell
 
-Windows Virtual Desktop Diagnostics använder bara en PowerShell-cmdlet men innehåller många valfria parametrar som hjälper dig att begränsa och isolera problem. I följande avsnitt listas de cmdlets som du kan köra för att diagnosticera problem. De flesta filter kan appliceras tillsammans. Värden som anges inom hakparenteser, till `<tenantName>`exempel, ska ersättas med de värden som gäller för din situation.
+Windows Virtual Desktop Diagnostics använder bara en PowerShell-cmdlet men innehåller många valfria parametrar som hjälper dig att begränsa och isolera problem. I följande avsnitt listas de cmdlets som du kan köra för att diagnosticera problem. De flesta filter kan appliceras tillsammans. Värden som anges inom hakparenteser, till exempel `<tenantName>` , ska ersättas med de värden som gäller för din situation.
 
 >[!IMPORTANT]
 >Funktionen diagnostik är för fel sökning av enskilda användare. Alla frågor som använder PowerShell måste innehålla antingen parametrarna *-username* eller *-ActivityId* . Använd Log Analytics för att övervaka funktioner. Mer information om hur du skickar diagnostikdata till din arbets yta finns i [använda Log Analytics för Diagnostics-funktionen](diagnostics-log-analytics-2019.md) . 
@@ -139,6 +139,7 @@ I följande tabell visas vanliga fel som dina administratörer kan köra i.
 
 |Numerisk kod|Felkod|Föreslagen lösning|
 |---|---|---|
+|1322|ConnectionFailedNoMappingOfSIDinAD|Användaren är inte medlem i Azure Active Directory. Följ instruktionerna i [Active Directory Administrationscenter](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) för att lägga till dem.|
 |3|UnauthorizedAccess|Användaren som försökte köra den administrativa PowerShell-cmdleten har antingen inte behörighet att göra det eller felaktigt angett sitt användar namn.|
 |1000|TenantNotFound|Klient namnet du angav matchar inte några befintliga klienter. Granska klient namnet för skrivfel och försök igen.|
 |1006|TenantCannotBeRemovedHasSessionHostPools|Du kan inte ta bort en klient så länge den innehåller objekt. Ta bort värdarna för serversessionen först och försök sedan igen.|
@@ -160,6 +161,7 @@ I följande tabell visas vanliga fel som dina administratörer kan köra i.
 
 |Numerisk kod|Felkod|Föreslagen lösning|
 |---|---|---|
+|– 2147467259|ConnectionFailedAdErrorNoSuchMember|Användaren är inte medlem i Azure Active Directory. Följ instruktionerna i [Active Directory Administrationscenter](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) för att lägga till dem.|
 |– 2147467259|ConnectionFailedAdTrustedRelationshipFailure|Sessions värden är inte korrekt ansluten till Active Directory.|
 |– 2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Anslutningarna misslyckades eftersom sessions värden inte är tillgänglig. Kontrol lera hälso tillståndet för sessionens värd.|
 |– 2146233088|ConnectionFailedClientDisconnect|Om det här felet ofta visas kontrollerar du att användarens dator är ansluten till nätverket.|

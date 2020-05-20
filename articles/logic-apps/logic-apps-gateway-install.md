@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 12/05/2019
-ms.openlocfilehash: f2f8b9f207993c49201d03d3d1fed3c5800e8780
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80673822"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659267"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installera lokal datagateway för Azure Logic Apps
 
@@ -37,10 +37,10 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
     > [!NOTE]
     > Du kan bara länka en gateway-installation och en Azure gateway-resurs till varandra. Du kan inte länka samma Gateway-installation till flera Azure-konton eller Azure gateway-resurser. Ett Azure-konto kan dock länka till flera gateway-installationer och Azure gateway-resurser. I en lokal utlösare eller åtgärd kan du välja bland dina olika Azure-prenumerationer och sedan välja en associerad gateway-resurs.
 
-  * Du måste logga in med ett arbets konto eller skol konto, även kallat ett *organisations* konto, som ser ut så här `username@contoso.com`. Du kan inte använda Azure B2B-konton (gäst) eller personliga Microsoft-konton @hotmail.com , @outlook.comtill exempel eller.
+  * Du måste logga in med ett arbets konto eller skol konto, även kallat ett *organisations* konto, som ser ut så här `username@contoso.com` . Du kan inte använda Azure B2B-konton (gäst) eller personliga Microsoft-konton, till exempel @hotmail.com eller @outlook.com .
 
     > [!TIP]
-    > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din e-postadress för arbetet kan din `username@domain.onmicrosoft.com`adress se ut. Ditt konto lagras i en klient i en Azure Active Directory (Azure AD). I de flesta fall är användarens huvud namn (UPN) för ditt Azure AD-konto detsamma som din e-postadress.
+    > Om du har registrerat dig för ett Office 365-erbjudande och inte angav din e-postadress för arbetet kan din adress se ut `username@domain.onmicrosoft.com` . Ditt konto lagras i en klient i en Azure Active Directory (Azure AD). I de flesta fall är användarens huvud namn (UPN) för ditt Azure AD-konto detsamma som din e-postadress.
     >
     > Om du vill använda en [Visual Studio Standard-prenumeration](https://visualstudio.microsoft.com/vs/pricing/) som är länkad till en Microsoft-konto måste du först [skapa en klient i Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) eller använda standard katalogen. Lägg till en användare med ett lösen ord till katalogen och ge sedan användaren åtkomst till din Azure-prenumeration. Sedan kan du logga in under Gateway-installationen med det här användar namnet och lösen ordet.
 
@@ -68,13 +68,15 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
     > [!TIP]
     > För att minimera svars tiden kan du installera gatewayen så nära som möjligt för din data källa, eller på samma dator, förutsatt att du har behörighet.
 
-  * Installera gatewayen på en dator som finns i ett kabelanslutet nätverk, ansluten till Internet, alltid aktive rad och går inte i ström spar läge. I annat fall kan gatewayen inte köras och prestanda kan bli lidande över ett trådlöst nätverk.
+  * Installera gatewayen på en lokal dator som är ansluten till Internet, som är ansluten till Internet, alltid aktive rad och inte går i ström spar läge. I annat fall kan gatewayen inte köras och prestanda kan bli lidande över ett trådlöst nätverk.
 
   * Om du planerar att använda Windows-autentisering kontrollerar du att du installerar gatewayen på en dator som är medlem i samma Active Directory-miljö som dina data källor.
 
   * Den region som du väljer för din gateway-installation är samma plats som du måste välja när du senare skapar Azure Gateway-resursen för din Logic app. Som standard är den här regionen samma plats som din Azure AD-klient som hanterar ditt Azure-konto. Du kan dock ändra platsen under Gateway-installationen.
 
-  * Om du uppdaterar din gateway-installation till den senaste versionen måste du först avinstallera din aktuella Gateway för att få en renare upplevelse.
+  * Om du uppdaterar din gateway-installation måste du först avinstallera din aktuella Gateway för att få en renare upplevelse.
+
+    Vi rekommenderar att du kontrollerar att du använder en version som stöds. Microsoft släpper en ny uppdatering av den lokala datagatewayen varje månad och stöder för närvarande bara de senaste sex versionerna för den lokala datagatewayen. Om du får problem med den version som du använder kan du försöka att [Uppgradera till den senaste versionen](https://aka.ms/on-premises-data-gateway-installer) eftersom problemet kan lösas i den senaste versionen.
 
   * Gatewayen har två lägen: standard läge och personligt läge, som endast gäller för Power BI. Du kan inte ha mer än en gateway som körs i samma läge på samma dator.
 
@@ -96,7 +98,7 @@ Den här artikeln visar hur du hämtar, installerar och konfigurerar din lokala 
 
    Gateway-installationen kan bara länka till ett Azure-konto.
 
-1. Välj **Registrera en ny gateway på den här datorn** > **Nästa**. Det här steget registrerar din gateway-installation med [moln tjänsten Gateway](#gateway-cloud-service).
+1. Välj **Registrera en ny gateway på den här datorn**  >  **Nästa**. Det här steget registrerar din gateway-installation med [moln tjänsten Gateway](#gateway-cloud-service).
 
    ![Registrera gateway på den lokala datorn](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -162,15 +164,15 @@ När du har konfigurerat din primära Gateway, väljer du **Lägg till i ett bef
 
 Om du måste ändra gatewayens plats, flytta Gateway-installationen till en ny dator, återställa en skadad gateway eller bli ägare till en befintlig gateway, behöver du återställnings nyckeln som angavs under Gateway-installationen.
 
-1. Kör installations programmet för gateway på den dator som har den befintliga gatewayen. Om du inte har de senaste Gateway-installations programmet [laddar du ned den senaste Gateway-versionen](https://aka.ms/on-premises-data-gateway-installer).
+> [!NOTE]
+> Innan du återställer gatewayen på den dator som har den ursprungliga Gateway-installationen måste du först avinstallera gatewayen på den datorn. Den här åtgärden kopplar från den ursprungliga gatewayen.
+> Om du tar bort eller tar bort ett Gateway-kluster för en moln tjänst kan du inte återställa klustret.
 
-   > [!NOTE]
-   > Innan du återställer gatewayen på den dator som har den ursprungliga Gateway-installationen måste du först avinstallera gatewayen på den datorn. Den här åtgärden kopplar från den ursprungliga gatewayen.
-   > Om du tar bort eller tar bort ett Gateway-kluster för en moln tjänst kan du inte återställa klustret.
+1. Kör installations programmet för gateway på den dator som har den befintliga gatewayen.
 
 1. När installations programmet har öppnats loggar du in med samma Azure-konto som användes för att installera gatewayen.
 
-1. Välj **migrera, Återställ eller ta över en befintlig gateway** > **härnäst**, till exempel:
+1. Välj **migrera, Återställ eller ta över en befintlig gateway**  >  **härnäst**, till exempel:
 
    ![Välj "migrera, Återställ eller överköps en befintlig gateway"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
@@ -258,8 +260,6 @@ Här är några sätt som du kan matcha dina lokala Active Directory-konton med 
 <a name="faq"></a>
 
 ## <a name="faq-and-troubleshooting"></a>Vanliga frågor och felsökning
-
-Mer information finns i de här ämnena:
 
 * [Vanliga frågor och svar om lokal datagateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
 * [Felsöka den lokala datagatewayen](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)

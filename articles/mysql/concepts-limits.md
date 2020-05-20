@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 4/1/2020
-ms.openlocfilehash: 6ca09ab0578fb88e443d6e9e1f920c22457eb042
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cf5c958a0dd9a19e6b976ff36a18c45e062f604
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548470"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659924"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Begränsningar i Azure Database for MySQL
 I följande avsnitt beskrivs kapacitet, stöd för lagrings motor, stöd för stöd för data manipulation och funktionella gränser i databas tjänsten. Se även [allmänna begränsningar](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) som gäller för databas motorn MySQL.
@@ -48,7 +48,7 @@ Att skapa nya klient anslutningar till MySQL tar tid och när de har upprättats
 
 ### <a name="query_cache_size"></a>query_cache_size
 
-Frågesyntaxen är inaktive rad som standard. Konfigurera- `query_cache_type` parametern om du vill aktivera Query cache. 
+Frågesyntaxen är inaktive rad som standard. Konfigurera-parametern om du vill aktivera Query Cache `query_cache_type` . 
 
 Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size) .
 
@@ -155,6 +155,12 @@ Läs mer om den här parametern i [MySQL-dokumentationen](https://dev.mysql.com/
 
 Du kan fylla i tids zons tabellerna genom att anropa den `mysql.az_load_timezone` lagrade proceduren från ett verktyg som MySQL kommando rad eller MySQL Workbench. Mer information om hur du anropar den lagrade proceduren finns i [Azure Portal](howto-server-parameters.md#working-with-the-time-zone-parameter) -eller [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) -artiklarna och ställer in globala eller sessionsbaserade tids zoner.
 
+### <a name="innodb_file_per_table"></a>innodb_file_per_table
+
+MySQL lagrar tabellen InnoDB i olika tabell utrymmen baserat på den konfiguration du angav när tabellen skapades. [Systemets tabell utrymme](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) är lagrings utrymmet för data ord listan InnoDB. Ett tabell namn för en [fil per tabell](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) innehåller data och index för en enskild InnoDB-tabell och lagras i fil systemet i en egen datafil. Detta beteende styrs av `innodb_file_per_table` Server parametern. Inställningen `innodb_file_per_table` `OFF` gör att InnoDB skapar tabeller i System register utrymmet. Annars skapar InnoDB tabeller i tabell utrymmen per tabell.
+
+Azure Database for MySQL stöder högst **1 TB**i en enskild datafil. Om databas storleken är större än 1 TB bör du skapa tabellen i [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) tabell utrymme. Om du har en enskild tabell storlek som är större än 1 TB bör du använda partitionstabellen.
+
 ## <a name="storage-engine-support"></a>Stöd för lagrings motor
 
 ### <a name="supported"></a>Stöds
@@ -172,7 +178,7 @@ Du kan fylla i tids zons tabellerna genom att anropa den `mysql.az_load_timezone
 ### <a name="unsupported"></a>Stöd saknas
 - DBA-roll: många Server parametrar och inställningar kan oavsiktligt försämra serverns prestanda eller negera syre egenskaper i DBMS. För att upprätthålla tjänste integriteten och service avtalet på en produkt nivå exponerar inte den här tjänsten DBA-rollen. Standard användar kontot, som skapas när en ny databas instans skapas, gör att användaren kan utföra de flesta DDL-och DML-instruktioner i den hanterade databas instansen. 
 - SUPER Privilege: liknande [superbehörighet](https://dev.mysql.com/doc/refman/5.7/en/privileges-provided.html#priv_super) är också begränsad.
-- Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du `CREATE DEFINER` importerar data med hjälp av en säkerhets kopia tar du bort kommandona `--skip-definer` manuellt eller genom att använda kommandot när du utför en mysqldump.
+- Avrundning: kräver Super-behörighet för att skapa och är begränsad. Om du importerar data med hjälp av en säkerhets kopia tar du bort `CREATE DEFINER` kommandona manuellt eller genom att använda `--skip-definer` kommandot när du utför en mysqldump.
 
 ## <a name="data-manipulation-statement-support"></a>Stöd för data manipulations sats
 
@@ -202,7 +208,7 @@ Du kan fylla i tids zons tabellerna genom att anropa den `mysql.az_load_timezone
 - Se [pris nivåer](concepts-pricing-tiers.md) för lagrings storleks gränser per pris nivå.
 
 ## <a name="current-known-issues"></a>Aktuella kända problem
-- MySQL Server-instansen visar fel Server version när anslutningen har upprättats. Använd `select version();` kommandot för att få rätt version av Server instans motorn.
+- MySQL Server-instansen visar fel Server version när anslutningen har upprättats. Använd kommandot för att få rätt version av Server instans motorn `select version();` .
 
 ## <a name="next-steps"></a>Nästa steg
 - [Vad som är tillgängligt i varje tjänst nivå](concepts-pricing-tiers.md)

@@ -3,12 +3,12 @@ title: Begränsningar för resurs namn
 description: Visar regler och begränsningar för namngivning av Azure-resurser.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: fab1ab2bb779b3826c852e49da7970030d34594d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ab012c5363de643c4cb5de8777de56fad5a9711
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086393"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653717"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Namngivningsregler och begränsningar för Azure-resurser
 
@@ -81,9 +81,9 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
 > | hålls | tilldelnings omfång | 1–90 | Alfanumeriska tecken, punkter, under streck, bindestreck och parenteser.<br><br>Kan inte sluta med punkt. |
-> | policyassignments | tilldelnings omfång | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte `%` innehålla och får inte sluta med punkt eller blank steg. |
-> | policydefinitions | definitions område | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte `%` innehålla och får inte sluta med punkt eller blank steg. |
-> | policySetDefinitions | definitions område | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte `%` innehålla och får inte sluta med punkt eller blank steg.  |
+> | policyassignments | tilldelnings omfång | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte innehålla `%` och får inte sluta med punkt eller blank steg. |
+> | policydefinitions | definitions område | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte innehålla `%` och får inte sluta med punkt eller blank steg. |
+> | policySetDefinitions | definitions område | 1-128 visnings namn<br><br>1-260 resurs namn | Visnings namnet får innehålla tecken.<br><br>Resurs namnet får inte innehålla `%` och får inte sluta med punkt eller blank steg.  |
 
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 
@@ -346,7 +346,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > [!div class="mx-tableFixed"]
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
-> | databaseAccounts | EAN | 3-31 | Små bokstäver, siffror och bindestreck.<br><br>Börja med en gemen bokstav eller siffra. |
+> | databaseAccounts | EAN | 3-44 | Små bokstäver, siffror och bindestreck.<br><br>Börja med en gemen bokstav eller siffra. |
 
 ## <a name="microsofteventgrid"></a>Microsoft. EventGrid
 
@@ -630,7 +630,7 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | --- | --- | --- | --- |
 > | managedInstances | EAN | 1–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. |
 > | brygghuvudservrar | EAN | 1–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. |
-> | servrar/administratörer | server |  | Måste vara `ActiveDirectory`. |
+> | servrar/administratörer | server |  | Måste vara `ActiveDirectory` . |
 > | servrar/databaser | server | 1-128 | Kan inte använda:<br>`<>*%&:\/?`<br><br>Kan inte sluta med punkt eller blank steg. |
 > | servrar/databaser/syncGroups | databas | 1-150 | Alfanumeriska tecken, bindestreck och under streck. |
 > | servrar/elasticPools | server | 1-128 | Kan inte använda:<br>`<>*%&:\/?`<br><br>Kan inte sluta med punkt eller blank steg. |
@@ -643,11 +643,11 @@ I följande tabeller refererar termen alfanumeriskt till:
 > | Entitet | Omfång | Längd | Giltiga tecken |
 > | --- | --- | --- | --- |
 > | storageAccounts | EAN | 3–24 | Små bokstäver och siffror. |
-> | storageAccounts/blobServices | storage account |  | Måste vara `default`. |
+> | storageAccounts/blobServices | storage account |  | Måste vara `default` . |
 > | storageAccounts/blobServices/containers | storage account | 3–63 | Små bokstäver, siffror och bindestreck.<br><br>Börja med en gemen bokstav eller siffra. Det går inte att använda efterföljande bindestreck. |
-> | storageAccounts/fileServices | storage account |  | Måste vara `default`. |
+> | storageAccounts/fileServices | storage account |  | Måste vara `default` . |
 > | storageAccounts/fileServices/resurser | storage account | 3–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. Det går inte att använda efterföljande bindestreck. |
-> | storageAccounts/managementPolicies | storage account |  | Måste vara `default`. |
+> | storageAccounts/managementPolicies | storage account |  | Måste vara `default` . |
 > | blob | container | 1–1024 | Alla URL-tecken, SKIFT läges känsliga |
 > | kö | storage account | 3–63 | Små bokstäver, siffror och bindestreck.<br><br>Får inte börja eller sluta med bindestreck. Det går inte att använda efterföljande bindestreck. |
 > | tabell | storage account | 3–63 | Alfanumeriska tecken.<br><br>Börja med en bokstav. |

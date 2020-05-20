@@ -11,22 +11,22 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: d38c0df45da3a751a456846813543a4ce5de98eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416216"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653010"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Övervaka resursutnyttjande och fråga aktivitet i Azure Synapse Analytics
 
-Azure Synapse Analytics ger en omfattande övervaknings upplevelse inom Azure Portal till Surface Insights för arbets belastningen för informations lagret. Azure Portal är det rekommenderade verktyget när du övervakar ditt informations lager eftersom det tillhandahåller konfigurerbara kvarhållningsperiod, varningar, rekommendationer och anpassningsbara diagram och instrument paneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure Monitoring-tjänster som Azure Monitor (loggar) med Log Analytics för att ge en helhets övervakning av inte bara ditt informations lager, utan även hela din Azure Analytics-plattform för en integrerad övervaknings upplevelse. Den här dokumentationen beskriver vilka övervaknings funktioner som är tillgängliga för att optimera och hantera din analys plattform med SQL Analytics.
+Azure Synapse Analytics ger en omfattande övervaknings upplevelse inom Azure Portal till Surface Insights för arbets belastningen för informations lagret. Azure Portal är det rekommenderade verktyget när du övervakar ditt informations lager eftersom det tillhandahåller konfigurerbara kvarhållningsperiod, varningar, rekommendationer och anpassningsbara diagram och instrument paneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure Monitoring-tjänster som Azure Monitor (loggar) med Log Analytics för att ge en helhets övervakning av inte bara ditt informations lager, utan även hela din Azure Analytics-plattform för en integrerad övervaknings upplevelse. Den här dokumentationen beskriver vilka övervaknings funktioner som är tillgängliga för att optimera och hantera din analys plattform med Synapse SQL.
 
 ## <a name="resource-utilization"></a>Resursutnyttjande
 
-Följande mått är tillgängliga i Azure Portal för SQL Analytics. Dessa mått är uppdelade via [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
+Följande mått är tillgängliga i Azure Portal för SQL i Synapse. Dessa mått är uppdelade via [Azure Monitor](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics).
 
-| Mått namn             | Beskrivning                                                  | Sammansättningstyp |
+| Mått namn             | Description                                                  | Sammansättningstyp |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | CPU-procent          | CPU-användning över alla noder för data lagret      | Genomsn, min, max    |
 | Data IO-procent      | I/o-användning över alla noder för data lagret       | Genomsn, min, max    |
@@ -54,13 +54,13 @@ Saker att tänka på när du visar mått och ställer in aviseringar:
 
 ## <a name="query-activity"></a>Fråga aktivitet
 
-För en programmerings upplevelse vid övervakning av SQL Analytics via T-SQL tillhandahåller tjänsten en uppsättning vyer för dynamisk hantering (DMV: er). Dessa vyer är användbara när du aktivt ska felsöka och identifiera Flask halsar i prestanda med din arbets belastning.
+För en programmerings upplevelse vid övervakning av Synapse SQL via T-SQL tillhandahåller tjänsten en uppsättning dynamiska hanterings vyer (DMV: er). Dessa vyer är användbara när du aktivt ska felsöka och identifiera Flask halsar i prestanda med din arbets belastning.
 
 Om du vill visa en lista över DMV: er som gäller för Synapse SQL, se den här [dokumentationen](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Mått- och diagnostikloggning 
 
-Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor loggar](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) -komponenten och kan nås via programmering via [logg frågor](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Logg fördröjningen för SQL Analytics är cirka 10-15 minuter. Mer information om de faktorer som påverkar svars tiderna finns i följande dokumentation.
+Både mått och loggar kan exporteras till Azure Monitor, särskilt [Azure Monitor loggar](../../azure-monitor/log-query/log-query-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) -komponenten och kan nås via programmering via [logg frågor](../../azure-monitor/log-query/get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Logg fördröjningen för Synapse SQL är cirka 10-15 minuter. Mer information om de faktorer som påverkar svars tiderna finns i följande dokumentation.
 
 ## <a name="next-steps"></a>Nästa steg
 

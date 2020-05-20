@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: e4d578596471153e4fc0e37d3ca093685326ecc7
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0e45e832def4073f22a160b95447afb1b10ef77a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791773"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657383"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -37,10 +37,11 @@ När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera
 > Mer information om metod tips för att hantera arbets belastningar som har partitionsnyckel som kräver högre gränser för lagring eller data flöde finns i [skapa en syntetisk partitionsnyckel](synthetic-partition-keys.md).
 >
 
-En Cosmos-behållare (eller delad data flödes databas) måste ha ett minsta data flöde på 400 ru: er. När behållaren växer är det lägsta tillåtna data flödet också beroende av följande faktorer:
+En Cosmos-behållare (eller delad data flödes databas) måste ha ett minsta data flöde på 400 RU/s. När behållaren växer är det lägsta tillåtna data flödet också beroende av följande faktorer:
 
-* Det minsta data flöde som du kan ange för en behållare beror på det maximala data flöde som någonsin har allokerats på behållaren. Om ditt data flöde till exempel har ökat till 10000 ru: er skulle det lägsta möjliga tillhandahållna data flödet vara 1000 ru: er
-* Det minsta data flödet i en delad data flödes databas beror också på det totala antalet behållare som du någonsin har skapat i en delad data flödes databas, mätt på 100 ru: er per behållare. Om du till exempel har skapat fem behållare i en delad data flödes databas måste data flödet vara minst 500 ru: er
+* Maximalt data flöde som någonsin har allokerats på behållaren. Om ditt data flöde till exempel har ökat till 50 000 RU/s är det lägsta möjliga tillhandahållna data flödet 500 RU/s
+* Den aktuella lagringen i GB i behållaren. Om din behållare till exempel har 100 GB lagring, blir det lägsta möjliga tillhandahållna data flödet 1000 RU/s
+* Det minsta data flödet i en delad data flödes databas beror också på det totala antalet behållare som du någonsin har skapat i en delad data flödes databas, mätt på 100 RU/s per behållare. Om du till exempel har skapat fem behållare i en delad data flödes databas måste data flödet vara minst 500 RU/s
 
 Det aktuella och lägsta data flödet för en behållare eller en databas kan hämtas från Azure Portal eller SDK: er. Mer information finns i [etablera data flöde på behållare och databaser](set-throughput.md). 
 
@@ -140,7 +141,16 @@ Cosmos DB stöder körning av utlösare under skrivningar. Tjänsten har stöd f
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Begränsningar för autoskalning av allokerat data flöde
 
-Se den [automatiska skalnings](provision-throughput-autoscale.md#autoscale-limits) artikeln för data flödes-och lagrings gränser med autoskalning.
+Mer detaljerad information om data flödes-och lagrings gränser med autoskalning finns i artikeln om [autoskalning](provision-throughput-autoscale.md#autoscale-limits) och [vanliga frågor och svar](autoscale-faq.md#lowering-the-max-rus) .
+
+| Resurs | Standardgräns |
+| --- | --- |
+| Maximalt RU/s systemet kan skalas till |  `Tmax`, den autoskalning Max RU/s som anges av användaren|
+| Lägsta RU/s-systemet kan skalas till | `0.1 * Tmax`|
+| Aktuella RU/s systemet skalas till  |  `0.1*Tmax <= T <= Tmax`, baserat på användning|
+| Lägsta fakturerbara RU/s per timme| `0.1 * Tmax` <br></br>Faktureringen görs per timme, där du debiteras för de högsta RU/s-systemet som skalats till i timmen eller `0.1*Tmax` , beroende på vilket som är högre. |
+| Minsta autoskalning för max RU/s för en behållare  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`avrundat till närmaste 1000 RU/s |
+| Minsta autoskalad Max RU/s för en databas  |  `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, avrundat till närmaste 1000 RU/s. <br></br>Observera att om din databas har fler än 25 behållare, ökar systemet minimi kraven för autoskalning Max RU/s av 1000 RU/s per ytterligare behållare. Om du till exempel har 30 behållare är det lägsta antalet RU/s som du kan ställa in den lägsta storleken som är 9000 RU/s (skalas mellan 900-9000 RU/s).
 
 ## <a name="sql-query-limits"></a>Begränsningar för SQL-frågor
 
@@ -187,7 +197,7 @@ I följande tabell visas gränserna för try- [Azure Cosmos dB för kostnads fri
 
 Testa Cosmos DB stöder global distribution bara i Central USA, Nord Europa och Sydostasien regioner. Det går inte att skapa biljetter för Azure-Support för try Azure Cosmos DB-konton. Support ges dock för prenumeranter med befintliga support avtal.
 
-## <a name="free-tier-account-limits"></a>Konto gränser för kostnads fri nivå
+## <a name="free-tier-account-limits"></a>Begränsningar för konton på den kostnadsfria nivån
 I följande tabell visas gränserna för [Azure Cosmos DB kostnads fria nivå konton.](optimize-dev-test.md#azure-cosmos-db-free-tier)
 
 | Resurs | Standardgräns |

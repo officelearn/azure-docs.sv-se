@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e0f0f311b7ec8adae6ddb25e01046141adadfa4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: accd0df2913abc4d82b6f14aaafd03f0f042ca91
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548544"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648216"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Komma igång med Azure Maps Android SDK
 
@@ -47,7 +47,7 @@ Se [Android Studio-dokumentationen](https://developer.android.com/studio/intro/)
 
 ## <a name="set-up-a-virtual-device"></a>Konfigurera en virtuell enhet
 
-Med Android Studio kan du konfigurera en virtuell Android-enhet på datorn. På så sätt kan du testa ditt program under utveckling. Om du vill konfigurera en virtuell enhet väljer du ikonen för AVD-hanteraren (Android Virtual Device) i det övre högra hörnet på projekt skärmen och väljer sedan **Skapa virtuell enhet**. Du kan också gå till avd Manager genom att välja **verktyg** > **Android** > **avd Manager** i verktygsfältet. I kategorin **telefoner** väljer du **Nexus 5x**, och väljer sedan **Nästa**.
+Med Android Studio kan du konfigurera en virtuell Android-enhet på datorn. På så sätt kan du testa ditt program under utveckling. Om du vill konfigurera en virtuell enhet väljer du ikonen för AVD-hanteraren (Android Virtual Device) i det övre högra hörnet på projekt skärmen och väljer sedan **Skapa virtuell enhet**. Du kan också gå till avd Manager genom att välja **verktyg**  >  **Android**  >  **avd Manager** i verktygsfältet. I kategorin **telefoner** väljer du **Nexus 5x**, och väljer sedan **Nästa**.
 
 Du kan lära dig mer om hur du konfigurerar en AVD i [Android Studio-dokumentationen](https://developer.android.com/studio/run/managing-avds).
 
@@ -80,11 +80,11 @@ Nästa steg i att skapa ditt program är att installera Azure Maps Android SDK. 
     3. Uppdatera beroende blocket och Lägg till en ny implementerings beroende linje för den senaste Azure Maps Android SDK:
 
         ```
-        implementation "com.microsoft.azure.maps:mapcontrol:0.2"
+        implementation "com.microsoft.azure.maps:mapcontrol:0.4"
         ```
     
     4. Gå till **filen** i verktygsfältet och klicka sedan på **Synkronisera projekt med Gradle-filer**.
-3. Lägg till ett kart fragment i huvud aktiviteten (Main \> . \> XML\_för resurs aktivitet):
+3. Lägg till ett kart fragment i huvud aktiviteten ( \> \> \_ main. xml för resurs aktivitet):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -205,7 +205,7 @@ Nästa steg i att skapa ditt program är att installera Azure Maps Android SDK. 
 
 ## <a name="import-classes"></a>Importera klasser
 
-När du har slutfört de föregående stegen får du förmodligen varningar från Android Studio om en del av koden. Om du vill lösa de här varningarna importerar du de `MainActivity.java`klasser som refereras till i.
+När du har slutfört de föregående stegen får du förmodligen varningar från Android Studio om en del av koden. Om du vill lösa de här varningarna importerar du de klasser som refereras till i `MainActivity.java` .
 
 Du kan importera dessa klasser automatiskt genom att välja Alt + Retur (alternativ + retur på en Mac).
 
@@ -223,7 +223,7 @@ Android Studio tar några sekunder att skapa programmet. När versionen har slut
 
 Azure Maps Android SDK innehåller tre olika sätt att ange språk och regional vy för kartan. Följande kod visar hur du ställer in språket på franska ("fr-FR") och den regionala vyn till "Auto". 
 
-Det första alternativet är att skicka språket och Visa regional information i `AzureMaps` klassen med hjälp av metoderna static `setLanguage` och `setView` global. Detta anger standard språket och den regionala vyn för alla Azure Maps kontroller som läses in i din app.
+Det första alternativet är att skicka språket och Visa regional information i `AzureMaps` klassen med hjälp av metoderna static `setLanguage` och `setView` Global. Detta anger standard språket och den regionala vyn för alla Azure Maps kontroller som läses in i din app.
 
 ```Java
 static {
@@ -250,7 +250,7 @@ Det andra alternativet är att skicka språket och Visa information i kart kontr
     />
 ```
 
-Det tredje alternativet är att program mässigt ange språket och den regionala vyn för kartan med hjälp av Maps `setStyle` -metoden. Detta kan göras när som helst för att ändra språket och den regionala vyn för kartan.
+Det tredje alternativet är att program mässigt ange språket och den regionala vyn för kartan med hjälp av Maps- `setStyle` metoden. Detta kan göras när som helst för att ändra språket och den regionala vyn för kartan.
 
 ```Java
 mapControl.onReady(map -> {

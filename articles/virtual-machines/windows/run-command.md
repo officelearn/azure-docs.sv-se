@@ -8,18 +8,18 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: f4e318281da5cd704d9fbf13c96cbec0a2d1b1b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c6fbe66d8fbbb92c7fb668cc565da8446d97ab0a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143780"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653607"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med hjälp av kommandot kör
 
 Funktionen Kör kommando använder agenten för virtuella datorer (VM) för att köra PowerShell-skript i en virtuell Azure Windows-dator. Du kan använda dessa skript för allmän hantering av datorer eller program. De kan hjälpa dig att snabbt diagnostisera och åtgärda åtkomst till virtuella datorer och nätverks problem och återställa den virtuella datorn till ett lyckat tillstånd.
 
- 
+
 
 ## <a name="benefits"></a>Fördelar
 
@@ -41,11 +41,11 @@ Följande begränsningar gäller när du använder Kör kommando:
 * Utgående anslutningar från den virtuella datorn krävs för att returnera resultatet av skriptet.
 
 > [!NOTE]
-> För att funktionen ska fungera korrekt måste körnings kommandot ansluta (port 443) till offentliga Azure-IP-adresser. Om tillägget inte har åtkomst till dessa slut punkter kan skripten köras utan problem, men inga resultat returneras. Om du blockerar trafik på den virtuella datorn kan du använda [service märken](../../virtual-network/security-overview.md#service-tags) för att tillåta trafik till offentliga Azure-IP-adresser med hjälp `AzureCloud` av taggen.
+> För att funktionen ska fungera korrekt måste körnings kommandot ansluta (port 443) till offentliga Azure-IP-adresser. Om tillägget inte har åtkomst till dessa slut punkter kan skripten köras utan problem, men inga resultat returneras. Om du blockerar trafik på den virtuella datorn kan du använda [service märken](../../virtual-network/security-overview.md#service-tags) för att tillåta trafik till offentliga Azure-IP-adresser med hjälp av `AzureCloud` taggen.
 
 ## <a name="available-commands"></a>Tillgängliga kommandon
 
-Den här tabellen visar en lista över kommandon som är tillgängliga för virtuella Windows-datorer. Du kan använda kommandot **RunPowerShellScript** för att köra anpassade skript som du vill ha. När du använder Azure CLI eller PowerShell för att köra ett kommando måste värdet som du anger för parametern `--command-id` eller `-CommandId` vara något av följande värden i listan. När du anger ett värde som inte är ett tillgängligt kommando visas följande fel meddelande:
+Den här tabellen visar en lista över kommandon som är tillgängliga för virtuella Windows-datorer. Du kan använda kommandot **RunPowerShellScript** för att köra anpassade skript som du vill ha. När du använder Azure CLI eller PowerShell för att köra ett kommando måste värdet som du anger för `--command-id` `-CommandId` parametern eller vara något av följande värden i listan. När du anger ett värde som inte är ett tillgängligt kommando visas följande fel meddelande:
 
 ```error
 The entity was not found in this Azure location
@@ -102,9 +102,9 @@ Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' 
 
 ## <a name="limiting-access-to-run-command"></a>Begränsa åtkomst till Kör kommando
 
-Att Visa körnings kommandon eller Visa information om ett kommando kräver `Microsoft.Compute/locations/runCommands/read` behörighet på prenumerations nivå. Den inbyggda [läsar](../../role-based-access-control/built-in-roles.md#reader) rollen och högre nivåer har den här behörigheten.
+Det krävs behörighet för att Visa körnings kommandon eller Visa information om ett kommando `Microsoft.Compute/locations/runCommands/read` . Den inbyggda [läsar](../../role-based-access-control/built-in-roles.md#reader) rollen och högre nivåer har den här behörigheten.
 
-För att köra ett kommando `Microsoft.Compute/virtualMachines/runCommand/action` krävs behörighet på prenumerations nivå. Rollen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) och högre nivåer har den här behörigheten.
+Du måste ha behörighet för att köra ett kommando `Microsoft.Compute/virtualMachines/runCommand/action` . Rollen [virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) och högre nivåer har den här behörigheten.
 
 Du kan använda en av de [inbyggda rollerna](../../role-based-access-control/built-in-roles.md) eller skapa en [anpassad roll](../../role-based-access-control/custom-roles.md) för att använda kör-kommandot.
 

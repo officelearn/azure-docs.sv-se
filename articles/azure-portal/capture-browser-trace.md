@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 01/09/2020
+ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 2b506c9d15dafcd23b24207fe15ed0532939209f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f09477eb174792d6348a6b9761a4f9e5467ec44
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76310704"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649499"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Samla in en webbläsarspårning för felsökning
 
@@ -30,7 +30,7 @@ Google Chrome och Microsoft Edge (krom) är båda baserade på [projektet krom �
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Tryck på F12 eller ![Välj skärm bild av ikonen](media/capture-browser-trace/chromium-icon-settings.png) > för webb läsar inställningar**fler verktyg** > **utvecklarverktyg**.
+1. Tryck på F12 eller Välj ![ skärm bild av ikonen för webb läsar inställningar ](media/capture-browser-trace/chromium-icon-settings.png)  >  **fler verktyg**  >  **utvecklarverktyg**.
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
@@ -58,9 +58,9 @@ Google Chrome och Microsoft Edge (krom) är båda baserade på [projektet krom �
 
     ![Skärm bild av "export har"](media/capture-browser-trace/chromium-network-export-har.png)
 
-1. Stoppa steg registrering och spara filen.
+1. Stoppa steg inspelaren och spara inspelningen.
 
-1. Klicka på fliken **konsol** i fönstret verktyg för utvecklare av webbläsare. Högerklicka och välj sedan **Spara som...** och spara konsolens utdata till en textfil.
+1. Klicka på fliken **konsol** i fönstret verktyg för utvecklare av webbläsare. Högerklicka på ett av meddelandena och välj sedan **Spara som...** och spara konsolens utdata till en textfil.
 
     ![Skärm bild av konsolens utdata](media/capture-browser-trace/chromium-console-select.png)
 
@@ -76,7 +76,7 @@ Följande steg visar hur du använder utvecklarverktyg i Microsoft Edge (EdgeHTM
 
 1. I portalen navigerar du till steget precis innan problemet uppstår.
 
-1. Tryck på F12 eller ![Välj skärm bild av ikonen](media/capture-browser-trace/edge-icon-settings.png) > för webb läsar inställningar**fler verktyg** > **utvecklarverktyg**.
+1. Tryck på F12 eller Välj ![ skärm bild av ikonen för webb läsar inställningar ](media/capture-browser-trace/edge-icon-settings.png)  >  **fler verktyg**  >  **utvecklarverktyg**.
 
 1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
 
@@ -104,7 +104,7 @@ Följande steg visar hur du använder utvecklarverktyg i Microsoft Edge (EdgeHTM
 
     ![Skärm bild av "Exportera som har"](media/capture-browser-trace/edge-network-export-har.png)
 
-1. Stoppa steg registrering och spara filen.
+1. Stoppa steg inspelaren och spara inspelningen.
 
 1. Gå tillbaka i fönstret med webbläsarens utvecklarverktyg, Välj fliken **konsol** och expandera fönstret. Placera markören i början av konsolens utdata och dra och välj hela innehållet i utdata. Högerklicka på och välj sedan **Kopiera**, och spara konsolens utdata till en textfil.
 
@@ -158,11 +158,53 @@ Följande steg visar hur du använder utvecklarverktyg i Apple Safari. Mer infor
 
     ![Skärm bild av "export"](media/capture-browser-trace/safari-network-export-har.png)
 
-1. Stoppa skärm inspelaren och spara filen.
+1. Stoppa skärm inspelaren och spara inspelningen.
 
 1. Gå tillbaka i fönstret med webbläsarens utvecklarverktyg, Välj fliken **konsol** och expandera fönstret. Placera markören i början av konsolens utdata och dra och välj hela innehållet i utdata. Använd kommando-C för att kopiera utdata och spara dem i en textfil.
 
     ![Skärm bild av konsolens utdata](media/capture-browser-trace/safari-console-select.png)
+
+1. Paketera filen, konsolens utdata och skärm inspelningen i ett komprimerat format som. zip och dela med Microsoft support.
+
+## <a name="firefox"></a>Firefox
+
+Följande steg visar hur du använder utvecklarverktyg i Firefox. Mer information finns i [Firefox utvecklarverktyg](https://developer.mozilla.org/docs/Tools).
+
+1. Logga in på [Azure-portalen](https://portal.azure.com). Det är viktigt att logga in _innan_ du börjar spåra så att spårningen inte innehåller känslig information som rör din inloggning. 
+
+1. Börja spela in de steg du tar i portalen. Använd [steg registrering](https://support.microsoft.com/help/22878/windows-10-record-steps) i Windows eller se [hur du registrerar skärmen på din Mac](https://support.apple.com/HT208721).
+
+1. I portalen navigerar du till steget precis innan problemet uppstår.
+
+1. Tryck på F12 eller Välj ![ skärm bild av webb läsar Inställningar ikon för ](media/capture-browser-trace/firefox-icon-settings.png)  >  **webbutvecklare**  >  **Växla verktyg**.
+
+1. Som standard sparas endast spårnings information för den sida som för tillfället är inläst. Ange följande alternativ så att webbläsaren behåller all spårnings information, även om din återskapnings kräver mer än en sida:
+
+    1. Välj fliken **nätverk** och välj sedan **Spara loggar**.
+
+          ![Skärm bild av "beständiga loggar"](media/capture-browser-trace/firefox-network-persist-logs.png)
+
+    1. Välj konsol **Inställningar**på fliken **konsol** och välj sedan **Spara loggar**.
+
+          ![Skärm bild av "beständiga loggar"](media/capture-browser-trace/firefox-console-persist-logs.png)
+
+1. Välj fliken **nätverk** och välj sedan **Rensa**.
+
+    ![Skärm bild av "Rensa"](media/capture-browser-trace/firefox-clear-session.png)
+
+1. Återskapa problemet i portalen. Du kommer att se sessionens utdata som liknar följande bild.
+
+    ![Skärm bild av webb läsar spårnings resultat](media/capture-browser-trace/firefox-browser-trace-results.png)
+
+1. När du har genererat om det oväntade Portal beteendet väljer du har **export/import** och sedan **Spara alla som**har.
+
+    ![Skärm bild av "export har"](media/capture-browser-trace/firefox-network-export-har.png)
+
+1. Stoppa steg registrering på Windows eller skärm inspelningen på Mac och spara inspelningen.
+
+1. Klicka på fliken **konsol** i fönstret verktyg för utvecklare av webbläsare. Högerklicka på ett av meddelandena och välj sedan **Exportera synligt meddelande till**och spara konsolens utdata till en textfil.
+
+    ![Skärm bild av konsolens utdata](media/capture-browser-trace/firefox-console-select.png)
 
 1. Paketera filen, konsolens utdata och skärm inspelningen i ett komprimerat format som. zip och dela med Microsoft support.
 

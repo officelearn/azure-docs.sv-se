@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
-ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf63d5c8cb46fd791508af40dcefd7b39d4ba9de
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77581845"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652029"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Använda Jupyter-anteckningsböcker för att efter säkerhetshot
 
@@ -60,9 +60,9 @@ Du kan köra en bärbar dator direkt från Azure Sentinel eller klona alla Azure
 
 ## <a name="run-a-notebook-from-azure-sentinel"></a>Köra en bärbar dator från Azure Sentinel
  
-1. Från Azure Portal navigerar du till**antecknings böcker**för **Azure Sentinel** > **Threat Management** > , där du kan se antecknings böcker som Azure Sentinel tillhandahåller. 
+1. Från Azure Portal navigerar du till **Azure Sentinel**  >  **Threat management**  >  **antecknings böcker**för Azure Sentinel Threat Management, där du kan se antecknings böcker som Azure Sentinel tillhandahåller. 
 
-2. Välj enskilda antecknings böcker för att läsa beskrivningar, nödvändiga data typer och data källor. Ett exempel:
+2. Välj enskilda antecknings böcker för att läsa beskrivningar, nödvändiga data typer och data källor. Till exempel:
     
     > [!div class="mx-imgBorder"]
     > ![Starta Notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
@@ -73,7 +73,7 @@ Du kan köra en bärbar dator direkt från Azure Sentinel eller klona alla Azure
 
 Den här proceduren skapar ett Azure Notebooks-projekt åt dig, som innehåller Azure Sentinel-anteckningsböcker. Du kan sedan köra antecknings böckerna som de är eller ändra dem och sedan köra dem.
 
-1. Från Azure Portal navigerar du till**antecknings böcker** för **Azure Sentinel** > **Threat Management** > och väljer sedan **klona antecknings böcker** från kommando fältet:
+1. Från Azure Portal navigerar du till **Azure Sentinel**  >  **Threat management**  >  **antecknings böcker** för Azure Sentinel Threat Management och väljer sedan **klona antecknings böcker** från kommando fältet:
   
     > [!div class="mx-imgBorder"]
     >![Alternativet klona antecknings böcker](./media/notebooks/sentinel-azure-clone-notebooks.png)
@@ -86,7 +86,7 @@ Den här proceduren skapar ett Azure Notebooks-projekt åt dig, som innehåller 
 
    ![Importera antecknings bok](./media/notebooks/sentinel-create-project.png)
 
-4. Öppna det projekt som du nyss skapade och öppna sedan mappen **antecknings böcker** för att se antecknings böckerna. Ett exempel:
+4. Öppna det projekt som du nyss skapade och öppna sedan mappen **antecknings böcker** för att se antecknings böckerna. Till exempel:
 
    ![Importera lagrings platsen](./media/notebooks/sentinel-open-notebook1.png)
 
@@ -115,17 +115,17 @@ Varje antecknings bok vägleder dig genom stegen för att genomföra en jakt ell
 
 3. Välj en antecknings bok för att öppna den.
     
-    Första gången du öppnar en antecknings bok kan du uppmanas att välja en kernel-version. Om du inte uppmanas kan du välja kernel-versionen från **kernel** >  **change kernel**och sedan välja en version som är minst 3,6. Den valda kernel-versionen visas längst upp till höger i anteckningsbok-fönstret:
+    Första gången du öppnar en antecknings bok kan du uppmanas att välja en kernel-version. Om du inte uppmanas kan du välja kernel-versionen från **kernel**  >   **change kernel**och sedan välja en version som är minst 3,6. Den valda kernel-versionen visas längst upp till höger i anteckningsbok-fönstret:
     
    ![Välj antecknings bok](./media/notebooks/sentinel-select-kernel.png)
 
-4. Innan du gör några ändringar i den antecknings bok som du har hämtat är det en bra idé att göra en kopia av den ursprungliga antecknings boken och arbeta på kopian. Det gör du genom att välja **Arkiv** > **gör en kopia**. När du arbetar med kopior kan du på ett säkert sätt uppdatera framtida versioner av antecknings böcker utan att skriva över någon av dina data.
+4. Innan du gör några ändringar i den antecknings bok som du har hämtat är det en bra idé att göra en kopia av den ursprungliga antecknings boken och arbeta på kopian. Det gör du genom att välja **Arkiv**  >  **gör en kopia**. När du arbetar med kopior kan du på ett säkert sätt uppdatera framtida versioner av antecknings böcker utan att skriva över någon av dina data.
     
     Du är nu redo att köra eller redigera den valda antecknings boken.
 
 Rekommenderade
 
-- En snabb introduktion till att fråga data i Azure Sentinel finns i antecknings boken för [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) i mappen med huvud **antecknings böcker** . 
+- En snabb introduktion till att fråga data i Azure Sentinel finns i antecknings boken för [GetStarted](https://github.com/Azure/Azure-Sentinel-Notebooks/blob/345cf9f7c8f6137f5af4593a3f9d7568acd6cbc2/DeprecatedNotebooks/Get%20Started.ipynb) i mappen med huvud **antecknings böcker** . 
 
 - Du hittar fler exempel på antecknings böcker i undermappen **exempel – Notebooks** . De här exempel antecknings böckerna har sparats med data så att det blir enklare att se avsedda utdata. Vi rekommenderar att du visar dessa antecknings böcker i [nbviewer](https://nbviewer.jupyter.org/). 
 

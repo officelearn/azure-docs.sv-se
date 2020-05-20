@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8551e17ddd71e76aca0c85b9768f564ae0e5f049
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1a45dc39f5a0795684aba278391e04f6af3f7b55
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681849"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659684"
 ---
 # <a name="materials"></a>Material
 
@@ -35,9 +35,13 @@ Azure fjärrrendering har två distinkta material typer:
 
 När du ändrar ett material direkt på nätresursen påverkar den här ändringen alla instanser av det nätet. Om du ändrar den på MeshComponent, påverkar det dock endast den en nät instans. Vilken metod som passar bäst beror på det önskade beteendet, men att ändra en MeshComponent är den vanligaste metoden.
 
+## <a name="material-de-duplication"></a>Material avduplicering
+
+Under konverteringen är flera material med samma egenskaper och strukturer automatiskt deduplicerade till ett enda material. Du kan inaktivera den här funktionen i [konverterings inställningarna](../how-tos/conversion/configure-model-conversion.md), men vi rekommenderar att du lämnar den för bästa prestanda.
+
 ## <a name="material-classes"></a>Material klasser
 
-Allt material som tillhandahålls av API: et härleds från Bask `Material`Lassen. Deras typ kan frågas genom `Material.MaterialSubType` eller genom att data skickas direkt:
+Allt material som tillhandahålls av API: et härleds från Bask Lassen `Material` . Deras typ kan frågas genom `Material.MaterialSubType` eller genom att data skickas direkt:
 
 ``` cs
 void SetMaterialColorToGreen(Material material)

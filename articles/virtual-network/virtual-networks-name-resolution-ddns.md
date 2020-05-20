@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2017
 ms.author: subsarma
-ms.openlocfilehash: c2ef842fd62ef060f06536d66387c3facd0627b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79efe3cef82a166ca6b56dea5cb07f15a5325083
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "60640386"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650320"
 ---
 # <a name="use-dynamic-dns-to-register-hostnames-in-your-own-dns-server"></a>Använd dynamisk DNS för att registrera värdnamn i DNS-servern
 
@@ -33,9 +33,9 @@ Icke-domänanslutna Windows-klienter försöker med oskyddade DDNS-uppdateringar
 Domänanslutna Windows-klienter registrerar sina IP-adresser med domänkontrollanten med hjälp av säker DDNS. Processen för domän anslutning anger det primära DNS-suffixet på klienten och skapar och underhåller förtroende relationen.
 
 ## <a name="linux-clients"></a>Linux-klienter
-Linux-klienter registrerar vanligt vis inte sig själva med DNS-servern vid start, de antar att DHCP-servern gör det. Azures DHCP-servrar har inte de autentiseringsuppgifter som krävs för att registrera poster på din DNS-server. Du kan använda ett verktyg som `nsupdate`kallas, som ingår i bind-paketet, för att skicka DDNS-uppdateringar. Eftersom DDNS-protokollet är standardiserat kan du använda `nsupdate` även när du inte använder Bind på DNS-servern.
+Linux-klienter registrerar vanligt vis inte sig själva med DNS-servern vid start, de antar att DHCP-servern gör det. Azures DHCP-servrar har inte de autentiseringsuppgifter som krävs för att registrera poster på din DNS-server. Du kan använda ett verktyg `nsupdate` som kallas, som ingår i bind-paketet, för att skicka DDNS-uppdateringar. Eftersom DDNS-protokollet är standardiserat kan du använda `nsupdate` även när du inte använder Bind på DNS-servern.
 
-Du kan använda hookarna som tillhandahålls av DHCP-klienten för att skapa och underhålla hostname-posten på DNS-servern. Under DHCP-cykeln kör klienten skripten i */etc/DHCP/dhclient-Exit-hooks.d/*. Du kan använda hookarna för att registrera den nya IP-adressen `nsupdate`med hjälp av. Ett exempel:
+Du kan använda hookarna som tillhandahålls av DHCP-klienten för att skapa och underhålla hostname-posten på DNS-servern. Under DHCP-cykeln kör klienten skripten i */etc/DHCP/dhclient-Exit-hooks.d/*. Du kan använda hookarna för att registrera den nya IP-adressen med hjälp av `nsupdate` . Till exempel:
 
 ```bash
 #!/bin/sh
@@ -61,9 +61,9 @@ then
 fi
 ```
 
-Du kan också använda `nsupdate` kommandot för att utföra säkra DDNS-uppdateringar. När du använder en DNS-server för bind [skapas](http://linux.yyz.us/nsupdate/)till exempel ett offentligt privat privat nyckel par. DNS-servern [konfigureras](http://linux.yyz.us/dns/ddns-server.html) med den offentliga delen av nyckeln, så att den kan verifiera signaturen på begäran. Om du vill ange nyckel paret `nsupdate`för använder du `-k` alternativet för att DDNS ska signeras.
+Du kan också använda `nsupdate` kommandot för att utföra säkra DDNS-uppdateringar. Om du till exempel använder en DNS-server för bindning genereras ett offentligt-privat nyckel par ( `http://linux.yyz.us/nsupdate/` ). DNS-servern är konfigurerad ( `http://linux.yyz.us/dns/ddns-server.html` ) med den offentliga delen av nyckeln, så att den kan verifiera signaturen på begäran. Om du vill ange nyckel paret för `nsupdate` använder du `-k` alternativet för att DDNS ska signeras.
 
-När du använder en Windows DNS-server kan du använda Kerberos-autentisering med `-g` parametern i `nsupdate`, men den är inte tillgänglig i Windows-versionen av. `nsupdate` Använd `kinit` för att läsa in autentiseringsuppgifterna för att använda Kerberos. Du kan till exempel läsa in autentiseringsuppgifter från en [keytab-fil](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)och sedan `nsupdate -g` hämta autentiseringsuppgifterna från cachen.
+När du använder en Windows DNS-server kan du använda Kerberos-autentisering med `-g` parametern i `nsupdate` , men den är inte tillgänglig i Windows-versionen av `nsupdate` . Använd `kinit` för att läsa in autentiseringsuppgifterna för att använda Kerberos. Du kan till exempel läsa in autentiseringsuppgifter från en [keytab-fil](https://www.itadmintools.com/2011/07/creating-kerberos-keytab-files.html)och sedan hämta `nsupdate -g` autentiseringsuppgifterna från cachen.
 
 Om det behövs kan du lägga till ett DNS-söksuffix till dina virtuella datorer. DNS-suffixet anges i */etc/resolv.conf* -filen. De flesta Linux-distributioner hanterar automatiskt innehållet i den här filen, så vanligt vis kan du inte redigera den. Du kan dock åsidosätta suffixet med hjälp av DHCP-klientens `supersede` kommando. Om du vill åsidosätta suffixet lägger du till följande rad i */etc/DHCP/dhclient.conf* -filen:
 

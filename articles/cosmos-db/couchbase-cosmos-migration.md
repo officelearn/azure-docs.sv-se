@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
-ms.openlocfilehash: 9713d963978e34ad874dc032676a6e1f14e4657c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 248860ad6963fcd04526f0d94e52d6a6181463c5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77210949"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657340"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrera från CouchBase till Azure Cosmos DB SQL API
 
@@ -186,7 +186,7 @@ N1QL-frågor är ett sätt att definiera frågor i Couchbase.
 
 |N1QL-fråga | Azure CosmosDB-fråga|
 |-------------------|-------------------|
-|Välj META (`TravelDocument`). ID som ID, `TravelDocument`. * från `TravelDocument` WHERE `_type` = "com. xx. xx. xx. xxx. xxx. xxxx" och Country = "Indien" och alla m i viseringar uppfyller m. type = = ' Multi-Entry ' och m. Country i [' Indien ', Bhutan '] order by ` Validity` DESC Limit 25 offset 0   | Välj c. ID, c från c JOIN m i c. Country = "Indien" där c. _type = "com. xx. xx. xx. xxx. xxx. xxxx" och c. Country = "Indien" och m. type = ' Multi-Entry ' och m. Country i (' Indien ', ' Bhutan ') ORDER BY c. giltighets DESC förskjutning 0 LIMIT 25 |
+|Välj META ( `TravelDocument` ). ID som ID, `TravelDocument` . * från `TravelDocument` WHERE `_type` = "com. xx. xx. xx. xxx. xxx. xxxx" och Country = "Indien" och alla m i viseringar uppfyller m. type = = ' Multi-Entry ' och m. Country i [' Indien ', Bhutan '] order by ` Validity` DESC Limit 25 offset 0   | Välj c. ID, c från c JOIN m i c. Country = "Indien" där c. _type = "com. xx. xx. xx. xxx. xxx. xxxx" och c. Country = "Indien" och m. type = ' Multi-Entry ' och m. Country i (' Indien ', ' Bhutan ') ORDER BY c. giltighets DESC förskjutning 0 LIMIT 25 |
 
 Du kan observera följande ändringar i dina N1QL-frågor:
 
@@ -314,46 +314,30 @@ Det här är en enkel typ av arbets belastning där du kan utföra sökningar i 
     
    ```json
    {
-       "indexingMode": "consistent",
-       "includedPaths": 
-       [
-           {
-            "path": "/*",
-            "indexes": 
-             [
-                {
-                  "kind": "Range",
-                  "dataType": "Number"
-                },
-                {
-                  "kind": "Range",
-                  "dataType": "String"
-                },
-                {
-                   "kind": "Spatial",
-                   "dataType": "Point"
-                }
-             ]
-          }
-       ],
-       "excludedPaths": 
-       [
-         {
-             "path": "/path/to/single/excluded/property/?"
-         },
-         {
-             "path": "/path/to/root/of/multiple/excluded/properties/*"
-         }
-      ]
-   }
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/\"_etag\"/?"
+        }
+    ]
+    }
    ````
 
    Ersätt index principen ovan med följande princip:
 
    ```json
    {
-       "indexingMode": "none"
-   }
+    "indexingMode": "none",
+    "automatic": false,
+    "includedPaths": [],
+    "excludedPaths": []
+    }
    ```
 
 1. Använd följande kodfragment för att skapa objektet anslutning. Anslutnings objekt (som ska placeras i @Bean eller vara statiskt):

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 220e73536a892e798139ca54913e09e097c22432
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c08adca17948aceb54b937526dacebbaa13a0530
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82191948"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655185"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -104,7 +104,7 @@ Exempel baseras på en [ssh-anslutning](./hdinsight-hadoop-linux-use-ssh-unix.md
 
 #### <a name="creating-a-hive-table"></a>Skapa en Hive-tabell
 
-Tre fil platser visas i syfte att illustrera. Använd endast en av `LOCATION` posterna för faktisk körning.
+Tre fil platser visas i syfte att illustrera. Använd endast en av posterna för faktisk körning `LOCATION` .
 
 ```hql
 DROP TABLE myTable;
@@ -138,11 +138,11 @@ Microsoft tillhandahåller följande verktyg för att arbeta med Azure Storage:
 
 * Om du vill identifiera den fullständiga sökvägen till det konfigurerade standard arkivet går du till:
 
-    **HDFS** > -**konfiguration** och ange `fs.defaultFS` i rutan Filter indatamängd.
+    **HDFS**  >  **Konfiguration** och ange `fs.defaultFS` i rutan Filter indatamängd.
 
 * Om du vill kontrol lera om wasb Store har kon figurer ATS som sekundär lagring navigerar du till:
 
-    **HDFS** > -**konfiguration** och ange `blob.core.windows.net` i rutan Filter indatamängd.
+    **HDFS**  >  **Konfiguration** och ange `blob.core.windows.net` i rutan Filter indatamängd.
 
 Information om hur du hämtar sökvägen med Ambari REST API finns i [Hämta standard lagringen](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage).
 
@@ -158,7 +158,7 @@ Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik
 
 ## <a name="use-additional-storage-accounts"></a>Använda ytterligare lagringskonton
 
-När du skapar ett HDInsight-kluster kan du ange ett Azure Storage-konto som du vill koppla det till. Du kan också lägga till ytterligare lagrings konton från samma Azure-prenumeration eller andra Azure-prenumerationer under skapande processen. Eller efter att ett kluster har skapats. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
+När du skapar ett HDInsight-kluster kan du ange ett Azure Storage-konto som du vill koppla det till. Du kan också lägga till ytterligare lagrings konton från samma Azure-prenumeration eller andra Azure-prenumerationer under skapande processen eller efter att ett kluster har skapats. Mer information om hur du lägger till ytterligare lagringskonton finns i [Skapa HDInsight-kluster](hdinsight-hadoop-provision-linux-clusters.md).
 
 > [!WARNING]  
 > Du kan inte använda ett annat lagringskonto på en annan plats än HDInsight-klustret.

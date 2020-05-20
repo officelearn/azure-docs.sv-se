@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
-ms.openlocfilehash: 405ac27fad3c24d3064f11476f452ad00abb9b02
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7656944af16db650ec1fea36f0bdefc81b99922e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80387775"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654620"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Komma igång med granskning av hanterad Azure SQL Database-instans
 
@@ -37,7 +37,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
    1. Navigera till Azure Storage där du vill lagra gransknings loggarna.
 
       > [!IMPORTANT]
-      > Använd ett lagrings konto i samma region som den hanterade instansen för att undvika läsning/skrivningar över flera regioner.
+      > Använd ett lagrings konto i samma region som den hanterade instansen för att undvika läsning/skrivningar över flera regioner. Om ditt lagrings konto ligger bakom en Virtual Network eller en brand vägg kan du se [bevilja åtkomst från ett virtuellt nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
 
    1. I lagrings kontot går du till **Översikt** och klickar på **blobbar**.
 
@@ -106,7 +106,7 @@ I följande avsnitt beskrivs konfigurationen av granskning på din hanterade ins
         GO
         ```
 
-     1. Kör följande T-SQL-instruktion för att skapa en ny server granskning (Välj ditt eget gransknings namn, Använd URL: en för den behållare som du skapade i föregående steg). Om inget `RETENTION_DAYS` värde anges är standardvärdet 0 (obegränsad kvarhållning):
+     1. Kör följande T-SQL-instruktion för att skapa en ny server granskning (Välj ditt eget gransknings namn, Använd URL: en för den behållare som du skapade i föregående steg). Om inget värde anges `RETENTION_DAYS` är standardvärdet 0 (obegränsad kvarhållning):
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
@@ -217,7 +217,7 @@ Om du vill använda gransknings loggar från Händelsehubben måste du konfigure
 
 ### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>Använda och analysera loggar som lagras i Azure Monitor loggar
 
-Om gransknings loggar skrivs till Azure Monitor loggar, är de tillgängliga i arbets ytan Log Analytics där du kan köra avancerade sökningar på gransknings data. Som start punkt navigerar du till arbets ytan Log Analytics och under avsnittet *Allmänt* klickar du på *loggar* och anger en enkel fråga, till `search "SQLSecurityAuditEvents"` exempel: för att Visa gransknings loggarna.  
+Om gransknings loggar skrivs till Azure Monitor loggar, är de tillgängliga i arbets ytan Log Analytics där du kan köra avancerade sökningar på gransknings data. Som start punkt navigerar du till arbets ytan Log Analytics och under avsnittet *Allmänt* klickar du på *loggar* och anger en enkel fråga, till exempel: `search "SQLSecurityAuditEvents"` för att Visa gransknings loggarna.  
 
 Med Azure Monitor loggar får du operativa insikter i real tid med integrerad sökning och anpassade instrument paneler för att enkelt analysera miljon tals poster över alla dina arbets belastningar och servrar. Mer värdefull information om Azure Monitor loggar Sök språk och-kommandon finns i [Sök referens för Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
@@ -234,8 +234,8 @@ XEvent-granskning i hanterade instanser stöder Azure Blob Storage-mål. Fil-och
 
 Viktiga skillnader i `CREATE AUDIT` syntaxen för granskning till Azure Blob Storage är:
 
-- En ny syntax `TO URL` anges och du kan ange URL: en för Azure Blob storage-behållaren där `.xel` filerna placeras.
-- Det finns en `TO EXTERNAL MONITOR` ny syntax för att aktivera jämn hubb och Azure Monitor loggar mål.
+- En ny syntax anges `TO URL` och du kan ange URL: en för Azure Blob storage-behållaren där `.xel` filerna placeras.
+- Det finns en ny syntax `TO EXTERNAL MONITOR` för att aktivera jämn hubb och Azure Monitor loggar mål.
 - Syntaxen `TO FILE` **stöds inte** eftersom SQL Database inte kan komma åt fil resurser i Windows.
 - Avslutnings alternativet **stöds inte**.
 - `queue_delay`av 0 **stöds inte**.

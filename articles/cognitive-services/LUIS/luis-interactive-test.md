@@ -2,13 +2,13 @@
 title: Testa appen i LUIS-portalen
 description: Använd Language Understanding (LUIS) för att kontinuerligt arbeta med ditt program för att förfina det och förbättra dess språk förståelse.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.openlocfilehash: cb4559e6d3582a337cbc32ef986bec5db5940ef9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: 3608bb17b6d1ea8c9095fa54324993a9e40355b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591870"
+ms.locfileid: "83653887"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testa din LUIS-app i LUIS-portalen
 
@@ -44,7 +44,7 @@ Test-uttryck bör inte vara exakt samma som alla exempel-yttranden i appen. Test
 
     ![Interaktiv testning identifierar fel avsikt](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="inspect-score"></a>Granska Poäng
+## <a name="inspect-the-prediction"></a>Inspektera förutsägelsen
 
 Du har granskat informationen om test resultatet i **inspektions** panelen.
 
@@ -52,23 +52,21 @@ Du har granskat informationen om test resultatet i **inspektions** panelen.
 
     ![Klicka på granska om du vill visa mer information om test resultaten](./media/luis-how-to-interactive-test/inspect.png)
 
-1. **Inspektions** panelen visas. Panelen innehåller den översta bedömnings avsikten samt alla identifierade entiteter. Panelen visar resultatet av den valda uttryck.
+1. **Inspektions** panelen visas. Panelen innehåller den översta bedömnings avsikten samt alla identifierade entiteter. Panelen visar förutsägelsen för den valda uttryck.
 
-    ![Panelen innehåller den översta bedömnings avsikten samt alla identifierade entiteter. Panelen visar resultatet av den valda uttryck.](./media/luis-how-to-interactive-test/inspect-panel.png)
+## <a name="add-to-example-utterances"></a>Lägg till i exempel yttranden
 
-## <a name="correct-top-scoring-intent"></a>Korrigera topp i resultat syfte
+Från inspektions panelen kan du lägga till testet uttryck till en avsikt genom att välja **Lägg till till exempel yttranden**.
 
-1. Om den översta bedömnings avsikten är felaktig väljer du knappen **Redigera** .
+## <a name="disable-required-features"></a>Inaktivera nödvändiga funktioner
 
-1.  Välj rätt avsikt för uttryck i list rutan.
+Välj den här växlingen för att se vad förutsägelsen skulle vara om entitetens funktion inte krävdes.
 
-    ![Välj rätt avsikt](./media/luis-how-to-interactive-test/intent-select.png)
+Den här växlingen hjälper dig att avgöra om den tränade appen förutsäger dina entiteter korrekt baserat på de funktioner som krävs. Den tränade appen kan felaktigt förutsäga en enhet som har lärts in baserat på antingen felaktig etikettering av exempel yttranden eller så matchar inte texten som krävs.
 
 ## <a name="view-sentiment-results"></a>Visa sentiment-resultat
 
 Om **sentiment-analysen** har kon figurer ATS på **[publicerings](luis-how-to-publish-app.md#enable-sentiment-analysis)** sidan, inkluderar test resultatet sentiment som finns i uttryck.
-
-![Bild av test fönstret med sentiment-analys](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Korrekt matchat mönsters avsikt
 

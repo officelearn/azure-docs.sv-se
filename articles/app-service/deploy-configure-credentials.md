@@ -5,19 +5,17 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: a9d875e2c3899fa91b9cc41c0ee3b5a93ec5b8c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c6f7c2422e043da6df498fe81da938576687b916
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266083"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649114"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Konfigurera autentiseringsuppgifter för distribution för Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) stöder två typer av autentiseringsuppgifter för [lokal Git-distribution](deploy-local-git.md) och [FTP/S-distribution](deploy-ftp.md). Autentiseringsuppgifterna är inte desamma som dina autentiseringsuppgifter för Azure-prenumerationen.
 
-* **Autentiseringsuppgifter för användar nivå**: en uppsättning autentiseringsuppgifter för hela Azure-kontot. Den kan användas för att distribuera till App Service för alla appar, i alla prenumerationer, som Azure-kontot har behörighet att komma åt. Det är den standard uppsättning som finns i portalens GUI (till exempel **Översikt** och **Egenskaper** för appens [resurs sida](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)). När en användare beviljas åtkomst till appen via rollbaserad Access Control (RBAC) eller behörigheten administratör kan användaren använda sina egna autentiseringsuppgifter på användar nivå tills åtkomsten har återkallats. Dela inte dessa autentiseringsuppgifter med andra Azure-användare.
-
-* **Autentiseringsuppgifter för app-nivå**: en uppsättning autentiseringsuppgifter för varje app. Den kan endast användas för att distribuera till appen. Autentiseringsuppgifterna för varje app genereras automatiskt när appen skapas. De kan inte konfigureras manuellt, men de kan återställas när som helst. För att en användare ska beviljas åtkomst till autentiseringsuppgifter för app-nivå via (RBAC) måste användaren vara deltagare eller högre i appen (inklusive den inbyggda rollen som webbplats deltagare). Läsarna får inte publicera och har inte åtkomst till dessa autentiseringsuppgifter.
+[!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
 ## <a name="configure-user-level-credentials"></a><a name="userscope"></a>Konfigurera autentiseringsuppgifter på användar nivå
 
@@ -25,7 +23,7 @@ Du kan konfigurera dina autentiseringsuppgifter på användar nivå på alla app
 
 ### <a name="in-the-cloud-shell"></a>I Cloud Shell
 
-Om du vill konfigurera distributions användaren i [Cloud Shell](https://shell.azure.com)kör du kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Ersätt \<username> och \<Password> med ett användar namn och lösen ord för distributions användare. 
+Om du vill konfigurera distributions användaren i [Cloud Shell](https://shell.azure.com)kör du kommandot [AZ webapp Deployment User set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) . Ersätt \< username> och \< Password> med ett användar namn och lösen ord för distributions användare. 
 
 - Användar namnet måste vara unikt inom Azure, och för lokala git-push-meddelanden får inte innehålla symbolen @. 
 - Lösen ordet måste innehålla minst åtta tecken, med två av följande tre element: bokstäver, siffror och symboler. 
@@ -34,17 +32,17 @@ Om du vill konfigurera distributions användaren i [Cloud Shell](https://shell.a
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-JSON-utdata visar lösen ordet som `null`. Om du ser felet `'Conflict'. Details: 409` ska du byta användarnamn. Om du ser felet `'Bad Request'. Details: 400` ska du använda ett starkare lösenord. 
+JSON-utdata visar lösen ordet som `null` . Om du ser felet `'Conflict'. Details: 409` ska du byta användarnamn. Om du ser felet `'Bad Request'. Details: 400` ska du använda ett starkare lösenord. 
 
 ### <a name="in-the-portal"></a>I portalen
 
 I Azure Portal måste du ha minst en app innan du kan komma åt sidan autentiseringsuppgifter för distribution. Så här konfigurerar du dina autentiseringsuppgifter på användar nivå:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **app Services** > **\<any_app>**  >  **distributions Center** > **FTP-** > **instrumentpanel**på menyn till vänster.
+1. I [Azure Portal](https://portal.azure.com)väljer du **app Services**  >  ** \< any_app>**  >  **distributions Center**  >  **FTP-**  >  **instrumentpanel**på menyn till vänster.
 
     ![](./media/app-service-deployment-credentials/access-no-git.png)
 
-    Eller, om du redan har konfigurerat Git-distribution väljer du **app Services** > **&lt;any_app>**  >  **distributions Center** > **FTP/autentiseringsuppgifter**.
+    Eller, om du redan har konfigurerat Git-distribution väljer du **app Services**  >  ** &lt; any_app>**  >  **distributions Center**  >  **FTP/autentiseringsuppgifter**.
 
     ![](./media/app-service-deployment-credentials/access-with-git.png)
 
@@ -70,7 +68,7 @@ Eftersom autentiseringsuppgifter på användar nivå är länkade till användar
 ## <a name="get-and-reset-app-level-credentials"></a><a name="appscope"></a>Hämta och Återställ autentiseringsuppgifter på program nivå
 Hämta autentiseringsuppgifter för program nivå:
 
-1. I [Azure Portal](https://portal.azure.com)väljer du **app Services** > **&lt;any_app>**  >  **distributions Center** > **FTP/autentiseringsuppgifter**på menyn till vänster.
+1. I [Azure Portal](https://portal.azure.com)väljer du **app Services**  >  ** &lt; any_app>**  >  **distributions Center**  >  **FTP/autentiseringsuppgifter**på menyn till vänster.
 
 2. Välj **autentiseringsuppgifter för appen**och kopiera sedan användar namnet eller lösen ordet genom att välja **Kopiera** länk.
 

@@ -3,12 +3,12 @@ title: Återställa filer och mappar från virtuell Azure-säkerhetskopiering
 description: I den här artikeln lär du dig hur du återställer filer och mappar från en återställnings punkt för en virtuell Azure-dator.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 0e3061ea8fc26adcf39fe415cd9a662de739543a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c518c080f3789d36d2ca600ade23a0b4b2ab385
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273311"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652107"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhets kopiering av virtuella Azure-datorer
 
@@ -53,11 +53,11 @@ Om du vill återställa filer eller mappar från återställnings punkten går d
 
     ![Genererat lösen ord](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
-7. Från nedladdnings platsen (vanligt vis mappen Hämtade filer) högerklickar du på den körbara filen eller skriptet och kör det med administratörs behörighet. När du uppmanas till det anger du lösen ordet eller klistrar in lösen ordet från minnet och trycker på **RETUR**. När du har angett ett giltigt lösen ord ansluter skriptet till återställnings punkten.
+7. Kontrol lera att [du har rätt dator](#selecting-the-right-machine-to-run-the-script) för att köra skriptet. Om rätt dator är samma dator som du laddade ned skriptet på, kan du fortsätta till nedladdnings avsnittet. Från nedladdnings platsen (vanligt vis mappen *hämtade filer* ) högerklickar du på den körbara filen eller skriptet och kör det med administratörs behörighet. När du uppmanas till det anger du lösen ordet eller klistrar in lösen ordet från minnet och trycker på **RETUR**. När du har angett ett giltigt lösen ord ansluter skriptet till återställnings punkten.
 
     ![Fil återställnings meny](./media/backup-azure-restore-files-from-vm/executable-output.png)
 
-8. För Linux-datorer genereras ett Python-skript. En måste ladda ned skriptet och kopiera det till den relevanta/kompatibla Linux-servern. Du kan behöva ändra behörigheterna för att köra den med ```chmod +x <python file name>```. Kör sedan python-filen med ```./<python file name>```.
+8. För Linux-datorer genereras ett Python-skript. En måste ladda ned skriptet och kopiera det till den relevanta/kompatibla Linux-servern. Du kan behöva ändra behörigheterna för att köra den med ```chmod +x <python file name>``` . Kör sedan python-filen med ```./<python file name>``` .
 
 Se avsnittet [åtkomst krav](#access-requirements) för att kontrol lera att skriptet körs.
 
@@ -65,7 +65,7 @@ Se avsnittet [åtkomst krav](#access-requirements) för att kontrol lera att skr
 
 #### <a name="for-windows"></a>För Windows
 
-När du kör den körbara filen monterar operativ systemet de nya volymerna och tilldelar enhets beteckningar. Du kan använda Utforskaren eller Utforskaren för att bläddra bland enheterna. De enhets beteckningar som tilldelats volymerna får inte ha samma bokstäver som den ursprungliga virtuella datorn. Volym namnet bevaras dock. Om volymen på den ursprungliga virtuella datorn exempelvis var "datadisk (E:`\`)" kan den volymen anslutas på den lokala datorn som "data disk (" valfri bokstav ":`\`). Bläddra igenom alla volymer som anges i skriptets utdata tills du hittar dina filer eller mappar.  
+När du kör den körbara filen monterar operativ systemet de nya volymerna och tilldelar enhets beteckningar. Du kan använda Utforskaren eller Utforskaren för att bläddra bland enheterna. De enhets beteckningar som tilldelats volymerna får inte ha samma bokstäver som den ursprungliga virtuella datorn. Volym namnet bevaras dock. Om volymen på den ursprungliga virtuella datorn exempelvis var "datadisk (E: `\` )" kan den volymen anslutas på den lokala datorn som "data disk (" valfri bokstav ": `\` ). Bläddra igenom alla volymer som anges i skriptets utdata tills du hittar dina filer eller mappar.  
 
    ![Fil återställnings meny](./media/backup-azure-restore-files-from-vm/volumes-attached.png)
 
@@ -84,6 +84,23 @@ När du har identifierat filerna och kopierat dem till en lokal lagrings plats, 
 När diskarna har demonterats visas ett meddelande. Det kan ta några minuter innan anslutningen har uppdaterats så att du kan ta bort diskarna.
 
 I Linux tar operativ systemet inte bort motsvarande monterings Sök vägar automatiskt när anslutningen till återställnings punkten har brutits. Monterings Sök vägarna finns som "föräldralösa" volymer och är synliga, men genererar ett fel när du öppnar/skriver filerna. De kan tas bort manuellt. Skriptet, vid körning, identifierar eventuella sådana volymer som är befintliga från alla tidigare återställnings punkter och rensar dem vid medgivande.
+
+## <a name="selecting-the-right-machine-to-run-the-script"></a>Välja rätt dator för att köra skriptet
+
+Om skriptet har hämtats, är nästa steg att kontrol lera om den dator där du planerar att köra skriptet är rätt dator. Följande är de krav som måste uppfyllas på datorn.
+
+### <a name="original-backed-up-machine-versus-another-machine"></a>Ursprunglig säkerhetskopierad dator jämfört med en annan dator
+
+1. Om den säkerhetskopierade datorn är en stor disk med stor disk – det vill säga antalet diskar är större än 16 diskar eller om varje disk är större än 4 TB **måste skriptet köras på en annan dator** och [kraven](#file-recovery-from-virtual-machine-backups-having-large-disks) måste vara uppfyllda.
+1. Även om den säkerhetskopierade datorn inte är en stor virtuell disk, kan skriptet i [dessa scenarier](#special-configurations) inte köras på samma säkerhetskopierade virtuella dator.
+
+### <a name="os-requirements-on-the-machine"></a>OS-krav på datorn
+
+Datorn där skriptet måste köras måste uppfylla [de här operativ system kraven](#system-requirements).
+
+### <a name="access-requirements-for-the-machine"></a>Åtkomst krav för datorn
+
+Den dator där skriptet måste köras måste uppfylla [dessa åtkomst krav](#access-requirements).
 
 ## <a name="special-configurations"></a>Särskilda konfigurationer
 
@@ -210,15 +227,13 @@ Om du kör skriptet på en dator med begränsad åtkomst kontrollerar du att det
 
 > [!NOTE]
 >
-> - Det nedladdade skript fil namnet kommer att ha **geo-namnet** ifyllt i URL: en. För exampple: det nedladdade skript namnet \'börjar\'\_\'med VMName\'-\'namnet\'_ GUID, som *ContosoVM_wcus_12345678*
-> - URL: en skulle <https://pod01-rec2.wcus.backup.windowsazure.com>vara "
+> - Det nedladdade skript fil namnet kommer att ha **geo-namnet** ifyllt i URL: en. För exampple: det nedladdade skript namnet börjar med \' VMName \' \_ \' \' -namnet _ \' GUID \' , som *ContosoVM_wcus_12345678*
+> - URL: en skulle vara <https://pod01-rec2.wcus.backup.windowsazure.com> "
 >
 
 För Linux kräver skriptet "Open-iSCSI"-och ' lshw '-komponenter för att ansluta till återställnings punkten. Om komponenterna inte finns på den dator där skriptet körs, ställer skriptet efter behörighet att installera komponenterna. Ange medgivande för att installera de nödvändiga komponenterna.
 
 Åtkomst till `download.microsoft.com` krävs för att ladda ned komponenter som används för att skapa en säker kanal mellan den dator där skriptet körs och data i återställnings punkten.
-
-Du kan köra skriptet på vilken dator som helst som har samma (eller kompatibla) operativ system som den säkerhetskopierade virtuella datorn. Se den [kompatibla OS-tabellen](backup-azure-restore-files-from-vm.md#system-requirements) för kompatibla operativ system. Om den skyddade virtuella Azure-datorn använder Windows lagrings utrymmen (för virtuella Windows Azure-datorer) eller LVM/RAID-matriser (för virtuella Linux-datorer) kan du inte köra den körbara filen eller skriptet på samma virtuella dator. Kör i stället den körbara filen eller skriptet på någon annan dator med ett kompatibelt operativ system.
 
 ## <a name="file-recovery-from-virtual-machine-backups-having-large-disks"></a>Fil återställning från säkerhets kopior av virtuella datorer med stora diskar
 

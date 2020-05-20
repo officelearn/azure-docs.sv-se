@@ -7,14 +7,14 @@ manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/29/2020
 ms.author: aschhab
-ms.openlocfilehash: 49748006baf779e6aea4322068ca3bd07a03a0a3
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a5a1e7a7ef73825b4b13d2f36c1c8554fdc2a9b6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209408"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647845"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus geo-haveri beredskap
 
@@ -146,6 +146,43 @@ Du kan bara aktivera Tillgänglighetszoner på nya namn områden med hjälp av A
 
 ![3][]
 
+## <a name="private-endpoints"></a>Privata slut punkter
+Det här avsnittet innehåller ytterligare information om hur du använder geo-haveri beredskap med namn områden som använder privata slut punkter. Information om hur du använder privata slut punkter med Service Bus i allmänhet finns i [integrera Azure Service Bus med Azure Private Link](private-link-service.md).
+
+### <a name="new-pairings"></a>Nya par
+Om du försöker skapa en koppling mellan ett primärt namn område med en privat slut punkt och ett sekundärt namn område utan en privat slut punkt, kommer ihopparningen att Miss pare ras. Länkningen fungerar bara om både primärt och sekundärt namn område har privata slut punkter. Vi rekommenderar att du använder samma konfigurationer på de primära och sekundära namn områdena och i virtuella nätverk där privata slut punkter skapas. 
+
+> [!NOTE]
+> När du försöker koppla det primära namn området till en privat slut punkt och det sekundära namn området, kontrollerar validerings processen endast om det finns en privat slut punkt i det sekundära namn området. Den kontrollerar inte om slut punkten fungerar eller kommer att fungera efter en redundansväxling. Det är ditt ansvar att se till att det sekundära namn området med privat slut punkt fungerar som förväntat efter redundansväxlingen.
+>
+> Om du vill testa att de privata slut punkts konfigurationerna är identiska skickar du en [Get](/rest/api/servicebus/queues/get) Queues-begäran till det sekundära namn området utanför det virtuella nätverket och kontrollerar att du får ett fel meddelande från tjänsten.
+
+### <a name="existing-pairings"></a>Befintliga länkningar
+Om ihopparningen mellan det primära och sekundära namn området redan finns, kommer privat slut punkt att skapas på det primära namn området att Miss pare ras. Lös problemet genom att skapa en privat slut punkt på det sekundära namn området och skapa sedan en för det primära namn området.
+
+> [!NOTE]
+> Vi tillåter skrivskyddad åtkomst till det sekundära namn området, men uppdateringar av konfigurationer för privat slut punkt tillåts. 
+
+### <a name="recommended-configuration"></a>Rekommenderad konfiguration
+När du skapar en haveri beredskaps konfiguration för ditt program och Service Bus måste du skapa privata slut punkter för både primära och sekundära Service Bus namn områden mot virtuella nätverk som är värdar för både primära och sekundära instanser av ditt program.
+
+Anta att du har två virtuella nätverk: VNET-1, VNET-2 och dessa primära och andra namn områden: Service Bus-Namespace1-Primary, Service Bus-Namespace2-Secondary. Du måste utföra följande steg: 
+
+- På Service Bus-Namespace1-Primary skapar du två privata slut punkter som använder undernät från VNET-1 och VNET-2
+- På Service Bus-Namespace2-sekundär skapar du två privata slut punkter som använder samma undernät från VNET-1 och VNET-2 
+
+![Privata slut punkter och virtuella nätverk](./media/service-bus-geo-dr/private-endpoints-virtual-networks.png)
+
+
+Fördelen med den här metoden är att redundansväxlingen kan ske i program lagret, oberoende av Service Bus namn område. Fundera över följande scenarier: 
+
+**Redundans för program:** Här finns programmet inte i VNET-1, men kommer att flyttas till VNET-2. Eftersom både privata slut punkter har kon figurer ATS på både VNET-1 och VNET-2 för både primär och sekundär namnrymd, fungerar programmet bara. 
+
+**Service Bus namnrymd – endast redundans**: här igen eftersom både privata slut punkter har kon figurer ATS på båda virtuella nätverken för både primära och sekundära namn områden, fungerar programmet bara. 
+
+> [!NOTE]
+> Vägledning om geo-haveri beredskap för ett virtuellt nätverk finns i [Virtual Network verksamhets kontinuitet](../virtual-network/virtual-network-disaster-recovery-guidance.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
 - Se [REST API referens](/rest/api/servicebus/disasterrecoveryconfigs)för geo-haveri återställning här.
@@ -155,7 +192,7 @@ Du kan bara aktivera Tillgänglighetszoner på nya namn områden med hjälp av A
 Mer information om Service Bus meddelanden finns i följande artiklar:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 * [REST-API](/rest/api/servicebus/) 
 

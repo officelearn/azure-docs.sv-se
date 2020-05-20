@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/28/2020
 ms.author: juliako
-ms.openlocfilehash: b4849b4fbfdbaece46f5669f4c242e864b1ca533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e072bcb0edc741b7843f470f14c3c37153338efb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769759"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647635"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
->Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` klistra in den här URL: en i din RSS-feed läsare.
+>Bli informerad om när du ska gå tillbaka till den här sidan för uppdateringar genom att kopiera och klistra in den här URL: en `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` i din RSS-feed läsare.
 
 För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
@@ -35,6 +35,10 @@ För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikel
 > Du kan använda [Azure Portal](https://portal.azure.com/) för att hantera v3 [Live-händelser](live-events-outputs-concept.md), Visa v3- [till gångar](assets-concept.md), hämta information om åtkomst till API: er. För alla andra hanterings uppgifter (t. ex. transformationer och jobb) använder du [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref)eller någon av de [SDK](media-services-apis-overview.md#sdks): er som stöds.
 
 Mer information finns i [vägledning för migrering för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="may-2020"></a>Maj 2020
+
+Azure Media Services är nu allmänt tillgänglig i följande regioner: "Tyskland, norra", "Tyskland, västra centrala", "Schweiz, norra" och "Schweiz, västra". Kunder kan distribuera Media Services till dessa regioner med hjälp av Azure Portal.
 
 ## <a name="april-2020"></a>April 2020
 
@@ -250,25 +254,25 @@ Modulen CLI 2,0 är nu tillgänglig för [Azure Media Services v3 ga](https://do
 #### <a name="job-commands"></a>Jobb kommandon
 
 - ```--correlation-data```och ```--label``` tillagda argument
-- ```--output-asset-names```har bytt namn till ```--output-assets```. Nu accepterar den en blankstegsavgränsad lista med till gångar i formatet "assetName = Label". En till gång utan etikett kan skickas så här: "assetName =".
+- ```--output-asset-names```har bytt namn till ```--output-assets``` . Nu accepterar den en blankstegsavgränsad lista med till gångar i formatet "assetName = Label". En till gång utan etikett kan skickas så här: "assetName =".
 
 #### <a name="streaming-locator-commands"></a>Kommandon för streaming Locator
 
-- ```az ams streaming locator```kommandot Base ersattes ```az ams streaming-locator```med.
+- ```az ams streaming locator```kommandot Base ersattes med ```az ams streaming-locator``` .
 - ```--streaming-locator-id```och ```--alternative-media-id support``` argument har lagts till.
 - ```--content-keys argument```argumentet har uppdaterats.
-- ```--content-policy-name```har bytt namn till ```--content-key-policy-name```.
+- ```--content-policy-name```har bytt namn till ```--content-key-policy-name``` .
 
 #### <a name="streaming-policy-commands"></a>Kommandon för direkt uppspelnings princip
 
-- ```az ams streaming policy```kommandot Base ersattes ```az ams streaming-policy```med.
+- ```az ams streaming policy```kommandot Base ersattes med ```az ams streaming-policy``` .
 - Krypterings parameter stöd ```az ams streaming-policy create``` har lagts till.
 
 #### <a name="transform-commands"></a>Omvandlings kommandon
 
-- ```--preset-names```argumentet ersatt med ```--preset```. Nu kan du bara ange 1 utdata/för inställning i taget (för att lägga till fler du behöver ```az ams transform output add```köra). Du kan också ange anpassade StandardEncoderPreset genom att skicka sökvägen till din anpassade JSON.
+- ```--preset-names```argumentet ersatt med ```--preset``` . Nu kan du bara ange 1 utdata/för inställning i taget (för att lägga till fler du behöver köra ```az ams transform output add``` ). Du kan också ange anpassade StandardEncoderPreset genom att skicka sökvägen till din anpassade JSON.
 - ```az ams transform output remove```kan utföras genom att skicka det utgående index som ska tas bort.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argument har lagts ```az ams transform create``` till ```az ams transform output add``` i och-kommandon.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argument har lagts till i ```az ams transform create``` och- ```az ams transform output add``` kommandon.
 
 ## <a name="october-2018---ga"></a>Oktober 2018 – GA
 

@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: SQL Java API, SDK & resurser'
 description: Lär dig allt om SQL Java API och SDK, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version av Azure Cosmos DB SQL Java SDK.
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 02/21/2020
-ms.author: sngun
-ms.openlocfilehash: e57029e53365fbf99054e2d926296ccca3360663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 61016597310e6bb160999981216190e8caa34fc8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983610"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656744"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -21,8 +21,9 @@ ms.locfileid: "80983610"
 > * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
+> * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -30,7 +31,11 @@ ms.locfileid: "80983610"
 > * [Mass utförar – .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Mass utförar – Java](sql-api-sdk-bulk-executor-java.md)
 
-SQL API Java SDK stöder synkrona åtgärder. För asynkron support använder du [asynkron Java SDK för SQL API](sql-api-sdk-async-java.md). 
+Det här är den ursprungliga Azure Cosmos DB synkronisera Java SDK v2 för SQL API som stöder synkrona åtgärder.
+
+> [!IMPORTANT]  
+> Detta är *inte* den senaste Java SDK: n för Azure Cosmos DB! Överväg att använda [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) för ditt projekt. Om du vill uppgradera följer du anvisningarna i guiden [migrera till Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) och [reaktor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) . 
+>
 
 | |  |
 |---|---|
@@ -69,7 +74,7 @@ SQL API Java SDK stöder synkrona åtgärder. För asynkron support använder du
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
 * Separat timeout-stöd har lagts till för direkt läge.
 
-### <a name="223"></a><a name="2.2.3"/>2.2.3
+### <a name="223"></a><a name="2.2.3"/>punkt
 * Använder null-felmeddelande från tjänst och genererar dokument klient undantag.
 
 ### <a name="222"></a><a name="2.2.2"/>2.2.2
@@ -86,7 +91,7 @@ SQL API Java SDK stöder synkrona åtgärder. För asynkron support använder du
 * Åtgärdat fel i global slut punkts hanterare för att framtvinga uppdatering.
 * Fast bugg för upsertar med för-villkor i direkt läge.
 
-### <a name="211"></a><a name="2.1.1"/>punkt
+### <a name="211"></a><a name="2.1.1"/>2.1.1
 * Fast bugg i Gateway-diskcachen.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
@@ -233,7 +238,7 @@ SQL API Java SDK stöder synkrona åtgärder. För asynkron support använder du
 
 ### <a name="120"></a><a name="1.2.0"/>1.2.0
 * Har stöd för GeoSpatialt index
-* Verifierar ID-egenskapen för alla resurser. ID: n för resurser får inte innehålla?,/ \, , #, tecken eller slutar med ett blank steg.
+* Verifierar ID-egenskapen för alla resurser. ID: n för resurser får inte innehålla?,/, #, \, tecken eller slutar med ett blank steg.
 * Lägger till det nya huvudet "indexera omvandlings förlopp" i ResourceResponse.
 
 ### <a name="110"></a><a name="1.1.0"/>1.1.0
@@ -271,12 +276,12 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | [2.4.1](#2.4.1) |Jul 18, 2019 |--- |
 | [2.4.0](#2.4.0) |Den 04 maj 2019 |--- |
 | [2.3.0](#2.3.0) |24 april 2019 |--- |
-| [2.2.3](#2.2.3) |16 april 2019 |--- |
+| [punkt](#2.2.3) |16 april 2019 |--- |
 | [2.2.2](#2.2.2) |Apr 05, 2019 |--- |
 | [2.2.0](#2.2.0) |Mar 27, 2019 |--- |
 | [2.1.3](#2.1.3) |Mar 13, 2019 |--- |
 | [2.1.2](#2.1.2) |Mar 09, 2019 |--- |
-| [punkt](#2.1.1) |Dec 13, 2018 |--- |
+| [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
 | [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
 | [2.0.0](#2.0.0) |21 september 2018 |--- |
 | [1.16.4](#1.16.4) |10 september 2018 |30 maj 2020 |
@@ -317,7 +322,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | 0.9.1 till och – för-leasing |19 december 2014 |29 februari 2016 |
 | 0.9.0 – för-leasing |10 december 2014 |29 februari 2016 |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

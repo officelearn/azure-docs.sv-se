@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f0b0c0a7b666aed56ad24625c80c0a57683b998
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2547a0fdbfbcc143ff822de333b41198f469375c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683260"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649320"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Lägg till och hantera grupper i administrativa enheter i Azure Active Directory
 
@@ -75,7 +75,7 @@ Exempel:
 
 Gå till **Azure AD > administrativa enheter** i portalen. Välj den administrativa enhet som du vill visa användarna för. Som standard väljs **alla användare** redan i den vänstra panelen. Välj **alla grupper** och till höger hittar du en lista över grupper som är medlemmar i den valda administrativa enheten.
 
-![Välj en administrativ enhet att ta bort](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+![Lista grupper i en administrativ enhet](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### <a name="powershell"></a>PowerShell
 
@@ -121,11 +121,11 @@ I Azure AD-portalen kan du öppna en grupps information genom att öppna **grupp
 
 Det finns två sätt att ta bort en grupp från en administrativ enhet i Azure Portal.
 
-Öppna **Azure AD** > -**grupper** och öppna profilen för gruppen som du vill ta bort från den administrativa enheten. Välj **administrativa enheter** i den vänstra panelen för att visa en lista över de administrativa enheter där gruppen är medlem. Välj den administrativa enhet som du vill ta bort gruppen från och välj sedan **ta bort från administrativ enhet**.
+Öppna **Azure AD**-  >  **grupper** och öppna profilen för gruppen som du vill ta bort från den administrativa enheten. Välj **administrativa enheter** i den vänstra panelen för att visa en lista över de administrativa enheter där gruppen är medlem. Välj den administrativa enhet som du vill ta bort gruppen från och välj sedan **ta bort från administrativ enhet**.
 
 ![Ta bort en grupp från en administrativ enhet](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
 
-Du kan också gå till**administrativa enheter** i **Azure AD** > och välja den administrativa enhet där gruppen är medlem. Välj **grupper** i den vänstra panelen för att Visa medlems grupperna. Välj den grupp som ska tas bort från den administrativa enheten och välj sedan **ta bort grupper**.
+Du kan också gå till administrativa enheter i **Azure AD**  >  **Administrative units** och välja den administrativa enhet där gruppen är medlem. Välj **grupper** i den vänstra panelen för att Visa medlems grupperna. Välj den grupp som ska tas bort från den administrativa enheten och välj sedan **ta bort grupper**.
 
 ![Lista grupper i en administrativ enhet](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 

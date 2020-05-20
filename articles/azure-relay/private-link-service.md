@@ -4,15 +4,15 @@ description: Lär dig hur du integrerar Azure Relay med Azure Private Link servi
 services: service-bus-relay
 author: spelluru
 ms.author: spelluru
-ms.date: 05/07/2020
+ms.date: 05/13/2020
 ms.service: service-bus-relay
 ms.topic: article
-ms.openlocfilehash: ad57ea4ddeab2fb2af0da68d199445d9737a67cd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3c2426b65e16d8d6bcdd9733280c8f97f4aa79d6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210625"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657535"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integrera Azure Relay med en privat Azure-länk (förhands granskning)
 Azure **Private Link service** ger dig åtkomst till Azure-tjänster (till exempel Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage och Azure Cosmos dB) och Azure-värdbaserade kund-/partner tjänster via en privat slut punkt i det virtuella nätverket. Mer information finns i [Vad är Azure Private Link (för hands version)?](../private-link/private-link-overview.md)
@@ -162,7 +162,7 @@ När du skapar en privat slut punkt måste anslutningen godkännas. Om resursen 
 
 Det finns fyra etablerings tillstånd:
 
-| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Beskrivning |
+| Tjänst åtgärd | Status för privat slut punkt för tjänst förbrukare | Description |
 |--|--|--|
 | Inga | Väntar | Anslutningen skapas manuellt och väntar på godkännande från Azure Relay namn områdes ägare. |
 | Godkänn | Godkända | Anslutningen godkändes automatiskt eller manuellt och är redo att användas. |

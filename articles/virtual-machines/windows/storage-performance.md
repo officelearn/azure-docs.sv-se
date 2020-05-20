@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: cd15df2a7074463789bcf4a2d4de3c41bd012bbb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a093303efe63a051e8e2ff9824a35228e44e1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100557"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652612"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Optimera prestanda för virtuella datorer i Lsv2-serien
 
@@ -21,7 +21,7 @@ Virtuella datorer i Lsv2-serien har stöd för en mängd arbets belastningar som
 
 Utformningen av Lsv2-serien Virtual Machines (VM) maximerar AMD EPYC™ 7551-processorn för att ge bästa möjliga prestanda mellan processor, minne, NVMe-enheter och de virtuella datorerna. Förutom att maximera maskin varu prestanda är virtuella datorer i Lsv2-serien utformade för att fungera med behoven hos Windows-och Linux-operativsystem för bättre prestanda med maskin vara och program vara.
 
-Att justera program varan och maskin varan resulterade i den optimerade versionen av [Windows Server 2019 Data Center](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), som lanserades i början av december 2018 till Azure Marketplace, som stöder högsta prestanda på NVMe-enheter i virtuella datorer i Lsv2-serien.
+Att justera program varan och maskin varan resulterade i den optimerade versionen av [Windows Server 2019 Data Center](https://www.microsoft.com/cloud-platform/windows-server-pricing), som lanserades i början av december 2018 till Azure Marketplace, som stöder högsta prestanda på NVMe-enheter i virtuella datorer i Lsv2-serien.
 
 Den här artikeln innehåller tips och förslag på hur du kan se till att dina arbets belastningar och program uppnår högsta möjliga prestanda för de virtuella datorerna. Informationen på den här sidan uppdateras kontinuerligt eftersom mer Lsv2 optimerade avbildningar läggs till i Azure Marketplace.
 

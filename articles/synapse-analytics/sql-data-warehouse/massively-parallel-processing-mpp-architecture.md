@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d204477818ce2733d9f6d1e3dcc7455018456bcb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d57f02b9aff56c83aa1c12bd441df2863f6d6fa7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80884840"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658479"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics-arkitektur (tidigare SQL DW)
 
@@ -23,7 +23,7 @@ Azure Synapse är en obegränsad analystjänst som sammanför informationslager 
 
  Azure-Synapse har fyra komponenter:
 
-- SQL Analytics: fullständig T-SQL-baserad analys
+- Synapse SQL: fullständig T-SQL-baserad analys
 
   - SQL-pool (betala per DWU etablerad) – allmänt tillgänglig
   - SQL på begäran (betala per TB bearbetat) – (för hands version)
@@ -39,7 +39,7 @@ Azure Synapse är en obegränsad analystjänst som sammanför informationslager 
 
 ![Synapse SQL-arkitektur](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Analytics använder en Node-baserad arkitektur. Programmen ansluter och utfärdar T-SQL-kommandon till en Control-nod, vilket är den enda punkten i posten för SQL Analytics. Noden kontroll kör minnes minnes minnes minnes minnes motorn, som optimerar frågor för parallell bearbetning och skickar sedan åtgärder för att beräkna noder för att utföra sitt arbete parallellt.
+Synapse SQL använder en Node-baserad arkitektur. Program ansluter och utfärdar T-SQL-kommandon till en Control-nod, vilket är den enda punkten i posten för Synapse SQL. Noden kontroll kör minnes minnes minnes minnes minnes motorn, som optimerar frågor för parallell bearbetning och skickar sedan åtgärder för att beräkna noder för att utföra sitt arbete parallellt.
 
 Beräkningsnoderna lagrar alla användardata i Azure Storage och kör de parallella frågorna. Data Movement Service (DMS) är en intern tjänst på systemnivå som flyttar data mellan noder efter behov för att köra frågor parallellt och returnera korrekta resultat.
 
@@ -74,7 +74,7 @@ Data flyttnings tjänsten (DMS) är den data transport teknik som samordnar data
 
 ## <a name="distributions"></a>Distributioner
 
-En distribution är den grundläggande lagringsenheten för parallella frågor som körs på distribuerade data. När SQL Analytics kör en fråga delas arbetet upp i 60 mindre frågor som körs parallellt.
+En distribution är den grundläggande lagringsenheten för parallella frågor som körs på distribuerade data. När Synapse SQL kör en fråga delas arbetet upp i 60 mindre frågor som körs parallellt.
 
 Var och en av de 60 mindre frågorna körs på en av data distributionerna. Varje Compute-nod hanterar en eller flera av 60-distributionerna. En SQL-pool med maximala beräknings resurser har en distribution per Compute-nod. En SQL-pool med minsta beräknings resurser har alla distributioner på en Compute-nod.  
 
@@ -120,5 +120,5 @@ Nu när du vet lite om Azure-Synapse kan du lära dig hur du snabbt [skapar en S
 - [Videor](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md)
 - [MSDN-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
-- [Stack Overflow-forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
+- [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

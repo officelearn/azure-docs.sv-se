@@ -11,46 +11,46 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d69c8dd28b946df3fff500c31c7cdefa4767c0c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4fbfb65a609742105056fa7fb849f84579245cb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408120"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650497"
 ---
-# <a name="troubleshooting-connectivity-issues"></a>Felsökning av anslutningsproblem
+# <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Felsöka anslutnings problem i Synapse SQL-pool
 
-Den här artikeln innehåller vanliga fel söknings tekniker för att ansluta till SQL Analytics-databasen.
+Den här artikeln innehåller vanliga fel söknings tekniker för att ansluta till SQL-adresspoolen.
 
 ## <a name="check-service-availability"></a>Kontrol lera tjänstens tillgänglighet
 
-Kontrol lera om tjänsten är tillgänglig. I Azure Portal går du till den Synapse SQL-pool som du försöker ansluta. Klicka på **diagnostisera och lös problem**i den vänstra panelen i innehålls förteckningen.
+Kontrol lera om tjänsten är tillgänglig. I Azure Portal går du till den SQL-pool som du försöker ansluta. Klicka på **diagnostisera och lös problem**i den vänstra panelen i innehålls förteckningen.
 
 ![Välj resurs hälsa](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-Status för Synapse SQL-poolen visas här. Om tjänsten inte visas som **tillgänglig**kontrollerar du ytterligare steg.
+Status för SQL-poolen visas här. Om tjänsten inte visas som **tillgänglig**kontrollerar du ytterligare steg.
 
 ![Tjänsten är tillgänglig](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Om din resurs hälsa visar att din Synapse-instans av SQL-poolen har pausats eller skalas, följer du anvisningarna för att återuppta instansen.
+Om din resurs hälsa visar att instansen av SQL-poolen har pausats eller skalas, följer du anvisningarna för att återuppta instansen.
 
-![Tjänsten har pausats](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) ytterligare information om Resource Health finns här.
+![Tjänsten har pausats ](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Ytterligare information om Resource Health finns här.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Kontrollera om tjänsten är pausad eller håller på att skalas om
 
-Kontrol lera portalen för att se om din Synapse för SQL-poolen är pausad eller skalning.
+Kontrol lera portalen för att se om din instans av SQL-poolen är pausad eller skalning.
 
 ![Tjänsten har pausats](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-Om du ser att tjänsten har pausats eller skalas kan du kontrol lera att den inte finns under ditt underhålls schema. I portalen för din Synapse *SQL-pool visas schemat*för valt underhåll.
+Om du ser att tjänsten har pausats eller skalas kan du kontrol lera att den inte finns under ditt underhålls schema. I portalen för *Översikt över*SQL-poolen visas schemat för valt underhåll.
 
 ![Översikt över underhålls schema](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Annars kan du kontakta IT-administratören för att kontrol lera att det här underhållet inte är en schemalagd händelse. Följ [dessa steg](pause-and-resume-compute-portal.md)om du vill återuppta SQL Analytics-instansen.
+Annars kan du kontakta IT-administratören för att kontrol lera att det här underhållet inte är en schemalagd händelse. Följ [dessa steg](pause-and-resume-compute-portal.md)om du vill återuppta instansen av SQL-poolen.
 
 ## <a name="check-your-firewall-settings"></a>Kontrollera brandväggsinställningarna
 
-SQL Analytics-databasen kommunicerar via port 1433.Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL Database-servern såvida inte IT-avdelningen öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+SQL-adresspoolen kommunicerar via port 1433.Om du försöker ansluta inifrån ett företagsnätverk kan det hända att utgående trafik via port 1433 inte tillåts av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL Database-servern såvida inte IT-avdelningen öppnar port 1433. Ytterligare information om brand Väggs konfigurationer finns [här](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>Kontrollera inställningarna för det virtuella nätverket/tjänstslutpunkten
 
@@ -60,7 +60,7 @@ Om du får fel 40914 och 40615, se [fel beskrivning och lösning här](../../sql
 
 ### <a name="software"></a>Programvara
 
-Kontrol lera att du använder de senaste verktygen för att ansluta till din Synapse SQL-pool:
+Kontrol lera att du använder de senaste verktygen för att ansluta till SQL-poolen:
 
 - SSMS
 - Azure Data Studio
@@ -105,7 +105,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>Tillfälliga anslutningsproblem
 
-Kontrollera om servern är hårt belastad med ett stort antal köade förfrågningar. Du kan behöva skala upp din Synapse SQL-pool för ytterligare resurser.
+Kontrollera om servern är hårt belastad med ett stort antal köade förfrågningar. Du kan behöva skala upp SQL-poolen för ytterligare resurser.
 
 ## <a name="common-error-messages"></a>Vanliga felmeddelanden
 

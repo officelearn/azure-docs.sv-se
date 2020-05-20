@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: bf690ad3ad38632834a92c4a743b1cb584beaf65
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 9c16cd4143bc07bf5f3b1d00b890dc54bd5ea318
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838832"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659874"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -80,7 +80,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 | Funktion | Generation 1 | Generation 2 |
 |---------|--------------|--------------|
-| Enhet             | PCAT                      | UEFI                               |
+| Start             | PCAT                      | UEFI                               |
 | Disk styrenheter | IDE                       | SCSI                               |
 | VM-storlekar         | Alla VM-storlekar | Endast virtuella datorer som stöder Premium Storage |
 
@@ -128,12 +128,6 @@ Använd till exempel följande PowerShell-cmdlet för att hämta en lista över 
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-Du kan också använda Azure CLI för att se alla tillgängliga generation 2-avbildningar som listas av **Publisher**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
-```
-
 Om du skapar en virtuell dator med Windows Server 2012 som operativ system väljer du antingen generation 1 (BIOS) eller generation 2 (UEFI) VM SKU, som ser ut så här:
 
 ```powershell
@@ -142,6 +136,14 @@ Om du skapar en virtuell dator med Windows Server 2012 som operativ system välj
 ```
 
 I avsnittet [funktioner och funktioner](#features-and-capabilities) finns en aktuell lista över Marketplace-avbildningar som stöds.
+
+#### <a name="azure-cli"></a>Azure CLI
+
+Du kan också använda Azure CLI för att se alla tillgängliga generation 2-avbildningar som listas av **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
 
 ### <a name="managed-image-or-managed-disk"></a>Hanterad avbildning eller hanterad disk
 

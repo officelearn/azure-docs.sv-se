@@ -7,14 +7,14 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/04/2020
+ms.date: 05/13/2020
 ms.author: sstein
-ms.openlocfilehash: 2d89320b4e5237017b51d19495c60c03ce6288f7
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3e5069c779cee0700bff6b2236f3cd36547fd623
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838492"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659616"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -78,6 +78,7 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
 
 |Problem  |Datum identifierat  |Status  |Åtgärds datum  |
 |---------|---------|---------|---------|
+|[Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras](#restoring-manual-backup-without-checksum-might-fail)|Maj 2020|Har en lösning| |
 |[Agenten slutar svara vid ändringar, inaktive ring eller aktivering av befintliga jobb](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maj 2020|Automatiskt begränsad| |
 |[Behörigheter för resurs gruppen har inte tillämpats på den hanterade instansen](#permissions-on-resource-group-not-applied-to-managed-instance)|Feb 2020|Har en lösning| |
 |[Begränsning av manuell redundans via portalen för failover-grupper](#limitation-of-manual-failover-via-portal-for-failover-groups)|Jan 2020|Har en lösning| |
@@ -103,6 +104,12 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
 |Det går inte att återställa punkt-i-tid från Affärskritisk nivå till Generell användning nivå om käll databasen innehåller minnesbaserade OLTP-objekt.| |Matchat|Okt 2019|
 |Database Mail funktion med externa (icke-Azure) e-postservrar som använder säker anslutning| |Matchat|Okt 2019|
 |Inneslutna databaser stöds inte i hanterade instanser| |Matchat|Aug 2019|
+
+### <a name="restoring-manual-backup-without-checksum-might-fail"></a>Återställning av manuell säkerhets kopiering utan kontroll summa kan Miss kopie ras
+
+I vissa fall kan manuell säkerhets kopiering av databaser som gjorts på den hanterade instansen inte återställas. I så fall ska du försöka återställa säkerhets kopieringen igen förrän den är klar.
+
+**Lösning**: gör manuella säkerhets kopieringar av databaser på den hanterade instansen med kontroll Summa aktiverat.
 
 ### <a name="agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs"></a>Agenten slutar svara vid ändringar, inaktive ring eller aktivering av befintliga jobb
 
@@ -148,13 +155,13 @@ Affärskritisk tjänst nivån kommer inte att tillämpa [högsta minnes gränser
 
 ### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Ett fel fel returnerades vid försök att ta bort en fil som inte är tom
 
-SQL Server/hanterad instans [tillåter inte att användaren släpper en fil som inte är tom](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Om du försöker ta bort en icke-tom datafil med hjälp `ALTER DATABASE REMOVE FILE` av instruktionen returneras `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` inte felet omedelbart. Den hanterade instansen fortsätter att försöka släppa filen och åtgärden kommer att Miss sen `Internal server error`efter 30 min med.
+SQL Server/hanterad instans [tillåter inte att användaren släpper en fil som inte är tom](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Om du försöker ta bort en icke-tom datafil med hjälp av `ALTER DATABASE REMOVE FILE` instruktionen `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` returneras inte felet omedelbart. Den hanterade instansen fortsätter att försöka släppa filen och åtgärden kommer att Miss sen efter 30 min med `Internal server error` .
 
 **Lösning**: ta bort innehållet i filen med `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` kommandot. Om det här är den enda filen i fil gruppen måste du ta bort data från tabellen eller partitionen som är kopplade till den här fil gruppen innan du krymper filen och eventuellt läsa in dessa data till en annan tabell/partition.
 
 ### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Ändra tjänst nivå och skapa instans åtgärder blockeras av pågående databas återställning
 
-Kontinuerlig `RESTORE` instruktion, migrering av datamigrerings tjänsten och inbyggd tids återställning kommer att blockera uppdatering av tjänst nivån eller ändra storlek på den befintliga instansen och skapa nya instanser tills återställnings processen har slutförts. Med återställnings processen blockeras dessa åtgärder på hanterade instanser och instans-pooler i samma undernät där återställnings processen körs. Instanserna i instans pooler påverkas inte. Det går inte att skapa eller ändra åtgärder på tjänst nivå eller tids gräns – de fortsätter när återställnings processen har slutförts eller avbrutits.
+Kontinuerlig `RESTORE` instruktion, migrering av Datamigrerings tjänsten och inbyggd tids återställning kommer att blockera uppdatering av tjänst nivån eller ändra storlek på den befintliga instansen och skapa nya instanser tills återställnings processen har slutförts. Med återställnings processen blockeras dessa åtgärder på hanterade instanser och instans-pooler i samma undernät där återställnings processen körs. Instanserna i instans pooler påverkas inte. Det går inte att skapa eller ändra åtgärder på tjänst nivå eller tids gräns – de fortsätter när återställnings processen har slutförts eller avbrutits.
 
 **Lösning**: vänta tills återställningen har slutförts, eller Avbryt återställnings processen om åtgärden för att skapa eller uppdatera tjänst nivå har högre prioritet.
 
@@ -173,12 +180,12 @@ Service Broker dialog rutor mellan databaser slutar att leverera meddelanden til
 ### <a name="impersonification-of-azure-ad-login-types-is-not-supported"></a>Impersonification av Azure AD-inloggnings typer stöds inte
 
 Personifiering med `EXECUTE AS USER` eller `EXECUTE AS LOGIN` av följande AAD-huvudobjekt stöds inte:
--    AAD-användare med alias. Följande fel returneras i det här fallet `15517`.
-- AAD-inloggningar och användare baserat på AAD-program eller tjänstens huvud namn. Följande fel returneras i det här fallet `15517` och. `15406`
+-    AAD-användare med alias. Följande fel returneras i det här fallet `15517` .
+- AAD-inloggningar och användare baserat på AAD-program eller tjänstens huvud namn. Följande fel returneras i det här fallet `15517` och `15406` .
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametern stöds inte i sp_send_db_mail
 
-`@query` Parametern i [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) proceduren fungerar inte.
+`@query`Parametern i [sp_send_db_mail](/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) proceduren fungerar inte.
 
 ### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>Transaktionsreplikering måste konfigureras om efter GEO-redundans
 
@@ -196,11 +203,11 @@ När en databas återställs på den hanterade instansen skapar återställnings
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB-strukturen och innehållet har skapats på nytt
 
-`tempdb` Databasen delas alltid upp i 12 datafiler och fil strukturen kan inte ändras. Den maximala storleken per fil kan inte ändras och nya filer kan inte läggas till i `tempdb`. `Tempdb`återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i `tempdb` bevaras inte.
+`tempdb`Databasen delas alltid upp i 12 datafiler och fil strukturen kan inte ändras. Den maximala storleken per fil kan inte ändras och nya filer kan inte läggas till i `tempdb` . `Tempdb`återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i bevaras `tempdb` inte.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överskrida lagrings utrymme med små databasfiler
 
-`CREATE DATABASE`, `ALTER DATABASE ADD FILE`-och `RESTORE DATABASE` -instruktioner kan Miss Miss kan uppstå på grund av att instansen kan uppnå gränsen för Azure Storage.
+`CREATE DATABASE`, `ALTER DATABASE ADD FILE` -och- `RESTORE DATABASE` instruktioner kan Miss Miss kan uppstå på grund av att instansen kan uppnå gränsen för Azure Storage.
 
 Varje Generell användning hanterad instans har upp till 35 TB lagring reserverat för Azure Premium-disk utrymme. Varje databas fil placeras på en separat fysisk disk. Disk storlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Oanvänt utrymme på disken debiteras inte, men den totala summan av storleken på Azure Premium-diskar får inte överstiga 35 TB. I vissa fall kan en hanterad instans som inte behöver 8 TB totalt överskrida gränsen på 35 TB Azure på lagrings storleken på grund av intern fragmentering.
 
@@ -233,7 +240,7 @@ Fel loggar som är tillgängliga i den hanterade instansen är inte bestående o
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Transaktions omfånget på två databaser inom samma instans stöds inte
 
-**(Löst i mars 2020)** `TransactionScope` Klassen i .net fungerar inte om två frågor skickas till två databaser inom samma instans under samma transaktions omfång:
+**(Löst i mars 2020)** `TransactionScope`Klassen i .net fungerar inte om två frågor skickas till två databaser inom samma instans under samma transaktions omfång:
 
 ```csharp
 using (var scope = new TransactionScope())

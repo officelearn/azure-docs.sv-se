@@ -9,51 +9,47 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 138b84a9b7f54782fd6254304a3fdcf4dba83182
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2de39a2822056a4539c2dca915a483ab5bbc4965
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220901"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653974"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Använda versioner för att redigera och testa utan att påverka mellanlagrings-eller produktions program
 
-Med versioner kan du bygga och publicera olika modeller. En bra idé är att klona den aktuella aktiva modellen till en annan [version](luis-concept-version.md) av appen innan du gör ändringar i modellen. 
+Med versioner kan du bygga och publicera olika modeller. En bra idé är att klona den aktuella aktiva modellen till en annan [version](luis-concept-version.md) av appen innan du gör ändringar i modellen.
 
-Om du vill arbeta med versioner öppnar du appen genom att välja namnet på sidan **Mina appar** och väljer sedan **Hantera** i det översta fältet och sedan **versioner** i det vänstra navigerings fältet. 
+Den aktiva versionen är den version som du redigerar i LUIS Portal **build** -avsnittet med avsikter, entiteter, funktioner och mönster. När du använder redigerings-API: erna behöver du inte ange den aktiva versionen eftersom de versions-/regionsspecifika REST API-anropen innehåller versionen i vägen.
 
-I listan över versioner visas vilka versioner som publiceras, var de publiceras och vilken version som för närvarande är aktiv. 
+Om du vill arbeta med versioner öppnar du appen genom att välja namnet på sidan **Mina appar** och väljer sedan **Hantera** i det översta fältet och sedan **versioner** i det vänstra navigerings fältet.
 
-> [!div class="mx-imgBorder"]
-> [![Avsnittet hantera, sidan versioner](./media/luis-how-to-manage-versions/versions-import.png "Avsnittet hantera, sidan versioner")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+I listan över versioner visas vilka versioner som publiceras, var de publiceras och vilken version som för närvarande är aktiv.
 
 ## <a name="clone-a-version"></a>Klona en version
 
-1. Välj den version som du vill klona och välj sedan **klona** i verktygsfältet. 
+1. Välj den version som du vill klona och välj sedan **klona** i verktygsfältet.
 
 2. I dialog rutan **klona version** anger du ett namn för den nya versionen, till exempel "0,2".
 
    ![Dialog rutan klona version](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
- 
+
      > [!NOTE]
      > Versions-ID får endast bestå av tecken, siffror eller "." och får inte vara längre än 10 tecken.
- 
+
    En ny version med det angivna namnet skapas och anges som den aktiva versionen.
 
 ## <a name="set-active-version"></a>Ange aktiv version
 
-Välj en version i listan och välj sedan **Aktivera** från verktygsfältet. 
-
-> [!div class="mx-imgBorder"]
-> [![Hantera avsnitt, versioner, sidan, skapa en versions åtgärd](./media/luis-how-to-manage-versions/versions-other.png "Hantera avsnitt, versioner, sidan, skapa en versions åtgärd")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+Välj en version i listan och välj sedan **Aktivera** från verktygsfältet.
 
 ## <a name="import-version"></a>Importera version
 
 Du kan importera en `.json` eller en `.lu` version av programmet.
 
-1. Välj **Importera** från verktygsfältet och välj sedan formatet. 
+1. Välj **Importera** från verktygsfältet och välj sedan formatet.
 
 2. Ange det nya 10-siffriga versions namnet i popup-fönstret **Importera ny version** . Du behöver bara ange ett versions-ID om versionen i filen redan finns i appen.
 
@@ -69,7 +65,7 @@ Du kan importera en `.json` eller en `.lu` version av programmet.
 
 ## <a name="other-actions"></a>Andra åtgärder
 
-* Om du vill **ta bort** en version väljer du en version i listan och väljer sedan **ta bort** från verktygsfältet. Välj **OK**. 
-* Om du vill **byta namn på** en version väljer du en version i listan och väljer sedan **Byt namn** från verktygsfältet. Ange ett nytt namn och välj sedan **OK**. 
-* Om du vill **Exportera** en version väljer du en version i listan och väljer sedan **Exportera app** i verktygsfältet. Välj JSON för att exportera för säkerhets kopiering, Välj **Exportera för container** om du vill [använda den här appen i en Luis-behållare](luis-container-howto.md).  
+* Om du vill **ta bort** en version väljer du en version i listan och väljer sedan **ta bort** från verktygsfältet. Välj **OK**.
+* Om du vill **byta namn på** en version väljer du en version i listan och väljer sedan **Byt namn** från verktygsfältet. Ange ett nytt namn och välj sedan **OK**.
+* Om du vill **Exportera** en version väljer du en version i listan och väljer sedan **Exportera app** i verktygsfältet. Välj JSON för att exportera för säkerhets kopiering, Välj **Exportera för container** om du vill [använda den här appen i en Luis-behållare](luis-container-howto.md).
 

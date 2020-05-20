@@ -1,22 +1,22 @@
 ---
-title: Integrerade lösningar – Azure Marketplace
-description: Integrerade lösningar i Azure Marketplace och Microsoft AppSource
+title: Publicera en integrerad lösning – Microsoft Commercial Marketplace
+description: Lär dig mer om krav och steg för att publicera integrerade lösningar till Microsoft AppSource och Azure Marketplace.
 author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: 835aa0192dc37032a76bf3863dc1a4ac0109bb22
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: f0a3ea3aebeb9c96d7ccfba9c883ae208d93a44e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160570"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657984"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicera en integrerad lösning
 
-I ett enda samlat erbjudande kombinerar en integrerad lösning lösnings tekniker från program varu leverantörer med distribution och support för en tjänste partner. Tjänste partnern listar erbjudandet i Microsoft AppSource eller Azure Marketplace som [konsult tjänst](./consulting-services.md).
+Den här artikeln beskriver den övergripande processen och kraven för att publicera en integrerad lösning på den kommersiella marknads platsen. I ett enda samlat erbjudande kombinerar en integrerad lösning lösnings tekniker från program varu leverantörer med distribution och support för en tjänste partner. Tjänste partnern listar erbjudandet i Microsoft AppSource eller Azure Marketplace som [konsult tjänst](./consulting-services.md).
 
 Integrerade lösningar syftar till att tillgodose ett bestämt kund behov eller scenario. Leverantörer börjar med att förstå branschens utmaning eller smärta. De integrerar sedan två eller fler bästa tekniker för att skapa en enhetlig och upprepnings bar distributions upplevelse för kunderna. Leverantörer får kunderna igång snabbt. De erbjuder en enda kontakt punkt för kunden, vilket ger relevant anpassning, rådgivning och lösnings support. Resultatet är en integrerad lösning, inklusive teknik och tjänster.
 
@@ -64,7 +64,7 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
     * Omfång
     * Rikta kunder
     * Värde förslag
-    * Prissättning
+    * Priser
     * Licensiering
     * Villkor
     * Support metod

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: aa59a37f3a4413c92a483746ed4a08c363ab8457
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: de3f553fd001b06d56663f63402da2489f35877d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796530"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649167"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Azures säkerhets bas linje för API Management
 
@@ -526,7 +526,7 @@ Konfigurera JWT-validerings policy till inkommande API-begäranden för att säk
 
 Skapa diagnostiska inställningar för Azure AD-användarkonton och skicka gransknings loggarna och inloggnings loggarna till en Log Analytics-arbetsyta. Konfigurera önskade aviseringar inom Log Analytics. Dessutom kan du publicera Log Analytics arbets ytan till Azure Sentinel eller en SIEM från tredje part.
 
-Konfigurera avancerad övervakning med API Management med hjälp av `log-to-eventhub` principen, samla in eventuell ytterligare kontext information som krävs för säkerhets analys och skicka till Azure SENTINEL eller Siem från tredje part.
+Konfigurera avancerad övervakning med API Management med hjälp av `log-to-eventhub` principen, samla in eventuell ytterligare kontext information som krävs för säkerhets analys och skicka till Azure Sentinel eller Siem från tredje part.
 
 * [Så här auktoriserar du utvecklares konton med hjälp av Azure Active Directory i Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-aad)
 
@@ -1070,9 +1070,9 @@ Säkerhets kopierings-och återställnings funktionerna i API Management ger nö
 
 * [Så här implementerar du haveriberedskap med hjälp av säkerhetskopiering och återställning i Azure API Management](https://docs.microsoft.com/azure/api-management/api-management-howto-disaster-recovery-backup-restore#calling-the-backup-and-restore-operations)
 
-* [Så här anropar du säkerhets kopierings åtgärden för API Management](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/backup)
+* [Så här anropar du säkerhets kopierings åtgärden för API Management](/rest/api/apimanagement/2019-12-01/apimanagementservice/backup)
 
-* [Så här anropar du åtgärden API Management återställning](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apimanagementservice/restore)
+* [Så här anropar du åtgärden API Management återställning](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
 **Azure Security Center övervakning**: inte tillämpligt
 

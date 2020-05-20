@@ -4,12 +4,12 @@ description: I den här artikeln lär du dig hur du säkerhetskopierar SQL Serve
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 887f15deed74330cf132e0574d166c074d2c7cad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9becb574594672c1cf91e610b4c13f91c91aa14f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685715"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659516"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Säkerhetskopiera SQL Server-databaser i virtuella Azure-datorer
 
@@ -50,6 +50,16 @@ Upprätta anslutningar genom att använda något av följande alternativ:
 #### <a name="allow-the-azure-datacenter-ip-ranges"></a>Tillåt IP-intervall för Azure-datacenter
 
 Med det här alternativet tillåts [IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653) i den nedladdade filen. Använd cmdleten Set-AzureNetworkSecurityRule för att få åtkomst till en nätverks säkerhets grupp (NSG). Om listan med betrodda mottagare bara innehåller landsspecifika IP-adresser, måste du också uppdatera de säkra mottagarna visar tjänst tag gen Azure Active Directory (Azure AD) för att aktivera autentisering.
+
+Alternativt kan du också tillåta åtkomst till följande FQDN för att upprätta nödvändig anslutning:
+
+* `*.<datacentercode>.backup.windowsazure.com`<br>
+(Se data centrets koder [här](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx))
+
+* `login.windows.net`
+* `*.blob.core.windows.net`
+* `*.queue.core.windows.net`
+
 
 #### <a name="allow-access-using-nsg-tags"></a>Tillåt åtkomst med NSG-Taggar
 
@@ -98,7 +108,7 @@ Använda NSG service-Taggar | Enklare att hantera när intervall ändringar slå
 Använd Azure Firewall FQDN-Taggar | Enklare att hantera eftersom nödvändiga FQDN-namn hanteras automatiskt | Kan endast användas med Azure brand vägg
 Använda en HTTP-proxy | En enda punkt i Internet åtkomst till virtuella datorer <br/> | Ytterligare kostnader för att köra en virtuell dator med proxy-programvaran <br/> Inga publicerade FQDN-adresser, Tillåt regler gäller för ändringar i Azure IP-adress
 
-#### <a name="private-endpoints"></a>Privata slut punkter
+#### <a name="private-endpoints"></a>Privata slutpunkter
 
 [!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
 
@@ -135,7 +145,7 @@ Identifiera databaser som körs på en virtuell dator:
 
     ![Välj SQL Server på Azure VM för säkerhetskopieringen](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-5. I **säkerhets kopierings mål** > **identifiera databaser i virtuella datorer**väljer du **Starta identifiering** för att söka efter oskyddade virtuella datorer i prenumerationen. Den här sökningen kan ta en stund, beroende på antalet oskyddade virtuella datorer i prenumerationen.
+5. I **säkerhets kopierings mål**  >  **identifiera databaser i virtuella datorer**väljer du **Starta identifiering** för att söka efter oskyddade virtuella datorer i prenumerationen. Den här sökningen kan ta en stund, beroende på antalet oskyddade virtuella datorer i prenumerationen.
 
    * Oskyddade virtuella datorer bör visas i listan efter identifiering, sorterade efter namn och resursgrupp.
    * Om en virtuell dator inte visas som förväntat kan du se om den redan har säkerhetskopierats i ett valv.
@@ -162,7 +172,7 @@ Identifiera databaser som körs på en virtuell dator:
 
 ## <a name="configure-backup"></a>Konfigurera säkerhetskopiering  
 
-1. I **säkerhets kopierings mål** > **steg 2: Konfigurera säkerhets kopiering**väljer du **Konfigurera säkerhets kopiering**.
+1. I **säkerhets kopierings mål**  >  **steg 2: Konfigurera säkerhets kopiering**väljer du **Konfigurera säkerhets kopiering**.
 
    ![Välj Konfigurera säkerhetskopiering](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
@@ -214,7 +224,7 @@ En säkerhetskopieringspolicy definierar när säkerhetskopior skapas och hur l�
 
 Så här skapar du en säkerhetskopieringspolicy:
 
-1. I valvet väljer du **säkerhets kopierings principer** > **Lägg till**.
+1. I valvet väljer du **säkerhets kopierings principer**  >  **Lägg till**.
 2. I **Lägg till**väljer du **SQL Server i Azure VM** för att definiera princip typen.
 
    ![Välj en policytyp för den nya säkerhetskopieringspolicyn](./media/backup-azure-sql-database/policy-type-details.png)

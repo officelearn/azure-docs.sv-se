@@ -8,22 +8,22 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3a19dc019d2566ddddb2c0ba7988b342d30a45d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45a61b5bc6f1082b84bf94db7e8ad5ce49ec068f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77192277"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648069"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ansluta hybrid datorer till Azure i stor skala
 
-Du kan aktivera Azure Arc for Servers (för hands version) för flera Windows-eller Linux-datorer i din miljö med flera flexibla alternativ beroende på dina behov. Med hjälp av det mall-skript som vi tillhandahåller kan du automatisera alla steg i installationen, inklusive att upprätta anslutningen till Azure-bågen. Du måste dock köra det här skriptet interaktivt med ett konto som har förhöjd behörighet på mål datorn och i Azure. Om du vill ansluta datorerna till Azure-bågen för servrar kan du använda ett Azure Active Directory [tjänstens huvud namn](../../active-directory/develop/app-objects-and-service-principals.md) i stället för att använda din privilegierade identitet för att [ansluta datorn interaktivt](onboard-portal.md). Ett tjänst huvud namn är en särskild begränsad hanterings identitet som endast beviljas den lägsta behörighet som krävs för att ansluta datorer till `azcmagent` Azure med hjälp av kommandot. Detta är säkrare än att använda ett högre privilegierat konto, till exempel en innehavaradministratör, och följer våra bästa metoder för åtkomst kontroll. Tjänstens huvud namn används bara vid onboarding, det används inte i något annat syfte.  
+Du kan aktivera Azure Arc for Servers (för hands version) för flera Windows-eller Linux-datorer i din miljö med flera flexibla alternativ beroende på dina behov. Med hjälp av det mall-skript som vi tillhandahåller kan du automatisera alla steg i installationen, inklusive att upprätta anslutningen till Azure-bågen. Du måste dock köra det här skriptet interaktivt med ett konto som har förhöjd behörighet på mål datorn och i Azure. Om du vill ansluta datorerna till Azure-bågen för servrar kan du använda ett Azure Active Directory [tjänstens huvud namn](../../active-directory/develop/app-objects-and-service-principals.md) i stället för att använda din privilegierade identitet för att [ansluta datorn interaktivt](onboard-portal.md). Ett tjänst huvud namn är en särskild begränsad hanterings identitet som endast beviljas den lägsta behörighet som krävs för att ansluta datorer till Azure med hjälp av `azcmagent` kommandot. Detta är säkrare än att använda ett högre privilegierat konto, till exempel en innehavaradministratör, och följer våra bästa metoder för åtkomst kontroll. Tjänstens huvud namn används bara vid onboarding, det används inte i något annat syfte.  
 
 Installations metoderna för att installera och konfigurera den anslutna dator agenten kräver att den automatiserade metoden du använder har administratörs behörighet på datorerna. I Linux, med hjälp av rot kontot och Windows, som medlem i den lokala administratörs gruppen.
 
-Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](overview.md#prerequisites) resurser uppfyller kraven.
+Innan du börjar bör du läsa igenom kraven och kontrol lera att din [prenumeration och dina](agent-overview.md#prerequisites) resurser uppfyller kraven.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 I slutet av den här processen kommer du att ha anslutit dina hybrid datorer till Azure-bågen för servrar.
 
@@ -54,19 +54,19 @@ Utför följande för att skapa tjänstens huvud namn med PowerShell.
     Type                  :
     ```
 
-2. Kör följande kommando för att hämta det `$sp` lösen ord som lagras i variabeln:
+2. Kör följande kommando för att hämta det lösen ord som lagras i `$sp` variabeln:
 
     ```azurepowershell-interactive
     $credential = New-Object pscredential -ArgumentList "temp", $sp.Secret
     $credential.GetNetworkCredential().password
     ```
 
-3. I utdata söker du efter lösen ordets värde under fältet **lösen ord** och kopierar det. Hitta även värdet under fältet **ApplicationId** och kopiera det också. Spara dem för senare på ett säkert ställe. Om du glömmer bort eller förlorar lösen ordet för [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) tjänstens huvud namn kan du återställa det med hjälp av cmdleten.
+3. I utdata söker du efter lösen ordets värde under fältet **lösen ord** och kopierar det. Hitta även värdet under fältet **ApplicationId** och kopiera det också. Spara dem för senare på ett säkert ställe. Om du glömmer bort eller förlorar lösen ordet för tjänstens huvud namn kan du återställa det med hjälp av [`New-AzADSpCredential`](/powershell/module/azurerm.resources/new-azurermadspcredential) cmdleten.
 
-Värdena från följande egenskaper används med parametrar som skickas till `azcmagent`:
+Värdena från följande egenskaper används med parametrar som skickas till `azcmagent` :
 
 * Värdet från egenskapen **ApplicationId** används för `--service-principal-id` parametervärdet
-* Värdet från **lösen ords** egenskapen används för den `--service-principal-secret` parameter som används för att ansluta agenten.
+* Värdet från **lösen ords** egenskapen används för den parameter som `--service-principal-secret` används för att ansluta agenten.
 
 > [!NOTE]
 > Se till att använda egenskapen **ApplicationId** för tjänstens huvud namn, inte egenskapen **ID** .
@@ -76,7 +76,7 @@ Den **Azure-anslutna dator onboarding** -rollen innehåller bara de behörighete
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Installera agenten och Anslut till Azure
 
-Följande steg installerar och konfigurerar den anslutna dator agenten på dina hybrid datorer med hjälp av skript mal len, som utför liknande steg som beskrivs i [ansluta hybrid datorer till Azure från Azure Portal](onboard-portal.md) artikeln. Skillnaden är i det sista steget där du upprättar anslutningen till Azure-bågen med `azcmagent` hjälp av kommandot med hjälp av tjänstens huvud namn. 
+Följande steg installerar och konfigurerar den anslutna dator agenten på dina hybrid datorer med hjälp av skript mal len, som utför liknande steg som beskrivs i [ansluta hybrid datorer till Azure från Azure Portal](onboard-portal.md) artikeln. Skillnaden är i det sista steget där du upprättar anslutningen till Azure-bågen med hjälp av `azcmagent` kommandot med hjälp av tjänstens huvud namn. 
 
 Följande är de inställningar som du konfigurerar `azcmagent` kommandot som ska användas för tjänstens huvud namn.
 

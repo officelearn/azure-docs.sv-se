@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentation om tal till text
-summary: Tal-till-text från tjänsten Speech, som även kallas tal igenkänning, aktiverar real tids-och batch-avskrift för ljud strömmar till text.
+summary: Tal-till-text från tjänsten Speech, som även kallas tal igenkänning, aktiverar real tids-och batch-avskrift för ljud strömmar till text. Med ytterligare text indata, möjliggörs även uttal av uttal i real tid och ger talare feedback om precisionen och Fluency av talade ljud.
 metadata:
   title: Dokumentation om tal till text – självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
@@ -11,12 +11,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 03/19/2020
   ms.author: trbye
-  ms.openlocfilehash: f496ba72f4f649a3ed5146f0b74caf3d8110adf9
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: be34def3c7aacc5419071028a3d3085fe69103fa
+  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
   ms.translationtype: MT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83201931"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83653470"
 landingContent:
 - title: Om tal till text
   linkLists:
@@ -38,6 +38,8 @@ landingContent:
       url: quickstarts/speech-to-text-from-file.md
     - text: Identifiera tal som lagras i bloblagring
       url: quickstarts/from-blob.md
+    - text: Uttal av uttal med referens ingångar
+      url: rest-speech-to-text.md#pronunciation-assessment-parameters
 - title: Utveckla med tal till text
   linkLists:
   - linkListType: how-to-guide

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b901c0d77b5bd550e7e98434cf1cba2a61e6bdb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79267019"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656481"
 ---
 # <a name="azure-serial-console"></a>Azures serie konsol
 
@@ -66,6 +66,10 @@ Serie konsolen är tillgänglig för skalnings uppsättningar för virtuella dat
   1. I avsnittet **support och fel sökning** väljer du **seriell konsol**. Ett nytt fönster med serie konsolen öppnas och startar anslutningen.
 
      ![Serie konsol för skalnings uppsättning för virtuella Linux-datorer](./media/virtual-machines-serial-console/vmss-start-console.gif)
+
+
+### <a name="tls-12-in-serial-console"></a>TLS 1,2 i serie konsol
+Serie konsolen använder TLS 1,2 från slut punkt till slut punkt för att skydda all kommunikation inom tjänsten. Serie konsolen har ett beroende av ett användar hanterat lagrings konto för startdiagnostik och TLS 1,2 måste konfigureras separat för lagrings kontot. Instruktioner finns [här](https://docs.microsoft.com/azure/storage/common/storage-security-tls).
 
 ## <a name="advanced-uses-for-serial-console"></a>Avancerade användnings områden för serie konsolen
 Förutom konsol åtkomst till den virtuella datorn kan du också använda Azures serie konsol för följande:

@@ -5,14 +5,14 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 5/13/2020
 ms.author: victorh
-ms.openlocfilehash: 286c9329be38055808571d8d32c724d27a61cbf3
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: adaf3dea5855a4af75977cb820ae12675c7f2ced
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855873"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648135"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway
 
@@ -56,23 +56,21 @@ Mer information finns i [Konfigurera TLS-avslutning med Application Gateway](htt
 ### <a name="size-of-the-certificate"></a>Certifikatets storlek
 I avsnittet [Application Gateway gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits) kan du se hur den maximala storleken på TLS/SSL-certifikat stöds.
 
-## <a name="end-to-end-tls-encryption"></a>Slut punkt till slut punkt TLS-kryptering
+## <a name="end-to-end-tls-encryption"></a>TLS-kryptering från slut punkt till slut punkt
 
-Vissa kunder kanske inte vill ha okrypterad kommunikation till backend-servrarna. Det kan bero på säkerhetskrav eller efterföljandekrav eller att programmet bara accepterar säkra anslutningar. För sådana program stöder Application Gateway slut punkt till slut punkt för TLS-kryptering.
+Du kanske inte vill ha okrypterad kommunikation till backend-servrarna. Du kan ha säkerhets krav, krav på efterlevnad eller programmet kan bara godkänna en säker anslutning. Azure Application Gateway har slut punkt till slut punkt för att stödja dessa krav.
 
-Med end to end-TLS kan du på ett säkert sätt överföra känsliga data till Server delen och samtidigt dra nytta av fördelarna med Layer 7 belastnings Utjämnings funktioner som Application Gateway tillhandahåller. Vissa av dessa funktioner är cookiebaserad-tillhörighet, URL-baserad routning, stöd för routning baserat på platser eller möjligheten att injicera X-Forwarded-*-huvuden.
+Med end-to-end-TLS kan du kryptera och skicka känsliga data på ett säkert sätt till Server delen samtidigt som du använder Application Gateway lager-7 belastnings Utjämnings funktioner. Dessa funktioner omfattar cookie-baserad sessionsgräns, URL-baserad routning, stöd för routning baserat på platser, möjligheten att skriva om eller mata in X-forwarded-*-rubriker och så vidare.
 
-När Application Gateway har kon figurer ATS med end to end TLS-kommunikations läge, avslutar Application Gateway TLS-sessionerna på gatewayen och dekrypterar användar trafiken. Därefter appliceras de konfigurerade reglerna för att välja en lämplig serverdels-serverpoolinstans att dirigera trafiken till. Application Gateway initierar sedan en ny TLS-anslutning till backend-servern och återkrypterar data med Server dels serverns offentliga nyckel certifikat innan begäran skickas till Server delen. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren. Autentisering från slut punkt till slut punkt aktive ras genom att ställa in protokoll inställningen i [HTTP-inställningen för http](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) till https, som sedan tillämpas på en backend-pool.
+När den är konfigurerad med kommunikation från slut punkt till slut punkt, avslutar Application Gateway TLS-sessionerna på gatewayen och dekrypterar användar trafiken. Därefter appliceras de konfigurerade reglerna för att välja en lämplig serverdels-serverpoolinstans att dirigera trafiken till. Application Gateway initierar sedan en ny TLS-anslutning till backend-servern och återkrypterar data med Server dels serverns offentliga nyckel certifikat innan begäran skickas till Server delen. Eventuella svar från webbservern genomgår samma process på väg tillbaka till användaren. TLS från slut punkt till slut punkt aktive ras genom att ställa in protokoll inställningen i [HTTP-inställningen för http](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) till https, som sedan tillämpas på en backend-pool.
 
-TLS-principen gäller för både frontend-och backend-trafik. På klient sidan fungerar Application Gateway som-servern och tillämpar principen. På Server delen fungerar Application Gateway som klienten och skickar protokoll/chiffrering-information som inställningen under TLS-handskakningen.
+För Application Gateway-och WAF v1 SKU: n gäller TLS-principen för både frontend-och backend-trafik. På klient sidan fungerar Application Gateway som-servern och tillämpar principen. På Server delen fungerar Application Gateway som klienten och skickar protokoll/chiffrering-information som inställningen under TLS-handskakningen.
 
-Application Gateway kommunicerar bara med de Server dels instanser som antingen har vit listas sina certifikat med programgatewayen eller vars certifikat är signerade av välkända CA-myndigheter där certifikatets CN matchar värd namnet i HTTP-backend-inställningarna. Dessa inkluderar betrodda Azure-tjänster som Azure App Service Web Apps och Azure API Management.
+För Application Gateway-och WAF v2-SKU: n gäller TLS-principen endast för klient dels trafiken och alla chiffer erbjuds till backend-servern, som har kontroll över att välja vissa chiffer och TLS-version under hand skakningen.
+
+Application Gateway kommunicerar endast med de backend-servrar som antingen har vit listas sina certifikat med Application Gateway eller vars certifikat är signerade av välkända CA-myndigheter och certifikatets CN matchar värd namnet i inställningarna för HTTP-backend. Dessa inkluderar betrodda Azure-tjänster som Azure App Service/Web Apps och Azure API Management.
 
 Om certifikaten för medlemmarna i backend-poolen inte har signerats av välkända CA-utfärdare, måste varje instans i backend-poolen med end to end TLS aktiverat konfigureras med ett certifikat för att tillåta säker kommunikation. Genom att lägga till certifikatet ser du till att programgatewayen bara kommunicerar med kända backend-instanser. Detta skyddar all kommunikation från slut punkt till slut punkt.
-
-> [!NOTE] 
->
-> Konfiguration av autentiseringscertifikat krävs inte för betrodda Azure-tjänster som Azure App Service Web Apps och Azure API Management.
 
 > [!NOTE] 
 >
@@ -84,12 +82,20 @@ I det här exemplet dirigeras begär Anden som använder TLS 1.2 till backend-se
 
 ## <a name="end-to-end-tls-and-whitelisting-of-certificates"></a>Slut punkt till slut punkt för TLS och vit listning av certifikat
 
-Application Gateway kommunicerar bara med kända serverdelsinstanser som har vitlistat sina certifikat med Application Gateway. För att aktivera vitlistning av certifikat så behöver du överföra den offentliga nyckeln för serverdels-serverns certifikat till Application Gateway (inte rotcertifikatet). Endast anslutningar till kända och vitlistade serverdelar tillåts sedan. De återstående serverdelar resulterar i ett gateway-fel. Självsignerade certifikat är enbart för testningsändamål och rekommenderas inte för produktions-arbetsbelastningar. Sådana certifikat måste vara vit listas med Application Gateway enligt beskrivningen i föregående steg innan de kan användas.
+Application Gateway kommunicerar bara med kända Server dels instanser som har vit listas sitt certifikat med Application Gateway. Det finns vissa skillnader i konfigurations processen från slut punkt till slut punkt som gäller den version av Application Gateway som används. I följande avsnitt förklaras de var för sig.
+
+## <a name="end-to-end-tls-with-the-v1-sku"></a>End-to-end-TLS med v1 SKU
+
+För att aktivera TLS från slut punkt till slut punkt med backend-servrar och för att Application Gateway dirigera begär anden till dem, måste hälso avsökningarna lyckas och returnera felfria svar.
+
+För HTTPS-hälsosökningar använder Application Gateway v1 SKU en exakt matchning av autentiseringscertifikatet (offentlig nyckel för backend-serverns certifikat och inte rot certifikatet) som ska överföras till HTTP-inställningarna.
+
+Endast anslutningar till kända och vitlistade serverdelar tillåts sedan. Återstående Server delar betraktas som ohälsosama av hälso avsökningarna. Självsignerade certifikat är enbart för testningsändamål och rekommenderas inte för produktions-arbetsbelastningar. Sådana certifikat måste vara vit listas med Application Gateway enligt beskrivningen i föregående steg innan de kan användas.
 
 > [!NOTE]
-> Konfiguration av autentiseringscertifikat krävs inte för betrodda Azure-tjänster som Azure App Service.
+> Autentisering och konfiguration av betrodda rot certifikat krävs inte för betrodda Azure-tjänster som Azure App Service. De anses vara betrodda som standard.
 
-## <a name="end-to-end-tls-with-the-v2-sku"></a>Slut punkt till slut punkt TLS med v2-SKU: n
+## <a name="end-to-end-tls-with-the-v2-sku"></a>End-to-end-TLS med v2-SKU: n
 
 Certifikat för autentisering har ersatts och ersatts av betrodda rot certifikat i Application Gateway v2-SKU: n. De fungerar på samma sätt för att autentisera certifikat med några viktiga skillnader:
 
@@ -99,17 +105,51 @@ Certifikat för autentisering har ersatts och ersatts av betrodda rot certifikat
    
 > [!NOTE] 
 >
-> För att ett TLS/SSL-certifikat ska vara betrott måste certifikatet på backend-servern ha utfärdats av en certifikat utfärdare som ingår i den betrodda lagringen av Application Gateway. om certifikatet inte har utfärdats av en betrodd certifikat utfärdare, kommer Application Gateway att kontrol lera om certifikatet för den utfärdande certifikat utfärdaren utfärdades av en betrodd certifikat utfärdare, och så vidare tills en betrodd certifikat utfärdare hittas (där en betrodd, säker anslutning kommer att upprättas) eller så går det inte att hitta någon betrodd certifikat utfärdare (där Application Gateway markerar Server delen som skadad). Det rekommenderas därför att Server delens Server certifikat innehåller både rot-och mellanliggande certifikat utfärdare.
+> För att ett TLS/SSL-certifikat ska vara betrott måste certifikatet på backend-servern ha utfärdats av en certifikat utfärdare som är välkänd. Om certifikatet inte har utfärdats av en betrodd certifikat utfärdare, programgatewayen kommer sedan att kontrol lera om certifikatet för den utfärdande certifikat utfärdaren utfärdades av en betrodd certifikat utfärdare, och så vidare tills antingen en betrodd certifikat utfärdare hittas (där en betrodd, säker anslutning upprättas) eller så kan ingen betrodd certifikat utfärdare hittas (då kommer programgatewayen att markera Server delen som skadad). Det rekommenderas därför att Server delens Server certifikat innehåller både rot-och mellanliggande certifikat utfärdare.
 
-- Om certifikatet är självsignerat eller signerat av okända mellanhänder måste du definiera ett betrott rot certifikat för att kunna aktivera end to end-TLS i v2-SKU: n. Application Gateway kommunicerar bara med Server certifikat vars rot certifikat matchar en av listan över betrodda rot certifikat i Server delens http-inställning som är associerad med poolen.
+- Om certifikatet är självsignerat, eller signerat av okända mellanhänder, så måste du aktivera end-to-end-TLS i v2-SKU: n. ett betrott rot certifikat måste definieras. Application Gateway kommunicerar endast med Server certifikat vars rot certifikat matchar en av listan över betrodda rot certifikat i Server delens http-inställning som är associerad med poolen.
+
+- Förutom rot certifikat matchningen, validerar Application Gateway v2 även om värd inställningen som anges i Server delens http-inställning matchar det egna namnet (CN) som presenteras av backend-serverns TLS/SSL-certifikat. När du försöker upprätta en TLS-anslutning till Server delen anger Application Gateway v2 Servernamnindikator (SNI)-tillägget till värden som anges i Server delens http-inställning.
+
+- Om **Välj värd namn från Server dels adress** väljs i stället för värd fältet i http-inställningen för Server delen, anges SNI-huvudet alltid till FQDN för backend-poolen och CN på backend-serverns TLS/SSL-certifikat måste matcha sitt fullständiga domän namn. Medlemmar i backend-pooler med IP-adresser stöds inte i det här scenariot.
+
+- Rot certifikatet är ett base64-kodat rot certifikat från backend-serverns certifikat.
+
+## <a name="sni-differences-in-the-v1-and-v2-sku"></a>SNI skillnader i v1-och v2-SKU: n
+
+Som tidigare nämnts avslutar Application Gateway TLS-trafik från klienten vid Application Gateway-lyssnaren (vi kallar den klient delens anslutning), dekrypterar trafiken, tillämpar de nödvändiga reglerna för att fastställa backend-servern som begäran måste vidarebefordras till och upprättar en ny TLS-session med backend-servern (vi kallar Server delens anslutning).
+
+I följande tabeller beskrivs skillnaderna i SNI mellan v1-och v2-SKU: n i termer av frontend-och backend-anslutningar.
+
+### <a name="frontend-tls-connection-client-to-application-gateway"></a>Klient delens TLS-anslutning (klient till Programgateway)
+
+---
+Scenario | v1 | v2 |
+| --- | --- | --- |
+| Om klienten anger SNI-huvud och alla lyssnare för flera platser är aktiverade med flaggan "Kräv SNI" | Returnera lämpligt certifikat och om platsen inte finns (enligt server_name) återställs anslutningen. | Returnerar lämpligt certifikat om det är tillgängligt, annars returnerar certifikatet för den första HTTPS-lyssnare som kon figurer ATS (i ordningen)|
+| Om klienten inte anger något SNI-huvud och om alla rubriker för flera platser är aktiverade med "Kräv SNI" | Återställer anslutningen | Returnerar certifikatet för den första HTTPS-lyssnare som kon figurer ATS (i ordningen)
+| Om klienten inte anger SNI-huvud och om det finns en grundläggande lyssnare som kon figurer ATS med ett certifikat | Returnerar certifikatet som kon figurer ATS i den grundläggande lyssnaren till klienten (standard-eller fallback-certifikat) | Returnerar certifikatet för den första HTTPS-lyssnare som kon figurer ATS (i ordningen) |
+
+### <a name="backend-tls-connection-application-gateway-to-the-backend-server"></a>Server dels TLS-anslutning (Application Gateway till backend-servern)
+
+#### <a name="for-probe-traffic"></a>För avsöknings trafik
+
+---
+Scenario | v1 | v2 |
+| --- | --- | --- |
+| SNI (server_name)-huvud under TLS-handskakning som FQDN | Ange som FQDN från backend-poolen. Som enligt [RFC 6066](https://tools.ietf.org/html/rfc6066)tillåts inte textuella IPv4-och IPv6-adresser i SNI-värdnamnet. <br> **Obs:** FQDN i backend-poolen ska DNS matcha till backend-serverns IP-adress (offentlig eller privat) | SNI-huvud (server_name) anges som värd namnet från den anpassade avsökningen som är kopplad till HTTP-inställningarna (om den har kon figurer ATS), i annat fall från det värdnamn som anges i HTTP-inställningarna, annars från det fullständiga domän namn som anges i Server delen Prioritetsordningen är anpassad avsökning > HTTP-inställningar > backend-pool. <br> **Obs:** Om värd namnen som kon figurer ATS i HTTP-inställningar och anpassad avsökning skiljer sig åt, kommer SNI att anges som värdnamn från den anpassade avsökningen enligt prioritet.
+| Om Server delens adresspool är en IP-adress (v1) eller om anpassad avsöknings-värdnamn har kon figurer ATS som IP-adress (v2) | SNI (server_name) anges inte. <br> **Obs:** I det här fallet ska backend-servern kunna returnera ett standard-/fallback-certifikat och bör vara vit listas i HTTP-inställningar under autentiseringscertifikat. Om inget standard-/fallback-certifikat har kon figurer ATS i backend-servern och SNI förväntas, kan servern återställa anslutningen och leda till avsöknings problem | I prioritetsordning som nämnts tidigare, om de har IP-adress som värdnamn, kommer SNI inte att anges enligt [RFC 6066](https://tools.ietf.org/html/rfc6066). <br> **Obs:** SNI anges inte heller i v2-avsökningar om ingen anpassad avsökning har kon figurer ATS och inget värdnamn har angetts för HTTP-inställningar eller backend-poolen |
 
 > [!NOTE] 
->
-> Det självsignerade certifikatet måste vara en del av en certifikat kedja. Ett enda självsignerat certifikat utan kedja stöds inte i v2 SKU.
+> Om en anpassad avsökning inte har kon figurer ATS skickar Application Gateway en standard avsökning i formatet- \< protokoll \> ://127.0.0.1: \< port \> /. För en standard-HTTPS-avsökning kommer den till exempel att skickas som https://127.0.0.1:443/ . Observera att den 127.0.0.1 som anges här bara används som HTTP-värd rubrik och enligt RFC 6066, kommer inte att användas som SNI-huvud. Mer information om hälso avsöknings fel finns i [fel söknings guide för Server dels hälsa](application-gateway-backend-health-troubleshooting.md).
 
-- Förutom matchning av rot certifikat, verifierar Application Gateway även om värd inställningen som anges i Server delens http-inställning matchar det egna namnet (CN) som visas av backend-serverns TLS/SSL-certifikat. När du försöker upprätta en TLS-anslutning till Server delen ställer Application Gateway in Servernamnindikator (SNI)-tillägget på värden som anges i Server delens http-inställning.
-- Om **Välj värd namn från Server dels adress** väljs i stället för värd fältet i http-inställningen för Server delen, anges SNI-huvudet alltid till FQDN för backend-poolen och CN på backend-serverns TLS/SSL-certifikat måste matcha sitt fullständiga domän namn. Medlemmar i backend-pooler med IP-adresser stöds inte i det här scenariot.
-- Rot certifikatet är ett base64-kodat rot certifikat från backend-serverns certifikat.
+#### <a name="for-live-traffic"></a>För Live-trafik
+
+---
+Scenario | v1 | v2 |
+| --- | --- | --- |
+| SNI (server_name)-huvud under TLS-handskakning som FQDN | Ange som FQDN från backend-poolen. Som enligt [RFC 6066](https://tools.ietf.org/html/rfc6066)tillåts inte textuella IPv4-och IPv6-adresser i SNI-värdnamnet. <br> **Obs:** FQDN i backend-poolen ska DNS matcha till backend-serverns IP-adress (offentlig eller privat) | SNI-huvud (server_name) anges som värd namn från HTTP-inställningarna, annars om alternativet *PickHostnameFromBackendAddress* har valts eller om inget värdnamn anges, anges det som FQDN i konfigurationen för backend-poolen
+| Om adressen till Server delens adresspool är en IP-adress eller ett värdnamn som inte angetts i HTTP-inställningarna | SNI anges inte enligt [RFC 6066](https://tools.ietf.org/html/rfc6066) om posten för backend-poolen inte är ett fullständigt domän namn | SNI anges som värd namn från det inloggade fullständiga domän namnet från klienten och Server dels certifikatets CN måste matcha det här värd namnet.
 
 ## <a name="next-steps"></a>Nästa steg
 

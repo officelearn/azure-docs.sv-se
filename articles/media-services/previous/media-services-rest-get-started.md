@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46d00df4970a7268c9856de6d7c090f2deffc7ea
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773684"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654518"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST  
 
@@ -89,11 +89,11 @@ I Media Services överför du dina digitala filer till en tillgång. **Till gån
 
 Ett av de värden som du måste ange när du skapar en till gång är till gångs skapande alternativ. Egenskapen **Options** är ett uppräknings värde som beskriver de krypterings alternativ som en till gång kan skapas med. Ett giltigt värde är ett av värdena i listan nedan, inte en kombination av värden från den här listan:
 
-* **Ingen** = **0** -ingen kryptering används. När du använder det här alternativet skyddas inte innehållet i överföring eller i vila i lagring.
+* **Ingen**  =  **0** – ingen kryptering används. När du använder det här alternativet skyddas inte innehållet i överföring eller i vila i lagring.
     Om du planerar att leverera en MP4 med progressivt nedladdning ska du använda det här alternativet.
-* **StorageEncrypted** = **1** – krypterar ditt tydliga innehåll lokalt med AES-256-bitars kryptering och laddar sedan upp det till Azure Storage där det lagras krypterade i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
-* **CommonEncryptionProtected** = **2** – Använd det här alternativet om du överför innehåll som redan har krypterats och skyddas med common Encryption eller PlayReady DRM (till exempel Smooth Streaming som skyddas med PlayReady DRM).
-* **EnvelopeEncryptionProtected** = **4** – Använd det här alternativet om du överför HLS som krypteras med AES. Filerna måste ha kodats och krypterats av Transform Manager.
+* **StorageEncrypted**  =  **1** – krypterar ditt rensade innehåll lokalt med AES-256-bitars kryptering och laddar sedan upp det till Azure Storage där det lagras krypterat i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
+* **CommonEncryptionProtected**  =  **2** – Använd det här alternativet om du överför innehåll som redan har krypterats och skyddas med common Encryption eller PlayReady DRM (till exempel Smooth Streaming som skyddas med PlayReady DRM).
+* **EnvelopeEncryptionProtected**  =  **4** – Använd det här alternativet om du överför HLS krypterad med AES. Filerna måste ha kodats och krypterats av Transform Manager.
 
 ### <a name="create-an-asset"></a>Skapa en till gång
 En till gång är en behållare för flera typer eller uppsättningar med objekt i Media Services, inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning. När du skapar en till gång i REST API måste du skicka POST-begäran till Media Services och placera all egenskaps information om din till gång i begär ande texten.
@@ -339,7 +339,7 @@ När du har angett Access policy och lokaliseraren laddas den faktiska filen upp
 Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Uppdatera AssetFile
-Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Ett exempel:
+Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Till exempel:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -817,11 +817,11 @@ Den returnerade **Sök vägs** egenskapen innehåller SAS-URL: en.
 När du har angett Access policy och lokaliseraren kan du hämta filer med hjälp av Azure Storage REST-API: er.  
 
 > [!NOTE]
-> Du måste lägga till fil namnet för den fil som du vill ladda ned till värdet för sökvägen till lokaliserings **Sök vägen** som togs emot i föregående avsnitt. Till exempel, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
+> Du måste lägga till fil namnet för den fil som du vill ladda ned till värdet för sökvägen till lokaliserings **Sök vägen** som togs emot i föregående avsnitt. Till exempel `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4` ? . . .
 
 Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Ett exempel:    
+Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Till exempel:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 

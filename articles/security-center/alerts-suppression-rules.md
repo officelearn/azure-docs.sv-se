@@ -8,18 +8,18 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 5a5d6a96bd73a67c2611e7f334eba3daeda031ba
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 83ee59ca4353cd1af6c613e7624ee15f21b0a27e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007705"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650918"
 ---
 # <a name="suppressing-alerts-from-azure-security-centers-threat-protection"></a>Ignorera aviseringar från Azure Security Center hot skydd
 
 På den här sidan förklaras hur du kan använda undertrycks regler för varningar för att förhindra falska positiva identifieringar eller andra oönskade säkerhets varningar i Azure Security Center.
 
-## <a name="availability"></a>Tillgänglighet
+## <a name="availability"></a>Tillgängligt
 
 - Versions tillstånd: för **hands version**
 - Obligatoriska roller: säkerhets administratör och ägare kan skapa/ta bort regler. Säkerhets läsare och läsare kan visa regler.
@@ -147,7 +147,7 @@ Relevanta HTTP-metoder för undertrycks regler i REST API är:
 
 - **Ta bort**: tar bort en befintlig regel (men ändrar inte statusen för aviseringar som redan har avslagits av den).
 
-Fullständig information och användnings exempel finns i [API-dokumentationen](https://docs.microsoft.com/api/securitycenter/). 
+Fullständig information och användnings exempel finns i [API-dokumentationen](https://docs.microsoft.com/rest/api/securitycenter/). 
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: ae76c30f63c87f7e741fff31792d520fb144b93b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3336869a5f91613849cdccb67f9d804205148608
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084285"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652525"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -35,13 +35,13 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure (förutom f
 * [HB-serien](../hb-series.md)
 * [HC-serien](../hc-series.md)
 * [Ls-serien](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) och [Lsv2-serien](../lsv2-series.md)
-* [Mv2-serien](../mv2-series.md)
+* [M-serien](../m-series.md)
+* [Mv2-serie](../mv2-series.md)<sup>1</sup>
 * [NCv2-serien](../ncv2-series.md) och [NCv3-serien](../ncv3-series.md)
 * [ND-serien](../nd-series.md)
 * [NVv3-serien](../nvv3-series.md)
 
-> [!NOTE]
-> Användningen av virtuella datorer i generation 2 för virtuella datorer i Mv2-serien är allmänt tillgänglig eftersom Mv2-serien fungerar med generation 2 VM-avbildningar exklusivt. Generation 1 VM-avbildningar stöds inte på virtuella datorer i Mv2-serien. 
+<sup>1</sup> Mv2-serien stöder inte VM-avbildningar av generation 1 och stöder endast en delmängd av generation 2-avbildningar. Mer information finns i [dokumentationen för Mv2-serien](https://docs.microsoft.com/azure/virtual-machines/mv2-series) .
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Generation 2 VM-avbildningar på Azure Marketplace
 
@@ -74,7 +74,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 | Funktion | Generation 1 | Generation 2 |
 |---------|--------------|--------------|
-| Enhet             | PCAT         | UEFI |
+| Start             | PCAT         | UEFI |
 | Disk styrenheter | IDE          | SCSI |
 | VM-storlekar         | Alla VM-storlekar | Endast virtuella datorer som stöder Premium Storage |
 
@@ -122,12 +122,6 @@ Använd till exempel följande PowerShell-cmdlet för att hämta en lista över 
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
-Du kan också använda Azure CLI för att se alla tillgängliga generation 2-avbildningar som listas av **Publisher**.
-
-```azurecli
-az vm image list --publisher Canonical --sku gen2 --output table --all
-```
-
 Om du skapar en virtuell dator med Windows Server 2012 som operativ system väljer du antingen generation 1 (BIOS) eller generation 2 (UEFI) VM SKU, som ser ut så här:
 
 ```powershell
@@ -136,6 +130,14 @@ Om du skapar en virtuell dator med Windows Server 2012 som operativ system välj
 ```
 
 I avsnittet [funktioner och funktioner](#features-and-capabilities) finns en aktuell lista över Marketplace-avbildningar som stöds.
+
+#### <a name="azure-cli"></a>Azure CLI
+
+Du kan också använda Azure CLI för att se alla tillgängliga generation 2-avbildningar som listas av **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
 
 ### <a name="managed-image-or-managed-disk"></a>Hanterad avbildning eller hanterad disk
 

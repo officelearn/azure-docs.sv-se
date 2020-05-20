@@ -1,7 +1,6 @@
 ---
-title: CLI-tillägg
-titleSuffix: Azure Machine Learning
-description: Lär dig mer om Azure Machine Learning CLI-tillägget för Azure CLI. Azure CLI är ett kommando rads verktyg för flera plattformar som gör att du kan arbeta med resurser i Azure-molnet. Med tillägget Machine Learning kan du arbeta med Azure Machine Learning. ML CLI skapar och hanterar resurser som din arbets yta, data lager, data uppsättningar, pipelines, modeller och distributioner.
+title: Installera & Använd Azure Machine Learning CLI
+description: Lär dig hur du installerar och använder Azure Machine Learning CLI-tillägget för att skapa och hantera resurser, till exempel din arbets yta, data uppsättningar, data uppsättningar, pipelines, modeller och distributioner.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +10,14 @@ ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 16f9080487af95e7de5c5f8c91fd5c8d356b7bde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d401522ffc45e2e7ea20de70a59ed967dd7623ab
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81618072"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659790"
 ---
-# <a name="use-the-cli-extension-for-azure-machine-learning"></a>Använd CLI-tillägget för Azure Machine Learning
+# <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Installera & Använd CLI-tillägget för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning CLI är ett tillägg till [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), ett plattforms oberoende kommando rads gränssnitt för Azure-plattformen. Det här tillägget innehåller kommandon för att arbeta med Azure Machine Learning. Det gör att du kan automatisera dina Machine Learning-aktiviteter. Följande lista innehåller några exempel åtgärder som du kan göra med CLI-tillägget:
@@ -33,7 +32,7 @@ CLI är inte en ersättning för Azure Machine Learning SDK. Det är ett komplet
 
 ## <a name="prerequisites"></a>Krav
 
-* Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* Du måste ha en Azure-prenumeration för att kunna använda CLI. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * Om du vill använda CLI-kommandona i det här dokumentet från din **lokala miljö**behöver du [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -71,7 +70,7 @@ az extension add -n azure-cli-ml
 > [!TIP]
 > Exempel på filer som du kan använda med kommandona nedan hittar du [här](https://aka.ms/azml-deploy-cloud).
 
-När du uppmanas `y` väljer du att installera tillägget.
+När du uppmanas väljer `y` du att installera tillägget.
 
 Kontrol lera att tillägget har installerats genom att använda följande kommando för att visa en lista över ML-Specific-kommandon:
 
@@ -113,7 +112,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     ```
 
     > [!TIP]
-    > Det här kommandot skapar en Basic Edition-arbetsyta. Om du vill skapa en företags arbets yta `--sku enterprise` använder du växeln `az ml workspace create` med kommandot. Mer information om Azure Machine Learning-versioner finns i [Azure Machine Learning](overview-what-is-azure-ml.md#sku).
+    > Det här kommandot skapar en Basic Edition-arbetsyta. Om du vill skapa en företags arbets yta använder du `--sku enterprise` växeln med `az ml workspace create` kommandot. Mer information om Azure Machine Learning-versioner finns i [Azure Machine Learning](overview-what-is-azure-ml.md#sku).
 
     Mer information finns i [skapa en AZ ml-arbetsyta](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
@@ -123,7 +122,7 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    Det här kommandot skapar `.azureml` en under katalog som innehåller exempel på runconfig-och Conda-miljöfiler. Den innehåller också en `config.json` fil som används för att kommunicera med din Azure Machine Learning-arbetsyta.
+    Det här kommandot skapar en `.azureml` under katalog som innehåller exempel på runconfig-och Conda-miljöfiler. Den innehåller också en `config.json` fil som används för att kommunicera med din Azure Machine Learning-arbetsyta.
 
     Mer information finns i [AZ ml Folder Attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
 
@@ -161,14 +160,14 @@ Följande kommandon visar hur du använder CLI för att hantera resurser som anv
 
 ## <a name="run-experiments"></a><a id="experiments"></a>Köra experiment
 
-* Starta en körning av experimentet. När du använder det här kommandot anger du namnet på runconfig-filen (texten före \*. runconfig om du tittar på ditt fil system) mot parametern-c.
+* Starta en körning av experimentet. När du använder det här kommandot anger du namnet på runconfig-filen (texten före \* . runconfig om du tittar på ditt fil system) mot parametern-c.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     > [!TIP]
-    > `az ml folder attach` Kommandot skapar en `.azureml` under katalog som innehåller två exempel på runconfig-filer. 
+    > `az ml folder attach`Kommandot skapar en `.azureml` under katalog som innehåller två exempel på runconfig-filer. 
     >
     > Om du har ett Python-skript som skapar ett kör konfigurations objekt program mässigt kan du använda [RunConfig. Save ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) för att spara det som en RunConfig-fil.
     >
@@ -194,7 +193,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
     az ml dataset register -f mydataset.json
     ```
 
-    Information om formatet på den JSON-fil som används för att definiera data uppsättningen använder `az ml dataset register --show-template`du.
+    Information om formatet på den JSON-fil som används för att definiera data uppsättningen använder du `az ml dataset register --show-template` .
 
     Mer information finns i [AZ ml data data register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
 
@@ -328,9 +327,9 @@ Om du använde `az ml environment scaffold` kommandot genererar det en mallfil `
 }
 ```
 
-Följande tabell innehåller information om varje översta fält i JSON-filen, dess typ och en beskrivning. Om en objekt typ är länkad till en klass från python SDK finns det en lös 1:1-matchning mellan varje JSON-fält och namnet på den offentliga variabeln i python-klassen. I vissa fall kan fältet mappas till ett konstruktor-argument i stället för en klass variabel. Till exempel mappas `environmentVariables` fältet till `environment_variables` variabeln i- [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) klassen.
+Följande tabell innehåller information om varje översta fält i JSON-filen, dess typ och en beskrivning. Om en objekt typ är länkad till en klass från python SDK finns det en lös 1:1-matchning mellan varje JSON-fält och namnet på den offentliga variabeln i python-klassen. I vissa fall kan fältet mappas till ett konstruktor-argument i stället för en klass variabel. Till exempel `environmentVariables` mappas fältet till `environment_variables` variabeln i- [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) klassen.
 
-| JSON-fält | Typ | Beskrivning |
+| JSON-fält | Typ | Description |
 |---|---|---|
 | `name` | `string` | Miljöns namn. Starta inte namn med **Microsoft** eller **azureml**. |
 | `version` | `string` | Version av miljön. |
@@ -339,7 +338,7 @@ Följande tabell innehåller information om varje översta fält i JSON-filen, d
 | `docker` | [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) | Definierar inställningar för att anpassa Docker-avbildningen som är byggd för miljöns specifikationer. |
 | `spark` | [`SparkSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py) | I avsnittet konfigureras Spark-inställningar. Den används endast när Framework är inställt på PySpark. |
 | `databricks` | [`DatabricksSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.databricks.databrickssection?view=azure-ml-py) | Konfigurerar beroenden för Databricks-bibliotek. |
-| `inferencingStackVersion` | `string` | Anger den inferencing stack-version som läggs till i avbildningen. Lämna det här fältet `null`för att undvika att lägga till en inferencing-stack. Giltigt värde: "senaste". |
+| `inferencingStackVersion` | `string` | Anger den inferencing stack-version som läggs till i avbildningen. Lämna det här fältet för att undvika att lägga till en inferencing-stack `null` . Giltigt värde: "senaste". |
 
 ## <a name="ml-pipeline-management"></a>ML pipeline-hantering
 

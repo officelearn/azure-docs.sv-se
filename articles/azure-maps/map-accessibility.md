@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 5fa9e159fa0ac76ce8c585936059fb7f3151c7c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23f52e48c6a435678a01569d25e0072d9c8a3e28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79473327"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648571"
 ---
 # <a name="building-an-accessible-application"></a>Skapa ett tillgängligt program
 
@@ -28,6 +28,7 @@ Azure Maps Web SDK levereras med många hjälpmedels funktioner, till exempel:
 - Skärm läsar beskrivningar när kartan flyttas och när användaren fokuserar på en kontroll eller popup.
 - Stöd för musen, touch och keyboard.
 - Stöd för tillgänglig färg kontrast på väg kartans format.
+- Stöd för hög kontrast.
 
 Fullständig tillgänglighets information för alla Microsoft-produkter hittar du [här](https://cloudblogs.microsoft.com/industry-blog/government/2018/09/11/accessibility-conformance-reports/). Sök efter "Azure Maps webb" för att hitta det dokument som är specifikt för Azure Maps Web SDK. 
 
@@ -41,10 +42,10 @@ Det finns flera olika sätt på vilka kartan kan zoomas, panoreras, roteras och 
 - Använd en mus, Rulla hjulet för att zooma kartan.
 - Använd en touch-skärm och vidrör kartan med två fingrar och dra ihop för att zooma ut eller sprida fingrarna från varandra för att zooma in.
 - Använd en pekskärm och dubbelknacka på kartan för att zooma på en nivå.
-- Med kartan fokuserad använder du plus tecknet (`+`) eller likhets tecknet (`=`) för att zooma in en nivå.
-- Med kartan fokuserad använder du minus tecknet, bindestrecket (`-`) eller under streck (`_`) för att zooma ut en nivå.
+- Med kartan fokuserad använder du plus tecknet ( `+` ) eller likhets tecknet ( `=` ) för att zooma in en nivå.
+- Med kartan fokuserad använder du minus tecknet, bindestrecket ( `-` ) eller under streck ( `_` ) för att zooma ut en nivå.
 - Använd zoomnings kontrollen med musen, touch eller tangent bord/ange nycklar.
-- Tryck på och håll `Shift` ned knappen och tryck på vänster musknapp ned på kartan och dra för att rita ut ett område för att zooma kartan till.
+- Tryck på och håll ned `Shift` knappen och tryck på vänster musknapp ned på kartan och dra för att rita ut ett område för att zooma kartan till.
 
 **Panorera kartan**
 
@@ -76,7 +77,7 @@ Alla utvecklare vill inte att alla möjliga kart format ska vara tillgängliga i
 - Kart kontrollen övervakar inte enhetens höga kontrast läge. Om enhets läget ändras, kommer kartan inte att vara det. Det innebär att användaren måste läsa in kartan igen genom att uppdatera sidan.
 - När hög kontrast identifieras växlar kart formatet automatiskt till hög kontrast, och alla inbyggda kontroller använder en hög kontrast stil. Till exempel, ZoomControl, PitchControl, CompassControl, StyleControl och andra inbyggda kontroller, kommer att använda ett högt kontrast format.
 - Det finns två typer av hög kontrast, ljus och mörk. Om typen av hög kontrast kan identifieras av kart kontrollerna, kommer beteendet för kartan att justeras efter behov. Om ljuset, kommer den grayscale_light kart stilen att läsas in. Om typen inte kan identifieras eller är mörk, kommer high_contrast_dark formatet att läsas in.
-- Om du skapar anpassade kontroller är det bra att veta om de inbyggda kontrollerna använder en hög kontrast stil. Utvecklare kan lägga till en CSS-klass på kartan container div för att kontrol lera. De CSS-klasser som ska läggas till `high-contrast-dark` är `high-contrast-light`och. Om du vill kontrol lera med hjälp av Java Script använder du:
+- Om du skapar anpassade kontroller är det bra att veta om de inbyggda kontrollerna använder en hög kontrast stil. Utvecklare kan lägga till en CSS-klass på kartan container div för att kontrol lera. De CSS-klasser som ska läggas till är `high-contrast-dark` och `high-contrast-light` . Om du vill kontrol lera med hjälp av Java Script använder du:
 
 ```javascript
 map.getMapContainer().classList.contains("high-contrast-dark")
@@ -92,7 +93,7 @@ map.getMapContainer().classList.contains("high-contrast-light")
 
 Kartan har ett antal kortkommandon inbyggda som gör det enklare att använda kartan. Dessa kortkommandon fungerar när kartan är i fokus.
 
-| Nyckel      | Action                            |
+| Nyckel      | Åtgärd                            |
 |----------|-----------------------------------|
 | `Tab` | Navigera bland kontrollerna och popup-fönster i kartan. |
 | `ESC` | Flytta fokus från valfritt element i kartan till kart elementet på översta nivån. |
@@ -105,15 +106,15 @@ Kartan har ett antal kortkommandon inbyggda som gör det enklare att använda ka
 | `Shift`+ NEDPIL | Minska kart bredden med 10 grader |
 | `Shift`+ HÖGERPIL | Rotera kartan 15 grader medsols |
 | `Shift`+ VÄNSTERPIL | Rotera kartan 15 grader moturs |
-| Plus tecken (`+`) eller <sup>*</sup>likhets tecken (`=`) | Zooma in |
-| Minus tecken, bindestreck (`-`) eller <sup>*</sup>under streck (`_`) | Zooma ut | 
+| Plus tecken ( `+` ) eller <sup>*</sup> likhets tecken ( `=` ) | Zooma in |
+| Minus tecken, bindestreck ( `-` ) eller <sup>*</sup> under streck ( `_` ) | Zooma ut | 
 | `Shift`+ Dra på kartan för att rita område | Zooma in i yta |
 
 <sup>*</sup>Dessa kortkommandon delar vanligt vis samma nyckel på ett tangent bord. Dessa genvägar har lagts till för att förbättra användar upplevelsen. Det spelar ingen roll om användaren använder Shift-tangenten eller inte för dessa kortkommandon.
 
 ## <a name="screen-reader-support"></a>Stöd för skärm läsare
 
-Användare kan navigera i kartan med tangent bordet. Om en skärm läsare körs meddelar kartan användaren om ändringar i sitt tillstånd. Användare meddelas till exempel om kart ändringar när kartan är panorerad eller zoomad. Som standard tillhandahåller kartan förenklade beskrivningar som utesluter zoomnings nivån och koordinaterna i mitten av kartan. Användaren kan växla detalj nivån för dessa beskrivningar genom att använda tangent bordet `Ctrl`  +  `Shift`  +  `D`kort klipp.
+Användare kan navigera i kartan med tangent bordet. Om en skärm läsare körs meddelar kartan användaren om ändringar i sitt tillstånd. Användare meddelas till exempel om kart ändringar när kartan är panorerad eller zoomad. Som standard tillhandahåller kartan förenklade beskrivningar som utesluter zoomnings nivån och koordinaterna i mitten av kartan. Användaren kan växla detalj nivån för dessa beskrivningar genom att använda tangent bordet kort klipp `Ctrl`  +  `Shift`  +  `D` .
 
 All ytterligare information som placeras på bas kartan bör ha motsvarande text information för skärm läsar användare. Se till att du lägger till [HJÄLPMEDELSANPASSADE Aria-](https://www.w3.org/WAI/standards-guidelines/aria/), Alt-och title-attribut där det är lämpligt. 
 
@@ -125,7 +126,7 @@ I följande exempel läses intressanta punkter på kartan med ett symbol lager o
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Gör ett tillgängligt program' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>gör ett tillgängligt program</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) i <a href='https://codepen.io'>CodePen</a>. </iframe>
+<iframe height='500' scrolling='no' title='Gör ett tillgängligt program' src='//codepen.io/azuremaps/embed/ZoVyZQ/?height=504&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZoVyZQ/'>gör ett tillgängligt program</a> av Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) i <a href='https://codepen.io'>CodePen</a>. </iframe>
 
 <br/>
 

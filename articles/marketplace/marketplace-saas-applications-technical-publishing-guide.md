@@ -1,6 +1,6 @@
 ---
-title: Publicerings guide för Azure Marketplace SaaS-program
-description: Steg-för-steg-guide och publicera check listor för publicering av SaaS-program till Azure Marketplace
+title: Publicerings guide för SaaS-program – Microsoft Commercial Marketplace
+description: Krav och resurser för publicering av publicerings SaaS program erbjudanden till Microsoft AppSource och Azure Marketplace.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: dsindona
 ms.service: marketplace
@@ -8,16 +8,16 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: dsindona
-ms.openlocfilehash: 3a3cbe26b9fa82e236acbfd0c7e8ca3e81a7aa75
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d1ee4fc0760e76af7475dd3b2dc83f306e7a7bd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117241"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657824"
 ---
-# <a name="saas-applications-offer-publishing-guide"></a>Publicerings guide för SaaS-program
+# <a name="saas-applications-offer-publishing-guide"></a>Publiceringsguiden för SaaS-programerbjudanden
 
-SaaS-program kan publiceras på Marketplace med tre olika anrop till åtgärd: "kontakta mig", prova nu, "och" Hämta det nu. " Den här guiden förklarar dessa tre alternativ, inklusive krav för var och en. 
+Du kan publicera SaaS-program på den kommersiella marknads platsen med tre olika anrop till åtgärden: "kontakta mig", testa det nu, "och" Hämta det nu. " I den här artikeln beskrivs dessa tre alternativ, inklusive krav för var och en. 
 
 ## <a name="offer-overview"></a>Erbjudande översikt  
 
@@ -28,8 +28,8 @@ SaaS-program finns i Microsoft AppSource och Azure Marketplace.  Både butiker s
 
 | Erbjudande för SaaS-appar | Affärs krav | Tekniska krav |  
 | --- | --- | --- |  
-| **Kontakta oss** | Ja | Nej |  
-| **PowerBI/Dynamics** | Ja | Ja (Azure AD-integrering) |  
+| **Kontakta oss** | Ja | Inga |  
+| **Power BI/Dynamics** | Ja | Ja (Azure AD-integrering) |  
 | **SaaS-appar**| Ja | Ja (Azure AD-integrering) |     
 
 ## <a name="saas-list"></a>Lista över SaaS

@@ -8,13 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref
-ms.openlocfilehash: c2800dc361eb274eeef706556e09731da079ccab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9a3b326f97246ffac386ad43cfa08ce413eea899
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611763"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653370"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autentisering och auktorisering till Azure spatiala ankare
 
@@ -46,7 +45,7 @@ Två nycklar görs tillgängliga, som båda är giltiga för åtkomst till konto
 
 SDK: n har inbyggt stöd för autentisering med konto nycklar. du behöver bara ange egenskapen AccountKey för cloudSession-objektet.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
@@ -99,7 +98,7 @@ Den rekommenderade metoden är att använda en Azure AD-token för program som �
     1.  Registrera ditt program i Azure AD som ett **internt program**. Som en del av registreringen måste du bestämma om ditt program ska vara flera innehavare eller inte och ange de omdirigerings-URL: er som tillåts för ditt program.
         1.  Växla till fliken **API-behörigheter**
         2.  Välj **Lägg till en behörighet**
-            1.  Välj **resurs leverantör för Mixad verklighet** under **API: er min organisation använder** flik
+            1.  Välj **Microsoft Mixed Reality** under **API min organisation använder** Tab
             2.  Välj **delegerade behörigheter**
             3.  Markera kryss rutan för **mixedreality. signin** under **mixedreality**
             4.  Välj **Lägg till behörigheter**
@@ -112,16 +111,16 @@ Den rekommenderade metoden är att använda en Azure AD-token för program som �
             2.  I **Välj** -fältet anger du namnet på de användare, grupper och/eller program som du vill tilldela åtkomst till.
             3.  Tryck på **Save** (Spara).
 2. I din kod:
-    1.  Se till att använda **program-ID** och **omdirigerings-URI** för ditt eget Azure AD **-program som klient-ID** och **RedirectUri** -parametrar i ADAL
+    1.  Se till att använda **program-ID** och **omdirigerings-URI** för ditt eget Azure AD **-program som klient-ID** och **RedirectUri** -parametrar i MSAL
     2.  Ange klient information:
         1.  Om ditt program **endast stöder min organisation**ersätter du värdet med **klient-ID** eller **klient namn** (till exempel contoso.Microsoft.com)
         2.  Om ditt program har stöd **för konton i en organisations katalog**ersätter du värdet med **organisationer**
         3.  Om programmet har stöd för **alla Microsoft-konto användare ersätter du**värdet med **common**
-    3.  Ange **resursen** till "https://sts.mixedreality.azure.com" i din Tokenbegäran. Den här resursen indikerar Azure AD att ditt program begär en token för tjänsten Azure spatial ankare.
+    3.  Ange **omfånget** på din Tokenbegäran https://sts.mixedreality.azure.com//.default . Det här omfånget indikerar till Azure AD att ditt program begär en token för tjänsten Mixed Reality säkerhetstokentjänst (STS).
 
 Med detta bör ditt program kunna hämta från MSAL till en Azure AD-token. Du kan ange att Azure AD-token som **authenticationToken** i konfigurations objekt för Cloud session.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
@@ -185,16 +184,16 @@ Azure AD-åtkomsttoken hämtas med [MSAL-biblioteket](../../active-directory/dev
         2.  I fältet **Välj** anger du namnet på de program som du skapade och till vilka du vill tilldela åtkomst. Om du vill att appens användare ska ha olika roller mot kontot för spatiala ankare bör du registrera flera program i Azure AD och tilldela varje enskild roll. Implementera sedan din auktoriserings logik för att använda rätt roll för dina användare.
     3.  Tryck på **Save** (Spara).
 2.  I din kod (Obs: du kan använda tjänst exemplet som ingår i GitHub):
-    1.  Se till att använda program-ID, program hemlighet och omdirigerings-URI för ditt eget Azure AD-program som klient-ID, hemligheter och RedirectUri-parametrar i ADAL
-    2.  Ange klient-ID: t till din egen AAAzure Lägg till klient-ID i parametern Authority i ADAL
-    3.  Ange **resursen** till "https://sts.mixedreality.azure.com" i din Tokenbegäran
+    1.  Se till att använda program-ID, program hemlighet och omdirigerings-URI för ditt eget Azure AD-program som klient-ID, hemligheter och RedirectUri-parametrar i MSAL
+    2.  Ange klient-ID: t till ditt eget Azure-tillägg i parametern Authority i MSAL.
+    3.  Ange **omfånget** på din Tokenbegäran https://sts.mixedreality.azure.com//.default
 
 Med detta kan Server dels tjänsten hämta en Azure AD-token. Den kan sedan utväxla den för en MR-token som den kommer tillbaka till klienten. Att använda en Azure AD-token för att hämta en MR-token görs via ett REST-anrop. Här är ett exempel på ett anrop:
 
 ```
-GET https://mrc-auth-prod.trafficmanager.net/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
+GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1Ni<truncated>FL8Hq5aaOqZQnJr1koaQ
-Host: mrc-auth-prod.trafficmanager.net
+Host: sts.mixedreality.azure.com
 Connection: Keep-Alive
 
 HTTP/1.1 200 OK
@@ -206,13 +205,13 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Där Authorization-huvudet är formaterat på följande sätt:`Bearer <accoundId>:<accountKey>`
+Där Authorization-huvudet är formaterat på följande sätt:`Bearer <Azure_AD_token>`
 
 Och svaret innehåller MR-token som oformaterad text.
 
 Den MR-token returneras sedan till klienten. Klient programmet kan sedan ange den som åtkomsttoken i Cloud session config.
 
-# <a name="c"></a>[C #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```csharp
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";

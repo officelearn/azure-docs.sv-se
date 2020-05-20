@@ -1,6 +1,6 @@
 ---
-title: Felsökning
-description: Felsöka Azure Synapse Analytics.
+title: Felsöka Synapse SQL
+description: Felsöka Synapse SQL i Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 973d2339db1e55f2cca45025f2d678e5126f4317
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 618ef7329d28dc8006a338d8326d790a6a9d3554
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743663"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650460"
 ---
-# <a name="troubleshooting-sql-analytics-in-azure-synapse"></a>Felsöka SQL Analytics i Azure Synapse
+# <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Felsöka Synapse SQL i Azure Synapse Analytics
 
-Den här artikeln innehåller vanliga fel söknings frågor.
+Den här artikeln innehåller vanliga fel söknings problem i Synapse SQL.
 
 ## <a name="connecting"></a>Ansluta
 
@@ -36,7 +36,7 @@ Den här artikeln innehåller vanliga fel söknings frågor.
 
 | Problem                                                        | Lösning                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Azure AD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt problem.  Som en lösning kan du Visa användarna i [sys. database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Mer information om hur du använder Azure Active Directory med Synapse SQL-poolen finns i [autentisering med Azure Synapse](sql-data-warehouse-authentication.md) . |
+| Azure AD-användare saknas i Visual Studio Object Explorer           | Detta är ett känt fel.  Som en lösning kan du Visa användarna i [sys. database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Mer information om hur du använder Azure Active Directory med Synapse SQL-poolen finns i [autentisering med Azure Synapse](sql-data-warehouse-authentication.md) . |
 | Manuell skript användning med skript guiden eller anslutning via SSMS är långsam, svarar inte eller skapar fel | Se till att användarna har skapats i huvud databasen. I skript alternativ ser du också till att motor versionen är inställd på "Microsoft Azure SQL Data Warehouse Edition" och att motor typen är "Microsoft Azure SQL Database". |
 | Generera skript Miss lyckas i SSMS                               | Det går inte att skapa ett skript för SQL-poolen Synapse om alternativet "skapa skript för beroende objekt" är inställt på "true". Som en lösning måste användarna manuellt gå till **verktyg-> alternativ->SQL Server Object Explorer-> skapa skript för beroende alternativ och ange värdet FALSKT** |
 
@@ -81,5 +81,5 @@ Om du vill ha hjälp med att hitta en lösning på problemet kan du göra något
 * [Videor](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 * [Skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md)
 * [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse)
-* [Stack Overflow-forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
+* [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)
 * [Twitter](https://twitter.com/hashtag/SQLDW)

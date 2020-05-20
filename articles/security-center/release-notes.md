@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: memildin
-ms.openlocfilehash: bfe1e5d6a0c4171a262b36387f02be356fb1d72d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f71bffd1db023ece19071bb8f71ec49a855e828b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210901"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654657"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Vad är nytt i Azure Security Center?
 
@@ -31,6 +31,36 @@ Den här sidan uppdateras regelbundet, så du kan uppdatera den ofta. Om du sök
 
 
 ## <a name="may-2020"></a>Maj 2020
+
+
+### <a name="alert-suppression-rules-preview"></a>Undervisnings regler för aviseringar (för hands version)
+
+Den här nya funktionen (för närvarande i för hands version) hjälper till att minska aviserings utmattningen Använd regler för att automatiskt dölja aviseringar som är kända för att vara innocuous eller relaterade till normala aktiviteter i din organisation. På så sätt kan du fokusera på de mest relevanta hoten. 
+
+Aviseringar som matchar dina aktiverade undertrycks regler kommer fortfarande att genereras, men deras tillstånd ställs in på stängs. Du kan se statusen i Azure Portal eller så får du åtkomst till dina Security Center säkerhets aviseringar.
+
+Under trycknings regler definierar kriterierna för vilka aviseringar automatiskt ska avvisas. Normalt använder du en undertrycks regel för att:
+
+- Ignorera aviseringar som du har identifierat som falska positiva identifieringar
+
+- Ignorera aviseringar som utlöses för ofta för att vara användbara
+
+[Lär dig mer om att ignorera aviseringar från Azure Security Center skydd mot hot](alerts-suppression-rules.md).
+
+
+### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>Utvärdering av säkerhets risker för virtuella datorer är nu allmänt tillgänglig
+
+Security Center standard nivån innehåller nu en inbyggd sårbarhets bedömning för virtuella datorer utan extra avgift. Det här tillägget drivs av Qualys men rapporterar sina resultat direkt tillbaka till Security Center. Du behöver inte en Qualys-licens eller ens ett Qualys-konto – allt hanteras sömlöst i Security Center.
+
+Den nya lösningen kan kontinuerligt genomsöka dina virtuella datorer för att hitta sårbarheter och visa resultaten i Security Center. 
+
+Använd den nya säkerhets rekommendationen för att distribuera lösningen:
+
+"Aktivera den inbyggda lösningen för sårbarhets bedömning på virtuella datorer (drivs av Qualys)"
+
+[Läs mer](built-in-vulnerability-assessment.md).
+
+
 
 ### <a name="changes-to-just-in-time-jit-virtual-machine-vm-access"></a>Ändringar av åtkomst till virtuell dator (VM) för just-in-Time (JIT)
 
@@ -67,22 +97,40 @@ Säkerhets kontrollerna – och den här växlingen är en del av den nya säkra
 Läs mer om säkerhets kontroller i [förbättrade säkra poäng (för hands version) i Azure Security Center](secure-score-security-controls.md).
 
 
-### <a name="account-security-recommendations-moved-to-security-best-practices-security-control"></a>Säkerhets rekommendationer för konto som har flyttats till säkerhets kontrollen "säkerhet rekommenderas"
+### <a name="expanded-security-control-implement-security-best-practices"></a>Utökad säkerhets kontroll "implementera säkerhets metod tips" 
 
-En av de säkerhets kontroller som introduceras med förbättrade säkra poäng är "rekommenderade säkerhets metoder". När en rekommendation är i den här kontrollen påverkar den inte de säkra poängen. 
+En av de säkerhets kontroller som introduceras med förbättrade säkra poäng är "implementera rekommenderade säkerhets metoder". När en rekommendation är i den här kontrollen påverkar den inte de säkra poängen. 
 
 Med den här uppdateringen har tre rekommendationer flyttats ut från de kontroller som de ursprungligen placerades i och i den här kontrollen med bästa praxis. Vi har vidtagit det här steget eftersom vi har fastställt att risken för dessa tre rekommendationer är lägre än vad som ursprungligen troddes.
 
-Rekommendationerna är:
+Dessutom har två nya rekommendationer införts och lagts till i den här kontrollen.
 
-- MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration (ursprungligen i "Aktivera MFA"-kontrollen)
-- Externa konton med Läs behörighet bör tas bort från din prenumeration (från början i kontrollen hantera åtkomst och behörigheter)
-- Högst 3 ägare bör anges för din prenumeration (ursprungligen i "hantera åtkomst och behörigheter"-kontrollen)
+De tre rekommendationer som flyttats är:
+
+- **MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration** (ursprungligen i "Aktivera MFA"-kontrollen)
+- **Externa konton med Läs behörighet bör tas bort från din prenumeration** (från början i kontrollen hantera åtkomst och behörigheter)
+- **Högst 3 ägare bör anges för din prenumeration** (ursprungligen i "hantera åtkomst och behörigheter"-kontrollen)
+
+De två nya rekommendationerna som läggs till i kontrollen är:
+
+- **[För hands version] konfiguration av gäst konfigurations agenten bör installeras** – användning av [Azure policy gäst konfiguration](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) ger insyn i virtuella datorer till Server-och program inställningar (endast Windows).
+
+- **[För hands version] Windows sårbarhets Guard måste vara aktiverat** – Windows Defender sårbarhet guard utnyttjar Azure policy-konfigurations agenten för gäst. I sårbarhets Guard finns fyra komponenter som är utformade för att låsa enheter mot en mängd olika angrepps vektorer och blockera beteenden som ofta används i angrepp mot skadlig kod och som gör det möjligt för företag att balansera sina säkerhets risker och produktivitets krav (endast Windows).
+
+Lär dig mer om Windows Defender sårbarhet Guard i [skapa och distribuera en princip för sårbarhets skydd](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Läs mer om säkerhets kontroller i [förbättrade säkra poäng (för hands version) i Azure Security Center](secure-score-security-controls.md).
 
 
-### <a name="custom-policies-with-custom-metadata-generally-available"></a>Anpassade principer med anpassade metadata är allmänt tillgängliga
+
+
+
+
+
+
+
+
+### <a name="custom-policies-with-custom-metadata-are-now-generally-available"></a>Anpassade principer med anpassade metadata är nu allmänt tillgängliga
 
 Anpassade principer är nu en del av Security Center rekommendationer, säkra poäng och kontroll panelen för regler för efterlevnad. Den här funktionen är nu allmänt tillgänglig och gör att du kan utöka din organisations täckning för säkerhets utvärdering i Security Center. 
 
@@ -95,7 +143,7 @@ Nu har vi även lagt till alternativet för att redigera metadata för anpassade
 
 ## <a name="april-2020"></a>April 2020
 
-### <a name="dynamic-compliance-packages-now-generally-available"></a>Dynamiska Compliance-paket är nu allmänt tillgängliga
+### <a name="dynamic-compliance-packages-are-now-generally-available"></a>Dynamiska Compliance-paket är nu allmänt tillgängliga
 
 Instrument panelen för Azure Security Center reglering av efterlevnad innehåller nu **dynamiska paket för efterlevnad** (nu allmänt tillgängliga) för att spåra ytterligare bransch-och reglerings standarder.
 
@@ -197,7 +245,7 @@ Dessa rekommendationer visas inte längre i Security Center listan över rekomme
 
 ## <a name="february-2020"></a>Februari 2020
 
-### <a name="fileless-attack-detection-for-linux-is-now-in-preview"></a>Filbaserad attack identifiering för Linux är nu i för hands version
+### <a name="fileless-attack-detection-for-linux-preview"></a>Filbaserad attack identifiering för Linux (för hands version)
 
 När angripare ökar angreppet med stealthier-metoder för att undvika identifiering kan Azure Security Center utöka identifieringen av fil lös attacker för Linux, förutom Windows. Filbaserade attacker utnyttjar sårbarheter i program vara, injicera skadliga nytto laster i ofarliga system processer och Dölj i minnet. Dessa tekniker:
 
@@ -209,7 +257,7 @@ För att räkna ut det här hotet Azure Security Center lanserad fil lös attack
 
 ## <a name="january-2020"></a>Januari 2020
 
-### <a name="enhanced-secure-score"></a>Förbättrade säkra Poäng
+### <a name="enhanced-secure-score-preview"></a>Förbättrade säkra poäng (för hands version)
 
 Nu finns en förbättrad version av den säkra poängen-funktionen i Azure Security Center tillgänglig i för hands versionen. I den här versionen är flera rekommendationer grupperade i säkerhets kontroller som bättre återspeglar dina sårbara attack ytor (till exempel begränsa åtkomst till hanterings portar).
 

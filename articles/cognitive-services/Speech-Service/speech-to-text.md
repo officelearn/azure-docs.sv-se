@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.author: trbye
-ms.openlocfilehash: e0aea7e55381e9571b156701699f5f45315bb384
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4181491053dd1f8d66afcd5f1df7cb96313011da
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399714"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650601"
 ---
 # <a name="what-is-speech-to-text"></a>Vad är tal-till-text?
 
@@ -24,6 +24,8 @@ ms.locfileid: "81399714"
 Tal-till-text från tjänsten Speech, som även kallas tal igenkänning, aktiverar real tids avskrift av ljud strömmar till text. Dina program, verktyg eller enheter kan använda, Visa och vidta åtgärder på den här texten som kommando inmatade. Den här tjänsten drivs av samma igenkännings teknik som Microsoft använder för Cortana och Office-produkter. Det fungerar sömlöst med <a href="./speech-translation.md" target="_blank">översättnings <span class="docon docon-navigate-external x-hidden-focus"></span> </a> -och <a href="./text-to-speech.md" target="_blank">text till tal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> -tjänstens erbjudanden. En fullständig lista över tillgängliga tal-till-text-språk finns i [språk som stöds](language-support.md#speech-to-text).
 
 Tjänsten tal-till-text används som standard för att använda den universella språk modellen. Den här modellen tränade med Microsoft-ägda data och distribueras i molnet. Det är optimalt för konversations-och dikterings scenarier. När du använder tal-till-text för igenkänning och avskrift i en unik miljö kan du skapa och träna anpassade modeller för akustisk, språk och uttal. Anpassning är användbart för att adressera omgivande brus eller branschspecifika vokabulär.
+
+Med ytterligare referens text som indata [kan du använda funktionen tal](rest-speech-to-text.md#pronunciation-assessment-parameters) -till-text för att utvärdera tal uttal och ge talare feedback om precisionen och Fluency av talade ljud. Med uttals-utvärdering kan språklärare öva, få snabb feedback och förbättra sina uttal så att de kan tala och presentera med förtroende. Lärare kan använda funktionen för att utvärdera uttal av flera högtalare i real tid. Funktionen stöder för närvarande amerikansk engelska och korrelerar mycket med tal utvärderingar som utförs av experter.
 
 > [!NOTE]
 > Taligenkänning i Bing togs ur bruk den 15 oktober 2019. Om dina program, verktyg eller produkter använder Taligenkänning i Bing API: er har vi skapat guider som hjälper dig att migrera till tal tjänsten.
@@ -39,6 +41,8 @@ Tjänsten tal-till-text är tillgänglig via tal- [SDK: n](speech-sdk.md). Det f
 
 Om du föredrar att använda funktionen för att använda tal-till-text-REST går du till [REST-API: er](rest-speech-to-text.md).
 
+ - [Snabb start: uttal av referens med referens ingång](rest-speech-to-text.md#pronunciation-assessment-parameters)
+
 ## <a name="tutorials-and-sample-code"></a>Självstudier och exempel kod
 
 När du har haft möjlighet att använda tal tjänsten kan du prova vår självstudie som lär dig hur du identifierar avsikter från tal med hjälp av talet SDK och LUIS.
@@ -49,6 +53,7 @@ Exempel koden för talet SDK finns på GitHub. De här exemplen beskriver vanlig
 
 - [Tal till text-exempel (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 - [Batch-avskrifts exempel (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+- [Exempel på uttal av uttal (REST)](rest-speech-to-text.md#pronunciation-assessment-parameters)
 
 ## <a name="customization"></a>Anpassning
 

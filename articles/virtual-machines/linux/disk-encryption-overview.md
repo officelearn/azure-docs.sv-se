@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f75e5c856e05cc5ce53598849a7cb11ed059827a
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 5c227c6ab24d6b71445354d1b17d238e80bf6313
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838866"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655848"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
 
@@ -56,7 +56,7 @@ Azure Disk Encryption stöds på en delmängd av [Azure-godkända Linux-distribu
 
 Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure Disk Encryption. för de som har påtecknats har endast följande distributioner och versioner stöd Azure Disk Encryption:
 
-| Utgivare | Erbjudande | SKU | URN | Volym typ som stöds för kryptering |
+| Publisher | Erbjudande | SKU | URN | Volym typ som stöds för kryptering |
 | --- | --- |--- | --- |
 | Canonical | Ubuntu | 18,04 – LTS | Kanoniskt: UbuntuServer: 18.04-LTS: senaste | Operativ system och data disk |
 | Canonical | Ubuntu 18.04 | 18,04 – DAGLIGEN – LTS | Kanoniskt: UbuntuServer: 18.04-DAILY-LTS: senaste | Operativ system och data disk |
@@ -96,20 +96,30 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 
 Azure Disk Encryption kräver att dm-crypt-och vfat-modulerna finns i systemet. Om du tar bort eller inaktiverar vfat från standard avbildningen så förhindras systemet från att läsa nyckel volymen och hämta den nyckel som behövs för att låsa upp diskarna vid efterföljande omstarter. System härdnings steg som tar bort vfat-modulen från systemet är inte kompatibla med Azure Disk Encryption. 
 
-Innan du aktiverar kryptering måste data diskarna som ska krypteras anges korrekt i/etc/fstab. Använd ett beständigt block enhets namn för den här posten, eftersom enhets namn i formatet "/dev/sdX" inte kan förlitas för att associeras med samma disk mellan omstarter, särskilt när krypteringen har tillämpats. Mer information om det här problemet finns i [Felsöka Linux VM enhets namn ändringar](troubleshoot-device-names-problems.md)
+Innan du aktiverar kryptering måste data diskarna som ska krypteras anges korrekt i/etc/fstab. Använd alternativet "nomissation" när du skapar poster och välj ett beständigt block enhets namn (som enhets namn i formatet "/dev/sdX" kan inte associeras med samma disk i omstarter, särskilt efter kryptering. mer information om det här problemet finns i: [Felsöka Linux VM enhets namn ändringar](troubleshoot-device-names-problems.md)).
 
 Kontrol lera att/etc/fstab-inställningarna är korrekt konfigurerade för montering. Om du vill konfigurera dessa inställningar kör du kommandot Mount-a eller startar om den virtuella datorn och utlöser ommonteringen på det sättet. När den är klar kontrollerar du utdata från kommandot lsblk för att kontrol lera att enheten fortfarande är monterad. 
+
 - Om/etc/fstab-filen inte monterar enheten korrekt innan du aktiverar krypteringen kan Azure Disk Encryption inte montera den på rätt sätt.
 - Azure Disk Encryption processen flyttar monterings informationen från/etc/fstab och till en egen konfigurations fil som en del av krypterings processen. Larm inte för att se posten som saknas från/etc/fstab när data enhets krypteringen har slutförts.
 - Innan du startar kryptering måste du stoppa alla tjänster och processer som kan skrivas till monterade data diskar och inaktivera dem, så att de inte startar om automatiskt efter en omstart. Dessa kan hålla filerna öppna på dessa partitioner, vilket förhindrar krypterings proceduren att ommontera dem, vilket orsakar att krypteringen Miss lyckas. 
 - Efter omstarten tar det tid för Azure Disk Encryption processen att montera de nya krypterade diskarna. De blir inte omedelbart tillgängliga efter en omstart. Processen behöver tid för att starta, låsa upp och sedan montera de krypterade enheterna innan de är tillgängliga för andra processer att komma åt. Den här processen kan ta mer än en minut efter omstart beroende på systemets egenskaper.
 
-Ett exempel på kommandon som kan användas för att montera data diskarna och skapa nödvändiga/etc/fstab-poster finns i [skriptet för Azure Disk Encryption nödvändiga CLI-skript](https://github.com/ejarvi/ade-cli-getting-started) (rader 244-248) och [Azure Disk Encryption krav för PowerShell-skript](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts). 
+Här är ett exempel på kommandon som används för att montera data diskarna och skapa nödvändiga/etc/fstab-poster:
 
+```bash
+UUID0="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun0)"
+UUID1="$(blkid -s UUID -o value /dev/disk/azure/scsi1/lun1)"
+mkdir /data0
+mkdir /data1
+echo "UUID=$UUID0 /data0 ext4 defaults,nofail 0 0" >>/etc/fstab
+echo "UUID=$UUID1 /data1 ext4 defaults,nofail 0 0" >>/etc/fstab
+mount -a
+```
 ## <a name="networking-requirements"></a>Nätverks krav
 
 Om du vill aktivera funktionen Azure Disk Encryption måste de virtuella Linux-datorerna uppfylla följande konfigurations krav för nätverks slut punkt:
-  - Om du vill hämta en token för att ansluta till ditt nyckel valv måste den virtuella Linux-datorn kunna ansluta till en \[Azure Active Directory\]-slutpunkt, login.microsoftonline.com.
+  - Om du vill hämta en token för att ansluta till ditt nyckel valv måste den virtuella Linux-datorn kunna ansluta till en Azure Active Directory-slutpunkt, \[ login.microsoftonline.com \] .
   - Om du vill skriva krypterings nycklarna till ditt nyckel valv måste den virtuella Linux-datorn kunna ansluta till Key Vault-slutpunkten.
   - Den virtuella Linux-datorn måste kunna ansluta till en Azure Storage-slutpunkt som är värd för Azure Extension-lagringsplatsen och ett Azure Storage-konto som är värd för VHD-filerna.
   -  Om säkerhets principen begränsar åtkomsten från virtuella Azure-datorer till Internet kan du matcha föregående URI och konfigurera en speciell regel för att tillåta utgående anslutning till IP-adresserna. Mer information finns i [Azure Key Vault bakom en brand vägg](../../key-vault/general/access-behind-firewall.md).  

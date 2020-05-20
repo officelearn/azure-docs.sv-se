@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: f948d813ddb4d493b455a4922818e38ac3fd6eaa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c1a9f3e76622523dde03cc2a639cce33227dff5f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259178"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649215"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Så gör du för att spara och konfigurera din API Management-tjänstkonfiguration med Git
 
@@ -31,7 +31,7 @@ Följande diagram visar en översikt över olika sätt att konfigurera API Manag
 
 ![Git-konfiguration][api-management-git-configure]
 
-När du gör ändringar i tjänsten med hjälp av Azure Portal, PowerShell-cmdletar eller REST API, hanterar du tjänst konfigurations databasen med `https://{name}.management.azure-api.net` slut punkten, som visas på höger sida av diagrammet. Den vänstra sidan i diagrammet illustrerar hur du kan hantera tjänst konfigurationen med git och git-lagringsplatsen för din tjänst som finns `https://{name}.scm.azure-api.net`på.
+När du gör ändringar i tjänsten med hjälp av Azure Portal, PowerShell-cmdletar eller REST API, hanterar du tjänst konfigurations databasen med `https://{name}.management.azure-api.net` slut punkten, som visas på höger sida av diagrammet. Den vänstra sidan i diagrammet illustrerar hur du kan hantera tjänst konfigurationen med git och git-lagringsplatsen för din tjänst som finns på `https://{name}.scm.azure-api.net` .
 
 Följande steg ger en översikt över hur du hanterar din API Management tjänst instans med hjälp av git.
 
@@ -90,7 +90,7 @@ git clone https://{name}.scm.azure-api.net/
 
 Ange användar namn och lösen ord när du uppmanas till det.
 
-Om du får fel meddelanden kan du försöka att `git clone` ändra kommandot så att det innehåller användar namn och lösen ord, som du ser i följande exempel.
+Om du får fel meddelanden kan du försöka `git clone` att ändra kommandot så att det innehåller användar namn och lösen ord, som du ser i följande exempel.
 
 ```
 git clone https://username:password@{name}.scm.azure-api.net/
@@ -118,7 +118,7 @@ Om du gör ändringar i API Management tjänst instansen i Azure Portal eller an
 git pull
 ```
 
-Innan du `git pull` börjar bör du se till att du är i mappen för din lokala lagrings plats. Om du precis har slutfört `git clone` kommandot måste du ändra katalogen till din lagrings platsen genom att köra ett kommando som liknar följande.
+Innan `git pull` du börjar bör du se till att du är i mappen för din lokala lagrings plats. Om du precis har slutfört `git clone` kommandot måste du ändra katalogen till din lagrings platsen genom att köra ett kommando som liknar följande.
 
 ```
 cd {name}.scm.azure-api.net/
@@ -148,7 +148,7 @@ Information om hur du utför den här åtgärden med hjälp av REST API finns i 
 
 Filerna och mapparna i den lokala git-lagringsplatsen innehåller konfigurations information om tjänst instansen.
 
-| Objekt | Beskrivning |
+| Objekt | Description |
 | --- | --- |
 | rotmapps-API – hanterings mapp |Innehåller konfiguration på översta nivån för tjänst instansen |
 | API-mapp |Innehåller konfigurationen för API: erna i tjänst instansen |
@@ -174,7 +174,7 @@ De här filerna kan skapas, tas bort, redige ras och hanteras i det lokala fil s
 >
 > * [Användare](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/user)
 > * [Prenumerationer](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/subscription)
-> * [Namngivna värden](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/property)
+> * Namngivna värden
 > * Andra utvecklare Portal-enheter än format
 >
 
@@ -198,7 +198,7 @@ Rotmappen `api-management` innehåller en `configuration.json` fil som innehåll
 }
 ```
 
-De första fyra inställningarna (`RegistrationEnabled`, `UserRegistrationTerms` `UserRegistrationTermsEnabled`, och `UserRegistrationTermsConsentRequired`) mappas till följande inställningar på fliken **identiteter** i avsnittet **säkerhet** .
+De första fyra inställningarna ( `RegistrationEnabled` , `UserRegistrationTerms` , `UserRegistrationTermsEnabled` och `UserRegistrationTermsConsentRequired` ) mappas till följande inställningar på fliken **identiteter** i avsnittet **säkerhet** .
 
 | Identitets inställning | Mappar till |
 | --- | --- |
@@ -208,7 +208,7 @@ De första fyra inställningarna (`RegistrationEnabled`, `UserRegistrationTerms`
 | UserRegistrationTermsConsentRequired |Kryss rutan **Kräv medgivande** |
 | RequireUserSigninEnabled |Kryss rutan **omdirigera anonyma användare till inloggnings sidan** |
 
-De fyra följande inställningarna (`DelegationEnabled`, `DelegationUrl` `DelegatedSubscriptionEnabled`, och `DelegationValidationKey`) mappas till följande inställningar på fliken **delegering** i avsnittet **säkerhet** .
+De fyra följande inställningarna ( `DelegationEnabled` , `DelegationUrl` , `DelegatedSubscriptionEnabled` och `DelegationValidationKey` ) mappas till följande inställningar på fliken **delegering** i avsnittet **säkerhet** .
 
 | Delegerings inställning | Mappar till |
 | --- | --- |
@@ -217,23 +217,23 @@ De fyra följande inställningarna (`DelegationEnabled`, `DelegationUrl` `Delega
 | DelegatedSubscriptionEnabled |Kryss rutan **delegera produkt prenumeration** |
 | DelegationValidationKey |Text ruta för att **delegera validerings nyckel** |
 
-Den sista inställningen, `$ref-policy`mappas till den globala princip deklarations filen för tjänst instansen.
+Den sista inställningen, `$ref-policy` mappas till den globala princip deklarations filen för tjänst instansen.
 
 ### <a name="apis-folder"></a>API-mapp
-`apis` Mappen innehåller en mapp för varje API i tjänst instansen, som innehåller följande objekt.
+`apis`Mappen innehåller en mapp för varje API i tjänst instansen, som innehåller följande objekt.
 
 * `apis\<api name>\configuration.json`– Det här är konfigurationen för API: et och innehåller information om Server dels tjänstens URL och åtgärder. Detta är samma information som skulle returneras om du anropar [Hämta ett särskilt API](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apis/get) med `export=true` i `application/json` formatet.
 * `apis\<api name>\api.description.html`– Det här är en beskrivning av API: et och motsvarar `description` egenskapen för API- [entiteten](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.entityproperty).
-* `apis\<api name>\operations\`-den här mappen `<operation name>.description.html` innehåller filer som mappar till åtgärderna i API: et. Varje fil innehåller en beskrivning av en enskild åtgärd i API: et, som mappar till `description` egenskapen för [entiteten åtgärd](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) i REST API.
+* `apis\<api name>\operations\`-den här mappen innehåller `<operation name>.description.html` filer som mappar till åtgärderna i API: et. Varje fil innehåller en beskrivning av en enskild åtgärd i API: et, som mappar till `description` egenskapen för [entiteten åtgärd](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) i REST API.
 
 ### <a name="groups-folder"></a>mapp för grupper
-`groups` Mappen innehåller en mapp för varje grupp som definierats i tjänst instansen.
+`groups`Mappen innehåller en mapp för varje grupp som definierats i tjänst instansen.
 
 * `groups\<group name>\configuration.json`– Det här är konfigurationen för gruppen. Detta är samma information som skulle returneras om du anropar åtgärden [Hämta en enskild grupp](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/group/get) .
 * `groups\<group name>\description.html`– Det här är en beskrivning av gruppen och motsvarar `description` egenskapen för [grupp entiteten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>mappen principer
-`policies` Mappen innehåller princip instruktionerna för din tjänst instans.
+`policies`Mappen innehåller princip instruktionerna för din tjänst instans.
 
 * `policies\global.xml`– innehåller principer som definierats i det globala omfånget för din tjänst instans.
 * `policies\apis\<api name>\`-Om du har definierat några principer i API-omfattning finns de i den här mappen.
@@ -241,19 +241,19 @@ Den sista inställningen, `$ref-policy`mappas till den globala princip deklarati
 * `policies\products\`-Om du har några principer definierade i produktens omfattning finns de i den här mappen, som innehåller `<product name>.xml` filer som mappar till princip instruktionerna för varje produkt.
 
 ### <a name="portalstyles-folder"></a>portalStyles-mapp
-`portalStyles` Mappen innehåller konfigurations-och formatmallar för anpassningar av utvecklings portalen för tjänst instansen.
+`portalStyles`Mappen innehåller konfigurations-och formatmallar för anpassningar av utvecklings portalen för tjänst instansen.
 
 * `portalStyles\configuration.json`– innehåller namnen på formatmallarna som används av Developer-portalen
-* `portalStyles\<style name>.css`– varje `<style name>.css` fil innehåller format för Developer-portalen`Preview.css` ( `Production.css` och som standard).
+* `portalStyles\<style name>.css`– varje `<style name>.css` fil innehåller format för Developer-portalen ( `Preview.css` och `Production.css` som standard).
 
 ### <a name="products-folder"></a>mappen produkter
-`products` Mappen innehåller en mapp för varje produkt som definierats i tjänst instansen.
+`products`Mappen innehåller en mapp för varje produkt som definierats i tjänst instansen.
 
 * `products\<product name>\configuration.json`– Det här är konfigurationen för produkten. Detta är samma information som skulle returneras om du anropar åtgärden [Hämta en enskild produkt](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/product/get) .
 * `products\<product name>\product.description.html`– Det här är en beskrivning av produkten och motsvarar `description` egenskapen för [entiteten produkt](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) i REST API.
 
 ### <a name="templates"></a>mallar
-`templates` Mappen innehåller konfiguration för [e-postmallarna](api-management-howto-configure-notifications.md) för tjänst instansen.
+`templates`Mappen innehåller konfiguration för [e-postmallarna](api-management-howto-configure-notifications.md) för tjänst instansen.
 
 * `<template name>\configuration.json`– Det här är konfigurationen för e-postmallen.
 * `<template name>\body.html`– Det här är bröd texten i e-postmallen.

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: cb6b99351a5cb995d87b482b7e707a3913fd86f2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1ac1df402c25c0f6e5f07ce8d9631c01c0fa504c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597627"
+ms.locfileid: "83655264"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autentisering och auktorisering för för hands versionen av Azure statisk Web Apps
 
@@ -118,7 +118,7 @@ https://identity.azurestaticapps.net/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 För att förhindra att plattformen tillhandahåller den här informationen om framtida begär anden till enskilda appar skickar du en begäran till följande URL:
 
 ```url
-https://<WEB_APP_DOMAIN_NAME>/identity/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
+https://<WEB_APP_DOMAIN_NAME>/.auth/purge/<AUTHENTICATION_PROVIDER_NAME>
 ```
 
 ## <a name="system-folder"></a>Systemmapp
@@ -154,6 +154,11 @@ Du kan använda en [väg regel](routes.md) för att mappa en standardprovider ti
 }
 ```
 
+### <a name="post-login-redirect"></a>Skicka inloggnings omdirigering
+
+Om du vill att en användare ska gå tillbaka till en viss sida efter inloggningen anger du en URL i frågesträngparametern `post_login_redirect_uri` .
+
+
 ## <a name="logout"></a>Utloggning
 
 `/.auth/logout`Vägen loggar användare ut från webbplatsen. Du kan lägga till en länk till din webbplats navigering så att användaren kan logga ut så som visas i följande exempel.
@@ -170,6 +175,10 @@ Du kan använda en [väg regel](routes.md) för att mappa en läsvänlig väg so
   "serve": "/.auth/logout"
 }
 ```
+
+### <a name="post-logout-redirect"></a>Omdirigera omutloggning
+
+Om du vill att en användare ska återgå till en viss sida efter utloggning anger du en URL i frågesträngparametern `post_logout_redirect_uri` .
 
 ## <a name="block-an-authorization-provider"></a>Blockera en Authorization Provider
 

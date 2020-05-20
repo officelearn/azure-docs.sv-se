@@ -1,26 +1,26 @@
 ---
-title: Aktivera en Microsoft AppSource och Azure Marketplace-lista med Azure Active Directory | Azure
-description: Aktivera en listtyp genom att använda Azure Active Directory i Azure Marketplace och AppSource för app-och tjänst utgivare.
+title: Integrera ditt Microsoft Commercial Marketplace-erbjudande med Azure Active Directory
+description: Använd Azure Active Directory för att autentisera din Microsoft AppSource och Azure Marketplace-erbjudanden.
 author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: dsindona
-ms.openlocfilehash: 324f8def5ddafb15156a31fe5addabadcee6f115
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 17cbfe92744ad96f2b5651b7e2f47a6443337068
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160621"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658039"
 ---
-# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Aktivera en AppSource- och Marketplace-lista genom att använda Azure Active Directory
+# <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrera din handels Marketplace-lista med Azure Active Directory
 
- Azure Active Directory (Azure AD) är en moln identitets tjänst som möjliggör autentisering med en Microsoft-konto. Azure AD använder bransch standard ramverk. [Läs mer om Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ I den här artikeln beskrivs kraven för att integrera en lista över handels platser eller erbjudanden med Azure Active Directory (Azure AD). Azure AD är en moln identitets tjänst som använder bransch standard ramverk för att aktivera autentisering med en Microsoft-konto. [Läs mer om Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
 ## <a name="azure-ad-benefits"></a>Fördelar med Azure AD
 
-Microsoft AppSource-och Azure Marketplace-kunder använder produkt upplevelser i produkten för att söka i listan över kataloger. De här åtgärderna kräver att kunderna loggar in på produkten. Azure AD-integrering ger följande fördelar:
+Microsoft AppSource och Azure Marketplace-kunder använder produkt upplevelser i butik för att söka efter kataloger i-listan. De här åtgärderna kräver att kunderna loggar in på produkten. Azure AD-integrering ger följande fördelar:
 
 - Snabbare engagemang och en optimerad kund upplevelse
 - Enkel inloggning (SSO) för miljon tals företags användare
@@ -29,7 +29,7 @@ Microsoft AppSource-och Azure Marketplace-kunder använder produkt upplevelser i
 
 ## <a name="offers-that-require-azure-ad"></a>Erbjudanden som kräver Azure AD
 
-De olika [list alternativen och erbjudande typerna](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) för AppSource och Azure Marketplace har olika krav för Azure AD-implementering. I följande tabell finns mer information:
+De olika [listorna över försäljnings platser och erbjudande typer](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) har olika krav för Azure AD-implementering. Se följande tabell för mer information.
 
 | **Erbjudande typ**    | **Krävs Azure AD SSO?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|

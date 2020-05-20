@@ -8,23 +8,23 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: b2cb7494ae3d26fa14bef906b8f5222b9dbc70e1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f282bb0a80226afeb314aac4e8669634327f81d2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584985"
+ms.locfileid: "83654056"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Lägg till avsikter för att fastställa användar avsikt för yttranden
 
 Lägg [till avsikter](luis-concept-intent.md) i Luis-appen för att identifiera grupper med frågor eller kommandon som har samma avsikt.
 
-Avsikter hanteras från det övre navigerings fältets **build** -avsnitt och sedan från den vänstra panelens **avsikter**.
+I LUIS-portalen hanteras avsikter från det övre navigerings fältets **build** -avsnitt och sedan från den vänstra panelens **avsikter**.
 
-## <a name="add-intent"></a>Lägga till avsikt
+## <a name="add-an-intent-to-your-app"></a>Lägg till ett avsikt till din app
 
 1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
 1. Öppna din app genom att välja namnet på sidan **Mina appar** .
@@ -34,7 +34,7 @@ Avsikter hanteras från det övre navigerings fältets **build** -avsnitt och se
     > [!div class="mx-imgBorder"]
     > ![Lägg till avsikt](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    Avsikts behoven är exempel yttranden.
+    Avsikts behoven är [yttranden](luis-concept-utterance.md) för att förutse yttranden på den publicerade förutsägelse slut punkten.
 
 ## <a name="add-an-example-utterance"></a>Lägg till ett exempel uttryck
 
@@ -51,16 +51,16 @@ Exempel på yttranden är text exempel på användar frågor eller kommandon. Om
 
 ## <a name="intent-prediction-errors"></a>Fel vid förutsägelse av avsikt
 
-Ett exempel på en uttryck i ett avsikt kan ha ett förutsägelse fel mellan avsikten som exempel-uttryck är i och den avsikt som fastställs under träningen.
+Ett förutsägelse fel bestäms när uttryck inte förväntas med den utbildade appen för avsikten.
 
-Om du vill hitta uttryck förutsägelse fel och åtgärda dem använder du **filter** alternativen felaktig och oklar kombination med **visnings** alternativet i **detaljerad vy**.
+1. Använd **filter** alternativen fel och oklar om du vill hitta uttryck förutsägelse fel och åtgärda dem.
 
-![Använd filter alternativet om du vill hitta uttryck förutsägelse fel och åtgärda dem.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+    > [!div class="mx-imgBorder"]
+    > ![Använd filter alternativet om du vill hitta uttryck förutsägelse fel och åtgärda dem.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-När filtren och vyn används och det finns exempel yttranden med fel visas yttranden och problemen i exempel uttryck-listan.
+1. Om du vill visa poängen på sidan information om avsikten väljer du **Visa information om kvarhållande** från menyn **visnings** alternativ.
 
-> [!div class="mx-imgBorder"]
-> ![! [När filtren och vyn används och det finns exempel yttranden med fel visas yttranden och problemen i exempel uttryck-listan.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+    När filtren och vyn används och det finns exempel yttranden med fel visas yttranden och problemen i exempel uttryck-listan.
 
 Varje rad visar den aktuella inlärningens förutsägelse Poäng för exemplet uttryck, närmsta rival, vilket är skillnaden i dessa två resultat.
 

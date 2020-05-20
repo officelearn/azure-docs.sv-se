@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: e7ef1adea72ed69dc11f0ea8c7e3ce0db3e6ab7c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fad0794a3628e6a89d1c2b2c80bb27d70937db95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597011"
+ms.locfileid: "83650045"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Azure Stream Analytics externa fel koder
 
@@ -24,10 +24,6 @@ Du kan använda aktivitets loggar och resurs loggar för att felsöka oväntade 
 ## <a name="adapterfailedtowriteevents"></a>AdapterFailedToWriteEvents
 
 * **Orsak**: ett fel uppstod när data skrevs till ett nätverkskort.
-
-## <a name="kafkaservererror"></a>KafkaServerError
-
-* **Orsak**: Kafka-servern returnerade ett fel:
 
 ## <a name="azurefunctionhttperror"></a>AzureFunctionHttpError
 

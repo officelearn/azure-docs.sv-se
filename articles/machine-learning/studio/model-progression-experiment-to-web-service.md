@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: e6a8fe7771776a92b3c28a188bc352e3bb105313
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1618e64eba32e857ccd0ba4b5a7a656f1d954bf8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217926"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659921"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Hur en Machine Learning Studio (klassisk) modell går från ett experiment till en webb tjänst
 
@@ -34,7 +34,7 @@ När du är nöjd med experimentet kan du distribuera det som en ***klassisk Azu
 I den här artikeln ger vi en översikt över Mechanics för hur din Machine Learning modell fortlöper från ett utvecklings experiment till en drifts webb tjänst.
 
 > [!NOTE]
-> Det finns andra sätt att utveckla och distribuera Machine Learning-modeller, men den här artikeln fokuserar på hur du använder Machine Learning Studio (klassisk). Om du till exempel vill läsa en beskrivning av hur du skapar en klassisk förutsägbar webb tjänst med R, se blogg inlägget [Build & distribuera förutsägande Web Apps med RStudio och Azure Machine Learning Studio](https://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+> Det finns andra sätt att utveckla och distribuera Machine Learning-modeller, men den här artikeln fokuserar på hur du använder Machine Learning Studio (klassisk). Om du till exempel vill läsa en beskrivning av hur du skapar en klassisk förutsägbar webb tjänst med R, se blogg inlägget [Build & distribuera förutsägande Web Apps med RStudio och Azure Machine Learning Studio](https://docs.microsoft.com/archive/blogs/machinelearning/build-deploy-predictive-web-apps-using-rstudio-and-azure-ml).
 >
 >
 

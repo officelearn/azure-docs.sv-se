@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 481cbda1d35f7d630dabca00fd01677f542447c2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57f2ce1fb8bf6415387eac5c760dadeb04e65648
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81312504"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648416"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-powershell"></a>Konfigurera end to end-TLS med hjälp av Application Gateway med PowerShell
 
@@ -167,7 +167,9 @@ Alla konfigurations objekt anges innan du skapar programgatewayen. Följande ste
    > [!NOTE]
    > Standard avsökningen hämtar den offentliga nyckeln från *standard* TLS-bindningen på backend-IP-adressen och jämför det offentliga nyckel värde som det tar emot till det offentliga nyckel värde du anger här. 
    > 
-   > Om du använder värdhuvuden och Servernamnindikator (SNI) på Server sidan kanske den hämtade offentliga nyckeln inte är den avsedda platsen som trafikflöden ska skickas till. Om du är osäker kan du besöka https://127.0.0.1/ backend-servrarna för att bekräfta vilket certifikat som används *för TLS-* standardbindningen. Använd den offentliga nyckeln från denna begäran i det här avsnittet. Om du använder värd-och SNI på HTTPS-bindningar och du inte får något svar och certifikat från en manuell webb läsar förfrågan till https://127.0.0.1/ backend-servrarna måste du konfigurera en standard-TLS-bindning. Om du inte gör det går det inte att söka efter avsökningar och Server delen är inte vit listas.
+   > Om du använder värdhuvuden och Servernamnindikator (SNI) på Server sidan kanske den hämtade offentliga nyckeln inte är den avsedda platsen som trafikflöden ska skickas till. Om du är osäker kan du besöka https://127.0.0.1/ backend-servrarna för att bekräfta vilket certifikat som används för TLS-standardbindningen. *default* Använd den offentliga nyckeln från denna begäran i det här avsnittet. Om du använder värd-och SNI på HTTPS-bindningar och du inte får något svar och certifikat från en manuell webb läsar förfrågan till https://127.0.0.1/ backend-servrarna måste du konfigurera en standard-TLS-bindning. Om du inte gör det går det inte att söka efter avsökningar och Server delen är inte vit listas.
+   
+   Mer information om SNI i Application Gateway finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md).
 
    ```powershell
    $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'allowlistcert1' -CertificateFile C:\cert.cer
@@ -200,7 +202,7 @@ Alla konfigurations objekt anges innan du skapar programgatewayen. Följande ste
    $rule = New-AzApplicationGatewayRequestRoutingRule -Name 'rule01' -RuleType basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
    ```
 
-10. Konfigurera programgatewayens instansstorlek. De tillgängliga storlekarna **är\_standard små**, **standard\_medium**och **standard\_stora**.  För kapacitet är de tillgängliga värdena **1** till och med **10**.
+10. Konfigurera programgatewayens instansstorlek. De tillgängliga storlekarna är **standard \_ små**, **standard \_ medium**och **standard \_ stora**.  För kapacitet är de tillgängliga värdena **1** till och med **10**.
 
     ```powershell
     $sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
@@ -217,7 +219,7 @@ Alla konfigurations objekt anges innan du skapar programgatewayen. Följande ste
     - **TLSV1_1**
     - **TLSV1_2**
     
-    I följande exempel anges den lägsta protokoll versionen till **TLSv1_2** och aktiverar **TLS\_-\_ECDHE\_ECDSA\_med\_AES\_128\_GCM SHA256**, **\_TLS\_ECDHE\_ECDSA\_med\_AES\_256\_GCM SHA384**och **TLS\_RSA\_med\_AES\_128\_GCM\_SHA256** .
+    I följande exempel anges den lägsta protokoll versionen till **TLSv1_2** och aktiverar **TLS- \_ ECDHE \_ ECDSA \_ med \_ AES \_ 128 \_ GCM \_ SHA256**, **TLS \_ ECDHE \_ ECDSA \_ med \_ AES \_ 256 \_ GCM \_ SHA384**och **TLS \_ RSA \_ med \_ AES \_ 128 \_ GCM \_ SHA256** .
 
     ```powershell
     $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
@@ -310,7 +312,7 @@ Föregående steg tog dig genom att skapa ett program med end-to-end-TLS och ina
    $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
    ```
 
-2. Definiera en TLS-princip. I följande exempel är **tlsv 1.0** och **tlsv 1.1** inaktiverade och cipher-paketen **\_TLS\_ECDHE\_ECDSA\_med\_AES\_128\_GCM SHA256**, **\_TLS\_ECDHE\_ECDSA\_med\_AES\_256\_GCM**SHA384 och **TLS\_RSA\_med\_AES\_128\_GCM\_SHA256** är de enda tillåtna.
+2. Definiera en TLS-princip. I följande exempel är **tlsv 1.0** och **tlsv 1.1** inaktiverade och cipher-paketen **TLS \_ ECDHE \_ ECDSA \_ med \_ AES \_ 128 \_ GCM \_ SHA256**, **TLS \_ ECDHE \_ ECDSA \_ med \_ AES \_ 256 \_ GCM \_ **SHA384 och **TLS \_ RSA \_ med \_ AES \_ 128 \_ GCM \_ SHA256** är de enda tillåtna.
 
    ```powershell
    Set-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -PolicyType Custom -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -ApplicationGateway $gw

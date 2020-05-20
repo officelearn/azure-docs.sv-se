@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar en privat Azure-länk för att få åt
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/14/2020
 ms.author: thweiss
-ms.openlocfilehash: 4b49d2aa61587d0156755bdd5c47b3eeb90090a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ba85961ac4ec9b1b439de18a1d6da0cec4ead4f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270697"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652571"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
@@ -21,10 +21,7 @@ Med privat länk kan användarna få åtkomst till ett Azure Cosmos-konto inifr�
 
 Du kan ansluta till ett Azure Cosmos-konto som kon figurer ATS med en privat länk med hjälp av metoden för automatisk eller manuell godkännande. Läs mer i avsnittet om [godkännande av arbets flöde](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) i dokumentationen för privat länk. 
 
-I den här artikeln beskrivs stegen för att skapa en privat slut punkt. Det förutsätter att du använder metoden för automatiskt godkännande.
-
-> [!NOTE]
-> Stöd för privata slut punkter är för närvarande endast tillgängligt för gateway-anslutnings läge. För direkt läge är det tillgängligt som en förhands gransknings funktion.
+I den här artikeln beskrivs hur du skapar en privat slutpunkt. Det förutsätter att du använder metoden för automatiskt godkännande.
 
 ## <a name="create-a-private-endpoint-by-using-the-azure-portal"></a>Skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -38,7 +35,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 
 1. I fönstret **skapa en privat slut punkt – grundläggande** anger eller väljer du följande information:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     | **Projekt information** | |
     | Prenumeration | Välj din prenumeration. |
@@ -50,7 +47,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 1. Välj **Nästa: resurs**.
 1. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj **Anslut till en Azure-resurs i min katalog**. <br/><br/> Du kan sedan välja en av dina resurser för att konfigurera en privat länk. Eller så kan du ansluta till någon annans resurs genom att använda ett resurs-ID eller alias som de har delat med dig.|
     | Prenumeration| Välj din prenumeration. |
@@ -62,7 +59,7 @@ Använd följande steg för att skapa en privat slut punkt för ett befintligt A
 1. Välj **Nästa: konfiguration**.
 1. I **skapa en privat slut punkt – konfiguration**anger eller väljer du den här informationen:
 
-    | Inställning | Värde |
+    | Inställningen | Värde |
     | ------- | ----- |
     |**Nätverk**| |
     | Virtuellt nätverk| Välj ditt virtuella nätverk. |
@@ -401,14 +398,14 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-I PowerShell-skriptet kan `GroupId` variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql`, `MongoDB`, `Cassandra` `Gremlin`, och `Table`. Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Ett exempel:
+I PowerShell-skriptet `GroupId` kan variabeln bara innehålla ett värde. Det här värdet är kontots API-typ. Tillåtna värden är: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` och `Table` . Vissa Azure Cosmos-konto typer är tillgängliga via flera API: er. Till exempel:
 
 * Ett Gremlin-API-konto kan nås från både Gremlin-och SQL-API-konton.
 * Ett Tabell-API konto kan nås från både tabell-och SQL-API-konton.
 
 För dessa konton måste du skapa en privat slut punkt för varje API-typ. Motsvarande API-typ anges i `GroupId` matrisen.
 
-När mallen har distribuerats kan du se utdata som liknar det som visas i följande bild. `provisioningState` Värdet är `Succeeded` om de privata slut punkterna har kon figurer ATS korrekt.
+När mallen har distribuerats kan du se utdata som liknar det som visas i följande bild. `provisioningState`Värdet är `Succeeded` om de privata slut punkterna har kon figurer ATS korrekt.
 
 ![Distributions utdata för Resource Manager-mallen](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
 
@@ -627,7 +624,7 @@ Följande situationer och resultat är möjliga när du använder en privat län
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Blockera offentlig nätverks åtkomst när kontot skapas
 
-Som det beskrivs i föregående avsnitt, och om vissa brand Väggs regler har angetts, gör ett Azure Cosmos-konto tillgängligt via enbart privata slut punkter genom att lägga till en privat slut punkt. Det innebär att Azure Cosmos-kontot kan nås från offentlig trafik när det har skapats och innan en privat slut punkt läggs till. För att säkerställa att åtkomsten till det offentliga nätverket är inaktive rad även innan du skapar privata slut punkter `publicNetworkAccess` , kan `Disabled` du ställa in flaggan på när kontot skapas. Se [denna Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) för ett exempel som visar hur du använder den här flaggan.
+Som det beskrivs i föregående avsnitt, och om vissa brand Väggs regler har angetts, gör ett Azure Cosmos-konto tillgängligt via enbart privata slut punkter genom att lägga till en privat slut punkt. Det innebär att Azure Cosmos-kontot kan nås från offentlig trafik när det har skapats och innan en privat slut punkt läggs till. För att säkerställa att åtkomsten till det offentliga nätverket är inaktive rad även innan du skapar privata slut punkter, kan du ställa in `publicNetworkAccess` flaggan på `Disabled` när kontot skapas. Se [denna Azure Resource Manager mall](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) för ett exempel som visar hur du använder den här flaggan.
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Uppdatera en privat slut punkt när du lägger till eller tar bort en region
 
@@ -643,21 +640,17 @@ Du kan använda samma steg när du tar bort en region. När du har tagit bort re
 
 Följande begränsningar gäller när du använder en privat länk med ett Azure Cosmos-konto:
 
-* När du använder en privat länk med ett Azure Cosmos-konto med hjälp av en anslutning via direkt läge, kan du bara använda TCP-protokollet. HTTP-protokollet stöds inte ännu.
+* När du använder en privat länk med ett Azure Cosmos-konto med hjälp av en anslutning via direkt läge, kan du bara använda TCP-protokollet. HTTP-protokollet stöds inte för närvarande.
 
-* Stöd för privata slut punkter är för närvarande endast tillgängligt för gateway-anslutnings läge. För direkt läge är det tillgängligt som en förhands gransknings funktion.
+* När du använder Azure Cosmos DB s API för MongoDB-konton stöds en privat slut punkt för konton på Server version 3,6 (det vill säga konton som använder slut punkten i formatet `*.mongo.cosmos.azure.com` ). Privat länk stöds inte för konton på Server version 3,2 (det vill säga konton som använder slut punkten i formatet `*.documents.azure.com` ). Om du vill använda en privat länk bör du migrera gamla konton till den nya versionen.
 
-* När du använder Azure Cosmos DB s API för MongoDB-konton stöds en privat slut punkt för konton på Server version 3,6 (det vill säga konton som använder slut punkten i formatet `*.mongo.cosmos.azure.com`). Privat länk stöds inte för konton på Server version 3,2 (det vill säga konton som använder slut punkten i formatet `*.documents.azure.com`). Om du vill använda en privat länk bör du migrera gamla konton till den nya versionen.
-
-* När du använder Azure Cosmos DBs API för MongoDB-konton som har en privat länk kan du inte använda verktyg som Robo 3T, Studio 3T och Mongoose. Slut punkten kan bara ha stöd för privata länkar om `appName=<account name>` parametern har angetts. Ett exempel är `replicaSet=globaldb&appName=mydbaccountname`. Eftersom dessa verktyg inte skickar appens namn i anslutnings strängen till tjänsten kan du inte använda privat länk. Men du kan fortfarande komma åt dessa konton genom att använda SDK-drivrutiner med 3,6-versionen.
+* När du använder en Azure Cosmos DBs API för MongoDB-konto som har en privat länk, kanske vissa verktyg eller bibliotek inte fungerar eftersom de automatiskt utsträckar `appName` parametern från anslutnings strängen. Den här parametern krävs för att ansluta till kontot över en privat slut punkt. Vissa verktyg, t. ex. Visual Studio Code, tar inte bort den här parametern från anslutnings strängen och är därför kompatibel.
 
 * Du kan inte flytta eller ta bort ett virtuellt nätverk om det innehåller en privat länk.
 
-* Du kan inte ta bort ett Azure Cosmos-konto om det är kopplat till en privat slut punkt.
-
 * Det går inte att redundansväxla ett Azure Cosmos-konto till en region som inte är mappad till alla privata slut punkter som är kopplade till kontot.
 
-* En nätverks administratör ska beviljas minst behörigheten "*/PrivateEndpointConnectionsApproval" på Azure Cosmos-kontots omfång för att skapa automatiskt godkända privata slut punkter.
+* En nätverks administratör bör minst beviljas `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` behörigheten i Azure Cosmos-kontots omfång för att skapa automatiskt godkända privata slut punkter.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Begränsningar för integrering av privata DNS-zoner
 

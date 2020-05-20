@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 945a27da874071d22952207b7be5add79ce7e2ec
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: designer
+ms.openlocfilehash: 7a756a09e135f664074e64a611755845d8dfb8b7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872616"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654941"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning Designer (förhandsversion)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -26,7 +27,7 @@ Med Azure Machine Learning Designer kan du visuellt ansluta [data uppsättningar
 Designern använder din Azure Machine Learning- [arbetsyta](concept-workspace.md) för att organisera delade resurser, till exempel:
 
 + [Pipelines](#pipeline)
-+ [Datauppsättningar](#datasets)
++ [Data uppsättningar](#datasets)
 + [Beräknings resurser](#compute)
 + [Registrerade modeller](concept-azure-machine-learning-architecture.md#models)
 + [Publicerade pipelines](#publish)

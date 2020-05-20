@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: Zhchia
-ms.openlocfilehash: 08de07a52d1e43dea91e6684d33027d8bcad61fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 41a6cc3a4fd604c4272783f528ed3d37372044fb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641854"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647738"
 ---
 # <a name="tutorial-configure-juno-journey-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Juno-resan för automatisk användar etablering
 
@@ -40,7 +40,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 * [En Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
 * Ett användar konto i Azure AD med [behörighet](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) att konfigurera etablering (t. ex. program administratör, moln program administratör, program ägare eller global administratör). 
-*  En [Juno resan-klient](https://www.junojourney.com/getstartedwithjuno).
+*  En [Juno resan-klient](https://www.junojourney.com/blank).
 *  Ett användar konto i Juno-resan med administratörs behörighet.
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Steg 1. Planera etablerings distributionen
@@ -50,7 +50,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="step-2-configure-juno-journey-to-support-provisioning-with-azure-ad"></a>Steg 2. Konfigurera Juno-resan för att ge stöd för etablering med Azure AD
 
-1. För den **hemliga token** och **klient webb adressen** kontaktar du support support@the-juno.comteamet för Juno resan på. Det här värdet anges i fälten för **hemliga token** och **klient-URL: er** på fliken etablering i ditt Juno-resa-program i Azure Portal. 
+1. För den **hemliga token** och **klient webb adressen** kontaktar du support teamet för Juno resan på support@the-juno.com . Det här värdet anges i fälten för **hemliga token** och **klient-URL: er** på fliken etablering i ditt Juno-resa-program i Azure Portal. 
 
 ## <a name="step-3-add-juno-journey-from-the-azure-ad-application-gallery"></a>Steg 3. Lägg till Juno-resa från Azure AD-programgalleriet
 
@@ -106,7 +106,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
    |userName|Sträng|
    |externalId|Sträng|
    |displayName|Sträng|
-   |title|Sträng|
+   |rubrik|Sträng|
    |aktiv|Boolesk|
    |preferredLanguage|Sträng|
    |e-postmeddelanden [typ EQ "Work"]. värde|Sträng|

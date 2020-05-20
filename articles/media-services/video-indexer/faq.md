@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/20/2020
+ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: dc57978dd881532cab59150dec921df9ffa958c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767213"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652179"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Vanliga frågor och svar om Video Indexer
 
@@ -99,6 +99,10 @@ Mer information finns i artiklar om att anpassa [personer](customize-person-mode
 Ja. Tryck på knappen **Redigera video** från biblioteks visningen eller knappen **Öppna i redaktör** från spelarens bildskärm för att komma till fliken **projekt** . Du kan skapa ett nytt projekt och lägga till fler videor från biblioteket för att redigera dem tillsammans, när du är färdig kan du rendera videon och hämta den. 
 
 Om du vill få insikter om den nya videon kan du indexera den med Video Indexer så visas den i biblioteket med sina insikter.
+
+### <a name="can-i-index-multiple-audio-streams-or-channels"></a>Kan jag indexera flera ljud strömmar eller kanaler?
+
+Om det finns flera ljud strömmar tar Video Indexer den första som påträffas och bearbetar bara den här data strömmen. I alla ljud strömmar Video Indexer processer tar det olika kanaler (om de finns) och bearbetar dem tillsammans som mono. För strömmar/kanal manipulation kan du använda ffmpeg-kommandon på filen innan du indexerar den.
 
 ### <a name="what-is-the-sla-for-video-indexer"></a>Vad är service avtalet för Video Indexer?
 

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4249f1e9f2bf9fcb235644bb211065db460c936e
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 0e7a2e9e5feb848971c4858415510f98a7bdaf78
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869911"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655346"
 ---
-# <a name="provision-throughput-on-an-azure-cosmos-container"></a>Etablera dataflöde i en Azure Cosmos-container
+# <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Etablera standard (manuell) genom strömning på en Azure Cosmos-behållare
 
-Den här artikeln beskriver hur du etablerar data flöde i en behållare (samling, Graf eller tabell) i Azure Cosmos DB. Du kan etablera data flöde på en enskild behållare eller [etablera data flöde på en databas](how-to-provision-database-throughput.md) och dela den mellan behållarna i databasen. Du kan etablera data flöde på en behållare med hjälp av Azure Portal, Azure CLI eller Azure Cosmos DB SDK: er.
+Den här artikeln beskriver hur du etablerar standard-genomflödet (manuellt) i en behållare (samling, Graf eller tabell) i Azure Cosmos DB. Du kan etablera data flöde på en enskild behållare eller [etablera data flöde på en databas](how-to-provision-database-throughput.md) och dela den mellan behållarna i databasen. Du kan etablera data flöde på en behållare med hjälp av Azure Portal, Azure CLI eller Azure Cosmos DB SDK: er.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -41,7 +41,7 @@ Om du vill skapa en behållare med dedikerat data flöde ser du
 * [Skapa en behållare med hjälp av PowerShell](manage-with-powershell.md#create-container)
 
 > [!Note]
-> Om du konfigurerar data flödet på en behållare i ett Azure Cosmos-konto som kon figurer ATS med Azure Cosmos DB-API för MongoDB `/myShardKey` , använder du för sökvägen till partitionsnyckel. Om du konfigurerar data flödet på en behållare i ett Azure Cosmos-konto som kon figurer ATS med API för Cassandra `/myPrimaryKey` använder du för sökvägen till partitionsnyckel.
+> Om du konfigurerar data flödet på en behållare i ett Azure Cosmos-konto som kon figurer ATS med Azure Cosmos DB-API för MongoDB, använder du `/myShardKey` för sökvägen till partitionsnyckel. Om du konfigurerar data flödet på en behållare i ett Azure Cosmos-konto som kon figurer ATS med API för Cassandra använder du `/myPrimaryKey` för sökvägen till partitionsnyckel.
 
 ## <a name="net-sdk"></a>.NET SDK
 
@@ -123,5 +123,6 @@ session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throug
 
 I följande artiklar kan du lära dig hur du etablerar dataflöde i Azure Cosmos DB:
 
-* [Hur du etablerar data flöde på en databas](how-to-provision-database-throughput.md)
+* [Så här etablerar du standard data flöde (manuell) i en databas](how-to-provision-database-throughput.md)
+* [Så här etablerar du data flöde för autoskalning på en databas](how-to-provision-autoscale-throughput.md)
 * [Begärandeenheter och dataflöde i Azure Cosmos DB](request-units.md)

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 3/18/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: e00b6dd5af1cb489aee9e8b4c9f3337eb02e4b14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c2ea38dfa799239adde158506e1359fb84adcc4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878110"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650531"
 ---
 # <a name="classroom-lab-setup-guide"></a>Installations guide för klass rums labb
 
@@ -127,7 +127,12 @@ När du har förstått kraven för klassens labb är du redo att konfigurera den
    - [Aktivera automatisk avstängning vid frånkoppling](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-enable-shutdown-disconnect)
 
         > [!NOTE]
-        > Scheman, kvoter och automatisk avstängning gäller inte för mallen VM. Därför måste du se till att du stänger av mallen VM när den inte används. Annars fortsätter det att ådra sig kostnaderna. Som standard startas den virtuella mallen automatiskt när du skapar ett labb. Se till att du slutför konfigurationen av labbet omedelbart och Stäng av mallen VM.
+        > Scheman och kvoter gäller inte för mallen VM, men inställningarna för automatisk avstängning gäller. 
+        > 
+        > När du skapar ett labb skapas mallen VM, men den är inte igång. Du kan starta den, ansluta till den och installera all nödvändig program vara för labbet och sedan publicera den. När du publicerar mallen VM stängs den automatiskt av för dig om du inte har gjort det. 
+        > 
+        > Mall VM: ar **kostar** att köra, så se till att den virtuella datorns mall stängs av när du inte behöver den för att köras. 
+
 
 1. **Använd instrument panelen.** Anvisningar finns i [använda Labbets instrument panel](https://docs.microsoft.com/azure/lab-services/classroom-labs/use-dashboard).
 

@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 602ccddf97938022df3c5903b573608558fe5d35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cb1149073247b7f5fc3e74a1aef6f96388c7135
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585485"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648108"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synkronisera din GitHub-lagringsplats med app-konfigurationen
 
@@ -20,7 +20,7 @@ Team som vill fortsätta använda sina befintliga käll kontroll metoder kan anv
 &nbsp;&nbsp;&nbsp;&nbsp;• Uppdatera konfigurationen utan att distribuera om hela appen <br>
 &nbsp;&nbsp;&nbsp;&nbsp;• Integrering med tjänster som Azure App Service och funktioner. 
 
-Ett [arbets flöde](https://help.github.com/articles/about-github-actions#workflow) för GitHub-åtgärder definierar en automatiserad process i en GitHub-lagringsplats. Åtgärden *Azure App Sync-konfiguration* utlöser uppdateringar till en konfigurations instans för appar när ändringar görs i käll lagrings platsen. Den använder en YAML-fil (. yml) som finns `/.github/workflows/` i sökvägen till lagrings platsen för att definiera stegen och parametrarna. Du kan utlösa konfigurations uppdateringar när du skickar, granska eller förgrena appars konfigurationsfiler precis som du gör med app-kod.
+Ett [arbets flöde](https://help.github.com/articles/about-github-actions#workflow) för GitHub-åtgärder definierar en automatiserad process i en GitHub-lagringsplats. Åtgärden *Azure App Sync-konfiguration* utlöser uppdateringar till en konfigurations instans för appar när ändringar görs i käll lagrings platsen. Den använder en YAML-fil (. yml) som finns i `/.github/workflows/` sökvägen till lagrings platsen för att definiera stegen och parametrarna. Du kan utlösa konfigurations uppdateringar när du skickar, granska eller förgrena appars konfigurationsfiler precis som du gör med app-kod.
 
 GitHub- [dokumentationen](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) innehåller djupgående visning av GitHub-arbetsflöden och åtgärder. 
 
@@ -33,9 +33,9 @@ Om du vill börja använda den här GitHub-åtgärden går du till din lagrings 
 > ![Välj synkronisering av app-konfiguration](media/app-configuration-sync-action.png)
 
 ## <a name="sync-configuration-files-after-a-push"></a>Synkronisera konfigurationsfiler efter en push
-Den här åtgärden synkroniserar Azure App konfigurationsfiler när en ändring skickas till `appsettings.json`. När en utvecklare skickar en ändring till `appsettings.json`, uppdaterar synkroniseringen av app Configuration-instansen med de nya värdena.
+Den här åtgärden synkroniserar Azure App konfigurationsfiler när en ändring skickas till `appsettings.json` . När en utvecklare skickar en ändring till `appsettings.json` , uppdaterar synkroniseringen av app Configuration-instansen med de nya värdena.
 
-Det första avsnittet av det här arbets flödet anger att åtgärden utlöses *på* en `appsettings.json` *push* som innehåller *huvud* grenen. I det andra avsnittet visas jobben som körs när åtgärden har Aktiver ATS. Åtgärden kontrollerar de relevanta filerna och uppdaterar konfigurations instansen för appen med hjälp av anslutnings strängen som lagras som en hemlighet i lagrings platsen.  Mer information om hur du använder hemligheter i GitHub finns i [GitHub-artikeln](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) om hur du skapar och använder krypterade hemligheter.
+Det första avsnittet av det här arbets flödet anger att åtgärden utlöses *på* en *push* som innehåller `appsettings.json` *huvud* grenen. I det andra avsnittet visas jobben som körs när åtgärden har Aktiver ATS. Åtgärden kontrollerar de relevanta filerna och uppdaterar konfigurations instansen för appen med hjälp av anslutnings strängen som lagras som en hemlighet i lagrings platsen.  Mer information om hur du använder hemligheter i GitHub finns i [GitHub-artikeln](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) om hur du skapar och använder krypterade hemligheter.
 
 ```json
 on: 
@@ -61,10 +61,123 @@ jobs:
           separator: ':' 
 ```
 
-## <a name="use-a-dynamic-label-on-sync"></a>Använd en dynamisk etikett vid synkronisering
-Föregående åtgärd uppdaterar konfigurations instansen när `appsettings.json` den uppdateras. Den här åtgärden infogar en dynamisk etikett vid varje synkronisering, vilket säkerställer att varje synkronisering kan identifieras unikt och tillåter att kod ändringar mappas till konfigurations ändringar.
+## <a name="use-strict-sync"></a>Använd strikt synkronisering
+Som standard aktiverar GitHub-åtgärden inte strikt läge, vilket innebär att synkroniseringen bara lägger till nyckel värden från konfigurations filen till appens konfigurations instans (inga nyckel/värde-par tas bort). Att aktivera strikt läge innebär att nyckel/värde-par som inte finns i konfigurations filen tas bort från program konfigurations instansen, så att den matchar konfigurations filen. Om du synkroniserar från flera källor eller använder Azure Key Vault med konfiguration av appar vill du använda olika prefix eller etiketter med strikt synkronisering för att undvika att ta bort konfigurations inställningar från andra filer (se exemplen nedan). 
 
-Det första avsnittet av det här arbets flödet anger att åtgärden utlöses *på* en `appsettings.json` *push* som innehåller *huvud* grenen. Det andra avsnittet kör ett jobb som skapar en unik etikett för konfigurations uppdateringen baserat på commit hash. Jobbet uppdaterar sedan appens konfigurations instans med de nya värdena och den unika etiketten för uppdateringen.
+```json
+on: 
+  push: 
+    branches: 
+      - 'master' 
+    paths: 
+      - 'appsettings.json' 
+ 
+jobs: 
+  syncconfig: 
+    runs-on: ubuntu-latest 
+    steps: 
+      # checkout done so that files in the repo can be read by the sync 
+      - uses: actions/checkout@v1 
+      - uses: azure/appconfiguration-sync@v1 
+        with: 
+          configurationFile: 'appsettings.json' 
+          format: 'json' 
+          # Replace <ConnectionString> with the name of the secret in your 
+          # repository 
+          connectionString: ${{ secrets.<ConnectionString> }}  
+          separator: ':' 
+          label: 'Label' 
+          prefix: 'Prefix:' 
+          strict: true 
+```
+## <a name="sync-multiple-files-in-one-action"></a>Synkronisera flera filer i en åtgärd 
+
+Om konfigurationen finns i flera filer kan du använda mönstret nedan för att utlösa en synkronisering när någon av filerna ändras. Det här mönstret använder BLOB-bibliotekethttps://www.npmjs.com/package/glob 
+
+```json
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+      - 'appsettings2.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: '{appsettings.json,appsettings2.json}'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+```
+
+## <a name="sync-by-prefix-or-label"></a>Synkronisera efter prefix eller etikett
+Om du anger prefix eller etiketter i din synkroniseringsrelation synkroniseras bara den specifika uppsättningen. Detta är viktigt för att använda strikt synkronisering med flera filer. Beroende på hur konfigurationen har kon figurer ATS kan antingen ett prefix eller en etikett vara kopplad till varje fil och varje prefix eller etikett kan synkroniseras separat så att inget skrivs över. Vanligt vis används prefix för olika program eller tjänster och etiketter för olika miljöer. 
+
+Synkronisera efter prefix: 
+
+```json
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          prefix: 'Prefix::'
+```
+
+Synkronisera efter etikett: 
+
+```json
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          label: 'Label'
+
+```
+
+## <a name="use-a-dynamic-label-on-sync"></a>Använd en dynamisk etikett vid synkronisering
+Följande åtgärd infogar en dynamisk etikett vid varje synkronisering, vilket säkerställer att varje synkronisering kan identifieras unikt och tillåter att kod ändringar mappas till konfigurations ändringar.
+
+Det första avsnittet av det här arbets flödet anger att åtgärden utlöses *på* en *push* som innehåller `appsettings.json` *huvud* grenen. Det andra avsnittet kör ett jobb som skapar en unik etikett för konfigurations uppdateringen baserat på commit hash. Jobbet uppdaterar sedan appens konfigurations instans med de nya värdena och den unika etiketten för uppdateringen.
 
 ```json
 on: 
@@ -95,42 +208,51 @@ jobs:
           label: ${{ steps.determine_label.outputs.LABEL }} 
 ```
 
-## <a name="use-strict-sync"></a>Använd strikt synkronisering
-När strikt läge har Aktiver ATS säkerställer synkroniseringen att konfigurations instansen för appen matchar konfigurations filen för angivet prefix och etiketten exakt. Nyckel/värde-par med samma prefix och etikett som inte finns i konfigurations filen tas bort. 
- 
-Om strikt läge inte är aktiverat kommer synkroniseringen bara att ange nyckel värden från konfigurations filen. Inga nyckel/värde-par kommer att tas bort. 
+## <a name="use-azure-key-vault-with-github-action"></a>Använd Azure Key Vault med GitHub-åtgärd
+Utvecklare som använder Azure Key Vault med AppConfiguration bör använda två separata filer, vanligt vis en appSettings. JSON och en secretreferences. JSON. Secretreferences. JSON kommer att innehålla URL: en till Key Vault-hemligheten.
+
+{"hemlig hemlighet": "{ \" URI \" : \" https://myKeyVault.vault.azure.net/secrets/mySecret "} "}
+
+GitHub-åtgärden kan sedan konfigureras för att göra en strikt synkronisering av appSettings. JSON, följt av en icke-strikt synkronisering på secretreferences. JSON. Följande exempel utlöser en synkronisering när någon av filerna uppdateras:
 
 ```json
-on: 
-  push: 
-    branches: 
-      - 'master' 
-    paths: 
-      - 'appsettings.json' 
- 
-jobs: 
-  syncconfig: 
-    runs-on: ubuntu-latest 
-    steps: 
-      # checkout done so that files in the repo can be read by the sync 
-      - uses: actions/checkout@v1 
-      - uses: azure/appconfiguration-sync@v1 
-        with: 
-          configurationFile: 'appsettings.json' 
-          format: 'json' 
-          # Replace <ConnectionString> with the name of the secret in your 
-          # repository 
-          connectionString: ${{ secrets.<ConnectionString> }}  
-          separator: ':' 
-          label: 'Label' 
-          prefix: 'Prefix:' 
-          strict: true 
+on:
+  push:
+    branches:
+      - 'master'
+    paths:
+      - 'appsettings.json'
+      - 'secretreferences.json'
+
+jobs:
+  syncconfig:
+    runs-on: ubuntu-latest
+    steps:
+      # checkout done so that files in the repo can be read by the sync
+      - uses: actions/checkout@v1
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'appsettings.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          strict: true
+      - uses: azure/appconfiguration-sync@v1
+        with:
+          configurationFile: 'secretreferences.json'
+          format: 'json'
+          # Replace <ConnectionString> with the name of the secret in your repository
+          connectionString: ${{ secrets.<ConnectionString> }}
+          separator: ':'
+          contentType: 'application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8'
+
 ```
 
 ## <a name="use-max-depth-to-limit-github-action"></a>Använd maximalt djup för att begränsa GitHub-åtgärden
 Standard beteendet för kapslade JSON-attribut är att förenkla hela objektet.  JSON nedan definierar detta nyckel/värde-par:
 
-| Nyckel | Värde |
+| Tangent | Värde |
 | --- | --- |
 | Objekt: inre: InnerKey | InnerValue |
 
@@ -173,7 +295,7 @@ jobs:
 
 Med ett djup på 2 returnerar exemplet ovan följande nyckel/värde-par:
 
-| Nyckel | Värde |
+| Tangent | Värde |
 | --- | --- |
 | Objekt: inre | {"InnerKey":"InnerValue"} |
 
@@ -190,11 +312,11 @@ Indataparametrar anger data som används av åtgärden under körning.  Följand
 | format | Ja | Fil format för konfigurations filen.  Giltiga format är: JSON, YAML, Properties. |
 | Begär | Ja | Anslutnings sträng för app Configuration-instansen. Anslutnings strängen ska lagras som en hemlighet i GitHub-lagringsplatsen och endast det hemliga namnet ska användas i arbets flödet. |
 | brytning | Ja | Avgränsning som används vid förenkling av konfigurations filen till nyckel/värde-par.  Giltiga värden är:. , ; : - _ __ / |
-| protokollprefixet | Nej | Prefix som ska läggas till i början av nycklar. |
-| etikett | Nej | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
-| begränsade | Nej | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
-| djuplodande | Nej | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
-| tags | Nej | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
+| protokollprefixet | Inga | Prefix som ska läggas till i början av nycklar. |
+| etikett | Inga | Etikett som används vid inställning av nyckel/värde-par. Om inget anges används en null-etikett. |
+| begränsade | Inga | Ett booleskt värde som anger om strikt läge är aktiverat. Standardvärdet är false. |
+| djuplodande | Inga | Högsta djup för att förenkla konfigurations filen.  Djupet måste vara ett positivt tal.  Standardvärdet har inget max djup. |
+| tags | Inga | Anger taggen som angetts för nyckel/värde-par.  Det förväntade formatet är en stringified form av ett JSON-objekt av följande form: {[propertyName: sträng]: String;} Varje egenskaps namn-värdet blir en tagg. |
 
 ## <a name="next-steps"></a>Nästa steg
 

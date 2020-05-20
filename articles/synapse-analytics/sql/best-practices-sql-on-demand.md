@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86678365d1510199247e8a1aaa48ec844d07de32
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 07ceb8eebed5657f87417dc24281008dd0863851
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592941"
+ms.locfileid: "83650389"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Metod tips för SQL på begäran (för hands version) i Azure Synapse Analytics
 
@@ -56,7 +56,7 @@ Du kan använda jokertecken i din sökväg för att [fråga flera filer och mapp
 
 ## <a name="use-appropriate-data-types"></a>Använd lämpliga data typer
 
-Data typer som används i frågan påverkar prestanda. Du kan få bättre prestanda om du: 
+De data typer som du använder i din fråga påverkar prestanda. Du kan få bättre prestanda om du: 
 
 - Använd den minsta data storlek som ska hantera det största möjliga värdet.
   - Om max längden för tecken värde är 30 tecken, använder du tecken data typen 30.
@@ -68,7 +68,7 @@ Data typer som används i frågan påverkar prestanda. Du kan få bättre presta
 
 ## <a name="check-inferred-data-types"></a>Kontrol lera härledda data typer
 
-[Schema härledning](query-parquet-files.md#automatic-schema-inference) hjälper dig att snabbt skriva frågor och utforska data utan att känna till filschemat. Den här bekvämligheten är till för kostnad av härledda data typer som är större än de faktiskt är. Det inträffar när det inte finns tillräckligt med information i källfilerna för att säkerställa att lämplig datatyp används. Parquet-filer innehåller till exempel inte metadata om maximal tecken kolumn längd och SQL on-demand härleds som varchar (8000). 
+[Schema härledning](query-parquet-files.md#automatic-schema-inference) hjälper dig att snabbt skriva frågor och utforska data utan att känna till filschemat. Den här bekvämligheten kommer till kostnaden för härledda data typer som är större än de faktiskt är. Det inträffar när det inte finns tillräckligt med information i källfiler för att säkerställa att lämplig datatyp används. Parquet-filer innehåller till exempel inte metadata om maximal tecken kolumn längd och SQL on-demand härleds som varchar (8000). 
 
 Du kan kontrol lera resulterande data typer i din fråga med hjälp av [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15).
 
@@ -92,7 +92,7 @@ Här är resultatuppsättningen.
 |0|2|pickup_datetime|datetime2 (7)|8|
 |0|3|passenger_count|int|4|
 
-När vi känner till härledda data typer för frågor kan vi ange lämpliga data typer:
+När vi känner till härledda data typer för fråga kan vi ange lämpliga data typer:
 
 ```sql  
 SELECT
@@ -143,4 +143,4 @@ Om du behöver bättre prestanda kan du prova SAS-autentiseringsuppgifter för a
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs artikeln om [fel sökning](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för vanliga problem och lösningar. Om du arbetar med SQL-pool i stället för SQL på begäran, kan du läsa mer i artikeln [metod tips för SQL-pooler](best-practices-sql-pool.md) .
+Läs artikeln om [fel sökning](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för vanliga problem och lösningar. Om du arbetar med SQL-pool i stället för SQL på begäran kan du läsa mer i artikeln [metod tips för SQL-pooler](best-practices-sql-pool.md) .

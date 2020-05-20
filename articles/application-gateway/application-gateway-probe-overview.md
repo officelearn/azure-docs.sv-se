@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: c5a53167c6a4ca6c886b858a1608eaa173185bd8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1afc389508eb75313d046b759bcc9c03a50daad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335849"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648403"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Översikt över Application Gateway Health Monitoring
 
@@ -47,15 +47,15 @@ Följande är matchnings villkor:
 - **Http-svar status kod matchning** -matchnings villkor för avsökning för att acceptera användarens angivna HTTP-svarskod eller svars kod intervall. Enskilda kommaavgränsade svars status koder eller ett intervall med status koder stöds.
 - **Svars text matchning i HTTP-svar** – matchnings villkor för avsökning som söker efter http-svars text och matchningar med en användardefinierad sträng. Matchningen söker bara efter en användardefinierad sträng i svars texten och är inte en fullständig matchning av reguljära uttryck.
 
-Matchnings villkor kan anges med hjälp `New-AzApplicationGatewayProbeHealthResponseMatch` av cmdleten.
+Matchnings villkor kan anges med hjälp av `New-AzApplicationGatewayProbeHealthResponseMatch` cmdleten.
 
-Ett exempel:
+Till exempel:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 ```
-När matchnings villkoren har angetts kan den kopplas till avsöknings konfigurationen med `-Match` hjälp av en parameter i PowerShell.
+När matchnings villkoren har angetts kan den kopplas till avsöknings konfigurationen med hjälp av en `-Match` parameter i PowerShell.
 
 ### <a name="default-health-probe-settings"></a>Inställningar för standard hälso avsökning
 
@@ -64,12 +64,12 @@ När matchnings villkoren har angetts kan den kopplas till avsöknings konfigura
 | Avsöknings-URL |http://127.0.0.1:\<port\>/ |URL-sökväg |
 | Intervall |30 |Vänte tiden i sekunder innan nästa hälso avsökning skickas.|
 | Timeout |30 |Hur lång tid i sekunder som Application Gateway väntar på ett avsöknings svar innan avsökningen markeras som ohälsosam. Om en avsökning returneras som felfri markeras motsvarande Server del omedelbart som felfri.|
-| Tröskelvärde för ej felfri |3 |Reglerar hur många avsökningar som ska skickas om det uppstår ett fel i den normala hälso avsökningen. Dessa ytterligare hälso avsökningar skickas i snabb följd för att snabbt fastställa hälso tillståndet för Server delen och inte vänta på avsöknings intervallet. Den här behaivor är endast v1 SKU. I händelse av v2 SKU: er väntar hälso avsökningar på intervallet. Backend-servern är markerad när det efterföljande antalet avsöknings fel uppnår tröskelvärdet. |
+| Tröskelvärde för ej felfri |3 |Reglerar hur många avsökningar som ska skickas om det uppstår ett fel i den normala hälso avsökningen. Dessa ytterligare hälso avsökningar skickas i snabb följd för att snabbt fastställa hälso tillståndet för Server delen och inte vänta på avsöknings intervallet. Det här beteendet är endast v1 SKU. I händelse av v2 SKU: er väntar hälso avsökningar på intervallet. Backend-servern är markerad när det efterföljande antalet avsöknings fel uppnår tröskelvärdet. |
 
 > [!NOTE]
 > Porten är samma port som server delens HTTP-inställningar.
 
-Standard avsökningen ser bara ut på\/http:/\<127.0.0.1\> : port för att fastställa hälso status. Om du behöver konfigurera hälso avsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar.
+Standard avsökningen ser bara ut på http: \/ /127.0.0.1: \< port \> för att fastställa hälso status. Om du behöver konfigurera hälso avsökningen för att gå till en anpassad URL eller ändra andra inställningar måste du använda anpassade avsökningar. Mer information om HTTP-avsökningar finns i [Översikt över TLS-terminering och slut punkt till slut punkt för TLS med Application Gateway](ssl-overview.md#for-probe-traffic).
 
 ### <a name="probe-intervals"></a>Avsöknings intervall
 
@@ -85,7 +85,7 @@ Med anpassade avsökningar kan du få en mer detaljerad kontroll över hälso ö
 
 Följande tabell innehåller definitioner av egenskaperna för en anpassad hälso avsökning.
 
-| Egenskapen avsökning | Beskrivning |
+| Egenskapen avsökning | Description |
 | --- | --- |
 | Name |Namn på avsökningen. Det här namnet används för att referera till avsökningen i HTTP-inställningarna på backend-sidan. |
 | Protokoll |Protokoll som används för att skicka avsökningen. Avsökningen använder protokollet som definierats i Server delens HTTP-inställningar |
@@ -97,7 +97,7 @@ Följande tabell innehåller definitioner av egenskaperna för en anpassad häls
 
 > [!IMPORTANT]
 > Om Application Gateway har kon figurer ATS för en enda plats, som standard, ska värd namnet anges som 127.0.0.1, om inget annat anges i anpassad avsökning.
-> För att referera till en anpassad avsökning \<skickas\>till protokollet\<:/\>/\<Host\>\<:\>port Sök väg. Porten som används är samma port som definieras i Server delens HTTP-inställningar.
+> För att referera till en anpassad avsökning skickas till \< protokollet \> :// \< Host \> : \< port \> \< Sök väg \> . Porten som används är samma port som definieras i Server delens HTTP-inställningar.
 
 ## <a name="nsg-considerations"></a>NSG överväganden
 

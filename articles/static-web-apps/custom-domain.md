@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 10d3e3674aef901ad35dfb6d0b9fd13715aace55
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8425c2c1f653d874d24053a12d511c64a3b9ee9d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597613"
+ms.locfileid: "83655233"
 ---
 # <a name="setup-a-custom-domain-in-azure-static-web-apps-preview"></a>Konfigurera en anpassad domän i för hands versionen av Azure statisk Web Apps
 
 Som standard tillhandahåller Azure static Web Apps ett automatiskt genererat domän namn. Den här artikeln visar hur du mappar ett anpassat domän namn till ett statiskt Azure-Web Apps program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Ett köpt domän namn
 - Åtkomst till DNS-konfigurationens egenskaper för din domän
@@ -80,7 +80,7 @@ En CNAME-post mappar en domän till en annan. Du kan använda en CNAME-post för
 
 1. Klicka på knappen **Verifiera** .
 
-Nu när den anpassade domänen har kon figurer ATS kan det ta flera timmar för DNS-providern att sprida ändringarna över hela världen. Du kan kontrol lera status för spridningen genom att gå till [dnspropagation.net](https://dnspropagation.net). Ange din domän anpassade domän inklusive `www` , Välj CNAME i list rutan och välj **Starta**.
+Nu när den anpassade domänen har kon figurer ATS kan det ta flera timmar för DNS-providern att sprida ändringarna över hela världen. Du kan kontrol lera status för spridningen genom att gå till [dnspropagation.net](https://dnspropagation.net). Ange din anpassade domän inklusive `www` , Välj CNAME i list rutan och välj **Starta**.
 
 Om dina DNS-ändringar har fyllts i returnerar webbplatsen den automatiskt genererade URL: en för din statiska webbapp (till exempel _Random-Name-123456789c.azurestaticapps.net_).
 
@@ -92,7 +92,7 @@ Rot domäner är din domän minus alla under domäner, inklusive `www` . Till ex
 
 ## <a name="map-a-wildcard-domain"></a>Mappa en domän med jokertecken
 
-Ibland vill du att all trafik som skickas till en under domän ska dirigeras till en annan domän. Ett vanligt exempel är att mappa all under domän trafik till `www.example.com` . På så sätt, även om någon typ i `ww.example.com` stället för `www.example.com` , skickas begäran till `www.example.com` .
+Ibland vill du att all trafik som skickas till en under domän ska dirigeras till en annan domän. Ett vanligt exempel är att mappa all under domän trafik till `www.example.com` . På så sätt, även om någon typ i `w.example.com` stället för `www.example.com` , skickas begäran till `www.example.com` .
 
 ### <a name="configure-dns-provider"></a>Konfigurera DNS-Provider
 

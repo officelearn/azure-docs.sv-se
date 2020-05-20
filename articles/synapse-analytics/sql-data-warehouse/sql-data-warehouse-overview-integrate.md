@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2f6e091b6e0285bea5fef9e4d0be40faec936c6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 469fdf19f8c5fa511070f2d809d06829578c2131
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80633132"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653721"
 ---
-# <a name="integrate-other-services-with-a-sql-analytics-data-warehouse"></a>Integrera andra tjänster med ett informations lager för SQL Analytics
+# <a name="integrate-other-services-with-a-synapse-sql-pool-data-warehouse"></a>Integrera andra tjänster med en Synapse SQL-pool (informations lager)
 
-SQL Analytics-funktionen i Azure Synapse Analytics gör det möjligt för användarna att integrera med många av de andra tjänsterna i Azure. Med hjälp av SQL Analytics kan du skapa ett informations lager via dess SQL-resurspool, som sedan kan använda flera ytterligare tjänster, till exempel:
+SQL-poolens funktion i Azure Synapse Analytics gör det möjligt för användarna att integrera med många av de andra tjänsterna i Azure. Med hjälp av Synapse SQL kan du skapa ett informations lager via dess SQL-resurspool, som sedan kan använda flera ytterligare tjänster, till exempel:
 
 * Power BI
 * Azure Data Factory
@@ -31,9 +31,9 @@ Mer information om integrerings tjänster i Azure finns i artikeln [integration 
 
 ## <a name="power-bi"></a>Power BI
 
-Med Power BI integration kan du kombinera beräknings kraften hos ett informations lager med den dynamiska rapporteringen och visualiseringen av Power BI. Power BI-integrering innehåller för närvarande:
+Med Power BI integration kan du kombinera beräknings kraften hos ett informations lager med den dynamiska rapporteringen och visualiseringen av Power BI. Power BI-integreringen innehåller för närvarande:
 
-* **Direkt anslutning**: en mer avancerad anslutning med logisk mottagnings mot ett informations lager som tillhandahålls med SQL-poolen. Mottagnings ger snabbare analys på en större skala.
+* **Direkt anslutning**: en mer avancerad anslutning med logisk mottagnings mot ett informations lager som tillhandahålls med SQL-poolen. Mottagningen ger snabbare analys i större skala.
 * **Öppna i Power BI**: med knappen "öppna i Power BI" skickas instans information till Power BI för ett förenklat sätt att ansluta.
 
 Mer information finns i [integrera med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)eller [Power BI-dokumentationen](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/23/2020
 ms.author: aschhab
-ms.openlocfilehash: 9c1a0cb92fbaf98d25799ffb5a85e666e7c05f8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6630d96c90a221a6b0374f2e4758748a77ad0610
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158917"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647821"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus köer för obeställbara meddelanden
 
@@ -40,24 +40,23 @@ Det går inte att hämta antal meddelanden i kön för obeställbara meddelanden
 
 ![Antal DLQ-meddelanden](./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png)
 
-Du kan också få antalet DLQ-meddelanden med hjälp av Azure CLI-kommandot [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show):. 
+Du kan också få antalet DLQ-meddelanden med hjälp av Azure CLI-kommandot: [`az servicebus topic subscription show`](/cli/azure/servicebus/topic/subscription?view=azure-cli-latest#az-servicebus-topic-subscription-show) . 
 
 ## <a name="moving-messages-to-the-dlq"></a>Flytta meddelanden till DLQ
 
 Det finns flera aktiviteter i Service Bus som gör att meddelanden skickas till DLQ inifrån själva meddelande motorn. Ett program kan också uttryckligen flytta meddelanden till DLQ. 
 
-När meddelandet flyttas av utjämningen läggs två egenskaper till i meddelandet eftersom Broker anropar den interna versionen av [obeställbara meddelanden kön](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) -metoden i meddelandet: `DeadLetterReason` och. `DeadLetterErrorDescription`
+När meddelandet flyttas av utjämningen läggs två egenskaper till i meddelandet eftersom Broker anropar den interna versionen av [obeställbara meddelanden kön](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) -metoden i meddelandet: `DeadLetterReason` och `DeadLetterErrorDescription` .
 
 Program kan definiera egna koder för `DeadLetterReason` egenskapen, men systemet anger följande värden.
 
-| Villkor | DeadLetterReason | DeadLetterErrorDescription |
-| --- | --- | --- |
-| Alltid |HeaderSizeExceeded |Storlekskvoten för dataströmmen har överskridits. |
-| ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing och SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |brandväggsundantaget. GetType (). Namn |brandväggsundantaget. Meddelande |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Meddelandet har gått ut och blev obeställbart. |
-| SubscriptionDescription.RequiresSession |Sessions-ID är null. |Sessionsaktiverad entitet tillåter inte ett meddelande vars sessions-ID är null. |
-| ! kö för obeställbara meddelanden | MaxTransferHopCountExceeded | Maximalt antal tillåtna hopp vid vidarebefordran mellan köer. Värdet är inställt på 4. |
-| Program explicit död brevning |Anges av programmet |Anges av programmet |
+| DeadLetterReason | DeadLetterErrorDescription |
+| --- | --- |
+|HeaderSizeExceeded |Storlekskvoten för dataströmmen har överskridits. |
+|TTLExpiredException |Meddelandet har gått ut och blev obeställbart. Mer information finns i avsnittet om att [överskrida TimeToLive](#exceeding-timetolive) . |
+|Sessions-ID är null. |Sessionsaktiverad entitet tillåter inte ett meddelande vars sessions-ID är null. |
+|MaxTransferHopCountExceeded | Maximalt antal tillåtna hopp vid vidarebefordran mellan köer. Värdet är inställt på 4. |
+| MaxDeliveryCountExceededExceptionMessage | Det gick inte att utnyttja meddelandet efter maximalt antal leverans försök. Mer information finns i avsnittet om att [överskrida MaxDeliveryCount](#exceeding-maxdeliverycount) . |
 
 ## <a name="exceeding-maxdeliverycount"></a>Överskrider MaxDeliveryCount
 
@@ -91,7 +90,7 @@ Om du vill hämta dessa meddelanden med obeställbara meddelanden kan du skapa e
 
 ## <a name="example"></a>Exempel
 
-Följande kodfragment skapar en meddelande mottagare. I mottagnings-loopen för huvud kön hämtar koden meddelandet med [receive (TimeSpan. Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), som uppmanar koordinatorn att omedelbart returnera eventuella meddelanden som är tillgängliga eller returnera utan resultat. Om koden tar emot ett meddelande överges det omedelbart, vilket ökar `DeliveryCount`. När systemet flyttar meddelandet till DLQ är huvud kön Tom och loopen avslutas, så som [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) returnerar **Null**.
+Följande kodfragment skapar en meddelande mottagare. I mottagnings-loopen för huvud kön hämtar koden meddelandet med [receive (TimeSpan. Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver), som uppmanar koordinatorn att omedelbart returnera eventuella meddelanden som är tillgängliga eller returnera utan resultat. Om koden tar emot ett meddelande överges det omedelbart, vilket ökar `DeliveryCount` . När systemet flyttar meddelandet till DLQ är huvud kön Tom och loopen avslutas, så som [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) returnerar **Null**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);
@@ -125,6 +124,6 @@ Om du använder .NET SDK kan du hämta sökvägen till kön för obeställbara m
 
 I följande artiklar finns mer information om Service Bus köer:
 
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Azure-köer och Service Bus köer jämförs](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

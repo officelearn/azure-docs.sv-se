@@ -1,29 +1,34 @@
 ---
 title: Samar beta på kunskaps bas – QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker gör det möjligt för flera personer att samar beta i en kunskaps bas. Den här funktionen tillhandahålls med Azure-rollbaserade Access Control.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/03/2020
-ms.author: diberry
-ms.openlocfilehash: b5adc7ebacde056a141ca3b361b9eb2ea7900a39
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 03/17/2020
+ms.openlocfilehash: 1a2908b4b65017f427682627ce5d83b186956a58
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75660757"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650783"
 ---
-# <a name="collaborate-on-your-knowledge-base"></a>Samar beta med din kunskaps bas
+# <a name="collaboration-with-authors-and-editors"></a>Samarbete med författare och redigerare
 
-QnA Maker låter flera personer samar beta i alla kunskaps banker i samma QnA Maker-resurs. Den här funktionen tillhandahålls med Azure [-rollbaserade Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
+Samarbetet tillhandahålls på QnA Maker resurs nivå så att du kan begränsa åtkomsten till medarbetare baserat på samarbets rollens roll. Läs mer om [begrepp](../Concepts/role-based-access-control.md)för att QNA Maker Collaborative-autentisering.
 
-Utför följande steg för att dela din QnA Maker-tjänst med någon:
+## <a name="add-role-based-access-rbac-to-your-qna-maker-resource"></a>Lägg till rollbaserad åtkomst (RBAC) till din QnA Maker-resurs
 
-1. Logga in på Azure Portal och gå till din QnA Maker-resurs.
+QnA Maker låter flera personer samar beta i alla kunskaps banker i samma QnA Maker-resurs. Den här funktionen tillhandahålls med Azure [-rollbaserade Access Control](../../../active-directory/role-based-access-control-configure.md).
+
+## <a name="access-at-the-qna-maker-resource-level"></a>Åtkomst på QnA Maker resurs nivå
+
+Du kan inte dela en viss kunskaps bas i en QnA Maker-tjänst. Om du vill ha mer detaljerad åtkomst kontroll bör du överväga att distribuera dina kunskaps baser över olika QnA Maker resurser och sedan lägga till roller till varje resurs.
+
+## <a name="add-role-to-resource"></a>Lägg till roll till resurs
+
+### <a name="add-a-user-account-to-the-qna-maker-resource"></a>Lägg till ett användar konto i QnA Maker resursen
+
+Följande steg använder rollen medarbetare men någon av [rollerna](../reference-role-based-access-control.md) kan läggas till med hjälp av de här stegen
+
+1. Logga in på [Azure](https://portal.azure.com/) Portal och gå till din QNA Maker-resurs.
 
     ![QnA Maker resurs lista](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
@@ -35,7 +40,15 @@ Utför följande steg för att dela din QnA Maker-tjänst med någon:
 
     ![QnA Maker IAM-tillägg](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-1. Välj **ägare** eller **deltagar** roll. Du kan inte bevilja skrivskyddad åtkomst via rollbaserade Access Control. Ägare och deltagar roller har Läs-och Skriv behörighet till tjänsten QnA Maker.
+1. Välj en roll i följande lista:
+
+    |Roll|
+    |--|
+    |Ägare|
+    |Deltagare|
+    |QnA Maker läsare|
+    |QnA Maker redigerare|
+    |Cognitive Services användare|
 
     ![QnA Maker IAM Lägg till roll](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 
@@ -43,11 +56,13 @@ Utför följande steg för att dela din QnA Maker-tjänst med någon:
 
     ![QnA Maker IAM Lägg till e-post](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-email.PNG)
 
-När du har delat din QnA Maker-tjänst med loggar du in på [QNA Maker Portal](https://qnamaker.ai) kan de Se alla kunskaps baser i den tjänsten.
-
-Kom ihåg att du inte kan dela en viss kunskaps bas i en QnA Maker-tjänst. Om du vill ha mer detaljerad åtkomst kontroll bör du överväga att distribuera dina kunskaps baser över olika QnA Maker tjänster.
+När personen som du delar din QnA Maker-tjänst med loggar i [QNA Maker-portalen](https://qnamaker.ai)kan de Se alla kunskaps banker i den tjänsten baserat på deras roll.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
 > [Testa en kunskapsbas](./test-knowledge-base.md)
+
+Lär dig mer om samarbete:
+* Rollbaserad åtkomst kontroll i [Azure](../../../active-directory/role-based-access-control-configure.md)
+* QnA Maker rollbaserad åtkomst kontroll [koncept](../Concepts/role-based-access-control.md)

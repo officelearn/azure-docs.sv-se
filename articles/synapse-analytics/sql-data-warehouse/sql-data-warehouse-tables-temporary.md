@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 56d8ab81fcf9200fec2cfb4a741724b8f79db820
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f10b987fa8783084b14774b9bce5e857f3c59c4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81408029"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650472"
 ---
 # <a name="temporary-tables-in-synapse-sql-pool"></a>Temporära tabeller i Synapse SQL-pool
 Den här artikeln innehåller grundläggande information om hur du använder temporära tabeller och visar principerna för temporära tabeller på sidnivå. 
@@ -29,7 +29,7 @@ Temporära tabeller visas bara för den session där de skapades och tas bort au
 
 Temporära tabeller ger en prestanda förmån eftersom deras resultat skrivs till lokala platser i stället för Fjärrlagring.
 
-Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är tillfälliga. Med SQL Analytics finns temporära tabeller på sessions nivå.  De är bara synliga för den session där de skapades. De tas då bort automatiskt när sessionen loggar ut. 
+Temporära tabeller är användbara vid bearbetning av data, särskilt under omvandling där de mellanliggande resultaten är tillfälliga. Med SQL-poolen finns temporära tabeller på den tillfälliga nivån.  De är bara synliga för den session där de skapades. De tas då bort automatiskt när sessionen loggar ut. 
 
 ## <a name="temporary-tables-in-sql-pool"></a>Temporära tabeller i SQL-poolen
 
@@ -37,7 +37,7 @@ I SQL-gruppresursen ger temporära tabeller en prestanda förmån eftersom deras
 
 ### <a name="create-a-temporary-table"></a>Skapa en tillfällig tabell
 
-Temporära tabeller skapas genom att prefixet för ditt tabell namn `#`används.  Ett exempel:
+Temporära tabeller skapas genom att prefixet för ditt tabell namn används `#` .  Till exempel:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -233,5 +233,5 @@ Vyer kan inte heller skapas i temporära tabeller.  Temporära tabeller kan bara
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utvecklar tabeller finns i artikeln [designa tabeller med hjälp av SQL Analytics-resurser](sql-data-warehouse-tables-overview.md) .
+Mer information om hur du utvecklar tabeller finns i avsnittet [utforma tabeller med hjälp av artikeln SYNAPSE SQL-resurser](sql-data-warehouse-tables-overview.md) .
 

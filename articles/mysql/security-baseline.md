@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 1b9a1771ad498fa3fb9b8294adb8a6556a00863a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 02050745e7c8a9aa05d3f2de63a4bc5f1ebf8318
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82190426"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654788"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Azures säkerhets bas linje för Azure Database for MySQL
 
@@ -573,7 +573,7 @@ Förstå kundens data skydd i Azure:https://docs.microsoft.com/azure/security/fu
 
 **Vägledning**: tjänsten Azure Database for MySQL använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk, med undantag för tillfälliga filer som skapas vid körning av frågor. Tjänsten använder AES 256-bit-chiffer som ingår i Azure Storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 
-Med data kryptering med Kundhanterade nycklar för Azure Database for MySQL kan du ta med din egen nyckel (BYOK) för data skydd i vila. För tillfället måste du begära åtkomst för att använda den här funktionen. Det gör du genom att kontakta:
+Datakryptering med kundhanterade nycklar för Azure Database for MySQL gör att du kan ta med din egen nyckel (BYOK) för dataskydd i vila. För tillfället måste du begära åtkomst för att använda den här funktionen. Det gör du genom att kontakta:
 
 AskAzureDBforMySQL@service.microsoft.com
 
@@ -902,7 +902,7 @@ Så här ger Key Vault autentisering med en hanterad identitet:https://docs.micr
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7,12: hantera identiteter säkert och automatiskt
 
-**Vägledning**: Azure Database for MySQL-instansen stöder Azure Active Directory autentisering (i för hands version) för att få åtkomst till databaser.  När du skapar Azure Database for MySQL-instansen anger du autentiseringsuppgifter för en administratörs användare. Den här administratören kan använda för att skapa ytterligare databas användare.  
+**Vägledning**: Azure Database for MySQL-instansen stöder Azure Active Directory autentisering för att få åtkomst till databaser.  När du skapar Azure Database for MySQL-instansen anger du autentiseringsuppgifter för en administratörs användare. Den här administratören kan använda för att skapa ytterligare databas användare.  
 
 För Azure-Virtual Machines eller-webb program som körs på Azure App Service används för att få åtkomst till dina Azure Database for MySQL-instanser använder du Hanterad tjänstidentitet tillsammans med Azure Key Vault för att lagra och hämta autentiseringsuppgifter för Azure Database for MySQL-instansen. Se till att Key Vault mjuk borttagning har Aktiver ATS.
 

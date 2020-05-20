@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3a8839609856bda5304712405ec57accb4afb095
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c8b66e42c5719203eb0f195a5b61e81da8b187e7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201681"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658162"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Ansluta till Synapse SQL med Visual Studio och SSDT
 > [!div class="op_single_selector"]
@@ -36,11 +36,11 @@ Om du vill använda den här självstudien måste du ha följande komponenter:
 
 * En befintlig SQL-pool. Om du inte har en sådan, se [skapa en SQL-pool](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) för att slutföra det här kravet.
 * SSDT för Visual Studio. Om du har Visual Studio har du förmodligen redan den här komponenten. Installationsinstruktioner och alternativ finns i [Installera Visual Studio och SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* Det fullständigt kvalificerade servernamnet. Information om hur du hittar detta finns i [Anslut till SQL-pool](connect-overview.md).
+* Det fullständigt kvalificerade servernamnet. För att hitta det här Server namnet, se [Anslut till SQL-pool](connect-overview.md).
 
 ## <a name="1-connect-to-sql-pool"></a>1. Anslut till SQL-pool
 1. Öppna Visual Studio 2019.
-2. Öppna SQL Server Object Explorer. Om du vill göra det väljer du **Visa**  >  **SQL Server Object Explorer**.
+2. Öppna SQL Server Object Explorer genom att välja **Visa**  >  **SQL Server Object Explorer**.
    
     ![SQL Server Object Explorer](./media/get-started-visual-studio/open-ssdt.png)
 3. Klicka på ikonen **lägg till SQL Server**.
@@ -70,7 +70,7 @@ Nu när en anslutning har upprättats till databasen skriver du en fråga.
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Kör frågan. För att göra det, klickar du på den gröna pilen eller använder följande genväg: `CTRL`+`SHIFT`+`E`.
+4. Kör frågan genom att klicka på den gröna pilen eller Använd följande genväg: `CTRL` + `SHIFT` + `E` .
    
     ![Kör frågan](./media/get-started-visual-studio/run-query.png)
 5. Titta på frågeresultaten. I det här exemplet har tabellen FactInternetSales 60398 rader.

@@ -7,12 +7,12 @@ ms.date: 04/27/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 25aa9fc166e831acd2ed0389bbbe4d2dc7e04b19
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: baabad550f5e6b0ae39936fc182e6d9789d189d8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594754"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650934"
 ---
 # <a name="disk-bursting"></a>Diskutvidgning
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -24,7 +24,7 @@ Stöd för burst-överföring på virtuell dator har Aktiver ATS i alla regioner
 Bursting är aktiverat som standard för virtuella datorer som har stöd för det.
 
 ## <a name="disk-level-bursting"></a>Burst-överföring på disk nivå
-Bursting är också tillgängligt på vår [Premium-SSD](disks-types.md#premium-ssd) för disk storlekar P20 och mindre i alla regioner. Disk-burst är aktiverat som standard på nya distributioner av disk storlekarna som stöder det. Befintliga disk storlekar, om de har stöd för disk burst, kan aktivera burst via någon av följande metoder: 
+Bursting är också tillgängligt på vårt [Premium-SSD](disks-types.md#premium-ssd) för disk storlekar P20 och mindre i alla regioner i Azures offentliga, offentliga myndigheter och i Kina. Disk-burst är aktiverat som standard på nya distributioner av disk storlekarna som stöder det. Befintliga disk storlekar, om de har stöd för disk burst, kan aktivera burst via någon av följande metoder: 
 - **Starta om den virtuella datorn** 
 - **Koppla från och återanslut disken**
 

@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aafb971ca1ce812a68045f7d0c0c2ab7f532133
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28915967dc7697c08b2bbd7118f7e2377418045d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80877396"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647256"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Arbeta med befintliga lokala proxyservrar
 
@@ -115,9 +115,9 @@ Tillåt åtkomst till följande webbadresser:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Kommunikation mellan anslutningsprogrammet och molntjänsten för programproxy |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Anslutnings tjänsten använder dessa URL: er för att verifiera certifikat |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>*. microsoftonline-p.com<br>*. msauth.net<br>*. msauthimages.net<br>*. msecnd.net<br>*. msftauth.net<br>*. msftauthimages.net<br>*. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com <br> *. microsoftonline-p.com<br>*. msauth.net <br> *. msauthimages.net<br>*. msecnd.net <br> *. msftauth.net<br>*. msftauthimages.net <br> *. phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | Anslutningsprogrammet använder dessa webbadresser under registreringen. |
 
-Om din brand vägg eller proxy låter dig konfigurera listor över tillåtna DNS-listor kan du tillåta \*anslutningar till. \*msappproxy.net och. ServiceBus.Windows.net. Om inte måste du tillåta åtkomst till [Azure DataCenter IP-intervallen](https://www.microsoft.com/download/details.aspx?id=41653). IP-adressintervallen uppdateras varje vecka.
+Om din brand vägg eller proxy låter dig konfigurera listor över tillåtna DNS-listor kan du tillåta anslutningar till \* . msappproxy.net och \* . ServiceBus.Windows.net. Om inte måste du tillåta åtkomst till [Azure DataCenter IP-intervallen](https://www.microsoft.com/download/details.aspx?id=41653). IP-adressintervallen uppdateras varje vecka.
 
 Om du inte kan tillåta anslutning av FQDN och behöver ange IP-adressintervall i stället, använder du följande alternativ:
 
@@ -144,12 +144,12 @@ Att använda en vidarebefordrande proxy för kommunikationen mot backend-appen k
 Aktivera detta genom att följa nästa steg:
 
 ### <a name="step-1-add-the-required-registry-value-to-the-server"></a>Steg 1: Lägg till det register värde som krävs på servern
-1. Om du vill aktivera med standardproxyn lägger du till följande register värde `UseDefaultProxyForBackendRequests = 1` (DWORD) i register nyckeln för anslutnings konfigurationen i "HKEY_LOCAL_MACHINE \Software\microsoft\microsoft AAD App proxy Connector".
+1. Om du vill aktivera med standardproxyn lägger du till följande register värde (DWORD) i `UseDefaultProxyForBackendRequests = 1` register nyckeln för anslutnings konfigurationen i "HKEY_LOCAL_MACHINE \SOFTWARE\MICROSOFT\MICROSOFT AAD App proxy Connector".
 
 ### <a name="step-2-configure-the-proxy-server-manually-using-netsh-command"></a>Steg 2: Konfigurera proxyservern manuellt med kommandot netsh
 1.  Aktivera grup principen gör proxyinställningar per dator. Detta finns i: Computer Datorkonfiguration\principer\administrativa \ Mallar\windows-komponenter\Internet Explorer. Detta måste anges i stället för att den här principen har angetts till per användare.
 2.  Kör `gpupdate /force` på servern eller starta om servern för att säkerställa att den använder de uppdaterade grup princip inställningarna.
-3.  Starta en upphöjd kommando tolk med administratörs behörighet `control inetcpl.cpl`och ange.
+3.  Starta en upphöjd kommando tolk med administratörs behörighet och ange `control inetcpl.cpl` .
 4.  Konfigurera de proxyinställningar som krävs. 
 
 De här inställningarna gör att anslutningen använder samma vidarebefordrande proxy för kommunikationen till Azure och Server dels programmet. Om anslutningen till Azure-kommunikationen inte kräver någon vidarebefordrande proxy eller en annan vidarebefordran proxy kan du konfigurera detta med ändra filen ApplicationProxyConnectorService. exe. config enligt beskrivningen i avsnitten kringgå utgående proxyservrar eller använda den utgående proxyservern.
@@ -162,7 +162,7 @@ Nu bör du se all trafik som flödar genom proxyservern. Om du har problem bör 
 
 Det bästa sättet att identifiera och felsöka anslutnings problem är att ta en nätverks avbildning när du startar kopplings tjänsten. Här följer några snabba tips om att fånga och filtrera nätverks spår.
 
-Du kan använda valfritt övervaknings verktyg. I den här artikeln använde vi Microsoft Message Analyzer. Du kan [Ladda ned det från Microsoft](https://www.microsoft.com/download/details.aspx?id=44226).
+Du kan använda valfritt övervaknings verktyg. I den här artikeln använde vi Microsoft Message Analyzer.
 
 Följande exempel är speciella för Message Analyzer, men principerna kan tillämpas på alla analys verktyg.
 
@@ -195,7 +195,7 @@ Om du förväntar dig att anslutningen ska göra direkta anslutningar till Azure
 
 Om du har konfigurerat din Application Proxy Connector-trafik för att gå igenom proxyservrarna vill du söka efter misslyckade HTTPS-anslutningar till proxyservern.
 
-Om du vill filtrera nätverks avbildningen för dessa anslutnings försök `(https.Request or https.Response) and tcp.port==8080` anger du i Message Analyzer-filtret och ersätter 8080 med din proxy service-port. Välj **tillämpa** för att se filter resultaten.
+Om du vill filtrera nätverks avbildningen för dessa anslutnings försök anger du `(https.Request or https.Response) and tcp.port==8080` i Message Analyzer-filtret och ersätter 8080 med din proxy service-port. Välj **tillämpa** för att se filter resultaten.
 
 Föregående filter visar bara HTTPs-begärandena och svar på/från proxyservern. Du letar efter de CONNECT-begäranden som visar kommunikationen med proxyservern. När det är klart får du ett HTTP-svar (200).
 

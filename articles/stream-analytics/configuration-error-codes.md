@@ -6,28 +6,16 @@ author: mamccrea
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: 9951a6ddfbd1c562184e2b7e02a9da98f7d94b12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5aa15ae4a234a56a172a0166070c32be4f822910
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598068"
+ms.locfileid: "83650069"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Fel koder för Azure Stream Analytics konfiguration
 
 Du kan använda aktivitets loggar och resurs loggar för att felsöka oväntade beteenden från ditt Azure Stream Analytics-jobb. Den här artikeln innehåller en beskrivning av varje konfigurations fel kod. Konfigurations fel är relaterade till din jobb konfiguration eller konfigurationer för indata och utdata.
-
-## <a name="kafkainvalidpermission"></a>KafkaInvalidPermission
-
-* **Orsak**: Stream Analytics-jobbet har inte rätt behörighet för att utföra vissa åtgärder.
-
-## <a name="kafkainvalidconfiguration"></a>KafkaInvalidConfiguration
-
-* **Orsak**: vissa konfigurationer på Kafka-kortet är ogiltiga.
-
-## <a name="kafkainvalidtimestamptype"></a>KafkaInvalidTimestampType
-
-* **Orsak**: den tidsstämpel-typ som används av Kafka är ogiltig.
 
 ## <a name="eventhubunauthorizedaccess"></a>EventHubUnauthorizedAccess
 

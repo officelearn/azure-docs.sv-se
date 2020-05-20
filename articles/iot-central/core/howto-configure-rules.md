@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f6e85ba5aafaad973d28f799a251b6f3aae548e3
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871936"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659353"
 ---
 # <a name="configure-rules"></a>Konfigurera regler
 
@@ -31,7 +31,7 @@ Använd avsnittet mål enheter för att välja vilken typ av enheter som regeln 
 
 Villkoren är vilka regler som utlöses på. När du lägger till flera villkor i en regel är de logiskt och sammantaget. Med andra ord måste alla villkor vara uppfyllda för att regeln ska utvärderas som sant.  
 
-I följande skärm bild kontrollerar villkoren när temperaturen är större än 70&deg; F och att fuktigheten är mindre än 10. När båda dessa instruktioner är uppfyllda utvärderas regeln till sant och utlöser en åtgärd.
+I följande skärm bild kontrollerar villkoren när temperaturen är större än 70 &deg; F och att fuktigheten är mindre än 10. När båda dessa instruktioner är uppfyllda utvärderas regeln till sant och utlöser en åtgärd.
 
 ![Villkor](media/howto-configure-rules/conditions.png)
 
@@ -53,7 +53,4 @@ En begränsning gäller regler som tillämpas på IoT Edge moduler. Regler för 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du konfigurerar en regel i ditt Azure IoT Central-program kan du:
-
-> [!div class="nextstepaction"]
-> [Analysera dina data i farten](howto-create-analytics.md)
+Nu när du har lärt dig hur du konfigurerar en regel i ditt Azure IoT Central-program, kan du lära dig hur du [konfigurerar avancerade regler](howto-configure-rules-advanced.md) med hjälp av energi automatisering eller Azure Logic Apps.

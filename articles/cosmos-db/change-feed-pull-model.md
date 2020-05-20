@@ -6,14 +6,14 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2020
+ms.date: 05/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0e6e243ceb73ca2a1180e59ba6c6b4095ed6069a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 082689dba5fdfa8505f2293223e76f2164b0df14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116721"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655291"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Ändra flödes hämtnings modell i Azure Cosmos DB
 
@@ -43,7 +43,7 @@ FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator();
 Med hjälp av en `FeedIterator` kan du enkelt bearbeta en hel behållares ändrings flöde i din egen takt. Här är ett exempel:
 
 ```csharp
-FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForTheEntireContainer= container.GetChangeFeedIterator<User>(new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {
@@ -61,7 +61,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
 I vissa fall kanske du bara vill bearbeta ändringar i en viss partitionsnyckel. Du kan hämta en `FeedIterator` för en speciell partitionsnyckel och bearbeta ändringarna på samma sätt som du kan för en hel behållare:
 
 ```csharp
-FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorForThePartitionKey = container.GetChangeFeedIterator<User>(new PartitionKey("myPartitionKeyValueToRead"), new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 
 while (iteratorForThePartitionKey.HasMoreResults)
 {
@@ -98,7 +98,7 @@ Här är ett exempel som visar hur du läser från början av behållarens ändr
 Dator 1:
 
 ```csharp
-FeedIterator<User> iteratorA = container.GetChangeFeedIterator<Person>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
+FeedIterator<User> iteratorA = container.GetChangeFeedIterator<User>(ranges[0], new ChangeFeedRequestOptions{StartTime = DateTime.MinValue});
 while (iteratorA.HasMoreResults)
 {
    FeedResponse<User> users = await iteratorA.ReadNextAsync();
@@ -149,6 +149,8 @@ while (iterator.HasMoreResults)
 FeedIterator<User> iteratorThatResumesFromLastPoint = container.GetChangeFeedIterator<User>(continuation);
 ```
 
+Så länge Cosmos-containern fortfarande finns går det inte att ändra en FeedIterators fortsättnings-token.
+
 ## <a name="comparing-with-change-feed-processor"></a>Jämför med byte av byte av flödes processor
 
 Många scenarier kan bearbeta ändrings flödet med hjälp av antingen [change feed-processorn](change-feed-processor.md) eller pull-modellen. Pull-modellens fortsättnings-och förändrings behållar behållar behållare är båda bok märken för det senast bearbetade objektet (eller objekt gruppen) i ändrings flödet.
@@ -156,9 +158,9 @@ Du kan dock inte konvertera fortsättnings-token till en Lease container (eller 
 
 Du bör överväga att använda pull-modellen i följande scenarier:
 
-- Du vill göra en enstaka läsning av befintliga data i ändrings flödet
-- Du vill bara läsa ändringar från en viss partitionsnyckel
-- Du vill inte ha en push-modell och vill använda ändrings flödet i din egen takt
+- Läser ändringar från en viss partitionsnyckel
+- Styra i vilken takt klienten får ändringar för bearbetning
+- Göra en engångs läsning av befintliga data i ändrings flödet (till exempel för att göra en datamigrering)
 
 Här är några viktiga skillnader mellan processorn för förändrings matnings processor och pull-modell:
 

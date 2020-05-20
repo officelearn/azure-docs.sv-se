@@ -3,12 +3,12 @@ title: Förbättra kunskaps basen – QnA Maker
 description: Förbättra kvaliteten på din kunskaps bas med aktiv inlärning. Granska, acceptera eller avvisa, Lägg till utan att ta bort eller ändra befintliga frågor.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 7fafc23eaf21099ebb974da226d07c351fa19699
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2e074716e4342a8748de4fb4e217548f1cb731f6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756740"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650775"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Acceptera föreslagna frågor om aktiva utbildningar i kunskaps basen
 
@@ -31,7 +31,7 @@ För att kunna se föreslagna frågor måste du [Aktivera aktiv utbildning](use-
 
     [![Använd alternativet filtrera efter förslag för att bara visa de aktiva inlärnings alternativ som föreslås av den aktuella frågan.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Varje QnA-par föreslår den nya frågans alternativ med en bock `✔` markering, för att acceptera frågan eller `x` för att avvisa förslagen. Markera kryss rutan för att lägga till frågan.
+1. Varje QnA-par föreslår den nya frågans alternativ med en bock markering, `✔` för att acceptera frågan eller `x` för att avvisa förslagen. Markera kryss rutan för att lägga till frågan.
 
     [![Välj eller avvisa den aktiva inlärningens föreslagna fråge alternativ genom att markera den gröna bocken eller det röda ta bort-märket.](../media/improve-knowledge-base/accept-active-learning-suggestions-small.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
@@ -50,7 +50,7 @@ För att kunna se föreslagna frågor måste du [Aktivera aktiv utbildning](use-
 
 En robot eller något annat klient program bör använda följande arkitektur flöde för att använda aktiv inlärning:
 
-* Bot [hämtar svaret från kunskaps basen](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) med GenerateAnswer-API: et med hjälp `top` av egenskapen för att få ett antal svar.
+* Bot [hämtar svaret från kunskaps basen](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) med GenerateAnswer-API: et med hjälp av `top` egenskapen för att få ett antal svar.
 * Bot avgör explicit feedback:
     * Filtrera ut låga resultat med din egen [anpassade affärs logik](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user).
     * I robot-eller klient programmet visar du en lista över möjliga svar på användaren och får användarens valda svar.
@@ -59,7 +59,7 @@ En robot eller något annat klient program bör använda följande arkitektur fl
 
 ### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Använd egenskapen Top i GenerateAnswer-begäran för att få flera matchande svar
 
-När du skickar en fråga till QnA Maker för ett svar anger `top` egenskapen för JSON-texten antalet svar som ska returneras.
+När du skickar en fråga till QnA Maker för ett svar `top` anger egenskapen för JSON-texten antalet svar som ska returneras.
 
 ```json
 {
@@ -130,9 +130,9 @@ Content-Type: application/json
 |Egenskap för HTTP-begäran|Name|Typ|Syfte|
 |--|--|--|--|
 |URL-rutt parameter|Kunskaps bas-ID|sträng|Din kunskaps bas-GUID.|
-|Anpassad under domän|Resurs namn för QnAMaker|sträng|Resurs namnet används som anpassad under domän för QnA Maker. Detta är tillgängligt på sidan inställningar när du har publicerat kunskaps basen. Den visas som `host`.|
-|Huvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är:`application/json`|
-|Huvud|Auktorisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
+|Anpassad under domän|Resurs namn för QnAMaker|sträng|Resurs namnet används som anpassad under domän för QnA Maker. Detta är tillgängligt på sidan inställningar när du har publicerat kunskaps basen. Den visas som `host` .|
+|Sidhuvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är:`application/json`|
+|Sidhuvud|Auktorisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
 |Publicera brödtext|JSON-objekt|JSON|Feedback om utbildningen|
 
 JSON-texten har flera inställningar:
@@ -309,9 +309,9 @@ async callTrain(stepContext){
 
 ## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Aktiv inlärning sparas i den exporterade kunskaps basen
 
-När du har aktiverat aktiv inlärning i appen och du exporterar appen, behåller `SuggestedQuestions` kolumnen i TSV-filen de aktiva inlärnings data.
+När du har aktiverat aktiv inlärning i appen och du exporterar appen, `SuggestedQuestions` behåller kolumnen i TSV-filen de aktiva inlärnings data.
 
-`SuggestedQuestions` Kolumnen är ett JSON-objekt med information om implicit, `autosuggested`och explicit, `usersuggested` feedback. Ett exempel på detta JSON-objekt för en enskild användare som har skickat `help` frågan av är:
+`SuggestedQuestions`Kolumnen är ett JSON-objekt med information om implicit, `autosuggested` och explicit, `usersuggested` feedback. Ett exempel på detta JSON-objekt för en enskild användare som har skickat frågan av `help` är:
 
 ```JSON
 [
@@ -329,11 +329,6 @@ När du har aktiverat aktiv inlärning i appen och du exporterar appen, behålle
     }
 ]
 ```
-
-Du kan också använda nedladdnings-API: et för att granska dessa ändringar, med hjälp av REST eller någon av de språkbaserade SDK: erna:
-* [REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
-
 
 När du importerar om den här appen fortsätter den aktiva inlärningen att samla in information och rekommendera förslag för din kunskaps bas.
 

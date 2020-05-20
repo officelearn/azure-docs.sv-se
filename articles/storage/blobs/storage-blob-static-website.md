@@ -6,14 +6,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/29/2019
+ms.date: 05/14/2020
 ms.subservice: blobs
-ms.openlocfilehash: 57ba59288cbf65c1ef588302965d480ee357ea4d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 6a007525f8402bb163195b623173d665f9721bff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779985"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648499"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Vara värd för en statisk webbplats i Azure Storage
 
@@ -50,24 +50,24 @@ Du kan använda något av dessa verktyg för att ladda upp innehåll till **$Web
 
 ## <a name="viewing-content"></a>Visa innehåll
 
-Användare kan visa webbplats innehåll från en webbläsare med hjälp av den offentliga URL: en för webbplatsen. Du kan hitta URL: en med hjälp av Azure Portal, Azure CLI eller PowerShell. Använd den här tabellen som en guide.
-
-|Verktyg| Riktlinjer |
-|----|----|
-|**Azure Portal** | [Hitta webbplats-URL: en med hjälp av Azure Portal](storage-blob-static-website-how-to.md#portal-find-url) |
-|**Azure CLI** | [Hitta webbplats-URL: en med hjälp av Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
-|**Azure PowerShell-modul** | [Hitta webbplats-URL: en med hjälp av PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
-
-URL: en för din webbplats innehåller en regional kod. Till exempel innehåller URL `https://contosoblobaccount.z22.web.core.windows.net/` : en regional `z22`kod.
-
-Även om koden måste finnas i URL: en, är den bara för intern användning och du behöver inte använda koden på något annat sätt.
-
-Det index dokument som du anger när du aktiverar statisk webbplats värd, visas när användarna öppnar platsen och inte anger en speciell fil (till exempel: `https://contosoblobaccount.z22.web.core.windows.net`).  
+Användare kan visa webbplats innehåll från en webbläsare med hjälp av den offentliga URL: en för webbplatsen. Du kan hitta URL: en med hjälp av Azure Portal, Azure CLI eller PowerShell. Se [hitta webbplats-URL: en](storage-blob-static-website-how-to.md#portal-find-url).
 
 Om servern returnerar ett 404-fel och du inte har angett ett fel dokument när du aktiverade webbplatsen, returneras en standard-404-sida till användaren.
 
 > [!NOTE]
 > [CORS](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) stöds inte med den statiska webbplatsen.
+
+### <a name="regional-codes"></a>Regionala koder
+
+URL: en för din webbplats innehåller en regional kod. Till exempel innehåller URL: en `https://contosoblobaccount.z22.web.core.windows.net/` regional kod `z22` .
+
+Även om koden måste finnas i URL: en, är den bara för intern användning och du behöver inte använda koden på något annat sätt.
+
+Det index dokument som du anger när du aktiverar statisk webbplats värd, visas när användarna öppnar platsen och inte anger en speciell fil (till exempel: `https://contosoblobaccount.z22.web.core.windows.net` ).  
+
+### <a name="secondary-endpoints"></a>Sekundära slut punkter
+
+Om du ställer in [redundans i en sekundär region](../common/storage-redundancy.md#redundancy-in-a-secondary-region)kan du också komma åt webbplats innehåll med hjälp av en sekundär slut punkt. Eftersom data replikeras till sekundära regioner asynkront är de filer som är tillgängliga på den sekundära slut punkten inte alltid synkroniserade med de filer som är tillgängliga på den primära slut punkten. 
 
 ## <a name="impact-of-the-setting-the-public-access-level-of-the-web-container"></a>Effekt av inställningen för webb behållarens offentliga åtkomst nivå
 
@@ -100,7 +100,7 @@ Det finns inget sätt att konfigurera rubriker som en del av den statiska webbpl
 
 Om du vill använda huvuden för att styra cachelagring, se [kontroll Azure CDN cachelagring med regler för cachelagring](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 Du kan aktivera statisk webbplats värd utan kostnad. Du faktureras bara för den blob-lagring som webbplatsen använder och drifts kostnader. Mer information om priser för Azure-Blob Storage finns på sidan med [priser för azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 

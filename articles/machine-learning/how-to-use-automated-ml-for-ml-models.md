@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 03/10/2020
-ms.openlocfilehash: 0d6fa02578814c4c5d034be05cbc63093d70603b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 841d518c02dbc76a172890f6019d78d048f4e8bb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257240"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653845"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Skapa, granska och distribuera automatiserade maskin inlärnings modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -29,13 +29,13 @@ För ett slut punkt till slut punkts exempel kan du prova [självstudien för at
 
 ## <a name="prerequisites"></a>Krav
 
-* En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+* En Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 * En Azure Machine Learning arbets yta med en typ av **Enterprise-utgåva**. Se [skapa en Azure Machine Learning-arbetsyta](how-to-manage-workspace.md).  Information om hur du uppgraderar en befintlig arbets yta till Enterprise Edition finns i [Uppgradera till Enterprise Edition](how-to-manage-workspace.md#upgrade).
 
 ## <a name="get-started"></a>Kom igång
 
-1. Logga in på Azure Machine Learning på https://ml.azure.com. 
+1. Logga in på Azure Machine Learning på https://ml.azure.com . 
 
 1. Välj din prenumeration och arbets yta. 
 
@@ -66,7 +66,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
     1. Granska **inställningarna och för hands versions** formuläret för noggrannhet. Formuläret fylls i intelligent baserat på filtypen. 
 
-        Field| Beskrivning
+        Fält| Description
         ----|----
         Fil format| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
@@ -93,7 +93,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Välj **skapa en ny beräkning** för att konfigurera din beräknings kontext för det här experimentet.
 
-    Field|Beskrivning
+    Fält|Description
     ---|---
     Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
     Storlek för virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
@@ -117,7 +117,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
 
 1. Valfritt Visa ytterligare konfigurations inställningar: ytterligare inställningar som du kan använda för att styra utbildnings jobbet bättre. Annars tillämpas standardvärdena utifrån experiment val och data. 
 
-    Ytterligare konfigurationer|Beskrivning
+    Ytterligare konfigurationer|Description
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#explore-model-metrics).
     Automatisk funktionalisering| Välj det här alternativet om du vill aktivera eller inaktivera förbearbetningen som gjorts genom automatisk maskin inlärning. För bearbetning inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner. Stöds inte för aktivitets typen tids serie prognos. [Läs mer om för bearbetning](#featurization). 
@@ -138,7 +138,7 @@ Du kan få en mängd olika sammanfattnings statistik över din data uppsättning
 >[!NOTE]
 > Tomma poster visas för funktioner med irrelevanta typer.
 
-Statistik|Beskrivning
+Statistik|Description
 ------|------
 Funktion| Namn på den kolumn som sammanfattas.
 Profil| Infogad visualisering baserat på den härledda typen. Strängar, booleska värden och datum har till exempel värde antal, medan decimaler (numeriska värden) har ungefärligt histogram. På så sätt får du en snabb förståelse för data fördelningen.
@@ -159,14 +159,14 @@ Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data 
 
 ## <a name="advanced-featurization-options"></a>Avancerade alternativ för funktionalisering
 
-Automatisk maskin inlärning erbjuder förbehandling och data guardrails automatiskt, som hjälper dig att identifiera och hantera potentiella problem med dina data. 
+Automatisk maskin inlärning erbjuder förbehandling och data guardrails automatiskt, för att hjälpa dig att identifiera och hantera potentiella problem med dina data, t. ex. [överanpassning och data som bryts](concept-manage-ml-pitfalls.md#prevent-over-fitting). 
 
 ### <a name="preprocessing"></a>Förbearbeta
 
 > [!NOTE]
 > Om du planerar att exportera dina Auto ML-skapade modeller till en [ONNX-modell](concept-onnx.md), stöds bara de funktionalisering-alternativ som anges med * i ONNX-formatet. Lär dig mer om [att konvertera modeller till ONNX](concept-automated-ml.md#use-with-onnx). 
 
-|Förbehandlings&nbsp;steg| Beskrivning |
+|Förbehandlings &nbsp; steg| Description |
 | ------------- | ------------- |
 |Släpp hög kardinalitet eller inga varians funktioner * |Ta bort dessa från inlärnings-och validerings uppsättningar, inklusive funktioner med alla värden som saknas, samma värde på alla rader eller med mycket hög kardinalitet (till exempel hash-värden, ID: n eller GUID).|
 |Imputerade värden som saknas * |För numeriska funktioner måste du räkna ut med medelvärdet av värdena i kolumnen.<br/><br/>För kategoriska-funktioner ska du räkna med det mest frekventa värdet.|
@@ -188,7 +188,7 @@ Användare kan granska data guardrails i Studio på fliken **data guardrails** i
 
 Data guardrails visar ett av tre tillstånd: **godkänd**, **klar**eller **alertd**.
 
-Status| Beskrivning
+Stat| Beskrivning
 ----|----
 Parametrarna| Inga data problem upptäcktes och ingen användar åtgärd krävs. 
 Klart| Ändringarna tillämpades på dina data. Vi rekommenderar att användarna granskar korrigerings åtgärderna automatiserade ML för att se till att ändringarna överensstämmer med de förväntade resultaten. 
@@ -199,7 +199,7 @@ Aviserad| Ett data problem som inte kunde åtgärdas har upptäckts. Vi uppmuntr
 
 I följande tabell beskrivs de data guardrails som stöds för närvarande och de associerade statusvärdena som användarna kan komma att komma åt när de skickar experimentet.
 
-Guardrail|Status|Villkor&nbsp;för&nbsp;utlösare
+Guardrail|Status|Villkor &nbsp; för &nbsp; utlösare
 ---|---|---
 Funktions värden saknas Imputation |**Parametrarna** <br><br><br> **Klar**| Inga funktions värden som saknas hittades i dina tränings data. Läs mer om det [saknade värdet Imputation.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Funktions värden som saknas upptäcktes i dina tränings data och tillräknades.
 Funktions hantering med hög kardinalitet |**Parametrarna** <br><br><br> **Klar**| Dina indata analyserades och inga funktioner för hög kardinalitet upptäcktes. Lär dig mer om [funktions identifiering med hög kardinalitet.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Funktioner för hög kardinalitet upptäcktes i dina indata och hanterades.
@@ -240,10 +240,10 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
 
 1. Fyll i fönstret **distribuera modell** .
 
-    Field| Värde
+    Fält| Värde
     ----|----
     Namn| Ange ett unikt namn för din distribution.
-    Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
+    Description| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
     Compute-typ| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)*.
     Compute-namn| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
     Aktivera autentisering | Välj för att tillåta tokenbaserad eller nyckelbaserad autentisering.

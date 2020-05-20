@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/13/2020
-ms.openlocfilehash: 71a28d4a0b69b117039f998891e082740e4269a2
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: aec093d829964c770f59ec7bd328fabdd56e6e86
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402564"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654848"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor kundhanterad nyckel 
 
@@ -21,7 +21,7 @@ Vi rekommenderar att du granskar [begränsningar och](#limitations-and-constrain
 
 ## <a name="disclaimers"></a>Ansvarsfriskrivningar
 
-CMK-funktionen levereras på dedikerade Log Analytics-kluster. [Pris modellen Log Analytics kluster](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) använder kapacitets reservationer som börjar med en 1000 GB/dag-nivå.
+CMK-funktionen levereras på dedikerade Log Analytics-kluster. För att kontrol lera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration vit listas i förväg. Använd din Microsoft-kontakt för att hämta din prenumerations vit listas.
 
 ## <a name="customer-managed-key-cmk-overview"></a>Översikt över kundhanterad nyckel (CMK)
 
@@ -30,6 +30,8 @@ Kryptering i vila ( https://docs.microsoft.com/azure/security/fundamentals/encry
 Azure Monitor säkerställer att alla data krypteras i vila med hjälp av Azure-hanterade nycklar. Azure Monitor innehåller också ett alternativ för data kryptering med hjälp av din egen nyckel som lagras i din [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) och som används av lagring med systemtilldelad autentisering med [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)   . Den här nyckeln kan vara antingen [program vara eller maskin vara-HSM skyddad](https://docs.microsoft.com/azure/key-vault/key-vault-overview). 
 
 Azure Monitor krypterings användningen är identisk med hur [Azure Storage kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   fungerar.
+
+CMK-funktionen levereras på dedikerade Log Analytics-kluster. [Pris modellen Log Analytics kluster](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters) använder kapacitets reservationer som börjar med en 1000 GB/dag-nivå.
 
 Data som matats in under de senaste 14 dagarna behålls också i frekvent cache (SSD-backad) för effektiv Operations Engine-åtgärd. Dessa data förblir krypterade med Microsoft-nycklar oavsett CMK-konfiguration, men kontrollen över SSD-data följer [nyckel återkallning](#cmk-kek-revocation). Vi arbetar med att ha SSD-data krypterade med CMK i den andra halvan av 2020.
 
@@ -67,7 +69,7 @@ Följande regler gäller:
 
 ## <a name="cmk-provisioning-procedure"></a>Etablerings procedur för CMK
 
-1. Prenumerations vit listning – för att garantera att vi har den kapacitet som krävs i din region för att etablera ett Log Analytics-kluster måste vi verifiera och vitlista din prenumeration i förväg
+1. Prenumerations-vit listning – CMK-funktionen levereras på dedikerade Log Analytics kluster. För att kontrol lera att vi har den kapacitet som krävs i din region, kräver vi att din prenumeration vit listas i förväg. Använd din Microsoft-kontakt för att få din prenumeration vit listas
 2. Skapa Azure Key Vault och lagra nyckel
 3. Skapa en *kluster* resurs
 5. Bevilja behörighet till din Key Vault
@@ -78,7 +80,7 @@ Proceduren stöds för närvarande inte i användar gränssnittet och etablering
 > [!IMPORTANT]
 > Alla API-förfrågningar måste innehålla en token Authorization-token i begär ande huvudet.
 
-Exempel:
+Till exempel:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -595,5 +597,5 @@ Alla dina data är tillgängliga efter nyckel rotations åtgärden, inklusive da
 
 - Om du uppdaterar din nyckel version i Key Vault och inte uppdaterar informationen om den nya nyckel identifieraren i *kluster* resursen, fortsätter Log Analytics klustret att använda din tidigare nyckel och dina data blir otillgängliga. Uppdatera informationen om den nya nyckel identifieraren i *kluster* resursen för att återuppta data inmatning och möjlighet att fråga data.
 
-- För support och hjälp som är relaterat till kund Managed Key använder du dina kontakter i Microsoft.
+- För support och hjälp som är relaterad till kund Managed Key, använder du din Microsoft-kontakt för att kontakta oss.
 

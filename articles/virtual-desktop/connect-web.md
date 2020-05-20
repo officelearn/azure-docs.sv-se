@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f17d04d94546f31c5613fa9944c7399ea7db10ae
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 061805896203615d7673a006059080e9c4246863
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006055"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657205"
 ---
 # <a name="connect-with-the-web-client"></a>Ansluta med webbklienten
 
@@ -42,10 +42,10 @@ Med webb klienten kan du komma åt dina Windows-resurser för virtuella skriv bo
 
 ## <a name="access-remote-resources-feed"></a>Åtkomst till fjär resurser-feed
 
-I en webbläsare navigerar du till [webb klienten för virtuella Windows-datorer](https://rdweb.wvd.microsoft.com/arm/webclient) och loggar in med ditt användar konto.
+I en webbläsare går du till den Azure Resource Manager-integrerade versionen av webb klienten för virtuella Windows-datorer på <https://rdweb.wvd.microsoft.com/arm/webclient> och loggar in med ditt användar konto.
 
 >[!NOTE]
->Om du använder Windows Virtual Desktop hösten 2019-versionen använder du länken webb klient i [den här artikeln](./virtual-desktop-fall-2019/connect-web-2019.md) för att ansluta till dina resurser.
+>Om du använder den virtuella Windows-datorn med version 2019 utan Azure Resource Manager-integrering ansluter du till dina resurser i <https://rdweb.wvd.microsoft.com/webclient> stället.
 
 >[!NOTE]
 >Om du redan har loggat in med ett annat Azure Active Directory-konto än det som du vill använda för Windows Virtual Desktop, bör du antingen logga ut eller använda ett privat webbläsarfönster.

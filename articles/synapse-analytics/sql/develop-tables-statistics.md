@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: d89baa069543c0571d42807f8034e6008eaddbc8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197573"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659240"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistik i Synapse SQL
 
@@ -30,11 +30,13 @@ Ju mer SQL-gruppresursen vet om dina data, desto snabbare kan den köra frågor.
 
 SQL-poolens fråga optimering är en kostnads baserad optimering. Den Jämför kostnaden för olika fråge planer och väljer sedan planen med den lägsta kostnaden. I de flesta fall väljer den den plan som ska köras snabbast.
 
-Om optimeringen t. ex. beräknar att det datum då frågan filtreras på kommer att returnera en rad kommer den att välja en plan. Om den beräknar att det valda datumet returnerar 1 000 000 rader, returneras ett annat schema.
+Om optimeringen t. ex. beräknar att det datum då frågan filtreras på kommer att returnera en rad, väljs en plan. Om den beräknar att det valda datumet returnerar 1 000 000 rader, returneras ett annat schema.
 
 ### <a name="automatic-creation-of-statistics"></a>Automatisk generering av statistik
 
-SQL-poolen analyserar inkommande användar frågor för saknad statistik när alternativet databas AUTO_CREATE_STATISTICS är inställt på `ON` .  Om statistik saknas skapar Query Optimering statistik för enskilda kolumner i frågesyntaxen eller kopplings villkoret. Den här funktionen används för att förbättra beräkningar av kardinalitet för frågeplan.
+SQL-poolen analyserar inkommande användar frågor för saknad statistik när alternativet databas AUTO_CREATE_STATISTICS är inställt på `ON` .  Om statistik saknas skapar Query Optimering statistik för enskilda kolumner i frågesyntaxen eller kopplings villkoret. 
+
+Den här funktionen används för att förbättra beräkningar av kardinalitet för frågeplan.
 
 > [!IMPORTANT]
 > Automatisk generering av statistik är för närvarande aktiverat som standard.
@@ -93,7 +95,7 @@ Följande är rekommendationer om uppdaterings statistik:
 |||
 |-|-|
 | **Frekvens för statistik uppdateringar**  | Försiktigt: varje dag </br> När du har läst in eller omvandlat dina data |
-| **Samling** |  Färre än 1 000 000 000 rader, Använd standard sampling (20 procent). </br> Med fler än 1 000 000 000 rader använder du samplingen av två procent. |
+| **Sampling** |  Färre än 1 000 000 000 rader, Använd standard sampling (20 procent). </br> Med fler än 1 000 000 000 rader använder du samplingen av två procent. |
 
 ### <a name="determine-last-statistics-update"></a>Fastställ senaste statistik uppdatering
 
@@ -101,7 +103,9 @@ En av de första frågorna för att fråga när du felsöker en fråga är **"ä
 
 Den här frågan är inte en som kan besvaras av data åldern. Ett uppdaterat statistik objekt kan vara gammalt om ingen material ändring har gjorts i underliggande data. När antalet rader har ändrats huvudsakligen, eller om en material ändring i fördelning av värden för en kolumn inträffar, *är det dags* att uppdatera statistik.
 
-Det finns ingen dynamisk hanterings vy att avgöra om data i tabellen har ändrats sedan den senaste tids statistiken uppdaterades. Att veta ålder på din statistik kan ge dig en del av bilden. Du kan använda följande fråga för att avgöra när statistiken senast uppdaterades i varje tabell.
+Det finns ingen dynamisk hanterings vy att avgöra om data i tabellen har ändrats sedan den senaste tids statistiken uppdaterades. Att veta ålder på din statistik kan ge dig en del av bilden. 
+
+Du kan använda följande fråga för att avgöra när statistiken senast uppdaterades i varje tabell.
 
 > [!NOTE]
 > Om det finns en väsentlig förändring i fördelningen av värden för en kolumn bör du uppdatera statistiken, oavsett när de uppdaterades senast.
@@ -137,9 +141,11 @@ WHERE
 
 Statistik i en köns kolumn i en kund tabell kanske aldrig behöver uppdateras. Förutsatt att fördelningen är konstant mellan kunderna, kommer nya rader i tabell variationen inte att ändra data distributionen.
 
-Men om ditt informations lager bara innehåller en kön och ett nytt krav resulterar i flera kön måste du uppdatera statistiken i kön kön. Mer information hittar du i [statistik](/sql/relational-databases/statistics/statistics) artikeln.
+Men om ditt informations lager bara innehåller en kön och ett nytt krav resulterar i flera kön måste du uppdatera statistiken i kön kön. 
 
-### <a name="implementing-statistics-management"></a>Implementera statistik hantering
+Mer information hittar du i [statistik](/sql/relational-databases/statistics/statistics) artikeln.
+
+### <a name="implement-statistics-management"></a>Implementera statistik hantering
 
 Det är ofta en bra idé att utöka data inläsnings processen så att statistiken uppdateras i slutet av belastningen. Data inläsningen är när tabeller ofta ändrar storlek, fördelning av värden eller både och. Därför är inläsnings processen en logisk plats för att implementera vissa hanterings processer.
 
@@ -167,7 +173,7 @@ CREATE STATISTICS [statistics_name]
     ON [schema_name].[table_name]([column_name]);
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -184,7 +190,7 @@ CREATE STATISTICS [statistics_name]
     WITH FULLSCAN;
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 CREATE STATISTICS col1_stats
@@ -275,6 +281,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 #### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>Använd en lagrad procedur för att skapa statistik för alla kolumner i en databas
 
 SQL-poolen har ingen system lagrad procedur som motsvarar sp_create_stats i SQL Server. Den här lagrade proceduren skapar ett enda kolumn statistik objekt på varje kolumn i databasen som inte redan har statistik.
+
 I följande exempel får du hjälp att komma igång med databas designen. Det är kostnads fritt att anpassa den efter dina behov:
 
 ```sql
@@ -396,7 +403,7 @@ Använd följande syntax för att uppdatera ett enskilt statistik objekt:
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
@@ -412,13 +419,15 @@ En enkel metod för att uppdatera alla statistik objekt i en tabell är:
 UPDATE STATISTICS [schema_name].[table_name];
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 UPDATE STATISTICS dbo.table1;
 ```
 
-UPDATE STATISTICS-instruktionen är enkel att använda. Kom bara ihåg att den uppdaterar *all* statistik i tabellen, vilket kräver mer arbete än vad som behövs. Om prestanda inte är ett problem är den här metoden det enklaste och mest kompletta sättet att garantera att statistiken är aktuell.
+UPDATE STATISTICS-instruktionen är enkel att använda. Kom bara ihåg att den uppdaterar *all* statistik i tabellen, vilket kräver mer arbete än vad som behövs. 
+
+Om prestanda inte är ett problem är den här metoden det enklaste och mest kompletta sättet att garantera att statistiken är aktuell.
 
 > [!NOTE]
 > När du uppdaterar all statistik för en tabell gör SQL-poolen en sökning för att sampla tabellen för varje statistik objekt. Om tabellen är stor och har många kolumner och många statistik, kan det vara mer effektivt att uppdatera individuell statistik utifrån behov.
@@ -434,7 +443,7 @@ Det finns flera systemvyer och funktioner som du kan använda för att hitta inf
 
 Dessa system visningar innehåller information om statistik:
 
-| Katalogvy | Beskrivning |
+| Katalogvy | Description |
 |:--- |:--- |
 | [sys. columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje kolumn. |
 | [sys. Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |En rad för varje objekt i databasen. |
@@ -448,7 +457,7 @@ Dessa system visningar innehåller information om statistik:
 
 Dessa system funktioner är användbara när du arbetar med statistik:
 
-| System funktion | Beskrivning |
+| System funktion | Description |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Datum då statistik objekt senast uppdaterades. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) |Sammanfattnings nivå och detaljerad information om distributionen av värden som förstås av statistik objekt. |
@@ -497,11 +506,13 @@ AND     st.[user_created] = 1
 
 DBCC SHOW_STATISTICS () visar data som lagras i ett statistik objekt. Dessa data ingår i tre delar:
 
-- Huvud
+- Sidhuvud
 - Densitets vektor
 - Histogram
 
-Rubriken är metadata om statistiken. Histogrammet visar fördelningen av värden i den första nyckel kolumnen i statistik-objektet. Täthets vektorn mäter en jämförelse mellan kolumner. SQL-poolen beräknar kardinalitet med någon av data i statistik-objektet.
+Rubriken är metadata om statistiken. Histogrammet visar fördelningen av värden i den första nyckel kolumnen i statistik-objektet. 
+
+Täthets vektorn mäter en jämförelse mellan kolumner. SQL-poolen beräknar kardinalitet med någon av data i statistik-objektet.
 
 #### <a name="show-header-density-and-histogram"></a>Visa rubrik, densitet och histogram
 
@@ -511,7 +522,7 @@ Det här enkla exemplet visar alla tre delarna i ett statistik objekt:
 DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
@@ -526,7 +537,7 @@ DBCC SHOW_STATISTICS([<schema_name>.<table_name>],<stats_name>)
     WITH stat_header, histogram, density_vector
 ```
 
-Ett exempel:
+Till exempel:
 
 ```sql
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
@@ -555,7 +566,11 @@ Statistik skapas per viss kolumn för viss data uppsättning (lagrings Sök väg
 
 ### <a name="why-use-statistics"></a>Varför använda statistik
 
-Ju mer SQL på begäran (för hands version) som vet om dina data, desto snabbare kan den köra frågor mot det. Insamling av statistik för dina data är ett av de viktigaste sakerna du kan göra för att optimera dina frågor. SQL on-demand-frågans optimering är en kostnads baserad optimering. Den Jämför kostnaden för olika fråge planer och väljer sedan planen med den lägsta kostnaden. I de flesta fall väljer den den plan som ska köras snabbast. Om optimeringen t. ex. beräknar att det datum då frågan filtreras på kommer att returnera en rad kommer den att välja en plan. Om den beräknar att det valda datumet returnerar 1 000 000 rader, returneras ett annat schema.
+Ju mer SQL på begäran (för hands version) som vet om dina data, desto snabbare kan den köra frågor mot det. Insamling av statistik för dina data är ett av de viktigaste sakerna du kan göra för att optimera dina frågor. 
+
+SQL on-demand-frågans optimering är en kostnads baserad optimering. Den Jämför kostnaden för olika fråge planer och väljer sedan planen med den lägsta kostnaden. I de flesta fall väljer den den plan som ska köras snabbast. 
+
+Om optimeringen t. ex. beräknar att det datum då frågan filtreras på kommer att returnera en rad kommer den att välja en plan. Om den beräknar att det valda datumet returnerar 1 000 000 rader, returneras ett annat schema.
 
 ### <a name="automatic-creation-of-statistics"></a>Automatisk generering av statistik
 
@@ -570,9 +585,11 @@ Automatisk generering av statistik görs synkront så att du kan få en försäm
 
 ### <a name="manual-creation-of-statistics"></a>Manuell skapande av statistik
 
-Med SQL på begäran kan du skapa statistik manuellt. För CSV-filer måste du skapa statistik manuellt eftersom automatisk generering av statistik inte är aktive rad för CSV-filer. Se exemplen nedan för instruktioner om hur du manuellt skapar statistik.
+Med SQL på begäran kan du skapa statistik manuellt. För CSV-filer måste du skapa statistik manuellt eftersom automatisk generering av statistik inte är aktive rad för CSV-filer. 
 
-### <a name="updating-statistics"></a>Uppdaterar statistik
+I följande exempel finns anvisningar om hur du manuellt skapar statistik.
+
+### <a name="update-statistics"></a>Uppdatera statistik
 
 Ändringar av data i filer, ta bort och lägga till filer resulterar i ändringar i data distributionen och gör statistiken inaktuell. I så fall måste statistik uppdateras.
 
@@ -592,9 +609,9 @@ När antalet rader har ändrats huvudsakligen, eller om det finns en väsentlig 
 > [!NOTE]
 > Om det finns en väsentlig förändring i fördelningen av värden för en kolumn bör du uppdatera statistiken, oavsett när de uppdaterades senast.
 
-### <a name="implementing-statistics-management"></a>Implementera statistik hantering
+### <a name="implement-statistics-management"></a>Implementera statistik hantering
 
-Du kanske vill utöka din datapipeline för att se till att statistiken uppdateras när data markant ändras genom tillägg, borttagning eller ändring av filer.
+Du kanske vill utöka din datapipeline för att se till att statistiken uppdateras när data ändras markant genom tillägg, borttagning eller ändring av filer.
 
 Följande GUID-principer finns för att uppdatera din statistik:
 

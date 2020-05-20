@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 70ad69c1a34f656347b0cf53b28a1c35ac6ad043
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a8699b3942fe3a4b23f1d72036b7364cdab36f8e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598243"
+ms.locfileid: "83651969"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Använda hanterade identiteter för att få åtkomst till Azure SQL Database från ett Azure Stream Analytics jobb (förhands granskning)
 
@@ -19,7 +19,7 @@ Azure Stream Analytics stöder [autentisering med hanterad identitet](../active-
 
 En hanterad identitet är ett hanterat program registrerat i Azure Active Directory som representerar ett angivet Stream Analytics jobb. Det hanterade programmet används för att autentisera till en mål resurs. Den här artikeln visar hur du aktiverar hanterad identitet för en Azure SQL Database utdata för ett Stream Analytics jobb via Azure Portal.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för den här funktionen:
 
@@ -56,13 +56,17 @@ När du har skapat en hanterad identitet väljer du en Active Directory administ
 
    ![Sidan Active Directory administratör](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. På sidan Active Directory administratör söker du efter en användare eller grupp som administratör för SQL Server och klickar på **Välj**.  
+1. På sidan Active Directory administratör söker du efter en användare eller grupp som administratör för SQL Server och klickar på **Välj**.
 
    ![Lägg till Active Directory administratör](./media/sql-db-output-managed-identity/add-admin.png)
 
-1. Välj **Spara** på sidan **Active Directory administratör** . Processen för att ändra admin tar några minuter.  
+   På sidan Active Directory admin visas alla medlemmar och grupper av din Active Directory. Det går inte att välja användare eller grupper som är nedtonade eftersom de inte stöds som Azure AD-administratörer. Se listan över administratörer som stöds i avsnittet **funktioner och begränsningar i Azure AD**   i [Använd Azure Active Directory autentisering för autentisering med SQL Database eller Azure-Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Rollbaserad åtkomstkontroll (RBAC) gäller enbart för portalen och sprids inte till SQL Server. Den valda användaren eller gruppen är också den användare som kommer att kunna skapa den **inneslutna databas användaren** i nästa avsnitt.
 
-## <a name="create-a-database-user"></a>Skapa en databasanvändare
+1. Välj **Spara** på sidan **Active Directory administratör** . Processen för att ändra admin tar några minuter.
+
+   När du konfigurerar Azure AD-administratören kan inte det nya administratörs namnet (användare eller grupp) finnas i den virtuella huvud databasen som en SQL Server autentiserings användare. Om det här alternativet är tillgängligt kommer installations programmet för Azure AD-administratören att Miss kopie ras och återställas, vilket anger att det redan finns en administratör (namn). Eftersom SQL Server autentisering inte är en del av Azure AD, vilket innebär att du kan ansluta till servern med Azure AD-autentisering när användaren Miss lyckas. 
+
+## <a name="create-a-contained-database-user"></a>Skapa en innesluten databas användare
 
 Därefter skapar du en innesluten databas användare i SQL Database som är mappad till Azure Active Directory identiteten. Den inneslutna databas användaren har ingen inloggning för huvud databasen, men den mappas till en identitet i katalogen som är associerad med databasen. Azure Active Directory identiteten kan vara ett enskilt användar konto eller en grupp. I det här fallet vill du skapa en innesluten databas användare för ditt Stream Analytics jobb. 
 
@@ -92,15 +96,27 @@ Därefter skapar du en innesluten databas användare i SQL Database som är mapp
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
    ```
 
+1. För att Microsofts Azure Active Directory ska kunna verifiera om Stream Analytics-jobbet har åtkomst till SQL Database måste vi ge Azure Active Directory behörighet att kommunicera med databasen. Om du vill göra det går du till sidan "brand väggar och virtuella nätverk" i Azure Portal igen och aktiverar "Tillåt Azure-tjänster och-resurser för att få åtkomst till den här servern". 
+
+   ![Brand vägg och virtuellt nätverk](./media/sql-db-output-managed-identity/allow-access.png)
+
 ## <a name="grant-stream-analytics-job-permissions"></a>Bevilja Stream Analytics jobb behörigheter
 
-Stream Analyticss jobbet har behörighet från hanterad identitet för att **ansluta** till din SQL Database-resurs. Förmodligen är det effektivt att tillåta att Stream Analytics jobb kör kommandon som **Select**. Du kan bevilja dessa behörigheter till Stream Analytics jobb med SQL Server Management Studio. Mer information finns i [Grant (Transact-SQL)-](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) referensen.
+När du har skapat en innesluten databas användare och fått åtkomst till Azure-tjänster i portalen enligt beskrivningen i föregående avsnitt, har ditt Stream Analytics-jobb behörighet från hanterad identitet för att **ansluta** till din SQL Database resurs via hanterad identitet. Vi rekommenderar att du beviljar behörigheterna Välj och infoga för Stream Analyticss jobbet eftersom de behövs senare i arbets flödet Stream Analytics. Med **Select** -behörighet kan jobbet testa anslutningen till tabellen i SQL Database. **Insert** -behörigheten gör det möjligt att testa Stream Analytics från slut punkt till slut punkt när du har konfigurerat en indata och SQL Database utdata. Du kan bevilja dessa behörigheter till Stream Analytics jobb med SQL Server Management Studio. Mer information finns i [Grant (Transact-SQL)-](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql?view=sql-server-ver15) referensen.
+
+Om du bara vill bevilja behörighet till en viss tabell eller ett visst objekt i databasen använder du följande T-SQL-syntax och kör frågan. 
+
+```sql
+GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
+```
 
 Du kan också högerklicka på din SQL-databas i SQL Server Management Studio och välja **egenskaper > behörigheter**. Från menyn behörigheter kan du se Stream Analytics jobb som du har lagt till tidigare och du kan manuellt bevilja eller neka behörigheter när du ser anpassa.
 
 ## <a name="create-an-azure-sql-database-output"></a>Skapa en Azure SQL Database utdata
 
 Nu när din hanterade identitet har kon figurer ATS är du redo att lägga till Azure SQL Database som utdata till ditt Stream Analytics-jobb.
+
+Se till att du har skapat en tabell i SQL Database med lämpligt schema för utdata. Namnet på den här tabellen är en av de obligatoriska egenskaper som måste fyllas i när du lägger till SQL Database-utdata till Stream Analytics-jobbet. Se också till att jobbet har **valt** och **Infoga** behörigheter för att testa anslutningen och köra Stream Analytics frågor. Se avsnittet [bevilja Stream Analytics jobb behörigheter](#grant-stream-analytics-job-permissions) om du inte redan har gjort det. 
 
 1. Gå tillbaka till Stream Analytics jobbet och gå till sidan **utdata** under **jobb sto pol Ogin**. 
 

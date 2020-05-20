@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 12445ec5b14f4c274e471bf1b061a3b221664d20
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8b52102ec26ec94097e4b5b9aa1b1730787cfa4b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592312"
+ms.locfileid: "83654106"
 ---
 # <a name="use-features-to-boost-signal-of-word-list"></a>Använd funktioner för att förstärka signalen av ord listan
 
@@ -49,8 +49,23 @@ Granska [begreppen](luis-concept-feature.md) för att förstå när och varför 
 <a name="delete-phrase-list"></a>
 <a name="deactivate-phrase-list"></a>
 
+
 > [!Note]
 > Du kan ta bort eller inaktivera en fras lista från kontext verktygsfältet på sidan med **ml-funktioner** .
+
+## <a name="global-phrase-list-applies-to-entire-app"></a>Global fras lista gäller för hela appen
+
+En fras lista ska tillämpas på avsikten eller entiteten som den är avsedd att hjälpa, men det kan finnas tillfällen när en fras lista ska tillämpas på hela appen som en **Global** funktion.
+
+På sidan ML-funktioner markerar du listan fras och väljer sedan **gör global** i det översta kontext verktygsfältet.
+
+## <a name="model-as-a-feature"></a>Modell som en funktion
+
+En entitet kan vara en [funktion i ett avsikts-eller entitets](luis-concept-feature.md)-objekt.
+
+Om du vill lägga till en entitet som en funktion i avsikten väljer du avsikten från sidan avsikter och väljer sedan **+ Lägg till funktion** ovanför kontext verktygsfältet. Listan innehåller alla fras listor och entiteter som kan användas som funktioner.
+
+Om du vill lägga till en entitet som en funktion i en annan entitet kan du lägga till funktionen antingen på sidan för avsikts information med hjälp av [entiteten entitet](label-entity-example-utterance.md#adding-entity-as-a-feature-from-the-entity-palette) eller så kan du [lägga till funktionen](luis-how-to-add-entities.md#add-a-feature-to-a-machine-learned-entity) på entitetens detalj sida.
 
 ## <a name="next-steps"></a>Nästa steg
 

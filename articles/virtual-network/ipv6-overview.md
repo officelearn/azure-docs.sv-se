@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/31/2020
 ms.author: kumud
-ms.openlocfilehash: 312e9db594983f85372285bdff415a2d5dc76ed3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c175a1575a4efbdc2294412e3743e201d8c4bb1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984018"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653297"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network"></a>Vad är IPv6 för Azure Virtual Network?
 
@@ -58,6 +58,7 @@ IPv6 för Azure VNet innehåller följande funktioner:
     - Valfria flera klient konfigurations inställningar som gör att en enkel belastningsutjämnare kan använda flera offentliga IPv6-IP-adresser, samma klient dels protokoll och port kan återanvändas över klient dels adresser.
     - Valfria IPv6-portar kan återanvändas på Server dels instanser med den *flytande IP-* funktionen i belastnings Utjämnings regler 
     - Obs: belastnings utjämning utför ingen protokoll översättning (ingen NAT64). 
+    - Obs! IPv6 kan endast läsas in till det primära nätverks gränssnittet (NIC) på virtuella Azure-datorer. 
 - [Standard IPv6 internt Load Balancer](ipv6-dual-stack-standard-internal-load-balancer-powershell.md) stöd för att skapa elastiska program på flera nivåer i Azure datavirtuella nätverks.   
 - Grundläggande IPv6 offentlig Load Balancer stöd för kompatibilitet med äldre distributioner
 - [Reserverade IPv6 offentliga IP-adresser och adress intervall](ipv6-public-ip-address-prefix.md) ger stabila, förutsägbara IPv6-adresser som underlättar vit listning av dina Azure-värdbaserade program för ditt företag och dina kunder.
@@ -73,12 +74,16 @@ IPv6 för Azure VNET är en grundläggande funktions uppsättning som gör det m
 
 ## <a name="limitations"></a>Begränsningar
 Aktuell IPv6 för Azure Virtual Network-versionen har följande begränsningar:
-- IPv6 för Azure Virtual Network är tillgängligt i alla globala Azure-regioner med alla distributions metoder.  Distribution i det amerikanska myndighets molnet är tillfälligt begränsat till ARM (JSON)-mall, kommando rads gränssnitt (CLI) och PowerShell.  IPv6-stöd i den amerikanska regeringens moln Portal kommer snart att vara tillgängligt.  
+- IPv6 för Azure Virtual Network är tillgängligt i alla globala Azure-regioner och amerikanska myndigheter med alla distributions metoder.  
 - ExpressRoute-gatewayer kan endast användas för IPv4-trafik i ett virtuellt nätverk med IPv6 aktiverat.  Stöd för IPv6-trafik finns i vår översikt.   
 - VPN-gatewayer kan inte användas i ett virtuellt nätverk med IPv6 aktiverat, antingen direkt eller peer-kopplas med "UseRemoteGateway".
 - Azure-plattformen (AKS osv.) stöder inte IPv6-kommunikation för behållare.  
+- IPv6 kan endast läsas in till det primära nätverks gränssnittet (NIC) på virtuella Azure-datorer. Belastnings utjämning av IPv6-trafik till sekundära nätverkskort stöds inte.    
+- Endast IPv6-Virtual Machines eller Virtual Machines skalnings uppsättningar stöds inte, varje nätverkskort måste innehålla minst en IPv4-IP-konfiguration. 
+- När du lägger till IPv6 i befintliga IPv4-distributioner går det inte att lägga till IPv6-intervall i ett VNET med befintliga länkar för resurs navigering.  
+- Vidarebefordring av DNS för IPv6 stöds för Azures offentliga DNS idag men omvänd DNS stöds inte ännu.   
 
-## <a name="pricing"></a>Prissättning
+## <a name="pricing"></a>Priser
 
 IPv6 Azure-resurser och bandbredd debiteras enligt samma taxa som IPv4. Det finns inga ytterligare eller andra avgifter för IPv6. Du kan hitta information om priser för [offentliga IP-adresser](https://azure.microsoft.com/pricing/details/ip-addresses/), [nätverks bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)eller [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 

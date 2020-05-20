@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 466c47492de9c2fc86f309f4cb74df1ff5411dcb
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 05/14/2020
+ms.openlocfilehash: a71d8e251de1d1aedea1d1a329a27bfa236ddfff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929306"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652376"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Översikt över Azure HDInsight 4,0
 
@@ -94,11 +94,10 @@ Det finns ingen uppgraderings väg som stöds från tidigare versioner av HDInsi
 * Hive-vyn är inte längre tillgänglig i HDInsight 4,0.
 * Shell-tolken i Apache Zeppelin stöds inte i Spark-och Interactive Query-kluster.
 * Det går inte att *inaktivera* LLAP i ett Spark-LLAP-kluster. Du kan bara inaktivera LLAP.
-* Azure Data Lake Storage Gen2 kan inte spara Juypter-anteckningsböcker i ett Spark-kluster.
+* Azure Data Lake Storage Gen2 kan inte spara Jupyter-anteckningsböcker i ett Spark-kluster.
 * Apache gris körs på Tez som standard, men du kan ändra det till MapReduce
 * Spark SQL Ranger-integrering för rad-och kolumn säkerhet är föråldrad
-* Spark 2,4 och Kafka 2,1 är tillgängliga i HDInsight 4,0, så Spark 2,3 och Kafka 1,1 stöds inte längre. Vi rekommenderar att du använder Spark 2,4 & Kafka 2,3 och senare i HDInsight 4,0.
-
+* Spark 2,4 och Kafka 2,1 är tillgängliga i HDInsight 4,0, så Spark 2,3 och Kafka 1,1 stöds inte längre. Vi rekommenderar att du använder Spark 2,4 & Kafka 2,1 och senare i HDInsight 4,0.
 
 ## <a name="next-steps"></a>Nästa steg
 

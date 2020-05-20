@@ -1,19 +1,19 @@
 ---
 title: 'Azure Cosmos DB: SQL Node. js API, SDK & resurser'
 description: Lär dig allt om SQL Node. js API och SDK, inklusive versions datum, indragnings datum och ändringar som gjorts mellan varje version av Azure Cosmos DB Node. js SDK.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: reference
-ms.date: 09/24/2018
-ms.author: dech
-ms.openlocfilehash: 03f79535b3a62fbb4d0309ae86a142bd842cc308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 645565b0033324d6edc36a73fb59fa5a5d8689ee
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80982896"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650733"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node. js SDK för SQL API: viktig information och resurser
 > [!div class="op_single_selector"]
@@ -21,8 +21,9 @@ ms.locfileid: "80982896"
 > * [.NET-ändra feed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Async Java](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Asynkron Java-SDK v2](sql-api-sdk-async-java.md)
+> * [Synkron Java-SDK v2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST-resursprovider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -164,7 +165,7 @@ database.containers.create({ id: 'my-container', throughput: 10000 })
 ```
 
 ##### <a name="azurecosmos-sign"></a>@azure/cosmos-sign
-Generering av header- @azure/cosmos-signtoken delades upp i ett nytt bibliotek. Alla som anropar Cosmos-REST API direkt kan använda detta för att signera rubriker med samma kod som @azure/cosmosvi kallar inuti.
+Generering av header-token delades upp i ett nytt bibliotek @azure/cosmos-sign . Alla som anropar Cosmos-REST API direkt kan använda detta för att signera rubriker med samma kod som vi kallar inuti @azure/cosmos .
 
 ##### <a name="uuid-for-generated-ids"></a>UUID för genererade ID: n
 v2 hade anpassad kod för att generera objekt-ID: n. Vi har bytt till det välkända och bibehållna community Library uuid.
@@ -230,7 +231,7 @@ Inte alltid de mest synliga ändringarna, men de hjälper vårt team att leverer
 * Åtgärda fel i executeNext ()-typ signatur
 * Skrivfel
 
-### <a name=""></a><a name="2.1.1"/>punkt</a>
+### <a name=""></a><a name="2.1.1"/>2.1.1</a>
 * Bygg om omstrukturering. Gör det möjligt att hämta SDK-versionen vid Bygg tiden.
 
 ### <a name=""></a><a name="2.1.0"/>2.1.0</a>
@@ -256,7 +257,7 @@ Inte alltid de mest synliga ändringarna, men de hjälper vårt team att leverer
 * Korrigerar typ definitions problem som introducerades i 2.0.3
 
 ### <a name=""></a><a name="2.0.3"/>2.0.3</a>
-* Ta `big-integer` bort beroende
+* Ta bort `big-integer` beroende
 * Växla till referens direktiv för AsyncIterable-typ. Typescript-användare behöver inte längre anpassa sina "lib"-inställningar.
 * Skrivfel
 
@@ -430,7 +431,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | [2.1.4](#2.1.4) |15 mars 2019 |--- |
 | [2.1.3](#2.1.3) |8 mars 2019 |--- |
 | [2.1.2](#2.1.2) |28 januari 2019 |--- |
-| [punkt](#2.1.1) |5 december 2018 |--- |
+| [2.1.1](#2.1.1) |5 december 2018 |--- |
 | [2.1.0](#2.1.0) |4 december 2018 |--- |
 | [2.0.5](#2.0.5) |7 november 2018 |--- |
 | [2.0.4](#2.0.4) |30 oktober 2018 |--- |
@@ -474,7 +475,7 @@ Alla förfrågningar till Cosmos DB med hjälp av en tillbakadragen SDK avvisas 
 | [1.0.1](#1.0.1) |15 maj, 2015 |30 augusti 2020 |
 | [1.0.0](#1.0.0) |08, 2015 |30 augusti 2020 |
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>Vanliga frågor
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Se även

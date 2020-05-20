@@ -1,39 +1,35 @@
 ---
 title: Skapa rekommendationer med Apache Mahout i Azure HDInsight
-description: Lär dig hur du använder Apache Mahout Machine Learning-biblioteket för att skapa film rekommendationer med HDInsight (Hadoop).
+description: Lär dig hur du använder Apache Mahout Machine Learning-biblioteket för att skapa film rekommendationer med HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
-ms.date: 01/03/2020
-ms.openlocfilehash: 33110e9f1d45fcd11e5f4cad1b589ab929a9472d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,seoapr2020
+ms.date: 05/14/2020
+ms.openlocfilehash: ab4c2984bbaef84684432c660baadc78f3ef8e16
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767644"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656327"
 ---
-# <a name="generate-movie-recommendations-using-apache-mahout-with-apache-hadoop-in-hdinsight-ssh"></a>Skapa film rekommendationer med Apache Mahout med Apache Hadoop i HDInsight (SSH)
-
-[!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
+# <a name="generate-recommendations-using-apache-mahout-in-azure-hdinsight"></a>Skapa rekommendationer med Apache Mahout i Azure HDInsight
 
 Lär dig hur du använder [Apache Mahout](https://mahout.apache.org) Machine Learning-biblioteket med Azure HDInsight för att skapa film rekommendationer.
 
 Mahout är ett [maskin inlärnings](https://en.wikipedia.org/wiki/Machine_learning) bibliotek för Apache Hadoop. Mahout innehåller algoritmer för bearbetning av data, till exempel filtrering, klassificering och klustring. I den här artikeln använder du en rekommendations motor för att skapa film rekommendationer som baseras på filmer som dina vänner har sett.
 
+Mer information om versionen av Mahout i HDInsight finns i HDInsight- [versioner och Apache Hadoop-komponenter](../hdinsight-component-versioning.md).
+
 ## <a name="prerequisites"></a>Krav
 
 Ett Apache Hadoop kluster i HDInsight. Se [Kom igång med HDInsight på Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-## <a name="apache-mahout-versioning"></a>Apache Mahout-versioner
-
-Mer information om versionen av Mahout i HDInsight finns i HDInsight- [versioner och Apache Hadoop-komponenter](../hdinsight-component-versioning.md).
-
 ## <a name="understanding-recommendations"></a>Förstå rekommendationer
 
-En av de funktioner som tillhandahålls av Mahout är en rekommendations motor. Den här motorn accepterar data i formatet `userID`, `itemId`, och `prefValue` (inställningen för objektet). Mahout kan sedan utföra analys av samförekomster för att fastställa: *användare som har en inställning för ett objekt har även prioritet för dessa andra objekt*. Mahout avgör sedan användare med liknande objekt inställningar som kan användas för att göra rekommendationer.
+En av de funktioner som tillhandahålls av Mahout är en rekommendations motor. Den här motorn accepterar data i formatet `userID` , `itemId` , och `prefValue` (inställningen för objektet). Mahout kan sedan utföra analys av samförekomster för att fastställa: *användare som har en inställning för ett objekt har även prioritet för dessa andra objekt*. Mahout avgör sedan användare med liknande objekt inställningar som kan användas för att göra rekommendationer.
 
 Följande arbets flöde är ett förenklat exempel som använder film data:
 
@@ -45,11 +41,11 @@ Följande arbets flöde är ett förenklat exempel som använder film data:
 
 ### <a name="understanding-the-data"></a>Förstå data
 
-[GroupLens Research](https://grouplens.org/datasets/movielens/) ger enkelt klassificerings data för filmer i ett format som är kompatibelt med Mahout. Dessa data är tillgängliga på klustrets standard lagrings utrymme `/HdiSamples/HdiSamples/MahoutMovieData`på.
+[GroupLens Research](https://grouplens.org/datasets/movielens/) ger enkelt klassificerings data för filmer i ett format som är kompatibelt med Mahout. Dessa data är tillgängliga på klustrets standard lagrings utrymme på `/HdiSamples/HdiSamples/MahoutMovieData` .
 
-Det finns två filer `moviedb.txt` och. `user-ratings.txt` `user-ratings.txt` Filen används under analysen. `moviedb.txt` Används för att ge användarvänlig textinformation när resultatet visas.
+Det finns två filer `moviedb.txt` och `user-ratings.txt` . `user-ratings.txt`Filen används under analysen. `moviedb.txt`Används för att ge användarvänlig textinformation när resultatet visas.
 
-De data som finns `user-ratings.txt` i har en struktur `userID`av `movieID`, `userRating`, och `timestamp`, som anger hur mycket varje användare betygsatte en film. Här är ett exempel på data:
+De data som finns i `user-ratings.txt` har en struktur av `userID` , `movieID` , `userRating` och `timestamp` , som anger hur mycket varje användare betygsatte en film. Här är ett exempel på data:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -91,7 +87,7 @@ De data som finns `user-ratings.txt` i har en struktur `userID`av `movieID`, `us
     4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
     ```
 
-    Den första kolumnen är `userID`. Värdena i [och] är `movieId`:.`recommendationScore`
+    Den första kolumnen är `userID` . Värdena i [och] är `movieId` : `recommendationScore` .
 
 2. Du kan använda utdata tillsammans med MovieDB. txt för att få mer information om rekommendationerna. Kopiera först filerna lokalt med följande kommandon:
 
@@ -194,7 +190,7 @@ De data som finns `user-ratings.txt` i har en struktur `userID`av `movieID`, `us
 
 ## <a name="delete-temporary-data"></a>Ta bort temporära data
 
-Mahout-jobb tar inte bort temporära data som skapas när jobbet bearbetas. `--tempDir` Parametern anges i exempel jobbet för att isolera de temporära filerna till en specifik sökväg för enkel borttagning. Använd följande kommando för att ta bort temporära filer:
+Mahout-jobb tar inte bort temporära data som skapas när jobbet bearbetas. `--tempDir`Parametern anges i exempel jobbet för att isolera de temporära filerna till en specifik sökväg för enkel borttagning. Använd följande kommando för att ta bort temporära filer:
 
 ```bash
 hdfs dfs -rm -f -r /temp/mahouttemp

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 9879f98e72e22fc0745a9e91f29216cbe74ab8fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45eb227d5e2608f4fbe6a75f3d95e46dbc3bdee4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255306"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655944"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Hantera samtidighet i Microsoft Azure Storage
 
@@ -90,15 +90,15 @@ I följande tabell sammanfattas de behållar åtgärder som accepterar villkorli
 
 | Åtgärd | Returnerar ETag-värde för behållare | Accepterar villkorliga rubriker |
 |:--- |:--- |:--- |
-| Skapa container |Ja |Nej |
-| Hämta egenskaper för behållare |Ja |Nej |
-| Hämta metadata för behållare |Ja |Nej |
+| Skapa container |Ja |Inga |
+| Hämta egenskaper för behållare |Ja |Inga |
+| Hämta metadata för behållare |Ja |Inga |
 | Ange metadata för behållare |Ja |Ja |
-| Hämta ACL för behållare |Ja |Nej |
+| Hämta ACL för behållare |Ja |Inga |
 | Ange behållar-ACL |Ja |Ja (*) |
-| Ta bort container |Nej |Ja |
+| Ta bort container |Inga |Ja |
 | Lease container |Ja |Ja |
-| Lista blobbar |Nej |Nej |
+| Lista blobbar |Inga |Inga |
 
 (*) Behörigheterna som definieras av SetContainerACL cachelagras och uppdateringar av de här behörigheterna tar 30 sekunder att spridas under vilka period uppdateringar inte garanterat är konsekventa.  
 
@@ -115,11 +115,11 @@ I följande tabell sammanfattas de BLOB-åtgärder som accepterar villkorliga hu
 | Låna BLOB (*) |Ja |Ja |
 | Ta ögonblicksbild av blob |Ja |Ja |
 | Kopiera blob |Ja |Ja (för käll-och mål-BLOB) |
-| Avbryt kopiering av BLOB |Nej |Nej |
-| Ta bort blob |Nej |Ja |
-| Spärra block |Nej |Nej |
+| Avbryt kopiering av BLOB |Inga |Inga |
+| Ta bort blob |Inga |Ja |
+| Spärra block |Inga |Inga |
 | Lista över blockerade |Ja |Ja |
-| Hämta blockeringslistan |Ja |Nej |
+| Hämta blockeringslistan |Ja |Inga |
 | Placerings sida |Ja |Ja |
 | Hämta sid intervall |Ja |Ja |
 
@@ -244,13 +244,13 @@ I följande tabell sammanfattas hur tabell enhets åtgärder använder ETag-vär
 
 | Åtgärd | Returnerar ETag-värde | Kräver rubriken-match begär ande huvud |
 |:--- |:--- |:--- |
-| Fråga entiteter |Ja |Nej |
-| Infoga entitet |Ja |Nej |
+| Fråga entiteter |Ja |Inga |
+| Infoga entitet |Ja |Inga |
 | Uppdatera entitet |Ja |Ja |
 | Sammanfoga entitet |Ja |Ja |
-| Ta bort entitet |Nej |Ja |
-| Infoga eller Ersätt entitet |Ja |Nej |
-| Infoga eller sammanfoga entitet |Ja |Nej |
+| Ta bort entitet |Inga |Ja |
+| Infoga eller Ersätt entitet |Ja |Inga |
+| Infoga eller sammanfoga entitet |Ja |Inga |
 
 Observera att åtgärderna **Lägg till eller Ersätt entitet** och **Infoga eller sammanfoga entiteter** *inte* utför några samtidighets kontroller eftersom de inte skickar ett ETag-värde till tabell tjänsten.  
 
@@ -292,5 +292,5 @@ Mer information om Azure Storage finns i:
 * [Microsoft Azure Storage start sida](https://azure.microsoft.com/services/storage/)
 * [Introduktion till Azure Storage](storage-introduction.md)
 * Lagrings Komma igång för [BLOB](../blobs/storage-dotnet-how-to-use-blobs.md), [tabell](../../cosmos-db/table-storage-how-to-use-dotnet.md), [köer](../storage-dotnet-how-to-use-queues.md)och [filer](../storage-dotnet-how-to-use-files.md)
-* Lagrings arkitektur – [Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* Lagrings arkitektur – [Azure Storage: en moln lagrings tjänst med hög tillgänglighet med stark konsekvens](https://docs.microsoft.com/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency)
 

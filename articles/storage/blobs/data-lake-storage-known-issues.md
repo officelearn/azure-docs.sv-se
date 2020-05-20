@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: b02835ae3a1d7fed52f2cdb4ab25aa74ba66e8c3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119900"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642197"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Kända problem med Azure Data Lake Storage Gen2
 
@@ -107,7 +107,7 @@ Program från tredje part som använder REST-API: er för arbete fortsätter att
 
 Om [Anonym Läs åtkomst](storage-manage-access-to-resources.md) har beviljats till en behållare, har ACL: er ingen påverkan på den behållaren eller filerna i den behållaren.
 
-## <a name="premium-performance-block-blob-storage-accounts"></a>Premium-Performance Block Blob Storage-konton
+## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Premium-prestanda BlockBlobStorage lagrings konton
 
 ### <a name="diagnostic-logs"></a>Diagnostikloggar
 
@@ -126,7 +126,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="lifecycle-management-policies"></a>Principer för livs cykel hantering
 
-- Principer för livs cykel hantering stöds inte ännu i Premium Block Blob Storage-konton. 
+- Principer för livs cykel hantering stöds inte ännu i Premium BlockBlobStorage-lagrings konton. 
 
 - Det går inte att flytta data från Premium-nivån till lägre nivåer. 
 
@@ -134,11 +134,11 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="hdinsight-support"></a>Stöd för HDInsight
 
-När du skapar ett n HDInsight-kluster kan du ännu inte välja ett Block Blob Storage-konto som har funktionen hierarkiskt namn område aktive rad. Du kan dock koppla kontot till klustret när du har skapat det.
+När du skapar ett n HDInsight-kluster kan du ännu inte välja ett BlockBlobStorage-konto som har funktionen hierarkiskt namn område aktive rad. Du kan dock koppla kontot till klustret när du har skapat det.
 
 ### <a name="dremio-support"></a>Dremio-stöd
 
-Dremio ansluter ännu inte till ett Block Blob Storage-konto som har funktionen hierarkiskt namn område aktive rad på den. 
+Dremio ansluter ännu inte till ett BlockBlobStorage-konto som har funktionen hierarkiskt namn område aktive rad på den. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Windows Azure Storage Blob (WASB) driv rutin (stöds inte med Data Lake Storage Gen2)
 

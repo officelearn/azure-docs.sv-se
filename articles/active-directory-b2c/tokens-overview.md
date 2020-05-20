@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7725a9ddd1d9559166360b27bd8a5371d8c0557e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186496"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638250"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Översikt över tokens i Azure Active Directory B2C
 
@@ -37,10 +37,10 @@ Följande tokens används i kommunikationen med Azure AD B2C:
 
 Ett [registrerat program](tutorial-register-applications.md) tar emot tokens och kommunicerar med Azure AD B2C genom att skicka begär anden till dessa slut punkter:
 
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/authorize`
-- `https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token`
 
-Säkerhetstoken som programmet tar emot från Azure AD B2C kan komma från- `/authorize` eller `/token` -slut punkterna. När ID-token har hämtats `/authorize` från slut punkten görs det med det [implicita flödet](implicit-flow-single-page-application.md), som ofta används för användare som loggar in på JavaScript-baserade webb program. När ID-token har hämtats `/token` från slut punkten görs det med hjälp av [flödet för auktoriseringskod](openid-connect.md#get-a-token), som gör att token är dold i webbläsaren.
+Säkerhetstoken som programmet tar emot från Azure AD B2C kan komma från-eller- `/authorize` `/token` slut punkterna. När ID-token har hämtats från `/authorize` slut punkten görs det med det [implicita flödet](implicit-flow-single-page-application.md), som ofta används för användare som loggar in på JavaScript-baserade webb program. När ID-token har hämtats från `/token` slut punkten görs det med hjälp av [flödet för auktoriseringskod](openid-connect.md#get-a-token), som gör att token är dold i webbläsaren.
 
 ## <a name="claims"></a>Anspråk
 
@@ -50,10 +50,10 @@ Anspråk i ID-token returneras inte i någon särskild ordning. Nya anspråk kan
 
 I följande tabell visas de anspråk som du kan förväntar dig i ID-token och åtkomsttoken som utfärdats av Azure AD B2C.
 
-| Name | Begär | Exempelvärde | Beskrivning |
+| Name | Begär | Exempelvärde | Description |
 | ---- | ----- | ------------- | ----------- |
 | Målgrupp | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | Identifierar den avsedda mottagaren för token. För Azure AD B2C är mål gruppen program-ID: t. Programmet bör validera det här värdet och avvisa token om det inte matchar. Mål gruppen är synonym med resursen. |
-| Utfärdare | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifierar säkerhetstokentjänst som konstruerar och returnerar token. Den identifierar även den katalog där användaren autentiserades. Ditt program bör verifiera utfärdarens anspråk för att se till att token kommer från lämplig slut punkt. |
+| Utfärdare | `iss` |`https://<tenant-name>.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | Identifierar säkerhetstokentjänst som konstruerar och returnerar token. Den identifierar även den katalog där användaren autentiserades. Ditt program bör verifiera utfärdarens anspråk för att se till att token kommer från lämplig slut punkt. |
 | Utfärdat | `iat` | `1438535543` | Tiden då token utfärdades, representeras i epok tid. |
 | Förfallo tid | `exp` | `1438539443` | Tiden då token blir ogiltig, representeras i epok tid. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. |
 | Inte före | `nbf` | `1438535543` | Tiden då token börjar gälla, representeras i epok tiden. Den här tiden är vanligt vis samma som den tidpunkt då token utfärdades. Programmet bör använda detta anspråk för att kontrol lera giltigheten för token för token. |
@@ -64,7 +64,7 @@ I följande tabell visas de anspråk som du kan förväntar dig i ID-token och �
 | Subjekt | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | Den huvudprincip som token förutsätter information för, t. ex. användaren av ett program. Värdet är oföränderligt och kan inte tilldelas om eller återanvändas. Den kan användas för att utföra verifierings kontroller på ett säkert sätt, till exempel när token används för att få åtkomst till en resurs. Som standard fylls ämnes anspråket med objekt-ID: t för användaren i katalogen. |
 | Klass referens för autentiserings kontext | `acr` | Inte tillämpligt | Används endast med äldre principer. |
 | Princip för förtroende ramverk | `tfp` | `b2c_1_signupsignin1` | Namnet på den princip som användes för att hämta ID-token. |
-| Autentiserings tid | `auth_time` | `1438535543` | Den tid då användaren senast angav autentiseringsuppgifter, som representeras i epok tid. Det finns ingen diskriminering mellan den autentiseringen som en ny inloggning, en enkel inloggnings-eller SSO-session eller en annan typ av inloggning. `auth_time` Är den senaste gången som programmet (eller användaren) initierade ett autentiseringsförsök mot Azure AD B2C. Den metod som används för autentisering skiljer sig inte åt. |
+| Autentiserings tid | `auth_time` | `1438535543` | Den tid då användaren senast angav autentiseringsuppgifter, som representeras i epok tid. Det finns ingen diskriminering mellan den autentiseringen som en ny inloggning, en enkel inloggnings-eller SSO-session eller en annan typ av inloggning. `auth_time`Är den senaste gången som programmet (eller användaren) initierade ett autentiseringsförsök mot Azure AD B2C. Den metod som används för autentisering skiljer sig inte åt. |
 | Omfång | `scp` | `Read`| De behörigheter som tilldelats resursen för en åtkomsttoken. Flera beviljade behörigheter avgränsas med ett blank steg. |
 | Auktoriserad part | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | **Program-ID** för det klient program som initierade begäran. |
 
@@ -74,7 +74,7 @@ Följande egenskaper används för att [Hantera livs längder för säkerhetstok
 
 - **Åtkomst &-ID-token livs längd (minuter)** – livstiden för OAuth 2,0 Bearer-token som används för att få åtkomst till en skyddad resurs. Standardvärdet är 60 minuter. Minimivärdet (inklusive) är 5 minuter. Det maximala antalet (inklusive) är 1440 minuter.
 
-- **Giltighets tid för token (dagar)** – den maximala tids period som en uppdateringstoken kan användas för att hämta en ny åtkomst-eller ID-token. Tids perioden omfattar också hämtning av `offline_access` en ny uppdateringstoken om ditt program har beviljats omfånget. Standardvärdet är 14 dagar. Minimivärdet (inklusive) är en dag. Det största (inklusive) är 90 dagar.
+- **Giltighets tid för token (dagar)** – den maximala tids period som en uppdateringstoken kan användas för att hämta en ny åtkomst-eller ID-token. Tids perioden omfattar också hämtning av en ny uppdateringstoken om ditt program har beviljats `offline_access` omfånget. Standardvärdet är 14 dagar. Minimivärdet (inklusive) är en dag. Det största (inklusive) är 90 dagar.
 
 - **Uppdatera token glidande fönster livs längd (dagar)** – när den här tids perioden går ut tvingas användaren att autentisera igen, oberoende av giltighets perioden för den senaste uppdateringstoken som hämtats av programmet. Den kan bara anges om växeln är inställd på **Bounded**. Det måste vara större än eller lika med värdet för **uppdateringstoken för uppdateringstoken (dagar)** . Om växeln är **obunden**kan du inte ange ett angivet värde. Standardvärdet är 90 dagar. Minimivärdet (inklusive) är en dag. Det största (inklusive) är 365 dagar.
 
@@ -124,17 +124,17 @@ Värdet för **alg** -anspråket är algoritmen som användes för att signera t
 Azure AD B2C har en slut punkt för OpenID Connect-metadata. Med den här slut punkten kan program begära information om Azure AD B2C vid körning. Den här informationen omfattar slut punkter, token innehåll och signerings nycklar för token. Din Azure AD B2C klient innehåller ett JSON-Metadatadokumentet för varje princip. Metadatadokumentet är ett JSON-objekt som innehåller flera användbara informations delar. Metadata innehåller **jwks_uri**, vilket ger platsen för den uppsättning offentliga nycklar som används för att signera token. Platsen finns här, men det är bäst att hämta platsen dynamiskt med hjälp av Metadatadokumentet och parsa **jwks_uri**:
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/discovery/v2.0/keys
 ```
 JSON-dokumentet som finns på den här URL: en innehåller all information om den offentliga nyckeln som används vid en viss tidpunkt. Din app kan använda `kid` anspråket i JWT-huvudet för att välja den offentliga nyckeln i JSON-dokumentet som används för att signera en viss token. Den kan sedan utföra verifiering av signaturen med hjälp av rätt offentlig nyckel och angiven algoritm.
 
 Metadatadokumentet för `B2C_1_signupsignin1` principen i `contoso.onmicrosoft.com` klienten finns på:
 
 ```
-https://contoso.b2clogin.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_signupsignin1
+https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-För att avgöra vilken princip som användes för att signera en token (och var du ska begära metadata) har du två alternativ. Först ingår princip namnet i `acr` anspråk i token. Du kan parsa anspråk från bröd texten i JWT genom Base-64-avkodning av texten och Avserialiserar den JSON-sträng som resulterar. `acr` Anspråket är namnet på den princip som användes för att utfärda token. Det andra alternativet är att koda principen i värdet för `state` parametern när du utfärdar begäran och sedan avkoda den för att avgöra vilken princip som användes. Antingen är metoden giltig.
+För att avgöra vilken princip som användes för att signera en token (och var du ska begära metadata) har du två alternativ. Först ingår princip namnet i `acr` anspråk i token. Du kan parsa anspråk från bröd texten i JWT genom Base-64-avkodning av texten och Avserialiserar den JSON-sträng som resulterar. `acr`Anspråket är namnet på den princip som användes för att utfärda token. Det andra alternativet är att koda principen i värdet för `state` parametern när du utfärdar begäran och sedan avkoda den för att avgöra vilken princip som användes. Antingen är metoden giltig.
 
 En beskrivning av hur du utför signaturverifiering är utanför det här dokumentets omfattning. Många bibliotek med öppen källkod är tillgängliga som hjälper dig att validera en token.
 

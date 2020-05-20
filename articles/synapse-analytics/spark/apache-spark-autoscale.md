@@ -8,12 +8,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6a627dfed3886a99a458a67d793c3ebbbdd0fb19
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591972"
+ms.locfileid: "83644874"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Skala automatiskt Apache Spark pooler i Azure Synapse Analytics
 
@@ -58,9 +58,9 @@ Aktivera funktionen för autoskalning genom att utföra följande steg som en de
     * **Minsta** antal noder.
     * **Maximalt** antal noder.
 
-Det första antalet noder är minimivärdet. Det här värdet definierar den ursprungliga storleken på instansen när den skapas. Det minsta antalet noder får inte vara mindre än tre.
+Det första antalet noder är minimivärdet. Det här värdet definierar den ursprungliga storleken på instansen när den skapas. Det minsta antalet noder får inte vara färre än tre.
 
-## <a name="best-practices"></a>Metodtips
+## <a name="best-practices"></a>Bästa praxis
 
 ### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Beakta svars tiden för skalning upp-eller nedskalning
 
@@ -74,4 +74,4 @@ De jobb som körs fortsätter att köras och avslutas. Väntande jobb väntar p�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Snabb start för att konfigurera en ny Spark-pool [skapa en spark-pool](..\quickstart-create-apache-spark-pool.md)
+Snabb start för att konfigurera en ny Spark-pool [skapa en spark-pool](../quickstart-create-apache-spark-pool-portal.md)

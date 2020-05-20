@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
-ms.date: 04/24/2020
-ms.openlocfilehash: 41688792330214943eeb116dc4b5aaf7eebfeebf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/13/2020
+ms.openlocfilehash: 0d462c76454825c3fcbe0f09f4df13c12de3d7c7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192050"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634531"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Använda Azure Monitor-loggar för att övervaka HDInsight-kluster
 
@@ -40,12 +40,14 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto](ht
 
   Instruktioner för hur du skapar ett HDInsight-kluster finns i [Kom igång med Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).  
 
-* Azure PowerShell AZ-modul.  Se [Introduktion till new Azure PowerShell AZ-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az). Se till att du har den senaste versionen. Om det behövs kör `Update-Module -Name Az`du.
+* Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/overview). Se till att du har den senaste versionen. Om det behövs kör du `Update-Module -Name Az` .
+
+* Om du vill använda Azure CLI och du ännu inte har installerat det kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 > [!NOTE]  
 > Vi rekommenderar att du placerar både HDInsight-klustret och Log Analytics arbets ytan i samma region för bättre prestanda. Azure Monitor-loggar är inte tillgängliga i alla Azure-regioner.
 
-## <a name="enable-azure-monitor-logs-by-using-the-portal"></a>Aktivera Azure Monitor loggar med hjälp av portalen
+## <a name="enable-azure-monitor-using-the-portal"></a>Aktivera Azure Monitor med hjälp av portalen
 
 I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster för att använda en Azure Log Analytics-arbetsyta för att övervaka jobb, fel söknings loggar och så vidare.
 
@@ -61,7 +63,7 @@ I det här avsnittet konfigurerar du ett befintligt HDInsight Hadoop-kluster fö
 
     ![Aktivera övervakning för HDInsight-kluster](./media/hdinsight-hadoop-oms-log-analytics-tutorial/azure-portal-monitoring.png "Aktivera övervakning för HDInsight-kluster")
 
-## <a name="enable-azure-monitor-logs-by-using-azure-powershell"></a>Aktivera Azure Monitor loggar med Azure PowerShell
+## <a name="enable-azure-monitor-using-azure-powershell"></a>Aktivera Azure Monitor med Azure PowerShell
 
 Du kan aktivera Azure Monitor loggar med hjälp av cmdleten [Enable-AzHDInsightMonitoring](https://docs.microsoft.com/powershell/module/az.hdinsight/enable-azhdinsightmonitoring) i Azure PowerShell AZ-modulen.
 
@@ -99,6 +101,29 @@ Om du vill inaktivera använder du cmdleten [disable-AzHDInsightMonitoring](http
 
 ```powershell
 Disable-AzHDInsightMonitoring -Name "<your-cluster>"
+```
+
+## <a name="enable-azure-monitor-using-azure-cli"></a>Aktivera Azure Monitor med Azure CLI
+
+Du kan aktivera Azure Monitor loggar med hjälp av Azure CLI `[az hdinsight monitor enable` ] ( https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-enable) kommando.
+
+```azurecli
+# set variables
+export resourceGroup=RESOURCEGROUPNAME
+export cluster=CLUSTERNAME
+export LAW=LOGANALYTICSWORKSPACENAME
+
+# Enable the Azure Monitor logs integration on an HDInsight cluster.
+az hdinsight monitor enable --name $cluster --resource-group $resourceGroup --workspace $LAW
+
+# Get the status of Azure Monitor logs integration on an HDInsight cluster.
+az hdinsight monitor show --name $cluster --resource-group $resourceGroup
+```
+
+Om du vill inaktivera använder du [`az hdinsight monitor disable`](https://docs.microsoft.com/cli/azure/hdinsight/monitor?view=azure-cli-latest#az-hdinsight-monitor-disable) kommandot.
+
+```azurecli
+az hdinsight monitor disable --name $cluster --resource-group $resourceGroup
 ```
 
 ## <a name="install-hdinsight-cluster-management-solutions"></a>Installera hanterings lösningar för HDInsight-kluster

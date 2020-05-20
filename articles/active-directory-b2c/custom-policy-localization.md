@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/11/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 090fecea44c7881920fcd087304f33f935a5e907
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545877"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636262"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalisera användar gränssnittet för ditt program med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ Den här artikeln visar hur du stöder flera språk i principen för användar r
 
 ## <a name="set-up-the-list-of-supported-languages"></a>Konfigurera en lista över språk som stöds
 
-Öppna tilläggs filen för principen. Till exempel <em> `SocialAndLocalAccounts/` </em>.
+Öppna tilläggs filen för principen. Till exempel <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 
 1. Sök efter [BuildingBlocks](buildingblocks.md) -elementet. Om elementet inte finns lägger du till det.
 1. Lägg till `Localization` elementet med de språk som stöds: engelska (standard) och spanska.  
@@ -252,10 +252,10 @@ I följande exempel läggs de engelska (en) och spanska (ES) anpassade strängar
 1. Välj den princip som du överförde och välj sedan **Kör nu**.
 1. Du bör kunna se den lokaliserade registrerings-eller inloggnings sidan.
 1. Klicka på registrerings länken och du bör kunna se den lokaliserade anmälnings sidan.
-1. Ändra webbläsarens standard språk till spanska. Du kan också lägga till frågesträngparametern `ui_locales` för begäran. Ett exempel: 
+1. Ändra webbläsarens standard språk till spanska. Du kan också lägga till frågesträngparametern `ui_locales` för begäran. Till exempel: 
 
 ```http
-https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -45,10 +45,10 @@ Vägar definieras i _routes. JSON_ -filen som en matris med väg regler i `route
 
 | Regel egenskap  | Obligatorisk | Standardvärde | Kommentar                                                      |
 | -------------- | -------- | ------------- | ------------------------------------------------------------ |
-| `route`        | Yes      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index. html_.</ul>|
-| `serve`        | No       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde har definierats används den begärda sökvägen. |
-| `allowedRoles` | No       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
-| `statusCode`   | No       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
+| `route`        | Ja      | saknas          | Det väg mönster som anroparen begärt.<ul><li>[Jokertecken](#wildcards) stöds i slutet av väg Sök vägar. Route _admin/ \* _ matchar till exempel alla vägar under _admin_ -sökvägen.<li>En vägs standard fil är _index. html_.</ul>|
+| `serve`        | Inga       | saknas          | Definierar filen eller sökvägen som returneras från begäran. Fil Sök vägen och namnet kan inte vara samma som den begärda sökvägen. Om ett `serve` värde har definierats används den begärda sökvägen. |
+| `allowedRoles` | Inga       | antal     | En matris med roll namn. <ul><li>Giltiga tecken är `a-z` , `A-Z` , `0-9` och `_` .<li>Den inbyggda rollen `anonymous` gäller för alla oautentiserade användare.<li>Den inbyggda rollen `authenticated` gäller för alla inloggade användare.<li>Användarna måste tillhöra minst en roll.<li>Roller matchas på en _eller_ -basis. Om en användare finns i någon av rollerna i listan beviljas åtkomst.<li>Enskilda användare är kopplade till roller genom [inbjudningar](authentication-authorization.md).</ul> |
+| `statusCode`   | Inga       | 200           | [Http-status kod](https://wikipedia.org/wiki/List_of_HTTP_status_codes) svaret för begäran. |
 
 ## <a name="securing-routes-with-roles"></a>Skydda vägar med roller
 

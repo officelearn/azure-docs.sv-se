@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 5bf26fa096058f5a73d5527c0c6adb1649c9884f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: cf50ee847bd1542a3e024cb88cf7bbc8bc283f91
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857316"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643437"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Förbereda en virtuell SLES- eller openSUSE-dator för Azure
 
@@ -28,7 +28,7 @@ Den här artikeln förutsätter att du redan har installerat ett SUSEt eller ope
 * Alla virtuella hård diskar på Azure måste ha en virtuell storlek som är justerad till 1 MB. När du konverterar från en RAW-disk till VHD måste du se till att den råa disk storleken är en multipel av 1 MB före konverteringen. Mer information finns i [installations information för Linux](create-upload-generic.md#general-linux-installation-notes) .
 
 ## <a name="use-suse-studio"></a>Använda SUSE Studio
-[SUSE Studio](http://www.susestudio.com) kan enkelt skapa och hantera dina SLES-och openSUSE-avbildningar för Azure och Hyper-V. Detta är den rekommenderade metoden för att anpassa dina egna SLES-och openSUSE-avbildningar.
+[SUSE Studio](https://studioexpress.opensuse.org/) kan enkelt skapa och hantera dina SLES-och openSUSE-avbildningar för Azure och Hyper-V. Detta är den rekommenderade metoden för att anpassa dina egna SLES-och openSUSE-avbildningar.
 
 Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE också BYOS-avbildningar (ta med din egen prenumeration) för SLES på [VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
@@ -98,7 +98,7 @@ Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE oc
 ## <a name="prepare-opensuse-131"></a>Förbered openSUSE 13.1 +
 1. I mittenfönstret i Hyper-V Manager väljer du den virtuella datorn.
 2. Klicka på **Anslut** för att öppna fönstret för den virtuella datorn.
-3. Kör kommandot`zypper lr`på gränssnittet. Om det här kommandot returnerar utdata som liknar följande, konfigureras databaserna som förväntat – inga justeringar krävs (Observera att versions numren kan variera):
+3. Kör kommandot på gränssnittet `zypper lr` . Om det här kommandot returnerar utdata som liknar följande, konfigureras databaserna som förväntat – inga justeringar krävs (Observera att versions numren kan variera):
    
         # | Alias                 | Name                  | Enabled | Refresh
         --+-----------------------+-----------------------+---------+--------
@@ -112,7 +112,7 @@ Som ett alternativ till att skapa en egen virtuell hård disk publicerar SUSE oc
         # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
-    Du kan sedan kontrol lera att databaserna har lagts till genom att köra`zypper lr`kommandot igen. Om en av relevanta uppdaterings databaser inte är aktive rad aktiverar du den med följande kommando:
+    Du kan sedan kontrol lera att databaserna har lagts till genom att köra kommandot `zypper lr` igen. Om en av relevanta uppdaterings databaser inte är aktive rad aktiverar du den med följande kommando:
    
         # sudo zypper mr -e [NUMBER OF REPOSITORY]
 4. Uppdatera kerneln till den senaste tillgängliga versionen:

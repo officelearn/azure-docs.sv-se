@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: bdd8104200bf21507e978abacf600c4780bb3808
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606899"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636677"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Skydd mot hot i Azure Security Center
 
@@ -29,7 +29,10 @@ Azure Security Center s hot skydd ger omfattande försvar för din miljö:
 
 * **Hot skydd för Azure Service**Layers: Azure-nätverksnivå, Azure Management layer (Azure Resource Manager) (för hands version) och Azure Key Vault (förhands granskning)
 
-Om en avisering genereras av Security Center eller tas emot av Security Center från en annan säkerhets produkt, kan du exportera den. Om du vill exportera aviseringar till Azure Sentinel (eller en tredjeparts SIEM) eller något annat externt verktyg, följer du anvisningarna i [Exportera aviseringar till en Siem](continuous-export.md). 
+Om en avisering genereras av Security Center eller tas emot av Security Center från en annan säkerhets produkt, kan du exportera den. Om du vill exportera aviseringar till Azure Sentinel, SIEM eller andra externa verktyg, följer du anvisningarna i [Exportera aviseringar till en Siem](continuous-export.md). 
+
+> [!NOTE]
+> Aviseringar från olika källor kan ta olika tids mängder att visas. Till exempel kan aviseringar som kräver analys av nätverks trafiken ta längre tid än aviseringar som är relaterade till misstänkta processer som körs på virtuella datorer.
 
 > [!TIP]
 > Om du vill aktivera Security Center hot skydds funktioner måste du använda standard pris nivån för prenumerationen som innehåller de aktuella arbets belastningarna.
@@ -44,14 +47,14 @@ Om en avisering genereras av Security Center eller tas emot av Security Center f
 
 Azure Security Center integreras med Azure-tjänster för att övervaka och skydda dina Windows-baserade datorer. Security Center visar aviseringar och reparations förslag från alla dessa tjänster i ett lättanvänt format.
 
-* **Microsoft Defender ATP** <a name="windows-atp"></a> – Security Center utökar sina moln skydds plattformar genom att integrera med Microsoft Defender Advanced Threat Protection (ATP). Tillsammans tillhandahåller de omfattande funktioner för slut punkts identifiering och-svar (EDR).
+* **Microsoft Defender Avancerat skydd (ATP)** <a name="windows-atp"></a> -Security Center utökar plattformarna för skydd av arbets belastnings skydd genom att integrera med Microsoft Defender Advanced Threat Protection (ATP). Tillsammans tillhandahåller de omfattande funktioner för slut punkts identifiering och-svar (EDR).
 
     > [!IMPORTANT]
     > Microsoft Defender ATP-sensorn aktive ras automatiskt på Windows-servrar som använder Security Center.
 
     När Microsoft Defender ATP identifierar ett hot utlöses en avisering. Aviseringen visas på instrument panelen för Security Center. Från instrument panelen kan du pivotera till Microsoft Defender ATP-konsolen och utföra en detaljerad undersökning för att få fram omfattningen av angreppet. För ytterligare information om Microsoft Defender ATP, se [onboard-servrar till Microsoft Defender ATP-tjänsten](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* **Analys** <a name="windows-dump"></a> av krasch dum par – när program vara kraschar fångar en kraschdump en del av minnet vid tidpunkten för kraschen.
+* Analys av krasch **dumpning** <a name="windows-dump"></a> – När program vara kraschar fångar en kraschdump en del av minnet vid tidpunkten för kraschen.
 
     En krasch kan ha orsakats av skadlig kod eller innehålla skadlig kod. För att undvika att de upptäcks av säkerhets produkter använder olika former av skadlig kod en fil lös attack, vilket förhindrar skrivning till disk eller kryptering av program varu komponenter som skrivs till disk. Den här typen av attack är svår att identifiera med hjälp av traditionella diskbaserade metoder.
 
@@ -59,7 +62,7 @@ Azure Security Center integreras med Azure-tjänster för att övervaka och skyd
 
     Mer information om analys aviseringar för krasch dumpning finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-windows).
 
-* **Filbaserad attack identifiering** <a name="windows-fileless"></a> – filåterställda attacker riktade mot slut punkterna är vanliga. För att undvika identifiering kan fil lösa angrepp injicera skadliga nytto laster i minnet. Angripares nytto laster finns kvar i minnet för komprometterade processer och utför en mängd olika skadliga aktiviteter.
+* Avkänning av filbaserad **attack** <a name="windows-fileless"></a> – Filspecifika attacker riktade mot slut punkterna är vanliga. För att undvika identifiering kan fil lösa angrepp injicera skadliga nytto laster i minnet. Angripares nytto laster finns kvar i minnet för komprometterade processer och utför en mängd olika skadliga aktiviteter.
 
     Med fil lösa angrepp kan automatiserade minnes kriminal tekniska-tekniker identifiera fillösa verktyg för attacker, tekniker och beteenden. Den här lösningen genomsöker regelbundet datorn vid körning och extraherar insikter direkt från minnet för säkerhets kritiska processer.
 
@@ -79,9 +82,9 @@ Azure Security Center integreras med Azure-tjänster för att övervaka och skyd
 
 Security Center samlar in gransknings poster från Linux-datorer med hjälp av **granskning**, ett av de vanligaste Linux-gransknings ramverken. granskade liv i Mainline-kärnan. 
 
-* **Granskade Linux-aviseringar och Log Analytics agent integration** <a name="linux-auditd"></a> – det granskade systemet består av ett under system i kernel-nivå, som är ansvarigt för att övervaka system anrop. Den filtrerar dem efter en angiven regel uppsättning och skriver meddelanden för dem till en socket. Security Center integrerar funktioner från det granskade paketet i Log Analytics agenten. Den här integrationen aktiverar insamling av granskade händelser i alla Linux-distributioner som stöds, utan krav.
+* **Granskade Linux-aviseringar och Log Analytics agent-integrering** <a name="linux-auditd"></a> – Det granskade systemet består av ett under system i kernel-nivå, som ansvarar för att övervaka system anrop. Den filtrerar dem efter en angiven regel uppsättning och skriver meddelanden för dem till en socket. Security Center integrerar funktioner från det granskade paketet i Log Analytics agenten. Den här integrationen aktiverar insamling av granskade händelser i alla Linux-distributioner som stöds, utan krav.
 
-    granskade poster samlas in, berikas och aggregeras i händelser med hjälp av Log Analytics agent för Linux-agenten. Security Center lägger kontinuerligt till nya analyser som använder Linux-signaler för att identifiera skadliga beteenden i molnet och lokala Linux-datorer. I likhet med Windows-funktioner, är dessa analys omfång över misstänkta processer, misstänkta-inloggnings försök, inläsning av kernel-modul och andra aktiviteter. Dessa aktiviteter kan tyda på att en dator är utsatt för en attack eller har brutits.  
+    granskade poster samlas in, berikas och aggregeras i händelser med hjälp av Log Analytics agent för Linux-agenten. Security Center lägger kontinuerligt till nya analyser som använder Linux-signaler för att identifiera skadliga beteenden i molnet och lokala Linux-datorer. På samma sätt som Windows-funktioner, är dessa analys omfång över misstänkta processer, misstänkta inloggnings försök, inläsning av kernel-modul och andra aktiviteter. Dessa aktiviteter kan tyda på att en dator är utsatt för en attack eller har brutits.  
 
     En lista över Linux-aviseringar finns i [referens tabellen för aviseringar](alerts-reference.md#alerts-linux).
 
@@ -171,7 +174,7 @@ Avancerat skydd för lagring identifierar ovanliga och potentiellt skadliga för
 
 Avancerat skydd för Azure Storage är för närvarande endast tillgängligt för [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). 
 
-Den här tjänsten är tillgänglig i alla offentliga moln och i amerikanska myndigheter, men inga andra suveräna moln regioner eller Azure-myndigheter.
+Den här tjänsten är tillgänglig i alla offentliga moln och i amerikanska myndigheter, men inga andra suveräna eller Azure Government moln regioner.
 
 För pris information, inklusive en kostnads fri 30-dagars utvärderings version, se [sidan Azure Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 

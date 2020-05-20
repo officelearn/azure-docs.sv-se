@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 68f6f8ec67aca44c89b338287bdd37b6066992e0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f20636bfaf8b1b1f7714a9cede63886deaf53e36
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207028"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641186"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>En webbapp som anropar webb-API: er kod konfiguration
 
@@ -31,7 +31,7 @@ Som du ser i [webbappen som loggar in i användar](scenario-web-app-sign-user-ov
 
 Följande bibliotek i Microsoft Authentication Library (MSAL) stöder Authorization Code Flow för Web Apps:
 
-| MSAL-bibliotek | Beskrivning |
+| MSAL-bibliotek | Description |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Stöd för .NET Framework-och .NET Core-plattformar. Stöds inte Universell Windows-plattform (UWP), Xamarin. iOS och Xamarin. Android, eftersom dessa plattformar används för att bygga offentliga klient program. För ASP.NET Core webbappar och webb-API: er kapslas MSAL.NET in i ett bibliotek med högre nivå som heter Microsoft. Identity. Web|
 | ![MSAL python](media/sample-v2-code/logo_python.png) <br/> MSAL för Python | Stöd för python-webbprogram. |
@@ -41,7 +41,7 @@ Välj fliken för den plattform som du är intresse rad av:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Om du vill göra det möjligt för din webbapp att anropa skyddade API: er när du använder Microsoft. identitet. `AddWebAppCallsProtectedWebApi` Web, behöver du bara anropa och ange ett format för cachelagring av token-cache (exempelvis minnes-token i cacheminnet):
+Om du vill göra det möjligt för din webbapp att anropa skyddade API: er när du använder Microsoft. identitet. Web, behöver du bara anropa `AddWebAppCallsProtectedWebApi` och ange ett format för cachelagring av token-cache (exempelvis minnes-token i cacheminnet):
 
 ```C#
 // This method gets called by the runtime. Use this method to add services to the container.
@@ -169,7 +169,7 @@ public partial class Startup
 Se [webbapp som loggar in användare: kod konfiguration](scenario-web-app-sign-user-app-configuration.md?tabs=java#initialization-code) för att förstå hur Java-exemplet hämtar auktoriseringskod. När appen har tagit emot koden [AuthFilter. java # L51-L56](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java#L51-L56):
 
 1. Delegerar till `AuthHelper.processAuthenticationCodeRedirect` metoden i [AuthHelper. java # L67-L97](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L67-L97).
-1. Anrop `getAuthResultByAuthCode`.
+1. Anrop `getAuthResultByAuthCode` .
 
 ```Java
 class AuthHelper {
@@ -191,7 +191,7 @@ class AuthHelper {
 }
 ```
 
-`getAuthResultByAuthCode` Metoden definieras i [AuthHelper. java # L176](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L176). Den skapar en MSAL `ConfidentialClientApplication`och anropar `acquireToken()` sedan med `AuthorizationCodeParameters` att skapa från auktoriseringskod.
+`getAuthResultByAuthCode`Metoden definieras i [AuthHelper. java # L176](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L176). Den skapar en MSAL `ConfidentialClientApplication` och anropar sedan `acquireToken()` med `AuthorizationCodeParameters` att skapa från auktoriseringskod.
 
 ```Java
    private IAuthenticationResult getAuthResultByAuthCode(
@@ -268,7 +268,7 @@ Användningen av klientens intyg är ett avancerat scenario, som beskrivs i [kli
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-I självstudien om ASP.NET Core används beroende inmatning för att bestämma hur token cache ska implementeras i Startup.cs-filen för ditt program. Microsoft. Identity. Web levereras med förbyggda token cache-serialiserare som beskrivs i [cachelagring av token](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/README.md#token-cache-serialization). En intressant möjlighet är att välja ASP.NET Core [distribuerade cacheminnen](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+I självstudien om ASP.NET Core används beroende inmatning för att bestämma hur token cache ska implementeras i Startup.cs-filen för ditt program. Microsoft. Identity. Web levereras med förbyggda token cache-serialiserare som beskrivs i [cachelagring av token](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). En intressant möjlighet är att välja ASP.NET Core [distribuerade cacheminnen](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 // Use a distributed token cache by adding:
@@ -326,7 +326,7 @@ public static class MsalAppBuilder
 
 # <a name="java"></a>[Java](#tab/java)
 
-MSAL Java tillhandahåller metoder för att serialisera och deserialisera token cache. Java-exemplet hanterar serialiseringen från sessionen, som du `getAuthResultBySilentFlow` ser i metoden i [AuthHelper. java # L99-L122](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L99-L122):
+MSAL Java tillhandahåller metoder för att serialisera och deserialisera token cache. Java-exemplet hanterar serialiseringen från sessionen, som du ser i `getAuthResultBySilentFlow` metoden i [AuthHelper. java # L99-L122](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L99-L122):
 
 ```Java
 IAuthenticationResult getAuthResultBySilentFlow(HttpServletRequest httpRequest, HttpServletResponse httpResponse)

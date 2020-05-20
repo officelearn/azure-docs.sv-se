@@ -6,22 +6,17 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 960536c3f80aa7870d6f2056d8e95cd1a4338dfe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c56652b4e098213bae0c69d4be5ac77e1b1393c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299030"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635296"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Använda Azure Active Directory för autentisering med MySQL
 
 Microsoft Azure Active Directory (Azure AD)-autentisering är en mekanism för att ansluta till Azure Database for MySQL med hjälp av identiteter som definierats i Azure AD.
 Med Azure AD-autentisering kan du hantera användar identiteter för databaser och andra Microsoft-tjänster på en central plats, vilket fören klar behörighets hanteringen.
-
-> [!IMPORTANT]
-> Azure AD-autentisering för Azure Database for MySQL är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Fördelarna med att använda Azure AD är:
 

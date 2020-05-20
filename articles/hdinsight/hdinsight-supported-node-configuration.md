@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 05/14/2020
+ms.openlocfilehash: 0bf5559590b66400fc4fc4dc27ea88c3522effb1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484794"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646614"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Vilka är standard och rekommenderade nodkonfigurationer för Azure HDInsight?
 
@@ -24,9 +24,9 @@ I den här artikeln beskrivs standard-och rekommenderade nodkonfigurationer för
 
 I följande tabell listas standard-och rekommenderade storlekar för virtuella datorer för HDInsight-kluster.  Den här informationen är nödvändig för att förstå de VM-storlekar som ska användas när du skapar PowerShell-eller Azure CLI-skript för att distribuera HDInsight-kluster.
 
-Om du behöver fler än 32 arbetsnoder i ett kluster väljer du en head-nods storlek med minst 8 kärnor och 14 GB RAM. 
+Om du behöver fler än 32 arbetsnoder i ett kluster väljer du en head-nods storlek med minst 8 kärnor och 14 GB RAM.
 
-De enda kluster typerna som innehåller data diskar är Kafka-och HBase-kluster med funktionen för accelererade skrivningar aktiverade. HDInsight stöder P30-och S30 disk storlekar i dessa scenarier.
+De enda kluster typerna som innehåller data diskar är Kafka-och HBase-kluster med funktionen för accelererade skrivningar aktiverade. HDInsight stöder P30-och S30 disk storlekar i dessa scenarier. För alla andra kluster typer tillhandahåller HDInsight hanterat disk utrymme med klustret. Från 11/07/2019 är den hanterade disk storleken för varje nod i det nya klustret 128 GB. Detta kan inte ändras.
 
 Specifikationerna för alla minsta rekommenderade VM-typer som används i det här dokumentet sammanfattas i följande tabell.
 
@@ -51,7 +51,7 @@ Mer information om specifikationerna för varje VM-typ finns i följande dokumen
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Alla regioner som stöds förutom Brasilien, södra och Japan, väst
 
 > [!Note]
-> Du kan hämta SKU-identifieraren för användning i PowerShell och andra skript `Standard_` genom att lägga till i början av alla VM-SKU: er i tabellerna nedan. Till exempel `D12_v2` skulle bli `Standard_D12_v2`.
+> Du kan hämta SKU-identifieraren för användning i PowerShell och andra skript genom att lägga till i `Standard_` början av alla VM-SKU: er i tabellerna nedan. Till exempel `D12_v2` skulle bli `Standard_D12_v2` .
 
 | Kluster typ | Hadoop | HBase | Interaktiv fråga | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|

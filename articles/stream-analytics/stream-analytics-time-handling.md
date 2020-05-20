@@ -1,22 +1,22 @@
 ---
 title: Förstå tids hantering i Azure Stream Analytics
-description: Lär dig hur tids hanteringen fungerar i Azure Stream Analytics, till exempel hur du väljer den bästa start tiden, hur du hanterar sena och tidiga händelser samt tids hanterings mått.
+description: Lär dig hur du väljer den bästa start tiden, hanterar sena och tidiga händelser och om tids hanterings mått i Azure Stream Analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/05/2018
-ms.openlocfilehash: 55537fb923b26de4e02be35fdb817dee147584d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.openlocfilehash: 0830a8b552283b5b39fa78c505ed177d1959989f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81115129"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640040"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Förstå tids hantering i Azure Stream Analytics
 
-I den här artikeln diskuterar vi hur du kan göra design val för att lösa praktiska tids hanterings problem i Azure Stream Analyticss tjänsten. Design beslut för tids hantering är nära relaterade till händelse ordnings faktorer.
+I den här artikeln får du lära dig hur du kan göra design val för att lösa praktiska tids hanterings problem i Azure Stream Analytics jobb. Design beslut för tids hantering är nära relaterade till händelse ordnings faktorer.
 
 ## <a name="background-time-concepts"></a>Koncept för bakgrunds tid
 
@@ -28,75 +28,77 @@ För att skapa en bättre bild av diskussionen, ska vi definiera vissa bakgrunds
 
 - **Vattenstämpel**: en händelse tids markör som visar upp till vilka punkt händelser som har inträffat för strömnings processorn. Vattenstämplar gör att systemet visar klart förloppet för att mata in händelser. När data strömmar är av typen stoppa stoppas inkommande händelse data aldrig, så vattenstämplar anger förloppet till en viss punkt i data strömmen.
 
-   Begreppet vattenstämpel är viktigt. Med vattenstämplar kan Stream Analytics fastställa när systemet kan producera fullständiga, korrekta och upprepnings bara resultat som inte behöver dras tillbaka. Bearbetningen kan göras på ett garanterat sätt som kan förutsägas och upprepas. Om till exempel en omräkning måste göras för vissa fel hanterings villkor är vattenstämplar säkra start-och slut punkter.
+   Begreppet vattenstämpel är viktigt. Med vattenstämplar kan Stream Analytics fastställa när systemet kan producera fullständiga, korrekta och upprepnings bara resultat som inte behöver dras tillbaka. Bearbetningen kan göras på ett förutsägbart och repeterbart sätt. Om till exempel en omräkning måste göras för vissa fel hanterings villkor är vattenstämplar säkra start-och slut punkter.
 
-Som ytterligare resurser för det här ämnet, se Tyler-Akidau blogg inlägg [strömma 101](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101) och [strömmande 102](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102).
+Ytterligare resurser för det här ämnet finns i Tyler Akidaus blogg inlägg [strömma 101](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-101) och [strömmande 102](https://www.oreilly.com/ideas/the-world-beyond-batch-streaming-102).
 
-## <a name="choosing-the-best-starting-time"></a>Välja den bästa start tiden
+## <a name="choose-the-best-starting-time"></a>Välj den bästa start tiden
 
-Stream Analytics ger användare två alternativ för att välja händelse tid:
+Stream Analytics ger användare två valmöjligheter för att välja händelse tid: tid för införsel och program tid.
 
-1. **Införsel tid**  
+### <a name="arrival-time"></a>Införsel tid
 
-   Införsel tiden tilldelas till Indatakällan när händelsen når källan. Du kan komma åt ankomst tiden genom att använda egenskapen **EventEnqueuedUtcTime** för Event Hubs inputs, **IoTHub. EnqueuedTime** -egenskapen för IoT Hub och använda egenskapen **BlobProperties. LastModified** för BLOB-indata.
+Införsel tiden tilldelas till Indatakällan när händelsen når källan. Du kan komma åt ankomst tiden genom att använda egenskapen **EventEnqueuedUtcTime** för Event Hubs Indatatyp, egenskapen **IoTHub. EnqueuedTime** för IoT Hub indatamängd och egenskapen **BlobProperties. LastModified** för BLOB-Indatatyp.
 
-   Användnings tiden är standard beteendet och används bäst för data lagrings scenarier där det inte finns någon temporal logik nödvändig.
+Införsel tiden används som standard och används bäst för data Arkiv scenarier där temporal logik inte behövs.
 
-2. **Tillämpnings tid** (även namngiven händelse tid)
+### <a name="application-time-also-named-event-time"></a>Tillämpnings tid (även namngiven händelse tid)
 
-   Programmets tid tilldelas när händelsen genereras och är en del av händelse nytto lasten. Om du vill bearbeta händelser efter program tid använder du **timestamp by** -satsen i Select-frågan. Om **timestamp by** -satsen saknas bearbetas händelser efter införsel tid.
+Programmets tid tilldelas när händelsen genereras och är en del av händelse nytto lasten. Om du vill bearbeta händelser efter program tid använder du **timestamp by** -satsen i Select-frågan. Om **timestamp by** saknas bearbetas händelser efter införsel tid.
 
-   Det är viktigt att använda en tidstämpel i nytto lasten när Temporal Logic är involverad. På så sätt kan fördröjningar i käll systemet eller i nätverket beaktas.
+Det är viktigt att använda en tidstämpel i nytto lasten när Temporal Logic är involverad för att beakta fördröjningar i käll systemet eller i nätverket. Tiden som tilldelats en händelse är tillgänglig i [systemet. Tidsstämpel](https://docs.microsoft.com/stream-analytics-query/system-timestamp-stream-analytics).
 
 ## <a name="how-time-progresses-in-azure-stream-analytics"></a>Hur lång tid i Azure Stream Analytics
 
 När du använder program tid baseras tiden på inkommande händelser. Det är svårt för data ström bearbetnings systemet att veta om det inte finns några händelser eller om händelserna är fördröjda. Därför genererar Azure Stream Analytics heuristiska vattenstämplar på följande sätt för varje partition:
 
-1. När det finns inkommande händelser är vattenstämpeln den största händelse tiden som vi har sett hittills, så långt bort från storleks tolerans fönstret.
+* När det finns inkommande händelser är vattenstämpeln den största händelse tiden Stream Analytics har visats hittills, vilket innebär att storleken på tolerans perioden är för lång.
 
-2. När det inte finns någon inkommande händelse är vattenstämpeln den aktuella uppskattade införsel tiden (förfluten tid på bakom den virtuella scen datorn som bearbetar händelserna från den senaste gången en indata-händelse visas och den inkommande händelsens ankomst tid) minus fönstret sent införsel tolerans.
+* När det inte finns någon inkommande händelse är vattenstämpeln den aktuella uppskattade införsel tiden minus fönstret sent införsel tolerans. Den uppskattade införsel tiden är den tid som har förflutit från den senaste gången en indatamängds händelse visades och den inkommande händelsens ankomst tid.
 
-   Det går bara att uppskatta införsel tiden eftersom den faktiska tiden för införsel skapas i händelse koordinatorn för indata, till exempel Event Hubs, och inte den virtuella Azure Stream Analytics som bearbetar händelserna.
+   Införsel tiden kan bara uppskattas eftersom den faktiska tiden för införsel skapas i händelse koordinatorn för indata, t. ex. Event Hubs, eller på den Azure Stream Analytics virtuella datorn som bearbetar händelserna.
 
-Designen har två ytterligare funktioner, förutom att skapa vattenstämplar:
+Designen har två andra andra syfte än att skapa vattenstämplar:
 
 1. Systemet genererar resultat i tid med eller utan inkommande händelser.
 
-   Du har kontroll över hur lång tid de vill se resultatet av utdata. I Azure Portal, på sidan **händelse ordning** i Stream Analytics jobb, kan du konfigurera inställningen för slut föringen av **händelser** . När du konfigurerar den inställningen bör du överväga att använda tids linjen med tolerans för händelser som inte är i följd i händelse strömmen.
+   Du styr hur lång tid du vill se resultatet av utdata. I Azure Portal, på sidan **händelse ordning** i Stream Analytics jobb, kan du konfigurera inställningen för slut föringen av **händelser** . När du konfigurerar den inställningen bör du överväga att använda tids linjen med tolerans för händelser som inte är i följd i händelse strömmen.
 
-   Fönstret sent införsel tolerans är viktigt för att fortsätta att skapa vattenstämplar, även om det inte finns några inkommande händelser. Ibland kan det finnas en period där inga inkommande händelser kommer, till exempel när en händelse data ström är sparse. Det här problemet är exacerbated genom att använda flera partitioner i händelse koordinatorn för ingångs händelser.
+   Fönstret sent införsel tolerans är nödvändigt för att fortsätta att skapa vattenstämplar, även om det inte finns några inkommande händelser. Ibland kan det finnas en period där inga inkommande händelser kommer, till exempel när en händelse data ström är sparse. Det här problemet är exacerbated genom att använda flera partitioner i händelse koordinatorn för ingångs händelser.
 
    Strömmande data behandlings system utan en period för sent införsel, kan bli lidande för fördröjda utdata när indata är glesa och flera partitioner används.
 
 2. System beteendet måste vara repeterbart. Repeterbarhet är en viktig egenskap i ett system för strömning av data behandling.
 
-   Vattenstämpeln härleds från ankomst tid och program tid. Båda är bestående av händelse koordinatorn och kan därför upprepas. Om tiden för införsel måste uppskattas i avsaknad av händelser, Azure Stream Analytics journaler som den uppskattade tiden för repeterbarhet under repetitionen i syfte att återställa.
+   Vattenstämpeln härleds från ankomst tiden och program tiden. Båda är bestående av händelse koordinatorn och kan därför upprepas. När en införsel tid beräknas i frånvaro av händelser, Azure Stream Analytics journaler som den uppskattade tiden för repeterbarhet under repetitionen för haveri återställning.
 
-Observera att när du väljer att använda **tid för införsel** som händelse tid behöver du inte konfigurera out-of-order-toleransen och sent införsel toleransen. Eftersom **införsel tiden** är garanterat monotont ökning i händelse koordinatorn för inkommande händelser, Azure Stream Analytics helt enkelt bortse från konfigurationerna.
+När du väljer att använda **tid för införsel** som tidpunkt för händelsen, behöver du inte konfigurera frånvaro tolerans och sent införsel tolerans. Eftersom **införsel tiden** är garanterad att öka i händelse koordinatorn för inloggen, Azure Stream Analytics bara att ignorera konfigurationerna.
 
 ## <a name="late-arriving-events"></a>Sena inkommande händelser
 
-Efter definition av fönstret sent införsel tolerans, för varje inkommande händelse, Azure Stream Analytics jämför tiden för **tiden** med **ankomst tiden**. om händelse tiden ligger utanför tolerans perioden kan du konfigurera systemet att antingen släppa händelsen eller justera händelsens tid så att den ligger inom toleransen.
+Efter definition av fönstret sent införsel tolerans, för varje inkommande händelse, Azure Stream Analytics jämför **händelse tiden** med **införsel tiden**. Om händelse tiden ligger utanför tolerans fönstret kan du konfigurera systemet för att släppa händelsen eller justera händelsens tid så att den ligger inom toleransen.
 
-Tänk på att när vattenstämplarna har genererats kan tjänsten potentiellt ta emot händelser med händelse tiden lägre än vatten märket. Du kan konfigurera tjänsten att antingen **släppa** dessa händelser eller **Justera** händelsens tid till värdet för vatten märket.
+När vattenstämplarna har genererats kan tjänsten potentiellt ta emot händelser med en händelse tid som är lägre än vattenstämpeln. Du kan konfigurera tjänsten att antingen **släppa** dessa händelser eller **Justera** händelsens tid till värdet för vatten märket.
 
 Som en del av justeringen anges händelsens **system. timestamp** till det nya värdet, men fältet för **händelse tid** ändras inte. Den här justeringen är den enda situationen där en händelses **system. timestamp** kan skilja sig från värdet i fältet händelse tid och kan orsaka att oväntade resultat genereras.
 
-## <a name="handling-time-variation-with-substreams"></a>Hantera tids variation med under strömmar
+## <a name="handle-time-variation-with-substreams"></a>Hantera tids variation med under strömmar
 
-Den mekanism för generering av heuristisk vattenstämpel som beskrivs här fungerar bra i de flesta fall där tiden oftast är synkroniserad mellan olika händelse avsändare. I real tid, särskilt i många IoT-scenarier, har systemet emellertid lite kontroll över klockan på händelse avsändarna. Händelse avsändare kan vara alla typer av enheter i fältet, t. ex. olika versioner av maskin vara och program vara.
+Den mekanism för generering av heuristisk vattenstämpel som beskrivs fungerar bra i de flesta fall där tiden oftast är synkroniserad mellan olika händelse avsändare. I real tid, särskilt i många IoT-scenarier, har systemet emellertid lite kontroll över klockan på händelse avsändarna. Händelse avsändare kan vara alla typer av enheter i fältet, t. ex. olika versioner av maskin vara och program vara.
 
-I stället för att använda en global vattenstämpel för alla händelser i en indatamask, Stream Analytics har en annan mekanism som kallas under strömmar för att hjälpa dig. Du kan använda under strömmar i jobbet genom att skriva en jobb fråga som använder [**timestamp by**](/stream-analytics-query/timestamp-by-azure-stream-analytics) -satsen och nyckelordet **över**. Om du vill ange under data strömmen anger du ett nyckel kolumn namn efter **över** -nyckelordet, `deviceid`t. ex. ett, så att systemet använder tids principer för den kolumnen. Varje under data ström får sin egen oberoende vattenstämpel. Den här mekanismen är användbar för att tillåta generering av utdata i rätt tid vid hantering av stora klockor eller nätverks fördröjningar mellan händelse avsändare.
+I stället för att använda en vattenstämpel som är global till alla händelser i en indataparameter, Stream Analytics har en annan mekanism som kallas under **strömmar**. Du kan använda under strömmar i jobbet genom att skriva en jobb fråga som använder [**timestamp by**](/stream-analytics-query/timestamp-by-azure-stream-analytics) -satsen och nyckelordet **över**. Om du vill ange under data strömmen anger du ett nyckel kolumn namn efter **över** -nyckelordet, t. ex. ett `deviceid` , så att systemet använder tids principer för den kolumnen. Varje under data ström får sin egen oberoende vattenstämpel. Den här mekanismen är användbar för att tillåta generering av utdata i rätt tid vid hantering av stora klockor eller nätverks fördröjningar mellan händelse avsändare.
 
-Under strömmar är en unik lösning som tillhandahålls av Azure Stream Analytics och som inte erbjuds av andra data behandlings system för strömning. Stream Analytics använder fönstret för sent införsel tolerans för inkommande händelser när under strömmar används. Standardvärdet (5 sekunder) är troligen för litet för enheter med Divergent-tidsstämplar. Vi rekommenderar att du börjar med 5 minuter och gör justeringar enligt mönster för enhets klock skevning.
+Under strömmar är en unik lösning som tillhandahålls av Azure Stream Analytics och som inte erbjuds av andra data behandlings system för strömning.
+
+När du använder under strömmar Stream Analytics använder fönstret sent införsel tolerans för inkommande händelser. Den sena införsel toleransen bestämmer den maximala mängd med vilken olika del strömmar kan skilja sig från varandra. Om till exempel enhet 1 är vid tidsstämpel 1 och enhet 2 är vid tidsstämpel 2, är den mest sena införsel toleransen tidsstämpel 2 minus tidsstämpel 1. Standardvärdet är 5 sekunder och är troligen för litet för enheter med Divergent-tidsstämpel. Vi rekommenderar att du börjar med 5 minuter och gör justeringar enligt mönster för enhets klock skevning.
 
 ## <a name="early-arriving-events"></a>Tidig inkommande händelser
 
-Du kanske har lagt märke till ett annat koncept som kallas tidig ankomst fönstret, som ser ut som motsatsen till fönstret för sent införsel tolerans. Det här fönstret är fast i 5 minuter och har ett annat syfte än sent införsel ett.
+Du kanske har lagt märke till ett annat koncept som kallas tidig ankomst fönstret som ser ut som motsatsen till fönstret för sent införsel tolerans. Det här fönstret är fast i 5 minuter och har ett annat syfte från fönstret sent införsel tolerans.
 
-Eftersom Azure Stream Analytics garanterar att den alltid genererar fullständiga resultat, kan du bara ange **jobbets start tid** som den första utgångs tiden för jobbet, inte indata-tiden. Jobbets start tid måste anges så att hela fönstret bearbetas, inte bara från mitten av fönstret.
+Eftersom Azure Stream Analytics garanterar fullständiga resultat kan du bara ange **jobbets start tid** som den första utgångs tiden för jobbet, inte indata-tiden. Jobbets start tid måste anges så att hela fönstret bearbetas, inte bara från mitten av fönstret.
 
-Stream Analytics härleder sedan start tiden från fråge specifikationen. Men eftersom indatamängden för inloggning endast indexeras per ankomst tid, måste systemet översätta start tiden till ankomst tiden. Systemet kan starta bearbetning av händelser från den punkten i händelse koordinatorn för indata. Med den tidigaste inkommande fönster gränsen är översättningen enkel. Det är start händelse tiden minus 5-minuters tidigt ingångs period. Den här beräkningen innebär också att systemet släpper alla händelser som ses som en händelse tid i 5 minuter ealier än ankomst tiden.
+Stream Analytics härleder start tiden från fråge specifikationen. Men eftersom indatamängden för inloggning endast indexeras efter införsel tid, måste systemet översätta start tid till ankomst tid. Systemet kan starta bearbetning av händelser från den punkten i händelse koordinatorn för indata. Med den tidigaste ingångs perioden kan översättningen vara enkel: start tid för händelsen minus 5 minuters tidigt ingångs period. Den här beräkningen innebär också att systemet släpper alla händelser som visas som en händelse tid 5 minuter tidigare än införsel tiden. [Måttet tidig ingångs händelser](stream-analytics-monitoring.md) ökar när händelserna släpps.
 
 Det här konceptet används för att se till att bearbetningen går att upprepa oavsett var du börjar skriva ut från. Utan sådan mekanism skulle det inte vara möjligt att garantera repeterbarhet, eftersom många andra strömmande system anspråk.
 
@@ -122,13 +124,13 @@ Stream Analytics-jobb har flera alternativ för **händelse ordning** . Två kan
 
 5. **System. timestamp** -värdet skiljer sig från tiden i fältet **händelse tid** .
 
-   Som tidigare har beskrivits justerar systemet händelse tiden genom de inaktuella toleranserna eller de sena inställnings Fönstren. **System. timestamp** -värdet för händelsen justeras, men inte tids fältet för **händelse** .
+   Som tidigare har beskrivits justerar systemet händelse tiden genom de inaktuella toleranserna eller de sena inställnings Fönstren. **System. timestamp** -värdet för händelsen justeras, men inte tids fältet för **händelse** . Detta kan användas för att identifiera vilka händelser som tidsstämplarna justerats. Om systemet ändrade tidsstämpeln på grund av en av toleranserna, är det vanligt vis samma.
 
 ## <a name="metrics-to-observe"></a>Mått att Observera
 
 Du kan se ett antal tids toleranss effekter för händelse ordning genom [Stream Analytics jobb mått](stream-analytics-monitoring.md). Följande mått är relevanta:
 
-|Mått  | Beskrivning  |
+|Metric  | Beskrivning  |
 |---------|---------|
 | **Händelser som inte är i ordning** | Anger antalet händelser som tagits emot i fel ordning, som antingen släpptes eller fått en justerad tidsstämpel. Det här måttet påverkas direkt av konfigurationen av inställningen för **out of order-händelser** på sidan **händelse ordning** på jobbet i Azure Portal. |
 | **Sena ingångs händelser** | Anger antalet händelser som anländer sent från källan. Måttet inkluderar händelser som har släppts eller har haft tidsstämpeln ändrats. Det här måttet påverkas direkt av konfigurationen av de **händelser som anländer** till den senaste inställningen på sidan **händelse ordning** på jobbet i Azure Portal. |
@@ -159,9 +161,7 @@ Det finns ett antal andra resurs begränsningar som kan orsaka strömnings pipel
 
 ## <a name="output-event-frequency"></a>Händelse frekvens för utdata
 
-Azure Stream Analytics använder vattenstämpeln som enda utlösare för att skapa utdata-händelser. Eftersom vattenstämpeln härleds från indata kan den upprepas under haveri återställningen och även vid ombearbetning av användare.
-
-När du använder Windows- [mängder](stream-analytics-window-functions.md)ger tjänsten bara utdata i slutet av Windows. I vissa fall kanske användarna vill se del mängder som genererats från Windows. Partiella mängder stöds inte för närvarande i Azure Stream Analytics.
+Azure Stream Analytics använder vattenstämpeln som enda utlösare för att skapa utdata-händelser. Eftersom vattenstämpeln härleds från indata kan den upprepas under haveri återställningen och även vid ombearbetning av användare. När du använder Windows- [mängder](stream-analytics-window-functions.md)ger tjänsten bara utdata i slutet av Windows. I vissa fall kanske användarna vill se del mängder som genererats från Windows. Partiella mängder stöds inte för närvarande i Azure Stream Analytics.
 
 I andra strömnings lösningar kan utmatnings händelser materialiseras vid olika utlösnings punkter, beroende på externa förhållanden. Det är möjligt att vissa lösningar på utdata för en viss tids period genereras flera gånger. När indatavärdena är förfinade blir de sammansatta resultaten mer exakta. Händelser kan vara spekulationde vid första och revideras över tid. Till exempel, när en viss enhet är offline från nätverket, kan ett uppskattat värde användas av ett system. Senare kommer samma enhet att vara online till nätverket. Sedan kan den faktiska händelse informationen inkluderas i indataströmmen. Resultatet från bearbetningen av tids perioden ger mer exakta utdata.
 

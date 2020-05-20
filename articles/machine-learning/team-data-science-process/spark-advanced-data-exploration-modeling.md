@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 15d9d186ef36ee9181a6ce0386aa9cc5de7838e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c166684484b839ec661ae2e68d5a5e5253d2528f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76718659"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634517"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Avancerad datagranskning och modellering med Spark
 
@@ -54,11 +54,11 @@ Installations steg och kod beskrivs i den här genom gången av en HDInsight Spa
 
 ### <a name="spark-16-notebooks"></a>Spark 1,6-anteckningsböcker
 
-[pySpark-Machine-Learning-data-science-Spark-Advanced-data-prospektering-Modeling. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): innehåller avsnitt i notebook-#1 och modell utveckling med hjälp av widgeten för att justera och kors validering.
+[pySpark-Machine-Learning-data-science-Spark-Advanced-data-prospektering-Modeling. ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): innehåller avsnitt i notebook-#1 och modell utveckling med hjälp av widgeten för att justera och kors validering.
 
 ### <a name="spark-20-notebooks"></a>Spark 2,0-anteckningsböcker
 
-[Spark 2.0-pySpark3-Machine-Learning-data-science-Spark-Advanced-data-utforskning-modellering. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför data granskning, modellering och poäng i Spark 2,0-kluster.
+[Spark 2.0-pySpark3-Machine-Learning-data-science-Spark-Advanced-data-utforskning-modellering. ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför data granskning, modellering och poäng i Spark 2,0-kluster.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -116,7 +116,7 @@ PySpark-kernelerna som medföljer Jupyter notebook-datorer har en förinställd 
 PySpark-kärnan innehåller fördefinierade "MAGICS", som är särskilda kommandon som du kan anropa med%%. Det finns två sådana kommandon som används i dessa kod exempel.
 
 * **%% lokal** Anger att koden i efterföljande rader ska köras lokalt. Koden måste vara en giltig python-kod.
-* **%% SQL-o \<variabel namn>** Kör en Hive-fråga mot sqlContext. Om-o-parametern skickas sparas resultatet av frågan i den lokala python-kontexten%% som en Pandas-DataFrame.
+* **%% SQL-o \< variabel namn>** kör en Hive-fråga mot sqlContext. Om-o-parametern skickas sparas resultatet av frågan i den lokala python-kontexten%% som en Pandas-DataFrame.
 
 Mer information om kerneler för Jupyter-anteckningsböcker och de fördefinierade "magiska" som de tillhandahåller finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -197,8 +197,8 @@ När data har förts in i Spark, är nästa steg i data vetenskaps processen att
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Rita ett histogram över frekvensen för antalet passagerare i provet i taxi resor
 Den här koden och efterföljande kodfragment använder SQL Magic för att fråga exemplet och det lokala Magic för att rita data.
 
-* **SQL-Magic`%%sql`()** HDInsight PySpark-kärnan stöder enkla infogade HiveQL-frågor mot sqlContext. Argumentet (-o VARIABLE_NAME) behåller SQL-frågans utdata som en Pandas-DataFrame på Jupyter-servern. Det innebär att den är tillgänglig i det lokala läget.
-* Magic används för att köra kod lokalt på Jupyter-servern, som är huvudnoden för HDInsight-klustret. ** `%%local` ** Normalt använder `%%local` du Magic när `%%sql -o` Magic används för att köra en fråga. Parametern-o behåller utdata från SQL-frågan lokalt. Sedan utlöser `%%local` Magic nästa uppsättning kodfragment för att köras lokalt mot utdata från de SQL-frågor som har sparats lokalt. Utdata visualiseras automatiskt när du har kört koden.
+* **SQL Magic ( `%%sql` )** HDInsight PySpark-kärnan stöder enkla infogade HiveQL-frågor mot sqlContext. Argumentet (-o VARIABLE_NAME) behåller SQL-frågans utdata som en Pandas-DataFrame på Jupyter-servern. Det innebär att den är tillgänglig i det lokala läget.
+* ** `%%local` Magic** används för att köra kod lokalt på Jupyter-servern, som är huvudnoden för HDInsight-klustret. Normalt använder du `%%local` Magic när `%%sql -o` Magic används för att köra en fråga. Parametern-o behåller utdata från SQL-frågan lokalt. Sedan `%%local` utlöser Magic nästa uppsättning kodfragment för att köras lokalt mot utdata från de SQL-frågor som har sparats lokalt. Utdata visualiseras automatiskt när du har kört koden.
 
 Den här frågan hämtar antalet resor per passagerare. 
 
@@ -209,7 +209,7 @@ Den här frågan hämtar antalet resor per passagerare.
     SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
 
 
-Den här koden skapar en lokal data ram från frågans utdata och ritar data. `%%local` Magic skapar en lokal data ram, `sqlResults`som kan användas för att rita med matplotlib. 
+Den här koden skapar en lokal data ram från frågans utdata och ritar data. `%%local`Magic skapar en lokal data ram, `sqlResults` som kan användas för att rita med matplotlib. 
 
 <!-- -->
 

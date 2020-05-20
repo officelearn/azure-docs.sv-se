@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89431c2bf1838d3264b03c8a5f2ce62cd6df3631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42768c61cc46ba97e9bd16a06c85f20219672fdd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127833"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639790"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Hur fungerar tillbakaskrivning av lösen ord för självbetjänings återställning i Azure Active Directory?
 
@@ -141,6 +141,7 @@ Lösen ord skrivs inte tillbaka i någon av följande situationer:
 * **Administratörs åtgärder som inte stöds**
    * All administratörs-initierad återställning av lösen ord för slutanvändare från PowerShell version 1, version 2 eller Microsoft Graph API ( [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) stöds).
    * All administratörs-initierad återställning av lösen ord för slutanvändare från [Microsoft 365 administrations Center](https://admin.microsoft.com).
+   * Alla administratörer kan inte använda verktyget för återställning av lösen ord för att återställa sina egna lösen ord för tillbakaskrivning av lösen ord.
 
 > [!WARNING]
 > Om du använder kryss rutan "användaren måste byta lösen ord vid nästa inloggning" i lokala administrations verktyg för AD DS som Active Directory användare och datorer eller om Active Directory Administrationscenter stöds som en förhands gransknings funktion i Azure AD Connect. Mer information finns i [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md).

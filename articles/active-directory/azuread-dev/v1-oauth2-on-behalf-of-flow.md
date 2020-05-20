@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: a301029f30a77f4e62ad3529aac488a81c12566e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 192c91f700dd82f453d52f6891f8aaaaeef8c7ef
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80154533"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642076"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst-anrop som använder delegerad användar identitet i flödets räkning
 
@@ -34,7 +34,7 @@ OAuth 2,0-flödet på OBO-nivå () gör det möjligt för ett program som anropa
 
 OBO-flödet startar när användaren har autentiserats för ett program som använder [OAuth 2,0-auktoriseringskod](v1-protocols-oauth-code.md). Vid det här skedet skickar programmet en åtkomsttoken (token A) till den mellanliggande webb-API: n (API A) som innehåller användarens anspråk och medgivande för att komma åt API A. Sedan gör API A en autentiserad begäran till det underordnade webb-API: et (API B).
 
-De här stegen utgörs av flödet på olika sätt: ![visar stegen i OAuth 2.0-flöde på uppdrag](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+De här stegen utgörs av flödet på olika sätt: ![ visar stegen i OAuth 2.0-flöde på uppdrag](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. Klient programmet skickar en begäran till API A med token A.
 1. API A autentiserar till slut punkten för utfärdande av Azure AD-token och begär en token för åtkomst till API B.
@@ -79,7 +79,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 1. Välj **Registrera** för att skapa programmet.
 1. Konfigurera behörigheter för ditt program. I **API-behörigheter**väljer du **Lägg till en behörighet** och sedan **Mina API: er**.
 1. Skriv namnet på mellan nivå tjänsten i textfältet.
-1. Välj **Välj behörigheter** och välj sedan **åtkomst \<till tjänst namn>**.
+1. Välj **Välj behörigheter** och välj sedan **åtkomst till \< tjänst namn>**.
 
 ### <a name="configure-known-client-applications"></a>Konfigurera kända klient program
 
@@ -117,7 +117,7 @@ När du använder en delad hemlighet innehåller en begäran om tjänst-till-tj�
 
 #### <a name="example"></a>Exempel
 
-Följande HTTP POST begär en åtkomsttoken för https://graph.microsoft.com webb-API: et. `client_id` Identifierar den tjänst som begär åtkomst-token.
+Följande HTTP POST begär en åtkomsttoken för https://graph.microsoft.com webb-API: et. `client_id`Identifierar den tjänst som begär åtkomst-token.
 
 ```
 // line breaks for legibility only
@@ -150,11 +150,11 @@ En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåll
 | requested_token_use |krävs | Anger hur begäran ska bearbetas. I flödets räkning måste värdet vara **on_behalf_of**. |
 | omfång |krävs | En blankstegsavgränsad lista över omfång för Tokenbegäran. För OpenID Connect måste omfångs- **OpenID** anges.|
 
-Dessa parametrar är nästan desamma som med begäran av delad hemlighet, förutom att `client_secret parameter` har ersatts av två parametrar: `client_assertion_type` och `client_assertion`.
+Dessa parametrar är nästan desamma som med begäran av delad hemlighet, förutom att `client_secret parameter` har ersatts av två parametrar: `client_assertion_type` och `client_assertion` .
 
 #### <a name="example"></a>Exempel
 
-Följande HTTP POST begär en åtkomsttoken för https://graph.microsoft.com webb-API: et med ett certifikat. `client_id` Identifierar den tjänst som begär åtkomst-token.
+Följande HTTP POST begär en åtkomsttoken för https://graph.microsoft.com webb-API: et med ett certifikat. `client_id`Identifierar den tjänst som begär åtkomst-token.
 
 ```
 // line breaks for legibility only
@@ -225,14 +225,14 @@ Slut punkten för Azure AD-token returnerar ett felsvar vid försök att hämta 
 
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>Använd åtkomsttoken för att få åtkomst till den skyddade resursen
 
-Den mellanliggande tjänsten kan använda den hämtade åtkomsttoken för att göra autentiserade begär anden till den underordnade webb-API: n genom att `Authorization` ange token i rubriken.
+Den mellanliggande tjänsten kan använda den hämtade åtkomsttoken för att göra autentiserade begär anden till den underordnade webb-API: n genom att ange token i `Authorization` rubriken.
 
 ### <a name="example"></a>Exempel
 
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.microsoft.com
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
+Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 ```
 
 ## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>SAML-kontroller som hämtats med ett OAuth 2.0 OBO-flöde
@@ -283,13 +283,13 @@ Svaret innehåller en SAML-token som är kodad i UTF8 och Base64url.
 - ext_expires_in: 0
 - expires_on: 1529627844
 - klusterresursen`https://api.contoso.com`
-- access_token: \<SAML-kontroll\>
+- access_token: \< SAML-kontroll\>
 - issued_token_type: urn: IETF: params: OAuth: token-Type: SAML2
-- refresh_token: \<uppdateringstoken\>
+- refresh_token: \< uppdateringstoken\>
 
 ## <a name="client-limitations"></a>Klient begränsningar
 
-Offentliga klienter med URL: er med jokertecken `id_token` kan inte använda ett for OBO-flöde. En konfidentiell klient kan dock fortfarande lösa in **åtkomsttoken** som erhållits via det implicita bidraget, även om den offentliga klienten har en omdirigerings-URI registrerad.
+Offentliga klienter med URL: er med jokertecken kan inte använda ett `id_token` for OBO-flöde. En konfidentiell klient kan dock fortfarande lösa in **åtkomsttoken** som erhållits via det implicita bidraget, även om den offentliga klienten har en omdirigerings-URI registrerad.
 
 ## <a name="next-steps"></a>Nästa steg
 

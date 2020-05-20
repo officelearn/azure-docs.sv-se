@@ -1,48 +1,32 @@
 ---
-title: Åtkomst-och användnings rapporter för Azure MFA – Azure Active Directory
-description: Här beskrivs hur du använder Azure Multi-Factor Authentication Feature-Reports.
+title: Information om inloggnings händelser för Azure Multi-Factor Authentication-Azure Active Directory
+description: Lär dig hur du visar inloggnings aktivitet för Azure Multi-Factor Authentication händelser och status meddelanden.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/30/2018
+ms.date: 05/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df562d65ad064efb1be337e0b68cb8638536981
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112770"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639851"
 ---
-# <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
+# <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Använd inloggnings rapporten för att granska Azure Multi-Factor Authentication-händelser
 
-Azure Multi-Factor Authentication innehåller flera rapporter som du och din organisation kan använda för att komma åt via Azure Portal. I följande tabell visas tillgängliga rapporter:
+Om du vill granska och förstå Azure Multi-Factor Authentication-händelser kan du använda inloggnings rapporten Azure Active Directory (Azure AD). Den här rapporten innehåller information om autentisering när en användare uppmanas att använda Multi-Factor Authentication och om några principer för villkorlig åtkomst används. Detaljerad information om inloggnings rapporten finns i [Översikt över rapporter om inloggnings aktiviteter i Azure AD](../reports-monitoring/concept-sign-ins.md).
 
-| Rapport | Plats | Beskrivning |
-|:--- |:--- |:--- |
-| Blockerad användar historik | Azure AD >-säkerhet > MFA > blockera/avblockera användare | Visar historiken för förfrågningar om att blockera eller avblockera användare. |
-| Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
-| Användning för lokala komponenter | Azure AD > säkerhets > MFA > aktivitets rapport | Innehåller information om den övergripande användningen av MFA via NPS-tillägget, ADFS-och MFA-servern. |
-| Förhoppad användar historik | Azure AD >-säkerhet > MFA-> eng ång slö tiden | Innehåller en historik över förfrågningar om att kringgå Multi-Factor Authentication för en användare. |
-| Server status | Azure AD > säkerhets > MFA > Server status | Visar statusen för Multi-Factor Authentication servrar som är kopplade till ditt konto. |
+Den här artikeln visar hur du visar rapporten Azure AD-inloggningar i Azure Portal och sedan MSOnline v1 PowerShell-modulen.
 
-## <a name="view-mfa-reports"></a>Visa MFA-rapporter
+## <a name="view-the-azure-ad-sign-ins-report"></a>Visa rapporten Azure AD-inloggningar
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Till vänster väljer du **Azure Active Directory** > **säkerhets** > -**MFA**.
-3. Välj den rapport som du vill visa.
-
-   ![Status rapport för MFA Server-Server i Azure Portal](./media/howto-mfa-reporting/report.png)
-
-## <a name="azure-ad-sign-ins-report"></a>Inloggnings rapport för Azure AD
-
-Med **rapporten inloggnings aktiviteter** i [Azure Portal](https://portal.azure.com)kan du få den information som du behöver för att avgöra hur din miljö fungerar.
-
-Inloggnings rapporten kan ge dig information om användningen av hanterade program och användar inloggnings aktiviteter, som innehåller information om Multi-Factor Authentication (MFA) användning. MFA-data ger dig information om hur MFA fungerar i din organisation. Du får hjälp att besvara frågor som:
+Inloggnings rapporten innehåller information om användningen av hanterade program och användar inloggnings aktiviteter, som innehåller information om Multi-Factor Authentication (MFA) användning. MFA-data ger dig information om hur MFA fungerar i din organisation. Du kan besvara frågor som följande:
 
 - Kontrollerades inloggningen med MFA?
 - Hur slutförde användaren MFA?
@@ -51,94 +35,76 @@ Inloggnings rapporten kan ge dig information om användningen av hanterade progr
 - Hur många användare kan inte slutföra MFA-kontrollen?
 - Vilka vanliga MFA-relaterade problem råkar slutanvändarna ut för?
 
-Dessa data är tillgängliga via [Azure Portal](https://portal.azure.com) och [rapporterings-API: et](../reports-monitoring/concept-reporting-api.md).
+Om du vill visa inloggnings aktivitets rapporten i [Azure Portal](https://portal.azure.com)utför du följande steg. Du kan också fråga efter data med hjälp av [rapporterings-API: et](../reports-monitoring/concept-reporting-api.md).
 
-![Rapporten Azure AD-inloggningar i Azure Portal](./media/howto-mfa-reporting/sign-in-report.png)
+1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto med *globala administratörs* behörigheter.
+1. Sök efter och välj **Azure Active Directory**och välj sedan **användare** på menyn till vänster.
+1. Under *aktivitet* på menyn på vänster sida väljer du **inloggningar**.
+1. En lista över inloggnings händelser visas, inklusive status. Du kan välja en händelse om du vill visa mer information.
 
-### <a name="sign-ins-report-structure"></a>Rapport struktur för inloggningar
+    På fliken *autentiseringsinformation* eller *villkorlig åtkomst* i händelse informationen visas en status kod eller vilken princip som utlöste MFA-prompten.
 
-Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande information:
+    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
-**MFA krävs:** Om MFA krävs för inloggning eller inte. MFA kan krävas på grund av MFA per användare, villkorlig åtkomst eller andra orsaker. Möjliga värden är **Ja** eller **Nej**.
+Om det är tillgängligt visas autentiseringen, till exempel textmeddelande, Microsoft Authenticator app-avisering eller telefonsamtal.
 
-**MFA-resultat:** Mer information om huruvida MFA uppfylldes eller nekades:
+Följande information visas i fönstret *autentiseringsinformation* för en inloggnings händelse som visar om MFA-begäran har uppfyllts eller nekats:
 
-- Om MFA uppfylldes tillhandahåller den här kolumnen mer information om hur MFA uppfylldes.
-   - Azure Multi-Factor Authentication
-      - slutfört i molnet
-      - har upphört på grund av de principer som konfigurerats på klienten
-      - uppmaning om registrering
-      - uppfyllt av anspråk i token
-      - uppfyllt av anspråk som tillhandahållits av en extern provider
-      - uppfyllt av stark autentisering
-      - hoppades över eftersom flödet som utnyttjades var flödet för inloggning av asynkron Windows-meddelandekö
-      - hoppades över på grund av applösenord
-      - hoppades över på grund av plats
-      - hoppades över på grund av en registrerad enhet
-      - hoppades över på grund av en sparad enhet
-      - slutfördes
-   - Omdirigerad till extern provider för multifaktorautentisering
+* Om MFA uppfylldes tillhandahåller den här kolumnen mer information om hur MFA uppfylldes.
+   * slutfört i molnet
+   * har upphört på grund av de principer som konfigurerats på klienten
+   * uppmaning om registrering
+   * uppfyllt av anspråk i token
+   * uppfyllt av anspråk som tillhandahållits av en extern provider
+   * uppfyllt av stark autentisering
+   * hoppades över eftersom flödet som utnyttjades var flödet för inloggning av asynkron Windows-meddelandekö
+   * hoppades över på grund av applösenord
+   * hoppades över på grund av plats
+   * hoppades över på grund av en registrerad enhet
+   * hoppades över på grund av en sparad enhet
+   * slutfördes
 
-- Om MFA nekades innehåller den här kolumnen orsaken till nekandet.
-   - Azure Multi-Factor Authentication nekad;
-      - autentisering pågår
-      - duplicera autentiseringsförsök
-      - angett felaktig kod för många gånger
-      - ogiltig autentisering
-      - ogiltig verifieringskod från mobilapp
-      - felaktig konfiguration
-      - telefonsamtalet dirigerades till röstmeddelanden
-      - telefonnumret har ett ogiltigt format
-      - tjänstfel
-      - Det gick inte att komma åt användarens telefon
-      - kunde inte skicka meddelande via mobilapp till enheten
-      - kunde inte skicka meddelande via mobilapp
-      - användaren nekade autentiseringen
-      - användaren svarade inte på meddelandet via mobilappen
-      - användaren har inte några verifieringsmetoder registrerade
-      - användaren har angett en felaktig kod
-      - användaren har angett en felaktig PIN-kod
-      - användaren avslutade telefonsamtalet utan att ha slutfört autentiseringen
-      - användaren har blockerats
-      - användaren angav aldrig verifieringskoden
-      - användaren kunde inte hittas
-      - verifieringskoden har redan använts en gång
-
-**MFA-autentiseringsmetod:** Autentiseringsmetoden som användaren använde för att slutföra MFA. Möjliga värden är:
-
-- Textmeddelande
-- Meddelanden via mobilapp
-- Telefonsamtal (autentiseringstelefon)
-- Verifieringskod från mobilapp
-- Telefonsamtal (kontorstelefon)
-- Telefonsamtal (alternativ autentiseringstelefon)
-
-**Information om MFA-autentisering:**: Delvis gömd version av telefonnumret, till exempel: + X XXXXXXXX64.
-
-**Villkorlig åtkomst** Hitta information om principer för villkorlig åtkomst som påverkat inloggnings försöket, inklusive:
-
-- Principnamn
-- Bevilja kontroller
-- Kontroller av sessioner
-- Resultat
+* Om MFA nekades innehåller den här kolumnen orsaken till nekandet.
+   * autentisering pågår
+   * duplicera autentiseringsförsök
+   * angett felaktig kod för många gånger
+   * ogiltig autentisering
+   * ogiltig verifieringskod från mobilapp
+   * felaktig konfiguration
+   * telefonsamtalet dirigerades till röstmeddelanden
+   * telefonnumret har ett ogiltigt format
+   * tjänstfel
+   * Det gick inte att komma åt användarens telefon
+   * kunde inte skicka meddelande via mobilapp till enheten
+   * kunde inte skicka meddelande via mobilapp
+   * användaren nekade autentiseringen
+   * användaren svarade inte på meddelandet via mobilappen
+   * användaren har inte några verifieringsmetoder registrerade
+   * användaren har angett en felaktig kod
+   * användaren har angett en felaktig PIN-kod
+   * användaren avslutade telefonsamtalet utan att ha slutfört autentiseringen
+   * användaren har blockerats
+   * användaren angav aldrig verifieringskoden
+   * användaren kunde inte hittas
+   * verifieringskoden har redan använts en gång
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>PowerShell-rapportering för användare som registrerats för MFA
 
 Se först till att du har installerat [MSOnline v1 PowerShell-modulen](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) .
 
-Identifiera användare som har registrerat sig för MFA med hjälp av PowerShell som följer. Den här uppsättningen kommandon utesluter inaktiverade användare eftersom dessa konton inte kan autentisera mot Azure AD.
+Identifiera användare som har registrerat sig för MFA med hjälp av PowerShell som följer. Den här uppsättningen kommandon utesluter inaktiverade användare eftersom dessa konton inte kan autentiseras mot Azure AD:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
-Identifiera användare som inte har registrerat sig för MFA med hjälp av PowerShell som följer. Den här uppsättningen kommandon utesluter inaktiverade användare eftersom dessa konton inte kan autentisera mot Azure AD.
+Identifiera användare som inte har registrerat sig för MFA med hjälp av PowerShell som följer. Den här uppsättningen kommandon utesluter inaktiverade användare eftersom dessa konton inte kan autentiseras mot Azure AD:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
-Identifiera användare och utmatnings metoder som registrerats. 
+Identifiera användare och utmatnings metoder som registrerats:
 
 ```powershell
 Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
@@ -148,11 +114,11 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 @{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
 ```
 
-## <a name="possible-results-in-activity-reports"></a>Möjliga resultat i aktivitets rapporter
+## <a name="downloaded-activity-reports-result-codes"></a>Hämtade aktivitets rapporter resultat koder
 
-Följande tabell kan användas för att felsöka Multi-Factor Authentication med den nedladdade versionen av Multi-Factor Authentication-aktivitets rapporten. De visas inte direkt i Azure Portal.
+Följande tabell kan användas för att felsöka händelser med den nedladdade versionen av aktivitets rapporten från föregående Portal steg eller PowerShell-kommandon. Dessa resultat koder visas inte direkt i Azure Portal.
 
-| Anrops resultat | Beskrivning | Bred beskrivning |
+| Anrops resultat | Description | Bred beskrivning |
 | --- | --- | --- |
 | SUCCESS_WITH_PIN | PIN-kod angiven | Användaren angav en PIN-kod. Om autentiseringen lyckades angavs rätt PIN-kod. Om autentisering nekas anges en felaktig PIN-kod eller användaren är inställd på standard läge. |
 | SUCCESS_NO_PIN | Endast antal angivna | Om användaren är inställd på PIN-läge och autentiseringen nekas innebär det att användaren inte angav sin PIN-kod och bara angav #.  Om användaren är inställd på standard läge och autentiseringen lyckas innebär det att användaren bara angav # vilket är rätt att göra i standard läge. |
@@ -200,8 +166,17 @@ Följande tabell kan användas för att felsöka Multi-Factor Authentication med
 | FAILED_AUTH_RESULT_TIMEOUT | Timeout för autentiserings resultat | Användaren tog för lång tid att slutföra Multi-Factor Authentication försöket. |
 | FAILED_AUTHENTICATION_THROTTLED | Begränsad autentisering | Multi-Factor Authentication-försöket begränsades av tjänsten. |
 
+## <a name="additional-mfa-reports"></a>Ytterligare MFA-rapporter
+
+Följande ytterligare information och rapporter är tillgängliga för MFA-händelser, inklusive de för MFA-servern:
+
+| Rapport | Plats | Description |
+|:--- |:--- |:--- |
+| Blockerad användar historik | Azure AD >-säkerhet > MFA > blockera/avblockera användare | Visar historiken för förfrågningar om att blockera eller avblockera användare. |
+| Användning för lokala komponenter | Azure AD > säkerhets > MFA > aktivitets rapport | Innehåller information om den övergripande användningen av MFA server via NPS-tillägget, ADFS-och MFA-servern. |
+| Förhoppad användar historik | Azure AD >-säkerhet > MFA-> eng ång slö tiden | Innehåller en historik över MFA Server-begäranden för att kringgå MFA för en användare. |
+| Server status | Azure AD > säkerhets > MFA > Server status | Visar status för MFA-servrar som är kopplade till ditt konto. |
+
 ## <a name="next-steps"></a>Nästa steg
 
-* [SSPR och MFA-användning och insikts rapportering](howto-authentication-methods-usage-insights.md)
-* [För användare](../user-help/multi-factor-authentication-end-user.md)
-* [Distributions plats](concept-mfa-whichversion.md)
+I den här artikeln ges en översikt över inloggnings aktivitets rapporten. Mer detaljerad information om vad den här rapporten innehåller och förstår data finns i [rapporter om inloggnings aktiviteter i Azure AD](../reports-monitoring/concept-sign-ins.md).

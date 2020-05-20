@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd2511dcbf2e387a6f324742219b81c927b534af
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632670"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636396"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Minnes-och samtidiga gränser för Azure Synapse Analytics
 
@@ -77,7 +77,7 @@ Med introduktionen av [arbets belastnings grupper](sql-data-warehouse-workload-i
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Concurrency-maximum för resurs klasser
 
-För att se till att varje fråga har tillräckligt med resurser för att fungera effektivt spårar du resursutnyttjande med hjälp av SQL Analytics i Azure Synapse genom att tilldela samtidiga platser till varje fråga. Systemet placerar frågor i en kö baserat på prioritets-och samtidiga platser. Frågor väntar i kön tills det finns tillräckligt med tillgängliga samtidighets fack. [Prioritets](sql-data-warehouse-workload-importance.md) -och samtidiga platser fastställer processor prioritet. Mer information finns i [analysera din arbets belastning](analyze-your-workload.md)
+För att säkerställa att varje fråga har tillräckligt med resurser för att köras effektivt spårar Synapse-SQL resursutnyttjande genom att tilldela samtidiga platser till varje fråga. Systemet placerar frågor i en kö baserat på prioritets-och samtidiga platser. Frågor väntar i kön tills det finns tillräckligt med tillgängliga samtidighets fack. [Prioritets](sql-data-warehouse-workload-importance.md) -och samtidiga platser fastställer processor prioritet. Mer information finns i [analysera din arbets belastning](analyze-your-workload.md)
 
 **Statiska resurs klasser**
 

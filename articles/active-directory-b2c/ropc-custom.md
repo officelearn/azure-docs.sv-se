@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 207f4aecfb57480293c138c95ed6e8f6562bbc7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c6956c38d15213d84b43b24784d2bb2b3a1963f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529173"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638565"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C att använda en anpassad princip
 
@@ -86,7 +86,7 @@ Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B
     </ClaimsTransformations>
     ```
 
-4. Leta upp det **ClaimsProvider** -element som har ett `Local Account SignIn` **visnings** namn och Lägg till följande tekniska profil:
+4. Leta upp det **ClaimsProvider** -element som har ett **visnings** namn `Local Account SignIn` och Lägg till följande tekniska profil:
 
     ```XML
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
@@ -227,7 +227,7 @@ Uppdatera sedan den förlitande part filen som initierar användar resan som du 
 
 1. Gör en kopia av *SignUpOrSignin. XML-* filen i din arbets katalog och Byt namn på den till *ROPC_Auth. XML*.
 2. Öppna den nya filen och ändra värdet för attributet **PolicyId** för **TrustFrameworkPolicy** till ett unikt värde. Princip-ID är namnet på principen. Till exempel **B2C_1A_ROPC_Auth**.
-3. Ändra värdet för attributet **ReferenceId** i **DefaultUserJourney** till `ResourceOwnerPasswordCredentials`.
+3. Ändra värdet för attributet **ReferenceId** i **DefaultUserJourney** till `ResourceOwnerPasswordCredentials` .
 4. Ändra **OutputClaims** -elementet så att det endast innehåller följande anspråk:
 
     ```XML
@@ -246,9 +246,9 @@ Uppdatera sedan den förlitande part filen som initierar användar resan som du 
 
 Använd ditt favorit-API utvecklings program för att generera ett API-anrop och granska svaret för att felsöka principen. Skapa ett anrop som det här exemplet med följande information som brödtext i POST-begäran:
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-- Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
+- Ersätt `<tenant-name>` med namnet på din Azure AD B2C-klient.
 - Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
 
 | Tangent | Värde |
@@ -268,8 +268,8 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 Förfrågningen om faktisk POST ser ut som i följande exempel:
 
 ```HTTPS
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -291,9 +291,9 @@ Ett lyckat svar med offline-åtkomst ser ut som i följande exempel:
 
 Skapa ett POST samtal som det som visas här. Använd informationen i följande tabell som brödtext i begäran:
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-- Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient.
+- Ersätt `<tenant-name>` med namnet på din Azure AD B2C-klient.
 - Ersätt `B2C_1A_ROPC_Auth` med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
 
 | Tangent | Värde |

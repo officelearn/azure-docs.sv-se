@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: dd5ca3c52364813a9aabe3db821c4f7e094fa637
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198563"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634139"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -91,7 +91,7 @@ Säkerhets kopieringar som inträffar innan kvarhållningsperioden rensas automa
 Azure SQL Database beräknar den totala lagrings platsen för säkerhets kopior som ett ackumulerat värde. Varje timme rapporteras det här värdet till Azures fakturerings pipeline, som är ansvarig för att aggregera denna användning per timme för att beräkna förbrukningen i slutet av varje månad. När databasen har släppts minskar förbrukningen som säkerhets kopierings ålder. När säkerhets kopieringarna blev äldre än kvarhållningsperioden stoppas faktureringen.
 
    > [!IMPORTANT]
-   > Säkerhets kopior av en databas bevaras för den angivna kvarhållningsperioden, även om databasen har släppts. När du släpper och återskapar en databas ofta kan spara pengar på lagrings-och beräknings kostnader, kan det öka kostnaderna för säkerhets kopiering eftersom Microsoft behåller en säkerhets kopia för den angivna kvarhållningsperioden (som minst 7 dagar) för varje släppt databas, varje gång den släpps.
+   > Säkerhets kopior av en databas bevaras för den angivna kvarhållningsperioden, även om databasen har släppts. När du släpper och återskapar en databas ofta kan spara pengar på lagrings-och beräknings kostnader, kan det öka kostnaderna för säkerhets kopiering eftersom Microsoft behåller en säkerhets kopia för den angivna kvarhållningsperioden för varje släppt databas varje gång den släpps.
 
 ### <a name="monitor-consumption"></a>Övervaka förbrukning
 
@@ -149,6 +149,9 @@ Om du behöver behålla säkerhets kopiorna längre än den maximala kvarhållni
 
 > [!IMPORTANT]
 > Om du tar bort Azure SQL-servern som är värd för SQL-databaser raderas även alla Elastic Database-pooler och databaser som tillhör servern. De kan inte återställas. Du kan inte återställa en borttagen Server. Men om du har konfigurerat långsiktig kvarhållning raderas inte säkerhets kopiorna för databaserna med LTR, och dessa databaser kan återställas.
+
+> [!NOTE]
+> Minsta kvarhållning av PITR säkerhets kopia som kan konfigureras för enskilda databaser i pooler och hanterade isntances via Azure Portal är 7 dagar. Lägsta PITR för säkerhets kopiering av 1 dag kan bara konfigureras för hanterad instans med PowerShell med as. SQL modul v 2.6.0 eller högre.
 
 ## <a name="encrypted-backups"></a>Krypterade säkerhets kopior
 

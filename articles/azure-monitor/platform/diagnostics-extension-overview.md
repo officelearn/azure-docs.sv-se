@@ -6,18 +6,26 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672386"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635959"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Översikt över Azure-diagnostik-tillägg
 Azure-diagnostik tillägget är en [agent i Azure Monitor](agents-overview.md) som samlar in övervaknings data från gäst operativ systemet i Azure Compute-resurser, inklusive virtuella datorer. Den här artikeln innehåller en översikt över Azure-diagnostik-tillägget, inklusive de funktioner som stöds och alternativ för installation och konfiguration. 
 
 > [!NOTE]
 > Azure-diagnostik tillägget är en av de agenter som är tillgängliga för att samla in övervaknings data från gäst operativ systemet för beräknings resurser. Se [Översikt över Azure Monitor agenter](agents-overview.md) för en beskrivning av de olika agenterna och vägledningen för att välja lämpliga agenter för dina behov.
+
+## <a name="primary-scenarios"></a>Primära scenarier
+De primära scenarierna som hanteras av tillägget för diagnostik är:
+
+- Samla in gäst mått i Azure Monitor Mät värden.
+- Skicka gäst loggar och mått till Azure Storage för arkivering.
+- Skicka gäst loggar och mått till Azure Event Hub för att skicka dem utanför Azure.
+
 
 ## <a name="comparison-to-log-analytics-agent"></a>Jämförelse med Log Analytics agent
 Log Analytics agenten i Azure Monitor kan också användas för att samla in övervaknings data från gäst operativ systemet för virtuella datorer. Du kan välja att använda antingen eller båda beroende på dina behov. En detaljerad jämförelse av de Azure Monitor agenterna finns i [Översikt över Azure Monitors agenter](agents-overview.md) . 
@@ -36,7 +44,7 @@ I följande tabeller visas de data som kan samlas in av tillägget Windows och L
 
 ### <a name="windows-diagnostics-extension-wad"></a>Windows Diagnostics-tillägg (WAD)
 
-| Datakälla | Beskrivning |
+| Datakälla | Description |
 | --- | --- |
 | Händelse loggar i Windows   | Händelser från händelse loggen i Windows. |
 | Prestandaräknare | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
@@ -51,7 +59,7 @@ I följande tabeller visas de data som kan samlas in av tillägget Windows och L
 
 ### <a name="linux-diagnostics-extension-lad"></a>LAD (Linux Diagnostics Extension)
 
-| Datakälla | Beskrivning |
+| Datakälla | Description |
 | --- | --- |
 | Syslog | Händelser som skickas till Linux Event Logging-systemet.   |
 | Prestandaräknare  | Numeriska värden mäter prestanda för olika aspekter av operativ system och arbets belastningar. |
@@ -64,7 +72,7 @@ Konfigurera en eller flera *data mottagare* för att skicka data till andra ytte
 
 ### <a name="windows-diagnostics-extension-wad"></a>Windows Diagnostics-tillägg (WAD)
 
-| Mål | Beskrivning |
+| Mål | Description |
 |:---|:---|
 | Azure Monitor mått | Samla in prestanda data till Azure Monitor mått. Se [Skicka gäst operativ system mått till Azure Monitor Metric-databasen](collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Händelsehubbar | Använd Azure Event Hubs för att skicka data utanför Azure. Se [strömmande Azure-diagnostik data till Event Hubs](diagnostics-extension-stream-event-hubs.md) |
@@ -77,7 +85,7 @@ Du kan också samla in WAD-data från lagring till en Log Analytics arbets yta f
 ### <a name="linux-diagnostics-extension-lad"></a>LAD (Linux Diagnostics Extension)
 LAD skriver data till tabeller i Azure Storage. Det stöder sinkarna i följande tabell.
 
-| Mål | Beskrivning |
+| Mål | Description |
 |:---|:---|
 | Händelsehubbar | Använd Azure Event Hubs för att skicka data utanför Azure. |
 | Azure Storage blobbar | Skriv till data till blobbar i Azure Storage förutom tabeller. |

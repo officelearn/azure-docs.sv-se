@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e8ceaf13324864c7ec3df731c3e710815b0eba9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0db72e30fbced17665c112ad56510d7c2ca23d12
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309787"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639630"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Aktivera Azure-Multi-Factor Authentication per användare för att säkra inloggnings händelser
 
@@ -54,7 +54,7 @@ Alla användare börjar vara *inaktiverade*. När du registrerar användare i Az
 Använd följande steg för att komma åt Azure Portal sidan där du kan visa och hantera användar tillstånd:
 
 1. Logga in på [Azure Portal](https://portal.azure.com) som administratör.
-1. Sök efter och välj *Azure Active Directory*och välj sedan **användare** > **alla användare**.
+1. Sök efter och välj *Azure Active Directory*och välj sedan **användare**  >  **alla användare**.
 1. Välj **Multi-Factor Authentication**. Du kan behöva bläddra till höger för att se det här meny alternativet. Välj skärm bilden nedan om du vill se hela Azure Portals fönster och meny plats:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Välj Multi-Factor Authentication från fönstret användare i Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. En ny sida öppnas som visar användar statusen, som du ser i följande exempel.
    ![Skärm bild som visar information om exempel på användar tillstånd för Azure Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
@@ -67,7 +67,7 @@ Utför följande steg för att ändra Azure Multi-Factor Authentication-tillstå
 1. Hitta den användare som du vill aktivera för Azure Multi-Factor Authentication. Du kan behöva ändra vyn överst till **användare**.
    ![Välj användaren att ändra status för från fliken användare](./media/howto-mfa-userstates/enable1.png)
 1. Markera kryss rutan bredvid namnen på de användare som du vill ändra status för.
-1. Välj **Aktivera** eller **inaktivera**på höger sida under **snabb steg**. I följande exempel har användaren *John Smith* en kontroll bredvid sitt namn och aktive ras för användning: ![aktivera vald användare genom att klicka på Aktivera på snabb menyn](./media/howto-mfa-userstates/user1.png)
+1. Välj **Aktivera** eller **inaktivera**på höger sida under **snabb steg**. I följande exempel har användaren *John Smith* en kontroll bredvid sitt namn och aktive ras för användning: ![ Aktivera vald användare genom att klicka på Aktivera på snabb menyn](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > *Aktiverade* användare växlas automatiskt till att *tillämpas* när de registrerar sig för Azure Multi-Factor Authentication. Ändra inte användar tillstånd manuellt till *framtvingad*.
@@ -80,9 +80,9 @@ När du har aktiverat användarna ska du meddela dem via e-post. Berätta för a
 
 Om du vill ändra användar tillstånd med hjälp av [Azure AD PowerShell](/powershell/azure/overview)ändrar du `$st.State` parametern för ett användar konto. Det finns tre möjliga tillstånd för ett användar konto:
 
-* *Enabled*
+* *Aktiverad*
 * *Enforced*
-* *Disabled*  
+* *Inaktiverad*  
 
 Flytta inte användare direkt till *framtvingat* tillstånd. Om du gör det upphör icke-webbläsarbaserade appar att fungera eftersom användaren inte har gått igenom Azure Multi-Factor Authentication registrering och fått ett [applösenord](howto-mfa-mfasettings.md#app-passwords).
 
@@ -98,7 +98,7 @@ Anslut sedan med [Connect-MSOLService](/powershell/module/msonline/connect-msols
 Connect-MsolService
 ```
 
-Följande exempel på PowerShell-skript aktiverar MFA för en enskild användare *bsimon@contoso.com*med namnet:
+Följande exempel på PowerShell-skript aktiverar MFA för en enskild användare med namnet *bsimon@contoso.com* :
 
 ```PowerShell
 $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -185,4 +185,4 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Information om hur du konfigurerar Azure Multi-Factor Authentication inställningar som tillförlitliga IP-adresser, anpassade röst meddelanden och bedrägeri aviseringar finns i [Konfigurera inställningar för azure Multi-Factor Authentication](howto-mfa-mfasettings.md). Information om hur du hanterar användar inställningar för Azure Multi-Factor Authentication finns i [hantera användar inställningar med azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 
-Mer information om varför en användare uppmanas att göra MFA finns i [Azure Multi-Factor Authentication-rapporter](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+Mer information om varför en användare uppmanas att göra MFA finns i [Azure Multi-Factor Authentication-rapporter](howto-mfa-reporting.md).

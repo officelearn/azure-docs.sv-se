@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36027583d64ac91432888d866440932c6e1bdd07
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259778"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635449"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Begär en åtkomsttoken i Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du begär en åtkomsttoken för ett webb program och
 
 ## <a name="scopes"></a>Omfattningar
 
-Med hjälp av omfång kan du hantera behörigheter för skyddade resurser. När en åtkomsttoken begärs måste klient programmet ange önskade behörigheter i **scope** -parametern för begäran. Om du till exempel vill ange **omfattning svärdet** för `read` för API: t som har **app-ID-URI: n** `https://contoso.onmicrosoft.com/api`, blir `https://contoso.onmicrosoft.com/api/read`omfattningen.
+Med hjälp av omfång kan du hantera behörigheter för skyddade resurser. När en åtkomsttoken begärs måste klient programmet ange önskade behörigheter i **scope** -parametern för begäran. Om du till exempel vill ange **omfattning svärdet** för `read` för API: t som har **app-ID-URI: n** `https://contoso.onmicrosoft.com/api` , blir omfattningen `https://contoso.onmicrosoft.com/api/read` .
 
 Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Till exempel kan användare av webb-API:et ha både läs- och skrivbehörighet, eller så har användare av webb-API:et kanske bara läsbehörighet. Om du vill förvärva flera behörigheter i samma förfrågan kan du lägga till flera poster i den enda **omfattnings** parametern för begäran, avgränsade med blank steg.
 
@@ -54,7 +54,7 @@ Om du begär fler omfattningar än vad som beviljas för ditt klient program, ly
 - **OpenID** -begär en ID-token.
 - **offline_access** -begär en uppdateringstoken med hjälp av [auth Code](authorization-code-flow.md)flows.
 
-Om parametern **response_type** i en `/authorize` begäran inkluderar `token`måste **omfattnings** parametern innehålla minst en annan resurs omfattning än `openid` och `offline_access` som ska beviljas. Annars Miss lyckas `/authorize` begäran.
+Om parametern **response_type** i en `/authorize` begäran inkluderar `token` måste **omfattnings** parametern innehålla minst en annan resurs omfattning än `openid` och `offline_access` som ska beviljas. Annars `/authorize` Miss lyckas begäran.
 
 ## <a name="request-a-token"></a>Begär en token
 
@@ -85,7 +85,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 När du har tagit emot auktoriseringskod kan du använda den för att begära en åtkomsttoken:
 
 ```HTTP
-POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -111,7 +111,7 @@ Du bör se något som liknar följande svar:
 }
 ```
 
-När du https://jwt.ms använder för att kontrol lera den åtkomsttoken som returnerades, bör du se något som liknar följande exempel:
+När https://jwt.ms du använder för att kontrol lera den åtkomsttoken som returnerades, bör du se något som liknar följande exempel:
 
 ```JSON
 {

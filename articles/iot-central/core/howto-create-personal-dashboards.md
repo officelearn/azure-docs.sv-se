@@ -8,23 +8,23 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 06225e284000d7f10f575be08cd683488abec339
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985498"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634542"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Skapa och hantera flera instrument paneler
 
 **Instrument panelen** är sidan som läses in när du först navigerar till ditt program. Ett **verktyg** i ditt program definierar standard program instrument panelen för alla användare. Du kan också skapa en egen, anpassad program instrument panel. Du kan ha flera instrument paneler som visar olika data och växlar mellan dem.
 
-Om du är **administratör** för programmet kan du också skapa upp till 10 instrument paneler på program nivå för att dela med andra användare av programmet. Endast **Administratörer** kan skapa, redigera och ta bort instrument paneler på program nivå. 
+Om du är **administratör** för programmet kan du också skapa upp till 10 instrument paneler på program nivå för att dela med andra användare av programmet. Endast **Administratörer** kan skapa, redigera och ta bort instrument paneler på program nivå.  
 
 ## <a name="create-dashboard"></a>Skapa instrument panel
 
 På följande skärm bild visas instrument panelen i ett program som skapats från den **anpassade program** mal len. Du kan ersätta standard instrument panelen med en personlig instrument panel, eller om du är administratör, en annan instrument panel för program nivå. Det gör du genom att välja **+ ny** längst upp till vänster på sidan.
- 
+
 > [!div class="mx-imgBorder"]
 > ![Instrument panel för program som baseras på mallen "anpassat program"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
 
@@ -33,16 +33,17 @@ Om du väljer **+ ny** öppnas instrument panels redigeraren. I redigeraren kan 
 > [!div class="mx-imgBorder"]
 > ![Instrument panels bibliotek](media/howto-create-personal-dashboards/dashboard-library.png)
 
-Om du är **administratör** för programmet får du möjlighet att växla om du vill skapa en instrument panel på en personlig nivå eller på en instrument panel för program nivå. Om du skapar en instrument panel på en personlig nivå kommer du bara att kunna se den. Om du skapar en instrument panel för program nivå kommer alla användare av programmet att kunna se den. När du har angett en rubrik och valt den typ av instrument panel som du vill skapa, kan du spara och lägga till paneler senare. Eller om du är redo och har lagt till en mall och en enhets instans kan du gå vidare och skapa din första panel. 
+Om du är **administratör** för programmet får du möjlighet att skapa en instrument panel för personliga instrument eller en instrument panel för program nivå. Om du skapar en instrument panel på en personlig nivå kommer du bara att kunna se den. Om du skapar en instrument panel för program nivå kommer alla användare av programmet att kunna se den. När du har angett en rubrik och valt den typ av instrument panel som du vill skapa, kan du spara och lägga till paneler senare. Eller om du är redo och har lagt till en mall och en enhets instans kan du gå vidare och skapa din första panel.  
 
 > [!div class="mx-imgBorder"]
 > ![Konfigurera enhets information – formulär med Detaljer för temperatur](media/howto-create-personal-dashboards/device-details.png)
 
 Du kan till exempel lägga till en **telemetri** -panel för enhetens aktuella temperatur. Gör så här:
+
 1. Välj en **mall för enhet**
-1. Välj en **enhets instans** för den enhet som du vill se på en panel på instrument panelen. Sedan visas en lista över enhetens egenskaper som kan användas på panelen.
-1. Om du vill skapa panelen på instrument panelen klickar du på **temperatur** och drar den till instrument panels ytan. Du kan också klicka på kryss rutan bredvid **temperatur** och klicka på **kombinera**. Följande skärm bild visar hur du väljer en enhets mall och en enhets instans och sedan skapar en panel för temperatur telemetri på instrument panelen.
-1. Välj **Spara** längst upp till vänster för att spara panelen på instrument panelen.
+1. Välj en enhet från **enheter** för den enhet som du vill se på en panel i instrument panelen. Sedan visas en lista över enhetens egenskaper som kan användas på panelen.
+1. Om du vill skapa panelen på instrument panelen klickar du på **temperatur** och drar den till instrument panels ytan. Du kan också klicka på kryss rutan bredvid **temperatur** och klicka på **Lägg till panel**. Följande skärm bild visar hur du väljer en enhets mall och en enhet och sedan skapar en panel för temperatur telemetri på instrument panelen.
+1. Välj **Spara** längst upp till vänster för att spara ändringarna på instrument panelen.
 
 > [!div class="mx-imgBorder"]
 > ![Fliken instrument panel med information om temperatur panelen](media/howto-create-personal-dashboards/temperature-tile-edit.png)
@@ -70,4 +71,4 @@ Du kan redigera dina personliga instrument paneler och ta bort eventuella instru
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har lärt dig hur du skapar och hanterar personliga instrument paneler kan du [lära dig hur du hanterar dina program inställningar](howto-manage-preferences.md)
+Nu när du har lärt dig hur du skapar och hanterar personliga instrument paneler kan du [lära dig hur du hanterar dina program inställningar](howto-manage-preferences.md).

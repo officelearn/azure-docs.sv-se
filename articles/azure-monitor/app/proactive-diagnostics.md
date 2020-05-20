@@ -3,12 +3,12 @@ title: Smart identifiering i Azure Application Insights | Microsoft Docs
 description: Application Insights utför automatisk djup analys av din app-telemetri och varnar dig om potentiella problem.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: ff9f88e1d2e643d04c4417283420217e7d496caf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7fecf886515780858ecc503a29be3bd76b73c3f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536802"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700849"
 ---
 # <a name="smart-detection-in-application-insights"></a>Smart identifiering i Application Insights
  Smart identifiering varnar automatiskt om potentiella prestanda problem och fel avvikelser i ditt webb program. Den utför proaktiv analys av Telemetrin som din app skickar till [Application Insights](../../azure-monitor/app/app-insights-overview.md). Om det uppstår plötsliga ökningar i felfrekvenser eller onormala mönster i klient-eller server prestanda får du en avisering. Den här funktionen behöver ingen konfiguration. Det fungerar om ditt program skickar tillräckligt med telemetri.
@@ -59,6 +59,6 @@ De här diagnostikverktygen hjälper dig att inspektera Telemetrin från din app
 
 Smart identifiering är helt automatisk. Men kanske vill du konfigurera ytterligare aviseringar?
 
-* [Manuellt konfigurerade mått varningar](../../azure-monitor/app/alerts.md)
+* [Manuellt konfigurerade mått varningar](../../azure-monitor/platform/alerts-log.md)
 * [Webbtester för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) 
 

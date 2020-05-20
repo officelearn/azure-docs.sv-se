@@ -1,0 +1,75 @@
+- name: Dokumentation om SQL Edge
+  href: index.yml
+- name: Översikt
+  items:
+    - name: Vad är SQL Edge?
+      href: overview.md
+    - name: Utgåvor och funktioner som stöds
+      href: features.md
+- name: Snabbstarter
+  expanded: true
+  items:
+    - name: Distribuera SQL Edge
+      href: deploy-portal.md
+    - name: Distribuera ONNX-modeller på SQL Edge
+      href: deploy-onnx.md
+- name: Självstudier
+  items:
+    - name: Synkronisera data med Azure Data Factory
+      href: tutorial-sync-data-factory.md
+    - name: Synkronisera daga med SQL Data Sync
+      href: tutorial-sync-data-sync.md
+    - name: Skapa en IoT-lösning från slutpunkt till slutpunkt med SQL Edge
+      items:
+        - name: Ställa in Azure-resurser
+          href: tutorial-deploy-azure-resources.md
+        - name: Konfigurera IoT Edge-moduler
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: Distribuera en modell till SQL Edge
+          href: tutorial-run-ml-model-on-sql-edge.md
+- name: Gör så här för att
+  items:
+    - name: DAC-paket och Stream Analytics-jobb
+      href: stream-analytics.md
+    - name: Konfigurera replikering
+      href: configure-replication.md
+    - name: Spåra dataändringar
+      href: track-data-changes.md
+    - name: Hantera strömningsjobb i T-SQL
+      href: create-stream-analytics-job.md
+    - name: Ansluta till SQL Edge
+      href: connect.md
+    - name: Konfigurera SQL Edge
+      href: configure.md
+    - name: Distribuera DAC-paket
+      href: deploy-dacpac.md
+- name: Begrepp
+  items:
+    - name: Maskininlärning och AI med ONNX
+      href: onnx-overview.md
+    - name: Säkerhetskopiering och återställning
+      href: backup-restore.md
+    - name: Dataströmning i SQL Edge
+      items:
+        - name: Strömma data
+          href: stream-data.md
+        - name: Skapa extern ström (Transact-SQL)
+          href: create-external-stream-transact-sql.md
+        - name: Ändra extern ström (Transact-SQL)
+          href: alter-external-stream-transact-sql.md
+        - name: Ta bort extern ström (Transact-SQL)
+          href: drop-external-stream-transact-sql.md
+        - name: 'Strömmande vyer och DMV:er'
+          items:
+            - name: 'Strömmande vyer och DMV:er'
+              href: streaming-catalog-views.md
+            - name: sys.external_job_streams (Transact-SQL)
+              href: sys-external-job-streams.md
+            - name: sys.external-streaming_jobs (Transact-SQL)
+              href: sys-external-streaming-jobs.md
+            - name: sys.external_streams (Transact-SQL)
+              href: sys-external-streams.md
+    - name: Bearbeta tidsseriedata
+      items:
+        - name: Date_Bucket (Transact-SQL)
+          href: date-bucket-tsql.md

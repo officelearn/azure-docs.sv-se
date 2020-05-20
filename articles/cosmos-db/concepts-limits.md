@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 0e45e832def4073f22a160b95447afb1b10ef77a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657383"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697561"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -188,7 +188,7 @@ I följande tabell visas gränserna för try- [Azure Cosmos dB för kostnads fri
 
 | Resurs | Standardgräns |
 | --- | --- |
-| Utvärderings periodens varaktighet | 30 dagar (kan förnyas valfritt antal gånger) |
+| Utvärderings periodens varaktighet | 30 dagar (en ny utvärderings version kan begäras efter förfallo datum) <br> Efter förfallo datum raderas informationen som lagras. |
 | Maximalt antal behållare per prenumeration (SQL, Gremlin, Tabell-API) | 1 |
 | Maximalt antal behållare per prenumeration (MongoDB-API) | 3 |
 | Maximalt data flöde per behållare | 5000 |

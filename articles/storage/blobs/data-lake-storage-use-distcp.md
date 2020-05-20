@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ea7fb97b6c97a797ce99878762333833965549d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255540"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698642"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2
 
@@ -23,11 +23,11 @@ DistCp innehåller en rad kommando rads parametrar och vi rekommenderar att du l
 
 ## <a name="prerequisites"></a>Krav
 
-* **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett befintligt Azure Storage-konto utan data Lake Storage Gen2 funktioner (hierarkiskt namn område) aktiverat**.
-* **Ett Azure Storage konto med data Lake Storage Gen2 funktionen aktive rad**. Anvisningar om hur du skapar ett finns i [skapa ett Azure Data Lake Storage Gen2 lagrings konto](data-lake-storage-quickstart-create-account.md)
-* **Ett fil system** som har skapats i lagrings kontot med hierarkiskt namn område aktiverat.
-* **Azure HDInsight-kluster** med åtkomst till ett lagrings konto med data Lake Storage Gen2 aktiverat. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se till att aktivera fjärr skrivbord för klustret.
+* En Azure-prenumeration. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Ett befintligt Azure Storage-konto utan Data Lake Storage Gen2 funktioner (hierarkiskt namn område) aktiverat.
+* Ett Azure Storage konto med Data Lake Storage Gen2 funktioner (hierarkiskt namn område) aktiverat. Anvisningar om hur du skapar ett finns i [skapa ett Azure Storage konto](../common/storage-account-create.md)
+* En behållare som har skapats i lagrings kontot med hierarkiskt namn område aktiverat.
+* Ett Azure HDInsight-kluster med åtkomst till ett lagrings konto med funktionen hierarkiskt namn område aktive rad. Se [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Se till att aktivera fjärr skrivbord för klustret.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Använda DistCp från ett HDInsight Linux-kluster
 
@@ -37,25 +37,25 @@ An-HDInsight kluster levereras med verktyget DistCp som kan användas för att k
 
 2. Kontrol lera om du kan komma åt ditt befintliga General Purpose v2-konto (utan hierarkiskt namn område aktiverat).
 
-        hdfs dfs –ls wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
+        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
 
-    Utdata ska innehålla en lista över innehåll i behållaren.
+   Utdata ska innehålla en lista över innehåll i behållaren.
 
 3. På samma sätt kan du kontrol lera om du kan komma åt lagrings kontot med hierarkiskt namn område som är aktiverat från klustret. Kör följande kommando:
 
-        hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
+        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-    Utdata ska innehålla en lista över filer/mappar i Data Lake Storage-kontot.
+    Utdata ska innehålla en lista över filer/mappar i Data Lake lagrings konto.
 
 4. Använd DistCp för att kopiera data från WASB till ett Data Lake Storage-konto.
 
-        hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
     Kommandot kopierar innehållet i mappen **/example/data/Gutenberg/** i Blob Storage till **/MyFolder** i data Lake Storage-kontot.
 
 5. På samma sätt kan du använda DistCp för att kopiera data från Data Lake Storage-konto till Blob Storage (WASB).
 
-        hadoop distcp abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
 
     Kommandot kopierar innehållet i **/MyFolder** i data Lake Store-kontot till **/example/data/Gutenberg/** -mappen i WASB.
 
@@ -65,7 +65,7 @@ Eftersom DistCpens lägsta granularitet är en enda fil, är det största antale
 
 **Exempel**
 
-    hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Hur gör jag för att avgöra hur många mappningar som ska användas?
 

@@ -1,28 +1,30 @@
 ### YamlMime:Landing
-title: Dokumentation om Azure Active Directory B2B
-summary: Lär dig hur du använder samarbete i Azure AD B2B (företag till företag) för att på ett säkert sätt dela företagets program och tjänster med gästanvändare och externa partner från valfri organisation, samtidigt som du behåller kontrollen över företagets egna data.
+title: Dokumentation om externa identiteter
+summary: Externa identiteter är en uppsättning funktioner som gör det möjligt för organisationer att skydda och hantera externa användare, inklusive kunder och partner. Externa identiteter bygger på B2B-samarbete och gör det enklare att nå ut till och interagera med användare utanför organisationen.
 metadata:
-  title: Dokumentation om programhantering
-  description: Lär dig hur du använder samarbete i Azure AD B2B (företag till företag) för att på ett säkert sätt dela företagets program och tjänster med gästanvändare och externa partner från valfri organisation, samtidigt som du behåller kontrollen över företagets egna data.
+  title: Dokumentation om externa identiteter
+  description: Externa identiteter är en uppsättning funktioner som gör det möjligt för organisationer att skydda och hantera externa användare, inklusive kunder och partner. Externa identiteter bygger på B2B-samarbete och gör det enklare att nå ut till och interagera med användare utanför organisationen.
   ms.service: active-directory
   ms.subservice: B2B
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 08/27/2019
+  ms.date: 05/19/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 2c0f418249d470c1454474012fb25e6670630108
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 3a26561b7789446aff70c9fb9e08d523d05d8d64
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74272698"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83587484"
 landingContent:
-- title: Om B2B-samarbete
+- title: Om externa identiteter
   linkLists:
   - linkListType: overview
     links:
+    - text: Jämför lösningar för externa identiteter
+      url: compare-with-b2c.md
     - text: Vad är B2B-gästanvändaråtkomst?
       url: what-is-b2b.md
 - title: Bjuda in B2B-gästanvändare

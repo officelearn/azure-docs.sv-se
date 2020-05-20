@@ -1,0 +1,70 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Static Web Apps
+summary: Med Azure Static Web Apps kan du skapa JavaScript-webbprogram som automatiskt publicerar från ändringar som görs i GitHub.
+metadata:
+  title: Dokumentation om Azure Static Web Apps
+  description: Med Azure Static Web Apps kan du skapa JavaScript-webbprogram som automatiskt publicerar från ändringar som görs i GitHub.
+  ms.topic: landing-page
+  ms.service: static-web-apps
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 04/09/2020
+  ms.openlocfilehash: 8dd4f7420c4b58d621312f361beede1e48bc17b5
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593077"
+landingContent:
+- title: Om Static Web Apps
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Static Web Apps?
+      url: overview.md
+- title: Kom igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa din första Angular-app
+      url: /azure/static-web-apps/getting-started?tabs=angular
+    - text: Skapa din första React-app
+      url: /azure/static-web-apps/getting-started?tabs=react
+    - text: Skapa din första Vue-app
+      url: /azure/static-web-apps/getting-started?tabs=vue
+    - text: Skapa din första app (inget ramverk)
+      url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
+  - linkListType: learn
+    links:
+    - text: Publicera en JavaScript-app och ett JavaScript-API i Angular, React, Svelte eller Vue
+      url: /learn/modules/publish-app-service-static-web-app-api
+- title: Viktiga begrepp
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vägar
+      url: routes.md
+    - text: Offentliga API:er
+      url: apis.md
+    - text: Mellanlagring
+      url: review-publish-pull-requests.md
+    - text: Begränsa åtkomst
+      url: authentication-authorization.md
+- title: Publicera scenarier
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Publicera från Gatsby
+      url: publish-gatsby.md
+    - text: Publicera från Hugo
+      url: publish-hugo.md
+    - text: Publicera från VuePress
+      url: publish-vuepress.md
+    - text: Distribuera från Next.js
+      url: deploy-nextjs.md
+    - text: Distribuera från Nuxt.js
+      url: deploy-nuxtjs.md
+  - linkListType: learn
+    links:
+    - text: Publicera en statisk webbapp med Gatsby
+      url: /learn/modules/create-deploy-static-webapp-gatsby-app-service

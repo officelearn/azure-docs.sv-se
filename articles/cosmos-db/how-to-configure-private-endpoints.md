@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: thweiss
-ms.openlocfilehash: 6ba85961ac4ec9b1b439de18a1d6da0cec4ead4f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652571"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697878"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurera en privat Azure-länk för ett Azure Cosmos-konto
 
@@ -646,11 +646,9 @@ Följande begränsningar gäller när du använder en privat länk med ett Azure
 
 * När du använder en Azure Cosmos DBs API för MongoDB-konto som har en privat länk, kanske vissa verktyg eller bibliotek inte fungerar eftersom de automatiskt utsträckar `appName` parametern från anslutnings strängen. Den här parametern krävs för att ansluta till kontot över en privat slut punkt. Vissa verktyg, t. ex. Visual Studio Code, tar inte bort den här parametern från anslutnings strängen och är därför kompatibel.
 
-* Du kan inte flytta eller ta bort ett virtuellt nätverk om det innehåller en privat länk.
-
-* Det går inte att redundansväxla ett Azure Cosmos-konto till en region som inte är mappad till alla privata slut punkter som är kopplade till kontot.
-
 * En nätverks administratör bör minst beviljas `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` behörigheten i Azure Cosmos-kontots omfång för att skapa automatiskt godkända privata slut punkter.
+
+* Direkt läge stöds inte för närvarande i Kina-baserade Azure-regioner.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Begränsningar för integrering av privata DNS-zoner
 

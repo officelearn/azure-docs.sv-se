@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 52f389e00d63f3659dfe79487b31ec9c3fab1ced
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 82fbc144b9b2dffdddc09900bf6ed9424b445100
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580693"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701454"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Data omvandlings uttryck i data flöde för mappning
 
@@ -59,6 +59,13 @@ ___
 Logisk och-operator. Samma som && * ``and(true, false) -> false``  
 * ``true && false -> false``  
 ___
+### <code>array</code>
+<code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
+Skapar en matris med objekt. Alla objekt ska vara av samma typ. Om inga objekt anges är en tom sträng mat ris som standard. Samma som en []-operator för skapande* ``array('Seattle', 'Washington')``
+* ``['Seattle', 'Washington']``
+* ``['Seattle', 'Washington'][1]``
+* ``'Washington'``
+___
 ### <code>asin</code>
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Beräknar ett inverterat sinus-värde* ``asin(0) -> 0.0``  
@@ -79,6 +86,27 @@ Markerar ett kolumn värde efter namn i data strömmen. Du kan skicka ett valfri
 * ``toLong(byName($debtCol))``  
 * ``toString(byName('Bogus Column'))``  
 * ``toString(byName('Bogus Column', 'DeriveStream'))``  
+___
+### <code>byNames</code>
+<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Välj en matris med kolumner efter namn i data strömmen. Du kan skicka ett valfritt Stream-namn som det andra argumentet. Om det finns flera matchningar returneras den första matchningen. Om det inte finns några matchningar för en kolumn, är hela utdata ett NULL-värde. Det returnerade värdet kräver en typ konverterings funktion (todate, toString,...).  Kolumn namn som är kända i design tid ska bara åtgärdas med deras namn. Beräknade indata stöds inte, men du kan använda parameter ersättningar.
+* ``toString(byNames(['parent', 'child']))``
+* ````
+* ``byNames(['parent']) ? string``
+* ````
+* ``toLong(byNames(['income']))``
+* ````
+* ``byNames(['income']) ? long``
+* ````
+* ``toBoolean(byNames(['foster']))``
+* ````
+* ``toLong(byNames($debtCols))``
+* ````
+* ``toString(byNames(['a Column']))``
+* ````
+* ``toString(byNames(['a Column'], 'DeriveStream'))``
+* ````
+* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
@@ -119,6 +147,15 @@ ___
 Hämtar alla utdatakolumner för en ström. Du kan skicka ett valfritt Stream-namn som det andra argumentet.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
+
+___
+### <code>columns</code>
+<code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Hämtar alla utdatakolumner för en ström. Du kan skicka ett valfritt Stream-namn som det andra argumentet.   
+* ``columns()``
+* ````
+* ``columns('DeriveStream')``
+* ````
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
@@ -402,7 +439,7 @@ Vänster fyller strängen med den angivna utfyllnaden tills den har en viss län
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
 *' ' lpad (' Dumbo ', 8, ' <> ')-> ' <><dumbo'``  
 ___
-### <code>LTRIM</code>
+### <code> LTRIM</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
 Left trimmar en sträng med inledande tecken. Om den andra parametern inte anges rensas blank steg. Annars trimmas alla bokstäver som anges i den andra parametern* ``ltrim('  dumbo  ') -> 'dumbo  '``  
 * ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``  
@@ -523,17 +560,17 @@ Ackumulerar element i en matris. Minska förväntar sig en referens till ett ack
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Extrahera en matchande del sträng för ett angivet regex-mönster. Den sista parametern identifierar matchnings gruppen och standardvärdet är 1 om den utelämnas. Använd '<regex>' (citat tecken) för att matcha en sträng utan undantag* ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
+Extrahera en matchande del sträng för ett angivet regex-mönster. Den sista parametern identifierar matchnings gruppen och standardvärdet är 1 om den utelämnas. Använd ' <regex> ' (citat tecken) för att matcha en sträng utan undantag* ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
 * ``regexExtract('Cost is between 600 and 800 dollars', `(\d+) and (\d+)`, 2) -> '800'``  
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-Kontrollerar om strängen matchar det aktuella regex-mönstret. Använd '<regex>' (citat tecken) för att matcha en sträng utan undantag* ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``  
+Kontrollerar om strängen matchar det aktuella regex-mönstret. Använd ' <regex> ' (citat tecken) för att matcha en sträng utan undantag* ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``  
 * ``regexMatch('200.50', `(\d+).(\d+)`) -> true``  
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Ersätt alla förekomster av ett regex-mönster med en annan under sträng i den aktuella strängen<regex>Använd (citat tecken) för att matcha en sträng utan undantag* ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
+Ersätt alla förekomster av ett regex-mönster med en annan under sträng i den aktuella strängen Använd <regex> (citat tecken) för att matcha en sträng utan undantag* ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
 * ``regexReplace('100 and 200', `(\d+)`, 'gunchus') -> 'gunchus and gunchus'``  
 ___
 ### <code>regexSplit</code>
@@ -965,7 +1002,7 @@ Hämtar värdet för den första parametern utvärderade n rader efter den aktue
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-Funktionen NTile delar upp raderna för varje partition i `n` buckets mellan 1 och högst. `n` Bucket-värden kommer att skilja sig från de flesta 1. Om antalet rader i partitionen inte delas jämnt i antalet buckets, distribueras resten av värdena en per Bucket, från den första Bucket. Funktionen NTile är användbar för beräkning av tertiles, kvartilen, deciles och annan gemensam sammanfattnings statistik. Funktionen beräknar två variabler under initieringen: storleken på en vanlig Bucket kommer att ha en extra rad tillagd. Båda variablerna baseras på den aktuella partitionens storlek. Under beräknings processen håller funktionen reda på det aktuella rad numret, aktuellt Bucket-nummer och rad numret som Bucket ska ändras till (bucketThreshold). När det aktuella rad numret når Bucket-tröskelvärdet ökas värdet för Bucket med ett och tröskelvärdet ökas med Bucket-storlek (plus ett extra om den aktuella Bucket är utfylld).  
+Funktionen NTile delar upp raderna för varje partition i `n` buckets mellan 1 och högst `n` . Bucket-värden kommer att skilja sig från de flesta 1. Om antalet rader i partitionen inte delas jämnt i antalet buckets, distribueras resten av värdena en per Bucket, från den första Bucket. Funktionen NTile är användbar för beräkning av tertiles, kvartilen, deciles och annan gemensam sammanfattnings statistik. Funktionen beräknar två variabler under initieringen: storleken på en vanlig Bucket kommer att ha en extra rad tillagd. Båda variablerna baseras på den aktuella partitionens storlek. Under beräknings processen håller funktionen reda på det aktuella rad numret, aktuellt Bucket-nummer och rad numret som Bucket ska ändras till (bucketThreshold). När det aktuella rad numret når Bucket-tröskelvärdet ökas värdet för Bucket med ett och tröskelvärdet ökas med Bucket-storlek (plus ett extra om den aktuella Bucket är utfylld).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd49d11061a345b396d300c2356645a2acd5b4c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 69d4b1d6c67dc63347ec4fb8043427ddf0a42ae1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588130"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702125"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -95,9 +95,11 @@ Nu när du har kopplat beräkningen och konfigurerat din körning är nästa ste
 
 Azure Machine Learning Compute är en hanterad beräknings infrastruktur som gör det möjligt för användaren att enkelt skapa en enda eller beräkning med flera noder. Beräkningen skapas i arbets ytans region som en resurs som kan delas med andra användare i din arbets yta. Beräkningen skalas upp automatiskt när ett jobb skickas och kan placeras i ett Azure-Virtual Network. Beräkningen körs i en behållare miljö och paketerar dina modell beroenden i en [Docker-behållare](https://www.docker.com/why-docker).
 
-Du kan använda Azure Machine Learning Compute för att distribuera inlärnings processen över ett kluster av processor-eller GPU-datornoder i molnet. Mer information om de VM-storlekar som innehåller GPU: er finns i [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+Du kan använda Azure Machine Learning Compute för att distribuera inlärnings processen över ett kluster av processor-eller GPU-datornoder i molnet. Mer information om de VM-storlekar som innehåller GPU: er finns i [GPU-optimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 Azure Machine Learning Compute har standard gränser, till exempel antalet kärnor som kan allokeras. Mer information finns i [Hantera och begära kvoter för Azure-resurser](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
+
+Du kan också välja att använda virtuella datorer med låg prioritet för att köra vissa eller alla arbets belastningar. De här virtuella datorerna har inte garanterad tillgänglighet och kan komma att blockeras när den används. Ett väntande jobb startas om, inte återupptas.  Virtuella datorer med låg prioritet har rabatterat pris jämfört med normala virtuella datorer, se [planera och hantera kostnader](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost).
 
 > [!TIP]
 > Kluster kan i allmänhet skala upp till 100 noder så länge som du har tillräckligt med kvot för antalet kärnor som krävs. Som standard konfigureras kluster för kommunikation mellan noder mellan noderna i klustret som stöd för MPI-jobb till exempel. Du kan dock skala dina kluster till tusentals noder genom att bara [höja ett support ärende](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)och begära att vitlista din prenumeration eller arbets yta eller ett särskilt kluster för att inaktivera kommunikation mellan noder. 

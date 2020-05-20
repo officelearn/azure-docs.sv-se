@@ -3,12 +3,12 @@ title: Azure Service Fabric diagnostisera vanliga scenarier
 description: Lär dig mer om fel sökning av vanliga övervaknings-och diagnostiska scenarier i Azure Service Fabric-program.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc17f00dc46c6e995d18621353c8f10cacf7759c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76906943"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697677"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
@@ -45,7 +45,7 @@ Lösningarna i den här artikeln kommer att använda följande verktyg. Vi rekom
 1. I samma Application Insights resurs kan du filtrera efter "förfrågningar" i stället för undantag och Visa alla begär Anden som gjorts
 2. Om du använder Service Fabric Application Insights SDK kan du se en visuell representation av dina tjänster som är anslutna till varandra och antalet lyckade och misslyckade förfrågningar. Till vänster klickar du på "program karta"
 
-    ![AI app Map blad](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![AI-app Map](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![AI app Map blad ](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![ AI-app Map](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     Mer information om program kartan finns i [dokumentationen till program kartan](../azure-monitor/app/app-map.md)
 
@@ -133,7 +133,7 @@ Se dessa länkar för en fullständig lista över prestanda räknare för pålit
 ## <a name="next-steps"></a>Nästa steg
 
 * [Leta upp vanliga aktiverings fel för kod paket](./service-fabric-diagnostics-code-package-errors.md)
-* [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) för att få meddelanden om förändringar i prestanda eller användning
+* [Konfigurera aviseringar i AI](/azure/azure-monitor/platform/alerts-log) för att få meddelanden om förändringar i prestanda eller användning
 * [Smart identifiering i Application Insights](../azure-monitor/app/proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till AI för att varna dig om potentiella prestanda problem
 * Läs mer om hur du Azure Monitor loggar [varningar](../log-analytics/log-analytics-alerts.md) till hjälp vid identifiering och diagnostik.
 * För lokala kluster erbjuder Azure Monitor-loggar en gateway (HTTP Forward proxy) som kan användas för att skicka data till Azure Monitor loggar. Läs mer om det i [ansluta datorer utan Internet åtkomst till Azure Monitor loggar med hjälp av Log Analytics Gateway](../azure-monitor/platform/gateway.md)

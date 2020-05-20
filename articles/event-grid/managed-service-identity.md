@@ -1,5 +1,5 @@
 ---
-title: Använd hanterad tjänst identitet för att vidarebefordra händelser Azure Event Grid prenumerationer
+title: Händelse leverans med hanterad tjänst identitet
 description: I den här artikeln beskrivs hur du aktiverar hanterad tjänst identitet för ett Azure Event Grid-ämne. Använd den för att vidarebefordra händelser till destinationer som stöds.
 services: event-grid
 author: spelluru
@@ -7,14 +7,14 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 0e1f46c0bd7ce22cae77db1a524336445fd3f795
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4d96f28b98cccada2ac5c77589acc6df1430bb02
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691028"
+ms.locfileid: "83700654"
 ---
-# <a name="enable-and-use-managed-service-identity-for-an-event-grid-topic-or-domain"></a>Aktivera och använda hanterad tjänst identitet för ett event Grid-ämne eller en domän 
+# <a name="event-delivery-with-managed-identity"></a>Händelse leverans med hanterad identitet
 I den här artikeln beskrivs hur du aktiverar [hanterad tjänst identitet](../active-directory/managed-identities-azure-resources/overview.md) för ett event Grid-ämne eller en domän. Använd den för att vidarebefordra händelser till stödda destinationer som Service Bus köer och ämnen, Event Hub och lagrings konton.
 
 Här följer de steg som beskrivs i detalj i den här artikeln:

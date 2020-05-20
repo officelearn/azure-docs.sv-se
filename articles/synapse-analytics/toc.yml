@@ -36,6 +36,8 @@
           href: quickstart-load-studio-sql-pool.md
     - name: Använda SQL på begäran
       href: quickstart-sql-on-demand.md
+    - name: Ansluta till Synapse Link för Cosmos DB
+      href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Självstudier
   items:
     - name: Köra Apache Spark-program för Spark-pooler
@@ -80,7 +82,7 @@
                   href: ../data-factory/concepts-data-flow-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Underhållsschema
           href: ./sql-data-warehouse/maintenance-scheduling.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-        - name: Säkerhetskopiering och återställning
+        - name: Säkerhetskopiera och återställa
           href: ./sql-data-warehouse/backup-and-restore.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Övervakning
       items:
@@ -324,6 +326,10 @@
               href: ./sql-data-warehouse/memory-concurrency-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Resursklasser
               href: ./sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Synapse Link
+      items:
+        - name: Funktioner som stöds av Synapse Link
+          href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
     - name: 'Verktygsintegrering (AI, ETL, BI)'
       items:
         - name: Felsöka Synapse Analytics Studio
@@ -406,6 +412,12 @@
               href: data-integration/data-integration-data-lake.md
     - name: Transformera och analysera data
       items:
+        - name: Synapse Link
+          items:
+            - name: Ansluta till Azure Synapse Link för Cosmos DB
+              href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
+            - name: Köra frågor mot Azure Cosmos DB-analysarkiv med Apache Spark för Azure Synapse Analytics
+              href: ./synapse-link/how-to-query-analytical-store-spark.md
         - name: Synapse SQL
           items:
             - name: Fråga efter data i lagring

@@ -3,12 +3,12 @@ title: Information om princip definitions strukturen
 description: Beskriver hur princip definitioner används för att upprätta konventioner för Azure-resurser i din organisation.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3852644e888fd4a7cef1d84cc4008d106a8c7910
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 509d4424e26873d8e8da8fac96eb7e380b0fa262
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684344"
+ms.locfileid: "83700613"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -80,7 +80,7 @@ Resurs stöder till exempel `Microsoft.Network/routeTables` taggar och plats och
 
 Vi rekommenderar att du ställer in **läget** till `all` i de flesta fall. Alla princip definitioner som skapats via portalen använder `all` läget. Om du använder PowerShell eller Azure CLI kan du ange **läges** parametern manuellt. Om princip definitionen inte innehåller ett **läges** värde används standardvärdet `all` i Azure PowerShell och `null` i Azure CLI. Ett `null` läge är detsamma som att använda `indexed` för att ge stöd för bakåtkompatibilitet.
 
-`indexed`ska användas när du skapar principer som tvingar etiketter eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantaget är **resurs grupper** och **prenumerationer**. Principer som tvingar plats eller taggar i en resurs grupp eller prenumeration ska ange **läge** till `all` och särskilt vara mål för- `Microsoft.Resources/subscriptions/resourceGroups` eller- `Microsoft.Resources/subscriptions` typen. Ett exempel finns i [tvinga resurs grupps Taggar](../samples/enforce-tag-rg.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/management/tag-support.md).
+`indexed`ska användas när du skapar principer som tvingar etiketter eller platser. Även om det inte krävs, förhindrar det att resurser som inte stöder taggar och platser visas som icke-kompatibla i resultatet av efterlevnaden. Undantaget är **resurs grupper** och **prenumerationer**. Princip definitioner som tvingar plats eller taggar i en resurs grupp eller prenumeration ska ange **läge** till `all` och särskilt vara mål för- `Microsoft.Resources/subscriptions/resourceGroups` eller- `Microsoft.Resources/subscriptions` typen. Ett exempel finns i [Pattern: Tags-Sample #1](../samples/pattern-tags.md). En lista över resurser som stöder taggar finns i [tagga stöd för Azure-resurser](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Lägen för resurs leverantörer (för hands version)
 

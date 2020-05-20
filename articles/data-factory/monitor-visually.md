@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 01a4cd172b699cef009197d1fce1d5bae62f2925
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9a81ab58335e968e5ce4816de85ed1b63bc93455
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680640"
+ms.locfileid: "83699601"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Övervaka Azure Data Factory visuellt
 
@@ -142,7 +142,7 @@ Om du klickar på ikonen öppnas en förbruknings rapport över resurser som anv
 
 ![Övervaka förbrukning](media/monitor-visually/monitor-consumption-2.png)
 
-Du kan koppla dessa värden till [Azure-prissättningen calcula. hatt pipeline. Mer information om Azure Data Factory priser finns i [förstå priser](pricing-concepts.md).
+Du kan koppla värdena till [pris Kalkylatorn för Azure]. ( https://azure.microsoft.com/pricing/details/data-factory/) för att beräkna kostnaden för pipeline-körningen. Mer information om Azure Data Factory priser finns i [förstå priser](pricing-concepts.md).
 
 > [!NOTE]
 > De här värdena som returneras av pris kalkylatorn är en uppskattning. Det visar inte exakt det belopp du debiteras per Azure Data Factory 

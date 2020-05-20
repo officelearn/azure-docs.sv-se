@@ -148,7 +148,7 @@ Du kan använda biblioteket för att skapa mer komplexa analys diagram, med fler
 | Antal         | Gaussisk   | Långa       |
 | Histogram     | Geometriska  | Ihopfogning   |
 | Medelvärde          | Laplace    | Digitalisera   |
-| Quantiles     |            | Filtrera     |
+| Quantiles     |            | Filter     |
 | Summa           |            | Tillvitelse |
 | Varians/kovarians |      | Transformering  |
 

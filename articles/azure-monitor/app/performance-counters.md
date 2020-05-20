@@ -3,12 +3,12 @@ title: Prestanda räknare i Application Insights | Microsoft Docs
 description: Övervaka system-och anpassade .NET-prestanda räknare i Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 201338d3a904030ea961aede094b9877bfee3e36
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855106"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701480"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>System prestanda räknare i Application Insights
 
@@ -21,16 +21,16 @@ Fönstret mått visar standard uppsättningen med prestanda räknare.
 ![Prestanda räknare som rapporter ATS i Application Insights](./media/performance-counters/performance-counters.png)
 
 De aktuella standard räknare som har kon figurer ATS för att samlas in för ASP.NET/ASP.NET Core-webbprogram är:
-- \\Processor tid i procent för processor
-- % Process\\processor tid normaliserad
-- Tillgängliga\\byte för minne
+- Processor tid i procent för processor \\
+- % Process \\ processor tid normaliserad
+- \\Tillgängliga byte för minne
 - ASP.NET-begäranden per sekund
 - Utlösta .NET CLR-undantag/SEK
 - Körnings tid för ASP.NET-ApplicationsRequest
-- Privata\\byte för process
-- Bearbeta\\IO-databyte/s
-- ASP.NET program\\begär anden i program kön
-- Processor (_Total)\\% processor tid
+- \\Privata byte för process
+- Bearbeta \\ IO-databyte/s
+- ASP.NET program \\ begär anden i program kön
+- Processor (_Total) \\ % processor tid
 
 ## <a name="add-counters"></a>Lägg till räknare
 
@@ -40,7 +40,7 @@ Om den prestanda räknare som du vill använda inte finns med i listan över må
 
     `Get-Counter -ListSet *`
 
-    (Se [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx).)
+    (Se [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx) .)
 2. Öppna ApplicationInsights. config.
 
    * Om du har lagt till Application Insights i din app under utvecklingen redigerar du ApplicationInsights. config i projektet och distribuerar det sedan igen till dina servrar.
@@ -57,11 +57,11 @@ Om den prestanda räknare som du vill använda inte finns med i listan över må
     ```
 
 > [!NOTE]
-> ASP.NET Core program har `ApplicationInsights.config`inte, och därför är metoden ovan inte giltig för ASP.net Core program.
+> ASP.NET Core program har inte `ApplicationInsights.config` , och därför är metoden ovan inte giltig för ASP.net Core program.
 
 Du kan avbilda både standard räknare och de som du har implementerat själv. `\Objects\Processes`är ett exempel på en standard räknare som är tillgänglig på alla Windows-system. `\Sales(photo)\# Items Sold`är ett exempel på en anpassad räknare som kan implementeras i en webb tjänst.
 
-Formatet är `\Category(instance)\Counter"`, eller för kategorier som inte har instanser, bara `\Category\Counter`.
+Formatet är `\Category(instance)\Counter"` , eller för kategorier som inte har instanser, bara `\Category\Counter` .
 
 `ReportAs`krävs för räknar namn som inte matchar `[a-zA-Z()/-_ \.]+` – det vill säga de innehåller tecken som inte finns i följande uppsättningar: bokstäver, parenteser, snedstreck, bindestreck, under streck, blank steg, punkt.
 
@@ -89,7 +89,7 @@ Eller så kan du göra samma sak med anpassade mått som du har skapat:
 
 ### <a name="collecting-performance-counters-in-code-for-aspnet-core-web-applications"></a>Samla in prestanda räknare i kod för ASP.NET Core webb program
 
-Ändra `ConfigureServices` Metod i `Startup.cs` klassen enligt nedan.
+Ändra `ConfigureServices` metod i `Startup.cs` klassen enligt nedan.
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
@@ -111,7 +111,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ## <a name="performance-counters-in-analytics"></a>Prestanda räknare i Analytics
 Du kan söka efter och Visa prestanda räknar rapporter i [Analytics](../../azure-monitor/app/analytics.md).
 
-**PerformanceCounters** `category`-schemat visar, `counter` namn och `instance` namn för varje prestanda räknare.  I telemetri för varje program visas endast räknare för programmet. Till exempel för att se vilka räknare som är tillgängliga: 
+**PerformanceCounters** -schemat visar `category` , `counter` namn och `instance` namn för varje prestanda räknare.  I telemetri för varje program visas endast räknare för programmet. Till exempel för att se vilka räknare som är tillgängliga: 
 
 ![Prestanda räknare i Application Insights Analytics](./media/performance-counters/analytics-performance-counters.png)
 
@@ -147,7 +147,7 @@ Stöd för prestanda räknare i ASP.NET Core är begränsat:
 * SDK-versioner 2.8.0 och senare stöder CPU/minnes räknare i Linux. Ingen annan räknare stöds i Linux. Det rekommenderade sättet att hämta system räknare i Linux (och andra miljöer som inte kommer från Windows) är att använda [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Aviseringar
-Precis som med andra mått kan du [Ange en avisering](../../azure-monitor/app/alerts.md) som varnar dig om en prestanda räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
+Precis som med andra mått kan du [Ange en avisering](../../azure-monitor/platform/alerts-log.md) som varnar dig om en prestanda räknare går utanför en gräns som du anger. Öppna fönstret aviseringar och klicka på Lägg till avisering.
 
 ## <a name="next-steps"></a><a name="next"></a>Nästa steg
 

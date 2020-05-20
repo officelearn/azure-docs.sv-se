@@ -4,15 +4,15 @@ description: Lär dig hur du konfigurerar en Azure Analysis Services-server för
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 384f4c2ee3021678c530aa5c98eaf4dbfd661e95
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 7622b6b5855850a0150f43863fa117828e23d4bd
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572264"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698866"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Använda Gateway för data källor på en Azure-Virtual Network (VNet)
 
@@ -29,7 +29,7 @@ Azure SQL Database hanterade instans data källor körs i Azure VNet med en priv
 
 ## <a name="configure-alwaysusegateway-property"></a>Konfigurera egenskapen AlwaysUseGateway
 
-1. I SSMS > Server > **Egenskaper** > **Allmänt**väljer du **Visa avancerade egenskaper (alla)**.
+1. I SSMS > Server > **Egenskaper**  >  **Allmänt**väljer du **Visa avancerade egenskaper (alla)**.
 2. I **ASPaaS\AlwaysUseGateway**väljer du **Sant**.
 
     ![Använd alltid Gateway-egenskap](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)

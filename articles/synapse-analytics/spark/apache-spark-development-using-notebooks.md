@@ -6,15 +6,15 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 506339cefa90fb17bedfc946f70cb4d7d8047cf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430232"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702095"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Skapa, utveckla och underhålla antecknings böcker för Azure Synapse Studio (för hands version)
 
@@ -55,12 +55,12 @@ Det finns flera sätt att lägga till en ny cell i din bärbara dator.
 
 ### <a name="set-a-primary-language"></a>Ange ett primärt språk
 
-Bärbara Azure Synapse Studio-datorer stöder fyra Spark-språk:
+Bärbara Azure Synapse Studio-datorer stöder fyra Apache Spark språk:
 
-* pyspark (python)
+* pySpark (python)
 * Spark (Scala)
-* sparkSQL
-* Spark.NET (C#)
+* SparkSQL
+* .NET för Apache Spark (C#)
 
 Du kan ställa in det primära språket för nya tillagda celler i list rutan i det övre kommando fältet.
 
@@ -70,14 +70,14 @@ Du kan ställa in det primära språket för nya tillagda celler i list rutan i 
 
 Du kan använda flera språk i en bärbar dator genom att ange rätt språk-Magic-kommando i början av en cell. I följande tabell visas Magic-kommandon för att växla mellan cell språk.
 
-|Magiskt kommando |Språk | Beskrivning |  
+|Magiskt kommando |Språk | Description |  
 |---|------|-----|
 |%% pyspark| Python | Kör en **python** -fråga mot Spark-kontext.  |
 |%% Spark| Scala | Kör en **Scala** -fråga mot Spark-kontext.  |  
 |%% SQL| SparkSQL | Kör en **SparkSQL** -fråga mot Spark-kontext.  |
-|%% csharp | Spark.NET C # | Kör en **Spark.net C#** -fråga mot Spark-kontext. |
+|%% csharp | .NET för Spark C # | Kör en **.net for Spark C#** -fråga mot Spark-kontext. |
 
-Följande bild är ett exempel på hur du kan skriva en PySpark-fråga med kommandot **%% PySpark** Magic eller en SparkSQL-fråga med **%% SQL** Magic-kommandot i en **Spark-anteckningsbok (Scala)** . Observera att det primära språket för antecknings boken är inställt på Scala.
+Följande bild är ett exempel på hur du kan skriva en PySpark-fråga med kommandot **%% PySpark** Magic eller en SparkSQL-fråga med **%% SQL** Magic-kommandot i en **Spark-anteckningsbok (Scala)** . Observera att det primära språket för antecknings boken är inställt på pySpark.
 
    ![Synapse – Spark-MAGICS](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
@@ -118,7 +118,7 @@ IntelliSense-funktionerna finns på olika förfallo nivåer för olika språk. A
 |PySpark (python)|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Spark (Scala)|Ja|Ja|Ja|Ja|-|-|-|Ja|
 |SparkSQL|Ja|Ja|-|-|-|-|-|-|
-|Spark.NET (C#)|Ja|-|-|-|-|-|-|-|
+|.NET för Spark (C#)|Ja|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formatera en text cell med knappar i verktygsfältet
 
@@ -267,7 +267,7 @@ Du kan komma åt data i det primära lagrings kontot direkt. Du behöver inte an
 
 En vy med tabell resultat tillhandahålls med möjligheten att skapa ett stapeldiagram, linje diagram, cirkel diagram, punkt diagram och ytdiagram. Du kan visualisera dina data utan att behöva skriva kod. Diagrammen kan anpassas i **diagram alternativen**. 
 
-Utdata från **%% SQL** Magic-kommandon visas som standard i vyn renderad tabell. Du kan anropa **Display (`<DataFrame name>`)** i Spark-DataFrames eller elastiska distribuerade data uppsättningar (RDD)-funktionen för att skapa den åter givnings tabellen.
+Utdata från **%% SQL** Magic-kommandon visas som standard i vyn renderad tabell. Du kan anropa **Display ( `<DataFrame name>` )** i Spark-DataFrames eller elastiska distribuerade data uppsättningar (RDD)-funktionen för att skapa den åter givnings tabellen.
 
    ![inbyggt – diagram](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
 
@@ -339,11 +339,11 @@ Tillgängliga cell Magic: [%% Time](https://ipython.readthedocs.io/en/stable/int
 
 I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsbokar ett spärrat användar gränssnitt. Tangent bordet skiljer sig åt beroende på vilket läge som Notebook-cellen finns i. Bärbara datorer i Synapse Studio har stöd för följande två lägen för en specifik kod cell: kommando läge och redigerings läge.
 
-1. En cell är i kommando läge när ingen text markör visas som anger att du skriver. När en cell är i kommando läge kan du redigera antecknings boken som helhet men inte skriva in enskilda celler. Ange kommando läge genom att `ESC` trycka eller använda musen för att klicka utanför cellens redigerings området.
+1. En cell är i kommando läge när ingen text markör visas som anger att du skriver. När en cell är i kommando läge kan du redigera antecknings boken som helhet men inte skriva in enskilda celler. Ange kommando läge genom att trycka `ESC` eller använda musen för att klicka utanför cellens redigerings området.
 
    ![kommando läge](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Redigerings läget anges av en text markör där du ombeds ange redigerings ytan. När en cell är i redigerings läge kan du inte skriva i cellen. Ange redigerings läge genom att `Enter` trycka eller använda musen för att klicka på cellens redigerings yta.
+2. Redigerings läget anges av en text markör där du ombeds ange redigerings ytan. När en cell är i redigerings läge kan du inte skriva i cellen. Ange redigerings läge genom att trycka `Enter` eller använda musen för att klicka på cellens redigerings yta.
    
    ![redigerings-läge](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
@@ -351,7 +351,7 @@ I likhet med Jupyter-anteckningsböcker har Azure Synapse Studio-anteckningsboka
 
 Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks.
 
-| Action |Genvägar till Synapse Studio-anteckningsbok  |
+| Åtgärd |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
 |Kör den aktuella cellen och välj nedan | SKIFT + RETUR |
 |Kör den aktuella cellen och infoga den nedan | ALT + RETUR |
@@ -370,7 +370,7 @@ Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse
 
 Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse Notebooks i redigerings läge.
 
-| Action |Genvägar till Synapse Studio-anteckningsbok  |
+| Åtgärd |Genvägar till Synapse Studio-anteckningsbok  |
 |--|--|
 |Flytta markören uppåt | Upp |
 |Flytta markören nedåt|Ned|
@@ -390,5 +390,8 @@ Med följande kortkommandon kan du enkelt navigera och köra kod i Azure Synapse
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Snabb start: skapa en Apache Spark pool (förhands granskning) i Azure Synapse Analytics med hjälp av webb verktyg](../quickstart-apache-spark-notebook.md)
+- [Vad är Apache Spark i Azure Synapse Analytics](apache-spark-overview.md)
+- [Använda .NET för Apache Spark med Azure Synapse Analytics](spark-dotnet.md)
 - [Dokumentation om .NET för Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

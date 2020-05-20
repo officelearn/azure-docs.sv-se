@@ -119,8 +119,6 @@
           href: global-dist-under-the-hood.md
         - name: Regional närvaro
           href: regional-presence.md
-        - name: Transaktions- och analyslagring
-          href: globally-distributed-transactional-analytical-storage.md
     - name: Partitionering
       items:
         - name: Översikt över partitionering
@@ -494,14 +492,16 @@
           href: change-feed-functions.md
         - name: Hämtningsmodell för ändringsflöde
           href: change-feed-pull-model.md
-    - name: Globalt distribuerad analys och AI
+    - name: Analys med Synapse Link
       items:
-        - name: Användningsfall för analystjänster
-          href: analytics-usecases.md
-        - name: Analytics – lösningsarkitekturer
-          href: analytics-solution-architectures.md
-        - name: Lambda-arkitektur
-          href: lambda-architecture.md
+        - name: Synapse Link för Azure Cosmos DB
+          href: synapse-link.md
+        - name: Analysarkiv – översikt
+          href: analytical-store-introduction.md
+        - name: Vanliga frågor och svar om Synapse Link
+          href: synapse-link-frequently-asked-questions.md
+        - name: Användningsfall för Synapse Link
+          href: synapse-link-use-cases.md
     - name: Inbyggda Jupyter Notebooks
       items:
         - name: Översikt över Jupyter Notebooks
@@ -1020,6 +1020,10 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: Ändringsflöde – Async Java-exempel
           href: create-sql-api-java-changefeed.md
+    - name: Analys med Synapse Link
+      items:
+        - name: Konfigurera Synapse Link
+          href: configure-synapse-link.md
     - name: Inbyggd analys med Apache Spark
       items:
         - name: Azure Databricks Spark-anslutningsapp

@@ -7,13 +7,13 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 41b2e12a94f5751e31f482c913c71b4731b1cf6c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.date: 05/19/2020
+ms.openlocfilehash: 3d8806e34afe45e6cced3de4554b7dd365f4ddf9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871906"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701786"
 ---
 # <a name="create-a-managed-service-offer"></a>Skapa ett erbjudande för hanterad tjänst
 
@@ -24,8 +24,8 @@ Du måste ha en [silver eller Gold-plattform för moln plattform](https://partne
 ## <a name="create-a-new-offer"></a>Skapa ett nytt erbjudande
 
 1. Logga in på [partner Center](https://partner.microsoft.com/dashboard/home).
-2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace** > -**Översikt**.
-3. På sidan Översikt väljer du **+ ny erbjud** > **hanterad tjänst**.
+2. På menyn till vänster-navigerings väljer du **kommersiell Marketplace**-  >  **Översikt**.
+3. På sidan Översikt väljer du **+ ny erbjud**  >  **hanterad tjänst**.
 
     ![Visar menyn till vänster-navigering.](./media/new-offer-managed-service.png)
 
@@ -37,7 +37,7 @@ Du måste ha en [silver eller Gold-plattform för moln plattform](https://partne
 Ange ett **erbjudande-ID**. Detta är en unik identifierare för varje erbjudande i ditt konto.
 
 * Detta ID är synligt för kunder i webb adressen för Marketplace-erbjudandet och Azure Resource Manager mallar, om tillämpligt.
-* Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+* Använd bara gemena bokstäver och siffror. Det kan innehålla bindestreck och under streck, men inte blank steg, och är begränsat till 50 tecken. Om du till exempel anger **test-erbjudande-1**, är webb adressen för erbjudandet `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 * Erbjudande-ID: t kan inte ändras när du har valt **skapa**.
 
 Ange ett **erbjudande alias**. Detta är det namn som används för erbjudandet i Partner Center.
@@ -92,27 +92,13 @@ Ange en kort beskrivning av ditt erbjudande (upp till 100 tecken) som kan använ
 
 Ange en längre Beskrivning av ditt erbjudande (upp till 256 tecken). Den här långa sammanfattningen kan också användas i Sök resultaten för Marketplace.
 
-### <a name="description"></a>Beskrivning
+### <a name="description"></a>Description
 
-Ange en längre Beskrivning av ditt erbjudande (upp till 3 000 tecken). Den här beskrivningen visas för kunder i Översikt över Marketplace-registrering. Ta med ditt erbjudandes värde, viktiga fördelar, kategori-och/eller bransch associationer, inköps möjligheter för appar och eventuella uppgifter som krävs.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Några tips för att skriva din beskrivning:  
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen. Ta med följande objekt i ditt värde förslag:
-  - Beskrivning av erbjudandet
-  - Typ av användare som fördelar från erbjudandet
-  - Kundernas behov eller smärta på erbjudandet
-- Tänk på att de första meningarna kan visas i Sök motorns resultat.  
-- Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar.  
-- Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt.
-
-Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att tillämpa formatering.
-
-![Använda Rich Text Editor](./media/rich-text-editor.png)
-
-| <center>Ändra text format | <center>Lägga till punkter eller numrering | <center>Lägg till eller ta bort text indrag |
-| --- | --- | --- |
-| <center>![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png) |  <center>![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png) |  <center>![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="privacy-policy-link"></a>Länk till sekretess policy
 
@@ -135,7 +121,7 @@ Om du har support webbplatser för **globala Azure-kunder** och/eller **Azure Go
 I det här avsnittet kan du ange logo typer och avbildningar som ska användas när du visar ditt erbjudande för kunden. Alla bilder måste vara i PNG-format.
 
 >[!NOTE]
->Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar https://upload.xboxlive.com tjänsten som används av Partner Center.
+>Om du har problem med att ladda upp filer kontrollerar du att ditt lokala nätverk inte blockerar tjänsten som https://upload.xboxlive.com används av Partner Center.
 
 #### <a name="marketplace-logos"></a>Marketplace-logotyper
 
@@ -159,7 +145,7 @@ Följ dessa rikt linjer för dina logo typer:
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Video
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 pixlar).
 

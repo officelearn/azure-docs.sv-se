@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75464751"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701890"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Händelse analys och visualisering med Application Insights
 
@@ -42,7 +42,7 @@ För att ytterligare utforska funktionerna i Application Insights-portalen går 
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Konfigurera Application Insights med EventFlow
 
-Om du använder EventFlow för att aggregera händelser måste du först importera `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`NuGet-paketet. Följande kod krävs i avsnittet *utdata* i *eventFlowConfig. JSON*:
+Om du använder EventFlow för att aggregera händelser måste du först importera NuGet- `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` paketet. Följande kod krävs i avsnittet *utdata* i *eventFlowConfig. JSON*:
 
 ```json
 "outputs": [
@@ -73,5 +73,5 @@ Genom att klicka på **analys** går du till Application Insights Analytics-port
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) för att få meddelanden om förändringar i prestanda eller användning
+* [Konfigurera aviseringar i AI](/azure/azure-monitor/platform/alerts-log) för att få meddelanden om förändringar i prestanda eller användning
 * [Smart identifiering i Application Insights](../azure-monitor/app/proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till Application Insights för att varna dig om potentiella prestanda problem

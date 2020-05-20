@@ -4,16 +4,16 @@ description: Lär dig hur du lägger till ett Automation-tjänstens huvud namn i
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 925fbbb51ac240b96486a2c0aa09c850a8d164bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80408649"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697528"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Lägg till ett huvud namn för tjänsten i Server administratörs rollen 
 
@@ -30,7 +30,7 @@ Innan du slutför den här uppgiften måste du ha ett huvud namn för tjänsten 
 Du kan konfigurera Server administratörer med SQL Server Management Studio (SSMS). För att slutföra den här uppgiften måste du ha [Server administratörs](analysis-services-server-admins.md) behörighet på Azure as Server. 
 
 1. I SSMS ansluter du till din Azure AS-Server.
-2. I **Server egenskaper** > **säkerhet**klickar du på **Lägg till**.
+2. I **Server egenskaper**  >  **säkerhet**klickar du på **Lägg till**.
 3. I **Välj en användare eller grupp**söker du efter din registrerade app efter namn, väljer och klickar sedan på **Lägg till**.
 
     ![Sök efter tjänstens huvud konto](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
@@ -44,7 +44,7 @@ Du kan konfigurera Server administratörer med SQL Server Management Studio (SSM
 Du kan också konfigurera Server administratörer genom att distribuera Analysis Services-servern med hjälp av en Azure Resource Manager-mall. Den identitet som kör distributionen måste tillhöra rollen **deltagare** för resursen i [Azure ROLLBASERAD Access Control (RBAC)](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
-> Tjänstens huvud namn måste läggas till med formatet `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
+> Tjänstens huvud namn måste läggas till med formatet `app:{service-principal-client-id}@{azure-ad-tenant-id}` .
 
 Följande Resource Manager-mall distribuerar en Analysis Services-server med ett angivet huvud namn för tjänsten som läggs till i rollen Analysis Services administratör:
 

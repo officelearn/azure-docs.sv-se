@@ -4,15 +4,15 @@ description: Lär dig hur du skapar ett huvud namn för tjänsten för att autom
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ea9b978cce22ae6d99cbce5b4b85558f2a47b59
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266148"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699074"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -50,7 +50,7 @@ SPN-namn och lösen ord eller certifikat för tjänstens huvud namn kan använda
 
 #### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Använda modulen AZ. AnalysisServices
 
-Använd `Connect-AzAccount` cmdlet när du använder ett huvud namn för tjänsten för resurs hanterings åtgärder med modulen [AZ. AnalysisServices](/powershell/module/az.analysisservices) . 
+Använd cmdlet när du använder ett huvud namn för tjänsten för resurs hanterings åtgärder med modulen [AZ. AnalysisServices](/powershell/module/az.analysisservices) . `Connect-AzAccount` 
 
 I följande exempel används appID och ett lösen ord för att utföra kontroll Plans åtgärder för synkronisering till skrivskyddade repliker och skala upp/ut:
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO och ADOMD 
 
-När du ansluter med klient program och webbappar kan du använda [AMO-och ADOMD-klient bibliotek](analysis-services-data-providers.md) , versions hanterings paket och högre Installerbara paket från NuGet-tjänstens `app:AppID` huvud namn i `cert:thumbprint`anslutnings strängar med följande syntax: och lösen ord eller. 
+När du ansluter med klient program och webbappar kan du använda [AMO-och ADOMD-klient bibliotek](analysis-services-data-providers.md) , versions hanterings paket och högre Installerbara paket från NuGet-tjänstens huvud namn i anslutnings strängar med följande syntax: `app:AppID` och lösen ord eller `cert:thumbprint` . 
 
 I följande exempel `appID` och a `password` används för att utföra en uppdaterings åtgärd för modell databasen:
 
@@ -110,4 +110,5 @@ db.Model.SaveChanges();
 
 ## <a name="next-steps"></a>Nästa steg
 [Logga in med Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[Lägg till ett huvud namn för tjänsten i Server administratörs rollen](analysis-services-addservprinc-admins.md)   
+[Lägg till ett huvud namn för tjänsten i Server administratörs rollen](analysis-services-addservprinc-admins.md)  
+[Automatisera Power BI Premium arbets ytan och data mängds aktiviteter med tjänstens huvud namn](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 

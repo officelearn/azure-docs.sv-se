@@ -4,15 +4,15 @@ description: Beskriver hur du konfigurerar loggning för att övervaka din Azure
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71a81c4a3a57c206540e20f7c7e58949c552e582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128935"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701490"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurera diagnostisk loggning
 
@@ -44,7 +44,7 @@ Om du väljer **motor** loggar alla [xEvents](https://docs.microsoft.com/analysi
 |Kommandon     |  Kommando slut       |
 |Fel & varningar     |   Fel      |
 |Utforska     |   Identifiera slut      |
-|Avisering     |    Avisering     |
+|Meddelande     |    Meddelande     |
 |Session     |  Sessionsinitiering       |
 |Lås    |  Hamn       |
 |Fråga bearbetning     |   VertiPaq SE-fråga börjar      |
@@ -90,7 +90,7 @@ Mått kategorin loggar samma [Server mått](analysis-services-monitor.md#server-
 
 3. Klicka på **Spara**.
 
-    Om du får ett fel meddelande om att diagnostiken för \<namnet på arbets ytan inte kunde uppdateras>. Prenumerationens \<prenumerations-ID> har inte registrerats för att använda Microsoft. Insights. " Följ anvisningarna i [fel söknings Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) för att registrera kontot och gör sedan om proceduren.
+    Om du får ett fel meddelande om att diagnostiken för namnet på \< arbets ytan inte kunde uppdateras>. Prenumerationens prenumerations \< -id> har inte registrerats för att använda Microsoft. Insights. " Följ anvisningarna i [fel söknings Azure-diagnostik](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) för att registrera kontot och gör sedan om proceduren.
 
     Om du vill ändra hur dina resurs loggar sparas när som helst i framtiden kan du gå tillbaka till den här sidan om du vill ändra inställningarna.
 
@@ -158,7 +158,7 @@ Om du vill visa dina diagnostikdata går du till Log Analytics arbets yta och ö
 
 ![Loggs öknings alternativ i Azure Portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-I Frågeverktyget expanderar du **LogManagement** > **AzureDiagnostics**. AzureDiagnostics innehåller motor-och tjänst händelser. Lägg märke till att en fråga skapas direkt. Fältet EventClass\_s innehåller xEvent-namn, som kan se bekant ut om du har använt xEvents för lokal loggning. Klicka **på\_EventClass s** eller något av händelse namnen och Log Analytics arbets ytan fortsätter att konstruera en fråga. Glöm inte att spara dina frågor så att du kan återanvända dem senare.
+I Frågeverktyget expanderar du **LogManagement**  >  **AzureDiagnostics**. AzureDiagnostics innehåller motor-och tjänst händelser. Lägg märke till att en fråga skapas direkt. Fältet EventClass \_ s innehåller xEvent-namn, som kan se bekant ut om du har använt xEvents för lokal loggning. Klicka på **EventClass \_ s** eller något av händelse namnen och Log Analytics arbets ytan fortsätter att konstruera en fråga. Glöm inte att spara dina frågor så att du kan återanvända dem senare.
 
 ### <a name="example-queries"></a>Exempelfrågor
 
@@ -251,7 +251,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Du kan använda ett befintligt lagrings konto för loggarna, förutsatt att det är i samma prenumeration som servern. I den här självstudien skapar du ett nytt lagrings konto som är dedikerat för Analysis Services loggar. För att göra det enkelt lagrar du lagrings konto informationen i en variabel med namnet **sa**.
 
-Du använder också samma resurs grupp som den som innehåller din Analysis Services-server. Ersätt värden för `awsales_resgroup`, `awsaleslogs`och `West Central US` med dina egna värden:
+Du använder också samma resurs grupp som den som innehåller din Analysis Services-server. Ersätt värden för `awsales_resgroup` , `awsaleslogs` och `West Central US` med dina egna värden:
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `

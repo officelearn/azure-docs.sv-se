@@ -41,21 +41,9 @@
           href: tutorial-intents-only.md
         - name: 2. Extrahera användardata
           href: tutorial-machine-learned-entity.md
-          displayName: 'n-depth, constraint, descriptor, phrase list, entity'
+          displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
         - name: 3. Extrahera sentiment från användaryttranden
           href: tutorial-publish-settings.md
-    - name: Skapa och använda entiteter
-      items:
-        - name: Lägga till entiteter för reguljära uttryck
-          href: tutorial-regex-entity.md
-        - name: Listentiteter
-          href: tutorial-list-entity.md
-        - name: Entitetsroller
-          href: tutorial-entity-roles.md
-          displayName: 'roles, geographyV2, context'
-        - name: Gruppera och extrahera relaterade data med sammansatta entiteter
-          href: luis-tutorial-composite-entity.md
-          displayName: roles
     - name: Förbättra appen
       items:
         - name: Åtgärda osäkra förutsägelser
@@ -79,17 +67,19 @@
     - name: Planera din app
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
+    - name: Datainsamling
+      href: data-collection.md
     - name: Appmodeller
       items:
         - name: Typer
           href: luis-concept-model.md
-        - name: Avsikter
+        - name: Avsikter – klassificera talindata
           href: luis-concept-intent.md
-        - name: Yttranden
-          href: luis-concept-utterance.md
-        - name: Entiteter
+        - name: Entiteter – extrahera data
           displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
+        - name: Exempel på yttranden
+          href: luis-concept-utterance.md
         - name: Fördefinierade modeller
           href: luis-concept-prebuilt-model.md
         - name: Mönster
@@ -97,7 +87,7 @@
           displayName: roles
         - name: Funktioner
           href: luis-concept-feature.md
-          displayName: 'descriptor, phrase list'
+          displayName: 'descriptor, phrase list, feature'
         - name: Utöka app under körning
           href: schema-change-prediction-runtime.md
     - name: Förutsägelseresultat
@@ -153,15 +143,13 @@
           href: howto-add-prebuilt-models.md
         - name: Etikettentitet i uttryck
           href: label-entity-example-utterance.md
-        - name: Lägg till beskrivning
-          displayName: 'synonym, interchange, phrase list, descriptor'
+        - name: Lägg till funktion
+          displayName: 'synonym, interchange, phrase list, descriptor, feature'
           href: luis-how-to-add-features.md
         - name: 'Med REST API:er'
           items:
             - name: Skapa en app programmässigt med Node.js
               href: luis-tutorial-node-import-utterances-csv.md
-            - name: Använd en listentitet för att matcha exakt text med Node.js
-              href: luis-tutorial-list-entity.md
     - name: Integrera
       items:
         - name: Med Stavningskontroll i Bing v7
@@ -193,11 +181,25 @@
       href: luis-how-to-publish-app.md
     - name: CLR för frågeförutsägelse
       href: luis-get-started-get-intent-from-browser.md
+    - name: Migrera
+      items:
+        - name: Migrera från sammansatt entitet
+          href: migrate-from-composite-entity.md
+        - name: Migrera till redigeringsresurs
+          items:
+            - name: Översikt
+              href: luis-migration-authoring.md
+            - name: Så här migrerar du
+              href: luis-migration-authoring-steps.md
+        - name: Migrera till V3 API
+          href: luis-migration-api-v3.md
     - name: Hantera app
       items:
         - name: Azure-resurser
           displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
           href: luis-how-to-azure-subscription.md
+        - name: Inställningar för app och version
+          href: how-to-application-settings-portal.md
         - name: Migrera till redigeringsresurs
           items:
             - name: Översikt
@@ -216,6 +218,8 @@
       items:
         - name: För utvecklare
           href: developer-reference-resource.md
+        - name: Appschema
+          href: app-schema-definition.md
         - name: 'Migrera till API:er för V3-redigering'
           href: luis-migration-authoring-entities.md
         - name: 'Migrera till API:er för V3-förutsägelse'
@@ -259,6 +263,8 @@
         - name: Översikt
           href: developer-reference-resource.md
           displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
+        - name: Appschema
+          href: app-schema-definition.md
         - name: Azure CLI
           href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
         - name: Azure RM PowerShell
@@ -329,7 +335,7 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Begränsningar
       href: luis-limits.md
-    - name: Programinställningar
+    - name: Inställningar för app och version
       href: luis-reference-application-settings.md
     - name: Fördefinierad entitetsreferens
       items:
@@ -387,7 +393,7 @@
           href: reference-entity-simple.md
     - name: Mönstersyntax
       href: reference-pattern-syntax.md
-    - name: Sentiment
+    - name: Sentimentreferens
       href: luis-reference-prebuilt-sentiment.md
 - name: Resurser
   items:

@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 02/20/2020
-ms.openlocfilehash: fcebc7eb170239e5d7efd8a32599a6e782f630bd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: 2cf8ff446fe3441fc039ef3c2afef6308224666f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80235247"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701218"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Kända problem/migrerings begränsningar med online-migreringar från Oracle till Azure DB för PostgreSQL – en server
 
@@ -48,7 +48,7 @@ Följande data typer **kommer inte** att migreras:
 - SDO_GEOMETRY
 - Kapslade tabeller
 - Användardefinierade data typer
-- Obs!
+- Anteckningar
 - Virtuella kolumner
 - Materialiserade vyer baserat på kolumnerna ROWID
 
@@ -64,7 +64,7 @@ Tomma BLOB/CLOB-kolumner mappas också till NULL på målet.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 
-- Kunder måste använda SYSDBA för att ansluta till Oracle.
+- Användaren måste ha behörigheten DBA på Oracle-servern.
 - Data ändringar som orsakas av åtgärder för partition/under partition (Lägg till, släpp, EXCHANGE och TRUNKERA) kommer inte att migreras och kan orsaka följande fel:
   - För att lägga till åtgärder kan uppdateringar och borttagningar av tillagda data returnera varningen "0 rader som påverkas".
   - För DROP-och TRUNKe-åtgärder kan nya infogningar resultera i "dubbletter"-fel.

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75530909"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699234"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Felsöka dataförlust i Azure Cache for Redis
 
@@ -27,7 +27,7 @@ Azure cache för Redis tar inte bort nycklar när de har lagrats i minnet. Den t
 
 Om du upptäcker att nycklarna har försvunnit från cacheminnet kontrollerar du följande möjliga orsaker:
 
-| Orsak | Beskrivning |
+| Orsak | Description |
 |---|---|
 | [Nyckel förfallo datum](#key-expiration) | Nycklarna tas bort på grund av timeout-inställningar. |
 | [Nyckel borttagning](#key-eviction) | Nycklarna tas bort under minnes belastningen. |
@@ -36,9 +36,9 @@ Om du upptäcker att nycklarna har försvunnit från cacheminnet kontrollerar du
 
 ### <a name="key-expiration"></a>Nyckel förfallo datum
 
-Azure cache för Redis tar bort en nyckel automatiskt om nyckeln tilldelas en timeout och den perioden har passerat. Mer information om förfallo datum för Redis-nycklar finns i den [förfallna](https://redis.io/commands/expire) kommando dokumentationen. Timeout-värden kan också anges med hjälp av kommandona [set](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset)och andra ** \*Store** .
+Azure cache för Redis tar bort en nyckel automatiskt om nyckeln tilldelas en timeout och den perioden har passerat. Mer information om förfallo datum för Redis-nycklar finns i den [förfallna](https://redis.io/commands/expire) kommando dokumentationen. Timeout-värden kan också anges med hjälp av kommandona [set](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset)och andra ** \* Store** .
 
-Om du vill få statistik om hur många nycklar som har upphört att gälla använder du kommandot [info](https://redis.io/commands/info) . `Stats` Avsnittet visar det totala antalet utgångna nycklar. `Keyspace` Avsnittet innehåller mer information om antalet nycklar med tids gränser och det genomsnittliga timeout-värdet.
+Om du vill få statistik om hur många nycklar som har upphört att gälla använder du kommandot [info](https://redis.io/commands/info) . `Stats`Avsnittet visar det totala antalet utgångna nycklar. `Keyspace`Avsnittet innehåller mer information om antalet nycklar med tids gränser och det genomsnittliga timeout-värdet.
 
 ```
 # Stats
@@ -80,13 +80,13 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Asynkron replikering
 
-Alla Azure cache för Redis-instanser på standard-eller Premium-nivån konfigureras med en huvud nod och minst en replik. Data kopieras från huvud servern till en replik asynkront med hjälp av en bakgrunds process. [Redis.io](https://redis.io/topics/replication) -webbplatsen beskriver hur Redis-datareplikering fungerar i allmänhet. För scenarier där klienter skriver till Redis ofta kan partiell data förlust uppstå, eftersom replikeringen garanterat är omedelbar. Om huvud servern till exempel slutar fungera *när* en klient skriver en nyckel, men *innan* bakgrunds processen har möjlighet att skicka nyckeln till repliken, försvinner nyckeln när repliken tar över som den nya huvud servern.
+Alla Azure cache för Redis-instanser på standard-eller Premium-nivån konfigureras med en huvud nod och minst en replik. Data kopieras från huvud servern till en replik asynkront med hjälp av en bakgrunds process. [Redis.io](https://redis.io/topics/replication) -webbplatsen beskriver hur Redis-datareplikering fungerar i allmänhet. För scenarier där klienter skriver till Redis ofta kan partiell data förlust uppstå, eftersom replikeringen inte garanterat är omedelbar. Om huvud servern till exempel slutar fungera *när* en klient skriver en nyckel, men *innan* bakgrunds processen har möjlighet att skicka nyckeln till repliken, försvinner nyckeln när repliken tar över som den nya huvud servern.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Huvud eller fullständig förlust av nycklar
 
 Om de flesta eller alla nycklar har försvunnit från cacheminnet kontrollerar du följande möjliga orsaker:
 
-| Orsak | Beskrivning |
+| Orsak | Description |
 |---|---|
 | [Nyckel tömning](#key-flushing) | Nycklar har rensats manuellt. |
 | [Felaktigt databas val](#incorrect-database-selection) | Azure cache för Redis är inställt på att använda en databas som inte är standard. |

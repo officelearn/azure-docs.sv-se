@@ -12,12 +12,12 @@ ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 543320adb490ff51b0394fb26137ebc977d2c04b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ff5d8ecaaeff67e1a97c4afd4ca8119f8ac7c1e1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83679564"
+ms.locfileid: "83696956"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -369,7 +369,6 @@ Följande scenarier för SAML-förlitande part (RP) stöds via din egen metadata
 * Flera URL: er för utloggning eller PUBLICERINGs bindning för utloggnings-URL i program-/tjänst huvud objekt.
 * Ange signerings nyckel för att verifiera RP-begäranden i program/tjänstens huvud namns objekt.
 * Ange token krypterings nyckel i program/tjänstens huvud namns objekt.
-* Identitets leverantör – initierade inloggningar stöds inte för närvarande i för hands versionen.
 
 ## <a name="next-steps"></a>Nästa steg
 

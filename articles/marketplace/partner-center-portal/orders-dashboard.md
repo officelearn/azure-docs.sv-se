@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c5bfb6632a22a890ac2387f06464c18be7dd714
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261269"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699053"
 ---
-# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Order instrument panel i kommersiell Marketplace-analys
+# <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Analys av orderinstrumentpanelen på kommersiell marknadsplats
 
 Den här artikeln innehåller information om **instrument panelen för order** i Partner Center. Den här instrument panelen visar information om dina beställningar i ett grafiskt och nedladdnings Bart format.
 
@@ -104,6 +104,7 @@ Tabellen Order information visar en numrerad lista över de 1000 främsta order 
 - Data kan extraheras till en TSV-fil om antalet poster är mindre än 1000.
 - Om poster nummer över 1000 placeras exporterade data asynkront på sidan nedladdningar under de närmaste 30 dagarna.
 - Filter kan tillämpas på **tabellen Order information** för att visa endast de data som du är intresse rad av. Data kan filtreras efter land, Azure-licensserver, Marketplace-licens typ, erbjudande typ, order status, kostnads fria historik, prenumerations-ID för Marketplace, kund-ID och företags namn.
+- Eftersom SaaS-erbjudanden som köpts via Azure Marketplace eller AppSource inte kräver en Azure-prenumeration, visas prenumerations-ID: t för Marketplace som 00000000-0000-0000-0000-000000000000 i avsnittet **detaljerade order data** .
 
 #### <a name="orders-page-filters"></a>Sid filter för order
 

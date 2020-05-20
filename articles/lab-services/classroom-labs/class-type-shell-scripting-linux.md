@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 66b325eb1d268fdd5b1052a0da84c603186edf65
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbe0a0b7f22df20c8ce3d734738132b5056a36e4
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589507"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697091"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurera ett labb för att lära sig använda Shell-skript i Linux
 Den här artikeln visar hur du konfigurerar ett labb för att lära sig att använda Shell-skript i Linux. Skript är en användbar del av system administration som gör det möjligt för administratörer att undvika repetitiva uppgifter. I det här exempel scenariot täcker klassen traditionella bash-skript och förbättrade skript. Förbättrade skript är skript som kombinerar bash-kommandon och Ruby. Med den här metoden kan ruby skicka data runt-och bash-kommandon för att interagera med gränssnittet. 
@@ -39,12 +39,11 @@ Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa e
 | Labb inställningar | Värde/anvisningar | 
 | ------------ | ------------------ |
 | Storlek för virtuell dator (VM) | Liten  |
-| Avbildning av virtuell dator | Ubuntu Server 18,04 LTS |
-| Aktivera anslutning till fjärr skrivbord | Aktivera. <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina virtuella datorer med hjälp av fjärr skrivbord (RDP). Mer information finns i [Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Avbildning av virtuell dator | Ubuntu Server 18,04 LTS|
+| Aktivera anslutning till fjärr skrivbord | Aktivera. <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina virtuella datorer med hjälp av fjärr skrivbord (RDP). Mer information finns i [Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
-
-## <a name="install-desktop-and-xrdp"></a>Installera Desktop och xrdp
-Ubuntu Server 18,04 LTS-avbildningen har inte fjärr skrivbords server installerad som standard. Följ anvisningarna i artikeln [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md) -artikeln för att installera de paket som behövs på den mall datorn för att ansluta via Remote Desktop Protocol.
+## <a name="install-desktop-and-rdp"></a>Installera Desktop och RDP
+Ubuntu Server 18,04 LTS-avbildningen har inte RDP-fjärrservern installerad som standard. Följ anvisningarna i artikeln [Installera och konfigurera fjärr skrivbord för att ansluta till en virtuell Linux-dator i Azure](../../virtual-machines/linux/use-remote-desktop.md) -artikeln för att installera de paket som behövs på mallen för att ansluta via RDP (Remote Desktop Protocol).
 
 ## <a name="install-ruby"></a>Installera Ruby
 Ruby är ett dynamiskt språk med öppen källkod som kan kombineras med bash-skript. Det här avsnittet visar hur du använder `apt-get` för att installera den senaste versionen av [ruby](https://www.ruby-lang.org/).

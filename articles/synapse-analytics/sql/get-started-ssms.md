@@ -9,15 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a25049aee620a1cf14eeb51adfb75f6577defc2a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 72006879c7181a8cefe56248215099eeb784d816
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197072"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658234"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Ansluta till Synapse-SQL med SQL Server Management Studio (SSMS)
-
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -41,7 +40,7 @@ Du kan använda [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-ser
 Innan du börjar måste du kontrol lera att du har följande krav:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* För SQL-pool behöver du ett befintligt informations lager. Information om hur du skapar en SQL-pool finns i [skapa en SQL-pool](../quickstart-create-sql-pool.md). För SQL på begäran är en redan etablerad i din arbets yta när du skapar den. 
+* För SQL-pool behöver du ett befintligt informations lager. Information om hur du skapar en SQL-pool finns i [skapa en SQL-pool](../quickstart-create-sql-pool-portal.md). För SQL på begäran är en redan etablerad i din arbets yta när du skapar den. 
 * Det fullständigt kvalificerade SQL Server namnet. Mer information finns i [ansluta till SYNAPSE SQL](connect-overview.md).
 
 ## <a name="connect"></a>Anslut

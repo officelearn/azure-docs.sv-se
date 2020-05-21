@@ -1,26 +1,26 @@
 ---
 title: Snabb start – Använd Node. js för att fråga från Azure Cosmos DB SQL API-konto
 description: Hur du använder Node. js för att skapa en app som ansluter till Azure Cosmos DB SQL API-konto och skickar frågor till data.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/26/2020
-ms.author: dech
-ms.openlocfilehash: 0b29f9c1f395e079c97d5877d08bd7bd73c7ea53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 4f874bd77432ba9ee110a7304629a80f1ce5d0dd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240317"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655356"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Snabb start: Använd Node. js för att ansluta och fråga efter data från Azure Cosmos DB SQL API-konto
 
 > [!div class="op_single_selector"]
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
-> - [Java](create-sql-api-java.md)
+> - [Java SDK v4](create-sql-api-java.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -35,7 +35,7 @@ Titta på den här videon om du vill ha en fullständig genom gång av innehåll
 
 ## <a name="prerequisites"></a>Krav
 
-- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI `https://localhost:8081` och nyckeln. `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Eller [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration. Du kan också använda [Azure Cosmos DB emulatorn](https://aka.ms/cosmosdb-emulator) med en URI `https://localhost:8081` och nyckeln `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
 - [Node. js-6.0.0 +](https://nodejs.org/).
 - [Git](https://www.git-scm.com/downloads).
 
@@ -55,7 +55,7 @@ Alternativet "prova Azure Cosmos DB gratis" kräver ingen Azure-prenumeration oc
 
 Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en databas och behållare.
 
-1. Välj **datautforskaren** > **ny behållare**.
+1. Välj **datautforskaren**  >  **ny behållare**.
 
    Avsnittet **Lägg till behållare** visas längst till höger. du kan behöva rulla åt höger för att se det.
 
@@ -67,7 +67,7 @@ Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en da
    | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | **Databas-ID**   | Aktiviteter           | Ange _Uppgifter_ som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
    | **Dataflöde**    | 400             | Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.                                                                                                                                                                                                                                                    |
-   | **Container-ID**  | Objekt           | Ange _objekt_ som namn på den nya behållaren. För container-ID:n gäller samma teckenkrav som för databasnamn.                                                                                                                                                                                                                                                               |
+   | **Container-ID**  | Poster           | Ange _objekt_ som namn på den nya behållaren. För container-ID:n gäller samma teckenkrav som för databasnamn.                                                                                                                                                                                                                                                               |
    | **Partitionsnyckeln** | /category       | Exemplet som beskrivs i den här artikeln använder _/Category_ som partitionsnyckel.                                                                                                                                                                                                                                                                                                           |
 
    Förutom de föregående inställningarna kan du också lägga till **unika nycklar** för behållaren. Vi lämnar fältet tomt i det här exemplet. Unika nycklar ger utvecklarna möjlighet att lägga till ett lager med dataintegritet till databasen. Genom att skapa en unik nyckel princip när du skapar en behållare, säkerställer du att ett eller flera värden är unika per partitionsnyckel. Läs mer i artikeln om [unika nycklar i Azure Cosmos DB](unique-keys.md).
@@ -98,7 +98,7 @@ Det här steget är valfritt. Om du är intresse rad av att lära dig hur Azure 
 
 Om du är bekant med den tidigare versionen av SQL JavaScript SDK kan du använda den för att Visa villkors _samlingen_ och _dokumentet_. Eftersom Azure Cosmos DB stöder [flera API-modeller](introduction.md), använder [version 2.0 + av JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) en _behållare_för generiska termer, som kan vara en samling, Graf eller tabell och _objekt_ för att beskriva behållarens innehåll.
 
-Cosmos DB JavaScript SDK kallas "@azure/cosmos" och kan installeras från NPM...
+Cosmos DB JavaScript SDK kallas " @azure/cosmos " och kan installeras från NPM...
 
 ```bash
 npm install @azure/cosmos
@@ -106,7 +106,7 @@ npm install @azure/cosmos
 
 Följande kodfragment är alla hämtade från filen _app.js_.
 
-- `CosmosClient` Importeras från `@azure/cosmos` NPM-paketet.
+- `CosmosClient`Importeras från `@azure/cosmos` NPM-paketet.
 
   ```javascript
   const CosmosClient = require("@azure/cosmos").CosmosClient;
@@ -167,7 +167,7 @@ Följande kodfragment är alla hämtade från filen _app.js_.
   ```
 
 > [!NOTE]
-> I både metoderna "Update" och "Delete" måste objektet väljas från databasen genom att anropa `container.item()`. De två parametrarna som skickas in är ID för objektet och objektets partitionsnyckel. I det här fallet är partitionera-nyckeln värdet för fältet "kategori".
+> I både metoderna "Update" och "Delete" måste objektet väljas från databasen genom att anropa `container.item()` . De två parametrarna som skickas in är ID för objektet och objektets partitionsnyckel. I det här fallet är partitionera-nyckeln värdet för fältet "kategori".
 
 ## <a name="update-your-connection-string"></a>Uppdatera din anslutningssträng
 
@@ -189,7 +189,7 @@ Gå tillbaka till Azure Portal för att hämta information om anslutnings strän
 
 ## <a name="run-the-app"></a>Kör appen
 
-1. Kör `npm install` i en Terminal för att installera@azure/cosmosNPM-paketet
+1. Kör `npm install` i en Terminal för att installera @azure/cosmos NPM-paketet
 
 2. Kör `node app.js` i en terminal för att starta nodprogrammet.
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 43f4cf7e4008aa01a26c48a8e99f7465eeeb234b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 53d1010f501e59b99c3ba6bac675124cdc5f77a0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77061751"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659214"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: bygga en python-app med Azure Cosmos DB s API för MongoDB
 
@@ -23,7 +23,7 @@ ms.locfileid: "77061751"
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 I den här snabb starten använder du en Azure Cosmos DB för mongo DB API-konto eller Azure Cosmos DB-emulatorn för att köra en webb program för python-GitHub som klonas från. Azure Cosmos DB är en databas tjänst med flera modeller som gör att du snabbt kan skapa och fråga dokument-, tabell-, nyckel värdes-och Graf-databaser med globala funktioner för distribution och horisontell skalning.
@@ -96,9 +96,9 @@ Följande kodfragment är alla hämtade från *app.py* -filen och använder ansl
 
 2. Öppna ett terminalfönster och `cd` till den katalog där appen sparas.
 
-3. Ange sedan miljövariabeln för kolv-appen med `set FLASK_APP=app.py`, `$env:FLASK_APP = app.py` för PowerShell-redigerare eller `export FLASK_APP=app.py` om du använder en Mac-dator. 
+3. Ange sedan miljövariabeln för kolv-appen med `set FLASK_APP=app.py` , `$env:FLASK_APP = app.py` för PowerShell-redigerare eller `export FLASK_APP=app.py` om du använder en Mac-dator. 
 
-4. Kör appen med `flask run` och bläddra till *http:\//127.0.0.1:5000/*.
+4. Kör appen med `flask run` och bläddra till *http: \/ /127.0.0.1:5000/*.
 
 5. Lägg till och ta bort uppgifter och se hur de läggs till och ändras i samlingen.
 

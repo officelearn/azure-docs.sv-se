@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.openlocfilehash: 58c5b3bdd6d50f2e512cccffe78bd4e70805d729
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 6da2537464e39ecb2c613a97b19f2d8f316818af
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78204743"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677552"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Självstudie: Konfigurera Apache Kafka-principer i HDInsight med Enterprise Security Package (förhandsversion)
 
 Lär dig hur du konfigurerar Apache Ranger-principer för Apache Kafka-kluster med Enterprise Security Package (ESP). ESP-kluster är anslutna till en domän så att användare kan autentisera med autentiseringsuppgifter för domänen. I den här självstudien skapar du två Ranger-principer för att begränsa åtkomsten till `sales`- och `marketingspend`-ämnen.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa domänanvändare
@@ -26,7 +26,7 @@ I den här guiden får du lära dig att:
 > * Skapa ämnen i ett Kafka-kluster
 > * Testa Ranger-principer
 
-## <a name="prerequisite"></a>Krav
+## <a name="prerequisite"></a>Förutsättning
 
 Ett [HDInsight Kafka-kluster med Enterprise Security Package](./apache-domain-joined-configure-using-azure-adds.md).
 
@@ -48,7 +48,7 @@ Skapa en Ranger-princip för **sales_user** och **marketing_user**.
 
 1. Öppna **Ranger-administratörsanvändargränssnittet**.
 
-2. Välj ** \<kluster namn>_kafka** under **Kafka**. En förkonfigurerad princip kan visas.
+2. Välj ** \< kluster namn>_kafka** under **Kafka**. En förkonfigurerad princip kan visas.
 
 3. Välj **Lägg till ny princip** och ange följande värden:
 
@@ -145,9 +145,10 @@ Baserat på Ranger-principerna som konfigurerats kan **sales_user** skapa/använ
 
    Exempel: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Följ steg 3 under **utveckla och distribuera exemplet** i [Självstudier: Använd Apache Kafka tillverkare och klient-API: er](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) för att `kafka-producer-consumer.jar` se till att de också är tillgängliga för **sales_user**.
+4. Följ steg 3 under **utveckla och distribuera exemplet** i [Självstudier: Använd Apache Kafka tillverkare och klient-API: er](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) för att se till att de `kafka-producer-consumer.jar` också är tillgängliga för **sales_user**.
 
-**Obs! i den här självstudien ska du använda Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som ingår i producent-konsument-projektet, som är för icke-domänanslutna scenarier).**
+> [!NOTE]  
+> I den här självstudien använder du Kafka-Producer-Consumer. jar under "DomainJoined-produce-konsument"-projekt (inte det som ingår i producent-konsument-projektet, som är för icke-domänanslutna scenarier).
 
 5. Kontrollera att **sales_user1** kan producera till ämnet `salesevents` genom att köra följande kommando:
 

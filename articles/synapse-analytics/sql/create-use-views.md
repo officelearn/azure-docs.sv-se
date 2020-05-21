@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4c6a151bdd3b437c6a01a949096604b3963489bd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 508c12d89d5b0476e4cd4cbd8dc43b8bda8fbd90
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195152"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647471"
 ---
 # <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Skapa och Använd vyer i SQL på begäran (för hands version) med Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ Ditt första steg är att skapa en databas där vyn kommer att skapas och initie
 
 ## <a name="create-a-view"></a>Skapa en vy
 
-Du kan skapa vyer på samma sätt som du skapar vanliga SQL Server vyer. Frågan nedan skapar en vy som läser en *populations. csv* -fil.
+Du kan skapa vyer på samma sätt som du skapar vanliga SQL Server vyer. I följande fråga skapas en vy som läser filen med *ifyllning. csv* .
 
 > [!NOTE]
 > Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat.

@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 409ba6cd192f65c73aba6bd6eb11a26ec1f820fa
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5fe8d261cb6804ffdf2cbe4f543db29336c4c78b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790889"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656411"
 ---
 # <a name="what-is-azure-iot-central"></a>Vad är Azure IoT Central?
 
@@ -61,13 +61,6 @@ Den här enhets mal len innehåller:
 - Moln egenskaper som inte lagras på enheten.
 - Anpassningar, instrument paneler och formulär som är en del av ditt IoT Central-program.
 
-### <a name="pricing"></a>Prissättning
-
-Du kan skapa IoT Central program med en kostnads fri utvärderings version på 7 dagar eller använda en standard pris plan.
-
-- Program som du skapar med hjälp av den *kostnads fria* planen är kostnads fria i sju dagar och har stöd för upp till fem enheter. Du kan konvertera dem till att använda en standard pris plan när som helst innan de upphör att gälla.
-- Program som du skapar med en *standard* -plan debiteras per enhet. du kan välja standard pris Planen för **standard 1** eller **Standard 2** med de två första enheterna som är kostnads fria. Läs mer om kostnads fria priser och standard priser på [sidan med priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
-
 ### <a name="create-device-templates"></a>Skapa mallar för enheter
 
 [IoT plug and Play (för hands version)](../../iot-pnp/overview-iot-plug-and-play.md) gör att IoT Central integrera enheter utan att du behöver skriva någon inbäddad enhets kod. I IoT-Plug and Play (för hands version) är ett modell schema för enhets kapacitet som beskriver enhets funktioner. I ett IoT Central-program använder Device Template dessa modeller av enhets kapacitet för IoT Plug and Play (för hands version).
@@ -81,6 +74,8 @@ Som Solution Builder har du flera alternativ för att skapa enhets mallar:
 
 Som Solution Builder kan du använda IoT Central för att generera kod för test enheter för att validera dina enhets mallar.
 
+Om du är en enhets utvecklare, se [Översikt över IoT Central enhets utveckling](./overview-iot-central-developer.md) för att få en introduktion till att implementera enheter som använder dessa enhetsspecifika mallar.
+
 ### <a name="customize-the-ui"></a>Anpassa användargränssnittet
 
 Som Solution Builder kan du också anpassa IoT Central programmets användar gränssnitt för de operatörer som ansvarar för den dagliga användningen av programmet. Anpassningar som en Solution Builder kan göra är:
@@ -89,43 +84,7 @@ Som Solution Builder kan du också anpassa IoT Central programmets användar gr�
 - konfigurera anpassade instrumentpaneler som hjälper operatörerna att få insikter och lösa problem snabbare
 - konfigurera anpassad analys för att kunna utforska tidsseriedata från anslutna enheter.
 
-## <a name="pricing"></a>Prissättning
-
-Du kan skapa IoT Central program med en kostnads fri utvärderings version på 7 dagar eller använda en standard pris plan.
-
-- Program som du skapar med hjälp av den *kostnads fria* planen är kostnads fria i sju dagar och har stöd för upp till fem enheter. Du kan konvertera dem till att använda en standard pris plan när som helst innan de upphör att gälla.
-- Program som du skapar med *standard* planen debiteras per enhet. du kan välja standard pris avtal för **standard 1** eller **Standard 2** med de två första enheterna som är kostnads fria. Läs mer om [IoT Central prissättning](https://aka.ms/iotcentral-pricing).
-
-## <a name="connect-your-devices"></a>Anslut dina enheter
-
-Azure IoT Central använder [azure IoT Hub Device Provisioning service (DPS)](../../iot-dps/about-iot-dps.md) för att hantera all enhets registrering och anslutning.
-
-Genom att använda DPS kan du:
-
-- IoT Central för att stödja onboarding och ansluta enheter i stor skala.
-- Du genererar autentiseringsuppgifter för enheten och konfigurerar enheterna offline utan att registrera enheterna via IoT Central användar gränssnitt.
-- Enheter som ska anslutas med signaturer för delad åtkomst.
-- Enheter som ska anslutas med bransch standard X. 509-certifikat.
-- Du kan använda dina egna enhets-ID: n för att registrera enheter i IoT Central. Genom att använda dina egna enhets-ID: er blir det enklare att integrera med befintliga Back Office-system.
-- Ett enda, konsekvent sätt att ansluta enheter till IoT Central.
-
-Mer information finns i Anslut [till Azure IoT Central](./concepts-get-connected.md).
-
-### <a name="azure-iot-edge-devices"></a>Azure IoT Edge-enheter
-
-Enheter som har skapats med [Azure IoT-SDK](https://github.com/Azure/azure-iot-sdks): er kan också ansluta [Azure IoT Edge enheter](../../iot-edge/about-iot-edge.md) till ett IoT Central-program. Med Azure IoT Edge kan du köra Cloud Intelligence och anpassad logik direkt på IoT-enheter som hanteras av IoT Central. Med IoT Edge runtime kan du:
-
-- Installerar och uppdaterar arbetsbelastningar på enheten.
-- Upprätthåller Azure IoT Edge-säkerhetsstandarder på enheten.
-- Säkerställer att IoT Edge-moduler alltid körs.
-- Rapporterar modulens hälsa till molnet för fjärrövervakning.
-- Hanterar kommunikationen mellan nedströms lövenheter och en IoT Edge-enhet, mellan modulerna på en IoT Edge-enhet, och mellan en IoT Edge-enhet och molnet.
-
-Mer information finns i [Azure IoT Edge enheter och IoT Central](concepts-architecture.md#azure-iot-edge-devices).
-
-## <a name="stay-connected"></a>Fortsätt vara uppkopplad
-
-IoT Central program är helt värdar för Microsoft, vilket minskar administrations kostnaderna för att hantera dina program.
+## <a name="manage-your-devices"></a>Hantera dina enheter
 
 Som operatör använder du IoT Central-programmet för att hantera enheterna i din IoT Central-lösning. Operatörer utför uppgifter som:
 
@@ -134,8 +93,6 @@ Som operatör använder du IoT Central-programmet för att hantera enheterna i d
 - etablera nya enheter.
 
 Som Solution Builder kan du definiera anpassade regler och åtgärder som körs via data strömning från anslutna enheter. En operatör kan aktivera eller inaktivera dessa regler på enhetsnivå för att kunna styra och automatisera uppgifter i programmet.
-
-Administratörer hanterar åtkomst till ditt program med [användar roller och behörigheter](howto-administer.md).
 
 Med en IoT-lösning som är utformad för att användas i stor skala är det viktigt med en strukturerad metod för enhets hantering. Det räcker inte bara att ansluta dina enheter till molnet, du måste hålla enheterna anslutna och felfria. En operatör kan använda följande IoT Central funktioner för att hantera dina enheter under hela programmets livs cykel:
 
@@ -149,23 +106,13 @@ Bygg [anpassade regler](tutorial-create-telemetry-rules.md) baserat på enhetens
 
 ### <a name="jobs"></a>Jobb
 
-Med [jobb](howto-run-a-job.md) kan du tillämpa enstaka eller Mass uppdateringar av enheter genom att ange egenskaper eller anropa kommandon. 
+Med [jobb](howto-run-a-job.md) kan du tillämpa enstaka eller Mass uppdateringar av enheter genom att ange egenskaper eller anropa kommandon.
 
-### <a name="user-roles-and-permissions"></a>Användar roller och behörigheter
-
-[Roller och behörigheter](howto-manage-users-roles.md) låter en administratör skräddarsy varje användares upplevelse. En administratör använder webb gränssnittet för att skapa roller och tilldela behörigheter.
-
-## <a name="transform-your-iot-data"></a>Transformera dina IoT-data
+## <a name="integrate-with-other-services"></a>Integrera med andra tjänster
 
 Som en program plattform kan IoT Central omvandla dina IoT-data till affärs insikter som enhets åtgärds resultat. [Regler](./tutorial-create-telemetry-rules.md), [data export](./howto-export-data.md)och de [offentliga REST API](https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/) är exempel på hur du kan integrera IoT Central med branschspecifika program:
 
 ![Hur IoT Central kan transformera dina IoT-data](media/overview-iot-central/transform.png)
-
-### <a name="monitor-device-health-and-operations-using-rules"></a>Övervaka enhetens hälso tillstånd och åtgärder med hjälp av regler
-
-När dina enheter är anslutna och skickar data kan regler identifiera enheter som har problem eller skicka fel meddelanden så att du kan åtgärda dem med minimal stillestånds tid. Bygg regler i IoT Central program för att övervaka telemetri från dina enheter och varna en operatör när ett mått överkorsar ett tröskelvärde eller en enhet skickar ett särskilt meddelande. E-poståtgärder och webhookar för dina regler meddelar rätt personer och rätt underordnade system.
-
-### <a name="run-custom-analytics-and-processing-on-your-exported-data"></a>Kör anpassad analys och bearbetning på dina exporterade data
 
 Du kan generera affärs insikter, till exempel för att fastställa maskin effektivitets trender eller förutsäga framtida energi förbrukning på en fabriks plan, genom att skapa anpassade analys pipelines för att bearbeta telemetri från dina enheter och lagra resultatet. Konfigurera data exporter i ditt IoT Central program för att exportera telemetri, ändringar av enhets egenskaper och enhets mal len ändras till andra tjänster där du kan analysera, lagra och visualisera data med dina önskade verktyg.
 
@@ -176,6 +123,17 @@ Bygg IoT-lösningar som:
 - Mobile Companion-appar som kan fjärrkonfigurera och kontrol lera enheter.
 - Anpassade integreringar som gör det möjligt för befintliga branschspecifika program att interagera med dina IoT-enheter och-data.
 - Enhets hanterings program för enhets modellering, onboarding, hantering och data åtkomst.
+
+## <a name="administer-your-application"></a>Administrera ditt program
+
+IoT Central program är helt värdar för Microsoft, vilket minskar administrations kostnaderna för att hantera dina program. Administratörer hanterar åtkomst till ditt program med [användar roller och behörigheter](howto-administer.md).
+
+## <a name="pricing"></a>Prissättning
+
+Du kan skapa IoT Central program med en kostnads fri utvärderings version på 7 dagar eller använda en standard pris plan.
+
+- Program som du skapar med hjälp av den *kostnads fria* planen är kostnads fria i sju dagar och har stöd för upp till fem enheter. Du kan konvertera dem till att använda en standard pris plan när som helst innan de upphör att gälla.
+- Program som du skapar med *standard* planen debiteras per enhet. du kan välja standard pris avtal för **standard 1** eller **Standard 2** med de två första enheterna som är kostnads fria. Läs mer om [IoT Central prissättning](https://aka.ms/iotcentral-pricing).
 
 ## <a name="quotas"></a>Kvoter
 

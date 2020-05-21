@@ -4,12 +4,12 @@ description: Lär dig snabbt att skapa ett privat Docker-register i Azure Contai
 ms.topic: quickstart
 ms.date: 01/22/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 872b2a29444e5278db34ce44741e2ca90d885702
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 792146abeaad137a29bfea25a59a957c5f69c5ac
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74456368"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682770"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure PowerShell
 
@@ -51,7 +51,7 @@ Registernamnet måste vara unikt i Azure och innehålla 5–50 alfanumeriska tec
 $registry = New-AzContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
-I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänstnivåer finns i [SKU:er för Azure Container Registry][container-registry-skus].
+I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer finns i [tjänste nivåer för container Registry][container-registry-skus].
 
 ## <a name="log-in-to-registry"></a>Logga in till registret
 

@@ -9,12 +9,13 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
-ms.openlocfilehash: 60f8f2593ef9c05fa905e9d3d6f6ba0901a14243
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: e40c49cdcaae6fa84a72c645f5fea4bac99ee03f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983354"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654567"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Exempel på pipelines & data uppsättningar för Azure Machine Learning designer
 
@@ -54,7 +55,7 @@ Så här använder du ett designer-exempel:
 
    1. Välj en modul på arbets ytan.
 
-   1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar**. Välj ikonen ![](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för diagrammets visuella ikon för att se resultatet av varje modul. 
+   1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar**. Välj ikonen för diagrammets ![ visuella ikon ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att se resultatet av varje modul. 
 
    Använd exemplen som start punkter för några av de vanligaste scenarierna för maskin inlärning.
 
@@ -102,12 +103,12 @@ Lär dig mer om de exempel som demonstrerar verktyg och funktioner för maskin i
 
 När du skapar en ny pipeline i Azure Machine Learning designer ingår ett antal exempel data uppsättningar som standard. Dessa exempel data uppsättningar används av exempel pipelinen på design sidan för designer. 
 
-Exempel data uppsättningarna finns i kategorin **data uppsättnings**-**exempel** . Du kan hitta detta i modulen modul till vänster om arbets ytan i designern. Du kan använda någon av dessa data uppsättningar i din egen pipeline genom att dra den till arbets ytan.
+Exempel data uppsättningarna finns i kategorin **data uppsättnings** - **exempel** . Du kan hitta detta i modulen modul till vänster om arbets ytan i designern. Du kan använda någon av dessa data uppsättningar i din egen pipeline genom att dra den till arbets ytan.
 
-| Data&nbsp;uppsättnings namn&nbsp;&nbsp;&nbsp;&nbsp;| Beskrivning av data uppsättning |
+| Data uppsättnings &nbsp; namn&nbsp;&nbsp;&nbsp;&nbsp;| Beskrivning av data uppsättning |
 |-------------|:--------------------|
 | Data uppsättning för binära sammanräknings inkomst | En delmängd av databasen för 1994-inventering, med hjälp av att arbeta vuxna under 16 med ett justerat inkomst index på > 100.<br/>**Användning**: klassificera personer som använder demografiska till att förutsäga om en person får över 50 000 per år.<br/> **Relaterad forskning**: Kohavi, R., Becker, B., (1996). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornien, skol information och dator vetenskap|
-|Bil pris data (RAW)|Information om mobila enheter med märke och modeller, inklusive pris, funktioner, till exempel antalet cylindrar och MPG, samt en försäkrings risk poäng.<br/> Risk poängen är inlednings vis kopplad till automatiskt pris. Den justeras sedan för faktisk risk i en process som är känd för aktuarier som symbol. Värdet + 3 anger att det automatiska är riskabelt och att värdet-3 förmodligen är säkert.<br/>**Användning**:</b> förutsäga risk poängen med hjälp av funktioner, med regression eller multivarierad klassificering.<br/>**Relaterad forskning**:</b> Schlimmer, J.C. (1987). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornien, skol information och dator vetenskap. |
+|Bil pris data (RAW)|Information om mobila enheter med märke och modeller, inklusive pris, funktioner, till exempel antalet cylindrar och MPG, samt en försäkrings risk poäng.<br/> Risk poängen är inlednings vis kopplad till automatiskt pris. Den justeras sedan för faktisk risk i en process som är känd för aktuarier som symbol. Värdet + 3 anger att det automatiska är riskabelt och att värdet-3 förmodligen är säkert.<br/>**Användning**: </b> förutsäga risk poängen med hjälp av funktioner, med regression eller multivarierad klassificering.<br/>**Relaterad forskning**: </b> Schlimmer, J.C. (1987). [Machine Learning-lagringsplats för](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornien, skol information och dator vetenskap. |
 | CRM begär-etiketter delade |Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse ([orange_small_train_appetency. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)).|
 |CRM omsättnings etiketter delade|Etiketter från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse ([orange_small_train_churn. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)).|
 |CRM-datauppsättning delad | Dessa data kommer från KDD-bägaren 2009-förfrågan om kund Relations förutsägelse ([orange_small_train. data. zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Data uppsättningen innehåller 50 000-kunder från det franska telekom-företaget orange. Varje kund har 230 anonymiserats-funktioner, men 190 av som är numeriska och 40 är kategoriska. Funktionerna är mycket glesa. |
@@ -117,7 +118,7 @@ Exempel data uppsättningarna finns i kategorin **data uppsättnings**-**exempel
 |Film titlar för IMDB|Data uppsättningen innehåller information om filmer som har klassificerats i Twitter-tweets: IMDB Movie ID, Movie Name, genre och Product Year. Det finns 17K filmer i data uppsättningen. Data uppsättningen introducerades i papperet "S. Dooms, T. ex. de Pessemier och L. Martens. MovieTweetings: en film betygs uppsättning som samlats in från Twitter. Workshop om gemensamt skapade och mänsklig beräkning för rekommenderade system, CrowdRec på RecSys 2013. "|
 |Film klassificeringar|Data uppsättningen är en utökad version av data uppsättningen för film tweeter. Data uppsättningen har 170K klassificeringar för filmer som extraheras från välstrukturerade tweets på Twitter. Varje instans representerar en tweet och är en tupel: användar-ID, IMDB-film-ID, klassificering, tidsstämpel, antal favoriter för den här tweeten och antalet retweetar för den här tweeten. Data uppsättningen gjordes tillgänglig av A. S. Dooms, B. Loni och D. Tikk för rekommenderade system Challenge 2014.|
 |Data uppsättning väder|Varje timmes markbaserade väderleks observationer från NOAA ([sammanfogade data från 201304 till 201310](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)).<br/>Väder data täcker observationer som gjorts från flyg platsens väderleks stationer, som omfattar den period som april – 2013 oktober. Innan du överför till designern bearbetades data uppsättningen enligt följande:    <br/> -Väderleks Stations-ID mappas till motsvarande flyg plats-ID    <br/> – Väder stationer som inte är kopplade till 70 vanligaste-flyg platserna filtrerades bort    <br/> – Datum kolumnen delades upp i separata kolumner för år, månad och dag    <br/> – Följande kolumner valdes: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, altimeter,,,,|
-|Wikipedia SP 500-datauppsättning|Data härleds från Wikipedia (https://www.wikipedia.org/) baserat på artiklarna i varje S&P 500-företag, lagrade som XML-data.    <br/>Innan du överför till designern bearbetades data uppsättningen enligt följande:    <br/> – Extrahera text innehåll för varje enskilt företag    <br/> – Ta bort wiki-format    <br/> -Ta bort icke-alfanumeriska tecken    <br/> -Konvertera all text till gemener    <br/> -Kända företags kategorier har lagts till    <br/>Observera att för vissa företag gick det inte att hitta en artikel, så antalet poster är mindre än 500.|
+|Wikipedia SP 500-datauppsättning|Data härleds från Wikipedia ( https://www.wikipedia.org/) baserat på artiklarna i varje S&P 500-företag, lagrade som XML-data.    <br/>Innan du överför till designern bearbetades data uppsättningen enligt följande:    <br/> – Extrahera text innehåll för varje enskilt företag    <br/> – Ta bort wiki-format    <br/> -Ta bort icke-alfanumeriska tecken    <br/> -Konvertera all text till gemener    <br/> -Kända företags kategorier har lagts till    <br/>Observera att för vissa företag gick det inte att hitta en artikel, så antalet poster är mindre än 500.|
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser

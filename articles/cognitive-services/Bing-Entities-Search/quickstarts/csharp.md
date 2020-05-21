@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: c343c160f67eda2dd390ffc39f3b4f1ff49cacb6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd89f2ae13b10c83c3fc22023fc2e3cae1770c98
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448658"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650271"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med C #
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla C#-programmet skickar en nyhetssökfråga till API:et och visar svaret. Käll koden för det här programmet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
-Även om det här programmet är skrivet i C#, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i C# är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 
 ## <a name="prerequisites"></a>Krav
@@ -32,7 +32,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
    1. Högerklicka på ditt projekt i **Solution Explorer**.
    2. Välj **Hantera NuGet-paket**.
-   3. Sök efter *Newtonsoft. JSON* och installera paketet.
+   3. Sök efter och välj *Newtonsoft. JSON*och installera sedan paketet.
 
 - Om du använder Linux/MacOS kan du köra det här programmet med hjälp av [mono](https://www.mono-project.com/).
 
@@ -41,7 +41,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. skapa en ny C#-konsollösning i Visual Studio. Lägg sedan till följande namnrymder i huvudkodfilen.
+1. Skapa en ny C#-konsollösning i Visual Studio. Lägg sedan till följande namn rymder i huvud kod filen:
     
     ```csharp
     using Newtonsoft.Json;
@@ -50,7 +50,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
     using System.Text;
     ```
 
-2. Skapa en ny klass och lägg till variabler för API-slutpunkten, din prenumerationsnyckel samt den fråga som du vill söka med. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa en ny klass och Lägg till variabler för API-slutpunkten, din prenumerations nyckel och den fråga som du vill söka i. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```csharp
     namespace EntitySearchSample
@@ -73,11 +73,13 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="send-a-request-and-get-the-api-response"></a>Skicka en begäran och få API-svaret
 
-1. I klassen skapar du en funktion med namnet `Search()`. Skapa ett nytt `HttpClient`-objekt och lägg till prenumerationsnyckeln i `Ocp-Apim-Subscription-Key`-rubriken.
+1. I klassen skapar du en funktion med namnet `Search()`. I den här funktionen skapar du ett nytt `HttpClient` objekt och lägger till din prenumerations nyckel i `Ocp-Apim-Subscription-Key` rubriken.
 
-   1. Skapa URI för din begäran genom att kombinera värd och sökväg. Lägg sedan till din marknad och URL-koda frågan.
-   2. Vänta på `client.GetAsync()` för att få ett HTTP-svar och lagra sedan json-svaret genom att vänta på `ReadAsStringAsync()`.
-   3. Formatera JSON-strängen med `JsonConvert.DeserializeObject()` och skriv ut den till-konsolen.
+2. Skapa URI för din begäran genom att kombinera värd och sökväg. Lägg sedan till din marknad och URL – koda frågan.
+
+3. Väntar `client.GetAsync()` på att få ett HTTP-svar och lagra sedan JSON-svaret genom att vänta `ReadAsStringAsync()` .
+
+4. Formatera JSON-strängen med `JsonConvert.DeserializeObject()` och skriv ut den till-konsolen.
 
       ```csharp
       async static void Search()
@@ -96,7 +98,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
       }
       ```
 
-2. I main-metoden för programmet anropar du funktionen `Search()`.
+5. `Main()`Anropa funktionen i program metoden `Search()` .
     
     ```csharp
     static void Main(string[] args)
@@ -178,4 +180,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Vad är API för entitetsökning i Bing?](../overview.md )
-* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

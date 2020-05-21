@@ -4,12 +4,12 @@ description: Lär dig snabbt att skapa ett privat Docker-register i Azure Contai
 ms.topic: quickstart
 ms.date: 03/03/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 6fe6358655f50ab783b4017efa8ee1db351cd018
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0875e5be628ddfe47696a9d4fc537a8a07122804
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409311"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682799"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>Snabb start: skapa ett privat behållar register med hjälp av Azure Portal
 
@@ -25,7 +25,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Skapa ett containerregister
 
-Välj **skapa en resurs** > **behållare** > **container Registry**.
+Välj **skapa en resurs**  >  **behållare**  >  **container Registry**.
 
 ![Skapa ett containerregister i Azure-portalen][qs-portal-01]
 
@@ -35,7 +35,7 @@ På fliken **grundläggande** anger du värden för **resurs grupp** och **regis
 
 Acceptera standardvärden för återstående inställningar. Välj sedan **Granska + skapa**. När du har granskat inställningarna väljer du **skapa**.
 
-I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänstnivåer finns i [SKU:er för Azure Container Registry][container-registry-skus].
+I den här snabbstarten skapar du ett *Basic*-register, vilket är ett kostnadsoptimerat alternativ för utvecklare som lär sig om Azure Container Registry. Mer information om tillgängliga tjänst nivåer finns i [tjänste nivåer för container Registry][container-registry-skus].
 
 När meddelandet **Distribueringen lyckades** visas väljer du containerregistret i portalen. 
 
@@ -59,7 +59,7 @@ Kommandot returnerar `Login Succeeded` när det har slutförts.
 
 Om du vill visa en lista över avbildningarna i registret navigerar du till registret i portalen och väljer **Centrallager**. Välj sedan det lager du skapade med `docker push`.
 
-I det här exemplet väljer vi databasen **Hello-World** och vi kan se `v1`bilden med märkord under **taggar**.
+I det här exemplet väljer vi databasen **Hello-World** och vi kan se bilden med märkord `v1` under **taggar**.
 
 ![Visa lista över containeravbildningar i Azure-portalen][qs-portal-09]
 

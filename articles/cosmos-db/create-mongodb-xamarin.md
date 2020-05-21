@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db28455c47541b49b38ddbbc4d5e83ae20e2279d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79481695"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659174"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Snabb start: Bygg en Xamarin. Forms-app med .NET SDK och Azure Cosmos DB s API för MongoDB
 
@@ -23,7 +23,7 @@ ms.locfileid: "79481695"
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB.
@@ -170,7 +170,7 @@ Gå nu tillbaka till Azure Portal för att hämta information om din anslutnings
 
 3. Kopiera värdet för **primär anslutningssträng** från portalen (med kopieringsknappen) och gör det till värdet för fältet **ConnectionString** i filen **APIKeys.cs**.
 
-4. Ta `&replicaSet=globaldb` bort från anslutnings strängen. Du får ett körnings fel om du inte tar bort det värdet från frågesträngen.
+4. Ta bort `&replicaSet=globaldb` från anslutnings strängen. Du får ett körnings fel om du inte tar bort det värdet från frågesträngen.
 
 > [!IMPORTANT]
 > Du måste ta bort `&replicaSet=globaldb` nyckel/värde-paret från anslutnings strängens frågesträng för att undvika ett körnings fel.

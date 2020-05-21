@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Visuellt innehåll 2,0 och 2,1 – extrahera tryckt och handskriven text – vila, C #'
+title: 'Snabb start: Visuellt innehåll 2,1 och 3,0 – extrahera skriven text – vila, C #'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten extraherar du utskriven och handskriven text från en bild med hjälp av API för visuellt innehåll med C#.
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b5bb1e80ac7a2a7fca053365b1062df61b2acc03
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bd42dd52af039ee61585b110ee31f1ad41613162
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405138"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681207"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll 2,0 och 2,1 REST API och C #
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-21-and-30-rest-api-and-c"></a>Snabb start: extrahera utskrift och handskriven text med hjälp av Visuellt innehåll 2,1 och 3,0 REST API och C #
 
 I den här snabb starten ska du extrahera tryckt och/eller handskriven text från en bild med hjälp av Visuellt innehåll REST API. Med resultat metoderna [batch Läs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) och [Läs åtgärd](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) kan du identifiera text i en bild och extrahera identifierade tecken i en maskin läsnings bar tecken ström. API: et avgör vilken igenkännings modell som ska användas för varje textrad, så den stöder bilder med både utskrift och handskriven text.
 
-Jämfört med Visuellt innehåll 2,0 och 2,1 ger Visuellt innehåll 3,0 offentlig för hands version:
+Jämfört med Visuellt innehåll 2,1 och 3,0 ger Visuellt innehåll 3,0 offentlig för hands version:
 
 * ännu bättre precision
 * ett ändrat utdataformat
@@ -32,22 +32,22 @@ Jämfört med Visuellt innehåll 2,0 och 2,1 ger Visuellt innehåll 3,0 offentli
 #### <a name="version-2"></a>[Version 2](#tab/version-2)
 
 > [!IMPORTANT]
-> Läs metoden för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
+> Läs metoden för [batch](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Location` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
 
-#### <a name="version-3-public-preview"></a>[Version 3 (offentlig för hands version)](#tab/version-3)
+#### <a name="version-3"></a>[Version 3](#tab/version-3)
 
 > [!IMPORTANT]
-> Läs metoden för [batch](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för fältet `Operation-Location` svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
+> Läs metoden för [batch](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) körs asynkront. Den här metoden returnerar inte någon information i en svarsbrödtext. I stället returnerar batch-metoden en URI i värdet för `Operation-Location` fältet svars huvud. Du kan sedan anropa denna URI, som representerar API för [Läs åtgärds resultat](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , för att både kontrol lera statusen och returnera resultatet från anropet av Läs metoden för batch.
 
 ---
 
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 - Du måste ha [Visual Studio 2015 eller senare](https://visualstudio.microsoft.com/downloads/).
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `COMPUTER_VISION_SUBSCRIPTION_KEY` med `COMPUTER_VISION_ENDPOINT`namnet respektive.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
@@ -80,29 +80,20 @@ namespace CSHttpClientSample
         static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
-        
+
         // the Batch Read method endpoint
         static string uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
+        // Add your own local image with text (png or jpg OK)
+        static string imageFilePath = @"my-image.png";
 
-        static async Task Main()
+        static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Text Recognition:");
-            Console.Write(
-                "Enter the path to an image with text you wish to read: ");
-            string imageFilePath = Console.ReadLine();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                await ReadText(imageFilePath);
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
-            Console.WriteLine("\nPress Enter to exit...");
+            // Call the REST API method.
+            Console.WriteLine("\nExtracting text...\n");
+            ReadText(imageFilePath).Wait();
+
+            Console.WriteLine("\nPress Enter to exit.");
             Console.ReadLine();
         }
 
@@ -257,70 +248,20 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
+        static string uriBase = endpoint + "/vision/v3.0-preview//read/analyze";
 
-        static void PrintUsage()
-        {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Cognitive Service Batch Read File Sample");
-            Console.WriteLine("Usage: ");
-            Console.WriteLine("    From Azure Cogntivie Service, retrieve your endpoint and subscription key.");
-            Console.WriteLine("    Set environment variable COMPUTER_VISION_ENDPOINT, such as \"https://westus2.api.cognitive.microsoft.com\"");
-            Console.WriteLine("    Set environment variable COMPUTER_VISION_SUBSCRIPTION_KEY, such as \"1234567890abcdef1234567890abcdef\"\n");
-            Console.WriteLine("    Run the program without argument to enter a file name and a language manually.");
-            Console.WriteLine("    Or run the program with a file name for an image file (bmp/jpg/png/tiff) or a PDF file, plus the language. The language can be \"en\" or \"es\".");
-            Console.WriteLine("       For example: dotnet Program.dll sample.jpg en");
-            Console.WriteLine();
-        }
+        // Add a local image with text here (png or jpg is OK)
+        static string imageFilePath = @"my-image.png";
+        // Add a language, either "en" or "es"
+        static string language = "en";
+
 
         static void Main(string[] args)
         {
-            PrintUsage();
+            // Call the REST API method.
+            Console.WriteLine("\nExtracting text...\n");
+            ReadText(imageFilePath, language).Wait();
 
-            if (string.IsNullOrEmpty(subscriptionKey) || string.IsNullOrEmpty(endpoint))
-            {
-                Console.Error.WriteLine("Please set environment variables COMPUTER_VISION_ENDPOINT and COMPUTER_VISION_SUBSCRIPTION_KEY.");
-                return;
-            }
-
-            string imageFilePath;
-            string language;
-            if (args.Length == 0)
-            {
-                Console.Write(
-                    "Enter the path to an image (bmp/jpg/png/tiff) or PDF with text you wish to read: ");
-                imageFilePath = Console.ReadLine();
-            }
-            else
-            {
-                imageFilePath = args[0];
-            }
-
-            if (args.Length <= 1)
-            {
-                Console.Write(
-                    "Enter the language to read: \"en\" or \"es\": ");
-                language = Console.ReadLine();
-            }
-            else
-            {
-                language = args[1];
-            }
-
-            Console.WriteLine($"Endpoint:     [{endpoint}]");
-            Console.WriteLine($"Subscription: [{subscriptionKey}]");
-            Console.WriteLine($"URL:          [{uriBase}]");
-
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                ReadText(imageFilePath, language).Wait();
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }

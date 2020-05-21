@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 204fd1b1a0a2984886684bbabf33dc7e73c1b45c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691884"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653537"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Fråga Storage-filer med hjälp av SQL on-demand-resurser (för hands version) i Synapse SQL
 
@@ -90,7 +90,7 @@ Dessa ytterligare parametrar införs för att arbeta med CSV-filer (avgränsad t
 ```
 
 - ESCAPE_CHAR = char anger det tecken i filen som används för att undanta sig själv och alla avgränsare värden i filen. Om escape-tecken följs av antingen ett annat värde än sig själv eller någon av avgränsarna, ignoreras escape-tecken vid läsning av värdet.
-Parametern ESCAPE_CHAR tillämpas oavsett om FIELDQUOTE är eller inte är aktive rad. Det kommer inte att användas för att undanta citat tecken. Citat tecken är avbrotts bara med dubbla citat tecken i justering med Excel CSV-beteende.
+Parametern ESCAPE_CHAR tillämpas om FIELDQUOTE är eller inte är aktive rad. Den används inte för att undanta citat tecken. Citat tecken är avbrotts bara med dubbla citat tecken i justering med Excel CSV-beteende.
 - FIELDTERMINATOR = ' field_terminator ' anger vilken fält avslutning som ska användas. Standard fält avslutning är ett kommatecken ("**,**")
 - ROWTERMINATOR = ' row_terminator ' anger rad avslutningen som ska användas. Standard rads avgränsaren är ett rad matnings tecken: **\r\n**.
 

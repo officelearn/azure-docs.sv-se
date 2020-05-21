@@ -5,21 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 02/05/2020
+ms.date: 05/14/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 927c09f61ce0847c72cefb51935116070e956861
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8bdba64445212c564a3d4762bc8497be15f7d9a0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80743101"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657004"
 ---
 # <a name="about-azure-virtual-wan"></a>Om Azure Virtual WAN
 
-Azure Virtual WAN är en nätverks tjänst som ger många funktioner för nätverk, säkerhet och routning tillsammans för att tillhandahålla ett enda drift gränssnitt. Dessa funktioner inkluderar anslutning till förgrening (via anslutnings automatisering från virtuella WAN-partner enheter som SD-WAN eller VPN CPE), plats-till-plats-VPN-anslutning, fjärran sluten användare VPN-anslutning (punkt-till-plats), privat (ExpressRoute) anslutning (transitiv anslutning för virtuella nätverk), VPN-ExpressRoute, routning, Azure-brandvägg, kryptering för privat anslutning Du behöver inte ha alla dessa användnings fall för att börja använda Virtual WAN. Du kan helt enkelt komma igång med bara ett användnings fall och justera nätverket när det utvecklas. Den virtuella WAN-arkitekturen är en hubb och eker-arkitektur med skalning och prestanda som är inbyggda för grenar (VPN/SD-WAN-enheter), användare (Azure VPN/OpenVPN/IKEv2-klienter), ExpressRoute-kretsar och virtuella nätverk. Den möjliggör en [Global överförings nätverks arkitektur](virtual-wan-global-transit-network-architecture.md) där det molnbaserade nätverkets hubb möjliggör transitiv anslutning mellan slut punkter som kan fördelas mellan olika typer av ekrar.
+Azure Virtual WAN är en nätverks tjänst som ger många funktioner för nätverk, säkerhet och routning tillsammans för att tillhandahålla ett enda drift gränssnitt. Dessa funktioner är till exempel filial anslutning (via anslutnings automatisering från virtuella WAN-partner enheter som SD-WAN eller VPN CPE). VPN-anslutning för plats-till-plats, fjärran sluten användare (punkt-till-plats), privat (ExpressRoute) anslutning, anslutning inom molnet (transitiv anslutning för virtuella nätverk), VPN-ExpressRoute mellan anslutning, routning, Azure-brandvägg och kryptering för privat anslutning. Du behöver inte ha alla dessa användnings fall för att börja använda Virtual WAN. Du kan helt enkelt komma igång med bara ett användnings fall och sedan justera nätverket när det utvecklas.
 
-Azure-regioner fungerar som hubbar som du kan välja att ansluta till. Alla hubbar är anslutna i hela nät i ett standard virtuellt WAN-nätverk som gör det enkelt för användaren att använda Microsofts stamnät för alla-till-alla-anslutningar (alla ekrar). För ekrar som är anslutna till SD-WAN/VPN-enheter kan användarna antingen manuellt konfigurera det i Azure Virtual WAN eller använda partner lösningen för Virtual WAN-CPE (SD-WAN/VPN) för att konfigurera anslutning till Azure. Vi har en lista över partners som stöder anslutnings automatisering (möjlighet att exportera enhets informationen till Azure, ladda ned Azure-konfigurationen och upprätta anslutning) med Azure Virtual WAN. Mer information finns i artikeln om [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) . 
+Den virtuella WAN-arkitekturen är en hubb och eker-arkitektur med skalning och prestanda som är inbyggda för grenar (VPN/SD-WAN-enheter), användare (Azure VPN/OpenVPN/IKEv2-klienter), ExpressRoute-kretsar och virtuella nätverk. Den möjliggör [Global arkitektur för nätverks arkitektur](virtual-wan-global-transit-network-architecture.md), där det molnbaserade nätverkets hubb möjliggör transitiv anslutning mellan slut punkter som kan distribueras mellan olika typer av ekrar.
+
+Azure-regioner fungerar som hubbar som du kan välja att ansluta till. Alla hubbar är anslutna i hela nät i ett standard virtuellt WAN-nätverk som gör det enkelt för användaren att använda Microsofts stamnät för alla-till-alla-anslutningar (alla ekrar). För eker-anslutningar med SD-WAN/VPN-enheter kan användarna antingen manuellt konfigurera det i Azure Virtual WAN, eller använda partner lösningen för Virtual WAN-CPE (SD-WAN/VPN) för att konfigurera anslutning till Azure. Vi har en lista över partners som stöder anslutnings automatisering (möjlighet att exportera enhets informationen till Azure, ladda ned Azure-konfigurationen och upprätta anslutning) med Azure Virtual WAN. Mer information finns i artikeln om [virtuella WAN-partners och platser](virtual-wan-locations-partners.md) .
 
 ![Virtual WAN-diagram](./media/virtual-wan-about/virtualwan1.png)
 

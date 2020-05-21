@@ -1,14 +1,14 @@
 ---
 title: 'Självstudie: hantera frågor i Azure Portal'
 description: I den här självstudien skapar du en resurs diagram fråga och delar den nya frågan med andra i Azure Portal.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e63a92a4570a0713ed65e1090e4d77d25fb10f95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74303959"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83637754"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Självstudie: skapa och dela en Azure Resource Graph-fråga i Azure Portal
 
@@ -56,7 +56,7 @@ Privata frågor är tillgängliga och endast synliga för det konto som skapar d
    > [!NOTE] 
    > När en sparad fråga är öppen och fliken visar sitt namn, kan du välja knappen **Spara** om du vill uppdatera den med alla ändringar som har gjorts. Om du vill skapa en ny sparad fråga från den här öppna frågan väljer du **Spara som** och fortsätter som om du sparar en helt ny fråga.
 
-1. Om du vill ta bort den sparade frågan väljer du **öppna en fråga** igen och kontrollerar att fältet **typ** är inställt på **privat fråga**. Välj `Count VMs by OS` **ta bort** (pappers korgs ikon) på raden i den sparade frågan. I bekräftelse dialog rutan väljer du **Ja** för att slutföra borttagningen av frågan.
+1. Om du vill ta bort den sparade frågan väljer du **öppna en fråga** igen och kontrollerar att fältet **typ** är inställt på **privat fråga**. `Count VMs by OS`Välj **ta bort** (pappers korgs ikon) på raden i den sparade frågan. I bekräftelse dialog rutan väljer du **Ja** för att slutföra borttagningen av frågan.
    Stäng sedan fönstret **öppna en fråga** .
 
 ## <a name="create-a-shared-query"></a>Skapa en delad fråga
@@ -129,7 +129,7 @@ Om du väljer resurs diagram frågan öppnas sidan för frågan. Meny alternativ
 
 ### <a name="query-resource-graph"></a>Fråga resurs diagram
 
-Du kan hitta resurs diagram frågor via en fråga till resurs diagram. Följande resurs diagram fråga begränsar efter typ `Microsoft.ResourceGraph/queries`och används `project` sedan för att bara visa en lista över namnet, tiden som har ändrats och själva frågan:
+Du kan hitta resurs diagram frågor via en fråga till resurs diagram. Följande resurs diagram fråga begränsar efter typ `Microsoft.ResourceGraph/queries` och används sedan `project` för att bara visa en lista över namnet, tiden som har ändrats och själva frågan:
 
 ```kusto
 Resources

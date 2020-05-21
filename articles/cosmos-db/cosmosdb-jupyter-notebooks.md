@@ -3,63 +3,62 @@ title: Introduktion till det inbyggda stödet för Jupyter Notebooks i Azure Cos
 description: Lär dig hur du kan använda det inbyggda stödet för Jupyter Notebooks i Azure Cosmos DB för att interaktivt köra frågor.
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 09/22/2019
-author: markjbrown
-ms.author: mjbrown
-ms.openlocfilehash: 5b320485001d6cbc457d39ef193ed8c57f7161df
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+author: deborahc
+ms.author: dech
+ms.openlocfilehash: 9152bdfa9575738c853521814938cd0d7ec25efb
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76760291"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657370"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Inbyggt stöd för Jupyter Notebooks i Azure Cosmos DB (för hands version)
 
-Jupyter Notebook är ett webb program med öppen källkod som gör att du kan skapa och dela dokument som innehåller Live-kod, ekvationer, visualiseringar och text. Azure Cosmos DB stöder inbyggda Jupyter-anteckningsböcker för alla API: er som Cassandra, MongoDB, SQL, Gremlin och Table. Med det inbyggda Notebook-stödet för alla Azure Cosmos DB-API: er och data modeller kan du interaktivt köra frågor. Jupyter-anteckningsbokarna körs i Azure Cosmos-kontona och de gör det möjligt för utvecklare att utföra data utforskning, data rensning, data transformationer, numeriska simuleringar, statistisk modellering, data visualisering och maskin inlärning.
+Jupyter Notebook är ett webb program med öppen källkod som gör att du kan skapa och dela dokument som innehåller Live-kod, ekvationer, visualiseringar och beskrivande text. 
+
+Azure Cosmos DB inbyggda antecknings böcker för Jupyter är direkt integrerade i Azure Portal och dina Azure Cosmos DB-konton, vilket gör dem praktiska och enkla att använda. Utvecklare, data forskare, ingenjörer och analytiker kan använda välbekanta Jupyter Notebooks-upplevelse för att utföra data utforskning, data rensning, data transformationer, numeriska simuleringar, statistisk modellering, data visualisering och maskin inlärning.
 
 ![Jupyter Notebooks-visualiseringar i Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
 
-Antecknings böckerna för Jupyter har stöd för Magic Functions som utökar funktionerna i kärnan genom att stödja ytterligare kommandon. Cosmos Magic är ett kommando som utökar funktionerna i python-kärnan i Jupyter Notebook så att du kan köra Azure Cosmos SQL API-frågor förutom Apache Spark. Du kan enkelt kombinera python-och SQL API-frågor för att fråga och visualisera data med hjälp av omfattande visualiserings bibliotek som är integrerade med Render-kommandon.
-Azure Portal integrerar Jupyter Notebook-upplevelse i Azure Cosmos-konton på det sätt som visas i följande bild:
+Azure Cosmos DB stöder både C#-och python-anteckningsböcker för alla API: er, inklusive Core (SQL), Cassandra, Gremlin, Table och API för MongoDB. I antecknings boken kan du dra nytta av inbyggda kommandon och funktioner som gör det enkelt att skapa Azure Cosmos DB resurser, ladda upp data och fråga och visualisera dina data i Azure Cosmos DB. 
 
 ![Stöd för Jupyter Notebooks i Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png)
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Fördelar med Jupyter-anteckningsböcker
 
-Jupyter-anteckningsböcker utvecklades ursprungligen för data vetenskaps program skrivna i python, R. De kan dock användas på olika sätt för olika typer av projekt, till exempel:
+Jupyter-anteckningsböcker utvecklades ursprungligen för data vetenskaps program skrivna i python och R. De kan dock användas på olika sätt för olika typer av projekt, inklusive:
 
-* ***Data visualiseringar:** Med Jupyter-anteckningsböcker kan du visualisera data i form av en delad antecknings bok som återger viss data uppsättning som en bild. Med Jupyter Notebook kan du redigera visualiseringar, dela dem och tillåta interaktiva ändringar i den delade koden och data uppsättningen.
+**Data visualisering:** Med Jupyter-anteckningsböcker kan du visualisera data i form av en delad antecknings bok som återger en data uppsättning som en bild. Du kan skapa visualiseringar, göra interaktiva ändringar i den delade koden och data uppsättningen och dela resultatet.
 
-* **Kod delning:** Tjänster som GitHub ger olika sätt att dela kod, men de är mycket icke-interaktiva. Med en Jupyter Notebook kan du Visa kod, köra den och visa resultaten direkt i Azure Portal.
+**Kod delning:** Tjänster som GitHub ger olika sätt att dela kod, men de är mycket icke-interaktiva. Med en Jupyter Notebook kan du Visa kod, köra den och visa resultaten direkt i Azure Portal.
 
-* **Live-interaktioner med kod:** Jupyter Notebook Code är dynamisk. den kan redige ras och köras stegvis i real tid. Antecknings böcker kan också bädda in användar kontroller (t. ex. skjutreglage eller text inmatnings fält) som kan användas som inmatnings källor för kod, demonstrationer eller proof of Concepts (POC).
+**Live-interaktioner med kod:** Kod i en Jupyter Notebook är dynamisk. Du kan redigera den och köra uppdateringarna stegvis i real tid. Du kan också bädda in användar kontroller (till exempel skjutreglage eller text inmatnings fält) som används som inmatnings källor för kod, demonstrationer eller proof of Concepts (POC).
 
-* **Dokumentation av kod exempel och resultat för data utforskning:** Om du har en kod i koden och du vill förklara rad för rad hur det fungerar i Azure Cosmos DB, med real tids utdata på vägen, kan du bädda in det i en Jupyter Notebook. Koden fortsätter att fungera helt och hållet. Du kan lägga till interaktivitet tillsammans med dokumentationen på samma tid.
+**Dokumentation av kod exempel och resultat för data utforskning:** Om du har en kod i koden och du vill förklara rad för rad hur den fungerar kan du bädda in den i en Jupyter Notebook. Du kan lägga till interaktivitet tillsammans med dokumentationen på samma tid.
 
-* **Cosmos Magic-kommandon:** I Jupyter Notebooks kan du använda anpassade Magic-kommandon för att Azure Cosmos DB för att förenkla interaktiva data behandling. Till exempel%% SQL Magic som tillåter att en Cosmos-behållare använder SQL API direkt i en bärbar dator.
+**Inbyggda kommandon för Azure Cosmos DB:** Azure Cosmos DB inbyggda Magic-kommandon gör det enkelt att interagera med ditt konto. Du kan använda kommandon som%% upload och%% SQL för att överföra data till en behållare och fråga den med [SQL API-syntax](sql-query-getting-started.md). Du behöver inte skriva ytterligare anpassad kod.
 
-* **Alla i en plats miljö:** Jupyter-anteckningsböcker kombinerar kod, RTF, bilder, videor, animeringar, matematiska ekvationer, ritytor, kartor, interaktiva figurer, widgetar och grafiska användar gränssnitt till ett enda dokument.
+**Alla i en plats miljö:** Jupyter-anteckningsböcker kombinerar kod, RTF, bilder, videor, animeringar, matematiska ekvationer, ritytor, kartor, interaktiva figurer, widgetar och grafiska användar gränssnitt till ett enda dokument.
 
 ## <a name="components-of-a-jupyter-notebook"></a>Komponenter i en Jupyter Notebook
 
-Jupyter-anteckningsböcker kan innehålla flera typer av komponenter, som var och en är ordnade i separata block:
+Jupyter-anteckningsböcker kan innehålla flera typer av komponenter, som var och en är ordnade i diskreta block eller celler:
 
-* **Text och HTML:** Oformaterad text eller text som är kommenterad i markdown-syntaxen för att generera HTML, kan infogas i dokumentet när som helst. CSS-format kan också inkluderas infogade eller läggas till i mallen som används för att skapa antecknings boken.
+**Text och HTML:** Oformaterad text eller text som är kommenterad i markdown-syntaxen för att generera HTML, kan infogas i dokumentet när som helst. CSS-format kan också inkluderas infogade eller läggas till i mallen som används för att skapa antecknings boken.
 
-* **Kod och utdata:** Jupyter Notebooks stöder python-kod. Resultatet av den körda koden visas omedelbart efter kodblock och kodblock kan köras flera gånger i vilken ordning som helst.
+**Kod och utdata:** Jupyter Notebooks stöder python och C#-kod. Resultatet av den körda koden visas omedelbart efter kodblock och kodblock kan köras flera gånger i vilken ordning som helst.
 
-* **Visualiseringar:** Grafik och diagram kan genereras från koden med hjälp av moduler som matplotlib, ritas upp eller bokeh. På samma sätt som utdata visas dessa visualiseringar bredvid den kod som genererar dem.
+**Visualiseringar:** Du kan generera grafik och diagram från koden med hjälp av moduler som matplotlib, ritas, bokeh och andra. På samma sätt som utdata visas dessa visualiseringar bredvid den kod som genererar dem. På samma sätt som utdata visas dessa visualiseringar bredvid den kod som genererar dem.
 
-* **Multimedia:** Eftersom Jupyter Notebook är byggd på webb tekniken kan den Visa alla typer av multimedia som stöds på en webb sida. Du kan inkludera dem i en bärbar dator som HTML-element, eller så kan du generera dem program mässigt genom `IPython.display` att använda modulen.
+**Multimedia:** Eftersom Jupyter Notebooks bygger på webb teknik kan de Visa alla typer av multimedia som stöds av en webb sida. Du kan inkludera dem i en bärbar dator som HTML-element, eller så kan du generera dem program mässigt genom att använda `IPython.display` modulen.
 
-* **Data:** Data från Azure Cosmos-behållare och resultat från frågorna kan importeras till en Jupyter-anteckningsbok program mässigt. Om du till exempel inkluderar kod i antecknings boken för att fråga data med hjälp av någon av de Cosmos DB API: erna eller internt inbyggda Apache Spark.
+**Data:** Du kan importera data från Azure Cosmos-behållare eller resultaten av frågor till en Jupyter-anteckningsbok program mässigt. Använd inbyggda Magic-kommandon för att överföra eller fråga efter data i Azure Cosmos DB. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill komma igång med inbyggda Jupyter-anteckningsböcker i Azure Cosmos DB kan du läsa följande artiklar:
+Information om hur du kommer igång med inbyggda Jupyter-anteckningsböcker i Azure Cosmos DB finns i följande artiklar:
 
 * [Aktivera antecknings böcker i ett Azure Cosmos-konto](enable-notebooks.md)
-* [Använda Notebook-funktioner och-kommandon](use-notebook-features-and-commands.md)
-
-
-
+* [Använda python-funktioner och-kommandon i python](use-python-notebook-features-and-commands.md)
+* [Använda C#-funktioner och-kommandon i C#](use-csharp-notebook-features-and-commands.md)

@@ -3,16 +3,16 @@ title: Översikt över Azure Notebooks för hands version
 description: Kör Jupyter Notebooks i molnet med den kostnads fria Azure Notebooks för hands versions tjänsten, där ingen konfiguration eller konfiguration krävs.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40b7056aef7e59759c9e04ba9d98fbfb7d28ca3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75646338"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647559"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Översikt över Azure Notebooks för hands version
 
-Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. [Jupyter](https://jupyter.org/) (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera Markdown-text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbetsyta, *notebook-filen* (bilden tillhör jupyter.org):
+Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. [Jupyter](https://jupyter.org/) (tidigare ipython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera markdown text, körbar kod, beständiga data, grafik och visualiseringar på en enda, delbar arbets yta, som kallas *Notebook* (avbildnings uppsättning Jupyter.org):
 
 [![Exempel på Jupyter-anteckningsböcker](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 

@@ -1,21 +1,21 @@
 ---
 title: Lista över inbyggda princip initiativ
 description: Visa en lista över inbyggda princip initiativ för Azure Policy. Kategorier omfattar regelefterlevnad, gäst konfiguration och mycket annat.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 29301e958d0354fb86cce2156f9050420eebc6da
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 969b1849628616bf42951e1ff7fdf2f507cf0abe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837774"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639371"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy inbyggda definitioner för initiativ
 
 Den här sidan är ett index med Azure Policy inbyggda definitioner för initiativ.
 
-Namnet på varje inbyggt länkar till initiativ definitions källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy). De inbyggda programmen grupperas efter egenskapen **Category** i **metadata**. Om du vill gå till en viss **kategori**använder du menyn på höger sida av sidan. Annars använder du <kbd>CTRL</kbd>-<kbd>F</kbd> för att använda Sök funktionen i webbläsaren.
+Namnet på varje inbyggt länkar till initiativ definitions källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy). De inbyggda programmen grupperas efter egenskapen **Category** i **metadata**. Om du vill gå till en viss **kategori**använder du menyn på höger sida av sidan. Annars använder du <kbd>CTRL</kbd> - <kbd>F</kbd> för att använda Sök funktionen i webbläsaren.
 
 ## <a name="guest-configuration"></a>Gästkonfiguration
 

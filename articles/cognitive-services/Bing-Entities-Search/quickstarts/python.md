@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 07b563308e80055d699d1cefeb3b2db71ffa4cd7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 43b440b631122f7057de68871f0a3f870588dc67
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448622"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650201"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med python
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Python-programmet skickar en nyhetssökfråga till API:et och visar svaret. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
-Även om det här programmet är skrivet i Python, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i python är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -31,7 +31,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny Python-fil i valfri IDE eller valfritt redigeringsprogram och lägg till följande importer. Skapa variabler för din prenumerationsnyckel, slutpunkt, marknad och en sökfråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+1. Skapa en ny Python-fil i valfri IDE eller valfritt redigeringsprogram och lägg till följande importer. Skapa variabler för din prenumerations nyckel, slut punkt, marknads-och Sök fråga. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```python
     import http.client, urllib.parse
@@ -44,7 +44,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
     query = 'italian restaurants near me'
     ```
 
-2. Skapa en begärande-URL genom att lägga till din marknadsvariabel i parametern `?mkt=`. URL-koda frågan och bifoga den i parametern `&q=`. 
+2. Skapa en begärande-URL genom att lägga till din marknadsvariabel i parametern `?mkt=`. URL – koda frågan och Lägg till den i `&q=` parametern. 
     
     ```python
     params = '?mkt=' + mkt + '&q=' + urllib.parse.quote (query)
@@ -52,21 +52,24 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="send-a-request-and-get-a-response"></a>Skicka en begäran och få ett svar
 
-1. Skapa en funktion som heter `get_suggestions()`. Utför sedan följande steg.
-   1. Lägg till din prenumerationsnyckel i en ordlista med `Ocp-Apim-Subscription-Key` som en nyckel.
-   2. Använd `http.client.HTTPSConnection()` för att skapa ett HTTPS-klientobjekt. Skicka en `GET`-begäran via `request()` med sökväg och parametrar samt huvudinformation.
-   3. Lagra svaret med `getresponse()` och returnera `response.read()`.
+1. Skapa en funktion som heter `get_suggestions()`. 
 
-      ```python
-      def get_suggestions ():
-       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-       conn = http.client.HTTPSConnection (host)
-       conn.request ("GET", path + params, None, headers)
-       response = conn.getresponse ()
-       return response.read()
-      ```
+2. I den här funktionen lägger du till din prenumerations nyckel i en ord lista med `Ocp-Apim-Subscription-Key` som en nyckel.
 
-2. Anropa `get_suggestions()` och skriv ut json-svaret.
+3. Använd `http.client.HTTPSConnection()` för att skapa ett https-klientcertifikat. Skicka en `GET`-begäran via `request()` med sökväg och parametrar samt huvudinformation.
+
+4. Lagra svaret med `getresponse()` och returnera `response.read()`.
+
+   ```python
+   def get_suggestions ():
+    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+    conn = http.client.HTTPSConnection (host)
+    conn.request ("GET", path + params, None, headers)
+    response = conn.getresponse ()
+    return response.read()
+   ```
+
+5. Anropa `get_suggestions()` och skriv ut JSON-svaret.
 
     ```python
     result = get_suggestions ()
@@ -143,5 +146,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Vad är API:et för entitetssökning i Bing?](../search-the-web.md)
-* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Vad är API för entitetsökning i Bing?](../search-the-web.md)
+* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

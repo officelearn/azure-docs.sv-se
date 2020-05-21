@@ -9,28 +9,30 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: f562c195e90f2356568530b9b618ae9e6610fa56
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2c8215a68d2f80471be87b0ca07aa1438a25ac4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201465"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660049"
 ---
 # <a name="introduction"></a>Introduktion
 
-Spark SQL Analytics-anslutningen är utformad för att effektivt överföra data mellan Spark-pool (för hands version) och SQL-pooler i Azure Synapse. Spark SQL Analytics-anslutaren fungerar bara på SQL-pooler, den fungerar inte med SQL på begäran.
+Azure Synapse-Apache Spark till Synapse SQL Connector är utformad för att effektivt överföra data mellan Spark-pooler (för hands version) och SQL-pooler i Azure Synapse. Azure-Synapse Apache Spark till Synapse SQL Connector fungerar bara på SQL-pooler, utan fungerar med SQL på begäran.
 
 ## <a name="design"></a>Design
 
 Överföring av data mellan Spark-pooler och SQL-pooler kan göras med JDBC. Men med tanke på två distribuerade system som Spark-och SQL-pooler, är JDBC att vara en Flask hals med seriell data överföring.
 
-Spark-poolerna till SQL Analytics-kopplingen är en implementering av data källor för Apache Spark. Den använder Azure Data Lake Storage gen 2 och PolyBase i SQL-pooler för att effektivt överföra data mellan Spark-klustret och SQL Analytics-instansen.
+Azure Synapse Apache Spark-poolen till Synapse SQL Connector är en implementering av data källa för Apache Spark. Den använder Azure Data Lake Storage Gen2 och PolyBase i SQL-pooler för att effektivt överföra data mellan Spark-klustret och Synapse SQL-instansen.
 
 ![Kopplings arkitektur](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Autentisering i Azure Synapse Analytics
 
-Autentisering mellan system sker sömlöst i Azure Synapse Analytics. Det finns en token-tjänst som ansluter med Azure Active Directory för att hämta säkerhetstoken som ska användas vid åtkomst till lagrings kontot eller data lager servern. Därför behöver du inte skapa autentiseringsuppgifter eller ange dem i anslutnings-API: et så länge AAD-auth är konfigurerat på lagrings kontot och på data lager servern. Annars kan SQL-autentisering anges. Mer information finns i [användnings](#usage) avsnittet.
+Autentisering mellan system sker sömlöst i Azure Synapse Analytics. Det finns en token-tjänst som ansluter med Azure Active Directory för att hämta säkerhetstoken som ska användas vid åtkomst till lagrings kontot eller data lager servern. 
+
+Därför behöver du inte skapa autentiseringsuppgifter eller ange dem i anslutnings-API: et så länge AAD-auth är konfigurerat på lagrings kontot och på data lager servern. Annars kan SQL-autentisering anges. Mer information finns i [användnings](#usage) avsnittet.
 
 ## <a name="constraints"></a>Villkor
 
@@ -120,7 +122,7 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 #### <a name="read-api"></a>Läs-API
 
-För närvarande stöder anslutningen inte tokenbaserad autentisering till en SQL-pool utanför arbets ytan. Du måste använda SQL-autentisering.
+För närvarande har kopplingen inte stöd för tokenbaserad autentisering till en SQL-pool utanför arbets ytan. Du måste använda SQL-autentisering.
 
 ```Scala
 val df = spark.read.
@@ -147,13 +149,13 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 Anta att du har en dataframe "pyspark_df" som du vill skriva till DW.
 
-Skapa en temporär tabell med hjälp av dataframe i PySpark
+Skapa en temporär tabell med hjälp av dataframe i PySpark:
 
 ```Python
 pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 ```
 
-Kör en Scala-cell i PySpark Notebook med MAGICS
+Kör en Scala-cell i den PySpark Notebook med MAGICS:
 
 ```Scala
 %%spark
@@ -166,7 +168,7 @@ På samma sätt kan du i Läs scenariot läsa data med Scala och skriva till en 
 
 ## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Låta andra användare använda DW-anslutningen i din arbets yta
 
-Om du vill ändra behörigheter som saknas för andra måste du vara ägare till Storage BLOB-data på ADLS Gen2 lagrings konto som är anslutet till arbets ytan. Se till att användaren har åtkomst till arbets ytan och behörigheterna för att köra antecknings böcker.
+Du måste vara ägare av Storage BLOB-data på ADLS Gen2 lagrings konto som är anslutet till arbets ytan för att ändra behörigheter som saknas för andra. Se till att användaren har åtkomst till arbets ytan och behörigheterna för att köra antecknings böcker.
 
 ### <a name="option-1"></a>Alternativ 1
 
@@ -178,19 +180,20 @@ Om du vill ändra behörigheter som saknas för andra måste du vara ägare till
 
 | Mapp | / | synapse | arbetsytor  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
-| Åtkomst behörigheter |--X |--X |--X |--X |--X |--X |-WX |
-| Standard behörigheter |---|---|---|---|---|---|---|
+| Åtkomst behörigheter | --X | --X | --X | --X | --X | --X | -WX |
+| Standard behörigheter | ---| ---| ---| ---| ---| ---| ---|
 
-- Du bör kunna ACL: er alla mappar från "Synapse" och nedåt från Azure Portal. Följ anvisningarna nedan om du vill ACL-använda rotmappen "/".
+- Du bör kunna ACL: er alla mappar från "Synapse" och nedåt från Azure Portal. Om du vill ACL-rotmappen, följer du anvisningarna nedan.
 
 - Ansluta till lagrings kontot som är anslutet till arbets ytan från Storage Explorer med AAD
 - Välj ditt konto och ange ADLS Gen2-URL och standard fil system för arbets ytan
 - När du kan se det lagrings konto som visas i listan högerklickar du på arbets ytan lista och väljer Hantera åtkomst
 - Lägg till användaren i mappen/-mappen med åtkomst behörigheten "kör". Välj OK
 
-**Se till att du inte väljer standard om du inte tänker**
+> [!IMPORTANT]
+> Se till att du inte väljer standard om du inte vill ha det.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en SQL-pool](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
-- [Skapa en ny Apache Spark pool för en Azure Synapse Analytics-arbetsyta](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 
+- [Skapa en SQL-pool med hjälp av Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Skapa en ny Apache Spark pool med hjälp av Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

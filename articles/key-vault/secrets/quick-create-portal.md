@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7d659ca519e5bd7f26e4cca17707e0db397aae98
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 33842707f04e55b311aeeabe2f1bbc83204ec0c9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81424820"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652275"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av Azure-portalen
 
 Azure Key Vault är en molntjänst som tillhandahåller ett säkert lager för hemligheter. Du kan på ett säkert sätt lagra nycklar, lösenord, certifikat och andra hemligheter. Du kan skapa och hantera Azure-nyckelvalv via Azure Portal. I den här snabbstarten skapar du ett nyckelvalv och använder sedan det för att lagra en hemlighet. Mer information om nyckelvalv finns i [översikten](../general/overview.md).
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -63,7 +63,11 @@ När du ska lägga till en hemlighet i valvet behöver du bara utföra några yt
     - **Värde**: hVFkk965BuUv
     - Lämna standardvärdena för de andra alternativen. Klicka på **Skapa**.
 
-När du får ett meddelande om att hemligheten har skapats kan du klicka på den i listan. Du ser då vissa av egenskaperna. Om du klickar på den aktuella versionen så kan du se värdet du angav i föregående steg.
+När du får ett meddelande om att hemligheten har skapats kan du klicka på den i listan. 
+
+## <a name="retrieve-a-secret-from-key-vault"></a>Hämta en hemlighet från Key Vault
+
+Om du klickar på den aktuella versionen så kan du se värdet du angav i föregående steg.
 
 ![Egenskaper för hemlighet](../media/quick-create-portal/current-version-hidden.png)
 

@@ -4,12 +4,12 @@ description: Lär dig att utföra återställningar på filnivå på en virtuell
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 439ffeed7f0e37f04eda39380ddcabe1fa4e06c3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74171723"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653264"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Återställa filer till en virtuell dator i Azure
 
@@ -117,6 +117,9 @@ För att återställa filerna tillhandahåller Azure Backup ett skript som ska k
 ## <a name="restore-file-to-your-vm"></a>Återställa filen till den virtuella datorn
 
 När återställningsskriptet har kopierats till den virtuella datorn kan du nu ansluta återställningspunkten och återställa filer.
+
+>[!NOTE]
+> Se [efter om](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) du kan köra skriptet på den virtuella datorn innan du fortsätter.
 
 1. Anslut till den virtuella datorn med SSH. Ersätt *publicIPAddress* med den virtuella datorns offentliga IP-adress enligt följande:
 

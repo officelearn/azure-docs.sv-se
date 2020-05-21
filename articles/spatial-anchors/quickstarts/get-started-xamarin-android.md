@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1de2d647a6292467a5ac4cc333ccacdedfc3c9ea
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75465173"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638977"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Xamarin Android-app med Azures spatiala ankare
 
@@ -63,6 +63,8 @@ Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckel
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
+Leta upp `AzureSpatialAnchorsManager(Session arCoreSession)` och Lägg till följande rad och ersätt i din konto domän från tidigare: `this.spatialAnchorsSession.Configuration.AccountId = "MyAccountDomain";` .
+
 ## <a name="deploy-the-app-to-your-android-device"></a>Distribuera appen till din Android-enhet
 
 Starta Android-enheten, logga in och Anslut den till datorn med en USB-kabel.
@@ -73,21 +75,21 @@ Ställ in startprojektet på **SampleXamarin. Android**, ändra **lösningens ko
 
 ![Visual Studio-konfiguration](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
-Välj **Felsök** > **Starta fel sökning** för att distribuera och starta din app.
+Välj **Felsök**  >  **Starta fel sökning** för att distribuera och starta din app.
 
 # <a name="macos"></a>[macOS](#tab/deploy-macos)
 
 ![Visual Studio-konfiguration](./media/get-started-xamarin-android/visual-studio-macos-configuration.jpg)
 
-Välj **Kör** > **starta utan fel sökning** för att distribuera och starta din app.
+Välj **Kör**  >  **starta utan fel sökning** för att distribuera och starta din app.
 
 ---
 
 I appen väljer du **Basic** för att köra demonstrationen och följer anvisningarna för att placera och återkalla en fäst punkt.
 
-> ![Skärm bild](./media/get-started-xamarin-android/screenshot-1.jpg)
-> ![1 skärmdump](./media/get-started-xamarin-android/screenshot-2.jpg)
-> ![2, skärm bild 3](./media/get-started-xamarin-android/screenshot-3.jpg)
+> ![Skärm bild 1 ](./media/get-started-xamarin-android/screenshot-1.jpg)
+>  ![ skärmdump 2, ](./media/get-started-xamarin-android/screenshot-2.jpg)
+>  ![ skärm bild 3](./media/get-started-xamarin-android/screenshot-3.jpg)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

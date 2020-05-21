@@ -11,35 +11,36 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d8002530120eee4a3613f2310c4a59cc18612cad
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ed003e83d8343d2da0f1b11c6d82581b76d3168d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405166"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679875"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Snabb start: analysera en lokal avbildning med hjälp av Visuellt innehåll REST API och C #
 
 I den här snabb starten ska du analysera en lokalt lagrad bild för att extrahera visuella funktioner med hjälp av Visuellt innehåll REST API. Med metoden [analysera avbildning](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) kan du extrahera visuell funktions information från bild innehåll.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare.
-- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, `COMPUTER_VISION_SUBSCRIPTION_KEY` med `COMPUTER_VISION_ENDPOINT`namnet respektive.
+- Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample-application"></a>Skapa och kör exempelappen
 
 Skapa exemplet i Visual Studio enligt följande:
 
-1. Skapa en ny Visual Studio-lösning i Visual Studio med hjälp av mallen för Visual C#-konsolen (.NET Framework).
+1. Skapa en ny Visual Studio-lösning/projekt i Visual Studio med hjälp av mallen Visual C#-konsolen (.NET Core Framework).
 1. Installera NuGet-paketet Newtonsoft.Json.
     1. Klicka på **Verktyg** på menyn, välj **NuGet Package Manager** (NuGet-pakethanteraren) och välj sedan **Manage NuGet Packages for Solution** (Hantera NuGet-paket för lösning).
-    1. Klicka på fliken **Bläddra** och skriv ”Newtonsoft.Json” i rutan **Sök**.
-    1. Välj **Newtonsoft.Json** när det visas och klicka på kryssrutan bredvid namnet på ditt projekt och sedan på **Installera**.
+    1. Klicka på fliken **Bläddra** . i **sökrutan skriver** du "Newtonsoft. JSON" (om den inte redan visas).
+    1. Välj **Newtonsoft. JSON**och klicka sedan på kryss rutan bredvid ditt projekt namn och **Installera**.
+1. Kopiera/klistra in exempel kod avsnittet nedan i din Program.cs-fil. Justera namn områdets namn om det skiljer sig från det som du skapade.
+1. Lägg till en bild som du väljer i mappen bin/debug/netcoreappX. X och Lägg sedan till avbildnings namnet (med tillägget) i variabeln ' imageFilePath '.
 1. Kör programmet.
-1. Ange sökvägen till en lokal bild i kommandotolken.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -59,26 +60,18 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the Analyze method endpoint
-        static string uriBase = endpoint + "vision/v2.1/analyze";
+        static string uriBase = endpoint + "vision/v3.0/analyze";
 
-        static async Task Main()
+        // Image you want analyzed (add to your bin/debug/netcoreappX.X folder)
+        // For sample images, download one from here (png or jpg):
+        // https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
+        static string imageFilePath = @"my-sample-image";
+
+        public static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Analyze an image:");
-            Console.Write(
-                "Enter the path to the image you wish to analyze: ");
-            string imageFilePath = Console.ReadLine();
+            // Call the API
+            MakeAnalysisRequest(imageFilePath).Wait();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait for the results to appear.\n");
-                await MakeAnalysisRequest(imageFilePath);
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }
@@ -167,7 +160,7 @@ namespace CSHttpClientSample
 
 ## <a name="examine-the-response"></a>Granska svaret
 
-Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet parsar och visar ett lyckat svar i konsolfönstret enligt följande exempel:
+Ett lyckat svar returneras i JSON (baserat på din egen avbildning som används) i konsol fönstret, som liknar följande exempel:
 
 ```json
 {

@@ -1,15 +1,15 @@
 ---
 title: Inbyggda princip definitioner för Azure App Service
 description: Visar Azure Policy inbyggda princip definitioner för Azure App Service. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 05/01/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 1bbaee1b51aaf79023401d42f270cb99b34c0f8b
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0ea6464f66a92872bfd1df08cde88f502b9c8556
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981280"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648984"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-app-service"></a>Azure Policy inbyggda princip definitioner för Azure App Service
 

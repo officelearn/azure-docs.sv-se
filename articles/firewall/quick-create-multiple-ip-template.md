@@ -5,20 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/14/2020
 ms.author: victorh
-ms.openlocfilehash: 3d58173d239e7a9249b588ff038ea46cfedb27a3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b81362f191e6317aa7ffa974a6d432b0c7514d8f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605210"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680550"
 ---
 # <a name="quickstart-create-an-azure-firewall-with-multiple-public-ip-addresses---resource-manager-template"></a>Snabb start: skapa en Azure-brandvägg med flera offentliga IP-adresser – Resource Manager-mall
 
-I den här snabb starten använder du en Resource Manager-mall för att distribuera en Azure-brandvägg med flera offentliga IP-adresser.
-
-Den distribuerade brand väggen har regel insamlings regler i NAT som tillåter RDP-anslutningar till två virtuella Windows Server 2019-datorer.
+I den här snabb starten använder du en Resource Manager-mall för att distribuera en Azure-brandvägg med flera offentliga IP-adresser. Den distribuerade brand väggen har regel insamlings regler i NAT som tillåter RDP-anslutningar till två virtuella Windows Server 2019-datorer.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,21 +33,20 @@ Den här mallen skapar en Azure-brandvägg med två offentliga IP-adresser, till
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/fw-docs-qs/azuredeploy.json)
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/fw-docs-qs).
 
 :::code language="json" source="~/quickstart-templates/fw-docs-qs/azuredeploy.json" range="001-391" highlight="238-370":::
 
 Flera Azure-resurser definieras i mallen:
 
-- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
-- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
 - [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
 - [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 - [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
-
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -77,7 +75,7 @@ Använd Anslutning till fjärrskrivbord för att ansluta till brand väggens off
 
 När du inte längre behöver de resurser som du skapade med brand väggen tar du bort resurs gruppen. Detta tar bort brand väggen och alla relaterade resurser.
 
-Anropa `Remove-AzResourceGroup` cmdleten om du vill ta bort resurs gruppen:
+Anropa cmdleten om du vill ta bort resurs gruppen `Remove-AzResourceGroup` :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "<your resource group name>"

@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 52158fe78262b5b2b3d006fb3a543ca743f4e417
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604682"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683828"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -19,7 +19,7 @@ Du kan använda uppdateringshanteringen för att hantera uppdateringar och korri
 
 Pris information finns i avsnittet [om Automation-priser för uppdateringshantering](https://azure.microsoft.com/pricing/details/automation/).
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Visa en uppdateringsbedömning
@@ -67,7 +67,7 @@ Klicka på **Lägg till villkor** för att välja lämplig signal för uppdateri
 |`Total Update Deployment Runs`|– Namnet på uppdateringsdistributionen<br>– Status|Den här signalen aviserar om den övergripande statusen för en uppdaterings distribution.|
 |`Total Update Deployment Machine Runs`|– Namnet på uppdateringsdistributionen</br>– Status</br>– Måldator</br>-Uppdatera körnings-ID för distribution|Den här signalen aviserar om status för en uppdaterings distribution som är riktad mot specifika datorer.|
 
-För en dimension väljer du ett giltigt värde i listan. Om det värde som du vill använda inte finns i listan klickar **\+** du på tecknet bredvid dimensionen och skriver in det anpassade namnet. Välj sedan det värde som du vill söka efter. Om du vill välja alla värden för en dimension klickar du på knappen **Välj \* ** . Om du inte väljer ett värde för en dimension ignorerar Uppdateringshantering dimensionen.
+För en dimension väljer du ett giltigt värde i listan. Om det värde som du vill använda inte finns i listan klickar du på **\+** tecknet bredvid dimensionen och skriver in det anpassade namnet. Välj sedan det värde som du vill söka efter. Om du vill välja alla värden för en dimension klickar du på knappen **Välj \* ** . Om du inte väljer ett värde för en dimension ignorerar Uppdateringshantering dimensionen.
 
 ![Konfigurera signallogiken](./media/automation-tutorial-update-management/signal-logic.png)
 
@@ -118,15 +118,15 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
    |Operativsystem  |Typ  |
    |---------|---------|
-   |Windows     | Kritiska uppdateringar</br>Säkerhetsuppdateringar</br>Samlade uppdateringar</br>Funktionspaket</br>Service pack</br>Definitionsuppdateringar</br>Verktyg</br>Uppdateringar<br>Drivrutin        |
+   |Windows     | Kritiska uppdateringar</br>Säkerhetsuppdateringar</br>Samlade uppdateringar</br>Funktionspaket</br>Service Pack</br>Definitionsuppdateringar</br>Verktyg</br>Uppdateringar<br>Drivrutin        |
    |Linux     | Kritiska uppdateringar och säkerhetsuppdateringar</br>Övriga uppdateringar       |
 
    Beskrivningar av klassificerings typerna finns i [uppdaterings klassificeringar](automation-view-update-assessments.md#update-classifications).
 
-* **Uppdateringar som ska tas med/undanta** – öppnar sidan inkludera/exkludera. Uppdateringar som ska tas med eller undantas finns på separata flikar genom att ange KB-artikelns ID-nummer. När du anger ett eller flera ID-nummer måste du ta bort eller avmarkera alla klassificeringar med uppdaterings distributionen. Detta säkerställer att inga andra uppdateringar tas med i uppdaterings paketet när du anger uppdaterings-ID: n.
+* **Inkludera/exkludera uppdateringar** – öppnar sidan inkludera/exkludera. Uppdateringar som ska tas med eller undantas finns på separata flikar genom att ange KB-artikelns ID-nummer. När du anger ett eller flera ID-nummer måste du ta bort eller avmarkera alla klassificeringar med uppdaterings distributionen. Detta säkerställer att inga andra uppdateringar tas med i uppdaterings paketet när du anger uppdaterings-ID: n.
 
 > [!NOTE]
-> Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*`uppdateringshantering installerar inga korrigeringar eller paket, eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer, om du inkluderar ett paket som har ett beroende paket som har uteslutits, installerar Uppdateringshantering inte huvud paketet.
+> Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*` uppdateringshantering installerar inga korrigeringar eller paket, eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer, om du inkluderar ett paket som har ett beroende paket som har uteslutits, installerar Uppdateringshantering inte huvud paketet.
 
 > [!NOTE]
 > Du kan inte ange uppdateringar som har ersatts för inkludering med uppdaterings distributionen.

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9618dc1cef8d04cc5906579af0ef372694aeaaa9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9717c76b42a63479c77f862057bfb141954eacff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673987"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673415"
 ---
 ## <a name="create-a-device-template"></a>Skapa en enhetsmall
 
-Skapa en mapp som `environmental-sensor` heter på den lokala datorn.
+Skapa en mapp som heter `environmental-sensor` på den lokala datorn.
 
-Ladda ned JSON-filen för [miljö sensorns kapacitets modell](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) och `environmental-sensor` Spara den i mappen.
+Ladda ned JSON-filen för [miljö sensorns kapacitets modell](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) och spara den i `environmental-sensor` mappen.
 
-Använd en text redigerare för att ersätta de två instanserna av `{YOUR_COMPANY_NAME_HERE}` med företags namnet i `EnvironmentalSensorInline.capabilitymodel.json` den fil som du laddade ned.
+Använd en text redigerare för att ersätta de två instanserna av `{YOUR_COMPANY_NAME_HERE}` med företags namnet i den `EnvironmentalSensorInline.capabilitymodel.json` fil som du laddade ned.
 
 I ditt Azure IoT Central-program skapar du en enhets mall som kallas *miljö sensor* genom att importera `EnvironmentalSensorInline.capabilitymodel.json` enhetens kapacitets modell fil:
 
@@ -32,7 +32,7 @@ Enhetens kapacitets modell innehåller två gränssnitt: standard gränssnittet 
 | Typ | Visningsnamn | Beskrivning |
 | ---- | ------------ | ----------- |
 | Egenskap | Enhetstillstånd     | Enhetens status. Två tillstånd online/offline är tillgängligt. |
-| Egenskap (skrivbar) | Kund namn    | Namnet på kunden som har bearbetat enheten. |
+| Egenskap (skrivbar) | Kundnamn    | Namnet på kunden som har bearbetat enheten. |
 | Egenskap (skrivbar) | Ljus styrke nivå | Ljus styrke nivån för ljuset på enheten. Kan anges som 1 (hög), 2 (medel), 3 (låg). |
 | Telemetri | Temperatur | Aktuell temperatur identifierad av enheten. |
 | Telemetri | Fuktighet    | Aktuell fuktighet upptäckt av enheten. |

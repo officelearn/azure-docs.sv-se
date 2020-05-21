@@ -1,17 +1,16 @@
 ---
 title: Snabb start – säkerhetskopiera en virtuell dator med Azure Portal
 description: I den här snabb starten får du lära dig hur du skapar ett Recovery Services valv, aktiverar skydd på en virtuell Azure-dator och hur du säkerhetskopierar den virtuella datorn med Azure Portal.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240452"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656926"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Säkerhetskopiera en virtuell dator i Azure
 
@@ -66,11 +65,11 @@ I fönstret **Säkerhetskopiering** för din virtuella dator visas status för s
 
 När det inte längre behövs kan du inaktivera skyddet av den virtuella datorn, ta bort återställningspunkterna och Recovery Services-valvet och sedan ta bort resursgruppen och de relaterade virtuella datorresurserna
 
-Om du tänker gå vidare till en säkerhetskopieringskurs som förklarar hur du återställer data för din virtuella dator kan du hoppa över stegen i det här avsnittet och gå till [Nästa steg](#next-steps).
+Om du fortsätter med en själv studie kurs om säkerhets kopiering som förklarar hur du återställer data för den virtuella datorn kan du hoppa över stegen i det här avsnittet och gå till [Nästa steg](#next-steps).
 
 1. Välj alternativet **Säkerhetskopiering** för din virtuella dator.
 
-2. Välj **...Mer** om du vill visa ytterligare alternativ och välj sedan **Avbryt säkerhetskopiering**.
+2. Välj **Avbryt säkerhets kopiering**.
 
     ![Avbryta säkerhetskopiering i Azure Portal](./media/quick-backup-vm-portal/stop-backup.png)
 

@@ -1,18 +1,18 @@
 ---
 title: 'Självstudie: Azure Cosmos DB global distributions guide för SQL API'
-description: 'Självstudie: Lär dig hur du konfigurerar Azure Cosmos DB global distribution med SQL-API: t med .net, Java, python och andra SDK: er'
+description: 'Självstudie: Lär dig hur du konfigurerar Azure Cosmos DB global distribution med SQL-API: t med .NET, Java, python och andra SDK: er'
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 177973cf766a6215453f3062c0fb206961649272
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9fbd42b6f4ef1afd0dfb4c47b6807105ff3810ca
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80295531"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677642"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Självstudie: Konfigurera Azure Cosmos DB global distribution med SQL-API: et
 
@@ -28,7 +28,7 @@ Den här artikeln beskriver följande uppgifter:
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
 
-## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a>Ansluta till en önskad region med hjälp av SQL-API:et
+## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a>Ansluta till en önskad region med SQL-API: et
 
 I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Detta gör du genom att konfigurera anslutningspolicyn. Utifrån Azure Cosmos DB-kontokonfigurationen, den aktuella regionala tillgängligheten och den angivna listan över inställningar, så väljs den mest optimala slutpunkten för genomförande av skriv- och läsåtgärder av SQL-SDK:n.
 

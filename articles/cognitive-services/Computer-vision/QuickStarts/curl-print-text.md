@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b91ca8a92e39e54d74c6a8ac87ab2b38829d4013
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8fc4fbc9c3fcc5219b5100d67b9d569592b8bec3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405064"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681135"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-curl"></a>Snabb start: extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API och svängen
 
 I den här snabb starten ska du extrahera utskriven text med optisk tecken igenkänning (OCR) från en bild med hjälp av Visuellt innehåll REST API. Med metoden [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras i en teckenström som kan användas på en dator.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -36,14 +36,14 @@ Så här skapar du och kör exemplet:
 1. Kopiera följande kommando till en textredigerare.
 1. Gör följande ändringar i kommandot där det behövs:
     1. Ersätt värdet för `<subscriptionKey>` med din prenumerationsnyckel.
-    1. Ersätt den första delen av URL: en för`westcentralus`begäran () med texten i din egen slut punkts-URL.
+    1. Ersätt den första delen av URL: en för begäran ( `westcentralus` ) med texten i din egen slut punkts-URL.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Du kan också ändra bild-URL:en i begärandetexten (`https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\`) till URL:en för en annan bild som ska analyseras.
 1. Öppna ett kommandotolksfönster.
 1. Klistra in kommandot från textredigeraren i kommandotolkens fönster och kör sedan kommandot.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.1/ocr?language=unk&detectOrientation=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
+curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.0/ocr?language=unk&detectOrientation=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png\"}"
 ```
 
 ## <a name="examine-the-response"></a>Granska svaret

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 01a9a8239e2997335f5123d63cfc664027cffa02
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27471cad2dfcd7accdb6b43414f216f85552fab3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376400"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652483"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Snabb start: skapa en HoloLens-app med Azures spatiala ankare, i C++/WinRT och DirectX
 
@@ -54,6 +54,8 @@ Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckel
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
+Leta upp `case DemoStep::ConfigSession:` och Lägg till följande rad och ersätt i din konto domän från tidigare: `configuration.AccountKey("MyAccountDomain");` .
+
 ## <a name="deploy-the-app-to-your-hololens"></a>Distribuera appen till din HoloLens
 
 Ändra **Lösningskonfiguration** till **Version**, ändra **Lösningsplattform** till **x86** och välj **Enhet** bland alternativen för distributionsmål.
@@ -64,7 +66,7 @@ Om du använder HoloLens 2 använder du **arm64** som **lösnings plattform**i s
 
 Slå på HoloLens-enheten, logga in och anslut den till datorn via en USB-kabel.
 
-Välj **Felsök** > **Starta fel sökning** för att distribuera din app och starta fel sökning.
+Välj **Felsök**  >  **Starta fel sökning** för att distribuera din app och starta fel sökning.
 
 Följ instruktionerna i appen för att placera och återkalla en fästpunkt.
 

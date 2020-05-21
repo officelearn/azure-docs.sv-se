@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 10a11168b8046dbcc877f45141571fccdca879f0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4429a03709d0f565d5fcf98f6999c812c0d43561
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400345"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673092"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -35,7 +35,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
 
-# <a name="rhel--centos-8"></a>[RHEL/CentOS 8](#tab/rhel-centos)
+# <a name="rhelcentos"></a>[RHEL/CentOS](#tab/rhel-centos)
 
 ```Bash
 sudo yum update
@@ -43,7 +43,8 @@ sudo yum install alsa-lib openssl python3
 ```
 
 > [!NOTE]
-> På RHEL/CentOS 7/8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - På RHEL/CentOS 7 följer du anvisningarna för [hur du konfigurerar RHEL/CentOS 7 för tal-SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 
@@ -117,7 +118,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 1. Hämta och installera en 64-bitars version av [python](https://www.python.org/downloads/), 3,5 till 3,8, på din dator.
 1. Ladda ned och installera [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Öppna Visual Studio Code och installera Python-tillägget. Välj **fil** > **Inställningar** > **tillägg** på menyn. Sök efter **Python**.
+1. Öppna Visual Studio Code och installera Python-tillägget. Välj **fil**  >  **Inställningar**  >  **tillägg** på menyn. Sök efter **Python**.
 
    ![Installera Python-tillägget](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
 

@@ -3,12 +3,12 @@ title: Snabb start – Bygg & kör behållar avbildning
 description: Kör snabbt uppgifter med Azure Container Registry för att skapa och köra en Docker-behållar avbildning på begäran i molnet.
 ms.topic: quickstart
 ms.date: 01/31/2020
-ms.openlocfilehash: f08f10dd170acaa8594ad5a47f5ef58e27288b10
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e07dd9dd36bc2c5a2dc5ea7efe81f693784b8996
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76986282"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680652"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Snabb start: skapa och köra en behållar avbildning med Azure Container Registry uppgifter
 
@@ -16,7 +16,7 @@ I den här snabb starten använder du Azure Container Registry uppgifter-kommand
 
 Efter den här snabb starten ska du utforska mer avancerade funktioner i ACR-aktiviteter. ACR-aktiviteter kan automatisera image-versioner baserat på kod incheckningar eller grund avbildnings uppdateringar eller testa flera behållare parallellt, bland andra scenarier. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt][azure-account] konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto][azure-account] innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -40,7 +40,7 @@ Skapa ett behållar register med kommandot [AZ ACR Create][az-acr-create] . Regi
 az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
 ```
 
-I det här exemplet skapas ett *grundläggande* register, ett kostnads optimerat alternativ för utvecklare som vill lära sig mer Azure Container Registry. Mer information om tillgängliga tjänstnivåer finns i [SKU:er för Azure Container Registry][container-registry-skus].
+I det här exemplet skapas ett *grundläggande* register, ett kostnads optimerat alternativ för utvecklare som vill lära sig mer Azure Container Registry. Mer information om tillgängliga tjänst nivåer finns i [tjänste nivåer för container Registry][container-registry-skus].
 
 ## <a name="build-an-image-from-a-dockerfile"></a>Bygg en avbildning från en Dockerfile
 
@@ -50,7 +50,7 @@ Använd nu Azure Container Registry för att bygga en avbildning. Skapa först e
 echo FROM hello-world > Dockerfile
 ```
 
-Kör kommandot [AZ ACR build][az-acr-build] för att skapa avbildningen. När den har skapats skickas avbildningen till registret. I följande exempel skickas `sample/hello-world:v1` avbildningen. `.` I slutet av kommandot anges platsen för Dockerfile, i det här fallet den aktuella katalogen.
+Kör kommandot [AZ ACR build][az-acr-build] för att skapa avbildningen. När den har skapats skickas avbildningen till registret. I följande exempel skickas `sample/hello-world:v1` avbildningen. I `.` slutet av kommandot anges platsen för Dockerfile, i det här fallet den aktuella katalogen.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \
@@ -121,7 +121,7 @@ az acr run --registry myContainerRegistry008 \
   --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
 
-Parametern i det här exemplet kör behållaren i dess standard konfiguration, men `cmd` stöder ytterligare `docker run` parametrar eller till och med `docker` andra kommandon. `cmd`
+`cmd`Parametern i det här exemplet kör behållaren i dess standard konfiguration, men `cmd` stöder ytterligare `docker run` parametrar eller till och med andra `docker` kommandon.
 
 De utdata som genereras liknar följande:
 

@@ -7,18 +7,18 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 05/17/2019
-ms.openlocfilehash: a2cb8919ac0752c42f22e064d6201c7120fbc9b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b78ef71c63448653cab24ccea25e53f64490fa2f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78970537"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655828"
 ---
 # <a name="quickstart-create-and-encrypt-a-linux-vm-in-azure-with-azure-powershell"></a>Snabb start: skapa och kryptera en virtuell Linux-dator i Azure med Azure PowerShell
 
 Azure PowerShell-modulen används för att skapa och hantera Azure-resurser från PowerShell-kommandoraden eller i skript. Den här snabb starten visar hur du använder modulen Azure PowerShell för att skapa en virtuell Linux-dator (VM), skapar en Key Vault för lagringen av krypterings nycklar och krypterar den virtuella datorn. I den här snabb starten används Ubuntu 16,04 LTS Marketplace-avbildningen från kanoniskt format och en VM Standard_D2S_V3 storlek. 
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -33,9 +33,9 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 Skapa en virtuell Azure-dator med [New-AzVM](/powershell/module/az.compute/new-azvm)och skicka den till den virtuella dator konfigurations objekt som du skapade ovan.
 
 ```powershell-interactive
-$cred = = Get-Credential
+$cred = Get-Credential
 
-New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest -Size Standard_D2S_V3
+New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:18.04-LTS:latest -Size Standard_D2S_V3
 ```
 
 Det tar några minuter för den virtuella datorn att distribueras. 

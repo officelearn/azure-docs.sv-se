@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: c4335e1ac0f0ffc7ee5570a8f0819827fc77dd18
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6d4e7297ba0b325aa0045c16620d716ceb1418b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75384159"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650256"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med Java
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla Java-programmet skickar en nyhetssökfråga till API:et och visar svaret.
 
-Även om det här programmet är skrivet i Java, är API:n en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i Java är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
-* [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
-* [Gson-biblioteket](https://github.com/google/gson)
+* [JDK (Java Development Kit)](https://www.oracle.com/technetwork/java/javase/downloads/).
+* [Gson-biblioteket](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Skapa och initiera ett projekt
 
-1. Skapa ett nytt Java-projekt i valfri IDE eller redigeringsprogram och importera följande bibliotek.
+1. Skapa ett nytt Java-projekt i din favorit-IDE eller-redigerare och importera följande bibliotek:
 
    ```java
    import java.io.*;
@@ -50,7 +50,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
    import com.google.gson.JsonParser;
    ```
 
-2. I en ny klass skapar du variabler för API-slutpunkten, din prenumerationsnyckel och en sökfråga. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. I en ny klass skapar du variabler för API-slutpunkten, din prenumerationsnyckel och en sökfråga. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
    ```java
    public class EntitySearch {
@@ -68,7 +68,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="construct-a-search-request-string"></a>Skapa en söksträng för begäran
 
-1. Skapa en funktion som kallas `search()` som returnerar en JSON `String`. url-koda din sökfråga och lägg till den i en parametersträng med `&q=`. Lägg till din marknad till strängen med `?mkt=`.
+1. Skapa en funktion som kallas `search()` som returnerar en JSON `String`. url-koda din sökfråga och lägg till den i en parametersträng med `&q=`. Lägg till din marknad i parameter strängen med `?mkt=` .
  
 2. Skapa ett URL-objekt med din värd, sökväg och parametersträngar.
     
@@ -104,7 +104,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
     //...
     ```
 
-3. Skapa ett `String`-objekt för att lagra svaret från `BufferedReader`. Gå igenom den och lägg till varje rad i strängen. Stäng läsaren sedan och returnera svaret. 
+3. Skapa ett `String`-objekt för att lagra svaret från `BufferedReader`. Gå igenom den och lägg till varje rad i strängen. Stäng sedan läsaren och returnera svaret. 
     
     ```java
     String line;
@@ -119,9 +119,9 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="format-the-json-response"></a>Formatera JSON-svaret
 
-1. Skapa en ny funktion som kallas `prettify` för att formatera JSON-svaret. Skapa en ny `JsonParser`, och anropa `parse()` på json-texten och spara den som ett JSON-objekt. 
+1. Skapa en ny funktion som kallas `prettify` för att formatera JSON-svaret. Skapa ett nytt `JsonParser` , anropa `parse()` JSON-texten och lagra det som ett JSON-objekt. 
 
-2. Använd Gson-biblioteket för att skapa en ny `GsonBuilder()`, och använd `setPrettyPrinting().create()` för at formatera json-filen. Returnera den sedan.    
+2. Använd Gson-biblioteket för att skapa en ny `GsonBuilder()` , använda `setPrettyPrinting().create()` för att formatera JSON och sedan returnera den.    
   
    ```java
    //...
@@ -136,7 +136,7 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="call-the-search-function"></a>Anropa sökfunktionen
 
-1. Från main-metoden för ditt projekt anropar du `search()` och använder `prettify()` för att formatera text.
+- Från main-metoden för ditt projekt anropar du `search()` och använder `prettify()` för att formatera text.
     
     ```java
         public static void main(String[] args) {
@@ -220,5 +220,5 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [!div class="nextstepaction"]
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Vad är API för entitetsökning i Bing?](../overview.md )
-* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Vad är API för entitetsökning i Bing?](../overview.md)
+* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

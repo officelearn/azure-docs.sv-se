@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 3b23eac4ab50401e68e17064d0964dacc3c17d32
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 4d486b8ffc921a5ca2f38bef912ba6dc46ecec40
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82120508"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634091"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -20,7 +20,7 @@ ms.locfileid: "82120508"
 
 Azure Blob Storage är optimerat för att lagra stora mängder ostrukturerade data. Blobbar är objekt som kan innehålla text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. I den här snabb starten lär du dig att hantera blobbar med hjälp av Java Script i en webbläsare. Du överför och listar blobbar och skapar och tar bort behållare.
 
-[API Reference dokumentation](/javascript/api/@azure/storage-blob) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob) | [exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+[API-referens dokumentation](/javascript/api/@azure/storage-blob)  |  [Biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)  |  [Paket (NPM)](https://www.npmjs.com/package/@azure/storage-blob)  |  [Exempel](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 > [!NOTE]
 > För att komma igång med den tidigare SDK-versionen, se [snabb start: hantera blobbar med Java Script v10 SDK i Node. js](storage-quickstart-blobs-nodejs-legacy.md).
@@ -32,9 +32,9 @@ Azure Blob Storage är optimerat för att lagra stora mängder ostrukturerade da
 * [Node.js](https://nodejs.org)
 * [Microsoft Visual Studio Code](https://code.visualstudio.com)
 * Ett Visual Studio Code-tillägg för fel sökning av webbläsare, till exempel:
-    * [Fel sökare för Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge)
-    * [Fel sökning för Chrome](vscode:extension/msjsdiag.debugger-for-chrome)
-    * [Fel sökare för Firefox](vscode:extension/firefox-devtools.vscode-firefox-debug)
+    * [Fel sökare för Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+    * [Fel sökning för Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+    * [Fel sökare för Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
@@ -123,7 +123,7 @@ Installera paket genom att köra följande `npm` kommando i terminalfönstret:
 npm install -g parcel-bundler
 ```
 
-Öppna filen *Package. JSON* i Visual Studio Code och Lägg till en `browserlist` mellan posterna `license` och. `dependencies` Detta `browserlist` riktar sig till den senaste versionen av tre populära webbläsare. Den fullständiga *Package. JSON* -filen bör nu se ut så här:
+Öppna filen *Package. JSON* i Visual Studio Code och Lägg till en `browserlist` mellan `license` `dependencies` posterna och. Detta `browserlist` riktar sig till den senaste versionen av tre populära webbläsare. Den fullständiga *Package. JSON* -filen bör nu se ut så här:
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/package.json" highlight="12-16":::
 
@@ -131,7 +131,7 @@ Spara *Package. JSON* -filen.
 
 ### <a name="import-the-azure-blob-storage-client-library"></a>Importera klient biblioteket för Azure Blob Storage
 
-Importera `@azure/storage-blob` paketet om du vill använda Azure SDK-bibliotek i Java Script. Skapa en ny fil i Visual Studio Code som innehåller följande JavaScript-kod.
+Importera paketet om du vill använda Azure SDK-bibliotek i Java Script `@azure/storage-blob` . Skapa en ny fil i Visual Studio Code som innehåller följande JavaScript-kod.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
@@ -167,7 +167,7 @@ Lägg till följande kod i slutet av filen *index. js* .
 
 Spara filen *index. js* .
 
-Den här koden deklarerar fält för varje HTML-element och `reportStatus` implementerar en funktion för att visa utdata.
+Den här koden deklarerar fält för varje HTML-element och implementerar en `reportStatus` funktion för att visa utdata.
 
 I följande avsnitt lägger du till varje nytt block med JavaScript-kod efter föregående block.
 
@@ -203,7 +203,7 @@ Ange innehållet i lagrings behållaren när du klickar på knappen **lista file
 
 Spara filen *index. js* .
 
-Den här koden anropar funktionen [ContainerClient. listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) och använder sedan en iterator för att hämta namnet på varje [BlobItem](/javascript/api/@azure/storage-blob/blobitem) som returneras. För varje `BlobItem`uppdateras **fil** listan med [namnet](/javascript/api/@azure/storage-blob/blobitem#name) egenskap svärdet.
+Den här koden anropar funktionen [ContainerClient. listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) och använder sedan en iterator för att hämta namnet på varje [BlobItem](/javascript/api/@azure/storage-blob/blobitem) som returneras. För varje `BlobItem` uppdateras **fil** listan med [namnet](/javascript/api/@azure/storage-blob/blobitem#name) egenskap svärdet.
 
 ### <a name="upload-blobs"></a>Ladda upp blobbar
 
@@ -213,7 +213,7 @@ Ladda upp filer till lagrings behållaren när du klickar på knappen **Välj oc
 
 Spara filen *index. js* .
 
-Den här koden ansluter knappen **Välj och ladda upp filer** till det `file-input` dolda elementet. Knapp `click` händelsen utlöser fil indata `click` -händelsen och visar fil väljaren. När du har valt filer och stängt dialog rutan inträffar `input` händelsen och `uploadFiles` funktionen anropas. Den här funktionen skapar ett [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) -objekt och anropar sedan funktionen endast [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) för varje fil som du har valt. Varje anrop returnerar en `Promise`. Varje `Promise` läggs till i en lista så att de kan avvisas tillsammans, vilket gör att filerna överförs parallellt.
+Den här koden ansluter knappen **Välj och ladda upp filer** till det dolda `file-input` elementet. Knapp `click` händelsen utlöser fil indata- `click` händelsen och visar fil väljaren. När du har valt filer och stängt dialog rutan `input` inträffar händelsen och `uploadFiles` funktionen anropas. Den här funktionen skapar ett [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) -objekt och anropar sedan funktionen endast [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) för varje fil som du har valt. Varje anrop returnerar en `Promise` . Varje `Promise` läggs till i en lista så att de kan avvisas tillsammans, vilket gör att filerna överförs parallellt.
 
 ### <a name="delete-blobs"></a>Ta bort blobbar
 
@@ -236,7 +236,7 @@ Så här konfigurerar du tillägget för fel sökning i Visual Studio Code:
 1. Välj **kör > Lägg till konfiguration**
 2. Välj **Edge**, **Chrome**eller **Firefox**, beroende på vilket tillägg du installerade i avsnittet [krav](#prerequisites) ovan.
 
-Om du lägger till en ny konfiguration skapas en *starta. JSON* -fil som öppnas i redigeraren. Ändra filen *Launch. JSON* så att värdet är `url` `http://localhost:1234/index.html`, som du ser här:
+Om du lägger till en ny konfiguration skapas en *starta. JSON* -fil som öppnas i redigeraren. Ändra filen *Launch. JSON* så att `url` värdet är `http://localhost:1234/index.html` , som du ser här:
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
 
@@ -250,9 +250,9 @@ Starta den lokala utvecklings webb servern genom att välja **visa > Terminal** 
 parcel index.html
 ```
 
-Skiftena paketerar koden och startar en lokal utvecklings Server för din sida på `http://localhost:1234/index.html`. De ändringar du gör i *index. js* skapas automatiskt och visas på utvecklings servern när du sparar filen.
+Skiftena paketerar koden och startar en lokal utvecklings Server för din sida på `http://localhost:1234/index.html` . De ändringar du gör i *index. js* skapas automatiskt och visas på utvecklings servern när du sparar filen.
 
-Om du får ett meddelande om att **det inte gick att använda den konfigurerade port 1234**kan du ändra porten genom att köra kommandot `parcel -p <port#> index.html`. I filen *Launch. JSON* uppdaterar du porten i URL-sökvägen så att den matchar.
+Om du får ett meddelande om att **det inte gick att använda den konfigurerade port 1234**kan du ändra porten genom att köra kommandot `parcel -p <port#> index.html` . I filen *Launch. JSON* uppdaterar du porten i URL-sökvägen så att den matchar.
 
 ### <a name="start-debugging"></a>Starta fel sökning
 
@@ -285,7 +285,7 @@ I [Azure Portal](https://portal.azure.com)kan du verifiera resultatet av API-anr
 #### <a name="step-4---delete-the-container"></a>Steg 4 – ta bort behållaren
 
 1. I webbapp väljer du **ta bort behållare**. Statusen anger att behållaren har tagits bort.
-2. I Azure Portal väljer du ** \<konto namnet\> | Behållare** -länk längst upp till vänster i Portal fönstret.
+2. I Azure Portal väljer du ** \< konto namnet \> | Behållare** -länk längst upp till vänster i Portal fönstret.
 3. Välj **Uppdatera**. Den nya behållaren försvinner.
 4. Stäng webb programmet.
 

@@ -4,24 +4,24 @@ description: Använd Azure PowerShell för att hantera Azure Cosmos-konton, data
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/29/2020
+ms.date: 05/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: d4473bbfe10fa2d0fc87eed7889a3e06af650b5b
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 0ae3ff54e1060255913d8155b297c5d412ce345f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592153"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656299"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell
 
 I följande guide beskrivs hur du använder PowerShell för att skripta och automatisera hanteringen av Azure Cosmos DB-resurser, som konto, databas, container och dataflöde.
 
 > [!NOTE]
-> I exemplen i den här artikeln används [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) hanterings-cmdletar. Dessa cmdletar är fortfarande i för hands version och kan ändras innan de är allmänt tillgängliga. Se API-referens för [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) för uppdateringar av kommandona.
+> I exemplen i den här artikeln används [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) hanterings-cmdletar. Se referens sidan för [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) -API för de senaste ändringarna.
 
-För plattforms oberoende hantering av Azure Cosmos DB kan du använda cmdletarna `Az` och `Az.CosmosDB` med [plattforms oberoende PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell), samt [Azure CLI](manage-with-cli.md), [REST API][rp-rest-api]eller [Azure Portal](create-sql-api-dotnet.md#create-account).
+För plattforms oberoende hantering av Azure Cosmos DB kan du använda `Az` `Az.CosmosDB` cmdletarna och med [plattforms oberoende PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell), samt [Azure CLI](manage-with-cli.md), [REST API][rp-rest-api]eller [Azure Portal](create-sql-api-dotnet.md#create-account).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -73,7 +73,7 @@ New-AzCosmosDBAccount `
 * `$locations`Regionerna för databas kontot, från och med Skriv regionen och ordnas efter redundans.
 * `$accountName`Namnet på Azure Cosmos-kontot. Måste vara unik, gemener, innehålla enbart alfanumeriska tecken och-tecken, och mellan 3 och 31 tecken.
 * `$apiKind`Den typ av Cosmos-konto som ska skapas. Mer information finns i [API: er i Cosmos DB](introduction.md#develop-applications-on-cosmos-db-using-popular-open-source-software-oss-apis).
-* `$consistencyPolicy`, `$maxStalenessInterval`, och `$maxStalenessPrefix` standard konsekvens nivån och inställningarna för Azure Cosmos-kontot. Mer information finns i [konsekvens nivåer i Azure Cosmos DB](consistency-levels.md).
+* `$consistencyPolicy`, `$maxStalenessInterval` , och `$maxStalenessPrefix` standard konsekvens nivån och inställningarna för Azure Cosmos-kontot. Mer information finns i [konsekvens nivåer i Azure Cosmos DB](consistency-levels.md).
 
 Azure Cosmos-konton kan konfigureras med IP-brandvägg, Virtual Network tjänst slut punkter och privata slut punkter. Information om hur du konfigurerar IP-brandväggen för Azure Cosmos DB finns i [Konfigurera IP-](how-to-configure-firewall.md)brandvägg. Information om hur du aktiverar tjänstens slut punkter för Azure Cosmos DB finns i [Konfigurera åtkomst från virtuella nätverk](how-to-configure-vnet-service-endpoint.md). Information om hur du aktiverar privata slut punkter för Azure Cosmos DB finns i [Konfigurera åtkomst från privata slut punkter](how-to-configure-private-endpoints.md).
 
@@ -109,7 +109,7 @@ Med det här kommandot kan du uppdatera Azure Cosmos DB databas konto egenskaper
 * Aktivera flera huvud
 
 > [!NOTE]
-> Du kan inte lägga till eller ta bort`locations`regioner samtidigt () och ändra andra egenskaper för ett Azure Cosmos-konto. Att ändra regioner måste utföras som en separat åtgärd från andra ändringar i kontot.
+> Du kan inte lägga till eller ta bort regioner samtidigt ( `locations` ) och ändra andra egenskaper för ett Azure Cosmos-konto. Att ändra regioner måste utföras som en separat åtgärd från andra ändringar i kontot.
 > [!NOTE]
 > Med det här kommandot kan du lägga till och ta bort regioner, men du kan inte ändra prioriteter för redundans eller utlösa en manuell redundansväxling. Se [ändra prioritet för redundans](#modify-failover-priority) och [utlösa manuell redundans](#trigger-manual-failover).
 
@@ -204,7 +204,7 @@ Remove-AzCosmosDBAccount `
 
 ### <a name="update-tags-of-an-azure-cosmos-account"></a><a id="update-tags"></a>Uppdatera taggar för ett Azure Cosmos-konto
 
-Det här kommandot anger [Azures resurs Taggar][azure-resource-tags] för ett Azure Cosmos-konto. Taggar kan ställas in både vid skapande av `New-AzCosmosDBAccount` konto och vid uppdatering av kontot med `Update-AzCosmosDBAccount`hjälp av.
+Det här kommandot anger [Azures resurs Taggar][azure-resource-tags] för ett Azure Cosmos-konto. Taggar kan ställas in både vid skapande av konto `New-AzCosmosDBAccount` och vid uppdatering av kontot med hjälp av `Update-AzCosmosDBAccount` .
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -291,10 +291,10 @@ Update-AzCosmosDBAccount `
 
 För konton som har kon figurer ATS med automatisk redundans kan du ändra i vilken ordning Cosmos ska befordra sekundära repliker till primär om den primära blir otillgänglig.
 
-I exemplet nedan antar vi att den aktuella växlings prioriteten `East US 2 = 1`är `South Central US = 2` `West US 2 = 0`,,. Kommandot kommer att ändra detta till `West US 2 = 0`, `South Central US = 1`, `East US 2 = 2`.
+I exemplet nedan antar vi att den aktuella växlings prioriteten är `West US 2 = 0` , `East US 2 = 1` , `South Central US = 2` . Kommandot kommer att ändra detta till `West US 2 = 0` , `South Central US = 1` , `East US 2 = 2` .
 
 > [!CAUTION]
-> Om du ändrar platsen `failoverPriority=0` för aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Eventuella andra prioritets ändringar kommer inte att utlösa redundans.
+> Om du ändrar platsen för `failoverPriority=0` aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Eventuella andra prioritets ändringar kommer inte att utlösa redundans.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -309,12 +309,12 @@ Update-AzCosmosDBAccountFailoverPriority `
 
 ### <a name="trigger-manual-failover"></a><a id="trigger-manual-failover"></a>Utlös manuell redundans
 
-För konton som kon figurer ATS med manuell redundans kan du redundansväxla och befordra valfri sekundär replik till primär genom att `failoverPriority=0`ändra till. Den här åtgärden kan användas för att starta en haveri beredskap för att testa haveri beredskaps planeringen.
+För konton som kon figurer ATS med manuell redundans kan du redundansväxla och befordra valfri sekundär replik till primär genom att ändra till `failoverPriority=0` . Den här åtgärden kan användas för att starta en haveri beredskap för att testa haveri beredskaps planeringen.
 
 I exemplet nedan antar du att kontot har en aktuell växlings prioritet för `West US 2 = 0` och `East US 2 = 1` och vänder regionerna.
 
 > [!CAUTION]
-> Om `locationName` du `failoverPriority=0` ändrar för aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Alla andra prioritets ändringar kommer inte att utlösa redundans.
+> Om du ändrar `locationName` för `failoverPriority=0` aktive ras en manuell redundansväxling för ett Azure Cosmos-konto. Alla andra prioritets ändringar kommer inte att utlösa redundans.
 
 ```azurepowershell-interactive
 $resourceGroupName = "myResourceGroup"
@@ -345,7 +345,7 @@ $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "myDatabase"
 
-Set-AzCosmosDBSqlDatabase `
+New-AzCosmosDBSqlDatabase `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName
@@ -359,7 +359,7 @@ $accountName = "mycosmosaccount"
 $databaseName = "myDatabase"
 $databaseRUs = 400
 
-Set-AzCosmosDBSqlDatabase `
+New-AzCosmosDBSqlDatabase `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -Name $databaseName `
@@ -441,7 +441,7 @@ $databaseName = "myDatabase"
 $containerName = "myContainer"
 $partitionKeyPath = "/myPartitionKey"
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -460,7 +460,7 @@ $databaseName = "myDatabase"
 $containerName = "myContainer"
 $partitionKeyPath = "/myPartitionKey"
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -506,7 +506,7 @@ $indexingPolicy = New-AzCosmosDBSqlIndexingPolicy `
     -IndexingMode Consistent `
     -Automatic $true
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -529,7 +529,7 @@ $partitionKeyPath = "/myPartitionKey"
 $indexingPolicy = New-AzCosmosDBSqlIndexingPolicy `
     -IndexingMode None
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -557,7 +557,7 @@ $uniqueKey = New-AzCosmosDBSqlUniqueKey `
 $uniqueKeyPolicy = New-AzCosmosDBSqlUniqueKeyPolicy `
     -UniqueKey $uniqueKey
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -570,7 +570,7 @@ Set-AzCosmosDBSqlContainer `
 
 ### <a name="create-an-azure-cosmos-db-container-with-conflict-resolution"></a><a id="create-container-lww"></a>Skapa en Azure Cosmos DB behållare med konflikt lösning
 
-För att skriva alla konflikter till ConflictsFeed och hantera separat, pass `-Type "Custom" -Path ""`.
+För att skriva alla konflikter till ConflictsFeed och hantera separat, pass `-Type "Custom" -Path ""` .
 
 ```azurepowershell-interactive
 # Create container with last-writer-wins conflict resolution policy
@@ -585,7 +585,7 @@ $conflictResolutionPolicy = New-AzCosmosDBSqlConflictResolutionPolicy `
     -Type LastWriterWins `
     -Path $conflictResolutionPath
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `
@@ -595,7 +595,7 @@ Set-AzCosmosDBSqlContainer `
     -ConflictResolutionPolicy $conflictResolutionPolicy
 ```
 
-Om du vill skapa en konflikt lösnings princip för att använda en `New-AzCosmosDBSqlConflictResolutionPolicy` lagrad procedur `-Type` , `-ConflictResolutionProcedure`anropa och skicka parametrar och.
+Om du vill skapa en konflikt lösnings princip för att använda en lagrad procedur, anropa `New-AzCosmosDBSqlConflictResolutionPolicy` och skicka parametrar `-Type` och `-ConflictResolutionProcedure` .
 
 ```azurepowershell-interactive
 # Create container with custom conflict resolution policy using a stored procedure
@@ -612,7 +612,7 @@ $conflictResolutionPolicy = New-AzCosmosDBSqlConflictResolutionPolicy `
     -Type Custom `
     -ConflictResolutionProcedure $conflictResolutionSproc
 
-Set-AzCosmosDBSqlContainer `
+New-AzCosmosDBSqlContainer `
     -ResourceGroupName $resourceGroupName `
     -AccountName $accountName `
     -DatabaseName $databaseName `

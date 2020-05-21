@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 7147f0d13c88c1d2e17e81a360a5aee55ee760ed
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 94946b4b6d0f0fc9c94cac7aca1e971b3f6262f9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78925460"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673228"
 ---
 Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) för 64-bitars Java 8-JRE. Om du bara vill att paket namnet ska komma igång på egen hand är Java SDK inte tillgängligt i maven Central-lagringsplatsen. Oavsett om du använder Gradle eller en `pom.xml` beroende fil måste du lägga till en anpassad databas som pekar på `https://csspeechstorage.blob.core.windows.net/maven/` (se nedan för paketets namn).
 
@@ -29,14 +29,14 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
 - Java Speech SDK-paketet är tillgängligt för dessa operativ system:
   - Windows: 64-endast bit
   - Mac: macOS X version 10,13 eller senare
-  - Linux: 64-endast bit på Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8
+  - Linux: 64-endast bit på Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 7/8, CentOS 7/8
 
 ## <a name="prerequisites"></a>Krav
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 - [Sol förmörkelse Java IDE](https://www.eclipse.org/downloads/) (kräver Java redan installerat)
-- Linux-plattformar som stöds kräver vissa bibliotek installerade`libssl` (för Secure Sockets Layer `libasound2` -stöd och för ljud support). Se distributionen nedan för de kommandon som behövs för att installera rätt versioner av dessa bibliotek.
+- Linux-plattformar som stöds kräver vissa bibliotek installerade ( `libssl` för Secure Sockets Layer-stöd och `libasound2` för ljud support). Se distributionen nedan för de kommandon som behövs för att installera rätt versioner av dessa bibliotek.
 
   - På Ubuntu kör du följande kommandon för att installera de nödvändiga paketen:
 
@@ -52,7 +52,7 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - På RHEL/CentOS 8 kör du följande kommandon för att installera de nödvändiga paketen:
+  - På RHEL/CentOS kör du följande kommandon för att installera de nödvändiga paketen:
 
         ```sh
         sudo yum update
@@ -60,7 +60,8 @@ Den här guiden visar hur du installerar [talet SDK](~/articles/cognitive-servic
         ```
 
 > [!NOTE]
-> På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - På RHEL/CentOS 7 följer du anvisningarna för [hur du konfigurerar RHEL/CentOS 7 för tal-SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - På RHEL/CentOS 8 följer du anvisningarna för [hur du konfigurerar openssl för Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - I Windows behöver du [Microsoft Visual C++ Redistributable för Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform. Observera att installationen för första gången kan kräva att du startar om Windows innan du fortsätter med den här guiden.
 

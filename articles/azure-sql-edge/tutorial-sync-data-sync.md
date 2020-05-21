@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6bcdfc3eb09b6c5ed4f8dde4d48a34bee8746e1e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7971681c3f0c99a11567e6a30e61167c5d42348c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599657"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680516"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Självstudie: synkronisera data från SQL Edge till Azure SQL Database med SQL Data Sync
 
@@ -22,7 +22,7 @@ I den här självstudien får du lära dig hur du använder en Azure SQL Data Sy
 
 Eftersom SQL Edge bygger på de senaste versionerna av [SQL Server Database Engine](/sql/sql-server/sql-server-technical-documentation/), kan all mekanism för datasynkronisering som är tillämplig på en lokal SQL Server instans också användas för att synkronisera data till eller från en SQL Edge-instans som körs på en gräns enhet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här självstudien kräver att en Windows-dator har kon figurer ATS med [Data Sync-agenten för Azure SQL Data Sync](../sql-database/sql-database-data-sync-agent.md)
 
@@ -32,7 +32,7 @@ Den här självstudien kräver att en Windows-dator har kon figurer ATS med [Dat
 
 * Skapa tabeller och andra nödvändiga objekt i din Azure SQL Database-distribution.
 
-* Skapa nödvändiga tabeller och objekt i din Azure SQL Edge-distribution. Mer information finns i [använda SQL Database DAC-paket med SQL Edge](stream-analytics.md).
+* Skapa nödvändiga tabeller och objekt i din Azure SQL Edge-distribution. Mer information finns i [använda SQL Database DAC-paket med SQL Edge](deploy-dacpac.md).
 
 * Registrera Azure SQL Edge-instansen med Data Sync-agenten för Azure SQL Data Sync. Mer information finns i [lägga till en lokal SQL Server databas](../sql-database/sql-database-get-started-sql-data-sync.md#add-on-prem).
 

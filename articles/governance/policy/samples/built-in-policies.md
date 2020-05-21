@@ -1,21 +1,21 @@
 ---
 title: Lista över inbyggda princip definitioner
 description: Visa en lista över inbyggda princip definitioner för Azure Policy. Kategorierna omfattar taggar, regelefterlevnad, Key Vault, Kubernetes, gäst konfiguration och mycket annat.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 2ff75ce7d6f0df5906894c50a25fede0f2a19f1a
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: c6a7f128dd2479645cc379f36532563c0ade5d14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838208"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651654"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy inbyggda princip definitioner
 
 Den här sidan är ett index över Azure Policy inbyggda princip definitioner.
 
-Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Använd länken i kolumnen **källa** för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy). De inbyggda programmen grupperas efter egenskapen **Category** i **metadata**. Om du vill gå till en viss **kategori**använder du menyn på höger sida av sidan. Annars använder du <kbd>CTRL</kbd>-<kbd>F</kbd> för att använda Sök funktionen i webbläsaren.
+Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Använd länken i kolumnen **källa** för att visa källan på [Azure policy GitHub-lagrings platsen](https://github.com/Azure/azure-policy). De inbyggda programmen grupperas efter egenskapen **Category** i **metadata**. Om du vill gå till en viss **kategori**använder du menyn på höger sida av sidan. Annars använder du <kbd>CTRL</kbd> - <kbd>F</kbd> för att använda Sök funktionen i webbläsaren.
 
 ## <a name="app-configuration"></a>App Configuration
 
@@ -113,7 +113,7 @@ Namnet på de inbyggda länkarna till princip definitionen i Azure Portal. Anvä
 
 [!INCLUDE [azure-policy-samples-policies-network](../../../../includes/policy/samples/bycat/policies-network.md)]
 
-## <a name="search"></a>Sök
+## <a name="search"></a>Search
 
 [!INCLUDE [azure-policy-samples-policies-search](../../../../includes/policy/samples/bycat/policies-search.md)]
 

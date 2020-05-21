@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41f68ead6f985d6cc2c8120091c36783d074b066
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73720924"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659142"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Självstudie: skapa en antecknings bok i Azure Cosmos DB för att analysera och visualisera data
 
@@ -28,13 +28,13 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
 
 1. Gå till ditt Azure Cosmos-konto och öppna **datautforskaren.**
 
-1. Gå till fliken **antecknings böcker** , `…` Välj bredvid **Mina antecknings böcker** och skapa en **ny antecknings bok**. Välj **python 3** som standard kernel.
+1. Gå till fliken **antecknings böcker** , Välj `…` bredvid **Mina antecknings böcker** och skapa en **ny antecknings bok**. Välj **python 3** som standard kernel.
 
    ![Skapa en ny notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
 
 1. När en ny antecknings bok har skapats kan du byta namn på den till något som liknar **VisualizeRetailData. ipynb.**
 
-1. Härnäst ska du skapa en databas med namnet "RetailDemo" och en behållare med namnet "WebsiteData" för att lagra detalj handels data. Du kan använda/CardID som partitionsnyckel. Kopiera och klistra in följande kod i en ny cell i din bärbara dator och kör den:
+1. Härnäst ska du skapa en databas med namnet "RetailDemo" och en behållare med namnet "WebsiteData" för att lagra detalj handels data. Du kan använda/CartID som partitionsnyckel. Kopiera och klistra in följande kod i en ny cell i din bärbara dator och kör den:
 
    ```python
    import azure.cosmos
@@ -47,7 +47,7 @@ I det här avsnittet ska du skapa Azure Cosmos-databasen, containern och importe
    print('Container WebsiteData created')
    ```
 
-   Om du vill köra en cell `Shift + Enter` markerar du eller markerar cellen och väljer alternativet **Kör aktiv cell** i navigerings fältet i data Utforskaren.
+   Om du vill köra en cell markerar `Shift + Enter` du eller markerar cellen och väljer alternativet **Kör aktiv cell** i navigerings fältet i data Utforskaren.
 
    ![Kör den aktiva cellen](./media/create-notebook-visualize-data/run-active-cell.png)
 
@@ -121,7 +121,7 @@ Innan du kör frågor för att analysera data kan du läsa data från container 
 {Query text}
 ```
 
-Mer information finns i de [inbyggda antecknings kommandon och funktioner i Azure Cosmos DB](use-notebook-features-and-commands.md) artikel. Du kommer att köra frågan- `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Resultaten sparas i en Pandas-DataFrame med namnet df_cosmos. Klistra in följande kommando i en ny Notebook-cell och kör den:
+Mer information finns i de [inbyggda antecknings kommandon och funktioner i Azure Cosmos DB](use-python-notebook-features-and-commands.md) artikel. Du kommer att köra frågan- `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c` . Resultaten sparas i en Pandas-DataFrame med namnet df_cosmos. Klistra in följande kommando i en ny Notebook-cell och kör den:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -290,4 +290,4 @@ I det här avsnittet ska du köra några frågor om hämtade data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om antecknings kommandon finns i [så här använder du inbyggda Notebook-kommandon och-funktioner i Azure Cosmos DB](use-notebook-features-and-commands.md) artikel.
+* Läs mer om python-kommandon för bärbara datorer [i så här använder du inbyggda Notebook-kommandon och-funktioner i Azure Cosmos DB](use-python-notebook-features-and-commands.md) artikel.

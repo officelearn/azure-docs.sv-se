@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b1db306ffdb1c05c880e5fc639de2cc1db130d8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6276d198e547efec3d2e3cb88816da5e2b593aae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096290"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644691"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark i Azure Synapse Analytics core-koncept
 
@@ -30,7 +30,7 @@ Eftersom det inte finns några dollar-eller resurs kostnader kopplade till att s
 
 Ett bra tips är att skapa mindre Spark-pooler som kan användas för utveckling och fel sökning och sedan större för att köra produktions arbets belastningar.
 
-Du kan läsa hur du skapar en spark-pool och ser alla deras egenskaper här [komma igång med Spark-pooler i Synapse Analytics](../quickstart-create-apache-spark-pool.md)
+Du kan läsa hur du skapar en spark-pool och ser alla deras egenskaper här [komma igång med Spark-pooler i Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
 ## <a name="spark-instances"></a>Spark-instanser
 

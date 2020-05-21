@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 549df101e2bab81766b7b40e659b31457c9994d3
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: b137f47ac2cfb8074320677419a6a34b7d8bba84
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592799"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680339"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
@@ -29,7 +29,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 Om du vill köra det här exemplet behöver du:
 
 - [Python 2.7 +](https://www.python.org/downloads/release/python-2713) eller [python 3 +](https://www.python.org/downloads/release/python-364/)
-- [Kolv](http://flask.pocoo.org/), [kolv](https://pythonhosted.org/Flask-Session/), [förfrågningar](https://requests.kennethreitz.org/en/master/)
+- [Kolv](http://flask.pocoo.org/), [kolv](https://pypi.org/project/Flask-Session/), [förfrågningar](https://requests.kennethreitz.org/en/master/)
 - [MSAL python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
@@ -60,7 +60,7 @@ Om du vill köra det här exemplet behöver du:
 >      - Välj **Registrera**.
 >      - På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
 > 1. Välj **autentiseringen** på menyn och Lägg till följande information:
->    - Lägg till **webb** plattforms konfigurationen. Lägg `http://localhost:5000/getAToken` till som **omdirigerings-URI**.
+>    - Lägg till **webb** plattforms konfigurationen. Lägg till `http://localhost:5000/getAToken` som **omdirigerings-URI**.
 >    - Välj **Spara**.
 > 1. På den vänstra menyn väljer du **certifikat & hemligheter** och klickar på **ny klient hemlighet** i avsnittet **klient hemligheter** :
 >
@@ -82,7 +82,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > För att kod exemplet för den här snabb starten ska fungera måste du:
 >
-> 1. Lägg till en svars `http://localhost:5000/getAToken`-URL som.
+> 1. Lägg till en svars-URL som `http://localhost:5000/getAToken` .
 > 1. Skapa en klient hemlighet.
 > 1. Lägg till Microsoft Graph API: s User. ReadBasic. all delegerad behörighet.
 >

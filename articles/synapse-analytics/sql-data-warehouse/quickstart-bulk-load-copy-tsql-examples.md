@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: c7d6a0d289953376c6535f2401c9c77edb3205df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7f2d77f3b174d8a00df9f7a93b6fef80b9cd29e8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994857"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647613"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Läs in data på ett säkert sätt med Synapse SQL
 
@@ -28,7 +28,7 @@ I följande matris beskrivs de autentiseringsmetoder som stöds för varje filty
 |  Azure Blob Storage  | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |              SAS/NYCKEL              |              SAS/NYCKEL              |
 | Azure Data Lake Gen2 | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD | SAS/MSI/TJÄNSTENS HUVUD NAMN/NYCKEL/AAD |
 
-## <a name="a-storage-account-key-with-lf-as-the-row-terminator"></a>A. Lagrings konto nyckel med LF som rad avslutnings rad
+## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Lagrings konto nyckel med LF som rad avgränsare (UNIX-typ ny rad)
 
 
 ```sql
@@ -47,7 +47,7 @@ WITH (
 >
 > - Använd det hexadecimala värdet (0x0A) för att ange rad matnings tecknet. Obs! COPY-instruktionen tolkar strängen "\n" som "\r\n" (rad matnings retur).
 
-## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator"></a>B. Signaturer för delad åtkomst (SAS) med CRLF som rad avslutning
+## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator-windows-style-new-line"></a>B. Signaturer för delad åtkomst (SAS) med CRLF som rad avslutning (Windows-formatmall, ny rad)
 ```sql
 COPY INTO target_table
 FROM 'https://adlsgen2account.dfs.core.windows.net/myblobcontainer/folder1/'

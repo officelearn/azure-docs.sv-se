@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679788"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682562"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Snabb start: rendera en modell med Unity
 
@@ -66,13 +66,13 @@ Standard modellen som vi återger är en [inbyggd exempel modell](../samples/sam
 
 1. I Unity Asset Browser navigerar du till mappen *scener* och öppnar **snabb starts** scenen.
 1. Välj Game-objektet **RemoteRendering** i *hierarkin*.
-1. I *kontrollanten*anger du dina [autentiseringsuppgifter för kontot](../how-tos/create-an-account.md).
+1. I *kontrollanten*anger du dina [autentiseringsuppgifter för kontot](../how-tos/create-an-account.md). [Skapa ett](../how-tos/create-an-account.md)konto om du inte redan har det.
 
 ![Information om ARR-konto](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
 > Azure Portal visar endast ditt kontos domän som *mixedreality.Azure.com*. Detta är inte tillräckligt för att kunna ansluta.
-> Ange **AccountDomain** till `<region>.mixedreality.azure.com`, där `<region>` är [en av de tillgängliga regionerna nära dig](../reference/regions.md).
+> Ange **AccountDomain** till `<region>.mixedreality.azure.com` , där `<region>` är [en av de tillgängliga regionerna nära dig](../reference/regions.md).
 
 Senare vill vi distribuera det här projektet till en HoloLens och ansluta till tjänsten Remote rendering från den enheten. Eftersom vi inte har något enkelt sätt att ange autentiseringsuppgifterna på enheten sparar snabb starts exemplet **autentiseringsuppgifterna i Unity-scenen**.
 

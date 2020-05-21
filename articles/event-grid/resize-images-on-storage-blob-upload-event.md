@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 1d1da88d1e7eaf06ebf71da999ef8fb25c7cf066
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81482200"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652697"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Självstudie: automatisera storleks ändring av överförda bilder med hjälp av Event Grid
 
@@ -37,7 +37,7 @@ Du kan använda Azure CLI och Azure-portalen till att lägga till funktionen fö
 
 ---
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett Azure Storage-konto
@@ -192,15 +192,15 @@ Funktionsprojektkoden distribueras direkt från den offentliga exempeldatabasen.
 
 En händelseprenumeration anger vilka provider-genererade händelser du vill skicka till en viss slutpunkt. I det här fallet exponeras slutpunkten av din funktion. Använd följande steg till att skapa en händelseprenumeration som skickar meddelanden till din funktion i Azure-portalen:
 
-1. I [Azure-portalen](https://portal.azure.com) väljer du **Alla tjänster** på den vänstra menyn och sedan **Funktionsappar**.
+1. I [Azure Portal](https://portal.azure.com)längst upp på sidan söker du efter och väljer `Function App` den Function-app som du nyss skapade. Välj **Functions** och välj **miniatyr** funktionen.
 
-    ![Navigera till Function-appar i Azure Portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    :::image type="content" source="media/resize-images-on-storage-blob-upload-event/choose-thumbnail-function.png" alt-text="Välj miniatyr funktionen i portalen":::
 
-2. Expandera din funktionsapp, välj **Miniatyr** och välj sedan **Lägg till Event Grid-prenumeration**.
+1.  Välj Välj **integrering** och välj sedan **Event Grid utlösare** och välj **Skapa event Grid prenumeration**.
 
-    ![Navigera för att lägga till Event Grid prenumeration i Azure Portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Navigera för att lägga till Event Grid prenumeration i Azure Portal" :::
 
-3. Använd de inställningar för händelseprenumerationen som anges i tabellen.
+1. Använd de inställningar för händelseprenumerationen som anges i tabellen.
     
     ![Skapa händelseprenumeration från funktionen i Azure-portalen](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
@@ -215,13 +215,13 @@ En händelseprenumeration anger vilka provider-genererade händelser du vill ski
     | **Slut punkts typ** | genereras automatiskt | Fördefinierad som **Azure Function**. |
     | **Endpoint** | genereras automatiskt | Namnet på funktionen. I det här fallet är det **miniatyr bilden**. |
 
-4. Växla till fliken **filter** och utför följande åtgärder:
+1. Växla till fliken **filter** och utför följande åtgärder:
     1. Välj alternativet **Aktivera ämnesfiltrering**.
     2. För **Ämne börjar med** anger du följande värde: **/blobServices/default/containers/images/blobs/**.
 
         ![Ange filter för händelseprenumeration](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Välj **Skapa** för att lägga till händelseprenumerationen. Detta skapar en händelse prenumeration som utlöser `Thumbnail` funktionen när en BLOB läggs till i `images` behållaren. Funktionen ändrar storlek på avbildningarna och lägger till dem till containern `thumbnails`.
+1. Välj **Skapa** för att lägga till händelseprenumerationen. Detta skapar en händelse prenumeration som utlöser `Thumbnail` funktionen när en BLOB läggs till i `images` behållaren. Funktionen ändrar storlek på avbildningarna och lägger till dem till containern `thumbnails`.
 
 Nu när tjänsterna på serversidan har konfigurerats ska du testa funktionen för storleksändring i exempelwebbappen.
 

@@ -1,14 +1,14 @@
 ---
 title: 'Självstudie: skapa en anpassad princip definition'
 description: I den här självstudien får du en anpassad princip definition för Azure Policy att använda anpassade affärs regler på dina Azure-resurser.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190715"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683256"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Självstudie: skapa en anpassad princip definition
 
@@ -33,7 +33,7 @@ Metoden för att skapa en anpassad princip följer de här stegen:
 
 ## <a name="prerequisites"></a>Krav
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ## <a name="identify-requirements"></a>Identifiera krav
 
@@ -321,7 +321,7 @@ Azure Resource Graph kan användas via [Cloud Shell](https://shell.azure.com), v
 
 Det är nästan lika viktigt att bestämma vad som ska göras med icke-kompatibla resurser som att bestämma vad som ska utvärderas i första hand. Varje möjligt svar på en icke-kompatibel resurs kallas för en [effekt](../concepts/effects.md). Effekten kontrollerar om den icke-kompatibla resursen loggas, blockeras, har bifogade data eller en distribution associerad till sig för att sätta tillbaka resursen i ett kompatibelt tillstånd.
 
-I vårt exempel är Neka den effekt som vi vill ha, eftesom vi inte vill ha icke-kompatibla resurser som skapats i vår Azure-miljö. Granskning är ett bra första alternativ för en principeffekt för att avgöra vad effekten av en princip är innan du nekar. Ett sätt att underlätta ändring av effekt per tilldelning är att parameterisera effekten. Se [parametrarna](#parameters) nedan för information om hur.
+I vårt exempel är neka den påverkan vi vill använda eftersom vi inte vill att icke-kompatibla resurser skapas i vår Azure-miljö. Granskning är ett bra första alternativ för en principeffekt för att avgöra vad effekten av en princip är innan du nekar. Ett sätt att underlätta ändring av effekt per tilldelning är att parameterisera effekten. Se [parametrarna](#parameters) nedan för information om hur.
 
 ## <a name="compose-the-definition"></a>Skapa definitionen
 

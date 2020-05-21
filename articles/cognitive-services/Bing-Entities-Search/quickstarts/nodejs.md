@@ -8,39 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: f3585e96376a25721f478f9dd621835e75e3c600
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 194368acd6be65da6a800ad1394ac156a6654b50
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448637"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650239"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Snabb start: skicka en Sök förfrågan till Entitetssökning i Bing REST API med Node. js
 
 Använd den här snabbstarten för att göra ditt första anrop till API för entitetssökning i Bing och visa JSON-svaret. Det här enkla JavaScript-programmet skickar en nyhetssökfråga till API:et och visar svaret. Käll koden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
-Även om det här programmet är skrivet i JavaScript är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Även om det här programmet är skrivet i Java Script är API: et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 ## <a name="prerequisites"></a>Krav
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
-* [Begäransbiblioteket för JavaScript](https://github.com/request/request)
+* [Java Script Request-biblioteket](https://github.com/request/request).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny JavaScript-fil i din favorit-IDE eller -redigerare och ange strikthet och https-krav.
+1. Skapa en ny JavaScript-fil i din favorit-IDE eller-redigerare och ange sträng-och HTTPS-krav.
 
     ```javaScript
     'use strict';
     let https = require ('https');
     ```
 
-2. Skapa variabler för API-slutpunkten, prenumerationsnyckeln och sökfrågan. Du kan använda den globala slut punkten nedan eller den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
+2. Skapa variabler för API-slutpunkten, prenumerationsnyckeln och sökfrågan. Du kan använda den globala slut punkten i följande kod eller använda den [anpassade slut domänen](../../../cognitive-services/cognitive-services-custom-subdomains.md) som visas i Azure Portal för din resurs.
 
     ```javascript
     let subscriptionKey = 'ENTER YOUR KEY HERE';
@@ -58,52 +58,53 @@ Använd den här snabbstarten för att göra ditt första anrop till API för en
 
 ## <a name="handle-and-parse-the-response"></a>Hantera och parsa svaret
 
-1. Definiera en funktion med namnet `response_handler` som tar ett HTTP-anrop, `response`, som parameter. Utför följande steg inom den här funktionen:
+1. Definiera en funktion med namnet `response_handler()` som tar ett HTTP-anrop, `response`, som parameter. 
 
-    1. Definiera en variabel så att den innehåller brödtexten i JSON-svaret.  
-        ```javascript
-        let response_handler = function (response) {
-            let body = '';
-        };
+2. I den här funktionen definierar du en variabel som innehåller bröd texten i JSON-svaret.  
+    ```javascript
+    let response_handler = function (response) {
+        let body = '';
+    };
+    ```
+
+3. Lagra bröd texten i svaret när `data` flaggan anropas.
+    ```javascript
+    response.on('data', function (d) {
+        body += d;
+    });
+    ```
+
+4. När en `end` flagga signalerar, tolkar du JSON och skriver ut den.
+
+    ```javascript
+    response.on ('end', function () {
+    let json = JSON.stringify(JSON.parse(body), null, '  ');
+    console.log (json);
+    });
         ```
 
-    2. Lagra svarets brödtext när flaggan för **data** anropas.
-        ```javascript
-        response.on('data', function (d) {
-            body += d;
-        });
-        ```
+## Send a request
 
-    3. När en **slut** flagga signaleras, tolkar du JSON och skriver ut den.
+1. Create a function called `Search()` to send a search request. In it, perform the following steps:
 
-        ```javascript
-        response.on ('end', function () {
-        let json = JSON.stringify(JSON.parse(body), null, '  ');
-        console.log (json);
-        });
-        ```
+2. Within this function, create a JSON object containing your request parameters. Use `Get` for the method, and add your host and path information. Add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
 
-## <a name="send-a-request"></a>Skicka en förfrågan
-
-1. Skapa en funktion som heter `Search` för att skicka en sökbegäran. I den utför du följande steg.
-
-   1. Skapa ett JSON-objekt som innehåller dina begärandeparametrar: använd `Get` för metoden och lägg till information om din värd och sökväg. Lägg till din prenumerationsnyckel i `Ocp-Apim-Subscription-Key`-huvudet. 
-   2. Använd `https.request()` för att skicka begäran med den svarshanterare som du skapade tidigare samt sökparametrarna.
+3. Use `https.request()` to send the request with the response handler created previously, and your search parameters.
     
-      ```javascript
-      let Search = function () {
-       let request_params = {
-           method : 'GET',
-           hostname : host,
-           path : path + query,
-           headers : {
-               'Ocp-Apim-Subscription-Key' : subscriptionKey,
-           }
-       };
+   ```javascript
+   let Search = function () {
+    let request_params = {
+        method : 'GET',
+        hostname : host,
+        path : path + query,
+        headers : {
+            'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
     
-       let req = https.request (request_params, response_handler);
-       req.end ();
-      }
+    let req = https.request (request_params, response_handler);
+    req.end ();
+   }
       ```
 
 2. Anropa funktionen `Search()`.
@@ -179,4 +180,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON, som du ser i följ
 > [Skapa en enkelsidig webbapp](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Vad är API för entitetsökning i Bing?](../overview.md )
-* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [API för entitetsökning i Bing referens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

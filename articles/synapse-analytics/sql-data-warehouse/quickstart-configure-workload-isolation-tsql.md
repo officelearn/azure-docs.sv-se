@@ -11,25 +11,25 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 99c64e703158c40c2cc110a18be7b8c8d3800ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7f0aabf4bd18f82c247a43931e02e4b6890b2ef4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82207810"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650682"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Snabb start: Konfigurera arbets belastnings isolering med T-SQL
 
-I den här snabb starten skapar du snabbt en arbets belastnings grupp och en klassificerare för att reservera resurser för data inläsning. Arbets belastnings gruppen kommer att allokera 20% av system resurserna till en data belastning.  Klassificeringen av arbets belastningen tilldelar förfrågningar till arbets belastnings gruppen för data inläsningar.  Med 20% isolering för data inläsningar är de garanterat resurser för att nå service avtal.
+I den här snabb starten skapar du snabbt en arbets belastnings grupp och en klassificerare för att reservera resurser för data inläsning. Arbets belastnings gruppen kommer att allokera 20% av system resurserna till data belastningarna.  Klassificeringen av arbets belastningen tilldelar förfrågningar till arbets belastnings gruppen för data inläsningar.  Med 20% isolering för data inläsningar är de garanterat resurser för att nå service avtal.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
 > [!NOTE]
-> Att skapa en SQL Analytics-instans i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Att skapa en Synapse SQL-instans i Azure Synapse Analytics kan resultera i en ny fakturerbar tjänst.  Mer information finns i [priser för Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Krav
 
-Den här snabb starten förutsätter att du redan har en SQL Analytics-instans i Azure Synapse och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
+Den här snabb starten förutsätter att du redan har en Synapse SQL-instans i Azure Synapse och att du har behörighet att kontrol lera databasen. Om du behöver skapa ett använder du [Skapa och ansluta – portal](create-data-warehouse-portal.md) för att skapa ett informationslager med namnet **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Skapa inloggning för DataLoads
 

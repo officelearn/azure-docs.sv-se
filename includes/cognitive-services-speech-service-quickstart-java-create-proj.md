@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: e0bc7eeff276d44f3cd23e30eb54c9bd1ca94efd
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 49aaf9c748d75df8ffbb2adcd80aa6b966f88680
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80659165"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673194"
 ---
 1. Starta Eclipse.
 
@@ -19,7 +19,7 @@ ms.locfileid: "80659165"
 
 1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng **välkomst** skärmen om en sådan finns.
 
-1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv** > **nytt** > **projekt**.
+1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv**  >  **nytt**  >  **projekt**.
 
 1. Dialogrutan **Nytt projekt** visas. Välj **Java-projekt** och välj **Nästa**.
 
@@ -31,7 +31,7 @@ ms.locfileid: "80659165"
 
 1. Om fönstret **Open Associated Perspective?** (Vill du öppna associerat perspektiv?) visas väljer du **Open Perspective** (Öppna perspektiv).
 
-1. I **Paketutforskaren** högerklickar du på projektet **quickstart** (snabbstart). Välj **Konfigurera** > **konvertera till Maven-projekt** från snabb menyn.
+1. I **Paketutforskaren** högerklickar du på projektet **quickstart** (snabbstart). Välj **Konfigurera**  >  **konvertera till Maven-projekt** från snabb menyn.
 
    ![Skärmbild av Paketutforskaren](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "80659165"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Lägg också till `dependencies` ett-element med tal SDK-versionen 1.11.0 som ett beroende:
+   * Lägg också till ett `dependencies` -element med tal SDK-versionen 1.12.0 som ett beroende:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

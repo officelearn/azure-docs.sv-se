@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f149678bd65ff47b8582e56cf376d88284c8fa8b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78298827"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681322"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Styr molnetablering för en befintlig synkroniserad AD-skog 
 
@@ -141,14 +141,14 @@ Agent verifiering sker i Azure Portal och på den lokala server som kör-agenten
 ### <a name="azure-portal-agent-verification"></a>Azure Portal agent verifiering
 Följ dessa steg för att kontrol lera att agenten visas i Azure:
 
-1. Logga in på Azure-portalen.
+1. Logga in på Azure Portal.
 2. Till vänster väljer du **Azure Active Directory**, klickar på **Azure AD Connect** och i mitten väljer du **Hantera etablering (för hands version)**.</br>
 ![Azure-portalen](media/how-to-install/install6.png)</br>
 
 3.  På skärmen **Azure AD Provisioning (för hands version)** klickar du på **Granska alla agenter**.
 ![Azure AD-etablering](media/how-to-install/install7.png)</br>
  
-4. På **skärmen lokala etablerings agenter** visas de agenter som du har installerat.  Kontrol lera att agenten i fråga finns där och har marker ATS som **inaktive rad**.  Agenten är inaktive ![rad som standard etablerings agenter](media/how-to-install/verify1.png)</br>
+4. På **skärmen lokala etablerings agenter** visas de agenter som du har installerat.  Kontrol lera att agenten i fråga finns där och har marker ATS som **inaktive rad**.  Agenten är inaktive rad som standard ![ etablerings agenter](media/how-to-install/verify1.png)</br>
 
 ### <a name="on-the-local-server"></a>På den lokala servern
 Verifiera att agenten körs genom att följa dessa steg:
@@ -199,7 +199,9 @@ Azure AD Connect synkronisera synkroniserar ändringar som sker i din lokala kat
 3.  Kör `Start-ADSyncSyncCycle`.  Tryck på RETUR.  
 
 >[!NOTE] 
->Aktivera Scheduler om du kör en egen schemaläggare för AAD Connect-synkronisering. 
+>Aktivera Scheduler om du kör en egen schemaläggare för Azure AD Connect synkronisering. 
+
+När Scheduler har Aktiver ATS kommer Azure AD Connect att sluta exportera ändringar på objekt med `cloudNoFlow=true` i metaversum, om inte något Reference-attribut (t. ex. Manager) håller på att uppdateras. Om det finns en uppdatering av säkerhetsattribut för objektet, kommer Azure AD Connect ignorera `cloudNoFlow` signalen och exportera alla uppdateringar på objektet.
 
 ## <a name="something-went-wrong"></a>Något gick fel
 Om piloten inte fungerar som förväntat kan du gå tillbaka till Azure AD Connect Sync-installationen genom att följa stegen nedan:

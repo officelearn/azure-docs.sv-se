@@ -1,6 +1,6 @@
 ---
 title: Redigera text-Runbooks i Azure Automation
-description: Den här artikeln innehåller olika procedurer för att arbeta med PowerShell-och PowerShell Workflow-Runbooks i Azure Automation med hjälp av text redigeraren.
+description: Den här artikeln beskriver hur du använder Azure Automation text redigeraren för att arbeta med PowerShell-och PowerShell Workflow-Runbooks.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aef6a58d18c0d9c1b18915786dd6e3359c31eda0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2b30b807764159378c594f82ae6cfc55cfa4f7e4
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855790"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712918"
 ---
-# <a name="editing-textual-runbooks-in-azure-automation"></a>Redigera text-Runbooks i Azure Automation
+# <a name="edit-textual-runbooks-in-azure-automation"></a>Redigera text-Runbooks i Azure Automation
 
-Text redigeraren i Azure Automation kan användas för att redigera [PowerShell-Runbooks](automation-runbook-types.md#powershell-runbooks) och [PowerShell-arbetsflöden](automation-runbook-types.md#powershell-workflow-runbooks). Den här redigeraren har typiska funktioner i andra kod redigerare, t. ex. IntelliSense. Den har också färg kodning med ytterligare special funktioner som hjälper dig att komma åt resurser som är gemensamma för Runbooks. 
+Du kan använda text redigeraren i Azure Automation för att redigera [PowerShell-Runbooks](automation-runbook-types.md#powershell-runbooks) och [PowerShell Workflow-Runbooks](automation-runbook-types.md#powershell-workflow-runbooks). Den här redigeraren har typiska funktioner i andra kod redigerare, t. ex. IntelliSense. Den använder också färg kodning med ytterligare special funktioner som hjälper dig att komma åt resurser som är gemensamma för Runbooks. 
 
 Text redigeraren innehåller en funktion för att infoga kod för cmdlets, till gångar och underordnade Runbooks i en Runbook. I stället för att skriva in koden själv kan du välja från en lista över tillgängliga resurser och redigeraren infogar lämplig kod i runbooken.
 
@@ -26,12 +26,7 @@ Varje Runbook i Azure Automation har två versioner, utkast och publicerat. Du r
 
 Den här artikeln innehåller detaljerade anvisningar för hur du utför olika funktioner i den här redigeraren. Dessa gäller inte för [grafiska runbooks](automation-runbook-types.md#graphical-runbooks). Information om hur du arbetar med dessa Runbooks finns i [grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
 
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
-
-## <a name="editing-a-runbook-with-the-azure-portal"></a>Redigera en Runbook med Azure Portal
-
-Använd följande procedur för att öppna en Runbook för redigering i text redigeraren.
+## <a name="edit-a-runbook-with-the-azure-portal"></a>Redigera en Runbook med Azure Portal
 
 1. I Azure Portal väljer du ditt Automation-konto.
 2. Under **process automatisering**väljer du **Runbooks** för att öppna listan över Runbooks.
@@ -65,7 +60,7 @@ Använd följande procedur för att öppna en Runbook för redigering i text red
 4. Högerklicka på namnet på den till gång som du vill infoga och välj **Lägg till i arbets ytan**. För [variabel till gångar](automation-variables.md)väljer du antingen **Lägg till "Hämta variabel" på arbets ytan** eller **Lägg till "ange variabel" på arbets ytan**, beroende på om du vill hämta eller ange variabeln.
 5. Observera att koden för till gången infogas i runbooken.
 
-## <a name="editing-an-azure-automation-runbook-using-windows-powershell"></a>Redigera en Azure Automation Runbook med hjälp av Windows PowerShell
+## <a name="edit-an-azure-automation-runbook-using-windows-powershell"></a>Redigera en Azure Automation Runbook med hjälp av Windows PowerShell
 
 Om du vill redigera en Runbook med Windows PowerShell kan du använda valfri redigerare och spara runbooken i en **. ps1** -fil. Du kan använda cmdleten [export-AzAutomationRunbook](/powershell/module/Az.Automation/Export-AzAutomationRunbook) för att hämta innehållet i runbooken. Du kan använda cmdleten [import-AzAutomationRunbook](/powershell/module/Az.Automation/import-azautomationrunbook) för att ersätta den befintliga utkast-runbooken med den ändrade.
 

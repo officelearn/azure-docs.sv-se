@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Automation tillstånds konfiguration
-description: En översikt över Azure Automation tillstånds konfiguration, dess villkor och kända problem
+description: Den här artikeln innehåller en översikt över Azure Automation tillstånds konfiguration.
 keywords: PowerShell DSC, önskad tillstånds konfiguration, PowerShell DSC Azure
 services: automation
 ms.service: automation
@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dbe617e6614eb69f0a7f6e31c89c1f645804fe1b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: be0da641a67d532851b8d295065213016c795f01
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993859"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713190"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Översikt över Azure Automation tillstånds konfiguration
 
@@ -88,18 +88,18 @@ Om noderna finns i ett privat nätverk krävs följande port och URL: er. De hä
 * Port: endast TCP 443 krävs för utgående Internet åtkomst
 * Global URL: ***. Azure-Automation.net**
 * Global URL för US Gov, Virginia: ***. Azure-Automation.us**
-* Agent tjänst: **https://\<workspaceId\>. agentsvc.Azure-Automation.net**
+* Agent tjänst: **https:// \< workspaceId \> . agentsvc.Azure-Automation.net**
 
 Om du använder DSC-resurser som kommunicerar mellan noder, till exempel [waitfor *-resurserna](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), måste du också tillåta trafik mellan noderna. Se dokumentationen för varje DSC-resurs för att förstå dessa nätverks krav.
 
 #### <a name="proxy-support"></a>Stöd för proxy
 
-Proxy-stöd för DSC-agenten finns i Windows version 1809 och senare. Det här alternativet är aktiverat genom att ange värdena `ProxyURL` för `ProxyCredential` och i [metaconfiguration-skriptet](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) som används för att registrera noder.
+Proxy-stöd för DSC-agenten finns i Windows version 1809 och senare. Det här alternativet är aktiverat genom att ange värdena för `ProxyURL` och `ProxyCredential` egenskaperna i [metaconfiguration-skriptet](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) som används för att registrera noder. 
 
 >[!NOTE]
 >Azure Automation tillstånds konfiguration ger inte stöd för DSC-proxy för tidigare versioner av Windows.
 
-För Linux-noder stöder DSC-agenten proxy och använder `http_proxy` variabeln för att fastställa URL: en.
+För Linux-noder stöder DSC-agenten proxy och använder `http_proxy` variabeln för att fastställa URL: en. Mer information om proxy-Support finns i [generera DSC-metaconfigurations](automation-dsc-onboarding.md#generate-dsc-metaconfigurations).
 
 #### <a name="azure-automation-state-configuration-network-ranges-and-namespace"></a>Nätverks intervall och namnrymd för Azure Automation tillstånds konfiguration
 
@@ -107,7 +107,7 @@ Vi rekommenderar att du använder adresserna i listan nedan när du definierar u
 
 Om du har ett Automation-konto som har definierats för en viss region kan du begränsa kommunikationen till det regionala data centret. Följande tabell innehåller DNS-posten för varje region:
 
-| **Nationella** | **DNS-post** |
+| **Region** | **DNS-post** |
 | --- | --- |
 | USA, västra centrala | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | USA, södra centrala |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |

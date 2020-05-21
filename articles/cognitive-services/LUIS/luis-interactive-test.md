@@ -2,13 +2,13 @@
 title: Testa appen i LUIS-portalen
 description: Använd Language Understanding (LUIS) för att kontinuerligt arbeta med ditt program för att förfina det och förbättra dess språk förståelse.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 3608bb17b6d1ea8c9095fa54324993a9e40355b6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/20/2020
+ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653887"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714444"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testa din LUIS-app i LUIS-portalen
 
@@ -42,7 +42,8 @@ Test-uttryck bör inte vara exakt samma som alla exempel-yttranden i appen. Test
 
 1. Uttryck, dess främsta avsikt och score läggs till i listan över yttranden under text rutan.
 
-    ![Interaktiv testning identifierar fel avsikt](./media/luis-how-to-interactive-test/test-weather-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Interaktiv testning identifierar fel avsikt](./media/luis-how-to-interactive-test/test-weather-1.png)
 
 ## <a name="inspect-the-prediction"></a>Inspektera förutsägelsen
 
@@ -50,9 +51,13 @@ Du har granskat informationen om test resultatet i **inspektions** panelen.
 
 1. Med **testskärms** panelen öppen väljer du **inspektera** för en uttryck som du vill jämföra.
 
-    ![Klicka på granska om du vill visa mer information om test resultaten](./media/luis-how-to-interactive-test/inspect.png)
+    > [!div class="mx-imgBorder"]
+    > ![Klicka på granska om du vill visa mer information om test resultaten](./media/luis-how-to-interactive-test/inspect.png)
 
 1. **Inspektions** panelen visas. Panelen innehåller den översta bedömnings avsikten samt alla identifierade entiteter. Panelen visar förutsägelsen för den valda uttryck.
+
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild av panelen test inspektion](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="add-to-example-utterances"></a>Lägg till i exempel yttranden
 
@@ -76,12 +81,14 @@ Om du använder [mönster](luis-concept-patterns.md) och uttryck har matchat ett
 
 Du kan testa den aktiva versionen av din app med den publicerade [slut punkts](luis-glossary.md#endpoint) versionen. I panelen **Granska** väljer du **Jämför med publicerad**. Tester mot den publicerade modellen dras av från kvot balansen för Azure-prenumerationen.
 
-![Jämför med publicerad](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
+> [!div class="mx-imgBorder"]
+> ![Jämför med publicerad](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## <a name="view-endpoint-json-in-test-panel"></a>Visa Endpoint JSON i test panelen
 Du kan visa slut punkts-JSON som returneras för jämförelsen genom att välja vyn **Visa JSON**.
 
-![Publicerat JSON-svar](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
+> [!div class="mx-imgBorder"]
+> ![Publicerat JSON-svar](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 ## <a name="additional-settings-in-test-panel"></a>Ytterligare inställningar i test panelen
 

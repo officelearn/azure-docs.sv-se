@@ -1,6 +1,6 @@
 ---
 title: Reparera inkompatibla Azure Automation tillstånds konfigurations servrar
-description: Så här tillämpar du konfigurationer på begäran på servrar där konfigurations statusen har använts
+description: Den här artikeln beskriver hur du tillämpar konfigurationer på begäran på servrar där konfigurations status har Aktiver ATS.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,23 +9,23 @@ ms.author: migreene
 ms.topic: conceptual
 ms.date: 07/17/2019
 manager: nirb
-ms.openlocfilehash: f871b406793e455c857ca14c83434c9ed3e004df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 29322ae244491e58b783745b42323455fa2752b2
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993847"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712969"
 ---
-# <a name="remediate-noncompliant-dsc-servers"></a>Reparera inkompatibla DSC-servrar
+# <a name="remediate-noncompliant-azure-automation-state-configuration-servers"></a>Reparera inkompatibla Azure Automation tillstånds konfigurations servrar
 
-När servrar registreras med Azure Automation tillstånds konfiguration är konfigurations läget inställt `ApplyOnly`på `ApplyandMonitor`, eller `ApplyAndAutoCorrect`. Om läget inte är inställt på `ApplyAndAutoCorrect`är servrar som reser från ett kompatibelt tillstånd av någon anledning fortfarande inkompatibla tills de har korrigerats manuellt.
+När servrar registreras med Azure Automation tillstånds konfiguration är konfigurations läget inställt på `ApplyOnly` , `ApplyandMonitor` eller `ApplyAndAutoCorrect` . Om läget inte är inställt på `ApplyAndAutoCorrect` är servrar som reser från ett kompatibelt tillstånd av någon anledning fortfarande inkompatibla tills de har korrigerats manuellt.
 
 Azure Compute erbjuder en funktion med namnet kör kommando som gör att kunder kan köra skript på virtuella datorer.
 Det här dokumentet innehåller exempel skript för den här funktionen när du korrigerar konfigurations avvikelser manuellt.
 
 ## <a name="correct-drift-of-windows-virtual-machines-using-powershell"></a>Korrigera virtuella Windows-datorer med PowerShell
 
-Stegvisa instruktioner med hjälp av kommando funktionen kör på virtuella Windows-datorer finns i dokumentations sidan [kör PowerShell-skript i din virtuella Windows-dator med kommandot kör](/azure/virtual-machines/windows/run-command).
+Du kan korrigera drift av virtuella Windows-datorer med hjälp av `Run` kommando funktionen. Se [kör PowerShell-skript i din virtuella Windows-dator med kommandot kör](/azure/virtual-machines/windows/run-command).
 
 Använd cmdleten [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration) om du vill tvinga fram en nod för konfiguration av Azure Automation tillstånd för att ladda ned den senaste konfigurationen och tillämpa den.
 
@@ -35,11 +35,11 @@ Update-DscConfiguration -Wait -Verbose
 
 ## <a name="correct-drift-of-linux-virtual-machines"></a>Korrekt drift av virtuella Linux-datorer
 
-Liknande funktioner är för närvarande inte tillgängliga för Linux-servrar.
-Det enda alternativet är att upprepa registrerings processen.
-För Azure-noder kan du korrigera avvikelser från Azure Portal eller genom att använda cmdlets för AZ-moduler. Information om den här processen dokumenteras i [onboarding Machines for Management by Azure Automation State Configuration](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
-För Hybrid-noder kan du korrigera driften med hjälp av de Python-skript som ingår.
-Se [POWERSHELL DSC för Linux lagrings platsen](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
+För virtuella Linux-datorer har du inte möjlighet att använda `Run` kommandot. Du kan bara korrigera driften för dessa datorer genom att upprepa registrerings processen. 
+
+För Azure-noder kan du korrigera avvikelser från Azure Portal eller genom att använda cmdlets för AZ-moduler. Information om den här processen finns dokumenterad i [Aktivera en virtuell dator med hjälp av Azure Portal](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
+
+För Hybrid-noder kan du korrigera driften med python-skripten. Se [utföra DSC-åtgärder från Linux-datorn](https://github.com/Microsoft/PowerShell-DSC-for-Linux#performing-dsc-operations-from-the-linux-computer).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1aa605b3e6f32b260ea4a9eee9c056277fcd12d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a53d0cf0127ac3b66139d40dda62b64b05155bbd
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367082"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714890"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Felhantering i Azure Automation grafiska runbooks
 
@@ -60,12 +60,12 @@ När du har aktiverat konfigurations inställningen måste din Runbook skapa en 
 
 I följande exempel hämtar en Runbook en variabel som innehåller dator namnet på en virtuell dator. Den försöker sedan starta den virtuella datorn med nästa aktivitet.<br><br> ![Exempel på fel hantering av Automation-Runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling.png)<br><br>      
 
-`Get-AutomationVariable` Aktiviteten och cmdleten [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) har kon figurer ATS för att konvertera undantag till fel. Om det uppstår problem med att hämta variabeln eller att starta den virtuella datorn genererar koden fel.<br><br> ![Fel hanterings aktivitets inställningar](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)för Automation Runbook.
+`Get-AutomationVariable`Aktiviteten och cmdleten [Start-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) har kon figurer ATS för att konvertera undantag till fel. Om det uppstår problem med att hämta variabeln eller att starta den virtuella datorn genererar koden fel.<br><br> ![Fel hanterings aktivitets inställningar för Automation Runbook ](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png) .
 
-Fel länkar flödar från dessa aktiviteter till en `error management` enskild kod aktivitet. Den här aktiviteten har kon figurer ATS med ett enkelt PowerShell- `throw` uttryck som använder nyckelordet för att `$Error.Exception.Message` stoppa bearbetningen, tillsammans med för att hämta det meddelande som beskriver det aktuella undantaget.<br><br> ![Fel hanterings kod exempel för Automation Runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+Fel länkar flödar från dessa aktiviteter till en enskild `error management` kod aktivitet. Den här aktiviteten har kon figurer ATS med ett enkelt PowerShell-uttryck som använder `throw` nyckelordet för att stoppa bearbetningen, tillsammans med `$Error.Exception.Message` för att hämta det meddelande som beskriver det aktuella undantaget.<br><br> ![Fel hanterings kod exempel för Automation Runbook](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill veta mer om länkar och länktyper i grafiska runbooks kan du läsa [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow) (Grafisk redigering i Azure Automation).
+* Läs mer om länkar och länk typer i grafiska runbooks i [använda länkar för arbets flöde](automation-graphical-authoring-intro.md#use-links-for-workflow).
 
 * Om du vill veta mer om Runbook-körning, övervakning av Runbook-jobb och annan teknisk information, se [Runbook-körning i Azure Automation](automation-runbook-execution.md).

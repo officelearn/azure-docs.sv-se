@@ -1,18 +1,18 @@
 ---
-title: Azure Automation kontinuerlig distribution av tillstånds konfiguration med choklad
-description: Beskriver DevOps kontinuerlig distribution med hjälp av konfiguration av Azure Automation tillstånd med choklad paket hanteraren. Innehåller ett exempel med fullständig JSON Resource Manager-mall och PowerShell-källa.
+title: Konfigurera Azure Automation kontinuerlig distribution med choklad
+description: Den här artikeln beskriver hur du konfigurerar kontinuerlig distribution med tillstånds konfiguration och choklad paket hanteraren.
 services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 278c6ee05fdf78cbfa8653381b65233fbb513593
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 63fd65f6a80dec582b9cecc8483bc3425d08c551
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996126"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714193"
 ---
-# <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Tillhandahålla kontinuerlig distribution till virtuella datorer med automatiserings tillstånds konfiguration och choklad
+# <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurera kontinuerlig distribution med choklad
 
 I en DevOps-värld finns det många verktyg för att hjälpa till med olika punkter i den kontinuerliga integrerings pipelinen. Azure Automation [tillstånds konfiguration](automation-dsc-overview.md) är ett välkomst tillägg till de alternativ som DevOps team kan använda. 
 
@@ -69,7 +69,7 @@ Fullständig källa för det här användnings exemplet är i [det här Visual S
 
 ## <a name="step-1-set-up-the-pull-server-and-automation-account"></a>Steg 1: Konfigurera pull-servern och automation-kontot
 
-På en autentiserad (`Connect-AzAccount`) PowerShell-kommando rad: (kan ta några minuter medan hämtnings servern har kon figurer ATS)
+På en autentiserad ( `Connect-AzAccount` ) PowerShell-kommando rad: (kan ta några minuter medan hämtnings servern har kon figurer ATS)
 
 ```azurepowershell-interactive
 New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
@@ -189,7 +189,7 @@ Get-AzAutomationDscCompilationJob `
     -Id $compilationJobId
 ```
 
-De här stegen resulterar i en ny Node-konfiguration med namnet **ISVBoxConfig. isvbox** som placeras på hämtnings servern. Konfigurations namnet för noden skapas som `configurationName.nodeName`.
+De här stegen resulterar i en ny Node-konfiguration med namnet **ISVBoxConfig. isvbox** som placeras på hämtnings servern. Konfigurations namnet för noden skapas som `configurationName.nodeName` .
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>Steg 5: skapa och underhålla paketets metadata
 

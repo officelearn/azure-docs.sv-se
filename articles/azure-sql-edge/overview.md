@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5d7274712f3e7f5b16dc5be28d0ad47cfefba9fa
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 40128c68caeba793919a680ba2beeb35eb3aa3be
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685148"
+ms.locfileid: "83712816"
 ---
 # <a name="what-is-azure-sql-edge-preview"></a>Vad är Azure SQL Edge (för hands version)?
 
@@ -42,7 +42,7 @@ SQL Edge är tillgängligt med två olika utgåvor eller program varu planer. De
 
 ## <a name="pricing-and-availability"></a>Priser och tillgänglighet
 
-Azure SQL Edge är för närvarande en för hands version. Mer information om priser och tillgänglighet finns i [Azure SQL Edge](https://azure.microsoft.com/services/sql-database-edge/).
+Azure SQL Edge är för närvarande en för hands version. Mer information om priser och tillgänglighet finns i [Azure SQL Edge](https://azure.microsoft.com/services/sql-edge/).
 
 > [!IMPORTANT]
 > Information om skillnaderna mellan Azure SQL Edge och SQL Server, samt skillnaderna mellan olika alternativ för Azure SQL Edge, finns i [funktioner som stöds i Azure SQL Edge](features.md).

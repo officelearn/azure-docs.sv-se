@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 15f8a3ac8c2777b3a878de92db495e559f64ad20
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726552"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698308"
 ---
 # <a name="changelog"></a>Ändringslogg #
 
@@ -246,7 +246,7 @@ ms.locfileid: "81726552"
 
 ### <a name="changes-211"></a>Ändringar, 2.1.1 ####
 
-- Ändrade Felkod har lagts till för Widevine https-krav: från och med Chrome V58, måste Widevine-innehåll läsas in/ `https://` spelas upp via protokollet annars går det inte att spela upp.
+- Ändrade Felkod har lagts till för Widevine https-krav: från och med Chrome V58, måste Widevine-innehåll läsas in/spelas upp via `https://` protokollet annars går det inte att spela upp.
 - Ändrade Lade till Aria-etiketten för inläsnings rotation så att den tekniska inläsningen kan göra att video inläsningen visas när innehållet läses in  
 
 ## <a name="210-official-release"></a>2.1.0 (officiell utgåva) ##
@@ -577,8 +577,8 @@ ms.locfileid: "81726552"
 - [Fel korrigering] [AzureHtml5JS] Direkt uppspelnings frysning av MPD-uppdateringar när det finns små inprecisioner i tidsstämpeln
 - [Fel korrigering] [AzureHtml5JS] Minimerade flera problem med direkt uppspelning
 - [Fel korrigering] [AzureHtml5JS] Töm buffertar när heuristik för fönster storlek är på och går till en skärm med högre upplösning
-- [Fel korrigering] [AzureHtml5JS] Chrome visar nu händelsen avslutades korrekt. Länkat till föregående kända problem med *Chrome kommer inte att skicka&euro;â&euro;œendedâ-händelsen korrekt när du använder AzureHtml5JS. Det finns ett problem i den underliggande webbläsaren.*
-- [Fel korrigering] [AzureHtml5JS] Den här Tech-inaktiverade Safari för att åtgärda *uppspelnings problem med OSX Yosemite med AzureHtml5JS Tech. Det finns problem med att implementera MSE. Temporär minskning: tvinga â&euro;&euro;œflashSSâ, â&euro;œsilverlightSSâ&euro;som teknisk ordning för dessa användar agenter*
+- [Fel korrigering] [AzureHtml5JS] Chrome visar nu händelsen avslutades korrekt. En länkad till ett tidigare känt problem med *Chrome skickar inte slut händelsen korrekt när du använder AzureHtml5JS. Det finns ett problem i den underliggande webbläsaren.*
+- [Fel korrigering] [AzureHtml5JS] Den här Tech-inaktiverade Safari för att åtgärda *uppspelnings problem med OSX Yosemite med AzureHtml5JS Tech. Det finns problem med att implementera MSE. Temporär minskning: tvinga fram blixt, Silverlight som teknisk ordning för dessa användar agenter*
 - [Fel korrigering] [Blixt] loadstart utlöses efter att ett fel uppstod
 
 ## <a name="020-beta"></a>0.2.0 (beta) ##

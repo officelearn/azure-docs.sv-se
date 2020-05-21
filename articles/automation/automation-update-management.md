@@ -1,16 +1,16 @@
 ---
 title: Översikt över Azure Automation Uppdateringshantering
-description: Översikt över den Uppdateringshantering-funktion som hanterar uppdateringar för dina Windows-och Linux-datorer
+description: Översikt över den Uppdateringshantering-funktion som hanterar uppdateringar för dina Windows-och Linux-datorer.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3a3a19673ecb6edb82f0512f318298865c8ed24
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ba4ce84dca85ea1e3f2385ac280bd82c16aa8fb3
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681284"
+ms.locfileid: "83714771"
 ---
 # <a name="update-management-overview"></a>Översikt över Uppdateringshantering
 
@@ -74,7 +74,7 @@ En dator som är registrerad för Uppdateringshantering i fler än en Log Analyt
 
 ### <a name="supported-client-types"></a>Klient typer som stöds
 
-I följande tabell visas de operativ system som stöds för utvärdering av uppdateringar. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i [distribuera en Windows-hybrid Runbook Worker](automation-windows-hrw-install.md) och [distribuera en Linux-hybrid Runbook Worker](automation-linux-hrw-install.md).
+I följande tabell visas de operativ system som stöds för utvärdering av uppdateringar. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i [distribuera en Windows hybrid Runbook Worker](automation-windows-hrw-install.md) och [distribuera en Linux-hybrid Runbook Worker](automation-linux-hrw-install.md).
 
 > [!NOTE]
 > Uppdaterings utvärdering av Linux-datorer stöds bara i vissa regioner enligt listan i Automation-kontot och Log Analytics [mappnings tabellen](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)för arbets ytan. 
@@ -98,9 +98,11 @@ I följande tabell visas operativ system som inte stöds:
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
-|Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.        |
+|Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.<br> Den rekommenderade metoden för Azure Windows Virtual Desktop (WVD)<br> för att hantera uppdateringar är [Windows Update för Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) för hantering av klient datorer för Windows 10. |
 |Windows Server 2016 Nano Server     | Stöds inte.       |
 |Azure Kubernetes service-noder | Stöds inte. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
+
+
 
 ### <a name="client-requirements"></a>Klientkrav
 
@@ -166,7 +168,7 @@ Mer information om uppdateringar av hanterings paket finns i [anslut Operations 
 
 I följande tabell beskrivs de anslutna källor som Uppdateringshantering stöder:
 
-| Ansluten källa | Stöds | Description |
+| Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
 | Windows-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Windows-agenter och startar sedan installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Ja |Uppdateringshantering samlar in information om system uppdateringar från Linux-agenter och startar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
@@ -207,7 +209,7 @@ Följ anvisningarna i [ansluta datorer utan Internet åtkomst](../azure-monitor/
 
 I följande tabell definieras de klassificeringar som Uppdateringshantering stöder för Windows-uppdateringar. 
 
-|Klassificering  |Description  |
+|Klassificering  |Beskrivning  |
 |---------|---------|
 |Kritiska uppdateringar     | En uppdatering för ett särskilt problem som åtgärdar en kritisk, ej säkerhetsrelaterad bugg.        |
 |Säkerhetsuppdateringar     | En uppdatering för en produktspecifik, säkerhetsrelaterad fråga.        |
@@ -220,7 +222,7 @@ I följande tabell definieras de klassificeringar som Uppdateringshantering stö
 
 Nästa tabell definierar de klassificeringar som stöds för Linux-uppdateringar.
 
-|Klassificering  |Description  |
+|Klassificering  |Beskrivning  |
 |---------|---------|
 |Kritiska uppdateringar och säkerhetsuppdateringar     | Uppdateringar för ett enskilt problem eller ett produktspecifik, säkerhetsrelaterat problem.         |
 |Övriga uppdateringar     | Alla andra uppdateringar som inte är kritiska eller som inte är av säkerhets uppdateringar.        |

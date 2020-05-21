@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 14fd237b6437c15ede2da7c0694004f6c22736cc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83600005"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714244"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Snabb start: skapa din första statiska webbapp
 
@@ -20,7 +20,7 @@ Azures statiska Web Apps publicerar webbplatser till en produktions miljö genom
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt utvärderings konto](https://azure.microsoft.com/free).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [GitHub](https://github.com) -konto
 - [Azure](https://portal.azure.com) -konto
@@ -81,7 +81,7 @@ Börja med att konfigurera din nya app och länka den till en GitHub-lagringspla
 - Välj din _Azure-prenumeration_
 - Välj eller skapa en ny _resurs grupp_
 - Namnge appen **mitt-första-statiskt-Web-App**.
-  - Giltiga tecken är `a-z` (Skift läges okänsligt), `0-9` och `_` .
+  - Giltiga tecken är `a-z` (Skift läges okänsligt), `0-9` och `-` .
 - Välj en _region_ som är närmast dig
 - Välj den **kostnads fria** _SKU: n_
 - Klicka på knappen **Logga in med GitHub** och autentisera med GitHub
@@ -131,6 +131,8 @@ Klicka på knappen **Granska + skapa**.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="Knappen granska skapande":::
 
+Om du vill ändra dessa värden när du har skapat appen kan du redigera [arbets flödes filen](github-actions-workflow.md).
+
 ### <a name="review--create"></a>Granska + skapa
 
 När begäran har validerats kan du fortsätta att skapa programmet.
@@ -170,4 +172,4 @@ Om du inte kommer att fortsätta att använda det här programmet kan du ta bort
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lägg till ett API](add-api.md)
+> [Lägga till ett API](add-api.md)

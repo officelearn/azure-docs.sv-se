@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ac6347bd8e723f356da4803da54a6ea45a4a71a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 390f14e8369f206b2f5ffce74f0775b33e313021
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535527"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714992"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook-typer
 
@@ -69,8 +69,8 @@ PowerShell-Runbooks baseras på Windows PowerShell. Du redigerar koden för runb
 ### <a name="limitations"></a>Begränsningar
 
 * Du måste vara bekant med PowerShell-skript.
-* Runbooks kan inte använda [parallell bearbetning](automation-powershell-workflow.md#parallel-processing) för att köra flera åtgärder parallellt.
-* Runbooks kan inte använda [kontroll punkter](automation-powershell-workflow.md#checkpoints) för att återuppta Runbook om det uppstår ett fel.
+* Runbooks kan inte använda [parallell bearbetning](automation-powershell-workflow.md#use-parallel-processing) för att köra flera åtgärder parallellt.
+* Runbooks kan inte använda [kontroll punkter](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) för att återuppta Runbook om det uppstår ett fel.
 * Du kan inkludera endast PowerShell Workflow-Runbooks och grafiska runbooks som underordnade Runbooks med hjälp av cmdleten [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) , som skapar ett nytt jobb.
 
 ### <a name="known-issues"></a>Kända problem
@@ -78,9 +78,9 @@ PowerShell-Runbooks baseras på Windows PowerShell. Du redigerar koden för runb
 Följande är aktuella kända problem med PowerShell-Runbooks:
 
 * PowerShell-Runbooks kan inte hämta en okrypterad [variabel till gång](automation-variables.md) med ett null-värde.
-* PowerShell-Runbooks kan inte hämta en variabel `*~*` till gång med i namnet.
+* PowerShell-Runbooks kan inte hämta en variabel till gång med `*~*` i namnet.
 * En [Get-process](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-process?view=powershell-7) -åtgärd i en slinga i en PowerShell-Runbook kan krascha efter cirka 80 iterationer.
-* En PowerShell-Runbook kan inte köras om den försöker skriva en stor mängd data till utdataströmmen samtidigt. Du kan vanligt vis undvika det här problemet genom att låta Runbook-jobbet bara mata ut den information som behövs för att arbeta med stora objekt. I stället för att använda `Get-Process` utan begränsningar kan du till exempel låta cmdleten bara mata in de nödvändiga parametrarna som i `Get-Process | Select ProcessName, CPU`.
+* En PowerShell-Runbook kan inte köras om den försöker skriva en stor mängd data till utdataströmmen samtidigt. Du kan vanligt vis undvika det här problemet genom att låta Runbook-jobbet bara mata ut den information som behövs för att arbeta med stora objekt. I stället för att använda `Get-Process` utan begränsningar kan du till exempel låta cmdleten bara mata in de nödvändiga parametrarna som i `Get-Process | Select ProcessName, CPU` .
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell Workflow-Runbooks
 
@@ -89,16 +89,16 @@ PowerShell Workflow-Runbooks är text-Runbooks baserade på [Windows PowerShell-
 ### <a name="advantages"></a>Fördelar
 
 * Implementera all komplex logik med PowerShell Workflow Code.
-* Använd [kontroll punkter](automation-powershell-workflow.md#checkpoints) för att återuppta åtgärden om det uppstår ett fel.
-* Använd [parallell bearbetning](automation-powershell-workflow.md#parallel-processing) för att utföra flera åtgärder parallellt.
+* Använd [kontroll punkter](automation-powershell-workflow.md#use-checkpoints-in-a-workflow) för att återuppta åtgärden om det uppstår ett fel.
+* Använd [parallell bearbetning](automation-powershell-workflow.md#use-parallel-processing) för att utföra flera åtgärder parallellt.
 * Kan inkludera andra grafiska runbooks och PowerShell Workflow-Runbooks som underordnade Runbooks för att skapa arbets flöden på hög nivå.
 
 ### <a name="limitations"></a>Begränsningar
 
 * Du måste vara bekant med PowerShell-arbetsflöde.
-* Runbooks måste hantera den ytterligare komplexiteten i PowerShell-arbetsflöde, till exempel [avserialiserade objekt](automation-powershell-workflow.md#code-changes).
+* Runbooks måste hantera den ytterligare komplexiteten i PowerShell-arbetsflöde, till exempel [avserialiserade objekt](automation-powershell-workflow.md#deserialized-objects).
 * Runbooks tar längre tid att starta än PowerShell-Runbooks eftersom de måste kompileras innan de körs.
-* Du kan bara ta med PowerShell-Runbooks som underordnade Runbooks med `Start-AzAutomationRunbook` hjälp av cmdleten.
+* Du kan bara ta med PowerShell-Runbooks som underordnade Runbooks med hjälp av `Start-AzAutomationRunbook` cmdleten.
 * Runbooks kan inte köras på en Linux-Hybrid Runbook Worker.
 
 ## <a name="python-runbooks"></a>Python-Runbooks

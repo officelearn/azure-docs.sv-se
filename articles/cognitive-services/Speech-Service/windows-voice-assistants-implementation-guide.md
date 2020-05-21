@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 7a142060a29561526c378ce04b23aa2b286cd6c1
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 726dd4e18565174c8bbf49b204af64129e607db5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997407"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714737"
 ---
 # <a name="implementing-voice-assistants-on-windows"></a>Implementera röst assistenter i Windows
 
@@ -43,7 +43,7 @@ Använd din Microsoft-begränsade åtkomst funktions nyckel för att låsa upp f
 
 Programmet behöver registrera sig, dess nyckelords modell och dess språk med Windows.
 
-Börja med att hämta nyckelords detektorn. I den här exempel koden hämtar vi den första detektorn, men du kan välja en viss detektor genom att välja `configurableDetectors`den från.
+Börja med att hämta nyckelords detektorn. I den här exempel koden hämtar vi den första detektorn, men du kan välja en viss detektor genom att välja den från `configurableDetectors` .
 
 ```csharp
 private static async Task<ActivationSignalDetector> GetFirstEligibleDetectorAsync()
@@ -65,19 +65,19 @@ private static async Task<ActivationSignalDetector> GetFirstEligibleDetectorAsyn
 }
 ```
 
-När du har hämtat ActivationSignalDetector-objektet anropar `ActivationSignalDetector.CreateConfigurationAsync` du dess metod med signal-ID, modell-ID och visnings namn för att registrera ditt nyckelord och hämta `ActivationSignalDetectionConfiguration`ditt program. Signal-och modell-ID: na bör vara GUID som beslutas av utvecklaren och förblir konsekvent för samma nyckelord.
+När du har hämtat ActivationSignalDetector-objektet anropar du dess `ActivationSignalDetector.CreateConfigurationAsync` metod med signal-ID, modell-ID och visnings namn för att registrera ditt nyckelord och hämta ditt program `ActivationSignalDetectionConfiguration` . Signal-och modell-ID: na bör vara GUID som beslutas av utvecklaren och förblir konsekvent för samma nyckelord.
 
 ### <a name="verify-that-the-voice-activation-setting-is-enabled"></a>Kontrol lera att röst aktiverings inställningen är aktive rad
 
-Om du vill använda röst aktivering måste en användare aktivera röst aktivering för systemet och aktivera röst aktivering för deras program. Du kan hitta inställningen under "sekretess inställningar för röst aktivering" i Windows-inställningar. Om du vill kontrol lera status för röst aktiverings inställningen i programmet använder du instansen `ActivationSignalDetectionConfiguration` för från att registrera nyckelordet. Fältet [AvailabilityInfo](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-uwp/UWPVoiceAssistantSample/UIAudioStatus.cs#L128) i `ActivationSignalDetectionConfiguration` innehåller ett uppräknings värde som beskriver statusen för röst aktiverings inställningen.
+Om du vill använda röst aktivering måste en användare aktivera röst aktivering för systemet och aktivera röst aktivering för deras program. Du kan hitta inställningen under "sekretess inställningar för röst aktivering" i Windows-inställningar. Om du vill kontrol lera status för röst aktiverings inställningen i programmet använder du instansen för `ActivationSignalDetectionConfiguration` från att registrera nyckelordet. Fältet [AvailabilityInfo](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-uwp/UWPVoiceAssistantSample/UIAudioStatus.cs#L128) i `ActivationSignalDetectionConfiguration` innehåller ett uppräknings värde som beskriver statusen för röst aktiverings inställningen.
 
 ### <a name="retrieve-a-conversationalagentsession-to-register-the-app-with-the-mva-system"></a>Hämta en ConversationalAgentSession för att registrera appen med MVA-systemet
 
-`ConversationalAgentSession` Är en klass i Windows SDK som gör att appen kan uppdatera Windows med appens tillstånd (inaktiv, upptäcka, lyssna, arbeta, tala) och ta emot händelser, till exempel aktiverings identifiering och system tillstånds ändringar, till exempel skärm låsning. Genom att hämta en instans av AgentSession kan du också registrera programmet med Windows som activatable med röst. Vi rekommenderar att du underhåller en referens till `ConversationalAgentSession`. Hämta sessionen med hjälp av `ConversationalAgentSession.GetCurrentSessionAsync` API: et.
+`ConversationalAgentSession`Är en klass i Windows SDK som gör att appen kan uppdatera Windows med appens tillstånd (inaktiv, upptäcka, lyssna, arbeta, tala) och ta emot händelser, till exempel aktiverings identifiering och system tillstånds ändringar, till exempel skärm låsning. Genom att hämta en instans av AgentSession kan du också registrera programmet med Windows som activatable med röst. Vi rekommenderar att du underhåller en referens till `ConversationalAgentSession` . Hämta sessionen med hjälp av API: `ConversationalAgentSession.GetCurrentSessionAsync` et.
 
 ### <a name="listen-to-the-two-activation-signals-the-onbackgroundactivated-and-onsignaldetected"></a>Lyssna på de två aktiverings signalerna: OnBackgroundActivated och OnSignalDetected
 
-Windows kommer att signalera din app när den identifierar ett nyckelord på ett av två sätt. Om appen inte är aktiv (det vill säga att du inte har en referens till en icke-borttagen instans av `ConversationalAgentSession`) kommer den att starta din app och anropa OnBackgroundActivated-metoden i app.XAML.cs-filen för ditt program. Om `BackgroundActivatedEventArgs.TaskInstance.Task.Name` fältet Event argument matchar strängen "AgentBackgroundTrigger" utlöstes program starten av röst aktiveringen. Programmet måste åsidosätta den här metoden och hämta en instans av ConversationalAgentSession för att signalera till Windows som nu är aktiv. När programmet är aktivt kommer Windows att signalera förekomsten av röst aktivering med `ConversationalAgentSession.OnSignalDetected` händelsen. Lägg till en händelse hanterare i den här händelsen så snart du hämtar `ConversationalAgentSession`.
+Windows kommer att signalera din app när den identifierar ett nyckelord på ett av två sätt. Om appen inte är aktiv (det vill säga att du inte har en referens till en icke-borttagen instans av `ConversationalAgentSession` ) kommer den att starta din app och anropa OnBackgroundActivated-metoden i app.XAML.cs-filen för ditt program. Om fältet Event argument `BackgroundActivatedEventArgs.TaskInstance.Task.Name` matchar strängen "AgentBackgroundTrigger" utlöstes program starten av röst aktiveringen. Programmet måste åsidosätta den här metoden och hämta en instans av ConversationalAgentSession för att signalera till Windows som nu är aktiv. När programmet är aktivt kommer Windows att signalera förekomsten av röst aktivering med `ConversationalAgentSession.OnSignalDetected` händelsen. Lägg till en händelse hanterare i den här händelsen så snart du hämtar `ConversationalAgentSession` .
 
 ## <a name="keyword-verification"></a>Nyckelords verifiering
 
@@ -85,7 +85,7 @@ När ett Voice agent-program har Aktiver ATS av Voice är nästa steg att kontro
 
 ### <a name="retrieve-activation-audio"></a>Hämta aktiverings ljud
 
-Skapa en [AudioGraph](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) och skicka den till `CreateAudioDeviceInputNodeAsync` `ConversationalAgentSession`. Det här läser in grafens ljudbuffert med ljudet som *börjar cirka 3 sekunder innan nyckelordet identifierades*. Detta extra ledande ljud ingår för att hantera en mängd olika nyckelords längder och högtalar hastigheter. Sedan hanterar du händelsen [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) från ljud diagrammet för att hämta ljuddata.
+Skapa en [AudioGraph](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph) och skicka den till `CreateAudioDeviceInputNodeAsync` `ConversationalAgentSession` . Det här läser in grafens ljudbuffert med ljudet som *börjar cirka 3 sekunder innan nyckelordet identifierades*. Detta extra ledande ljud ingår för att hantera en mängd olika nyckelords längder och högtalar hastigheter. Sedan hanterar du händelsen [QuantumStarted](https://docs.microsoft.com/uwp/api/windows.media.audio.audiograph.quantumstarted?view=winrt-18362) från ljud diagrammet för att hämta ljuddata.
 
 ```csharp
 var inputNode = await agentSession.CreateAudioDeviceInputNodeAsync(audioGraph);
@@ -104,7 +104,7 @@ När nyckelords verifieringen lyckas måste programmet flyttas till förgrunden 
 
 När ditt program först aktive ras av Voice startas det i en komprimerad vy. I [design vägledningen för för hands versionen av röst aktivering](windows-voice-assistants-best-practices.md#design-guidance-for-voice-activation-preview) hittar du information om olika vyer och över gångar mellan dem för röst assistenter i Windows.
 
-Använd ApplicationView-API: et `TryEnterViewModeAsync`för att göra över gången från komprimerad vy till fullständig app-vy:
+Använd ApplicationView-API: et för att göra över gången från komprimerad vy till fullständig app-vy `TryEnterViewModeAsync` :
 
 ```csharp
 var appView = ApplicationView.GetForCurrentView();
@@ -113,19 +113,28 @@ await appView.TryEnterViewModeAsync(ApplicationViewMode.Default);
 
 ## <a name="implementing-above-lock-activation"></a>Implementera lås aktivering ovan
 
-Följande steg beskriver kraven för att aktivera en röst assistent i Windows för att köra låset, inklusive referenser till exempel kod och rikt linjer för att hantera programmets livs cykel. Vägledning om hur du utformar ovan låsnings upplevelser finns i [Guide för bästa praxis](windows-voice-assistants-best-practices.md).
+Följande steg beskriver kraven för att aktivera en röst assistent i Windows för att köra låset, inklusive referenser till exempel kod och rikt linjer för att hantera programmets livs cykel.
+
+Vägledning om hur du utformar ovan låsnings upplevelser finns i [Guide för bästa praxis](windows-voice-assistants-best-practices.md).
+
+När en app visar en vy över låset anses den vara i hel skärms läge. Mer information om hur du implementerar en app som använder hel skärms läge finns i [dokumentationen för hel skärms läge](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access).
+
+### <a name="transitioning-above-lock"></a>Över gång över lås
+
+En aktivering över låset liknar en aktivering under låset. Om det inte finns några aktiva instanser av programmet kommer en ny instans att startas i bakgrunden och `OnBackgroundActivated` i app.XAML.cs anropas. Om det finns en instans av programmet får den instansen ett meddelande via `ConversationalAgentSession.SignalDetected` händelsen.
+
+Om programmet inte redan visas över låset måste det anropa `ConversationalAgentSession.RequestForegroundActivationAsync` . Detta utlöser `OnLaunched` metoden i app.XAML.cs som ska navigera till den vy som visas ovan.
 
 ### <a name="detecting-lock-screen-transitions"></a>Identifiera lås skärms över gångar
 
-ConversationalAgent-biblioteket i Windows SDK tillhandahåller ett API för att göra lås skärms läget och ändringar i lås skärms läget lätt att komma åt. Om du vill identifiera det aktuella lås skärms läget `ConversationalAgentSession.IsUserAuthenticated` kontrollerar du fältet. Om du vill identifiera ändringar i lås tillstånd lägger du till en händelse `ConversationalAgentSession` hanterare i `SystemStateChanged` objektets händelse. Den utlöses när skärmen ändras från olåst till låst eller vice versa. Om värdet för händelse argumenten är `ConversationalAgentSystemStateChangeType.UserAuthentication`, har lås skärms läget ändrats och programmet ska stängas.
+ConversationalAgent-biblioteket i Windows SDK tillhandahåller ett API för att göra lås skärms läget och ändringar i lås skärms läget lätt att komma åt. Om du vill identifiera det aktuella lås skärms läget kontrollerar du `ConversationalAgentSession.IsUserAuthenticated` fältet. Om du vill identifiera ändringar i lås tillstånd lägger du till en händelse hanterare i `ConversationalAgentSession` objektets `SystemStateChanged` händelse. Den utlöses när skärmen ändras från olåst till låst eller vice versa. Om värdet för händelse argumenten är `ConversationalAgentSystemStateChangeType.UserAuthentication` , har lås skärms status ändrats.
 
 ```csharp
-// When the app changes lock state, close the application to prevent duplicates running at once
 conversationalAgentSession.SystemStateChanged += (s, e) =>
 {
     if (e.SystemStateChangeType == ConversationalAgentSystemStateChangeType.UserAuthentication)
     {
-        WindowService.CloseWindow();
+        // Handle lock state change
     }
 };
 ```
@@ -136,7 +145,10 @@ Program posten på sidan Sekretess inställningar för röst aktivering har en v
 
 ## <a name="closing-the-application"></a>Programmet stängs
 
-Om du vill stänga programmet program mässigt under eller under låset, använder du `WindowService.CloseWindow()` API: et. Detta utlöser alla UWP livs cykel metoder, inklusive OnSuspend, vilket gör att programmet kan ta `ConversationalAgentSession` bort sin instans innan den stängs.
+Om du vill stänga programmet program mässigt under eller under låset, använder du API: `WindowService.CloseWindow()` et. Detta utlöser alla UWP livs cykel metoder, inklusive OnSuspend, vilket gör att programmet kan ta bort sin `ConversationalAgentSession` instans innan den stängs.
+
+> [!NOTE]
+> Programmet kan stänga utan att stänga av [Lås instansen nedan](https://docs.microsoft.com/windows-hardware/drivers/partnerapps/create-a-kiosk-app-for-assigned-access#add-a-way-out-of-assigned-access-). I det här fallet måste den ovan skrivskyddade vyn bli "Rensa", vilket säkerställer att när skärmen har låsts upp, så finns det inga händelse hanterare eller uppgifter som försöker att ändra ovanstående lås vy.
 
 ## <a name="next-steps"></a>Nästa steg
 

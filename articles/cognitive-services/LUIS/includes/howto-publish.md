@@ -6,18 +6,18 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.date: 05/06/2020
+ms.date: 05/19/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 4067b4439c166a4d3af02b3448bbe7edd98a0a07
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 52a1e0f2691a9b60cc60ed866fc6e316c94e47cd
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585113"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701276"
 ---
-För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprogram, måste du publicera appen på slutpunkten.
+För att kunna ta emot en LUIS förutsägelse i en chatt-robot eller något annat klient program måste du publicera appen till förutsägelse slut punkten.
 
 1. Välj **publicera** i det övre högra navigerings fältet.
 

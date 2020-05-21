@@ -1,49 +1,41 @@
 ---
-title: Migrera från Orchestrator till Azure Automation
-description: Beskriver hur du migrerar Runbooks och integrerings paket från System Center Orchestrator till Azure Automation.
+title: Migrera från Orchestrator till Azure Automation (beta)
+description: Den här artikeln beskriver hur du migrerar Runbooks och integrerings paket från Orchestrator till Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c7df6e31cd021fc61129131f9bd02acc7b96e2ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e8bb448e88d7aaa3d59ec9392a3b3ac69373c4d
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457560"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715502"
 ---
-# <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrera från Orchestrator till Azure Automation (beta)
+# <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrera från Orchestrator till Azure Automation (beta)
 
-Runbooks i [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) baseras på aktiviteter från integrations paket som är skrivna specifikt för Orchestrator medan runbooks i Azure Automation baseras på Windows PowerShell.  [Grafiska runbooks](automation-runbook-types.md#graphical-runbooks) i Azure Automation har ett liknande utseende för Orchestrator-Runbooks med sina aktiviteter som representerar PowerShell-cmdletar, underordnade Runbooks och till gångar.
+Runbooks i [System Center 2012 – Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) baseras på aktiviteter från integrations paket som är skrivna specifikt för Orchestrator, medan runbooks i Azure Automation baseras på Windows PowerShell. [Grafiska runbooks](automation-runbook-types.md#graphical-runbooks) i Azure Automation har ett liknande utseende för Orchestrator-Runbooks, med deras aktiviteter som representerar PowerShell-cmdletar, underordnade Runbooks och till gångar. Förutom att konvertera Runbooks själva måste du konvertera integrerings paketen till de aktiviteter som Runbooks använder för att integrera moduler med Windows PowerShell-cmdlets. 
 
-[System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) innehåller verktyg som hjälper dig att konvertera Runbooks från Orchestrator till Azure Automation.  Förutom att konvertera Runbooks själva måste du konvertera integrerings paketen till de aktiviteter som Runbooks använder för att integrera moduler med Windows PowerShell-cmdlets.  
+[Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx) (SMA) lagrar och Kör Runbooks i ditt lokala data Center som Orchestrator, och använder samma integrerings moduler som Azure Automation. Runbook-konverteraren konverterar Orchestrator-Runbooks till grafiska runbooks, som inte stöds i SMA. Du kan fortfarande installera modulen standard aktiviteter och System Center Orchestrator-integrering i SMA, men du måste skriva om [dina runbooks](https://technet.microsoft.com/library/dn469262.aspx)manuellt.
 
-Följande är den grundläggande processen för att konvertera Orchestrator-Runbooks till Azure Automation.  Vart och ett av dessa steg beskrivs i detalj i avsnittet nedan.
+## <a name="download-the-orchestrator-migration-toolkit"></a>Hämta Orchestrator Migration Toolkit
 
-1. Hämta [System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all) som innehåller de verktyg och moduler som beskrivs i den här artikeln.
-2. Importera [modulen standard aktiviteter](#standard-activities-module) till Azure Automation.  Detta inkluderar konverterade versioner av vanliga Orchestrator-aktiviteter som kan användas av konverterade Runbooks.
-3. Importera [System Center Orchestrator integration-moduler](#system-center-orchestrator-integration-modules) till Azure Automation för de integrerings paket som används av dina runbooks som ansluter till System Center.
-4. Konvertera anpassade och tredje parts integrerings paket med hjälp av [integrerings paket konverteraren](#integration-pack-converter) och importera till Azure Automation.
-5. Konvertera Orchestrator-Runbooks med [Runbook-konverteraren](#runbook-converter) och installera i Azure Automation.
-6. Skapa nödvändiga Orchestrator-tillgångar manuellt i Azure Automation eftersom Runbook-konverteraren inte konverterar dessa resurser.
-7. Konfigurera en [hybrid Runbook Worker](#hybrid-runbook-worker) i ditt lokala data Center för att köra konverterade Runbooks som kommer åt lokala resurser.
+Det första steget i migreringen är att ladda ned [System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323&WT.mc_id=rss_alldownloads_all). Det här verktyget innehåller verktyg som hjälper dig att konvertera Runbooks från Orchestrator till Azure Automation.  
 
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
+## <a name="import-the-standard-activities-module"></a>Importera modulen standard aktiviteter
 
-## <a name="service-management-automation"></a>Service Management Automation
+Importera [modulen standard aktiviteter](https://docs.microsoft.com/system-center/orchestrator/standard-activities?view=sc-orch-2019) till Azure Automation. Detta inkluderar konverterade versioner av vanliga Orchestrator-aktiviteter som konverterade grafiska runbooks kan använda.
 
-[Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx) (SMA) lagrar och Kör Runbooks i ditt lokala data Center som Orchestrator, och använder samma integrerings moduler som Azure Automation. [Runbook-konverteraren](#runbook-converter) konverterar Orchestrator-Runbooks till grafiska runbooks, men stöds inte i sma.  Du kan fortfarande installera [modulen standard aktiviteter](#standard-activities-module) och [System Center Orchestrator-integrering](#system-center-orchestrator-integration-modules) i SMA, men du måste skriva om [dina runbooks](https://technet.microsoft.com/library/dn469262.aspx)manuellt.
+## <a name="import-orchestrator-integration-modules"></a>Importera Orchestrator-integrerings moduler
 
-## <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
+Microsoft tillhandahåller [integrations paket](https://technet.microsoft.com/library/hh295851.aspx) för att skapa Runbooks för att automatisera System Center-komponenter och andra produkter. Vissa av integrerings paketen är för närvarande baserade på OIT, men kan för närvarande inte konverteras till integrations moduler på grund av kända problem. Importera [System Center Orchestrator integration-moduler](https://www.microsoft.com/download/details.aspx?id=49555) till Azure Automation för de integrerings paket som används av dina runbooks som ansluter till System Center. Det här paketet innehåller konverterade versioner av integrerings paket som kan importeras till Azure Automation och Service Management Automation.  
 
-Runbooks i Orchestrator lagras på en databas server och körs på Runbook-servrar, både i det lokala data centret.  Runbooks i Azure Automation lagras i Azure-molnet och kan köras i ditt lokala data Center med hjälp av en [hybrid Runbook Worker](automation-hybrid-runbook-worker.md).  Så här kommer du vanligt vis att köra Runbooks som konverterats från Orchestrator eftersom de är utformade för att köras på lokala servrar.
+## <a name="convert-integration-packs"></a>Konvertera integrerings paket
 
-## <a name="integration-pack-converter"></a>Konverterare för integrerings paket
+Använd [integrerings paket konverteraren](https://docs.microsoft.com/system-center/orchestrator/orch-integration-toolkit/integration-pack-wizard?view=sc-orch-2019) för att konvertera integrerings paket som skapats med hjälp av [Orchestrator Integration Toolkit (OIT)](https://technet.microsoft.com/library/hh855853.aspx) till PowerShell-baserade integrations moduler som kan importeras till Azure Automation eller Service Management Automation. När du kör integrerings paketets konverterare visas en guide som gör att du kan välja en integrations paket fil (. OIP). I guiden visas sedan de aktiviteter som ingår i integrerings paketet och du kan välja vilka aktiviteter som ska migreras. När du slutför guiden skapas en integrerings modul som innehåller en motsvarande cmdlet för var och en av aktiviteterna i det ursprungliga integrerings paketet.
 
-Konverterings paket konverteraren konverterar integrerings paket som har skapats med hjälp av [Orchestrator Integration Toolkit (OIT)](https://technet.microsoft.com/library/hh855853.aspx) till integrations moduler baserade på Windows PowerShell som kan importeras till Azure Automation eller Service Management Automation.  
-
-När du kör integrerings paketets konverterare visas en guide som gör att du kan välja en integrations paket fil (. OIP).  I guiden visas sedan de aktiviteter som ingår i integrerings paketet och du kan välja vilka som ska migreras.  När du slutför guiden skapas en integrerings modul som innehåller en motsvarande cmdlet för var och en av aktiviteterna i det ursprungliga integrerings paketet.
+> [!NOTE]
+> Du kan inte använda integrations paket konverteraren för att konvertera integrerings paket som inte har skapats med OIT. Det finns även vissa integrerings paket från Microsoft som för närvarande inte kan konverteras med det här verktyget. Konverterade versioner av dessa integrerings paket tillhandahålls för nedladdning så att de kan installeras i Azure Automation eller Service Management Automation.
 
 ### <a name="parameters"></a>Parametrar
 
@@ -51,31 +43,17 @@ Alla egenskaper för en aktivitet i integrerings paketet konverteras till parame
 
 ### <a name="monitor-activities"></a>Övervaka aktiviteter
 
-Övervaka Runbooks i Orchestrator startar med en [Övervaka aktivitet](https://technet.microsoft.com/library/hh403827.aspx) och körs kontinuerligt och väntar på att anropas av en viss händelse.  Azure Automation stöder inte övervaknings-Runbooks, så alla övervaknings aktiviteter i integrerings paketet kommer inte att konverteras.  I stället skapas en placeholder-cmdlet i integrations-modulen för aktiviteten övervaka.  Denna cmdlet har inga funktioner, men den tillåter alla konverterade Runbook-funktioner som använder den för att installeras.  Denna Runbook kommer inte att kunna köras i Azure Automation, men den kan installeras så att du kan ändra den.
+Övervaka Runbooks i Orchestrator startar med en [Övervaka aktivitet](https://technet.microsoft.com/library/hh403827.aspx) och körs kontinuerligt och väntar på att anropas av en viss händelse. Azure Automation stöder inte övervaknings-Runbooks, så alla övervaknings aktiviteter i integrerings paketet konverteras inte. I stället skapas en placeholder-cmdlet i integrations-modulen för aktiviteten övervaka.  Denna cmdlet har inga funktioner, men den tillåter alla konverterade Runbook-funktioner som använder den för att installeras. Det går inte att köra denna Runbook i Azure Automation, men den kan installeras så att du kan ändra den.
 
-### <a name="integration-packs-that-cannot-be-converted"></a>Integrerings paket som inte kan konverteras
+Orchestrator innehåller en uppsättning [standard aktiviteter](https://technet.microsoft.com/library/hh403832.aspx) som inte ingår i ett integrations paket men som används av många Runbooks.  Modulen standard aktiviteter är en integrerings modul som innehåller en motsvarande cmdlet för var och en av dessa aktiviteter. Du måste installera den här integrerings modulen i Azure Automation innan du importerar några konverterade Runbooks som använder en standard aktivitet.
 
-Integrerings paket som inte har skapats med OIT kan inte konverteras med integrations paket konverteraren. Det finns även vissa integrerings paket från Microsoft som för närvarande inte kan konverteras med det här verktyget.  Konverterade versioner av dessa integrerings paket har [angetts för nedladdning](#system-center-orchestrator-integration-modules) så att de kan installeras i Azure Automation eller Service Management Automation.
+Förutom stöd för konverterade Runbooks kan cmdletarna i modulen standard aktiviteter användas av någon bekant med Orchestrator för att bygga nya Runbooks i Azure Automation. Även om funktionerna för alla standard aktiviteter kan utföras med cmdletar kan de fungera annorlunda. Cmdletarna i den konverterade modulen standard aktiviteter fungerar på samma sätt som motsvarande aktiviteter och använder samma parametrar. Detta kan hjälpa dig vid över gången till Azure Automation runbooks.
 
-## <a name="standard-activities-module"></a>Modul för standard aktiviteter
+## <a name="convert-orchestrator-runbooks"></a>Konvertera Orchestrator-Runbooks
 
-Orchestrator innehåller en uppsättning [standard aktiviteter](https://technet.microsoft.com/library/hh403832.aspx) som inte ingår i ett integrations paket men som används av många Runbooks.  Modulen standard aktiviteter är en integrerings modul som innehåller en motsvarande cmdlet för var och en av dessa aktiviteter.  Du måste installera den här integrerings modulen i Azure Automation innan du importerar några konverterade Runbooks som använder en standard aktivitet.
+Orchestrator Runbook Converter konverterar Orchestrator-Runbooks till [grafiska runbooks](automation-runbook-types.md#graphical-runbooks) som kan importeras till Azure Automation. Runbook-konverteraren implementeras som en PowerShell-modul med den cmdlet `ConvertFrom-SCORunbook` som gör konverteringen. När du installerar konverteraren skapas en genväg till en PowerShell-session som läser in cmdleten.   
 
-Förutom stöd för konverterade Runbooks kan cmdletarna i modulen standard aktiviteter användas av någon bekant med Orchestrator för att bygga nya Runbooks i Azure Automation.  Även om funktionerna för alla standard aktiviteter kan utföras med cmdletar kan de fungera annorlunda.  Cmdletarna i den konverterade modulen standard aktiviteter fungerar på samma sätt som motsvarande aktiviteter och använder samma parametrar.  Detta kan hjälpa den befintliga Orchestrator Runbook-författaren i sin över gång att Azure Automation runbooks.
-
-## <a name="system-center-orchestrator-integration-modules"></a>Moduler för System Center Orchestrator-integrering
-
-Microsoft tillhandahåller [integrations paket](https://technet.microsoft.com/library/hh295851.aspx) för att skapa Runbooks för att automatisera System Center-komponenter och andra produkter.  Vissa av integrerings paketen är för närvarande baserade på OIT, men kan för närvarande inte konverteras till integrations moduler på grund av kända problem.  [System Center Orchestrator integration-moduler](https://www.microsoft.com/download/details.aspx?id=49555) innehåller konverterade versioner av dessa integrerings paket som kan importeras till Azure Automation och Service Management Automation.  
-
-I RTM-versionen av det här verktyget publiceras uppdaterade versioner av integrerings paketen baserat på OIT som kan konverteras med konverteraren för integrerings paketet.  Vägledning ges även för att hjälpa dig att konvertera Runbooks med hjälp av aktiviteter från integrations paketen som inte baseras på OIT.
-
-## <a name="runbook-converter"></a>Runbook-konverterare
-
-Runbook-konverteraren konverterar Orchestrator-Runbooks till [grafiska runbooks](automation-runbook-types.md#graphical-runbooks) som kan importeras till Azure Automation.  
-
-Runbook-konverteraren implementeras som en PowerShell-modul med `ConvertFrom-SCORunbook` en cmdlet anropad som utför konverteringen.  När du installerar verktyget kommer det att skapa en genväg till en PowerShell-session som läser in cmdleten.   
-
-Följande är den grundläggande processen för att konvertera en Orchestrator-Runbook och importera den till Azure Automation.  I följande avsnitt finns mer information om hur du använder verktyget och hur du arbetar med konverterade Runbooks.
+Här följer de grundläggande stegen för att konvertera en Runbook och importera den till Azure Automation. Information om hur du använder cmdleten finns senare i det här avsnittet.
 
 1. Exportera en eller flera Runbooks från Orchestrator.
 2. Hämta integrerings moduler för alla aktiviteter i runbooken.
@@ -85,9 +63,7 @@ Följande är den grundläggande processen för att konvertera en Orchestrator-R
 6. Skapa alla nödvändiga till gångar i Azure Automation.
 7. Redigera runbooken i Azure Automation för att ändra eventuella obligatoriska aktiviteter.
 
-### <a name="using-runbook-converter"></a>Använda Runbook-konverterare
-
-Syntaxen för **ConvertFrom-SCORunbook** är följande:
+Syntaxen för `ConvertFrom-SCORunbook` är:
 
 ```powershell
 ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
@@ -103,46 +79,54 @@ I följande exempel kommando konverterar Runbooks i en export fil med namnet **M
 ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
 ```
 
-### <a name="log-files"></a>Loggfiler
+### <a name="use-runbook-converter-log-files"></a>Använd loggfiler för Runbook-omvandlare
 
-Runbook-konverteraren kommer att skapa följande loggfiler på samma plats som den konverterade runbooken.  Om filerna redan finns kommer de att skrivas över med information från den senaste konverteringen.
+Runbook-konverteraren skapar följande loggfiler på samma plats som den konverterade runbooken.  Om filerna redan finns skrivs de över med information från den senaste konverteringen.
 
 | Fil | Innehåll |
 |:--- |:--- |
 | Runbook-omvandlare-Progress. log |Detaljerade steg i konverteringen inklusive information för varje aktivitet som har konverterats och varning för varje aktivitet som inte konverteras. |
 | Runbook-konverterare – Sammanfattning. logg |Sammanfattning av den senaste konverteringen inklusive eventuella varningar och Uppföljnings aktiviteter som du behöver utföra, till exempel skapa en variabel som krävs för den konverterade runbooken. |
 
-### <a name="exporting-runbooks-from-orchestrator"></a>Exportera Runbooks från Orchestrator
+### <a name="export-runbooks-from-orchestrator"></a>Exportera Runbooks från Orchestrator
 
-Runbook-konverteraren fungerar med en export fil från Orchestrator som innehåller en eller flera Runbooks.  En motsvarande Azure Automation Runbook skapas för varje Orchestrator Runbook i export filen.  
+Runbook-konverteraren fungerar med en export fil från Orchestrator som innehåller en eller flera Runbooks.  Den skapar en motsvarande Azure Automation Runbook för varje Orchestrator-Runbook i export filen.  
 
 Om du vill exportera en Runbook från Orchestrator högerklickar du på namnet på runbooken i Runbook-designer och väljer **Exportera**.  Om du vill exportera alla Runbooks i en mapp högerklickar du på mappens namn och väljer **Exportera**.
 
-### <a name="runbook-activities"></a>Runbook-aktiviteter
+### <a name="convert-runbook-activities"></a>Konvertera Runbook-aktiviteter
 
 Runbook-konverteraren konverterar varje aktivitet i Orchestrator-runbooken till en motsvarande aktivitet i Azure Automation.  För de aktiviteter som inte kan konverteras skapas en plats hållare-aktivitet i Runbook med varnings text.  När du har importerat den konverterade runbooken till Azure Automation måste du ersätta alla dessa aktiviteter med giltiga aktiviteter som utför de nödvändiga funktionerna.
 
-Alla Orchestrator-aktiviteter i [modulen standard aktiviteter](#standard-activities-module) kommer att konverteras.  Det finns vissa vanliga Orchestrator-aktiviteter som inte finns i den här modulen, men som inte konverteras.  `Send Platform Event` Har till exempel ingen Azure Automation motsvarighet eftersom händelsen är speciell för Orchestrator.
+Alla Orchestrator-aktiviteter i modulen standard aktiviteter konverteras. Det finns vissa vanliga Orchestrator-aktiviteter som inte finns i den här modulen, men som inte konverteras. Har till exempel `Send Platform Event` ingen Azure Automation motsvarighet eftersom händelsen är speciell för Orchestrator.
 
-[Övervaknings aktiviteter](https://technet.microsoft.com/library/hh403827.aspx) konverteras inte eftersom det inte finns någon motsvarighet till dem i Azure Automation.  Undantaget är övervaka aktiviteter i [konverterade integrerings paket](#integration-pack-converter) som ska konverteras till plats hållar aktiviteten.
+[Övervaknings aktiviteter](https://technet.microsoft.com/library/hh403827.aspx) konverteras inte eftersom det inte finns någon motsvarighet till dem i Azure Automation. Undantagen är övervaka aktiviteter i konverterade integrerings paket som konverteras till plats hållar aktiviteten.
 
-All aktivitet från ett [konverterat integrerings paket](#integration-pack-converter) kommer att konverteras om du anger sökvägen till integrerings modulen `modules` med-parametern. För System Center-integrerings paket kan du använda [System Center Orchestrator-integreringens moduler](#system-center-orchestrator-integration-modules).
+Alla aktiviteter från ett konverterat integrerings paket konverteras om du anger sökvägen till integrerings modulen med- `modules` parametern. För System Center-integrerings paket kan du använda System Center Orchestrator-integreringens moduler.
 
-### <a name="orchestrator-resources"></a>Orchestrator-resurser
+### <a name="manage-orchestrator-resources"></a>Hantera Orchestrator-resurser
 
-Runbook-konverteraren konverterar bara Runbooks, inte andra Orchestrator-resurser som räknare, variabler eller anslutningar.  Räknare stöds inte i Azure Automation.  Variabler och anslutningar stöds, men du måste skapa dem manuellt.  Loggfilerna meddelar dig om runbooken kräver sådana resurser och anger motsvarande resurser som du måste skapa i Azure Automation för att den konverterade runbooken ska fungera korrekt.
+Runbook-konverteraren konverterar bara Runbooks, inte andra Orchestrator-resurser som räknare, variabler eller anslutningar.  Räknare stöds inte i Azure Automation.  Variabler och anslutningar stöds, men du måste skapa dem manuellt. Loggfilerna meddelar dig om runbooken kräver sådana resurser och anger motsvarande resurser som du måste skapa i Azure Automation för att den konverterade runbooken ska fungera korrekt.
 
-En Runbook kan till exempel använda en variabel för att fylla i ett visst värde i en aktivitet.  Den konverterade runbooken kommer att konvertera aktiviteten och ange en variabel till gång i Azure Automation med samma namn som Orchestrator-variabeln.  Detta kommer att anges i **Runbook-konverteraren-Summary. log-** filen som skapas efter konverteringen.  Du måste skapa den här variabeln till gången manuellt i Azure Automation innan du använder runbooken.
+En Runbook kan till exempel använda en variabel för att fylla i ett visst värde i en aktivitet.  Den konverterade Runbook-flödet konverterar aktiviteten och anger en variabel till gång i Azure Automation med samma namn som Orchestrator-variabeln. Den här åtgärden anges i **Runbook-konverteraren-Summary. log-** filen som skapas efter konverteringen. Du måste skapa den här variabeln till gången manuellt i Azure Automation innan du använder runbooken.
 
-### <a name="input-parameters"></a>Indataparametrar
+### <a name="work-with-orchestrator-input-parameters"></a>Arbeta med ingångs parametrar för Orchestrator
 
-Runbooks i Orchestrator accepterar indataparametrar med `Initialize Data` aktiviteten.  Om den Runbook som konverteras innehåller den här aktiviteten, skapas en [indataparameter](automation-graphical-authoring-intro.md#runbook-input-and-output) i Azure Automation Runbook för varje parameter i aktiviteten.  En [kontroll aktivitet för arbets flödes skript](automation-graphical-authoring-intro.md#activities) skapas i den konverterade Runbook som hämtar och returnerar varje parameter.  Aktiviteter i en Runbook som använder en indataparameter refererar till utdata från den här aktiviteten.
+Runbooks i Orchestrator accepterar indataparametrar med `Initialize Data` aktiviteten.  Om den Runbook som konverteras innehåller den här aktiviteten, skapas en [indataparameter](automation-graphical-authoring-intro.md#handle-runbook-input) i Azure Automation Runbook för varje parameter i aktiviteten.  En [kontroll aktivitet för arbets flödes skript](automation-graphical-authoring-intro.md#use-activities) skapas i den konverterade Runbook som hämtar och returnerar varje parameter. Aktiviteter i en Runbook som använder en indataparameter refererar till utdata från den här aktiviteten.
 
 Skälet till att den här strategin används är att bäst spegla funktionerna i Orchestrator-runbooken.  Aktiviteter i nya grafiska runbooks ska referera direkt till indataparametrarna med hjälp av en data källa för indata för Runbook.
 
 ### <a name="invoke-runbook-activity"></a>Anropa Runbook-aktivitet
 
-Runbooks i Orchestrator startar andra Runbooks med `Invoke Runbook` aktiviteten. Om den Runbook som konverteras innehåller den här aktiviteten `Wait for completion` och alternativet är inställt, skapas en Runbook-aktivitet för den i den konverterade runbooken.  Om `Wait for completion` alternativet inte anges skapas en arbets flödes skript aktivitet som använder [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) för att starta runbooken. När du har importerat den konverterade runbooken till Azure Automation måste du ändra den här aktiviteten med den information som anges i aktiviteten.
+Runbooks i Orchestrator startar andra Runbooks med `Invoke Runbook` aktiviteten. Om den Runbook som konverteras innehåller den här aktiviteten och `Wait for completion` alternativet är inställt, skapas en Runbook-aktivitet för den i den konverterade runbooken.  Om `Wait for completion` alternativet inte anges skapas en arbets flödes skript aktivitet som använder [Start-AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) för att starta runbooken. När du har importerat den konverterade runbooken till Azure Automation måste du ändra den här aktiviteten med den information som anges i aktiviteten.
+
+## <a name="create-orchestrator-assets"></a>Skapa Orchestrator-tillgångar
+
+Runbook-konverteraren konverterar inte Orchestrator-tillgångar. Du måste manuellt skapa eventuella nödvändiga Orchestrator-tillgångar i Azure Automation.
+
+## <a name="configure-hybrid-runbook-worker"></a>Konfigurera Hybrid Runbook Worker
+
+Orchestrator lagrar Runbooks på en databas server och kör dem på Runbook-servrar, både i ditt lokala data Center. Runbooks i Azure Automation lagras i Azure-molnet och kan köras i ditt lokala data Center med hjälp av en [hybrid Runbook Worker](automation-hybrid-runbook-worker.md). Konfigurera en arbetare att köra dina runbooks som har konverterats från Orchestrator, eftersom de är utformade för att köras på lokala servrar och komma åt lokala resurser.
 
 ## <a name="related-articles"></a>Relaterade artiklar
 
@@ -150,5 +134,4 @@ Runbooks i Orchestrator startar andra Runbooks med `Invoke Runbook` aktiviteten.
 * [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 * [Orchestrator standard-aktiviteter](https://technet.microsoft.com/library/hh403832.aspx)
-* [Hämta System Center Orchestrator Migration Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
-
+* [Hämta System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323)

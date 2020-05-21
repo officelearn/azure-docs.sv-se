@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 05/20/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593734"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712238"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -25,14 +25,14 @@ Automatisk etablering syftar på att skapa användar identiteter och roller i de
 **Azure AD Provisioning-tjänsten** tillhandahåller användare till SaaS-appar och andra system genom att ansluta till ett system för scim (Cross-Domain Identity Management) 2,0 användar hanterings-API: n som tillhandahålls av program leverantören. Den här SCIM-slutpunkten låter Azure AD program mässigt skapa, uppdatera och ta bort användare. För valda program kan etablerings tjänsten också skapa, uppdatera och ta bort ytterligare ID-relaterade objekt, till exempel grupper och roller. Den kanal som används för etablering mellan Azure AD och programmet krypteras med HTTPS TLS 1,2-kryptering.
 
 
-![Azure AD Provisioning service](./media/how-provisioning-works/provisioning0.PNG)
--*bild 1: Azure AD Provisioning-tjänsten*
+![Azure AD Provisioning service- ](./media/how-provisioning-works/provisioning0.PNG)
+ *bild 1: Azure AD Provisioning-tjänsten*
 
-![Utgående användar etablering arbets flöde](./media/how-provisioning-works/provisioning1.PNG)
-*bild 2: "utgående" arbets flöde för användar etablering från Azure AD till populära SaaS-program*
+![Utgående användar etablering arbets flöde ](./media/how-provisioning-works/provisioning1.PNG)
+ *bild 2: "utgående" arbets flöde för användar etablering från Azure AD till populära SaaS-program*
 
-![Inkommande användar etablering arbets flöde](./media/how-provisioning-works/provisioning2.PNG)
-*bild 3: "inkommande" arbets flöde för användar etablering från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory*
+![Inkommande användar etablering arbets flöde ](./media/how-provisioning-works/provisioning2.PNG)
+ *bild 3: "inkommande" arbets flöde för användar etablering från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory*
 
 ## <a name="provisioning-using-scim-20"></a>Etablering med SCIM 2,0
 
@@ -63,7 +63,7 @@ När du konfigurerar etablering till ett SaaS-program är en av de typer av mapp
 
 För utgående etablering från Azure AD till ett SaaS-program är det vanligaste sättet att avgöra [vilka användare som](../manage-apps/assign-user-or-group-access-portal.md) befinner sig i omfång för etablering. Eftersom användar tilldelningar också används för att aktivera enkel inloggning, kan samma metod användas för att hantera både åtkomst och etablering. Tilldelnings omfång gäller inte för inkommande etablerings scenarier som Workday och SuccessFactors.
 
-* **Användargrupp.** Med en Azure AD Premium licens plan kan du använda grupper för att tilldela åtkomst till ett SaaS-program. När etablerings omfånget är inställt på **Synkronisera endast tilldelade användare och grupper**, etablerar eller avetablerar Azure AD Provisioning-tjänsten användare baserat på om de är medlemmar i en grupp som är tilldelad till programmet. Själva gruppobjektet tillhandahålls inte om programmet inte stöder grupp objekt. Kontrol lera att de grupper som har tilldelats ditt program har egenskapen "SecurityEnabled" inställd på "false".
+* **Användargrupp.** Med en Azure AD Premium licens plan kan du använda grupper för att tilldela åtkomst till ett SaaS-program. När etablerings omfånget är inställt på **Synkronisera endast tilldelade användare och grupper**, etablerar eller avetablerar Azure AD Provisioning-tjänsten användare baserat på om de är medlemmar i en grupp som är tilldelad till programmet. Själva gruppobjektet tillhandahålls inte om programmet inte stöder grupp objekt. Kontrol lera att de grupper som har tilldelats ditt program har egenskapen "SecurityEnabled" inställd på "true".
 
 * **Dynamiska grupper.** Azure AD-tjänsten för användar etablering kan läsa och etablera användare i [dynamiska grupper](../users-groups-roles/groups-create-rule.md). Tänk på dessa varningar och rekommendationer i åtanke:
 
@@ -83,7 +83,7 @@ Du kan använda definitions områdes filter för att definiera attributbaserade 
 
 Det går att använda Azure AD-tjänsten för användar etablering för att etablera B2B (eller gäst) användare i Azure AD till SaaS-program. För att B2B-användare ska kunna logga in på SaaS-programmet med hjälp av Azure AD, måste dock SaaS-programmet ha sin SAML-baserade enkel inloggnings funktion som kon figurer ATS på ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [Konfigurera SaaS-appar för B2B-samarbete](../b2b/configure-saas-apps.md).
 
-Observera att userPrincipalName för en gäst användare ofta lagras som "alias # EXT #@domain.com". När userPrincipalName inkluderas i dina attributmappning som ett källattribut, tas #EXT # bort från userPrincipalName. Om du kräver att #EXT # ska vara kvar ersätter du userPrincipalName med originalUserPrincipalName som källattribut. 
+Observera att userPrincipalName för en gäst användare ofta lagras som "alias # EXT # @domain.com ". När userPrincipalName inkluderas i dina attributmappning som ett källattribut, tas #EXT # bort från userPrincipalName. Om du kräver att #EXT # ska vara kvar ersätter du userPrincipalName med originalUserPrincipalName som källattribut. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Etablerings cykler: initial och stegvis
 

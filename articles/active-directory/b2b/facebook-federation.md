@@ -12,16 +12,17 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff291592efc73415cce74ff666117851bb53e8a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0428671cf41bf148bc76bbd963bdd8fd90fce8e5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681014"
+ms.locfileid: "83712278"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Lägg till Facebook som identitets leverantör för externa identiteter
 
 Du kan lägga till Facebook i dina självbetjänings registrerings användar flöden (för hands version) så att användarna kan logga in på dina program med sina egna Facebook-konton. För att användarna ska kunna logga in med Facebook måste du först aktivera självbetjänings [registrering](self-service-sign-up-user-flow.md) för din klient. När du har lagt till Facebook som identitets leverantör konfigurerar du ett användar flöde för programmet och väljer Facebook som ett av inloggnings alternativen.
+
 > [!NOTE]
 > Användare kan bara använda sina Facebook-konton för att registrera sig via appar med hjälp av självbetjänings registrering och användar flöden. Användare kan inte bjudas in och lösa in sina inbjudningar med ett Facebook-konto.
 

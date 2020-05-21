@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd430d750b2220882479a430322f4b4c4e0c44c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597466"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712357"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Lägga till ett användar flöde för självbetjänings registrering i en app (för hands version)
 |     |
@@ -25,7 +25,10 @@ ms.locfileid: "83597466"
 | Självbetjänings registrering är en offentlig förhands gransknings funktion i Azure Active Directory. Mer information om för hands versionerna finns i kompletterande användnings [villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)versionerna.|
 |     |
 
-Genom att associera ditt användar flöde med ett program kan du aktivera registrering i appen. Du kan välja mer än ett program som ska associeras med användar flödet. När du associerar användar flödet med ett eller flera program kommer användare som besöker appen kunna registrera sig med hjälp av de alternativ som kon figurer ATS i användar flödet.
+Du kan skapa användar flöden för appar som har skapats av din organisation. Genom att associera ditt användar flöde med ett program kan du aktivera registrering i appen. Du kan välja mer än ett program som ska associeras med användar flödet. När du associerar användar flödet med ett eller flera program kommer användare som besöker appen kunna registrera sig och få ett gäst konto med hjälp av de alternativ som kon figurer ATS i användar flödet.
+
+> [!NOTE]
+> Du kan koppla användar flöden till appar som skapats av din organisation. Användar flöden kan inte användas för Microsoft-appar, t. ex. SharePoint eller team.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -33,9 +36,12 @@ Genom att associera ditt användar flöde med ett program kan du aktivera regist
 
 Azure AD är standard identitets leverantören för självbetjänings registrering. Det innebär att användarna kan registrera sig som standard med ett Azure AD-konto. Sociala identitets leverantörer kan också ingå i dessa registrerings flöden för att stödja Google-och Facebook-konton.
 
-- [Lägg till Google i din lista över sociala identitets leverantörer](google-federation.md)
 - [Lägg till Facebook i listan över sociala identitets leverantörer](facebook-federation.md)
- 
+- [Lägg till Google i din lista över sociala identitets leverantörer](google-federation.md)
+
+> [!NOTE]
+> Om ett självbetjänings registrerings användar flöde är associerat med en app i den aktuella för hands versionen och du skickar en användare en inbjudan till appen, kommer användaren inte att kunna använda ett Gmail-konto för att lösa in inbjudan. Som en lösning kan användaren gå igenom registrerings processen för självbetjäning. Eller så kan de lösa in inbjudan genom att komma åt en annan app eller genom att använda deras mina apps-Portal på https://myapps.microsoft.com .
+
 ### <a name="define-custom-attributes-optional"></a>Definiera anpassade attribut (valfritt)
 
 Användarattribut är värden som samlas in från användaren under självbetjänings registrering. Azure AD levereras med en inbyggd uppsättning attribut, men du kan skapa anpassade attribut för användning i ditt användar flöde. Du kan också läsa och skriva attributen med hjälp av Microsoft Graph-API: et. Se [definiera anpassade attribut för användar flöden](user-flow-add-custom-attributes.md).

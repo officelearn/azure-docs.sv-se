@@ -1,6 +1,6 @@
 ---
-title: Aktivera datorer för hantering genom att Azure Automation tillstånds konfiguration
-description: Konfigurera datorer för hantering med Azure Automation tillstånds konfiguration
+title: Aktivera konfiguration av Azure Automation tillstånd
+description: Den här artikeln beskriver hur du konfigurerar datorer för hantering med Azure Automation tillstånds konfiguration.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 52cd72d1144fa2acad993e927d49545d645d596f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a2693803603e053f06c8b6886c6f6639f0859461
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993738"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713156"
 ---
-# <a name="enable-machines-for-management-by-azure-automation-state-configuration"></a>Aktivera datorer för hantering genom att Azure Automation tillstånds konfiguration
+# <a name="enable-azure-automation-state-configuration"></a>Aktivera konfiguration av Azure Automation tillstånd
 
 I det här avsnittet beskrivs hur du kan konfigurera dina datorer för hantering med Azure Automation tillstånds konfiguration. Mer information om den här tjänsten finns i [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md).
 
@@ -26,7 +26,7 @@ Med Azure Automation tillstånds konfiguration kan du enkelt aktivera virtuella 
 
 > [!NOTE]
 >Om du distribuerar DSC till en Linux-nod används mappen **katalogen/tmp** . Moduler som `nxautomation` tillfälligt hämtas för verifiering innan de installeras på lämpliga platser. För att se till att modulerna installeras korrekt behöver Log Analytics agent för Linux Läs-/Skriv behörighet för **katalogen/tmp** -mappen.<br><br>
->Log Analytics agenten för Linux körs som `omsagent` användaren. Om du vill ge `omsagent` användaren >Skriv behörighet kör du kommandot. `setfacl -m u:omsagent:rwx /tmp`
+>Log Analytics agenten för Linux körs som `omsagent` användaren. Om du vill ge användaren >Skriv behörighet `omsagent` kör du kommandot `setfacl -m u:omsagent:rwx /tmp` .
 
 ### <a name="enable-a-vm-using-azure-portal"></a>Aktivera en virtuell dator med hjälp av Azure Portal
 
@@ -53,7 +53,7 @@ Du kan installera och aktivera en virtuell dator för tillstånds konfiguration 
 Du kan använda cmdleten [register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) i PowerShell för att aktivera virtuella datorer för tillstånds konfiguration. 
 
 > [!NOTE]
->`Register-AzAutomationDscNode` Cmdleten implementeras för närvarande endast för datorer som kör Windows, eftersom den utlöser bara Windows-tillägget.
+>`Register-AzAutomationDscNode`Cmdleten implementeras för närvarande endast för datorer som kör Windows, eftersom den utlöser bara Windows-tillägget.
 
 ### <a name="register-vms-across-azure-subscriptions"></a>Registrera virtuella datorer i Azure-prenumerationer
 
@@ -110,7 +110,7 @@ Du kan aktivera Linux-servrar som körs lokalt eller i andra moln miljöer för 
 
 7. Om du inte kan använda PowerShell DSC-metaconfigurations via fjärr anslutning kopierar du metaconfigurations som motsvarar fjärrdatorerna från den mapp som beskrivs i steg 4 till Linux-datorerna.
 
-8. Lägg till kod för `Set-DscLocalConfigurationManager.py` att anropa lokalt på varje Linux-dator för att aktivera tillstånds konfiguration.
+8. Lägg till kod för att anropa `Set-DscLocalConfigurationManager.py` lokalt på varje Linux-dator för att aktivera tillstånds konfiguration.
 
    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
 
@@ -123,7 +123,7 @@ Om du vill aktivera en dator för tillstånds konfiguration kan du generera en [
 > [!NOTE]
 > DSC-metaconfigurations innehåller de hemligheter som krävs för att aktivera en dator i ett Automation-konto för hantering. Se till att skydda alla DSC-metaconfigurations som du skapar eller ta bort dem efter användning.
 
-Proxy-stöd för metaconfigurations styrs av LCM, som är Windows PowerShell DSC-motorn. LCM körs på alla målnoden och ansvarar för att anropa konfigurations resurserna som ingår i ett DSC metaconfiguration-skript. Du kan inkludera stöd för proxy i en metaconfiguration genom att inkludera definitioner av proxy `ConfigurationRepositoryWeb`-URL: en och autentiseringsuppgifter för proxyn `ResourceRepositoryWeb`enligt vad `ReportServerWeb` som behövs i, och. Se [Konfigurera den lokala Configuration Manager](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7).
+Proxy-stöd för metaconfigurations styrs av den [lokala Configuration Manager](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), som är Windows PowerShell DSC-motorn. LCM körs på alla målnoden och ansvarar för att anropa konfigurations resurserna som ingår i ett DSC metaconfiguration-skript. Du kan inkludera stöd för proxy i en metaconfiguration genom att inkludera definitioner av `ProxyURL` och `ProxyCredential` egenskaper efter behov i `ConfigurationRepositoryWeb` -, `ResourceRepositoryWeb` -och- `ReportServerWeb` block. Ett exempel på URL-inställningen är `ProxyURL = "http://172.16.3.6:3128";` . `ProxyCredential`Egenskapen anges till ett `PSCredential` objekt, enligt beskrivningen i [hantera autentiseringsuppgifter i Azure Automation](shared-resources/credentials.md). 
 
 ### <a name="generate-dsc-metaconfigurations-using-a-dsc-configuration"></a>Generera DSC-metaconfigurations med en DSC-konfiguration
 
@@ -245,9 +245,9 @@ Proxy-stöd för metaconfigurations styrs av LCM, som är Windows PowerShell DSC
 
 1. Fyll i registrerings nyckeln och URL: en för ditt Automation-konto, samt namnen på de datorer som ska aktive ras. Alla andra parametrar är valfria. Du hittar registrerings nyckeln och registrerings-URL: en för ditt Automation-konto i [Aktivera datorer på ett säkert sätt med registrering](#enable-machines-securely-using-registration).
 
-1. Om du vill att datorerna ska rapportera DSC-statuskoden till Azure Automation tillstånds konfiguration, men inte hämta konfiguration eller PowerShell-moduler `ReportOnly` , anger du parametern till true.
+1. Om du vill att datorerna ska rapportera DSC-statuskoden till Azure Automation tillstånds konfiguration, men inte hämta konfiguration eller PowerShell-moduler, anger du `ReportOnly` parametern till true.
 
-1. Om `ReportOnly` inte har angetts rapporterar DATORerna DSC-statusinformation till Azure Automation tillstånds konfiguration och hämtnings konfiguration eller PowerShell-moduler. Ange parametrar enligt dessa `ConfigurationRepositoryWeb`i- `ResourceRepositoryWeb`,- `ReportServerWeb` och-block.
+1. Om `ReportOnly` inte har angetts rapporterar datorerna DSC-statusinformation till Azure Automation tillstånds konfiguration och hämtnings konfiguration eller PowerShell-moduler. Ange parametrar enligt dessa i `ConfigurationRepositoryWeb` -, `ResourceRepositoryWeb` -och- `ReportServerWeb` block.
 
 1. Kör skriptet. Nu bör du ha en arbetskatalog-mapp med namnet **DscMetaConfigs**, som innehåller PowerShell DSC-metaconfigurations för de datorer som ska aktive ras (som administratör).
 
@@ -299,11 +299,11 @@ För ökad säkerhet kan du när som helst återskapa de primära och sekundära
 
 När du har registrerat en dator som en DSC-nod i Azure Automation tillstånds konfiguration finns det flera orsaker till varför du kan behöva registrera noden i framtiden igen.
 
-- **Certifikat förnyelse.** För versioner av Windows Server före Windows Server 2019 förhandlar varje nod automatiskt ett unikt certifikat för autentisering som upphör att gälla efter ett år. Om ett certifikat upphör att gälla utan att förnyas, kan noden inte kommunicera med Azure Automation och har `Unresponsive`marker ATS. För närvarande kan PowerShell DSC-protokollet för registrering inte automatiskt förnya certifikat när de snart upphör att gälla och du måste registrera om noderna efter ett års tid. Innan du registrerar igen måste du kontrol lera att varje nod kör WMF 5 RTM. 
+- **Certifikat förnyelse.** För versioner av Windows Server före Windows Server 2019 förhandlar varje nod automatiskt ett unikt certifikat för autentisering som upphör att gälla efter ett år. Om ett certifikat upphör att gälla utan att förnyas, kan noden inte kommunicera med Azure Automation och har marker ATS `Unresponsive` . För närvarande kan PowerShell DSC-protokollet för registrering inte automatiskt förnya certifikat när de snart upphör att gälla och du måste registrera om noderna efter ett års tid. Innan du registrerar igen måste du kontrol lera att varje nod kör WMF 5 RTM. 
 
     Omregistreringen utförde 90 dagar eller mindre från certifikatets förfallo tid, eller när som helst efter förfallo tiden för certifikatet, resulterar i att ett nytt certifikat skapas och används. En lösning på det här problemet ingår i Windows Server 2019 och senare.
 
-- **Ändringar av DSC LCM-värden.** Du kan behöva ändra [POWERSHELL DSC-LCM värden](/powershell/scripting/dsc/managing-nodes/metaConfig4) som anges under den inledande registreringen av noden, till exempel `ConfigurationMode`. För närvarande kan du bara ändra dessa DSC-Gent värden genom omregistrering. Det enda undantaget är det konfigurations värde för noden som tilldelats noden. Du kan ändra detta i Azure Automation DSC direkt.
+- **Ändringar av DSC LCM-värden.** Du kan behöva ändra [POWERSHELL DSC-LCM värden](/powershell/scripting/dsc/managing-nodes/metaConfig4) som anges under den inledande registreringen av noden, till exempel `ConfigurationMode` . För närvarande kan du bara ändra dessa DSC-Gent värden genom omregistrering. Det enda undantaget är det konfigurations värde för noden som tilldelats noden. Du kan ändra detta i Azure Automation DSC direkt.
 
 Du kan registrera om en nod precis som du registrerade noden från början med någon av de metoder som beskrivs i det här dokumentet. Du behöver inte avregistrera en nod från Azure Automation tillstånds konfiguration innan du registrerar om den.
 

@@ -17,12 +17,12 @@ ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 84b68e5aecca11fb72f8cacc7e16701eebd0ae1a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d29689b088759b73465b24d06d4341571b599782
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197317"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714057"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Vanliga frågor och svar med hanterade identiteter för Azure-resurser
 
@@ -51,27 +51,7 @@ Säkerhets gränserna för identiteten är den resurs som den är kopplad till. 
 - Om systemtilldelad hanterad identitet inte är aktive rad och det bara finns en tilldelad hanterad identitet, kommer IMDS att använda den enskilda användaren som tilldelats den hanterade identiteten. 
 - Om systemtilldelad hanterad identitet inte är aktive rad och det finns flera tilldelade hanterade identiteter, måste du ange en hanterad identitet i begäran.
 
-### <a name="should-i-use-the-managed-identities-for-azure-resources-imds-endpoint-or-the-vm-extension-endpoint"></a>Bör jag använda hanterade identiteter för Azure Resources IMDS-slutpunkten eller slut punkten för VM-tillägget?
 
-När du använder hanterade identiteter för Azure-resurser med virtuella datorer rekommenderar vi att du använder IMDS-slutpunkten. Azure Instance Metadata Service är en REST-slutpunkt som är tillgänglig för alla IaaS-VM: ar som skapats via Azure Resource Manager. 
-
-Några av fördelarna med att använda hanterade identiteter för Azure-resurser över IMDS är:
-- Alla operativ system som stöds av Azure IaaS kan använda hanterade identiteter för Azure-resurser över IMDS.
-- Du behöver inte längre installera ett tillägg på den virtuella datorn för att aktivera hanterade identiteter för Azure-resurser. 
-- De certifikat som används av hanterade identiteter för Azure-resurser finns inte längre på den virtuella datorn.
-- IMDS-slutpunkten är en välkänd icke-flyttbar IP-adress som bara är tillgänglig från den virtuella datorn.
-- 1000 användare tilldelade hanterade identiteter kan tilldelas till en enda virtuell dator. 
-
-Hanterade identiteter för VM-tillägget för Azure-resurser är fortfarande tillgängligt. Vi utvecklar dock inte längre nya funktioner på den. Vi rekommenderar att du växlar till att använda IMDS-slutpunkten. 
-
-Några av begränsningarna med att använda slut punkten för VM-tillägg är:
-- Begränsat stöd för Linux-distributioner: kärnor stabilt, CentOS 7,1, Red Hat 7,2, Ubuntu 15,04, Ubuntu 16,04
-- Endast 32 användare tilldelade hanterade identiteter kan tilldelas den virtuella datorn.
-
-
-Obs! de hanterade identiteterna för VM-tillägget för Azure-resurser upphör att fungera i januari 2019. 
-
-Mer information om Azure Instance Metadata Service finns i [IMDS-dokumentation](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Kommer Managed identiteter att återskapas automatiskt om jag flyttar en prenumeration till en annan katalog?
 
@@ -88,16 +68,7 @@ Nej. Hanterade identiteter stöder för närvarande inte scenarier mellan katalo
 - Systemtilldelad hanterad identitet: du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft.Compute/virtualMachines/write. Den här åtgärden ingår i de resursbaserade inbyggda rollerna som [virtuell dator deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
 - Användardefinierad hanterad identitet: du behöver Skriv behörighet över resursen. För virtuella datorer behöver du till exempel Microsoft.Compute/virtualMachines/write. Förutom roll tilldelningen [hanterad identitets operatör](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) över den hanterade identiteten.
 
-### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Hur startar du om hanterade identiteter för Azure-resurser?
-Om tillägget stoppas i Windows och vissa versioner av Linux kan följande cmdlet användas för att starta om den manuellt:
 
-```powershell
-Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
-```
-
-Där: 
-- Tilläggs namn och typ för Windows är: ManagedIdentityExtensionForWindows
-- Tilläggs namn och-typ för Linux är: ManagedIdentityExtensionForLinux
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -133,12 +104,7 @@ När den virtuella datorn har startats kan taggen tas bort med hjälp av följan
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-### <a name="vm-extension-provisioning-fails"></a>Etablering av VM-tillägg Miss lyckas
 
-Etableringen av VM-tillägget kan Miss lyckas på grund av misslyckade DNS-sökningar. Starta om den virtuella datorn och försök igen.
- 
-> [!NOTE]
-> VM-tillägget planeras för utfasning senast januari 2019. Vi rekommenderar att du flyttar till med IMDS-slutpunkten.
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Överföra en prenumeration mellan Azure AD-kataloger
 
@@ -151,4 +117,4 @@ Lösning för hanterade identiteter i en prenumeration som har flyttats till en 
 
 ### <a name="moving-a-user-assigned-managed-identity-to-a-different-resource-groupsubscription"></a>Flytta en användardefinierad hanterad identitet till en annan resurs grupp/prenumeration
 
-Om du flyttar en användardefinierad hanterad identitet till en annan resurs grupp kommer identiteten att brytas. Resurser (t. ex. VM) som använder den identiteten kommer därför inte att kunna begära token för den. 
+Det finns inte stöd för att flytta en användardefinierad hanterad identitet till en annan resurs grupp.

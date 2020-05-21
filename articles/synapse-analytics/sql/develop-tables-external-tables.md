@@ -9,34 +9,36 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0405644af24eb277aa47db64348c9a217cf72239
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bf014c7188232f07a399cc3e438d1d894c96a233
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195968"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701440"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Använda externa tabeller med Synapse SQL
 
 En extern tabell pekar på data som finns i Hadoop, Azure Storage BLOB eller Azure Data Lake Storage. Externa tabeller används för att läsa data från filer eller skriva data till filer i Azure Storage. Med Synapse SQL kan du använda externa tabeller för att läsa och skriva data till SQL-poolen eller SQL på begäran (för hands version).
 
-## <a name="external-tables-in-synapse-sql"></a>Externa tabeller i Synapse SQL
+## <a name="external-tables-in-synapse-sql-pool-and-on-demand"></a>Externa tabeller i Synapse SQL-pool och på begäran
 
-### <a name="sql-pool"></a>[SQL-pool](#tab/sql-pool)
+### <a name="sql-pool"></a>[SQL-pool](#tab/sql-pool) 
 
 I SQL-poolen kan du använda en extern tabell för att:
 
 - Fråga Azure Blob Storage och Azure Data Lake Gen2 med Transact-SQL-uttryck.
 - Importera och lagra data från Azure Blob Storage och Azure Data Lake Storage till SQL-poolen.
 
-När det används tillsammans med [CREATE TABLE som Select](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) -instruktion, importerar data till en tabell i SQL-poolen genom att välja från en extern tabell. I tillägg till [copy-instruktionen](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)är externa tabeller användbara för att läsa in data. En inläsnings kurs finns i [använda PolyBase för att läsa in data från Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+När det används tillsammans med [CREATE TABLE som Select](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) -instruktion, importerar data till en tabell i SQL-poolen genom att välja från en extern tabell. Förutom [kopierings instruktionen](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)är externa tabeller användbara för att läsa in data. 
 
-### <a name="sql-on-demand"></a>[SQL på begäran](#tab/sql-ondemand)
+En inläsnings kurs finns i [använda PolyBase för att läsa in data från Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+
+### <a name="sql-on-demand"></a>[SQL på begäran](#tab/sql-on-demand)
 
 För SQL på begäran använder du en extern tabell för att:
 
 - Fråga efter data i Azure Blob Storage eller Azure Data Lake Storage med Transact-SQL-uttryck
-- Lagra resultat från SQL på begäran till filer i Azure Blob Storage eller Azure Data Lake Storage med hjälp av [CETAS](develop-tables-cetas.md).
+- Lagra frågeresultat från SQL på begäran till filer i Azure Blob Storage eller Azure Data Lake Storage med [CETAS](develop-tables-cetas.md)
 
 Du kan skapa externa tabeller med SQL på begäran via följande steg:
 
@@ -50,8 +52,8 @@ Du kan skapa externa tabeller med SQL på begäran via följande steg:
 
 Användaren måste ha `SELECT` behörighet för den externa tabellen för att kunna läsa data.
 Extern tabell åtkomst till underliggande Azure-lagring med hjälp av databasen begränsade autentiseringsuppgifter som definierats i data källan med hjälp av följande regler:
-- Data källa utan autentiseringsuppgifter gör det möjligt för externa tabeller att komma åt offentligt tillgängliga filer i Azure Storage.
-- Data källan kan ha autentiseringsuppgifter som gör det möjligt för externa tabeller att enbart komma åt filerna på Azure Storage med SAS-token eller arbets ytans hanterade identitet – se [exempel här](develop-storage-files-storage-access-control.md#examples).
+- Data källan utan autentiseringsuppgifter gör det möjligt för externa tabeller att komma åt offentligt tillgängliga filer i Azure Storage.
+- Data källan kan ha autentiseringsuppgifter som gör det möjligt för externa tabeller att enbart komma åt filerna på Azure Storage med SAS-token eller arbets ytans hanterade identitet – exempel finns i artikeln [utveckla lagrings fil åtkomst kontroll](develop-storage-files-storage-access-control.md#examples) .
 
 > [!IMPORTANT]
 > I SQL-poolen gör data källan utan creadential det möjligt för Azure AD-användare att komma åt lagrings filer med deras Azure AD-identitet. I SQL på begäran måste du skapa data källan med en databas med autentiseringsuppgifter som innehåller `IDENTITY='User Identity'` Egenskaper – se [exempel här](develop-storage-files-storage-access-control.md#examples).
@@ -74,7 +76,7 @@ WITH
 [;]
 ```
 
-#### <a name="sql-on-demand"></a>[SQL på begäran](#tab/sql-ondemand)
+#### <a name="sql-on-demand"></a>[SQL på begäran](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -84,11 +86,14 @@ WITH
 )
 [;]
 ```
+
 ---
 
 ### <a name="arguments-for-create-external-data-source"></a>Argument för skapa extern DATA källa
 
-data_source_name – anger det användardefinierade namnet för data källan. Namnet måste vara unikt i databasen.
+data_source_name
+
+Anger det användardefinierade namnet för data källan. Namnet måste vara unikt i databasen.
 
 #### <a name="location"></a>Plats
 LOCATION = `'<prefix>://<path>'` -tillhandahåller anslutnings protokollet och sökvägen till den externa data källan. Sökvägen kan innehålla en behållare i formatet `'<prefix>://<path>/container'` , och en mapp i form av `'<prefix>://<path>/container/folder'` .
@@ -100,7 +105,9 @@ LOCATION = `'<prefix>://<path>'` -tillhandahåller anslutnings protokollet och s
 | Azure Data Lake Store gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
 
 #### <a name="credential"></a>Autentiseringsuppgift
-CREDENTIAL = `<database scoped credential>` är valfri autentiseringsuppgift som ska användas för att autentisera i Azure Storage. Extern data källa utan autentiseringsuppgifter kan komma åt offentligt lagrings konto. Externa data källor utan autentiseringsuppgifter i SQL-poolen kan också använda anropare Azure AD-identitet för att komma åt filer på lagrings platsen. En extern data källa med autentiseringsuppgifter använder identiteten som angetts i autentiseringsuppgifter för att komma åt filer.
+CREDENTIAL = `<database scoped credential>` är valfri autentiseringsuppgift som ska användas för att autentisera i Azure Storage. Extern data källa utan autentiseringsuppgifter kan komma åt offentligt lagrings konto. 
+
+Externa data källor utan autentiseringsuppgifter i SQL-poolen kan också använda anropare Azure AD-identitet för att komma åt filer på lagrings platsen. En extern data källa med autentiseringsuppgifter använder identiteten som angetts i autentiseringsuppgifter för att komma åt filer.
 - I SQL-poolen kan databasens begränsade autentiseringsuppgifter ange anpassad program identitet, hanterad identitet för arbets yta eller SAK nyckel. 
 - I SQL på begäran kan databas områdes behörighet ange den som anropar Azure AD-identitet, arbets ytans hanterade identitet eller SAS-nyckel. 
 
@@ -123,7 +130,7 @@ WITH
   ) ;
 ```
 
-#### <a name="sql-on-demand"></a>[SQL på begäran](#tab/sql-ondemand)
+#### <a name="sql-on-demand"></a>[SQL på begäran](#tab/sql-on-demand)
 
 I följande exempel skapas en extern data källa för Azure Data Lake Gen2 som kan nås med SAS-autentiseringsuppgifter:
 
@@ -366,4 +373,4 @@ Den externa tabellen skapas nu, för framtida utforskning av innehållet i den e
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se artikeln om [CETAS](develop-tables-cetas.md) för att spara frågeresultaten till en extern tabell i Azure Storage. Du kan också börja fråga [Spark-tabeller](develop-storage-files-spark-tables.md).
+Se artikeln om [CETAS](develop-tables-cetas.md) för att spara frågeresultaten till en extern tabell i Azure Storage. Du kan också börja fråga [Apache Spark för externa Azure Synapse-tabeller](develop-storage-files-spark-tables.md).

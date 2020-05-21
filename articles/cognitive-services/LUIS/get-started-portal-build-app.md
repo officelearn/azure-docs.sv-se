@@ -2,13 +2,13 @@
 title: 'Snabb start: skapa en ny app i LUIS-portalen'
 description: I den här snabb starten skapar du grundläggande delar av en app, avsikter och entiteter samt test med exempel uttryck på LUIS-portalen.
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585286"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697254"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Snabb start: skapa en ny app i LUIS-portalen
 
@@ -137,7 +137,7 @@ Yttranden för **inget** exempel bör ligga utanför din klient program domän.
 
 1. Verifiera att entiteten finns i **FindForm** avsikt genom att välja **avsikter** på den vänstra menyn. Välj sedan **FindForm** avsikt.
 
-   Entiteten är markerad där den visas i exemplet yttranden. Om du vill se den ursprungliga texten i stället för enhets namnet växlar du **vyn entiteter** från verktygsfältet.
+   Entiteten är markerad där den visas i exemplet yttranden.
 
    > [!div class="mx-imgBorder"]
    > [![Skärm bild av alla exempel yttranden markerade med entiteter](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)

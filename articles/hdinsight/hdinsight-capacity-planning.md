@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/07/2020
-ms.openlocfilehash: 4ede8833fdbdbd57654e6c02147f53e58a17b1de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.openlocfilehash: 8e76f767470b9052b25cd2b2958f3f9e9780881b
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887001"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714754"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Kapacitetsplanering för HDInsight-kluster
 
@@ -84,48 +84,14 @@ Du debiteras för ett klusters livstid. Om det bara finns vissa gånger som du b
 
 > [!NOTE]  
 > När ett kluster tas bort, tas även dess standard Hive-metaarkiv bort. Använd ett externt metadatalagret som Azure Database eller [Apache Oozie](https://oozie.apache.org/)om du vill spara metaarkiv för nästa kluster som skapas på nytt.
-<!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Isolera fel i kluster jobb
 
-Ibland kan fel uppstå på grund av parallell körningen av flera Maps och minska komponenter i ett kluster med flera noder. Testa distribuerad testning för att hjälpa till att isolera problemet. Köra samtidiga flera jobb på ett enda arbets nods kluster. Expandera sedan den här metoden för att köra flera jobb samtidigt i kluster som innehåller mer än en nod. Om du vill skapa ett HDInsight-kluster med en nod i Azure *`Custom(size, settings, apps)`* använder du alternativet och använder värdet 1 för *antal arbetsnoder* i avsnittet **kluster storlek** när du konfigurerar ett nytt kluster i portalen.
+Ibland kan fel uppstå på grund av parallell körningen av flera Maps och minska komponenter i ett kluster med flera noder. Testa distribuerad testning för att hjälpa till att isolera problemet. Köra samtidiga flera jobb på ett enda arbets nods kluster. Expandera sedan den här metoden för att köra flera jobb samtidigt i kluster som innehåller mer än en nod. Om du vill skapa ett HDInsight-kluster med en nod i Azure använder du *`Custom(size, settings, apps)`* alternativet och använder värdet 1 för *antal arbetsnoder* i avsnittet **kluster storlek** när du konfigurerar ett nytt kluster i portalen.
 
 ## <a name="quotas"></a>Kvoter
 
-När du har fastställt storlek, skalning och typ för mål klustret, kontrollerar du prenumerationens aktuella kvot kapacitets gränser. När du når en kvot gräns kan du inte distribuera nya kluster. Eller skala ut befintliga kluster genom att lägga till fler arbetsnoder. Den enda kvot gränsen är den processor kärnors kvot som finns på region nivå för varje prenumeration. Din prenumeration kan till exempel ha en gräns på 30 kärnor i regionen USA, östra.
-
-Gör så här för att kontrol lera dina tillgängliga kärnor:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-2. Gå till **översikts** sidan för HDInsight-klustret.
-3. På den vänstra menyn väljer du **kvot gränser**.
-
-   Sidan visar antalet kärnor som används, antalet tillgängliga kärnor och de totala kärnorna.
-
-Gör så här om du behöver begära en kvot ökning:
-
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
-1. Välj **Hjälp + Support** längst ned till vänster på sidan.
-1. Välj **ny supportbegäran**.
-1. På sidan **ny supportbegäran** , under fliken **grundläggande** , väljer du följande alternativ:
-
-   - **Typ av problem**: **begränsningar för tjänsten och prenumerationen (kvoter)**
-   - **Prenumeration**: den prenumeration du vill ändra
-   - **Typ av kvot**: **HDInsight**
-
-     ![Skapa en support förfrågan för att öka HDInsight Core-kvoten](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
-
-1. Välj **Nästa: lösningar >>**.
-1. På sidan **information** anger du en beskrivning av problemet, väljer allvarlighets graden för problemet, önskad kontakt metod och andra obligatoriska fält.
-1. Välj **Nästa: granska + skapa >>**.
-1. På fliken **Granska och skapa** väljer du **skapa**.
-
-> [!NOTE]  
-> Om du behöver öka HDInsight Core-kvoten i en privat region [skickar du en vitlista-begäran](https://aka.ms/canaryintwhitelist).
-
-Du kan [kontakta supporten för att begära en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
-
-Det finns vissa fasta kvot gränser. En enda Azure-prenumeration kan till exempel ha högst 10 000 kärnor. Mer information om dessa begränsningar finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Mer information om hur du hanterar prenumerations kvoter finns i [begär kvot ökningar](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

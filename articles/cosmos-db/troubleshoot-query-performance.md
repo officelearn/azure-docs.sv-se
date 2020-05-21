@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b3c6926f17e8378fd3b53bfd59a7c5ea8141adb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097242"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714567"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsök problem med frågor när du använder Azure Cosmos DB
 
@@ -35,9 +35,9 @@ Innan du läser den här guiden är det bra att överväga vanliga SDK-problem s
 - Följ dessa [prestanda tips](performance-tips.md)för bästa prestanda.
     > [!NOTE]
     > För bättre prestanda rekommenderar vi Windows 64-bitars värd bearbetning. SQL-SDK: n innehåller en intern ServiceInterop. dll för att analysera och optimera frågor lokalt. ServiceInterop. dll stöds endast på Windows x64-plattformen. För Linux och andra plattformar som inte stöds, där ServiceInterop. dll inte är tillgänglig, kommer ett ytterligare nätverks anrop att göras till gatewayen för att hämta den optimerade frågan.
-- SDK gör det möjligt att `MaxItemCount` ställa in en för dina frågor, men du kan inte ange ett minsta antal objekt.
-    - Koden ska hantera vilken sid storlek som helst, från noll `MaxItemCount`till.
-    - Antalet objekt på en sida är alltid mindre eller lika med det angivna `MaxItemCount`. Det `MaxItemCount` är dock bara maximalt och det kan finnas färre resultat än den här mängden.
+- SDK gör det möjligt att ställa in en `MaxItemCount` för dina frågor, men du kan inte ange ett minsta antal objekt.
+    - Koden ska hantera vilken sid storlek som helst, från noll till `MaxItemCount` .
+    - Antalet objekt på en sida är alltid mindre eller lika med det angivna `MaxItemCount` . Det `MaxItemCount` är dock bara maximalt och det kan finnas färre resultat än den här mängden.
 - Ibland kan frågor ha tomma sidor även om det finns resultat på en kommande sida. Orsaker till detta kan vara:
     - SDK kan utföra flera nätverks anrop.
     - Frågan kan ta lång tid att hämta dokumenten.
@@ -47,7 +47,7 @@ Innan du läser den här guiden är det bra att överväga vanliga SDK-problem s
 
 När du optimerar en fråga i Azure Cosmos DB, är det första steget alltid att [Hämta frågans mått](profile-sql-api-query.md) för frågan. Dessa mått är också tillgängliga via Azure Portal. När du kör din fråga i Datautforskaren visas frågans mått bredvid fliken **resultat** :
 
-[![Hämta Frågeregler](./media/troubleshoot-query-performance/obtain-query-metrics.png)](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+[![Hämta Frågeregler ](./media/troubleshoot-query-performance/obtain-query-metrics.png)](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
 När du har hämtat frågeresultaten jämför du **antalet hämtade dokument** med **antalet utdata** i frågan. Använd den här jämförelsen för att identifiera relevanta avsnitt som ska granskas i den här artikeln.
 
@@ -135,7 +135,7 @@ Client Side Metrics
 
 ### <a name="include-necessary-paths-in-the-indexing-policy"></a>Inkludera nödvändiga sökvägar i indexerings principen
 
-Din indexerings princip ska omfatta egenskaper som ingår i `WHERE` satser, `ORDER BY` satser `JOIN`, och de flesta system funktioner. Önskade sökvägar som anges i index principen ska matcha egenskaperna i JSON-dokumenten.
+Din indexerings princip ska omfatta egenskaper som ingår i `WHERE` satser, `ORDER BY` satser, `JOIN` och de flesta system funktioner. Önskade sökvägar som anges i index principen ska matcha egenskaperna i JSON-dokumenten.
 
 > [!NOTE]
 > Egenskaper i Azure Cosmos DB indexerings princip är Skift läges känsliga
@@ -200,7 +200,8 @@ Om ett uttryck kan översättas till ett intervall med sträng värden kan det a
 
 Här är en lista över några vanliga sträng funktioner som kan använda indexet:
 
-- STARTSWITH(str_expr, str_expr)
+- STARTSWITH (str_expr1, str_expr2, bool_expr)  
+- INNEHÅLLER (str_expr, str_expr, bool_expr)
 - LEFT(str_expr, num_expr) = str_expr
 - DEL sträng (str_expr, num_expr, num_expr) = str_expr, men endast om den första num_expr är 0
 
@@ -208,8 +209,7 @@ Nedan följer några vanliga system funktioner som inte använder indexet och so
 
 | **System funktion**                     | **Idéer för optimering**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Använd Azure Search för full texts ökning.                        |
-| ÖVRE/NEDRE                             | I stället för att använda systemfunktionen för att normalisera data för jämförelser normaliserar du höljet vid infogning. En fråga som ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` blir ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| ÖVRE/NEDRE                             | I stället för att använda systemfunktionen för att normalisera data för jämförelser normaliserar du höljet vid infogning. En fråga som ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` blir ```SELECT * FROM c WHERE c.name = 'BOB'``` . |
 | Matematiska funktioner (icke-mängder) | Om du behöver beräkna ett värde ofta i din fråga bör du lagra värdet som en egenskap i JSON-dokumentet. |
 
 ------
@@ -230,7 +230,7 @@ FROM c
 WHERE CONTAINS(c.description, "spinach")
 ```
 
-Fråga med både likhets filter `CONTAINS` och filter-lägsta ru-avgift:
+Fråga med både likhets filter och `CONTAINS` filter-lägsta ru-avgift:
 
 ```sql
 SELECT AVG(c._ts)
@@ -275,7 +275,7 @@ Om du planerar att ofta köra samma mängd frågor kan det vara mer effektivt at
 
 ### <a name="optimize-queries-that-have-both-a-filter-and-an-order-by-clause"></a>Optimera frågor som har både ett filter och en ORDER BY-sats
 
-Även om frågor som har ett filter och `ORDER BY` en sats normalt använder ett intervall index, blir de mer effektiva om de kan hanteras från ett sammansatt index. Förutom att ändra indexerings principen bör du lägga till alla egenskaper i det sammansatta indexet i `ORDER BY` -satsen. Den här ändringen av frågan säkerställer att den använder det sammansatta indexet.  Du kan se effekten genom att köra en fråga på [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen:
+Även om frågor som har ett filter och en `ORDER BY` sats normalt använder ett intervall index, blir de mer effektiva om de kan hanteras från ett sammansatt index. Förutom att ändra indexerings principen bör du lägga till alla egenskaper i det sammansatta indexet i- `ORDER BY` satsen. Den här ändringen av frågan säkerställer att den använder det sammansatta indexet.  Du kan se effekten genom att köra en fråga på [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen:
 
 #### <a name="original"></a>Originalspråket
 
@@ -349,7 +349,7 @@ Indexerings princip har uppdaterats:
 
 ### <a name="optimize-join-expressions-by-using-a-subquery"></a>Optimera KOPPLINGs uttryck med hjälp av en under fråga
 
-Under frågor med flera värden kan optimera `JOIN` uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla `WHERE` kors kopplingar i-satsen.
+Under frågor med flera värden kan optimera `JOIN` uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors kopplingar i- `WHERE` satsen.
 
 Tänk på följande fråga:
 
@@ -365,7 +365,7 @@ AND n.nutritionValue < 10) AND s.amount > 1
 
 **Avgift för ru:** 167,62 ru: er
 
-I den här frågan matchar indexet alla dokument som har en tagg med namnet `infant formula`, `nutritionValue` som är större än 0 och `amount` större än 1. `JOIN` Uttrycket här utför kors produkten av alla objekt i taggar, näringsämnen och betjänar matriser för varje matchande dokument innan något filter tillämpas. - `WHERE` Satsen tillämpar sedan filtrets predikat på `<c, t, n, s>` varje tupel.
+I den här frågan matchar indexet alla dokument som har en tagg med namnet, som `infant formula` är `nutritionValue` större än 0 och `amount` större än 1. `JOIN`Uttrycket här utför kors produkten av alla objekt i taggar, näringsämnen och betjänar matriser för varje matchande dokument innan något filter tillämpas. - `WHERE` Satsen tillämpar sedan filtrets predikat på varje `<c, t, n, s>` tupel.
 
 Om ett matchande dokument till exempel har 10 objekt i var och en av de tre matriserna, expanderas det till 1 x 10 x 10 x 10 (d.v.s. 1 000) tupler. Användningen av under frågor här kan hjälpa dig att filtrera ut sammanfogade mat ris objekt innan du ansluter till nästa uttryck.
 
@@ -381,11 +381,11 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 **Avgift för ru:** 22,17 ru: er
 
-Anta att endast ett objekt i matrisen taggar matchar filtret och att det finns fem objekt för både näringsämnen och betjänande matriser. `JOIN` Uttrycken utökas till 1 x 1 x 5 x 5 = 25 objekt, i stället för 1 000 objekt i den första frågan.
+Anta att endast ett objekt i matrisen taggar matchar filtret och att det finns fem objekt för både näringsämnen och betjänande matriser. `JOIN`Uttrycken utökas till 1 x 1 x 5 x 5 = 25 objekt, i stället för 1 000 objekt i den första frågan.
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Frågor där antal hämtade dokument är lika med antalet utgående dokument
 
-Om **antalet hämtade dokument** är ungefär lika med **antalet utgående dokument**, behövde inte frågemotor genomsöka många onödiga dokument. För många frågor, t. ex. de `TOP` som använder nyckelordet, kan **antalet hämtade dokument** överstiga **antalet utgående dokument** med 1. Du behöver inte bekymra dig om detta.
+Om **antalet hämtade dokument** är ungefär lika med **antalet utgående dokument**, behövde inte frågemotor genomsöka många onödiga dokument. För många frågor, t. ex. de som använder `TOP` nyckelordet, kan **antalet hämtade dokument** överstiga **antalet utgående dokument** med 1. Du behöver inte bekymra dig om detta.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimera kors partitions frågor
 

@@ -9,16 +9,16 @@ ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 9f09477eb174792d6348a6b9761a4f9e5467ec44
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649499"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714227"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Samla in en webbläsarspårning för felsökning
 
-Om du felsöker ett problem med Azure Portal och du måste kontakta Microsoft Support rekommenderar vi att du först fångar in en webb läsar spårning och ytterligare information. Informationen du samlar in kan ge viktig information om portalen när problemet uppstår. Följ stegen i den här artikeln för utvecklarverktyg i webbläsaren som du använder: Google Chrome eller Microsoft Edge (krom), Microsoft Edge (EdgeHTML) eller Apple Safari.
+Om du felsöker ett problem med Azure Portal och du måste kontakta Microsoft Support rekommenderar vi att du först fångar in en webb läsar spårning och ytterligare information. Informationen du samlar in kan ge viktig information om portalen när problemet uppstår. Följ stegen i den här artikeln för utvecklarverktyg i webbläsaren som du använder: Google Chrome eller Microsoft Edge (krom), Microsoft Edge (EdgeHTML), Apple Safari eller Firefox.
 
 ## <a name="google-chrome-and-microsoft-edge-chromium"></a>Google Chrome och Microsoft Edge (krom)
 

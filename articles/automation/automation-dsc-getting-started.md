@@ -1,6 +1,6 @@
 ---
 title: Kom igång med konfiguration av Azure Automation tillstånd
-description: Förklaring och exempel på de vanligaste uppgifterna i Azure Automation tillstånds konfiguration
+description: Den här artikeln beskriver hur du utför de vanligaste uppgifterna i Azure Automation tillstånds konfiguration.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 45d56daee20d95230f77db249028883165acb951
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 76d078d564125db7b6b8ae10909340a52b220407
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995785"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713224"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Kom igång med konfiguration av Azure Automation tillstånd
 
@@ -123,7 +123,7 @@ När du har startat en kompilering kan du Visa den på panelen för att **kompil
 
 ## <a name="view-node-configurations"></a>Visa nodkonfigurationer
 
-Slutfört slut för ande av ett Compilation-jobb skapar en eller flera nya nodkonfigurationer. En Node-konfiguration är ett MOF-dokument som distribueras till pull-servern och är redo att hämtas och tillämpas av en eller flera noder. Du kan visa nodkonfigurationer i ditt Automation-konto på sidan för tillstånds konfiguration (DSC). En Node-konfiguration har ett namn med formuläret `ConfigurationName.NodeName`.
+Slutfört slut för ande av ett Compilation-jobb skapar en eller flera nya nodkonfigurationer. En Node-konfiguration är ett MOF-dokument som distribueras till pull-servern och är redo att hämtas och tillämpas av en eller flera noder. Du kan visa nodkonfigurationer i ditt Automation-konto på sidan för tillstånds konfiguration (DSC). En Node-konfiguration har ett namn med formuläret `ConfigurationName.NodeName` .
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.

@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 342ae7e42c85ad661c04ba4ebb6629673f4af4dc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f0c1e9eccda8171ab816d33dac3f1947cea67eea
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77482284"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714618"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: Extrahera text-och layoutinformation med hjälp av formulär tolken REST API med python
 
 I den här snabb starten använder du Azures formulär tolken REST API med python för att extrahera layoutinformation och tabell data från formulär dokument.
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -55,7 +55,7 @@ Du börjar analysera layouten genom att anropa API: et för **[analys av layout]
     
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -77,7 +77,7 @@ Du börjar analysera layouten genom att anropa API: et för **[analys av layout]
 1. Öppna ett kommandotolksfönster.
 1. I kommandotolken kör du exemplet med kommandot `python`. Till exempel `python form-recognizer-layout.py`.
 
-Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` åtgärds-ID: t.
+Du får ett `202 (Success)` svar som innehåller ett **Åtgärds plats** huvud som skriptet skriver ut till-konsolen. Den här rubriken innehåller ett åtgärds-ID som du kan använda för att fråga efter statusen för den asynkrona åtgärden och hämta resultatet. I följande exempel värde är strängen efter `operations/` Åtgärds-ID: t.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/layout/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -115,11 +115,11 @@ while n_try < n_tries:
 ```
 
 1. Spara skriptet.
-1. Använd `python` kommandot igen för att köra exemplet. Till exempel `python form-recognizer-layout.py`.
+1. Använd kommandot igen `python` för att köra exemplet. Till exempel `python form-recognizer-layout.py`.
 
 ### <a name="examine-the-response"></a>Granska svaret
 
-Skriptet skriver ut svar till konsolen tills åtgärden **analysera layout** slutförs. Sedan skrivs extraherade data i JSON-format. `"readResults"` Noden innehåller alla text rader med dess respektive placering på sidan. I `"pageResults"` fältet visas alla text delar i tabeller, var och en med dess rad-kolumn-koordinat.
+Skriptet skriver ut svar till konsolen tills åtgärden **analysera layout** slutförs. Sedan skrivs extraherade data i JSON-format. `"readResults"`Noden innehåller alla text rader med dess respektive placering på sidan. I `"pageResults"` fältet visas alla text delar i tabeller, var och en med dess rad-kolumn-koordinat.
 
 Se följande faktura bild och dess motsvarande JSON-utdata. Utdatan har kort ATS för enkelhetens skull.
 

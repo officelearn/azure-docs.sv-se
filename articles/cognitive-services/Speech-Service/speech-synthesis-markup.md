@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 41de12c08dee52240f9b10c191ced4aacaea8e94
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592788"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714329"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Förbättra syntesen med SSML (Speech syntes Markup Language)
 
@@ -55,7 +55,7 @@ Varje SSML-dokument skapas med SSML-element (eller taggar). Dessa element använ
 
 **Attribut**
 
-| Attribut | Description | Obligatorisk/valfri |
+| Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `version` | Anger den version av SSML-specifikationen som används för att tolka dokument markeringen. Den aktuella versionen är 1,0. | Obligatorisk |
 | `xml:lang` | Anger språket för rot dokumentet. Värdet får innehålla gemener, gemener och versaler (t. ex. `en` ) eller språk koden och land/region (t. ex. `en-US` ). | Obligatorisk |
@@ -75,7 +75,7 @@ Varje SSML-dokument skapas med SSML-element (eller taggar). Dessa element använ
 
 **Attribut**
 
-| Attribut | Description | Obligatorisk/valfri |
+| Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Obligatorisk |
 
@@ -98,7 +98,7 @@ I `speak` -elementet kan du ange flera röster för text till tal-utdata. Dessa 
 
 **Attribut**
 
-| Attribut | Description | Obligatorisk/valfri |
+| Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `name` | Identifierar rösten som används för text till tal-utdata. En fullständig lista över vilka röster som stöds finns i [språk stöd](language-support.md#text-to-speech). | Obligatorisk |
 
@@ -195,10 +195,8 @@ Som standard används text-till-tal-tjänsten för att syntetisera text med ett 
 
 För närvarande stöds anpassning av format justeringar för dessa neurala-röster:
 * `en-US-AriaNeural`
-* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
-* `zh-CN-YunyeNeural`
 
 Ändringarna tillämpas på menings nivå och format varierar med röst. Om en stil inte stöds returnerar tjänsten tal i standardformat för neutralt tal.
 
@@ -210,28 +208,24 @@ För närvarande stöds anpassning av format justeringar för dessa neurala-rös
 
 **Attribut**
 
-| Attribut | Description | Obligatorisk/valfri |
+| Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `style` | Anger tal formatet. För närvarande är det röst alternativ att tala om format. | Krävs om du justerar tal formatet för en neurala röst. Om du använder `mstts:express-as` , måste format tillhandahållas. Om ett ogiltigt värde har angetts ignoreras det här elementet. |
 
 Använd den här tabellen för att avgöra vilka tal format som stöds för varje neurala röst.
 
-| Röst                   | Format                     | Description                                                 |
+| Röst                   | Format                     | Beskrivning                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast"`        | Uttrycker en formell och professionell ton för nya berättarröstinspelningar |
 |                         | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kund support  |
 |                         | `style="chat"`            | Uttrycker en vardaglig och avslappnad ton                         |
 |                         | `style="cheerful"`        | Uttrycker en positiv och trevlig ton                         |
 |                         | `style="empathetic"`      | Uttrycker en uppfattning om Caring och förståelse               |
-|   `pt-BR-FranciscaNeural`| `style="calm"`      | Express en lugn-ton               |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Uttrycker en formell och professionell ton för nya berättarröstinspelningar |
 |                         | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kund support  |
 |                         | `style="assistant"`       | Uttrycker en varm och avslappnad ton för digitala assistenter    |
 |                         | `style="lyrical"`         | Uttrycker känslor i ett Melodic-och sentimental-sätt         |   
-| `zh-CN-YunyangNeural`  | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kund support  |
-| `zh-CN-YunyeNeural`  | `style="calm"`      | Express en lugn-ton               |  
-|                         | `style="sad"`       | Uttrycker en trevlig och upset ton    |
-|                         | `style="serious"`         | Uttrycka en allvarlig och tuff ton        |   
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | Uttrycker en vänlig och användbar ton för kund support  | 
 
 **Exempel**
 
@@ -264,12 +258,12 @@ Använd `break` elementet för att infoga pauser (eller brytningar) mellan ord, 
 
 **Attribut**
 
-| Attribut | Description | Obligatorisk/valfri |
+| Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `strength` | Anger den relativa varaktigheten för en paus med något av följande värden:<ul><li>inget</li><li>x-svaga</li><li>svaga</li><li>medel (standard)</li><li>kraftfull</li><li>x – stark</li></ul> | Valfritt |
 | `time` | Anger den absoluta varaktigheten för en paus på några sekunder eller millisekunder. Exempel på giltiga värden är `2s` och`500` | Valfritt |
 
-| Styrka                      | Description |
+| Styrka                      | Beskrivning |
 |-------------------------------|-------------|
 | Ingen, eller om inget värde anges | 0 MS        |
 | x-svaga                        | 250 MS      |
@@ -334,7 +328,7 @@ Fonetiska alfabet består av telefoner, som består av bokstäver, siffror eller
 
 **Attribut**
 
-| Attribut | Description | Obligatorisk/valfri |
+| Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `alphabet` | Anger det fonetiska alfabetet som ska användas vid syntetiskt uttal av strängen i `ph` attributet. Strängen som anger alfabetet måste anges med små bokstäver. Följande är de möjliga alfabet som du kan ange.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Internationellt fonetiskt <span class="docon docon-navigate-external x-hidden-focus"></span> alfabet</a></li><li>`sapi`&ndash; [Fonetiskt alfabet i Speech service](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash;Universal Phone-uppsättning</li></ul><br>Alfabetet gäller endast i- `phoneme` elementet.. | Valfritt |
 | `ph` | En sträng som innehåller telefoner som anger uttal av ordet i `phoneme` elementet. Om den angivna strängen innehåller okända telefoner avvisar tjänsten text till tal (TTS) hela SSML-dokumentet och genererar ingen av tal utmatningen som anges i dokumentet. | Krävs om du använder fonem. |
@@ -380,7 +374,7 @@ Ibland kan inte text till tal-tjänsten uttala ett ord. Till exempel namnet på 
 
 **Attribut**
 
-| Attribut | Description                               | Obligatorisk/valfri |
+| Attribut | Beskrivning                               | Obligatorisk/valfri |
 |-----------|-------------------------------------------|---------------------|
 | `uri`     | Adressen för det externa PLS-dokumentet. | Krävs.           |
 
@@ -495,7 +489,7 @@ Eftersom prosodic-attributvärden kan variera över ett brett intervall, tolkar 
 
 **Attribut**
 
-| Attribut | Description | Obligatorisk/valfri |
+| Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `pitch` | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Till exempel 600 Hz.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: + 80 Hz eller-2st. "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>börjar</li><li>medel</li><li>hög</li><li>x – hög</li><li>standard</li></ul></li></ul>. | Valfritt |
 | `contour` |Kon turen stöder nu både neurala-och standard röster. Kontur representerar ändringar i färgdjup. Dessa ändringar visas som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Till exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch` ). | Valfritt |
@@ -578,7 +572,7 @@ Du kan ändra bredden på standard-röster på ord-eller menings nivå. Föränd
 
 **Attribut**
 
-| Attribut | Description | Obligatorisk/valfri |
+| Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `interpret-as` | Anger innehålls typen för elementets text. En lista med typer finns i tabellen nedan. | Obligatorisk |
 | `format` | Innehåller ytterligare information om den exakta formateringen av elementets text för innehålls typer som kan ha tvetydiga format. SSML definierar format för innehålls typer som använder dem (se tabellen nedan). | Valfritt |
@@ -640,7 +634,7 @@ Alla ljud som ingår i SSML-dokumentet måste uppfylla följande krav:
 
 **Attribut**
 
-| Attribut | Description                                   | Obligatorisk/valfri                                        |
+| Attribut | Beskrivning                                   | Obligatorisk/valfri                                        |
 |-----------|-----------------------------------------------|------------------------------------------------------------|
 | `src`     | Anger ljud filens plats/URL. | Krävs om du använder ljud elementet i ditt SSML-dokument. |
 
@@ -676,7 +670,7 @@ Endast en bakgrunds ljud fil tillåts per SSML-dokument. Du kan dock blanda `aud
 
 **Attribut**
 
-| Attribut | Description | Obligatorisk/valfri |
+| Attribut | Beskrivning | Obligatorisk/valfri |
 |-----------|-------------|---------------------|
 | `src` | Anger plats/URL för bakgrunds ljud filen. | Krävs om du använder bakgrunds ljud i ditt SSML-dokument. |
 | `volume` | Anger bakgrunds ljud filens volym. **Godkända värden**: `0` till `100` inklusiv. Standardvärdet är `1`. | Valfritt |

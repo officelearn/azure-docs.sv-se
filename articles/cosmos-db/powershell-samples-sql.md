@@ -4,14 +4,14 @@ description: Hämta Azure PowerShell exempel för att utföra olika vanliga uppg
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 03/26/2020
+ms.date: 05/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: efc0ff8e6c198071d3906a0e7e999510198f73bf
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7cd14151d8cb0fbef7593d62eee050be7987ab18
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80366181"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713547"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---sql-core-api"></a>Azure PowerShell exempel för API: et för Azure Cosmos DB-SQL (Core)
 
@@ -20,7 +20,7 @@ Följande tabell innehåller länkar till vanliga Azure PowerShell skript för A
 Ytterligare Cosmos DB PowerShell-exempel för SQL (Core) API och dokumentation finns i [hantera Azure Cosmos DB SQL API-resurser med hjälp av PowerShell](manage-with-powershell.md). Cosmos DB PowerShell-exempel för andra API: er finns i [API för Cassandra](powershell-samples-cassandra.md), [MongoDB-API](powershell-samples-mongodb.md), [Gremlin-API](powershell-samples-gremlin.md)och [tabell-API](powershell-samples-table.md).
 
 > [!NOTE]
-> I exemplen används [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) -hanterings-cmdletar. Observera att `Az.CosmosDB` cmdletarna fortfarande är i förhands granskning och kan ändras innan du släpper. Sök efter uppdateringar `Az.CosmosDB` regelbundet.
+> I exemplen används [AZ. CosmosDB](https://docs.microsoft.com/powershell/module/az.cosmosdb) -hanterings-cmdletar. Sök efter uppdateringar `Az.CosmosDB` regelbundet.
 
 | | |
 |---|---|

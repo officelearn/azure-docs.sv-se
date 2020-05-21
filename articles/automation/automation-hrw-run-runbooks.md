@@ -1,25 +1,22 @@
 ---
-title: Köra Runbooks på Azure Automation Hybrid Runbook Worker
-description: Den här artikeln innehåller information om att köra Runbooks på datorer i ditt lokala data Center eller en moln leverantör med Hybrid Runbook Worker.
+title: Köra Azure Automation runbooks på en Hybrid Runbook Worker
+description: Den här artikeln beskriver hur du kör Runbooks på datorer i ditt lokala data Center eller en moln leverantör med Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 86f5b636d6d9393e173a65779318166ad80c3c97
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 23b7808f1262ab0829821817e03164b2ba98be4c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871967"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713802"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Köra runbook-flöden på Hybrid Runbook Worker
 
 Runbooks som körs på en [hybrid Runbook Worker](automation-hybrid-runbook-worker.md) hanterar vanligt vis resurser på den lokala datorn eller mot resurser i den lokala miljön där arbets tagaren distribueras. Runbooks i Azure Automation hanterar vanligt vis resurser i Azure-molnet. Även om de används på olika sätt är Runbooks som körs i Azure Automation och Runbooks som körs på en Hybrid Runbook Worker identiska i strukturen.
 
 När du skapar en Runbook som ska köras på en Hybrid Runbook Worker bör du redigera och testa runbooken på den dator som är värd för arbetaren. Värddatorn har alla PowerShell-moduler och nätverks åtkomst som krävs för att hantera de lokala resurserna. När du har testat runbooken på den Hybrid Runbook Worker datorn kan du ladda upp den till Azure Automation-miljön där den kan köras på arbets platsen. 
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="plan-runbook-job-behavior"></a>Planera Runbook-jobbets beteende
 
@@ -46,7 +43,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-Du kan också använda en [InlineScript](automation-powershell-workflow.md#inlinescript) -aktivitet. `InlineScript`gör att du kan köra kodblock på en annan dator med autentiseringsuppgifter.
+Du kan också använda en [InlineScript](automation-powershell-workflow.md#use-inlinescript) -aktivitet. `InlineScript`gör att du kan köra kodblock på en annan dator med autentiseringsuppgifter.
 
 ## <a name="use-runbook-authentication-with-managed-identities"></a><a name="runbook-auth-managed-identities"></a>Använd Runbook-autentisering med hanterade identiteter
 
@@ -168,7 +165,7 @@ Get-AzAutomationAccount | Select-Object AutomationAccountName
 ```
 
 >[!NOTE]
->För PowerShell- `Add-AzAccount` Runbooks och `Add-AzureRMAccount` är alias för `Connect-AzAccount`. Om du inte ser `Connect-AzAccount`kan du använda `Add-AzAccount`, eller så kan du uppdatera dina moduler i ditt Automation-konto när du söker efter biblioteks objekt.
+>För PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för `Connect-AzAccount` . Om du inte ser `Connect-AzAccount` kan du använda `Add-AzAccount` , eller så kan du uppdatera dina moduler i ditt Automation-konto när du söker efter biblioteks objekt.
 
 För att slutföra förberedelse av kör som-kontot:
 
@@ -270,7 +267,7 @@ Om du vill skapa GPG-nyckelring och nyckel par använder du Hybrid Runbook Worke
 
 ### <a name="make-the-keyring-available-to-the-hybrid-runbook-worker"></a>Gör nyckel ringen tillgänglig för Hybrid Runbook Worker
 
-När nyckel ringen har skapats, gör den tillgänglig för Hybrid Runbook Worker. Ändra inställnings filen **/var/opt/Microsoft/omsagent/State/automationworker/DIY/Worker.conf** så att följande exempel kod ingår i avsnittet `[worker-optional]`fil.
+När nyckel ringen har skapats, gör den tillgänglig för Hybrid Runbook Worker. Ändra inställnings filen **/var/opt/Microsoft/omsagent/State/automationworker/DIY/Worker.conf** så att följande exempel kod ingår i avsnittet fil `[worker-optional]` .
 
 ```bash
 gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
@@ -292,7 +289,7 @@ När du har konfigurerat verifieringen av signaturen använder du följande GPG-
 gpg –-clear-sign <runbook name>
 ```
 
-Den signerade runbooken kallas ** <runbook name>. asc**.
+Den signerade runbooken kallas ** <runbook name> . asc**.
 
 Nu kan du ladda upp den signerade runbooken till Azure Automation och köra den som en vanlig Runbook.
 

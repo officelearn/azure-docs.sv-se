@@ -4,12 +4,12 @@ description: Övervaka Azure Backup arbets belastningar och skapa anpassade avis
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 54a98cebc2887f7508543a4dc752b2145c3bbda2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81e4f9f63df19ed57f26be8eb246c6dab1bf512c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183661"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714839"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
@@ -45,6 +45,9 @@ Den definiering av egenskaperna för en avisering är dess Utlös ande villkor. 
 
 Om det behövs kan du redigera frågan Kusto. Välj ett tröskelvärde, en period och en frekvens. Tröskelvärdet avgör när aviseringen ska höjas. Perioden är tiden då frågan körs. Om tröskelvärdet till exempel är större än 0, är perioden 5 minuter och frekvensen är 5 minuter, kör regeln frågan var 5: e minut, och granska de senaste 5 minuterna. Om antalet resultat är större än 0 får du ett meddelande via den valda åtgärds gruppen.
 
+> [!NOTE]
+> Om du vill köra varnings regeln en gång per dag, ändrar du värdet för både "period" och "frekvens" till 1440, dvs. 24 timmar i alla händelser/loggar som skapades den aktuella dagen.
+
 #### <a name="alert-action-groups"></a>Aviserings åtgärds grupper
 
 Använd en åtgärds grupp för att ange en meddelande kanal. Om du vill se tillgängliga aviserings mekanismer väljer du **Skapa nytt**under **Åtgärds grupper**.
@@ -64,6 +67,7 @@ Standard diagrammen ger dig Kusto frågor om grundläggande scenarier som du kan
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     ````
 
@@ -72,6 +76,7 @@ Standard diagrammen ger dig Kusto frågor om grundläggande scenarier som du kan
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Failed"
     ````
 
@@ -80,6 +85,7 @@ Standard diagrammen ger dig Kusto frågor om grundläggande scenarier som du kan
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -96,6 +102,7 @@ Standard diagrammen ger dig Kusto frågor om grundläggande scenarier som du kan
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -112,6 +119,7 @@ Standard diagrammen ger dig Kusto frågor om grundläggande scenarier som du kan
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -161,8 +169,8 @@ Diagnostikdata från valvet pumpas till Log Analytics arbets ytan med en fördr�
 Du kan också använda aktivitets loggar för att få meddelanden om händelser som till exempel säkerhets kopieringen lyckades. Börja med att följa dessa steg:
 
 1. Logga in på Azure Portal.
-1. Öppna det relevanta Recovery Services-valvet.
-1. I valvets egenskaper öppnar du avsnittet **aktivitets logg** .
+2. Öppna det relevanta Recovery Services-valvet.
+3. I valvets egenskaper öppnar du avsnittet **aktivitets logg** .
 
 Identifiera lämplig logg och skapa en avisering:
 
@@ -170,9 +178,9 @@ Identifiera lämplig logg och skapa en avisering:
 
    ![Filtrera för att hitta aktivitets loggar för virtuella Azure-säkerhetskopieringar](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-1. Välj ett åtgärds namn för att se relevant information.
-1. Välj **ny varnings regel** för att öppna sidan **Skapa regel** .
-1. Skapa en avisering genom att följa stegen i [skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+2. Välj ett åtgärds namn för att se relevant information.
+3. Välj **ny varnings regel** för att öppna sidan **Skapa regel** .
+4. Skapa en avisering genom att följa stegen i [skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![Ny varnings regel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 

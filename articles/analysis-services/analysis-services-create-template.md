@@ -8,12 +8,12 @@ ms.service: analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: d292500c5e26d3c07ff2402964166b3928cc7e44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6f0d5f084c5cd48abf399e351c627d64951ce719
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81384259"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697441"
 ---
 # <a name="quickstart-create-a-server---azure-resource-manager-template"></a>Snabb start: skapa en mall för Server Azure Resource Manager
 
@@ -32,7 +32,7 @@ I den här snabb starten beskrivs hur du skapar en Analysis Services server resu
 
 Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-analysis-services-create/).
 
-:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json":::
+:::code language="json" source="~/quickstart-templates/101-analysis-services-create/azuredeploy.json" range="1-79" highlight="63-78":::
 
 En enkel [Microsoft. AnalysisServices/servers-](https://docs.microsoft.com/azure/templates/microsoft.analysisservices/2017-08-01/servers) resurs med en brand Väggs regel definieras i mallen. 
 
@@ -40,7 +40,7 @@ En enkel [Microsoft. AnalysisServices/servers-](https://docs.microsoft.com/azure
 
 1. Välj följande distribution till Azure-länk för att logga in på Azure och öppna en mall. Mallen används för att skapa en Analysis Services server resurs och ange obligatoriska och valfria egenskaper.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json"><img src="./media/analysis-services-create-template/deploy-azure.png" alt="deploy to azure"/></a>
+   [![Distribuera till Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-analysis-services-create%2Fazuredeploy.json)
 
 2. Välj eller ange följande värden.
 
@@ -66,7 +66,7 @@ En enkel [Microsoft. AnalysisServices/servers-](https://docs.microsoft.com/azure
 
 Använd Azure Portal eller Azure PowerShell för att kontrol lera att resurs gruppen och Server resursen har skapats.
 
-#### <a name="powershell"></a>PowerShell
+### <a name="powershell"></a>PowerShell
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -96,6 +96,8 @@ $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
 Write-Host "Press [ENTER] to continue..."
 ```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

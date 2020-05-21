@@ -1,16 +1,16 @@
 ---
 title: Skapa ett fristående Azure Automation-konto
-description: Den här artikeln vägleder dig genom stegen för att skapa, testa och använda ett exempel på säkerhets objekts autentisering i Azure Automation.
+description: Den här artikeln beskriver hur du skapar ett fristående Azure Automation-konto och ett klassiskt kör som-konto.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5f291bdea2df67e07b1aca2dcc6326c3c9864ad2
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ffe7edd5faf5ae4f88f9f3e0c40256bee32395d7
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995803"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714873"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Skapa ett fristående Azure Automation-konto
 
@@ -31,13 +31,11 @@ Med det här kontot skapat kan du snabbt börja skapa och distribuera Runbooks s
 Om du vill skapa eller uppdatera ett Automation-konto och utföra de uppgifter som beskrivs i den här artikeln måste du ha följande behörigheter och behörigheter:
 
 * För att skapa ett Automation-konto måste ditt Azure AD-användarkonto läggas till i en roll med behörigheter som motsvarar ägar rollen för `Microsoft.Automation` resurser. Mer information finns i [rollbaserad Access Control i Azure Automation](automation-role-based-access-control.md).
-* I Azure Portal, under **Azure Active Directory** > **Hantera** > **användar inställningar**, om **Appregistreringar** är inställt på **Ja**kan användare som inte är administratörer i Azure AD-klienten [Registrera Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Om **Appregistreringar** är inställt på **Nej**, måste den användare som utför den här åtgärden vara en global administratör i Azure AD.
+* I Azure Portal, under **Azure Active Directory**  >  **Hantera**  >  **användar inställningar**, om **Appregistreringar** har angetts till **Ja**, kan användare som inte är administratörer i Azure AD-klienten [Registrera Active Directory program](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Om **Appregistreringar** är inställt på **Nej**, måste den användare som utför den här åtgärden vara en global administratör i Azure AD.
 
 Om du inte är medlem i prenumerationens Active Directory instans innan du lägger till den globala administratören/rollen som administratör i prenumerationen, läggs du till Active Directory som gäst. I det här scenariot ser du det här meddelandet i fönstret Lägg till Automation-konto:`You do not have permissions to create.`
 
-Om du först lägger till en användare i rollen global administratör/superadministratör kan du ta bort användaren från prenumerationens Active Directory instans. Du kan läsa användaren till användar rollen i Active Directory.
-
-Så här verifierar du användar roller:
+Om du först lägger till en användare i rollen global administratör/superadministratör kan du ta bort användaren från prenumerationens Active Directory instans. Du kan läsa användaren till användar rollen i Active Directory. Så här verifierar du användar roller:
 
 1. I Azure Portal går du till fönstret Azure Active Directory.
 1. Välj **Användare och grupper**.
@@ -83,8 +81,6 @@ Utför följande steg för att skapa ett Azure Automation konto i Azure Portal:
 
 1. Om du vill följa förloppet för att skapa Automation-kontot väljer du **meddelanden** på menyn.
 
-### <a name="resources-included"></a>Resurser som ingår
-
 När Automation-kontot har skapats skapas flera resurser automatiskt. När du har skapat dessa Runbooks kan de tas bort på ett säkert sätt om du inte vill behålla dem. Kör som-kontona kan användas för att autentisera till ditt konto i en Runbook och bör vara kvar om du inte skapar ett annat eller inte behöver det. I följande tabell sammanfattas resurserna för Kör som-kontot.
 
 | Resurs | Beskrivning |
@@ -105,9 +101,8 @@ Klassiska kör som-konton skapas inte längre som standard när du skapar ett Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om grafisk redigering finns [i grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
-* Information om hur du kommer igång med PowerShell-runbooks finns i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md).
-* Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [min första PowerShell Workflow-Runbook](automation-first-runbook-textual.md).
-* För att komma igång med python 2-Runbooks, se [min första Python2 Runbook](automation-first-runbook-textual-python2.md).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md)
+* [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md)
+* [Min första PowerShell Workflow-Runbook](automation-first-runbook-textual.md)
+* [Min första Python2-Runbook](automation-first-runbook-textual-python2.md)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

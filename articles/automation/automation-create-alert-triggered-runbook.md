@@ -1,16 +1,16 @@
 ---
 title: Använda en avisering för att utlösa en Azure Automation Runbook
-description: Lär dig hur du utlöser en Runbook så att den körs när en Azure-avisering aktive ras.
+description: Den här artikeln beskriver hur du utlöser en Runbook så att den körs när en Azure-avisering aktive ras.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: eb7a1cc0cb589fa3d2fe605913d47be4444516e8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 30ef3e0ccef859ec183d8aad18c0b9910a5d3c9f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996873"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712510"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använda en avisering för att utlösa en Azure Automation Runbook
 
@@ -22,7 +22,7 @@ Du kan använda Automation-runbooks med tre aviserings typer:
 
 * Vanliga aviseringar
 * Aktivitetsloggaviseringar
-* Mått aviseringar i nära real tid
+* Nära real tids aviseringar
 
 > [!NOTE]
 > Det vanliga aviserings schemat standardiserar användnings upplevelsen för aviserings meddelanden i Azure idag. Tidigare var de tre aviserings typerna i Azure idag (Metric, loggen och aktivitets loggen) haft egna e-postmallar, webhook-scheman osv. Läs mer i [vanliga aviserings scheman](../azure-monitor/platform/alerts-common-schema.md)
@@ -41,7 +41,7 @@ Eftersom de data som tillhandahålls av varje typ av avisering är olika, hanter
 
 Om du vill använda automatisering med aviseringar behöver du en Runbook med logik som hanterar den aviserings-JSON-nyttolast som skickas till runbooken. Följande exempel-Runbook måste anropas från en Azure-avisering.
 
-Enligt beskrivningen i föregående avsnitt har varje typ av avisering ett annat schema. Skriptet tar webhook-data från en avisering i inmatnings parametern för `WebhookData` Runbook. Sedan utvärderar skriptet JSON-nyttolasten för att avgöra vilken aviserings typ som används.
+Enligt beskrivningen i föregående avsnitt har varje typ av avisering ett annat schema. Skriptet tar webhook-data från en avisering i `WebhookData` inmatnings parametern för Runbook. Sedan utvärderar skriptet JSON-nyttolasten för att avgöra vilken aviserings typ som används.
 
 I det här exemplet används en avisering från en virtuell dator. Den hämtar VM-data från nytto lasten och använder sedan denna information för att stoppa den virtuella datorn. Anslutningen måste konfigureras i Automation-kontot där runbooken körs. När du använder aviseringar för att utlösa Runbooks, är det viktigt att kontrol lera aviserings statusen i den Runbook som utlöses. Runbooken utlöses varje tillfälle som aviseringen ändrar tillstånd. Aviseringar har flera tillstånd, med de två vanligaste som aktive ras och löses. Kontrol lera om det finns tillstånd i din Runbook-logik för att säkerställa att Runbook inte körs mer än en gång. Exemplet i den här artikeln visar hur du söker efter aviseringar med endast tillstånd aktiverat.
 
@@ -191,9 +191,8 @@ Aviseringar använder åtgärds grupper, som är samlingar av åtgärder som utl
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du startar en Automation-Runbook med en webhook finns i [starta en Runbook från en webhook](automation-webhooks.md).
-* Information om olika sätt att starta en Runbook finns i [starta en Runbook](automation-starting-a-runbook.md).
-* Information om hur du skapar en aktivitets logg avisering finns i [skapa aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
-* Information om hur du skapar en nästan real tids avisering finns [i skapa en varnings regel i Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Starta ett Runbook-flöde från en webhook](automation-webhooks.md)
+* [Starta en runbook](automation-starting-a-runbook.md)
+* [Skapa aktivitets logg aviseringar](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)
+* [Skapa en varnings regel i Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

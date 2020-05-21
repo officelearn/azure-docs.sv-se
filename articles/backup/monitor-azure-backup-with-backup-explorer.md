@@ -4,12 +4,12 @@ description: Den här artikeln beskriver hur du använder backup Explorer för a
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 87780124d531212a141520df65ff7408cc120e55
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160997"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715213"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Övervaka säkerhets kopieringar med Backup Explorer
 
@@ -30,6 +30,7 @@ Dessa funktioner tillhandahålls direkt av inbyggd integrering med Azure Resourc
 > * Backup Explorer stöds för närvarande inte i nationella moln.
 > * För närvarande stöds inte anpassning av backup Explorer-mallen.
 > * Vi rekommenderar inte att du skriver anpassade automations i Azures resurs diagram data.
+> * För närvarande kan du övervaka säkerhets kopieringar över högst 1000 prenumerationer (mellan klienter) i Backup Explorer.
 
 ## <a name="get-started"></a>Kom igång
 

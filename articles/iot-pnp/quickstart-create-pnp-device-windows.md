@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4f9b8f3edc475ec50eaf11080020aa9f62a0d2c1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75867494"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700877"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Snabb start: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play förhands gransknings enhet (Windows)
 
@@ -87,16 +87,16 @@ I den här snabb starten använder du en befintlig funktions modell för exempel
 
 1. Skapa en `pnp_app` mapp på den lokala enheten. Du använder den här mappen för enhets modellens filer och enhets koden stub.
 
-1. Ladda [ned exempel](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) filen med `pnp_app` [enhets kapacitets modellen och gränssnittet](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) och spara filerna i mappen.
+1. Ladda [ned exempel](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) [filen med enhets kapacitets modellen och gränssnittet](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json) och spara filerna i `pnp_app` mappen.
 
     > [!TIP]
     > Om du vill ladda ned en fil från GitHub navigerar du till filen, högerklickar på **RAW**och väljer sedan **Spara länk som**.
 
-1. Öppna `pnp_app` en mapp med vs Code. Du kan visa filerna med IntelliSense:
+1. Öppna en `pnp_app` mapp med vs Code. Du kan visa filerna med IntelliSense:
 
     ![Enhets kapacitets modell](media/quickstart-create-pnp-device/dcm.png)
 
-1. Ersätt `<YOUR_COMPANY_NAME_HERE>` i fälten `@id` och `schema` med ett unikt värde i filerna som du laddade ned. Använd bara tecknen a-z, A-Z, 0-9 och under streck. Mer information finns i [digitalt format för dubbla identifierare](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
+1. Ersätt `<YOUR_COMPANY_NAME_HERE>` i `@id` `schema` fälten och med ett unikt värde i filerna som du laddade ned. Använd bara tecknen a-z, A-Z, 0-9 och under streck. Mer information finns i [digitalt format för dubbla identifierare](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
 
 ## <a name="generate-the-c-code-stub"></a>Generera C-koden stub
 
@@ -126,7 +126,7 @@ Nu när du har ett DCM och tillhör ande gränssnitt kan du generera den enhets 
 
 Du kan använda Vcpkg-paketet för att skapa en genererad enhets kod stub. Det program som du skapar simulerar en enhet som ansluter till en IoT-hubb. Programmet skickar telemetri och egenskaper och tar emot kommandon.
 
-1. Skapa en `cmake` under katalog i `sample_device` mappen och navigera till mappen:
+1. Skapa en under `cmake` katalog i `sample_device` mappen och navigera till mappen:
 
     ```cmd
     mkdir cmake

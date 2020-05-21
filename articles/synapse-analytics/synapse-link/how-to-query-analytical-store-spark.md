@@ -1,5 +1,5 @@
 ---
-title: Fråga Azure Cosmos DB analys lager med Apache Spark för Azure Synapse Analytics
+title: Fråga Azure Cosmos DB analytisk lagring (för hands version) med Apache Spark för Azure Synapse Analytics
 description: Så här frågar du Azure Cosmos DB analys med Apache Spark för Azure Synapse Analytics
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02d4b6a636bff5ef11686abba6efb52f45f04779
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5c19a3f808b85ba9e34d3304251fe8acb21204ce
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83600071"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700198"
 ---
-# <a name="query-azure-cosmos-db-analytical-store-with-apache-spark-for-azure-synapse-analytics"></a>Fråga Azure Cosmos DB analys lager med Apache Spark för Azure Synapse Analytics
+# <a name="query-azure-cosmos-db-analytical-store-preview-with-apache-spark-for-azure-synapse-analytics"></a>Fråga Azure Cosmos DB analytisk lagring (för hands version) med Apache Spark för Azure Synapse Analytics
 
 Den här artikeln innehåller några exempel på hur du kan interagera med analys lagret från Synapse-gester. Gester visas när du högerklickar på en behållare. Med gester kan du snabbt skapa kod och skräddarsy den efter dina behov. Gester är också perfekta för att identifiera data med ett enda klick.
 

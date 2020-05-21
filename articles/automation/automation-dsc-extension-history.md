@@ -1,22 +1,22 @@
 ---
-description: Läs mer om versions historiken för det önskade tillägget för tillstånds konfiguration (DSC) i Azure.
+title: Arbeta med Azure Desired State Configuration Extension versions historik
+description: Den här artikeln beskriver hur du arbetar med versions historiken för det önskade tillägget för tillstånds konfiguration (DSC) i Azure.
 ms.date: 06/21/2018
 keywords: DSC, PowerShell, Azure, tillägg
-title: Versionshistorik för Azure DSC-tillägg
 author: mgoedtel
 ms.author: magoedte
 services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 207b8f7467753a8693bbabe6dd3f7a890307cf21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4578e3bff7951293c5ec2f1992e597face84b716
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82120709"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713207"
 ---
-# <a name="azure-desired-state-configuration-extension-version-history"></a>Versions historik för det önskade tillstånds konfigurations tillägget i Azure
+# <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Arbeta med Azure Desired State Configuration Extension versions historik
 
 Det virtuella Azure-tillägget för önskad tillstånds konfiguration (DSC) uppdateras som-nödvändigt för att stödja förbättringar och nya funktioner som levereras av Azure, Windows Server och Windows Management Framework (WMF) som innehåller Windows PowerShell.
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller information om varje version av Azure DSC VM-till�
 ### <a name="version-276"></a>Version 2,76
 
 - **Utgivnings datum:**
-  - 9 maj 2018 (Azure) | 21 juni 2018 (Azure Kina, Azure Government)
+  - 9 maj 2018 (Azure) | 21 juni 2018 (Azure Kina Vianet 21, Azure Government)
 - **OS-support:**
   - Windows Server 2016
   - Windows Server 2012 R2
@@ -42,7 +42,7 @@ Den här artikeln innehåller information om varje version av Azure DSC VM-till�
   - WMF 4,0
 - **Miljö**
   - Azure
-  - Azure Kina
+  - Azure Kina Vianet 21
   - Azure Government
 - **Anmärkningar:** Den här versionen använder DSC som ingår i Windows Server 2016; för andra Windows-operativ system installerar den [Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (installation av WMF kräver en omstart). För Nano Server installeras DSC-rollen på den virtuella datorn.
 - **Nya funktioner:**
@@ -181,10 +181,10 @@ Den här artikeln innehåller information om varje version av Azure DSC VM-till�
 - **Utgivnings datum:** 3 juni 2016
 - **OS-support:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1
 - **WMF-support:** WMF 5,0 RTM, WMF 4,0 uppdatering, WMF 4,0
-- **Miljö:** Azure, Azure Kina, Azure Government
+- **Miljö:** Azure, Azure Kina Vianet 21, Azure Government
 - **Anmärkningar:** Den här versionen använder DSC som ingår i Windows Server 2016 Technical Preview; för andra Windows-operativ system installeras [Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (installation av WMF kräver en omstart).
 - **Nya funktioner:**
-  - DSC-tillägget har nu publicerats till Azure Kina. Den här versionen innehåller främst korrigeringar för att köra tillägget på Azure Kina.
+  - DSC-tillägget har nu publicerats till Azure Kina Vianet 21. Den här versionen innehåller främst korrigeringar för att köra tillägget på Azure Kina Vianet 21.
 
 ### <a name="version-218"></a>Version 2.18
 
@@ -249,7 +249,7 @@ Den här artikeln innehåller information om varje version av Azure DSC VM-till�
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om PowerShell DSC finns i [PowerShell-dokumentations centret](/powershell/scripting/dsc/overview/overview).
+- Mer information om PowerShell DSC finns i [PowerShell Documentation Center](/powershell/scripting/dsc/overview/overview).
 - Granska [Resource Manager-mallen för DSC-tillägget](/azure/virtual-machines/extensions/dsc-template).
 - Om du vill ha fler funktioner som du kan hantera med hjälp av PowerShell DSC kan du bläddra i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)för fler DSC-resurser.
 - Mer information om hur du skickar känsliga parametrar till konfigurationer finns i [Hantera autentiseringsuppgifter säkert med DSC-tilläggs hanteraren](/azure/virtual-machines/extensions/dsc-credentials).

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ba3ff2cc98e505486de9cf2337fe19024f97c62
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 62291505aae35b6fe334e2bdb53335a1ea3fe20b
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680465"
+ms.locfileid: "83714550"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Flytta ditt Azure Automation-konto till en annan prenumeration
 
@@ -28,16 +28,16 @@ Automation-kontot är en av de resurser som du kan flytta. I den här artikeln l
 4. Ta bort och återskapa kör som-konton.
 5. Återaktivera dina funktioner.
 
-## <a name="disable-features"></a>Inaktivera funktioner
+## <a name="remove-features"></a>Ta bort funktioner
 
-Om du vill ta bort länken till arbets ytan från ditt Automation-konto måste du inaktivera funktions resurserna i din arbets yta:
+Om du vill ta bort länken till arbets ytan från ditt Automation-konto måste du ta bort funktions resurserna på arbets ytan:
 
 - Ändringsspårning och inventering
 - Uppdateringshantering
 - Starta/stoppa virtuella datorer utanför arbetstid
 
 1. Leta reda på resursgruppen på Azure-portalen.
-2. Hitta varje funktion och välj **ta bort** på sidan ta bort resurser.
+2. Hitta varje funktion och välj **ta bort** på sidan **ta bort resurser** .
 
     ![Skärm bild som visar hur du tar bort funktions resurser från Azure Portal](../media/move-account/delete-solutions.png)
 
@@ -127,7 +127,7 @@ Nu kan du flytta ditt Automation-konto och dess Runbooks.
 
 ## <a name="enable-features"></a>Aktivera funktioner
 
-När du har återskapat kör som-kontona måste du återaktivera de funktioner som du inaktiverade innan du flyttade: 
+När du har återskapat kör som-kontona måste du återaktivera de funktioner som du har tagit bort innan du flyttar:
 
 1. Aktivera Ändringsspårning och inventering genom att välja **ändringsspårning och inventering** i ditt Automation-konto. Välj Log Analytics arbets ytan som du flyttade över och välj **Aktivera**.
 
@@ -157,4 +157,4 @@ När flyttningen är klar kontrollerar du att funktionerna i listan nedan är ak
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du flyttar resurser i Azure finns i [Flytta resurser i Azure](../../azure-resource-manager/management/move-support-resources.md).
+[Flytta resurser i Azure](../../azure-resource-manager/management/move-support-resources.md)

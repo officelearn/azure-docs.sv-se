@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 30df02062d3b94836f0131ac1124f56d1deefb5b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997495"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714788"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Design assistents upplevelser för Windows 10
 
@@ -63,25 +63,22 @@ Assistenter bör skapa en lyssnande upplevelse för att ge kritisk feedback så 
 - Assistenten bearbetar och förbereder ett svar
 - Assistenten svarar
 
-Även om tillstånden ändras snabbt är det värt att fundera över att tillhandahålla UX för tillstånd, eftersom varaktigheten är varierande i Windows-eko systemet. Visuell feedback samt korta ljud-CHIMES eller chirps, som även kallas &quot;earcons&quot;, kan vara en del av lösningen. På samma sätt är visuella kort kopplade till ljud beskrivningar för lämpliga svars alternativ.
+Även om tillstånden ändras snabbt är det värt att fundera över att tillhandahålla UX för tillstånd, eftersom varaktigheten är varierande i Windows-eko systemet. Visuell feedback samt korta ljud-CHIMES eller chirps, som även kallas &quot; earcons &quot; , kan vara en del av lösningen. På samma sätt är visuella kort kopplade till ljud beskrivningar för lämpliga svars alternativ.
 
 ## <a name="design-guidance-for-in-app-voice-activation"></a>Design Guide för röst aktivering i appar
 
 När assistent appen har fokus är kund avsikten tydlig att interagera med appen, så alla röst aktiverings upplevelser bör hanteras av huvudappens vy. Den här vyn kan ändra storlek på kunden. I resten av det här dokumentet används det konkreta exemplet på en ekonomi tjänst assistent som heter Contoso för att hjälpa till att förklara interaktions gränssnittet. I det här och efterföljande diagram, vad kunden säger visas i tecknade tal bubblor till vänster med assistent svar i tecknade bubblor till höger.
 
-**Vyn app. Initialt tillstånd när röst aktivering börjar:**
-![skärm bild av röst assistenten i Windows före aktivering](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**Vyn app. Initialt tillstånd när röst aktivering börjar:** 
+ ![ skärm bild av röst assistenten i Windows före aktivering](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
-**Vyn app. Efter lyckad röst aktivering börjar lyssnings upplevelsen:**![skärm bild av röst assistenten i Windows när röst assistenten lyssnar](media/voice-assistants/windows_voice_assistant/listening.png)
+**Vyn app. Efter lyckad röst aktivering börjar lyssnings upplevelsen:** ![ skärm bild av röst assistenten i Windows när röst assistenten lyssnar](media/voice-assistants/windows_voice_assistant/listening.png)
 
-**Vyn app. Alla svar finns kvar i appens upplevelse.** ![Skärm bild av röst assistenten i Windows som assistent svar](media/voice-assistants/windows_voice_assistant/response.png)
+**Vyn app. Alla svar finns kvar i appens upplevelse.** ![ Skärm bild av röst assistenten i Windows som assistent svar](media/voice-assistants/windows_voice_assistant/response.png)
 
 ## <a name="design-guidance-for-voice-activation-above-lock"></a>Design vägledning för röst aktivering över lås
 
 Assistenter som bygger på Windows röst aktiverings plattform är tillgängliga med 19H2 och är tillgängliga för svar över låset.
-
-> [!NOTE]
-> På grund av ett aktivt problem måste assistenter som ritar över lås gränssnittet implementera WindowService. CloseWindow () för alla avstängningar. Detta leder till att appen avslutas, men minimerar ett tekniskt problem och håller assistenten i rent tillstånd. Dessutom, för att bevara rent tillstånd om en app är aktive rad för över lås röst aktivering, måste den lyssna efter lås tillstånds ändringar och WindowService. CloseWindow () när enheten låses.
 
 ### <a name="customer-opt-in"></a>Kund deltagande
 
@@ -108,7 +105,7 @@ Assistenten måste implementera den inlösta vägledningen i det här avsnittet 
 - **Alla assistent arbets ytor som visas ovan måste innehålla ett X** högst upp till höger som stänger av assistenten.
 - **Om du trycker på valfri tangent måste du också stänga av appen assistent**. Tangent bords indata är en traditionell lås app-signal som kunden vill logga in på. Det innebär att alla tangent bord/text-inmatare inte ska dirigeras till appen. I stället bör appen stängas av när tangent bords indata identifieras, så att kunden enkelt kan logga in på sina enheter.
 - **Om skärmen går ut måste appen stängas av.** Detta säkerställer att inloggnings skärmen är klar och väntar på nästa gången kunden använder sin dator.
-- Om appen &quot;&quot;används kan det fortsätta att vara kvar över låset. &quot;används&quot; för att ange indata eller utdata. Till exempel när en musik eller video strömmas, kan appen fortsätta att vara över låset. &quot;Följ de&quot; här stegen i och andra dialog steg för multiaktivering är tillåtna för att hålla appen över låset.
+- Om appen används &quot; &quot; kan det fortsätta att vara kvar över låset. &quot;används för att &quot; Ange indata eller utdata. Till exempel när en musik eller video strömmas, kan appen fortsätta att vara över låset. &quot;Följ &quot; de här stegen i och andra dialog steg för multiaktivering är tillåtna för att hålla appen över låset.
 - **Implementerings information om hur du stänger programmet** finns [i hand boken för låsnings implementering](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
 ![Skärm bild av röst assistenten i Windows före aktivering](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
@@ -117,7 +114,7 @@ Assistenten måste implementera den inlösta vägledningen i det här avsnittet 
 
 ### <a name="privacy-amp-security-considerations-above-lock"></a>Sekretess &amp; säkerhets aspekter över lås
 
-Många datorer är bärbara men inte alltid inom kundens räckvidd. De kan vara en kort plats på hotell utrymmen, flyg Plans platser eller arbets ytor där andra personer har fysisk åtkomst. Om assistenter som aktive ras ovan inte är förberedda kan de bli föremål för klassen med så kallade &quot; [Evil Maid](https://en.wikipedia.org/wiki/Evil_maid_attack) &quot; -attacker.
+Många datorer är bärbara men inte alltid inom kundens räckvidd. De kan vara en kort plats på hotell utrymmen, flyg Plans platser eller arbets ytor där andra personer har fysisk åtkomst. Om assistenter som aktive ras ovan inte är förberedda kan de bli föremål för klassen med så kallade &quot; [Evil Maid](https://en.wikipedia.org/wiki/Evil_maid_attack) - &quot; attacker.
 
 Assistenterna bör därför följa rikt linjerna i det här avsnittet för att hålla dig säker. Interaktionen ovanför låset sker när Windows-användaren inte är autentiserad. Det innebär att i allmänhet **bör inström till assistenten även behandlas som oautentiserad**.
 
@@ -127,9 +124,9 @@ Assistenterna bör därför följa rikt linjerna i det här avsnittet för att h
 
 | **Åtgärds klass** | **Beskrivning** | **Exempel (inte en fullständig lista)** |
 | --- | --- | --- |
-| Säker utan autentisering | Generell användnings information eller grundläggande app-kommando och kontroll | &quot;Hur mycket är klockan? &quot;, &quot;Spela upp nästa spår&quot; |
-| Säkert med högtalar-ID | Personifiering av risk, som avslöjar personlig information. | &quot;Vad&#39;s nästa avtalade tid? &quot;, &quot;Granska min shopping lista&quot;, &quot;svara på samtalet&quot; |
-| Endast säker efter Windows-autentisering | Hög risk åtgärder som en angripare kan använda för att skada kunden | &quot;Köp fler mat varor&quot;, &quot;ta bort mitt (viktigt)&quot;avtalad tid, &quot;skicka ett (medelvärde&quot;) &quot;textmeddelande, starta en (post) webb sida&quot; |
+| Säker utan autentisering | Generell användnings information eller grundläggande app-kommando och kontroll | &quot;Vilken tid är det? &quot; , kan &quot; du spela upp nästa spår&quot; |
+| Säkert med högtalar-ID | Personifiering av risk, som avslöjar personlig information. | &quot;Vad&#39;s nästa avtalade tid? &quot; , &quot; Granska min shopping lista &quot; , &quot; besvara samtalet&quot; |
+| Endast säker efter Windows-autentisering | Hög risk åtgärder som en angripare kan använda för att skada kunden | &quot;Köp fler mat varor &quot; , &quot; ta bort mitt (viktigt) avtalad tid &quot; , &quot; Skicka ett (medelvärde) textmeddelande &quot; , &quot; starta en (post) webb sida&quot; |
 
 För contoso är allmän information kring offentlig information säker utan autentisering. Kundspecifik information, till exempel antalet ägda resurser är förmodligen säkert med högtalar-ID. Köp-eller försäljnings lager bör dock aldrig tillåtas utan Windows-autentisering.
 

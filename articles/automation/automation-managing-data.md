@@ -1,23 +1,20 @@
 ---
 title: Hantera Azure Automation-data
-description: Den här artikeln innehåller flera ämnen för att hantera en Azure Automations miljö.  Omfattar för närvarande datakvarhållning och säkerhets kopiering Azure Automation haveri beredskap i Azure Automation.
+description: Den här artikeln innehåller begrepp för data hantering i Azure Automation, inklusive data kvarhållning och säkerhets kopiering.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: f917e9c64a932d75fd0f6b14c9e0f35808467355
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44fe626abd71c13b7f16aa07c4ddf261ff3cacea
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984665"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715434"
 ---
-# <a name="managing-azure-automation-data"></a>Hantera Azure Automation-data
+# <a name="management-of-azure-automation-data"></a>Hantera Azure Automation-data
 
 Den här artikeln innehåller flera ämnen för att hantera data i en Azure Automations miljö.
-
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="data-retention"></a>Datakvarhållning
 

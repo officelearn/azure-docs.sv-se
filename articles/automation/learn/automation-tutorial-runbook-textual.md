@@ -1,17 +1,16 @@
 ---
 title: Skapa en PowerShell Workflow-Runbook i Azure Automation
-description: Självstudie som visar hur du skapar, testar och publicerar en enkel PowerShell Workflow-Runbook.
-keywords: powershell-arbetsflöde, powershell-arbetsflödesexempel, arbetsflöde powershell
+description: I den här artikeln lär du dig att skapa, testa och publicera en enkel PowerShell Workflow-Runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: cdf43bb82baf28ba21e00d0f58dc8bafe84fbe42
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80c84693f466ea30c4a65a8960472a55e98d1efe
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726335"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714465"
 ---
 # <a name="tutorial-create-a-powershell-workflow-runbook"></a>Självstudie: skapa en PowerShell Workflow-Runbook
 
@@ -23,9 +22,6 @@ Den här självstudien beskriver steg för steg hur du skapar en [PowerShell Wor
 > * Kör och spåra statusen för Runbook-jobbet
 > * Uppdatera runbooken för att starta en virtuell Azure-dator med Runbook-parametrar
 
->[!NOTE]
->Den här artikeln har uppdaterats till att använda den nya Azure PowerShell Az-modulen. Du kan fortfarande använda modulen AzureRM som kommer att fortsätta att ta emot felkorrigeringar fram till december 2020 eller längre. Mer information om den nya Az-modulen och AzureRM-kompatibilitet finns i [Introduktion till den nya Azure PowerShell Az-modulen](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Installations anvisningar för AZ-modulen på Hybrid Runbook Worker finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). För ditt Automation-konto kan du uppdatera dina moduler till den senaste versionen med hjälp av [hur du uppdaterar Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
-
 ## <a name="prerequisites"></a>Krav
 
 För att slutföra den här kursen behöver du:
@@ -36,7 +32,7 @@ För att slutföra den här kursen behöver du:
 
 ## <a name="step-1---create-new-runbook"></a>Steg 1 – Skapa en ny runbook
 
-Börja med att skapa en enkel Runbook som matar ut texten `Hello World`.
+Börja med att skapa en enkel Runbook som matar ut texten `Hello World` .
 
 1. Öppna ditt Automation-konto på Azure Portal.
 
@@ -56,7 +52,7 @@ Börja med att skapa en enkel Runbook som matar ut texten `Hello World`.
 
 Du kan antingen skriva kod direkt i runbooken eller välja cmdlets, Runbooks och till gångar från biblioteks kontrollen och lägga till dem i runbooken med relaterade parametrar. I den här självstudien skriver du kod direkt i runbooken.
 
-1. Din Runbook är för närvarande Tom med endast det `Workflow` obligatoriska nyckelordet, namnet på runbooken och de klamrar som är i hela arbets flödet.
+1. Din Runbook är för närvarande Tom med endast det obligatoriska `Workflow` nyckelordet, namnet på runbooken och de klamrar som är i hela arbets flödet.
 
    ```powershell-interactive
    Workflow MyFirstRunbook-Workflow
@@ -87,7 +83,7 @@ Innan du publicerar runbooken för att göra den tillgänglig i produktion bör 
 
    Jobbets status börjar i kö, vilket anger att jobbet väntar på att en Runbook Worker i molnet ska bli tillgänglig. Statusen ändras till att börja när en arbets uppgift anlitar jobbet. Slutligen blir statusen igång när runbooken faktiskt börjar köras.
 
-4. När Runbook-jobbet har slutförts visas utdata i test fönstret. I det här fallet visas `Hello World`.
+4. När Runbook-jobbet har slutförts visas utdata i test fönstret. I det här fallet visas `Hello World` .
 
    ![Hello World](../media/automation-tutorial-runbook-textual/test-output-hello-world.png)
 
@@ -138,7 +134,7 @@ Den Runbook som du har skapat är fortfarande i utkast läge. Du måste publicer
 Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. Det kan inte göra det om det inte autentiserar med hjälp av prenumerationens autentiseringsuppgifter. Autentiseringen använder cmdleten [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.7.0) .
 
 >[!NOTE]
->För PowerShell- `Add-AzAccount` Runbooks och `Add-AzureRMAccount` är alias för `Connect-AzAccount`. Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](../automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
+>För PowerShell-Runbooks `Add-AzAccount` och `Add-AzureRMAccount` är alias för `Connect-AzAccount` . Du kan använda dessa cmdletar, eller så kan du [Uppdatera dina moduler](../automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna. Du kan behöva uppdatera dina moduler även om du precis har skapat ett nytt Automation-konto.
 
 1. Gå till sidan MyFirstRunbook-Workflow och öppna text redigeraren genom att klicka på **Redigera**.
 
@@ -195,7 +191,7 @@ Nu när din Runbook autentiseras för Azure-prenumerationen kan du hantera resur
 
 Din Runbook startar för närvarande den virtuella datorn som du har hårdkodad i runbooken. Det blir mer användbart om du kan ange den virtuella datorn när runbooken startas. Nu ska vi lägga till indataparametrar till Runbook för att tillhandahålla den funktionen.
 
-1. Lägg till variabler för `VMName` parametrarna `ResourceGroupName` och i runbooken och använd variablerna med `Start-AzVM` cmdleten som visas nedan.
+1. Lägg till variabler för `VMName` parametrarna och i `ResourceGroupName` runbooken och använd variablerna med `Start-AzVM` cmdleten som visas nedan.
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -231,10 +227,9 @@ Din Runbook startar för närvarande den virtuella datorn som du har hårdkodad 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/powershell/scripting/overview).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
-* Information om hur du kommer igång med grafiska runbooks finns i [skapa en grafisk Runbook](automation-tutorial-runbook-graphical.md).
-* Information om hur du kommer igång med PowerShell-Runbooks finns i [skapa en PowerShell-Runbook](automation-tutorial-runbook-textual-powershell.md).
-* Mer information om Runbook-typer och deras fördelar och begränsningar finns i [Azure Automation Runbook-typer](../automation-runbook-types.md).
-* Mer information om stöd funktioner för PowerShell-skript finns [i stöd för interna PowerShell-skript i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* [PowerShell-dokument](https://docs.microsoft.com/powershell/scripting/overview)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* [Skapa en grafisk Runbook](automation-tutorial-runbook-graphical.md)
+* [Skapa en PowerShell-runbook](automation-tutorial-runbook-textual-powershell.md)
+* [Azure Automation Runbook-typer](../automation-runbook-types.md)
+* [Inbyggt stöd för PowerShell-skript i Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)

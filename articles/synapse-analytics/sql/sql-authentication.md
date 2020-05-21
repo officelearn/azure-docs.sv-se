@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424855"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700312"
 ---
 # <a name="sql-authentication"></a>SQL-autentisering
 
@@ -45,12 +45,12 @@ Administratörs kontona för **Server administratören** och **Azure AD** har f�
 - Är de enda konton som kan ansluta automatiskt till alla SQL Database på servern. (För att kunna ansluta till en användardatabas måste andra konton antingen vara ägare till databasen eller ha ett användarkonto i databasen.)
 - Dessa konton går in i användardatabaser som användaren `dbo` och de har alla behörigheter i användardatabaserna. (Ägaren till en användardatabas går också in i databasen som användaren `dbo`.)
 - Ange inte `master` databasen som `dbo` användare och har begränsad behörighet i Master.
-- Är **inte** medlemmar i den fasta Server `sysadmin` rollen standard SQL Server, vilket inte är tillgängligt i SQL Database.  
+- Är **inte** medlemmar i den `sysadmin` fasta Server rollen standard SQL Server, vilket inte är tillgängligt i SQL Database.  
 - Kan skapa, ändra och släppa databaser, inloggningar, användare i huvud servrar och IP-brandvägg på server nivå.
 - Kan lägga till och ta bort medlemmar `dbmanager` i `loginmanager` rollerna och.
 - Kan visa `sys.sql_logins` system tabellen.
 
-## <a name="sql-on-demand-preview"></a>SQL på begäran (för hands version)
+## <a name="sql-on-demand-preview"></a>[SQL på begäran (för hands version)](#tab/serverless)
 
 Om du vill hantera användare som har åtkomst till SQL på begäran kan du använda instruktionerna nedan.
 
@@ -72,7 +72,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 När inloggningen och användaren har skapats kan du använda den vanliga SQL Server syntaxen för att bevilja rättigheter.
 
-## <a name="sql-pool"></a>SQL-pool
+## <a name="sql-pool"></a>[SQL-pool](#tab/provisioned)
 
 ### <a name="administrator-access-path"></a>Åtkomstväg för administratör
 
@@ -90,7 +90,7 @@ En av dessa administrativa roller är **DBManager** -rollen. Medlemmar i den hä
 
 Om du vill skapa en databas måste användaren vara en användare baserad på en SQL Server inloggning i `master` databasen eller innesluten databas användare baserat på en Azure Active Directory användare.
 
-1. Anslut till `master` databasen med ett administratörs konto.
+1. Anslut till databasen med ett administratörs konto `master` .
 2. Skapa en inloggning för SQL Server autentisering med hjälp av instruktionen [create login](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Exempel på instruktion:
 
    ```sql
@@ -102,7 +102,7 @@ Om du vill skapa en databas måste användaren vara en användare baserad på en
 
    För att förbättra prestandan cachelagras inloggningar (huvudnamn på servernivå) tillfälligt på databasnivån. Information om hur du uppdaterar autentiseringscache finns i [DBCC FLUSHAUTHCACHE](/sql/t-sql/database-console-commands/dbcc-flushauthcache-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-3. Skapa en `master` användare i-databasen med hjälp av instruktionen [create User](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Användaren kan vara en Azure Active Directory autentisering som innehåller databas användare (om du har konfigurerat din miljö för Azure AD-autentisering) eller en SQL Server autentisering som innehåller en databas användare eller en SQL Server autentisering som är baserad på en SQL Server autentisering (skapades i föregående steg). Exempel på uttryck:
+3. `master`Skapa en användare i-databasen med hjälp av instruktionen [create User](/sql/t-sql/statements/create-user-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Användaren kan vara en Azure Active Directory autentisering som innehåller databas användare (om du har konfigurerat din miljö för Azure AD-autentisering) eller en SQL Server autentisering som innehåller en databas användare eller en SQL Server autentisering som är baserad på en SQL Server autentisering (skapades i föregående steg). Exempel på uttryck:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -127,6 +127,8 @@ Användaren kan nu ansluta till `master` databasen och kan skapa nya databaser. 
 ### <a name="login-managers"></a>Inloggningshanterare
 
 Den andra administrativa rollen är inloggningshanterare-rollen. Medlemmar i den här rollen kan skapa nya inloggningar i huvuddatabasen. Om du vill kan du slutföra samma steg (skapa en inloggning och användare och lägga till en användare i rollen **loginmanager**) så att en användare kan skapa nya inloggningar i huvuddatabasen. Inloggningar är vanligtvis inte nödvändiga, eftersom Microsoft rekommenderar att du använder oberoende databasanvändare, som autentiseras på databasnivå istället för att använda användare baserat på inloggningar. Mer information finns i [Oberoende databasanvändare – göra databasen portabel](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+
+---
 
 ## <a name="non-administrator-users"></a>Användare som är icke-administratörer
 

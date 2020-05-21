@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 7afbfcc7830374c07850d1f634eb5e29fb459597
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9f10825d8f22a7ddd9858e86dc2083ae47da9a69
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654913"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712765"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning-beräkningsinstans?
 
@@ -114,7 +114,7 @@ Du kan utföra följande åtgärder:
 
 * Skapa en beräkningsinstans. Ange namn, typ av virtuell Azure-dator inklusive GPU: er (antecknings typ för virtuell dator kan inte ändras efter att du har skapat), aktivera/inaktivera SSH-åtkomst och konfigurera inställningar för virtuellt nätverk. Du kan också skapa en instans direkt från integrerade antecknings böcker, Azure Portal, Resource Manager-mall eller Azure Machine Learning SDK. De dedikerade kärnorna per regions kvot som används för att skapa beräknings instanser är enhetliga och delas med Azure Machine Learning beräknings kluster kvot.
 * Uppdatera fliken beräknings instanser
-* Starta, stoppa och starta om en beräknings instans
+* Starta, stoppa och starta om en beräknings instans. Stoppa den virtuella datorn när du inte använder den för att minska kostnaderna. Starta den sedan igen när du behöver den.
 * Ta bort en beräknings instans
 
 För varje beräknings instans i din arbets yta kan du:

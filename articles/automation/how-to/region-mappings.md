@@ -1,6 +1,6 @@
 ---
-title: Support regioner för länkad Log Analytics arbets yta
-description: Den här artikeln beskriver hur du stöder region mappningar mellan ett Automation-konto och en Log Analytics-arbetsyta.
+title: Regioner som stöder länkade Log Analytics-arbetsytor
+description: Den här artikeln beskriver de region mappningar som stöds mellan ett Automation-konto och en Log Analytics arbets yta.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 229fab5550d7b03fcbba80b5f4d9433d3b31e5b1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e637aec3c5105bb9628a854b0d4c73988e60daaf
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680448"
+ms.locfileid: "83714516"
 ---
-# <a name="support-regions-for-linked-log-analytics-workspace"></a>Support regioner för länkad Log Analytics arbets yta
+# <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regioner som stöder länkade Log Analytics-arbetsytor
 
 I Azure Automation kan du aktivera Uppdateringshantering, Ändringsspårning och inventering och Starta/stoppa virtuella datorer när de inte används funktioner för dina virtuella datorer. Endast vissa regioner kan dock användas för att länka en Log Analytics-arbetsyta och ett Automation-konto i din prenumeration. Region mappningarna gäller endast Automation-kontot och Log Analytics-arbetsytan. Log Analytics-arbetsytan och automation-kontot måste finnas i samma prenumeration, men kan finnas i olika resurs grupper som distribueras till samma region. Mer information finns i [Log Analytics arbets yta och Automation-konto](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
@@ -49,9 +49,9 @@ Följande tabell visar de mappningar som stöds:
 
 ## <a name="unlink-a-workspace"></a>Ta bort länk till en arbets yta
 
-Om du bestämmer dig för att du inte längre vill integrera ditt Automation-konto med en Log Analytics arbets yta kan du ta bort länken för ditt konto direkt från Azure Portal. Innan du fortsätter måste du först [inaktivera](move-account.md#disable-features) Uppdateringshantering, ändringsspårning och inventering och starta/stoppa virtuella datorer när de inte används om du använder dem. Om du inte inaktiverar funktionerna kan du inte slutföra länknings åtgärden. 
+Om du bestämmer dig för att du inte längre vill integrera ditt Automation-konto med en Log Analytics arbets yta kan du ta bort länken för ditt konto direkt från Azure Portal. Innan du fortsätter måste du först [ta bort](move-account.md#remove-features) Uppdateringshantering, ändringsspårning och inventering och starta/stoppa virtuella datorer när de inte används om du använder dem. Om du inte tar bort dem kan du inte slutföra länknings åtgärden. 
 
-När funktionerna har inaktiverats kan du följa stegen nedan för att ta bort länken till ditt Automation-konto.
+När funktionerna har tagits bort kan du följa stegen nedan för att ta bort länken till ditt Automation-konto.
 
 > [!NOTE]
 > Vissa funktioner, inklusive tidigare versioner av Azure SQL Monitoring-lösningen, kan ha skapat Automation-till gångar som måste tas bort innan du tar bort länken till arbets ytan.
@@ -80,6 +80,6 @@ Du kan också ta bort länken för arbets ytan från ditt Automation-konto på a
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om Uppdateringshantering i [uppdateringshantering översikt](../automation-update-management.md).
-* Läs mer om Ändringsspårning och inventering i [ändringsspårning och inventerings översikt](../change-tracking.md).
-* Läs mer om Starta/stoppa virtuella datorer när de inte används i [Starta/stoppa virtuella datorer när de inte används översikt](../automation-solution-vm-management.md).
+* [Översikt över Uppdateringshantering](../automation-update-management.md)
+* [Översikt över Ändringsspårning och inventering](../change-tracking.md)
+* [Översikt över Starta/stoppa virtuella datorer när de inte används](../automation-solution-vm-management.md)

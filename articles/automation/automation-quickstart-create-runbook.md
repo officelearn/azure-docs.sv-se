@@ -1,17 +1,17 @@
 ---
 title: Azure-snabbstart – Skapa en Azure Automation-runbook | Microsoft Docs
-description: Lär dig hur du skapar en Azure Automation-runbook
+description: Den här artikeln hjälper dig att komma igång med att skapa en Azure Automation Runbook.
 services: automation
 ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 250f51c9f028dd55d8327259e35b82b0c392c1f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a784ddbc2ab1298bec3e2dc21469785163d7a228
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81537006"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712000"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Skapa en Azure Automation-runbook
 
@@ -21,7 +21,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt Azure-kon
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure på https://portal.azure.com.
+Logga in på Azure på https://portal.azure.com .
 
 ## <a name="create-the-runbook"></a>Skapa Runbook
 
@@ -41,7 +41,7 @@ Skapa en runbook först. Exempelrunbooken som skapas i den här snabbstarten mat
 
     ![Skapa PowerShell-skript i runbook-redigeringsprogrammet](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
-1. Skriv in eller kopiera och klistra in följande kod i redigeringsrutan. Den skapar en valfri indataparameter som kallas `Name` med standardvärdet `World`, och matar ut en sträng som använder det här indatavärdet:
+1. Skriv in eller kopiera och klistra in följande kod i redigeringsrutan. Den skapar en valfri indataparameter som kallas `Name` med standardvärdet `World` , och matar ut en sträng som använder det här indatavärdet:
 
    ```powershell-interactive
    param
@@ -85,7 +85,7 @@ När runbooken har publicerats visas översiktssidan.
 
    ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
-1. När jobbets status är `Running` eller `Completed`klickar du på **utdata** för att öppna fönstret utdata och Visa Runbook-utdata.
+1. När jobbets status är `Running` eller `Completed` klickar du på **utdata** för att öppna fönstret utdata och Visa Runbook-utdata.
 
    ![Testjobb för runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 

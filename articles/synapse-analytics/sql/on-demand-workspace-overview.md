@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d4de424d5d4d6da1ee80e04b35e63ae29df57c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b3cca8403897227843b088a3985d54a3b164be0d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424911"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702056"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL på begäran (för hands version) i Azure Synapse Analytics 
 
@@ -28,7 +28,7 @@ SQL på begäran är ett distribuerat data bearbetnings system som skapats för 
 
 SQL på begäran är Server lös, därför finns det ingen infrastruktur för att konfigurera eller kluster att underhålla. En standard slut punkt för den här tjänsten finns i varje Azure Synapse-arbetsyta, så att du kan börja fråga efter data så fort arbets ytan skapas. Det kostar inget att betala för resurser. du debiteras bara för de data som genomsöks av frågor som du kör, och därför är den här modellen en sann kostnad per användnings modell.  
 
-Om du använder spark i din datapipeline för förberedelse av data, rengöring eller anrikning, kan du [fråga eventuella Spark-tabeller](develop-storage-files-spark-tables.md) som du har skapat i processen direkt från SQL på begäran. Använd [privat länk](../security/how-to-connect-to-workspace-with-private-links.md) för att flytta din SQL-slutpunkt på begäran till din [hanterade VNet-VNet](../security/synapse-workspace-managed-vnet.md).  
+Om du använder Apache Spark för Azure-Synapse i din datapipeline för förberedelse av data, rengöring eller anrikning, kan du [fråga externa Spark-tabeller](develop-storage-files-spark-tables.md) som du har skapat i processen direkt från SQL på begäran. Använd [privat länk](../security/how-to-connect-to-workspace-with-private-links.md) för att flytta din SQL-slutpunkt på begäran till din [hanterade VNet-VNet](../security/synapse-workspace-managed-vnet.md).  
 
 ## <a name="who-is-sql-on-demand-for"></a>Vem är SQL på begäran för
 
@@ -42,7 +42,7 @@ Olika professionella roller kan dra nytta av SQL på begäran:
 
 - Data tekniker kan utforska sjö, transformera och förbereda data med hjälp av den här tjänsten och förenkla sina pipeliner för datatransformering. Mer information hittar du i den här [självstudien](tutorial-data-analyst.md).
 - Data forskare kan snabbt och enkelt tänka på innehållet och strukturen i data i sjön, tack vare funktioner som OpenRowSet och automatisk schema härledning.
-- Data analytiker kan [utforska data och Spark-tabeller](develop-storage-files-spark-tables.md) som skapats av data experter eller data tekniker som använder välbekanta T-SQL-språk eller deras favorit verktyg, som kan ansluta till SQL på begäran.
+- Data analytiker kan [utforska data och Spark-externa tabeller](develop-storage-files-spark-tables.md) som skapats av data experter eller data tekniker som använder välbekanta T-SQL-språk eller deras favorit verktyg, som kan ansluta till SQL på begäran.
 - BI-proffs kan snabbt [skapa Power BI rapporter ovanpå data i sjö](tutorial-connect-power-bi-desktop.md) -och Spark-tabellerna.
 
 ## <a name="what-do-i-need-to-do-to-start-using-it"></a>Vad behöver jag för att börja använda det?
@@ -110,7 +110,7 @@ SQL på begäran erbjuder mekanismer för att skydda åtkomsten till dina data.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory-integrering och multifaktorautentisering
 
-Med SQL på begäran kan du centralt hantera identiteter för databas användare och andra Microsoft-tjänster med [Azure Active Directory-integrering](../../sql-database/sql-database-Azure AD-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Den här funktionen förenklar hanteringen av behörighet och ger ökad säkerhet. Azure Active Directory (Azure AD) stöder [Multi-Factor Authentication](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) för att öka säkerheten för data och program med stöd för en enkel inloggnings process.
+Med SQL på begäran kan du centralt hantera identiteter för databas användare och andra Microsoft-tjänster med [Azure Active Directory-integrering](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Den här funktionen förenklar hanteringen av behörighet och ger ökad säkerhet. Azure Active Directory (Azure AD) stöder [Multi-Factor Authentication](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) för att öka säkerheten för data och program med stöd för en enkel inloggnings process.
 
 #### <a name="authentication"></a>Autentisering
 

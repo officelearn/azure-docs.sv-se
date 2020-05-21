@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/28/2020
+ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 7723e74b9617d5e8d56dd3c3e46145c4945ca21f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508436"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698089"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Felsöka Azure Virtual Network NAT-anslutning
 
@@ -31,6 +31,7 @@ Den här artikeln hjälper administratörer att diagnostisera och lösa anslutni
 * [ICMP-Ping fungerar inte](#icmp-ping-is-failing)
 * [Anslutnings problem](#connectivity-failures)
 * [IPv6-samexistens](#ipv6-coexistence)
+* [Anslutningen kommer inte från NAT-gatewayens IP-adress (er)](#connection-doesnt-originate-from-nat-gateway-ips)
 
 Följ stegen i följande avsnitt för att lösa problemen.
 
@@ -61,10 +62,10 @@ _**Lösning:**_ Använd lämpliga mönster och bästa metoder
 - DNS kan introducera många enskilda flöden på volymen när klienten inte cachelagrar resultatet av DNS-matcharen. Använd cachelagring.
 - UDP-flöden (till exempel DNS-sökningar) allokera SNAT-portar för varaktigheten för tids gränsen för inaktivitet. Ju längre tids gräns för inaktivitet, desto högre belastning på SNAT-portar. Använd kort tids gräns för inaktivitet (till exempel 4 minuter).
 - Använd anslutningspooler för att forma din anslutnings volym.
-- Överge aldrig ett TCP-flöde och Använd TCP-timers för att rensa flödet. Om du inte tillåter TCP att uttryckligen stänga anslutningen är tillstånd fortfarande allokerat på mellan system och slut punkter och gör SNAT-portar otillgängliga för andra anslutningar. Detta kan utlösa program haverier och SNAT-belastningar. 
+- Överge aldrig ett TCP-flöde och Använd TCP-timers för att rensa flödet. Om du inte tillåter TCP att uttryckligen stänga anslutningen är tillstånd fortfarande allokerat på mellan system och slut punkter och gör SNAT-portar otillgängliga för andra anslutningar. Det här mönstret kan utlösa program haverier och SNAT-belastningar. 
 - Ändra inte TCP/Close-relaterade timer-värden i OS-nivå utan expert kunskaper om påverkan. Även om TCP-stacken kommer att återställas kan program prestandan påverkas negativt när slut punkterna för en anslutning har fel matchnings förväntningar. De vill ändra timers är vanligt vis ett tecken på ett underliggande design problem. Granska följande rekommendationer.
 
-Ofta kan du också använda SNAT-utbelastningen med andra anti-mönster i det underliggande programmet. Granska dessa ytterligare mönster och bästa metoder för att förbättra tjänstens omfattning och tillförlitlighet.
+SNAT-belastningen kan också förstärkas med andra anti-mönster i det underliggande programmet. Granska dessa ytterligare mönster och bästa metoder för att förbättra tjänstens omfattning och tillförlitlighet.
 
 - Utforska effekten av att minska timeout-värdet för [TCP-inaktivitet](nat-gateway-resource.md#timers) till lägre värden, inklusive standard tids gräns för inaktivitet på 4 minuter för att frigöra antalet SNAT
 - Överväg att använda [asynkrona avsöknings mönster](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) för långvariga åtgärder för att frigöra anslutnings resurser för andra åtgärder.
@@ -116,8 +117,8 @@ Använd verktyg som följande för att verifiera anslutningen. [ICMP-Ping stöds
 
 #### <a name="configuration"></a>Konfiguration
 
-Kontrollera följande:
-1. Har NAT-gateway-resursen minst en offentlig IP-resurs eller en resurs för offentliga IP-prefix? Du måste minst ha en IP-adress som är kopplad till NAT-gatewayen för att den ska kunna tillhandahålla utgående anslutning.
+Kontrol lera konfigurationen:
+1. Har NAT-gatewayresursen minst en offentlig IP-resurs eller en resurs för offentliga IP-prefix? Du måste ha minst en IP-adress som är kopplad till NAT-gatewayen för att den ska kunna ge en utgående anslutning.
 2. Är det virtuella nätverkets undernät konfigurerat för att använda NAT-gatewayen?
 3. Använder du UDR (användardefinierad väg) och åsidosätter du målet?  NAT-gatewayens resurser blir standard vägen (0/0) på konfigurerade undernät.
 
@@ -129,7 +130,7 @@ Granska avsnittet om [SNAT-inblåsning](#snat-exhaustion) i den här artikeln.
 
 Azure övervakar och arbetar med sin infrastruktur med gott om service. Tillfälliga fel kan uppstå, det finns ingen garanti för att överföringen är förlustfri.  Använd design mönster som tillåter SYN återöverföringar för TCP-program. Använd anslutnings-timeout tillräckligt stor för att tillåta TCP-dataöverföring för att minska den tillfälliga påverkan som orsakas av ett förlorat SYN-paket.
 
-_**Lösa**_
+_**Lösning:**_
 
 * Sök efter [SNAT-belastning](#snat-exhaustion).
 * Konfigurations parametern i en TCP-stack som styr SYN återöverförings beteendet kallas RTO ([timeout för återöverföring](https://tools.ietf.org/html/rfc793)). RTO-värdet är justerbart, men vanligt vis 1 sekund eller högre som standard med exponentiella säkerhets kopieringar.  Om programmets anslutnings-timeout är för kort (till exempel 1 sekund) kan du se sporadisk tids gräns för anslutning.  Öka tids gränsen för program anslutningen.
@@ -154,7 +155,7 @@ Föregående avsnitt gäller, tillsammans med Internet slut punkten som kommunik
 
 Paket som samlas in på källan och målet (om det är tillgängligt) måste vanligt vis ta reda på vad som sker.
 
-_**Lösa**_
+_**Lösning:**_
 
 * Sök efter [SNAT-belastning](#snat-exhaustion). 
 * Verifiera anslutningen till en slut punkt i samma region eller någon annan stans för jämförelse.  
@@ -170,7 +171,7 @@ En möjlig orsak är att TCP-anslutningen har nått tids gränsen för inaktivit
 
 TCP-återställning genereras inte på den offentliga sidan av NAT-gatewayens resurser. TCP-återställning på mål sidan genereras av den virtuella käll datorn, inte NAT-gateway-resursen.
 
-_**Lösa**_
+_**Lösning:**_
 
 * Granska [design mönster](#design-patterns) rekommendationer.  
 * Öppna ett support ärende om du behöver ytterligare fel sökning.
@@ -182,6 +183,18 @@ _**Lösa**_
 _**Lösning:**_ Distribuera NAT-gateway i ett undernät utan IPv6-prefix.
 
 Du kan ange intresse för ytterligare funktioner via [Virtual Network NAT UserVoice](https://aka.ms/natuservoice).
+
+### <a name="connection-doesnt-originate-from-nat-gateway-ips"></a>Anslutningen kommer inte från NAT-gatewayens IP-adress (er)
+
+Du konfigurerar NAT-gateway, IP-adress (er) som ska användas och vilket undernät som ska använda en NAT-gateway-resurs. Men anslutningar från virtuella dator instanser som fanns innan NAT-gatewayen distribuerades använder inte IP-adressen (ES).  De verkar använda IP-adress (er) som inte används med NAT gateway-resursen.
+
+_**Lösning:**_
+
+[Virtual Network NAT](nat-overview.md) ersätter den utgående anslutningen för under nätet som den är konfigurerad på. När du övergår från standard SNAT eller belastningsutjämnaren utgående SNAT till att använda NAT-gatewayer börjar nya anslutningar omedelbart använda de IP-adresser som är associerade med NAT-gateway-resursen.  Men om en virtuell dator fortfarande har en upprättad anslutning under växeln till NAT gateway-resurs fortsätter anslutningen att använda den gamla SNAT-IP-adressen som tilldelades när anslutningen upprättades.  Se till att du verkligen upprättar en ny anslutning i stället för att återanvända en anslutning som redan funnits på grund av att operativ systemet eller webbläsaren cachelagrade anslutningarna i en anslutningspool.  När du använder _sväng_ i PowerShell ska du till exempel se till att ange parametern _-DisableKeepalive_ för att tvinga en ny anslutning.  Om du använder en webbläsare kan anslutningarna också placeras i pooler.
+
+Du behöver inte starta om en virtuell dator som konfigurerar ett undernät för en NAT gateway-resurs.  Men om en virtuell dator startas om, töms anslutnings läget.  När anslutnings statusen har tömts kommer alla anslutningar att börja använda NAT-gatewayens IP-adress (er).  Detta är dock en sido effekt på den virtuella datorn som startas om och inte en indikator som kräver en omstart.
+
+Om du fortfarande har problem kan du öppna ett support ärende för ytterligare fel sökning.
 
 ## <a name="next-steps"></a>Nästa steg
 

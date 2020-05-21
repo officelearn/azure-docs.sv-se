@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 083bad1aa9abd2cb8efe3520b0acecc9ab00853c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: b28f34c6ee160f96a7b30ded274b030936ce3266
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983881"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701582"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Synapse Analytics (förhandsgranska arbets yta)
 
@@ -35,9 +35,7 @@ A: Azure Synapse är en integrerad data plattform för BI, AI och kontinuerlig i
 
 ### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>F: Hur gör jag för att kom igång med Azure Synapse Analytics
 
-S: du börjar använda Azure Synapse Analytics genom att skapa en [Synapse-arbetsyta](https://portal.azure.com) (den är gratis!) och skapa de resurser som du vill ha under den arbets ytan. Du kan följa en av våra snabb starts guider, till exempel [skapa en SYNAPSE SQL-pool](quickstart-create-sql-pool.md) eller [skapa en arbets yta](quickstart-create-workspace.md), som vägleder dig genom ett enkelt användnings fall. 
-
-Du kan också hitta exempel på bärbara datorer och SQL-skript i vår [lagrings plats](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). Om du behöver ansluta till en offentlig data uppsättning skapar du en ny länkad tjänst med följande attribut:
+A: om du vill börja använda Azure Synapse Analytics [registrerar du Azure Synapse Resource Provider](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) genom att välja *Microsoft. Synapse* i listan över resurs leverantörer. Skapa sedan en [Synapse-arbetsyta](https://portal.azure.com) (den är gratis!) och skapa de resurser som du vill ha under den arbets ytan. Du kan följa en av våra snabb starts guider, till exempel [skapa en SYNAPSE SQL-pool](quickstart-create-sql-pool-portal.md) eller [skapa en arbets yta](quickstart-create-workspace.md), som vägleder dig genom ett enkelt användnings fall. Du kan också hitta exempel på bärbara datorer och SQL-skript i vår [lagrings plats](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). Om du behöver ansluta till en offentlig data uppsättning skapar du en ny länkad tjänst med följande attribut:
 
 - azure_storage_account_name = "azureopendatastorage"
 - azure_storage_sas_token = "" (Skriv **""**)
@@ -106,6 +104,6 @@ A: Ja, du kan använda företags program från tredje part, t. ex. Tableau och P
 
 - [Skapa en arbetsyta](quickstart-create-workspace.md)
 - [Använda Synapse Studio](quickstart-synapse-studio.md)
-- [Skapa en SQL-pool](quickstart-create-sql-pool.md)
+- [Skapa en SQL-pool](quickstart-create-sql-pool-portal.md)
 - [Använda SQL på begäran](quickstart-sql-on-demand.md)
-- [Skapa en Apache Spark pool](quickstart-create-apache-spark-pool.md) 
+- [Skapa en Apache Spark pool](quickstart-create-apache-spark-pool-portal.md) 

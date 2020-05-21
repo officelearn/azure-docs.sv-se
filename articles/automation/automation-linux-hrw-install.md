@@ -1,16 +1,16 @@
 ---
-title: Azure Automation Linux Hybrid Runbook Worker
-description: Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker så att du kan köra Runbooks på Linux-baserade datorer i ditt lokala data Center eller i moln miljön.
+title: Distribuera ett Linux-Hybrid Runbook Worker i Azure Automation
+description: Den här artikeln beskriver hur du installerar en Azure Automation Hybrid Runbook Worker för att köra Runbooks på Linux-baserade datorer i ditt lokala data Center eller i moln miljön.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82f6d9e56e5d5745077ef512cb3392c16b95961f
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 599eb527a349278caf2e4e22e9458a9cd2d08d24
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872181"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712459"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera ett Linux-Hybrid Runbook Worker
 
@@ -70,23 +70,23 @@ Minimi kraven för en Linux-Hybrid Runbook Worker är:
 
 ## <a name="install-a-linux-hybrid-runbook-worker"></a>Installera en Linux-Hybrid Runbook Worker
 
-Om du vill installera och konfigurera en Hybrid Runbook Worker på Linux-datorn följer du en enkel manuell process. Det kräver att du aktiverar Automation Hybrid Worker-lösningen i Azure Log Analytics-arbetsytan och sedan kör en uppsättning kommandon för att registrera datorn som en anställd och lägga till den i en grupp.
+Om du vill installera och konfigurera en Hybrid Runbook Worker på Linux-datorn följer du en enkel manuell process. Det kräver att du aktiverar Hybrid Runbook Worker i Azure Log Analytics-arbetsytan och sedan kör en uppsättning kommandon för att registrera datorn som en arbets grupp och lägga till den i en grupp.
 
 Notera Log Analytics arbets ytan som ditt Automation-konto är länkat till innan du fortsätter. Observera också den primära nyckeln för ditt Automation-konto. Du kan hitta båda från Azure Portal genom att välja ditt Automation-konto, välja **arbets yta** för arbetsyte-ID och välja **nycklar** för den primära nyckeln. Information om portar och adresser som du behöver för Hybrid Runbook Worker finns i [Konfigurera nätverket](automation-hybrid-runbook-worker.md#network-planning).
 
 >[!NOTE]
 > [Nxautomation-kontot](automation-runbook-execution.md#log-analytics-agent-for-linux) med motsvarande sudo-behörigheter måste finnas under installationen av Linux-hybrid Worker. Om du försöker installera Worker och kontot inte finns eller inte har rätt behörighet, Miss lyckas installationen.
 
-1. Aktivera Automation Hybrid Worker lösning i Azure med någon av följande metoder:
+1. Aktivera Hybrid Runbook Worker i Azure genom att använda någon av följande metoder:
 
-   * Lägg till Automation Hybrid Worker-lösningen i din prenumeration genom att följa anvisningarna i [lägga till Azure Monitor logg lösningar på din arbets yta](../log-analytics/log-analytics-add-solutions.md).
+   * Lägg till Hybrid Runbook Worker i din prenumeration genom att följa anvisningarna i [lägga till Azure Monitor loggar på din arbets yta](../log-analytics/log-analytics-add-solutions.md).
    * Kör följande cmdlet:
 
         ```azurepowershell-interactive
-         Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
+         Set-AzOperationalInsightsIntelligencePack -ResourceGroupName  <ResourceGroupName> -WorkspaceName <WorkspaceName> -IntelligencePackName  "AzureAutomation" -Enabled $true
         ```
 
-1. Installera Log Analytics agent för Linux genom att köra följande kommando. Ersätt \<WorkspaceID\> och \<WorkspaceKey\> med lämpliga värden från din arbets yta.
+1. Installera Log Analytics agent för Linux genom att köra följande kommando. Ersätt \< WorkspaceID \> och \< WorkspaceKey \> med lämpliga värden från din arbets yta.
 
    [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
@@ -103,7 +103,7 @@ Notera Log Analytics arbets ytan som ditt Automation-konto är länkat till inna
 1. När kommandot har slutförts visar sidan Hybrid Worker grupper i Azure Portal den nya gruppen och antalet medlemmar. Om det här är en befintlig grupp ökar antalet medlemmar. Du kan välja gruppen i listan på sidan Hybrid Worker grupper och sedan välja panelen **hybrid personal** . På sidan hybrid Worker visas varje medlem i gruppen i listan.
 
 > [!NOTE]
-> Om du använder tillägget Azure Monitor virtuell dator för Linux för en virtuell Azure-dator rekommenderar vi att `autoUpgradeMinorVersion` du anger till false som versioner för automatisk uppgradering kan orsaka problem med hybrid Runbook Worker. Information om hur du uppgraderar tillägget manuellt finns i [Azure CLI-distribution](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
+> Om du använder tillägget Azure Monitor virtuell dator för Linux för en virtuell Azure-dator rekommenderar vi att du anger `autoUpgradeMinorVersion` till false som versioner för automatisk uppgradering kan orsaka problem med hybrid Runbook Worker. Information om hur du uppgraderar tillägget manuellt finns i [Azure CLI-distribution](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment).
 
 ## <a name="turn-off-signature-validation"></a>Inaktivera verifiering av signatur
 
@@ -131,4 +131,4 @@ Om du vill ta bort en Hybrid Runbook Worker grupp Linux-datorer använder du sam
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala data Center eller någon annan moln miljö finns i [köra Runbooks på en hybrid Runbook Worker](automation-hrw-run-runbooks.md).
-* Information om hur du felsöker dina hybrid Runbook Worker finns i [Felsöka Linux hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#linux)
+* Information om hur du felsöker dina hybrid Runbook Worker finns i [Felsöka Linux hybrid Runbook Worker](troubleshoot/hybrid-runbook-worker.md#linux).

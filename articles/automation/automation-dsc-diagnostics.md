@@ -1,6 +1,6 @@
 ---
-title: Vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar
-description: Den här artikeln visar hur du skickar rapporterings data från Azure Automation tillstånd till Azure Monitor loggar för att leverera ytterligare insikt och hantering.
+title: Integrera med Azure Monitor loggar
+description: Den här artikeln beskriver hur du skickar rapporterings data för önskad tillstånds konfiguration från Azure Automation tillstånds konfiguration till Azure Monitor loggar.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b0ee75c39ba87503f150ffb72b7ab95aaf83999
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cc68b53137175042f586ee83bc045f0fbbca38f7
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996053"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713292"
 ---
-# <a name="forward-state-configuration-reporting-data-to-azure-monitor-logs"></a>Vidarebefordra rapportdata från State Configuration till Azure Monitor-loggar
+# <a name="integrate-with-azure-monitor-logs"></a>Integrera med Azure Monitor loggar
 
 Azure Automation tillstånds konfiguration behåller nodernas status data i 30 dagar. Du kan skicka nodernas status data till din Log Analytics arbets yta om du vill behålla dessa data under en längre period. Kompatibilitetsstatus visas i Azure Portal eller med PowerShell för noder och för enskilda DSC-resurser i nodkonfigurationer. 
 
@@ -29,7 +29,6 @@ Azure Monitor-loggar ger bättre drifts insyn i konfigurations data för Automat
 - Använd anpassade vyer och Sök frågor för att visualisera dina Runbook-resultat, status för Runbook-jobb och andra relaterade nyckel indikatorer eller mått.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 
 ## <a name="prerequisites"></a>Krav
 
@@ -88,9 +87,9 @@ Fönstret loggs ökning öppnas med en fråge region som är begränsad till din
 
 Filtrerings information:
 
-* Filtrera på `DscNodeStatusData` för att returnera åtgärder för varje nod i tillstånds konfigurationen.
-* Filtrera på `DscResourceStatusData` för att returnera åtgärder för varje DSC-resurs som kallas i nodens konfiguration som tillämpas på resursen. 
-* Filtrera på `DscResourceStatusData` för att returnera fel information för alla DSC-resurser som inte fungerar.
+* Filtrera på för `DscNodeStatusData` att returnera åtgärder för varje nod i tillstånds konfigurationen.
+* Filtrera på för `DscResourceStatusData` att returnera åtgärder för varje DSC-resurs som kallas i nodens konfiguration som tillämpas på resursen. 
+* Filtrera på för `DscResourceStatusData` att returnera fel information för alla DSC-resurser som inte fungerar.
 
 Mer information om hur du skapar logg frågor för att hitta data finns i [Översikt över logg frågor i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
@@ -127,8 +126,8 @@ Den här frågan visar ett diagram över nodens status över tid.
 
 Azure Automation diagnostik skapar du två kategorier med poster i Azure Monitor loggar:
 
-* Status data för noder`DscNodeStatusData`()
-* Resurs status data (`DscResourceStatusData`)
+* Status data för noder ( `DscNodeStatusData` )
+* Resurs status data ( `DscResourceStatusData` )
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 

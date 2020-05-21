@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 921a11d8846c868436365fe400852eac0f7dcd3e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273247"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712102"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – Översikt
 
@@ -90,7 +90,7 @@ Azure Cosmos DB stöder för närvarande tre typer av index.
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  (fungerar för `>`, `<`, `>=`, `<=`, `!=`)
+  (fungerar för `>` , `<` , `>=` , `<=` , `!=` )
 
 - Söker efter en egenskap:
 
@@ -98,7 +98,11 @@ Azure Cosmos DB stöder för närvarande tre typer av index.
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- Standardvärden för String (innehåller nyckelordet använder inte intervall indexet):
+- Sträng system funktioner:
+
+   ```sql
+   SELECT * FROM c WHERE CONTAINS(c.property, "value")
+   ```
 
    ```sql
    SELECT * FROM c WHERE STARTSWITH(c.property, "value")
@@ -152,7 +156,7 @@ Rums index kan användas på korrekt formaterade geospatiala [JSON](geospatial.m
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- Frågor med ett filter och `ORDER BY`. Dessa frågor kan använda ett sammansatt index om filter egenskapen har lagts till i- `ORDER BY` satsen.
+- Frågor med ett filter och `ORDER BY` . Dessa frågor kan använda ett sammansatt index om filter egenskapen har lagts till i- `ORDER BY` satsen.
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
@@ -175,12 +179,12 @@ Så länge ett filter predikat använder en av index typerna, kommer frågesynta
 
 De sökvägar som extraherades vid indexering av data gör det enkelt att söka efter indexet när en fråga bearbetas. Genom att matcha `WHERE` -satsen i en fråga med listan över indexerade sökvägar är det möjligt att identifiera de objekt som matchar frågespråket mycket snabbt.
 
-Överväg till exempel följande fråga: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Frågans predikat (filtrering av objekt, där alla platser har "Frankrike" som sitt land), matchar sökvägen som marker ATS i rött nedan:
+Överväg till exempel följande fråga: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Frågans predikat (filtrering av objekt, där alla platser har "Frankrike" som sitt land), matchar sökvägen som marker ATS i rött nedan:
 
 ![Matcha en angiven sökväg inom ett träd](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> En `ORDER BY` sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss betes om sökvägen den refererar till inte har en. På samma sätt behöver `ORDER BY` en fråga som order by flera egenskaper *alltid* ett sammansatt index.
+> En `ORDER BY` sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss betes om sökvägen den refererar till inte har en. På samma sätt `ORDER BY` behöver en fråga som order by flera egenskaper *alltid* ett sammansatt index.
 
 ## <a name="next-steps"></a>Nästa steg
 

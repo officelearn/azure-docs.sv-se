@@ -1,17 +1,17 @@
 ---
 title: Azure-snabbstart – Skapa ett Azure Automation-konto | Microsoft Docs
-description: Lär dig hur du skapar ett Azure Automation-konto och kör en runbook
+description: Den här artikeln hjälper dig att komma igång med att skapa ett Azure Automation konto och köra en Runbook.
 services: automation
 ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 7704f080b7c1878f2fa2b079a1f242c8c2cc87a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d4cdb87302e12c024e15f8e0a7e3854d6f707a7
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536989"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715468"
 ---
 # <a name="create-an-azure-automation-account"></a>Skapa ett Azure Automation-konto
 
@@ -63,7 +63,7 @@ Kör en självstudierunbook.
 
     ![Sida för Runbook-jobb](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-1. När jobbets status blir `Running`klickar du på **utdata** eller **alla loggar** för att visa utdata från Runbook-jobbet. För denna självstudierunbook är utdata en lista över dina Azure-resurser.
+1. När jobbets status blir `Running` klickar du på **utdata** eller **alla loggar** för att visa utdata från Runbook-jobbet. För denna självstudierunbook är utdata en lista över dina Azure-resurser.
 
 ## <a name="next-steps"></a>Nästa steg
 

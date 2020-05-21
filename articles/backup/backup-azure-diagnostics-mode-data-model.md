@@ -3,12 +3,12 @@ title: Azure Monitor loggar data modell
 description: I den här artikeln lär du dig mer om Azure Monitor Log Analytics data modell information för Azure Backup data.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 72484923bc94e197cd195c0192b53feb3ef457ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78d43e4c65f31b47f4b6070f071c932692cee883
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183695"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83707997"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics data modell för Azure Backup data
 
@@ -28,16 +28,16 @@ Du kan använda följande fält som ingår i data modellen för att skapa visuel
 
 Den här tabellen innehåller information om aviserings relaterade fält.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | AlertUniqueId_s |Text |Unik identifierare för den genererade aviseringen |
 | AlertType_s |Text |Typ av avisering, till exempel säkerhets kopiering |
 | AlertStatus_s |Text |Status för aviseringen, till exempel aktiv |
-| AlertOccurrenceDateTime_s |Date/Time |Datum och tid då aviseringen skapades |
+| AlertOccurrenceDateTime_s |Datum/tid |Datum och tid då aviseringen skapades |
 | AlertSeverity_s |Text |Allvarlighets grad för aviseringen, till exempel kritisk |
-|AlertTimeToResolveInMinutes_s    | Tal        |Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.         |
+|AlertTimeToResolveInMinutes_s    | Antal        |Åtgången tid för att lösa en avisering. Tomt för aktiva aviseringar.         |
 |AlertConsolidationStatus_s   |Text         |Identifiera om aviseringen är en konsol IDE rad avisering eller inte         |
-|CountOfAlertsConsolidated_s     |Tal         |Antal aviseringar som konsolideras om det är en konsol IDE rad avisering          |
+|CountOfAlertsConsolidated_s     |Antal         |Antal aviseringar som konsolideras om det är en konsol IDE rad avisering          |
 |AlertRaisedOn_s     |Text         |Typ av entitet som aviseringen utlöses på         |
 |AlertCode_s     |Text         |Kod som unikt identifierar en aviserings typ         |
 |RecommendedAction_s   |Text         |Åtgärd som rekommenderas för att lösa aviseringen         |
@@ -62,7 +62,7 @@ Den här tabellen innehåller information om aviserings relaterade fält.
 
 Den här tabellen innehåller information om säkerhets kopiering av objekt-relaterade fält.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | EventName_s |Text |Händelsens namn. Alltid AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |Unikt ID för det säkerhetskopierade objektet |
@@ -92,7 +92,7 @@ Den här tabellen innehåller information om säkerhets kopiering av objekt-rela
 
 Den här tabellen innehåller information om säkerhets kopierings objekts associationer med olika entiteter.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | EventName_s |Text |Det här fältet representerar namnet på den här händelsen, det är alltid AzureBackupCentralReport |  
 | BackupItemUniqueId_s |Text |Unikt ID för det säkerhetskopierade objektet |
@@ -117,7 +117,7 @@ Den här tabellen innehåller information om säkerhets kopierings objekts assoc
 
 Den här tabellen innehåller information om säkerhets kopierings objekts associationer med olika entiteter.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 |BackupManagementServerName_s     |Text         |Namn på säkerhets kopierings hanterings servern        |
 |AzureBackupAgentVersion_s     |Text         |Versionen av Azure Backup-agenten på säkerhets kopierings hanterings servern          |
@@ -136,7 +136,7 @@ Den här tabellen innehåller information om säkerhets kopierings objekts assoc
 
 Den här tabellen innehåller information om projektrelaterade fält.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | EventName_s |Text |Händelsens namn. Alltid AzureBackupCentralReport |
 | BackupItemUniqueId_s |Text |Unikt ID för det säkerhetskopierade objektet |
@@ -152,11 +152,11 @@ Den här tabellen innehåller information om projektrelaterade fält.
 | JobOperation_s |Text |Åtgärd för vilket jobb som körs, till exempel säkerhets kopiering, återställning, konfigurera säkerhets kopiering |
 | JobStatus_s |Text |Status för det slutförda jobbet, till exempel slutförd, misslyckades |
 | JobFailureCode_s |Text |Kod sträng för felkod på grund av vilket jobbfel som skett |
-| JobStartDateTime_s |Date/Time |Datum och tid då jobbet började köras |
+| JobStartDateTime_s |Datum/tid |Datum och tid då jobbet började köras |
 | BackupStorageDestination_s |Text |Mål för lagring av säkerhets kopior, till exempel moln, disk  |
 | AdHocOrScheduledJob_s |Text | Fält för att ange om jobbet är ad hoc eller schemalagt |
-| JobDurationInSecs_s | Tal |Total jobb varaktighet i sekunder |
-| DataTransferredInMB_s | Tal |Överförda data i MB för det här jobbet|
+| JobDurationInSecs_s | Antal |Total jobb varaktighet i sekunder |
+| DataTransferredInMB_s | Antal |Överförda data i MB för det här jobbet|
 | JobUniqueId_g |Text |Unikt ID för att identifiera jobbet |
 | RecoveryJobDestination_s |Text | Målet för ett återställnings jobb, där data återställs |
 | RecoveryJobRPDateTime_s |DateTime | Datum och tid när återställnings punkten som återställs skapades |
@@ -172,7 +172,7 @@ Den här tabellen innehåller information om projektrelaterade fält.
 
 Den här tabellen innehåller information om principbaserad fält.
 
-| Field | Datatyp | Versioner som gäller | Beskrivning |
+| Fält | Datatyp | Versioner som gäller | Beskrivning |
 | --- | --- | --- | --- |
 | EventName_s |Text ||Det här fältet representerar namnet på den här händelsen, det är alltid AzureBackupCentralReport |
 | SchemaVersion_s |Text ||Det här fältet anger den aktuella versionen av schemat och är **v2** |
@@ -220,7 +220,7 @@ Den här tabellen innehåller information om principbaserad fält.
 
 Den här tabellen innehåller information om princip kopplingar med olika entiteter.
 
-| Field | Datatyp | Versioner som gäller | Beskrivning |
+| Fält | Datatyp | Versioner som gäller | Beskrivning |
 | --- | --- | --- | --- |
 | EventName_s |Text ||Det här fältet representerar namnet på den här händelsen, det är alltid AzureBackupCentralReport |
 | SchemaVersion_s |Text ||Det här fältet anger den aktuella versionen av schemat och är **v2** |
@@ -243,7 +243,7 @@ Den här tabellen innehåller information om princip kopplingar med olika entite
 
 Den här tabellen innehåller grundläggande fält om skyddade behållare. (Was ProtectedServer i v1)
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | ProtectedContainerUniqueId_s |Text | Fält som unikt identifierar en skyddad behållare |
 | ProtectedContainerOSType_s |Text |OS-typ för den skyddade behållaren |
@@ -262,7 +262,7 @@ Den här tabellen innehåller grundläggande fält om skyddade behållare. (Was 
 
 Den här tabellen innehåller information om Storage-relaterade fält.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | CloudStorageInBytes_s |Decimaltal |Moln lagrings lagring som används av säkerhets kopieringar, beräknat utifrån det senaste värdet (det här fältet är endast för v1-schema)|
 | ProtectedInstances_s |Decimaltal |Antal skyddade instanser som används för att beräkna frontend-lagring vid fakturering, beräknat utifrån det senaste värdet |
@@ -290,21 +290,21 @@ Den här tabellen innehåller information om Storage-relaterade fält.
 
 Den här tabellen innehåller grundläggande Storage-relaterade fält som ansluter lagring till andra entiteter.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- |  --- |
 | StorageUniqueId_s |Text |Unikt ID som används för att identifiera lagrings enheten |
 | SchemaVersion_s |Text |Det här fältet anger den aktuella versionen av schemat och är **v2** |
 | BackupItemUniqueId_s |Text |Unikt ID som används för att identifiera det säkerhets kopierings objekt som är relaterat till lagrings enheten |
 | BackupManagementServerUniqueId_s |Text |Unikt ID som används för att identifiera säkerhets kopierings hanterings servern som är relaterad till lagrings enheten|
 | VaultUniqueId_s |Text |Unikt ID som används för att identifiera valvet som hör till lagrings enheten|
-| StorageConsumedInMBs_s |Tal|Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
-| StorageAllocatedInMBs_s |Tal |Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk|
+| StorageConsumedInMBs_s |Antal|Storlek på lagring som förbrukas av motsvarande säkerhets kopierings objekt i motsvarande lagrings utrymme |
+| StorageAllocatedInMBs_s |Antal |Storleken på det lagrings utrymme som allokerats av motsvarande säkerhets kopierings objekt i motsvarande lagring av typ disk|
 
 ### <a name="vault"></a>Valv
 
 Den här tabellen innehåller information om valvbaserade fält.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | EventName_s |Text |Det här fältet representerar namnet på den här händelsen, det är alltid AzureBackupCentralReport |
 | SchemaVersion_s |Text |Det här fältet anger den aktuella versionen av schemat och är **v2** |
@@ -327,7 +327,7 @@ Den här tabellen innehåller information om valvbaserade fält.
 
 Den här tabellen innehåller grundläggande fält om säkerhets kopierings hanterings servrar.
 
-|Field  |Datatyp  | Beskrivning  |
+|Fält  |Datatyp  | Beskrivning  |
 |---------|---------|----------|
 |BackupManagementServerName_s     |Text         |Namn på säkerhets kopierings hanterings servern        |
 |AzureBackupAgentVersion_s     |Text         |Versionen av Azure Backup-agenten på säkerhets kopierings hanterings servern          |
@@ -340,7 +340,7 @@ Den här tabellen innehåller grundläggande fält om säkerhets kopierings hant
 
 Den här tabellen anger de arbets belastningar som en volym är kopplad till.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | StorageUniqueId_s |Text |Unikt ID som används för att identifiera lagrings enheten |
 | BackupItemType_s |Text |De arbets belastningar som den här volymen är den prioriterade lagringen för|
@@ -349,7 +349,7 @@ Den här tabellen anger de arbets belastningar som en volym är kopplad till.
 
 Den här tabellen innehåller grundläggande skyddade instans fält.
 
-| Field | Datatyp |Versioner som gäller | Beskrivning |
+| Fält | Datatyp |Versioner som gäller | Beskrivning |
 | --- | --- | --- | --- |
 | BackupItemUniqueId_s |Text |v2|Unikt ID som används för att identifiera säkerhets kopierings objekt för virtuella datorer som säkerhets kopie ras med DPM, MABS|
 | ProtectedContainerUniqueId_s |Text |v2|Unikt ID som används för att identifiera den skyddade behållaren för allting förutom virtuella datorer som säkerhets kopie ras med DPM, MABS|
@@ -359,7 +359,7 @@ Den här tabellen innehåller grundläggande skyddade instans fält.
 
 Den här tabellen innehåller grundläggande fält för återställnings punkt.
 
-| Field | Datatyp | Beskrivning |
+| Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | BackupItemUniqueId_s |Text |Unikt ID som används för att identifiera säkerhets kopierings objekt för virtuella datorer som säkerhets kopie ras med DPM, MABS|
 | OldestRecoveryPointTime_s |Text |Datum och tid för den äldsta återställnings punkten för det säkerhetskopierade objektet|
@@ -463,7 +463,9 @@ Nedan visas några exempel som hjälper dig att skriva frågor om Azure Backup d
 ## <a name="v1-schema-vs-v2-schema"></a>Schemat v1 schema vs v2
 Tidigare skickades diagnostikdata för Azure Backup Agent och säkerhets kopiering av virtuella Azure-datorer till Azure-diagnostiks tabellen i ett schema som kallas ***v1-schema***. Sedan lades nya kolumner till för att stödja andra scenarier och arbets belastningar, och diagnostikdata skickades i ett nytt schema som kallas ***v2-schema***. 
 
-Av sekretesskäl för bakåtkompatibilitet skickas diagnostikdata för Azure Backup Agent och säkerhets kopiering av virtuella Azure-datorer till Azure-diagnostik tabell i både v1-och v2-schemat (med v1-schemat nu på en utfasnings väg). Du kan identifiera vilka poster i Log Analytics som är v1-schemat genom att filtrera poster för SchemaVersion_s = = "v1" i dina logg frågor.
+Av sekretesskäl för bakåtkompatibilitet skickas diagnostikdata för Azure Backup Agent och säkerhets kopiering av virtuella Azure-datorer till Azure-diagnostik tabell i både v1-och v2-schemat (med v1-schemat nu på en utfasnings väg). Du kan identifiera vilka poster i Log Analytics som är v1-schemat genom att filtrera poster för SchemaVersion_s = = "v1" i dina logg frågor. 
+
+Referera till den tredje kolumnen Beskrivning i den [data modell](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) som beskrivs ovan för att identifiera vilka kolumner som endast tillhör v1-schema.
 
 ## <a name="next-steps"></a>Nästa steg
 

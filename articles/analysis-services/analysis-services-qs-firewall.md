@@ -4,15 +4,15 @@ description: Den här snabb starten hjälper dig att konfigurera en brand vägg 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 68994f9b79af55b32527eed52bbc4e5866c89538
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 48618815519fad31bff5d6a8d2d2edc82535f437
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79205162"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697895"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>Snabbstart: Konfigurera serverbrandvägg – portalen
 
@@ -32,7 +32,7 @@ Den här snabbstarten hjälper dig att konfigurera en brandvägg för Azure Anal
 ## <a name="configure-a-firewall"></a>Konfigurera en brandvägg
 
 1. Öppna sidan Översikt genom att klicka på servern. 
-2. I **Inställningar** > **brand vägg** > **Aktivera brand vägg**, klickar du på **på**.
+2. I **Inställningar**  >  **brand vägg**  >  **Aktivera brand vägg**, klickar du på **på**.
 3. Klicka på **På** i **Tillåt åtkomst från Power BI** om du vill ge DirectQuery åtkomst från Power BI-tjänsten.  
 4. (Valfritt) Ange ett eller flera IP-adressintervall. Ange ett namn, och start- och slut-IP-adress för varje intervall. Brand Väggs regelns namn får inte vara längre än 128 tecken och får bara innehålla versaler, gemener, siffror, under streck och bindestreck. Blank steg och andra specialtecken är inte tillåtna.
 5. Klicka på **Spara**.

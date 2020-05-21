@@ -9,12 +9,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/06/2019
-ms.openlocfilehash: 711e15986265324bbb353fb2b4404cbfeb48dc84
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8a057890d20fc233eae6f1636d83e73855305b7
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78851413"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727054"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-monitor-it-with-the-azure-cli"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och övervaka den med Azure CLI
 
@@ -92,7 +92,7 @@ I det här avsnittet använder du Azure CLI för att skapa en resurs grupp och e
 I det här avsnittet skapar du en simulerad enhet i den första CLI-sessionen. Den simulerade enheten skickar telemetri till IoT-hubben. I den andra CLI-sessionen övervakar du händelser och telemetri och skickar ett meddelande från moln till enhet till den simulerade enheten.
 
 Skapa och starta en simulerad enhet:
-1. Kör kommandot [AZ IoT Hub Device-Identity Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) i den första CLI-sessionen. Detta skapar den simulerade enhets identiteten. 
+1. Kör kommandot [AZ IoT Hub Device-Identity Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest#ext-azure-iot-az-iot-hub-device-identity-create) i den första CLI-sessionen. Detta skapar den simulerade enhets identiteten. 
 
     *YourIotHubName*. Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb. 
 
@@ -102,7 +102,7 @@ Skapa och starta en simulerad enhet:
     az iot hub device-identity create --device-id simDevice --hub-name {YourIoTHubName} 
     ```
 
-1. Kör kommandot [AZ IoT Device simulering](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-simulate) i den första CLI-sessionen.  Detta startar den simulerade enheten. Enheten skickar telemetri till din IoT-hubb och tar emot meddelanden från den.  
+1. Kör kommandot [AZ IoT Device simulering](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device?view=azure-cli-latest#ext-azure-iot-az-iot-device-simulate) i den första CLI-sessionen.  Detta startar den simulerade enheten. Enheten skickar telemetri till din IoT-hubb och tar emot meddelanden från den.  
 
     *YourIotHubName*. Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb. 
 
@@ -111,7 +111,7 @@ Skapa och starta en simulerad enhet:
     ```
 
 Övervaka en enhet:
-1. I den andra CLI-sessionen kör du kommandot [AZ IoT Hub Monitor-Events](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) . Detta börjar övervaka den simulerade enheten. Utdata visar telemetri som den simulerade enheten skickar till IoT-hubben.
+1. I den andra CLI-sessionen kör du kommandot [AZ IoT Hub Monitor-Events](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-monitor-events) . Detta börjar övervaka den simulerade enheten. Utdata visar telemetri som den simulerade enheten skickar till IoT-hubben.
 
     *YourIotHubName*. Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb. 
 
@@ -134,7 +134,7 @@ I det här avsnittet använder du den andra CLI-sessionen för att skicka ett me
     az iot device simulate -d simDevice -n {YourIoTHubName}
     ```
 
-1. I den andra CLI-sessionen kör du kommandot [AZ IoT Device C2D-Message Send](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/device/c2d-message?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-device-c2d-message-send) . Detta skickar ett meddelande från moln till enhet från IoT-hubben till den simulerade enheten. Meddelandet innehåller en sträng och två nyckel/värde-par.  
+1. I den andra CLI-sessionen kör du kommandot [AZ IoT Device C2D-Message Send](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/device/c2d-message?view=azure-cli-latest#ext-azure-iot-az-iot-device-c2d-message-send) . Detta skickar ett meddelande från moln till enhet från IoT-hubben till den simulerade enheten. Meddelandet innehåller en sträng och två nyckel/värde-par.  
 
     *YourIotHubName*. Ersätt platshållaren nedan med det namn som du har valt för din IoT-hubb. 
 

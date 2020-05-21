@@ -1,15 +1,15 @@
 ---
 title: Använd Azure Active Directory för att autentisera hanterings lösningar för batch
 description: Utforska med Azure Active Directory för att autentisera från program som använder .NET-biblioteket för batch Management.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/27/2017
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7ca32e5f9ff32d635d7f662c74dea5534e3dd072
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ec9cf15f37c3ca7e4e477c628733d34cac21c141
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608463"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726901"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autentisera lösningar för batch-hantering med Active Directory
 
@@ -25,7 +25,7 @@ Mer information om hur du använder batch Management .NET-biblioteket och Accoun
 
 Azure [Active Directory-autentiseringsbibliotek][aad_adal] (ADAL) tillhandahåller ett programmerings gränssnitt för Azure AD för användning i dina program. Om du vill anropa ADAL från ditt program måste du registrera ditt program i en Azure AD-klient. När du registrerar ditt program anger du Azure AD med information om ditt program, inklusive ett namn för det i Azure AD-klienten. Azure AD tillhandahåller sedan ett program-ID som du använder för att associera ditt program med Azure AD vid körning. Mer information om program-ID finns [i program-och tjänst huvud objekt i Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Registrera AccountManagement-exempel programmet genom att följa stegen i avsnittet [lägga till ett program](../active-directory/develop/quickstart-register-app.md) i [integrera program med Azure Active Directory][aad_integrate]. Ange ett **internt klient program** för typen av program. Bransch standard OAuth 2,0-URI för **omdirigerings** - `urn:ietf:wg:oauth:2.0:oob`URI: n är. Du kan dock ange en giltig URI (till exempel `http://myaccountmanagementsample`) för **omdirigerings-URI: n**, eftersom den inte behöver vara en verklig slut punkt:
+Registrera AccountManagement-exempel programmet genom att följa stegen i avsnittet [lägga till ett program](../active-directory/develop/quickstart-register-app.md) i [integrera program med Azure Active Directory][aad_integrate]. Ange ett **internt klient program** för typen av program. Bransch standard OAuth 2,0-URI för **omdirigerings-URI: n** är `urn:ietf:wg:oauth:2.0:oob` . Du kan dock ange en giltig URI (till exempel `http://myaccountmanagementsample` ) för **omdirigerings-URI: n**, eftersom den inte behöver vara en verklig slut punkt:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 

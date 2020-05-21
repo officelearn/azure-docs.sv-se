@@ -1,15 +1,15 @@
 ---
 title: Autentisera Azure Batch tjänster med Azure Active Directory
 description: Batch stöder Azure AD för autentisering från batch-tjänsten. Lär dig hur du autentiserar på ett av två sätt.
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/28/2020
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3fa1aa2bb7389200fe5e5a80598686143344d636
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3ed3db184174d0a383c5c1fbd85e69d9fef0da44
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608480"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726918"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -39,7 +39,7 @@ Om du vill autentisera med Azure AD använder du den här slut punkten tillsamma
 > [!NOTE]
 > Den klient-/regionsspecifika slut punkten krävs när du autentiserar med ett huvud namn för tjänsten.
 >
-> Den klient-/regionsspecifika slut punkten är valfri när du autentiserar med integrerad autentisering, men rekommenderas. Du kan dock också använda den vanliga Azure AD-slutpunkten. Den gemensamma slut punkten ger ett allmänt gränssnitt för insamling av autentiseringsuppgifter när en enskild klient inte har angetts. Den gemensamma slut punkten `https://login.microsoftonline.com/common`är.
+> Den klient-/regionsspecifika slut punkten är valfri när du autentiserar med integrerad autentisering, men rekommenderas. Du kan dock också använda den vanliga Azure AD-slutpunkten. Den gemensamma slut punkten ger ett allmänt gränssnitt för insamling av autentiseringsuppgifter när en enskild klient inte har angetts. Den gemensamma slut punkten är `https://login.microsoftonline.com/common` .
 >
 >
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 91cf594e74d91b8b4df2108d23459016fa843700
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8cba8f7a21b04dc722124eb2873c64f67fd6def
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80586605"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727144"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Snabb start: Aktivera SSH och RDP över en IoT Hub enhets ström med hjälp av ett C proxy-program (för hands version)
 
@@ -48,7 +48,7 @@ Följande bild illustrerar hur enhets-och tjänst lokala proxy-program möjligg�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -126,7 +126,7 @@ I den här snabb starten använder du [Azure IoT-enhetens SDK för C](iot-hub-de
 
 ## <a name="register-a-device"></a>Registrera en enhet
 
-En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det här avsnittet använder du Azure Cloud Shell med [IoT-tillägget](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) för att registrera en simulerad enhet.
+En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det här avsnittet använder du Azure Cloud Shell med [IoT-tillägget](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) för att registrera en simulerad enhet.
 
 1. Skapa enhets identiteten genom att köra följande kommando i Cloud Shell:
 
@@ -157,7 +157,7 @@ I det här avsnittet upprättar du en slutpunkt-till-slutpunkt-ström för att d
 
 ### <a name="run-the-device-local-proxy-application"></a>Kör det enhetslokala proxyprogrammet
 
-1. Redigera käll filen **iothub_client_c2d_streaming_proxy_sample. c** i mappen `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample`och ange enhets anslutnings strängen, mål enhetens IP/värdnamn och SSH-port 22:
+1. Redigera käll filen **iothub_client_c2d_streaming_proxy_sample. c** i mappen `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` och ange enhets anslutnings strängen, mål enhetens IP/värdnamn och SSH-port 22:
 
    ```C
    /* Paste in your device connection string  */
@@ -211,7 +211,7 @@ ssh {username}@localhost -p 2222
 
 I det här läget kommer du att bli ombedd att ange dina autentiseringsuppgifter i SSH-inloggnings fönstret.
 
-Följande bild visar konsolens utdata på enhetens lokala proxy, som ansluter till SSH-daemonen på `IP_address:22`:
+Följande bild visar konsolens utdata på enhetens lokala proxy, som ansluter till SSH-daemonen på `IP_address:22` :
 
 ![Enhet – lokal Proxy-utdata](./media/quickstart-device-streams-proxy-c/device-console-output.png)
 

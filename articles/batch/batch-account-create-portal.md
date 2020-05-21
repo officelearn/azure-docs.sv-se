@@ -1,15 +1,15 @@
 ---
 title: Skapa ett konto i Azure Portal
 description: Lär dig hur du skapar ett Azure Batch-konto på Azure-portalen för att köra storskaliga parallella arbetsbelastningar i molnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9349ed74111565f68a088cda95c8defcd79f7e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e01c62270fc0195c430150a534df2a141808ffa6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113229"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726935"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Skapa ett Batch-konto med Azure Portal
 
@@ -23,7 +23,7 @@ Bakgrundsinformation om Batch-konton och Batch-scenarier finns i [funktionsöver
 
 1. Logga in på [Azure-portalen][azure_portal].
 
-1. Välj **skapa en resurs** > **Compute** > **Batch-tjänst**.
+1. Välj **skapa en resurs**  >  **Compute**  >  **Batch-tjänst**.
 
     ![Batch på Marketplace][marketplace_portal]
 
@@ -75,7 +75,7 @@ När du skapar ditt första Batch-konto i användarprenumerationsläge behöver 
 
 1. Logga in på [Azure-portalen][azure_portal].
 
-1. Välj **alla tjänster** > **prenumerationer**och välj den prenumeration som du vill använda för batch-kontot.
+1. Välj **alla tjänster**  >  **prenumerationer**och välj den prenumeration som du vill använda för batch-kontot.
 
 1. På sidan **Prenumeration** väljer du **resursproviders** och sök efter **Microsoft.Batch**. Kontrollera att resursprovidern **Microsoft.Batch** har registrerats i prenumerationen. Om den inte är registrerad väljer du länken **Registrera**.
 
@@ -112,7 +112,7 @@ Om du vill bevilja åtkomst till nyckel valvet manuellt går du till avsnittet *
 > [!NOTE]
 > Kontrol lera att kryss rutorna **Azure Virtual Machines för distribution** och **Azure Resource Manager för mall distribution** är markerade under **åtkomst principer** för den länkade **Key Vault** resursen.
 > 
-> ![Obligatorisk Key Vault åtkomst princip](./media/batch-account-create-portal/key-vault-access-policy.png) detta är inte obligatoriskt när du skapar ett batch-konto i Azure Portal. Alternativet är valt som standard.
+> ![Obligatorisk Key Vault åtkomst princip ](./media/batch-account-create-portal/key-vault-access-policy.png) Detta är inte obligatoriskt när du skapar ett batch-konto i Azure Portal. Alternativet är valt som standard.
 
 
 

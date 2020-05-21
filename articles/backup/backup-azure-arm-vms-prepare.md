@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services valv med hjälp av Azure Backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273519"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727020"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -91,7 +91,7 @@ Konfigurera en säkerhets kopierings policy för valvet.
 
    ![Säkerhets kopierings knapp](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-2. I **säkerhets kopierings mål** > **var din arbets belastning körs? väljer du** **Azure**. I **vad vill du säkerhetskopiera?** Välj **virtuell dator** >  **OK**. Detta registrerar VM-tillägget i valvet.
+2. I **säkerhets kopierings mål**  >  **var din arbets belastning körs? väljer du** **Azure**. I **vad vill du säkerhetskopiera?** Välj **virtuell dator**  >   **OK**. Detta registrerar VM-tillägget i valvet.
 
    ![Säkerhetskopiera och säkerhetskopiera mål fönster](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -108,6 +108,9 @@ Konfigurera en säkerhets kopierings policy för valvet.
    * Virtuella datorer kan bara säkerhets kopie ras i ett enda valv.
 
      ![Fönstret Välj virtuella datorer](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+
+    >[!NOTE]
+    > Endast virtuella datorer i samma region och prenumeration som för valvet kommer att vara tillgängliga för att konfigurera säkerhets kopiering.
 
 5. I **säkerhets kopiering**klickar du på **Aktivera säkerhets kopiering**. Detta distribuerar principen till valvet och till de virtuella datorerna och installerar säkerhets kopierings tillägget på VM-agenten som körs på den virtuella Azure-datorn.
 
@@ -149,7 +152,7 @@ Den första säkerhets kopieringen kommer att köras enligt schemat, men du kan 
 3. I listan **säkerhets kopierings objekt** klickar du på ellipserna (...).
 4. Klicka på **Säkerhetskopiera nu**.
 5. I **Säkerhetskopiera nu**använder du kalender kontrollen för att välja den sista dagen som återställnings punkten ska behållas. Klicka sedan på **OK**.
-6. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb** > **pågår**. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
+6. Övervaka Portal meddelanden. Du kan övervaka jobb förloppet i valv instrument panelen > **säkerhets kopierings jobb**  >  **pågår**. Beroende på den virtuella datorns storlek kan det ta en stund att skapa den första säkerhetskopian.
 
 ## <a name="verify-backup-job-status"></a>Verifiera status för säkerhets kopierings jobb
 
@@ -168,10 +171,10 @@ Jobbets status kan variera beroende på följande scenarier:
 
 **Ögonblicksbild** | **Överför data till valv** | **Jobb status**
 --- | --- | ---
-Slutfört | Pågår | Pågår
-Slutfört | Överhoppad | Slutfört
-Slutfört | Slutfört | Slutfört
-Slutfört | Misslyckades | Slutfört med varning
+Slutförd | Pågår | Pågår
+Slutförd | Överhoppad | Slutförd
+Slutförd | Slutförd | Slutförd
+Slutförd | Misslyckades | Slutfört med varning
 Misslyckades | Misslyckades | Misslyckades
 
 Med den här funktionen kan två säkerhets kopior för samma virtuella dator köras parallellt, men i båda skedet (ögonblicks bilder, överför data till valv) kan endast en under aktivitet köras. I situationer då en pågående säkerhets kopiering resulterade i att säkerhets kopieringen till nästa dag inte kunde köras, undviks den här kopplings funktionen. Efterföljande dagars säkerhets kopieringar kan ha en ögonblicks bild som slutförts medan **överföring av data till valvet** hoppades över om en tidigare säkerhets kopierings jobb pågår.
@@ -185,7 +188,7 @@ Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett
 
 **DATORN** | **Information**
 --- | ---
-**Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agent-MSI-filen.<br/><br/> 2. Installera med administratörs behörighet på datorn.<br/><br/> 3. kontrol lera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på**Egenskaper**för **WaAppAgent. exe** > . **Produkt versionen** bör vara 2.6.1198.718 eller högre på fliken **information** .<br/><br/> Om du uppdaterar agenten ser du till att inga säkerhets kopierings åtgärder körs och [installerar om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+**Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agent-MSI-filen.<br/><br/> 2. Installera med administratörs behörighet på datorn.<br/><br/> 3. kontrol lera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på Egenskaper för **WaAppAgent. exe**  >  **Properties**. **Produkt versionen** bör vara 2.6.1198.718 eller högre på fliken **information** .<br/><br/> Om du uppdaterar agenten ser du till att inga säkerhets kopierings åtgärder körs och [installerar om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Installera med hjälp av ett RPM-eller DEB-paket från distributionens paket lagrings plats. Detta är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser. Agenten är tillgänglig på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att du installerar därifrån.<br/><br/> Om du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder körs och uppdatera binärfilerna.
 
 >[!NOTE]

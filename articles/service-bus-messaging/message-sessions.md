@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 05/20/2020
 ms.author: aschhab
-ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cedf3678fc73b004c142380b4ba69c10ca72ebf
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116697"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727003"
 ---
 # <a name="message-sessions"></a>Meddelandesessioner
-Microsoft Azure Service Bus-sessioner möjliggör gemensam och ordnad hantering av icke-bundna sekvenser av relaterade meddelanden. Sessioner kan användas i de mönster som först in, först ut (FIFO) och begär ande svar. Den här artikeln visar hur du använder sessioner för att implementera dessa mönster när du använder Service Bus. 
-
-## <a name="first-in-first-out-fifo-pattern"></a>Mönster för första in, först ut (FIFO)
-Om du vill inse en FIFO-garanti i Service Bus använder du sessioner. Service Bus är inte förenligt Relations typen för relationen mellan meddelandena och definierar inte heller en viss modell för att avgöra var en meddelandekö startar eller slutar.
+Microsoft Azure Service Bus-sessioner möjliggör gemensam och ordnad hantering av icke-bundna sekvenser av relaterade meddelanden. Sessioner kan användas i de mönster som **först in, först ut (FIFO)** och **begär ande svar** . Den här artikeln visar hur du använder sessioner för att implementera dessa mönster när du använder Service Bus. 
 
 > [!NOTE]
 > Basic-nivån för Service Bus stöder inte sessioner. Standard-och Premium-nivåerna stöder sessioner. För skillnader mellan dessa nivåer, se [Service Bus prissättning](https://azure.microsoft.com/pricing/details/service-bus/).
+
+## <a name="first-in-first-out-fifo-pattern"></a>Mönster för första in, först ut (FIFO)
+Om du vill inse en FIFO-garanti i Service Bus använder du sessioner. Service Bus är inte förenligt Relations typen för relationen mellan meddelandena och definierar inte heller en viss modell för att avgöra var en meddelandekö startar eller slutar.
 
 En avsändare kan skapa en session när de skickar meddelanden till ett ämne eller en kö genom att ange egenskapen [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) till en viss programdefinierad identifierare som är unik för sessionen. På AMQP 1,0-protokoll nivån mappas detta värde till egenskapen *Group-ID* .
 
@@ -95,10 +95,10 @@ Definitionen av leverans antal per meddelande i samband med sessioner skiljer si
 ## <a name="request-response-pattern"></a>Mönster för begäran-svar
 [Fråge svars mönstret](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) är ett väletablerat integrerings mönster som gör det möjligt för avsändar programmet att skicka en begäran och ger mottagaren rätt att skicka ett svar tillbaka till avsändar programmet. Det här mönstret kräver vanligt vis en kort period i kö eller ett ämne som programmet ska skicka svar till. I det här scenariot tillhandahåller sessioner en enkel alternativ lösning med jämförbara semantik. 
 
-Flera program kan skicka sina förfrågningar till en enskild begär ande kö, med en specifik huvud parameter inställd på att unikt identifiera avsändar programmet. Mottagar programmet kan bearbeta de begär Anden som kommer i kön och skicka svar på en kö som är aktive rad, ställa in sessions-ID: t till den unika identifieraren som avsändaren skickade till begär ande meddelandet. Det program som skickade begäran kan sedan ta emot meddelanden på ett särskilt sessions-ID och bearbeta svaren på rätt sätt.
+Flera program kan skicka sina förfrågningar till en enskild begär ande kö, med en specifik huvud parameter inställd på att unikt identifiera avsändar programmet. Mottagar programmet kan bearbeta de begär Anden som kommer i kön och skicka svar på den session som är aktive rad, ställa in sessions-ID: t till den unika identifierare som avsändaren skickade till begär ande meddelandet. Det program som skickade begäran kan sedan ta emot meddelanden i det specifika sessions-ID: t och bearbeta svaren på rätt sätt.
 
 > [!NOTE]
-> Programmet som skickar de ursprungliga förfrågningarna bör veta om sessions-ID: `SessionClient.AcceptMessageSession(SessionID)` t och använda för att låsa den session där svaret förväntas. Det är en bra idé att använda en GUID som unikt identifierar instansen av programmet som ett sessions-ID. Det ska inte finnas någon sessionsbiljett eller `AcceptMessageSession(timeout)` i kön för att se till att svaren är tillgängliga för att låsas och bearbetas av vissa mottagare.
+> Programmet som skickar de ursprungliga förfrågningarna bör veta om sessions-ID: t och använda `SessionClient.AcceptMessageSession(SessionID)` för att låsa den session där svaret förväntas. Det är en bra idé att använda en GUID som unikt identifierar instansen av programmet som ett sessions-ID. Det ska inte finnas någon sessionsbiljett eller `AcceptMessageSession(timeout)` i kön för att se till att svaren är tillgängliga för att låsas och bearbetas av vissa mottagare.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -107,7 +107,7 @@ Flera program kan skicka sina förfrågningar till en enskild begär ande kö, m
 Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
-* [Kom igång med Service Bus köer](service-bus-dotnet-get-started-with-queues.md)
+* [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [1]: ./media/message-sessions/sessions.png

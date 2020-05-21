@@ -5,46 +5,15 @@ author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/20/2020
 ms.author: dsindona
-ms.openlocfilehash: b857cf8b7485beb884adf77d99f82d965f55a0ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0eb48207eb6eb51ebf3d96e1cdc4da721a1cd7d7
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82142789"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726952"
 ---
-# <a name="virtual-machine-offer"></a>Erbjudande på virtuella datorer
+# <a name="azure-virtual-machine-offer"></a>Erbjudande för virtuell Azure-dator
 
-> [!IMPORTANT]
-> Med början den 13 april 2020 kommer vi att börja flytta hanteringen av dina virtuella Azure-datorer till Partner Center. Efter migreringen kommer du att skapa och hantera dina erbjudanden i Partner Center. Följ instruktionerna i [skapa ett erbjudande för virtuell Azure-dator](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer) för att hantera dina migrerade erbjudanden.
-
-|    |    |
-|-----------------------------------------------------------------|------------------------------------------|
-| Det här avsnittet beskriver hur du publicerar ett nytt erbjudande för virtuella datorer på [Azure Marketplace](https://azuremarketplace.microsoft.com). Support tillhandahålls för både Windows-och Linux-baserade virtuella datorer, som innehåller en virtuell hård disk för operativ system (VHD) och noll eller flera data-VHD: er. | ![ikon för virtuell dator](./media/virtual-machine-icon.png)  |
-
-
-## <a name="publishing-overview"></a>Publicerings översikt
-
-Följande video, [optimera ditt Azure Marketplace-erbjudande](https://channel9.msdn.com/Events/Build/2017/P4026?ocid=player), presenterar en översikt över Azure Marketplace, inklusive hur du publicerar på den här Marketplace (med hjälp av en lösning för virtuella datorer), hur du optimerar användar upplevelsen med din produkt sida och valfri test enhets upplevelse, hur användar leads genereras och hur du kan använda dem och optimera kund engagemang.
-
-> [!VIDEO https://channel9.msdn.com/Events/Build/2017/P4026/player]
-
-
-## <a name="vm-publishing-process-flow"></a>Process flöde för VM-publicering
-
-Följande diagram illustrerar de övergripande stegen för att publicera ett erbjudande för virtuella datorer. 
-
-![Process för VM-publicering](./media/publishvm_001.png)
-
-1. Skapa erbjudandet – all information och information om erbjudandet konfigureras, inklusive erbjudande beskrivning, marknadsförings material, juridik, supportinformation och till gångs uppgifter.
-
-2. Skapa företags-och teknik till gångar – skapa företags till gångar (juridiska dokument och marknadsförings material) och tekniska till gångar för den associerade lösningen (här, de virtuella datorerna och anslutna diskar). 
-
-3. Skapa SKU – skapa tillhör ande SKU: er som är associerade med erbjudandet och skicka dem.  En unik SKU krävs för varje avbildning som du planerar att publicera. 
- 
-4. Certifiera och publicera erbjudandet – när erbjudandet och de tekniska till gångarna har slutförts kan du skicka in erbjudandet. Den här sändningen påbörjar publicerings processen där lösningen testas, verifieras, certifieras och sedan blir Live på Marketplace.  
-
-## <a name="next-steps"></a>Nästa steg
-
-Innan du tar hänsyn till de här stegen måste du uppfylla de [tekniska och affärsmässiga kraven](./cpp-prerequisites.md) för att publicera en virtuell dator till Microsoft Azure Marketplace. 
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera virtuella Azure-datorer. Den här funktionen har flyttats till Microsoft [partner Center](https://partner.microsoft.com/pcv/). Mer information finns i [skapa ett erbjudande för virtuell Azure-dator](../../partner-center-portal/azure-vm-create-offer.md).

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.openlocfilehash: 5b57a2463815d5db1c83d3bc4e8cd56314fb204d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19ccdf85e1753bea202c5c157919ab4e8ff96d06
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176996"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660254"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mappa en befintlig anpassad domän till Azure våren Cloud
 DNS (Distributed Name Service) är en teknik för att lagra namn på nätverks-noder i ett nätverk. Den här självstudien mappar en domän, till exempel www.contoso.com, med hjälp av en CNAME-post. Den säkrar den anpassade domänen med ett certifikat och visar hur du tvingar Transport Layer Security (TLS), även kallat Secure Sockets Layer (SSL). 
@@ -21,7 +21,7 @@ Certifikaten krypterar webb trafik. Dessa TLS/SSL-certifikat kan lagras i Azure 
 ## <a name="prerequisites"></a>Krav
 * Ett program som distribueras till Azure våren Cloud (se [snabb start: starta ett befintligt Azure våren Cloud-program med hjälp av Azure Portal](spring-cloud-quickstart-launch-app-portal.md)eller Använd en befintlig app).
 * Ett domän namn med åtkomst till DNS-registret för domän leverantören, till exempel GoDaddy.
-* Ett privat certifikat från en tredje parts leverantör. Certifikatet måste matcha domänen.
+* Ett privat certifikat (det vill säga ditt självsignerade certifikat) från en tredje parts leverantör. Certifikatet måste matcha domänen.
 * En distribuerad instans av [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
 ## <a name="import-certificate"></a>Importera certifikatet 
@@ -31,25 +31,44 @@ Så här överför du ditt certifikat till nyckel valvet:
 1. Gå till din Key Vault-instans.
 1. I det vänstra navigerings fönstret klickar du på **certifikat**.
 1. Klicka på **generera/importera**på den övre menyn.
-1. I dialog rutan **skapa ett certifikat** under **metoden för att skapa certifikat**väljer `Import`du.
+1. I dialog rutan **skapa ett certifikat** under **metoden för att skapa certifikat**väljer du `Import` .
 1. Under **överför certifikat fil**, navigerar du till certifikat plats och väljer den.
 1. Under **lösen ord**anger du den privata nyckeln för certifikatet.
 1. Klicka på **Skapa**.
 
-![Importera certifikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
+    ![Importera certifikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
 Importera certifikat till Azure våren-molnet:
 1. Gå till din tjänst instans. 
 1. I det vänstra navigerings fönstret i appen väljer du **TLS/SSL-inställningar**.
 1. Klicka sedan på **importera Key Vault certifikat**.
 
-![Importera certifikatet](./media/custom-dns-tutorial/import-certificate.png)
+    ![Importera certifikatet](./media/custom-dns-tutorial/import-certificate.png)
+
+Du kan också använda Azure CLI för att importera certifikatet:
+
+```
+az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
+```
+
+> [!IMPORTANT] 
+> Se till att ge Azure våren Cloud åtkomst till ditt nyckel valv innan du kör det tidigare import certifikat kommandot. Om du inte har gjort det kan du köra följande kommando för att ge åtkomst behörighet.
+
+```
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list
+``` 
 
 När du har importerat certifikatet ser du det i listan över **certifikat för privat nyckel**.
 
 ![Certifikat för privat nyckel](./media/custom-dns-tutorial/key-certificates.png)
 
->[!IMPORTANT] 
+Du kan också använda Azure CLI för att visa en lista över certifikat:
+
+```
+az spring-cloud certificate list
+```
+
+> [!IMPORTANT] 
 > Om du vill skydda en anpassad domän med det här certifikatet måste du fortfarande binda certifikatet till en speciell domän. Följ stegen i det här dokumentet under rubriken **Lägg till SSL-bindning**.
 
 ## <a name="add-custom-domain"></a>Lägg till anpassad domän
@@ -71,19 +90,29 @@ Gå till program sidan.
 1. Välj **anpassad domän**.
 2. **Lägg sedan till anpassad domän**. 
 
-![Anpassad domän](./media/custom-dns-tutorial/custom-domain.png)
+    ![Anpassad domän](./media/custom-dns-tutorial/custom-domain.png)
 
 3. Ange det fullständigt kvalificerade domän namnet som du har lagt till en CNAME-post för, till exempel www.contoso.com. Kontrol lera att post typen hostname är inställd på CNAME (<service_name>. azuremicroservices.io)
 4. Klicka på **validera** för att aktivera knappen **Lägg till** .
 5. Klicka på **Lägg till**.
 
-![Lägg till anpassad domän](./media/custom-dns-tutorial/add-custom-domain.png)
+    ![Lägg till anpassad domän](./media/custom-dns-tutorial/add-custom-domain.png)
+
+Du kan också använda Azure CLI för att lägga till en anpassad domän:
+```
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+```
 
 En app kan ha flera domäner, men en domän kan bara mappas till en enda app. När du har mappat din anpassade domän till appen visas den i den anpassade domän tabellen.
 
 ![Anpassad domän tabell](./media/custom-dns-tutorial/custom-domain-table.png)
 
->[!NOTE]
+Du kan också använda Azure CLI för att visa en lista över anpassade domäner:
+```
+az spring-cloud app custom-domain list --app <app name> 
+```
+
+> [!NOTE]
 > En **osäker etikett för** din anpassade domän innebär att den inte har bundits till något SSL-certifikat än. Eventuella HTTPS-förfrågningar från en webbläsare till din anpassade domän får ett fel eller en varning.
 
 ## <a name="add-ssl-binding"></a>Lägg till SSL-bindning
@@ -91,7 +120,12 @@ I tabellen anpassad domän väljer du **Lägg till SSL-bindning** som visas i f�
 1. Välj ditt **certifikat** eller importera det.
 1. Klicka på **Spara**.
 
-![Lägg till SSL-bindning](./media/custom-dns-tutorial/add-ssl-binding.png)
+    ![Lägg till SSL-bindning](./media/custom-dns-tutorial/add-ssl-binding.png)
+
+Du kan också använda Azure CLI för att **lägga till SSL-bindning**:
+```
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
+```
 
 När du har lagt till SSL-bindningen är domän tillståndet säker: **felfri**. 
 
@@ -104,10 +138,15 @@ På din app-sida väljer du **anpassad domän**i det vänstra navigerings fälte
 
 ![Lägg till SSL-bindning](./media/custom-dns-tutorial/enforce-http.png)
 
+Du kan också använda Azure CLI för att genomdriva HTTPS:
+```
+az spring-cloud app update -name <app-name> --https-only <true|false> -g <resource group> --service <service-name>
+```
+
 När åtgärden har slutförts navigerar du till någon av HTTPS-URL: erna som pekar på din app. Observera att HTTP-URL: er inte fungerar.
 
 ## <a name="see-also"></a>Se även
 * [Vad är Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Importera ett certifikat](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
-* [Starta din våren Cloud-App med Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
+* [Starta din våren Cloud-App med hjälp av Azure CLI](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)
 

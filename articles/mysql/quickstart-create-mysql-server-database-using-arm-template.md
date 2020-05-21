@@ -7,23 +7,23 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 04/27/2020
-ms.openlocfilehash: 7313d12509859514e41b30c4021f74f25a0e50b9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 05/19/2020
+ms.openlocfilehash: 4fef9db91369c23d27090cc2433b5e0ed09bbc7d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629954"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684729"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-arm-template"></a>Snabb start: skapa en Azure Database for MySQL-server med ARM-mallen
+# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Snabb start: Använd en ARM-mall för att skapa en Azure Database for MySQL-Server
 
-Azure Database for MySQL är en hanterad tjänst som du använder för att köra, hantera och skala hög tillgängliga MySQL-databaser i molnet. Den här snabb starten visar hur du använder en fördefinierad Azure Resource Manager-mall (ARM) för att skapa en Azure Database for MySQL-server med integrering av virtuella nätverk. Du kan skapa servern med hjälp av Azure Portal, Azure CLI eller Azure PowerShell.
+Azure Database for MySQL är en hanterad tjänst som du använder för att köra, hantera och skala hög tillgängliga MySQL-databaser i molnet. I den här snabb starten använder du en ARM-mall för att skapa en Azure Database for MySQL-server med integrering av virtuella nätverk. Du kan skapa servern i Azure Portal, Azure CLI eller Azure PowerShell.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 ## <a name="prerequisites"></a>Krav
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Ett Azure-konto med en aktiv prenumeration. [Skapa ett kostnads fritt](https://azure.microsoft.com/free/).
 
@@ -61,7 +61,7 @@ Du hittar fler Azure Database for MySQL mal sampel i [galleriet snabb starts mal
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Välj följande länk för att distribuera Azure Database for MySQL server mal len i Azure Portal:
 
@@ -148,7 +148,7 @@ echo "Press [ENTER] to continue ..."
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Följ dessa steg om du vill se en översikt över din nya Azure Database for MySQL server:
 
@@ -184,7 +184,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 När den inte längre behövs tar du bort resurs gruppen, som tar bort resurserna i resurs gruppen.
 
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. I [Azure Portal](https://portal.azure.com)söker du efter och väljer **resurs grupper**.
 

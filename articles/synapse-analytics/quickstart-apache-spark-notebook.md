@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 27ec09f1286f4e7999db56acdedaba1a37122aad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592958"
+ms.locfileid: "83656193"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Snabb start: skapa en Apache Spark pool (förhands granskning) i Azure Synapse Analytics med hjälp av webb verktyg
 
@@ -25,11 +25,11 @@ I den här snabb starten får du lära dig hur du skapar en Apache Spark pool (f
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto innan du börjar](https://azure.microsoft.com/free/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Synapse Analytics-arbetsyta](quickstart-create-workspace.md)
-- [Apache Spark pool](quickstart-create-apache-spark-pool.md)
+- [Apache Spark pool](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -133,7 +133,9 @@ Structured Query Language (SQL) är det vanligaste språket som används för at
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Azure Synapse sparar dina data i Azure Data Lake Storage. Du kan på ett säkert sätt tillåta att en spark-instans stängs av när den inte används. Du debiteras för en Azure-Synapse Apache Spark pool så länge den körs, även om den inte används. Avgifterna för poolen är många gånger större än avgifterna för lagring. Därför är det ekonomiskt klokt att låta Spark-instanser stängas av när de inte används.
+Azure Synapse sparar dina data i Azure Data Lake Storage. Du kan på ett säkert sätt låta en spark-instans stängas av när den inte används. Du debiteras för en Azure Synapse Apache Spark-pool så länge den körs, även om den inte används. 
+
+Eftersom avgifterna för poolen är många gånger mer än avgifterna för lagring, är det ekonomiskt klokt att låta Spark-instanser stängas av när de inte används.
 
 Om du vill se till att Spark-instansen stängs av avslutar du alla anslutna sessioner (Notebooks). Poolen stängs av när **tids gränsen för inaktivitet** i Apache Spark-poolen har uppnåtts. Du kan också välja **avsluta sessionen** från statusfältet längst ned i antecknings boken.
 

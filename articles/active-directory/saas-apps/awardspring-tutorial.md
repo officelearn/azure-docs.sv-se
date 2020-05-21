@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab8f18c065b283883cfca0a0d555a5fa3bb9d5a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e199b0d6cf2be7dc956267843f4dabe521d87428
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78897816"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647621"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-awardspring"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AwardSpring
 
@@ -126,7 +126,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -157,7 +157,7 @@ För att konfigurera enkel inloggning på **AwardSpring**-sidan behöver du skic
 I det här avsnittet skapas en användare som heter B. Simon i AwardSpring. AwardSpring har stöd för användaretablering enligt just-in-time, och det är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i AwardSpring skapas en ny efter autentisering.
 
 > [!Note]
-> Kontakta [AwardSpring support team](maito:support@awardspring.com)om du behöver skapa en användare manuellt.
+> Kontakta [AwardSpring support team](mailto:support@awardspring.com)om du behöver skapa en användare manuellt.
 
 ## <a name="test-sso"></a>Testa SSO
 

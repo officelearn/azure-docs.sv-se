@@ -1,17 +1,17 @@
 ---
 title: Inbyggda princip definitioner för Azure Monitor
 description: Visar Azure Policy inbyggda princip definitioner för Azure Monitor. Dessa inbyggda princip definitioner tillhandahåller vanliga metoder för att hantera dina Azure-resurser.
-ms.date: 04/30/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 0434d2d1d532839ff18ea08a445f0b9ad50103a2
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0b83638f1ddf5bb7ad5c741aac2c441a03981c3c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982130"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649629"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-monitor"></a>Azure Policy inbyggda princip definitioner för Azure Monitor
 

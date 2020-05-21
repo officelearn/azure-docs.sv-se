@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: b97bae252b25c9ae2891506f08fc4955f84c1eb6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 59bf2f3cc66391bc25ac56d8a1bf228b7c2b3765
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593026"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680533"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -46,9 +46,11 @@ Azure Machine Learning innehåller alla verktyg och data forskare som behöver f
 
 + R-skript eller antecknings böcker där du använder <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK för R</a> för att skriva din egen kod eller använda R-modulerna i designern.
 
++ + [Många modeller Solution Accelerator](https://aka.ms/many-models) (för hands version) bygger på Azure Machine Learning och gör det möjligt att träna, hantera och hantera hundratals eller till och med tusentals maskin inlärnings modeller.
+
 + [Visual Studio Code-tillägg](tutorial-setup-vscode-extension.md)
 
-+ [Maskininlärning CLI](reference-azure-machine-learning-cli.md)
++ [Machine Learning CLI](reference-azure-machine-learning-cli.md)
 
 + Ramverk med öppen källkod, till exempel PyTorch, TensorFlow och scikit – lära och många fler
 

@@ -1,14 +1,14 @@
 ---
 title: Distribuera IRS 1075 skiss exempel
 description: Distribuera steg för skiss exemplet för IRS 1075 (Rev. 11-2016) som innehåller information om skiss artefakt parameter.
-ms.date: 11/20/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 15fcac5bfd11d889522d078853bd6f916eb54616
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7faf1042f695ac43b2fa22d2685149426cb1ed80
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546809"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653097"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Distribuera IRS 1075-skiss exemplet
 
@@ -19,7 +19,7 @@ Om du vill distribuera skiss exemplet för Azure skisser IRS 1075 (Rev. 11-2016)
 > - Markera din kopia av exemplet som **publicerad**
 > - Tilldela din kopia av skissen till en befintlig prenumeration
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free) konto innan du börjar.
+Om du inte har någon Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free) innan du börjar.
 
 ## <a name="create-blueprint-from-sample"></a>Skapa skiss från exempel
 
@@ -116,8 +116,8 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 Nu när du har granskat stegen för att distribuera skiss exemplet för IRS 1075 (Rev. 11-2016) kan du gå till följande artiklar om du vill veta mer om skiss-och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [IRS 1075 skiss – översikt](./index.md)
-> [IRS 1075 skiss-kontroll mappning](./control-mapping.md)
+> [IRS 1075-skiss – översikt](./index.md) 
+>  [IRS 1075 skiss-kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

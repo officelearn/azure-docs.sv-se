@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67134993"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638999"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Skapa en Spatial Anchors-resurs
 
@@ -42,6 +42,10 @@ Sedan kan du Visa resurs egenskaperna. Kopiera resursens **konto-ID-** värde ti
 
    ![Resurs egenskaper](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-Under **Inställningar**väljer du **nyckel**. Kopiera värdet för **primär nyckel** till en text redigerare. Det här värdet är `Account Key`. Du behöver det senare.
+Kopiera också resursens **konto** värde till en text redigerare eftersom du behöver det senare.
+
+   ![Konto domän](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
+
+Under **Inställningar**väljer du **nyckel**. Kopiera värdet för **primär nyckel** till en text redigerare. Det här värdet är `Account Key` . Du behöver det senare.
 
    ![Kontonyckel](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

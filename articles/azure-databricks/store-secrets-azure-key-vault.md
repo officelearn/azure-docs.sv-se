@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 026165c7c2052992e8ab485f9ab81c8964f38235
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75889061"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647964"
 ---
-# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Självstudie: få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault
+# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Självstudier: Få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault
 
 I den här självstudien beskrivs hur du får åtkomst till Azure Blob Storage från Azure Databricks med hemligheter som lagras i ett nyckel valv.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Skapa ett lagrings konto och en BLOB-behållare
@@ -40,7 +40,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Skapa ett lagrings konto och en BLOB-behållare
 
-1. I Azure Portal väljer du **skapa en resurs** > **lagring**. Välj sedan **lagrings konto**.
+1. I Azure Portal väljer du **skapa en resurs**  >  **lagring**. Välj sedan **lagrings konto**.
 
    ![Hitta resurs för Azure Storage-konto](./media/store-secrets-azure-key-vault/create-storage-account-resource.png)
 
@@ -105,7 +105,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace-and-add-a-secret-scope"></a>Skapa en Azure Databricks arbets yta och Lägg till ett hemligt område
 
-1. I Azure Portal väljer du **skapa en resurs** > **analys** > **Azure Databricks**.
+1. I Azure Portal väljer du **skapa en resurs**  >  **analys**  >  **Azure Databricks**.
 
     ![Databricks på Azure Portal](./media/store-secrets-azure-key-vault/azure-databricks-on-portal.png)
 
@@ -176,7 +176,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 6. Kör följande kommando för att läsa text filen i Blob storage-behållaren till en dataframe. Ändra värdena i kommandot så att de överensstämmer med ditt monterings namn och fil namn.
 
    ```python
-   df = spark.read.text("mnt/<mount-name>/<file-name>")
+   df = spark.read.text("/mnt/<mount-name>/<file-name>")
    ```
 
    ![Läs fil till dataframe](./media/store-secrets-azure-key-vault/command2.png)

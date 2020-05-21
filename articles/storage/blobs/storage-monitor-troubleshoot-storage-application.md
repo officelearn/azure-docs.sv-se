@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68844877"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652156"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Övervaka och felsöka ett molnlagringsprogram
 
@@ -87,9 +87,9 @@ I det här scenariot använder du [Microsoft Message Analyzer](https://technet.m
 
 ### <a name="download-microsoft-message-analyzer"></a>Ladda ned Microsoft Message Analyzer
 
-Ladda ned [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) och installera programmet.
+Ladda ned [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) och installera programmet.
 
-Starta programmet **och välj** > **Öppna** > **från andra fil källor**.
+Starta programmet **och välj**  >  **Öppna**  >  **från andra fil källor**.
 
 I dialogrutan **File Selector** (Filväljaren) väljer du **+ Add Azure Connection** (Lägg till Azure-anslutning). Ange **namnet på ditt lagringskonto** och **kontonyckeln** och klicka sedan på **OK**.
 

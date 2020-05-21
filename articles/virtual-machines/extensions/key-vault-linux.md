@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e653adfd7a148cea7bfb1ecfdbbf386eff0c3e86
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410870"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723331"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
@@ -65,7 +65,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 ```
 
 > [!NOTE]
-> URL: er för dina observerade certifikat bör `https://myVaultName.vault.azure.net/secrets/myCertName`ha formatet.
+> URL: er för dina observerade certifikat bör ha formatet `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
 > Detta beror på att `/secrets` sökvägen returnerar det fullständiga certifikatet, inklusive den privata nyckeln, medan `/certificates` sökvägen inte fungerar. Mer information om certifikat hittar du här: [Key Vault certifikat](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
@@ -90,7 +90,7 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver uppdatering av certifikat. Tillägget kan distribueras till enskilda virtuella datorer eller skalnings uppsättningar för virtuella datorer. Schemat och konfigurationen är gemensamma för båda typerna av mallar. 
 
-JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []` objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` datorer under objekt.
+JSON-konfigurationen för ett tillägg för virtuell dator måste kapslas i den virtuella datorns resurs fragment, särskilt `"resources": []` objekt för mallen för den virtuella datorn och i händelse av skalnings uppsättning för virtuella datorer under `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` objekt.
 
 ```json
     {
@@ -194,12 +194,12 @@ Azure CLI kan användas för att distribuera Key Vault VM-tillägget till en bef
 Observera följande begränsningar/krav:
 - Key Vault begränsningar:
   - Det måste finnas vid tidpunkten för distributionen 
-  - Key Vault åtkomst princip har angetts för VM/VMSS-identitet med MSI
+  - Key Vault åtkomst princip mustbe angetts för VM/VMSS-identitet med hjälp av en hanterad identitet. Se [tillhandahålla Key Vault autentisering med en hanterad identitet](../../key-vault/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsök
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och genom att använda Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell.
 

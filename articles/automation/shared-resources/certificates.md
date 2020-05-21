@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bf7e6d0ed8d6e318e6a78d25bcc7764f6302ef22
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9542fe6cb574b36b03151a50a0352c9175a22b55
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685369"
+ms.locfileid: "83711473"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Hantera certifikat i Azure Automation
 
@@ -27,7 +27,7 @@ Azure Automation lagrar certifikat säkert för åtkomst av Runbooks och DSC-kon
 
 Cmdletarna i följande tabell skapar och hanterar Automation-certifikat med PowerShell. De levereras som en del av [AZ-modulerna](modules.md#az-modules).
 
-|Cmdlet |Description|
+|Cmdlet |Beskrivning|
 | --- | ---|
 |[Get-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationCertificate?view=azps-3.7.0)|Hämtar information om ett certifikat som ska användas i en Runbook-eller DSC-konfiguration. Du kan bara hämta själva certifikatet med hjälp av den interna `Get-AutomationCertificate` cmdleten.|
 |[New-AzAutomationCertificate](https://docs.microsoft.com/powershell/module/Az.Automation/New-AzAutomationCertificate?view=azps-3.7.0)|Skapar ett nytt certifikat i Automation.|
@@ -40,7 +40,7 @@ Cmdleten [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-a
 
 Den interna cmdleten i följande tabell används för att komma åt certifikat i dina runbooks. Denna cmdlet ingår i den globala modulen `Orchestrator.AssetManagement.Cmdlets` . Mer information finns i [interna cmdletar](modules.md#internal-cmdlets).
 
-| Intern cmdlet | Description |
+| Intern cmdlet | Beskrivning |
 |:---|:---|
 |`Get-AutomationCertificate`|Hämtar ett certifikat som ska användas i en Runbook-eller DSC-konfiguration. Returnerar ett [system. Security. Cryptography. X509Certificates. X509Certificate2](/dotnet/api/system.security.cryptography.x509certificates.x509certificate2) -objekt.|
 
@@ -165,6 +165,6 @@ print cert
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om de cmdletar som används för att komma åt certifikat finns [i hantera moduler i Azure Automation](modules.md).
-* Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).
-* Mer information om DSC-konfigurationer finns i [Översikt över tillstånds konfiguration](../automation-dsc-overview.md). 
+* [Använda moduler i Azure Automation](modules.md)
+* [Runbook-körning i Azure Automation](../automation-runbook-execution.md)
+* [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md) 

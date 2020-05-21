@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 49c1a29547195ad8557550ba1bc0cb80fae40ad8
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402634"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652218"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll
 
@@ -107,9 +107,6 @@ I utdata visas objectId som `Id` :
 Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
-
-> [!WARNING]
-> Azure AD-grupper med hanterade identiteter kräver upp till 8hr för att uppdatera token och börja gälla.
 
 #### <a name="users"></a>Användare
 
@@ -225,6 +222,9 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 Till sist ger du AD-gruppen behörighet till ditt nyckel valv med hjälp av Azure CLI [-AZ för att ange princip](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) kommando eller cmdleten Azure PowerShell [set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) . Exempel finns i avsnittet [ge appen, Azure AD-gruppen eller användar åtkomst till ditt nyckel valv](#give-the-principal-access-to-your-key-vault) ovan.
 
 Programmet behöver också minst en roll för identitets-och åtkomst hantering (IAM) som har tilldelats nyckel valvet. Annars kommer den inte att kunna logga in och kommer att Miss lyckas med otillräcklig behörighet för att komma åt prenumerationen.
+
+> [!WARNING]
+> Azure AD-grupper med hanterade identiteter kan kräva upp till 8hr för att uppdatera token och bli gällande.
 
 ## <a name="next-steps"></a>Nästa steg
 

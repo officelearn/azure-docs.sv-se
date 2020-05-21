@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2f39b6f58b250d68a3b2ce962f158c7df36d812
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 83fd986e31410e34871d1b795db0c8c83ece688e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77046605"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648611"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Workday
 
@@ -91,7 +91,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     > [!NOTE]
     > De här värdena är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en och svars-URL: en. Svars-URL: en måste ha en under domän till exempel: www, WD2, WD3, WD3-implementering, WD5, WD5-implementering).
-    > Använd något som `http://www.myworkday.com` liknar Works `http://myworkday.com` men inte. Kontakta [support teamet för Workday](https://www.workday.com/en-us/partners-services/services/support.html) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Använd något som liknar `http://www.myworkday.com` Works men inte `http://myworkday.com` . Kontakta [support teamet för Workday](https://www.workday.com/en-us/partners-services/services/support.html) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. Ditt Workday-program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. Följande skärmbild visar en lista över standardattribut, där **nameidentifier** mappas med **user.userprincipalname**. Workday-programmet förväntar sig att **NameIdentifier** mappas med **User. mail**, **UPN**osv. så du måste redigera mappningen av attribut genom att klicka på ikonen **Redigera** och ändra attributet mappning.
 
@@ -126,7 +126,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -170,7 +170,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
    > [!NOTE]
    > Värdet för attributet Environment är kopplat till värdet för klient-URL:  
-   > – Om domän namnet för arbets dagarnas klient-URL börjar med implementering, till exempel: * https://www.myworkday.com/"klient"/login-SAML2.htmld*), måste **miljöattributet** vara inställt på implementation.  
+   > – Om domän namnet för arbets dagarnas klient-URL börjar med implementering, till exempel: * https://www.myworkday.com/ "klient"/login-SAML2.htmld*), måste **miljöattributet** vara inställt på implementation.  
    > – Om domän namnet börjar med något annat måste du kontakta [support teamet för Workday-klienten](https://www.workday.com/en-us/partners-services/services/support.html) för att hämta det matchande **miljö** värdet.
 
 4. I avsnittet **SAML-installation** utför du följande steg:
@@ -209,7 +209,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Visa offentlig x509-nyckel](./media/workday-tutorial/IC782930.png "Visa offentlig x509-nyckel")
 
-    a. I text rutan **namn** anger du ett namn för ditt certifikat (till exempel: *skyddsutrustning\_SP*).
+    a. I text rutan **namn** anger du ett namn för ditt certifikat (till exempel: *skyddsutrustning \_ SP*).
 
     b. I text rutan **giltig från** anger du det giltiga värdet från attributvärdet för ditt certifikat.
 
@@ -230,7 +230,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![SSO-konfiguration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO-konfiguration")
 
-    a.  I text rutan **Service Provider-ID** skriver **http://www.workday.com**du.
+    a.  I text rutan **Service Provider-ID** skriver du **http://www.workday.com** .
 
     b. Välj **gör inte om den SP-initierade autentiseringsbegäran**.
 
@@ -247,7 +247,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ### <a name="create-workday-test-user"></a>Skapa test användare för Workday
 
-I det här avsnittet skapar du en användare som heter B. Simon på arbets dagen. Arbeta med [support teamet för Workday](https://www.workday.com/partners-services/services/support.html) för att lägga till användare i Workday-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon på arbets dagen. Arbeta med [support teamet för Workday](https://www.workday.com/en-us/partners-services/services/support.html) för att lägga till användare i Workday-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ## <a name="test-sso"></a>Testa SSO
 

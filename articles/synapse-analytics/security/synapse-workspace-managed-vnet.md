@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 162d96244b01f8c5e1acf224475aadb9508f0aa5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 623b6325b88f42f0076c84a221864762cd3918f9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423637"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645239"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Azure Synapse Analytics-hanterad Virtual Network (för hands version)
 
@@ -40,6 +40,8 @@ SQL-poolen och SQL på begäran är funktioner för flera klienter och finns dä
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-vnet"></a>Skapa en Azure dataSynapses-arbetsyta med en hanterad arbets yta VNet
 
+Registrera nätverks resurs leverantören om du inte redan har gjort det. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Välj *Microsoft. Network* i listan över resurs leverantörer när du [registrerar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)dig.
+
 Om du vill skapa en Azure dataSynapses-arbetsyta som har ett virtuellt nätverk för en hanterad arbets yta, väljer du fliken **säkerhet + nätverk** i Azure Portal och markerar kryss rutan **Aktivera hanterat virtuellt nätverk** .
 
 Om du lämnar kryss rutan avmarkerad så har din arbets yta ingen VNet kopplad till sig.
@@ -50,7 +52,7 @@ Om du lämnar kryss rutan avmarkerad så har din arbets yta ingen VNet kopplad t
 ![Aktivera hanterad arbets yta VNet](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
 >[!NOTE]
->All utgående trafik från VNet för hanterad arbets yta kommer att blockeras i framtiden. Vi rekommenderar att du ansluter till alla dina data källor med hjälp av hanterade privata slut punkter.
+>All utgående trafik från den hanterade arbets ytans VNet förutom via hanterade privata slut punkter kommer att blockeras i framtiden. Vi rekommenderar att du skapar hanterade privata slut punkter för att ansluta till alla dina Azure-datakällor utanför arbets ytan. 
 
 Du kan kontrol lera om din Azure Synapse-arbetsyta är kopplad till ett VNet för hanterad arbets yta genom att välja **Översikt** från Azure Portal.
 

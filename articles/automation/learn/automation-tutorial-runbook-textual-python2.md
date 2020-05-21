@@ -1,17 +1,17 @@
 ---
 title: Skapa en python-Runbook i Azure Automation
-description: Självstudie som visar hur du skapar, testar och publicerar en enkel python-Runbook.
+description: I den här artikeln lär du dig att skapa, testa och publicera en enkel python-Runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2b20796fdcf71ccfb60c519d081b42fba982f0b6
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 4e3edc9819fc3a282cc707db636c8bb213b13776
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82608702"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714482"
 ---
 # <a name="tutorial-create-a-python-runbook"></a>Självstudie: skapa en python-Runbook
 
@@ -54,7 +54,7 @@ Du börjar med att skapa en enkel Runbook som visar texten *Hello World*.
 
 ## <a name="add-code-to-the-runbook"></a>Lägg till kod i Runbook
 
-Nu ska du lägga till ett enkelt kommando för att `Hello World`skriva ut texten.
+Nu ska du lägga till ett enkelt kommando för att skriva ut texten `Hello World` .
 
 ```python
 print("Hello World!")
@@ -73,19 +73,17 @@ Innan du publicerar runbook-jobbet så att den blir tillgänglig i produktionsmi
 3. Ett [runbook-jobb](../automation-runbook-execution.md) skapas och dess status visas.
    Jobbets status börjar i kö, vilket anger att den väntar på att en Runbook Worker i molnet ska bli tillgänglig. Den flyttar till Start när en arbets tagare anlitar jobbet och kör sedan när runbooken faktiskt börjar köras.
 
-4. När runbook-jobbet är klart visas dess utdata. I så fall bör du se `Hello World`.
+4. När runbook-jobbet är klart visas dess utdata. I så fall bör du se `Hello World` .
 
 5. Gå tillbaka till arbetsytan genom att stänga testfönstret.
 
 ## <a name="publish-and-start-the-runbook"></a>Publicera och starta runbooken
 
-Det runbook-jobb som du har skapat är fortfarande i utkastläge. Du måste publicera den innan du kan köra den i produktion.
-När du publicerar en Runbook skriver du över den befintliga publicerade versionen med utkastet.
-I det här fallet har du inte någon publicerad version än eftersom du nyss skapade runbooken.
+Det runbook-jobb som du har skapat är fortfarande i utkastläge. Du måste publicera den innan du kan köra den i produktion. När du publicerar en Runbook skriver du över den befintliga publicerade versionen med utkastet. I det här fallet har du inte någon publicerad version än eftersom du nyss skapade runbooken.
 
 1. Klicka på **Publicera** för att publicera runbooken och sedan på **Ja** när du uppmanas att göra det.
 
-2. Om du rullar åt vänster för att Visa runbooken på sidan **Runbooks** bör du se **redigerings statusen** **publicerad**.
+2. Om du rullar åt vänster för att Visa runbooken på sidan Runbooks bör du se **redigerings statusen** **publicerad**.
 
 3. Rulla tillbaka till höger för att visa fönstret för **MyFirstRunbook-python**.
 
@@ -97,7 +95,7 @@ I det här fallet har du inte någon publicerad version än eftersom du nyss ska
 
 6. Jobbets status visas i **jobb Sammanfattning** och matchar de status värden som du såg när du testade runbooken.
 
-7. När Runbook-statusen har slutförts klickar du på **utdata**. Fönstret utdata öppnas, där du kan se `Hello World`.
+7. När Runbook-statusen har slutförts klickar du på **utdata**. Fönstret utdata öppnas, där du kan se `Hello World` .
 
 8. Stäng utdatafönstret.
 
@@ -189,7 +187,7 @@ Testa och kör runbooken igen för att se att den startar den virtuella datorn.
 
 Runbooken använder för närvarande hårdkodade värden för namnen på resurs gruppen och den virtuella datorn. Nu ska vi lägga till kod som hämtar dessa värden från indataparametrar.
 
-Du kan använda `sys.argv` variabeln för att hämta parameter värden. Lägg till följande kod i Runbook omedelbart efter de andra `import` -satserna:
+Du kan använda `sys.argv` variabeln för att hämta parameter värden. Lägg till följande kod i Runbook omedelbart efter de andra- `import` satserna:
 
 ```python
 import sys
@@ -198,7 +196,7 @@ resource_group_name = str(sys.argv[1])
 vm_name = str(sys.argv[2])
 ```
 
-Detta importerar `sys` modulen och skapar två variabler för att lagra resurs gruppen och namn på virtuella datorer. Observera att elementet i argument listan `sys.argv[0]`, är namnet på skriptet och inte indata från användaren.
+Detta importerar `sys` modulen och skapar två variabler för att lagra resurs gruppen och namn på virtuella datorer. Observera att elementet i argument listan, `sys.argv[0]` är namnet på skriptet och inte indata från användaren.
 
 Nu kan du ändra de två sista raderna i runbooken så att de använder värdena för Indataparametern i stället för att använda hårdkodade värden:
 
@@ -232,7 +230,7 @@ print("DEBUG: - Hello world debug")
 print("VERBOSE: - Hello world verbose")
 ```
 
-I följande exempel visas den här konventionen som används `try...except` i ett block.
+I följande exempel visas den här konventionen som används i ett `try...except` block.
 
 ```python
 try:
@@ -242,13 +240,13 @@ except Exception as detail:
 ```
 
 > [!NOTE]
-> Azure Automation stöder inte `sys.stderr`.
+> Azure Automation stöder inte `sys.stderr` .
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du kommer igång med PowerShell-Runbooks finns i [skapa en PowerShell-Runbook](automation-tutorial-runbook-textual-powershell.md).
-- Information om hur du kommer igång med grafiska runbooks finns i [skapa en grafisk Runbook](automation-tutorial-runbook-graphical.md).
-- Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [skapa en PowerShell Workflow-Runbook](automation-tutorial-runbook-textual.md).
-- Om du vill veta mer om Runbook-typer, deras fördelar och begränsningar, se [Azure Automation Runbook-typer](../automation-runbook-types.md).
-- Mer information om hur du utvecklar för Azure med python finns i [Azure för python-utvecklare](/azure/python/).
-- För att se exempel på python 2-Runbooks, se [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).
+- [Skapa en PowerShell-runbook](automation-tutorial-runbook-textual-powershell.md)
+- [Skapa en grafisk Runbook](automation-tutorial-runbook-graphical.md)
+- [Skapa en PowerShell-runbook för arbetsflöden](automation-tutorial-runbook-textual.md)
+- [Azure Automation Runbook-typer](../automation-runbook-types.md)
+- [Azure för Python-utvecklare](/azure/python/)
+- [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python)

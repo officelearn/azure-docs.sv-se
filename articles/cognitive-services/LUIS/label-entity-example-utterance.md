@@ -1,46 +1,48 @@
 ---
 title: Etikett för entitets exempel uttryck
-description: Lär dig hur du förser en enhet för maskin inlärning med del komponenter i ett exempel på en uttryck på LUIS-portalen.
+description: Lär dig hur du etiketterar en enhet för maskin inlärning med underentiteter i ett exempel på en uttryck på LUIS-portalen.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 0181057bd693280223806e9b5b7cd8c7f7345f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 05/20/2020
+ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683776"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722651"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etiketten maskin inlärnings enhet i ett exempel uttryck
 
 Att märka en entitet i ett exempel uttryck ger LUIS ett exempel på vad entiteten är och var entiteten kan visas i uttryck.
 
+Du kan märka enhets-och underentiteter som har registrerats av enheten.
+
+Eftersom du inte kan lägga till reguljära uttryck, lista eller förbyggda entiteter, skapar du en entitet eller en underentitet och lägger sedan till dessa entiteter är funktioner, i förekommande fall, i entiteten eller underentiteten.
+
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>Etikett exempel på yttranden från sidan för avsikts information
+
+Om du vill märka exempel i entiteter i uttryck väljer du uttryck.
 
 1. Logga in på [Luis-portalen](https://www.luis.ai)och välj din **prenumerations** -och **redigerings resurs** för att se vilka appar som tilldelats den här redigerings resursen.
 1. Öppna din app genom att välja namnet på sidan **Mina appar** .
 1. Välj den avsikt som har det yttranden som du vill märka för extrahering med en entitet.
 1. Välj den text som du vill lägga till en etikett och välj sedan entiteten.
 
+## <a name="two-techniques-to-label-entities"></a>Två metoder för att märka entiteter
+
+Det finns stöd för två etikett tekniker på sidan för avsikts information.
+* Välj entitet eller underentitet från [paletten entitet](#label-with-the-entity-palette-visible) och välj sedan i exempel uttryck text. Det här är den rekommenderade tekniken eftersom du visuellt kan kontrol lera att du arbetar med rätt entitet eller underentitet, enligt ditt schema.
+* Välj i exemplet uttryck texten först. När du gör det visas en popup-meny med [Val av etiketter](#how-to-label-entity-from-in-place-menu) .
+
 ## <a name="label-with-the-entity-palette-visible"></a>Etikett med entitetens palett synlig
 
-När du har planerat schemat med entiteter ska **entitetens palett** vara synlig medan du märker dem. **Entitetens palett** är en påminnelse om vilka entiteter du har planerat att extrahera.
+När du har [planerat schemat med entiteter](luis-how-plan-your-app.md)ska **entitetens palett** vara synlig medan du märker dem. **Entitetens palett** är en påminnelse om vilka entiteter du har planerat att extrahera.
 
 Om du vill komma åt **entiteten entitet**väljer du **@** symbolen i kontext verktygsfältet ovanför exempel uttryck-listan.
 
 > [!div class="mx-imgBorder"]
 > ![Skärm bild av paletten för entity på sidan information om avsikt.](media/label-utterances/entity-palette-from-tool-bar.png)
 
-## <a name="label-entity-from-in-place-menu"></a>Etiketten entitet från menyn på plats
-
-Överväg exemplet uttryck, `hi, please I want a cheese pizza in 20 minutes` .
-
-1. Välj den vänstra texten och välj den högra texten i entiteten. Välj sedan den entitet som du vill etikettera med på menyn på plats.
-
-    > [!div class="mx-imgBorder"]
-    > ![Etiketten slutförd maskin inlärnings enhet](media/label-utterances/label-steps-in-place-menu.png)
-
-
-## <a name="label-entity-from-entity-palette"></a>Etiketten entitet från Entity-paletten
+## <a name="how-to-label-entity-from-entity-palette"></a>Så här etiketterar du entiteten från Entity-paletten
 
 Entity-paletten erbjuder ett alternativ till föregående etikett upplevelse. Det gör att du kan fylla i text för att omedelbart förse den med en entitet.
 
@@ -69,6 +71,17 @@ Enhets roller märks med hjälp av **Entity-paletten**.
 1. Under listan över entiteter väljer du en befintlig roll.
 1. I exemplet uttryck text etiketterar du texten med entitets rollen.
 
+## <a name="how-to-label-entity-from-in-place-menu"></a>Så här etiketterar du entiteten från menyn på plats
+
+Med hjälp av etiketter på plats kan du snabbt välja texten i uttryck och ge den etiketten. Du kan också skapa en enhet för maskin inlärning eller en lista med etiketten text.
+
+Överväg exemplet uttryck, `hi, please I want a cheese pizza in 20 minutes` .
+
+Välj den vänstra texten och välj den högra texten i entiteten. Välj sedan den entitet som du vill etikettera med på menyn på plats.
+
+> [!div class="mx-imgBorder"]
+> ![Etiketten slutförd maskin inlärnings enhet](media/label-utterances/label-steps-in-place-menu.png)
+
 ## <a name="review-labeled-text"></a>Granska etiketterad text
 
 Efter märkningen granskar du exemplet uttryck och ser till att det valda text intervallet har marker ATS med den valda entiteten. Den heldragna linjen anger att texten har märkts.
@@ -86,12 +99,12 @@ Om du ometiketterar text som redan är märkt kan LUIS dela eller slå samman be
 
 ## <a name="labeling-for-punctuation"></a>Etiketter för interpunktion
 
-Du behöver inte ange en etikett för interpunktion. Använd [program inställningar](luis-reference-application-settings.md) _ord former_ för att kontrol lera om interpunktion påverkar uttryck förutsägelser.
+Du behöver inte ange en etikett för interpunktion. Använd [program inställningarna](luis-reference-application-settings.md) för att styra hur interpunktion påverkar uttryck förutsägelser.
 
 ## <a name="unlabel-entities"></a>Etikettera entiteter
 
 > [!NOTE]
-> Endast enheter som har lärts till enheten kan vara omärkta.
+> Endast enheter som har lärts till enheten kan vara omärkta. Det går inte att etikettera eller omärkta reguljära uttrycks enheter, lista entiteter eller fördefinierade entiteter.
 
 Om du vill omärkta en entitet väljer du entiteten och väljer sedan **omärkt** på menyn på plats.
 
@@ -107,6 +120,12 @@ Om du anger en etikett för en underordnad etikett så märks den överordnade a
 ## <a name="automatic-labeling-for-non-machine-learned-entities"></a>Automatisk etikettering för entiteter som inte är från en dator
 
 Enheter som inte är baserade på den här enheten är fördefinierade entiteter, reguljära uttryck entiteter, lista entiteter och mönster. alla entiteter. Dessa etiketteras automatiskt av LUIS så att de inte behöver anges manuellt av användarna.
+
+## <a name="intent-prediction-errors"></a>Fel vid förutsägelse av avsikt
+
+Ett förutsägelse fel indikerar att exemplet uttryck, med den aktuella utbildade appen, inte skulle förväntas för avsikten.
+
+Lär dig hur du [visar dessa fel](luis-how-to-add-intents.md#intent-prediction-errors) på sidan information om avsikt.
 
 ## <a name="entity-prediction-errors"></a>Enhets förutsägelse fel
 

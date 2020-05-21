@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d8c38707f68b5841edb39e4527ec2cdcb1a35adf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983388"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656532"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Självstudie: Distribuera en maskin inlärnings modell med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -37,7 +38,7 @@ Om du vill distribuera din pipeline måste du först konvertera inlärnings pipe
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Skapa en pipeline för real tids härledning
 
-1. Ovanför pipeline-arbetsytan väljer du **skapa en härlednings** > pipeline i**real tid**.
+1. Ovanför pipeline-arbetsytan väljer du **skapa en härlednings**pipeline i  >  **real tid**.
 
     ![Skärm bild som visar var du hittar knappen Skapa pipeline](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
@@ -68,7 +69,7 @@ I dialog rutan som visas kan du välja från alla befintliga Azure Kubernetes se
 
 1. Välj **beräkning** i dialog rutan som visas för att gå till **beräknings** sidan.
 
-1. I menyfliksområdet navigering väljer du **härlednings kluster** > **+ ny**.
+1. I menyfliksområdet navigering väljer du **härlednings kluster**  >  **+ ny**.
 
     ![Skärm bild som visar hur du kommer till fönstret nytt fönster för utgångs kluster](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 

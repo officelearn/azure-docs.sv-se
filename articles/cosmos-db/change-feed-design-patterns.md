@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abbf5d79da033a696890566d85bd24bb54577d2c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450359"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715706"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Ändra feed design mönster i Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Med ändrings flödet i Azure Cosmos DB kan du bygga effektiva och skalbara lös
 
 ## <a name="event-computing-and-notifications"></a>Händelse bearbetning och meddelanden
 
-Azure Cosmos DB ändra feed kan förenkla scenarier som behöver utlösa ett meddelande eller ett anrop till ett API som baseras på en viss händelse. Du kan använda processen för att [ändra feed-processen](change-feed-processor.md) för att automatiskt avsöka din behållare efter ändringar och anropa ett externt API varje gång som det finns en skrivning eller uppdatering.
+Azure Cosmos DB ändra feed kan förenkla scenarier som behöver utlösa ett meddelande eller skicka ett anrop till ett API baserat på en viss händelse. Du kan använda processen för att [ändra feed-processen](change-feed-processor.md) för att automatiskt avsöka din behållare efter ändringar och anropa ett externt API varje gång som det finns en skrivning eller uppdatering.
 
 Du kan också selektivt utlösa ett meddelande eller skicka ett anrop till ett API baserat på vissa kriterier. Om du till exempel läser från ändra feed med [Azure Functions](change-feed-functions.md)kan du placera logik i funktionen för att endast skicka ett meddelande om ett angivet villkor har uppfyllts. Medan Azure Function-koden körs vid varje skrivning och uppdatering skulle meddelandet bara skickas om vissa kriterier hade uppfyllts.
 

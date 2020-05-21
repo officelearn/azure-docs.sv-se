@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc6cf908c5550f81ca6002de031d8d54dcff1eec
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cb89caa0a2fe5cde5bcea92e08c0df117215d916
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685316"
+ms.locfileid: "83713309"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Hantera variabler i Azure Automation
 
@@ -58,7 +58,7 @@ Du kan lagra flera värden i en enskild variabel genom att skapa en matris eller
 
 Cmdletarna i följande tabell skapar och hanterar Automation-variabler med PowerShell. De levereras som en del av [AZ-modulerna](modules.md#az-modules).
 
-| Cmdlet | Description |
+| Cmdlet | Beskrivning |
 |:---|:---|
 |[Get-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Hämtar värdet för en befintlig variabel. Om värdet är en enkel typ hämtas samma typ. Om det är en komplex typ hämtas en `PSCustomObject` typ. <br>**Obs:**  Du kan inte använda denna cmdlet för att hämta värdet för en krypterad variabel. Det enda sättet att göra detta är genom att använda den interna `Get-AutomationVariable` cmdleten i en Runbook-eller DSC-konfiguration. Se [interna cmdlets för att få åtkomst till variabler](#internal-cmdlets-to-access-variables). |
 |[New-AzAutomationVariable](https://docs.microsoft.com/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Skapar en ny variabel och anger dess värde.|
@@ -69,7 +69,7 @@ Cmdletarna i följande tabell skapar och hanterar Automation-variabler med Power
 
 De interna cmdletarna i följande tabell används för att få åtkomst till variabler i dina runbooks och DSC-konfigurationer. Dessa cmdletar levereras med den globala modulen `Orchestrator.AssetManagement.Cmdlets` . Mer information finns i [interna cmdletar](modules.md#internal-cmdlets).
 
-| Intern cmdlet | Description |
+| Intern cmdlet | Beskrivning |
 |:---|:---|
 |`Get-AutomationVariable`|Hämtar värdet för en befintlig variabel.|
 |`Set-AutomationVariable`|Ställer in värdet för en befintlig variabel.|
@@ -88,7 +88,7 @@ Write-output "The encrypted value of the variable is: $mytestencryptvar"
 
 Funktionerna i följande tabell används för att få åtkomst till variabler i en python 2-Runbook.
 
-|Python 2-funktioner|Description|
+|Python 2-funktioner|Beskrivning|
 |:---|:---|
 |`automationassets.get_automation_variable`|Hämtar värdet för en befintlig variabel. |
 |`automationassets.set_automation_variable`|Ställer in värdet för en befintlig variabel. |
@@ -188,12 +188,12 @@ I en grafisk Runbook kan du lägga till aktiviteter för de interna cmdletarna `
 
 ![Lägg till variabel på arbets ytan](../media/variables/runbook-variable-add-canvas.png)
 
-Följande bild visar exempel aktiviteter för att uppdatera en variabel med ett enkelt värde i en grafisk Runbook. I det här exemplet har aktiviteten för att `Get-AzVM` Hämta en enda virtuell Azure-dator och sparar dator namnet i en befintlig Automation-sträng-variabel. Det spelar ingen roll om [länken är en pipeline eller sekvens](../automation-graphical-authoring-intro.md#links-and-workflow) eftersom koden endast förväntar sig ett enskilt objekt i utdata.
+Följande bild visar exempel aktiviteter för att uppdatera en variabel med ett enkelt värde i en grafisk Runbook. I det här exemplet har aktiviteten för att `Get-AzVM` Hämta en enda virtuell Azure-dator och sparar dator namnet i en befintlig Automation-sträng-variabel. Det spelar ingen roll om [länken är en pipeline eller sekvens](../automation-graphical-authoring-intro.md#use-links-for-workflow) eftersom koden endast förväntar sig ett enskilt objekt i utdata.
 
 ![Ange enkel variabel](../media/variables/runbook-set-simple-variable.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om de cmdletar som används för att få åtkomst till variabler finns [i hantera moduler i Azure Automation](modules.md).
-* Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).
-* Mer information om DSC-konfigurationer finns i [Översikt över tillstånds konfiguration](../automation-dsc-overview.md).
+* [Använda moduler i Azure Automation](modules.md)
+* [Runbook-körning i Azure Automation](../automation-runbook-execution.md)
+* [Översikt över Azure Automation tillstånds konfiguration](../automation-dsc-overview.md) 

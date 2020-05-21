@@ -7,20 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/07/2019
 ms.author: sngun
-ms.openlocfilehash: 65d34d1e82a46cc5b3d7b0ad3239836acaee6f97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d162639885a7736953a3e7388336c3105f2f0893
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80585349"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683855"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>Azure Cosmos DB.NET v3 SDK-exempel (Microsoft. Azure. Cosmos) för SQL-API: et
 
 > [!div class="op_single_selector"]
 > * [.NET v2 SDK-exempel](sql-api-dotnet-samples.md)
 > * [.NET v3 SDK-exempel](sql-api-dotnet-v3sdk-samples.md)
-> * [Java-exempel](sql-api-java-samples.md)
-> * [Async Java-exempel](sql-api-async-java-samples.md)
+> * [Exempel för Java v4 SDK](sql-api-java-sdk-samples.md)
 > * [Node.js-exempel](sql-api-nodejs-samples.md)
 > * [Python-exempel](sql-api-python-samples.md)
 > * [Azure-kodexempelgalleri](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

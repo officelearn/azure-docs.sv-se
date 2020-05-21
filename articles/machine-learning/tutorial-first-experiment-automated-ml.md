@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 03/04/2020
-ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8af412fb2660625ffb413052b06d4429d7844e70
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366533"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656509"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Självstudie: skapa en klassificerings modell med automatiserad ML i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -23,6 +23,8 @@ ms.locfileid: "80366533"
 I den här självstudien får du lära dig hur du skapar en grundläggande klassificerings modell utan att skriva en enda rad kod med hjälp av Azure Machine Learnings automatiserade Machine Learning-gränssnittet. Den här klassificerings modellen förutsäger om en klient kommer att prenumerera på en fast term insättning med ett finansiellt institut.
 
 Med automatisk maskin inlärning kan du automatisera tids krävande uppgifter. Automatisk maskin inlärning itererar snabbt över många kombinationer av algoritmer och egenskaper för att hjälpa dig att hitta den bästa modellen utifrån ett lyckat mått på hur du väljer.
+
+Ett exempel på en uppskattning av tids serier finns i [Självstudier: prognoser för efter frågan & AutoML](tutorial-automated-ml-forecast.md).
 
 I den här självstudien får du lära dig hur du utför följande uppgifter:
 
@@ -51,7 +53,7 @@ Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera 
 
 ## <a name="create-and-run-the-experiment"></a>Skapa och kör experimentet
 
-Du har slutfört följande experiment med att ställa in och köra steg via Azure Machine https://ml.azure.comLearning på, ett konsoliderat webb gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap. Det här gränssnittet stöds inte i Internet Explorer-webbläsare.
+Du har slutfört följande experiment med att ställa in och köra steg via Azure Machine Learning på https://ml.azure.com , ett konsoliderat webb gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap. Det här gränssnittet stöds inte i Internet Explorer-webbläsare.
 
 1. Logga in på [Azure Machine Learning](https://ml.azure.com).
 
@@ -87,10 +89,10 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
        
     1. Kontrol lera att **inställningarna och förhands gransknings** formuläret är ifyllt enligt följande och välj **Nästa**.
         
-        Field|Beskrivning| Värde för självstudier
+        Fält|Beskrivning| Värde för självstudier
         ---|---|---
         Fil format|Definierar layout och typ av data som lagras i en fil.| Avgränsade
-        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan&nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
+        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan &nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
         Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inga
@@ -112,10 +114,10 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
     1. Välj **y** som mål kolumn, vad du vill förutsäga. Den här kolumnen visar om klienten prenumererar på en term insättning eller inte.
     1. Välj **skapa en ny beräkning** och konfigurera beräknings målet. Ett beräknings mål är en lokal eller molnbaserad resurs miljö som används för att köra ditt utbildnings skript eller som värd för tjänst distributionen. För det här experimentet använder vi en molnbaserad beräkning. 
 
-        Field | Beskrivning | Värde för självstudier
+        Fält | Beskrivning | Värde för självstudier
         ----|---|---
         Compute-namn |Ett unikt namn som identifierar din beräknings kontext.|automl – beräkning
-        Storlek&nbsp;på&nbsp;virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
+        &nbsp; &nbsp; Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
         Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
   
         1. Välj **skapa** för att hämta beräknings målet. 
@@ -133,14 +135,14 @@ Du har slutfört följande experiment med att ställa in och köra steg via Azur
         >[!NOTE]
         > I den här självstudien får du inte ange mått poäng eller Max kärnor per upprepnings tröskel. Du kan inte heller blockera algoritmer från att testas.
    
-        Ytterligare&nbsp;konfigurationer|Beskrivning|Värde&nbsp;för&nbsp;självstudier
+        Ytterligare &nbsp; konfigurationer|Beskrivning|Värde &nbsp; för &nbsp; självstudier
         ------|---------|---
         Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|AUC_weighted
         Automatisk funktionalisering| Aktiverar för bearbetning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
         Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Inga
-        Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings&nbsp;jobb&nbsp;tid (timmar): 1 <br> Mått&nbsp;poängs&nbsp;tröskel: ingen
-        Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning&nbsp;kors validering <br> <br> Antal valideringar: 2
-        Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max&nbsp;.&nbsp;antal samtidiga iterationer: 5
+        Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings &nbsp; jobb &nbsp; tid (timmar): 1 <br> Mått &nbsp; poängs &nbsp; tröskel: ingen
+        Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning &nbsp; kors validering <br> <br> Antal valideringar: 2
+        Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max &nbsp; . antal samtidiga &nbsp; iterationer: 5
         
         Välj **Spara**.
 
@@ -177,7 +179,7 @@ I den här experiment kontexten betraktas **VotingEnsemble** som den bästa mode
 
 1. Fyll i fönstret **distribuera en modell** enligt följande:
 
-    Field| Värde
+    Fält| Värde
     ----|----
     Distributions namn| My-automl – Deploy
     Distributions Beskrivning| Min första automatiserade test distribution av Machine Learning
@@ -201,7 +203,7 @@ Distributions filer är större än data-och experiment-filer, så att de kostar
 
 ### <a name="delete-the-deployment-instance"></a>Ta bort distributions instansen
 
-Ta bara bort distributions instansen från Azure Machine Learning\/på https:/ml.Azure.com/om du vill behålla resurs gruppen och arbets ytan för andra självstudier och utforskningar. 
+Ta bara bort distributions instansen från Azure Machine Learning på https: \/ /ml.Azure.com/om du vill behålla resurs gruppen och arbets ytan för andra självstudier och utforskningar. 
 
 1. Gå till [Azure Machine Learning](https://ml.azure.com/). Gå till arbets ytan och välj **slut punkter**i fönstret **till** vänster. 
 
@@ -221,10 +223,11 @@ I den här automatiska självstudien om Machine Learning använde du Azure Machi
 > [Använda en webbtjänst](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).
-+ Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) . + Läs mer om [funktionalisering](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
++ Läs mer om [funktionalisering](how-to-use-automated-ml-for-ml-models.md#featurization).
 + Läs mer om [data profilering](how-to-use-automated-ml-for-ml-models.md#profile).
 
 
 >[!NOTE]
 > Den här data uppsättningen för bank marknadsföring görs tillgänglig i [CCO-licensen för Creative Commons (: offentlig domän)](https://creativecommons.org/publicdomain/zero/1.0/). Alla rättigheter i det enskilda innehållet i databasen licensieras enligt [licensen för databas innehåll](https://creativecommons.org/publicdomain/zero/1.0/) och är tillgängliga på [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Den här data uppsättningen var ursprungligen tillgänglig i den [Machine Learning databasen](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
-> [Moro et al., 2014] S. Moro, P. Cortez och P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Besluts support system, Elsevier, 62:22-31, juni 2014.
+> [Moro et al., 2014] S. Moro, P. Cortez och P. Rita. A Data-Driven Approach to Predict the Success of Bank Telemarketing. Decision Support Systems, Elsevier, 62:22–31, juni 2014.

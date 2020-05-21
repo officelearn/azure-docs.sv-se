@@ -5,20 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 53e5bf4f770ce986af2f3572bd6c1ef4cd9e3c2b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605232"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680567"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Snabb start: skapa en Azure-brandvägg och IP-grupper – Resource Manager-mall
 
-I den här snabb starten använder du en Resource Manager-mall för att distribuera en Azure-brandvägg med exempel på IP-grupper som används i en nätverks regel och en program regel.
-
-En IP-grupp är en resurs på den översta nivån där du kan definiera och gruppera IP-adresser, intervall och undernät i ett enda objekt. Detta är användbart för att hantera IP-adresser i Azure brand Väggs regler. Du kan antingen ange IP-adresser manuellt eller importera dem från en fil.
+I den här snabb starten använder du en Resource Manager-mall för att distribuera en Azure-brandvägg med exempel på IP-grupper som används i en nätverks regel och en program regel. En IP-grupp är en resurs på den översta nivån där du kan definiera och gruppera IP-adresser, intervall och undernät i ett enda objekt. Detta är användbart för att hantera IP-adresser i Azure brand Väggs regler. Du kan antingen ange IP-adresser manuellt eller importera dem från en fil.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -32,22 +31,21 @@ Den här mallen skapar en Azure-brandvägg och IP-grupper, tillsammans med nödv
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json)
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
 
 Flera Azure-resurser definieras i mallen:
 
 - [**Microsoft. Network/ipGroups**](/azure/templates/microsoft.network/ipGroups)
-- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
-
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -84,7 +82,7 @@ Mer information om JSON-syntaxen och egenskaperna för en brand vägg i en mall 
 
 När du inte längre behöver de resurser som du skapade med brand väggen tar du bort resurs gruppen. Detta tar bort brand väggen och alla relaterade resurser.
 
-Anropa `Remove-AzResourceGroup` cmdleten om du vill ta bort resurs gruppen:
+Anropa cmdleten om du vill ta bort resurs gruppen `Remove-AzResourceGroup` :
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name "<your resource group name>"

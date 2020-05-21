@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0bf58348d91c23db9bcc016ff6d71ce2b3804ced
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201060"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656159"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Snabb start: skapa en Azure Synapse Analytics-arbetsyta (för hands version)
 
@@ -25,6 +25,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnads fritt konto inn
 ## <a name="prerequisites"></a>Krav
 
 - [Azure Data Lake Storage Gen2 lagrings konto](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+
+## <a name="register-azure-synapse-resource-provider"></a>Registrera Azure Synapse Resource Provider
+Registrera Azure Synapse Resource Provider om du inte redan har gjort det. När du registrerar en resurs leverantör konfigureras din prenumeration så att den fungerar med resurs leverantören. Information om hur du registrerar Azure Synapse Resource Provider finns i [Azure Resource providers och types](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Välj *Microsoft. Synapse* i listan över resurs leverantörer när du registrerar dig.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -43,7 +46,7 @@ Logga in på [Azure Portal](https://portal.azure.com/)
     | **Prenumeration** | *Din prenumeration* | Mer information om dina prenumerationer finns i [Prenumerationer](https://account.windowsazure.com/Subscriptions). |
     | **Resursgrupp** | *Alla resurs grupper* | Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). |
     | **Namn på arbetsyta** | mysampleworkspace | Anger namnet på arbets ytan, som också kommer att användas för anslutnings slut punkter.|
-    | **Nationella** | USA, östra 2 | Anger arbets ytans plats.|
+    | **Region** | USA, östra 2 | Anger arbets ytans plats.|
     | **Data Lake Storage Gen2** | Redovisning`storage account name` </br> Fil system:`root file system to use` | Anger ADLS Gen2 lagrings konto namn som ska användas som primär lagring och fil systemet som ska användas.|
     ||||
 
@@ -82,4 +85,4 @@ Om du vill ta bort arbets ytan för Azure-Synapse utför du följande steg:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Sedan kan du [skapa SQL-pooler](quickstart-create-sql-pool.md) eller [skapa Apache Spark pooler](quickstart-create-apache-spark-pool.md) för att börja analysera och utforska dina data.
+Sedan kan du [skapa SQL-pooler](quickstart-create-sql-pool-studio.md) eller [skapa Apache Spark pooler](quickstart-create-apache-spark-pool-studio.md) för att börja analysera och utforska dina data.

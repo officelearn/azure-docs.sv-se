@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 09ccb9f095e58d8fa22ec3d119853c729f0c7026
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 328f3d0dc648b3c5fa96c3aab02e80a37cf4218f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67090574"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Självstudie: Azure Active Directory integrering med skillport
 
@@ -139,7 +139,7 @@ Utför följande steg för att konfigurera enkel inloggning med skillport i Azur
 
 ### <a name="configure-skillport-single-sign-on"></a>Konfigurera skillport enkel inloggning
 
-Om du vill konfigurera enkel inloggning på **skillport** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för skillport](https://www.skillsoft.com/contact.asp). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+Om du vill konfigurera enkel inloggning på **skillport** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för skillport](https://www.skillsoft.com/about/contact-us). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -194,7 +194,7 @@ I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggnin
 
 ### <a name="create-skillport-test-user"></a>Skapa skillport test användare
 
-För att kunna skapa skillport test användare måste du kontakta [skillport support team](https://www.skillsoft.com/contact.asp) eftersom de har flera affärs scenarier enligt kravet för slutanvändaren. De konfigurerar det efter att du har diskuterat dem med användarna.
+För att kunna skapa skillport test användare måste du kontakta [skillport support team](https://www.skillsoft.com/about/contact-us) eftersom de har flera affärs scenarier enligt kravet för slutanvändaren. De konfigurerar det efter att du har diskuterat dem med användarna.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 

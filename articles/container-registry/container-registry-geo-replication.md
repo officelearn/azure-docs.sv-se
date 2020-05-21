@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: ea5e3dffaafb691a667bad3ef0014389e1604e27
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682784"
+ms.locfileid: "83711575"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Geo-replikering i Azure Container Registry
 
@@ -95,7 +95,7 @@ ACR börjar synkronisera avbildningar mellan de konfigurerade replikerna. När d
 * När du push-överför eller hämtar bilder från ett geo-replikerat register skickar Azure Traffic Manager i bakgrunden begäran till registret i den region som är närmast dig vad gäller nätverks fördröjning.
 * När du har push-överfört en avbildning eller tagga till den närmaste regionen tar det lite tid för Azure Container Registry att replikera manifest och lager till de återstående regioner som du har valt. Större bilder tar längre tid att replikera än de mindre. Bilder och taggar synkroniseras i de replikerade regionerna med en eventuell konsekvens modell.
 * För att hantera arbets flöden som är beroende av push-uppdateringar till ett geo-replikerat register, rekommenderar vi att du konfigurerar [Webhooks](container-registry-webhook.md) så att de svarar på push-händelserna. Du kan ställa in regionala webhookar i ett geo-replikerat register för att spåra push-händelser när de är klara i de geo-replikerade regionerna.
-* För att hantera blobbar som representerar innehålls lager använder Azure Container reregister data slut punkter. Du kan aktivera [dedikerade data slut punkter](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints-preview) för ditt register i var och en av dina registers geo-replikerade regioner. Med dessa slut punkter kan du konfigurera regler för att begränsa brand Väggs åtkomst.
+* För att hantera blobbar som representerar innehålls lager använder Azure Container reregister data slut punkter. Du kan aktivera [dedikerade data slut punkter](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) för ditt register i var och en av dina registers geo-replikerade regioner. Med dessa slut punkter kan du konfigurera regler för att begränsa brand Väggs åtkomst.
 * Om du konfigurerar en [privat länk](container-registry-private-link.md) för registret med privata slut punkter i ett virtuellt nätverk, aktive ras dedikerade data slut punkter i varje geo-replikerad region som standard. 
 
 ## <a name="delete-a-replica"></a>Ta bort en replik

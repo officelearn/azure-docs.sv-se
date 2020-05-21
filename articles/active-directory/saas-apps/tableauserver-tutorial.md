@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/31/2020
+ms.date: 05/07/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d19a7cc8d81f9e6e913f147b24c5cce03ff82027
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2325259cd5e613223ee77371d7e563e8ab1e94ca
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76986741"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648450"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Tableau-Server
 
@@ -107,7 +107,7 @@ I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B
 1. Välj **ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. I fältet **användar namn** anger du username@companydomain.extension . Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
@@ -145,7 +145,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     b. Markera kryss rutan för **Aktivera SAML-autentisering för servern**.
 
-    c. Tableau Server retur-URL – den URL som Tableau-användare kommer att komma åt, till <http://tableau_server>exempel. Använd `http://localhost` rekommenderas inte. Användning av en URL med ett avslutande snedstreck (till exempel `http://tableau_server/`) stöds inte. Kopiera **Tableau Server Return URL** och klistra in den i text rutan för att **signera URL-adresser** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal
+    c. Tableau Server retur-URL – den URL som Tableau-användare kommer att komma åt, till exempel <http://tableau_server> . Använd `http://localhost` rekommenderas inte. Användning av en URL med ett avslutande snedstreck (till exempel `http://tableau_server/` ) stöds inte. Kopiera **Tableau Server Return URL** och klistra in den i text rutan för att **signera URL-adresser** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal
 
     d. SAML-entitets-ID – entitets-ID: t identifierar unikt Tableau-Server installationen till IdP. Du kan ange din Tableau-server-URL igen, om du vill, men den behöver inte vara Tableau-serverns URL. Kopiera **SAML entitets-ID** och klistra in det i text rutan **identifierare** i avsnittet **grundläggande SAML-konfiguration** i Azure Portal
 
@@ -158,7 +158,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     h. Klicka på **Spara**
 
     > [!NOTE]
-    > Kunden måste ladda upp certifikat i Tableau-serverns SAML SSO-konfiguration och den kommer att ignoreras i SSO-flödet. Om du behöver hjälp med att konfigurera SAML på Tableau-servern kan du läsa den här artikeln [Konfigurera SAML](https://help.tableau.com/current/online/en-us/saml_config_azure_ad.htm).
+    > Kunden måste ladda upp en PEM x509-certifikatfil med fil namns tillägget. CRT och en RSA-eller DSA-fil för privata nycklar som har fil namns tillägget. Key, som en nyckel fil för certifikat. Mer information om certifikat filen och certifikat nyckel filen finns i [det här](https://help.tableau.com/current/server/en-us/saml_requ.htm) dokumentet. Om du behöver hjälp med att konfigurera SAML på Tableau-servern kan du läsa den här artikeln [Konfigurera serverns breda SAML](https://help.tableau.com/current/server/en-us/config_saml.htm).
 
 ### <a name="create-tableau-server-test-user"></a>Skapa Tableau-Server test användare
 

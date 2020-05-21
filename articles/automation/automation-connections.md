@@ -1,17 +1,17 @@
 ---
 title: Hantera anslutningar i Azure Automation
-description: Anslutnings till gångar i Azure Automation innehåller den information som krävs för att ansluta till en extern tjänst eller ett program från en Runbook eller DSC-konfiguration. I den här artikeln beskrivs information om anslutningar och hur du arbetar med dem i både text-och grafisk redigering.
+description: Den här artikeln beskriver hur du hanterar Azure Automation anslutningar till externa tjänster eller program och hur du arbetar med dem i Runbooks.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1a50c5d3d6e068054cfc8381b220d38471a7eb6c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 2bd4a59ee1b82b8f6eb3bf172b11239af1a9f4c5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996582"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714278"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Hantera anslutningar i Azure Automation
 
@@ -20,7 +20,7 @@ En Azure Automation anslutnings till gång innehåller den information som anges
 * Information som krävs för autentisering, t. ex. användar namn och lösen ord
 * Anslutnings information, till exempel URL eller port
 
-Anslutnings till gången hålls tillsammans alla egenskaper för att ansluta till ett visst program, vilket gör det onödigt att skapa flera variabler. Du kan redigera värdena för en anslutning på en plats och du kan skicka namnet på en anslutning till en Runbook-eller DSC-konfiguration i en enda parameter. Runbooken eller konfigurationen får åtkomst till egenskaperna för en anslutning med hjälp av den `Get-AutomationConnection` interna cmdleten.
+Anslutnings till gången hålls tillsammans alla egenskaper för att ansluta till ett visst program, vilket gör det onödigt att skapa flera variabler. Du kan redigera värdena för en anslutning på en plats och du kan skicka namnet på en anslutning till en Runbook-eller DSC-konfiguration i en enda parameter. Runbooken eller konfigurationen får åtkomst till egenskaperna för en anslutning med hjälp av den interna `Get-AutomationConnection` cmdleten.
 
 När du skapar en anslutning måste du ange en Anslutnings typ. Anslutnings typen är en mall som definierar en uppsättning egenskaper. Du kan lägga till en Anslutnings typ till Azure Automation att använda en integrerings-modul med en metadatafil. Det är också möjligt att skapa en Anslutnings typ med hjälp av [Azure Automation-API: et](/previous-versions/azure/reference/mt163818(v=azure.100)) om integrerings modulen innehåller en Anslutnings typ och har importer ATS till ditt Automation-konto. 
 
@@ -50,14 +50,14 @@ Cmdletarna i följande tabell skapar och hanterar Automation-anslutningar med Po
 
 ## <a name="internal-cmdlets-to-access-connections"></a>Interna cmdlets för att få åtkomst till anslutningar
 
-Den interna cmdleten i följande tabell används för att få åtkomst till anslutningar i dina runbooks och DSC-konfigurationer. Denna cmdlet ingår i den globala modulen `Orchestrator.AssetManagement.Cmdlets`. Mer information finns i [interna cmdletar](shared-resources/modules.md#internal-cmdlets).
+Den interna cmdleten i följande tabell används för att få åtkomst till anslutningar i dina runbooks och DSC-konfigurationer. Denna cmdlet ingår i den globala modulen `Orchestrator.AssetManagement.Cmdlets` . Mer information finns i [interna cmdletar](shared-resources/modules.md#internal-cmdlets).
 
 |Intern cmdlet|Beskrivning|
 |---|---|
 |`Get-AutomationConnection` | Hämtar värdena för de olika fälten i anslutningen och returnerar dem som en [hash](https://go.microsoft.com/fwlink/?LinkID=324844)-tabellen. Du kan sedan använda den här hash-tabellen med lämpliga kommandon i Runbook-eller DSC-konfigurationen.|
 
 >[!NOTE]
->Undvik att använda variabler med `Name` -parametern `Get-AutomationConnection`. Användningen av variabler i det här fallet kan komplicera identifiering av beroenden mellan Runbooks och DSC-konfigurationer och anslutnings till gångar i design läge.
+>Undvik att använda variabler med- `Name` parametern `Get-AutomationConnection` . Användningen av variabler i det här fallet kan komplicera identifiering av beroenden mellan Runbooks och DSC-konfigurationer och anslutnings till gångar i design läge.
 
 ## <a name="python-2-functions-to-access-connections"></a>Python 2-funktioner för att få åtkomst till anslutningar
 
@@ -78,12 +78,12 @@ Så här skapar du en ny anslutning i Azure Portal:
 
 1. Från ditt Automation-konto klickar du på **anslutningar** under **delade resurser**.
 2. Klicka på **+ Lägg till en anslutning** på sidan anslutningar.
-4. I fältet **typ** i fönstret ny anslutning väljer du den typ av anslutning som ska skapas. Dina val är `Azure`, `AzureServicePrincipal`och `AzureClassicCertificate`. 
+4. I fältet **typ** i fönstret ny anslutning väljer du den typ av anslutning som ska skapas. Dina val är `Azure` , `AzureServicePrincipal` och `AzureClassicCertificate` . 
 5. Formuläret visar egenskaperna för den Anslutnings typ som du har valt. Fyll i formuläret och klicka på **skapa** för att spara den nya anslutningen.
 
 ### <a name="create-a-new-connection-with-windows-powershell"></a>Skapa en ny anslutning med Windows PowerShell
 
-Skapa en ny anslutning med Windows PowerShell med hjälp `New-AzAutomationConnection` av cmdleten. Denna cmdlet har en `ConnectionFieldValues` parameter som förväntar sig en hash-definition som definierar värden för var och en av de egenskaper som definieras av anslutnings typen.
+Skapa en ny anslutning med Windows PowerShell med hjälp av `New-AzAutomationConnection` cmdleten. Denna cmdlet har en `ConnectionFieldValues` parameter som förväntar sig en hash-definition som definierar värden för var och en av de egenskaper som definieras av anslutnings typen.
 
 Du kan använda följande exempel kommandon som ett alternativ till att skapa ett Kör som-konto från portalen för att skapa en ny anslutning till gång.
 
@@ -97,9 +97,9 @@ När du skapar ett Automation-konto innehåller det flera globala moduler som st
 
 ## <a name="add-a-connection-type"></a>Lägg till en Anslutnings typ
 
-Om din Runbook-eller DSC-konfiguration ansluter till en extern tjänst måste du definiera en Anslutnings typ i en [anpassad modul](shared-resources/modules.md#custom-modules) som kallas en integrerings modul. Den här modulen innehåller en metadatafil som anger egenskaper för Anslutnings typ och heter ** &lt;Modulnamn&gt;-Automation. JSON**, som finns i mappen module i den komprimerade **zip** -filen. Den här filen innehåller fälten i en anslutning som krävs för att ansluta till systemet eller tjänsten som modulen representerar. Med hjälp av den här filen kan du ange fält namn, data typer, krypterings status och valfri status för anslutnings typen. 
+Om din Runbook-eller DSC-konfiguration ansluter till en extern tjänst måste du definiera en Anslutnings typ i en [anpassad modul](shared-resources/modules.md#custom-modules) som kallas en integrerings modul. Den här modulen innehåller en metadatafil som anger egenskaper för Anslutnings typ och heter ** &lt; Modulnamn &gt; -Automation. JSON**, som finns i mappen module i den komprimerade **zip** -filen. Den här filen innehåller fälten i en anslutning som krävs för att ansluta till systemet eller tjänsten som modulen representerar. Med hjälp av den här filen kan du ange fält namn, data typer, krypterings status och valfri status för anslutnings typen. 
 
-Följande exempel är en mall i **JSON** -filformatet som definierar användar namn och lösen ords egenskaper för en anpassad Anslutnings typ som `MyModuleConnection`heter:
+Följande exempel är en mall i **JSON** -filformatet som definierar användar namn och lösen ords egenskaper för en anpassad Anslutnings typ som heter `MyModuleConnection` :
 
 ```json
 {
@@ -124,7 +124,7 @@ Följande exempel är en mall i **JSON** -filformatet som definierar användar n
 
 ## <a name="get-a-connection-in-a-runbook-or-dsc-configuration"></a>Få en anslutning i en Runbook-eller DSC-konfiguration
 
-Hämta en anslutning i en Runbook-eller DSC-konfiguration med `Get-AutomationConnection` den interna cmdleten. Denna cmdlet föredras över `Get-AzAutomationConnection` cmdleten, eftersom den hämtar anslutnings värden i stället för information om anslutningen. 
+Hämta en anslutning i en Runbook-eller DSC-konfiguration med den interna `Get-AutomationConnection` cmdleten. Denna cmdlet föredras över `Get-AzAutomationConnection` cmdleten, eftersom den hämtar anslutnings värden i stället för information om anslutningen. 
 
 ### <a name="textual-runbook-example"></a>Exempel på text Runbook
 
@@ -137,11 +137,11 @@ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.
 
 ### <a name="graphical-runbook-examples"></a>Grafiska Runbook-exempel
 
-Du kan lägga till en aktivitet för den `Get-AutomationConnection` interna cmdleten i en grafisk Runbook. Högerklicka på anslutningen i fönstret Bibliotek i den grafiska redigeraren och välj **Lägg till i arbets ytan**.
+Du kan lägga till en aktivitet för den interna `Get-AutomationConnection` cmdleten i en grafisk Runbook. Högerklicka på anslutningen i fönstret Bibliotek i den grafiska redigeraren och välj **Lägg till i arbets ytan**.
 
 ![Lägg till på arbets ytan](media/automation-connections/connection-add-canvas.png)
 
-Följande bild visar ett exempel på hur du använder ett anslutnings objekt i en grafisk Runbook. I `Constant value` det här exemplet används data uppsättningen för `Get RunAs Connection` aktiviteten, som använder ett anslutnings objekt för autentisering. En [pipeline-länk](automation-graphical-authoring-intro.md#links-and-workflow) används här eftersom `ServicePrincipalCertificate` parameter uppsättningen förväntar sig ett enskilt objekt.
+Följande bild visar ett exempel på hur du använder ett anslutnings objekt i en grafisk Runbook. I det här exemplet används `Constant value` data uppsättningen för `Get RunAs Connection` aktiviteten, som använder ett anslutnings objekt för autentisering. En [pipeline-länk](automation-graphical-authoring-intro.md#use-links-for-workflow) används här eftersom `ServicePrincipalCertificate` parameter uppsättningen förväntar sig ett enskilt objekt.
 
 ![Hämta anslutningar](media/automation-connections/automation-get-connection-object.png)
 
@@ -192,6 +192,6 @@ azure_credential = get_automation_runas_credential(runas_connection)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om de cmdletar som används för att få åtkomst till anslutningar finns [i hantera moduler i Azure Automation](shared-resources/modules.md).
-* Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](automation-runbook-execution.md).
-* Mer information om DSC-konfigurationer finns i [Översikt över tillstånds konfiguration](automation-dsc-overview.md).
+* [Använda moduler i Azure Automation](shared-resources/modules.md)
+* [Runbook-körning i Azure Automation](automation-runbook-execution.md)
+* [Översikt över statuskonfiguration](automation-dsc-overview.md)

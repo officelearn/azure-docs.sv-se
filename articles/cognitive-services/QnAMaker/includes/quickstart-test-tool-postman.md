@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1f47b4532a009694d4167c08f6f04312f8020acc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203987"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673483"
 ---
 Denna Postmanbaserade snabbstart vägleder dig genom att hämta ett svar från en kunskapsbas.
 
@@ -51,7 +51,7 @@ Använd den här proceduren för att konfigurera Postman och Läs sedan vart och
 
 I en tidigare snabb start lades metadata till i två QnA-par för att skilja mellan två olika frågor. Lägg till metadata i frågan för att begränsa filtret till bara det relevanta QnA-paret.
 
-1. I Postman ändrar du bara frågans JSON genom att lägga `strictFilters` till egenskapen med namnet/värdet-paret `service:qna_maker`. Body-JSON ska vara:
+1. I Postman ändrar du bara frågans JSON genom att lägga till `strictFilters` egenskapen med namnet/värdet-paret `service:qna_maker` . Body-JSON ska vara:
 
     ```json
     {
@@ -64,7 +64,7 @@ I en tidigare snabb start lades metadata till i två QnA-par för att skilja mel
     }
     ```
 
-    Frågan är bara ett enda ord, `size`som kan returnera någon av de två frågorna och svars uppsättningarna. `strictFilters` Matrisen visar svaret för att minska till bara `qna_maker` svaren.
+    Frågan är bara ett enda ord, `size` som kan returnera någon av de två frågorna och svars uppsättningarna. `strictFilters`Matrisen visar svaret för att minska till bara `qna_maker` svaren.
 
 1. Svaret innehåller bara det svar som uppfyller filter kriterierna.
 
@@ -103,13 +103,16 @@ I en tidigare snabb start lades metadata till i två QnA-par för att skilja mel
     }
     ```
 
-    Om det finns en fråga och en svars uppsättning som inte uppfyllde Sök termen men som uppfyller filtret, returneras den inte. I stället returneras det allmänna `No good match found in KB.` svaret.
+    Om det finns en fråga och en svars uppsättning som inte uppfyllde Sök termen men som uppfyller filtret, returneras den inte. I stället returneras det allmänna svaret `No good match found in KB.` .
 
 ## <a name="use-debug-query-property"></a>Använd egenskapen Felsök fråga
 
-Felsöknings information hjälper dig att förstå hur det returnerade svaret har fastställts. Även om det är användbart är det inte nödvändigt. Om du vill generera ett svar med felsöknings `debug` information lägger du till egenskapen:
+> [!NOTE]
+>Vi rekommenderar inte att du använder debug-poreperty för alla beroenden. Den här egenskapen har lagts till för att hjälpa produkt teamet vid fel sökning. 
 
-1. I Postman ändrar du endast Body-JSON genom att lägga `debug` till egenskapen. JSON ska vara:
+Felsöknings information hjälper dig att förstå hur det returnerade svaret har fastställts. Även om det är användbart är det inte nödvändigt. Om du vill generera ett svar med felsöknings information lägger du till `debug` egenskapen:
+
+1. I Postman ändrar du endast Body-JSON genom att lägga till `debug` egenskapen. JSON ska vara:
 
     ```json
     {
@@ -215,7 +218,7 @@ Felsöknings information hjälper dig att förstå hur det returnerade svaret ha
 
 Om du vill få ett svar från test kunskaps basen använder du `isTest` egenskapen Body.
 
-I Postman ändrar du endast Body-JSON genom att lägga `isTest` till egenskapen. JSON ska vara:
+I Postman ändrar du endast Body-JSON genom att lägga till `isTest` egenskapen. JSON ska vara:
 
 ```json
 {
@@ -357,7 +360,7 @@ Du kan begära ett minimi tröskelvärde för svaret. Om tröskelvärdet inte up
     }
     ```
 
-    QnA Maker returnerade ett resultat `0`av, vilket innebär ingen exakthet. Den returnerade även standard svaret.
+    QnA Maker returnerade ett resultat av `0` , vilket innebär ingen exakthet. Den returnerade även standard svaret.
 
 1. Ändra tröskelvärdet till 60% och begär frågan igen:
 

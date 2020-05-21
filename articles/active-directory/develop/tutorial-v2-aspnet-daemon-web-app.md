@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b9c40d93c48bcf5959b5d9651510ce6076eb789e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201762"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641106"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Självstudie: Bygg en daemon för flera innehavare som använder slut punkten för Microsoft Identity Platform
 
@@ -32,7 +32,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](ht
 
 Appen skapas som ett ASP.NET MVC-program. Den använder OWIN OpenID Connect-mellanprogram för att logga in användare.
 
-"Daemon"-komponenten i det här exemplet är en API- `SyncController.cs`styrenhet. När styrenheten anropas, hämtas en lista med användare i kundens Azure Active Directory-klient (Azure AD) från Microsoft Graph. `SyncController.cs`utlöses av ett AJAX-anrop i webb programmet. Det använder [Microsoft Authentication Library (MSAL) för .net](msal-overview.md) för att hämta en åtkomsttoken för Microsoft Graph.
+"Daemon"-komponenten i det här exemplet är en API-styrenhet `SyncController.cs` . När styrenheten anropas, hämtas en lista med användare i kundens Azure Active Directory-klient (Azure AD) från Microsoft Graph. `SyncController.cs`utlöses av ett AJAX-anrop i webb programmet. Det använder [Microsoft Authentication Library (MSAL) för .net](msal-overview.md) för att hämta en åtkomsttoken för Microsoft Graph.
 
 >[!NOTE]
 > Om du är nybörjare på Microsoft Identity Platform rekommenderar vi att du börjar med snabb starten för [.net Core daemon](quickstart-v2-netcore-daemon.md).
@@ -114,8 +114,8 @@ Om du inte vill använda Automation följer du stegen i följande avsnitt.
 1. Välj **Registrera** för att skapa programmet.
 1. På sidan **Översikt** för appen letar du reda på **programmets (klient) ID-** värde och registrerar det för senare. Du behöver den för att konfigurera Visual Studio-konfigurationsfilen för projektet.
 1. I listan över sidor för appen väljer du **Autentisering**. Efter det:
-   - I avsnittet **Avancerade inställningar** anger du **utloggnings** - **https://localhost:44316/Account/EndSession**URL till.
-   - I avsnittet **Avancerade inställningar** > för**implicit beviljande** väljer du **åtkomsttoken** och **ID-token**. Det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren och anropa ett API.
+   - I avsnittet **Avancerade inställningar** anger du **utloggnings-URL** till **https://localhost:44316/Account/EndSession** .
+   - I avsnittet **Avancerade inställningar**för  >  **implicit beviljande** väljer du **åtkomsttoken** och **ID-token**. Det här exemplet kräver att det [implicita tilldelnings flödet](v2-oauth2-implicit-grant-flow.md) är aktiverat för att logga in användaren och anropa ett API.
 1. Välj **Spara**.
 1. På sidan **certifikat & hemligheter** väljer du **ny klient hemlighet**i avsnittet **klient hemligheter** . Efter det:
 
@@ -199,7 +199,7 @@ Den relevanta koden för det här exemplet är i följande filer:
 1. Lägg till en ny **MVC 5-kontrollant – tom** instans med namnet **UserController**. Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
 1. Lägg till en ny **Web API 2-kontrollant-tom** instans med namnet **SyncController**. Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
 1. För användar gränssnittet, i mappen **Views\Account** , lägger du till tre **tomma (utan modell) vyer** av instanser med namnet **GrantPermissions**, **index**och **UserMismatch**. Lägg till och ett namngivet **index** i **Views\User** -mappen. Ersätt implementeringen med innehållet i filen med samma namn från exemplet.
-1. Uppdatera **delad\_layout. cshtml** och **Home\Index.cshtml** för att länka ihop de olika vyerna på rätt sätt.
+1. Uppdatera **delad \_ layout. cshtml** och **Home\Index.cshtml** för att länka ihop de olika vyerna på rätt sätt.
 
 ## <a name="deploy-the-sample-to-azure"></a>Distribuera exemplet till Azure
 
@@ -213,7 +213,7 @@ Det här projektet har Web App-och Web API-projekt. För att distribuera dem til
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **Skapa en resurs** i det övre vänstra hörnet.
-1. Välj **webb** > **-** webbapp och ge din webbplats ett namn. Du kan till exempel ge den namnet **dotNet-Web-daemon-v2-contoso.azurewebsites.net**.
+1. Välj **webb**  >  **-** webbapp och ge din webbplats ett namn. Du kan till exempel ge den namnet **dotNet-Web-daemon-v2-contoso.azurewebsites.net**.
 1. Välj information för **prenumeration**, **resurs grupp**och **App Service-plan och plats**. **OS** är **Windows**och **publicera** är **kod**.
 1. Välj **skapa** och vänta tills App Service har skapats.
 1. När du får ett meddelande om att **distributionen har slutförts** väljer du **gå till resurs** för att gå till den nyligen skapade app-tjänsten.
@@ -235,10 +235,10 @@ Visual Studio kommer att publicera projektet och automatiskt öppna en webbläsa
 1. Gå tillbaka till [Azure-portalen](https://portal.azure.com).
 1. I den vänstra rutan väljer du tjänsten **Azure Active Directory** och väljer sedan **Appregistreringar**.
 1. Välj programmet **dotNet-Web-daemon-v2** .
-1. På sidan **autentisering** för ditt program uppdaterar du URL-fälten för **utloggning** med adressen för din tjänst. Använd [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)till exempel.
-1. Från **anpassnings** menyn uppdaterar du **Start sidans URL** till adressen till din tjänst. Använd [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net)till exempel.
+1. På sidan **autentisering** för ditt program uppdaterar du URL-fälten för **utloggning** med adressen för din tjänst. Använd till exempel `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. Från **anpassnings** menyn uppdaterar du **Start sidans URL** till adressen till din tjänst. Använd till exempel `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Spara konfigurationen.
-1. Lägg till samma URL i listan med värden i menyn för **Authentication** > **omdirigering** av autentisering. Om du har flera omdirigerings-URL: er, se till att det finns en ny post som använder App Service-URI: n för varje omdirigerings-URL.
+1. Lägg till samma URL i listan med värden i menyn för **Authentication**  >  **omdirigering** av autentisering. Om du har flera omdirigerings-URL: er, se till att det finns en ny post som använder App Service-URI: n för varje omdirigerings-URL.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 Ta bort app-objektet som du skapade i steget [Registrera ditt program](#register-your-application) när de inte längre behövs.  Ta bort programmet genom att följa anvisningarna i [ta bort ett program som skapats av dig eller din organisation](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).

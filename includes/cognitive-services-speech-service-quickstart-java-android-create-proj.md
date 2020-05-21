@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: travisw
-ms.openlocfilehash: 8b187e058299f8aa8b762231c0ed1e708e5ad9d1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 29086acb1fe4dd3167434f795d09da05ee594722
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80658383"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673177"
 ---
 1. Starta Android Studio och välj **starta ett nytt Android Studio projekt** i **välkomst** fönstret.
 
@@ -27,22 +27,22 @@ Det tar en stund för Android Studio att förbereda det nya projektet för Andro
 
 [!INCLUDE [License notice](cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är 1.11.0.
+Den aktuella versionen av Cognitive Services Speech SDK är 1.12.0.
 
 Speech SDK för Android kommer som ett [AAR (Android-biblioteket)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek samt Android behörigheter som krävs.
-Den finns i en maven-lagringsplats på https:\//csspeechstorage.blob.Core.Windows.net/Maven/.
+Den finns i en maven-lagringsplats på https: \/ /csspeechstorage.blob.Core.Windows.net/Maven/.
 
-Konfigurera ditt projekt för att använda Speech SDK. Öppna fönstret **projekt struktur** genom att välja **fil** > **projekt struktur** på Android Studio meny raden. Gör följande ändringar i fönstret **projekt struktur** :
+Konfigurera ditt projekt för att använda Speech SDK. Öppna fönstret **projekt struktur** genom att välja **fil**  >  **projekt struktur** på Android Studio meny raden. Gör följande ändringar i fönstret **projekt struktur** :
 
-1. I listan till vänster i fönstret väljer du **Projekt**. Redigera standard inställningarna för **biblioteks lagring** genom att lägga till ett kommatecken och vår maven-lagringsplats-URL inom enkla citat tecken: "\/https:/csspeechstorage.blob.Core.Windows.net/maven/"
+1. I listan till vänster i fönstret väljer du **Projekt**. Redigera standard inställningarna för **biblioteks lagring** genom att lägga till ett kommatecken och vår maven-lagringsplats-URL inom enkla citat tecken: "https: \/ /csspeechstorage.blob.Core.Windows.net/maven/"
 
    ![Skärmbild av projektstrukturfönstret](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-06-add-maven-repository.png)
 
-1. På samma skärm väljer du **app**på vänster sida. Välj sedan fliken **Beroenden** högst upp i fönstret. Välj det gröna plus tecknet (**+**) och välj **beroende för bibliotek** på den nedrullningsbara menyn.
+1. På samma skärm väljer du **app**på vänster sida. Välj sedan fliken **Beroenden** högst upp i fönstret. Välj det gröna plus tecknet ( **+** ) och välj **beroende för bibliotek** på den nedrullningsbara menyn.
 
    ![Skärm bild av biblioteks beroende](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. I fönstret som visas anger du namn och version för tal SDK för Android, *com. Microsoft. cognitiveservices. Speech: client-SDK: 1.11.0*. Välj sedan **OK**.
+1. I fönstret som visas anger du namn och version för tal SDK för Android, *com. Microsoft. cognitiveservices. Speech: client-SDK: 1.12.0*. Välj sedan **OK**.
    Tal-SDK bör läggas till i listan över beroenden nu, som du ser:
 
    ![Skärm bild av tal-SDK i listan över beroenden](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-08-dependency-added-1.0.0.png)

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 40a1d75ff90efafff14cd27ab439df8ab3729c50
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77132033"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674299"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduktion till privata Docker-containerregister i Azure
 
@@ -36,20 +36,20 @@ Azure tillhandahåller verktyg som inkluderar Azures kommando rads gränssnitt, 
 
 ## <a name="key-features"></a>Huvudfunktioner
 
-* **Register-SKU: er** – skapa en eller flera behållar register i din Azure-prenumeration. Register finns i tre SKU: er: [Basic, standard och Premium](container-registry-skus.md), som har stöd för webhook-integrering, registerscanner med Azure Active Directory och ta bort funktioner. Dra nytta av lokal, nätverksnära lagring av dina containeravbildningar genom att skapa ett register på samma Azure-plats som dina distributioner. Använd funktionen [geo-replikering](container-registry-geo-replication.md) i Premium-register för avancerad replikering och distributionsscenarier för containeravbildningar. 
+* **Register tjänst nivåer** – skapa en eller flera behållar register i din Azure-prenumeration. Register finns på tre nivåer: [Basic, standard och Premium](container-registry-skus.md), som är ett stöd för webhook-integrering, registerscanner med Azure Active Directory och ta bort funktioner. Dra nytta av lokal, nätverksnära lagring av dina containeravbildningar genom att skapa ett register på samma Azure-plats som dina distributioner. Använd funktionen [geo-replikering](container-registry-geo-replication.md) i Premium-register för avancerad replikering och distributionsscenarier för containeravbildningar. 
 
-* **Säkerhet och åtkomst** – du loggar in i ett register med hjälp av Azure CLI eller standard `docker login` -kommandot. Azure Container Registry överför behållar avbildningar över HTTPS och stöder TLS för att skydda klient anslutningar. 
+* **Säkerhet och åtkomst** – du loggar in i ett register med hjälp av Azure CLI eller standard- `docker login` kommandot. Azure Container Registry överför behållar avbildningar över HTTPS och stöder TLS för att skydda klient anslutningar. 
 
   > [!IMPORTANT]
   > Från och med 13 januari 2020 kräver Azure Container Registry alla säkra anslutningar från servrar och program för att använda TLS 1,2. Aktivera TLS 1,2 med hjälp av en senaste docker-klient (version 18.03.0 eller senare). Stöd för TLS 1,0 och 1,1 kommer att dras tillbaka. 
 
   Du [styr åtkomsten](container-registry-authentication.md) till en container med hjälp av en Azure-identitet, ett Azure Active Directory-kopplat [tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md) eller ett angivet administratörskonto. Använd rollbaserad åtkomst kontroll (RBAC) för att tilldela användare eller system detaljerade behörigheter till ett register.
 
-  Säkerhetsfunktionerna i Premium-SKU: n inkluderar [innehålls förtroende](container-registry-content-trust.md) för bildtagg-signering, och [brand väggar och virtuella nätverk (för hands version)](container-registry-vnet.md) för att begränsa åtkomsten till registret. Azure Security Center kan integreras med Azure Container Registry för att [skanna bilder](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) när en bild skickas till ett register.
+  Säkerhetsfunktionerna i Premium service-nivån är [innehålls förtroende](container-registry-content-trust.md) för bildtagg-signering, och [brand väggar och virtuella nätverk (för hands version)](container-registry-vnet.md) för att begränsa åtkomsten till registret. Azure Security Center kan integreras med Azure Container Registry för att [skanna bilder](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) när en bild skickas till ett register.
 
 * **Bilder och artefakter som stöds** – grupperade i en lagrings plats, är varje avbildning en skrivskyddad ögonblicks bild av en Docker-kompatibel behållare. Azure-containerregister kan innehålla både Windows- och Linux-avbildningar. Du styr avbildningsnamnen för alla containerdistributioner. Använd [Docker-standardkommandon](https://docs.docker.com/engine/reference/commandline/) för att skicka avbildningar till en lagringsplats, eller för att hämta en avbildning från en lagringsplats. Förutom Docker-behållar avbildningar, Azure Container Registry lagrar [relaterade innehålls format](container-registry-image-formats.md) , till exempel [Helm-diagram](container-registry-helm-repos.md) och bilder som skapats i [specifikationen Open container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 
-* **Automatiserade avbildnings versioner** – Använd [Azure Container Registry uppgifter](container-registry-tasks-overview.md) (ACR-aktiviteter) för att effektivisera skapandet, testning, spridning och distribution av avbildningar i Azure. Du kan till exempel använda ACR-aktiviteter för att utöka din utvecklings inre-slinga till molnet `docker build` genom att avlasta åtgärder till Azure. Konfigurera skaparuppgifter för att automatisera din korrigeringspipeline för operativsystems- och ramverkscontainrar och skapa avbildningar automatiskt när ditt team checkar in kod för källkontroll.
+* **Automatiserade avbildnings versioner** – Använd [Azure Container Registry uppgifter](container-registry-tasks-overview.md) (ACR-aktiviteter) för att effektivisera skapandet, testning, spridning och distribution av avbildningar i Azure. Du kan till exempel använda ACR-aktiviteter för att utöka din utvecklings inre-slinga till molnet genom att avlasta `docker build` åtgärder till Azure. Konfigurera skaparuppgifter för att automatisera din korrigeringspipeline för operativsystems- och ramverkscontainrar och skapa avbildningar automatiskt när ditt team checkar in kod för källkontroll.
 
   [Aktiviteter med flera steg](container-registry-tasks-overview.md#multi-step-tasks) innehåller stegvisa aktivitets definitioner och körning för att skapa, testa och korrigera behållar avbildningar i molnet. Uppgiftsstegen definierar enskilda containeravbildningars bygg- och push-åtgärder. De kan också definiera körningen av en eller flera container så varje steg använder containern som sin körningsmiljö.
 

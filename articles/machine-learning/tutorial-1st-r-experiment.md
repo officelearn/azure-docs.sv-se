@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5b1c6561519bc25c2b7ac77f0a25eff89413a07a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81256492"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684745"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Självstudie: Använd R för att skapa en maskin inlärnings modell
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ I den här självstudien utför du följande åtgärder:
 > * Distribuera en förutsägelse slut punkt
 > * Testa modellen från R
 
-Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
+Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
@@ -121,10 +121,10 @@ Nu ska du gå vidare och importera **azuremlsdk** -paketet.
 library(azuremlsdk)
 ```
 
-Utbildnings-och Poäng skripten`accidents.R` ( `accident_predict.R`och) har vissa ytterligare beroenden. Om du planerar att köra dessa skript lokalt ser du till att du har de nödvändiga paketen också.
+Utbildnings-och Poäng skripten ( `accidents.R` och `accident_predict.R` ) har vissa ytterligare beroenden. Om du planerar att köra dessa skript lokalt ser du till att du har de nödvändiga paketen också.
 
 ### <a name="load-your-workspace"></a>Läs in din arbets yta
-Skapa en instans av ett arbets områdes objekt från din befintliga arbets yta. Följande kod läser in arbets ytans information från **config. JSON** -filen. Du kan också hämta en arbets yta [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html)med.
+Skapa en instans av ett arbets områdes objekt från din befintliga arbets yta. Följande kod läser in arbets ytans information från **config. JSON** -filen. Du kan också hämta en arbets yta med [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html) .
 
 ```R
 ws <- load_workspace_from_config()
@@ -200,11 +200,11 @@ I den här självstudien får du anpassa en logistik Regressions modell på dina
 * Skicka jobbet
 
 ### <a name="prepare-the-training-script"></a>Förbereda övnings skriptet
-Ett utbildnings skript som `accidents.R` kallas har angetts för dig i samma katalog som den här självstudien. Observera följande information **i övnings skriptet** som har utförts för att utnyttja Azure Machine Learning för utbildning:
+Ett utbildnings skript `accidents.R` som kallas har angetts för dig i samma katalog som den här självstudien. Observera följande information **i övnings skriptet** som har utförts för att utnyttja Azure Machine Learning för utbildning:
 
 * Övnings skriptet använder ett argument `-d` för att hitta den katalog som innehåller tränings data. När du definierar och skickar jobbet senare pekar du på data lagret för det här argumentet. Azure ML kommer att montera lagringsmappen till fjärrklusteret för utbildnings jobbet.
-* Övnings skriptet loggar den slutliga noggrannheten som ett Mät värde för körnings posten i Azure `log_metric_to_run()`ml med. Azure ML SDK innehåller en uppsättning loggnings-API: er för att logga olika mått under inlärnings körningar. Dessa mått registreras och behålls i experiment körnings posten. Måtten kan sedan nås när som helst eller visas på sidan körnings information i [Studio](https://ml.azure.com). Se [referensen](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) för en fullständig uppsättning loggnings metoder `log_*()`.
-* Övnings skriptet sparar din modell i en katalog med namnet **outputs**. `./outputs` Mappen får särskild behandling av Azure ml. Under utbildningen överförs filer som skrivs `./outputs` till automatiskt till din körnings post av Azure ml och behålls som artefakter. Genom att spara den tränade `./outputs`modellen till, kommer du att kunna komma åt och hämta modell filen även när körningen är över och du inte längre har åtkomst till din fjärran sluten miljö.
+* Övnings skriptet loggar den slutliga noggrannheten som ett Mät värde för körnings posten i Azure ML med `log_metric_to_run()` . Azure ML SDK innehåller en uppsättning loggnings-API: er för att logga olika mått under inlärnings körningar. Dessa mått registreras och behålls i experiment körnings posten. Måtten kan sedan nås när som helst eller visas på sidan körnings information i [Studio](https://ml.azure.com). Se [referensen](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) för en fullständig uppsättning loggnings metoder `log_*()` .
+* Övnings skriptet sparar din modell i en katalog med namnet **outputs**. `./outputs`Mappen får särskild behandling av Azure ml. Under utbildningen överförs filer som skrivs till `./outputs` automatiskt till din körnings post av Azure ml och behålls som artefakter. Genom att spara den tränade modellen till `./outputs` , kommer du att kunna komma åt och hämta modell filen även när körningen är över och du inte längre har åtkomst till din fjärran sluten miljö.
 
 ### <a name="create-an-estimator"></a>Skapa ett beräkningsobjekt
 
@@ -212,11 +212,11 @@ En Azure ML-uppskattning kapslar in den körnings konfigurations information som
 
 Skapa en uppskattning genom att definiera:
 
-* Den katalog som innehåller dina skript som krävs för utbildning`source_directory`(). Alla filer i den här katalogen överförs till klusternoderna för körning. Katalogen måste innehålla ditt utbildnings skript och eventuella ytterligare skript som krävs.
-* Det utbildnings skript som ska köras (`entry_script`).
-* Compute Target (),`compute_target`i det här fallet det AmlCompute-kluster som du skapade tidigare.
-* De parametrar som krävs från övnings skriptet`script_params`(). Azure ML kommer att köra ditt utbildnings skript som ett kommando rads skript med `Rscript`. I den här självstudien anger du ett argument till skriptet, data katalogens monterings punkt, som du `ds$path(target_path)`kan komma åt med.
-* Alla miljö beroenden som krävs för träning. Standard Docker-avbildningen som skapats för utbildning innehåller redan de tre`caret`paketen `e1071`( `optparse`, och) som krävs i övnings skriptet.  Så du behöver inte ange ytterligare information. Om du använder R-paket som inte ingår som standard använder du uppskattnings `cran_packages` parameterns parameter för att lägga till ytterligare cran-paket. Se [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) referensen för en fullständig uppsättning konfigurerbara alternativ.
+* Den katalog som innehåller dina skript som krävs för utbildning ( `source_directory` ). Alla filer i den här katalogen överförs till klusternoderna för körning. Katalogen måste innehålla ditt utbildnings skript och eventuella ytterligare skript som krävs.
+* Det utbildnings skript som ska köras ( `entry_script` ).
+* Compute Target ( `compute_target` ), i det här fallet det AmlCompute-kluster som du skapade tidigare.
+* De parametrar som krävs från övnings skriptet ( `script_params` ). Azure ML kommer att köra ditt utbildnings skript som ett kommando rads skript med `Rscript` . I den här självstudien anger du ett argument till skriptet, data katalogens monterings punkt, som du kan komma åt med `ds$path(target_path)` .
+* Alla miljö beroenden som krävs för träning. Standard Docker-avbildningen som skapats för utbildning innehåller redan de tre paketen ( `caret` , `e1071` och `optparse` ) som krävs i övnings skriptet.  Så du behöver inte ange ytterligare information. Om du använder R-paket som inte ingår som standard använder du uppskattnings `cran_packages` parameterns parameter för att lägga till ytterligare cran-paket. Se [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) referensen för en fullständig uppsättning konfigurerbara alternativ.
 
 ```R
 est <- estimator(source_directory = ".",
@@ -252,7 +252,7 @@ Du-och-kollegor med åtkomst till arbets ytan – kan skicka flera experiment pa
 När din modell har slutfört Utbildningen kan du komma åt artefakterna för jobbet som sparades till körnings posten, inklusive alla mått som loggats och den slutliga tränade modellen.
 
 ### <a name="get-the-logged-metrics"></a>Hämta de loggade måtten
-I övnings skriptet `accidents.R`loggade du in ett mått från din modell: precisionen för förutsägelserna i tränings data. Du kan se mått i [Studio](https://ml.azure.com)eller extrahera dem till den lokala sessionen som en R-lista enligt följande:
+I övnings skriptet `accidents.R` loggade du in ett mått från din modell: precisionen för förutsägelserna i tränings data. Du kan se mått i [Studio](https://ml.azure.com)eller extrahera dem till den lokala sessionen som en R-lista enligt följande:
 
 ```R
 metrics <- get_run_metrics(run)
@@ -309,7 +309,7 @@ Med din modell kan du förutsäga risken för dödsfall från en kollision. Anv�
 
 ### <a name="register-the-model"></a>Registrera modellen
 
-Registrera först den modell som du laddade ned till din arbets [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html)yta med. En registrerad modell kan vara en samling filer, men i det här fallet är R Model-objektet tillräckligt. Azure ML kommer att använda den registrerade modellen för distribution.
+Registrera först den modell som du laddade ned till din arbets yta med [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html) . En registrerad modell kan vara en samling filer, men i det här fallet är R Model-objektet tillräckligt. Azure ML kommer att använda den registrerade modellen för distribution.
 
 ```R
 model <- register_model(ws, 
@@ -319,7 +319,7 @@ model <- register_model(ws,
 ```
 
 ### <a name="define-the-inference-dependencies"></a>Definiera beroenden för härledning
-Om du vill skapa en webb tjänst för din modell måste du först skapa ett bedömnings skript (`entry_script`), ett R-skript som tar som variabler för indata (i JSON-format) och ger en förutsägelse från din modell. I den här självstudien använder du den `accident_predict.R`angivna bedömnings filen. Bedömnings skriptet måste innehålla en `init()` metod som läser in din modell och returnerar en funktion som använder modellen för att göra en förutsägelse baserad på indata. Mer information finns i [dokumentationen](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details) .
+Om du vill skapa en webb tjänst för din modell måste du först skapa ett bedömnings skript ( `entry_script` ), ett R-skript som tar som variabler för indata (i JSON-format) och ger en förutsägelse från din modell. I den här självstudien använder du den angivna bedömnings filen `accident_predict.R` . Bedömnings skriptet måste innehålla en `init()` metod som läser in din modell och returnerar en funktion som använder modellen för att göra en förutsägelse baserad på indata. Mer information finns i [dokumentationen](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details) .
 
 Definiera sedan en Azure ML- **miljö** för ditt skripts paket beroenden. Med en miljö anger du R-paket (från CRAN eller någon annan stans) som behövs för att skriptet ska köras. Du kan också ange värden för miljövariabler som skriptet kan referera till för att ändra dess beteende. Som standard kommer Azure ML att bygga samma standard Docker-avbildning som används med uppskattningen för utbildning. Eftersom självstudien inte har några särskilda krav skapar du en miljö utan särskilda attribut.
 
@@ -327,7 +327,7 @@ Definiera sedan en Azure ML- **miljö** för ditt skripts paket beroenden. Med e
 r_env <- r_environment(name = "basic_env")
 ```
 
-Ange `custom_docker_image` parametern om du vill använda en egen Docker-avbildning för distribution i stället. Se [`r_environment()`](https://azure.github.io/azureml-sdk-for-r/reference/r_environment.html) referensen för en fullständig uppsättning konfigurerbara alternativ för att definiera en miljö.
+Ange parametern om du vill använda en egen Docker-avbildning för distribution i stället `custom_docker_image` . Se [`r_environment()`](https://azure.github.io/azureml-sdk-for-r/reference/r_environment.html) referensen för en fullständig uppsättning konfigurerbara alternativ för att definiera en miljö.
 
 Nu har du allt du behöver för att skapa en **konfigurations härledning** för att kapsla in ditt bedömnings skript och miljö beroenden.
 
@@ -338,7 +338,7 @@ inference_config <- inference_config(
 ```
 
 ### <a name="deploy-to-aci"></a>Distribuera till ACI
-I den här självstudien ska du distribuera tjänsten till ACI. Den här koden tillhandahåller en enda behållare som svarar på inkommande begär Anden, vilket är lämpligt för testning och lätta inläsningar. Se [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) för ytterligare konfigurerbara alternativ. (För distributioner av produktions skala kan du även [distribuera till Azure Kubernetes-tjänsten](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks/deploy-to-aks.html).)
+I den här självstudien ska du distribuera tjänsten till ACI. Den här koden tillhandahåller en enda behållare som svarar på inkommande begär Anden, vilket är lämpligt för testning och lätta inläsningar. Se [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) för ytterligare konfigurerbara alternativ. (För distributioner av produktions skala kan du även [distribuera till Azure Kubernetes-tjänsten](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks.html).)
 
 ``` R
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
@@ -358,7 +358,7 @@ wait_for_deployment(aci_service, show_output = TRUE)
 
 ## <a name="test-the-deployed-service"></a>Testa den distribuerade tjänsten
 
-Nu när din modell distribueras som en tjänst kan du testa tjänsten från R med [`invoke_webservice()`](https://azure.github.io/azureml-sdk-for-r/reference/invoke_webservice.html).  Ange en ny data uppsättning att förutse från, konvertera den till JSON och skicka den till tjänsten.
+Nu när din modell distribueras som en tjänst kan du testa tjänsten från R med [`invoke_webservice()`](https://azure.github.io/azureml-sdk-for-r/reference/invoke_webservice.html) .  Ange en ny data uppsättning att förutse från, konvertera den till JSON och skicka den till tjänsten.
 
 ```R
 library(jsonlite)

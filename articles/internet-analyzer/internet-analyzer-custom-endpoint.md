@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: quickstart
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 6a781e767393f35a1ec22f195ba787e3018d8d1e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b5647dd2e43c8a73bb999af559a579c14bb86a1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76713101"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683977"
 ---
 # <a name="measure-custom-endpoints-to-evaluate-in-your-internet-analyzer-tests"></a>Mät anpassade slut punkter som ska utvärderas i dina Internet Analyzer-tester 
 
@@ -31,7 +31,7 @@ Se till att konfigurera en Internet Analyzer-resurs och välj alternativet Anpas
 
 1. Hämta en genomskinlig test bild för en bild punkt [här](https://fpc.msedge.net/apc/trans.gif). Den här bilden med en bild punkt är den till gång som klientens java script kommer att hämta för att mäta prestanda.
 2. I ditt anpassade webb program distribuerar du test avbildningen i en offentligt tillgänglig sökväg. Sökvägen bör fungera över HTTPS. 
-3. Kopiera den fullständiga anpassade slut punkts-URL https://contoso.com/test/trans.gif) : en (t. ex. till det anpassade slut punkts fältet vid skapandet av testet.
+3. Kopiera den fullständiga anpassade slut punkts-URL: en (t. ex. `https://contoso.com/test/trans.gif` ) till fältet anpassad slut punkt under skapandet av testet.
 
 ## <a name="next-steps"></a>Nästa steg
 

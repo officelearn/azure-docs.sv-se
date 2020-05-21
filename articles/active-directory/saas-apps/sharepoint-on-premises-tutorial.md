@@ -14,126 +14,126 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: miguego
-ms.openlocfilehash: 7e47891a74feb60b0f3e4594bd1621e8b62d64d1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c623ed8cfcdb61081c74a0f7326106c42781cefa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81867103"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648488"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sharepoint-on-premises"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med SharePoint lokalt
+# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Självstudie: Azure Active Directory integration med enkel inloggning med SharePoint lokalt
 
-I den här självstudien får du lära dig hur du integrerar SharePoint lokalt med Azure Active Directory (Azure AD). När du integrerar SharePoint lokalt med Azure AD kan du:
+I den här självstudien får du lära dig hur du integrerar lokal SharePoint med Azure Active Directory (Azure AD). När du integrerar SharePoint lokalt med Azure AD kan du:
 
-* Kontroll i Azure AD som har åtkomst till SharePoint lokalt.
-* Gör det möjligt för användarna att logga in automatiskt till SharePoint lokalt med sina Azure AD-konton.
-* Hantera dina konton på en central plats – Azure Portal.
+* Kontrol lera vem som har åtkomst till SharePoint lokalt i Azure AD.
+* Gör det möjligt för användarna att logga in automatiskt till SharePoint lokalt med deras Azure AD-konton.
+* Hantera dina konton i Azure Portal.
 
-Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Mer information om SaaS-appar (Software as a Service) med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Krav
 
-Om du vill konfigurera Azure Active Directory-integrering med SharePoint lokalt behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med SharePoint lokalt behöver du följande objekt:
 
-* En Azure Active Directory-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/)
+* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * En SharePoint 2013-Server grupp eller senare.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure Active Directory enkel inloggning i en test miljö. Användare från Azure Active Directory kan komma åt din SharePoint lokalt.
+I den här självstudien konfigurerar och testar du enkel inloggning (SSO) för Azure AD i en test miljö. Användare från Azure AD kan komma åt din SharePoint lokalt.
 
-## <a name="create-the-enterprise-applications-in-azure-portal"></a>Skapa företags program i Azure Portal
+## <a name="create-enterprise-applications-in-the-azure-portal"></a>Skapa företags program i Azure Portal
 
 Om du vill konfigurera integrering av lokal SharePoint i Azure AD så behöver du lägga till lokal SharePoint från galleriet i din lista över hanterade SaaS-appar.
 
-Lägg till lokal SharePoint från galleriet genom att utföra följande steg:
+Så här lägger du till SharePoint lokalt från galleriet:
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. Välj **Azure Active Directory**i rutan till vänster i rutan [Azure Portal](https://portal.azure.com).
 
- > [!NOTE]
- > Om elementet inte ska vara tillgängligt kan det också öppnas via länken fasta **alla tjänster** överst i den vänstra navigerings panelen. I följande översikt finns **Azure Active Directory** länken i avsnittet **identitet** eller också kan den sökas i med hjälp av text rutan filter.
+   > [!NOTE]
+   > Om elementet inte är tillgängligt kan du också öppna det via länken **alla tjänster** längst upp i fönstret längst till vänster. I följande översikt finns **Azure Active Directory** länken i avsnittet **identitet** . Du kan också söka efter den med hjälp av filter rutan.
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+1. Gå till **företags program**och välj sedan **alla program**.
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+1. Lägg till ett nytt program genom att välja **Nytt program** längst upp i dialogrutan.
 
-4. I rutan Sök skriver du **SharePoint lokalt**och väljer **SharePoint lokalt** från resultat panelen.
+1. Ange **SharePoint lokalt**i rutan Sök. Välj **SharePoint lokalt** i resultat fönstret.
 
     <kbd>![Lokal SharePoint i resultatlistan](./media/sharepoint-on-premises-tutorial/search-new-app.png)</kbd>
 
-1. Ange ett namn för din SharePoint-OnPrem och klicka på knappen **Lägg** till för att lägga till programmet.
+1. Ange ett namn för din lokala SharePoint-instans och välj **Lägg** till för att lägga till programmet.
 
-1. I det nya företags programmet klickar du på egenskaper och kontrollerar värdet för **användar tilldelning krävs**
+1. I det nya företags programmet väljer du **Egenskaper**och kontrollerar värdet för **användar tilldelning krävs?**.
 
-   <kbd>![Lokal SharePoint i resultatlistan](./media/sharepoint-on-premises-tutorial/user-assignment-required.png)</kbd>
+   <kbd>![Krävs användar tilldelning? granska](./media/sharepoint-on-premises-tutorial/user-assignment-required.png)</kbd>
 
-i vårt scenario är det här värdet inställt på **Nej**.
+   I det här scenariot anges värdet **Nej**.
 
 ## <a name="configure-and-test-azure-ad"></a>Konfigurera och testa Azure AD
 
-I det här avsnittet konfigurerar du enkel inloggning med Azure AD med SharePoint lokalt.
-För att enkel inloggning ska fungera måste en länkrelation etableras mellan en Azure AD-användare och den relaterade användaren i lokal SharePoint.
+I det här avsnittet konfigurerar du Azure AD SSO med SharePoint lokalt. För att SSO ska fungera upprättar du en länk relation mellan en Azure AD-användare och den relaterade användaren i SharePoint lokalt.
 
-Om du vill konfigurera och testa Azure Active Directory enkel inloggning med SharePoint lokalt, måste du slutföra följande Bygg stenar:
+Om du vill konfigurera och testa Azure AD SSO med SharePoint lokalt, fyller du i dessa Bygg stenar:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-1. **[Konfigurera SharePoint lokalt](#configure-sharepoint-on-premises)** – om du vill konfigurera inställningar för enkel inloggning på program sidan.
-1. **[Skapa en Azure AD test-användare i Azure Portal](#create-an-azure-ad-test-user-in-the-azure-portal)** – skapa en ny användare i Azure AD för enkel inloggning.
-1. **[Skapa en Azure AD-säkerhetsgrupp i Azure Portal](#create-an-azure-ad-security-group-in-the-azure-portal)** – skapa en ny säkerhets grupp i Azure AD för enkel inloggning.
-1. **[Bevilja behörighet till Azure Active Directory konto i SharePoint lokalt](#grant-permissions-to-azure-active-directory-account-in-sharepoint-on-premises)** – ge Azure AD-användare behörigheter.
-1. Bevilja behörighet till Azure **[AD-gruppen i SharePoint lokalt](#grant-permissions-to-azure-ad-group-in-sharepoint-on-premises)** – ge Azure AD-gruppen behörighet.
-1. **[Bevilja åtkomst till ett gäst konto till SharePoint lokalt i Azure Portal](#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal)** -ge gäst kontot i Azure AD för SharePoint lokalt.
-1. **[Konfigurera den betrodda identitets leverantören för flera webb program](#configuring-the-trusted-identity-provider-for-multiple-web-applications)** – så här använder du samma betrodda identitets leverantör för flera webb program
+- [Konfigurera enkel inloggning i Azure AD](#configure-azure-ad-single-sign-on) så att användarna kan använda den här funktionen.
+- [Konfigurera SharePoint lokalt](#configure-sharepoint-on-premises) för att konfigurera SSO-inställningar på program sidan.
+- [Skapa en Azure AD test-användare i Azure Portal](#create-an-azure-ad-test-user-in-the-azure-portal) för att skapa en ny användare i Azure AD för SSO.
+- [Skapa en Azure AD-säkerhetsgrupp i Azure Portal](#create-an-azure-ad-security-group-in-the-azure-portal) för att skapa en ny säkerhets grupp i Azure AD för SSO.
+- Ge behörighet till en Azure AD-användare genom att [bevilja behörigheter till ett Azure AD-konto i SharePoint lokalt](#grant-permissions-to-an-azure-ad-account-in-sharepoint-on-premises) .
+- Bevilja behörighet till en Azure [AD-grupp i SharePoint lokalt](#grant-permissions-to-an-azure-ad-group-in-sharepoint-on-premises) för att ge behörighet till en Azure AD-grupp.
+- [Bevilja åtkomst till ett gäst konto till SharePoint lokalt i Azure Portal](#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal) för att ge behörighet till ett gäst konto i Azure AD för SharePoint lokalt.
+- [Konfigurera den betrodda identitets leverantören för flera webb program](#configure-the-trusted-identity-provider-for-multiple-web-applications) att använda samma betrodda identitets leverantör för flera webb program.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
+I det här avsnittet aktiverar du Azure AD SSO i Azure Portal.
 
-Utför följande steg för att konfigurera Azure AD enkel inloggning med lokal SharePoint:
+Så här konfigurerar du Azure AD SSO med SharePoint lokalt:
 
-1. Öppna Azure AD-katalogen i [Azure Portal](https://portal.azure.com/), klicka på **företags program**, klicka på det **tidigare skapade företags program namnet** och klicka på **enkel inloggning**.
+1. I [Azure Portal](https://portal.azure.com/)väljer du **Azure Active Directory**  >  **företags program**. Välj det tidigare skapade företags program namnet och välj **enkel inloggning**.
 
-2. I dialog rutan **Välj en enkel inloggnings metod** klickar du på **SAML** mode för att aktivera enkel inloggning.
+1. I dialog rutan **Välj metod för enkel inloggning** väljer du **SAML** -läget för att aktivera SSO.
  
-3. Klicka på ikonen **Redigera** för att öppna dialog rutan för enkel **SAML-konfiguration** på sidan **Konfigurera enkel inloggning med SAML** .
+1. På sidan **Konfigurera enkel inloggning med SAML** väljer du ikonen **Redigera** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
+1. I avsnittet **grundläggande SAML-konfiguration** följer du dessa steg:
 
-    ![Enkel inloggningsinformation för lokal SharePoint-domän och URL:er](./media/sharepoint-on-premises-tutorial/sp-identifier-reply.png)
+    ![SSO-information för SharePoint lokal domän och URL-adresser](./media/sharepoint-on-premises-tutorial/sp-identifier-reply.png)
 
-    1. I rutan **identifierare** anger du en URL med följande mönster:`urn:<sharepointFarmName>:<federationName>`
+    1. I rutan **identifierare** anger du en URL med hjälp av det här mönstret: `urn:<sharepointFarmName>:<federationName>` .
 
-    1. Skriv en URL i text rutan **svars-URL** med följande mönster:`https://<YourSharePointSiteURL>/_trust/`
+    1. I rutan **svars-URL** anger du en URL med hjälp av det här mönstret: `https://<YourSharePointSiteURL>/_trust/` .
 
-    1. I text rutan **inloggnings-URL** skriver du en URL med följande mönster:`https://<YourSharePointSiteURL>/`
-    1. Klicka på Spara.
+    1. I rutan **inloggnings-URL** anger du en URL med hjälp av det här mönstret: `https://<YourSharePointSiteURL>/` .
+    1. Välj **Spara**.
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL: en, identifierare och svars-URL.
 
-5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **Hämta** för att ladda ned **certifikatet (base64)** från de angivna alternativen utifrån dina behov och sparar dem på din dator.
 
-    ![Länk för nedladdning av certifikatet](./media/sharepoint-on-premises-tutorial/certificatebase64.png)
+    ![Länken Hämta certifikat](./media/sharepoint-on-premises-tutorial/certificatebase64.png)
 
-6. I avsnittet **Konfigurera lokal SharePoint** kopierar du en eller flera lämpliga URL:er efter behov.
+1. I avsnittet **Konfigurera SharePoint lokalt** kopierar du lämpliga URL: er baserat på ditt krav:
     
-    1. **Inloggnings-URL**
+    - **Inloggnings-URL**
     
-        Kopiera inloggnings webb adress Ersätt **/SAML2** i slutet med **/wsfed**, det skulle se **https://login.microsoftonline.com/2c4f1a9f-be5f-10ee-327d-a95dac567e4f/wsfed** ut (denna URL är inte korrekt)
+        Kopiera inloggnings-URL: en och Ersätt **/SAML2** i slutet med **/wsfed** så att den ser ut https://login.microsoftonline.com/2c4f1a9f-be5f-10ee-327d-a95dac567e4f/wsfed . (URL: en är inte korrekt.)
 
-    1. **Azure AD-identifierare**
-    1. **Utloggnings-URL**
+    - **Azure AD-identifierare**
+    - **Utloggnings-URL**
+
     > [!NOTE]
-    > URL: en kan inte användas i SharePoint: du måste ersätta **/SAML2** med **/wsfed**. Lokal SharePoint-programmet använder en SAML 1.1-token så Azure AD förväntar sig en WS Fed-begäran från SharePoint-servern och efter autentisering så utfärdar den SAML 1.1. token.
+    > Den här URL: en kan inte användas i SharePoint. Du måste ersätta **/SAML2** med **/wsfed**. Det lokala SharePoint-programmet använder en SAML 1,1-token, så Azure AD förväntar sig en WS-begäran från SharePoint-servern. Efter autentiseringen utfärdar den SAML 1,1-token.
 
 ### <a name="configure-sharepoint-on-premises"></a>Konfigurera SharePoint lokalt
 
-1. **Skapa en ny betrodd identitets leverantör i SharePoint Server 2016**
+1. Skapa en ny betrodd identitets leverantör i SharePoint Server 2016.
 
     Logga in på SharePoint-servern och öppna hanterings gränssnittet för SharePoint. Fyll i värdena:
-    1. **$Realm** (ID-värde från avsnittet SharePoint-lokal domän och URL: er i Azure Portal).
-    1. **$wsfedurl** (enkel inloggnings-URL).
-   1. **$filepath** (fil Sök väg som du har laddat ned certifikat filen till) från Azure Portal.
+    - **$Realm** är ID-värdet från avsnittet SharePoint-lokal domän och URL: er i Azure Portal.
+    - **$wsfedurl** är URL: en för SSO-tjänsten.
+    - **$filepath** är sökvägen till den fil som du har laddat ned certifikat filen från Azure Portal.
 
     Kör följande kommandon för att konfigurera en ny betrodd identitets leverantör.
 
@@ -151,15 +151,15 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med lokal S
     $map2 = New-SPClaimTypeMapping -IncomingClaimType "http://schemas.microsoft.com/ws/2008/06/identity/claims/role" -IncomingClaimTypeDisplayName "Role" -SameAsIncoming
     $ap = New-SPTrustedIdentityTokenIssuer -Name "AzureAD" -Description "Azure AD SharePoint server 201x" -realm $realm -ImportTrustCertificate $cert -ClaimsMappings $map1,$map2 -SignInUrl $wsfedurl -IdentifierClaim $map1.InputClaimType
     ```
-1. **Aktivera den betrodda identitets leverantören för ditt program**
+1. Aktivera den betrodda identitets leverantören för ditt program.
 
-    a. I Central Administration går du till **Hantera webbprogram** och väljer det webbprogram som du vill skydda med Azure AD.
+    1. I **Central administration**, gå till **Hantera webb program** och välj det webb program som du vill skydda med Azure AD.
 
-    b. I menyfliksområdet klickar du på **Autentiseringsproviders** och väljer den zon som du vill använda.
+    1. Välj **autentiseringsproviders** i menyfliksområdet och välj den zon som du vill använda.
 
-    c. Välj **Betrodd identitetsprovider** och välj den identitetsprovider som du just registrerade med namnet *AzureAD*.
+    1. Välj **betrodd identitetsprovider**och välj den identifierande provider som du precis registrerade med namnet *AzureAD*.
 
-    d. Klicka på **OK**.
+    1. Välj **OK**.
 
     ![Konfigurera din autentiseringsprovider](./media/sharepoint-on-premises-tutorial/config-auth-provider.png)
 
@@ -167,135 +167,132 @@ Utför följande steg för att konfigurera Azure AD enkel inloggning med lokal S
 
 Syftet med det här avsnittet är att skapa en test användare i Azure Portal.
 
-1. I Azure Portal i det vänstra fönstret väljer du **Azure Active Directory**i **Hantera** panorering Välj **användare**.
+1. Välj **Azure Active Directory**i rutan till vänster i rutan Azure Portal. I fönstret **Hantera** väljer **du användare**.
 
-2. Välj sedan **alla användare** följt av **ny användare** längst upp på skärmen.
+1. Välj **alla användare**  >  **ny användare** överst på skärmen.
 
-3. Välj alternativet **skapa användare** och i användar egenskaperna, utför följande steg.  
-   Du kanske kan skapa användare i din Azure AD med hjälp av ditt klient certifikat eller en verifierad domän. 
+1. Välj **skapa användare**och följ de här stegen i användar egenskaperna. Du kanske kan skapa användare i din Azure AD med hjälp av ditt klient certifikat eller en verifierad domän. 
 
-    a. I fältet **namn** anger du användar namnet, vi använde **TestUser**.
+    1. I rutan **namn** anger du användar namnet. Vi använde **TestUser**.
   
-    b. I fältet **Användarnamn** anger du `TestUser@yourcompanydomain.extension`  
-    Till exempel, TestUser@contoso.com
+    1. I rutan **Användarnamn** anger du `TestUser@yourcompanydomain.extension`. Det här exemplet visar `TestUser@contoso.com` .
 
-    ![Dialogrutan Användare](./media/sharepoint-on-premises-tutorial/user-properties.png)
+       ![Dialogrutan Användare](./media/sharepoint-on-premises-tutorial/user-properties.png)
 
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
+    1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i rutan **lösen ord** .
 
-    d. Klicka på **Skapa**.
+    1. Välj **Skapa**.
 
-    e. Du kan nu dela platsen med TestUser@contoso.com och ge den här användaren åtkomst till den.
+    1. Du kan nu dela platsen med TestUser@contoso.com och ge den här användaren åtkomst till den.
 
 ### <a name="create-an-azure-ad-security-group-in-the-azure-portal"></a>Skapa en Azure AD-säkerhetsgrupp i Azure Portal
 
-1. Klicka på **Azure Active Directory > grupper**.
+1. Välj **Azure Active Directory**  >  **grupper**.
 
-2. Klicka på **ny grupp**:
+1. Välj **ny grupp**.
 
-3. Fyll i **grupp typ**, **grupp namn**, **grupp Beskrivning**, **medlemskaps typ**. Klicka på pilen för att välja medlemmar och Sök sedan efter eller klicka på den medlem som du vill lägga till i gruppen. Klicka på **Välj** för att lägga till de valda medlemmarna och klicka sedan på **skapa**.
+1. Fyll i rutorna **grupp typ**, **grupp namn**, **grupp Beskrivning**och **medlemskaps typ** . Välj pilarna för att välja medlemmar och Sök sedan efter eller Välj de medlemmar som du vill lägga till i gruppen. Välj **Välj** för att lägga till de valda medlemmarna och välj sedan **skapa**.
 
 ![Skapa en Azure AD-säkerhetsgrupp](./media/sharepoint-on-premises-tutorial/new-group.png)
 
-### <a name="grant-permissions-to-azure-active-directory-account-in-sharepoint-on-premises"></a>Bevilja behörigheter till Azure Active Directory konto i SharePoint lokalt
+### <a name="grant-permissions-to-an-azure-ad-account-in-sharepoint-on-premises"></a>Bevilja behörigheter till ett Azure AD-konto i SharePoint lokalt
 
-Om du vill bevilja åtkomst till Azure Active Directory användare i den lokala SharePoint-platsen måste du dela webbplats samlingen eller lägga till Azure Active Directory användaren till en av webbplats samlingens grupp. Användare kan nu logga in på SharePoint-201x med identiteter från Azure AD, men det finns fortfarande möjligheter att förbättra användar upplevelsen. Om du till exempel söker efter en användare så visas flera sökresultat i personväljaren. Det finns ett Sök Resultat för var och en av de anspråks typer som skapas i anspråks mappningen. Om du vill välja en användare med personväljaren så måste du ange deras användarnamn exakt och välja anspråksresultatet **Name**.
+Om du vill bevilja åtkomst till en Azure AD-användare i SharePoint lokalt, dela webbplats samlingen eller Lägg till Azure AD-användaren till en av webbplats samlingens grupper. Användare kan nu logga in på SharePoint-201x med hjälp av identiteter från Azure AD, men det finns fortfarande möjligheter att förbättra användar upplevelsen. Om du till exempel söker efter en användare så visas flera sökresultat i personväljaren. Det finns ett Sök Resultat för var och en av de anspråks typer som skapas i anspråks mappningen. Om du vill välja en användare med hjälp av person väljaren måste du ange användar namnet exakt och välja resultatet för **namn** anspråk.
 
 ![Anspråkssökresultat](./media/sharepoint-on-premises-tutorial/claims-search-results.png)
 
-Det finns ingen validering av de värden som du söker efter, vilket kan leda till fel stavningar eller användare av misstag väljer fel anspråks typ. Det kan förhindra att användare får åtkomst till resurserna.
+Det finns ingen validering av de värden som du söker efter, vilket kan leda till fel stavningar eller användare av misstag väljer fel anspråks typ. Den här situationen kan hindra användare från att få åtkomst till resurser.
 
-**För att åtgärda person väljaren** med det här scenariot finns en lösning med öppen källkod som heter [AzureCP](https://yvand.github.io/AzureCP/) som tillhandahåller en anpassad anspråks leverantör för SharePoint 2013, 2016 och 2019. Den använder Microsoft Graph-API: et för att lösa vad användare anger och utför verifiering. Läs mer på [AzureCP](https://yvand.github.io/AzureCP/).
+En lösning med öppen källkod som heter [AzureCP](https://yvand.github.io/AzureCP/) tillhandahåller en anpassad anspråks leverantör för SharePoint 2013, 2016 och 2019 för att åtgärda det här scenariot med person väljaren. Den använder Microsoft Graph-API: et för att lösa vad användare anger och utför verifiering. Mer information finns i [AzureCP](https://yvand.github.io/AzureCP/).
 
   > [!NOTE]
-  > Utan AzureCP kan du lägga till grupper genom att lägga till Azure AD-gruppens ID, men det är inte användarens egna och tillförlitliga. Det ser ut så här:  
-  >   
-  >![Lägg till Azure AD-grupp till SharePoint-grupp](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
+  > Utan AzureCP kan du lägga till grupper genom att lägga till Azure AD-gruppens ID, men den här metoden är inte användarvänlig och tillförlitlig. Så här ser det ut:
+  > 
+  >![Lägga till en Azure AD-grupp i en SharePoint-grupp](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
   
-### <a name="grant-permissions-to-azure-ad-group-in-sharepoint-on-premises"></a>Bevilja behörighet till Azure AD-gruppen i SharePoint lokalt
+### <a name="grant-permissions-to-an-azure-ad-group-in-sharepoint-on-premises"></a>Bevilja behörighet till en Azure AD-grupp i SharePoint lokalt
 
-För att kunna tilldela Azure Active Directory säkerhets grupper till SharePoint lokalt, är det nödvändigt att använda en anpassad anspråks leverantör för SharePoint Server. I vårt exempel har vi använt AzureCP.
+Om du vill tilldela Azure AD-säkerhetsgrupper till SharePoint lokalt, måste du använda en anpassad anspråks leverantör för SharePoint Server. I det här exemplet används AzureCP.
 
  > [!NOTE]
- > Observera att AzureCP inte är en Microsoft-produkt eller som stöds av Microsofts tekniska support. Hämta, installera och konfigurera AzureCP på den lokala SharePoint-servergruppen per https://yvand.github.io/AzureCP/. 
+ > AzureCP är inte en Microsoft-produkt och stöds inte av Microsoft Support. Information om hur du hämtar, installerar och konfigurerar AzureCP i den lokala SharePoint-servergruppen finns på [AzureCP](https://yvand.github.io/AzureCP/) -webbplatsen. 
 
-1. Konfigurera AzureCP på den lokala SharePoint-gruppen eller en annan lösning för anspråks leverantörer. konfigurations stegen för AzureCP finns påhttps://yvand.github.io/AzureCP/Register-App-In-AAD.html
+1. Konfigurera AzureCP i den lokala SharePoint-gruppen eller en annan lösning för anspråks leverantörer. Information om hur du konfigurerar AzureCP finns på den här [AzureCP](https://yvand.github.io/AzureCP/Register-App-In-AAD.html) -webbplatsen.
 
-1. Öppna Azure AD-katalogen i Azure Portal. Klicka på **företags program**, klicka på namnet på den **tidigare skapade företags applikationen** och klicka på **enkel inloggning**.
+1. I Azure Portal väljer du **Azure Active Directory**  >  **företags program**. Välj det tidigare skapade företags program namnet och välj **enkel inloggning**.
 
-1. Redigera avsnittet **användarattribut &-anspråk** på sidan **Konfigurera enkel inloggning med Sam**.
+1. På sidan **Konfigurera enkel inloggning med SAML** redigerar du avsnittet **användar attribut &-anspråk** .
 
-1. Klicka på **Lägg till ett grupp anspråk**.
+1. Välj **Lägg till ett grupp anspråk**.
 
-1. Välj vilka grupper som är associerade med användaren som ska returneras i anspråket, i vårt fall väljer du **alla grupper** och i avsnittet källattribut väljer du **grupp-ID** och klickar på **Spara**.
+1. Välj vilka grupper som är associerade med användaren som ska returneras i anspråket. I det här fallet väljer du **alla grupper**. I avsnittet **källattribut** väljer du **grupp-ID** och väljer **Spara**.
 
-Om du vill bevilja åtkomst till Azure Active Directory säkerhets grupp i den lokala SharePoint-gruppen måste du dela webbplats samlingen eller lägga till Azure Active Directory säkerhets gruppen i en av webbplats samlingens grupp.
+Om du vill bevilja åtkomst till Azure AD-säkerhetsgruppen i SharePoint lokalt, dela webbplats samlingen eller Lägg till Azure AD-säkerhetsgruppen i en av webbplats samlingens grupper.
 
-1. Bläddra till SharePoint-webbplatssamling, under webbplats inställningar för webbplats samlingen, klickar du på "personer och grupper". Välj SharePoint-gruppen och klicka sedan på ny, "Lägg till användare i den här gruppen" och börja skriva in namnet på gruppen som visas i person väljaren Azure Active Directory säkerhets gruppen.
+1. Bläddra till **SharePoint**-webbplatssamling. Under **plats inställningar** för webbplats samlingen väljer du **personer och grupper**. 
 
-    ![Lägg till Azure AD-grupp till SharePoint-grupp](./media/sharepoint-on-premises-tutorial/permission-azure-ad-group.png)
+1. Välj SharePoint-gruppen och välj sedan **ny**  >  **Lägg till användare i den här gruppen**. När du skriver namnet på din grupp visar person väljaren Azure AD-säkerhetsgruppen.
+
+    ![Lägga till en Azure AD-grupp i en SharePoint-grupp](./media/sharepoint-on-premises-tutorial/permission-azure-ad-group.png)
 
 ### <a name="grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal"></a>Bevilja åtkomst till ett gäst konto till SharePoint lokalt i Azure Portal
 
-nu är det möjligt att ge åtkomst till din SharePoint-webbplats till ett gäst konto på ett konsekvent sätt. Det händer att UPN ändras. Användaren med jdoe@outlook.com kommer att visas som `jdoe_outlook.com#ext#@TENANT.onmicrosoft.com`. Det är möjligt att få en sömlös upplevelse medan du delar din webbplats med externa användare. det är nödvändigt att lägga till vissa ändringar i avsnittet **användarattribut &-anspråk** i Azure Portal.
+Du kan bevilja åtkomst till din SharePoint-webbplats till ett gäst konto på ett konsekvent sätt eftersom UPN nu ändras. Användaren visas till exempel `jdoe@outlook.com` som `jdoe_outlook.com#ext#@TENANT.onmicrosoft.com` . Om du vill dela din webbplats med externa användare måste du lägga till vissa ändringar i avsnittet **användarattribut &-anspråk** i Azure Portal.
 
-1. Öppna Azure AD-katalogen i Azure Portal. Klicka på **företags program**, klicka på namnet på den **tidigare skapade företags applikationen** och klicka på **enkel inloggning**.
+1. I Azure Portal väljer du **Azure Active Directory**  >  **företags program**. Välj det tidigare skapade företags program namnet och välj **enkel inloggning**.
 
-1. Redigera avsnittet **användarattribut &-anspråk** på sidan **Konfigurera enkel inloggning med Sam**.
+1. På sidan **Konfigurera enkel inloggning med SAML** redigerar du avsnittet **användar attribut &-anspråk** .
 
-1. i den **obligatoriska anspråks** zonen klickar du på **unik användar identifierare (namn-ID)**.
+1. I den **obligatoriska anspråks** zonen väljer du **unik användar identifierare (namn-ID)**.
 
-1. Ändra egenskapen **Source Attribute** till värdet **User. localuserprincipalname** och **Save**.
+1. Ändra egenskapen **Source Attribute** till värdet **User. Localuserprincipalname**och välj **Spara**.
 
     ![Användarattribut & anspråk initialt](./media/sharepoint-on-premises-tutorial/manage-claim.png)
 
-1. Använd menyfliksområdet gå tillbaka till **SAML-baserad inloggning** nu. avsnittet **användarattribut &-anspråk** skulle se ut så här: 
+1. Använd menyfliksområdet och gå tillbaka till **SAML-baserad inloggning**. Nu ser avsnittet **användarattribut &-anspråk** ut så här: 
 
-    ![Användarattribut & anspråk slutligt](./media/sharepoint-on-premises-tutorial/user-attributes-claims-final.png)  
+    ![Användarattribut & anspråk slutligt](./media/sharepoint-on-premises-tutorial/user-attributes-claims-final.png)
 
     > [!NOTE]
-    > Efter namn och tilldelat namn krävs inte i den här installationen.
+    > Det krävs inget efter namn och angivet namn i den här konfigurationen.
 
-1. I Azure Portal väljer du **Azure Active Directory**i den vänstra rutan, väljer **användare**.
+1. I rutan Azure Portal väljer du **Azure Active Directory** i rutan längst till vänster och väljer sedan **användare**.
 
-1. Klicka på **ny gäst användare**
+1. Välj **ny gäst användare**.
 
-1. Välj alternativet **Bjud in användare** och fyll i användarens egenskaper och klicka på **Bjud in**.
+1. Välj alternativet **Bjud in användare** . Fyll i användar egenskaperna och välj **Bjud in**.
 
 1. Du kan nu dela platsen med MyGuestAccount@outlook.com och ge den här användaren åtkomst till den.
 
-    ![Dela webbplats med gäst konto](./media/sharepoint-on-premises-tutorial/sharing-guest-account.png)
+    ![Dela en webbplats med ett gäst konto](./media/sharepoint-on-premises-tutorial/sharing-guest-account.png)
 
-### <a name="configuring-the-trusted-identity-provider-for-multiple-web-applications"></a>Konfigurera den betrodda identitets leverantören för flera webb program
+### <a name="configure-the-trusted-identity-provider-for-multiple-web-applications"></a>Konfigurera den betrodda identitets leverantören för flera webb program
 
-Konfigurationen fungerar för en enkel webbapp, men ytterligare konfiguration krävs om du planerar att använda samma betrodda identitetsprovider för flera webbprogram. Anta exempelvis att vi hade utökat ett webbprogram till att använda URL:en `https://sales.contoso.com` och nu också vill autentisera användare till `https://marketing.contoso.com`. För att göra det så måste vi uppdatera identitetsprovider för att respektera parametern WReply och uppdatera programregistreringen i Azure AD för att lägga till en svars-URL.
+Konfigurationen fungerar för ett enda webb program, men ytterligare konfiguration behövs om du tänker använda samma betrodda identitets leverantör för flera webb program. Anta till exempel att du har utökat ett webb program till att använda URL: en `https://sales.contoso.com` och att du nu vill autentisera användare `https://marketing.contoso.com` . Det gör du genom att uppdatera identitets leverantören så att den följer parametern WReply och uppdatera program registreringen i Azure AD för att lägga till en svars-URL.
 
-1. Öppna Azure AD-katalogen i Azure Portal. Klicka på **företags program**, klicka på namnet på den **tidigare skapade företags applikationen** och klicka på **enkel inloggning**.
+1. I Azure Portal väljer du **Azure Active Directory**  >  **företags program**. Välj det tidigare skapade företags program namnet och välj **enkel inloggning**.
 
-2. Redigera den **grundläggande SAML-konfigurationen**på sidan **Konfigurera enkel inloggning med Sam**.
+1. På sidan **Konfigurera enkel inloggning med SAML** redigerar du **grundläggande SAML-konfiguration**.
 
-    ![redigera grundläggande SAML-konfiguration](./media/sharepoint-on-premises-tutorial/add-reply-url.png)
+    ![Grundläggande SAML-konfiguration](./media/sharepoint-on-premises-tutorial/add-reply-url.png)
 
-3. Lägg till URL: en för ytterligare webb program i **svars-URL: en (intygs mottagar tjänst-URL)** och klicka på **Spara**.
+1. För **svars-URL: en (intyg om mottagar tjänstens URL)** lägger du till URL: en för ytterligare webb program och väljer **Spara**.
 
-    ![redigera grundläggande SAML-konfiguration](./media/sharepoint-on-premises-tutorial/reply-url-for-web-application.png)
+    ![Redigera den grundläggande SAML-konfigurationen](./media/sharepoint-on-premises-tutorial/reply-url-for-web-application.png)
 
-4. Öppna **hanterings gränssnittet för SharePoint-201x** på SharePoint-servern och kör följande kommandon med namnet på den betrodda identitets-token som du använde tidigare.
+1. Öppna hanterings gränssnittet för SharePoint-201x på SharePoint-servern och kör följande kommandon. Använd namnet på den betrodda identitets-token som du använde tidigare.
     ```
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
-5. I Central Administration går du till webbprogrammet och aktiverar den befintliga betrodda identitetsprovidern.
+1. I **Central administration**går du till webb programmet och aktiverar den befintliga betrodda identitets leverantören.
 
-Du kanske har ett annat scenario där du vill ge åtkomst till din lokala SharePoint för dina interna användare, i det här scenariot måste du distribuera Microsoft Azure Active Directory Connect som tillåter att dina lokala användare synkroniseras med Azure Active Directory, men installationen kommer att bli en del av en annan artikel. 
+Du kanske har andra scenarier där du vill ge åtkomst till din lokala SharePoint-instans för dina interna användare. I det här scenariot måste du distribuera Microsoft Azure Active Directory Connect för att kunna synkronisera dina lokala användare med Azure AD. Den här installationen beskrivs i en annan artikel.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 - [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
 - [Vad är program åtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
-
 - [Vad är villkorlig åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
 - [Vad är hybrid identitet med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)

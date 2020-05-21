@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 62546fc98429c3a28217b1992f803aa40ce615c8
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 4d1fafa131a39ab72f6fc09663c7eb5b06107539
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982351"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644861"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Självstudie: använda Azure Toolkit for IntelliJ för att skapa Apache Spark-program för Spark-pooler (för hands version)
 
@@ -23,7 +23,7 @@ Den här självstudien visar hur du använder Azure Toolkit for IntelliJ-plugin-
 - Få åtkomst till dina Spark-pooler resurser.
 - Utveckla och kör ett Scala Spark-program lokalt.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 >
 > - Använd plugin-programmet Azure Toolkit for IntelliJ
@@ -62,13 +62,14 @@ I den här guiden får du lära dig att:
     |Projektplats| Ange önskad plats för att spara projektet.|
     |Projekt-SDK| Det kan vara tomt vid din första användning av idén. Välj **Nytt... ** och navigera till din JDK.|
     |Spark-version|Skapandeguiden integrerar rätt version för Spark SDK och Scala SDK. Synapse stöder endast **Spark-2.4.0**.|
+    |||
 
     ![Välja Apache Spark SDK](./media/intellij-tool-synapse/create-synapse-application02.png)
 
 7. Välj **Slutför**. Det kan ta några minuter innan projektet blir tillgängligt.
 8. Spark-projektet skapar automatiskt en artefakt åt dig. Om du vill visa artefakten gör du följande:
 
-   a. I meny raden navigerar du till **fil** > **projekt struktur...**.
+   a. I meny raden navigerar du till **fil**  >  **projekt struktur...**.
 
    b. I fönstret **projekt struktur** väljer du **artefakter**.
 
@@ -76,7 +77,7 @@ I den här guiden får du lära dig att:
 
     ![Artefakt information i dialog rutan](./media/intellij-tool-synapse/default-artifact-dialog.png)
 
-9. Hitta **LogQuery** från **Mittprog** > **src** > **main** > **scala**Scala> **sample**Sample> **LogQuery**. I den här självstudien används **LogQuery** för att köra.
+9. Hitta **LogQuery** från **Mittprog**  >  **src**  >  **main**  >  **Scala** >  **Sample** >  **LogQuery**. I den här självstudien används **LogQuery** för att köra.
 
    ![Kommandon för att skapa en Scala-klass från Project](./media/intellij-tool-synapse/select-run-file.png)
 
@@ -86,7 +87,7 @@ Logga in på Azure-prenumerationen för att ansluta till dina Spark-pooler.
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Logga in på din Azure-prenumeration
 
-1. Gå till **Visa** > -**verktyget Windows** > **Azure Explorer**från meny raden.
+1. Gå till **Visa**-  >  **verktyget Windows**  >  **Azure Explorer**från meny raden.
 
    ![IntelliJ idé visar Azure Explorer](./media/intellij-tool-synapse/show-azure-explorer1.png)
 
@@ -141,7 +142,7 @@ När du har skapat ett Scala-program kan du köra det på distans.
     |Spark-pooler|Välj de Spark-pooler som du vill köra programmet på.|
     |Välj en artefakt som ska skickas|Lämna standardvärdet.|
     |Huvud klass namn|Standardvärdet är huvud klassen från den valda filen. Du kan ändra klassen genom att välja ellipsen (**...**) och välja en annan klass.|
-    |Jobb konfiguration|Du kan ändra standard nyckel och standardvärden. Mer information finns i [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Jobb konfiguration|Du kan ändra standard nyckel och standardvärden. Mer information finns i [Apache Livy REST API](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Kommandoradsargument|Du kan ange argument avgränsade med blank steg för huvud klassen om det behövs.|
     |Refererade jar v7 och refererade filer|Du kan ange sökvägar för refererade jar v7 och filer om det finns några. Du kan också bläddra i filer i det virtuella Azure-filsystemet, som för närvarande endast stöder ADLS Gen2 kluster. Mer information: [Apache Spark konfiguration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) och [hur du överför resurser till kluster](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Jobb överförings lagring|Expandera för att visa fler alternativ.|
@@ -164,7 +165,7 @@ Du kan följa anvisningarna nedan för att konfigurera din lokala körnings-och 
 
 ### <a name="scenario-1-do-local-run"></a>Scenario 1: utför lokal körning
 
-1. Öppna dialog rutan **Kör/Felsök konfigurationer** och välj plus tecknet (**+**). Välj sedan alternativet **Apache Spark på Synapse** . Ange information om **namn**, **huvud klass namn** som ska sparas.
+1. Öppna dialog rutan **Kör/Felsök konfigurationer** och välj plus tecknet ( **+** ). Välj sedan alternativet **Apache Spark på Synapse** . Ange information om **namn**, **huvud klass namn** som ska sparas.
 
     ![IntelliJ kör felsöka konfigurationer lokal körning](./media/intellij-tool-synapse/local-run-synapse.png)
 
@@ -176,7 +177,7 @@ Du kan följa anvisningarna nedan för att konfigurera din lokala körnings-och 
 
     ![IntelliJ kör felsöka konfigurationer lokal körning](./media/intellij-tool-synapse/local-run-synapse01.png)
 
-3. När den lokala körningen är klar kan du kontrol lera utdatafilen från **data** > **__standard__** om skriptet innehåller utdata.
+3. När den lokala körningen är klar kan du kontrol lera utdatafilen från **data**standard om skriptet innehåller utdata  >  **__default__**.
 
     ![IntelliJ-projektets lokala körnings resultat](./media/intellij-tool-synapse/spark-local-run-result.png)
 
@@ -189,7 +190,7 @@ Du kan följa anvisningarna nedan för att konfigurera din lokala körnings-och 
 
 ## <a name="access-and-manage-synapse-workspace"></a>Komma åt och hantera Synapse-arbetsyta
 
-Du kan utföra olika åtgärder i Azure Explorer i Azure Toolkit for IntelliJ. Gå till **Visa** > -**verktyget Windows** > **Azure Explorer**från meny raden.
+Du kan utföra olika åtgärder i Azure Explorer i Azure Toolkit for IntelliJ. Gå till **Visa**-  >  **verktyget Windows**  >  **Azure Explorer**från meny raden.
 
 ### <a name="launch-workspace"></a>Starta arbets yta
 
@@ -211,8 +212,8 @@ Du kan köra Spark Local Console (Scala) eller köra Spark livy Interactive Sess
 
 Se till att du har uppfyllt WINUTILS. EXE-krav.
 
-1. Gå till meny raden och navigera till **Kör** > **Redigera konfigurationer...**.
-2. I fönstret **Kör/Felsök-konfigurationer** går du till vänster-fönstret och navigerar till **Apache Spark på Synapse** > **[Spark på Synapse] MyApp**.
+1. Gå till meny raden och navigera till **Kör**  >  **Redigera konfigurationer...**.
+2. I fönstret **Kör/Felsök-konfigurationer** går du till vänster-fönstret och navigerar till **Apache Spark på Synapse**  >  **[Spark på Synapse] MyApp**.
 3. Välj fliken **lokalt körning** i huvud fönstret.
 4. Ange följande värden och välj sedan **OK**:
 
@@ -223,15 +224,15 @@ Se till att du har uppfyllt WINUTILS. EXE-krav.
 
     ![Konfiguration av lokal konsol uppsättning](./media/intellij-tool-synapse/local-console-synapse01.png)
 
-5. Från projekt navigerar du till **Mittprog** > **src** > **main** > **Scala** > **Mittprog**.
-6. I meny raden navigerar du till **verktyg** > **Spark-konsolen** > **Kör Spark Local Console (Scala)**.
+5. Från projekt navigerar du till **Mittprog**  >  **src**  >  **main**  >  **Scala**  >  **Mittprog**.
+6. I meny raden navigerar du till **verktyg**  >  **Spark-konsolen**  >  **Kör Spark Local Console (Scala)**.
 7. Sedan kan två dialog rutor visas för att fråga dig om du vill åtgärda beroenden automatiskt. I så fall väljer du **automatisk korrigering**.
 
     ![IntelliJ idé Spark, Auto Fix dialog1](./media/intellij-tool-synapse/intellij-console-autofix1.png)
 
     ![IntelliJ idé Spark, Auto Fix Dialog2](./media/intellij-tool-synapse/intellij-console-autofix2.png)
 
-8. Konsolen bör se ut ungefär som på bilden nedan. I konsol fönstret typ `sc.appName`, och tryck sedan på CTRL + RETUR. Resultatet visas. Du kan stoppa den lokala konsolen genom att klicka på röd knapp.
+8. Konsolen bör se ut ungefär som på bilden nedan. I konsol fönstret typ `sc.appName` , och tryck sedan på CTRL + RETUR. Resultatet visas. Du kan stoppa den lokala konsolen genom att klicka på röd knapp.
 
     ![Resultat av IntelliJ idén-lokal konsol](./media/intellij-tool-synapse/local-console-result.png)
 
@@ -239,9 +240,9 @@ Se till att du har uppfyllt WINUTILS. EXE-krav.
 
 Det stöds endast på IntelliJ 2018,2 och 2018,3.
 
-1. Gå till meny raden och navigera till **Kör** > **Redigera konfigurationer...**.
+1. Gå till meny raden och navigera till **Kör**  >  **Redigera konfigurationer...**.
 
-2. I fönstret **Kör/Felsök-konfigurationer** går du till vänster-fönstret och navigerar till **Apache Spark på Synapse** > **[Spark på Synapse] MyApp**.
+2. I fönstret **Kör/Felsök-konfigurationer** går du till vänster-fönstret och navigerar till **Apache Spark på Synapse**  >  **[Spark på Synapse] MyApp**.
 
 3. Välj fliken **fjärrkörning på kluster** i huvud fönstret.
 
@@ -254,10 +255,10 @@ Det stöds endast på IntelliJ 2018,2 och 2018,3.
 
     ![Konfiguration av interaktiv konsol uppsättning](./media/intellij-tool-synapse/interactive-console-configuration.png)
 
-5. Från projekt navigerar du till **Mittprog** > **src** > **main** > **Scala** > **Mittprog**.
+5. Från projekt navigerar du till **Mittprog**  >  **src**  >  **main**  >  **Scala**  >  **Mittprog**.
 
-6. I meny raden navigerar du till **verktyg** > **Spark-konsolen** > **Kör Spark livy Interactive Session Console (Scala)**.
-7. Konsolen bör se ut ungefär som på bilden nedan. I konsol fönstret typ `sc.appName`, och tryck sedan på CTRL + RETUR. Resultatet visas. Du kan stoppa den lokala konsolen genom att klicka på röd knapp.
+6. I meny raden navigerar du till **verktyg**  >  **Spark-konsolen**  >  **Kör Spark livy Interactive Session Console (Scala)**.
+7. Konsolen bör se ut ungefär som på bilden nedan. I konsol fönstret typ `sc.appName` , och tryck sedan på CTRL + RETUR. Resultatet visas. Du kan stoppa den lokala konsolen genom att klicka på röd knapp.
 
     ![Resultat av IntelliJ-idé interaktiv konsol](./media/intellij-tool-synapse/interactive-console-result.png)
 
@@ -270,4 +271,4 @@ Det är praktiskt att du kan förutse skript resultatet genom att skicka kod til
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Skapa en ny Apache Spark pool för en Azure Synapse Analytics-arbetsyta](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
+- [Skapa en ny Apache Spark pool för en Azure Synapse Analytics-arbetsyta](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)

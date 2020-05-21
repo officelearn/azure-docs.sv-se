@@ -7,29 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/24/2020
-ms.openlocfilehash: 0aea6a42269712e5c1e505c270f9d88635de83e5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/19/2020
+ms.openlocfilehash: 6597a8d5f1f8f4aa34ba9f59d4e08b5dc6d66728
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195290"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682460"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
 Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
-<a name="new-service-name"></a>
-
-## <a name="new-service-name"></a>Nytt tjänstnamn
-
-Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspegla den utökade (ännu valfria) användningen av kognitiva kunskaper och AI-bearbetning i kärn åtgärder. API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Nya och befintliga Sök lösningar påverkas inte av tjänst namns ändringen.
-
 ## <a name="feature-announcements"></a>Funktions aviseringar
 
-### <a name="may-2020"></a>Maj 2020
+### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft-version)
 
-+ Funktionen Felsök sessioner är nu i för hands version. [Registrera dig för att begära åtkomst](https://aka.ms/DebugSessions).
++ Funktionen [Felsök sessioner](cognitive-search-debug-session.md) är nu i för hands version. [Registrera dig för att begära åtkomst](https://aka.ms/DebugSessions). Debug-sessioner innehåller ett Portal gränssnitt för att undersöka och lösa problem med en färdigheter. Korrigeringar som skapats i felsökningssessionen kan sparas till produktionens färdighetsuppsättningar. Kom igång med [den här självstudien](cognitive-search-tutorial-debug-sessions.md).
+
++ Säkerhets förbättringar omfattar möjligheten att [Konfigurera en privat Sök slut punkt (för hands version)](service-create-private-endpoint.md) som inte är tillgänglig på det offentliga Internet. Du kan också [Konfigurera IP-regler för Inbound brand Väggs stöd (för hands version)](service-configure-firewall.md).
+
++ Använd en [Systemhanterad identitet (för hands version)](search-howto-managed-identities-data-sources.md) för att konfigurera en anslutning till en Azure-datakälla för indexering. Gäller för [indexerare](search-indexer-overview.md) som inhämtar innehåll från Azure-datakällor som Azure SQL Database, Azure Cosmos DB och Azure Storage.
+
++ Ändra grunden för hur Sök Resultat beräknas, från per-Shard till alla-Shards med hjälp av [parametern scoringStatistics = global fråga](index-similarity-and-scoring.md#scoring-statistics).
 
 ### <a name="march-2020"></a>Mars 2020
 
@@ -77,6 +77,12 @@ Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspe
 ### <a name="july-2019"></a>Juli 2019
 
 + Allmänt tillgänglig i [Azure Government Cloud](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
+
+<a name="new-service-name"></a>
+
+## <a name="new-service-name"></a>Nytt tjänstnamn
+
+Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspegla den utökade (ännu valfria) användningen av kognitiva kunskaper och AI-bearbetning i kärn åtgärder. API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Nya och befintliga Sök lösningar påverkas inte av tjänst namns ändringen.
 
 ## <a name="service-updates"></a>Tjänstuppdateringar
 

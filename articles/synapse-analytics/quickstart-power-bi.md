@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 83e9e802d2150ee7f43f01e9f6d6827ef3acfcdd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c5b86319752fc70e754e34b787bbdc12f18636f0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204756"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655968"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-analytics-workspace-preview"></a>Snabb start: länka en Power BI arbets yta till en Synapse Analytics-arbetsyta (för hands version)
 
@@ -70,4 +70,4 @@ Nya rapporter kan skapas genom att klicka **+** längst upp på fliken **utveckl
 
 ## <a name="next-steps"></a>Nästa steg
 
-Sedan kan du [skapa Power BIs rapport för filer som lagras på Azure Storage](sql/tutorial-connect-power-bi-desktop.md)
+Lär dig mer om att [skapa Power BIs rapport för filer som lagras på Azure Storage](sql/tutorial-connect-power-bi-desktop.md).

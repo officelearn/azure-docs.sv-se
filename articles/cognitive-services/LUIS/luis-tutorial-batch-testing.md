@@ -3,12 +3,12 @@ title: 'Självstudie: batch-testning för att hitta problem – LUIS'
 description: Den här självstudien visar hur du använder batch-testning för att verifiera kvaliteten på din Language Understanding-app (LUIS).
 ms.topic: tutorial
 ms.date: 05/07/2020
-ms.openlocfilehash: c823cbd854c28ab356dd9968e6f8f1a12b6421be
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592601"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681623"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Självstudie: data uppsättningar för batch-test
 
@@ -49,13 +49,13 @@ Importera en app som tar en pizza ordning, till exempel `1 pepperoni pizza on th
 
 ## <a name="what-should-the-batch-file-utterances-include"></a>Vad ska kommando filen yttranden innehålla
 
-Kommando filen bör innehålla yttranden med de översta enhets enheter som är märkta, inklusive start-och slut position. Yttranden ska inte ingå i exemplen som redan finns i appen. De bör vara yttrandena att du vill förutsäga för avsikt och entiteter positivt.
+Kommando filen bör innehålla yttranden med enheter på den högsta nivån som är märkta, inklusive start-och slut position. Yttranden ska inte ingå i exemplen som redan finns i appen. De bör vara yttrandena att du vill förutsäga för avsikt och entiteter positivt.
 
 Du kan separera tester efter avsikt och/eller entitet eller ha alla test (upp till 1000 yttranden) i samma fil.
 
 ## <a name="batch-file"></a>Kommando fil
 
-JSON-exemplet innehåller en uttryck med en etikettad entitet som illustrerar vad en testfil ser ut. I dina egna tester bör du ha många yttranden med rätt namngivnings avsikt och enhet som har registrerats av enheten.
+JSON-exemplet innehåller en uttryck med en etikettad entitet som illustrerar vad en testfil ser ut. I dina egna tester bör du ha många yttranden med rätt avsikts-och maskin inlärnings enhet med etiketten.
 
 1. Skapa `pizza-with-machine-learned-entity-test.json` i en text redigerare eller [Ladda ned](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/batch-tests/pizza-with-machine-learned-entity-test.json?raw=true) den.
 

@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 3933edff3730b9c16ea3c129890c1a7d66cf5215
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fa1ce8516223b725c1efcb7e27d4726bbadfe62e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117945"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655048"
 ---
-# <a name="enhance-data-factory-security-and-configure-customer-managed-keys-with-azure-key-vault"></a>Förbättra Data Factory säkerhet och konfigurera Kundhanterade nycklar med Azure Key Vault
+# <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Kryptera Azure Data Factory med Kundhanterade nycklar
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -25,7 +25,7 @@ Azure Data Factory krypterar data i vila, inklusive enhets definitioner, alla da
 Azure Key Vault krävs för att lagra Kundhanterade nycklar. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Key Vault och Data Factory måste finnas i samma Azure Active Directory-klient (Azure AD) och i samma region, men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/general/overview.md)
 
 > [!NOTE]
-> För tillfället kan kundhanterad nyckel bara konfigureras på en tom Data Factory: ingen länkad tjänst, ingen pipeline, inga data uppsättningar, inget. Överväg att aktivera kundhanterad nyckel direkt efter att du har skapat fabriken.
+> En kundhanterad nyckel kan bara konfigureras på en tom data fabrik. Data fabriken kan inte innehålla några resurser, till exempel länkade tjänster, pipeliner och data flöden. Vi rekommenderar att du aktiverar kundhanterad nyckel direkt efter att du har skapat fabriken.
 
 ## <a name="about-customer-managed-keys"></a>Om Kundhanterade nycklar
 
@@ -54,13 +54,13 @@ Om du skapar en ny Azure Key Vault via Azure Portal, kan __mjuk borttagning__ oc
 
   ![Skärm bild som aktiverar mjuk borttagning och rensning när Key Vault skapas](media/quickstart-enable-customer-managed-key/01-enable-purge-protection.png)
 
-### <a name="grant-data-factory-access-to-key-vault"></a>Bevilja Data Factory åtkomst till Key Vault
+### <a name="grant-data-factory-access-to-azure-key-vault"></a>Bevilja Data Factory åtkomst till Azure Key Vault
 
 Se till att Azure Key Vault och Azure Data Factory finns i samma Azure Active Directory-klient (Azure AD) och i _samma region_. Från Azure Key Vault åtkomst kontroll beviljar du Data Factory-Hanterad tjänstidentitet (MSI) följande behörigheter: _Hämta_, _packa_upp och _packa upp nyckel_. Dessa behörigheter krävs för att aktivera Kundhanterade nycklar i Data Factory.
 
   ![Skärm bild som aktiverar Data Factory åtkomst till Key Vault](media/quickstart-enable-customer-managed-key/02-access-policy-factory-msi.png)
 
-### <a name="generate-or-upload-customer-managed-key-to-key-vault"></a>Generera eller överför kundhanterad nyckel till Key Vault
+### <a name="generate-or-upload-customer-managed-key-to-azure-key-vault"></a>Generera eller överför kundhanterad nyckel till Azure Key Vault
 
 Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Endast 2048-bitars RSA-nycklar stöds med Data Factory kryptering. Mer information finns i [om nycklar, hemligheter och certifikat](../key-vault/general/about-keys-secrets-certificates.md).
 
@@ -68,7 +68,7 @@ Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så ka
 
 ## <a name="enable-customer-managed-keys"></a>Aktivera Kundhanterade nycklar
 
-1. Se till att Data Factory är tom: ingen länkad tjänst, ingen pipeline och ingen data uppsättning, inget. För tillfället leder distributionen av kundhanterad nyckel till en icke-tom fabrik ett fel.
+1. Se till att Data Factory är tom. Data fabriken kan inte innehålla några resurser, till exempel länkade tjänster, pipeliner och data flöden. För tillfället leder distributionen av kundhanterad nyckel till en icke-tom fabrik ett fel.
 
 1. Om du vill hitta nyckel-URI: n i Azure Portal navigerar du till Azure Key Vault och väljer inställningen nycklar. Välj önskad nyckel och klicka sedan på nyckeln för att visa dess versioner. Välj en nyckel version som du vill visa inställningarna för
 
@@ -112,7 +112,7 @@ Om du vill ändra nyckeln som används för Data Factory kryptering måste du ma
 
 ## <a name="disable-customer-managed-keys"></a>Inaktivera Kundhanterade nycklar
 
-Genom att utforma, när kundhanterad nyckel funktion har Aktiver ATS, kan du inte ta bort det extra säkerhets steget. Vi förväntar alltid sig en kund som har fått nyckeln för att kryptera fabrik och data.
+Efter designen kan du inte ta bort det extra säkerhets steget när funktionen kundhanterad nyckel är aktive rad. Vi förväntar alltid sig en kund som har fått nyckeln för att kryptera fabrik och data.
 
 ## <a name="next-steps"></a>Nästa steg
 

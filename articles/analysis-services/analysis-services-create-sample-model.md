@@ -4,15 +4,15 @@ description: I den här självstudiekursen lär du dig hur du lägger till en ex
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 88ed58ea1eea80b4b890c31260fc65153377eaaa
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74326584"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697515"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Självstudiekurs: Lägga till en exempelmodell från portalen
 
@@ -43,7 +43,7 @@ Logga in på [portalen](https://portal.azure.com/).
 
     ![Skapa en exempelmodell](./media/analysis-services-create-sample-model/aas-create-sample-new-model.png)
 
-2. I **ny modell** > **väljer du en data källa**, verifierar **exempel data** är markerat och klickar sedan på **Lägg till**.
+2. I **ny modell**  >  **väljer du en data källa**, verifierar **exempel data** är markerat och klickar sedan på **Lägg till**.
 
     ![Välj exempeldata](./media/analysis-services-create-sample-model/aas-create-sample-data.png)
 

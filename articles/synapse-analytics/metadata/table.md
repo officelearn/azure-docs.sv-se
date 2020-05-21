@@ -6,37 +6,33 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c1951c772dcd2f49f4f7c09021f69193af0a87e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3e28a76a559603755d3d72e8d5e27cde72aa9533
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424582"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701057"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabeller för delade metadata i Azure Synapse Analytics
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och Parquet tabeller mellan Apache Spark pooler (för hands version), motorn SQL on-demand (för hands version) och SQL-pooler.
+Med Azure Synapse Analytics kan olika beräknings motorer för arbets ytan dela databaser och Parquet tabeller mellan Apache Spark pooler (för hands versionen) och SQL on-demand (för hands version)-motorn.
 
 När en databas har skapats av ett Spark-jobb kan du skapa tabeller i den med Spark som använder Parquet som lagrings format. Tabellerna blir omedelbart tillgängliga för frågor från någon av Azure Synapse-arbetsytans Spark-pooler. De kan också användas från alla Spark-jobb som omfattas av behörigheter.
 
-Spark created-, Managed-och external-tabellerna görs också tillgängliga som externa tabeller med samma namn i motsvarande synkroniserade databas i SQL på begäran och i motsvarande `$`fasta scheman i de SQL-pooler som har metadata-synkronisering aktive rad. Att [exponera en spark-tabell i SQL](#exposing-a-spark-table-in-sql) innehåller mer information om Table-synkroniseringen.
+Spark skapade, hanterade och externa tabeller görs också tillgängliga som externa tabeller med samma namn i motsvarande synkroniserade databas i SQL på begäran. Att [exponera en spark-tabell i SQL](#exposing-a-spark-table-in-sql) innehåller mer information om Table-synkroniseringen.
 
-Eftersom tabellerna synkroniseras till SQL på begäran och SQL-pooler asynkront, kommer det att finnas en fördröjning tills de visas.
-
-Mappning av tabeller till externa tabeller, data källor och fil format.
+Eftersom tabellerna synkroniseras till SQL på begäran asynkront kommer det att finnas en fördröjning tills de visas.
 
 ## <a name="manage-a-spark-created-table"></a>Hantera en spark-skapad tabell
 
 Använd Spark för att hantera Spark-skapade databaser. Du kan t. ex. ta bort den via ett Spark-jobb och skapa tabeller i det från Spark.
 
 Om du skapar objekt i en sådan databas från SQL på begäran eller försöker släppa databasen kommer åtgärden att lyckas, men den ursprungliga Spark-databasen kommer inte att ändras.
-
-Om du försöker ta bort det synkroniserade schemat i en SQL-pool eller försöker skapa en tabell i den, returnerar Azure ett fel.
 
 ## <a name="exposing-a-spark-table-in-sql"></a>Exponerar en spark-tabell i SQL
 
@@ -46,17 +42,17 @@ Spark innehåller två typer av tabeller som Azure Synapse visar i SQL automatis
 
 - Hanterade tabeller
 
-  Spark innehåller många alternativ för att lagra data i hanterade tabeller, till exempel TEXT, CSV, JSON, JDBC, PARQUET, ORC, HIVE, DELTA och LIBSVM. De här filerna lagras vanligt vis i `warehouse` den katalog där hanterade tabell data lagras.
+  Spark innehåller många alternativ för att lagra data i hanterade tabeller, till exempel TEXT, CSV, JSON, JDBC, PARQUET, ORC, HIVE, DELTA och LIBSVM. De här filerna lagras vanligt vis i den `warehouse` katalog där hanterade tabell data lagras.
 
 - Externa tabeller
 
-  Spark ger också olika sätt att skapa externa tabeller över befintliga data, antingen genom att `LOCATION` tillhandahålla alternativet eller använda Hive-formatet. Sådana externa tabeller kan vara över en mängd olika data format, inklusive Parquet.
+  Spark ger också olika sätt att skapa externa tabeller över befintliga data, antingen genom att tillhandahålla `LOCATION` alternativet eller använda Hive-formatet. Sådana externa tabeller kan vara över en mängd olika data format, inklusive Parquet.
 
 Azure-Synapse delar för närvarande bara hanterade och externa Spark-tabeller som lagrar sina data i Parquet-format med SQL-motorerna. Tabeller som backas upp av andra format synkroniseras inte automatiskt. Du kanske kan synkronisera sådana tabeller manuellt som en extern tabell i din egen SQL-databas om SQL-motorn stöder tabellens underliggande format.
 
 ### <a name="how-are-spark-tables-shared"></a>Hur är Spark-tabeller delade
 
-De shareable-hanterade och externa Spark-tabellerna som visas i SQL-motorerna som externa tabeller med följande egenskaper:
+De shareable-hanterade och externa Spark-tabellerna som visas i SQL-motorn som externa tabeller med följande egenskaper:
 
 - Den externa SQL-tabellens data källa är data källan som representerar Spark-tabellens plats-mapp.
 - Den externa SQL-tabellens fil format är Parquet.
@@ -88,7 +84,7 @@ Spark-tabeller tillhandahåller olika data typer än Synapse SQL-motorer. Följa
 
 ## <a name="security-model"></a>Säkerhetsmodell
 
-Spark-databaser och-tabeller, samt deras synkroniserade representationer i SQL-motorerna kommer att skyddas på den underliggande lagrings nivån. Eftersom de för närvarande inte har behörighet till själva objekten kan objekten visas i Object Explorer.
+Spark-databaser och-tabeller, samt deras synkroniserade representationer i SQL-motorn, kommer att skyddas på den underliggande lagrings nivån. Eftersom de för närvarande inte har behörighet till själva objekten kan objekten visas i Object Explorer.
 
 Det säkerhets objekt som skapar en hanterad tabell anses vara ägare till den tabellen och har alla rättigheter till tabellen och de underliggande mapparna och filerna. Dessutom blir databasens ägare automatiskt ägare till tabellen.
 
@@ -100,7 +96,7 @@ Mer information om hur du anger behörigheter för mappar och filer finns i [Azu
 
 ### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Skapa en hanterad tabell som backas upp av Parquet i Spark och fråga från SQL på begäran
 
-I det här scenariot har du en spark- `mytestdb`databas med namnet. Se [skapa & ansluta till Spark Database-SQL på begäran](database.md#create--connect-to-spark-database---sql-on-demand).
+I det här scenariot har du en spark-databas med namnet `mytestdb` . Se [skapa & ansluta till Spark Database-SQL på begäran](database.md#create--connect-to-spark-database---sql-on-demand).
 
 Skapa en hanterad Spark-tabell med SparkSQL genom att köra följande kommando:
 
@@ -108,14 +104,14 @@ Skapa en hanterad Spark-tabell med SparkSQL genom att köra följande kommando:
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-Detta skapar tabellen `myParquetTable` i-databasen `mytestdb`. Efter en kort fördröjning kan du se tabellen i SQL på begäran. Kör till exempel följande uttryck från SQL på begäran.
+Detta skapar tabellen `myParquetTable` i-databasen `mytestdb` . Efter en kort fördröjning kan du se tabellen i SQL på begäran. Kör till exempel följande uttryck från SQL på begäran.
 
 ```sql
     USE mytestdb;
     SELECT * FROM sys.tables;
 ```
 
-Kontrol lera `myParquetTable` att ingår i resultaten.
+Kontrol lera att `myParquetTable` ingår i resultaten.
 
 >[!NOTE]
 >En tabell som inte använder Parquet som lagrings format kommer inte att synkroniseras.
@@ -169,16 +165,16 @@ CREATE TABLE mytestdb.myExternalParquetTable
     LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
-Ersätt plats hållaren `<fs>` med fil system namnet som är standard fil systemet för arbets ytan och plats `<synapse_ws>` hållaren med namnet på Synapse-arbetsytan som du använder för att köra det här exemplet.
+Ersätt plats hållaren `<fs>` med fil system namnet som är standard fil systemet för arbets ytan och plats hållaren `<synapse_ws>` med namnet på Synapse-arbetsytan som du använder för att köra det här exemplet.
 
-I föregående exempel skapas tabellen `myExtneralParquetTable` i-databasen. `mytestdb` Efter en kort fördröjning kan du se tabellen i SQL på begäran. Kör till exempel följande uttryck från SQL på begäran.
+I föregående exempel skapas tabellen `myExtneralParquetTable` i-databasen `mytestdb` . Efter en kort fördröjning kan du se tabellen i SQL på begäran. Kör till exempel följande uttryck från SQL på begäran.
 
 ```sql
 USE mytestdb;
 SELECT * FROM sys.tables;
 ```
 
-Kontrol lera `myExternalParquetTable` att ingår i resultaten.
+Kontrol lera att `myExternalParquetTable` ingår i resultaten.
 
 Nu kan du läsa data från SQL på begäran på följande sätt:
 
@@ -193,27 +189,6 @@ id | name | birthdate
 ---+-------+-----------
 1 | Alice | 2010-01-01
 ```
-
-### <a name="querying-spark-tables-in-a-sql-pool"></a>Fråga Spark-tabeller i en SQL-pool
-
-Med tabellerna som skapats i föregående exempel skapar du nu en SQL-pool på din arbets yta `mysqlpool` med namnet som aktiverar synkronisering av metadata (eller använder den redan skapade poolen från att [exponera en spark-databas i en SQL-pool](database.md#exposing-a-spark-database-in-a-sql-pool).
-
-Kör följande instruktion mot `mysqlpool` SQL-poolen:
-
-```sql
-SELECT * FROM sys.tables;
-```
-
-Kontrol lera att tabellerna `myParquetTable` och `myExternalParquetTable` är synliga i schemat `$mytestdb`.
-
-Nu kan du läsa data från SQL på begäran på följande sätt:
-
-```sql
-SELECT * FROM [$mytestdb].myParquetTable WHERE name = 'Alice';
-SELECT * FROM [$mytestdb].myExternalParquetTable WHERE name = 'Alice';
-```
-
-Du bör få samma resultat som med SQL på begäran ovan.
 
 ## <a name="next-steps"></a>Nästa steg
 

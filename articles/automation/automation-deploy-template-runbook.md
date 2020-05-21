@@ -1,29 +1,25 @@
 ---
-title: Distribuera en Azure Resource Manager-mall i en Azure Automation-Runbook
-description: Så här distribuerar du en Azure Resource Manager mall som lagras i Azure Storage från en Runbook
+title: Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
+description: Den här artikeln beskriver hur du distribuerar en Azure Resource Manager-mall som lagras i Azure Storage från en PowerShell-Runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: PowerShell, Runbook, JSON, Azure Automation
-ms.openlocfilehash: 1bf381499ac31fafc8aaeef2b4ee488cfa1aa5c1
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: dcb1f5919db71bb233f59cc5b5ba92648b8476d9
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994689"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714295"
 ---
-# <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en Azure Automation PowerShell- runbook
+# <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Distribuera en Azure Resource Manager-mall i en PowerShell-Runbook
 
-Du kan skriva en [Azure Automation PowerShell-Runbook](automation-first-runbook-textual-powershell.md) som distribuerar en Azure-resurs med hjälp av en [Azure Resource Management-mall](../azure-resource-manager/resource-manager-create-first-template.md).
-
-På så sätt kan du automatisera distributionen av Azure-resurser. Du kan underhålla Resource Manager-mallarna på en central, säker plats, till exempel Azure Storage.
+Du kan skriva en [Azure Automation PowerShell-Runbook](automation-first-runbook-textual-powershell.md) som distribuerar en Azure-resurs med hjälp av en [Azure Resource Management-mall](../azure-resource-manager/resource-manager-create-first-template.md). Med hjälp av mallen kan du använda Azure Automation och Azure Storage för att automatisera distributionen av dina Azure-resurser. Du kan underhålla Resource Manager-mallarna på en central, säker plats, till exempel Azure Storage.
 
 I den här artikeln skapar vi en PowerShell-Runbook som använder en Resource Manager-mall som lagras i [Azure Storage](../storage/common/storage-introduction.md) för att distribuera ett nytt Azure Storage-konto.
 
 ## <a name="prerequisites"></a>Krav
-
-För att slutföra den här självstudien behöver du följande objekt:
 
 * En Azure-prenumeration. Om du inte har något än kan du [aktivera din prenumeration på MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller [Registrera dig för ett kostnads fritt konto](https://azure.microsoft.com/free/).
 * Ett [Automation-konto för Azure](automation-sec-configure-azure-runas-account.md) som runbooken ska ligga under och som ska användas för autentisering mot Azure-resurser.  Det här kontot måste ha behörighet att starta och stoppa den virtuella datorn.
@@ -222,7 +218,7 @@ $startParams = @{
 $job = Start-AzAutomationRunbook @startParams
 ```
 
-Runbooken körs och du kan kontrol lera dess status genom att köra `$job.Status`.
+Runbooken körs och du kan kontrol lera dess status genom att köra `$job.Status` .
 
 Runbook hämtar Resource Manager-mallen och använder den för att distribuera ett nytt Azure Storage-konto.
 Du kan se att det nya lagrings kontot har skapats genom att köra följande kommando:
@@ -231,15 +227,10 @@ Du kan se att det nya lagrings kontot har skapats genom att köra följande komm
 Get-AzStorageAccount
 ```
 
-## <a name="summary"></a>Sammanfattning
-
-Klart! Nu kan du använda Azure Automation och Azure Storage med Resource Manager-mallar för att distribuera alla dina Azure-resurser.
-
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Resource Manager-mallar finns i [Azure Resource Manager översikt](../azure-resource-manager/management/overview.md).
-* Information om hur du kommer igång med Azure Storage finns i [Introduktion till Azure Storage](../storage/common/storage-introduction.md).
-* Du hittar andra användbara Azure Automation runbooks i [Runbook-och modul gallerier för Azure Automation](automation-runbook-gallery.md).
-* Du hittar andra användbara Resource Manager-mallar i [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/).
-* En PowerShell-cmdlet-referens finns i [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Översikt över Azure Resource Manager](../azure-resource-manager/management/overview.md)
+* [Introduktion till Azure Storage](../storage/common/storage-introduction.md)
+* [Runbook- och modulgallerier för Azure Automation](automation-runbook-gallery.md)
+* [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

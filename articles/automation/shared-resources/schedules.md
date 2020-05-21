@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c644333fd49c4e54a54d00e7fb033c6d4bdc158b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 848be71764bb503879c34ed6667a43909ef19c13
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685336"
+ms.locfileid: "83713445"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Hantera scheman i Azure Automation
 
@@ -30,7 +30,7 @@ Om du vill schemalägga en Runbook i Azure Automation starta vid en viss tid lä
 
 Cmdletarna i följande tabell skapar och hanterar Automation-scheman med PowerShell. De levereras som en del av [AZ-modulerna](modules.md#az-modules). 
 
-| Cmdletar | Description |
+| Cmdletar | Beskrivning |
 |:--- |:--- |
 | [Get-AzAutomationSchedule](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Hämtar ett schema. |
 | [Get-AzAutomationScheduledRunbook](https://docs.microsoft.com/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Hämtar schemalagda Runbooks. |
@@ -198,5 +198,5 @@ Remove-AzAutomationSchedule -AutomationAccountName $automationAccountName `
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om de cmdletar som används för att få åtkomst till scheman finns [i hantera moduler i Azure Automation](modules.md).
-* Allmän information om Runbooks finns [i Runbook-körning i Azure Automation](../automation-runbook-execution.md).
+* [Använda moduler i Azure Automation](modules.md)
+* [Runbook-körning i Azure Automation](../automation-runbook-execution.md)

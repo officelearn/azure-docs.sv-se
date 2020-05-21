@@ -1,20 +1,20 @@
 ---
-title: Använd Azure Resource Manager mallar för att skapa ett Automation-konto | Microsoft Docs
-description: Du kan använda en Azure Resource Manager-mall för att skapa ett Azure Automation-konto.
+title: Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall | Microsoft Docs
+description: Den här artikeln beskriver hur du använder en Azure Resource Manager mall för att skapa ett Azure Automation-konto.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 949b07a16b2c2b08891d721e46948481cfe572b2
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 10b53da1ef277d7a3d6ab7c850192ce8f08ded68
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996106"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712680"
 ---
-# <a name="create-an-automation-account-by-using-an-azure-resource-manager-template"></a>Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall
+# <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Skapa ett Automation-konto med hjälp av en Azure Resource Manager mall
 
 Du kan använda [Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md) för att skapa ett Azure Automation konto i din resurs grupp. Den här artikeln innehåller en exempel-mall som:
 
@@ -310,8 +310,6 @@ Om du är nybörjare på Azure Automation och Azure Monitor är det viktigt att 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har ett Automation-konto kan du skapa Runbooks och automatisera manuella processer.
-
-* Information om hur du kommer igång med PowerShell-Runbooks finns i [skapa en PowerShell-Runbook](automation-first-runbook-textual-powershell.md).
-* Information om hur du kommer igång med PowerShell Workflow-Runbooks finns i [skapa en PowerShell Workflow-Runbook](automation-first-runbook-textual.md).
-* För att komma igång med python 2-Runbooks, se [skapa en python-Runbook](automation-first-runbook-textual-python2.md).
+* [Skapa en PowerShell-runbook](automation-first-runbook-textual-powershell.md)
+* [Skapa en PowerShell Workflow-Runbook](automation-first-runbook-textual.md)
+* [Skapa en Python-runbook](automation-first-runbook-textual-python2.md)

@@ -5,26 +5,27 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/30/2020
 ms.author: victorh
-ms.openlocfilehash: 17ab693033b61c25ba2f5b5bd588ef52caf8c046
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 9b9b7926caa717c1a02988ac7a927bd9bd39d52a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597713"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683702"
 ---
 # <a name="quickstart-deploy-azure-firewall-with-availability-zones---resource-manager-template"></a>Snabb start: Distribuera Azure-brandväggen med Tillgänglighetszoner Resource Manager-mall
 
 I den här snabb starten använder du en Resource Manager-mall för att distribuera en Azure-brandvägg i tre Tillgänglighetszoner. 
 
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
 Mallen skapar en test nätverks miljö med en brand vägg. Nätverket har ett virtuellt nätverk (VNet) med tre undernät: *AzureFirewallSubnet*, *ServersSubnet*och *JumpboxSubnet*. *ServersSubnet* -och *JumpboxSubnet* -undernätet har en enda virtuell Windows Server-dator med två kärnor.
 
-Brand väggen finns i *AzureFirewallSubnet* -undernätet och har en samling med program regler med en enda regel som tillåter åtkomst `www.microsoft.com`till.
+Brand väggen finns i *AzureFirewallSubnet* -undernätet och har en samling med program regler med en enda regel som tillåter åtkomst till `www.microsoft.com` .
 
 En användardefinierad väg pekar nätverks trafik från *ServersSubnet* -undernätet via brand väggen, där brand Väggs reglerna tillämpas.
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 Mer information om Azure-brandväggen finns i [distribuera och konfigurera Azure-brandväggen med hjälp av Azure Portal](tutorial-firewall-deploy-portal.md).
 
@@ -38,20 +39,20 @@ Den här mallen skapar en Azure-brandvägg med Tillgänglighetszoner, tillsamman
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-with-zones-sandbox/azuredeploy.json).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json" range="001-444" highlight="369-442":::
 
 Flera Azure-resurser definieras i mallen:
 
-- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft. Network/publicIPAddresses**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft. Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 ### <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -77,15 +78,17 @@ Information om JSON-syntaxen och egenskaperna för en brand vägg i en mall finn
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du inte längre behöver dem kan du ta bort resurs gruppen, brand väggen och alla relaterade resurser genom att `Remove-AzResourceGroup` köra PowerShell-kommandot. Om du vill ta bort en resurs grupp med namnet *MyResourceGroup*kör du: 
+När du inte längre behöver dem kan du ta bort resurs gruppen, brand väggen och alla relaterade resurser genom att köra `Remove-AzResourceGroup` PowerShell-kommandot. Om du vill ta bort en resurs grupp med namnet *MyResourceGroup*kör du: 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
 ```
+
 Ta inte bort resurs gruppen och brand väggen om du planerar att fortsätta till själv studie kursen om brand Väggs övervakning. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Sedan kan du övervaka Azure Firewall-loggarna:
+Därefter kan du övervaka Azure Firewall-loggarna.
 
-[Självstudie: Övervaka Azure Firewall-loggar](./tutorial-diagnostics.md)
+> [!div class="nextstepaction"]
+> [Självstudie: Övervaka Azure Firewall-loggar](tutorial-diagnostics.md)

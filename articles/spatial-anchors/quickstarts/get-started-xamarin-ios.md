@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c5e217a33c8b461a438e2d0209fe6733850634e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c5e36fd062a2579ece4aaa1501243295af72e1b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75465143"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649823"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Xamarin iOS-app med Azure spatial ankare
 
@@ -55,6 +55,8 @@ Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckel
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
+Leta upp `StartSession()` och Lägg till följande rad och ersätt i din konto domän från tidigare: `this.cloudSession.Configuration.AccountKey = "MyAccountDomain";` .
+
 ## <a name="deploy-the-app-to-your-ios-device"></a>Distribuera appen till din iOS-enhet
 
 Starta iOS-enheten, logga in och Anslut den till datorn med en USB-kabel.
@@ -63,13 +65,13 @@ Ange att startprojektet ska **SampleXamarin. iOS**, ändra **lösningens konfigu
 
 ![Visual Studio-konfiguration](./media/get-started-xamarin-iOS/visual-studio-macos-configuration.jpg)
 
-Välj **Kör** > **starta utan fel sökning** för att distribuera och starta din app.
+Välj **Kör**  >  **starta utan fel sökning** för att distribuera och starta din app.
 
 I appen väljer du **Basic** för att köra demonstrationen och följer anvisningarna för att placera och återkalla en fäst punkt.
 
-> ![Skärm bild](./media/get-started-xamarin-ios/screenshot-1.jpg)
-> ![1 skärmdump](./media/get-started-xamarin-ios/screenshot-2.jpg)
-> ![2, skärm bild 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
+> ![Skärm bild 1 ](./media/get-started-xamarin-ios/screenshot-1.jpg)
+>  ![ skärmdump 2, ](./media/get-started-xamarin-ios/screenshot-2.jpg)
+>  ![ skärm bild 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

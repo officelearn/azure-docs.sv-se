@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3bf7ff668584a78fea6e2d787e96f36a20f12e37
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f3e53ac189e0d612b09c362e82ba5bc2fe5fec8d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197635"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696824"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS med Synapse SQL
 
@@ -89,7 +89,9 @@ Du måste ha behörighet att lista innehållet i mappen och skriva till plats-ma
 
 I de här exemplen används CETAS för att spara total population som sammanställs per år och stat till en aggregated_data mapp som finns i population_ds data källan.
 
-Det här exemplet använder sig av autentiseringsuppgifter, data källa och externt fil format som skapats tidigare. Referera till det [externa tabell](develop-tables-external-tables.md) dokumentet. Om du vill spara frågeresultaten till en annan mapp i samma data källa ändrar du plats argumentet. Om du vill spara resultatet i ett annat lagrings konto skapar du och använder en annan data källa för DATA_SOURCE argument.
+Det här exemplet använder sig av autentiseringsuppgifter, data källa och externt fil format som skapats tidigare. Referera till det [externa tabell](develop-tables-external-tables.md) dokumentet. Om du vill spara frågeresultaten till en annan mapp i samma data källa ändrar du plats argumentet. 
+
+Om du vill spara resultatet i ett annat lagrings konto skapar du och använder en annan data källa för DATA_SOURCE argument.
 
 > [!NOTE]
 > I exemplen som följer används ett offentligt Azure Open data Storage-konto. Den är skrivskyddad. Om du vill köra dessa frågor måste du ange data källan som du har Skriv behörighet för.
@@ -114,7 +116,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-Exemplet nedan använder en extern tabell som källa för CETAS. Den förlitar sig på autentiseringsuppgifter, data källa, externt fil format och extern tabell som skapats tidigare. Referera till det [externa tabell](develop-tables-external-tables.md) dokumentet.
+I följande exempel används en extern tabell som källa för CETAS. Den förlitar sig på autentiseringsuppgifter, data källa, externt fil format och extern tabell som skapats tidigare. Referera till det [externa tabell](develop-tables-external-tables.md) dokumentet.
 
 ```sql
 -- use CETAS with select from external table
@@ -142,7 +144,7 @@ CETAS kan användas för att lagra resultat uppsättningar med följande SQL-dat
 - varbinary
 - char
 - varchar
-- datum
+- date
 - time
 - datetime2
 - decimal
@@ -155,9 +157,10 @@ CETAS kan användas för att lagra resultat uppsättningar med följande SQL-dat
 - tinyint
 - bit
 
-LOBs kan inte användas med CETAS.
+> [!NOTE]
+> LOBs kan inte användas med CETAS.
 
-Det går inte att använda följande data typer i SELECT-delen av CETAS:
+Följande data typer kan inte användas i SELECT-delen av CETAS:
 
 - nchar
 - nvarchar
@@ -170,4 +173,4 @@ Det går inte att använda följande data typer i SELECT-delen av CETAS:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan prova att fråga [Spark-tabeller](develop-storage-files-spark-tables.md).
+Du kan prova att fråga [Apache Spark för externa Azure Synapse-tabeller](develop-storage-files-spark-tables.md).

@@ -1,26 +1,26 @@
 ---
 title: Snabb start – Bygg en .NET-konsol-app för att hantera Azure Cosmos DB SQL API-resurser
 description: Lär dig hur du skapar en .NET-konsol app för att hantera Azure Cosmos DB SQL API-konto resurser i den här snabb starten.
-author: SnehaGunda
-ms.author: sngun
+author: anfeldma-ms
+ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 07/12/2019
-ms.openlocfilehash: 0981ed30c6bcd9d4246ce1eb047aa66168e3884a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/11/2020
+ms.openlocfilehash: 829cbad707f24daf3331c87a5cc373239bb83b98
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240417"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658311"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Snabb start: Bygg en .NET-konsol-app för att hantera Azure Cosmos DB SQL API-resurser
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Java SDK v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -34,7 +34,7 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 * Fråga efter data 
 * Ta bort databasen
 
-[API Reference dokumentation](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet) | [bibliotek käll kods](https://github.com/Azure/azure-cosmos-dotnet-v3) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[API-referens dokumentation](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet)  |  [Biblioteks käll kod](https://github.com/Azure/azure-cosmos-dotnet-v3)  |  [Paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -43,17 +43,17 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 ## <a name="setting-up"></a>Konfigurera
 
-Det här avsnittet beskriver hur du skapar ett Azure Cosmos-konto och konfigurerar ett projekt som använder Azure Cosmos DB SQL API-klient bibliotek för .NET för att hantera resurser. Exempel koden som beskrivs i den här artikeln skapar `FamilyDatabase` en databas och familje medlemmar (varje familje medlem är ett objekt) i databasen. Varje familje medlem har egenskaper som `Id, FamilyName, FirstName, LastName, Parents, Children, Address,`. `LastName` Egenskapen används som partitions nyckel för behållaren. 
+Det här avsnittet beskriver hur du skapar ett Azure Cosmos-konto och konfigurerar ett projekt som använder Azure Cosmos DB SQL API-klient bibliotek för .NET för att hantera resurser. Exempel koden som beskrivs i den här artikeln skapar en `FamilyDatabase` databas och familje medlemmar (varje familje medlem är ett objekt) i databasen. Varje familje medlem har egenskaper som `Id, FamilyName, FirstName, LastName, Parents, Children, Address,` . `LastName`Egenskapen används som partitions nyckel för behållaren. 
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Skapa ett Azure Cosmos-konto
 
 Om du använder alternativet [prova Azure Cosmos dB för kostnads fri](https://azure.microsoft.com/try/cosmosdb/) för att skapa ett Azure Cosmos-konto måste du skapa ett Azure Cosmos DB konto av typen **SQL API**. Ett Azure Cosmos DB test konto har redan skapats åt dig. Du behöver inte skapa kontot explicit, så du kan hoppa över det här avsnittet och gå vidare till nästa avsnitt.
 
-Om du har en egen Azure-prenumeration eller skapat en prenumeration kostnads fritt bör du skapa ett Azure Cosmos-konto explicit. Följande kod skapar ett Azure Cosmos-konto med konsekvens i sessionen. Kontot replikeras i `South Central US` och `North Central US`.  
+Om du har en egen Azure-prenumeration eller skapat en prenumeration kostnads fritt bör du skapa ett Azure Cosmos-konto explicit. Följande kod skapar ett Azure Cosmos-konto med konsekvens i sessionen. Kontot replikeras i `South Central US` och `North Central US` .  
 
 Du kan använda Azure Cloud Shell för att skapa ett Azure Cosmos-konto. Azure Cloud Shell är ett interaktivt, autentiserat skal för hantering av Azure-resurser via webbläsare. Den ger dig flexibilitet att välja den gränssnittsmiljö som passar bäst för ditt sätt att arbeta, antingen Bash eller PowerShell. I den här snabb starten väljer du **bash** läge. Azure Cloud Shell kräver också ett lagrings konto, så du kan skapa ett när du uppmanas till det.
 
-Välj knappen **prova** bredvid följande kod och välj **bash** läge Välj **skapa ett lagrings konto** och logga in på Cloud Shell. Nästa kopiera och klistra in följande kod i Azure Cloud Shell och kör den. Namnet på Azure Cosmos-kontot måste vara globalt unikt, se till att uppdatera `mysqlapicosmosdb` värdet innan du kör kommandot.
+Välj knappen **prova** bredvid följande kod och välj **bash** läge Välj **skapa ett lagrings konto** och logga in på Cloud Shell. Nästa kopiera och klistra in följande kod för att Azure Cloud Shell och köra den. Namnet på Azure Cosmos-kontot måste vara globalt unikt, se till att uppdatera `mysqlapicosmosdb` värdet innan du kör kommandot.
 
 ```azurecli-interactive
 
@@ -84,7 +84,7 @@ Det tar en stund att skapa ett Azure Cosmos-konto när åtgärden har slutförts
 
 ### <a name="create-a-new-net-app"></a><a id="create-dotnet-core-app"></a>Skapa en ny .NET-app
 
-Skapa ett nytt .NET-program i önskat redigerings program eller IDE. Öppna kommando tolken i Windows eller ett terminalfönster från den lokala datorn. Du kommer att köra alla kommandon i nästa avsnitt från kommando tolken eller terminalen.  Kör följande dotNet New-kommando för att skapa en ny app med namnet `todo`. Parametern--langVersion anger egenskapen LangVersion i den skapade projekt filen.
+Skapa ett nytt .NET-program i önskat redigerings program eller IDE. Öppna kommando tolken i Windows eller ett terminalfönster från den lokala datorn. Du kommer att köra alla kommandon i nästa avsnitt från kommando tolken eller terminalen.  Kör följande dotNet New-kommando för att skapa en ny app med namnet `todo` . Parametern--langVersion anger egenskapen LangVersion i den skapade projekt filen.
 
 ```console
 dotnet new console --langVersion 7.1 -n todo
@@ -147,7 +147,7 @@ export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
 export PrimaryKey = "<Your_Azure_Cosmos_account_PRIMARY_KEY>"
 ```
 
-**MacOS**
+**macOS**
 
 ```bash
 export EndpointUrl = "<Your_Azure_Cosmos_account_URI>"
@@ -161,7 +161,7 @@ Innan du börjar skapa programmet ska vi titta närmare på hierarkin över resu
 * Azure Cosmos-konto 
 * Databaser 
 * Containrar 
-* Objekt
+* Poster
 
 Mer information om hierarkin för olika entiteter finns i [arbeta med databaser, behållare och objekt i Azure Cosmos DB](databases-containers-items.md) artikel. Du kommer att använda följande .NET-klasser för att interagera med dessa resurser:
 
@@ -181,7 +181,7 @@ Mer information om hierarkin för olika entiteter finns i [arbeta med databaser,
 
  ## <a name="code-examples"></a><a id="code-examples"></a>Kodexempel
 
-Exempel koden som beskrivs i den här artikeln skapar en familje databas i Azure Cosmos DB. Familje databasen innehåller familje information som namn, adress, plats, associerade föräldrar, barn och hus djur. Definiera egenskaperna för ett familje objekt innan du fyller i data på ditt Azure Cosmos-konto. Skapa en ny klass med `Family.cs` namnet på rot nivån i exempel programmet och Lägg till följande kod i den:
+Exempel koden som beskrivs i den här artikeln skapar en familje databas i Azure Cosmos DB. Familje databasen innehåller familje information som namn, adress, plats, associerade föräldrar, barn och hus djur. Definiera egenskaperna för ett familje objekt innan du fyller i data på ditt Azure Cosmos-konto. Skapa en ny klass med namnet `Family.cs` på rot nivån i exempel programmet och Lägg till följande kod i den:
 
 ```csharp
 using Newtonsoft.Json;
@@ -247,7 +247,7 @@ using System.Net;
 using Microsoft.Azure.Cosmos;
 ```
 
-I **program.cs** -filen lägger du till kod för att läsa de miljövariabler som du har angett i föregående steg. Definiera `Container` objekten `CosmosClient`, `Database`och. Lägg till kod till main-metoden som anropar `GetStartedDemoAsync` metoden där du hanterar Azure Cosmos Account-resurser. 
+I **program.cs** -filen lägger du till kod för att läsa de miljövariabler som du har angett i föregående steg. Definiera `CosmosClient` objekten, `Database` och `Container` . Lägg till kod till main-metoden som anropar `GetStartedDemoAsync` metoden där du hanterar Azure Cosmos Account-resurser. 
 
 ```csharp
 namespace todo
@@ -332,7 +332,7 @@ private async Task CreateContainerAsync()
 
 ### <a name="create-an-item"></a>Skapa ett objekt
 
-Skapa ett familje objekt genom att lägga `AddItemsToContainerAsync` till-metoden med följande kod. Du kan använda metoderna `CreateItemAsync` eller `UpsertItemAsync` för att skapa ett objekt:
+Skapa ett familje objekt genom att lägga till- `AddItemsToContainerAsync` metoden med följande kod. Du kan använda `CreateItemAsync` metoderna eller `UpsertItemAsync` för att skapa ett objekt:
 
 ```csharp
 private async Task AddItemsToContainerAsync()
@@ -381,7 +381,7 @@ private async Task AddItemsToContainerAsync()
 
 ### <a name="query-the-items"></a>Fråga objekten
 
-När du har infogat ett objekt kan du köra en fråga för att hämta information om "Andersen"-serien. Följande kod visar hur du kör frågan med SQL-frågan direkt. SQL-frågan för att hämta "Anderson"-familje information är `SELECT * FROM c WHERE c.LastName = 'Andersen'`:. Definiera `QueryItemsAsync` metoden i `program.cs` klassen och Lägg till följande kod i den:
+När du har infogat ett objekt kan du köra en fråga för att hämta information om "Andersen"-serien. Följande kod visar hur du kör frågan med SQL-frågan direkt. SQL-frågan för att hämta "Anderson"-familje information är: `SELECT * FROM c WHERE c.LastName = 'Andersen'` . Definiera `QueryItemsAsync` metoden i `program.cs` klassen och Lägg till följande kod i den:
 
 
 ```csharp
@@ -411,7 +411,7 @@ private async Task QueryItemsAsync()
 
 ### <a name="delete-the-database"></a>Ta bort databasen 
 
-Slutligen kan du ta bort databasen genom att `DeleteDatabaseAndCleanupAsync` lägga till metoden med följande kod:
+Slutligen kan du ta bort databasen genom att lägga till `DeleteDatabaseAndCleanupAsync` metoden med följande kod:
 
 ```csharp
 private async Task DeleteDatabaseAndCleanupAsync()
@@ -428,7 +428,7 @@ private async Task DeleteDatabaseAndCleanupAsync()
 
 ### <a name="execute-the-crud-operations"></a>Kör CRUD-åtgärder
 
-När du har definierat alla metoder som krävs kör du dem med i- `GetStartedDemoAsync` metoden. `DeleteDatabaseAndCleanupAsync` Metoden kommenterade i den här koden eftersom du inte ser några resurser om metoden körs. Du kan ta bort kommentaren när du har verifierat att dina Azure Cosmos DB-resurser har skapats i Azure Portal. 
+När du har definierat alla metoder som krävs kör du dem med i- `GetStartedDemoAsync` metoden. `DeleteDatabaseAndCleanupAsync`Metoden kommenterade i den här koden eftersom du inte ser några resurser om metoden körs. Du kan ta bort kommentaren när du har verifierat att dina Azure Cosmos DB-resurser har skapats i Azure Portal. 
 
 ```csharp
 public async Task GetStartedDemoAsync()

@@ -4,23 +4,24 @@ description: Lär dig mer om hur funktionen CONTAINS SQL system i Azure Cosmos D
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c0c25b63fb6a7bf42bd2ec5b9503cac2cce7583f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0de34e6e0e238887b8f75ae2397e9e650eaac340
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78302601"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711711"
 ---
 # <a name="contains-azure-cosmos-db"></a>INNEHÅLLER (Azure Cosmos DB)
+
  Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra.  
   
 ## <a name="syntax"></a>Syntax
   
 ```sql
-CONTAINS(<str_expr1>, <str_expr2>)  
+CONTAINS(<str_expr1>, <str_expr2> [, <bool_expr>])  
 ```  
   
 ## <a name="arguments"></a>Argument
@@ -30,6 +31,8 @@ CONTAINS(<str_expr1>, <str_expr2>)
   
 *str_expr2*  
    Är sträng uttrycket som ska hittas.  
+
+*bool_expr* Valfritt värde för att ignorera Skift läge. Om värdet är true, innehåller en Skift läges känslig sökning. Värdet är false när det har angetts.
   
 ## <a name="return-types"></a>Retur typer
   
@@ -40,7 +43,7 @@ CONTAINS(<str_expr1>, <str_expr2>)
   I följande exempel kontrol leras om "ABC" innehåller "AB" och om "ABC" innehåller "d".  
   
 ```sql
-SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2 
+SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 ```  
   
  Här är resultatuppsättningen.  
@@ -49,9 +52,9 @@ SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 [{"c1": true, "c2": false}]  
 ```  
 
-## <a name="remarks"></a>Anmärkningar
+## <a name="remarks"></a>Kommentarer
 
-Den här system funktionen kommer inte att använda indexet.
+Den här systemfunktionen kommer att ha nytta av ett [intervall index](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Nästa steg
 

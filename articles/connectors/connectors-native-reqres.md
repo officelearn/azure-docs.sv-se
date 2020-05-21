@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: c6d8dc087e6306173fc4d55368cd3c4c624d5302
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0dea516ea6b938b91fc4b9b833979bcecc285339
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978577"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714975"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-begäranden i Azure Logic Apps
 
@@ -64,7 +64,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST-URL** | alternativet | Ja | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
-   | **Begär ande text JSON-schema** | `schema` | Inga | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
+   | **Begär ande text JSON-schema** | `schema` | Nej | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
    |||||
 
 1. I rutan **begär text-JSON-schema** kan du ange ett JSON-schema som beskriver bröd texten i den inkommande begäran, till exempel:
@@ -117,7 +117,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
    }
    ```
 
-   När du anger ett JSON-schema visar designern en påminnelse om att inkludera `Content-Type` sidhuvudet i din begäran och ange värdet som huvud `application/json`värde till. Mer information finns i [Hantera innehålls typer](../logic-apps/logic-apps-content-type.md).
+   När du anger ett JSON-schema visar designern en påminnelse om att inkludera `Content-Type` sidhuvudet i din begäran och ange värdet som huvud värde till `application/json` . Mer information finns i [Hantera innehålls typer](../logic-apps/logic-apps-content-type.md).
 
    ![Påminnelse om att inkludera rubriken "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
@@ -162,8 +162,8 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **Metod** | `method` | Inga | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
-   | **Relativ sökväg** | `relativePath` | Inga | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
+   | **Metod** | `method` | Nej | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
+   | **Relativ sökväg** | `relativePath` | Nej | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
    |||||
 
    I det här exemplet läggs egenskapen **metod** till:
@@ -178,7 +178,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    Du kan till exempel svara på begäran genom att [lägga till en svars åtgärd](#add-response), som du kan använda för att returnera ett anpassat svar och beskrivs senare i det här avsnittet.
 
-   Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
+   Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begränsad tid](../logic-apps/logic-apps-limits-and-config.md#request-limits). Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
 
 1. När du är klar sparar du din Logic app. I verktygsfältet designer väljer du **Spara**.
 
@@ -208,13 +208,13 @@ Här är mer information om utdata från begär ande utlösare:
 
 Du kan använda svars åtgärden för att svara med en nytto Last (data) till en inkommande HTTPS-begäran, men endast i en Logic-app som utlöses av en HTTPS-begäran. Du kan lägga till svars åtgärden när som helst i arbets flödet. Mer information om den underliggande JSON-definitionen för den här utlösaren finns i [Åtgärds typen svar](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
+Din Logi Kap par ser till att inkommande begäran endast öppnas under en [begränsad tid](../logic-apps/logic-apps-limits-and-config.md#request-limits). Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
 
 > [!IMPORTANT]
 > Om en svars åtgärd inkluderar dessa huvuden, tar Logic Apps bort huvudena från det genererade svarsmeddelandet utan att visa någon varning eller ett fel meddelande:
 >
 > * `Allow`
-> * `Content-*`med dessa undantag: `Content-Disposition`, `Content-Encoding`och`Content-Type`
+> * `Content-*`med dessa undantag: `Content-Disposition` , `Content-Encoding` och`Content-Type`
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`
@@ -229,7 +229,7 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Fö
 
    ![Lägg till nytt steg](./media/connectors-native-reqres/add-response.png)
 
-   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet (**+**) som visas och välj sedan **Lägg till en åtgärd**.
+   Om du vill lägga till en åtgärd mellan stegen flyttar du pekaren över pilen mellan stegen. Välj plus tecknet ( **+** ) som visas och välj sedan **Lägg till en åtgärd**.
 
 1. Under **Välj en åtgärd**i sökrutan anger du "Response" som filter och väljer **svars** åtgärden.
 
@@ -241,7 +241,7 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Fö
 
    I vissa fält öppnas listan med dynamiskt innehåll genom att klicka inuti rutorna. Du kan sedan välja tokens som representerar tillgängliga utdata från föregående steg i arbets flödet. Egenskaperna från det schema som anges i det tidigare exemplet visas nu i listan med dynamiskt innehåll.
 
-   Till exempel för **rubrik** rutan, Lägg `Content-Type` till som nyckel namn och ange nyckelvärdet till `application/json` som tidigare nämnts i det här avsnittet. I rutan **brödtext** kan du välja utlösare för text i listan med dynamiskt innehåll.
+   Till exempel för **rubrik** rutan, Lägg till `Content-Type` som nyckel namn och ange nyckelvärdet till `application/json` som tidigare nämnts i det här avsnittet. I rutan **brödtext** kan du välja utlösare för text i listan med dynamiskt innehåll.
 
    ![Information om svars åtgärd](./media/connectors-native-reqres/response-details.png)
 
@@ -254,8 +254,8 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Fö
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **Status kod** | `statusCode` | Ja | Status koden som ska returneras i svaret |
-   | **Rubriker** | `headers` | Inga | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
-   | **Brödtext** | `body` | Inga | Svars texten |
+   | **Sidhuvuden** | `headers` | Nej | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
+   | **Brödtext** | `body` | Nej | Svars texten |
    |||||
 
 1. Om du vill ange ytterligare egenskaper, till exempel ett JSON-schema för svars texten, öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill lägga till.

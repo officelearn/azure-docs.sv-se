@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 02/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 7d66d226554c4b6f84e3040cdd7c3edea0a5f054
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: c54d3187af1faee3a47a794dcf5b9b91733e5592
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982181"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683351"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Snabb start: skapa en data fabrik med hjälp av Azure Data Factory gränssnittet
 
@@ -29,7 +29,7 @@ ms.locfileid: "82982181"
 Den här snabbstarten beskriver hur du använder Azure Data Factory-användargränssnittet till att skapa och övervaka en datafabrik. Den pipeline du skapar i den här datafabriken *kopierar* data från en mapp till en annan mapp i Azure Blob Storage. Information om hur du *omvandlar* data med hjälp av Azure Data Factory finns i [mappa data flöde](concepts-data-flow-overview.md) och [Datatransformering data flöde (för hands version)](wrangling-data-flow-overview.md).
 
 > [!NOTE]
-> Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](data-factory-introduction.md). 
+> Om du inte har använt Azure Data Factory tidigare kan du läsa [Introduktion till Azure Data Factory](introduction.md). 
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
@@ -49,7 +49,7 @@ Om du tittar på den här videon får du hjälp med att förstå Data Factory-an
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. På sidan **Ny datafabrik** anger du **ADFTutorialDataFactory** som **Namn**. 
  
-   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på data fabriken (till exempel ** &lt;dittnamn&gt;ADFTutorialDataFactory**) och försöker skapa igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
+   Namnet på Azure Data Factory måste vara *globalt unikt*. Om du ser följande fel ändrar du namnet på data fabriken (till exempel ** &lt; dittnamn &gt; ADFTutorialDataFactory**) och försöker skapa igen. Namngivningsregler för Data Factory-artefakter finns i artikeln [Data Factory – namnregler](naming-rules.md).
   
    ![Fel när ett namn inte är tillgängligt](./media/doc-common-process/name-not-available-error.png)
 1. Välj den Azure-prenumeration där du vill skapa den nya datafabriken för **Prenumeration**. 
@@ -106,7 +106,7 @@ Datauppsättningen för utdata representerar de data som kopieras till målet. I
 
 I de länkade tjänst inställningarna angav du det Azure Storage konto som innehåller källdata. I inställningarna för källdatauppsättningen anger du exakt var källdata finns (blobcontainer, mapp och fil). I inställningarna för mottagaruppsättningen anger du var du vill kopiera data (blobcontainer, mapp och fil). 
  
-1. Välj knappen **+** (plus) och välj sedan **data uppsättning**.
+1. Välj **+** knappen (plus) och välj sedan **data uppsättning**.
 
    ![Meny för att skapa en datauppsättning](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
 1. På sidan **ny data uppsättning** väljer du **Azure Blob Storage**och väljer sedan **Fortsätt**. 
@@ -130,7 +130,7 @@ I de länkade tjänst inställningarna angav du det Azure Storage konto som inne
     ![Ange egenskaper för InputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png)
 1. Upprepa stegen för att skapa datauppsättningen för utdata:  
 
-    a. Välj knappen **+** (plus) och välj sedan **data uppsättning**.
+    a. Välj **+** knappen (plus) och välj sedan **data uppsättning**.
 
     b. På sidan **ny data uppsättning** väljer du **Azure Blob Storage**och väljer sedan **Fortsätt**.
 
@@ -146,7 +146,7 @@ I de länkade tjänst inställningarna angav du det Azure Storage konto som inne
 ## <a name="create-a-pipeline"></a>Skapa en pipeline 
 I den här proceduren skapar och verifierar du en pipeline med en kopieringsaktivitet som använder uppsättningar för indata och utdata. Kopieringsaktiviteten kopierar data från filen som anges i inställningarna för datauppsättningen för indata till filen som anges i inställningarna för datauppsättningen för utdata. Om datauppsättningen för indata endast anger en mapp (inte filnamnet) kopierar kopieringsaktiviteten alla filer i källmappen till målet. 
 
-1. Välj knappen **+** (plus) och välj sedan **pipeline**. 
+1. Välj **+** knappen (plus) och välj sedan **pipeline**. 
 
 1. In fliken **Allmänt** anger du **CopyPipeline** som **Name**. 
 

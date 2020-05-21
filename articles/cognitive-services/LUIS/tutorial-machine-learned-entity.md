@@ -1,26 +1,26 @@
 ---
-title: 'Självstudie: extrahera strukturerade data med enhets medveten entitet – LUIS'
-description: Extrahera strukturerade data från en uttryck med hjälp av enheten som registrerats av enheten. Om du vill öka extraherings precisionen lägger du till underentiteter med funktioner.
+title: 'Självstudie: extrahera strukturerade data med Machine Learning-entitet – LUIS'
+description: Extrahera strukturerade data från en uttryck med hjälp av enheten för maskin inlärning. Om du vill öka extraherings precisionen lägger du till underentiteter med funktioner.
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: d1bc8fc6aac52e264cb4352ca05f9df45ccfc50e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f9a732d38d2d4557340080d9d1bbdcf789caea08
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588878"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83676166"
 ---
-# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learned-entities-in-language-understanding-luis"></a>Självstudie: extrahera strukturerade data från användare uttryck med enheter som har lärts i Language Understanding (LUIS)
+# <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Självstudie: extrahera strukturerade data från User uttryck med Machine Learning-entiteter i Language Understanding (LUIS)
 
-I den här självstudien extraherar du strukturerade data från en uttryck med hjälp av den enhet som sparats av datorn
+I den här självstudien extraherar du strukturerade data från en uttryck med hjälp av enheten för maskin inlärning.
 
-Den enhet som har registrerats av enheten stöder [modellen för modell nedbrytning](luis-concept-model.md#v3-authoring-model-decomposition) genom att tillhandahålla entiteter för entiteter med [funktioner](luis-concept-feature.md).
+Enheten för maskin inlärning stöder modellen för [modell nedbrytning](luis-concept-model.md#v3-authoring-model-decomposition) genom att tillhandahålla entiteter för entiteter med [funktioner](luis-concept-feature.md).
 
 **I de här självstudierna får du lära dig att**
 
 > [!div class="checklist"]
 > * Importera exempelappen
-> * Lägg till enhets enheten har lästs in
+> * Lägg till enhet för maskin inlärning
 > * Lägg till underentitet och funktion
 > * Träna, testa, publicera app
 > * Hämta enhets förutsägelse från slut punkt
@@ -28,9 +28,9 @@ Den enhet som har registrerats av enheten stöder [modellen för modell nedbrytn
 [!INCLUDE [LUIS Free account](includes/quickstart-tutorial-use-free-starter-key.md)]
 
 
-## <a name="why-use-a-machine-learned-entity"></a>Varför ska jag använda en enhet som har lärts från enheten?
+## <a name="why-use-a-machine-learning-entity"></a>Varför ska jag använda en enhet för maskin inlärning?
 
-Den här självstudien lägger till en enhet som har lärts fram för att extrahera data från en användares uttryck.
+Den här självstudien lägger till en enhet för maskin inlärning för att extrahera data från en användares uttryck.
 
 Entiteten definierar de data som ska extraheras i uttryck. Detta innefattar att ge data ett namn, en typ (om möjligt), eventuell lösning av data om det förekommer tvetydigheter och den exakta text som utgör data.
 
@@ -42,11 +42,11 @@ Du måste göra följande för att kunna definiera data:
 
 Datasammansättning av enheter är viktigt för både avsikts förutsägelse och data extrahering med entiteten.
 
-Börja med en enhet som har lärts in, vilket är den första och den översta nivån för data extrahering. Dela sedan upp entiteten i underentiteter.
+Börja med en enhet för maskin inlärning, som är den första entiteten och den översta nivån för data extrahering. Dela sedan upp entiteten i underentiteter.
 
-Även om du kanske inte vet hur detaljerad du vill ha din entitet när du börjar med din app, är det bästa sättet att börja med en enhet som har lärts in. sedan kan du dela upp med underentiteter som din app vuxen.
+Även om du kanske inte vet hur detaljerad du vill ha din entitet när du startar din app, är det bästa sättet att börja med en enhet för maskin inlärning och sedan dela upp med underentiteter som din app vuxen.
 
-I den här självstudien skapar du en enhets medveten entitet som representerar en order för en pizza-app. Entiteten extraherar beställnings besläktad text, hämtar storlek och kvantitet.
+I den här självstudien skapar du en enhet för maskin inlärning som representerar en order för en pizza-app. Entiteten extraherar beställnings besläktad text, hämtar storlek och kvantitet.
 
 En uttryck av `Please deliver one large cheese pizza to me` ska extraheras `one large cheese pizza` som order och sedan extraheras `1` för kvantitet och `large` storlek.
 
@@ -58,9 +58,9 @@ Ladda ned och spara [app-JSON-filen](https://raw.githubusercontent.com/Azure-Sam
 
 [!INCLUDE [Import app steps](includes/import-app-steps.md)]
 
-## <a name="label-text-as-entities-in-example-utterances"></a>Etikettext som entiteter i exempel yttranden
+## <a name="create-machine-learned-entity"></a>Skapa den enhet som har lärts
 
-Om du vill extrahera information om en pizza-beställning skapar du en enhet på den översta nivån som enheten är känd på `Order` .
+Om du vill extrahera information om en pizza-beställning skapar du en enhet på högsta nivån för maskin inlärning `Order` .
 
 1. På sidan **avsikter** väljer du **OrderPizza** avsikt.
 
@@ -70,7 +70,7 @@ Om du vill extrahera information om en pizza-beställning skapar du en enhet på
     |--|
     |`pickup a cheddar cheese pizza large with extra anchovies`|
 
-    Börja markera precis innan den vänstra texten i `pickup` (#1) och gå sedan precis bortom den högra texten `anchovies` (#2-Detta avslutar etiketten). En popup-meny visas. I popup-rutan anger du namnet på entiteten som `Order` (#3). Välj sedan `Order - Create new entity` i listan (#4).
+    Börja markera precis innan den vänstra texten i `pickup` (#1) och gå sedan precis bortom den högra texten `anchovies` (#2-Detta avslutar etiketten). En popup-meny visas. I popup-rutan anger du namnet på entiteten som `Order` (#3). Välj sedan `Order Create new entity` i listan (#4).
 
     ![Etikettens början och slutet på texten för den fullständiga ordningen](media/tutorial-machine-learned-entity/mark-complete-order.png)
 
@@ -81,139 +81,165 @@ Om du vill extrahera information om en pizza-beställning skapar du en enhet på
 
     ![Lägg till struktur i entitet](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
-1. I rutan **skapa en enhet med förhandlad enhet** går du till rutan **struktur** och `Size` väljer sedan Retur.
-1. Om du vill lägga till en **funktion**markerar du `+` i avsnittet **funktioner** och väljer sedan **Skapa ny fras lista**.
+1. I rutan **Lägg till underentiteter (valfritt)** väljer **+** du på `Order` raden och sedan Lägg till `Size` och `Quantity` som underentiteter och väljer sedan **skapa**.
 
-1. I **list rutan skapa ny fras** anger du namnet `SizeFeature` och anger värden för: `small` , `medium` , och `large` . När **förslags** rutan fylls i, Välj `extra large` och `xl` . Välj **färdig** för att skapa den nya fras listan.
+    > [!div class="mx-imgBorder"]
+    > ![Lägg till struktur i entitet](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
-    Den här fras List funktionen hjälper `Size` underentiteten att hitta ord som är relaterade till storlek genom att tillhandahålla exempel ord. Den här listan behöver inte inkludera varje storlek i Word men ska innehålla ord som förväntas indikera storlek.
+## <a name="edit-subentities-to-improve-extraction"></a>Redigera underentiteter för att förbättra extraheringen
 
-    ![Skapa en funktion för delentiteten storlek](media/tutorial-machine-learned-entity/size-entity-size-descriptor-phrase-list.png)
+Föregående steg skapar entiteten och underentiteten. Lägg till funktioner i underentiteterna för att förbättra extraheringen.
 
-1. I fönstret **skapa en dator med förhandlad enhet** väljer du **skapa** för att slutföra skapandet av `Size` underentiteten.
+### <a name="improve-size-extraction-with-phrase-list"></a>Förbättra storleks extrahering med fras lista
 
-    `Order`Entiteten med en `Size` entitet skapas, men endast `Order` entiteten har tillämpats på uttryck. Du måste märka `Size` entitetens text i exemplet uttryck.
+1. Välj **entiteter** i den vänstra menyn och välj sedan **order** enhet.
 
-1. I samma exempel uttryck kan du namnge underentiteten **storlek** för `large` genom att markera ordet och sedan välja entiteten **storlek** i den nedrullningsbara listan.
+1. På fliken **schema och funktioner** väljer du underentiteten **storlek** och väljer sedan **+ Lägg till funktion**.
 
-    ![Namnge entiteten storlek för text i uttryck.](media/tutorial-machine-learned-entity/mark-and-create-size-entity.png)
+1. Välj **Skapa ny fras lista** på den nedrullningsbara menyn.
 
-    Raden är solid under texten, eftersom både etikettering och förutsägelse matchning, eftersom du _uttryckligen_ har namngett texten.
+1. I **list rutan skapa ny fras** anger du namnet `SizePhraselist` och anger värden för: `small` , `medium` , och `large` . När **förslags** rutan fylls i, Välj `extra large` och `xl` . Klicka på **Spara** för att skapa den nya fras listan.
 
-1. Namnge `Order` entiteten i återstående yttranden tillsammans med entiteten storlek. Hakparenteserna i texten visar etiketten `Order` entitet och `Size` entiteten i.
+    Den här fras List funktionen hjälper `Size` underentiteten att hitta ord som är relaterade till storlek genom att tillhandahålla exempel ord. Den här fras listan behöver inte inkludera varje storlek, men ska innehålla ord som förväntas indikera storlek.
 
-    |Beställ exempel yttranden|
-    |--|
-    |`can i get [a pepperoni pizza and a can of coke] please`|
-    |`can i get [a [small] pizza with onions peppers and olives]`|
-    |`[delivery for a [small] pepperoni pizza]`|
-    |`i need [2 [large] cheese pizzas 6 [large] pepperoni pizzas and 1 [large] supreme pizza]`|
+### <a name="add-sizelist-entity"></a>Lägg till SizeList-entitet
 
-    ![Skapa entiteter och underentiteter i alla återstående exempel-yttranden.](media/tutorial-machine-learned-entity/entity-subentity-labeled-not-trained.png)
+Att lägga till en lista med kända storlekar som klient programmet känner av kan också hjälpa till att extrahera.
 
-    > [!CAUTION]
-    > Hur behandlar du underförstådda data, t. ex. `a` en bokstav som inbegriper en enda pizza? Eller `pickup` så saknas och `delivery` för att indikera var pizza förväntas? Eller om det saknas en storlek för att ange din standard storlek på liten eller stor? Överväg att behandla underförstådd data hantering som en del av dina affärs regler i-klient programmet i stället för eller utöver LUIS.
+1. Välj **entiteter** i den vänstra menyn och välj sedan **+ skapa**.
 
-1. Välj **träna**för att träna appen. Träningen tillämpar ändringarna, till exempel nya entiteter och den märkta yttranden, i den aktiva modellen.
+1. Ange enhets namnet `SizeListentity` så att det är enkelt att identifiera jämfört med det som `SizePhraselist` skapades i föregående avsnitt.
 
-1. Efter utbildningen lägger du till ett nytt exempel uttryck i avsikten för att se hur väl LUIS förstår den enhet som har lärts ur enheten.
+1. Lägg till de storlekar som klient programmet förväntar sig: `Small` ,, `Medium` `Large` och `XLarge` Lägg sedan till synonymer för var och en. Synonymerna ska vara de termer som en användare anger i Chat-roboten. Entiteten extraheras med en List-entitet när den matchade exakt det normaliserade värdet eller synonymerna.
 
-    |Beställ exempel uttryck|
-    |--|
-    |`pickup XL meat lovers pizza`|
+    |Normaliserat värde|Synonymer|
+    |--|--|
+    |Liten|SM, SML, liten, minst|
+    |Medium|MD, MDM, Regular, Average, mitten|
+    |Stor|LG, LRG, Big|
+    |XLarge|XL, störst, Giant|
 
-    Den övergripande översta entiteten `Order` är märkt och `Size` underentiteten märks också med prickade linjer.
 
-    ![Nytt exempel uttryck förväntat med entitet](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Lägg till struktur i entitet](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
-    Den streckade linjen visar förutsägelsen.
+### <a name="add-feature-of-sizelist-entity"></a>Lägg till funktion i SizeList-entiteten
 
-1. Om du vill ändra förutsägelsen till en etikettad entitet markerar du raden och väljer **Bekräfta enhets förutsägelser**.
+1. Gå tillbaka till listan över entiteter genom att välja **entiteter** från vänster meny.
 
-    ![Godkänn förutsägelse genom att välja Bekräfta enhets förutsägelse.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance.png)
+1. Välj **ordning** i listan över entiteter.
 
-    I det här läget fungerar enheten som sparats av datorn eftersom den kan hitta entiteten i ett nytt exempel uttryck. När du lägger till exempel yttranden, om entiteten inte är korrekt förväntad, kan du namnge entiteten och underentiteterna. Om entiteten förutsägs korrekt, se till att bekräfta förutsägelserna.
+1. På fliken **schema och funktioner** väljer du entiteten **storlek** och väljer sedan **+ Lägg till funktion**.
 
+1. Välj **@ SizeList** i list rutan.
+
+<a name="add-prebuilt-number-entity-to-app"></a>
+
+### <a name="add-prebuilt-number-entity"></a>Lägg till fördefinierad nummer enhet
+
+Att lägga till en fördefinierad Number-entitet kommer också att hjälpa till att extrahera.
+
+1. Välj **entiteter** i den vänstra menyn och välj sedan **Lägg till fördefinierad entitet**.
+
+1. Välj **nummer** i listan och välj sedan **färdig**.
+
+1. Gå tillbaka till listan över entiteter genom att välja **entiteter** från vänster meny.
+
+### <a name="add-feature-of-prebuilt-number-entity"></a>Lägg till funktion i fördefinierad nummer entitet
+
+1. Välj **ordning** i listan över entiteter.
+
+1. På fliken **schema och funktioner** väljer du entiteten **kvantitet** och väljer sedan **+ Lägg till funktion**.
+
+1. Välj **@-nummer** i list rutan.
 
 <a name="create-subcomponent-entity-with-constraint-to-help-extract-data"></a>
 
-## <a name="add-subentity-with-feature-of-prebuilt-entity"></a>Lägg till underentitet med funktion för fördefinierad entitet
+## <a name="configure-required-features"></a>Konfigurera nödvändiga funktioner
 
-Orderinformationen bör också innehålla hur många av ett objekt som finns i ordningen, till exempel hur många pizzor. Om du vill extrahera dessa data måste en ny enhet som har registrerats av enheten läggas till i `Order` och underentiteten behöver en nödvändig funktion i ett fördefinierat nummer. Genom att använda en funktion i en fördefinierad entitet som entiteten till ett fördefinierat nummer, kommer entiteten att hitta och extrahera siffror om texten är en siffra, `2` eller text, `two` .
+På sidan entitets **detalj för entiteten entitet väljer** du asterisken, `*` för både funktionen **@ SizeList** och funktionen **@ Number** . Asterisken visas i samma etikett som funktions namnet.
 
-## <a name="add-prebuilt-number-entity-to-app"></a>Lägga till fördefinierad nummerentitet i appen
-Orderinformationen bör även innehålla hur många objekt som finns i ordningen, till exempel hur många pizzor. Om du vill extrahera dessa data måste en ny dator som har lärts läggas till i `Order` och komponenten behöver en nödvändig funktion i ett fördefinierat nummer. Genom att begränsa entiteten till ett fördefinierat nummer kommer entiteten att hitta och extrahera siffror om texten är en siffra, `2` eller text, `two` .
+> [!div class="mx-imgBorder"]
+> ![Lägg till struktur i entitet](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
-Börja med att lägga till den fördefinierade nummer enheten i appen.
+<a name="label-text-as-entities-in-example-utterances"></a>
+<a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
 
-1. Välj **entiteter** i den vänstra menyn och välj sedan **+ Lägg till fördefinierad entitet**.
+## <a name="label-example-utterances"></a>Etikett exempel yttranden
 
-1. I rutan **Lägg till fördefinierade entiteter** söker du efter och väljer **nummer** och väljer sedan **Slutför**.
+Den inlärda enheten skapas och underentiteterna har funktioner. För att slutföra extraherings förbättringen måste yttranden-exemplet märkas med underentiteterna.
 
-    ![Lägg till fördefinierad entitet](media/tutorial-machine-learned-entity/add-prebuilt-entity-as-constraint-to-quantity-subcomponent.png)
+1. Välj **avsikter** från det vänstra navigerings fältet och välj sedan **OrderPizza** avsikt.
 
-    Den fördefinierade entiteten läggs till i appen, men är inte en funktion ännu.
+1. Öppna **entiteten entitet**genom att välja **@** symbolen i kontext verktygsfältet.
 
-## <a name="create-subentity-entity-with-required-feature-to-help-extract-data"></a>Skapa entitet för underentitet med nödvändig funktion för att extrahera data
+1. Välj varje enhets rad i paletten och Använd sedan paletten för att välja entiteten i varje exempel uttryck. När du är färdig bör entitets listan se ut som följande bild.
 
-`Order`Entiteten ska ha en `Quantity` underentitet för att avgöra hur många av ett objekt som finns i ordern. Antalet bör använda en nödvändig funktion i ett fördefinierat nummer så att de extraherade data omedelbart är tillgängliga för klient programmet efter namn.
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild av en nödvändig funktion för konfigurering](media/tutorial-machine-learned-entity/labeled-example-utterances-for-machine-learned-entity.png)
 
-En nödvändig funktion används som en text matchning, antingen med en exakt matchning (till exempel en List-entitet) eller via reguljära uttryck (till exempel en reguljär uttrycks enhet eller en fördefinierad entitet).
+## <a name="train-the-app"></a>Träna appen
 
-Genom att använda en icke-domänansluten entitet som en funktion extraheras endast text som matchar.
+Välj **träna**för att träna appen. Träningen tillämpar ändringarna, till exempel nya entiteter och den märkta yttranden, i den aktiva modellen.
 
-1. Välj **entiteter** och välj sedan `Order` entiteten.
-1. Välj **+ Lägg till entitet** ange sedan namnet och `Quantity` Välj sedan Retur för att lägga till den nya underentiteten i `Order` entiteten.
-1. När aviseringen är klar väljer du villkoret penna i **Avancerade alternativ**.
-1. Välj det fördefinierade numret i list rutan.
+## <a name="add-a-new-example-utterance"></a>Lägg till ett nytt exempel uttryck
 
-    ![Skapa entiteten kvantitet med fördefinierat tal som begränsning.](media/tutorial-machine-learned-entity/create-constraint-from-prebuilt-number.png)
+1. Efter utbildningen lägger du till ett nytt exempel uttryck i `OrderPizza` avsikten för att se hur väl Luis förstår enheten för maskin inlärning.
 
-    `Quantity`Entiteten används när texten matchar den fördefinierade nummer enheten.
+    |Beställ exempel uttryck|
+    |--|
+    |`I need a large pepperoni pizza`|
 
-    Entiteten med den nödvändiga funktionen skapas men har ännu inte tillämpats på exemplet yttranden.
+    Den övergripande översta entiteten `Order` är märkt och `Size` underentiteten märks också med prickade linjer.
 
-    > [!NOTE]
-    > En underordnad entitet kan kapslas i en underordnad enhet upp till 5 nivåer. Det här visas inte i den här artikeln, men det är tillgängligt från portalen och API: et.
+    > [!div class="mx-imgBorder"]
+    > ![En del skärm bild av den nya exempel uttryck som förutsägs med entitet](media/tutorial-machine-learned-entity/new-example-utterance-predicted-with-entity.png)
 
-## <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>Label-exempel uttryck för att lära LUIS om entiteten
+    Den streckade linjen visar förutsägelsen baserat på den aktuella utbildade appen.
 
-1. Välj **avsikter** från navigeringen till vänster och välj sedan **OrderPizza** avsikten. De tre talen i följande yttranden är märkta men visas visuellt nedanför `Order` enhets linjen. Den här lägre nivån innebär att entiteterna hittas men inte anses vara en del av `Order` entiteten.
+1. Om du vill ändra förutsägelsen till en etikettad entitet markerar du kryss rutan på samma rad.
 
-    ![Ett fördefinierat nummer påträffades men betraktas inte som en affär senhet.](media/tutorial-machine-learned-entity/prebuilt-number-not-part-of-order-entity.png)
+    > [!div class="mx-imgBorder"]
+    > ![En del skärm bild av den nya exempel uttryck som förutsägs med entitet](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
-1. Namnge talen med `Quantity` entiteten genom att välja `2` i exemplet uttryck och sedan välja i `Quantity` listan. Namnge `6` och `1` i samma exempel uttryck.
+    I det här läget fungerar enheten för maskin inlärning eftersom den kan hitta entiteten i ett nytt exempel uttryck. När du lägger till exempel yttranden, om entiteten inte är korrekt förväntad, kan du namnge entiteten och underentiteterna. Om entiteten förutsägs korrekt, se till att bekräfta förutsägelserna.
 
-    ![Etikettext med entiteten kvantitet.](media/tutorial-machine-learned-entity/mark-example-utterance-with-quantity-entity.png)
 
 ## <a name="train-the-app-to-apply-the-entity-changes-to-the-app"></a>Träna appen att tillämpa enhets ändringarna på appen
 
-Välj **träna** för att träna appen med de nya yttranden. Efter utbildningen `Quantity` förväntas underentiteten korrekt i `Order` entiteten. Den korrekta förutsägelsen visas med en heldragen linje.
-
-![Träna appen och granska sedan exemplet yttranden.](media/tutorial-machine-learned-entity/trained-example-utterances.png)
+Välj **träna** för att träna appen med den nya uttryck.
 
 I det här läget har ordern viss information som kan extraheras (storlek, kvantitet och total order text). Det finns ytterligare raffinering av `Order` entiteten, till exempel pizza toppings, typ av crust och sid beställningar. Var och en av dem ska skapas som underentiteter till `Order` entiteten.
 
 ## <a name="test-the-app-to-validate-the-changes"></a>Testa appen för att verifiera ändringarna
 
-Testa appen med hjälp av den interaktiva **test** panelen. Med den här processen kan du ange en ny uttryck och sedan Visa förutsägelse resultatet för att se hur väl den aktiva och utbildade appen fungerar. Avsikten med avsikten bör vara ganska trygg (över 70%) och enhets extraheringen bör minst Hämta `Order` entiteten. Information om entiteten order kan saknas eftersom 5 yttranden inte räcker för att hantera varje fall.
+Testa appen med hjälp av den interaktiva **test** panelen. Med den här processen kan du ange en ny uttryck och sedan Visa förutsägelse resultatet för att se hur väl den aktiva, tränade appen fungerar. Avsikten med avsikten bör vara ganska trygg (över 60%) och enhets extraheringen bör minst Hämta `Order` entiteten. Information om entiteten order kan saknas eftersom dessa yttranden inte räcker för att hantera varje fall.
 
 1. Välj **Test** i det övre navigeringsfältet.
-1. Ange uttryck `deliver a medium veggie pizza` och välj RETUR. Den aktiva modellen förutsäger rätt avsikt med över 70% konfidensgrad.
+1. Ange uttryck `2 small cheese pizzas for pickup` och välj RETUR. Den aktiva modellen förutsäger rätt avsikt med över 60% konfidensgrad.
 
-    ![Ange en ny uttryck för att testa avsikten.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance.png)
 
 1. Välj **kontrol lera** om du vill se enhets förutsägelserna.
 
-    ![Visa enhets förutsägelserna i den interaktiva test panelen.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild av Visa enhets förutsägelser i den interaktiva test panelen.](media/tutorial-machine-learned-entity/interactive-test-panel-with-first-utterance-and-entity-predictions.png)
 
-    Storleken identifierades korrekt. Kom ihåg att exemplet yttranden i `OrderPizza` avsikten inte har något exempel på `medium` som en storlek, men Använd en funktion i en `SizeFeature` fras lista som innehåller medel.
-
-    Kvantiteten är inte korrekt förväntad. Du kan åtgärda detta i klient programmet med standard storlek till en (1) om ingen storlek returneras i LUIS förutsägelse.
+<a name="publish-with-sentiment-analysis"></a>
 
 ## <a name="publish-the-app-to-access-it-from-the-http-endpoint"></a>Publicera appen för att få åtkomst till den från HTTP-slutpunkten
 
-[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
+För att få en LUIS-förutsägelse i en chattrobot eller i ett annat klientprogram, måste du publicera appen på slutpunkten.
+
+1. Välj **publicera** i det övre högra navigerings fältet.
+
+    ![Skärm bild av LUIS publicera på slut punkts knapp i den övre högra menyn](./media/howto-publish/publish-button.png)
+
+1. Välj **produktions** platsen och välj sedan **ändra inställningar**, Välj **Attitydanalys**och välj sedan **Slutför**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Skärm bild av LUIS publicera till slut punkt](./media/tutorial-machine-learned-entity/publish-with-sentiment-analysis.png)
+
+1. Välj länken **åtkomst till slut punkts-URL: er** i meddelandet för att gå till sidan **Azure-resurser** . Slut punkts-URL: erna visas som **exempel fråga**.
 
 ## <a name="get-intent-and-entity-prediction-from-http-endpoint"></a>Hämta avsikts-och enhets förutsägelse från HTTP-slutpunkt
 
@@ -221,13 +247,13 @@ Testa appen med hjälp av den interaktiva **test** panelen. Med den här process
 
 1. Gå till slutet av webb adressen i adress fältet och Ersätt _YOUR_QUERY_HERE_ med samma fråga som du angav i den interaktiva test panelen.
 
-    `deliver a medium veggie pizza`
+    `2 small cheese pizzas for pickup`
 
     Den senaste QueryString-parametern är `query` , uttryck- **frågan**.
 
     ```json
     {
-        "query": "deliver a medium veggie pizza",
+        "query": "2 small cheese pizzas for pickup",
         "prediction": {
             "topIntent": "OrderPizza",
             "intents": {
@@ -248,44 +274,19 @@ Testa appen med hjälp av den interaktiva **test** panelen. Med den här process
                 "Order": [
                     {
                         "Size": [
-                            "medium"
+                            "small"
                         ],
-                        "$instance": {
-                            "Size": [
-                                {
-                                    "type": "Size",
-                                    "text": "medium",
-                                    "startIndex": 10,
-                                    "length": 6,
-                                    "score": 0.9955588,
-                                    "modelTypeId": 1,
-                                    "modelType": "Entity Extractor",
-                                    "recognitionSources": [
-                                        "model"
-                                    ]
-                                }
-                            ]
-                        }
+                        "Quantity": [
+                            2
+                        ]
                     }
-                ],
-                "$instance": {
-                    "Order": [
-                        {
-                            "type": "Order",
-                            "text": "a medium veggie pizza",
-                            "startIndex": 8,
-                            "length": 21,
-                            "score": 0.7983857,
-                            "modelTypeId": 1,
-                            "modelType": "Entity Extractor",
-                            "recognitionSources": [
-                                "model"
-                            ]
-                        }
-                    ]
-                }
+                ]
             }
-        }
+        },
+        "sentimentAnalysis":{
+            "label":"neutral",
+            "score":0.98
+       }
     }
     ```
 
@@ -303,7 +304,7 @@ Testa appen med hjälp av den interaktiva **test** panelen. Med den här process
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien använder appen en enhet som har identifierats av enheten för att hitta avsikten med användarens uttryck och extrahera information från den uttryck. Genom att använda den enhet som du har lärt dig kan du dela upp informationen om entiteten.
+I den här självstudien använder appen en enhet för maskin inlärning för att hitta avsikten med användarens uttryck och extrahera information från den uttryck. Med hjälp av enheten för maskin inlärning kan du dela upp information om entiteten.
 
 > [!div class="nextstepaction"]
 > [Lägg till en fördefinierad keyPhrase-entitet](luis-quickstart-intent-and-key-phrase.md)

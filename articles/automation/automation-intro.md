@@ -1,24 +1,20 @@
 ---
-title: Översikt över Azure Automation
-description: Lär dig hur du använder Azure Automation för att automatisera livscykeln för infrastruktur och program.
+title: En introduktion till Azure Automation
+description: Den här artikeln beskriver vad Azure Automation är och hur du använder det för att automatisera livs cykeln för infrastruktur och program.
 services: automation
 ms.subservice: process-automation
 keywords: Azure Automation, DSC, PowerShell, tillstånds konfiguration, uppdaterings hantering, ändrings spårning, DSC, inventering, Runbooks, python, grafisk
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 8ee8fd4d9a81746be7b65aeb6410691a5e3aea96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e9d680e2f7d4a0ed3439d5acb6106fa1415aec1
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010247"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712782"
 ---
 # <a name="an-introduction-to-azure-automation"></a>En introduktion till Azure Automation
-
-Den här artikeln innehåller en kort översikt över Azure Automation och ger svar på några vanliga frågor. Om du vill ha mer information om de olika funktionerna kan du välja länkarna i den här översikten.
-
-## <a name="about-azure-automation"></a>Om Azure Automation
 
 Azure Automation levererar en molnbaserad automatiserings-och konfigurations tjänst som stöder konsekvent hantering i dina Azure-och icke-Azure-miljöer. Den omfattar process automatisering, konfigurations hantering, uppdaterings hantering, delade funktioner och heterogena funktioner. Automation ger dig fullständig kontroll under distribution, drift och inaktive ring av arbets belastningar och resurser.
 
@@ -32,13 +28,22 @@ Process automatisering stöder integrering av Azure-tjänster och andra offentli
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
-Azure Automation [tillstånds konfiguration](automation-dsc-overview.md) är en molnbaserad lösning för PowerShell (önskad tillstånds konfiguration) som tillhandahåller tjänster för företags miljöer. Med den här funktionen kan du hantera dina DSC-resurser i Azure Automation och tillämpa konfigurationer på virtuella eller fysiska datorer från en DSC-pull-server i Azure-molnet. Du kan övervaka och automatiskt uppdatera datorkonfigurationer mellan fysiska och virtuella datorer, i Windows eller Linux, i molnet eller lokalt. Med inventerings support kan du söka efter insyn i installerade program och andra konfigurations objekt i gäst resurser.
- 
-Tjänsten för Azure Automation tillstånds konfiguration ger omfattande rapporterings-och Sök funktioner. Du kan använda dessa funktioner för att hitta detaljerad information om vad som är konfigurerat i ett operativ system. Tjänsten stöder ändrings spårning i tjänster, daemons, program vara, register och filer i din miljö för att hjälpa dig att diagnostisera oönskade ändringar och utlösa aviseringar. En viktig relaterad funktion är rapportering av större händelser, till exempel händelser som utfärdats när noder avviker från sina tilldelade konfigurationer. 
+Konfigurations hantering i Azure Automation ger åtkomst till två funktioner:
+
+* Ändringsspårning och inventering
+* Azure Automation State Configuration
+
+### <a name="change-tracking-and-inventory"></a>Ändringsspårning och inventering
+
+Ändringsspårning och Inventory kombinerar funktioner för ändrings spårning och inventering så att du kan spåra ändringar av virtuella datorer och Server infrastruktur. Tjänsten stöder ändrings spårning i tjänster, daemons, program vara, register och filer i din miljö för att hjälpa dig att diagnostisera oönskade ändringar och utlösa aviseringar. Med inventerings support kan du söka efter insyn i installerade program och andra konfigurations objekt i gäst resurser. Mer information om den här funktionen finns i [ändringsspårning och inventering](change-tracking.md).
+
+### <a name="azure-automation-state-configuration"></a>Azure Automation State Configuration
+
+[Azure Automation tillstånds konfiguration](automation-dsc-overview.md) är en molnbaserad funktion för PowerShell (önskad tillstånds konfiguration) som tillhandahåller tjänster för företags miljöer. Med den här funktionen kan du hantera dina DSC-resurser i Azure Automation och tillämpa konfigurationer på virtuella eller fysiska datorer från en DSC-pull-server i Azure-molnet. 
 
 ## <a name="update-management"></a>Hantering av uppdateringar
 
-Azure Automation innehåller lösningen för [uppdaterings hantering](automation-update-management.md) för Windows-och Linux-system i hybrid miljöer. Med den här lösningen får du insyn i att uppdatera kompatibiliteten mellan Azure och andra moln och lokalt. Med uppdaterings hantering kan du skapa schemalagda distributioner som dirigerar installationen av uppdateringar i en definierad underhålls period. Om en uppdatering inte bör installeras på en dator kan du använda funktionerna för uppdaterings hantering för att undanta den från en distribution.
+Azure Automation innehåller funktionen [uppdateringshantering](automation-update-management.md) för Windows-och Linux-system i hybrid miljöer. Uppdateringshantering ger dig insyn i att uppdatera kompatibiliteten mellan Azure och andra moln och lokalt. Med funktionen kan du skapa schemalagda distributioner som dirigerar installationen av uppdateringar i en definierad underhålls period. Om en uppdatering inte bör installeras på en dator kan du använda Uppdateringshantering-funktionen för att undanta den från en distribution.
 
 ## <a name="shared-capabilities"></a>Delade funktioner
 
@@ -63,7 +68,7 @@ Azure Automation stöder rollbaserad åtkomst kontroll (RBAC) för att reglera �
 
 ### <a name="source-control-integration"></a>Källkontrollsintegrering
 
-Med Azure Automation kan du [integrera käll kontroll](source-control-integration.md). Den här funktionen höjer konfigurationen som kod där Runbooks eller konfigurationer kan kontrol leras i ett käll kontroll system.
+Azure Automation stöder [integrering av käll kontroll](source-control-integration.md). Den här funktionen höjer konfigurationen som kod där Runbooks eller konfigurationer kan kontrol leras i ett käll kontroll system.
 
 ## <a name="heterogeneous-support-windows-and-linux"></a>Heterogent stöd (Windows och Linux)
 
@@ -85,7 +90,7 @@ Azure Automation stöder hantering under hela livs cykeln för din infrastruktur
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
-## <a name="pricing-for-automation"></a>Priser för Automation
+## <a name="pricing-for-azure-automation"></a>Prissättning för Azure Automation
 
 Du kan granska priserna som är kopplade till Azure Automation på sidan med [priser](https://azure.microsoft.com/pricing/details/automation/) .
 

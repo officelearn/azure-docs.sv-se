@@ -1,5 +1,5 @@
 ---
-title: Prognos cykel dela efter frågan med automatiserat ML experiment
+title: 'Självstudie: prognoser för efter frågan & AutoML'
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du tränar och distribuerar en prognos modell för efter frågan med automatiserad maskin inlärning i Azure Machine Learning Studio.
 services: machine-learning
@@ -9,24 +9,27 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
-ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77088244"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656568"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Självstudie: prognos för att dela efter frågan med automatiserad maskin inlärning
+# <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Självstudie: prognostisera efter frågan med automatiserad maskin inlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-I den här självstudien använder du Automatisk maskin inlärning, eller automatiserad ML, i Azure Machine Learning Studio för att skapa en tids serie prognos modell för att förutsäga behovet av en cykel delnings tjänst.
+I den här självstudien använder du Automatisk maskin inlärning eller automatiserad ML i Azure Machine Learning Studio för att skapa en prognos modell för tids serier som förutsäger efter frågan för en cykel delnings tjänst.
+
+Exempel på en klassificerings modell finns i [Självstudier: skapa en klassificerings modell med automatiserad ml i Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 I den här självstudien får du lära dig hur du utför följande uppgifter:
 
 > [!div class="checklist"]
 > * Skapa och läsa in en data uppsättning.
 > * Konfigurera och kör ett automatiserat ML experiment.
+> * Ange prognos inställningar.
 > * Utforska experiment resultatet.
 > * Distribuera den bästa modellen.
 
@@ -72,10 +75,10 @@ Innan du konfigurerar experimentet laddar du upp data filen till din arbets yta 
        
     1. Kontrol lera att **inställningarna och förhands gransknings** formuläret är ifyllt enligt följande och välj **Nästa**.
         
-        Field|Beskrivning| Värde för självstudier
+        Fält|Beskrivning| Värde för självstudier
         ---|---|---
         Fil format|Definierar layout och typ av data som lagras i en fil.| Avgränsade
-        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan&nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
+        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan &nbsp; separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Använd huvuden från den första filen
         Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inga
@@ -107,10 +110,10 @@ När du har läst in och konfigurerat dina data konfigurerar du ditt fjärrberä
 
     1. Välj **skapa en ny beräkning** och konfigurera beräknings målet. Automatisk ML stöder endast Azure Machine Learning beräkning. 
 
-        Field | Beskrivning | Värde för självstudier
+        Fält | Beskrivning | Värde för självstudier
         ----|---|---
         Compute-namn |Ett unikt namn som identifierar din beräknings kontext.|cykel – beräkning
-        Storlek&nbsp;på&nbsp;virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
+        &nbsp; &nbsp; Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
         Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Max noder: 6
   
         1. Välj **skapa** för att hämta beräknings målet. 
@@ -129,19 +132,19 @@ Slutför installationen av ditt automatiserade ML-experiment genom att ange akti
 
 1. Välj **datum** som **tids kolumn** och låt **Gruppera efter kolumn (er)** vara tomt. 
 
-    1. Välj **Visa ytterligare konfigurations inställningar** och fyll i fälten enligt följande. De här inställningarna är för att bättre styra utbildnings jobbet. Annars tillämpas standardvärdena utifrån experiment val och data.
+    1. Välj **Visa ytterligare konfigurations inställningar** och fyll i fälten enligt följande. De här inställningarna är för att bättre styra utbildnings jobbet och ange inställningar för din prognos. Annars tillämpas standardvärdena utifrån experiment val och data.
 
   
-        Ytterligare&nbsp;konfigurationer|Beskrivning|Värde&nbsp;för&nbsp;självstudier
+        Ytterligare &nbsp; konfigurationer|Beskrivning|Värde &nbsp; för &nbsp; självstudier
         ------|---------|---
         Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|Normaliserat rot genomsnitts fel
         Automatisk funktionalisering| Aktiverar för bearbetning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
         Förklara bästa modell (för hands version)| Visar automatiskt förklaringar för den bästa modellen som skapats av automatisk ML.| Aktivera
         Blockerade algoritmer | Algoritmer som du vill undanta från utbildnings jobbet| Extrema slumpmässiga träd
-        Ytterligare prognos inställningar| De här inställningarna hjälper till att förbättra din modells precision <br><br> _**Prognos Horisont**_: lång tid i framtiden som du vill förutsäga <br> _**Beräkna mål lags:**_ hur långt tillbaka du vill konstruera lags för en Target-variabel <br> _**Mål riktnings fönster**_: anger storleken på det rullande fönster över vilka funktioner, till exempel *Max, min* och *Summa*, som ska genereras. |Prognos Horisont: 14 <br> Lags&nbsp;för&nbsp;prognos mål: ingen <br> Storlek&nbsp;för&nbsp;rullande&nbsp;fönster i mål: ingen
-        Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings&nbsp;jobb&nbsp;tid (timmar): 3 <br> Mått&nbsp;poängs&nbsp;tröskel: ingen
-        Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning&nbsp;kors validering <br> <br> Antal verifieringar: 5
-        Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max&nbsp;.&nbsp;antal samtidiga iterationer: 6
+        Ytterligare prognos inställningar| De här inställningarna hjälper till att förbättra din modells precision <br><br> _**Prognos Horisont**_: lång tid i framtiden som du vill förutsäga <br> _**Beräkna mål lags:**_ hur långt tillbaka du vill konstruera lags för en Target-variabel <br> _**Mål riktnings fönster**_: anger storleken på det rullande fönster över vilka funktioner, till exempel *Max, min* och *Summa*, som ska genereras. |Prognos Horisont: 14 <br> Lags för prognos &nbsp; mål &nbsp; : ingen <br> &nbsp;Storlek för rullande fönster i mål &nbsp; &nbsp; : ingen
+        Avslutnings kriterium| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings &nbsp; jobb &nbsp; tid (timmar): 3 <br> Mått &nbsp; poängs &nbsp; tröskel: ingen
+        Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning &nbsp; kors validering <br> <br> Antal verifieringar: 5
+        Samtidighet| Maximalt antal parallella iterationer som utförs per iteration| Max &nbsp; . antal samtidiga &nbsp; iterationer: 6
         
         Välj **Spara**.
 
@@ -178,7 +181,7 @@ I den här experiment-kontexten betraktas **StackEnsemble** som den bästa model
 
 1. Fyll i fönstret **distribuera en modell** enligt följande:
 
-    Field| Värde
+    Fält| Värde
     ----|----
     Distributions namn| bikeshare – distribuera
     Distributions Beskrivning| cykel resurs-distribution efter behov
@@ -224,6 +227,10 @@ I den här artikeln finns anvisningar om hur du skapar ett schema för Power BI 
 > [!div class="nextstepaction"]
 > [Använda en webbtjänst](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
++ Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).
++ Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
++ Läs mer om [funktionalisering](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Läs mer om [data profilering](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]
 > Den här data uppsättningen för cykel resursen har ändrats för den här självstudien. Den här data uppsättningen har gjorts tillgänglig som en del av en [Kaggle-tävling](https://www.kaggle.com/c/bike-sharing-demand/data) och var ursprungligen tillgänglig via [kapital Bikeshare](https://www.capitalbikeshare.com/system-data). Det kan också finnas i den [Machine Learning databasen med](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

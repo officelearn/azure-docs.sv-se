@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0ea181b0e6ac18a559614c5bce0707775acdcec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143762"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640190"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Självstudie: Aktivera Azure Active Directory självbetjäning för återställning av lösen ord till en lokal miljö
 
@@ -23,7 +23,7 @@ Med Azure Active Directory (Azure AD) självbetjäning för återställning av l
 
 Tillbakaskrivning av lösen ord kan användas för att synkronisera lösen ords ändringar i Azure AD tillbaka till din lokala AD DS-miljö. Azure AD Connect ger en säker mekanism för att skicka lösen ords ändringarna tillbaka till en befintlig lokal katalog från Azure AD.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera de behörigheter som krävs för tillbakaskrivning av lösen ord
@@ -59,11 +59,15 @@ För att fungera korrekt med SSPR tillbakaskrivning måste det konto som anges i
 
 Om du inte tilldelar dessa behörigheter visas tillbakaskrivning som korrekt konfigurerad, men användarna stöter på fel när de hanterar sina lokala lösen ord från molnet. Behörigheter måste tillämpas på **det här objektet och alla underordnade objekt** för "lösen ordet upphör att gälla" visas.  
 
+> [!TIP]
+>
+> Om lösen ord för vissa användar konton inte skrivs tillbaka till den lokala katalogen ser du till att arv inte har inaktiverats för kontot i lokal AD DS-miljö. Skriv behörigheter för lösen ord måste tillämpas på underordnade objekt för att funktionen ska fungera korrekt.
+
 Utför följande steg för att ställa in rätt behörigheter för tillbakaskrivning av lösen ord:
 
 1. I din lokala AD DS-miljö öppnar du **Active Directory användare och datorer** med ett konto som har rätt *domän administratörs* behörighet.
 1. I menyn **Visa** ser du till att **avancerade funktioner** är aktiverade.
-1. I den vänstra rutan högerklickar du på det objekt som representerar roten för domänen och väljer **Egenskaper** > **Security** > **Avancerad**säkerhet.
+1. I den vänstra rutan högerklickar du på det objekt som representerar roten för domänen och väljer **Egenskaper**  >  **Security**  >  **Avancerad**säkerhet.
 1. På fliken **behörigheter** väljer du **Lägg till**.
 1. För **huvud**konto väljer du det konto som behörigheter ska tillämpas på (kontot som används av Azure AD Connect).
 1. I list rutan **gäller väljer du** **underordnade användar objekt**.
@@ -79,7 +83,7 @@ Utför följande steg för att ställa in rätt behörigheter för tillbakaskriv
 
 När du uppdaterar behörigheter kan det ta upp till en timme eller mer för dessa behörigheter att replikera till alla objekt i din katalog.
 
-Lösen ords principer i den lokala AD DS-miljön kan förhindra att lösen ord återställs på rätt sätt. För att tillbakaskrivning av lösen ord ska fungera effektivt måste grup principen för *lägsta ålder för lösen ord* anges till 0. Du hittar den här inställningen under **dator konfiguration > principer > Windows-inställningar > säkerhets inställningar > konto principer** i `gpedit.msc`.
+Lösen ords principer i den lokala AD DS-miljön kan förhindra att lösen ord återställs på rätt sätt. För att tillbakaskrivning av lösen ord ska fungera effektivt måste grup principen för *lägsta ålder för lösen ord* anges till 0. Du hittar den här inställningen under **dator konfiguration > principer > Windows-inställningar > säkerhets inställningar > konto principer** i `gpedit.msc` .
 
 Om du uppdaterar grup principen väntar du tills den uppdaterade principen replikeras eller använder `gpupdate /force` kommandot.
 

@@ -1,14 +1,14 @@
 ---
 title: 'Mönster: parametrar i en princip definition'
 description: Det här Azure Policys mönstret ger ett exempel på hur du använder parametrar i en princip definition.
-ms.date: 01/31/2020
+ms.date: 05/20/2020
 ms.topic: sample
-ms.openlocfilehash: 4921bb216ef67b561bc8986cf48239e6448beafc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e163a243a0dc23f04d564287b630634eb4662cda
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172809"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696737"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Azure Policy mönster: parametrar
 
@@ -16,7 +16,10 @@ En princip definition kan göras dynamisk för att minska antalet princip defini
 
 ## <a name="sample-1-string-parameters"></a>Exempel 1: sträng parametrar
 
-Den här princip definitionen använder två parametrar, **TagName** och **tagValue** för att ange vad princip tilldelningen söker efter på resurser. Med det här formatet kan principen användas för valfritt antal kombinationer av taggnamn och kombinationer av taggar, men endast en enda princip definition.
+Den här princip definitionen använder två parametrar, **TagName** och **tagValue** för att ange vad princip tilldelningen söker efter på resurser. Med det här formatet kan du använda princip definitionen för valfritt antal kombinationer av taggnamn och kombinationer av taggar, men endast underhålla en enda princip definition.
+
+> [!NOTE]
+> Ett tag-exempel som använder **läge** _alla_ och fungerar med en resurs grupp finns i [mönster: Taggar-exempel #1](./pattern-tags.md#sample-1-parameterize-tags).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json":::
 
@@ -42,11 +45,27 @@ Den här princip definitionen använder en enda parameter, **listOfBandwidthinMb
 
 I den här delen av princip definitionen definieras parametern **listOfBandwidthinMbps** som en _matris_ och en beskrivning anges för dess användning. Som en _matris_har den flera värden att matcha.
 
-Parametern används sedan i **policyRule. if** -block. Som en _mat ris_ parameter måste ett _mat ris_
-[villkor](../concepts/definition-structure.md#conditions) **i** eller **notIn** användas.
+Parametern används sedan i **policyRule. if** -block. Som en _mat ris_ parameter måste ett _mat ris_ 
+ [villkor](../concepts/definition-structure.md#conditions) **i** eller **notIn** användas.
 Här används den mot **ServiceProvider. bandwidthInMbps** -aliaset som ett av de definierade värdena.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::
+
+## <a name="sample-3-parameterized-effect"></a>Exempel 3: parametriserad påverkan
+
+Ett vanligt sätt att återanvända princip definitioner är att Parameterisera själva själva effekterna. I det här exemplet används en enda **parameter.** Genom att använda parametern kan du tilldela samma definition till olika omfattningar med olika effekter.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json":::
+
+### <a name="sample-3-explanation"></a>Exempel 3: förklaring
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="11-25":::
+
+I den här delen av princip definitionen definieras parametern **Effect** som _String_. Princip definitionen Anger standardvärdet för en tilldelning som ska _granskas_ och begränsar de andra alternativen till _inaktiverade_ och _nekade_.
+
+Parametern används sedan i **policyRule. sedan** blockerar du _resultatet_.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="38-40" highlight="2":::
 
 ## <a name="next-steps"></a>Nästa steg
 

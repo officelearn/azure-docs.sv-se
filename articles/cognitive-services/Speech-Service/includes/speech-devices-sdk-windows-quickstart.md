@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: df29ecf0a4ddb30aea1c1ab9ceed44a93fc61eb8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b22ba1df6eeddfaf04d11e542acb4f2b8ab00d76
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400072"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673126"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Windows för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation. För konversations avskrift stöds endast [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) . För andra tal använder du linjära MIC-matriser som tillhandahåller en mikrofon mat ris geometri.
 
@@ -48,19 +48,19 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 1. Efter en liten stund visas huvudfönstret i Eclipse IDE. Stäng välkomstskärmen om en sådan visas.
 
-1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv** > **nytt** > **Java-projekt**. Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt**.
+1. Skapa ett nytt projekt från meny raden för Sol förmörkelse genom att välja **Arkiv**  >  **nytt**  >  **Java-projekt**. Om det inte är tillgängligt väljer du **projekt** och sedan **Java-projekt**.
 
 1. Guiden **nytt Java-projekt** startar. **Bläddra** efter exempel projektets plats. Välj **Slutför**.
 
    ![Skärmbild av guiden Nytt Java-projekt](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
-1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Konfigurera** > **konvertera till Maven-projekt** från snabb menyn. Välj **Slutför**.
+1. Högerklicka på ditt projekt i **Package Explorer**. Välj **Konfigurera**  >  **konvertera till Maven-projekt** från snabb menyn. Välj **Slutför**.
 
    ![Skärmbild av Paketutforskaren](../media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
 1. Öppna filen pom.xml och redigera den.
 
-    I slutet `</project>`av filen, före stängnings tag gen, skapa `repositories` och `dependencies` -element, som visas här, och se till `version` att de matchar den aktuella versionen:
+    I slutet av filen, före stängnings tag gen `</project>` , skapa `repositories` och `dependencies` -element, som visas här, och se till att de matchar den `version` aktuella versionen:
     ```xml
     <repositories>
          <repository>
@@ -74,7 +74,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.11.0</version>
+             <version>1.12.0</version>
         </dependency>
     </dependencies>
    ```
@@ -87,7 +87,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova avsikts igenkänning lägger du också till din [language Understanding tjänst](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerations nyckel och program-ID.
 
-   För tal-och LUIS går din information till `FunctionsList.java`:
+   För tal-och LUIS går din information till `FunctionsList.java` :
 
    ```java
     // Subscription
@@ -98,19 +98,19 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-   Om du använder en konversations avskrift krävs även din information om din röst nyckel och region `Cts.java`i:
+   Om du använder en konversations avskrift krävs även din information om din röst nyckel och region i `Cts.java` :
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
    ```
 
-1. Standard nyckelordet (Keyword) är "Computer". Du kan också prova något av de andra angivna nyckelorden, t. ex. "Machine" eller "Assistant". Resursfiler för dessa alternativa nyckelord finns i avsnittet om tal enheter SDK i mappen nyckelord. `C:\SDSDK\JRE-Sample-Release\keyword\Computer` Innehåller till exempel de filer som används för nyckelordet "dator".
+1. Standard nyckelordet (Keyword) är "Computer". Du kan också prova något av de andra angivna nyckelorden, t. ex. "Machine" eller "Assistant". Resursfiler för dessa alternativa nyckelord finns i avsnittet om tal enheter SDK i mappen nyckelord. Innehåller till exempel `C:\SDSDK\JRE-Sample-Release\keyword\Computer` de filer som används för nyckelordet "dator".
 
     > [!TIP]
     > Du kan också [skapa ett anpassat nyckelord](../speech-devices-sdk-create-kws.md).
 
-    Om du vill använda ett nytt nyckelord uppdaterar du följande rad `FunctionsList.java`i och kopierar nyckelordet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords `machine.zip`paketet:
+    Om du vill använda ett nytt nyckelord uppdaterar du följande rad i `FunctionsList.java` och kopierar nyckelordet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet `machine.zip` :
 
    * Kopiera `kws.table` filen från zip-paketet till projektmappen **/-klasserna**i Project-mappen.
    * Uppdatera `FunctionsList.java` med nyckelords namnet:
@@ -121,7 +121,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Köra exempel programmet från Sol förmörkelse
 
-1. I meny raden för Sol förmörkelse **Kör** > du**Kör som** > **Java-program**. Välj sedan **FunctionsList** och **OK**.
+1. I meny raden för Sol förmörkelse **Kör**du  >  **Kör som**  >  **Java-program**. Välj sedan **FunctionsList** och **OK**.
 
    ![Skärm bild av Välj Java-program](../media/speech-devices-sdk/eclipse-run-sample.png)
 
@@ -129,7 +129,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
    ![Exempel program och alternativ för exempel på tal enheter SDK](../media/speech-devices-sdk/java-sample-app-windows.png)
 
-1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **session** > **Start**. Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `participants.properties` i projektmappen **mål/klasser**. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription-service.md).
+1. Prova den nya demonstrationen av **konversations avskrift** . Börja skriva med **session**  >  **Start**. Som standard är alla gäst. Men om du har deltagares röst-signaturer kan de placeras i en fil `participants.properties` i projektmappen **mål/klasser**. Om du vill generera röst signaturen tittar du på Skicka [konversationer (SDK)](../how-to-use-conversation-transcription-service.md).
 
    ![Avskrifts program för demo konversation](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
@@ -145,7 +145,7 @@ Om du planerar att använda de avsikter behöver du en LUIS-prenumeration [(Lang
 
    ![Skärm bild av körbara JAR File export](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
-1. Lägg `kws.table`till, `participants.properties` `unimic_runtime.dll`, `pma.dll` och `Microsoft.CognitiveServices.Speech.extension.pma.dll` i målmappen som väljs ovan som de här filerna behövs av programmet.
+1. Lägg till `kws.table` , `participants.properties` , `unimic_runtime.dll` `pma.dll` och `Microsoft.CognitiveServices.Speech.extension.pma.dll` i målmappen som väljs ovan som de här filerna behövs av programmet.
 
 1. Köra det fristående programmet
 

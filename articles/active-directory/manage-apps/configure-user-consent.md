@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: mimart
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 2064ac929063fcdcf15c1e7495769c7d84aeef33
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 0a508e52189938447ea6fc1928d441d81deab392
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698070"
+ms.locfileid: "83714037"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurera hur slutanvändare godkänner program
 
@@ -49,7 +49,7 @@ Konfigurera användar medgivande inställningar via Azure Portal:
 1. Under **användar medgivande för program**väljer du vilken godkännande inställning som du vill konfigurera för alla användare.
 1. Spara inställningarna genom att välja **Spara** .
 
-![Inställningar för godkännande av användare](./media/configure-user-consent/configure-consent-setting-for-all-users.png)
+![Inställningar för godkännande av användare](./media/configure-user-consent/setting-for-all-users.png)
 
 > [!TIP]
 > Överväg att [Aktivera arbets flödet för administratörs medgivande](configure-admin-consent-workflow.md) så att användarna kan begära en administratörs granskning och godkännande av ett program som användaren inte får bevilja tillåtelse till, till exempel när användar medgivande har inaktiverats eller när ett program begär behörigheter som användaren inte har tillåtelse att bevilja.
@@ -102,7 +102,7 @@ Med behörighets klassificeringar kan du identifiera vilken inverkan olika behö
 
 I det här exemplet har vi klassificerat den minsta behörighets uppsättningen som krävs för enkel inloggning:
 
-![Behörighets klassificering](./media/configure-user-consent/configure-permission-classifications.png)
+![Behörighets klassificering](./media/configure-user-consent/permission-classifications.png)
 
 > [!TIP]
 > För Microsoft Graph-API: t är de lägsta behörigheter som krävs för grundläggande enkel inloggning `openid` är `profile` , `User.Read` och `offline_access` . Med dessa behörigheter kan en app läsa profil information för den inloggade användaren och upprätthålla den här åtkomsten även om användaren inte längre använder appen.
@@ -192,7 +192,7 @@ Du kan konfigurera vilka användare som tillåts att godkänna appar som har åt
 
 I det här exemplet har alla grupp ägare tillåtelse att tillåta appar som har åtkomst till sina gruppers data:
 
-![Behörighets klassificering](./media/configure-user-consent/configure-group-owner-consent.png)
+![Behörighets klassificering](./media/configure-user-consent/group-owner-consent.png)
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Konfigurera grupp ägarens medgivande med PowerShell
 
@@ -228,7 +228,7 @@ Du kan använda Azure AD PowerShell Preview-modulen, [AzureADPreview](https://do
 
 1. Förstå inställnings värden. Det finns två inställnings värden som definierar vilka användare som ska kunna tillåta en app åtkomst till deras grupp data:
 
-    | Inställningen       | Typ         | Description  |
+    | Inställningen       | Typ         | Beskrivning  |
     | ------------- | ------------ | ------------ |
     | _EnableGroupSpecificConsent_   | Boolesk | Flagga som anger om grupp ägare tillåts att bevilja gruppdefinierade behörigheter. |
     | _ConstrainGroupSpecificConsentToMembersOfGroupId_ | GUID | Om _EnableGroupSpecificConsent_ är inställt på "true" och det här värdet har angetts till en grupps objekt-ID kommer medlemmar i den identifierade gruppen ha behörighet att bevilja gruppspecifika behörigheter till de grupper som de äger. |
@@ -286,7 +286,7 @@ Du kan göra detta med hjälp av samma steg som ovan för att [Konfigurera grupp
 
 1. Förstå inställnings värden för riskfylldt steg-för-steg-godkännande:
 
-    | Inställningen       | Typ         | Description  |
+    | Inställningen       | Typ         | Beskrivning  |
     | ------------- | ------------ | ------------ |
     | _BlockUserConsentForRiskyApps_   | Boolesk |  Flagga som anger om användar medgivande ska blockeras när en riskfylld begäran identifieras. |
 

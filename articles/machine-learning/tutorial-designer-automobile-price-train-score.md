@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
-ms.openlocfilehash: d730eb64f5025daa740e4fad0fce0a95300363e1
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983405"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656582"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +70,7 @@ En pipeline körs på ett beräknings mål, som är en beräknings resurs som ä
 
 Du kan ange ett **standard beräknings mål** för hela pipelinen, vilket anger att varje modul ska använda samma beräknings mål som standard. Du kan dock ange beräknings mål per modul.
 
-1. Bredvid pipelinens namn ![väljer **du skärm bild av kugg** hjuls ikonen](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) längst upp på arbets ytan för att öppna fönstret **Inställningar** .
+1. Bredvid pipelinens namn **väljer du** ![ skärm bild av kugg hjuls ikonen längst ](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) upp på arbets ytan för att öppna fönstret **Inställningar** .
 
 1. I fönstret **Inställningar** till höger om arbets ytan väljer du **Välj Compute Target (Välj Compute Target**).
 
@@ -217,7 +218,7 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
     
     Med det här alternativet visas flera kategorier av moduler som du kan använda för att initiera Learning-algoritmer.
 
-1. Välj **regression** > **linjär regression**och dra den till pipeline-arbetsytan.
+1. Välj **regression**  >  **linjär regression**och dra den till pipeline-arbetsytan.
 
 1. Anslut utdata från modulen **linjär regression** till vänster indata för modulen **träna modell** .
 
@@ -292,7 +293,7 @@ När körningen är klar kan du visa resultatet av pipeline-körningen. Börja m
 
 1. Välj modulen **Poäng modell** för att visa dess utdata.
 
-1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar** > ![ikon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar** > ikon ![ ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
 
     Här kan du se de förutsagda priser och de faktiska priserna från test data.
 
@@ -304,7 +305,7 @@ Använd **utvärdera modell** för att se hur väl den tränade modellen utfört
 
 1. Välj modulen **utvärdera modell** för att visa dess utdata.
 
-1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar** > ![ikon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata + loggar** > ikon ![ ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
 
 Följande statistik visas för din modell:
 

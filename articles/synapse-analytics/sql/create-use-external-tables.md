@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f90021e35b4089547b236d01b10820f6c06bd0cc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 039fdda4ab8fe636c1eab926c477aea420b59de8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195170"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647480"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Skapa och Använd externa tabeller i SQL på begäran (för hands version) med Azure Synapse Analytics
 
-I det här avsnittet får du lära dig hur du skapar och använder externa tabeller i SQL på begäran (för hands version). Externa tabeller är användbara när du vill kontrol lera åtkomsten till externa data i SQL på begäran och om du vill använda verktyg, till exempel Power BI, tillsammans med SQL på begäran. Externa tabeller har åtkomst till två typer av lagring:
+I det här avsnittet får du lära dig hur du skapar och använder [externa tabeller](develop-tables-external-tables.md) i SQL på begäran (för hands version). Externa tabeller är användbara när du vill kontrol lera åtkomsten till externa data i SQL på begäran och om du vill använda verktyg, till exempel Power BI, tillsammans med SQL på begäran. Externa tabeller har åtkomst till två typer av lagring:
 - Offentlig lagring där användare kommer åt offentliga lagringsfiler.
 - Skyddad lagring där användare får åtkomst till lagrings filer med SAS-autentiseringsuppgifter, Azure AD-identitet eller hanterad identitet för Synapse-arbetsytan.
 
@@ -61,7 +61,11 @@ Frågorna i den här artikeln utförs i exempel databasen och använder dessa ob
 
 ## <a name="create-an-external-table-on-protected-data"></a>Skapa en extern tabell på skyddade data
 
-Du kan skapa externa tabeller som har åtkomst till data på ett Azure Storage-konto som ger åtkomst till användare med en viss Azure AD-identitet eller SAS-nyckel. Du kan skapa externa tabeller på samma sätt som du skapar vanliga SQL Server externa tabeller. Frågan nedan skapar en extern tabell som läser en *populations. csv* -fil från SynapseSQL demo Azure Storage-konto som refereras till med `sqlondemanddemo` data källan och skyddas med databasens begränsade autentiseringsuppgifter anropad `sqlondemand` . Autentiseringsuppgifter för data källa och databas omfattning skapas i [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
+Du kan skapa externa tabeller som har åtkomst till data på ett Azure Storage-konto som ger åtkomst till användare med en viss Azure AD-identitet eller SAS-nyckel. Du kan skapa externa tabeller på samma sätt som du skapar vanliga SQL Server externa tabeller. 
+
+Följande fråga skapar en extern tabell som läser en *populations. csv* -fil från SynapseSQL demo Azure Storage-konto som refereras till med `sqlondemanddemo` data källan och skyddas med databasens begränsade autentiseringsuppgifter anropad `sqlondemand` . 
+
+Autentiseringsuppgifter för data källa och databas omfattning skapas i [installations skriptet](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
 > Ändra den första raden i frågan, t. ex. [mydbname], så att du använder den databas som du har skapat. 
@@ -81,7 +85,6 @@ WITH (
     DATA_SOURCE = sqlondemanddemo,
     FILE_FORMAT = QuotedCSVWithHeaderFormat
 );
-GO
 ```
 
 ## <a name="create-an-external-table-on-public-data"></a>Skapa en extern tabell för offentliga data
@@ -105,9 +108,9 @@ CREATE EXTERNAL TABLE Taxi (
          FILE_FORMAT = ParquetFormat
 );
 ```
-## <a name="use-a-external-table"></a>Använd en extern tabell
+## <a name="use-an-external-table"></a>Använd en extern tabell
 
-Du kan använda externa tabeller i dina frågor på samma sätt som du använder dem i SQL Server frågor.
+Du kan använda [externa tabeller](develop-tables-external-tables.md) i dina frågor på samma sätt som du använder dem i SQL Server frågor.
 
 Följande fråga visar detta med den externa *populations* tabellen som vi skapade i föregående avsnitt. Den returnerar lands namn med sin population i 2019 i fallande ordning.
 

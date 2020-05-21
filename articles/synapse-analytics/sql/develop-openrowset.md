@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591428"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702029"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Använda OpenRowSet med SQL på begäran (för hands version)
 
@@ -45,10 +45,12 @@ Det här är ett snabbt och enkelt sätt att läsa innehållet i filerna utan f�
                     TYPE = 'PARQUET') AS file
     ```
 
+
     Med det här alternativet kan du konfigurera lagrings kontots plats i data källan och ange den autentiseringsmetod som ska användas för åtkomst till lagringen. 
     
     > [!IMPORTANT]
     > `OPENROWSET`utan `DATA_SOURCE` ger ett snabbt och enkelt sätt att komma åt lagringsfiler, men erbjuder alternativ för begränsad autentisering. Till exempel kan Azure AD-huvudobjektet endast komma åt filer med sin [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) och kan inte komma åt offentligt tillgängliga filer. Om du behöver mer kraftfulla autentiseringsalternativ använder du `DATA_SOURCE` alternativet och definierar de autentiseringsuppgifter som du vill använda för att komma åt lagringen.
+
 
 ## <a name="security"></a>Säkerhet
 
@@ -57,10 +59,10 @@ En databas användare måste ha `ADMINISTER BULK OPERATIONS` behörighet att anv
 Lagrings administratören måste också göra det möjligt för en användare att komma åt filerna genom att tillhandahålla en giltig SAS-token eller aktivera Azure AD-huvudobjektet för åtkomst till lagringsfiler Läs mer om åtkomst kontroll för lagring i [den här artikeln](develop-storage-files-storage-access-control.md).
 
 `OPENROWSET`Använd följande regler för att avgöra hur du ska autentisera till lagring:
-- I `OPENROWSET` med `DATA_SOURCE` autentiseringsmekanismen är beroende av samtals typ.
-  - AAD-inloggningar kan bara komma åt filer med sin egen [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) om Azure Storage gör det möjligt för Azure AD-användaren att komma åt underliggande filer (till exempel om anroparen har behörighet för lagrings läsare för lagring) och om du [aktiverar Azure AD passthrough-autentisering](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) på Synapse SQL-tjänsten.
+- I `OPENROWSET` utan `DATA_SOURCE` autentiseringsmekanism beror på samtals typ.
+  - Azure AD-inloggningar kan bara komma åt filer med sin egen [Azure AD-identitet](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) om Azure Storage gör det möjligt för Azure AD-användaren att komma åt underliggande filer (till exempel om anroparen har behörighet för lagrings läsare för lagring) och om du [aktiverar Azure AD passthrough-autentisering](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) på Synapse SQL-tjänsten.
   - SQL-inloggningar kan också använda `OPENROWSET` utan `DATA_SOURCE` åtkomst till offentligt tillgängliga filer, filer som skyddas med SAS-token eller hanterad identitet för Synapse-arbetsytan. Du måste [skapa server-begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md#examples) för att tillåta åtkomst till lagringsfiler. 
-- I `OPENROWSET` med `DATA_SOURCE` autentiseringsmetoden definieras den refererade autentiseringsuppgiften i databasen som tilldelats den refererade data källan. Med det här alternativet kan du få åtkomst till offentligt tillgängligt lagrings utrymme, eller åtkomst till lagring med SAS-token, hanterad identitet för arbets ytan eller [Azure AD-identiteten](develop-storage-files-storage-access-control.md?tabs=user-identity#) (om anroparen är Azure AD-huvudobjekt). Om `DATA_SOURCE` du refererar till Azure Storage som inte är offentligt måste du [skapa databasens begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md#examples) och referera till den i `DATA SOURCE` för att tillåta åtkomst till lagringsfiler.
+- I `OPENROWSET` med autentiseringsmekanismen `DATA_SOURCE` definieras den autentiseringsuppgifter som tilldelats den refererade data källan i databasens begränsade autentiseringsuppgifter. Med det här alternativet kan du få åtkomst till offentligt tillgängligt lagrings utrymme, eller åtkomst till lagring med SAS-token, hanterad identitet för arbets ytan eller [Azure AD-identiteten](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (om anroparen är Azure AD-huvudobjekt). Om `DATA_SOURCE` du refererar till Azure Storage som inte är offentligt måste du [skapa databasens begränsade autentiseringsuppgifter](develop-storage-files-storage-access-control.md#examples) och referera till den i `DATA SOURCE` för att tillåta åtkomst till lagringsfiler.
 
 Anroparen måste ha `REFERENCES` behörighet för autentiseringsuppgifter för att kunna använda den för att autentisera till lagring.
 
@@ -169,7 +171,7 @@ Anger vilken fält avslutning som ska användas. Standard fält avslutning är e
 
 ROWTERMINATOR = row_terminator
 
-Anger den rad avslutning som ska användas. Om ingen rad avgränsare anges används en av standard avsluten. Standard avslutare för PARSER_VERSION = ' 1,0 ' är \r\n, \n och \r. Standard avslutare för PARSER_VERSION = ' 2,0 ' är \r\n och \n.
+Anger den rad avslutning som ska användas. Om ingen rad avgränsare anges används en av standardinställningarna. Standard avslutare för PARSER_VERSION = ' 1,0 ' är \r\n, \n och \r. Standard avslutare för PARSER_VERSION = ' 2,0 ' är \r\n och \n.
 
 ESCAPE_CHAR = char
 
@@ -193,12 +195,12 @@ Anger komprimerings metod. Följande komprimerings metod stöds:
 
 PARSER_VERSION = parser_version
 
-Anger vilken parser-version som ska användas vid läsning av filer. För närvarande finns versioner för CSV-parser som stöds 1,0 och 2,0
+Anger vilken parser-version som ska användas vid läsning av filer. För närvarande finns versioner för CSV-parser som stöds 1,0 och 2,0:
 
 - PARSER_VERSION = ' 1,0 '
 - PARSER_VERSION = ' 2,0 '
 
-CSV-parser version 1,0 är standard och funktions rik, medan 2,0 har skapats för prestanda och inte stöder alla alternativ och kodningar. 
+CSV-parser version 1,0 är standard och funktionen är intensiv, medan 2,0 har skapats för prestanda och inte stöder alla alternativ och kodningar. 
 
 CSV-parser version 2,0-information:
 

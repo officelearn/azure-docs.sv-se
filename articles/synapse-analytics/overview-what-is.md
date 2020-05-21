@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c458b1c04a7f3be1a43d725591426e619286b7d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0f34b853728c91d9e3c6e32396c0f7eb427af101
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587891"
+ms.locfileid: "83656203"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Vad är Azure Synapse Analytics (för hands versioner av arbets ytor)?
 
@@ -63,7 +63,7 @@ Azure Synapse tar bort de traditionella teknik barriärerna mellan att använda 
 
 Azure Synapse levereras med samma data integrerings motor och upplevelser som Azure Data Factory, så att du kan skapa omfattande datapipeliner utan att använda en separat Orchestration-motor.
 
-* Flytta data mellan Synapse och 85 + lokala data källor
+* Flytta data mellan Azure Synapse och 90 + lokala data källor
 * Dirigera antecknings böcker, pipeliner, Spark-jobb, SQL-skript, lagrade procedurer
 * Kod fri ETL med data flödes aktiviteter
 
@@ -87,6 +87,6 @@ Azure Synapse erbjuder ett enda sätt för företag att hantera analys resurser,
 
 * [Skapa en arbetsyta](quickstart-create-workspace.md)
 * [Använda Synapse Studio](quickstart-synapse-studio.md)
-* [Skapa en SQL-pool](quickstart-create-sql-pool.md)
+* [Skapa en SQL-pool](quickstart-create-sql-pool-portal.md)
 * [Använda SQL på begäran](quickstart-sql-on-demand.md)
-* [Skapa en Apache Spark pool](quickstart-create-apache-spark-pool.md)
+* [Skapa en Apache Spark pool](quickstart-create-apache-spark-pool-portal.md)

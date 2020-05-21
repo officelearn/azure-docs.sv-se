@@ -3,12 +3,12 @@ title: 'Snabb start: Distribuera en app med LUIS-portalen'
 description: Den här snabb starten visar hur du distribuerar en app genom att skapa en förutsägelse slut punkts resurs, tilldela resursen, utbildningen och publicera appen.
 ms.topic: quickstart
 ms.date: 05/06/2020
-ms.openlocfilehash: 9b22f1eda822b5354f0b434a04c2ea03e4c0ff2a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 743c2fe311eeeabad5a3e957319be3a6e372e74f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585114"
+ms.locfileid: "83653227"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabb start: Distribuera en app i LUIS-portalen
 
@@ -16,7 +16,7 @@ När din LUIS-app är redo att returnera uttryck förutsägelser till ett klient
 
 I den här snabb starten lär du dig att distribuera ett program. Du skapar en förutsägelse slut punkt resurs, tilldelar resursen till appen, tränar appen och publicerar appen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Skaffa en [Azure-prenumeration](https://azure.microsoft.com/free).
 * Slutför den [föregående Portal snabb](get-started-portal-build-app.md) starten eller [Ladda ned och importera appen](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json).
@@ -40,7 +40,8 @@ Varje gång du skapar en ny redigerare eller en fråga förutsägelse resurs fö
 
 1. Välj klient, prenumeration och resurs namn. Välj **tilldela resurs**.
 
-   ![Tilldela en resurs till din app](./media/get-started-portal-deploy-app/assign-resource.png)
+   > [!div class="mx-imgBorder"]
+   > ![Tilldela en resurs till din app](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. Slutför samma steg för att lägga till redigerings nyckeln till din app.
 
@@ -51,11 +52,11 @@ Varje gång du skapar en ny redigerare eller en fråga förutsägelse resurs fö
 
 ## <a name="train-the-app"></a>Träna appen
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
+Om du har ändrat appen sedan du tränade den sist, [tränar](get-started-portal-build-app.md) du appen.
 
 ## <a name="publish-the-app-to-the-prediction-endpoint"></a>Publicera appen till förutsägelse slut punkten
 
-[!INCLUDE [LUIS How to Train steps](includes/howto-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](includes/howto-publish.md)]
 
 ## <a name="prediction-endpoint-request"></a>Förutsägelse slut punkts förfrågan
 

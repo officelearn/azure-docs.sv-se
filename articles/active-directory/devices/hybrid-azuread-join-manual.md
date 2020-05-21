@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f23520bd724d2f7ed5a9422a0541e717c800dee2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 596b47ecc0cf42e8cf1e7001c1462f55d34ff9c3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201031"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680286"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt
 
@@ -25,7 +25,7 @@ Med enhetshanteringen i Azure Active Directory (Azure AD) kan du se till att anv
 > [!TIP]
 > Om användning av Azure AD Connect är ett möjligt alternativ för dig kan du läsa relaterade självstudier för [hanterade](hybrid-azuread-join-managed-domains.md) eller [federerade](hybrid-azuread-join-federated-domains.md) domäner. Genom att använda Azure AD Connect kan du avsevärt förenkla konfigurationen av Hybrid Azure AD-anslutningen.
 
-Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslutna enheter till Azure AD kan du göra det genom att konfigurera Hybrid Azure AD-anslutna enheter. I den här guiden får du lära dig att:
+Om du har en lokal Active Directory-miljö och du vill ansluta dina domänanslutna enheter till Azure AD kan du göra det genom att konfigurera Hybrid Azure AD-anslutna enheter. I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera Azure AD-hybridanslutning manuellt
@@ -141,7 +141,7 @@ Cmdleten `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Använder Active Directory PowerShell-modulen och Azure Active Directory Domain Services-verktyg (Azure AD DS). De här verktygen är beroende av Active Directory-webbtjänster som körs på en domänkontrollant. Active Directory Web Services fungerar på domänkontrollanter som kör Windows Server 2008 R2 och senare.
 * Det stöds endast av MSOnline PowerShell-modulversion 1.1.166.0. Använd [den här länken](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)om du vill hämta den här modulen.
-* Om AD DS- `Initialize-ADSyncDomainJoinedComputerSync` verktygen inte är installerade kommer att Miss förfaller. Du kan installera AD DS-verktyg via Serverhanteraren under **funktioner** > **verktyg för fjärrserveradministration** > **roll administrations verktyg**.
+* Om AD DS-verktygen inte är installerade `Initialize-ADSyncDomainJoinedComputerSync` kommer att Miss förfaller. Du kan installera AD DS-verktyg via Serverhanteraren under **funktioner**  >  **verktyg för fjärrserveradministration**  >  **roll administrations verktyg**.
 
 För domänkontrollanter som kör Windows Server 2008 eller tidigare versioner använder du följande skript för att skapa tjänstanslutningspunkten. I en konfiguration med flera skogar använder du följande skript för att skapa tjänstanslutningspunkten i varje skog där det finns datorer.
 
@@ -185,7 +185,7 @@ När du använder AD FS måste du aktivera följande WS-Trust-slutpunkter
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> Både **ADFS/tjänster/Trust/2005/windowstransport** och **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slut punkter som aktive ras via AD FS hanterings konsolen under **tjänst** > **slut punkter**.
+> Både **ADFS/tjänster/Trust/2005/windowstransport** och **adfs/services/trust/13/windowstransport** ska aktive ras som enbart intranät riktade slut punkter och får inte visas som extra näts slut punkter via webbprogramproxy. Läs mer om hur du inaktiverar Windows-slutpunkter för WS-Trust i [inaktivera WS-Trust Windows-slutpunkter på proxyn](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Du kan se vilka slut punkter som aktive ras via AD FS hanterings konsolen under **tjänst**  >  **slut punkter**.
 
 > [!NOTE]
 >Om du inte har AD FS som en lokal federationstjänst följer du instruktionerna från din leverantör för att kontrollera att den stöder WS-Trust 1.3- eller 2005-slutpunkter och att de har publicerats via MEX-filen (Metadata Exchange).
@@ -200,7 +200,7 @@ Om du har mer än ett verifierat domännamn måste du ange följande anspråk f�
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Om du redan utfärdar ett ImmutableID-anspråk (till exempel alternativt inloggnings-ID) måste du tillhandahålla ett motsvarande anspråk för datorer:
+Om du redan utfärdar ett ImmutableID-anspråk (t. ex. genom att använda `mS-DS-ConsistencyGuid` eller ett annat attribut som käll värde för ImmutableID) måste du ange ett motsvarande anspråk för datorer:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
@@ -329,7 +329,7 @@ Om du vill hämta en lista över verifierade företagsdomäner kan du använda c
 
 ![Lista över företagsdomäner](./media/hybrid-azuread-join-manual/01.png)
 
-### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-an-alternate-login-id-is-set"></a>Utfärda ImmutableID för datorn när det finns ett för användare (till när ett alternativt inloggnings-ID har angetts)
+### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-using-ms-ds-consistencyguid-as-the-source-for-immutableid"></a>Utfärda ImmutableID för datorn när en för användare finns (till exempel med mS-DS-ConsistencyGuid som källa för ImmutableID)
 
 Anspråket `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` måste innehålla ett giltigt värde för datorer. I AD FS kan du skapa en utfärdanderegel för transformering enligt följande:
 
@@ -478,7 +478,7 @@ Med följande skript kan du skapa utfärdande av transformeringsregler såsom be
    Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
    ```
 
-#### <a name="remarks"></a>Anmärkningar
+#### <a name="remarks"></a>Kommentarer
 
 * Det här skriptet lägger till reglerna till befintliga regler. Kör inte skriptet två gånger, eftersom regeluppsättningen då läggs till två gånger. Kontrollera att det inte finns några motsvarande regler för anspråken (under motsvarande villkor) innan du kör skriptet igen.
 * Om du har flera verifierade domännamn (som visas i Azure AD-portalen eller via cmdleten **Get-MsolDomain**) anger du värdet **$multipleVerifiedDomainNames** i skriptet till **$true**. Se också till att du tar bort alla befintliga **issuerid** -anspråk som kan ha skapats av Azure AD Connect eller via andra sätt. Här är ett exempel för den här regeln:
@@ -501,7 +501,7 @@ Om några av dina domänanslutna enheter är äldre Windows-enheter måste du:
 
 ### <a name="set-a-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Ange en princip i Azure AD för att göra det möjligt för användare att registrera enheter
 
-Om du vill registrera äldre Windows-enheter ser du till att den inställning som tillåter användarna att registrera enheter i Azure AD är aktiverad. I Azure Portal kan du hitta den här inställningen under **Azure Active Directory** > **användare och grupper** > **enhets inställningar**.
+Om du vill registrera äldre Windows-enheter ser du till att den inställning som tillåter användarna att registrera enheter i Azure AD är aktiverad. I Azure Portal kan du hitta den här inställningen under **Azure Active Directory**  >  **användare och grupper**  >  **enhets inställningar**.
 
 Följande princip måste anges till **alla**: **användare kan registrera sina enheter med Azure AD**.
 
@@ -523,7 +523,7 @@ När en sådan begäran inkommer måste den lokala federationstjänsten autentis
 
 I AD FS måste du lägga till en utfärdanderegel för transformering som skickas genom autentiseringsmetoden. Så här lägger du till regeln:
 
-1. I AD FS hanterings konsolen går du till **AD FS** > **förtroende relationer** > **förlitande parts förtroenden**.
+1. I AD FS hanterings konsolen går du till **AD FS**  >  **förtroende relationer**  >  **förlitande parts förtroenden**.
 1. Högerklicka på förtroendeobjektet som förlitar sig på Microsoft Office 365-identitetsplattformen och välj **Edit Claim Rules** (Redigera anspråksregler).
 1. På fliken **Issuance Transform Rules** (Regler för utfärdandetransformering) väljer du **Lägg till regel**.
 1. I mallistan **Claim rule** (Anspråksregel) väljer du **Skicka anspråk med hjälp av en anpassad regel**.
@@ -533,7 +533,7 @@ I AD FS måste du lägga till en utfärdanderegel för transformering som skicka
 
    `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-1. På din federationsserver ange du följande PowerShell-kommando. Ersätt ** \<RPObjectName\> ** med det förlitande part objekt namnet för ditt Azure AD-förtroende objekt för förlitande part. Det här objektet heter vanligtvis **Microsoft Office 365-identitetsplattformen**.
+1. På din federationsserver ange du följande PowerShell-kommando. Ersätt ** \< RPObjectName \> ** med det förlitande part objekt namnet för ditt Azure AD-förtroende objekt för förlitande part. Det här objektet heter vanligtvis **Microsoft Office 365-identitetsplattformen**.
 
    `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 

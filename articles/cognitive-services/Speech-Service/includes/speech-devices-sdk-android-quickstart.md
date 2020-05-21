@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 4a2d9f382045db2aeab80d9ecf5a05b031bcbc9e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 57244c2022d06d8f1768dbe8bcc971aa59acd6a9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400128"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673143"
 ---
 I den här snabb starten lär du dig att använda tal enheter SDK för Android för att bygga en tal aktive rad produkt eller använda den som en [Avskrifts](../conversation-transcription-service.md) enhet för konversation.
 
@@ -47,7 +47,7 @@ Innan du börjar använda tal enheter SDK måste du:
 
 1. Enheten ska visas under **Välj en enhet**. Välj knappen **Visa** bredvid enheten.
 
-1. Anslut till ditt trådlösa nätverk genom att välja mappikonen och välj sedan **Inställningar** > **WLAN**.
+1. Anslut till ditt trådlösa nätverk genom att välja mappikonen och välj sedan **Inställningar**  >  **WLAN**.
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
@@ -58,7 +58,7 @@ Innan du börjar använda tal enheter SDK måste du:
    >
    > ![Filmapp för Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Välj **Inställningar**. Sök efter "Mac-adress" och välj sedan **MAC-adress** > **Advanced WLAN**. Skriv ned MAC-adressen som visas längst ned i dialog rutan.
+   > Välj **Inställningar**. Sök efter "Mac-adress" och välj sedan **MAC-adress**  >  **Advanced WLAN**. Skriv ned MAC-adressen som visas längst ned i dialog rutan.
    >
    > ![Vysor MAC-adress](../media/speech-devices-sdk/qsg-11.png)
    >
@@ -96,7 +96,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
     Uppdatera **build. gradle (modulen: app)** genom att lägga till den här raden i avsnittet beroenden. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.11.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.12.0'
     ```
     
 1. Lägg till din tal prenumerations nyckel i käll koden. Om du vill prova avsikts igenkänning lägger du också till din [language Understanding tjänst](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) prenumerations nyckel och program-ID.
@@ -124,7 +124,7 @@ Om du vill verifiera installationen av Development Kit, skapa och installera exe
    > [!TIP]
    > Du kan också [skapa ett anpassat nyckelord](../speech-devices-sdk-create-kws.md).
 
-   Om du vill använda ett nytt nyckelord uppdaterar du följande två rader `MainActivity.java`i och kopierar nyckelords paketet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet KWS-Machine. zip:
+   Om du vill använda ett nytt nyckelord uppdaterar du följande två rader i `MainActivity.java` och kopierar nyckelords paketet till din app. Om du till exempel vill använda nyckelordet "dator" från nyckelords paketet KWS-Machine. zip:
 
    - Kopiera nyckelords paketet till mappen "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
    - Uppdatera `MainActivity.java` med nyckelordet och paket namnet:
@@ -177,6 +177,6 @@ Om du inte kan ansluta till tal enheten. Skriv följande kommando i kommando tol
 ```
 
 > [!NOTE]
-> Det här kommandot använder Android fel söknings `adb.exe`bryggan, som är en del av den Android Studio installationen. Det här verktyget finns i C:\Users\[användar namn] \AppData\Local\Android\Sdk\platform-tools. Du kan lägga till den här katalogen i sökvägen så att det blir enklare att `adb`anropa. Annars måste du ange den fullständiga sökvägen till din installation av ADB. exe i varje kommando som anropar `adb`.
+> Det här kommandot använder Android fel söknings bryggan, `adb.exe` som är en del av den Android Studio installationen. Det här verktyget finns i C:\Users \[ användar namn] \AppData\Local\Android\Sdk\platform-tools. Du kan lägga till den här katalogen i sökvägen så att det blir enklare att anropa `adb` . Annars måste du ange den fullständiga sökvägen till din installation av ADB. exe i varje kommando som anropar `adb` .
 >
 > Om du ser ett fel `no devices/emulators found` kan du kontrol lera att USB-kabeln är ansluten och se till att en hög kvalitets kabel används.

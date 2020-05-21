@@ -2,19 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: ff2a55d9eb7b5c0787c5327ea34338a7efb90da0
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: a69c093320c47bf5732ddb93daea47ab6c0586af
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836587"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648018"
 ---
 |Name |Beskrivning |Påverkan (ar) |Version |GitHub |
 |---|---|---|---|---|
-|[Granska virtuella Windows-datorer där Windows Defender sårbarhet Guard inte är aktiverat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |Windows Defender sårbarhets skydd skyddar mot skadlig kod som använder sårbarheter för att infektera enheter och uppslag. Skyddet av sårbarhets skydd består av ett antal åtgärder som kan vidtas för antingen operativ systemet eller enskilda appar. Den här principen kräver Windows-tillägget Azure Policy för Windows. Mer information finns på [https://aks.ms/gcpol](https://aks.ms/gcpol). |AuditIfNotExists, inaktiverat |1.0.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsDefenderExploitGuard_AuditIfNotExist.json) |
+|[Granska virtuella Windows-datorer där Windows Defender sårbarhet Guard inte är aktiverat](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbed48b13-6647-468e-aa2f-1af1d3f4dd40) |Windows Defender sårbarhets skydd skyddar mot skadlig kod som använder sårbarheter för att infektera enheter och uppslag. Skyddet av sårbarhets skydd består av ett antal åtgärder som kan vidtas för antingen operativ systemet eller enskilda appar. Den här principen kräver Windows-tillägget Azure Policy för Windows. Mer information finns på [https://aks.ms/gcpol](https://aks.ms/gcpol) . |AuditIfNotExists, inaktiverat |1.0.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_WindowsDefenderExploitGuard_AuditIfNotExist.json) |
 |[Konfigurera tids zonen på Windows-datorer.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6141c932-9384-44c6-a395-59e4c057d7c9) |Den här principen skapar en gäst konfigurations tilldelning för att ange angiven tidszon på virtuella Windows-datorer. |deployIfNotExists |1.0.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_SetWindowsTimeZone_Deploy.json) |
 |[Distribuera förutsättningar för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec49586f-4939-402d-a29e-6ff502b20592) |Den här principen skapar en gäst konfigurations tilldelning för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord. Det skapar också en systemtilldelad hanterad identitet och distribuerar VM-tillägget för gäst konfiguration. Den här principen bör endast användas tillsammans med motsvarande gransknings princip i ett initiativ. Mer information om principer för gäst konfiguration finns på[https://aka.ms/gcpol](https://aka.ms/gcpol) |deployIfNotExists |1.1.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxPassword110_Deploy.json) |
 |[Distribuera krav för att granska virtuella Linux-datorer som inte har passwd-filbehörigheterna inställt på 0644](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff19aa1c1-6b91-4c27-ae6a-970279f03db9) |Den här principen skapar en gäst konfigurations tilldelning för att granska virtuella Linux-datorer som inte har behörigheterna passwd-fil inställd på 0644. Det skapar också en systemtilldelad hanterad identitet och distribuerar VM-tillägget för gäst konfiguration. Den här principen bör endast användas tillsammans med motsvarande gransknings princip i ett initiativ. Mer information om principer för gäst konfiguration finns på[https://aka.ms/gcpol](https://aka.ms/gcpol) |deployIfNotExists |1.1.0 – för hands version |[Länk](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Guest%20Configuration/GuestConfiguration_LinuxPassword121_Deploy.json) |

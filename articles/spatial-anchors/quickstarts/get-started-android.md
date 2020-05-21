@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f794d1c70baee07b9ff3ed5d8299cf8ad3bf983
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376468"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652501"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Snabb start: skapa en Android-app med Azures spatiala ankare
 
@@ -34,7 +34,7 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 - En Windows-eller macOS-dator med <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 +</a>.
   - Om du kör på Windows, behöver du även <a href="https://git-scm.com/download/win" target="_blank">git för Windows</a> och <a href="https://git-lfs.github.com/">git LF</a>.
-  - Om du kör på macOS ska du Hämta git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Kör `brew install git` sedan och `brew install git-lfs`.
+  - Om du kör på macOS ska du Hämta git installerat via HomeBrew. Ange följande kommando i en enskild rad i terminalen: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . Kör sedan `brew install git` och `brew install git-lfs` .
   - Om du vill bygga NDK-exemplet måste du också installera NDK-och CMake 3,6 eller fler SDK-verktyg i Android Studio.
 - En <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">utvecklaraktiverad</a> och <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore-kapabel</a> Android-enhet.
   - Ytterligare enhets driv rutiner kan krävas för att datorn ska kunna kommunicera med din Android-enhet. Mer information och anvisningar finns [här](https://developer.android.com/studio/run/device.html) .
@@ -52,7 +52,7 @@ Kontrollera att du har följande så att du kan utföra den här snabbstarten:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Hämta `arcore_c_api.h` härifrån [och placera den i.](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) `Android\NDK\libraries\include`
+Hämta `arcore_c_api.h` härifrån [here](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) och placera den i `Android\NDK\libraries\include` .
 
 Initiera undermoduler genom att köra följande kommando inifrån den nya klonade lagrings platsen:
 
@@ -86,6 +86,8 @@ Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckel
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
 
+Leta upp `public AzureSpatialAnchorsManager(Session arCoreSession)` och Lägg till följande rad och ersätt i din konto domän från tidigare: `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");` .
+
 # <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 Öppna `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
@@ -93,6 +95,8 @@ Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentif
 Leta upp fältet `SpatialAnchorsAccountKey` och ersätt `Set me` med kontonyckeln.
 
 Leta upp fältet `SpatialAnchorsAccountId` och ersätt `Set me` med kontoidentifieraren.
+
+Leta upp `AzureSpatialAnchorsApplication::StartCloudSession()` och Lägg till följande rad och ersätt i din konto domän från tidigare: `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");` .
 
 ---
 

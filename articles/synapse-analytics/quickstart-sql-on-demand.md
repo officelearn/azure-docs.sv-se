@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb90ba81f6399d7b0e238d673c2d956911bd004
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8c87b059d94d6b3be1a4b5cf2f83007b746f4156
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201032"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658586"
 ---
-# <a name="quickstart-using-sql-on-demand"></a>Snabb start: använda SQL på begäran
+# <a name="quickstart-use-sql-on-demand"></a>Snabb start: använda SQL på begäran
 
 Synapse SQL on-demand (för hands version) är en server lös Query-tjänst som gör att du kan köra SQL-frågor på filer som placerats i Azure Storage. I den här snabb starten får du lära dig hur du frågar olika typer av filer med SQL på begäran. Format som stöds visas i [OpenRowSet](sql/develop-openrowset.md).
 
@@ -30,7 +30,7 @@ Välj en SQL-klient för att utfärda frågor:
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) är ett klient verktyg som gör att du kan köra SQL-frågor och antecknings böcker på din databas på begäran.
 - [SQL Server Management Studio](sql/get-started-ssms.md) är ett klient verktyg som gör att du kan köra SQL-frågor på din databas på begäran.
 
-Parametrar för snabb start:
+Parametrar för den här snabb starten:
 
 | Parameter                                 | Beskrivning                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
@@ -89,7 +89,7 @@ SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-
 GO
 ```
 
-## <a name="querying-csv-files"></a>Fråga CSV-filer
+## <a name="query-csv-files"></a>Fråga CSV-filer
 
 Följande bild är en förhands granskning av den fil som ska frågas:
 
@@ -118,7 +118,7 @@ WHERE
 Du kan ange schema vid tid för kompilering av frågor.
 Fler exempel finns i [fråga CSV-fil](sql/query-single-csv-file.md).
 
-## <a name="querying-parquet-files"></a>Fråga Parquet-filer
+## <a name="query-parquet-files"></a>Efterfråga Parquet-filer
 
 I följande exempel visas de automatiska schema härlednings funktionerna för att fråga Parquet-filer. Det returnerar antalet rader i september 2017 utan att ange schema.
 
@@ -136,7 +136,7 @@ FROM OPENROWSET
 
 Hitta mer information om att [fråga Parquet-filer](sql/query-parquet-files.md).
 
-## <a name="querying-json-files"></a>Fråga JSON-filer
+## <a name="query-json-files"></a>Efterfråga JSON-filer
 
 ### <a name="json-sample-file"></a>JSON-exempel fil
 
@@ -158,7 +158,7 @@ Filer lagras i *JSON* *-behållare, mappträdet och*innehåller en post i en bok
 }
 ```
 
-### <a name="querying-json-files"></a>Fråga JSON-filer
+### <a name="query-json-files"></a>Efterfråga JSON-filer
 
 Följande fråga visar hur du använder [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) för att hämta skalära värden (title, Publisher) från en bok med rubriken *Probabilistic och statistiska metoder i Cryptology, en introduktion av valda artiklar*:
 

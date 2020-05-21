@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08c6610541d987cddd7cf2aeb71c526cb2359598
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423686"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645308"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Synapse-hanterade privata slut punkter (förhands granskning)
 
@@ -30,8 +30,9 @@ Privat slut punkt använder en privat IP-adress från ditt VNet för att effekti
 
 >[!IMPORTANT]
 >Hanterade privata slut punkter stöds bara i Azure Synapse-arbetsytor med en hanterad arbets yta VNet.
+
 >[!NOTE]
->Vi rekommenderar att du skapar hanterade privata slut punkter för att ansluta till alla dina Azure-datakällor. All utgående trafik från den >hanterade arbets ytans VNet kommer att blockeras i framtiden.
+>All utgående trafik från den hanterade arbets ytans VNet förutom via hanterade privata slut punkter kommer att blockeras i framtiden. Vi rekommenderar att du skapar hanterade privata slut punkter för att ansluta till alla dina Azure-datakällor utanför arbets ytan. 
 
 En privat slut punkts anslutning skapas i ett väntande tillstånd när du skapar en hanterad privat slut punkt i Azure Synapse. Ett arbets flöde för godkännande har initierats. Ägaren till den privata länk resursen ansvarar för att godkänna eller avvisa anslutningen.
 
@@ -47,7 +48,7 @@ När en arbets yta skapas skapar Azure Synapse två hanterade privata slut punkt
 
 Dessa två hanterade privata slut punkter visas i Azure Synapse Studio. Välj **Hantera** i det vänstra navigerings fältet och välj sedan **hanterade virtuella nätverk** för att se dem i Studio.
 
-Den hanterade privata slut punkten som är riktad mot SQL-poolen heter *Synapse-\<WS\> -SQL--workspacename* och den som är riktad mot SQL på begäran kallas *Synapse-\<WS\>-sqlOnDemand--workspacename*.
+Den hanterade privata slut punkten som är riktad mot SQL-poolen heter *Synapse-WS-SQL-- \< workspacename \> * och den som är riktad mot SQL på begäran kallas *Synapse-WS-sqlOnDemand-- \< workspacename \> *.
 ![Hanterade privata slut punkter för SQL-poolen och SQL på begäran](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Dessa två hanterade privata slut punkter skapas automatiskt åt dig när du skapar din Azure dataSynapses-arbetsyta. Du debiteras inte för dessa två hanterade privata slut punkter.

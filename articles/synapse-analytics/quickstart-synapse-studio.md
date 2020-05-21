@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 64895e5f48168305aea3e83596cdbcae982a6cb9
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 182c6a20af51508c357079b9542b2bda695fdae4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692430"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658555"
 ---
-# <a name="quickstart-using-synapse-studio-preview"></a>Snabb start: använda Synapse Studio (för hands version)
+# <a name="quickstart-use-synapse-studio-preview"></a>Snabb start: Använd Synapse Studio (för hands version)
 
 I den här snabb starten får du lära dig hur du frågar filer med hjälp av Synapse Studio.
 
@@ -24,7 +24,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt](https://
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="prerequisites"></a>Krav
 
@@ -51,8 +51,8 @@ Du kan skapa nya mappar och ladda upp filer med hjälp av länkarna i verktygsf�
 > [!IMPORTANT]
 > Du måste vara medlem i `Storage Blob Reader` rollen för den underliggande lagringen för att kunna fråga filerna. Lär dig hur du [tilldelar **data läsare för Storage BLOB-dataläsaren** eller **Storage BLOB data Contributor** RBAC-behörigheter på Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
 
-1. Ladda upp `PARQUET` vissa filer.
-2. Välj en eller flera filer och skapa sedan ett nytt SQL-skript eller en spark-anteckningsbok för att se innehållet i filerna. Om du vill skapa en antecknings bok måste du skapa [Apache Spark pool i arbets ytan](quickstart-create-apache-spark-pool.md).
+1. Ladda upp vissa `PARQUET` filer.
+2. Välj en eller flera filer och skapa sedan ett nytt SQL-skript eller en spark-anteckningsbok för att se innehållet i filerna. Om du vill skapa en antecknings bok måste du skapa en [Apache Spark pool i Synapse-arbetsytor](quickstart-create-apache-spark-pool-studio.md).
 
    ![Fråga efter filer på lagrings platsen](./media/quickstart-synapse-studio/query-files-on-storage.png)
 
@@ -66,5 +66,5 @@ Du kan skapa nya mappar och ladda upp filer med hjälp av länkarna i verktygsf�
 
 - Gör det möjligt för Azure AD-användare att fråga filer genom att använda [ **Storage BLOB data Reader** eller **Storage BLOB data Contributor** RBAC-behörighet på Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role)
 - [Fråga efter filer på Azure Storage med SQL på begäran](sql/on-demand-workspace-overview.md)
-- [Skapa Apache Spark pool med hjälp av Azure Portal](quickstart-create-apache-spark-pool.md)
+- [Skapa Apache Spark-pool med hjälp av Azure-portalen](quickstart-create-apache-spark-pool-portal.md)
 - [Skapa Power BIs rapport för filer som lagras på Azure Storage](sql/tutorial-connect-power-bi-desktop.md)

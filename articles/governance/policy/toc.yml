@@ -50,6 +50,8 @@
           href: ./samples/pattern-parameters.md
         - name: Effektinformation
           href: ./samples/pattern-effect-details.md
+        - name: Taggar
+          href: ./samples/pattern-tags.md
         - name: Värdeoperator
           href: ./samples/pattern-value-operator.md
         - name: Räkneoperator
@@ -76,13 +78,8 @@
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
     - name: Azure Policy för Kubernetes
-      items:
-        - name: Princip för AKS
-          displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
-          href: ./concepts/rego-for-aks.md
-        - name: Princip för AKS Engine
-          displayName: 'aks, k8s, opa, open policy agent, gatekeeper, v3, crd, constraints'
-          href: ./concepts/aks-engine.md
+      displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
+      href: ./concepts/policy-for-kubernetes.md
     - name: Granska virtuella datorer med gästkonfiguration
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md

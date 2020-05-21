@@ -16,7 +16,7 @@
   expanded: true
   items:
     - name: Skapa ett privat Azure Red Hat OpenShift 4-kluster
-      href: create-private-cluster.md
+      href: howto-create-private-cluster-4x.md
     - name: Konfigurera DNS-vidarebefordring för ett Azure Red Hat OpenShift 4-kluster
       href: dns-forwarding.md
     - name: Konfigurera Azure Active Directory-autentisering för ett Azure Red Hat OpenShift 4-kuster
@@ -48,7 +48,7 @@
         - name: Hantera projekt i ett Azure Red Hat OpenShift 3.11-kluster
           href: howto-manage-projects.md
         - name: Skapa ett privat Azure Red Hat OpenShift 3.11-kluster
-          href: howto-create-private-cluster.md
+          href: howto-create-private-cluster-3x.md
         - name: Övervakning och loggning för Azure Red Hat OpenShift 3.11
           items:
             - name: Azure Monitor för containrar i Azure Red Hat OpenShift 3.11 (förhandsversion)

@@ -202,26 +202,6 @@
           href: ./cloud-partner-portal/consulting-services/consulting-services-offer.md
         - name: Containererbjudande
           href: ./cloud-partner-portal/containers/cpp-containers-offer.md
-          items:
-            - name: Krav
-              href: ./cloud-partner-portal/containers/cpp-prerequisites.md
-            - name: Erbjudande om att skapa containrar
-              href: ./cloud-partner-portal/containers/cpp-create-offer.md
-              items:
-                - name: Fliken Erbjudandeinställningar
-                  href: ./cloud-partner-portal/containers/cpp-offer-settings-tab.md
-                - name: 'Fliken SKU:er'
-                  href: ./cloud-partner-portal/containers/cpp-skus-tab.md
-                - name: Fliken Marketplace
-                  href: ./cloud-partner-portal/containers/cpp-marketplace-tab.md
-                - name: Fliken Stöd
-                  href: ./cloud-partner-portal/containers/cpp-support-tab.md
-            - name: Tekniska tillgångar för att skapa containrar
-              href: ./cloud-partner-portal/containers/cpp-create-technical-assets.md
-            - name: Erbjudande om att skapa containrar
-              href: ./cloud-partner-portal/containers/cpp-publish-offer.md
-            - name: Uppdatera befintligt erbjudande
-              href: ./cloud-partner-portal/containers/cpp-update-existing-offer.md
         - name: Erbjudande för Dynamics 365 for Business Central
           href: ./cloud-partner-portal-orig/cpp-business-central-offer.md
           items:

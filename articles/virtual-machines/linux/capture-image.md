@@ -8,16 +8,18 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 70282879b64054d48d904b5ada9284f844448851
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792691"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723314"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Så här skapar du en hanterad avbildning av en virtuell dator eller virtuell hård disk
 
 Om du vill skapa flera kopior av en virtuell dator (VM) för användning i Azure för utveckling och testning kan du avbilda en hanterad avbildning av den virtuella datorn eller OS-VHD: n. Information om hur du skapar, lagrar och delar bilder i skala finns i [delade avbildnings gallerier](../shared-images-cli.md).
+
+En hanterad avbildning har stöd för upp till 20 samtidiga distributioner. Om du försöker skapa fler än 20 virtuella datorer samtidigt, från samma hanterade avbildning, kan timeout uppstå för etablerings tids gränsen på grund av lagrings prestanda begränsningarna för en enda virtuell hård disk. Om du vill skapa fler än 20 virtuella datorer samtidigt använder du en avbildning av [delade avbildnings gallerier](shared-image-galleries.md) som kon figurer ATS med 1 replik för varje 20 samtidiga VM-distributioner.
 
 Om du vill skapa en hanterad avbildning måste du ta bort personlig konto information. I följande steg avetablerar du en befintlig virtuell dator, frigör den och skapar en avbildning. Du kan använda den här avbildningen för att skapa virtuella datorer i alla resurs grupper i din prenumeration.
 
@@ -46,7 +48,7 @@ Först avetablerar du den virtuella datorn med hjälp av Azure VM-agenten för a
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > Kör bara det här kommandot på en virtuell dator som du ska avbilda som en avbildning. Det här kommandot garanterar inte att avbildningen är klar med all känslig information eller är lämplig för omdistribution. `+user` Parametern tar också bort det senast etablerade användar kontot. Använd endast `-deprovision`om du vill behålla autentiseringsuppgifterna för användar kontot på den virtuella datorn.
+   > Kör bara det här kommandot på en virtuell dator som du ska avbilda som en avbildning. Det här kommandot garanterar inte att avbildningen är klar med all känslig information eller är lämplig för omdistribution. `+user`Parametern tar också bort det senast etablerade användar kontot. Använd endast om du vill behålla autentiseringsuppgifterna för användar kontot på den virtuella datorn `-deprovision` .
  
 3. Fortsätt genom att ange **y** . Du kan lägga till `-force` parametern för att undvika det här bekräftelse steget.
 4. När kommandot har slutförts anger du **Avsluta** för att stänga SSH-klienten.  Den virtuella datorn kommer fortfarande att köras nu.

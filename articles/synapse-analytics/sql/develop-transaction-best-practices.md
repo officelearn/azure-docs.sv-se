@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d6902b2b076df86012cec6941be417ad0f0c7660
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b5d508450d17d6e07e2c2bdb78b7934988936b9
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428737"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715757"
 ---
 # <a name="optimizing-transactions-in-sql-pool"></a>Optimera transaktioner i SQL-pool
 
@@ -44,7 +44,7 @@ Transaktionernas säkerhets gränser gäller endast fullständigt loggade åtgä
 
 Följande åtgärder kan vara minimalt loggade:
 
-* CREATE TABLE AS SELECT ([CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* CREATE TABLE SOM SELECT ([CTAS]) (.. /SQL-Data-Warehouse/SQL-Data-Warehouse-develop-CTAs.MD? TOC =/Azure/Synapse-Analytics/TOC.JSON&BC =/Azure/Synapse-Analytics/Breadcrumb/TOC.JSON)
 * Infoga.. SELECT
 * CREATE INDEX
 * ÄNDRA INDEX ÅTERSKAPA

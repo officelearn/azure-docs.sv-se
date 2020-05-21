@@ -1,14 +1,14 @@
 ---
 title: Händelse för att Azure Batch aktivitet slutförd
 description: Referens för slut händelse för batch-aktivitet. Den här händelsen genereras när en uppgift har slutförts, oavsett slut koden.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 9e11eac04009def2bce4476ba2d77c798f25ca15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5e3959a34b96ef4cebdbedadf736418d08cb2746
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116510"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726374"
 ---
 # <a name="task-complete-event"></a>Sluthändelse för uppgift
 
@@ -43,39 +43,39 @@ ms.locfileid: "82116510"
 }
 ```
 
-|Elementnamn|Typ|Obs!|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |`jobId`|Sträng|ID för jobbet som innehåller uppgiften.|
 |`id`|Sträng|Aktivitetens ID.|
 |`taskType`|Sträng|Aktivitetens typ. Detta kan antingen vara ' JobManager ' som indikerar att det är en Job Manager-uppgift eller ' användare ' som indikerar att den inte är en Job Manager-aktivitet. Den här händelsen genereras inte för jobb förberedelse aktiviteter, jobb publicerings aktiviteter eller start uppgifter.|
 |`systemTaskVersion`|Int32|Detta är den interna återförsöks räknaren för en aktivitet. Internt kan batch-tjänsten göra ett nytt försök med en uppgift för att redovisa tillfälliga problem. De här problemen kan omfatta interna schemaläggnings fel eller försök att återställa från datornoder i ett felaktigt tillstånd.|
 |[`nodeInfo`](#nodeInfo)|Komplex typ|Innehåller information om den beräknings nod som aktiviteten kördes på.|
-|[`multiInstanceSettings`](#multiInstanceSettings)|Komplex typ|Anger att aktiviteten är en multi-instance-aktivitet som kräver flera datornoder.  Mer [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) information finns i.|
+|[`multiInstanceSettings`](#multiInstanceSettings)|Komplex typ|Anger att aktiviteten är en multi-instance-aktivitet som kräver flera datornoder.  [`multiInstanceSettings`](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task)Mer information finns i.|
 |[`constraints`](#constraints)|Komplex typ|De körnings begränsningar som gäller för den här uppgiften.|
 |[`executionInfo`](#executionInfo)|Komplex typ|Innehåller information om körningen av uppgiften.|
 
 ###  <a name="nodeinfo"></a><a name="nodeInfo"></a>nodeInfo
 
-|Elementnamn|Typ|Obs!|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |`poolId`|Sträng|ID för den pool där aktiviteten kördes.|
 |`nodeId`|Sträng|ID: t för noden som aktiviteten kördes på.|
 
 ###  <a name="multiinstancesettings"></a><a name="multiInstanceSettings"></a>multiInstanceSettings
 
-|Elementnamn|Typ|Obs!|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int32|Antalet Compute-noder som aktiviteten kräver.|
 
 ###  <a name="constraints"></a><a name="constraints"></a>begränsningar
 
-|Elementnamn|Typ|Obs!|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Det maximala antalet gånger som aktiviteten kan göras om. Batch-tjänsten försöker igen med en aktivitet om dess slutkod är skilt från noll.<br /><br /> Observera att det här värdet specifikt styr antalet återförsök. Batch-tjänsten kommer att försöka utföra åtgärden en gång och kan sedan försöka igen till den här gränsen. Om till exempel det maximala antalet försök är 3, försöker batch utföra en aktivitet upp till fyra gånger (ett första försök och tre försök).<br /><br /> Om det maximala antalet försök är 0, gör batch-tjänsten inte om aktiviteterna.<br /><br /> Om det maximala antalet försök är-1, kommer batch-tjänsten att försöka utföra aktiviteter utan begränsning.<br /><br /> Standardvärdet är 0 (inga återförsök).|
 
 ###  <a name="executioninfo"></a><a name="executionInfo"></a>executionInfo
 
-|Elementnamn|Typ|Obs!|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |`startTime`|DateTime|Tiden då uppgiften startade. "Körs" motsvarar **körnings** tillstånd, så om aktiviteten anger resursfiler eller programpaket, visar start tiden tiden då uppgiften startade nedladdningen eller distributionen av dessa.  Om aktiviteten har startats om eller gjorts om, är det här den senaste tiden då uppgiften startades.|
 |`endTime`|DateTime|Tiden då uppgiften slutfördes.|

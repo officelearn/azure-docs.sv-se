@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77137773"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722634"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Träna en modell för Custom Speech
 
@@ -42,7 +42,7 @@ Det första steget för att träna en modell är att överföra tränings data. 
 2. Navigera till **> Custom Speech > utbildning för tal till text**.
 3. Klicka på **träna modell**.
 4. Ge sedan din utbildning ett **namn** och en **Beskrivning**.
-5. Välj det scenario som passar din domän bäst på den nedrullningsbara menyn för **scenario och bas linje modell** . Om du är osäker på vilket scenario du väljer väljer du **Allmänt**. Bas linje modellen är start punkten för utbildning. Om du inte har någon inställning kan du använda den senaste.
+5. Välj det scenario som passar din domän bäst på den nedrullningsbara menyn för **scenario och bas linje modell** . Om du är osäker på vilket scenario du väljer väljer du **Allmänt**. Bas linje modellen är start punkten för utbildning. Den senaste modellen är vanligt vis det bästa valet.
 6. På sidan **Välj tränings data** väljer du en eller flera ljud-och data uppsättningar med mänsklig etikett som du vill använda för utbildning.
 7. När utbildningen är klar kan du välja att utföra testning av precisionen för den nytränade modellen. Det här steget är valfritt.
 8. Välj **skapa** för att skapa din anpassade modell.

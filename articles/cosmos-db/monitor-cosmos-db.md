@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: eef6ece115afc41fd30d77747eb3e368cf95719c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: fcdc80e73d11bbc6d94e921548d346ee436b69ac
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780189"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715689"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Övervaknings Azure Cosmos DB
 
@@ -32,7 +32,7 @@ Om du inte redan är bekant med att övervaka Azure-tjänster börjar du med art
 
 Följande avsnitt bygger på den här artikeln genom att beskriva de specifika data som samlats in från Azure Cosmos DB och tillhandahålla exempel för att konfigurera data insamling och analysera data med Azure-verktyg.
 
-## <a name="azure-monitor-for-cosmos-db-preview"></a>Azure Monitor för Cosmos DB (förhands granskning)
+## <a name="azure-monitor-for-azure-cosmos-db"></a>Azure Monitor för Azure Cosmos DB
 
 Azure Monitor för Azure Cosmos DB baseras på [arbets bokens funktion i Azure Monitor](../azure-monitor/app/usage-workbooks.md) och använder samma övervaknings data som samlas in för Cosmos DB som beskrivs i avsnitten nedan. Använd Azure Monitor för att se övergripande prestanda, fel, kapacitet och drifts hälsa för alla dina Azure Cosmos DB resurser i en enhetlig interaktiv upplevelse och utnyttja de andra funktionerna i Azure Monitor för detaljerad analys och avisering. Mer information finns i artikeln [utforska Azure Monitor för Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) .
 
@@ -92,7 +92,7 @@ Data i Azure Monitor loggar lagras i tabeller som varje tabell har en egen upps�
 
 | Tabell | Beskrivning |
 |:---|:---|
-| AzureDiagnostics | Vanlig tabell som används av flera tjänster för att lagra resurs loggar. Resurs loggar från Azure Cosmos DB kan identifieras med `MICROSOFT.DOCUMENTDB`.   |
+| AzureDiagnostics | Vanlig tabell som används av flera tjänster för att lagra resurs loggar. Resurs loggar från Azure Cosmos DB kan identifieras med `MICROSOFT.DOCUMENTDB` .   |
 | AzureActivity    | Vanlig tabell som lagrar alla poster från aktivitets loggen. 
 
 

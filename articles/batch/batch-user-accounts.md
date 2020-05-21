@@ -1,15 +1,15 @@
 ---
-title: Kör uppgifter under användar konton – Azure Batch
+title: Kör uppgifter under användar konton
 description: Det är praktiskt att kunna konfigurera det användar konto som du vill att en aktivitet ska köras under. Lär dig olika typer av användar konton och hur du konfigurerar dem.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f1bd31f9d4881bdc489988d3f955e7143eaf7759
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980294"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726272"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Kör uppgifter under användar konton i batch
 
@@ -81,7 +81,7 @@ Du kan konfigurera specifikationen för automatisk användare för administratö
 >
 >
 
-Följande kodfragment visar hur du konfigurerar den automatiska användar specifikationen. I exemplen anges höjnings nivån till `Admin` och omfånget `Task`till. Aktivitets omfånget är standardinställningen, men ingår här för till exempel.
+Följande kodfragment visar hur du konfigurerar den automatiska användar specifikationen. I exemplen anges höjnings nivån till `Admin` och omfånget till `Task` . Aktivitets omfånget är standardinställningen, men ingår här för till exempel.
 
 #### <a name="batch-net"></a>.NET för Batch
 
@@ -146,7 +146,7 @@ Ett namngivet användar konto är användbart när du vill köra alla aktivitete
 
 Du kan också använda ett namngivet användar konto om du vill köra en uppgift som anger behörigheter för externa resurser, till exempel fil resurser. Med ett namngivet användar konto styr du användar identiteten och kan använda den användar identiteten för att ange behörigheter.  
 
-Namngivna användar konton möjliggör lösen ords lös SSH mellan Linux-noder. Du kan använda ett namngivet användar konto med Linux-noder som behöver köra aktiviteter med flera instanser. Varje nod i poolen kan köra aktiviteter under ett användar konto som definierats i hela poolen. Mer information om aktiviteter med flera instanser finns i [använda aktiviteter med\-flera instanser för att köra MPI-program](batch-mpi.md).
+Namngivna användar konton möjliggör lösen ords lös SSH mellan Linux-noder. Du kan använda ett namngivet användar konto med Linux-noder som behöver köra aktiviteter med flera instanser. Varje nod i poolen kan köra aktiviteter under ett användar konto som definierats i hela poolen. Mer information om aktiviteter med flera instanser finns i [använda aktiviteter med flera \- instanser för att köra MPI-program](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Skapa namngivna användar konton
 
@@ -282,7 +282,7 @@ batch_client.pool.add(pool)
 
 ### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Kör en aktivitet under ett namngivet användar konto med utökad åtkomst
 
-Om du vill köra en aktivitet som en upphöjd användare anger du aktivitetens **UserIdentity** -egenskap till ett namngivet användar konto som skapades med egenskapen **ElevationLevel** inställd `Admin`på.
+Om du vill köra en aktivitet som en upphöjd användare anger du aktivitetens **UserIdentity** -egenskap till ett namngivet användar konto som skapades med egenskapen **ElevationLevel** inställd på `Admin` .
 
 Det här kodfragmentet anger att aktiviteten ska köras under ett namngivet användar konto. Det här namngivna användar kontot definierades i poolen när poolen skapades. I det här fallet skapades det namngivna användar kontot med administratörs behörighet:
 

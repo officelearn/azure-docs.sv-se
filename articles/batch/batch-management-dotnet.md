@@ -1,15 +1,15 @@
 ---
 title: Använd batch Management .NET-biblioteket för att hantera konto resurser
 description: Skapa, ta bort och ändra Azure Batch konto resurser med batch Management .NET-biblioteket.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/24/2017
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 3cb44b89cacd9e597766ca8df3e4826dfabdb2bd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 05bc0c8a377517c4ab883e08a5a4848eb0042dcb
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201642"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726544"
 ---
 # <a name="manage-batch-accounts-and-quotas-with-the-batch-management-client-library-for-net"></a>Hantera batch-konton och kvoter med klient biblioteket för batch-hantering för .NET
 

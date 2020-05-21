@@ -9,12 +9,12 @@ ms.date: 4/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff6bb9e4d4e40c02b52f35bd56bf065a8804a43a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7bb2cc23374110d447ec7526ada75f7e36a966e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134382"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726170"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuera och övervaka IoT Edge moduler i skala med hjälp av Azure CLI
 
@@ -112,7 +112,7 @@ Här är ett grundläggande distributions manifest med en modul som exempel:
 
 Lager distributioner är en typ av automatisk distribution som kan staplas ovanpå varandra. Mer information om lager distributioner finns i [förstå IoT Edge automatiska distributioner för enskilda enheter eller i skala](module-deployment-monitoring.md).
 
-Lager distributioner kan skapas och hanteras med Azure CLI som en automatisk distribution, med bara några få skillnader. När en lager distribution har skapats fungerar samma Azure CLI för lager distributioner på samma sätt som alla distributioner. Om du vill skapa en lager distribution lägger du `--layered` till flaggan i kommandot CREATE.
+Lager distributioner kan skapas och hanteras med Azure CLI som en automatisk distribution, med bara några få skillnader. När en lager distribution har skapats fungerar samma Azure CLI för lager distributioner på samma sätt som alla distributioner. Om du vill skapa en lager distribution lägger du till `--layered` flaggan i kommandot CREATE.
 
 Den andra skillnaden är att distributions manifestet byggs. Även om standard automatisk distribution måste innehålla systemets körnings moduler, förutom alla användare, kan lager distributioner bara innehålla användarattribut. I stället behöver lager distributioner en standard automatisk distribution på en enhet, för att tillhandahålla nödvändiga komponenter för varje IoT Edge enhet, t. ex. system runtime-moduler.
 
@@ -148,7 +148,7 @@ Här är ett grundläggande distributions manifest med lager med en modul som ex
 }
 ```
 
-I föregående exempel visades en lager distributions inställning `properties.desired` för en modul. Om den här skiktade distributionen är riktad mot en enhet där samma modul redan tillämpades, skulle den skriva över alla befintliga önskade egenskaper. För att kunna uppdatera, i stället för att skriva över, önskade egenskaper, kan du definiera ett nytt underavsnitt. Ett exempel:
+I föregående exempel visades en lager distributions inställning `properties.desired` för en modul. Om den här skiktade distributionen är riktad mot en enhet där samma modul redan tillämpades, skulle den skriva över alla befintliga önskade egenskaper. För att kunna uppdatera, i stället för att skriva över, önskade egenskaper, kan du definiera ett nytt underavsnitt. Till exempel:
 
 ```json
 "SimulatedTEmperatureSensor": {
@@ -182,7 +182,7 @@ Mer information om enhets sammanflätade och taggar finns i [förstå och använ
 
 Du distribuerar moduler till mål enheterna genom att skapa en distribution som består av distributions manifestet och andra parametrar.
 
-Använd kommandot [AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) för att skapa en distribution:
+Använd kommandot [AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) för att skapa en distribution:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -193,7 +193,7 @@ Använd samma kommando med `--layered` flaggan för att skapa en lager distribut
 Kommandot för att skapa distribution tar följande parametrar:
 
 * **--skiktad** – en valfri flagga för att identifiera distributionen som en lager distribution.
-* **--Deployment-ID** – namnet på den distribution som ska skapas i IoT Hub. Ge din distribution ett unikt namn som består av upp till 128 små bokstäver. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /`. Obligatorisk parameter.
+* **--Deployment-ID** – namnet på den distribution som ska skapas i IoT Hub. Ge din distribution ett unikt namn som består av upp till 128 små bokstäver. Undvik blank steg och följande ogiltiga tecken: `& ^ [ ] { } \ | " < > /` . Obligatorisk parameter.
 * **--innehålls** -sökväg till distributions manifest-JSON. Obligatorisk parameter.
 * **--hubb-Name** -namnet på den IoT-hubb som distributionen ska skapas i. Navet måste finnas i den aktuella prenumerationen. Ändra den aktuella prenumerationen med `az account set -s [subscription name]` kommandot.
 * **--Etiketter** – Lägg till etiketter som hjälper dig att spåra dina distributioner. Etiketter är namn, värdepar som beskriver din distribution. Etiketter tar JSON-formatering för namn och värden. Till exempel, `{"HostPlatform":"Linux", "Version:"3.0.1"}`
@@ -215,7 +215,7 @@ Om du uppdaterar mål villkoret inträffar följande uppdateringar:
 
 Det går inte att uppdatera innehållet i en distribution, som innehåller de moduler och vägar som definierats i distributions manifestet. Om du vill uppdatera innehållet i en distribution gör du det genom att skapa en ny distribution som riktar sig mot samma enheter med högre prioritet. Du kan ändra vissa egenskaper för en befintlig modul, inklusive mål villkor, etiketter, mått och prioritet.
 
-Använd kommandot [AZ IoT Edge Deployment Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) för att uppdatera en-distribution:
+Använd kommandot [AZ IoT Edge Deployment Update](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) för att uppdatera en-distribution:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -236,7 +236,7 @@ Kommandot för distributions uppdatering tar följande parametrar:
 
 När du tar bort en distribution tar alla enheter med den näst högsta prioritets distributionen. Om enheterna inte uppfyller mål villkoren för någon annan distribution, tas modulerna inte bort när distributionen tas bort.
 
-Använd kommandot [AZ IoT Edge Deployment Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) för att ta bort en distribution:
+Använd kommandot [AZ IoT Edge Deployment Delete](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) för att ta bort en distribution:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]

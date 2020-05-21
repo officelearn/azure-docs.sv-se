@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.openlocfilehash: 909f044fd18ce98577e16d877f174dfa00bc1f3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 95d57e34694190b4ab997229f005ebeef7924e57
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270408"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724827"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Översikt över den kommersiella Marketplace-portalen i Partner Center
 
@@ -26,31 +26,15 @@ Företag, myndigheter och organisationer i alla storlekar hittar affärs lösnin
 
 Partner Center är navet i en Microsoft partner-miljö. För organisationer som besöker marknaden med Microsoft och utnyttjar den kommersiella marknads platsen, är partner Center den portal som utgivare använder för att skapa och hantera erbjudanden, tillhandahålla demonstrationer av test enheter och Visa analys på erbjudande prestanda.
 
-## <a name="migration-from-cloud-partner-portal"></a>Migrering från Cloud Partner Portal
+## <a name="migration-from-the-cloud-partner-portal"></a>Migrering från Cloud Partner Portal
 
-Partner Center utvecklas för att bättre integrera alla aspekter av vår relation med program varu utgivare. Som en del av den här utvecklingen ska vi migrera [Cloud Partner Portal](https://cloudpartner.azure.com/) till Partner Center.
+Partner Center utvecklas för att bättre integrera alla aspekter av vår relation med program varu utgivare. Som en del av den här utvecklingen har vi migrerat all hantering av marknads plats erbjudanden från [Cloud Partner Portal](https://cloudpartner.azure.com/) till Partner Center.
 
-Befintliga kommersiella Marketplace-utgivare kommer att hitta en välbekant men bättre användar upplevelse med ett intuitivt gränssnitt. Meddelanden i portalen och e-postaviseringar informerar utgivare av migreringen. Användarna dirigeras sömlöst till rätt plats. Kunder påverkas inte av den här uppgraderingen av partner processen.
-
->[!NOTE]
->För närvarande stöder Partner Center skapande och hantering av vissa erbjudande typer enligt vad som anges i tabellen nedan. Fler erbjudande typer kommer snart att stödjas när vi migrerar all erbjudande hantering till Partner Center.
-
-|Erbjudande typ  |Hantering av erbjudanden som migrerats från Cloud Partner Portal till Partner Center  |
-|---------|---------|
-|Programvara som en tjänst (SaaS)     | Tillgängligt nu       |
-|Dynamics 365 för kund engagemang & PowerApps     | Tillgängligt nu         |
-|Dynamics 365 för åtgärder     | Tillgängligt nu        |
-|Dynamics 365 för företag, Central     | Tillgängligt nu        |
-|Azure Application     | Tillgängligt nu        |
-|Virtuell Azure-dator     | Allmän tillgänglighet april – maj 2020        |
-|Azure-behållare     | Allmän tillgänglighet april – maj 2020        |
-|Konsult tjänst     | Allmän tillgänglighet april – maj 2020        |
-|IoT Edge modul     | Allmän tillgänglighet april – maj 2020        |
-|Power BI-app    | Allmän tillgänglighet april – maj 2020        |
+Befintliga utgivare som tidigare har använt Cloud Partner Portal kommer att hitta en välbekant men förbättrad och intuitiv användar upplevelse med partner Center. Användarna dirigeras sömlöst till rätt plats. Kunder påverkas inte av den här uppgraderingen av partner processen.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Förbättringar av användar upplevelsen för publicering och erbjudande hantering
 
-Med över gången till Partner Center är nya funktioner tillgängliga för utgivare, förutom förbättringar av användar upplevelsen.  Mer information finns i [vanliga frågor och svar om migrering från Cloud Partner Portal till Partner Center](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-faq).
+Med över gången till Partner Center är nya funktioner tillgängliga för utgivare, förutom förbättringar av användar upplevelsen.  Mer information finns i [vanliga frågor och svar om migrering från Cloud Partner Portal till Partner Center](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-migration-faq).
 
 ### <a name="account-and-user-management-updates"></a>Uppdateringar av konto-och användar hantering
 

@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 04/17/2020
-ms.openlocfilehash: 3abec9b0c37e0475e369ce3cd2f91e40a1040b75
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 58f74ab060fef32de31cb91653a1bd38ad946934
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628971"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725643"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Videokurser för dataflödesmappning
 
@@ -148,6 +148,8 @@ När uppdateringar ständigt görs till produkten har vissa funktioner lagts til
 [Logiska modeller kontra fysiska modeller](http://youtu.be/K5tgzLjEE9Q)
 
 [Identifiera ändringar av käll data](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+[Generisk typ 2-dimension för långsam ändring](http://youtu.be/tc283k8CWh8)
 
 ## <a name="data-flow-expressions"></a>Uttryck för data flöde
 

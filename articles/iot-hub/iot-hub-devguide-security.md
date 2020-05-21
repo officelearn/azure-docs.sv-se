@@ -11,12 +11,12 @@ ms.date: 07/18/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b7f9ac7e6e7049a3b744151bc9cb05115fbac935
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1f6f4a6a1d48a0f409d5e5aba644a26653aa7df
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729214"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726068"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -94,7 +94,7 @@ HTTPS implementerar autentisering genom att inkludera en giltig token i begäran
 
 Användar namn (DeviceId är Skift läges känsligt):`iothubname.azure-devices.net/DeviceId`
 
-Lösen ord (du kan skapa en SAS-token med kommandot CLI-tillägg [AZ IoT Hub generate-SAS-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)eller [Azure IoT-verktyg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
+Lösen ord (du kan skapa en SAS-token med kommandot CLI-tillägg [AZ IoT Hub generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token)eller [Azure IoT-verktyg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -139,15 +139,15 @@ Här är de förväntade värdena:
 
 | Värde | Beskrivning |
 | --- | --- |
-| signatur |En HMAC-SHA256 signatur sträng i formatet: `{URL-encoded-resourceURI} + "\n" + expiry`. **Viktigt**: nyckeln avkodas från base64 och används som nyckel för att utföra den HMAC-SHA256 beräkningen. |
+| signatur |En HMAC-SHA256 signatur sträng i formatet: `{URL-encoded-resourceURI} + "\n" + expiry` . **Viktigt**: nyckeln avkodas från base64 och används som nyckel för att utföra den HMAC-SHA256 beräkningen. |
 | ResourceURI |URI-prefix (efter segment) för de slut punkter som kan nås med denna token, med början på värd namnet för IoT Hub (inget protokoll). Till exempel, `myHub.azure-devices.net/devices/device1` |
 | förfallo |UTF8-strängar för antalet sekunder sedan 00:00:00 UTC på 1 januari 1970. |
 | {URL-kodad – resourceURI} |Gemen URL – kodning för den nedre fall resurs-URI: n |
 | PolicyName |Namnet på den princip för delad åtkomst som denna token refererar till. Frånvarande om token refererar till enhets register uppgifter. |
 
-**Anmärkning om prefix**: URI-prefixet beräknas av segment och inte av-tecknen. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc`.
+**Anmärkning om prefix**: URI-prefixet beräknas av segment och inte av-tecknen. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc` .
 
-Följande Node. js-kodfragment visar en funktion med namnet **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins`. I nästa avsnitt beskrivs hur du initierar de olika indatana för de olika användnings fallen för token.
+Följande Node. js-kodfragment visar en funktion med namnet **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins` . I nästa avsnitt beskrivs hur du initierar de olika indatana för de olika användnings fallen för token.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -243,7 +243,7 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 Det finns två sätt att hämta **DeviceConnect** -behörigheter med IoT Hub med säkerhetstoken: Använd en [symmetrisk enhets nyckel från identitets registret](#use-a-symmetric-key-in-the-identity-registry)eller Använd en [delad åtkomst nyckel](#use-a-shared-access-policy).
 
-Kom ihåg att alla funktioner som är tillgängliga från enheter exponeras genom design på slut `/devices/{deviceId}`punkter med prefix.
+Kom ihåg att alla funktioner som är tillgängliga från enheter exponeras genom design på slut punkter med prefix `/devices/{deviceId}` .
 
 > [!IMPORTANT]
 > Det enda sätt som IoT Hub autentiserar en speciell enhet med hjälp av den symmetriska nyckeln för enhets identiteten. I de fall då en princip för delad åtkomst används för att komma åt enhets funktioner måste lösningen beakta komponenten som utfärdar säkerhetstoken som en betrodd del komponent.
@@ -257,11 +257,11 @@ Slut punkterna för enhets slut punkter är (oberoende av protokollet):
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Använd en symmetrisk nyckel i identitets registret
 
-När du använder en enhets identitets symmetriska nyckel för att generera en token utelämnas policyName (`skn`)-elementet för token.
+När du använder en enhets identitets symmetriska nyckel för att generera en token `skn` utelämnas policyName ()-elementet för token.
 
 En token som har skapats för åtkomst till alla enhets funktioner ska till exempel ha följande parametrar:
 
-* resurs-URI `{IoT hub name}.azure-devices.net/devices/{device id}`:,
+* resurs-URI: `{IoT hub name}.azure-devices.net/devices/{device id}` ,
 * signerings nyckel: symmetrisk nyckel för `{device id}` identiteten
 * inget princip namn,
 * förfallo tid.
@@ -280,11 +280,11 @@ Resultatet, som ger åtkomst till alla funktioner för device1, blir:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Det går att skapa en SAS-token med kommandot CLI-tillägg [AZ IoT Hub generate-SAS-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)eller [Azure IoT-verktyg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+> Det går att skapa en SAS-token med kommandot CLI-tillägg [AZ IoT Hub generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token)eller [Azure IoT-verktyg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### <a name="use-a-shared-access-policy"></a>Använd en princip för delad åtkomst
 
-När du skapar en token från en princip för delad åtkomst anger `skn` du namnet på principen i fältet. Den här principen måste ge **DeviceConnect** -behörighet.
+När du skapar en token från en princip för delad åtkomst anger du `skn` namnet på principen i fältet. Den här principen måste ge **DeviceConnect** -behörighet.
 
 De två huvud scenarierna för att använda principer för delad åtkomst för att komma åt enhets funktioner är:
 
@@ -295,9 +295,9 @@ Eftersom principen för delad åtkomst kan ge åtkomst till att ansluta som vilk
 
 Till exempel skulle en token-tjänst som använder den förskapade principen för delad åtkomst som kallas **enhet** skapa en token med följande parametrar:
 
-* resurs-URI `{IoT hub name}.azure-devices.net/devices/{device id}`:,
+* resurs-URI: `{IoT hub name}.azure-devices.net/devices/{device id}` ,
 * signerings nyckel: en av nycklarna i `device` principen.
-* princip namn: `device`,
+* princip namn: `device` ,
 * förfallo tid.
 
 Ett exempel på hur du använder föregående Node. js-funktion är:
@@ -314,7 +314,7 @@ Resultatet, som ger åtkomst till alla funktioner för device1, blir:
 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697&skn=device`
 
-En protokoll-Gateway kan använda samma token för alla enheter som helt enkelt anger resurs `myhub.azure-devices.net/devices`-URI: n till.
+En protokoll-Gateway kan använda samma token för alla enheter som helt enkelt anger resurs-URI: n till `myhub.azure-devices.net/devices` .
 
 ### <a name="use-security-tokens-from-service-components"></a>Använda säkerhetstoken från tjänst komponenter
 
@@ -331,9 +331,9 @@ Här är tjänst funktionerna som visas på slut punkterna:
 
 Till exempel skulle en tjänst som genererar med den i förväg skapade principen för delad åtkomst som heter **registryRead** skapa en token med följande parametrar:
 
-* resurs-URI `{IoT hub name}.azure-devices.net/devices`:,
+* resurs-URI: `{IoT hub name}.azure-devices.net/devices` ,
 * signerings nyckel: en av nycklarna i `registryRead` principen.
-* princip namn: `registryRead`,
+* princip namn: `registryRead` ,
 * förfallo tid.
 
 ```javascript
@@ -368,13 +368,13 @@ Mer information om autentisering med hjälp av certifikat utfärdare finns i [en
 
 [Azure IoT service SDK för C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (version 1.0.8 +) stöder registrering av enheter som använder ett X. 509-certifikat för autentisering. Andra API: er, till exempel import/export av enheter, stöder också X. 509-certifikat.
 
-Du kan också använda kommandot CLI-tillägg [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) för att konfigurera X. 509-certifikat för enheter.
+Du kan också använda kommandot CLI-tillägg [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) för att konfigurera X. 509-certifikat för enheter.
 
-### <a name="c-support"></a>C\# -support
+### <a name="c-support"></a>C- \# Support
 
 **RegistryManager** -klassen ger ett programmerings sätt att registrera en enhet. I synnerhet kan du med metoderna **AddDeviceAsync** och **UpdateDeviceAsync** registrera och uppdatera en enhet i IoT Hub identitets registret. Dessa två metoder tar en **enhets** instans som inmatad. **Enhets** klassen innehåller en egenskap för **autentisering** som gör att du kan ange primär och sekundär X. 509-certifikat tumavtrycken. Tumavtrycket representerar en SHA256-hash av X. 509-certifikatet (lagrad med binär DER-kodning). Du kan välja att ange ett primärt tumavtryck eller ett sekundärt tumavtryck eller båda. Primära och sekundära tumavtrycken stöds för hantering av certifikat förnyelse scenarier.
 
-Här är ett exempel på\# ett C-kodfragment för att registrera en enhet med ett X. 509-certifikat tumavtryck:
+Här är ett exempel på ett C- \# kodfragment för att registrera en enhet med ett X. 509-certifikat tumavtryck:
 
 ```csharp
 var device = new Device(deviceId)
@@ -395,7 +395,7 @@ await registryManager.AddDeviceAsync(device);
 
 [Azure IoT-enhetens SDK för .net](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device) (version 1.0.11 +) stöder användningen av X. 509-certifikat.
 
-### <a name="c-support"></a>C\# -support
+### <a name="c-support"></a>C- \# Support
 
 Klassen **DeviceAuthenticationWithX509Certificate** har stöd för att skapa **DeviceClient** -instanser med ett X. 509-certifikat. X. 509-certifikatet måste finnas i PFX-formatet (kallas även PKCS #12) som innehåller den privata nyckeln.
 
@@ -421,7 +421,7 @@ Här följer huvud stegen i mönstret token service:
 
 2. När en enhet/modul behöver åtkomst till din IoT-hubb begär den en signerad token från din token-tjänst. Enheten kan autentisera med ditt anpassade identitets register/autentiseringsschema för att fastställa enhets-/modulens identitet som token-tjänsten använder för att skapa token.
 
-3. Token-tjänsten returnerar en token. Token `/devices/{deviceId}` skapas med hjälp av eller `/devices/{deviceId}/module/{moduleId}` som `resourceURI`, med `deviceId` som den enhet som autentiseras eller `moduleId` som modulen autentiseras. Token-tjänsten använder principen för delad åtkomst för att skapa token.
+3. Token-tjänsten returnerar en token. Token skapas med hjälp av `/devices/{deviceId}` eller `/devices/{deviceId}/module/{moduleId}` som `resourceURI` , med `deviceId` som den enhet som autentiseras eller `moduleId` som modulen autentiseras. Token-tjänsten använder principen för delad åtkomst för att skapa token.
 
 4. Enheten/modulen använder token direkt med IoT Hub.
 
@@ -444,7 +444,7 @@ Följande referens avsnitt innehåller mer information om hur du styr åtkomsten
 
 I följande tabell visas de behörigheter som du kan använda för att kontrol lera åtkomsten till IoT Hub.
 
-| Behörighet | Obs! |
+| Behörighet | Anteckningar |
 | --- | --- |
 | **RegistryRead** |Ger Läs behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |
 | **RegistryReadWrite** |Ger Läs-och Skriv behörighet till identitets registret. Mer information finns i [identitets registret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av Server dels moln tjänster. |

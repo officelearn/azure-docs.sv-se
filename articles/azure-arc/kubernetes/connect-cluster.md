@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
-ms.openlocfilehash: 9b37ad264dc8a8a6c653c25ddf6ac0fcb4065f9b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: dd4e03ac6bdf2e4554f07f2aa5ffca78b1ed1230
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680816"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725626"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
@@ -40,7 +40,7 @@ Azure Arc-agenter kräver att följande protokoll/portar/utgående URL: er funge
 * TCP på port 443-->`https://:443`
 * TCP på port 9418-->`git://:9418`
 
-| Slut punkt (DNS)                                                                                               | Description                                                                                                                 |
+| Slut punkt (DNS)                                                                                               | Beskrivning                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
 | `https://management.azure.com`                                                                                 | Krävs för att agenten ska kunna ansluta till Azure och registrera klustret                                                        |
 | `https://eastus.dp.kubernetesconfiguration.azure.com`, `https://westeurope.dp.kubernetesconfiguration.azure.com` | Data planens slut punkt för agenten för att push-överföra status och hämta konfigurations information                                      |
@@ -169,7 +169,7 @@ AzureArcTest1  eastus      AzureArcTest
 Azure Arc-aktiverade Kubernetes distribuerar några operatörer till `azure-arc` namn området. Du kan visa dessa distributioner och poddar här:
 
 ```console
-kubectl -n azure-arc get deploy,po
+kubectl -n azure-arc get deployments,pods
 ```
 
 **Utdataparametrar**
@@ -198,8 +198,13 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 
 Azure Arc-aktiverade Kubernetes består av några agenter (operatörer) som körs i ditt kluster och som har distribuerats till `azure-arc` namn området.
 
-* `deploy/config-agent`: bevakar det anslutna klustret för käll kontroll konfigurations resurser som tillämpas på klustret och uppdaterar kompatibilitetstillstånd
-* `deploy/controller-manager`: är en operatör av operatörer och dirigerar interaktioner mellan Azure båg-komponenter
+* `deployment.apps/config-agent`: bevakar det anslutna klustret för käll kontroll konfigurations resurser som tillämpas på klustret och uppdaterar kompatibilitetstillstånd
+* `deployment.apps/controller-manager`: är en operatör av operatörer och dirigerar interaktioner mellan Azure båg-komponenter
+* `deployment.apps/metrics-agent`: samlar in Mät värden för andra Arc-agenter för att säkerställa att dessa agenter visar optimala prestanda
+* `deployment.apps/cluster-metadata-operator`: samlar in kluster-metadata-kluster version, antal noder och Arc-agentens version
+* `deployment.apps/resource-sync-agent`: synkroniserar ovanstående klustrade metadata till Azure
+* `deployment.apps/clusteridentityoperator`: upprätthåller det hanterade tjänst identitets certifikatet (MSI) som används av andra agenter för kommunikation med Azure
+* `deployment.apps/flux-logs-agent`: samlar in loggar från flödes operatörer som distribuerats som en del av käll kontroll konfigurationen
 
 ## <a name="delete-a-connected-cluster"></a>Ta bort ett anslutet kluster
 

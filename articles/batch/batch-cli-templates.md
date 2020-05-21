@@ -1,15 +1,15 @@
 ---
 title: Köra jobb från slut punkt till slut punkt med hjälp av mallar
 description: Med endast CLI-kommandon kan du skapa en pool, ladda upp indata, skapa jobb och associerade uppgifter och hämta utdata som resulterade.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 634a0b66379d8c94988d5f974baffe475af94c2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b1a28c817e0b0aa8047cdd9952065862bda9b73
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117360"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726782"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Använd Azure Batch CLI-mallar och fil överföring
 
@@ -61,7 +61,7 @@ Azure Batch mallar liknar Azure Resource Manager mallar, i funktionalitet och sy
 
 -   **Parametrar**
 
-    -   Tillåt att egenskaps värden anges i avsnittet brödtext, med bara parameter värden som behöver anges när mallen används. Den fullständiga definitionen för en pool kan till exempel placeras i bröd texten och endast en parameter som definierats för `poolId`. Det är bara en pool-ID-sträng som måste anges för att skapa en pool.
+    -   Tillåt att egenskaps värden anges i avsnittet brödtext, med bara parameter värden som behöver anges när mallen används. Den fullständiga definitionen för en pool kan till exempel placeras i bröd texten och endast en parameter som definierats för `poolId` . det måste därför anges en sträng för pool-ID för att skapa en pool.
         
     -   Mal Lav bildbrödet kan redige ras av någon med kunskaper om batch och de program som ska köras av batch; endast värden för de författar definierade parametrarna måste anges när mallen används. En användare utan indjupgående batch och/eller program kunskaper kan därför använda mallarna.
 
@@ -136,7 +136,7 @@ Om mallfilen hade namnet _pool-ffmpeg. JSON_, så anropa sedan mallen enligt fö
 az batch pool create --template pool-ffmpeg.json
 ```
 
-CLI uppmanas att ange värden för parametrarna `poolId` och. `nodeCount` Du kan också ange parametrarna i en JSON-fil. Ett exempel:
+CLI uppmanas att ange värden för `poolId` `nodeCount` parametrarna och. Du kan också ange parametrarna i en JSON-fil. Till exempel:
 
 ```json
 {
@@ -253,7 +253,7 @@ Du kan ladda upp en batch CLI-mall till [batch Explorer](https://github.com/Azur
 
 Ladda upp en mall:
 
-1. I batch Explorer väljer du **Galleri** > **lokala mallar**.
+1. I batch Explorer väljer du **Galleri**  >  **lokala mallar**.
 
 2. Välj eller dra och släpp en lokal pool eller jobbmall.
 

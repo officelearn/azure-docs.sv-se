@@ -1,19 +1,18 @@
 ---
 title: Använd beräknings intensiva virtuella Azure-datorer med batch
 description: Hur du kan dra nytta av virtuella datorer i HPC och GPU i Azure Batch pooler. Lär dig mer om OS-beroenden och se flera scenario exempel.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/17/2018
-ms.author: labrenne
-ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04e39678c77604bca4194bebc7968c5c43fb019c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115966"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724096"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Använd RDMA-eller GPU-instanser i batch-pooler
 
-Om du vill köra vissa batch-jobb kan du dra nytta av Azure VM-storlekar som har utformats för storskalig beräkning. Ett exempel:
+Om du vill köra vissa batch-jobb kan du dra nytta av Azure VM-storlekar som har utformats för storskalig beräkning. Till exempel:
 
 * Om du vill köra [MPI-arbetsbelastningar](batch-mpi.md)med flera instanser väljer du H-serien eller andra storlekar som har ett nätverks gränssnitt för RDMA (Remote Direct Memory Access). Dessa storlekar ansluter till ett InfiniBand-nätverk för kommunikation mellan noder, vilket kan påskynda MPI-program. 
 
@@ -98,10 +97,10 @@ Om du vill köra CUDA-program på en pool med Windows NC-noder måste du install
 3. Ladda upp paketet till ditt batch-konto. Anvisningar finns i vägledningen för [programpaket](batch-application-packages.md) . Ange ett program-ID, till exempel *GPUDriver*, och en version som *411,82*.
 1. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool i konfigurationen för den virtuella datorn med önskat antal noder och skalning. I följande tabell visas exempel inställningar för att installera NVIDIA GPU-drivrutinerna tyst med en start aktivitet:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | ---- | ----- | 
 | **Avbildningstyp** | Marketplace (Linux/Windows) |
-| **Utgivare** | MicrosoftWindowsServer |
+| **Publisher** | MicrosoftWindowsServer |
 | **Erbjudande** | WindowsServer |
 | **SKU** | 2016 – Data Center |
 | **Node-storlek** | FÖR nc6 standard |
@@ -119,7 +118,7 @@ Om du vill köra CUDA-program på en pool med Linux NC-noder måste du installer
 4. Skapa ett batch-konto i en region som stöder NC-VM: ar.
 5. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool [med hjälp av den anpassade avbildningen](batch-sig-images.md) och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna för avbildningen:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | ---- | ---- |
 | **Avbildningstyp** | Anpassad avbildning |
 | **Anpassad bild** | *Namn på avbildningen* |
@@ -137,7 +136,7 @@ Om du vill köra Windows MPI-program på en pool med virtuella Azure H16r-noder 
 1. Följ stegen för att skapa en [bild för ett delat bild galleri](batch-sig-images.md) för batch.
 1. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool [med hjälp av det delade avbildnings galleriet](batch-sig-images.md) och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna för avbildningen:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | ---- | ---- |
 | **Avbildningstyp** | Anpassad avbildning |
 | **Anpassad bild** | *Namn på avbildningen* |
@@ -152,10 +151,10 @@ För att köra MPI-program på en pool med Linux H-serien noder, är ett alterna
 
 Med hjälp av batch-API: erna eller Azure Portal skapar du en pool med hjälp av den här avbildningen och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna:
 
-| Inställning | Värde |
+| Inställningen | Värde |
 | ---- | ---- |
 | **Avbildningstyp** | Marketplace (Linux/Windows) |
-| **Utgivare** | OpenLogic |
+| **Publisher** | OpenLogic |
 | **Erbjudande** | CentOS – HPC |
 | **SKU** | 7.4 |
 | **Node-storlek** | H16r standard |

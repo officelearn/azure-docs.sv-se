@@ -1,23 +1,20 @@
 ---
-title: Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
-description: 'Lär dig hur du skapar ett erbjudande för virtuella datorer på Azure Marketplace med den nödvändiga SKU: n.'
+title: Skapa ett erbjudande för virtuell Azure-dator på Azure Marketplace
+description: Lär dig hur du skapar ett erbjudande för virtuella datorer på Azure Marketplace med den SKU som krävs.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 25b7a619f6d3e308de966ead5925133f6094d9c8
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ab41d3619150ace8e55702792d5974060133d5c1
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701088"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726187"
 ---
-# <a name="create-an-azure-virtual-machine-offer-in-the-azure-marketplace"></a>Skapa ett erbjudande för virtuella Azure-datorer på Azure Marketplace
-
-> [!IMPORTANT]
-> Vi flyttar hanteringen av dina virtuella Azure-erbjudanden från Cloud Partner Portal till Partner Center. Fortsätt att följa anvisningarna i [Skapa virtuell dator](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) i Cloud Partner Portal för att hantera dina erbjudanden innan du migrerar dina erbjudanden.
+# <a name="create-an-azure-virtual-machine-offer-in-azure-marketplace"></a>Skapa ett erbjudande för virtuell Azure-dator på Azure Marketplace
 
 Den här artikeln beskriver hur du skapar och publicerar ett erbjudande för virtuella Azure-datorer på [Azure Marketplace](https://azuremarketplace.microsoft.com/). Den behandlar både Windows-och Linux-baserade virtuella datorer som innehåller ett operativ system, en virtuell hård disk (VHD) och upp till 16 data diskar. Innan du börjar [skapar du ett kommersiellt marknads plats konto i Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , om du inte har gjort det än. Se till att ditt konto är registrerat i programmet för kommersiella marknads platser.
 
@@ -195,7 +192,7 @@ En kort beskrivning av erbjudandet. Detta kan vara upp till 100 tecken långt oc
 
 Ange en längre Beskrivning av erbjudandet. Detta kan vara upp till 256 tecken långt och används i Sök resultaten för Marketplace.
 
-#### <a name="description"></a>Description
+#### <a name="description"></a>Beskrivning
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -259,7 +256,7 @@ Alla fyra logo typer krävs och används på olika platser i Marketplace-listan.
 
 Lägg till upp till fem skärm bilder som visar hur ditt erbjudande fungerar. Varje skärm bild måste vara 1280 x 720 bild punkter i storlek och i PNG-format. Varje skärm bild måste innehålla en beskrivning.
 
-#### <a name="videos"></a>Video
+#### <a name="videos"></a>Videoklipp
 
 Lägg till upp till fem videor som demonstrerar ditt erbjudande. De ska vara värd för en extern video tjänst. Ange varje video namn, webb adress och en miniatyr bild av videon med 1280 x 720 pixlar.
 
@@ -379,7 +376,7 @@ Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en 
 
 När du tar bort en marknad kommer kunder från den marknaden som använder aktiva distributioner inte att kunna skapa nya distributioner eller skala upp sina befintliga distributioner. Befintliga distributioner kommer inte att påverkas.
 
-#### <a name="pricing"></a>Priser
+#### <a name="pricing"></a>Prissättning
 
 **Licens modell** – Välj **användning-baserad månatlig fakturerings plan** för att konfigurera prissättningen för den här planen eller **Bring Your Own License** så att kunderna kan använda den här planen med sin befintliga licens.
 
@@ -511,7 +508,7 @@ Den här sidan innehåller länkar för att utföra åtgärder på det här erbj
 - Om erbjudandet är ett utkast – [ta bort utkast erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Om erbjudandet är Live- [sluta att sälja erbjudandet](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
 - Om erbjudandet är i för hands version- [Go-Live](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status#publisher-approval)
-- Om du inte har slutfört utloggningen av Publisher- [avbryta publicering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
+- Om du inte har slutfört Publisher-utloggning – [Avbryt publicering](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#cancel-publishing)
 
 ## <a name="marketplace-examples"></a>Marketplace-exempel
 

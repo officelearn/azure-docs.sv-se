@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 889c5e68759a94682150ac88970b7123ad0fc412
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b1870af6316713590eec59aee2af94ce34b7e1a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201745"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722566"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Självstudie: skicka e-postaviseringar om Azure IoT Hub händelser med Event Grid och Logic Apps
 
@@ -27,7 +27,7 @@ Den här artikeln beskriver en exempel konfiguration som använder IoT Hub och E
 * Ett e-postkonto från valfri e-postleverantör som stöds av Azure Logic Apps, till exempel Office 365 Outlook, Outlook.com eller Gmail. Det här e-postkontot används för att skicka händelsemeddelandena. En fullständig lista över Logic app-kopplingar som stöds finns i [Översikt över anslutningar](https://docs.microsoft.com/connectors/).
 
   > [!IMPORTANT]
-  > Innan du använder Gmail bör du kontrol lera om du har ett företags konto i G-serien (e-postadress med en anpassad domän) eller ett Gmail-användarkonto @gmail.com ( @googlemail.come-postadress med eller). Endast företags konton i G-serien kan använda Gmail-anslutningen med andra anslutningar utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda Gmail-anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-app som ska användas för autentisering](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Innan du använder Gmail bör du kontrol lera om du har ett företags konto i G-serien (e-postadress med en anpassad domän) eller ett Gmail-användarkonto (e-postadress med @gmail.com eller @googlemail.com ). Endast företags konton i G-serien kan använda Gmail-anslutningen med andra anslutningar utan begränsning i Logic Apps. Om du har ett Gmail-konto kan du använda Gmail-anslutningen med endast vissa Google-godkända tjänster, eller så kan du [skapa en Google-app som ska användas för autentisering](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Mer information finns i [principer för data säkerhet och sekretess för Google Connectors i Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md).
 
@@ -137,7 +137,7 @@ En utlösare är en specifik händelse som startar din logikapp. I den här sjä
 
    * **Till**: Ange e-postadressen som meddelandena ska skickas till. I den här självstudiekursen använder du ett e-postkonto som du kan komma åt för testning. 
 
-   * **Subject**: Fyll i texten för ämnet. När du klickar på text rutan ämne kan du välja dynamiskt innehåll som ska inkluderas. I den här självstudien `IoT Hub alert: {event Type}`används till exempel. Om du inte kan se dynamiskt innehåll, väljer du hyperlänken **Lägg till dynamiskt innehåll** – detta växlar till och från.
+   * **Subject**: Fyll i texten för ämnet. När du klickar på text rutan ämne kan du välja dynamiskt innehåll som ska inkluderas. I den här självstudien används till exempel `IoT Hub alert: {event Type}` . Om du inte kan se dynamiskt innehåll, väljer du hyperlänken **Lägg till dynamiskt innehåll** – detta växlar till och från.
 
    * **Brödtext**: Skriv texten för e-postmeddelandet. Välj JSON-egenskaper från valverktyget för att ta med dynamiskt innehåll baserat på händelsedata. Om du inte kan se det dynamiska innehållet väljer du hyperlänken **Lägg till dynamiskt innehåll** under text rutan **brödtext** . Om du inte ser de fält som du vill ha klickar du på *mer* på skärmen med dynamiskt innehåll för att ta med fälten från föregående åtgärd.
 
@@ -193,17 +193,17 @@ I det här avsnittet ska du konfigurera din IoT-hubb så att den publicerar hän
 
 6. Välj **Lägg till nytt filter**. Fyll i fälten med följande värden:
 
-   * **Nyckel**: Välj `Subject`.
+   * **Nyckel**: Välj `Subject` .
 
-   * **Operator**: Välj `String begins with`.
+   * **Operator**: Välj `String begins with` .
 
    * **Värde**: ange `devices/Building1_` om du vill filtrera enhets händelser i byggnad 1.
   
    Lägg till ett annat filter med följande värden:
 
-   * **Nyckel**: Välj `Subject`.
+   * **Nyckel**: Välj `Subject` .
 
-   * **Operator**: Välj `String ends with`.
+   * **Operator**: Välj `String ends with` .
 
    * **Värde**: ange `_Temperature` om du vill filtrera enhets händelser relaterade till temperatur.
 
@@ -240,7 +240,7 @@ Testa logikappen genom att skapa en ny enhet för att utlösa ett e-postmeddelan
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-Om du vill kan du utföra IoT Hub-stegen med hjälp av Azure CLI i stället för att använda Azure Portal. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
+Om du vill kan du utföra IoT Hub-stegen med hjälp av Azure CLI i stället för att använda Azure Portal. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

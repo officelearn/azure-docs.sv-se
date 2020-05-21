@@ -4,12 +4,12 @@ description: Den här artikeln beskriver hur du övervakar Runbooks baserat på 
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: e0d30e3d18ecb279e26731346bca7bb7c12943cb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c5f51ec34ea0b31f4c8fc349246b439425112104
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685407"
+ms.locfileid: "83715859"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Övervaka runbook-flöden med måttaviseringar
 
@@ -77,7 +77,4 @@ När måttet inte längre är utanför det angivna tröskelvärdet inaktive ras 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Fortsätt till följande artikel om du vill lära dig mer om andra sätt att integrera aviseringar i ditt Automation-konto.
-
-> [!div class="nextstepaction"]
-> [Använda en avisering för att utlösa en Azure Automation Runbook](automation-create-alert-triggered-runbook.md)
+* [Använda en avisering för att utlösa en Azure Automation Runbook](automation-create-alert-triggered-runbook.md)

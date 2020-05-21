@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402131"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725558"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Förbereda data för Custom Speech
 
@@ -38,7 +38,7 @@ Filerna ska grupperas efter typ i en data uppsättning och laddas upp som en zip
 
 ## <a name="upload-data"></a>Ladda upp data
 
-Om du vill överföra dina data går du till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech <span class="docon docon-navigate-external x-hidden-focus"> </span>Portal </a>. Från portalen klickar du på **överför data** för att starta guiden och skapa din första data uppsättning. Du uppmanas att välja en tal data typ för din data uppsättning innan du tillåter att du överför dina data.
+Om du vill överföra dina data går du till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span> Portal </a>. Från portalen klickar du på **överför data** för att starta guiden och skapa din första data uppsättning. Du uppmanas att välja en tal data typ för din data uppsättning innan du tillåter att du överför dina data.
 
 ![Välj ljud från tal portalen](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -81,6 +81,8 @@ Använd <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">SoX 
 
 För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetning av ljudfiler, måste du tillhandahålla medmärkta avskrifter (ord för ord) för jämförelse. Även om det ofta finns tids krävande avskrifter, är det nödvändigt att utvärdera precisionen och träna modellen för dina användnings fall. Kom ihåg att förbättringarna i igenkänningen bara är lika lämpliga som de data som tillhandahålls. Därför är det viktigt att endast avskrifter av hög kvalitet överförs.
 
+Ljudfiler kan ha tystnad i början och slutet av inspelningen. Om möjligt, inkludera minst en halv sekunds tystnad före och efter tal i varje exempel fil. Ljud med låg inspelnings volym eller störande bakgrunds brus är inte användbart, men det bör inte försämra din anpassade modell. Överväg alltid att uppgradera dina mikrofoner och signal bearbetnings maskin vara innan du samlar in ljud exempel.
+
 | Egenskap                 | Värde                               |
 |--------------------------|-------------------------------------|
 | Fil format              | RIFF (WAV)                          |
@@ -98,7 +100,7 @@ För att mäta noggrannheten hos Microsofts tal-till-text-precision vid bearbetn
 
 För att lösa problem som Word-borttagning eller ersättning krävs en stor mängd data för att förbättra igenkänningen. I allmänhet rekommenderar vi att du ger ord för ord-avskrifter i ungefär 10 till 1 000 timmar av ljud. Transkriptioner för alla WAV-filer bör ingå i en enda fil med oformaterad text. Varje rad i transkriptionsfilen ska innehålla namnet på en av ljudfilerna följt av motsvarande transkription. Filnamnet och transkriptionen ska separeras med ett tabbtecken (\t).
 
-  Ett exempel:
+  Till exempel:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -110,7 +112,7 @@ För att lösa problem som Word-borttagning eller ersättning krävs en stor mä
 
 Transkriptionerna textnormaliseras så att de kan bearbetas av systemet. Det finns dock några viktiga normaliseringar som måste utföras innan data överförs till tal Studio. För det språk som ska användas när du förbereder dina avskrifter, se [så här skapar du en](how-to-custom-speech-human-labeled-transcriptions.md) medhjälpad avskrift
 
-När du har samlat in dina ljudfiler och motsvarande avskrifter, paketera dem som en enda. zip-fil innan du överför till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech Portal <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>. Nedan visas ett exempel på en data uppsättning med tre ljudfiler och en fil med mänsklig märkning:
+När du har samlat in dina ljudfiler och motsvarande avskrifter, paketera dem som en enda. zip-fil innan du överför till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech Portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Nedan visas ett exempel på en data uppsättning med tre ljudfiler och en fil med mänsklig märkning:
 
 > [!div class="mx-imgBorder"]
 > ![Välj ljud från tal portalen](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -124,7 +126,7 @@ Produkt namn eller funktioner som är unika bör innehålla relaterade text data
 | Meningar (yttranden) | Förbättra precisionen när du känner igen produkt namn eller branschspecifika vokabulär inom ramen för en mening. |
 | Uttal | Förbättra uttal av ovanliga termer, akronymer eller andra ord med odefinierade uttal. |
 
-Meningar kan anges som en enda textfil eller flera textfiler. För att förbättra precisionen använder du text data som är närmare den förväntade talade yttranden. Uttal ska anges som en enskild textfil. Allt kan paketeras som en enda zip-fil och överföras till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech <span class="docon docon-navigate-external x-hidden-focus"> </span>Portal </a>.
+Meningar kan anges som en enda textfil eller flera textfiler. För att förbättra precisionen använder du text data som är närmare den förväntade talade yttranden. Uttal ska anges som en enskild textfil. Allt kan paketeras som en enda zip-fil och överföras till <a href="https://speech.microsoft.com/customspeech" target="_blank">Custom Speech <span class="docon docon-navigate-external x-hidden-focus"></span> Portal </a>.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Rikt linjer för att skapa en menings fil
 
@@ -143,7 +145,7 @@ Använd den här tabellen för att se till att din relaterade datafil för yttra
 Dessutom bör du ta hänsyn till följande begränsningar:
 
 * Undvik upprepade tecken mer än fyra gånger. Till exempel: "AAAA" eller "uuuu".
-* Använd inte specialtecken eller UTF-8-tecken ovan `U+00A1`.
+* Använd inte specialtecken eller UTF-8-tecken ovan `U+00A1` .
 * URI: er kommer att avvisas.
 
 ### <a name="guidelines-to-create-a-pronunciation-file"></a>Rikt linjer för att skapa en uttal-fil
@@ -163,11 +165,11 @@ Detta inkluderar exempel på en talade uttryck och ett anpassat uttal för var o
 
 Det talade formuläret är den fonetiska sekvensen som har stavats ut. Det kan bestå av bokstäver, ord, stavelser eller en kombination av alla tre.
 
-Ett anpassat uttal är tillgängligt på engelska`en-US`() och tyska`de-DE`(). I den här tabellen visas tecken som stöds efter språk:
+Ett anpassat uttal är tillgängligt på engelska ( `en-US` ) och tyska ( `de-DE` ). I den här tabellen visas tecken som stöds efter språk:
 
 | Språk | Nationell inställning | Tabbtecken |
 |----------|--------|------------|
-| Svenska | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+| Engelska | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Tyska | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Använd följande tabell för att kontrol lera att den relaterade data filen för uttal är korrekt formaterad. Uttal-filerna är små och får bara bestå av några kilobyte i storlek.

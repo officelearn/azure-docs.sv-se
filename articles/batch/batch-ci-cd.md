@@ -4,13 +4,13 @@ description: Lär dig hur du distribuerar en pipeline för att bygga/släppa fö
 author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
-ms.topic: conceptual
-ms.openlocfilehash: 79c4e74086acc0f74bcc43f6b4543afe12916364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 72f976071a5fc65c8e96f6b3cd5c0094785e287b
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117394"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726850"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 
@@ -475,7 +475,7 @@ När miljön har kon figurer ATS bekräftar du att följande test kan slutföras
 
 Anslut till det nya Azure Batch kontot med hjälp av Azure CLI från en PowerShell-kommandotolk.
 
-* Logga in på ditt Azure-konto `az login` med och följ instruktionerna för att autentisera.
+* Logga in på ditt Azure-konto med `az login` och följ instruktionerna för att autentisera.
 * Autentisera nu batch-kontot:`az batch account login -g <resourceGroup> -n <batchAccount>`
 
 #### <a name="list-the-available-applications"></a>Visa en lista över tillgängliga program

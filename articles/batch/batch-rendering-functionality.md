@@ -4,13 +4,13 @@ description: Standard Azure Batch-funktioner används för att köra åter givni
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 867dfae570a1e2006b7eea568e3450050f485d9d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115762"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726476"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch åter givnings funktioner
 
@@ -28,7 +28,7 @@ Det finns en Windows 2016-avbildning och en CentOS-avbildning.  På [Azure Marke
 
 Ett exempel på en pool konfiguration finns i [själv studie kursen för Azure CLI-åter givning](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Azure Portal och Batch Explorer ger GUI-verktyg för att välja en avbildning av avbildning av avbildning när du skapar en pool.  Om du använder ett batch-API anger du följande egenskaps värden för [ImageReference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) när du skapar en pool:
 
-| Utgivare | Erbjudande | Sku | Version |
+| Publisher | Erbjudande | Sku | Version |
 |---------|---------|---------|--------|
 | batch | rendering – centos73 | Render | senaste |
 | batch | rendering – windows2016 | Render | senaste |
@@ -46,11 +46,11 @@ Andra alternativ är tillgängliga om ytterligare program krävs på de virtuell
 
 De program som ska användas och har en licens avgift måste anges i konfiguration av poolen.
 
-* Ange egenskapen `applicationLicenses` när du [skapar en pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Följande värden kan anges i sträng mat ris-"Vray", "Arnold", "3dsmax", "Maya".
+* Ange `applicationLicenses` egenskapen när du [skapar en pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Följande värden kan anges i sträng mat ris-"Vray", "Arnold", "3dsmax", "Maya".
 * När du anger ett eller flera program läggs kostnaden för dessa program till i kostnaden för de virtuella datorerna.  Program priserna visas på [sidan Azure Batch priser](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 > [!NOTE]
-> Om du i stället ansluter till en licens Server för att använda åter givnings programmen ska du inte `applicationLicenses` ange egenskapen.
+> Om du i stället ansluter till en licens Server för att använda åter givnings programmen ska du inte ange `applicationLicenses` egenskapen.
 
 Du kan använda Azure Portal eller Batch Explorer för att välja program och Visa program priserna.
 

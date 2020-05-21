@@ -1,14 +1,14 @@
 ---
 title: Azure-filresurs för Azure Batch pooler
 description: Montera en Azure Files resurs från datornoder i en Linux-eller Windows-pool i Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0aa8c8f6dcf1114688e6abaf1a17f2e8af6fa4fe
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115456"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723501"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Använda en Azure-filresurs med en batch-pool
 
@@ -39,8 +39,8 @@ I batch måste du montera resursen varje gång en aktivitet körs på en Windows
 
 Du kan till exempel lägga `net use` till ett kommando för att montera fil resursen som en del av varje aktivitets kommando rad. Följande autentiseringsuppgifter krävs för att montera fil resursen:
 
-* **Användar namn**: Azure\\\<storageaccountname\>, till exempel Azure\\*mystorageaccountname*
-* **Lösen ord**: \<StorageAccountKeyWhichEnds i = =>, till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Användar namn**: Azure \\ \< STORAGEACCOUNTNAME \> , till exempel Azure \\ *mystorageaccountname*
+* **Lösen ord**: \< StorageAccountKeyWhichEnds i = =>, till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Följande kommando monterar en fil resurs *myfileshare* i lagrings kontot *mystorageaccountname* som *S:* enhet:
 
@@ -59,7 +59,7 @@ För att förenkla monterings åtgärden, kan du, om du vill, bevara autentiseri
 
    ```
 
-2. Montera resursen på varje nod som en del av varje aktivitet med `net use`. Följande kommando rad för aktivitet monterar till exempel fil resursen som enheten *S:* . Detta kan följas av ett kommando eller skript som refererar till resursen. Cachelagrade autentiseringsuppgifter används i anropet till `net use`. Det här steget förutsätter att du använder samma användar identitet för de uppgifter som du använde i Start aktiviteten på poolen, vilket inte är lämpligt för alla scenarier.
+2. Montera resursen på varje nod som en del av varje aktivitet med `net use` . Följande kommando rad för aktivitet monterar till exempel fil resursen som enheten *S:* . Detta kan följas av ett kommando eller skript som refererar till resursen. Cachelagrade autentiseringsuppgifter används i anropet till `net use` . Det här steget förutsätter att du använder samma användar identitet för de uppgifter som du använde i Start aktiviteten på poolen, vilket inte är lämpligt för alla scenarier.
 
    ```
    cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
@@ -108,7 +108,7 @@ tasks.Add(task);
 
 Azure-filresurser kan monteras i Linux-distributioner med hjälp av [CIFS kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). I följande exempel visas hur du monterar en fil resurs i en pool med Ubuntu 16,04 LTS-datornoder. Om du använder en annan Linux-distribution är de allmänna stegen liknande, men Använd paket hanteraren som passar för distributionen. Mer information och ytterligare exempel finns i [använda Azure Files med Linux](../storage/files/storage-how-to-use-files-linux.md).
 
-Först, under en administratörs användar identitet, installerar `cifs-utils` du paketet och skapar monterings punkten (till exempel */mnt/MyAzureFileShare*) i det lokala fil systemet. En mapp för en monterings punkt kan skapas var som helst i fil systemet, men det är en vanlig konvention för att skapa `/mnt` den under mappen. Se till att du inte skapar någon monterings punkt `/mnt` direkt vid (på Ubuntu `/mnt/resource` ) eller (på andra distributioner).
+Först, under en administratörs användar identitet, installerar du `cifs-utils` paketet och skapar monterings punkten (till exempel */mnt/MyAzureFileShare*) i det lokala fil systemet. En mapp för en monterings punkt kan skapas var som helst i fil systemet, men det är en vanlig konvention för att skapa den under `/mnt` mappen. Se till att du inte skapar någon monterings punkt direkt vid `/mnt` (på Ubuntu) eller `/mnt/resource` (på andra distributioner).
 
 ```
 apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
@@ -116,8 +116,8 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 
 Kör sedan `mount` kommandot för att montera fil resursen och ange följande autentiseringsuppgifter:
 
-* **Användar namn**: \<storageaccountname\>, till exempel *mystorageaccountname*
-* **Lösen ord**: \<StorageAccountKeyWhichEnds i = =>, till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Användar namn**: \< storageaccountname \> , till exempel *mystorageaccountname*
+* **Lösen ord**: \< StorageAccountKeyWhichEnds i = =>, till exempel *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Följande kommando monterar en fil resurs *myfileshare* i lagrings kontot *mystorageaccountname* på */mnt/MyAzureFileShare*: 
 

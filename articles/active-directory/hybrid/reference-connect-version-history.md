@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b75f03afc587d9616997b1df48b9c5c5166cb89
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fe9c9f44c42ef1e8dd6ff3401ad7201b174aa952
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681718"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725303"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Versionshistorik för Azure AD Connect
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -58,8 +58,7 @@ Den här snabb korrigeringen åtgärdar ett problem där omarkerade domäner har
 
 
 >[!NOTE]
->Den här versionen krävs för att använda det nya Azure AD Connect Sync v2 Endpoint API.  Mer information finns i [Azure AD Connect Sync v2 Endpoint API (offentlig för hands version)](how-to-connect-sync-endpoint-api-v2.md).
-
+>Den här versionen innehåller det nya Azure AD Connect Sync v2 Endpoint API.  Den nya v2-slutpunkten är för närvarande en offentlig för hands version.  Den här versionen eller senare krävs för att använda det nya v2-slutpunkt-API: et.  Men om du bara installerar den här versionen aktive ras inte v2-slutpunkten. Du kommer att fortsätta att använda v1-slutpunkten om du inte aktiverar v2-slutpunkten.  Du måste följa stegen under [Azure AD Connect Sync v2-slutpunkt-API (offentlig för hands version)](how-to-connect-sync-endpoint-api-v2.md) för att aktivera den och välja den offentliga för hands versionen.  
 
 ## <a name="15290"></a>1.5.29.0
 

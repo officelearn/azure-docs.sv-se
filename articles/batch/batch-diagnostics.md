@@ -1,15 +1,15 @@
 ---
 title: Mått, aviseringar och diagnostiska loggar
 description: Registrera och analysera diagnostiska logg händelser för Azure Batch konto resurser som pooler och uppgifter.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7f75a8302c8ba368138e6c8edee6c6069c5031d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a33f71cd185a327bfe6852b9acd7d7317b94c2c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117309"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726748"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch-mått, aviseringar och loggar för diagnostisk utvärdering och övervakning
 
@@ -34,7 +34,7 @@ Visa mått för batch-kontot i Azure Portal. På sidan **Översikt** för kontot
 
 Visa alla batch-konto mått: 
 
-1. I portalen klickar du på **alla tjänster** > **batch-konton**och sedan på namnet på batch-kontot.
+1. I portalen klickar du på **alla tjänster**  >  **batch-konton**och sedan på namnet på batch-kontot.
 2. Klicka på **mått**under **övervakning**.
 3. Välj en eller flera av måtten. Om du vill kan du välja ytterligare resurs mått med hjälp av list rutorna **prenumerationer**, **resurs grupp**, **resurs typ**och **resurs** .
     * Använd "genomsnittlig" agg regering för beräknings mått (t. ex. "dedikerat antal" eller "antal med låg prioritet"). Använd agg regeringen "count" för händelsebaserade mått (t. ex. att ändra storlek på slutförda händelser för pool).
@@ -62,8 +62,8 @@ Du kanske t. ex. vill konfigurera en måtta avisering när antalet låg priorite
 
 Så här konfigurerar du en mått avisering i portalen:
 
-1. Klicka på **alla tjänster** > **batch-konton**och sedan på namnet på batch-kontot.
-2. Klicka på **aviserings regler** > **Lägg till mått avisering**under **övervakning**.
+1. Klicka på **alla tjänster**  >  **batch-konton**och sedan på namnet på batch-kontot.
+2. Klicka **Monitoring**på **aviserings regler**  >  **Lägg till mått avisering**under övervakning.
 3. Välj ett mått, ett varnings villkor (till exempel när ett mått överskrider ett visst värde under en period) och en eller flera aviseringar.
 
 Du kan också konfigurera en nästan real tids avisering med hjälp av [REST API](https://docs.microsoft.com/rest/api/monitor/). Mer information finns i [Översikt över aviseringar](../azure-monitor/platform/alerts-overview.md). Om du vill inkludera jobb, uppgift eller leverantörsspecifik information i dina aviseringar kan du läsa informationen om Sök frågor i [svara på händelser med Azure Monitor aviseringar](../azure-monitor/learn/tutorial-response.md)
@@ -94,8 +94,8 @@ Andra valfria destinationer för diagnostikloggar:
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Aktivera insamling av batch-diagnostikloggar
 
-1. I portalen klickar du på **alla tjänster** > **batch-konton**och sedan på namnet på batch-kontot.
-2. Under **övervakning**klickar du på **diagnostikloggar** > **Aktivera diagnostik**.
+1. I portalen klickar du på **alla tjänster**  >  **batch-konton**och sedan på namnet på batch-kontot.
+2. Under **övervakning**klickar du på **diagnostikloggar**  >  **Aktivera diagnostik**.
 3. I **diagnostikinställningar**anger du ett namn för inställningen och väljer ett mål för loggen (befintligt lagrings konto, Event Hub eller Azure Monitor loggar). Välj antingen eller både **ServiceLog** och **AllMetrics**.
 
     När du väljer ett lagrings konto kan du ange en bevarande princip. Om du inte anger ett antal dagar för kvarhållning behålls data under lagrings kontots livs längd.
@@ -125,7 +125,7 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Varje `PT1H.json` BLOB-fil innehåller JSON-formaterade händelser som inträffat inom den timme som anges i BLOB- `h=12`URL: en (till exempel). Under den aktuella timmen läggs händelser till i `PT1H.json` filen när de inträffar. Minut värdet (`m=00`) är alltid `00`, eftersom diagnostiska logg händelser bryts till enskilda blobbar per timme. (Alla tider är i UTC-tid.)
+Varje `PT1H.json` BLOB-fil innehåller JSON-formaterade händelser som inträffat inom den timme som anges i BLOB-URL: en (till exempel `h=12` ). Under den aktuella timmen läggs händelser till i `PT1H.json` filen när de inträffar. Minut värdet ( `m=00` ) är alltid `00` , eftersom diagnostiska logg händelser bryts till enskilda blobbar per timme. (Alla tider är i UTC-tid.)
 
 Nedan visas ett exempel på en `PoolResizeCompleteEvent` post i en `PT1H.json` loggfil. Den innehåller information om aktuella och mål för dedikerade och låg prioritets noder, samt start-och slut tid för åtgärden:
 

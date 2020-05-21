@@ -10,40 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 68947895891b4875ef4c57355f1236afdb8c2c7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 31c1d50962b2710fbeb249c61c8b3c144762be43
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204823"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715655"
 ---
 # <a name="learn-the-basics-of-spx"></a>Lär dig grunderna i SPX
 
 I den här artikeln får du lära dig de grundläggande användnings mönstren i SPX, ett kommando rads verktyg för att använda tal tjänsten utan att skriva kod. Du kan snabbt testa huvud funktionerna i tal tjänsten, utan att skapa utvecklings miljöer eller skriva kod, för att se om dina användnings fall kan uppfyllas korrekt. Dessutom är SPX produktions klart och kan användas för att automatisera enkla arbets flöden i tal tjänsten med hjälp av `.bat` eller Shell-skript.
 
-## <a name="prerequisites"></a>Förutsättningar
-
-Den enda förutsättningen är en Azure tal-prenumeration. Se [guiden](get-started.md#new-resource) för att skapa en ny prenumeration om du inte redan har en.
-
-## <a name="download-and-install"></a>Hämta och installera
-
-SPX är tillgängligt på Windows och Linux. Börja med att hämta [zip-arkivet](https://aka.ms/speech/spx-zips.zip)och extrahera det sedan. SPX kräver antingen .NET Core eller .NET Framework Runtime och följande versioner stöds av plattformen:
-
-* Windows: [.NET Framework 4,7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [.net Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-* Linux: [.net Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-
-När du har installerat en körning går du till rot katalogen `spx-zips` som du extraherade från nedladdningen och extraherar den under katalog du behöver ( `spx-net471` till exempel). I en kommando tolk ändrar du katalog till den här platsen och kör sedan `spx` för att starta programmet.
-
-## <a name="create-subscription-config"></a>Skapa prenumerations konfiguration
-
-För att börja använda SPX måste du först ange din prenumerations nyckel och region information. Se sidan [region support](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) för att hitta din regions-ID. När du har en prenumerations nyckel och region-ID (t. ex. `eastus`, `westus` ), kör följande kommandon.
-
-```shell
-spx config @key --set YOUR-SUBSCRIPTION-KEY
-spx config @region --set YOUR-REGION-ID
-```
-
-Din prenumerations-autentisering lagras nu för framtida SPX-begäranden. Om du behöver ta bort något av dessa lagrade värden kör `spx config @region --clear` eller `spx config @key --clear` .
+[!INCLUDE [](includes/spx-setup.md)]
 
 ## <a name="basic-usage"></a>Grundläggande användning
 

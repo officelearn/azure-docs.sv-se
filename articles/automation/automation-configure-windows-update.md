@@ -1,20 +1,20 @@
 ---
-title: Konfigurera Windows Update inställningar så att de fungerar med Azure Uppdateringshantering
-description: I den här artikeln beskrivs de Windows Update inställningar som du konfigurerar för att arbeta med Azure Uppdateringshantering.
+title: Konfigurera Windows Update inställningar för Azure Automation Uppdateringshantering
+description: Den här artikeln beskriver hur du konfigurerar Windows Update inställningar så att de fungerar med Azure Automation Uppdateringshantering.
 services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9b5f2b19b29eae0132ec01a9f3fb7e8355361f5
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 22bec66467dc7a42470c3660b8505c4aa13557d4
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779458"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715791"
 ---
-# <a name="configure-windows-update-settings-for-update-management"></a>Konfigurera Windows Update inställningar för Uppdateringshantering
+# <a name="configure-windows-update-settings-for-azure-automation-update-management"></a>Konfigurera Windows Update inställningar för Azure Automation Uppdateringshantering
 
-Azure Uppdateringshantering använder [Windows Update klienten](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) för att ladda ned och installera Windows-uppdateringar. Det finns vissa inställningar som används av den Windows Update klienten vid anslutning till Windows Server Update Services (WSUS) eller Windows Update. Många av de här inställningarna kan hanteras med:
+Azure Automation Uppdateringshantering använder [Windows Update-klienten](https://docs.microsoft.com//windows/deployment/update/windows-update-overview) för att ladda ned och installera Windows-uppdateringar. Det finns vissa inställningar som används av den Windows Update klienten vid anslutning till Windows Server Update Services (WSUS) eller Windows Update. Många av de här inställningarna kan hanteras med:
 
 - Redigerare för lokal gruppolicy
 - Grupprincip
@@ -27,9 +27,9 @@ Ytterligare rekommendationer för att konfigurera WSUS i din Azure-prenumeration
 
 ## <a name="pre-download-updates"></a>För nedladdning av uppdateringar
 
-Om du vill konfigurera automatisk nedladdning av uppdateringar, men inte installera dem automatiskt, kan du använda grupprincip för att ställa in [inställningen konfigurera automatiska uppdateringar](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) på **3**. Den här inställningen aktiverar hämtning av nödvändiga uppdateringar i bakgrunden och meddelar dig att uppdateringarna är klara att installeras. På så sätt har Uppdateringshantering fortfarande kontroll över scheman, men uppdateringar kan hämtas utanför Uppdateringshantering underhålls fönstret. Det här beteendet förhindrar att **underhålls fönstret har överskridit** fel i uppdateringshantering.
+Om du vill konfigurera automatisk nedladdning av uppdateringar utan att installera dem automatiskt kan du använda grupprincip för att [Konfigurera inställningen för automatiska uppdateringar](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates##configure-automatic-updates) till 3. Den här inställningen aktiverar hämtning av nödvändiga uppdateringar i bakgrunden och meddelar dig att uppdateringarna är klara att installeras. På så sätt har Uppdateringshantering fortfarande kontroll över scheman, men tillåter att uppdateringar laddas ned utanför Uppdateringshantering underhålls fönstret. Det här beteendet förhindrar `Maintenance window exceeded` fel i uppdateringshantering.
 
-Du kan aktivera inställningen med PowerShell genom att köra följande kommando:
+Du kan aktivera den här inställningen i PowerShell:
 
 ```powershell
 $WUSettings = (New-Object -com "Microsoft.Update.AutoUpdate").Settings
@@ -43,9 +43,9 @@ De register nycklar som visas i [Konfigurera automatiska uppdateringar genom att
 
 ## <a name="enable-updates-for-other-microsoft-products"></a>Aktivera uppdateringar för andra Microsoft-produkter
 
-Som standard är Windows Update-klienten konfigurerad att endast tillhandahålla uppdateringar för Windows. Om du aktiverar alternativet **för att ge mig uppdateringar för andra Microsoft-produkter när jag uppdaterar Windows** -inställningar får du också uppdateringar för andra produkter, inklusive säkerhets korrigeringar för Microsoft SQL Server och annan Microsoft-programvara. Det här alternativet kan konfigureras om du har laddat ned och kopierat de senaste [administrativa mallarna](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) som är tillgängliga för Windows 2016 och högre.
+Som standard är Windows Update-klienten konfigurerad att endast tillhandahålla uppdateringar för Windows. Om du aktiverar alternativet **för att ge mig uppdateringar för andra Microsoft-produkter när jag uppdaterar Windows** -inställningar får du också uppdateringar för andra produkter, inklusive säkerhets korrigeringar för Microsoft SQL Server och annan Microsoft-programvara. Du kan konfigurera det här alternativet om du har laddat ned och kopierat de senaste [administrativa mallarna](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) som är tillgängliga för Windows 2016 och senare.
 
-Om du kör Windows Server 2012 R2, kan den här inställningen inte konfigureras av grupprincip. Kör följande PowerShell-kommando på dessa datorer. Uppdateringshantering följer den här inställningen.
+Om du har datorer som kör Windows Server 2012 R2 kan du inte konfigurera den här inställningen via grupprincip. Kör följande PowerShell-kommando på följande datorer:
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")
@@ -54,16 +54,12 @@ $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
 
-## <a name="wsus-configuration-settings"></a>Konfigurations inställningar för WSUS
+## <a name="make-wsus-configuration-settings"></a>Gör inställningar för WSUS-konfiguration
 
-Uppdateringshantering stöder WSUS-inställningar. De WSUS-inställningar som du kan konfigurera för att arbeta med Uppdateringshantering visas nedan.
+Uppdateringshantering stöder WSUS-inställningar. Du kan ange källor för genomsökning och hämtning av uppdateringar med hjälp av anvisningarna i [Ange intranät Microsoft Update tjänst plats](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). Som standard är Windows Update-klienten konfigurerad för att hämta uppdateringar från Windows Update. När du anger en WSUS-server som källa för dina datorer, om uppdateringarna inte är godkända i WSUS, Miss lyckas uppdaterings distributionen. 
 
-### <a name="intranet-microsoft-update-service-location"></a>Microsoft-uppdateringstjänst på intranätet
-
-Du kan ange källor för genomsökning och hämtning av uppdateringar under [Ange intranät Microsoft Update tjänst plats](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). Windows Update-klienten är som standard konfigurerad för att hämta uppdateringar från Windows Update. När du anger en WSUS-server som källa för dina datorer, om uppdateringarna inte är godkända i WSUS, Miss lyckas uppdaterings distributionen. 
-
-Om du vill begränsa datorerna till enbart den interna uppdaterings tjänsten, kan du konfigurera [Anslut inte till någon Windows Update Internet-platser](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
+Om du vill begränsa datorerna till den interna uppdaterings tjänsten anger [du Anslut inte till någon Windows Update Internet-platser](https://docs.microsoft.com/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har konfigurerat Windows Update inställningarna kan du schemalägga en uppdaterings distribution genom att följa anvisningarna i [Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md).
+[Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](automation-tutorial-update-management.md)

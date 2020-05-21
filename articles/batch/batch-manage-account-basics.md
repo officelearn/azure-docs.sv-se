@@ -1,15 +1,15 @@
 ---
 title: Hantera ditt konto
 description: Lär dig vad som omfattar ett Azure Batch konto
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce0c612e3434249c0c7d078949b10e0b9f6b1f10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ef87fab099c6ff7402b351664ee15a198d69a4b
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116017"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722974"
 ---
 # <a name="manage-your-batch-account"></a>Hantera ditt batch-konto
 

@@ -1,14 +1,14 @@
 ---
-title: Bästa praxis
+title: Metodtips
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
 ms.date: 04/03/2020
-ms.topic: article
-ms.openlocfilehash: 43a0020953ea44593cf38298a78547194751fc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.openlocfilehash: f7d2add5fb30e3efdfb761364babf2211c3c254f
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117513"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725813"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -100,11 +100,11 @@ Aktiviteter är enskilda enheter av arbete som utgör ett jobb. Aktiviteter skic
 
 ### <a name="task-execution"></a>Uppgifts körning
 
-- **Välja Max aktiviteter per nod** Batch stöder oversubscribing-aktiviteter på noder (som kör fler aktiviteter än en nod har kärnor). Det är upp till dig att se till att aktiviteterna anpassas till noderna i poolen. Du kan till exempel ha en försämrad upplevelse om du försöker schemalägga åtta uppgifter som varje använder 25% CPU-användning på en nod (i en pool med `maxTasksPerNode = 8`).
+- **Välja Max aktiviteter per nod** Batch stöder oversubscribing-aktiviteter på noder (som kör fler aktiviteter än en nod har kärnor). Det är upp till dig att se till att aktiviteterna anpassas till noderna i poolen. Du kan till exempel ha en försämrad upplevelse om du försöker schemalägga åtta uppgifter som varje använder 25% CPU-användning på en nod (i en pool med `maxTasksPerNode = 8` ).
 
 ### <a name="designing-for-retries-and-re-execution"></a>Design för nya försök och omkörning
 
-Aktiviteter kan göras om automatiskt med batch. Det finns två typer av återförsök: User-styrd och Internal. Användar kontrollerade återförsök anges av aktivitetens [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet). När ett program som anges i uppgiften avslutas med en slutkod som inte är noll, görs ett nytt försök till värdet för `maxTaskRetryCount`.
+Aktiviteter kan göras om automatiskt med batch. Det finns två typer av återförsök: User-styrd och Internal. Användar kontrollerade återförsök anges av aktivitetens [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet). När ett program som anges i uppgiften avslutas med en slutkod som inte är noll, görs ett nytt försök till värdet för `maxTaskRetryCount` .
 
 Även om det är sällsynt, kan en aktivitet omprövas internt på grund av att det inte går att uppdatera beräknings noden, till exempel att det inte går att uppdatera det interna läget eller ett haveri på noden medan aktiviteten körs. Aktiviteten provas på samma Compute-nod, om möjligt, upp till en intern gräns innan den ger aktiviteten och en uppskjuten aktivitet som ska schemaläggas om av batch, eventuellt på en annan Compute-nod.
 
@@ -121,7 +121,7 @@ Aktiviteter kan göras om automatiskt med batch. Det finns två typer av återf�
 - **Start aktiviteter ska vara idempotenta** Precis som andra uppgifter ska nodens start aktivitet vara idempotenta eftersom den kommer att köras igen varje gång noden startas. En idempotenta-uppgift är bara en som ger ett konsekvent resultat vid körning flera gånger.
 
 - **Hantera tids krävande tjänster via gränssnittet för operativ system tjänster.**
-    Ibland måste det finnas behov av att köra en annan Agent tillsammans med batch-agenten i noden, t. ex. för att samla in data från noden och rapportera den. Vi rekommenderar att dessa agenter distribueras som OS-tjänster, till exempel en Windows-tjänst eller en `systemd` Linux-tjänst.
+    Ibland måste det finnas behov av att köra en annan Agent tillsammans med batch-agenten i noden, t. ex. för att samla in data från noden och rapportera den. Vi rekommenderar att dessa agenter distribueras som OS-tjänster, till exempel en Windows-tjänst eller en Linux `systemd` -tjänst.
 
     När de här tjänsterna körs får de inte ta fillås på några filer i batch-hanterade kataloger på noden, eftersom annars kan batch inte ta bort dessa kataloger på grund av fillås. Om du till exempel installerar en Windows-tjänst i en start aktivitet, i stället för att starta tjänsten direkt från arbets katalogen starta aktivitet, kopierar du filerna någon annan stans (om filerna bara finns hoppar du över kopian). Installera tjänsten från den platsen. När batch kör om din start uppgift, tar den bort start uppgiftens arbets katalog och skapar den igen. Detta fungerar eftersom tjänsten har fillås på den andra katalogen, inte start katalogen för start uppgiften.
 
@@ -149,10 +149,10 @@ Mer information om Resource Manager och mallar finns i [snabb start: skapa och d
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Nätverks säkerhets grupper (NSG: er) och användardefinierade vägar (UDR)
 
-När du konfigurerar [batch-pooler i ett virtuellt nätverk](batch-virtual-network.md)bör du se till att du noga följer rikt linjerna för användningen av `BatchNodeManagement` service tag-numret, portarna, protokollen och riktningen för regeln.
+När du konfigurerar [batch-pooler i ett virtuellt nätverk](batch-virtual-network.md)bör du se till att du noga följer rikt linjerna för användningen av `BatchNodeManagement` Service Tag-numret, portarna, protokollen och riktningen för regeln.
 Användningen av service tag gen rekommenderas och inte de underliggande IP-adresserna för batch-tjänsten eftersom de kan ändras med tiden. Om IP-adresser för batch-tjänsten används direkt kan det vara instabilt, avbrott eller avbrott för batch-pooler när batch-tjänsten uppdaterar IP-adresser som används över tid. Om du för närvarande använder batch-tjänstens IP-adresser i dina NSG-regler, rekommenderar vi att du växlar till att använda tjänst tag gen.
 
-För användardefinierade vägar måste du se till att du har en process på plats för att uppdatera batch-tjänstens IP-adresser regelbundet i routningstabellen som ändringen över tid. Information om hur du hämtar en lista över IP-adresser för batch-tjänsten finns i [tjänst märkning lokalt](../virtual-network/service-tags-overview.md). IP-adresserna för batch-tjänsten kommer att `BatchNodeManagement` associeras med Service Tag-numret (eller den regionala variant som matchar ditt batch-kontoområdet).
+För användardefinierade vägar måste du se till att du har en process på plats för att uppdatera batch-tjänstens IP-adresser regelbundet i routningstabellen som ändringen över tid. Information om hur du hämtar en lista över IP-adresser för batch-tjänsten finns i [tjänst märkning lokalt](../virtual-network/service-tags-overview.md). IP-adresserna för batch-tjänsten kommer att associeras med `BatchNodeManagement` Service Tag-numret (eller den regionala variant som matchar ditt batch-kontoområdet).
 
 ### <a name="honoring-dns"></a>DNS-inlöst
 

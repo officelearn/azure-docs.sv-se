@@ -1,15 +1,15 @@
 ---
-title: Bygg lösningar med Visual Studio-mallar – Azure Batch | Microsoft Docs
+title: Bygg lösningar med Visual Studio-mallar
 description: Lär dig hur Visual Studio-projektmallar kan hjälpa dig att implementera och köra beräknings intensiva arbets belastningar på Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 8e8d5be4a9f0fb5482ba6c86a8766a25e5713c09
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0dac39d1ff463dc4ba5efae50c7fc1ea9d36c829
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117530"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725830"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Använd Visual Studio-projektmallar för att komma igång med batch-lösningar
 
@@ -57,7 +57,7 @@ Du behöver följande för att kunna använda batch-mallarna:
 ## <a name="preparation"></a>Förberedelse
 Vi rekommenderar att du skapar en lösning som kan innehålla din jobb hanterare såväl som uppgifts processor, eftersom detta kan göra det enklare att dela kod mellan jobb Manager och aktivitets processor program. Följ dessa steg om du vill skapa den här lösningen:
 
-1. Öppna Visual Studio och välj **fil** > **nytt** > **projekt**.
+1. Öppna Visual Studio och välj **fil**  >  **nytt**  >  **projekt**.
 2. Under **mallar**, expandera **andra projekt typer**, klicka på **Visual Studio-lösningar**och välj sedan **Tom lösning**.
 3. Skriv ett namn som beskriver ditt program och syftet med den här lösningen (t. ex. "LitwareBatchTaskPrograms").
 4. Klicka på **OK**för att skapa den nya lösningen.
@@ -77,7 +77,7 @@ Med Job Manager-mallen kan du implementera en Job Manager-aktivitet som kan utf�
 Följ dessa steg om du vill lägga till en jobb hanterare i lösningen som du skapade tidigare:
 
 1. Öppna din befintliga lösning i Visual Studio.
-2. Högerklicka på lösningen i Solution Explorer och klicka på **Lägg till** > **nytt projekt**.
+2. Högerklicka på lösningen i Solution Explorer och klicka på **Lägg till**  >  **nytt projekt**.
 3. Klicka på **moln**under **Visual C#** och klicka sedan på **Azure Batch Job Manager med jobb delning**.
 4. Ange ett namn som beskriver ditt program och identifierar det här projektet som jobb hanterare (t. ex. "LitwareJobManager").
 5. Klicka på **OK**för att skapa projektet.
@@ -156,13 +156,13 @@ Din Split ()-implementering har åtkomst till:
 * CloudJob-objektet som representerar jobbet via `_job` fältet.
 * CloudTask-objektet som representerar Job Manager-aktiviteten via `_jobManagerTask` fältet.
 
-Din `Split()` implementering behöver inte lägga till uppgifter till jobbet direkt. I stället bör din kod returnera en sekvens av CloudTask-objekt, och dessa läggs till automatiskt i jobbet av de Ramverks klasser som anropar jobb delnings listen. Det är vanligt att använda C#: s iterator`yield return`()-funktion för att implementera jobb delningar som detta gör att aktiviteterna kan startas så snart som möjligt, i stället för att vänta på att alla aktiviteter ska beräknas.
+Din `Split()` implementering behöver inte lägga till uppgifter till jobbet direkt. I stället bör din kod returnera en sekvens av CloudTask-objekt, och dessa läggs till automatiskt i jobbet av de Ramverks klasser som anropar jobb delnings listen. Det är vanligt att använda C#: s iterator ( `yield return` )-funktion för att implementera jobb delningar som detta gör att aktiviteterna kan startas så snart som möjligt, i stället för att vänta på att alla aktiviteter ska beräknas.
 
 **Jobb delnings problem**
 
 Om din jobb delning påträffar ett fel, bör det antingen:
 
-* Avsluta sekvensen med C# `yield break` -instruktionen, i vilket fall jobb hanteraren kommer att behandlas som lyckad. eller
+* Avsluta sekvensen med C# `yield break` -instruktionen, i vilket fall jobb hanteraren kommer att behandlas som lyckad, eller
 * Utlös ett undantag, i vilket fall jobb hanteraren kommer att behandlas som misslyckad och kan provas igen beroende på hur klienten har konfigurerat den.
 
 I båda fallen är alla uppgifter som redan returnerade av jobb delningen och som läggs till i batch-jobbet tillgängliga för körning. Om du inte vill att det ska hända kan du:
@@ -223,7 +223,7 @@ Det är vanligt vis säkert att klienten anger *runExclusive* till **false**.
 
 Klienten bör använda *resourceFiles* -eller *applicationPackageReferences* -samlingen för att låta köras av jobb hanteraren (och de DLL-filer som krävs) distribueras till Compute-noden.
 
-Som standard kommer jobb hanteraren inte att göras om den Miss lyckas. Beroende på din jobbs Manager-logik kanske klienten vill aktivera återförsök via *begränsningar*/*maxTaskRetryCount*.
+Som standard kommer jobb hanteraren inte att göras om den Miss lyckas. Beroende på din jobbs Manager-logik kanske klienten vill aktivera återförsök via *begränsningar* / *maxTaskRetryCount*.
 
 **Jobbinställningar**
 
@@ -346,7 +346,7 @@ Metoden Run () ansvarar för att starta kommando raden, starta en eller flera pr
 Implementeringen () har åtkomst till:
 
 * Aktivitets parametrarna via `_parameters` fältet.
-* Jobb-och aktivitets-ID: n `_jobId` , `_taskId` via fälten och.
+* Jobb-och aktivitets-ID: n, via `_jobId` `_taskId` fälten och.
 * Aktivitets konfigurationen via `_configuration` fältet.
 
 **Uppgifts haverie**
@@ -399,7 +399,7 @@ En klient kan skicka information till Job Manager-aktiviteten i form av miljö i
 * Batch-kontots URL
 * Batch-konto nyckel
 
-Batch-tjänsten har en enkel mekanism för att överföra miljö inställningar till en Job Manager-aktivitet genom `EnvironmentSettings` att använda egenskapen i [Microsoft. Azure. batch. JobManagerTask][net_jobmanagertask].
+Batch-tjänsten har en enkel mekanism för att överföra miljö inställningar till en Job Manager-aktivitet genom att använda `EnvironmentSettings` egenskapen i [Microsoft. Azure. batch. JobManagerTask][net_jobmanagertask].
 
 Om du till exempel vill hämta `BatchClient` instansen för ett batch-konto kan du skicka som miljövariabler från klient koden till URL: en och autentiseringsuppgifterna för delad nyckel för batch-kontot. Om du vill komma åt det lagrings konto som är länkat till batch-kontot kan du också skicka lagrings kontots namn och lagrings konto nyckeln som miljövariabler.
 
@@ -416,7 +416,7 @@ Du kan också skicka parametrar till enskilda uppgifter som implementeras med hj
 
 Parameters. JSON, och om det hittas läses det in som parameter ord listan. Det finns ett par alternativ för att skicka parametrar till aktivitets processor aktiviteterna:
 
-* Återanvänd JSON för jobb parametrar. Detta fungerar bra om de enda parametrarna är jobb breda (till exempel en åter givnings höjd och bredd). När du skapar en CloudTask i jobb delnings guiden lägger du till en referens till objektet Parameters. JSON-resurs från jobb hanterarens ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) till CloudTask ResourceFiles-samling.
+* Återanvänd JSON för jobb parametrar. Detta fungerar bra om de enda parametrarna är jobb breda (till exempel en åter givnings höjd och bredd). När du skapar en CloudTask i jobb delnings guiden lägger du till en referens till objektet Parameters. JSON-resurs från jobb hanterarens ResourceFiles ( `JobSplitter._jobManagerTask.ResourceFiles` ) till CloudTask ResourceFiles-samling.
 * Generera och ladda upp ett verksamhetsspecifika Parameters. JSON-dokument som en del av jobb delnings körningen och referera till blobben i aktivitetens resurs fil samling. Detta är nödvändigt om olika aktiviteter har olika parametrar. Ett exempel kan vara ett 3D-rendering-scenario där ram indexet skickas till aktiviteten som en parameter.
 
 > [!NOTE]

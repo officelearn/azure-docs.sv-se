@@ -3,12 +3,12 @@ title: Samar beta med andra – QnA Maker
 description: ''
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: ef0823fc60424dc861ab70f4112e4689c1b97fb0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 080e6549579675e27486e6173d5907d92bbaad70
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665986"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724929"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Samar beta med andra författare och redigerare
 
@@ -40,7 +40,7 @@ Följande diagram visar flödet från författarens perspektiv för att logga in
 |3|API för QnA Maker validerar token.|
 |4 |API för QnA Maker anropar QnAMaker-tjänsten.|
 
-Om du avser att anropa redigerings-API: erna] (.. /How-To/collaborate-knowledge-base.md), Läs mer om hur du konfigurerar autentisering.
+Om du tänker anropa redigerings- [API: erna](../How-To/collaborate-knowledge-base.md)kan du läsa mer om hur du konfigurerar autentisering.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Autentisera med QnA Maker Portal
 

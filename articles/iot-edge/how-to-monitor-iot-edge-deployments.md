@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cc7c1fd1dff85908c96e2fd7b2276df3d833e37f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97bc3c8571793ec8c8b67fe0e7c5cb3b6a56fde4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134317"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726051"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Övervaka IoT Edge-distributioner
 
@@ -67,7 +67,7 @@ Information om hur du gör ändringar i distributionen finns i [ändra en distri
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Övervaka en distribution med Azure CLI
 
-Använd kommandot [az IoT Edge Deployment show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show) för att visa information om en enda distribution:
+Använd kommandot [az IoT Edge Deployment show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show) för att visa information om en enda distribution:
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -85,7 +85,7 @@ Granska distributionen i kommando fönstret.Egenskapen **mått** visar ett antal
 * **reportedSuccessfulCount** – ett enhets mått som anger antalet IoT Edge enheter i distributions rapporten som lyckas från IoT Edge klient körning.
 * **reportedFailedCount** – ett enhets mått som anger antalet IoT Edge enheter i distributions rapporterings felen från IoT Edge klient körningen.
 
-Du kan visa en lista över enhets-ID: n eller objekt för vart och ett av måtten med kommandot [az IoT Edge Deployment show-Metric](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric) :
+Du kan visa en lista över enhets-ID: n eller objekt för vart och ett av måtten med kommandot [az IoT Edge Deployment show-Metric](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show-metric) :
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
@@ -94,8 +94,8 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 Kommandot Deployment show-Metric använder följande parametrar:
 
 * **--Deployment-ID** – namnet på den distribution som finns i IoT Hub.
-* **--Metric-ID** – namnet på det mått som du vill se listan över enhets-ID: n för, till `reportedFailedCount`exempel.
-* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]`.
+* **--Metric-ID** – namnet på det mått som du vill se listan över enhets-ID: n för, till exempel `reportedFailedCount` .
+* **--hubb-Name** -namnet på den IoT-hubb som distributionen finns i. Navet måste finnas i den aktuella prenumerationen. Växla till den önskade prenumerationen med kommandot `az account set -s [subscription name]` .
 
 Information om hur du gör ändringar i distributionen finns i [ändra en distribution](how-to-deploy-cli-at-scale.md#modify-a-deployment).
 

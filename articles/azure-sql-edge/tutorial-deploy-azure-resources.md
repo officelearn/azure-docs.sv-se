@@ -9,18 +9,18 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 8c648e3f9e0b36f11a031110f9b0638dc68a4a76
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0e241b672bcac49c0459c840d46b0c81e158d56b
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599705"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725847"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installera program vara och konfigurera resurser för självstudien
 
 I den här självstudien med tre delar skapar du en maskin inlärnings modell för att förutsäga halten av järn malm som en procent andel kiseldioxid och distribuerar sedan modellen i Azure SQL Edge. I del ett installerar du den nödvändiga program varan och distribuerar Azure-resurser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 2. Installera [python-3.6.8](https://www.python.org/downloads/release/python-368/).
@@ -42,9 +42,12 @@ Distribuera de Azure-resurser som krävs av den här själv studie kursen för A
    Import-Module -Name Az -RequiredVersion 3.5.0
    Import-Module Az.IotHub -RequiredVersion 2.1.0
    Import-Module Az.Compute -RequiredVersion 3.5.0
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    az extension add --name azure-cli-ml
    ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 
 2. Deklarera variablerna som krävs av PowerShell-skriptet.
 

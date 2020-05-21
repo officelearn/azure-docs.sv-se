@@ -7,17 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: b521a3a035044e2f0c1b625df19d265cfa35b49a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 42e2419301b282685b2afe13782c2deb4f52823c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857941"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725881"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Hämta signatur-URI för delad åtkomst för din VM-avbildning
-
-> [!IMPORTANT]
-> Vi flyttar hanteringen av din virtuella Azure-dator med erbjudanden från Cloud Partner Portal till Partner Center. Följ anvisningarna i [Hämta signatur-URI för delad åtkomst till din VM-avbildning](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri) för Cloud Partner Portal för att hantera dina erbjudanden innan du migrerar dina erbjudanden.
 
 Den här artikeln beskriver hur du skapar en signatur för delad åtkomst (SAS) URI (Uniform Resource Identifier) för varje virtuell hård disk (VHD).
 
@@ -62,7 +59,7 @@ Det finns två vanliga verktyg som används för att skapa en SAS-adress (URL):
 
 9. Infoga ditt VHD-namn efter VHD-strängen i SAS-URI: n (inklusive ett snedstreck). Den sista SAS-URI: n bör se ut så här:
 
-    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`Om namnet på VDH till exempel är `TestRGVM2.vhd`, blir den RESULTERAnde SAS-URI: n:
+    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`Om namnet på VDH till exempel är `TestRGVM2.vhd` , blir den resulterande SAS-URI: n:
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
@@ -77,7 +74,7 @@ Det finns två vanliga verktyg som används för att skapa en SAS-adress (URL):
     az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
     ```
 
-3. Redigera filen om du vill använda följande parameter värden. Ange datum i UTC-format för UTC, `2020-04-01T00:00:00Z`till exempel.
+3. Redigera filen om du vill använda följande parameter värden. Ange datum i UTC-format för UTC, till exempel `2020-04-01T00:00:00Z` .
 
     * `<account-name>`– Namnet på ditt Azure Storage-konto
     * `<account-key>`– Din Azure Storage-konto nyckel
@@ -109,7 +106,7 @@ Det finns två vanliga verktyg som används för att skapa en SAS-adress (URL):
 
     `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`
 
-    Om till exempel namnet på den virtuella hård disken är `TestRGVM2.vhd`, blir SAS-URI: n:
+    Om till exempel namnet på den virtuella hård disken är `TestRGVM2.vhd` , blir SAS-URI: n:
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
@@ -121,8 +118,8 @@ Granska varje skapad SAS-URI genom att använda följande check lista för att k
 
 * URI: n ser ut så här:`<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
 * URI: n innehåller fil namnet för VHD-avbildningen, inklusive fil namns tillägget. VHD.
-* `sp=rl`visas nära mitten av din URI. Den här strängen visar `Read` att `List` och åtkomsten har angetts.
-* När `sr=c` detta visas innebär det att åtkomst till container nivå har angetts.
+* `sp=rl`visas nära mitten av din URI. Den här strängen visar att `Read` och `List` åtkomsten har angetts.
+* När `sr=c` Detta visas innebär det att åtkomst till container nivå har angetts.
 * Kopiera och klistra in URI: n i en webbläsare för att testa bloben (du kan avbryta åtgärden innan nedladdningen är klar).
 
 ## <a name="next-step"></a>Nästa steg

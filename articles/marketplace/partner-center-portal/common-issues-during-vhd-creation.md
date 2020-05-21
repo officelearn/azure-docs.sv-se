@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 04/09/2020
-ms.openlocfilehash: a47bece4df7263dbc29ec19510c3ea422bb3f4cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: addf85f3ed966f45472fec6ee15272574a0f840e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81266271"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724725"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Vanliga problem vid skapande av virtuell hård disk
-
-> [!NOTE]
-> Vi flyttar hanteringen av dina virtuella Azure-erbjudanden från Cloud Partner Portal till Partner Center. Innan du har migrerat dina erbjudanden fortsätter du att följa anvisningarna i [vanliga problem när du skapar en virtuell hård disk (FAQ)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues) i Cloud Partner Portal för att hantera dina erbjudanden.
 
 Vanliga frågor och svar (FAQ) omfattar vanliga problem som kan uppstå när du skapar en virtuell hård disk (VHD) för ditt erbjudande för virtuella Azure-datorer.
 

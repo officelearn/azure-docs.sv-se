@@ -1,15 +1,15 @@
 ---
-title: Installera programpaket på Compute-noder
+title: Distribuera programpaket till Compute-noder
 description: Använd funktionen programpaket i Azure Batch för att enkelt hantera flera program och versioner för installation på batch Compute-noder.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61e94ade21d8dd6fad2ba10dff87d4ba10333e3a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115626"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726884"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
 
@@ -123,7 +123,7 @@ I programinformationen kan du konfigurera följande inställningar för ditt pro
 ### <a name="add-a-new-application"></a>Lägg till ett nytt program
 Om du vill skapa ett nytt program lägger du till ett programpaket och anger ett nytt, unikt program-ID. Det första applikations paketet som du lägger till med det nya program-ID: t skapar också det nya programmet.
 
-Klicka på **program** > **Lägg till**.
+Klicka på **program**  >  **Lägg till**.
 
 ![Bladet ny program i Azure Portal][5]
 
@@ -159,7 +159,7 @@ När du har valt en fil, klickar du på **OK** för att starta överföringen ti
 > 
 
 ### <a name="add-a-new-application-package"></a>Lägg till ett nytt programpaket
-Om du vill lägga till en programpaket version för ett befintligt program väljer du ett program i fönstren **program** och klickar på **paket** > **Lägg till**.
+Om du vill lägga till en programpaket version för ett befintligt program väljer du ett program i fönstren **program** och klickar på **paket**  >  **Lägg till**.
 
 ![Bladet Lägg till programpaket i Azure Portal][8]
 
@@ -239,7 +239,7 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 ```
 
 ## <a name="execute-the-installed-applications"></a>Kör de installerade programmen
-De paket som du har angett för en pool eller aktivitet laddas ned och extraheras till en namngiven `AZ_BATCH_ROOT_DIR` katalog i noden. Batch skapar också en miljö variabel som innehåller sökvägen till den namngivna katalogen. Dina aktivitets kommando rader använder den här miljövariabeln för att referera till programmet på noden. 
+De paket som du har angett för en pool eller aktivitet laddas ned och extraheras till en namngiven katalog i `AZ_BATCH_ROOT_DIR` noden. Batch skapar också en miljö variabel som innehåller sökvägen till den namngivna katalogen. Dina aktivitets kommando rader använder den här miljövariabeln för att referera till programmet på noden. 
 
 På Windows-noder har variabeln följande format:
 
@@ -248,7 +248,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Ett exempel:
+På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Till exempel:
 
 ```
 Linux:

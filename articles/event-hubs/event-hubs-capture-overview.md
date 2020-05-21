@@ -13,17 +13,20 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 05/20/2020
 ms.author: shvija
-ms.openlocfilehash: c166f4cace6a8cc25b36a84f4614033801e69a51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3411b3e138778ca7ca1ffcfe14d8d6e84d76d4e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265017"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726102"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Avbilda händelser via Azure Event Hubs i Azure Blob Storage eller Azure Data Lake Storage
 Med Azure Event Hubs kan du automatiskt samla in strömmande data i Event Hubs i [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) eller [Azure Data Lake Storage gen 1-eller gen 2](https://azure.microsoft.com/services/data-lake-store/) -konto, med den extra flexibiliteten att ange en tid eller ett storleks intervall. Att konfigurera avbildningen är snabbt, det finns inga administrativa kostnader att köra den och skalar automatiskt med Event Hubs [data flödes enheter](event-hubs-scalability.md#throughput-units). Event Hubs Capture är det enklaste sättet att läsa in strömmande data i Azure och du kan fokusera på data bearbetning i stället för på data fångst.
+
+> [!NOTE]
+> Att konfigurera Event Hubs avbildning som ska användas Azure Data Lake Storage **gen 2** är detsamma som att konfigurera den för att använda en Azure-Blob Storage. Mer information finns i [konfigurera Event Hubs avbildning](event-hubs-capture-enable-through-portal.md). 
 
 Med Event Hubs Capture kan du bearbeta real tids-och batch-baserade pipeliner på samma ström. Det innebär att du kan bygga lösningar som växer med dina behov över tid. Oavsett om du bygger på batch-baserade system idag med ett öga mot framtida bearbetning i real tid, eller om du vill lägga till en effektiv kall väg till en befintlig real tids lösning, så kan Event Hubs samla ihop med strömmande data.
 
@@ -44,7 +47,7 @@ Med Event Hubs Capture kan du konfigurera ett fönster för att styra avbildning
 {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
 ```
 
-Observera att datum värden fylls med nollor. ett exempel på ett fil namn kan vara:
+Datum värdena fylls med nollor. ett exempel på ett fil namn kan vara:
 
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
@@ -129,7 +132,7 @@ Det här kommandot returnerar
 
 Du kan också använda Avro-verktyg för att konvertera filen till JSON-format och utföra annan bearbetning.
 
-Du kan utföra mer avancerad bearbetning genom att ladda ned och installera Avro för ditt val av plattform. När detta skrivs finns det tillgängliga implementeringar för C, C++, C\#, Java, NodeJS, perl, php, python och Ruby.
+Du kan utföra mer avancerad bearbetning genom att ladda ned och installera Avro för ditt val av plattform. När detta skrivs finns det tillgängliga implementeringar för C, C++, C \# , Java, NodeJS, perl, php, python och Ruby.
 
 Apache Avro har slutfört Komma igång guider för [Java][Java] och [python][Python]. Du kan också läsa artikeln [komma igång med Event Hubs Capture](event-hubs-capture-python.md) .
 
@@ -137,7 +140,7 @@ Apache Avro har slutfört Komma igång guider för [Java][Java] och [python][Pyt
 
 Event Hubs Capture mäts på samma sätt som data flödes enheter: per timme. Avgiften är direkt proportionell till antalet data flödes enheter som har köpts för namn området. När data flödes enheter höjs och minskar, ökar och minskar Event Hubs Infångnings mätare för att ge matchande prestanda. Mätarna inträffar i tandem. Pris information finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-Observera att insamlaren inte förbrukar utgångs kvoten när den faktureras separat. 
+Capture förbrukar inte utgående kvot eftersom den faktureras separat. 
 
 ## <a name="integration-with-event-grid"></a>Integrering med Event Grid 
 

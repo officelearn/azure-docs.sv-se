@@ -1,16 +1,15 @@
 ---
 title: Automatisk skalning av compute-noder i en Azure Batch-pool
 description: Aktivera automatisk skalning i en molnbaserad pool för att dynamiskt justera antalet datornoder i poolen.
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/24/2019
-ms.author: labrenne
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: b790ee286d9edd8cee04ef1db719be6395509be2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 786bd594b3344ce144893161ade9d53d1bddf358
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113569"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726816"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
 
@@ -39,7 +38,7 @@ Du kan tänka på automatiska skalnings formler som ett språk för autoskalning
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
 ```
 
-Formler innehåller vanligt vis flera instruktioner som utför åtgärder på värden som hämtas i tidigare-uttryck. Till exempel får vi först ett värde för `variable1`och skickar det sedan till en funktion för att fylla `variable2`:
+Formler innehåller vanligt vis flera instruktioner som utför åtgärder på värden som hämtas i tidigare-uttryck. Till exempel får vi först ett värde för `variable1` och skickar det sedan till en funktion för att fylla `variable2` :
 
 ```
 $variable1 = function1($ServiceDefinedVariable);
@@ -65,7 +64,7 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Med den här automatiska skalnings formeln skapas poolen ursprungligen med en enda virtuell dator. `$PendingTasks` Måttet definierar antalet uppgifter som körs eller placeras i kö. Formeln hittar det genomsnittliga antalet väntande aktiviteter under de senaste 180 sekunderna och ställer in `$TargetDedicatedNodes` variabeln enligt detta. Formeln ser till att mål antalet för dedikerade noder aldrig överskrider 25 virtuella datorer. När nya uppgifter skickas växer automatiskt poolen. När uppgifter har slutförts blir de virtuella datorerna en i taget och den automatiska skalnings formeln minskar poolen.
+Med den här automatiska skalnings formeln skapas poolen ursprungligen med en enda virtuell dator. `$PendingTasks`Måttet definierar antalet uppgifter som körs eller placeras i kö. Formeln hittar det genomsnittliga antalet väntande aktiviteter under de senaste 180 sekunderna och ställer in `$TargetDedicatedNodes` variabeln enligt detta. Formeln ser till att mål antalet för dedikerade noder aldrig överskrider 25 virtuella datorer. När nya uppgifter skickas växer automatiskt poolen. När uppgifter har slutförts blir de virtuella datorerna en i taget och den automatiska skalnings formeln minskar poolen.
 
 Den här formeln skalar dedikerade noder, men du kan ändra dem så att de även kan användas för att skala låg prioritets noder.
 
@@ -78,7 +77,7 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 $NodeDeallocationOption = taskcompletion;
 ```
 
-I det här exemplet skapas en pool som börjar med 25 låg prioritets noder. Varje gång en nod med låg prioritet avbryts ersätts den med en dedikerad nod. Som i det första exemplet förhindrar `maxNumberofVMs` variabeln poolen att överskrida 25 virtuella datorer. Det här exemplet är användbart för att dra nytta av virtuella datorer med låg prioritet samtidigt som du även ser till att endast ett fast antal preemptions sker under poolens livstid.
+I det här exemplet skapas en pool som börjar med 25 låg prioritets noder. Varje gång en nod med låg prioritet avbryts ersätts den med en dedikerad nod. Som i det första exemplet `maxNumberofVMs` förhindrar variabeln poolen att överskrida 25 virtuella datorer. Det här exemplet är användbart för att dra nytta av virtuella datorer med låg prioritet samtidigt som du även ser till att endast ett fast antal preemptions sker under poolens livstid.
 
 ## <a name="variables"></a>Variabler
 
@@ -100,7 +99,7 @@ Du kan hämta och ange värden för de här tjänstedefinierade variablerna för
 | $NodeDeallocationOption |Den åtgärd som inträffar när Compute-noder tas bort från en pool. Möjliga värden:<ul><li>**köa**om--standardvärdet. Avslutar uppgifter direkt och placerar dem i jobbkön igen så att de omplaneras. Den här åtgärden säkerställer att mål antalet noder når så snabbt som möjligt, men kan vara mindre effektivt, eftersom alla pågående aktiviteter avbryts och måste startas om, vilket slösar bort allt arbete som de redan har gjort. <li>**Avsluta**--avslutar uppgifter direkt och tar bort dem från jobbkön.<li>**taskcompletion**– väntar på att pågående aktiviteter ska slutföras och tar sedan bort noden från poolen. Använd det här alternativet för att undvika att aktiviteter avbryts och köas, vilket gör att det arbete som uppgiften har gjort avbryts. <li>**retaineddata**– väntar på att alla lokala uppgifter som kvarhålls på noden ska rensas innan noden tas bort från poolen.</ul> |
 
 > [!NOTE]
-> `$TargetDedicatedNodes` Variabeln kan också anges med aliaset `$TargetDedicated`. På samma sätt kan `$TargetLowPriorityNodes` variabeln anges med hjälp av alias `$TargetLowPriority`. Om både den fullständigt namngivna variabeln och dess alias anges av formeln, prioriteras värdet som är kopplat till den fullständigt namngivna variabeln.
+> `$TargetDedicatedNodes`Variabeln kan också anges med aliaset `$TargetDedicated` . På samma sätt `$TargetLowPriorityNodes` kan variabeln anges med hjälp av alias `$TargetLowPriority` . Om både den fullständigt namngivna variabeln och dess alias anges av formeln, prioriteras värdet som är kopplat till den fullständigt namngivna variabeln.
 >
 >
 
@@ -186,7 +185,7 @@ De här åtgärderna tillåts för de typer som anges i föregående avsnitt.
 | TimeInterval- *operatör* TimeInterval |<, <=, = =, >=, >,! = |double |
 | dubbel *operator* dubbel |&&  &#124;&#124; |double |
 
-När du testar ett dubbelt värde med en ternär`double ? statement1 : statement2`operator (), är noll **Sant**och noll är **falskt**.
+När du testar ett dubbelt värde med en ternär operator ( `double ? statement1 : statement2` ), är noll **Sant**och noll är **falskt**.
 
 ## <a name="functions"></a>Functions
 Dessa fördefinierade **funktioner** är tillgängliga som du kan använda för att definiera en formel för automatisk skalning.
@@ -213,11 +212,11 @@ Dessa fördefinierade **funktioner** är tillgängliga som du kan använda för 
 | tid (String dateTime = "") |timestamp |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar har skickats eller tidsstämpeln för datum/tid-strängen om den skickas. DateTime-format som stöds är W3C-DTF och RFC 1123. |
 | val (doubleVec v, dubbel i) |double |Returnerar värdet för det element som finns på plats i i Vector v, med start indexet noll. |
 
-Några av funktionerna som beskrivs i föregående tabell kan godkänna en lista som ett argument. Den kommaseparerade listan är en kombination av *dubbel* -och *doubleVec*. Ett exempel:
+Några av funktionerna som beskrivs i föregående tabell kan godkänna en lista som ett argument. Den kommaseparerade listan är en kombination av *dubbel* -och *doubleVec*. Till exempel:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
-*DoubleVecList* -värdet konverteras till en enda *doubleVec* före utvärdering. Om `v = [1,2,3]` `avg(v)` till exempel motsvarar anrop motsvarar anrop `avg(1,2,3)`. Anrop `avg(v, 7)` motsvarar anrop `avg(1,2,3,7)`.
+*DoubleVecList* -värdet konverteras till en enda *doubleVec* före utvärdering. Om till exempel `v = [1,2,3]` `avg(v)` motsvarar anrop motsvarar anrop `avg(1,2,3)` . Anrop `avg(v, 7)` motsvarar anrop `avg(1,2,3,7)` .
 
 ## <a name="obtain-sample-data"></a><a name="getsampledata"></a>Hämta exempel data
 
@@ -229,11 +228,11 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 
 | Metod | Beskrivning |
 | --- | --- |
-| GetSample() |`GetSample()` Metoden returnerar en Vector med data exempel.<br/><br/>Ett exempel är 30 sekunders värd för Mät data. Med andra ord hämtas exempel var 30: e sekund. Men enligt vad som anges nedan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Därför kan inte alla prover under en viss tids period vara tillgängliga för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`<br/>Anger antalet prover som ska hämtas från de senaste insamlade exemplen som samlats in.<br/><br/>`GetSample(1)`Returnerar det senaste tillgängliga exemplet. För mått som liknar `$CPUPercent`detta bör dock inte användas eftersom det är omöjligt att veta *när* exemplet samlades in. Det kan vara nyligen, eller på grund av system problem kan det vara mycket äldre. I sådana fall är det bättre att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Anger en tidsram för insamling av exempel data. Om du vill kan du också ange procent andelen exempel som måste vara tillgängliga i den begärda tids ramen.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`Returnerar 20 exempel om alla exempel under de senaste 10 minuterna finns i CPUPercent-historiken. Om den sista minuten i historiken inte var tillgänglig returneras dock bara 18 exempel. Om så är fallet:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`kan inte utföras eftersom endast 90 procent av exemplen är tillgängliga.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`skulle lyckas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Anger en tidsram för insamling av data, med både en start tid och en slut tid.<br/><br/>Som nämnts ovan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Ta hänsyn till `GetSample` den här fördröjningen när du använder-metoden. Se `GetSamplePercent` nedan. |
+| GetSample() |`GetSample()`Metoden returnerar en Vector med data exempel.<br/><br/>Ett exempel är 30 sekunders värd för Mät data. Med andra ord hämtas exempel var 30: e sekund. Men enligt vad som anges nedan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Därför kan inte alla prover under en viss tids period vara tillgängliga för utvärdering av en formel.<ul><li>`doubleVec GetSample(double count)`<br/>Anger antalet prover som ska hämtas från de senaste insamlade exemplen som samlats in.<br/><br/>`GetSample(1)`Returnerar det senaste tillgängliga exemplet. För mått som liknar `$CPUPercent` Detta bör dock inte användas eftersom det är omöjligt att veta *när* exemplet samlades in. Det kan vara nyligen, eller på grund av system problem kan det vara mycket äldre. I sådana fall är det bättre att använda ett tidsintervall som visas nedan.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Anger en tidsram för insamling av exempel data. Om du vill kan du också ange procent andelen exempel som måste vara tillgängliga i den begärda tids ramen.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)`Returnerar 20 exempel om alla exempel under de senaste 10 minuterna finns i CPUPercent-historiken. Om den sista minuten i historiken inte var tillgänglig returneras dock bara 18 exempel. Om så är fallet:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)`kan inte utföras eftersom endast 90 procent av exemplen är tillgängliga.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)`skulle lyckas.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Anger en tidsram för insamling av data, med både en start tid och en slut tid.<br/><br/>Som nämnts ovan uppstår en fördröjning mellan när ett exempel samlas in och när det är tillgängligt för en formel. Ta hänsyn till den här fördröjningen när du använder- `GetSample` metoden. Se `GetSamplePercent` nedan. |
 | GetSamplePeriod() |Returnerar den period med exempel som togs i en historisk exempel data uppsättning. |
 | Count () |Returnerar det totala antalet exempel i mått historiken. |
 | HistoryBeginTime() |Returnerar tidstämpeln för det äldsta tillgängliga data exemplet för måttet. |
-| GetSamplePercent() |Returnerar procent andelen exempel som är tillgängliga under ett angivet tidsintervall. Ett exempel:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Eftersom `GetSample` metoden Miss lyckas om procent andelen av exempel som returneras är mindre `samplePercent` än den angivna kan du använda `GetSamplePercent` metoden för att kontrol lera först. Sedan kan du utföra en alternativ åtgärd om det inte finns tillräckligt många exempel, utan att stoppa den automatiska skalnings utvärderingen. |
+| GetSamplePercent() |Returnerar procent andelen exempel som är tillgängliga under ett angivet tidsintervall. Till exempel:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Eftersom `GetSample` metoden Miss lyckas om procent andelen av exempel som returneras är mindre än den `samplePercent` angivna kan du använda `GetSamplePercent` metoden för att kontrol lera först. Sedan kan du utföra en alternativ åtgärd om det inte finns tillräckligt många exempel, utan att stoppa den automatiska skalnings utvärderingen. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Exempel, samplings procent och metoden *GetSample ()*
 Den grundläggande åtgärden för en autoskalning-formel är att hämta information om aktiviteter och resurser och sedan ändra Poolens storlek baserat på dessa data. Det är därför viktigt att du får en tydlig förståelse för hur autoskalning formler interagerar med mät data (exempel).
@@ -244,13 +243,13 @@ Batch-tjänsten tar regelbundet prover av aktivitets-och resurs mått och gör d
 
 **Samplings procent**
 
-När `samplePercent` skickas till- `GetSample()` metoden eller `GetSamplePercent()` metoden anropas, _procent_ refererar till en jämförelse mellan det totala antalet exempel som registreras av batch-tjänsten och antalet exempel som är tillgängliga för den automatiska skalnings formeln.
+När `samplePercent` skickas till `GetSample()` -metoden eller `GetSamplePercent()` metoden anropas, _procent_ refererar till en jämförelse mellan det totala antalet exempel som registreras av batch-tjänsten och antalet exempel som är tillgängliga för den automatiska skalnings formeln.
 
 Nu ska vi titta på en 10-minuters TimeSpan som exempel. Eftersom exempel registreras var 30: e sekund inom ett tidsintervall på 10 minuter skulle det maximala antalet exempel som registreras av batch bli 20 exempel (2 per minut). På grund av rapporterings mekanismen och andra problem i Azure kan det dock finnas 15 exempel som är tillgängliga för den automatiska skalnings formeln för läsning. Till exempel för den 10 minuters perioden kan bara 75% av det totala antalet inspelade prover vara tillgängliga för din formel.
 
 **GetSample () och exempel intervall**
 
-De automatiska skalnings formlerna kommer att växa och minska de pooler &mdash; som lägger till noder eller tar bort noder. Eftersom noder kostar dig pengar vill du se till att dina formler använder en intelligent analys metod som baseras på tillräckligt med data. Därför rekommenderar vi att du använder en trend analys typ analys i dina formler. Den här typen ökar och krymper dina pooler baserat på en mängd insamlade exempel.
+De automatiska skalnings formlerna kommer att växa och minska de pooler som &mdash; lägger till noder eller tar bort noder. Eftersom noder kostar dig pengar vill du se till att dina formler använder en intelligent analys metod som baseras på tillräckligt med data. Därför rekommenderar vi att du använder en trend analys typ analys i dina formler. Den här typen ökar och krymper dina pooler baserat på en mängd insamlade exempel.
 
 För att göra det använder `GetSample(interval look-back start, interval look-back end)` du för att returnera en Vector med exempel:
 
@@ -258,15 +257,15 @@ För att göra det använder `GetSample(interval look-back start, interval look-
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-När raden ovan utvärderas av batch returneras ett intervall med exempel som en vektor med värden. Ett exempel:
+När raden ovan utvärderas av batch returneras ett intervall med exempel som en vektor med värden. Till exempel:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
 ```
 
-När du har samlat in vektorn av exempel kan du använda funktioner som `min()`, `max()`och `avg()` för att härleda meningsfulla värden från det insamlade intervallet.
+När du har samlat in vektorn av exempel kan du använda funktioner som `min()` , `max()` och `avg()` för att härleda meningsfulla värden från det insamlade intervallet.
 
-För ytterligare säkerhet kan du tvinga en formel utvärdering att fungera om mindre än en viss samplings procent är tillgänglig under en viss tids period. När du tvingar fram en formel utvärdering som inte fungerar, instruerar du batch att upphöra med ytterligare utvärdering av formeln om den angivna procent andelen av exempel inte är tillgänglig. I detta fall görs ingen ändring av poolens storlek. Om du vill ange en nödvändig procent andel exempel för utvärderingen som ska lyckas anger du den som den tredje `GetSample()`parametern till. Här anges ett krav på 75 procent av proven:
+För ytterligare säkerhet kan du tvinga en formel utvärdering att fungera om mindre än en viss samplings procent är tillgänglig under en viss tids period. När du tvingar fram en formel utvärdering som inte fungerar, instruerar du batch att upphöra med ytterligare utvärdering av formeln om den angivna procent andelen av exempel inte är tillgänglig. I detta fall görs ingen ändring av poolens storlek. Om du vill ange en nödvändig procent andel exempel för utvärderingen som ska lyckas anger du den som den tredje parametern till `GetSample()` . Här anges ett krav på 75 procent av proven:
 
 ```
 $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
@@ -275,7 +274,7 @@ $runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * Ti
 Eftersom det kan uppstå en fördröjning i exempel tillgänglighet är det viktigt att alltid ange ett tidsintervall med en start tid som är äldre än en minut. Det tar ungefär en minut för exempel att spridas genom systemet, så exempel i intervallet `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` kanske inte är tillgängliga. Igen kan du använda parameter procent för `GetSample()` för att framtvinga ett visst exempel på procent krav.
 
 > [!IMPORTANT]
-> Vi **rekommenderar starkt** att du **inte *bara* förlitar `GetSample(1)` dig på i formler för autoskalning**. Detta beror `GetSample(1)` på att i stort sett är batch-tjänsten "ge mig det senaste exemplet, oavsett hur länge sedan du hämtade det." Eftersom det bara är ett enda exempel och det kan vara ett äldre exempel, kanske det inte är representativt för den större bilden av den senaste aktiviteten eller resursens tillstånd. Om du använder `GetSample(1)`ska du kontrol lera att den är en del av en större instruktion och inte den enda data punkt som formeln använder.
+> Vi **rekommenderar starkt** att du **inte *bara* förlitar dig på `GetSample(1)` i formler för autoskalning**. Detta beror på att i `GetSample(1)` stort sett är batch-tjänsten "ge mig det senaste exemplet, oavsett hur länge sedan du hämtade det." Eftersom det bara är ett enda exempel och det kan vara ett äldre exempel, kanske det inte är representativt för den större bilden av den senaste aktiviteten eller resursens tillstånd. Om du använder `GetSample(1)` ska du kontrol lera att den är en del av en större instruktion och inte den enda data punkt som formeln använder.
 >
 >
 
@@ -285,7 +284,7 @@ Du kan använda både resurs-och aktivitets mått när du definierar en formel. 
 
 <table>
   <tr>
-    <th>Mått</th>
+    <th>Metric</th>
     <th>Beskrivning</th>
   </tr>
   <tr>
@@ -337,7 +336,7 @@ Först ska vi definiera kraven för den nya autoskalning-formeln. Formeln bör:
 1. Begränsa alltid det maximala antalet dedikerade noder till 400.
 1. När du minskar antalet noder ska du inte ta bort noder som kör aktiviteterna. om det behövs väntar du tills aktiviteterna har avslut ATS för att ta bort noder.
 
-Om du vill öka antalet noder under hög CPU-användning definierar du instruktionen som fyller i en användardefinierad variabel (`$totalDedicatedNodes`) med ett värde som är 110 procent av det aktuella mål antalet dedikerade noder, men endast om den minsta genomsnittliga processor användningen under de senaste 10 minuterna var högre än 70 procent. Annars använder du värdet för det aktuella antalet dedikerade noder.
+Om du vill öka antalet noder under hög CPU-användning definierar du instruktionen som fyller i en användardefinierad variabel ( `$totalDedicatedNodes` ) med ett värde som är 110 procent av det aktuella mål antalet dedikerade noder, men endast om den minsta genomsnittliga processor användningen under de senaste 10 minuterna var högre än 70 procent. Annars använder du värdet för det aktuella antalet dedikerade noder.
 
 ```
 $totalDedicatedNodes =
@@ -380,12 +379,12 @@ Automatisk skalning av pooler kan konfigureras med någon av [batch SDK: erna](b
 Följ dessa steg om du vill skapa en pool med autoskalning aktiverat i .NET:
 
 1. Skapa poolen med [metoden batchclient. PoolOperations. CreatePool](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.createpool).
-1. Ange egenskapen [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) till `true`.
+1. Ange egenskapen [CloudPool. AutoScaleEnabled](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleenabled) till `true` .
 1. Ange egenskapen [CloudPool. AutoScaleFormula](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) med formeln för autoskalning.
 1. Valfritt Ange egenskapen [CloudPool. AutoScaleEvaluationInterval](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (Standardvärdet är 15 minuter).
 1. Genomför poolen med [CloudPool. commit](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commit) eller [CommitAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-Följande kodfragment skapar en pool med autoskalning som är aktive rad i .NET. Poolens formel för autoskalning anger mål antalet dedikerade noder till 5 på måndagar och 1 på varannan dag i veckan. [Intervallet för automatisk skalning](#automatic-scaling-interval) är inställt på 30 minuter. I det här och de andra C#- `myBatchClient` kodfragmenten i den här artikeln är en korrekt initierad instans av klassen [metoden batchclient][net_batchclient] .
+Följande kodfragment skapar en pool med autoskalning som är aktive rad i .NET. Poolens formel för autoskalning anger mål antalet dedikerade noder till 5 på måndagar och 1 på varannan dag i veckan. [Intervallet för automatisk skalning](#automatic-scaling-interval) är inställt på 30 minuter. I det här och de andra C#-kodfragmenten i den här artikeln `myBatchClient` är en korrekt initierad instans av klassen [metoden batchclient][net_batchclient] .
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
@@ -463,7 +462,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Aktivera automatisk skalning i en befintlig pool
 
-Varje batch-SDK är ett sätt att aktivera autoskalning. Ett exempel:
+Varje batch-SDK är ett sätt att aktivera autoskalning. Till exempel:
 
 * [Metoden batchclient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (batch .net)
 * [Aktivera automatisk skalning på en pool][rest_enableautoscale] (REST API)
@@ -496,7 +495,7 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
 ### <a name="update-an-autoscale-formula"></a>Uppdatera en autoskalning-formel
 
-Om du vill uppdatera formeln i en befintlig pool med autoskalning kan du anropa åtgärden för att aktivera automatisk skalning igen med den nya formeln. Om autoskalning till exempel redan är aktiverat `myexistingpool` när följande .NET-kod körs, ersätts den automatiska skalnings formeln med innehållet i. `myNewFormula`
+Om du vill uppdatera formeln i en befintlig pool med autoskalning kan du anropa åtgärden för att aktivera automatisk skalning igen med den nya formeln. Om autoskalning till exempel redan är aktiverat `myexistingpool` när följande .NET-kod körs, ersätts den automatiska skalnings formeln med innehållet i `myNewFormula` .
 
 ```csharp
 await myBatchClient.PoolOperations.EnableAutoScaleAsync(
@@ -518,7 +517,7 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
 Du kan utvärdera en formel innan du använder den i en pool. På så sätt kan du testa formeln för att se hur dess uttryck utvärderas innan du infogar formeln i produktion.
 
-Om du vill utvärdera en autoskalning-formel måste du först aktivera autoskalning på poolen med en giltig formel. Om du vill testa en formel i en pool som ännu inte har aktiverat autoskalning, använder du formeln `$TargetDedicatedNodes = 0` med en rad när du först aktiverar autoskalning. Använd sedan något av följande för att utvärdera den formel som du vill testa:
+Om du vill utvärdera en autoskalning-formel måste du först aktivera autoskalning på poolen med en giltig formel. Om du vill testa en formel i en pool som ännu inte har aktiverat autoskalning, använder du formeln med en rad `$TargetDedicatedNodes = 0` när du först aktiverar autoskalning. Använd sedan något av följande för att utvärdera den formel som du vill testa:
 
 * [Metoden batchclient. PoolOperations. EvaluateAutoScale](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) eller [EvaluateAutoScaleAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
@@ -659,7 +658,7 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
-`$curTime`kan justeras för att avspegla din lokala tidszon genom att `time()` lägga till produkten av `TimeZoneInterval_Hour` och din UTC-förskjutning. Används `$curTime = time() + (-6 * TimeInterval_Hour);` till exempel för Mountain, sommar tid (MDT). Tänk på att förskjutningen skulle behöva justeras i början och slutet av sommar tid (om tillämpligt).
+`$curTime`kan justeras för att avspegla din lokala tidszon genom att lägga till `time()` produkten av `TimeZoneInterval_Hour` och din UTC-förskjutning. Används till exempel `$curTime = time() + (-6 * TimeInterval_Hour);` för Mountain, sommar tid (MDT). Tänk på att förskjutningen skulle behöva justeras i början och slutet av sommar tid (om tillämpligt).
 
 ### <a name="example-2-task-based-adjustment"></a>Exempel 2: uppgifts-baserad justering
 

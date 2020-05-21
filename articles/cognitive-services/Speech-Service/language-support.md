@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 28c5c1258c0733cd23f7c4ad3c901360461d5bdc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 93dc831fa631a28b918ef5015a3c9ff107d41541
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682137"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726085"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Språk-och röst stöd för tal tjänsten
 
@@ -24,7 +24,11 @@ Språk stöd varierar beroende på funktioner i tal tjänster. Följande tabelle
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Både Microsoft Speech SDK och REST API stöder följande språk (lokala). För att förbättra noggrannheten erbjuds anpassning för en delmängd av språken genom uppladdning av ljud + mänskligt avskrifter eller relaterad text: meningar. Uttal-anpassning erbjuds genom uppladdning av relaterad text: uttal. Läs mer om anpassning [här](how-to-custom-speech.md).
+Både Microsoft Speech SDK och REST API stöder följande språk (lokala). 
+
+För att förbättra noggrannheten erbjuds anpassning för en delmängd av språken genom uppladdning av **ljud + mänskligt avskrifter** eller **relaterad text: meningar**. Mer information om anpassning finns i [Kom igång med Custom Speech](how-to-custom-speech.md).
+
+Mer information om hur du kan förbättra uttal finns i [förbättra en modell för Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
 
 <!--
 To get the AM and ML bits:
@@ -36,14 +40,14 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Nationell inställning  | Språk                          | Stöds | Anpassningar                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Ja       | Inga                                                |
+| `ar-AE` | Arabiska (Förenade Arabemiraten)                      | Ja       | Nej                                                |
 | `ar-BH` | Arabiska (Bahrain), modern standard | Ja       | Språkmodell                                    |
 | `ar-EG` | Arabiska (Egypten)                    | Ja       | Språkmodell                                    |
-| `ar-IL` | Arabiska (Israel)                   | Ja       | Inga                                                |
-| `ar-KW` | Arabiska (Kuwait)                   | Ja       | Inga                                                |
-| `ar-PS` | Arabiska (Palestina)                | Ja       | Inga                                                |
-| `ar-QA` | Arabiska (Qatar)                    | Ja       | Inga                                                |
-| `ar-SA` | Arabiska (Saudiarabien)             | Ja       | Inga                                                |
+| `ar-IL` | Arabiska (Israel)                   | Ja       | Nej                                                |
+| `ar-KW` | Arabiska (Kuwait)                   | Ja       | Nej                                                |
+| `ar-PS` | Arabiska (Palestina)                | Ja       | Nej                                                |
+| `ar-QA` | Arabiska (Qatar)                    | Ja       | Nej                                                |
+| `ar-SA` | Arabiska (Saudiarabien)             | Ja       | Nej                                                |
 | `ar-SY` | Arabiska (Syrien)                    | Ja       | Språkmodell                                    |
 | `ca-ES` | Katalanska                           | Ja       | Språkmodell                                    |
 | `da-DK` | Danska (Danmark)                  | Ja       | Språkmodell                                    |
@@ -73,9 +77,9 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ru-RU` | Ryska (Ryssland)                  | Ja       | Akustisk modell<br>Språkmodell                  |
 | `sv-SE` | Svenska (Sverige)                  | Ja       | Språkmodell                                    |
 | `ta-IN` | Tamiliska (Indien)                     | Ja       | Språkmodell                                    |
-| `te-IN` | Telugu (Indien)                    | Ja       | Inga                                                |
-| `th-TH` | Thailändska (Thailand)                   | Ja       | Inga                                                |
-| `tr-TR` | Turkiska (Turkiet)                  | Ja       | Inga                                                |
+| `te-IN` | Telugu (Indien)                    | Ja       | Nej                                                |
+| `th-TH` | Thailändska (Thailand)                   | Ja       | Nej                                                |
+| `tr-TR` | Turkiska (Turkiet)                  | Ja       | Språkmodell                                    |
 | `zh-CN` | Kinesiska (mandariner, förenklad)    | Ja       | Akustisk modell<br>Språkmodell                  |
 | `zh-HK` | Kinesiska (kantonesiska, traditionell)  | Ja       | Språkmodell                                    |
 | `zh-TW` | Kinesiska (Taiwan-mandariner)      | Ja       | Språkmodell                                    |
@@ -95,29 +99,29 @@ Neurala röster kan användas för att göra interaktioner med chattrobotar och 
 
 Mer information om regional tillgänglighet finns i [regioner](regions.md#standard-and-neural-voices).
 
-|Nationell inställning  | Språk            | Kön | Röst namn  | Stöd för två språk | Format stöd |
-|--|--|--|--|--|--|
-| `de-DE` | Tyska (Tyskland)    | Kvinna | "de-KatjaNeural" | Ja. Engelska (USA) | Allmänt |
-| `en-AU` | Engelska (Australien) | Kvinna |  "en-AU-NatashaNeural" | Inga | Allmänt |
-| `en-CA` | Engelska (Kanada)    | Kvinna |  "en-CA-ClaraNeural"| Inga | Allmänt |
-| `en-GB` | Engelska (Storbritannien)        | Kvinna |  "en-GB-LibbyNeural"| Inga | Allmänt |
-|  |      | Kvinna |  "en-GB-MiaNeural" | Inga | Allmänt |
-| `en-US` | Engelska (USA)        | Kvinna |  "en-US-AriaNeural"| Inga | Allmänt, flera röst format är tillgängliga |
-|  |      | Man   | "en-US-GuyNeural" | Inga | Allmänt |
-| `es-ES` | Spanska (Spanien)     | Kvinna |  "es-ES-ElviraNeural"| Ja. Engelska (USA) | Allmänt |
-| `es-MX` | Spanska (Mexiko)    | Kvinna |  "es-MX-DaliaNeural" | Ja. Engelska (USA) | Allmänt |
-| `fr-CA` | Franska (Kanada)     | Kvinna |  "fr-CA-SylvieNeural" | Ja. Engelska (USA) | Allmänt |
-| `fr-FR` | Franska (Frankrike)     | Kvinna | "fr-FR-DeniseNeural"  | Ja. Engelska (USA) | Allmänt |
-| `it-IT` | Italienska (Italien)     | Kvinna |  "IT-ElsaNeural"  | Ja. Engelska (USA) | Allmänt |
-| `ja-JP` | Japanska            | Kvinna |  "ja-JP-NanamiNeural" | Ja. Engelska (USA) | Allmänt |
-| `ko-KR` | Koreanska              | Kvinna |  "ko-KR-SunHiNeural" | Ja. Engelska (USA) | Allmänt |
-| `nb-NO` | Norska           | Kvinna | "NB-NO-IselinNeural" | Inga | Allmänt |
-| `pt-BR` | Portugisiska (Brasilien) | Kvinna |  "pt-BR-FranciscaNeural" | Inga | Allmänt |
-| `tr-TR` | Turkiska             | Kvinna | "TR-TR-EmelNeural" | Inga | Allmänt |
-| `zh-CN` | Kinesiska (mandariner, förenklad)  | Kvinna |  "zh-CN-XiaoxiaoNeural"  | Ja. Engelska (USA) | Allmänt, flera röst format är tillgängliga |
-|  |  | Kvinna |  "zh-CN-XiaoyouNeural"  | Ja. Engelska (USA) | Röst för barn, optimerad för artikel-berättarröst |
-|  |  | Man |  "zh-CN-YunyangNeural"  | Ja. Engelska (USA) | Optimerad för nyhets läsning, flera röst format är tillgängliga |
-|  |  | Man |  "zh-CN-YunyeNeural"  | Inga | Optimerad för artikel-berättarröst |
+|Nationell inställning  | Språk            | Kön | Röst namn | Format stöd |
+|--|--|--|--|--|
+| `de-DE` | Tyska (Tyskland)                | Kvinna | "de-KatjaNeural"      | Allmänt |
+| `en-AU` | Engelska (Australien)             | Kvinna | "en-AU-NatashaNeural"    | Allmänt |
+| `en-CA` | Engelska (Kanada)                | Kvinna | "en-CA-ClaraNeural"      | Allmänt |
+| `en-GB` | Engelska (Storbritannien)                    | Kvinna | "en-GB-LibbyNeural"      | Allmänt |
+|         |                                 | Kvinna | "en-GB-MiaNeural"        | Allmänt |
+| `en-US` | Engelska (USA)                    | Kvinna | "en-US-AriaNeural"       | Allmänt, flera röst format är tillgängliga |
+|         |                                 | Man   | "en-US-GuyNeural"        | Allmänt |
+| `es-ES` | Spanska (Spanien)                 | Kvinna | "es-ES-ElviraNeural"     | Allmänt |
+| `es-MX` | Spanska (Mexiko)                | Kvinna | "es-MX-DaliaNeural"      | Allmänt |
+| `fr-CA` | Franska (Kanada)                 | Kvinna | "fr-CA-SylvieNeural"     | Allmänt |
+| `fr-FR` | Franska (Frankrike)                 | Kvinna | "fr-FR-DeniseNeural"     | Allmänt |
+| `it-IT` | Italienska (Italien)                 | Kvinna | "IT-ElsaNeural"       | Allmänt |
+| `ja-JP` | Japanska                        | Kvinna | "ja-JP-NanamiNeural"     | Allmänt |
+| `ko-KR` | Koreanska                          | Kvinna | "ko-KR-SunHiNeural"      | Allmänt |
+| `nb-NO` | Norska                       | Kvinna | "NB-NO-IselinNeural"     | Allmänt |
+| `pt-BR` | Portugisiska (Brasilien)             | Kvinna | "pt-BR-FranciscaNeural"  | Allmänt |
+| `tr-TR` | Turkiska                         | Kvinna | "TR-TR-EmelNeural"       | Allmänt |
+| `zh-CN` | Kinesiska (mandariner, förenklad)  | Kvinna | "zh-CN-XiaoxiaoNeural"   | Allmänt, flera röst format är tillgängliga |
+|         |                                 | Kvinna | "zh-CN-XiaoyouNeural"    | Röst för barn, optimerad för artikel-berättarröst |
+|         |                                 | Man   | "zh-CN-YunyangNeural"    | Optimerad för nyhets läsning, flera röst format är tillgängliga |
+|         |                                 | Man   | "zh-CN-YunyeNeural"      | Optimerad för artikel-berättarröst |
 
 > [!IMPORTANT]
 > `en-US-JessaNeural`Rösten har ändrats till `en-US-AriaNeural` . Om du använde "Jessa" tidigare, konvertera till "Aria".

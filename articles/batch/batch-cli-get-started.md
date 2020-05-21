@@ -1,15 +1,15 @@
 ---
 title: Kom igång med Azure CLI för batch
 description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att hantera Azure Batch-tjänstens resurser
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9aa9a43dd036b4a547d1bff85b4431afcf74e23
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117377"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726799"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -28,7 +28,7 @@ Du kan köra senaste Azure CLI i [Azure Cloud Shell](../cloud-shell/overview.md)
 
 ## <a name="command-help"></a>Kommandohjälp
 
-Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Ett exempel:
+Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Till exempel:
 
 * Om du vill få hjälp med `az`-kommandot anger du: `az -h`
 * Om du vill hämta en lista över alla Batch-kommandon i CLI använder du: `az batch -h`
@@ -111,7 +111,7 @@ Se [CLI-skriptexemplen](cli-samples.md) för att utföra vanliga uppgifter med B
 
 ## <a name="json-files-for-resource-creation"></a>JSON-filer för resursskapande
 
-När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Ett exempel:
+När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Till exempel:
 
 ```azurecli
 az batch pool create my_batch_pool.json

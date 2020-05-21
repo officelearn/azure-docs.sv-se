@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 60771d5a188df5dfeca3530a551a116c870e63f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82149335"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722464"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Snabb start: skapa ett Service Fabric kluster med Resource Manager-mall
 
@@ -91,7 +91,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype). Mallen för den här artikeln är för lång för att kunna visas här. Information om hur du visar mallen https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.jsonfinns i.
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Mallen för den här artikeln är för lång för att kunna visas här. Om du vill visa mallen går du till filen [azuredeploy. JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) .
 
 Flera Azure-resurser har definierats i mallen:
 
@@ -111,9 +111,9 @@ Du hittar fler mallar som är relaterade till Azure Service Fabric i [Azure snab
 * **kluster** namn matchar värdet du angav för *CertDNSName* när du skapade ditt kluster certifikat
 * **adminUserName** är ett annat värde än standardvärdet *generation-Unique*
 * **adminPassword** är ett annat värde än standard-token för *GENERATIONs lösen ord*
-* **certificateThumbprint**, **sourceVaultResourceId**och **certificateUrlValue** är en tom sträng (`""`)
+* **certificateThumbprint**, **sourceVaultResourceId**och **certificateUrlValue** är en tom sträng ( `""` )
 
-Ett exempel:
+Till exempel:
 
 ```json
 {
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="review-deployed-resources"></a>Granska distribuerade resurser
 
-När distributionen är klar söker du `managementEndpoint` efter värdet i utdata och öppnar adressen i en webbläsare för att Visa klustret i [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md).
+När distributionen är klar söker du efter `managementEndpoint` värdet i utdata och öppnar adressen i en webbläsare för att Visa klustret i [Service Fabric Explorer](./service-fabric-visualizing-your-cluster.md).
 
 ![Service Fabric Explorer visar nya kluster](./media/quickstart-cluster-template/service-fabric-explorer.png)
 

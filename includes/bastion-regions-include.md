@@ -1,25 +1,25 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 03/05/2020
+ms.date: 05/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5190804180612e885b226f9b00d82b8d2f528a8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b4cdb787fe65c52a77fa4761a65e9108e7927c40
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78669185"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721138"
 ---
 >[!NOTE]
 >Vi arbetar hårt för att lägga till ytterligare regioner. När en region läggs till läggs den till i listan.
 >
 
-**Amerika**
+**Nord- och Sydamerika**
 * Brasilien, södra
 * Kanada, centrala
 * USA, centrala
@@ -35,6 +35,8 @@ ms.locfileid: "78669185"
 * Frankrike, centrala
 * Europa, norra
 * Östra Norge
+* Norge, väst
+* Schweiz, norra
 * Storbritannien, södra
 * Storbritannien, västra
 * Europa, västra
@@ -49,6 +51,7 @@ ms.locfileid: "78669185"
 * Sydkorea, centrala
 * Sydkorea, södra
 * Sydostasien
+* Indien, centrala
 * Indien, västra
 
 **Mellanöstern och Afrika**

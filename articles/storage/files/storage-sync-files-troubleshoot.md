@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 062fa867115ea90dd129cac9c71ac6d9df6f3de2
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801324"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725864"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -161,7 +161,7 @@ Det här felet uppstår om gränsen för serverslutpunkter per server uppnås. A
 Det här felet uppstår om en annan serverslutpunkt redan synkroniserar den angivna serversökvägen. Azure File Sync har inte stöd för att flera serverslutpunkter synkroniserar samma katalog eller volym.
 
 <a id="-2160590967"></a>**Det gick inte att skapa server slut punkten, med följande fel: "MgmtServerJobFailed" (felkod:-2160590967 eller 0x80c80077)**  
-Det här felet uppstår om sökvägen till Server slut punkten innehåller överblivna filer på nivån. Om en server slut punkt nyligen har tagits bort väntar du tills rensningen av filer på den överblivna nivån har slutförts. Händelse-ID 6662 loggas i händelse loggen för telemetri när den överblivna nivån filer rensa har startat. Händelse-ID 6661 loggas när rensningen av filer på den överblivna nivån har slutförts och en server slut punkt kan återskapas med hjälp av sökvägen. Om det inte går att skapa en server slut punkt efter att händelse-ID 6661 har loggats, tar du bort de överblivna filerna på nivån genom att utföra stegen som dokumenteras i de [skiktade filerna är inte tillgängliga på servern när du har tagit bort ett Server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) avsnitt
+Det här felet uppstår om sökvägen till Server slut punkten innehåller överblivna filer på nivån. Om en server slut punkt nyligen har tagits bort väntar du tills rensningen av filer på den överblivna nivån har slutförts. Händelse-ID 6662 loggas i händelse loggen för telemetri när den överblivna nivån filer rensa har startat. Händelse-ID 6661 loggas när rensningen av filer på den överblivna nivån har slutförts och en server slut punkt kan återskapas med hjälp av sökvägen. Om det inte går att skapa en server slut punkt efter att nivån rensas har slutförts, eller om händelse-ID 6661 inte kan hittas i händelse loggen för telemetri på grund av händelse logg förnyelse, tar du bort de överblivna filerna genom att följa stegen som dokumenteras i de [skiktade filerna är inte tillgängliga på servern efter att du har tagit bort ett Server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) avsnitt.
 
 <a id="-2134347757"></a>**Det gick inte att ta bort Server slut punkten, med det här felet: "MgmtServerJobExpired" (felkod:-2134347757 eller 0x80c87013)**  
 Det här felet uppstår om servern är offline eller inte har någon nätverksanslutning. Om servern inte längre är tillgänglig avregistrerar du servern i portalen, vilket tar bort serverslutpunkterna. Om du vill ta bort Server slut punkterna följer du stegen som beskrivs i [avregistrera en server med Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
@@ -221,13 +221,13 @@ En server slut punkt kan inte logga synkroniseringsåtgärden under flera timmar
 Det här problemet förväntas om du skapar en moln slut punkt och använder en Azure-filresurs som innehåller data. Ändrings uppräknings jobbet som söker efter ändringar i Azure-filresursen måste slutföras innan filer kan synkroniseras mellan moln-och Server slut punkter. Tiden för att slutföra jobbet beror på storleken på namn området i Azure-filresursen. Server slut punktens hälsa bör uppdateras när ändrings uppräknings jobbet har slutförts.
 
 ### <a name="how-do-i-monitor-sync-health"></a><a id="broken-sync"></a>Hur övervakar jag synkroniseringens status?
-# <a name="portal"></a>[Portalen](#tab/portal1)
+# <a name="portal"></a>[Portal](#tab/portal1)
 I varje Sync-grupp kan du öka detalj nivån för de enskilda Server slut punkterna för att se status för de senaste slutförda Sync-sessionerna. En grön hälso kolumn och filer som inte synkroniserar värdet 0 anger att synkroniseringen fungerar som förväntat. Om detta inte är fallet, se nedan för en lista över vanliga synkroniseringsfel och hur du hanterar filer som inte synkroniseras. 
 
 ![En skärm bild av Azure Portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 # <a name="server"></a>[Server](#tab/server)
-Gå till serverns telemetridata, som du hittar i Loggboken på `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Händelse 9102 motsvarar en slutförd Sync-session. för den senaste synkroniseringens synkroniseringsstatus söker du efter den senaste händelsen med ID 9102. SyncDirection anger om den här sessionen har laddats upp eller laddats ned. Om HResult är 0 lyckades Sync-sessionen. Ett HResult som inte är noll innebär att det uppstod ett fel under synkroniseringen. nedan visas en lista över vanliga fel. Om PerItemErrorCount är större än 0 innebär det att vissa filer eller mappar inte har synkroniserats korrekt. Det är möjligt att ha ett HResult på 0, men ett PerItemErrorCount som är större än 0.
+Gå till serverns telemetridata, som du hittar i Loggboken på `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` . Händelse 9102 motsvarar en slutförd Sync-session. för den senaste synkroniseringens synkroniseringsstatus söker du efter den senaste händelsen med ID 9102. SyncDirection anger om den här sessionen har laddats upp eller laddats ned. Om HResult är 0 lyckades Sync-sessionen. Ett HResult som inte är noll innebär att det uppstod ett fel under synkroniseringen. nedan visas en lista över vanliga fel. Om PerItemErrorCount är större än 0 innebär det att vissa filer eller mappar inte har synkroniserats korrekt. Det är möjligt att ha ett HResult på 0, men ett PerItemErrorCount som är större än 0.
 
 Nedan visas ett exempel på en lyckad uppladdning. För det kortfattat är det bara vissa av de värden som finns i varje 9102-händelse i listan nedan. 
 
@@ -258,7 +258,7 @@ Synkronisering av sessioner fungerar ibland inte generellt eller har en PerItemE
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Hur övervakar jag förloppet för en pågående synkronisering?
-# <a name="portal"></a>[Portalen](#tab/portal1)
+# <a name="portal"></a>[Portal](#tab/portal1)
 I Sync-gruppen går du till Server slut punkten i fråga och tittar på avsnittet Synkronisera aktivitet för att se hur många filer som har överförts eller laddats ned i den aktuella synkroniseringen. Observera att denna status kommer att fördröjas med cirka 5 minuter, och om din Sync-session är tillräckligt liten för att kunna slutföras inom den här perioden, kanske den inte rapporteras i portalen. 
 
 # <a name="server"></a>[Server](#tab/server)
@@ -276,7 +276,7 @@ PerItemErrorCount: 1006.
 ---
 
 ### <a name="how-do-i-know-if-my-servers-are-in-sync-with-each-other"></a>Hur vet jag att servrarna är synkroniserade med varandra?
-# <a name="portal"></a>[Portalen](#tab/portal1)
+# <a name="portal"></a>[Portal](#tab/portal1)
 Kontrol lera följande för varje server i en specifik Sync-grupp:
 - Tidsstämplar för senaste försök till synkronisering för både överföring och nedladdning har nyligen gjorts.
 - Statusen är grön för både överföring och hämtning.
@@ -284,7 +284,7 @@ Kontrol lera följande för varje server i en specifik Sync-grupp:
 - Fältet filer som inte synkroniseras är 0 för både överföring och hämtning.
 
 # <a name="server"></a>[Server](#tab/server)
-Titta på de slutförda synkroniseringarna, som är markerade med 9102 händelser i händelse loggen för telemetri för varje server (i Loggboken går du `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`till). 
+Titta på de slutförda synkroniseringarna, som är markerade med 9102 händelser i händelse loggen för telemetri för varje server (i Loggboken går du till `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` ). 
 
 1. På en specifik server vill du se till att de senaste överförings-och nedladdnings sessionerna har slutförts. Det gör du genom att kontrol lera att HResult-och PerItemErrorCount är 0 för både överföring och hämtning (fältet SyncDirection visar om en specifik session är en överförings-eller hämtnings session). Observera att om du inte ser en nyligen slutförd svarsomgång är det troligt att en Sync-session pågår, vilket är förväntat om du precis har lagt till eller ändrat en stor mängd data.
 2. När en server är helt uppdaterad med molnet och inte har några ändringar att synkronisera i båda riktningarna, visas tomma Sync-sessioner. Dessa anges genom att ladda upp och ladda ned händelser där alla Sync *-fält (SyncFileCount, SyncDirCount, SyncTombstoneCount och SyncSizeBytes) är noll, vilket innebär att det inte fanns något att synkronisera. Observera att dessa tomma Sync-sessioner inte kan förekomma på servrar med hög omsättning eftersom det alltid finns något nytt att synkronisera. Om det inte finns någon Sync-aktivitet bör de inträffa var 30: e minut. 
@@ -884,7 +884,7 @@ Felet uppstår när en data inmatnings åtgärd överskrider tids gränsen. Det 
 
 ### <a name="common-troubleshooting-steps"></a>Vanliga fel söknings steg
 <a id="troubleshoot-storage-account"></a>**Kontrol lera att lagrings kontot finns.**  
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Navigera till Sync-gruppen i tjänsten för synkronisering av lagring.
 2. Välj moln slut punkten i Sync-gruppen.
 3. Notera namnet på Azure-filresursen i fönstret öppna.
@@ -967,7 +967,7 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Se till att Azure-filresursen finns.**  
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Klicka på **Översikt** i den vänstra innehålls förteckningen för att gå tillbaka till huvud sidan för lagrings kontot.
 2. Välj **filer** om du vill visa listan över fil resurser.
 3. Kontrol lera att fil resursen som moln slut punkten refererar till visas i listan över fil resurser (du bör notera detta i steg 1 ovan).
@@ -986,7 +986,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Se till att Azure File Sync har åtkomst till lagrings kontot.**  
-# <a name="portal"></a>[Portalen](#tab/azure-portal)
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 1. Klicka på **åtkomst kontroll (IAM)** i den vänstra innehålls förteckningen.
 1. Klicka på fliken **roll tilldelningar** i listan över användare och program (*tjänstens huvud namn*) som har åtkomst till ditt lagrings konto.
 1. Kontrol lera att **Microsoft. StorageSync** eller **hybrid File syncs tjänsten** (gammalt program namn) visas i listan med rollen **läsare och data åtkomst** . 
@@ -1078,7 +1078,7 @@ Om filer inte kan Azure Files till nivån:
 
    2. Kontrol lera att servern är ansluten till Internet. 
    3. Verifiera Azure File Sync filter driv rutiner (StorageSync. sys och StorageSyncGuard. sys) körs:
-       - Kör `fltmc`i en upphöjd kommando tolk. Kontrol lera att fil system filter driv rutinerna StorageSync. sys och StorageSyncGuard. sys finns med i listan.
+       - Kör i en upphöjd kommando tolk `fltmc` . Kontrol lera att fil system filter driv rutinerna StorageSync. sys och StorageSyncGuard. sys finns med i listan.
 
 > [!NOTE]
 > Händelse-ID 9003 loggas en gång i timmen i händelse loggen för telemetri om en fil inte går att skikta (en händelse loggas per felkod). Kontrol lera avsnittet [nivåer fel och reparation](#tiering-errors-and-remediation) för att se om reparations stegen visas för felkoden.
@@ -1118,7 +1118,7 @@ Om filerna inte kan återkallas:
     2. Kontrol lera att servern är ansluten till Internet. 
     3. Öppna snapin-modulen tjänster i MMC och kontrol lera att FileSyncSvc (Storage Sync Agent Service) körs.
     4. Verifiera Azure File Sync filter driv rutiner (StorageSync. sys och StorageSyncGuard. sys) körs:
-        - Kör `fltmc`i en upphöjd kommando tolk. Kontrol lera att fil system filter driv rutinerna StorageSync. sys och StorageSyncGuard. sys finns med i listan.
+        - Kör i en upphöjd kommando tolk `fltmc` . Kontrol lera att fil system filter driv rutinerna StorageSync. sys och StorageSyncGuard. sys finns med i listan.
 
 > [!NOTE]
 > Händelse-ID 9006 loggas en gång per timme i händelse loggen för telemetri om en fil inte kan återkallas (en händelse loggas per felkod). Kontrol lera avsnittet [återkalla fel och reparation](#recall-errors-and-remediation) för att se om reparations stegen visas för felkoden.
@@ -1243,7 +1243,7 @@ Om du stöter på problem med Azure File Sync på en server börjar du med att u
 2. Kontrol lera att tjänsten Azure File Sync körs på servern:
     - Öppna snapin-modulen tjänster i MMC och kontrol lera att tjänsten Storage Sync agent (FileSyncSvc) körs.
 3. Verifiera Azure File Sync filter driv rutiner (StorageSync. sys och StorageSyncGuard. sys) körs:
-    - Kör `fltmc`i en upphöjd kommando tolk. Kontrol lera att fil system filter driv rutinerna StorageSync. sys och StorageSyncGuard. sys finns med i listan.
+    - Kör i en upphöjd kommando tolk `fltmc` . Kontrol lera att fil system filter driv rutinerna StorageSync. sys och StorageSyncGuard. sys finns med i listan.
 
 Om problemet inte är löst kör du AFSDiag-verktyget och skickar dess zip-fil till support teknikern som har tilldelats ditt ärende för ytterligare diagnos.
 

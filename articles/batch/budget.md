@@ -1,14 +1,14 @@
 ---
 title: Kostnads analys och budget
 description: Lär dig hur du kan få en kostnads analys och ange en budget för de underliggande beräknings resurserna och program varu licenser som används för att köra batch-arbetsbelastningar.
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
-ms.openlocfilehash: c3c3203882d003d7fbb5f9d5092a1c93886f313a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117496"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725779"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Kostnads analys och budgetar för Azure Batch
 
@@ -43,7 +43,7 @@ Du kan skapa budgetar och utgifts aviseringar för dina batch-pooler eller batch
 1. I Azure Portal väljer du **Cost Management + fakturering** i det vänstra navigerings fältet.
 1. Välj din prenumeration i avsnittet **Mina prenumerationer**
 1. Gå till **kostnads analys** under **Cost Management** avsnittet i det vänstra navigerings fältet, som visar en vy så här:
-1. Välj **Lägg till filter**. I den första List rutan väljer du **resurs** ![och väljer resurs filtret](./media/batch-budget/resource-filter.png)
+1. Välj **Lägg till filter**. I den första List rutan väljer du **resurs** och ![ väljer resurs filtret](./media/batch-budget/resource-filter.png)
 1. I den andra List rutan väljer du batch-poolen. När du väljer poolen kommer kostnads analysen att se ut ungefär som i följande analys.
     ![Kostnads analys av en pool](./media/batch-budget/pool-cost-analysis.png)
 
@@ -68,7 +68,7 @@ Läs mer om hur du konfigurerar virtuella datorer med låg prioritet för din ar
 
 ### <a name="virtual-machine-os-disk-type"></a>Typ av operativ system disk för virtuell dator
 
-Det finns flera [typer av virtuella dator diskar](../virtual-machines/windows/disks-types.md). De flesta VM-serier har storlekar som stöder både Premium-och standard-lagring. När ens VM-storlek har valts för en pool konfigurerar batch att Premium SSD OS-diskar. När den virtuella datorns icke-s-storlek väljs används den billigare, standard hård disk typen. Till exempel används Premium SSD OS-diskar för `Standard_D2s_v3` och standard diskar för HDD-operativsystem används för `Standard_D2_v3`.
+Det finns flera [typer av virtuella dator diskar](../virtual-machines/windows/disks-types.md). De flesta VM-serier har storlekar som stöder både Premium-och standard-lagring. När ens VM-storlek har valts för en pool konfigurerar batch att Premium SSD OS-diskar. När den virtuella datorns icke-s-storlek väljs används den billigare, standard hård disk typen. Till exempel används Premium SSD OS-diskar för `Standard_D2s_v3` och standard diskar för HDD-operativsystem används för `Standard_D2_v3` .
 
 Premium SSD OS-diskar är dyrare, men har högre prestanda och virtuella datorer med Premium diskar kan starta något snabbare än virtuella datorer med standard diskar för HDD-operativsystem. Med batch är operativ system disken ofta inte så mycket som program-och aktivitets filerna finns på de virtuella datorernas temporära SSD-diskar. Därför behöver du i många fall inte betala den ökade kostnaden för Premium SSD som tillhandahålls när storleken på en virtuell dator har angetts.
 

@@ -1,15 +1,15 @@
 ---
-title: Kör Linux på Virtual Machine Compute-noder – Azure Batch | Microsoft Docs
+title: Kör Linux på virtuella datorers datornoder
 description: Lär dig att bearbeta dina parallella beräknings arbets belastningar på pooler för virtuella Linux-datorer i Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/01/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31e7a9558590ee3c6943e7a50c67c93f713908c7
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cd8a39556fb0aec0ddbf6c8e639281d7329228a4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993828"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726612"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux Compute-noder i batch-pooler
 
@@ -35,7 +35,7 @@ När du konfigurerar en avbildnings referens för en virtuell dator anger du ege
 
 | **Egenskaper för bild referens** | **Exempel** |
 | --- | --- |
-| Utgivare |Canonical |
+| Publisher |Canonical |
 | Erbjudande |UbuntuServer |
 | SKU |18,04 – LTS |
 | Version |senaste |

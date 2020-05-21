@@ -1,16 +1,15 @@
 ---
 title: Välj VM-storlekar för pooler
 description: Hur du väljer bland tillgängliga VM-storlekar för datornoderna i Azure Batch pooler
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/12/2019
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: d33b97790d2ce9a276a552fd02fe28c796234b15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a299ce05caa02432f96dfbb5eb675bc2d6f82ab5
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115864"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723722"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
 

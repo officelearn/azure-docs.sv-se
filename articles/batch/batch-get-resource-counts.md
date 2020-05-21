@@ -2,14 +2,14 @@
 title: Antal tillstånd för aktiviteter och noder
 description: Räkna antalet Azure Batch uppgifter och Compute-noder för att hantera och övervaka batch-lösningar.
 ms.date: 09/07/2018
-ms.topic: article
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: 1abff4c1a07ba0c5375228995330646204d33cd7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e063ef56deeb7fa0f2a217f48b1c23a810a9d890
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116102"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726697"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Övervaka batch-lösningar genom att räkna aktiviteter och noder efter tillstånd
 
@@ -30,10 +30,10 @@ Om du använder en version av tjänsten som inte stöder åtgärderna antal akti
 Åtgärden hämta antal aktiviteter räknas i följande tillstånd:
 
 - **Aktiv** – en uppgift som är i kö och kan köras, men som för närvarande inte är kopplad till en Compute-nod. En aktivitet är också `active` [beroende av en överordnad uppgift](batch-task-dependencies.md) som ännu inte har slutförts. 
-- **Körs** – en aktivitet som har tilldelats till en Compute-nod, men som ännu inte har slutförts. En `running` aktivitet räknas som när dess tillstånd är antingen `preparing` eller `running`, enligt vad som anges i [Hämta information om en uppgifts][rest_get_task] åtgärd.
+- **Körs** – en aktivitet som har tilldelats till en Compute-nod, men som ännu inte har slutförts. En aktivitet räknas som `running` när dess tillstånd är antingen `preparing` eller `running` , enligt vad som anges i [Hämta information om en uppgifts][rest_get_task] åtgärd.
 - **Slutförd** – en aktivitet som inte längre är berättigad att köras, eftersom den antingen har slutförts eller slutat fungera och även förbrukat gränsen för återförsök. 
-- **Lyckades** – en uppgift vars resultat av uppgifts körning är `success`. Batch avgör om en aktivitet har lyckats eller misslyckats genom att `TaskExecutionResult` kontrol lera egenskapen för egenskapen [executionInfo][rest_get_exec_info] .
-- **Misslyckades** En aktivitet vars resultat av uppgifts körning är `failure`.
+- **Lyckades** – en uppgift vars resultat av uppgifts körning är `success` . Batch avgör om en aktivitet har lyckats eller misslyckats genom att kontrol lera `TaskExecutionResult` egenskapen för egenskapen [executionInfo][rest_get_exec_info] .
+- **Misslyckades** En aktivitet vars resultat av uppgifts körning är `failure` .
 
 Följande exempel på .NET-kod visar hur du hämtar antal aktiviteter efter status: 
 
@@ -50,7 +50,7 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 Du kan använda ett liknande mönster för REST och andra språk som stöds för att hämta aktivitets antal för ett jobb. 
 
 > [!NOTE]
-> API-versioner för batch-tjänsten innan 2018 -08-01.7.0 `validationStatus` returnerar även en egenskap i svars antalet Hämta uppgift. Den här egenskapen anger om batch kontrollerade antalet tillstånd för konsekvens med de tillstånd som rapporteras i API: et för List aktiviteter. Värdet `validated` anger bara att den här gruppen har kontroller ATS för konsekvens minst en gång för jobbet. Värdet för `validationStatus` egenskapen anger inte om antalet som erhåller aktivitets antal returnerar är aktuellt.
+> API-versioner för batch-tjänsten innan 2018 -08-01.7.0 returnerar även en `validationStatus` egenskap i svars antalet Hämta uppgift. Den här egenskapen anger om batch kontrollerade antalet tillstånd för konsekvens med de tillstånd som rapporteras i API: et för List aktiviteter. Värdet `validated` anger bara att den här gruppen har kontroller ATS för konsekvens minst en gång för jobbet. Värdet för `validationStatus` egenskapen anger inte om antalet som erhåller aktivitets antal returnerar är aktuellt.
 >
 
 ## <a name="node-state-counts"></a>Antal Node-tillstånd

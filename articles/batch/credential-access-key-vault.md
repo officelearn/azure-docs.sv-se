@@ -1,14 +1,14 @@
 ---
 title: Säker åtkomst till Key Vault med Batch
 description: Lär dig hur du program mässigt får åtkomst till dina autentiseringsuppgifter från Key Vault med hjälp av Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/13/2020
-ms.openlocfilehash: d24904c3a539431e8aff420e9fbd8291cddde78a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d0b2128bef1434f073700eb83e5935d74d8bb7a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117462"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725728"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Säker åtkomst till Key Vault med Batch
 
@@ -23,21 +23,21 @@ Om du vill autentisera till Azure Key Vault från en batch-nod behöver du:
 
 ## <a name="obtain-a-certificate"></a>Skaffa ett certifikat
 
-Om du inte redan har ett certifikat är det enklaste sättet att hämta ett certifikat att generera ett självsignerat certifikat med hjälp `makecert` av kommando rads verktyget.
+Om du inte redan har ett certifikat är det enklaste sättet att hämta ett certifikat att generera ett självsignerat certifikat med hjälp av `makecert` kommando rads verktyget.
 
-Du kan vanligt vis `makecert` hitta i den här `C:\Program Files (x86)\Windows Kits\10\bin\<arch>`sökvägen:. Öppna en kommando tolk som administratör och navigera till `makecert` i följande exempel.
+Du kan vanligt vis hitta `makecert` i den här sökvägen: `C:\Program Files (x86)\Windows Kits\10\bin\<arch>` . Öppna en kommando tolk som administratör och navigera till i `makecert` följande exempel.
 
 ```console
 cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 ```
 
-Använd sedan `makecert` verktyget för att skapa självsignerade certifikatfiler som heter `batchcertificate.cer` och. `batchcertificate.pvk` Det egna namnet (CN) som används är inte viktigt för det här programmet, men det är bra att göra det något som anger vad certifikatet används för.
+Använd sedan `makecert` verktyget för att skapa självsignerade certifikatfiler som heter `batchcertificate.cer` och `batchcertificate.pvk` . Det egna namnet (CN) som används är inte viktigt för det här programmet, men det är bra att göra det något som anger vad certifikatet används för.
 
 ```console
 makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
-Batch kräver en `.pfx` fil. Använd verktyget [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) `.cer` för att konvertera `.pvk` och-filerna som skapats `makecert` av till en `.pfx` enda fil.
+Batch kräver en `.pfx` fil. Använd verktyget [pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) för att konvertera `.cer` och- `.pvk` filerna som skapats av `makecert` till en enda `.pfx` fil.
 
 ```console
 pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificate.pfx -po
@@ -87,7 +87,7 @@ Nu när du skapar en batch-pool kan du gå till **certifikat** i poolen och till
 
 ## <a name="install-azure-powershell"></a>Installera Azure PowerShell
 
-Om du planerar att komma åt Key Vault med hjälp av PowerShell-skript på noderna måste du ha Azure PowerShell-biblioteket installerat. Det finns några sätt att göra detta på om noderna har Windows Management Framework (WMF) 5 installerat kan du använda kommandot Install-module för att ladda ned det. Om du använder noder som inte har WMF 5, vilket är det enklaste sättet att installera det, är att paketera `.msi` Azure PowerShell-filen med batch-filerna och anropa sedan installations programmet som första del av ditt Start skript för batch. Se det här exemplet för mer information:
+Om du planerar att komma åt Key Vault med hjälp av PowerShell-skript på noderna måste du ha Azure PowerShell-biblioteket installerat. Det finns några sätt att göra detta på om noderna har Windows Management Framework (WMF) 5 installerat kan du använda kommandot Install-module för att ladda ned det. Om du använder noder som inte har WMF 5, vilket är det enklaste sättet att installera det, är att paketera Azure PowerShell `.msi` -filen med batch-filerna och anropa sedan installations programmet som första del av ditt Start skript för batch. Se det här exemplet för mer information:
 
 ```powershell
 $psModuleCheck=Get-Module -ListAvailable -Name Azure -Refresh

@@ -1,15 +1,15 @@
 ---
-title: Spara jobb-och uppgifts utdata till ett data lager – Azure Batch
+title: Spara jobb-och uppgifts utdata i ett data lager
 description: Lär dig mer om olika alternativ för att spara utdata från batch-uppgifter och-jobb. Du kan spara data till Azure Storage eller till ett annat data lager.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0c8f7517e88bf4e5476c7bad98d167ce760a9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 492de237acdf2d6d42f27638bac3adc0f6549828
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116425"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726306"
 ---
 # <a name="persist-job-and-task-output"></a>Bevara jobb- och uppgiftsutdata
 

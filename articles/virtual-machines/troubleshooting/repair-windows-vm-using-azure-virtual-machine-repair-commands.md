@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 2055558ef80a641084a7cf9d299281497d282936
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97c4461fd2abd39e75838f67ab5d34bd52a79459
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80060677"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715621"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Windows-dator med hjälp av reparationskommandon för virtuella Azure-datorer
 
@@ -54,7 +54,7 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
 
    Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den innehåller vanliga Azure-verktyg förinstallerade och konfigurerade för användning med ditt konto.
 
-   Om du vill öppna Cloud Shell väljer du **testa den** i det övre högra hörnet i ett kodblock. Du kan också öppna Cloud Shell på en separat flik i webbläsaren genom [https://shell.azure.com](https://shell.azure.com)att gå till.
+   Om du vill öppna Cloud Shell väljer du **testa den** i det övre högra hörnet i ett kodblock. Du kan också öppna Cloud Shell på en separat flik i webbläsaren genom att gå till [https://shell.azure.com](https://shell.azure.com) .
 
    Välj **Kopiera** för att kopiera kod blocken, klistra in koden i Cloud Shell och välj **RETUR** för att köra den.
 
@@ -72,16 +72,16 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
    az extension update -n vm-repair
    ```
 
-3. Kör `az vm repair create`. Det här kommandot skapar en kopia av OS-disken för den icke-funktionella virtuella datorn, skapar en virtuell reparations dator och ansluter disken.
+3. Kör `az vm repair create`. Det här kommandot skapar en kopia av OS-disken för den icke-funktionella virtuella datorn, skapar en virtuell reparations dator i en ny resurs grupp och kopplar disk kopian av operativ systemet.  Den virtuella reparations datorn kommer att ha samma storlek och region som den icke-funktionella virtuella datorn som angetts.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
    ```
 
-4. Kör `az vm repair run`. Det här kommandot kommer att köra det angivna reparations skriptet på den anslutna disken via den virtuella reparations datorn.
+4. Kör `az vm repair run`. Det här kommandot kommer att köra det angivna reparations skriptet på den anslutna disken via den virtuella reparations datorn.  Om fel söknings guiden som du använder har angett ett kör-ID ska du använda den här, annars kan du använda `az vm repair list-scripts` för att se tillgängliga reparations skript.
 
    ```azurecli-interactive
-   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id 2 --verbose
+   az vm repair run  –g MyResourceGroup –n MyVM -–run-on-repair --run-id win-hello-world --verbose
    ```
 
 5. Kör `az vm repair restore`. Det här kommandot byter ut den reparerade OS-disken mot den ursprungliga OS-disken för den virtuella datorn.
@@ -92,7 +92,7 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>Verifiera och aktivera startdiagnostik
 
-I följande exempel aktive ras Diagnostic-tillägget på den ``myVMDeployed`` virtuella datorn som heter i ``myResourceGroup``resurs gruppen med namnet:
+I följande exempel aktive ras Diagnostic-tillägget på den virtuella datorn som heter ``myVMDeployed`` i resurs gruppen med namnet ``myResourceGroup`` :
 
 Azure CLI
 

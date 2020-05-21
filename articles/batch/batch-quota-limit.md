@@ -1,15 +1,15 @@
 ---
 title: Kvoter och begränsningar för tjänsten
 description: Lär dig mer om standard Azure Batch kvoter, gränser och begränsningar samt hur du begär kvot ökningar
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f47f2df38a601c6359ed257a9787130ea95d2ac8
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115830"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726578"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -80,14 +80,14 @@ Följ dessa steg om du vill begära en kvot ökning för batch-kontot eller din 
 ### <a name="increase-cores-quota-in-batch"></a>Öka kärn kvoten i batch 
 
 1. Välj panelen **Hjälp + Support** på portalens instrument panel eller frågetecknet (**?**) i det övre högra hörnet i portalen.
-1. Välj **nya grundläggande support förfrågningar** > **Basics**.
+1. Välj **nya grundläggande support förfrågningar**  >  **Basics**.
 1. I **grunderna**:
    
-    a. **Ärende typ** > **tjänst och prenumerations gränser (kvoter)**
+    a. **Typ**  >  av problem **Begränsningar för tjänster och prenumerationer (kvoter)**
    
     b. Välj din prenumeration.
    
-    c. **Kvot typ** > **batch**
+    c. **Typ**  >  av kvot **Batch**
       
     Välj **Nästa**.
     

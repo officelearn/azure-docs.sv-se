@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 9bd7e40855f30612b90cf28365c0b1410cd3e3d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731130"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726153"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Avbildnings certifiering för virtuella Azure-datorer (VM)
-
-> [!NOTE]
-> Vi flyttar hanteringen av dina virtuella Azure-erbjudanden från Cloud Partner Portal till Partner Center. Fortsätt att följa anvisningarna i [Skapa certifikat för Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) i Cloud Partner Portal för att hantera dina erbjudanden innan du migrerar dina erbjudanden.
 
 Den här artikeln beskriver hur du testar och skickar en virtuell dator avbildning (VM) på den kommersiella Marketplace för att säkerställa att den uppfyller de senaste publicerings kraven för Azure Marketplace.
 
@@ -45,7 +42,7 @@ Du kan använda antingen en ny eller en befintlig Azure-resurs grupp för detta 
 
 Redigera och kör följande Azure PowerShell skript för att skapa certifikat filen (. pfx) i en lokal mapp. Ersätt värdena för parametrarna som visas i följande tabell.
 
-| **ProfileServiceApplicationProxy** | **Beskrivning** |
+| **Parameter** | **Beskrivning** |
 | --- | --- |
 | $certroopath | Lokal mapp där PFX-filen ska sparas. |
 | $location | En av de geografiska standard platserna för Azure. |
@@ -89,7 +86,7 @@ Redigera och kör följande Azure PowerShell skript för att skapa certifikat fi
 
 #### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Skapa Azure Key Vault för att lagra certifikatet
 
-Kopiera innehållet i mallen nedan till en fil på den lokala datorn. I exempel skriptet nedan är `C:\certLocation\keyvault.json`den här resursen).
+Kopiera innehållet i mallen nedan till en fil på den lokala datorn. I exempel skriptet nedan är den här resursen `C:\certLocation\keyvault.json` ).
 
 ```json
 {
@@ -186,7 +183,7 @@ Kopiera innehållet i mallen nedan till en fil på den lokala datorn. I exempel 
 
 Redigera och kör följande Azure PowerShell skript för att skapa en Azure Key Vault och den tillhör ande resurs gruppen. Ersätt värdena för parametrarna som visas i följande tabell
 
-| **ProfileServiceApplicationProxy** | **Beskrivning** |
+| **Parameter** | **Beskrivning** |
 | --- | --- |
 | $postfix | Slumpmässig numerisk sträng som är kopplad till distributions identifierare. |
 | $rgName | Namn på Azure Resource Group (RG) som ska skapas. |
@@ -560,7 +557,7 @@ Kopiera följande Azure Resource Manager mall för VHD-distribution till en loka
 
 Redigera den här filen för att ange värden för dessa parametrar:
 
-| **ProfileServiceApplicationProxy** | **Beskrivning** |
+| **Parameter** | **Beskrivning** |
 | --- | --- |
 | ResourceGroupName | Befintligt namn på Azure-resurs gruppen. Använd vanligt vis samma RG som nyckel valvet. |
 | TemplateFile | Fullständig sökväg till filen VHDtoImage. JSON. |
@@ -571,7 +568,7 @@ Redigera den här filen för att ange värden för dessa parametrar:
 | vmName | Namn på den virtuella datorn. |
 | vaultName | Nyckel valvets namn. |
 | vaultResourceGroup | Nyckel valvets resurs grupp. |
-| certificateUrl | Webb adress (URL) för certifikatet, inklusive version som lagras i nyckel valvet, till exempel: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`. |
+| certificateUrl | Webb adress (URL) för certifikatet, inklusive version som lagras i nyckel valvet, till exempel: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` . |
 | vhdUrl | Webb adressen för den virtuella hård disken. |
 | vmSize | Storlek på den virtuella dator instansen. |
 | publicIPAddressName | Namn på den offentliga IP-adressen. |
@@ -583,7 +580,7 @@ Redigera den här filen för att ange värden för dessa parametrar:
 
 ### <a name="deploy-an-azure-vm"></a>Distribuera en virtuell Azure-dator
 
-Kopiera och redigera följande skript för att ange värden för `$storageaccount` variablerna `$vhdUrl` och. Kör den för att skapa en Azure VM-resurs från din befintliga generaliserade virtuella hård disk.
+Kopiera och redigera följande skript för att ange värden för `$storageaccount` `$vhdUrl` variablerna och. Kör den för att skapa en Azure VM-resurs från din befintliga generaliserade virtuella hård disk.
 
 ```PowerShell
 

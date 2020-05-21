@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d461652758dd1fe6bb90a703b7c3fa113c9bd3e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086376"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726255"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Vanliga frågor och svar om Event Hubs
 
@@ -85,7 +85,7 @@ Följ dessa steg om du vill hitta rätt IP-adresser till den vita listan för di
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anteckna IP-adressen som returnerades `Non-authoritative answer`i. Den enda tid det skulle ändra är om du återställer namn området på ett annat kluster.
+2. Anteckna IP-adressen som returnerades i `Non-authoritative answer` . Den enda tid det skulle ändra är om du återställer namn området på ett annat kluster.
 
 Om du använder zon redundans för ditt namn område måste du utföra några ytterligare steg: 
 
@@ -150,9 +150,11 @@ Du kanske vill börja med låg data flödes enheter (antal), till exempel 2 anta
 Det finns **ingen kostnad** kopplad till den här funktionen. 
 
 ### <a name="how-are-throughput-limits-enforced"></a>Hur tvingas data flödes gränser?
-Om den totala ingångs data flödet eller den totala ingångs händelse frekvensen för alla händelse hubbar i ett namn område överskrider den sammanlagda enhets tilldelningen för data flödet, begränsas avsändare och får fel meddelanden som anger att den inkommande kvoten har överskridits.
+Om den totala ingångs data flödet eller den totala ingångs händelse frekvensen för alla händelse hubbar i ett namn område överskrider den sammanlagda enhets tilldelningen för **data flödet,** begränsas avsändare och får fel meddelanden som anger att den inkommande kvoten har överskridits.
 
-Om det totala utgående data flödet eller den totala utgående händelsen i ett namn område överskrider den sammanlagda tilldelningen av data flödes enheter, begränsas mottagarna och får fel meddelanden som anger att den utgående kvoten har överskridits. Ingångs-och utgångs kvoter tillämpas separat, så att ingen avsändare kan orsaka att händelse förbrukningen saktas ned och att ingen mottagare kan förhindra att händelser skickas till en Event Hub.
+Om det totala **utgående data flödet eller** den totala utgående händelsen i ett namn område överskrider den sammanlagda tilldelningen av data flödes enheter, begränsas mottagarna men inga begränsnings fel genereras. 
+
+Ingångs-och utgångs kvoter tillämpas separat, så att ingen avsändare kan orsaka att händelse förbrukningen saktas ned och att ingen mottagare kan förhindra att händelser skickas till en Event Hub.
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Finns det en gräns för antalet data flödes enheter (antal) som kan reserveras/väljas?
 I ett erbjudande med flera innehavare kan data flödes enheter växa upp till 40 antal (du kan välja upp till 20 antal i portalen och skapa ett support ärende för att öka det till 40 antal i samma namnrymd). Utöver 40 antal erbjuder Event Hubs den resurs-/kapacitets modellen som kallas **Event Hubs Dedicated-kluster**. Dedikerade kluster säljs i kapacitets enheter (CUs).
@@ -184,7 +186,7 @@ Resultatet ger dig en uppfattning om vad som kan uppnås med ett dedikerat Event
 ### <a name="how-do-i-create-an-event-hubs-dedicated-cluster"></a>Hur gör jag för att skapa ett Event Hubs Dedicated-kluster?
 Du skapar ett Event Hubs dedikerat kluster genom att skicka en [kvot som ökar support förfrågan](https://portal.azure.com/#create/Microsoft.Support) eller genom att kontakta [Event Hubss teamet](mailto:askeventhubs@microsoft.com). Det tar vanligt vis ungefär två veckor att få klustret distribuerat och behålls för att användas av dig. Den här processen är tillfällig tills en fullständig egen betjäning görs tillgänglig via Azure Portal.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Metodtips
 
 ### <a name="how-many-partitions-do-i-need"></a>Hur många partitioner behöver jag?
 Antalet partitioner anges när de skapas och måste vara mellan 2 och 32. Antalet partitioner kan inte ändras, så du bör överväga långsiktig skalning när du anger antalet partitioner. Partitioner är en mekanism för organisering av data som har att göra med vilken underordnad parallellitet som krävs i de program som används. Antalet partitioner i en händelsehubb är direkt kopplat till antalet samtidiga läsare som du förväntar dig. Mer information om partitioner finns i [partitioner](event-hubs-features.md#partitions).
@@ -236,7 +238,7 @@ En lista över alla Event Hubs kvoter finns i [kvoter](event-hubs-quotas.md).
 ## <a name="troubleshooting"></a>Felsökning
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Varför kan jag inte skapa ett namn område efter att ha tagit bort det från en annan prenumeration? 
-När du tar bort ett namn område från en prenumeration väntar du i fyra timmar innan du skapar det igen med samma namn i en annan prenumeration. Annars kan du få följande fel meddelande: `Namespace already exists`. 
+När du tar bort ett namn område från en prenumeration väntar du i fyra timmar innan du skapar det igen med samma namn i en annan prenumeration. Annars kan du få följande fel meddelande: `Namespace already exists` . 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Vad är några av undantagen som genereras av Event Hubs och deras föreslagna åtgärder?
 

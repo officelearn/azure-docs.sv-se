@@ -1,15 +1,15 @@
 ---
-title: Skapa aktivitets beroenden för att köra uppgifter – Azure Batch
+title: Skapa aktivitets beroenden för att köra uppgifter
 description: Skapa uppgifter som är beroende av slut för ande av andra uppgifter för att bearbeta MapReduce-format och liknande stor data arbets belastningar i Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/22/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42cf24758c64f107723ae0907db08bd4b757a15a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116493"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726391"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Skapa aktivitets beroenden för att köra uppgifter som är beroende av andra aktiviteter
 
@@ -30,7 +30,7 @@ Du kan skapa uppgifter som är beroende av andra uppgifter i en en-till-en-till-
 I den här artikeln diskuterar vi hur du konfigurerar aktivitets beroenden med hjälp av [batch .net][net_msdn] -biblioteket. Först visar vi hur du [aktiverar aktivitets beroenden](#enable-task-dependencies) för dina jobb och visar hur du [konfigurerar en aktivitet med beroenden](#create-dependent-tasks). Vi beskriver också hur du anger en beroende åtgärd för att köra beroende uppgifter om överordnat Miss lyckas. Slutligen diskuterar vi de [beroende scenarier](#dependency-scenarios) som batch stöder.
 
 ## <a name="enable-task-dependencies"></a>Aktivera aktivitets beroenden
-Om du vill använda aktivitets beroenden i batch-programmet måste du först konfigurera jobbet så att det använder aktivitets beroenden. I batch .NET aktiverar du det på din [CloudJob][net_cloudjob] genom att ställa [UsesTaskDependencies][net_usestaskdependencies] in dess UsesTaskDependencies `true`-egenskap till:
+Om du vill använda aktivitets beroenden i batch-programmet måste du först konfigurera jobbet så att det använder aktivitets beroenden. I batch .NET aktiverar du det på din [CloudJob][net_cloudjob] genom att ställa in dess [UsesTaskDependencies][net_usestaskdependencies] -egenskap till `true` :
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -57,7 +57,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Det här kodfragmentet skapar en beroende uppgift med aktivitets-ID "blommor". Uppgiften "blommor" är beroende av aktiviteterna "regn" och "Sun". Uppgiften "blommor" schemaläggs att köras på en Compute-nod först efter att aktiviteterna "regn" och "Sun" har slutförts.
 
 > [!NOTE]
-> Som standard anses en aktivitet vara slutförd när den är i **slutfört** tillstånd och dess **slut kod** är `0`. I batch .NET innebär detta en [CloudTask][net_cloudtask]. [State][net_taskstate] Värdet för egenskapen state `Completed` för och CloudTask [TaskExecutionInformation][net_taskexecutioninformation]. [ExitCode][net_exitcode] Värdet för egenskapen ExitCode `0`är. Information om hur du ändrar detta finns i avsnittet [beroende åtgärder](#dependency-actions) .
+> Som standard anses en aktivitet vara slutförd när den är i **slutfört** tillstånd och dess **slut kod** är `0` . I batch .NET innebär detta en [CloudTask][net_cloudtask]. Värdet för egenskapen [State][net_taskstate] för `Completed` och CloudTask [TaskExecutionInformation][net_taskexecutioninformation].[ ][net_exitcode]Värdet för egenskapen ExitCode är `0` . Information om hur du ändrar detta finns i avsnittet [beroende åtgärder](#dependency-actions) .
 > 
 > 
 
@@ -110,9 +110,9 @@ En aktivitet är beroende av ett antal överordnade aktiviteter, beroende på sl
 Om du vill skapa beroendet anger du det första och sista aktivitets-ID: t i intervallet till [TaskDependencies][net_taskdependencies]. [OnIdRange][net_onidrange] statisk metod när du fyller i egenskapen [DependsOn][net_dependson] för [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> När du använder aktivitets-ID-intervall för dina beroenden väljs endast uppgifter med ID: n som representerar heltals värden av intervallet. Det innebär att `1..10` intervallet väljer uppgifter `3` och `7`, men inte `5flamingoes`. 
+> När du använder aktivitets-ID-intervall för dina beroenden väljs endast uppgifter med ID: n som representerar heltals värden av intervallet. Det innebär att intervallet `1..10` väljer uppgifter `3` och `7` , men inte `5flamingoes` . 
 > 
-> Inledande nollor är inte signifikanta vid utvärdering av intervall beroenden, så uppgifter med `4`sträng `04` identifierare `004` , och kommer att vara *inom* intervallet och de kommer att behandlas som en `4`uppgift, så den första som slutföras kommer att uppfylla beroendet.
+> Inledande nollor är inte signifikanta vid utvärdering av intervall beroenden, så uppgifter med sträng identifierare `4` , `04` och `004` kommer att vara *inom* intervallet och de kommer att behandlas som `4` en uppgift, så den första som slutföras kommer att uppfylla beroendet.
 > 
 > Varje aktivitet i intervallet måste uppfylla beroendet, antingen genom att den slutförs eller genom att ett fel som har mappats till en beroende åtgärd angetts som **uppfylls**. Mer information finns i avsnittet [beroende åtgärder](#dependency-actions) .
 >

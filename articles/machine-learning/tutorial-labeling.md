@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8136f8fe6431187884a180925234d6aab36983f
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203649"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725524"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Självstudie: skapa ett etikett projekt för bild klassificering med flera klasser 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -64,7 +64,7 @@ Azure Machine Learning data lager används för att lagra anslutnings informatio
 
 1. Fyll i formuläret med följande inställningar:
 
-    Field|Beskrivning 
+    Fält|Beskrivning 
     ---|---
     Data lager namn | Ge data lagret ett namn.  Här använder vi **labeling_tutorial**.
     Data lager typ | Välj lagrings typ.  Här använder vi **Azure Blob Storage**, den önskade lagringen för avbildningar.
@@ -77,7 +77,7 @@ Azure Machine Learning data lager används för att lagra anslutnings informatio
 
 ### <a name="create-a-labeling-project"></a>Skapa ett etikett projekt
 
-Nu när du har en lista med etiketter och till gång till de data som du vill ha med etiketter, skapar du ett etikett projekt.
+Nu när du har åtkomst till de data som du vill ha med etikett, skapar du ett etikett projekt.
 
 1. Välj **projekt**längst upp på sidan.
 
@@ -89,7 +89,7 @@ Nu när du har en lista med etiketter och till gång till de data som du vill ha
 
 1. Använd följande indata för formuläret **projekt information** :
 
-    Field|Beskrivning 
+    Fält|Beskrivning 
     ---|---
     Projektnamn | Ge ditt projekt ett namn.  Här kommer vi att använda **självstudie – katter-n-hundar**.
     Etikettering av uppgifts typ | Välj **bild klassificering flera klasser**.  

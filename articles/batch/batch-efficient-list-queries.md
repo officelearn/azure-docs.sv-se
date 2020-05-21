@@ -1,15 +1,15 @@
 ---
 title: Utforma effektiva List frågor
 description: Öka prestanda genom att filtrera dina frågor när du begär information om batch-resurser som pooler, jobb, uppgifter och Compute-noder.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: fea8efd4e4946b67754bad98589b728e8d696425
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 987a31f9506dcd1b13b04d544465c7529f23122d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116119"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726714"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor för att lista batch-resurser effektivt
 
@@ -60,22 +60,22 @@ API: erna för [batch .net][api_net] och [batch rest][api_rest] ger möjlighet a
 Filter strängen är ett uttryck som minskar antalet objekt som returneras. Du kan till exempel endast lista de aktiviteter som körs för ett jobb, eller en lista med enbart datornoder som är redo att köra uppgifter.
 
 * Filter strängen består av ett eller flera uttryck med ett uttryck som består av ett egenskaps namn, en operator och ett värde. De egenskaper som kan anges är specifika för varje entitetstyp som du frågar efter, som är de operatorer som stöds för varje egenskap.
-* Flera uttryck kan kombineras med hjälp av logiska `and` operatorer `or`och.
-* I den här exempel filter strängen visas bara de kör åter givnings aktiviteter `(state eq 'running') and startswith(id, 'renderTask')`som körs:.
+* Flera uttryck kan kombineras med hjälp av logiska operatorer `and` och `or` .
+* I den här exempel filter strängen visas bara de kör åter givnings aktiviteter som körs: `(state eq 'running') and startswith(id, 'renderTask')` .
 
 ### <a name="select"></a>Välj
 Den valda strängen begränsar de egenskaps värden som returneras för varje objekt. Du kan ange en lista över egenskaps namn och bara de egenskaps värden som returneras för objekten i frågeresultatet.
 
 * Select-strängen består av en kommaavgränsad lista med egenskaps namn. Du kan ange någon av egenskaperna för entitetstypen som du frågar.
-* I det här exemplet väljer du sträng anger att endast tre egenskaps värden ska returneras för `id, state, stateTransitionTime`varje aktivitet:.
+* I det här exemplet väljer du sträng anger att endast tre egenskaps värden ska returneras för varje aktivitet: `id, state, stateTransitionTime` .
 
 ### <a name="expand"></a>Visa
 Expand-strängen minskar antalet API-anrop som krävs för att hämta viss information. När du använder en Expand-sträng kan mer information om varje objekt hämtas med ett enda API-anrop. I stället för att först hämta listan över entiteter, och sedan begära information för varje objekt i listan, använder du en Expand sträng för att hämta samma information i ett enda API-anrop. Färre API-anrop innebär bättre prestanda.
 
 * På samma sätt som med Select-strängen, kontrollerar Expand-strängen om vissa data ingår i lista frågeresultat.
 * Expand strängen stöds bara när den används i ett List jobb, jobb scheman, uppgifter och pooler. För närvarande stöder den bara statistik information.
-* När alla egenskaper krävs och ingen Select-sträng anges, *måste* expansions strängen användas för att hämta statistik information. Om en SELECT-sträng används för att hämta en delmängd av egenskaperna `stats` , kan anges i SELECT-strängen och den expanderade strängen behöver inte anges.
-* I det här exemplet expanderas sträng anger du att statistik information ska returneras för varje objekt i `stats`listan:.
+* När alla egenskaper krävs och ingen Select-sträng anges, *måste* expansions strängen användas för att hämta statistik information. Om en SELECT-sträng används för att hämta en delmängd av egenskaperna, `stats` kan anges i SELECT-strängen och den expanderade strängen behöver inte anges.
+* I det här exemplet expanderas sträng anger du att statistik information ska returneras för varje objekt i listan: `stats` .
 
 > [!NOTE]
 > När du skapar någon av de tre typerna av frågesträngar (filter, Välj och expandera) måste du se till att egenskaps namnen och skiftet stämmer överens med de REST API elementens motsvarigheter. När du arbetar med .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) -klassen måste du till exempel ange **State** i stället för **State**, även om .net-egenskapen är [CloudTask. State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Se tabellerna nedan för egenskaps mappningar mellan .NET-och REST-API: er.
@@ -85,11 +85,11 @@ Expand-strängen minskar antalet API-anrop som krävs för att hämta viss infor
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Regler för filter, Välj och expandera strängar
 * Egenskaps namn i filter, Välj och expandera strängar bör visas på samma sätt som i [batch rest][api_rest] -API: et, även när du använder [batch .net][api_net] eller någon av de andra batch SDK: erna.
 * Alla egenskaps namn är Skift läges känsliga, men egenskaps värden är Skift läges känsliga.
-* Datum-och tids strängar kan vara ett av två format och måste föregås av `DateTime`.
+* Datum-och tids strängar kan vara ett av två format och måste föregås av `DateTime` .
   
   * Exempel på W3C-DTF format:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
   * Exempel på RFC 1123-format:`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
-* Booleska strängar är antingen `true` eller `false`.
+* Booleska strängar är antingen `true` eller `false` .
 * Om en ogiltig egenskap eller operator anges, uppstår ett `400 (Bad Request)` fel.
 
 ## <a name="efficient-querying-in-batch-net"></a>Effektiv fråga i batch .NET
@@ -179,7 +179,7 @@ Därför blir filter strängen för att lista alla aktiviteter med en slutkod so
 ## <a name="example-construct-a-select-string"></a>Exempel: skapa en SELECT-sträng
 Om du vill skapa [ODATADetailLevel. SelectClause][odata_select]läser du tabellen ovan under "mappningar för Select Strings" och navigerar till REST API sidan som motsvarar den typ av enhet som du visar. Du hittar de valbara egenskaperna och de operatörer som stöds i den första multirow-tabellen på den sidan. Om du till exempel bara vill hämta ID och kommando rad för varje aktivitet i en lista, så hittar du till exempel raderna i den tillämpliga tabellen på [Hämta information om en aktivitet][rest_get_task]:
 
-| Egenskap | Typ | Obs! |
+| Egenskap | Typ | Anteckningar |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -218,7 +218,7 @@ Exempel programmet i projektet demonstrerar följande åtgärder:
 1. Välja speciella attribut för att bara hämta de egenskaper du behöver
 2. Filtrering av tillstånds över gångs tider för att bara hämta ändringar sedan den senaste frågan
 
-Till exempel visas följande metod i BatchMetrics-biblioteket. Den returnerar en ODATADetailLevel som anger att endast egenskaperna `id` och `state` ska hämtas för de entiteter som efter frågas. Det anger också att endast entiteter vars tillstånd har ändrats sedan den `DateTime` angivna parametern ska returneras.
+Till exempel visas följande metod i BatchMetrics-biblioteket. Den returnerar en ODATADetailLevel som anger att endast `id` egenskaperna och `state` ska hämtas för de entiteter som efter frågas. Det anger också att endast entiteter vars tillstånd har ändrats sedan den angivna `DateTime` parametern ska returneras.
 
 ```csharp
 internal static ODATADetailLevel OnlyChangedAfter(DateTime time)

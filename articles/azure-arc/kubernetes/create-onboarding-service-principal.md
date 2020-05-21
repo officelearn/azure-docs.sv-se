@@ -8,23 +8,20 @@ author: mlearned
 ms.author: mlearned
 description: 'Skapa en Azure Arc-aktiverad onboarding-tjänstens huvud namn '
 keywords: Kubernetes, båge, Azure, behållare
-ms.openlocfilehash: f9f750980d8a8b5d8190ba0b399fe068f1dd99c7
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680790"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725609"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Skapa en Azure Arc-aktiverad onboarding service-huvudobjekt (för hands version)
 
 ## <a name="overview"></a>Översikt
 
-När ett kluster har publicerats i Azure måste agenterna som körs i klustret autentiseras Azure Resource Manager som en del av registreringen. `connectedk8s`Azure CLI-tillägget har automatiskt skapande av tjänstens huvud namn. Det kan dock finnas några scenarier där CLI-Automation inte fungerar:
+Det går att använda tjänstens huvud namn med en roll tilldelning med begränsade behörigheter för att registrera Kubernetes-kluster i Azure-bågen. Detta är användbart i pipeline för kontinuerlig integrering och kontinuerlig distribution (CI/CD) som Azure-pipeline och GitHub-åtgärder.
 
-* Din organisation begränsar vanligt vis skapandet av tjänstens huvud namn
-* Den användare som onboarding The Cluster har inte behörighet att skapa tjänstens huvud namn
-
-I stället ska vi skapa tjänstens huvud namn out-of-band och sedan skicka huvud kontot till Azure CLI-tillägget.
+Följande steg innehåller en genom gång av hur du använder tjänstens huvud namn för att registrera Kubernetes-kluster i Azure-bågen.
 
 ## <a name="create-a-new-service-principal"></a>Skapa ett nytt huvud namn för tjänsten
 
@@ -57,13 +54,13 @@ Behörigheter kan begränsas ytterligare genom att skicka i lämpligt `--scope` 
 | Resurs  | `scope`-argument| Verkan |
 | ------------- | ------------- | ------------- |
 | Prenumeration | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Tjänstens huvud namn kan registrera alla kluster i en befintlig resurs grupp i den aktuella prenumerationen |
-| Resursgrupp | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Tjänstens huvud namn kan __bara__ registrera kluster i resurs gruppen`myGroup` |
+| Resource Group | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Tjänstens huvud namn kan __bara__ registrera kluster i resurs gruppen`myGroup` |
 
 ```console
 az role assignment create \
     --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 \      # this is the id for the built-in role
     --assignee 22cc2695-54b9-49c1-9a73-2269592103d8 \  # use the appId from the new SP
-    --scope /subscriptions/<<SUBSCRIPTION_ID>>         # apply the apropriate scope
+    --scope /subscriptions/<<SUBSCRIPTION_ID>>         # apply the appropriate scope
 ```
 
 **Utdataparametrar**

@@ -7,15 +7,17 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: f96aa4d75f85aea046981641f84fd2b2c3078bd1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 17416131566edf8710737862f0cbea2e31477960
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691217"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722532"
 ---
 # <a name="auth0-partner-topics"></a>Avsnitt om Auth0-partner
-![Auth0- ](./media/auth0-overview/auth0-logo.png) Auth0, identitets plattformen för program byggare, tillhandahåller utvecklare och företag med de bygg stenar som de behöver för att skydda sina program.
+![Auth0-logotyp](./media/auth0-overview/auth0-logo.png)
+
+Auth0, identitets plattformen för program byggare, tillhandahåller utvecklare och företag med de bygg stenar som de behöver för att skydda sina program.
 
 I avsnittet Auth0 partner kan du använda händelser som genereras av Auth0's-systemet för att utföra ett antal uppgifter. Engagera användarna på ett meningsfullt sätt efter autentiseringen eller automatisera säkerhets-och infrastruktur uppgifter.
 

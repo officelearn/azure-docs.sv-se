@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7aefc54a20e23ae969750532e7e3bc824f69c56
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77656746"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725320"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Restriktioner och begränsningar för omdirigerings-URI/svars-URL
 
@@ -23,8 +23,9 @@ En omdirigerings-URI eller svars-URL är den plats som auktoriseringsservern ski
 
  Följande begränsningar gäller för svars-URL: er:
 
-    * Svars-URL: en måste börja `https`med schemat.
-    * Svars-URL: en är Skift läges känslig. Dess fall måste matcha fallet med URL-sökvägen till det program som körs. Om ditt program t. ex. ingår som en del av `.../abc/response-oidc`sökvägen ska du inte `.../ABC/response-oidc` ange i svars-URL: en. Eftersom webbläsaren behandlar sökvägar som Skift läges känsliga, `.../abc/response-oidc` kan cookies som är kopplade till uteslutas om de omdirigeras till den Skift `.../ABC/response-oidc` läges fel matchnings bara URL: en.
+* Svars-URL: en måste börja med schemat `https` .
+
+* Svars-URL: en är Skift läges känslig. Dess fall måste matcha fallet med URL-sökvägen till det program som körs. Om ditt program t. ex. ingår som en del av sökvägen `.../abc/response-oidc` ska du inte ange `.../ABC/response-oidc` i svars-URL: en. Eftersom webbläsaren behandlar sökvägar som Skift läges känsliga, kan cookies som är kopplade till `.../abc/response-oidc` uteslutas om de omdirigeras till den Skift läges fel matchnings bara `.../ABC/response-oidc` URL: en.
     
 ## <a name="maximum-number-of-redirect-uris"></a>Maximalt antal omdirigerings-URI: er
 
@@ -40,14 +41,14 @@ Följande tabell visar det maximala antalet omdirigerings-URI: er som du kan lä
 Du kan använda högst 256 tecken för varje omdirigerings-URI som du lägger till i en app-registrering.
 
 ## <a name="supported-schemes"></a>Scheman som stöds
-Azure AD-programmodellen stöder idag både HTTP-och HTTPS-scheman för appar som loggar in på Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD). `signInAudience` Fältet i applikations manifestet har angetts till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs*. För appar som loggar in på personliga Microsoft-konton och arbets-och skol konton ( `signInAudience` som är inställt på *AzureADandPersonalMicrosoftAccount*) tillåts bara https-schemat.
+Azure AD-programmodellen stöder idag både HTTP-och HTTPS-scheman för appar som loggar in på Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD). `signInAudience`Fältet i applikations manifestet har angetts till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs*. För appar som loggar in på personliga Microsoft-konton och arbets-och skol konton (som är `signInAudience` inställt på *AzureADandPersonalMicrosoftAccount*) tillåts bara https-schemat.
 
 > [!NOTE]
 > Med den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön kan utvecklare inte lägga till URI: er med http-schemat i användar gränssnittet. Det går bara att lägga till HTTP-URI: er för appar som loggar in på arbets-eller skol konton via appens manifest redigeraren. Nya appar kommer inte att kunna använda HTTP-scheman i omdirigerings-URI: n. Men äldre appar som innehåller HTTP-scheman i omdirigerings-URI: er fortsätter att fungera. Utvecklare måste använda HTTPS-scheman i omdirigerings-URI: er.
 
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Begränsningar med jokertecken i URI: er
 
-URI: er med `https://*.contoso.com`jokertecken, till exempel, är praktiska men bör undvikas. Att använda jokertecken i omdirigerings-URI: n har säkerhets effekter. Enligt OAuth 2,0-specifikationen ([Section 3.1.2 i RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)) måste en URI för omdirigerings slut punkt vara en absolut URI. 
+URI: er med jokertecken, till exempel `https://*.contoso.com` , är praktiska men bör undvikas. Att använda jokertecken i omdirigerings-URI: n har säkerhets effekter. Enligt OAuth 2,0-specifikationen ([Section 3.1.2 i RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)) måste en URI för omdirigerings slut punkt vara en absolut URI. 
 
 Azure AD-programmodellen stöder inte URI-jokertecken för appar som är konfigurerade för att logga in på personliga Microsoft-konton och arbets-eller skol konton. URI: er för jokertecken tillåts dock för appar som har kon figurer ATS för att logga in på arbets-eller skol konton i en organisations Azure AD-klient idag. 
  

@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 2aebccdf18aaba345beb344a8b6fc3b37754a4a1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: aac42e6f782ac1e939ff955c5811238f99e703eb
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793619"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725677"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integrera med Kubernetes-distribution med Helm
 
@@ -23,7 +23,7 @@ Under publicerings processen sammanfogar Helm diagrammet med rätt konfiguration
 
 Du kan åsidosätta värdena som lagras i *Values. yaml* genom att tillhandahålla ytterligare yaml-baserade konfigurationsfiler på kommando raden när du kör Helm. Azure App-konfigurationen stöder export av konfigurations värden till YAML-filer. Genom att integrera den här export funktionen i din distribution kan dina Kubernetes-program utnyttja konfigurations värden som lagras i appens konfiguration.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 > [!div class="checklist"]
 > * Använd värden från appens konfiguration när du distribuerar ett program till Kubernetes med hjälp av Helm.
 > * Skapa en Kubernetes-hemlighet baserat på en Key Vault referens i appens konfiguration.
@@ -41,7 +41,7 @@ Den här självstudien förutsätter grundläggande förståelse för att hanter
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren** > **skapa** för att lägga till följande nyckel/värde-par:
+6. Välj **konfigurations Utforskaren**  >  **skapa** för att lägga till följande nyckel/värde-par:
 
     | Tangent | Värde |
     |---|---|
@@ -56,7 +56,7 @@ Den här självstudien förutsätter grundläggande förståelse för att hanter
 
 3. Välj **konfigurations Utforskaren**.
 
-4. Välj **+ skapa** > **Key Vault-referens**och ange sedan följande värden:
+4. Välj **+ skapa**  >  **Key Vault-referens**och ange sedan följande värden:
     - **Nyckel**: Välj **hemligheter. password**.
     - **Etikett**: lämna värdet tomt.
     - **Prenumeration**, **resurs grupp**och **nyckel valv**: Ange de värden som motsvarar dem i nyckel valvet som du skapade i föregående steg.
@@ -169,7 +169,7 @@ metadata:
   name: mysecret
 type: Opaque
 data:
-  password: {{ .Values.secrets.password }}
+  password: {{ .Values.secrets.password | b64enc }}
 ```
 
 Uppdatera slutligen filen *Values. yaml* med följande innehåll om du vill ange standardvärden för de konfigurations inställningar och hemligheter som refereras till i filen *Deployment. yaml* och *hemligheter. yaml* . De faktiska värdena skrivs över av konfigurationen som hämtas från App-konfigurationen.

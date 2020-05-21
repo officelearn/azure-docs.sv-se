@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d84db9f9c36dc2818c78c5091b1ebe29c35f865
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73954258"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726204"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Begär enhetsanslutningshändelser från Azure IoT Hub med hjälp av Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Sekvensnumret är en sträng representation av ett hexadecimalt tal. Du kan anv�
 
 * Ett aktivt Azure Cosmos DB SQL API-konto. Om du inte har skapat en ännu, se [skapa ett databas konto](../cosmos-db/create-sql-api-java.md#create-a-database-account) för en genom gång.
 
-* En samling i databasen. Se [lägga till en samling](../cosmos-db/create-sql-api-java.md#add-a-container) för en genom gång. När du skapar samlingen använder `/id` du för partitionsnyckel.
+* En samling i databasen. Se [lägga till en samling](../cosmos-db/create-sql-api-java.md#add-a-container) för en genom gång. När du skapar samlingen använder du `/id` för partitionsnyckel.
 
 * En IoT-hubb i Azure. Om du inte redan har skapat en hubb läser du genomgången i [Kom igång med IoT Hub](iot-hub-csharp-csharp-getstarted.md).
 
@@ -34,7 +34,7 @@ Sekvensnumret är en sträng representation av ett hexadecimalt tal. Du kan anv�
 
 Börja med att skapa en lagrad procedur och konfigurera den så att den kör en logik som jämför antalet inkommande händelser och registrerar den senaste händelsen per enhet i databasen.
 
-1. I Cosmos DB SQL API väljer du **datautforskaren** > **objekt** > **ny lagrad procedur**.
+1. I Cosmos DB SQL API väljer du **datautforskaren**  >  **objekt**  >  **ny lagrad procedur**.
 
    ![Skapa lagrad procedur](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
@@ -334,7 +334,7 @@ Du kan se resultatet av den utförda lagrade proceduren i Cosmos DB dokumentet. 
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-I stället för att använda [Azure Portal](https://portal.azure.com)kan du utföra IoT Hub stegen med Azure CLI. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+I stället för att använda [Azure Portal](https://portal.azure.com)kan du utföra IoT Hub stegen med Azure CLI. Mer information finns i Azure CLI-sidorna för att [skapa en händelse prenumeration](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) och [skapa en IoT-enhet](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

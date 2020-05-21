@@ -1,16 +1,16 @@
 ---
-title: Översikt över Hybrid Runbook Worker i Azure Automation
-description: Den här artikeln innehåller en översikt över Hybrid Runbook Worker, som är en funktion i Azure Automation som du kan använda för att köra Runbooks på datorer i ditt lokala data Center eller en moln leverantör.
+title: Översikt över Azure Automation Hybrid Runbook Worker
+description: Den här artikeln innehåller en översikt över Hybrid Runbook Worker som du kan använda för att köra Runbooks på datorer i ditt lokala data Center eller en moln leverantör.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c02a61366b05fa2750c581a1dedefb0d6239dada
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f555d603756159dd108345260d71233c23c01ce5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994767"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715723"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Översikt över Hybrid Runbook Worker
 
@@ -53,7 +53,7 @@ Följande port och URL-adresser krävs för Hybrid Runbook Worker:
 * Port: endast TCP 443 krävs för utgående Internet åtkomst
 * Global URL: *. azure-automation.net
 * Global URL för US Gov, Virginia: –*.azure-automation.us
-* Agent tjänst: https://\<workspaceId\>. agentsvc.Azure-Automation.net
+* Agent tjänst: https:// \< workspaceId \> . agentsvc.Azure-Automation.net
 
 Vi rekommenderar att du använder de adresser som anges när du definierar [undantag](automation-runbook-execution.md#exceptions). För IP-adresser kan du hämta [Microsoft Azure Data Center IP-intervall](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Den här filen uppdateras varje vecka och har de för närvarande distribuerade intervallen och eventuella kommande ändringar i IP-intervallen.
 
@@ -61,7 +61,7 @@ Vi rekommenderar att du använder de adresser som anges när du definierar [unda
 
 Om du har ett Automation-konto som har definierats för en viss region kan du begränsa Hybrid Runbook Worker kommunikation till det regionala data centret. Följande tabell innehåller DNS-posten för varje region.
 
-| **Nationella** | **DNS-post** |
+| **Region** | **DNS-post** |
 | --- | --- |
 | Australien, centrala |ac-jobruntimedata-prod-su1.azure-automation.net</br>ac-agentservice-prod-1.azure-automation.net |
 | Australien, östra |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
@@ -112,9 +112,9 @@ Utöver de standard adresser och portar som krävs i Hybrid Runbook Worker behö
 |*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
 |*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
 
-## <a name="state-configuration-dsc-on-hybrid-runbook-worker"></a>Tillstånds konfiguration (DSC) på Hybrid Runbook Worker
+## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation tillstånds konfiguration på en Hybrid Runbook Worker
 
-Du kan köra funktionen för [tillstånds konfiguration (DSC)](automation-dsc-overview.md) på en hybrid Runbook Worker. Om du vill hantera konfigurationen av servrar som stöder Hybrid Runbook Worker måste du lägga till servrarna som DSC-noder. Mer information om onboarding finns i [onboard Machines for Management by state Configuration (DSC)](automation-dsc-onboarding.md).
+Du kan köra [Azure Automation tillstånds konfiguration](automation-dsc-overview.md) på en hybrid Runbook Worker. Om du vill hantera konfigurationen av servrar som stöder Hybrid Runbook Worker måste du lägga till servrarna som DSC-noder. Se [Aktivera datorer för hantering genom att Azure Automation tillstånds konfiguration](automation-dsc-onboarding.md).
 
 ## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Runbooks på en Hybrid Runbook Worker
 

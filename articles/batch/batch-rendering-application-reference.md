@@ -4,13 +4,13 @@ description: Så här använder du åter givnings program med Azure Batch. Den h
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 6610724cd2ecb14d165b587f9df31353e8eb8e41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 21ae6e0a190875e3e541eb858ec38658ce191ee6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115813"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726510"
 ---
 # <a name="rendering-applications"></a>Återge program
 
@@ -29,9 +29,9 @@ Förutom de åter givningar som är inbyggda i 3ds Max, är följande åter givn
 
 ### <a name="task-command-line"></a>Kommando rad för aktivitet
 
-Anropa `3dsmaxcmdio.exe` programmet för att utföra kommando rads åter givning på en pool-nod.  Det här programmet finns på sökvägen när aktiviteten körs. `3dsmaxcmdio.exe` Programmet har samma tillgängliga parametrar som `3dsmaxcmd.exe` programmet, som dokumenteras i [hjälp dokumentationen för 3ds Max](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (rendering | Avsnittet åter givning av kommando rad).
+Anropa `3dsmaxcmdio.exe` programmet för att utföra kommando rads åter givning på en pool-nod.  Det här programmet finns på sökvägen när aktiviteten körs. `3dsmaxcmdio.exe`Programmet har samma tillgängliga parametrar som `3dsmaxcmd.exe` programmet, som dokumenteras i [hjälp dokumentationen för 3ds Max](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (rendering | Avsnittet åter givning av kommando rad).
 
-Ett exempel:
+Till exempel:
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"
@@ -39,8 +39,8 @@ Ett exempel:
 
 Obs!
 
-* Du måste vara mycket försiktig för att se till att till gångs filen hittas.  Se till att Sök vägarna är korrekta och relativa i fönstret **till gångs spårning** , `-bitmapPath` eller Använd parametern på kommando raden.
-* Se om det finns problem med renderingen, t. ex. möjligheten att hitta till gångar, genom `stdout.txt` att kontrol lera filen som skrivits av 3ds Max när aktiviteten körs.
+* Du måste vara mycket försiktig för att se till att till gångs filen hittas.  Se till att Sök vägarna är korrekta och relativa i fönstret **till gångs spårning** , eller Använd `-bitmapPath` parametern på kommando raden.
+* Se om det finns problem med renderingen, t. ex. möjligheten att hitta till gångar, genom att kontrol lera `stdout.txt` filen som skrivits av 3ds Max när aktiviteten körs.
 
 ### <a name="batch-explorer-templates"></a>Batch Explorer mallar
 
@@ -57,7 +57,7 @@ Förutom de åter givningar som är inbyggda i Maya, finns följande åter givni
 
 ### <a name="task-command-line"></a>Kommando rad för aktivitet
 
-`renderer.exe` Kommando rads åter givning används i aktivitetens kommando rad. Kommando rads renderaren finns dokumenterad i [Maya-hjälpen](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+`renderer.exe`Kommando rads åter givning används i aktivitetens kommando rad. Kommando rads renderaren finns dokumenterad i [Maya-hjälpen](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 I följande exempel används en jobb förberedelse uppgift för att kopiera scenens filer och till gångar till arbets katalogen för jobb förberedelse, en målmapp används för att lagra åter givnings avbildningen och bild ruta 10 återges.
 

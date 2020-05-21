@@ -2,14 +2,14 @@
 title: Referens arkitekturer för Azure rendering
 description: Arkitekturer för att använda Azure Batch och andra Azure-tjänster för att utöka en lokal rendering-servergrupp genom burst-överföring till molnet
 ms.date: 02/07/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: bbdb5eb39805ac87bf90216e5fbeedae91b423f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 784fd89c3dea88e25a2058713897c7a655c8a3af
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115779"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726527"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Referens arkitekturer för Azure-åter givning
 

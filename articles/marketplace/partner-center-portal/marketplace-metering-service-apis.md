@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 159d2c60fc1fc5ad1f21f2b948208eaae0d06208
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/18/2020
+ms.openlocfilehash: 95eba648219413923ce27d433a5236877c4953f3
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857861"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725473"
 ---
 # <a name="marketplace-metering-service-apis"></a>API:er för Marketplace Metering Service
 
@@ -34,7 +34,10 @@ Med API: et för användnings händelser kan du generera användnings händelser
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 | `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
-| `authorization`   | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs: när du gör en HTTP-begäran `Bearer` , används prefixet till den token som hämtades från den refererade länken. |
+| `authorization`   | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs: när du gör en HTTP-begäran, används prefixet `Bearer` till den token som hämtades från den refererade länken. |
+
+>[!Note]
+>För Azure Application hanterade appar är planeringen som finns `resourceId` `resourceUsageId` under `billingDetails` i det hanterade metadata-objektet.  Ett exempel skript för att hämta det finns i [använda Azure-Managed Identities-token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token).  För SaaS `resourceId` -erbjudanden är prenumerations-ID: t för SaaS.  Mer information om SaaS-prenumerationer finns i [lista prenumerationer](./pc-saas-fulfillment-api-v2.md#list-subscriptions).
 
 *Anmoda*
 
@@ -134,7 +137,7 @@ Med event API för batch-användning kan du generera användnings händelser fö
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |
 | `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |
-| `authorization`      | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs: när du gör en HTTP-begäran `Bearer` , används prefixet till den token som hämtades från den refererade länken.  |
+| `authorization`      | [Hämta JSON Web token (JWT) Bearer-token.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Obs: när du gör en HTTP-begäran, används prefixet `Bearer` till den token som hämtades från den refererade länken.  |
 
 *Anmoda*
 ```json
@@ -192,7 +195,7 @@ OK
 }
 ```
 
-Beskrivning av status kod som refereras `BatchUsageEvent` i API-svar:
+Beskrivning av status kod som refereras i `BatchUsageEvent` API-svar:
 
 | Statuskod  | Description |
 | ---------- | -------------------- |

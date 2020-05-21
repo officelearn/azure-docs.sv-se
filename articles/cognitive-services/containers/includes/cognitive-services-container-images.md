@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d47829d32ed0b7ded545c73748cda1019d94bde
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590679"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721441"
 ---
 ### <a name="container-repositories-and-images"></a>Behållar databaser och avbildningar
 
@@ -62,7 +62,7 @@ Följande för hands behållare är tillgängliga offentligt. Microsoft Containe
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Offentlig "gated"-förhands granskning (container Registry: `containerpreview.azurecr.io` )
 
-Följande gated Preview-behållare finns i förhands gransknings registret för behållare och kräver åtkomst till ett program. Mer information finns i [Cognitive Services hantera-processen](../../cognitive-services-gating-process.md) .
+Följande gated Preview-behållare finns i förhands gransknings registret för behållare och kräver åtkomst till ett program. Se följande behållar artiklar för mer information.
 
 | Tjänst | Container | Container Registry/namn på lagrings plats/avbildning |
 |--|--|--|

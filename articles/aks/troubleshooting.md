@@ -2,16 +2,14 @@
 title: Felsök vanliga problem med Azure Kubernetes-tjänsten
 description: Lär dig hur du felsöker och löser vanliga problem när du använder Azure Kubernetes service (AKS)
 services: container-service
-author: sauryadas
 ms.topic: troubleshooting
-ms.date: 12/13/2019
-ms.author: saudas
-ms.openlocfilehash: 8460f4f2a66a1f545bea767cccf3aa77c9d3bff3
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 05/16/2020
+ms.openlocfilehash: f9831077d1f2850d39e4ef5e5ba35245f16cd683
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778965"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725002"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -24,16 +22,16 @@ Det finns också en [fel söknings guide](https://github.com/feiskyer/kubernetes
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Jag får ett fel meddelande om att kvoten överskreds vid skapandet eller uppgraderingen. Vad ska jag göra? 
 
-Du måste [begära kärnor](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Begär flera kärnor](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Vad är den maximala inställningen för poddar per nod för AKS?
 
 Den maximala inställningen för poddar per nod är 30 som standard om du distribuerar ett AKS-kluster i Azure Portal.
-Den maximala inställningen för poddar per nod är 110 som standard om du distribuerar ett AKS-kluster i Azure CLI. (Kontrol lera att du använder den senaste versionen av Azure CLI). Den här standardinställningen kan ändras med hjälp av `–-max-pods` flaggan i `az aks create` kommandot.
+Den maximala inställningen för poddar per nod är 110 som standard om du distribuerar ett AKS-kluster i Azure CLI. (Kontrol lera att du använder den senaste versionen av Azure CLI). Den här inställningen kan ändras med hjälp av `–-max-pods` flaggan i `az aks create` kommandot.
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Jag får ett insufficientSubnetSize-fel när jag distribuerar ett AKS-kluster med avancerade nätverksfunktioner. Vad ska jag göra?
 
-Om Azure-CNI (avancerade nätverk) används allokerar AKS IP-adresser baserat på "Max-poddar" per nod som kon figurer ATS. Under näts storleken måste vara större än produkten för antalet noder och inställningen Max Pod per nod, baserat på den konfigurerade Max poddar per nod. Följande ekvation beskriver detta:
+När du använder Azure CNI Network-plugin allokerar AKS IP-adresser baserat på parametern "--Max-poddar" per nod. Under näts storleken måste vara större än antalet noder gånger inställningen för max poddar per nod. Följande ekvation beskriver den:
 
 Under näts storlek > antalet noder i klustret (beakta framtida skalnings krav) * maximalt antal poddar per nod.
 
@@ -43,32 +41,32 @@ Mer information finns i [planera IP-adresser för klustret](configure-azure-cni.
 
 Det kan finnas olika orsaker till att Pod har fastnat i det läget. Du kan titta på:
 
-* Själva pod, med hjälp `kubectl describe pod <pod-name>`av.
-* Loggarna med hjälp `kubectl logs <pod-name>`av.
+* Själva pod, med hjälp av `kubectl describe pod <pod-name>` .
+* Loggarna med hjälp av `kubectl logs <pod-name>` .
 
 Mer information om hur du felsöker Pod-problem finns i [Felsöka program](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera RBAC i ett befintligt kluster. Hur kan jag göra det?
+## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Jag försöker aktivera rollbaserad Access Control (RBAC) i ett befintligt kluster. Hur kan jag göra det?
 
-Det går tyvärr inte att aktivera rollbaserad åtkomst kontroll (RBAC) i befintliga kluster för tillfället. Du måste uttryckligen skapa nya kluster. Om du använder CLI är RBAC aktiverat som standard. Om du använder AKS-portalen är en växlings knapp för att aktivera RBAC tillgänglig i arbets flödet för skapande.
+Att aktivera rollbaserad åtkomst kontroll (RBAC) i befintliga kluster stöds inte för tillfället, det måste anges när du skapar nya kluster. RBAC är aktiverat som standard när du använder CLI, Portal eller en API-version senare än `2020-03-01` .
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag skapade ett kluster med RBAC aktiverat genom att antingen använda Azure CLI med standardinställningar eller Azure Portal, och nu kan jag se många varningar på Kubernetes-instrumentpanelen. Instrument panelen som används för att fungera utan varningar. Vad ska jag göra?
+## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Jag skapade ett kluster med RBAC aktiverat och nu ser jag många varningar på Kubernetes-instrumentpanelen. Instrument panelen som används för att fungera utan varningar. Vad ska jag göra?
 
-Orsaken till varningarna på instrument panelen är att klustret nu är aktiverat med RBAC och till gång till det har inaktiverats som standard. I allmänhet är den här metoden en bra idé eftersom standard exponeringen för instrument panelen för alla användare av klustret kan leda till säkerhetshot. Om du fortfarande vill aktivera instrument panelen följer du stegen i [det här blogg inlägget](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+Orsaken till varningarna är att klustret har RBAC aktiverat och åtkomst till instrument panelen är nu begränsad som standard. I allmänhet är den här metoden en bra idé eftersom standard exponeringen för instrument panelen för alla användare av klustret kan leda till säkerhetshot. Om du fortfarande vill aktivera instrument panelen följer du stegen i [det här blogg inlägget](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Det går inte att ansluta till instrumentpanelen. Vad ska jag göra?
 
-Det enklaste sättet att komma åt din tjänst utanför klustret är att köra `kubectl proxy`, vilka proxyservrar som begär att skickas till din localhost port 8001 till KUBERNETES-API-servern. Därifrån kan API-servern proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
+Det enklaste sättet att komma åt din tjänst utanför klustret är att köra `kubectl proxy` , vilka proxyservrar som begär att skickas till din localhost port 8001 till Kubernetes-API-servern. Därifrån kan API-servern proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/` .
 
 Om du inte ser Kubernetes-instrumentpanelen kontrollerar du om `kube-proxy` Pod körs i `kube-system` namn området. Om den inte är i ett körnings tillstånd tar du bort Pod så att den startas om.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggar med kubectl-loggar eller så kan jag inte ansluta till API-servern. Jag får "fel från servern: fel vid uppringning av Server del: slå TCP...". Vad ska jag göra?
 
-Kontrol lera att standard nätverks säkerhets gruppen inte har ändrats och att både port 22 och 9000 är öppna för anslutning till API-servern. Kontrol lera om `tunnelfront` Pod körs i *Kube-systemets* namnrymd med `kubectl get pods --namespace kube-system` kommandot. Om den inte är det, kan du framtvinga borttagning av Pod och startas om.
+Se till att portarna 22, 9000 och 1194 är öppna för att ansluta till API-servern. Kontrol lera om `tunnelfront` eller `aks-link` Pod körs i *Kube-systemets* namnrymd med `kubectl get pods --namespace kube-system` kommandot. Om den inte är det, kan du framtvinga borttagning av Pod och startas om.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Jag försöker uppgradera eller skala och får ett meddelande om att det inte är tillåtet att ändra egenskapen imageReference. Hur gör jag för att åtgärda det här problemet?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Jag försöker uppgradera eller skala och får ett `"Changing property 'imageReference' is not allowed"` fel meddelande. Hur gör jag för att åtgärda det här problemet?
 
-Du kan få det här felet eftersom du har ändrat taggarna i agent-noderna i AKS-klustret. Att ändra och ta bort taggar och andra egenskaper för resurser i resurs gruppen MC_ * kan leda till oväntade resultat. Att ändra resurserna under MC_ *-gruppen i AKS-klustret delar service nivå målet (service nivå mål).
+Du kan få det här felet eftersom du har ändrat taggarna i agent-noderna i AKS-klustret. Ändra eller ta bort taggar och andra egenskaper för resurser i resurs gruppen MC_ * kan leda till oväntade resultat. Att ändra resurserna under MC_ *-gruppen i AKS-klustret delar service nivå målet (service nivå mål).
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Jag får fel meddelanden om att mitt kluster är i felaktigt tillstånd och uppgradering eller skalning fungerar inte förrän det har åtgärd ATS
 
@@ -76,35 +74,35 @@ Du kan få det här felet eftersom du har ändrat taggarna i agent-noderna i AKS
 
 Felet uppstår när kluster anger ett felaktigt tillstånd av flera orsaker. Följ stegen nedan för att lösa ett tillstånd för misslyckad kluster innan du försöker igen den tidigare misslyckade åtgärden:
 
-1. Tills klustret är i ett tillstånd `failed` `upgrade` där det inte `scale` går att utföra åtgärder. Vanliga problem och lösningar för roten är:
+1. Tills klustret är i ett tillstånd där det inte går att utföra `failed` `upgrade` `scale` åtgärder. Vanliga problem och lösningar för roten är:
     * Skalning med **otillräcklig beräknings kvot (CRP)**. För att lösa problemet måste du först skala klustret till ett stabilt mål tillstånd inom kvoten. Följ sedan de här [stegen för att begära en ökad beräknings kvot](../azure-portal/supportability/resource-manager-core-quotas-request.md) innan du försöker skala upp igen utöver de inledande kvot gränserna.
     * Skala ett kluster med avancerade nätverk och **otillräckliga undernät (nätverks resurser)**. För att lösa problemet måste du först skala klustret till ett stabilt mål tillstånd inom kvoten. Följ sedan [de här stegen för att begära en resurs kvot ökning](../azure-resource-manager/templates/error-resource-quota.md#solution) innan du försöker skala upp igen utöver de inledande kvot gränserna.
 2. När den underliggande orsaken till uppgraderings felet har lösts bör klustret ha statusen klar. När en lyckad status har verifierats kan du försöka utföra den ursprungliga åtgärden igen.
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Jag får fel meddelanden när jag försöker uppgradera eller skala det tillstånd mitt kluster håller på att uppgraderas eller har inte uppgraderats
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>Jag får fel meddelanden när jag försöker uppgradera eller skala det tillstånd mitt kluster uppgraderas eller har inte uppgraderats
 
 *Den här fel söknings hjälpen riktas mothttps://aka.ms/aks-pending-upgrade*
 
-Att uppgradera och skala åtgärder på ett kluster med en enda Node-pool eller ett kluster med [flera noder](use-multiple-node-pools.md) , är ömsesidigt uteslutande. Det går inte att ha ett kluster eller en Node-pool samtidigt för uppgradering och skalning. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Det innebär att åtgärder begränsas när aktiva uppgraderingar eller skalnings åtgärder inträffar eller görs och senare Miss lyckas. 
+ Det går inte att ha ett kluster eller en Node-pool samtidigt för uppgradering och skalning. I stället måste varje åtgärds typ slutföras på mål resursen före nästa förfrågan på samma resurs. Det innebär att åtgärder begränsas när aktiva uppgraderingar eller skalnings åtgärder inträffar eller görs. 
 
 För att diagnostisera problemet kan `az aks show -g myResourceGroup -n myAKSCluster -o table` du Hämta detaljerad status för klustret. Baserat på resultatet:
 
-* Om klustret aktivt uppgraderas väntar du tills åtgärden avslutas. Om det lyckades, gör om den tidigare misslyckade åtgärden igen.
+* Om klustret aktivt uppgraderas väntar du tills åtgärden har slutförts. Om det lyckades, gör om den tidigare misslyckade åtgärden igen.
 * Om det inte går att uppgradera klustret följer du stegen som beskrivs i föregående avsnitt.
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Kan jag flytta mitt kluster till en annan prenumeration eller min prenumeration med mitt kluster till en ny klient?
 
-Om du har flyttat AKS-klustret till en annan prenumeration eller klustrets ägande prenumeration till en ny klient, kommer klustret att förlora funktioner på grund av förlorade roll tilldelningar och tjänst huvud namns rättigheter. **AKS har inte stöd för att flytta kluster mellan prenumerationer eller klienter** på grund av den här begränsningen.
+Om du har flyttat ditt AKS-kluster till en annan prenumeration eller klustrets prenumeration till en ny klient fungerar inte klustret på grund av saknade behörigheter för kluster identiteten. **AKS stöder inte flytt av kluster mellan prenumerationer eller klienter** på grund av den här begränsningen.
 
 ## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Jag får fel meddelanden vid försök att använda funktioner som kräver skalnings uppsättningar för virtuella datorer
 
 *Den här fel söknings hjälpen dirigeras från aka.ms/aks-vmss-enablement*
 
-Du kan få fel som indikerar att ditt AKS-kluster inte finns på en skal uppsättning för virtuella datorer, till exempel följande exempel:
+Du får fel meddelanden som anger att ditt AKS-kluster inte finns på en skal uppsättning för virtuella datorer, till exempel följande exempel:
 
-**Agentpoolegenskap ' agentpoolegenskap ' har ställt in automatisk skalning som aktive rad men inte på Virtual Machine Scale Sets**
+**Agentpoolegenskap `<agentpoolname>` har ställt in automatisk skalning som aktive rad men inte på Virtual Machine Scale Sets**
 
-Om du vill använda funktioner som till exempel kluster autoskalning eller flera noder i pooler måste AKS-kluster skapas som använder skalnings uppsättningar för virtuella datorer. Fel returneras om du försöker använda funktioner som är beroende av den virtuella datorns skalnings uppsättningar och du riktar in ett vanligt AKS-kluster för skalnings uppsättningar som inte är virtuella datorer.
+Funktioner som till exempel klustrets autoskalning eller flera noder kräver skalnings uppsättningar för virtuella datorer som `vm-set-type` .
 
 Följ stegen *innan du börjar* i rätt dokument för att skapa ett AKS-kluster på rätt sätt:
 
@@ -118,8 +116,9 @@ Följ stegen *innan du börjar* i rätt dokument för att skapa ett AKS-kluster 
 Namngivnings begränsningar implementeras av både Azure-plattformen och AKS. Om ett resurs namn eller en parameter delar någon av dessa begränsningar returneras ett fel som uppmanar dig att ange en annan Indatatyp. Följande rikt linjer gäller för namngivning:
 
 * Kluster namn måste innehålla 1-63 tecken. De enda tillåtna tecknen är bokstäver, siffror, bindestreck och under streck. Det första och sista tecknet måste vara en bokstav eller en siffra.
-* AKS- *MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen `MC_resourceGroupName_resourceName_AzureRegion` för får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn.
+* AKS nod/*MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn. Du kan också [Anpassa resurs grupps namnet för noden](cluster-configuration.md#custom-resource-group-name)
 * *DnsPrefix* måste börja och sluta med alfanumeriska värden och måste vara mellan 1-54 tecken. Giltiga tecken är alfanumeriska värden och bindestreck (-). *DnsPrefix* får inte innehålla specialtecken, till exempel en punkt (.).
+* AKS måste bestå av gemener och 1-11 tecken för Linux-nodkonfigurationer och 1-6-tecken för Windows-nodkonfigurationer. Namnet måste börja med en bokstav och de enda tillåtna tecknen är bokstäver och siffror.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Jag får fel meddelanden när jag försöker skapa, uppdatera, skala, ta bort eller uppgradera kluster, den åtgärden är inte tillåten eftersom en annan åtgärd pågår.
 
@@ -129,22 +128,26 @@ Kluster åtgärder är begränsade när en tidigare åtgärd fortfarande pågår
 
 Baserat på utdata från klustrets status:
 
-* Om klustret är i ett annat etablerings tillstånd än *lyckat* eller *misslyckat*väntar du tills åtgärden (*Uppgradera/uppdatera/skapa/skala/ta bort/migrera*) avslutas. Försök att utföra den senaste kluster åtgärden igen när den tidigare åtgärden har slutförts.
+* Om klustret är i ett annat etablerings tillstånd än *lyckat* eller *misslyckat*väntar du tills åtgärden (*Uppgradera/uppdatera/skapa/skala/ta bort/migrera*) har slutförts. Försök med din senaste kluster åtgärd när den tidigare åtgärden har slutförts.
 
 * Om det finns en misslyckad uppgradering av klustret följer du stegen som beskrivs [i avsnittet Jag får fel meddelanden om att mitt kluster är i ett felaktigt tillstånd och uppgradering eller skalning fungerar inte förrän det har åtgärd ATS](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
-## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Jag får fel meddelanden om att det inte gick att hitta mitt huvud namn för tjänsten när jag försöker skapa ett nytt kluster utan att skicka något befintligt.
+## <a name="received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster"></a>Tog emot ett fel som säger att mitt huvud namn inte hittades eller är ogiltigt när jag försöker skapa ett nytt kluster.
 
-När du skapar ett AKS-kluster kräver det ett huvud namn för tjänsten för att skapa resurser för din räkning. AKS ger möjlighet att ha en ny som skapats när klustret skapas, men det kräver Azure Active Directory att fullständigt sprida det nya tjänst huvud namnet på en rimlig tid för att klustret ska kunna skapas. När den här spridningen tar för lång tid kommer klustret inte att verifieras för att skapa eftersom det inte går att hitta ett tillgängligt huvud namn för tjänsten. 
+När du skapar ett AKS-kluster kräver det ett huvud namn för tjänsten eller en hanterad identitet för att skapa resurser för din räkning. AKS kan automatiskt skapa ett nytt huvud namn för tjänsten när klustret skapas eller ta emot ett befintligt. När du använder en automatiskt skapad måste Azure Active Directory sprida den till varje region så att skapandet lyckas. Om spridningen tar för lång tid kommer klustret inte att verifieras för att skapa eftersom det inte går att hitta ett tillgängligt huvud namn för tjänsten. 
 
-Använd följande lösningar för detta:
-1. Använd ett befintligt huvud namn för tjänsten som redan har spridits över regioner och som finns för att skicka in till AKS vid klustrets skapande tid.
-2. Om du använder Automation-skript kan du lägga till tids fördröjningar mellan skapande av tjänstens huvud namn och AKS-kluster.
-3. Om du använder Azure Portal återgår du till kluster inställningarna när du skapar och försöker sedan att köra verifierings sidan igen efter några minuter.
+Använd följande lösningar för det här problemet:
+* Använd ett befintligt huvud namn för tjänsten som redan har spridits över regioner och som finns för att skicka in till AKS vid klustrets skapande tid.
+* Om du använder Automation-skript kan du lägga till tids fördröjningar mellan skapande av tjänstens huvud namn och AKS-kluster.
+* Om du använder Azure Portal återgår du till kluster inställningarna när du skapar och försöker sedan att köra verifierings sidan igen efter några minuter.
 
-## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Jag får fel meddelanden när jag har begränsat min utgående trafik
 
-Vid begränsning av utgående trafik från ett AKS-kluster [krävs och valfria rekommenderade](limit-egress-traffic.md) utgående portar/nätverks regler och FQDN/applikations regler för AKS. Om inställningarna är i konflikt med någon av dessa regler kanske du inte kan köra vissa `kubectl` kommandon. Du kan också se fel när du skapar ett AKS-kluster.
+
+
+
+## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Jag får fel efter att ha begränsat utgående trafik
+
+Vid begränsning av utgående trafik från ett AKS-kluster [krävs och valfria rekommenderade](limit-egress-traffic.md) utgående portar/nätverks regler och FQDN/applikations regler för AKS. Om inställningarna är i konflikt med någon av dessa regler `kubectl` fungerar inte vissa kommandon som de ska. Du kan också se fel när du skapar ett AKS-kluster.
 
 Kontrol lera att inställningarna inte står i konflikt med några av de obligatoriska eller valfria rekommenderade utgående portarna/nätverks reglerna och reglerna för FQDN/program.
 
@@ -153,33 +156,24 @@ Kontrol lera att inställningarna inte står i konflikt med några av de obligat
 ### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>Vilka är de rekommenderade stabila versionerna av Kubernetes för Azure disk? 
 
 | Kubernetes-version | Rekommenderad version |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
 
 
-### <a name="what-versions-of-kubernetes-have-azure-disk-support-on-the-sovereign-cloud"></a>Vilka versioner av Kubernetes har Azure disk support på det suveräna molnet?
-
-| Kubernetes-version | Rekommenderad version |
-| -- | :--: |
-| 1.12 | 1.12.0 eller senare |
-| 1.13 | 1.13.0 eller senare |
-| 1,14 | 1.14.0 eller senare |
-
-
 ### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>WaitForAttach misslyckades för Azure-disken: parsning av "/dev/disk/Azure/SCSI1/lun1": ogiltig syntax
 
-I Kubernetes version 1,10 kan MountVolume. WaitForAttach Miss lyckas med en ommontering av Azure-disken.
+I Kubernetes version 1,10 kan MountVolume. WaitForAttach Miss lyckas med en ommontering av Azure-disk.
 
-I Linux kan du se ett felaktigt format fel för DevicePath. Exempel:
+I Linux kan du se ett felaktigt format fel för DevicePath. Till exempel:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-I Windows kan du se fel numret för DevicePath (LUN). Exempel:
+I Windows kan du se fel numret för DevicePath (LUN). Till exempel:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -189,10 +183,11 @@ Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.Wait
 Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
-| -- | :--: |
+|--|:--:|
 | 1,10 | 1.10.2 eller senare |
 | 1,11 | 1.11.0 eller senare |
-| 1,12 och senare | E.t. |
+| 1,12 och senare | Ej tillämpligt |
+
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Det gick inte att ställa in UID och GID i mountOptions för Azure disk
 
@@ -207,7 +202,7 @@ mount: wrong fs type, bad option, bad superblock on /dev/sde,
        missing codepage or helper program, or other error
 ```
 
-Du kan åtgärda problemet genom att göra något av följande:
+Du kan åtgärda problemet genom att göra något av alternativen:
 
 * [Konfigurera säkerhets kontexten för en POD](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) genom att ange UID i runAsUser och GID i fsGroup. Följande inställning kommer till exempel att ange Pod kör som-rot, vilket gör den tillgänglig för alla filer:
 
@@ -223,9 +218,9 @@ spec:
 ```
 
   >[!NOTE]
-  > Eftersom GID och UID monteras som rot eller 0 som standard. Om GID eller UID anges som icke-rot, till exempel 1000, används `chown` Kubernetes för att ändra alla kataloger och filer under den disken. Den här åtgärden kan ta lång tid och kan göra det mycket långsamt att montera disken.
+  > Eftersom GID och UID monteras som rot eller 0 som standard. Om GID eller UID anges som icke-rot, till exempel 1000, används Kubernetes för `chown` att ändra alla kataloger och filer under den disken. Den här åtgärden kan ta lång tid och kan göra det mycket långsamt att montera disken.
 
-* Använd `chown` i initContainers för att ange GID och UID. Exempel:
+* Använd `chown` i initContainers för att ange GID och UID. Till exempel:
 
 ```yaml
 initContainers:
@@ -237,100 +232,24 @@ initContainers:
     mountPath: /data
 ```
 
-### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Fel vid borttagning av Azure-PersistentVolumeClaim som används av en POD
-
-Om du försöker ta bort en Azure-PersistentVolumeClaim som används av en POD kan du se ett fel meddelande. Exempel:
-
-```console
-$ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
-...
-Message:         disk.DisksClient#Delete: Failure responding to request: StatusCode=409 -- Original Error: autorest/azure: Service returned an error. Status=409 Code="OperationNotAllowed" Message="Disk kubernetes-dynamic-pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06 is attached to VM /subscriptions/{subs-id}/resourceGroups/MC_markito-aks-pvc_markito-aks-pvc_westus/providers/Microsoft.Compute/virtualMachines/aks-agentpool-25259074-0."
-```
-
-I Kubernetes version 1,10 och senare finns en PersistentVolumeClaim skydds funktion som är aktive rad som standard för att förhindra det här felet. Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att ta bort Pod med hjälp av PersistentVolumeClaim innan du tar bort PersistentVolumeClaim.
-
-
-### <a name="error-cannot-find-lun-for-disk-when-attaching-a-disk-to-a-node"></a>Fel "det går inte att hitta LUN för disk" vid koppling av en disk till en nod
-
-När du kopplar en disk till en nod kan du se följande fel:
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6" : Cannot find Lun for disk kubernetes-dynamic-pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6
-```
-
-Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
-
-| Kubernetes-version | Fast version |
-| -- | :--: |
-| 1,10 | 1.10.10 eller senare |
-| 1,11 | 1.11.5 eller senare |
-| 1.12 | 1.12.3 eller senare |
-| 1.13 | 1.13.0 eller senare |
-| 1,14 och senare | E.t. |
-
-Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att vänta några minuter och försöka igen.
-
-### <a name="azure-disk-attachdetach-failure-mount-issues-or-io-errors-during-multiple-attachdetach-operations"></a>Azure disk Attach/avtagbara fel, Mount-problem eller I/O-fel vid flera åtgärder för att koppla/koppla från
-
-Från och med Kubernetes version 1.9.2 kan du se följande disk problem på grund av en felaktig VM-cache när du kör flera åtgärder för att ansluta/koppla från.
-
-* Disk anslutning/från kopplings problem
-* Disk-I/O-fel
-* Oväntad disk koppling från virtuell dator
-* En virtuell dator som körs i felaktigt tillstånd på grund av anslutning till en icke-befintlig disk
-
-Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
-
-| Kubernetes-version | Fast version |
-| -- | :--: |
-| 1,10 | 1.10.12 eller senare |
-| 1,11 | 1.11.6 eller senare |
-| 1.12 | 1.12.4 eller senare |
-| 1.13 | 1.13.0 eller senare |
-| 1,14 och senare | E.t. |
-
-Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att försöka nedan:
-
-* Om en disk väntar på att kopplas från under en lång tids period kan du försöka koppla bort disken manuellt
-
-### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Azure-disk väntar på att frånkopplas under obestämd tid
-
-I vissa fall, om en Azure disk-startåtgärd Miss lyckas vid det första försöket, kommer den inte att försöka koppla från igen och förblir kopplad till den ursprungliga virtuella noden. Det här felet kan inträffa när du flyttar en disk från en nod till en annan. Exempel:
-
-```console
-[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
-```
-
-Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
-
-| Kubernetes-version | Fast version |
-| -- | :--: |
-| 1,11 | 1.11.9 eller senare |
-| 1.12 | 1.12.7 eller senare |
-| 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | E.t. |
-
-Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet kan du åtgärda problemet genom att manuellt koppla från disken.
-
 ### <a name="azure-disk-detach-failure-leading-to-potential-race-condition-issue-and-invalid-data-disk-list"></a>Det gick inte att koppla från Azure-disken till ett potentiellt problem med konkurrens villkoret och ogiltig data disk lista
 
-När en Azure-disk inte kan kopplas tillbaka, kommer den att försöka igen om till sex gånger för att koppla bort disken från exponentiellt. Det kommer också att innehålla ett lås på radnivå på data disk listan i ungefär 3 minuter. Om disk listan uppdateras manuellt under den tids perioden, till exempel en manuell koppling eller från koppling, kommer detta att göra att disk listan hålls kvar av låset på nodens nivå för att bli föråldrad och orsaka instabilitet på den virtuella noden.
+När en Azure-disk inte kan kopplas tillbaka, kommer den att försöka igen om till sex gånger för att koppla bort disken från exponentiellt. Det kommer också att innehålla ett lås på radnivå på data disk listan i ungefär 3 minuter. Om disk listan uppdateras manuellt under den tiden kommer den att orsaka att disk listan hålls kvar av låset på nodens nivå för att bli inaktuell och orsakar instabilitet på noden.
 
 Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.9 eller senare |
 | 1.13 | 1.13.6 eller senare |
 | 1,14 | 1.14.2 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Ej tillämpligt |
 
-Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och din nod-VM har en lista över föråldrade diskar kan du åtgärda problemet genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en enda Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
-
+Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden har en föråldrad disk lista kan du minska genom att koppla bort alla icke-befintliga diskar från den virtuella datorn som en Mass åtgärd. **En separat från koppling av icke-befintliga diskar kan Miss lyckas.**
 
 ### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>Ett stort antal Azure-diskar orsakar långsam anslutning/från koppling
 
-När antalet Azure-diskar som är anslutna till en virtuell nod är större än 10 kan åtgärderna för att ansluta och koppla från vara långsamma. Det här problemet är ett känt problem och det finns inga lösningar för tillfället.
+När antalet åtgärder för att koppla/koppla från Azure-disk som är mål för en enskild nod är större än 10, eller större än 3 när du använder en pool för en enskild virtuell dators skalnings uppsättning, kan de vara långsammare än förväntat när de görs i tur och ordning. Det här problemet är en känd begränsning och det finns inga lösningar för tillfället. [Röst objekt för användare som stöder parallell anslutning/från koppling utöver nummer.](https://feedback.azure.com/forums/216843-virtual-machines/suggestions/40444528-vmss-support-for-parallel-disk-attach-detach-for)..
 
 ### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>Det gick inte att koppla från Azure-disken till en möjlig nods VM i felaktigt tillstånd
 
@@ -339,13 +258,13 @@ I vissa fall kan en Azure disk-från koppling delvis Miss lyckas och lämna node
 Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.10 eller senare |
 | 1.13 | 1.13.8 eller senare |
 | 1,14 | 1.14.4 eller senare |
-| 1,15 och senare | E.t. |
+| 1,15 och senare | Ej tillämpligt |
 
-Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och den virtuella noden är i ett felaktigt tillstånd kan du undvika problemet genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
+Om du använder en version av Kubernetes som inte har korrigeringen för det här problemet och noden är i ett felaktigt tillstånd kan du minska genom att manuellt uppdatera VM-statusen med hjälp av någon av följande:
 
 * För ett tillgänglighets uppsättnings kluster:
     ```azurecli
@@ -362,17 +281,9 @@ Om du använder en version av Kubernetes som inte har korrigeringen för det hä
 ### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-files"></a>Vilka är de rekommenderade stabila versionerna av Kubernetes för Azure Files?
  
 | Kubernetes-version | Rekommenderad version |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 | 1.14.0 eller senare |
-
-### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>Vilka versioner av Kubernetes har Azure Files stöd för det suveräna molnet?
-
-| Kubernetes-version | Rekommenderad version |
-| -- | :--: |
-| 1.12 | 1.12.0 eller senare |
-| 1.13 | 1.13.0 eller senare |
 | 1,14 | 1.14.0 eller senare |
 
 ### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Vad är standard-mountOptions när du använder Azure Files?
@@ -380,11 +291,11 @@ Om du använder en version av Kubernetes som inte har korrigeringen för det hä
 Rekommenderade inställningar:
 
 | Kubernetes-version | fileMode-och dirMode-värde|
-| -- | :--: |
+|--|:--:|
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 och senare | 0777 |
 
-Om du använder ett kluster med Kubernetes version 1.8.5 eller större och dynamiskt skapar den permanenta volymen med en lagrings klass, kan monterings alternativ anges för objektet lagrings klass. I följande exempel anges *0777*:
+Monterings alternativ kan anges för objektet lagrings klass. I följande exempel anges *0777*:
 
 ```yaml
 kind: StorageClass
@@ -407,7 +318,7 @@ parameters:
 Några ytterligare användbara *mountOptions* -inställningar:
 
 * *mfsymlinks* kommer att göra Azure Files montering (CIFS) stöder symboliska länkar
-* *nobrl* förhindrar sändning av byte intervall lås begär anden till servern. Den här inställningen är nödvändig för vissa program som slutar med en CIFS-format som är obligatoriska byte intervall lås. De flesta CIFS-servrar stöder ännu inte begäran om att låsa byte intervall lås. Om du inte använder *nobrl*kan program som slutar med CIFS-format som är obligatoriska byte intervall lås orsaka fel meddelanden som liknar:
+* *nobrl* förhindrar sändning av byte intervall lås begär anden till servern. Den här inställningen är nödvändig för vissa program som slutar med en CIFS-format som är obligatoriska byte intervall lås. De flesta CIFS-servrar har ännu inte stöd för begäran om att låsa byte intervall lås. Om du inte använder *nobrl*kan program som slutar med CIFS-format som är obligatoriska byte intervall lås orsaka fel meddelanden som liknar:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -434,7 +345,7 @@ I vissa fall, t. ex. hantering av många små filer, kan du uppleva hög fördr�
 
 ### <a name="error-when-enabling-allow-access-allow-access-from-selected-network-setting-on-storage-account"></a>Fel vid aktivering av inställningen Tillåt åtkomst Tillåt åtkomst från valt nätverk på lagrings kontot
 
-Om du aktiverar *Tillåt åtkomst från det valda nätverket* på ett lagrings konto som används för dynamisk etablering i AKS, visas ett fel meddelande när AKS skapar en fil resurs:
+Om du aktiverar *Tillåt åtkomst från det valda nätverket* på ett lagrings konto som används för dynamisk etablering i AKS får du ett fel när AKS skapar en fil resurs:
 
 ```console
 persistentvolume-controller (combined from similar events): Failed to provision volume with StorageClass "azurefile": failed to create share kubernetes-dynamic-pvc-xxx in account xxx: failed to create file share, err: storage: service returned error: StatusCode=403, ErrorCode=AuthorizationFailure, ErrorMessage=This request is not authorized to perform this operation.
@@ -457,24 +368,24 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 Det här problemet har åtgärd ATS i följande versioner av Kubernetes:
 
 | Kubernetes-version | Fast version |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.6 eller senare |
 | 1.13 | 1.13.4 eller senare |
-| 1,14 och senare | E.t. |
+| 1,14 och senare | Ej tillämpligt |
 
-### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
+### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Azure Files monteringen Miss lyckas på grund av att lagrings konto nyckeln har ändrats
 
 Om din lagrings konto nyckel har ändrats kan du se Azure Files Mount-felen.
 
-Du kan åtgärda problemet genom att manuellt uppdatera fältet *azurestorageaccountkey* manuellt i Azure File Secret med din base64-kodade lagrings konto nyckel.
+Du kan åtgärda problemet genom att manuellt uppdatera `azurestorageaccountkey` fältet manuellt i en Azure-filhemlighet med din base64-kodade lagrings konto nyckel.
 
-Du kan använda `base64`för att koda lagrings konto nyckeln i base64. Exempel:
+Du kan använda för att koda lagrings konto nyckeln i base64 `base64` . Till exempel:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Om du vill uppdatera din Azure-hemlig `kubectl edit secret`fil använder du. Exempel:
+Om du vill uppdatera din Azure-hemlig fil använder du `kubectl edit secret` . Till exempel:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
@@ -482,19 +393,20 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 
 Efter några minuter kommer agent-noden att försöka montera Azure-filen igen med den uppdaterade lagrings nyckeln.
 
+
 ### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>Det gick inte att skala kluster autoskalning med felet kunde inte åtgärda grupp storlekarna
 
-Om klustrets autoskalning inte skalas upp/ned och du ser ett fel som det nedan på [loggarna för klustrets automatiska skalnings loggar][view-master-logs].
+Om klustrets autoskalning inte skalar upp/ned och du ser ett fel som det nedan på [loggarna för klustrets autoskalning][view-master-logs].
 
 ```console
 E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
 ```
 
-Det här felet beror på ett överordnat kluster för autoskalning i klustret där klustrets autoskalning slutar med ett annat värde än det som faktiskt finns i klustret. Ta bort det här läget genom att bara inaktivera och återaktivera [klustrets autoskalning][cluster-autoscaler].
+Det här felet beror på ett konkurrens villkor för en överordnad kluster autoskalning. I sådana fall slutar kluster autoskalning med ett annat värde än det som faktiskt finns i klustret. Inaktivera och återaktivera [klustrets autoskalning][cluster-autoscaler]för att komma ur det här läget.
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Långsam disk bilaga, GetAzureDiskLun tar 10 till 15 minuter och du får ett fel meddelande
 
-På Kubernetes-versioner som är **äldre än 1.15.0** kan du få ett fel meddelande som **fel WaitForAttach inte kan hitta LUN för disk**.  Lösningen för detta är att vänta cirka 15 minuter och försöka igen.
+På Kubernetes-versioner som är **äldre än 1.15.0**kan du få ett fel meddelande som **fel WaitForAttach inte kan hitta LUN för disk**.  Lösningen på det här problemet är att vänta cirka 15 minuter och försöka igen.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

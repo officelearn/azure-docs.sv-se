@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402069"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725541"
 ---
 # <a name="what-is-custom-speech"></a>Vad är Custom Speech?
 
@@ -37,9 +37,11 @@ Det här diagrammet visar de delar som utgör den [Custom Speech portalen](https
 
 4. [Utvärdera precision](how-to-custom-speech-evaluate-data.md) – utvärdera precisionen för tal till text-modellen. [Custom Speech-portalen](https://speech.microsoft.com/customspeech) ger en *fel frekvens i Word*som kan användas för att avgöra om det krävs ytterligare utbildning. Om du är nöjd med noggrannheten kan du använda API: erna för Speech service direkt. Om du vill förbättra noggrannheten med ett relativt genomsnitt på 5%-20%, använder du fliken **utbildning** i portalen för att ladda upp ytterligare tränings data, till exempel rapporter om mänsklig skrift och relaterad text.
 
-5. [Träna modellen](how-to-custom-speech-train-model.md) – förbättra noggrannheten hos din tal-till-text-modell genom att tillhandahålla skrivna avskrifter (10 – 1 000 timmar) och relaterad text (<200 MB) tillsammans med dina ljud test data. Dessa data hjälper till att träna tal-till-text-modellen. Efter utbildningen, testa om och om du är nöjd med resultatet kan du distribuera din modell.
+5. [Förbättra precisionen](how-to-custom-speech-improve-accuracy.md) – Välj ytterligare tränings data strategiskt för att förbättra kvaliteten på tal-till-text-modellen baserat på ditt scenario.
 
-6. [Distribuera modellen](how-to-custom-speech-deploy-model.md) – skapa en anpassad slut punkt för din tal-till-text-modell och Använd den i dina program, verktyg eller produkter.
+6. [Träna modellen](how-to-custom-speech-train-model.md) – förbättra noggrannheten hos din tal-till-text-modell genom att tillhandahålla skrivna avskrifter (10 – 1 000 timmar) och relaterad text (<200 MB) tillsammans med dina ljud test data. Dessa data hjälper till att träna tal-till-text-modellen. Efter utbildningen, testa om och om du är nöjd med resultatet kan du distribuera din modell.
+
+7. [Distribuera modellen](how-to-custom-speech-deploy-model.md) – skapa en anpassad slut punkt för din tal-till-text-modell och Använd den i dina program, verktyg eller produkter.
 
 ## <a name="set-up-your-azure-account"></a>Konfigurera ditt Azure-konto
 

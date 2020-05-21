@@ -2,15 +2,15 @@
 title: Köra arbets belastningar på kostnads effektiva virtuella datorer med låg prioritet
 description: Lär dig hur du etablerar virtuella datorer med låg prioritet för att minska kostnaderna för Azure Batch arbets belastningar.
 author: mscurrell
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: ec75dac7e5615cddf942ff7939ea7e95315f8699
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 39c4674da2ddf63c5fab8b39e16a0cc0d9f299ac
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116051"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726595"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Använda lågprioriterade virtuella datorer med Batch
 

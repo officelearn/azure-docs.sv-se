@@ -1,14 +1,14 @@
 ---
 title: Skicka ett stort antal aktiviteter
 description: Hur man effektivt skickar ett mycket stort antal uppgifter i ett enda Azure Batch jobb
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/24/2018
-ms.openlocfilehash: 0be30e1a413a224d566db535d369a0b285b1f668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42b7d0586139b3d03569374615945047b42a2520
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117411"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725694"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Skicka in ett stort antal uppgifter till ett batch-jobb
 
@@ -24,9 +24,9 @@ Den maximala storleken på aktivitets samlingen som du kan lägga till i ett end
 
 * Följande batch-API: er begränsar samlingen till **100 uppgifter**. Gränsen kan vara mindre beroende på aktiviteternas storlek, till exempel om aktiviteterna har ett stort antal resursfiler eller miljövariabler.
 
-    * [REST API](/rest/api/batchservice/task/addcollection)
+    * [REST-API](/rest/api/batchservice/task/addcollection)
     * [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [Node. js-API](/javascript/api/@azure/batch/task?view=azure-node-latest)
+    * [Node.js-API](/javascript/api/@azure/batch/task?view=azure-node-latest)
 
   När du använder dessa API: er måste du tillhandahålla logik för att dela antalet aktiviteter för att uppfylla samlings gränsen och för att hantera fel och nya försök om aktiviteterna inte kan utföras. Om en aktivitets samling är för stor för att kunna läggas till genererar begäran ett fel och bör försöka igen med färre uppgifter.
 
@@ -43,7 +43,7 @@ Det kan ta lite tid att lägga till en stor mängd aktiviteter i ett jobb – ti
 
 * **Aktivitets storlek** – det tar längre tid att lägga till stora aktiviteter än att lägga till mindre. Om du vill minska storleken på varje aktivitet i en samling kan du förenkla aktivitetens kommando rad, minska antalet miljövariabler eller hantera krav för aktivitets körningen mer effektivt. I stället för att använda ett stort antal resursfiler måste du till exempel installera aktivitets beroenden med en [Start aktivitet](batch-api-basics.md#start-task) i poolen eller använda ett [programpaket](batch-application-packages.md) eller en [Docker-behållare](batch-docker-container-workloads.md).
 
-* **Antal parallella åtgärder** – beroende på batch-API: et ökar du data flödet genom att öka det maximala antalet samtidiga åtgärder av batch-klienten. Konfigurera den här inställningen med egenskapen [BatchClientParallelOptions. MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) i .NET-API: et eller `threads` parameter för metoder som [TaskOperations. add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) i batch python SDK-tillägget. (Den här egenskapen är inte tillgänglig i den inbyggda python SDK: n för batch.) Som standard är den här egenskapen inställd på 1, men Ställ in den högre för att förbättra genomflödet av åtgärder. Du förbrukar större data flöden genom att använda nätverks bandbredden och vissa CPU-prestanda. Uppgifts flödet ökar med upp till 100 gånger `MaxDegreeOfParallelism` eller. `threads` I praktiken bör du ställa in antalet samtidiga åtgärder under 100. 
+* **Antal parallella åtgärder** – beroende på batch-API: et ökar du data flödet genom att öka det maximala antalet samtidiga åtgärder av batch-klienten. Konfigurera den här inställningen med egenskapen [BatchClientParallelOptions. MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) i .NET-API: et eller `threads` parameter för metoder som [TaskOperations. ADD_COLLECTION](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) i batch python SDK-tillägget. (Den här egenskapen är inte tillgänglig i den inbyggda python SDK: n för batch.) Som standard är den här egenskapen inställd på 1, men Ställ in den högre för att förbättra genomflödet av åtgärder. Du förbrukar större data flöden genom att använda nätverks bandbredden och vissa CPU-prestanda. Uppgifts flödet ökar med upp till 100 gånger `MaxDegreeOfParallelism` eller `threads` . I praktiken bör du ställa in antalet samtidiga åtgärder under 100. 
  
   Azure Batch CLI-tillägget med batch-mallar ökar antalet samtidiga åtgärder automatiskt baserat på antalet tillgängliga kärnor, men den här egenskapen kan inte konfigureras i CLI. 
 
@@ -53,7 +53,7 @@ Det kan ta lite tid att lägga till en stor mängd aktiviteter i ett jobb – ti
 
 Följande C#-kodfragment visar inställningar som du kan konfigurera när du lägger till ett stort antal aktiviteter med hjälp av batch .NET-API: et.
 
-Öka aktivitetens data flöde genom att öka värdet för egenskapen [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) för [metoden batchclient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Ett exempel:
+Öka aktivitetens data flöde genom att öka värdet för egenskapen [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) för [metoden batchclient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Till exempel:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -63,7 +63,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Lägg till en aktivitets samling i jobbet med lämplig överlagring för metoden [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) eller [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) . Ett exempel:
+) . Till exempel:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -134,7 +134,7 @@ client = batch.BatchExtensionsClient(
 ...
 ```
 
-Skapa en samling uppgifter som ska läggas till i ett jobb. Ett exempel:
+Skapa en samling uppgifter som ska läggas till i ett jobb. Till exempel:
 
 
 ```python

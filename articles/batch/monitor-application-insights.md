@@ -1,14 +1,14 @@
 ---
 title: Övervaka batch med Azure Application insikter
 description: Lär dig att instrumentera ett Azure Batch .NET-program med hjälp av Azure Application Insights-biblioteket.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115473"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723620"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
@@ -215,7 +215,7 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-`FileToStage` Metoden är en hjälp funktion i kod exemplet som gör att du enkelt kan ladda upp en fil från en lokal disk till en Azure Storage-blob. Varje fil laddas ned senare till en Compute-nod och refereras till av en aktivitet.
+`FileToStage`Metoden är en hjälp funktion i kod exemplet som gör att du enkelt kan ladda upp en fil från en lokal disk till en Azure Storage-blob. Varje fil laddas ned senare till en Compute-nod och refereras till av en aktivitet.
 
 Slutligen lägger du till aktiviteterna i jobbet och inkluderar nödvändiga Application Insights binärfiler.
 ```csharp
@@ -280,13 +280,13 @@ Följande skärm bilder visar hur Application Insights loggar undantag som har u
 Anpassade mått är också ett värdefullt verktyg i portalen. Du kan till exempel Visa den genomsnittliga tid det tog för varje Compute-nod att ladda ned den nödvändiga text filen som den bearbetade.
 
 Så här skapar du ett exempel diagram:
-1. I Application Insights resurs klickar du på **Metrics Explorer** > **Lägg till diagram**.
+1. I Application Insights resurs klickar du på **Metrics Explorer**  >  **Lägg till diagram**.
 2. Klicka på **Redigera** i diagrammet som har lagts till.
 2. Uppdatera diagram informationen på följande sätt:
    * Ange **diagram typ** till **rutnät**.
    * Ange **agg regering** till **genomsnitt**.
    * Ange **Gruppera efter** till **nodeId**.
-   * I **mått**väljer du **anpassad** > **BLOB-hämtning på några sekunder**.
+   * I **mått**väljer du **anpassad**  >  **BLOB-hämtning på några sekunder**.
    * Justera **paletten** för bildskärms färg efter eget val. 
 
 ![Hämtnings tid för BLOB per nod](./media/monitor-application-insights/blobdownloadtime.png)

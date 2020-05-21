@@ -2,13 +2,13 @@
 title: Återge program
 description: Det är möjligt att använda alla åter givnings program med Azure Batch. VIRTUELLA Azure Marketplace-avbildningar är dock tillgängliga med vanliga program för installation.
 ms.date: 09/19/2019
-ms.topic: conceptual
-ms.openlocfilehash: f04fff3df2deb714f0432e5ad77d921a2d7ac205
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 70e3fb18f0cc4788303ed16656e1eed0f8177dfc
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115796"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726493"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Förinstallerade program på att återge VM-avbildningar
 
@@ -60,7 +60,7 @@ Följande lista gäller för Windows Server 2016, version 1.3.8 rendering images
 * AZ 10
 
 > [!IMPORTANT]
-> Om du vill köra V-Ray med Maya utanför [Azure Batch tilläggs mallar](https://github.com/Azure/batch-extension-templates)startar `vrayses.exe` du innan du kör renderingen. För att starta vrayses. exe utanför mallarna kan du använda följande kommando `%MAYA_2017%\vray\bin\vrayses.exe"`.
+> Om du vill köra V-Ray med Maya utanför [Azure Batch tilläggs mallar](https://github.com/Azure/batch-extension-templates)startar `vrayses.exe` du innan du kör renderingen. För att starta vrayses. exe utanför mallarna kan du använda följande kommando `%MAYA_2017%\vray\bin\vrayses.exe"` .
 >
 > Ett exempel finns i Start uppgiften för [Maya-och V-Ray-mallen](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) på GitHub.
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 2c275a5cd5dd7dd9399aa957dd7e68c611fc7c0e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3c2c2e3d5a2ef48ddc212fc0df4906c91071d803
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691182"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725977"
 ---
 # <a name="become-and-event-grid-partner"></a>Bli och Event Grid partner
 
@@ -34,10 +34,14 @@ Med partner ämnen kan du publicera händelser till Azure Event Grid för använ
 #### <a name="partner-flow"></a>Partner flöde
 
 1. Skapa en Azure-klient om du inte redan har en.
-1. Skapa en ny Event Grid med hjälp av CLI `partnerRegistration` . Den här resursen innehåller information, till exempel visnings namn, beskrivning, installations-URI och så vidare. 
-![Avsnittet Skapa partner](./media/partner-onboarding-how-to/create-partner-registration.png)
+1. Skapa en ny Event Grid med hjälp av CLI `partnerRegistration` . Den här resursen innehåller information, till exempel visnings namn, beskrivning, installations-URI och så vidare.
+
+    ![Avsnittet Skapa partner](./media/partner-onboarding-how-to/create-partner-registration.png)
+
 1. Skapa en eller flera `partnerNamespaces` i varje region som du vill publicera händelser. Som en del av detta etablerar Event Grid-tjänsten en publicerings slut punkt (till exempel https://contoso.westus-1.eventgrid.azure.net/api/events) och åtkomst nycklar.
-![Skapa partner namn område](./media/partner-onboarding-how-to/create-partner-namespace.png)
+
+    ![Skapa partner namn område](./media/partner-onboarding-how-to/create-partner-namespace.png)
+
 1. Gör det möjligt för kunder att registrera sig i systemet som de vill ha ett partner ämne.
 1. Kontakta Event Grid-teamet för att berätta för oss att du vill att din partner ämnes typ ska bli offentlig.
 
@@ -46,9 +50,12 @@ Med partner ämnen kan du publicera händelser till Azure Event Grid för använ
 1. Kunden kommer att gå till den Azure Portal att anteckna ID för Azure-prenumerationen och resurs gruppen de vill att partner ämnet skapade i.
 1. Kunden kommer att begära ett partner ämne via systemet. Som svar skapar du en händelse tunnel för ditt partner namn område.
 1. Event Grid skapar ett **väntande** partner ämne i kundens Azure-prenumeration och resurs grupp.
-![Skapa händelse kanal](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
+    ![Skapa händelse kanal](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
 1. Kunden aktiverar partner ämnet via Azure Portal. Händelser kan nu flöda från din tjänst till kundens Azure-prenumeration.
-![Avsnittet Aktivera partner](./media/partner-onboarding-how-to/activate-partner-topic.png)
+
+    ![Avsnittet Aktivera partner](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## <a name="resource-model"></a>Resurs modell
 
@@ -64,21 +71,14 @@ Nedan visas resurs modellen för partner ämnen.
     Endast Microsoft-godkända partnerRegistrations kan identifieras av kunder.
 * Omfång: skapat i partnerns Azure-prenumeration. Metadata som är synliga för kunder när de är offentliga.
 
-### <a name="event-types"></a>Händelse typer
-* Klusterresursen`partnerRegistrations/eventTypes`
-* Används av: partners
-* Beskrivning: fångar metadata om händelse typer som stöds av en partner registrering.
-* Omfattning: kunde identifieras av kunder när de har offentliggjorts. Bor i partnerns prenumeration som en underordnad resurs till partner registrering.
-        
-
 ### <a name="partner-namespaces"></a>Partner namn rymder
 * Resurs: partnerNamespaces
 * Används av: partners
 * Beskrivning: tillhandahåller en regional resurs för publicering av kund händelser till. Varje partner namn område har en publicerings slut punkt och auth-nycklar. Namn området är också hur partnern begär ett partner ämne för en bestämd kund och listar aktiva kunder.
 * Omfattning: bor i partnerns prenumeration.
 
-### <a name="event-tunnels"></a>Händelse tunnlar
-* Klusterresursen`partnerNamespaces/eventTunnels`
+### <a name="event-channel"></a>Händelse kanal
+* Klusterresursen`partnerNamespaces/eventChannels`
 * Används av: partners
 * Beskrivning: händelse tunnlarna är en spegling av kundens partner ämne. Genom att skapa en händelse tunnel och ange kundens Azure-prenumeration och resurs grupp i metadata signalerar du till Event Grid för att skapa ett partner ämne för kunden. Event Grid kommer att utfärda ett ARM-anrop för att skapa en motsvarande partnerTopic i kundens prenumeration. Partner ämnet kommer att skapas i ett "väntande" läge. Det finns en 1-1-länk mellan varje eventTunnel och en partnerTopic.
 * Omfattning: bor i partnerns prenumeration.

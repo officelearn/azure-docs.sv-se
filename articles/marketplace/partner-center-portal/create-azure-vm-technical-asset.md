@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 4d2d33f9d83132147b5b257ffcd6d659f272b8ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c4e5fa4ce960f8113504b52aa0d5055bf1bf85a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730724"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722719"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Skapa tekniska till gångar för din virtuella Azure-dator
-
-> [!IMPORTANT]
-> Vi flyttar hanteringen av din virtuella Azure-dator med erbjudanden från Cloud Partner Portal till Partner Center. Följ anvisningarna i [skapa tekniska till gångar för ett virtuellt dator erbjudande för Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets) att hantera dina erbjudanden innan du migrerar dina erbjudanden.
 
 Den här artikeln beskriver hur du skapar och konfigurerar tekniska till gångar för ett erbjudande för virtuella datorer (VM) för Azure Marketplace. En virtuell dator innehåller två komponenter: virtuella hård diskar (VHD) för operativ system och valfria associerade data diskar för virtuella hård diskar:
 
@@ -270,7 +267,7 @@ Följande process generaliserar en virtuell Linux-dator och distribuerar den ige
 1. **Ta bort Azure Linux-agenten**
 
     1. Anslut till din virtuella Linux-dator med hjälp av en SSH-klient.
-    2. I SSH-fönstret anger du följande kommando: `sudo waagent -deprovision+user`.
+    2. I SSH-fönstret anger du följande kommando: `sudo waagent -deprovision+user` .
     3. Skriv in **Y** om du vill fortsätta (du kan lägga till parametern **-Force** i föregående kommando för att undvika bekräftelse steget).
     d. När kommandot har slutförts skriver du **exit** för att stänga SSH-klienten.
 

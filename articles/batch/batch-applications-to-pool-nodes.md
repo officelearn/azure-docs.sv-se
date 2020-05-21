@@ -1,16 +1,16 @@
 ---
-title: Kopiera program och data till poolnoder
+title: Kopiera program och data till pool-noder
 description: Lär dig hur du kopierar program och data till pool-noder.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: 700e9b80f8420266c0300b47bdd30bc271f8421c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115592"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726833"
 ---
-# <a name="copying-applications-and-data-to-pool-nodes"></a>Kopiera program och data till poolnoder
+# <a name="copy-applications-and-data-to-pool-nodes"></a>Kopiera program och data till pool-noder
 
 Azure Batch stöder flera olika sätt att hämta data och program på datornoder så att data och program kan användas av uppgifter. Data och program kan behövas för att köra hela jobbet och måste installeras på varje nod. Vissa kan bara krävas för en viss uppgift eller måste installeras för jobbet men behöver inte finnas på varje nod. Batch har verktyg för var och en av dessa scenarier.
 

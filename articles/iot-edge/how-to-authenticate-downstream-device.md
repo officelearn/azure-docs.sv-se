@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 999204cf2fc8ce18b42f873b9d34af4e6c08052b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3edd29703f74c7671537fbcf08159dd830e5453c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80411501"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726234"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autentisera en underordnad enhet på Azure IoT Hub
 
@@ -59,7 +59,7 @@ Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-i
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
-Mer information om Azure CLI-kommandon för att skapa och överordnad och underordnad hantering av enheter finns i referens innehållet för [AZ IoT Hub Device-Identity-](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) kommandon.
+Mer information om Azure CLI-kommandon för att skapa och överordnad och underordnad hantering av enheter finns i referens innehållet för [AZ IoT Hub Device-Identity-](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) kommandon.
 
 
 [Hämta och ändra sedan anslutnings strängen](#retrieve-and-modify-connection-string) så att enheten kan ansluta via sin Gateway.
@@ -109,7 +109,7 @@ Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-i
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-Mer information om Azure CLI-kommandon för skapande av enheter, rapportgenerering och över-och underordnade hantering finns i referens innehållet för [AZ IoT Hub Device-Identity-](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) kommandon.
+Mer information om Azure CLI-kommandon för skapande av enheter, rapportgenerering och över-och underordnade hantering finns i referens innehållet för [AZ IoT Hub Device-Identity-](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) kommandon.
 
 [Hämta och ändra sedan anslutnings strängen](#retrieve-and-modify-connection-string) så att enheten kan ansluta via sin Gateway.
 
@@ -123,7 +123,7 @@ Om du inte har någon certifikat utfärdare för att skapa X. 509-certifikat kan
 
 1. Följ anvisningarna i avsnittet [Registrera x. 509 CA-certifikat i IoT Hub](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) i *Konfigurera X. 509-säkerhet i Azure IoT Hub*. I det avsnittet utför du följande steg:
 
-   1. Ladda upp ett rot certifikat för certifikat utfärdare. Om du använder demonstrations certifikaten är ** \<** rot certifikat utfärdaren sökväg>/certs/Azure-IoT-test-Only.root.ca.cert.pem.
+   1. Ladda upp ett rot certifikat för certifikat utfärdare. Om du använder demonstrations certifikaten är rot certifikat utfärdaren ** \< sökväg>/certs/Azure-IoT-test-Only.root.ca.cert.pem**.
 
    2. Kontrol lera att du äger det rot certifikat utfärdarens certifikat.
 
@@ -152,7 +152,7 @@ Du kan använda [IoT-tillägget för Azure CLI](https://github.com/Azure/azure-i
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-Mer information finns i referens innehållet för Azure CLI för [AZ IoT Hub Device-Identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) commands.
+Mer information finns i referens innehållet för Azure CLI för [AZ IoT Hub Device-Identity](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) commands.
 
 [Hämta och ändra sedan anslutnings strängen](#retrieve-and-modify-connection-string) så att enheten kan ansluta via sin Gateway.
 
@@ -173,7 +173,7 @@ Tillsammans ser en fullständig anslutnings sträng ut så här:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-Om du har upprättat en överordnad/underordnad-relation för den här underordnade enheten kan du förenkla anslutnings strängen genom att anropa gatewayen direkt som anslutnings värd. Överordnad/underordnad-relationer krävs för X. 509-autentisering men valfritt för symmetrisk nyckel autentisering. Ett exempel:
+Om du har upprättat en överordnad/underordnad-relation för den här underordnade enheten kan du förenkla anslutnings strängen genom att anropa gatewayen direkt som anslutnings värd. Överordnad/underordnad-relationer krävs för X. 509-autentisering men valfritt för symmetrisk nyckel autentisering. Till exempel:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

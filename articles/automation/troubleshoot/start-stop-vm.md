@@ -1,6 +1,6 @@
 ---
-title: Felsök problem med distribution av Azure Automation Starta/stoppa virtuella datorer när de inte används
-description: Den här artikeln beskriver hur du felsöker och löser problem som uppstår under distributionen av den Starta/stoppa virtuella datorer när de inte används funktionen.
+title: Felsöka Azure Automation Starta/stoppa virtuella datorer när de inte används problem
+description: Den här artikeln beskriver hur du felsöker och löser problem som uppstår när du använder funktionen Starta/stoppa virtuella datorer när de inte används.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bd537fd943e9a13a59c2fa630235130ce9ccfe2d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 53a7e113d64ea4cf7018d51a44f9488342f1470f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680844"
+ms.locfileid: "83715638"
 ---
-# <a name="troubleshoot-startstop-vms-during-off-hours-deployment-issues"></a>Felsöka Starta/stoppa virtuella datorer när de inte används distributions problem
+# <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Felsöka Starta/stoppa virtuella datorer när de inte används problem
 
 Den här artikeln innehåller information om hur du felsöker och löser problem som uppstår när du distribuerar Azure Automation Starta/stoppa virtuella datorer när de inte används-funktionen på dina virtuella datorer. 
 

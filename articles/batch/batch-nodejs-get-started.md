@@ -2,14 +2,14 @@
 title: Självstudie – Använd Azure Batch klient bibliotek för Node. js
 description: Lär dig de grundläggande principerna för Azure Batch och skapa en enkel lösning med Node.js.
 ms.assetid: ''
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/22/2017
-ms.openlocfilehash: ccf0778938c873a5510f1408bf31d95c9d6ee873
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57b411e3c9c96aab31e85c4022a5954f7215cf02
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116867"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724215"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
 
@@ -60,7 +60,7 @@ Med hjälp av det här kommandot installerar du den senaste versionen av azure-b
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Steg 2: Skapa ett Azure Batch-konto
 
-Du kan skapa den från [Azure Portal](batch-account-create-portal.md) eller från kommando raden ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
+Du kan skapa den från [Azure Portal](batch-account-create-portal.md) eller från kommando raden ([PowerShell](batch-powershell-cmdlets-get-started.md)  / [Azure CLI](/cli/azure)).
 
 Nedan beskrivs kommandon som kan användas för att skapa ett sådant med hjälp av Azure CLI.
 

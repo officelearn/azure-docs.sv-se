@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 296c8e2dfe99e3b0aea66f364ac6f6d9b2f60a1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 440f46cbeebee1b552e64eba4ebc8787a47edf56
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272499"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779218"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Återställa borttagen App Service-app med hjälp av PowerShell
 
@@ -29,7 +29,7 @@ Vissa kunder kan komma över ett problem där det inte går att hämta listan ö
 
 ## <a name="list-deleted-apps"></a>Lista över borttagna appar
 
-Om du vill hämta samlingen med borttagna appar kan du `Get-AzDeletedWebApp`använda.
+Om du vill hämta samlingen med borttagna appar kan du använda `Get-AzDeletedWebApp` .
 
 För information om en speciell borttagen app kan du använda:
 
@@ -48,8 +48,10 @@ Den detaljerade informationen innehåller:
 - **Borttagnings tid**: när appen togs bort  
 
 ## <a name="restore-deleted-app"></a>Återställ borttagen app
+>[!NOTE]
+> `Restore-AzDeletedWebApp`stöds inte för Function-appar.
 
-När den app du vill återställa har identifierats kan du återställa den med hjälp av `Restore-AzDeletedWebApp`.
+När den app du vill återställa har identifierats kan du återställa den med hjälp av `Restore-AzDeletedWebApp` .
 
 ```powershell
 Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>

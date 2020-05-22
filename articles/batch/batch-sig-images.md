@@ -3,12 +3,12 @@ title: Använd det delade avbildnings galleriet för att skapa en anpassad pool
 description: Skapa en batch-pool med det delade avbildnings galleriet för att etablera anpassade avbildningar för att beräkna noder som innehåller den program vara och de data som du behöver för ditt program. Anpassade avbildningar är ett effektivt sätt att konfigurera datornoder för att köra batch-arbetsbelastningar.
 ms.topic: article
 ms.date: 08/28/2019
-ms.openlocfilehash: 1a26aaecc5da0ef348b720919b04d86f8fcfbc70
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 1f03d637ffc6e443fdd429ca7fd647603b668cc1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743581"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780490"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad pool
 
@@ -83,7 +83,7 @@ När du har skapat den hanterade avbildningen måste du skapa ett delat avbildni
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Skapa en pool från en delad avbildning med hjälp av Azure CLI
 
-Använd `az batch pool create` kommandot för att skapa en pool från den delade avbildningen med hjälp av Azure CLI. Ange det delade avbildnings-ID `--image` : t i fältet. Kontrol lera att OS-typen och SKU: n matchar de versioner som anges av`--node-agent-sku-id`
+Använd kommandot för att skapa en pool från den delade avbildningen med hjälp av Azure CLI `az batch pool create` . Ange det delade avbildnings-ID: t i `--image` fältet. Kontrol lera att OS-typen och SKU: n matchar de versioner som anges av`--node-agent-sku-id`
 
 > [!NOTE]
 > Du måste autentisera med hjälp av Azure AD. Om du använder Shared Key auth får du ett autentiseringsfel.  
@@ -218,4 +218,4 @@ Använd följande vägledning om du planerar att skapa en pool med hundratals el
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En djupgående översikt över batch finns i [utveckla storskaliga parallella beräknings lösningar med batch](batch-api-basics.md).
+* En djupgående översikt över batch finns i [batch-tjänstens arbets flöde och resurser](batch-service-workflow-features.md).

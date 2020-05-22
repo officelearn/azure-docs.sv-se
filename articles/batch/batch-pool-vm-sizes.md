@@ -4,12 +4,12 @@ description: Hur du väljer bland tillgängliga VM-storlekar för datornoderna i
 ms.topic: how-to
 ms.date: 09/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: a299ce05caa02432f96dfbb5eb675bc2d6f82ab5
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2e0d403f405d58c0d7488ac6d0c306be2f2d79ea
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723722"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779158"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
 
@@ -86,5 +86,5 @@ Batch-pooler i moln tjänst konfigurationen har stöd [för alla VM-storlekar f�
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En djupgående översikt över batch finns i [utveckla storskaliga parallella beräknings lösningar med batch](batch-api-basics.md).
+* Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
 * Information om hur du använder beräknings intensiva VM-storlekar finns i [använda RDMA-kompatibla eller GPU-aktiverade instanser i batch-pooler](batch-pool-compute-intensive-sizes.md).

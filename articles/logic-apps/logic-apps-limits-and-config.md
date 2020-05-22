@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/04/2020
-ms.openlocfilehash: 1dfb1b43eadebbfc7128c5a2451668be8a99329f
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.date: 05/23/2020
+ms.openlocfilehash: 29c5cdf418c4b7acfc7c3c510c3e76d956268fdf
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402544"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780355"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Information om begränsningar och konfiguration för Azure Logic Apps
 
@@ -207,7 +207,7 @@ Här är gränserna för anpassade anslutningar som du kan skapa från webb-API:
 | Name | Gräns |
 |------|-------|
 | Hanterade identiteter per Logic app | Antingen en tilldelad identitet eller en användardefinierad identitet |
-| Antal Logic Apps som har en hanterad identitet i en Azure-prenumeration per region | 250 |
+| Antal Logic Apps som har en hanterad identitet i en Azure-prenumeration per region | 500 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -244,7 +244,7 @@ Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pric
 |----------|------|-------|----------|
 | EDI handels avtal | 10 | 1 | 1,000 |
 | EDI-handels partner | 25 | 2 | 1,000 |
-| Kartor | 25 | 500 | 1,000 |
+| Maps | 25 | 500 | 1,000 |
 | Scheman | 25 | 500 | 1,000 |
 | Sammansättningar | 10 | 25 | 1,000 |
 | Certifikat | 25 | 2 | 1,000 |

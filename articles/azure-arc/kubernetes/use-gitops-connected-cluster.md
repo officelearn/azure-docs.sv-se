@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använda GitOps för en Azure Arc-aktiverad kluster konfiguration (förhands granskning)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes service, containers
-ms.openlocfilehash: e945a1d39edb6dad43e66ac492eb1e5c36ff58e1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 954c77503e8adacc4cd27b25b68b50cac1f80458
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684207"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779714"
 ---
 # <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Använda GitOps för en Azure Arc-aktiverad konfiguration (för hands version)
 
@@ -31,7 +31,7 @@ Den här kom igång-guiden hjälper dig att använda en uppsättning konfigurati
 
 ## <a name="create-a-configuration"></a>Skapa en konfiguration
 
-- Exempel lagrings plats:<https://github.com/slack/cluster-config>
+- Exempel lagrings plats:<https://github.com/Azure/arc-k8s-demo>
 
 Exempel lagrings platsen är strukturerad runt personen som är medlem av en kluster operatör som vill etablera några få namn rymder, distribuera en gemensam arbets belastning och ange en team-speciell konfiguration. När du använder den här databasen skapas följande resurser i klustret:
 
@@ -40,7 +40,7 @@ Exempel lagrings platsen är strukturerad runt personen som är medlem av en klu
  **ConfigMap:**`team-a/endpoints`
 
 `config-agent`Söker Azure efter nya eller uppdaterade `sourceControlConfiguration` var 30: e sekund.  Detta är den längsta tid det tar för `config-agent` att hämta en ny eller uppdaterad konfiguration.
-Om du associerar ett privat lagrings lager bör du även slutföra stegen i [tillämpa konfiguration från en privat git-lagringsplats](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/docs/use-gitops-in-connected-cluster.md#apply-configuration-from-a-private-git-repository)
+Om du associerar ett privat lagrings lager bör du även slutföra stegen i [tillämpa konfiguration från en privat git-lagringsplats](#apply-configuration-from-a-private-git-repository)
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 
@@ -99,14 +99,14 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 Här följer de scenarier som stöds för värdet av--URL-parametern-URL.
 
-| Scenario | Format | Description |
+| Scenario | Format | Beskrivning |
 | ------------- | ------------- | ------------- |
 | Privat GitHub-lagrings platsen – SSH | git@github.com:username/repo | SSH-nyckelpar genererat av flöde.  Användaren måste lägga till den offentliga nyckeln i GitHub-kontot som distributions nyckel. |
 | Offentlig GitHub-lagrings platsen | `http://github.com/username/repo`eller git://github.com/username/repo   | Offentlig git-lagrings platsen  |
 
 Dessa scenarier stöds av flöde, men inte av sourceControlConfiguration än. 
 
-| Scenario | Format | Description |
+| Scenario | Format | Beskrivning |
 | ------------- | ------------- | ------------- |
 | Privat GitHub lagrings platsen-HTTPS | `https://github.com/username/repo` | Flödet genererar inte SSH-nyckelpar.  [Instruktioner](https://docs.fluxcd.io/en/1.17.0/guides/use-git-https.html) |
 | Privat git-värd | user@githost:path/to/repo | [Instruktioner](https://docs.fluxcd.io/en/1.18.0/guides/use-private-git-host.html) |
@@ -129,7 +129,7 @@ Här följer några ytterligare parametrar för att anpassa skapandet av konfigu
 
 Alternativ som stöds i--Operator-params
 
-| Alternativ | Description |
+| Alternativ | Beskrivning |
 | ------------- | ------------- |
 | --git-gren  | Gren av Git-lagrings platsen som ska användas för Kubernetes-manifest. Standardvärdet är Master. |
 | --git-sökväg  | Relativ sökväg i git-lagrings platsen för flöde för att hitta Kubernetes-manifest. |
@@ -145,9 +145,9 @@ Alternativ som stöds i--Operator-params
 
 * Om enableHelmOperator är true kan operatorInstanceName + operatorNamespace-strängar inte överstiga 47 tecken.  Om du inte följer denna gräns får du följande fel meddelande:
 
-```console
-{"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
-```
+   ```console
+   {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
+   ```
 
 Mer information finns i [flödes dokumentation](https://aka.ms/FluxcdReadme).
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: b688341b8814c52523821851bef4d7600105cafd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c8b0d83be0ae464563a06c9307303ee7a5af527f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675873"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779787"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure-Metadata Service: Schemalagda händelser för virtuella Windows-datorer
 
@@ -134,10 +134,10 @@ Varje händelse schemaläggs en minimi period i framtiden baserat på händelse 
 
 ### <a name="event-scope"></a>Händelse omfång     
 Schemalagda händelser levereras till:
- - Fristående Virtual Machines
- - Alla Virtual Machines i en moln tjänst      
- - Alla Virtual Machines i en tillgänglighets uppsättning      
- - Alla Virtual Machines i en placerings grupp för skalnings uppsättningar (inklusive batch)        
+ - Fristående Virtual Machines.
+ - Alla Virtual Machines i en moln tjänst.     
+ - Alla Virtual Machines i en tillgänglighets uppsättning.     
+ - Alla Virtual Machines i en placerings grupp för skalnings uppsättningar (inklusive batch).       
 
 Därför bör du kontrol lera `Resources` fältet i händelsen för att identifiera vilka virtuella datorer som ska påverkas. 
 

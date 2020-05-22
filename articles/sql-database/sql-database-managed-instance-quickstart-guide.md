@@ -3,20 +3,20 @@ title: Snabb start – SQL-hanterad instans
 description: Lär dig att snabbt komma igång med Azure SQL Database – hanterad instans
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, carlr
+author: davidtrigano
+ms.author: datrigan
+ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 602de3e23eb5419958f84b071e2220550d1d04d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b873588393ed765fa21b30dfb3a71486d055373b
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73821723"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780471"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Komma igång med hanterad Azure SQL Database-instans
 
@@ -37,7 +37,8 @@ Som ett första steg behöver du skapa din första hanterade instans med nätver
   - Konfigurera [punkt-till-plats-VPN-anslutning till din hanterade instans](sql-database-managed-instance-configure-p2s.md) från den klientdator där du har SQL Server Management Studio och andra program för klientanslutningar. Det här är det andra av två alternativ för anslutning till din hanterade instans och till dess virtuella nätverk.
 
   > [!NOTE]
-  > Du kan även använda ExpressRoute- eller plats-till-plats-anslutning från ditt lokala nätverk, men dessa metoder ligger utanför det område som behandlas i de här snabbstarterna.
+  > - Du kan även använda ExpressRoute- eller plats-till-plats-anslutning från ditt lokala nätverk, men dessa metoder ligger utanför det område som behandlas i de här snabbstarterna.
+  > - Om du ändrar kvarhållningsperioden från 0 (obegränsad kvarhållning) till ett annat värde, Observera att kvarhållning endast kommer att gälla för loggar som skrivits efter att kvarhållning har ändrats (loggar som skrivits under perioden när kvarhållning hade värdet obegränsat bevaras, även efter att kvarhållning har Aktiver ATS).
 
 Som ett alternativ till att skapa en hanterad instans manuellt kan du använda [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), [PowerShell med Resource Manager-mall](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)eller [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) för att skapa skript och automatisera processen.
 
@@ -66,7 +67,7 @@ Med artiklarna i de här snabbstarterna kan du snabbt konfigurera en hanterad in
 
 För att du ska kunna migrera produktions databasen eller till och med utvecklings-och test databaser som du vill använda för en viss prestandatest måste du dock överväga att använda vissa ytterligare metoder, till exempel:
 - Prestandatest – du bör mäta bas linje prestanda på din käll SQL Server instans och jämföra dem med prestanda på den hanterade mål instansen där du har migrerat databasen. Läs mer om [bästa praxis för jämförelse av prestanda](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Online-migrering – med den `RESTORE` inbyggda beskrivningen i den här artikeln måste du vänta på att databaserna ska återställas (och kopieras till Azure Blob Storage om de inte redan finns där). Detta leder till viss avbrottstid för ditt program, särskilt för större databaser. Om du vill flytta produktionsdatabasen använder du [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) för att migrera din databas med minimal avbrottstid. DMS åstadkommer detta genom att inkrementellt överföra ändringar som gjorts i källdatabasen till den hanterade instansdatabas som återställs. På så sätt kan du snabbt växla programmet från käll- till måldatabas med minimal avbrottstid.
+- Online-migrering – med den inbyggda `RESTORE` beskrivningen i den här artikeln måste du vänta på att databaserna ska återställas (och kopieras till Azure Blob Storage om de inte redan finns där). Detta leder till viss avbrottstid för ditt program, särskilt för större databaser. Om du vill flytta produktionsdatabasen använder du [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) för att migrera din databas med minimal avbrottstid. DMS åstadkommer detta genom att inkrementellt överföra ändringar som gjorts i källdatabasen till den hanterade instansdatabas som återställs. På så sätt kan du snabbt växla programmet från käll- till måldatabas med minimal avbrottstid.
 
 Läs mer om den [rekommenderade migreringsprocessen](sql-database-managed-instance-migrate.md).
 

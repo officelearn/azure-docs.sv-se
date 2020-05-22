@@ -1,25 +1,25 @@
 ---
-title: inkludera fil
-description: inkludera fil
+title: ta med fil
+description: ta med fil
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6cd883289513091ff1a57a130b12e25e012c1160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72afa8ebea4cb9bf07cb3ce56583cbdf1849be9e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334954"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778279"
 ---
-I följande tabell beskrivs standard gränserna för Azure General-Purpose v1, v2, Blob Storage, Block Blob Storage och Data Lake Storage Gen2 aktiverade lagrings konton. Den *inkommande* gränsen refererar till alla data som skickas till ett lagrings konto. *Utgående* gräns avser alla data som tas emot från ett lagrings konto.
+I följande tabell beskrivs standard gränserna för Azures allmänna-syfte v1, v2, Blob Storage och Block-Blob Storage-konton. Den *inkommande* gränsen refererar till alla data som skickas till ett lagrings konto. *Utgående* gräns avser alla data som tas emot från ett lagrings konto.
 
 | Resurs | Gräns |
 | --- | --- |
-| Antal lagrings konton per region per prenumeration, inklusive standard-, Premium-och Data Lake Storage Gen2-aktiverade lagrings konton. <sup>3</sup> | 250 |
+| Antal lagrings konton per region per prenumeration, inklusive standard-och Premium Storage-konton.| 250 |
 | Maximal kapacitet för lagrings konto | 5 PiB <sup>1</sup>|
 | Maximalt antal BLOB-behållare, blobbar, fil resurser, tabeller, köer, entiteter eller meddelanden per lagrings konto | Obegränsad |
 | Högsta begär ande frekvens<sup>1</sup> per lagrings konto | 20 000 begär Anden per sekund |
@@ -37,7 +37,7 @@ I följande tabell beskrivs standard gränserna för Azure General-Purpose v1, v
 
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
-<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) är en uppsättning funktioner som är avsedda för stor data analys och bygger på Azure Blob Storage. Begränsningar för Azure Storage och blob-lagring gäller för Data Lake Storage Gen2.
+<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) är en uppsättning funktioner som är avsedda för stor data analys och bygger på Azure Blob Storage.
 
 > [!NOTE]
 > Microsoft rekommenderar att du använder ett allmänt-syfte v2-lagrings konto för de flesta scenarier. Du kan enkelt uppgradera ett allmänt v1-eller Azure Blob Storage-konto till ett allmänt-syfte v2-konto utan avbrott och utan att behöva kopiera data. Mer information finns i [Uppgradera till ett allmänt-syfte v2-lagrings konto](../articles/storage/common/storage-account-upgrade.md).

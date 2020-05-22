@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 04/14/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 3c9cc96af42c6cfb83b43e3a0c56f16bdb917025
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0bb17ab98dc17bbe7623467451acc65a126bcaf1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649104"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779975"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Använda hanterade identiteter för App Service och Azure Functions
 
@@ -39,6 +39,11 @@ För att konfigurera en hanterad identitet i portalen skapar du först ett progr
 4. Växla **status** till **på på**fliken **systemtilldelad** . Klicka på **Spara**.
 
     ![Hanterad identitet i App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+
+
+> [!NOTE] 
+> Om du vill hitta den hanterade identiteten för din webb-eller fack-app i Azure Portal går du till avsnittet användar inställningar under företags program.
+
 
 ### <a name="using-the-azure-cli"></a>Använda Azure CLI
 
@@ -256,7 +261,7 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 **IDENTITY_ENDPOINT** är en lokal URL som din app kan begära token från. Om du vill hämta en token för en resurs gör du en HTTP GET-begäran till den här slut punkten, inklusive följande parametrar:
 
-> | Parameternamn    | I     | Description                                                                                                                                                                                                                                                                                                                                |
+> | Parameternamn    | I     | Beskrivning                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | Söka i data  | Azure AD-resurs-URI för resursen som en token ska hämtas för. Detta kan vara en av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) eller andra resurs-URI: er.    |
 > | api-version       | Söka i data  | Den version av token API som ska användas. Använd "2019-08-01" eller senare.                                                                                                                                                                                                                                                                 |
@@ -270,7 +275,7 @@ En app med en hanterad identitet har två miljövariabler definierade:
 
 Ett lyckat 200 OK-svar innehåller en JSON-text med följande egenskaper:
 
-> | Egenskapsnamn | Description                                                                                                                                                                                                                                        |
+> | Egenskapsnamn | Beskrivning                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | Den begärda åtkomsttoken. Den anropande webb tjänsten kan använda denna token för att autentisera till den mottagande webb tjänsten.                                                                                                                               |
 > | client_id     | Klient-ID för den identitet som användes.                                                                                                                                                                                                       |

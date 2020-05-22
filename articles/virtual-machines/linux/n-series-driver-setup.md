@@ -2,19 +2,18 @@
 title: Konfiguration av GPU-drivrutin för Azure N-serien för Linux
 description: Konfigurera NVIDIA GPU-drivrutiner för virtuella datorer i N-serien som kör Linux i Azure
 services: virtual-machines-linux
-author: cynthn
-ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
+author: vikancha
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
-ms.author: cynthn
-ms.openlocfilehash: cb2d5c43b8c04829dd6830126b7bc01bee07133b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.author: vikancha
+ms.openlocfilehash: e4ee760acb441cdf70e588004d2f380ead07cd34
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628200"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779362"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på virtuella datorer i N-serien som kör Linux
 
@@ -184,7 +183,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    
    sudo apt-get install linux-azure -y
    ```
-3. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NVv2 virtuella datorer.) Det gör du genom att skapa en fil `/etc/modprobe.d` med `nouveau.conf` namnet med följande innehåll:
+3. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NVv2 virtuella datorer.) Det gör du genom att skapa en fil med `/etc/modprobe.d` namnet `nouveau.conf` med följande innehåll:
 
    ```
    blacklist nouveau
@@ -217,7 +216,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
    ```
 
-8. Lägg till följande i `/etc/nvidia/gridd.conf`:
+8. Lägg till följande i `/etc/nvidia/gridd.conf` :
  
    ```
    IgnoreSP=FALSE
@@ -248,7 +247,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    sudo yum install hyperv-daemons
    ```
 
-2. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NV2 virtuella datorer.) Det gör du genom att skapa en fil `/etc/modprobe.d` med `nouveau.conf` namnet med följande innehåll:
+2. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NV2 virtuella datorer.) Det gör du genom att skapa en fil med `/etc/modprobe.d` namnet `nouveau.conf` med följande innehåll:
 
    ```
    blacklist nouveau
@@ -290,7 +289,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
    ```
   
-8. Lägg till följande i `/etc/nvidia/gridd.conf`:
+8. Lägg till följande i `/etc/nvidia/gridd.conf` :
  
    ```
    IgnoreSP=FALSE
@@ -315,7 +314,7 @@ Om driv rutinen är installerad visas utdata som liknar följande. Observera att
  
 
 ### <a name="x11-server"></a>Begäran om x11-Server
-Om du behöver en begäran om x11-Server för fjärr anslutningar till en NV-eller NVv2-VM rekommenderas [x11vnc](http://www.karlrunge.com/x11vnc/) eftersom den tillåter grafikens maskin varu acceleration. BusID för den M60-enheten måste läggas till manuellt i begäran om x11-konfigurationsfilen (vanligt vis `etc/X11/xorg.conf`). Lägg till `"Device"` ett avsnitt som liknar följande:
+Om du behöver en begäran om x11-Server för fjärr anslutningar till en NV-eller NVv2-VM rekommenderas [x11vnc](http://www.karlrunge.com/x11vnc/) eftersom den tillåter grafikens maskin varu acceleration. BusID för den M60-enheten måste läggas till manuellt i begäran om x11-konfigurationsfilen (vanligt vis `etc/X11/xorg.conf` ). Lägg till ett `"Device"` avsnitt som liknar följande:
  
 ```
 Section "Device"
@@ -355,7 +354,7 @@ Skapa sedan en post för ditt uppdaterings skript i `/etc/rc.d/rc3.d` så att sk
 
 ## <a name="troubleshooting"></a>Felsökning
 
-* Du kan ställa in persistence- `nvidia-smi` läge med så att kommandots utdata går snabbare när du behöver fråga kort. Kör `nvidia-smi -pm 1`om du vill ställa in persistence-läge. Observera att om den virtuella datorn startas om så går läges inställningen bort. Du kan alltid skripta läges inställningen så att den körs vid start.
+* Du kan ställa in persistence-läge med `nvidia-smi` så att kommandots utdata går snabbare när du behöver fråga kort. Kör om du vill ställa in persistence-läge `nvidia-smi -pm 1` . Observera att om den virtuella datorn startas om så går läges inställningen bort. Du kan alltid skripta läges inställningen så att den körs vid start.
 * Om du har uppdaterat NVIDIA CUDA-drivrutinerna till den senaste versionen och inte längre kan hitta RDMA-anslutningen kan du [installera om RDMA-drivrutinerna](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) för att återupprätta anslutningen. 
 
 ## <a name="next-steps"></a>Nästa steg

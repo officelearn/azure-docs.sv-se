@@ -1,17 +1,16 @@
 ---
 title: Azure CLI-exempel – Azure Functions
 description: Azure CLI-exempel – Azure Functions
-author: syntaxc4
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61ac1b95055b8ec9e65c3009d76f79581721f594
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239646"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779551"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI-exempel
 
@@ -21,9 +20,9 @@ Följande tabell inkluderar länkar till bash-skript för Azure Functions som an
 
 | Skapa app | Beskrivning |
 |---|---|
-| [Skapa en funktionsapp för serverlös körning](scripts/functions-cli-create-serverless.md) | Skapar en funktionsapp i en förbrukningsplan.  |
-| [Skapa en server lös python-Function-app](scripts/functions-cli-create-serverless-python.md) | Skapa en funktionsapp i en dedikerad App Service-plan. |
-| [Skapa en Function-app i en skalbar Premium-plan](scripts/functions-cli-create-premium-plan.md) | Skapa en funktionsapp i en dedikerad App Service-plan. |
+| [Skapa en funktionsapp för serverlös körning](scripts/functions-cli-create-serverless.md) | Skapa en Function-app i en förbruknings plan.  |
+| [Skapa en server lös python-Function-app](scripts/functions-cli-create-serverless-python.md) | Skapa en python Function-app i en förbruknings plan. |
+| [Skapa en Function-app i en skalbar Premium-plan](scripts/functions-cli-create-premium-plan.md) | Skapa en Function-app i en Premium-plan. |
 | [Skapa en Function-app i en dedikerad (App Service) plan](scripts/functions-cli-create-app-service-plan.md) | Skapa en funktionsapp i en dedikerad App Service-plan. |
 
 | Integrera | Beskrivning|

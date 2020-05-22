@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: c13ace67f18b619d5ad86106ecb648db722be9fa
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792453"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779334"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -54,7 +54,7 @@ Detta är det grundläggande mallformat:
 
 ## <a name="type-and-api-version"></a>Typ-och API-version
 
-`type` Är resurs typen, som måste vara `"Microsoft.VirtualMachineImages/imageTemplates"`. `apiVersion` Kommer att ändras med tiden som API-ändringar, men bör vara `"2019-05-01-preview"` för hands version.
+`type`Är resurs typen, som måste vara `"Microsoft.VirtualMachineImages/imageTemplates"` . `apiVersion`Kommer att ändras med tiden som API-ändringar, men bör vara `"2019-05-01-preview"` för hands version.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -144,7 +144,7 @@ Mer information om hur du distribuerar den här funktionen finns i [Konfigurera 
 
 ## <a name="properties-source"></a>Egenskaper: källa
 
-`source` Avsnittet innehåller information om käll avbildningen som ska användas av Image Builder.
+`source`Avsnittet innehåller information om käll avbildningen som ska användas av Image Builder.
 
 API: t kräver en ' SourceType ' som definierar källan för avbildnings versionen, för närvarande finns det tre typer:
 - PlatformImage – anger att käll avbildningen är en Marketplace-avbildning.
@@ -189,7 +189,7 @@ Anger käll avbildningen som en befintlig hanterad avbildning av en generalisera
         }
 ```
 
-`imageId` Ska vara den hanterade avbildningens ResourceID. Använd `az image list` för att visa en lista över tillgängliga avbildningar.
+`imageId`Ska vara den hanterade avbildningens ResourceID. Använd `az image list` för att visa en lista över tillgängliga avbildningar.
 
 
 ### <a name="sharedimageversion-source"></a>SharedImageVersion-källa
@@ -202,7 +202,7 @@ Anger käll avbildningen av en befintlig avbildnings version i ett galleri för 
    } 
 ```
 
-`imageVersionId` Ska vara avbildnings versionens ResourceID. Använd [AZ sig-avbildning – versions lista](/cli/azure/sig/image-version#az-sig-image-version-list) för att lista avbildnings versioner.
+`imageVersionId`Ska vara avbildnings versionens ResourceID. Använd [AZ sig-avbildning – versions lista](/cli/azure/sig/image-version#az-sig-image-version-list) för att lista avbildnings versioner.
 
 ## <a name="properties-buildtimeoutinminutes"></a>Egenskaper: buildTimeoutInMinutes
 
@@ -222,8 +222,8 @@ Om du upptäcker att du behöver mer tid för att anpassningarna ska slutföras,
 
 Avbildnings verktyget stöder flera "anpassningar". Anpassningar är funktioner som används för att anpassa din avbildning, till exempel köra skript eller starta om servrar. 
 
-När du `customize`använder: 
-- Du kan använda flera anpassningar, men de måste ha ett unikt `name`.
+När du använder `customize` : 
+- Du kan använda flera anpassningar, men de måste ha ett unikt `name` .
 - Anpassningar körs i den ordning som anges i mallen.
 - Om en anpassning Miss lyckas, kommer hela anpassnings komponenten att Miss lyckas och rapportera ett fel.
 - Det rekommenderas starkt att du testar skriptet noggrant innan du använder det i en mall. Det blir enklare att felsöka skriptet på din egen virtuella dator.
@@ -287,7 +287,7 @@ Anpassa egenskaper:
     * Skapa sha256Checksum med hjälp av en terminal på Mac/Linux-körning:`sha256sum <fileName>`
 
 
-För kommandon som ska köras med superuser-privilegier måste de föregås av `sudo`.
+För kommandon som ska köras med superuser-privilegier måste de föregås av `sudo` .
 
 > [!NOTE]
 > När du kör Shell Customization med RHEL ISO-källa måste du se till att ditt första anpassnings gränssnitt hanterar registrering med en Red Hat-rättighets server innan eventuella anpassningar sker. När anpassningen är klar ska skriptet avregistreras med rättighets servern.
@@ -385,7 +385,7 @@ Detta stöds av Windows-kataloger och Linux-sökvägar, men det finns vissa skil
 Om det uppstår ett fel vid försök att hämta filen, eller om den placeras i en angiven katalog, kommer anpassnings steget inte att fungera, och detta görs i anpassnings loggen.
 
 > [!NOTE]
-> Fil anpassningen är bara lämplig för små fil hämtningar, < 20 MB. För större fil hämtningar används ett skript eller ett infogat kommando, koden används för att ladda ned filer, till `wget` exempel `curl`Linux eller Windows `Invoke-WebRequest`,.
+> Fil anpassningen är bara lämplig för små fil hämtningar, < 20 MB. För större fil hämtningar används ett skript eller ett infogat kommando, koden används för att ladda ned filer, till exempel Linux `wget` eller `curl` Windows, `Invoke-WebRequest` .
 
 Filer i fil anpassningen kan laddas ned från Azure Storage med [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
@@ -425,13 +425,24 @@ Om Azure Image Builder skapar en anpassad Windows-avbildning och du skapar en vi
 
 #### <a name="default-sysprep-command"></a>Standard kommando för Sysprep
 ```powershell
-echo '>>> Waiting for GA to start ...'
+Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start ...'
+while ((Get-Service WindowsAzureTelemetryService) -and ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running')) { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureGuestAgent) to start ...'
 while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-echo '>>> Sysprepping VM ...'
-if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force} & $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit
-while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 5  } else { break } }
+Write-Output '>>> Sysprepping VM ...'
+if( Test-Path $Env:SystemRoot\system32\Sysprep\unattend.xml ) {
+  Remove-Item $Env:SystemRoot\system32\Sysprep\unattend.xml -Force
+}
+& $Env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit
+while($true) {
+  $imageState = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State).ImageState
+  Write-Output $imageState
+  if ($imageState -eq 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { break }
+  Start-Sleep -s 5
+}
+Write-Output '>>> Sysprep complete ...'
 ```
 #### <a name="default-linux-deprovision-command"></a>Standard kommando för att avetablera Linux
 
@@ -457,7 +468,7 @@ Azure Image Builder stöder tre distributions mål:
 
 Du kan distribuera en avbildning till båda mål typerna i samma konfiguration, se [exempel](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Eftersom du kan ha fler än ett mål att distribuera till, har Image Builder ett tillstånd för varje distributions mål som kan nås genom att fråga `runOutputName`.  `runOutputName` Är ett objekt som du kan skicka frågor till efter distribution för information om distributionen. Du kan till exempel fråga platsen för den virtuella hård disken eller regioner där avbildnings versionen har repliker ATS till, eller SIG-avbildnings version som skapats. Detta är en egenskap för varje distributions mål. `runOutputName` Måste vara unik för varje distributions mål. Här är ett exempel som frågar en distribution av delade avbildnings Galleri:
+Eftersom du kan ha fler än ett mål att distribuera till, har Image Builder ett tillstånd för varje distributions mål som kan nås genom att fråga `runOutputName` .  `runOutputName`Är ett objekt som du kan skicka frågor till efter distribution för information om distributionen. Du kan till exempel fråga platsen för den virtuella hård disken eller regioner där avbildnings versionen har repliker ATS till, eller SIG-avbildnings version som skapats. Detta är en egenskap för varje distributions mål. `runOutputName`Måste vara unik för varje distributions mål. Här är ett exempel som frågar en distribution av delade avbildnings Galleri:
 
 ```bash
 subscriptionID=<subcriptionID>
@@ -510,7 +521,7 @@ Avbildningens utdata är en hanterad avbildnings resurs.
  
 Distribuera egenskaper:
 - **typ** – managedImage 
-- **imageId** – resurs-ID för mål avbildningen, förväntat\<format:/Subscriptions/\<subscriptionId>/ResourceGroups/\<destinationResourceGroupName>/providers/Microsoft.Compute/images/imageName>
+- **imageId** – resurs-ID för mål avbildningen, förväntat format:/subscriptions/ \< subscriptionId>/ResourceGroups/ \< destinationResourceGroupName>/providers/Microsoft.Compute/images/ \< imageName>
 - **plats** – plats för den hanterade avbildningen.  
 - **runOutputName** – unikt namn för identifiering av distributionen.  
 - **artifactTags** – valfri användardefinierad nyckel värde par taggar.
@@ -550,7 +561,7 @@ Innan du kan distribuera till avbildnings galleriet måste du skapa ett galleri 
 Distribuera egenskaper för delade avbildnings gallerier:
 
 - **typ** -sharedImage  
-- **galleryImageId** – ID för det delade avbildnings galleriet. Formatet\<är:/subscriptions/subscriptionId>/resourcegroups/\<resourceGroupName>/providers/Microsoft.Compute/Galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
+- **galleryImageId** – ID för det delade avbildnings galleriet. Formatet är:/Subscriptions/ \< subscriptionId>/ResourceGroups/ \< resourceGroupName>/providers/microsoft.compute/galleries/ \< sharedImageGalleryName>/images/ \< imageGalleryName>.
 - **runOutputName** – unikt namn för identifiering av distributionen.  
 - **artifactTags** – valfri användardefinierad nyckel värde par taggar.
 - **replicationRegions** -matris för replikering. En av regionerna måste vara den region där galleriet har distribuerats.

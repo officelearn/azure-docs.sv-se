@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcd00972c2da0d3d5dafe76a8619e0f0ccaedc19
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b5d631143b839e052316490d3b3b89ca10469cb1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79239114"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778840"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Självstudie: Konfigurera Azure Active Directory Join-hybrid för hanterade domäner
 
@@ -30,11 +30,11 @@ Som en användare i din organisation är en enhet en kärn identitet som du vill
 
 Den här artikeln fokuserar på Hybrid Azure AD-anslutning.
 
-Genom att överföra dina enheter till Azure AD kan du maximera användar produktiviteten genom enkel inloggning (SSO) i molnet och lokala resurser. Du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../active-directory-conditional-access-azure-portal.md) på samma gång.
+Genom att överföra dina enheter till Azure AD kan du maximera användar produktiviteten genom enkel inloggning (SSO) i molnet och lokala resurser. Du kan skydda åtkomsten till molnet och lokala resurser med [villkorlig åtkomst](../conditional-access/howto-conditional-access-policy-compliant-device.md) på samma gång.
 
 Du kan distribuera en hanterad miljö med hjälp av [PHS (Password hash Sync)](../hybrid/whatis-phs.md) eller [direktautentisering (PTA)](../hybrid/how-to-connect-pta.md) med [sömlös enkel inloggning](../hybrid/how-to-connect-sso.md). De här scenarierna kräver inte att du konfigurerar en Federations Server för autentisering.
 
-I den här guiden får du lära dig att:
+I de här självstudierna får du lära dig att
 
 > [!div class="checklist"]
 > * Konfigurera Hybrid Azure Active Directory-anslutning
@@ -159,6 +159,24 @@ Installations programmet skapar en schemalagd aktivitet på det system som körs
 
 ## <a name="verify-the-registration"></a>Verifiera registreringen
 
+Här är tre sätt att hitta och kontrol lera enhets status:
+
+### <a name="locally-on-the-device"></a>Lokalt på enheten
+
+1. Öppna Windows PowerShell.
+2. Ange `dsregcmd /status`.
+3. Kontrol lera att både **AzureAdJoined** och **DomainJoined** har angetts till **Ja**.
+4. Du kan använda **DeviceID** och jämföra statusen för tjänsten med hjälp av antingen Azure Portal eller PowerShell.
+
+### <a name="using-the-azure-portal"></a>Använda Azure Portal
+
+1. Gå till sidan enheter med en [direkt länk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
+2. Information om hur du hittar en enhet hittar [du i hantera enhets identiteter med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+3. Om den **registrerade** kolumnen säger **väntar**, slutförs inte hybrid Azure AD Join.
+4. Om den **registrerade** kolumnen innehåller ett **datum/tid**har hybrid Azure AD Join slutförts.
+
+### <a name="using-powershell"></a>Använda PowerShell
+
 Verifiera enhetens registrerings tillstånd i din Azure-klient med hjälp av **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. Denna cmdlet finns i [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 När du använder cmdleten **Get-MSolDevice** för att kontrol lera tjänst informationen:
@@ -167,17 +185,43 @@ När du använder cmdleten **Get-MSolDevice** för att kontrol lera tjänst info
 - Värdet för **DeviceTrustType** **är domänanslutna**. Den här inställningen motsvarar **hybrid Azure AD-anslutna** tillstånd på sidan **enheter** i Azure AD-portalen.
 - För enheter som används i villkorlig åtkomst är värdet för **Enabled** **True** och **DeviceTrustLevel** **hanteras**.
 
-Så här kontrollerar du tjänstinformationen:
-
 1. Öppna Windows PowerShell som administratör.
-1. Ange `Connect-MsolService` för att ansluta till din Azure-klient.  
-1. Ange `get-msoldevice -deviceId <deviceId>`.
-1. Kontrollera att **Aktiverad** är inställd på **SANT**.
+2. Ange `Connect-MsolService` för att ansluta till din Azure-klient.
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-excluding-pending-state"></a>Räkna alla hybrid Azure AD-anslutna enheter (exklusive **väntande** tillstånd)
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Räkna alla hybrid Azure AD-anslutna enheter med **väntande** tillstånd
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices"></a>Lista alla hybrid Azure AD-anslutna enheter
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Lista alla hybrid Azure AD-anslutna enheter med **väntande** tillstånd
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-details-of-a-single-device"></a>Visa information om en enskild enhet:
+
+1. Ange `get-msoldevice -deviceId <deviceId>` (detta är den **DeviceID** som hämtades lokalt på enheten).
+2. Kontrollera att **Aktiverad** är inställd på **SANT**.
 
 ## <a name="troubleshoot-your-implementation"></a>Felsöka din implementering
 
 Om du får problem med att slutföra hybrid Azure AD Join för domänanslutna Windows-enheter, se:
 
+- [Felsöka enheter med kommandot dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
 - [Felsöka hybrid Azure Active Directory anslutna enheter](troubleshoot-hybrid-join-windows-current.md)
 - [Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner](troubleshoot-hybrid-join-windows-legacy.md)
 

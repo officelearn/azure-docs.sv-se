@@ -1,14 +1,14 @@
 ---
 title: Azure Batch kör stora parallella jobb i molnet
 description: Lär dig mer om hur du använder Azure Batch-tjänsten för storskaliga parallella arbetsbelastningar och HPC-arbetsbelastningar
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116357"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779566"
 ---
 # <a name="what-is-azure-batch"></a>Vad är Azure Batch?
 
@@ -74,7 +74,7 @@ Följande diagram illustrerar stegen i ett vanligt Batch-arbetsflöde med ett kl
 
 Tänk på att det här bara är ett av många sätt att använda Batch på och att det här scenariot bara beskriver några av funktionerna. Du kan till exempel köra [flera aktiviteter parallellt](batch-parallel-node-tasks.md) på varje beräkningsnod. Eller använda [jobbförberedelser och -slutförande](batch-job-prep-release.md) för att förbereda noderna för dina jobb och sedan rensa efteråt. 
 
-I [Översikt över Batch-funktioner för utvecklare](batch-api-basics.md) finns mer detaljerad information om pooler, noder, jobb och aktiviteter, och de många API-funktioner som du kan använda när du skapar ett Batch-program. Se även de senaste [Batch-tjänstuppdateringarna](https://azure.microsoft.com/updates/?product=batch).
+Se [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) för en översikt över funktioner som pooler, noder, jobb och aktiviteter. Se även de senaste [Batch-tjänstuppdateringarna](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Nästa steg
 

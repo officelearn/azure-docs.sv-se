@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78205149"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780516"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ServiceNow för automatisk användar etablering
 
@@ -141,7 +141,6 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 * **InvalidLookupReference:** Vid etablering av vissa attribut, till exempel avdelning och plats i ServiceNow, måste värdena redan finnas i en referens tabell i ServiceNow. Du kan till exempel ha två platser (Seattle, Los Angeles) och tre avdelningar (försäljning, ekonomi, marknadsföring) i tabellen **Infoga tabell namn** i ServiceNow. Om du försöker etablera en användare där hans avdelning är "försäljning" och platsen "Seattle", kommer han att etableras korrekt. Om du försöker etablera en användare med avdelning "försäljning" och platsen "LA" kan användaren inte etableras. Platsen LA måste antingen läggas till i referens tabellen i ServiceNow eller så måste attributet User i Azure AD uppdateras för att matcha formatet i ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing:** Granska dina [mappningar av attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) för att identifiera matchande attribut. Det här värdet måste finnas på den användare eller grupp som du försöker etablera. 
 * Granska [SERVICENOW SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) för att förstå eventuella krav eller begränsningar (till exempel format för att ange landskod för en användare)
-* Vissa ServiceNow-distributioner kräver att du tillåter IP-intervall för Azure AD Provisioning-tjänsten. Du hittar de reserverade IP-intervallen för Azure AD Provisioning- [tjänsten i "](https://www.microsoft.com/download/details.aspx?id=56519) AzureActiveDirectoryDomainServices".
 * Etablerings begär Anden skickas som standard till https://{ditt-instance-Name}. service-nu. com/{Table-Name}. Om du behöver en anpassad klient-URL kan du ange hela URL: en i fältet instans namn.
 
 ## <a name="additional-resources"></a>Ytterligare resurser

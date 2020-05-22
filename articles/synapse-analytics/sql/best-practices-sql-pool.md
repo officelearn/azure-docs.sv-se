@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b3dc111fe62cbae857f3369165ba29cf40e90342
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6af79a37369fe5775c402af011f4ba59807595d
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81427801"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780433"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Metod tips för SQL-pooler i Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Du hittar mer information om statistik i [Hantera tabell statistik](develop-tabl
 
 ## <a name="group-insert-statements-into-batches"></a>Gruppera INSERT-satser i batchar
 
-En engångs inläsning till en liten tabell med en INSERT-instruktion som `INSERT INTO MyLookup VALUES (1, 'Type 1')`kan vara den bästa metoden beroende på dina behov. Men om du behöver läsa in tusentals eller miljon tals rader under dagen är det troligt att singleton-INFOGNINGar inte är optimala.
+En engångs inläsning till en liten tabell med en INSERT-instruktion som `INSERT INTO MyLookup VALUES (1, 'Type 1')` kan vara den bästa metoden beroende på dina behov. Men om du behöver läsa in tusentals eller miljon tals rader under dagen är det troligt att singleton-INFOGNINGar inte är optimala.
 
 Ett sätt att lösa det här problemet är att utveckla en process som skriver till en fil och en annan process för att regelbundet läsa in den här filen. Mer information hittar du i [Infoga](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) -artikeln.
 
@@ -59,7 +59,7 @@ PolyBase-inläsningar kan utföras med hjälp av CTAS eller INSERT INTO. CTAS ko
 
 För att maximera data flödet när du använder gzip-textfiler kan du dela upp filer i 60 eller fler filer för att maximera din belastnings parallellt. För snabbare totalt genomflöde bör du överväga att använda samtidig inläsning av data. Ytterligare information för ämnen som är relevanta för det här avsnittet finns i följande artiklar:
 
-- [Läs in data](data-loading-overview.md)
+- [Läsa in data](data-loading-overview.md)
 - [Guide for using PolyBase](data-loading-best-practices.md) (Guide för att använda PolyBase)
 - [Inläsnings mönster och strategier för Azure SQL-poolen](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-loading-patterns-and-strategies/)
 - [Läs in data med Azure Data Factory](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
@@ -169,7 +169,7 @@ Mer information om resurs klasser finns i artikeln [resurs klasser för hanterin
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Använd mindre resurs klass för att öka samtidigheten
 
-Om du ser en lång fördröjning i användar frågorna kan användarna köras i större resurs klasser. Det här scenariot befordrar förbrukningen av samtidiga platser, vilket kan orsaka att andra frågor hamnar i kö.  För att avgöra om användarnas frågor är köade, `SELECT * FROM sys.dm_pdw_waits` kör för att se om några rader returneras.
+Om du ser en lång fördröjning i användar frågorna kan användarna köras i större resurs klasser. Det här scenariot befordrar förbrukningen av samtidiga platser, vilket kan orsaka att andra frågor hamnar i kö.  För att avgöra om användarnas frågor är köade, kör `SELECT * FROM sys.dm_pdw_waits` för att se om några rader returneras.
 
 [Resurs klasserna för hantering av arbets belastning](../sql-data-warehouse/resource-classes-for-workload-management.md) och [sys. dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) artiklar ger dig mer information.
 
@@ -193,7 +193,7 @@ SQL-pooler har flera DMV: er som du kan använda för att övervaka frågekörni
 
 Se även [fel söknings](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) artikeln för vanliga problem och lösningar.
 
-Om du behöver information som inte anges i den här artikeln använder du "Sök efter dokument" på vänster sida av den här sidan för att söka i alla dokument i SQL-poolen.  [SQL-poolens forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) är en plats där du kan ställa frågor till andra användare och till produkt gruppen för SQL-poolen.  
+Om du behöver information som inte anges i den här artikeln använder du **Filtrera efter rubrik** till vänster på den här sidan för att söka i alla dokument i SQL-poolen.  [SQL-poolens forum](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) är en plats där du kan ställa frågor till andra användare och till produkt gruppen för SQL-poolen.  
 
 Vi övervakar aktivt detta forum för att kontrollera att dina frågor besvaras antingen av en annan användare eller av någon av oss.  Om du föredrar att ställa dina frågor på Stack Overflow, har vi också en [Azure SQL-pool Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

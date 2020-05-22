@@ -10,18 +10,18 @@ ms.subservice: language-understanding
 ms.date: 05/05/2020
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 5e2a74f69f575f4b9b332b98d7e19089418b29ed
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a09f995f4d022c47b573281183d07b7973215494
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585268"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778246"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Logga in på LUIS-portalen
 
 En ny användare av LUIS måste följa den här proceduren:
 
-1. Logga in på [Luis-portalen](https://www.luis.ai), Välj ditt land och godkänn användnings villkoren. Om du ser **Mina appar** i stället finns det redan en Luis-resurs och du bör gå vidare till skapa en app.
+1. Logga in på [Luis-portalen](https://www.luis.ai), Välj land/region och godkänn användnings villkoren. Om du ser **Mina appar** i stället finns det redan en Luis-resurs och du bör gå vidare till skapa en app.
 
 1. Välj **Skapa Azure-resurs** och välj sedan **skapa en redigerings resurs för att migrera dina appar till.**
 

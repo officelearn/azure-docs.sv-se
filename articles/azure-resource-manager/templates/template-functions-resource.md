@@ -2,13 +2,13 @@
 title: Mall funktioner – resurser
 description: Beskriver de funktioner som används i en Azure Resource Manager-mall för att hämta värden för resurser.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: d6d98062e2228c22302b250ab3c7bb9683bff232
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.date: 05/21/2020
+ms.openlocfilehash: aea3f654551f66390afa207ac5ce682d23e5bfe9
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715927"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780563"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Resurs funktioner för ARM-mallar
 
@@ -129,7 +129,7 @@ Den möjliga användningen av List * visas i följande tabell.
 | Resurstyp | Funktionsnamn |
 | ------------- | ------------- |
 | Microsoft. AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft. AppConfiguration] | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
+| Microsoft. AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft. AppConfiguration/configurationStores | Listnycklar |
 | Microsoft. Automation/automationAccounts | [Listnycklar](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft. batch/batchAccounts | [listnycklar](/rest/api/batchmanagement/batchaccount/getkeys) |
@@ -202,7 +202,7 @@ Den möjliga användningen av List * visas i följande tabell.
 | Microsoft. Network/applicationSecurityGroups | listIpConfigurations |
 | Microsoft. NotificationHubs/Namespaces/authorizationRules | [listnycklar](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft. NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listnycklar](/rest/api/notificationhubs/notificationhubs/listkeys) |
-| Microsoft. OperationalInsights/arbets ytor | [Listnycklar](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
+| Microsoft. OperationalInsights/arbets ytor | [list](/rest/api/loganalytics/workspaces/list) |
 | Microsoft. PolicyInsights/-reparationer | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
 | Microsoft. Relay/Namespaces/authorizationRules | [listnycklar](/rest/api/relay/namespaces/listkeys) |
 | Microsoft. Relay/Namespaces/disasterRecoveryConfigs/authorizationRules | listnycklar |
@@ -350,6 +350,8 @@ Om du vill hämta SAS-token skickar du ett objekt för förfallo tiden. Förfall
     }
 }
 ```
+
+Ett listKeyValue-exempel finns i [snabb start: automatisk distribution av virtuella datorer med app Configuration och Resource Manager-mall](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
 
 ## <a name="providers"></a>finansiär
 
@@ -525,7 +527,7 @@ När du skapar en fullständigt kvalificerad referens till en resurs, är ordnin
 
 **{Resource-Provider-namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-Resource-Name}]**
 
-Till exempel:
+Ett exempel:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`stämmer `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` inte korrekt
 

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: ba516a548fc8385ca86526a7f2dd082b27e53208
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60cd6b8ba2cbfca497ae1b92113b12e85a34bf26
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77211370"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778267"
 ---
 ## <a name="general-entity-types"></a>Allmänna enhets typer:
 
@@ -22,11 +22,11 @@ ms.locfileid: "77211370"
 Identifiera person namn i text.
 
 Språk:
-* Offentlig för hands `Arabic`version `Czech`: `Chinese-Simplified`, `Danish`, `Dutch` `English` `Finnish` `French` `Norwegian (Bokmål)` `Polish` `Spanish` `Swedish` ,, `Portuguese (Portugal)`,,,,,, `Portuguese (Brazil)`, `Russian`,,,,,,,, och `German` `Hungarian` `Italian` `Japanese` `Korean``Turkish`
+* Offentlig för hands version:,,,,,,,,,,,,,,,,,,, `Arabic` `Czech` `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` och`Turkish`
 
 | Under typs namn | Beskrivning                                                      | Tillgängligt från och med modell version |
 |--------------|------------------------------------------------------------------|---------------------------------------|
-| Ej tillämpligt          | Identifierade person namn, till `Bill Gates`exempel`Marie Curie` | `2019-10-01`                          | 
+| Ej tillämpligt          | Identifierade person `Bill Gates` namn, till exempel`Marie Curie` | `2019-10-01`                          | 
 
 ### <a name="persontype"></a>PersonType
 Jobb typ eller roll som innehas av en person.
@@ -36,7 +36,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                                                                | Tillgängligt från och med modell version |
 |--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | Jobb typer till exempel `civil engineer` `salesperson` `chef` `librarian`,,,`nursing aide` | `2020-02-01`                           |
+| Ej tillämpligt          | Jobb typer `civil engineer` till exempel,,, `salesperson` `chef` `librarian``nursing aide` | `2020-02-01`                           |
 
 ### <a name="location"></a>Plats
 
@@ -44,12 +44,12 @@ Naturliga och mänskliga landmärkeer, strukturer, geografiska egenskaper och ge
 
 Språk:
 
-* Offentlig för hands `Arabic`version `Czech`: `Chinese-Simplified`, `Danish`, `Dutch` `English` `Finnish` `French` `Norwegian (Bokmål)` `Polish` `Spanish` `Swedish` ,, `Portuguese (Portugal)`,,,,,, `Portuguese (Brazil)`, `Russian`,,,,,,,, och `German` `Hungarian` `Italian` `Japanese` `Korean``Turkish`
+* Offentlig för hands version:,,,,,,,,,,,,,,,,,,, `Arabic` `Czech` `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` och`Turkish`
 
 | Under typs namn              | Beskrivning                                                                              | Tillgängligt från och med modell version |
 |---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt                       | platser, till exempel `Atlantic Ocean` `library` `Eiffel Tower`,,`Statue of Liberty`  | `2019-10-01`                           |
-| GPE (politisk entitet) – endast engelska| Städer, länder, regioner, t `Seattle`. `Pennsylvania`ex `South Africa`.,`Tokyo` | `2020-02-01`                           |
+| Ej tillämpligt                       | platser, `Atlantic Ocean` till exempel, `library` , `Eiffel Tower``Statue of Liberty`  | `2019-10-01`                           |
+| GPE (politisk entitet) – endast engelska| Städer, länder/regioner, t. ex `Seattle` . `Pennsylvania` , `South Africa``Tokyo` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organisation  
 
@@ -57,11 +57,11 @@ Erkända organisationer, organisationer, organ och andra grupper av personer. Ex
 
 Språk: 
 
-* Offentlig för hands `Arabic`version `Czech`: `Chinese-Simplified`, `Danish`, `Dutch` `English` `Finnish` `French` `Norwegian (Bokmål)` `Polish` `Spanish` `Swedish` ,, `Portuguese (Portugal)`,,,,,, `Portuguese (Brazil)`, `Russian`,,,,,,,, och `German` `Hungarian` `Italian` `Japanese` `Korean``Turkish`
+* Offentlig för hands version:,,,,,,,,,,,,,,,,,,, `Arabic` `Czech` `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` `Swedish` och`Turkish`
 
 | Under typs namn | Beskrivning                                                                                             | Tillgängligt från och med modell version |
 |--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | organisationer, till exempel `Microsoft` `NASA` `National Oceanic and Atmospheric Administration`,,`VOA` | `2019-10-01`                           |
+| Ej tillämpligt          | organisationer, `Microsoft` till exempel, `NASA` , `National Oceanic and Atmospheric Administration``VOA` | `2019-10-01`                           |
 
 ### <a name="event"></a>Händelse  
 
@@ -73,9 +73,9 @@ Språk:
 
 | Under typs namn | Beskrivning                                                            | Tillgängligt från och med modell version |
 |--------------|------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | Händelser som `wedding`, `hurricane` `car accident`,,, `solar eclipse``American Revolution` | `2020-02-01`                           |
+| Ej tillämpligt          | Händelser som `wedding` ,, `hurricane` , `car accident` `solar eclipse` ,`American Revolution` | `2020-02-01`                           |
 
-### <a name="product"></a>Produkt  
+### <a name="product"></a>Product  
 
 Fysiska objekt av olika kategorier.  
 
@@ -85,7 +85,7 @@ Språk:
 
 | Under typs namn | Beskrivning                                                                        | Tillgängligt från och med modell version |
 |--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| Ej tillämpligt          | `Microsoft Surface laptop`Till exempel `sunglasses` `motorcycle`,,,, `bag``Xbox` | `2020-02-01`                           |
+| Ej tillämpligt          | Till exempel, `Microsoft Surface laptop` ,, `sunglasses` , `motorcycle` `bag``Xbox` | `2020-02-01`                           |
 | Databehandling    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
 
 ### <a name="skill"></a>Kvalifikation  
@@ -156,12 +156,12 @@ Datum-och tidsentiteter.
 
 Språk:
 
-* Offentlig för hands `Chinese-Simplified`version `English`: `French`, `German` , och`Spanish`
+* Offentlig för hands version: `Chinese-Simplified` , `English` , `French` `German` och`Spanish`
 
 | Under typs namn    | Exempel                     |
 |-------------|------------------------------|
 | Ej tillämpligt         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
-| Date  | `May 2nd, 2017`, `05/02/2017`       |
+| Datum  | `May 2nd, 2017`, `05/02/2017`       |
 | Tid     | `8:15`, `6AM`              |
 | DateRange    | `August 2nd to August 5th`         |
 | TimeRange   | `4-6PM`, `10:00AM to Noon`          |
@@ -176,7 +176,7 @@ Siffror och numeriska kvantiteter.
 
 Språk:
 
-* Offentlig för hands `Chinese-Simplified`version `English`: `French`, `German` , och`Spanish`
+* Offentlig för hands version: `Chinese-Simplified` , `English` , `French` `German` och`Spanish`
 
 | Under typs namn    | Exempel                     |
 |-------------|------------------------------|
@@ -184,6 +184,6 @@ Språk:
 | Procent  | `50%`, `fifty percent`       |
 | Numret     | `2nd`, `second`              |
 | Ålder         | `90 day old`, `30 years old` |
-| Valuta    | `$10.99`, `€30.00`           |
+| Valuta    | `$10.99`, `&euro;30.00`           |
 | Dimension   | `10 miles`, `40 cm`          |
 | Temperatur | `32 degrees`, `10°C`         |

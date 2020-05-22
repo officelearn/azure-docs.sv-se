@@ -1,15 +1,15 @@
 ---
 title: Kör uppgifter under användar konton
-description: Det är praktiskt att kunna konfigurera det användar konto som du vill att en aktivitet ska köras under. Lär dig olika typer av användar konton och hur du konfigurerar dem.
+description: Lär dig olika typer av användar konton och hur du konfigurerar dem.
 ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1bd31f9d4881bdc489988d3f955e7143eaf7759
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 14ee675b80e0d9dd24993d7e3ecd255b5568e9cc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726272"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779500"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Kör uppgifter under användar konton i batch
 
@@ -40,7 +40,7 @@ Både ett automatiskt användar konto och ett namngivet användar konto har Läs
 
 Om en aktivitet körs under samma konto som användes för att köra en start uppgift, har aktiviteten Läs-och Skriv behörighet till Start aktivitets katalogen. På samma sätt, om en aktivitet körs under samma konto som användes för att köra en jobb förberedelse uppgift, har aktiviteten Läs-och Skriv behörighet till jobb förberedelsens aktivitets katalog. Om en aktivitet körs under ett annat konto än uppgiften starta uppgift eller jobb förberedelse, har aktiviteten bara Läs behörighet till respektive katalog.
 
-Mer information om hur du kommer åt filer och kataloger från en aktivitet finns i [utveckla storskaliga parallella beräknings lösningar med batch](batch-api-basics.md#files-and-directories).
+Mer information om hur du kommer åt filer och kataloger från en aktivitet finns i [filer och kataloger](files-and-directories.md).
 
 ## <a name="elevated-access-for-tasks"></a>Utökad åtkomst för uppgifter 
 
@@ -322,4 +322,5 @@ Batch-tjänstens version 2017 01-01.4.0 inför en brytande ändring, och ersätt
 
 ## <a name="next-steps"></a>Nästa steg
 
-* En djupgående översikt över batch finns i [utveckla storskaliga parallella beräknings lösningar med batch](batch-api-basics.md).
+* Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
+* Lär dig mer om [filer och kataloger](files-and-directories.md) i Azure Batch.

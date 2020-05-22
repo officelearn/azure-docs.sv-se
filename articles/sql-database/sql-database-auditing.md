@@ -1,5 +1,5 @@
 ---
-title: Azure SQL-granskning
+title: Azure SQL-granskning för Azure SQL Database och Azure Synapse Analytics
 description: Använd Azure SQL Database-granskning för att spåra databas händelser i en Gransknings logg.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 57c4b22dfe6ef6cf44be64a4b5c042403f64ccf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ff888cb1a2f2486fec7b387d9f9f02029b03aab
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096664"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779071"
 ---
-# <a name="azure-sql-auditing"></a>Azure SQL-granskning
+# <a name="azure-sql-auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure SQL-granskning för Azure SQL Database och Azure Synapse Analytics
 
 Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure storage-konto, Log Analytics arbets yta eller Event Hubs. 
 
@@ -98,7 +98,7 @@ Om du vill konfigurera att skriva gransknings loggar till ett lagrings konto vä
 
   ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-#### <a name="remarks"></a>Anmärkningar
+#### <a name="remarks"></a>Kommentarer
 
 - Gransknings loggar skrivs för att **lägga till blobbar** i en Azure Blob Storage i din Azure-prenumeration
 - Om du vill konfigurera ett oåterkalleligt logg Arkiv för gransknings händelser på Server-eller databas nivå följer du [anvisningarna i Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) (kontrol lera att du har valt **Tillåt ytterligare tillägg** när du konfigurerar den oföränderliga blob-lagringen).
@@ -174,7 +174,7 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 - Använd system funktionen **sys. fn_get_audit_file** (T-SQL) för att returnera Gransknings logg data i tabell format. Mer information om hur du använder den här funktionen finns i [sys. fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Använda **sammanslagna gransknings filer** i SQL Server Management Studio (från och med SSMS 17):
-    1. Från menyn SSMS väljer du **fil** > **Öppna** > **filer för sammanslagen granskning**.
+    1. Från menyn SSMS väljer du **fil**  >  **Öppna**  >  **filer för sammanslagen granskning**.
 
         ![Navigeringsfönster](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. Dialog rutan **Lägg till gransknings filer** öppnas. Välj ett av alternativen **Lägg** till för att välja om du vill slå samman gransknings filer från en lokal disk eller importera dem från Azure Storage. Du måste ange Azure Storage information och konto nyckeln.

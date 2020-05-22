@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Anslut ett Azure Arc-aktiverat Kubernetes-kluster med Azure Arc
 keywords: Kubernetes, båge, Azure, K8s, behållare
-ms.openlocfilehash: dd4e03ac6bdf2e4554f07f2aa5ffca78b1ed1230
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 690955f0e7d18f9a784b4c9a2fa1733442cb70dc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725626"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780022"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Ansluta ett Azure Arc-aktiverat Kubernetes-kluster (för hands version)
 
@@ -25,7 +25,7 @@ Kontrol lera att du har följande krav:
 
 * Ett Kubernetes-kluster som är igång
 * Du behöver åtkomst med kubeconfig och kluster administratörs åtkomst. 
-* Användaren eller tjänstens huvud namn som används med `az login` och- `az connectedk8s connect` kommandon måste ha behörigheterna Läs och skriv för resurs typen Microsoft. Kubernetes/connectedclusters.
+* Användaren eller tjänstens huvud namn som används med `az login` och- `az connectedk8s connect` kommandon måste ha behörigheterna Läs och skriv för resurs typen Microsoft. Kubernetes/connectedclusters. Rollen "Azure-båge för Kubernetes onboarding" som har dessa behörigheter kan användas för roll tilldelningar för användaren eller tjänstens huvud namn som används med Azure CLI för onboarding.
 * Senaste versionen av *connectedk8s* och *k8sconfiguration* -tillägg
 
 ## <a name="supported-regions"></a>Regioner som stöds

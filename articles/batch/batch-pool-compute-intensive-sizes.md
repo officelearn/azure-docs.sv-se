@@ -3,16 +3,16 @@ title: Använd beräknings intensiva virtuella Azure-datorer med batch
 description: Hur du kan dra nytta av virtuella datorer i HPC och GPU i Azure Batch pooler. Lär dig mer om OS-beroenden och se flera scenario exempel.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 04e39678c77604bca4194bebc7968c5c43fb019c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724096"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779750"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Använd RDMA-eller GPU-instanser i batch-pooler
 
-Om du vill köra vissa batch-jobb kan du dra nytta av Azure VM-storlekar som har utformats för storskalig beräkning. Till exempel:
+Om du vill köra vissa batch-jobb kan du dra nytta av Azure VM-storlekar som har utformats för storskalig beräkning. Ett exempel:
 
 * Om du vill köra [MPI-arbetsbelastningar](batch-mpi.md)med flera instanser väljer du H-serien eller andra storlekar som har ett nätverks gränssnitt för RDMA (Remote Direct Memory Access). Dessa storlekar ansluter till ett InfiniBand-nätverk för kommunikation mellan noder, vilket kan påskynda MPI-program. 
 
@@ -79,7 +79,7 @@ Om du vill konfigurera en specialiserad VM-storlek för batch-poolen har du fler
 
 * Skapa en [anpassad Windows-eller Linux VM-avbildning](batch-sig-images.md) där du har installerat driv rutiner, program eller andra inställningar som krävs för den virtuella dator storleken. 
 
-* Skapa ett batch- [programpaket](batch-application-packages.md) från en zippad driv rutin eller ett installations program och konfigurera batch för att distribuera paketet till pool-noder och installera en gång när varje nod skapas. Om programpaketet till exempel är ett installations program skapar du en kommando rad för [Start uppgift](batch-api-basics.md#start-task) för att tyst installera appen på alla noder i poolen. Överväg att använda ett programpaket och en uppgift för att starta en pool om din arbets belastning är beroende av en viss driv rutins version.
+* Skapa ett batch- [programpaket](batch-application-packages.md) från en zippad driv rutin eller ett installations program och konfigurera batch för att distribuera paketet till pool-noder och installera en gång när varje nod skapas. Om programpaketet till exempel är ett installations program skapar du en kommando rad för [Start uppgift](jobs-and-tasks.md#start-task) för att tyst installera appen på alla noder i poolen. Överväg att använda ett programpaket och en uppgift för att starta en pool om din arbets belastning är beroende av en viss driv rutins version.
 
   > [!NOTE] 
   > Start aktiviteten måste köras med utökade (admin) behörigheter och måste vänta på framgång. Tids krävande aktiviteter ökar tiden för att etablera en batch-pool.

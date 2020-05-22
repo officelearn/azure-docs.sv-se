@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596b47ecc0cf42e8cf1e7001c1462f55d34ff9c3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c4bfe55c4ebe722e98f0816078b64c0131a30d03
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680286"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778727"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Självstudie: Konfigurera anslutna Azure Active Directory-hybridenheter manuellt
 
@@ -549,16 +549,71 @@ För att registrera äldre Windows-enheter måste du ladda ned och installera et
 
 ## <a name="verify-joined-devices"></a>Verifiera anslutna enheter
 
-Du kan leta efter anslutna enheter i din organisation med hjälp av cmdleten [Get-MsolDevice](/powershell/msonline/v1/get-msoldevice) i [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Här är tre sätt att hitta och kontrol lera enhets status:
 
-Cmdletens utdata visar enheter som är registrerade och anslutna till Azure AD. För att hämta alla enheter använder du parametern **-All** (-Alla) och filtrerar dem sedan med egenskapen **deviceTrustType**. Domänanslutna enheter har värdet **Domänansluten**.
+### <a name="locally-on-the-device"></a>Lokalt på enheten
+
+1. Öppna Windows PowerShell.
+2. Ange `dsregcmd /status`.
+3. Kontrol lera att både **AzureAdJoined** och **DomainJoined** har angetts till **Ja**.
+4. Du kan använda **DeviceID** och jämföra statusen för tjänsten med hjälp av antingen Azure Portal eller PowerShell.
+
+### <a name="using-the-azure-portal"></a>Använda Azure Portal
+
+1. Gå till sidan enheter med en [direkt länk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
+2. Information om hur du hittar en enhet hittar [du i hantera enhets identiteter med hjälp av Azure Portal](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+3. Om den **registrerade** kolumnen säger **väntar**, slutförs inte hybrid Azure AD Join. I federerade miljöer kan detta bara inträffa om det inte kunde registreras och AAD Connect har kon figurer ATS för att synkronisera enheterna.
+4. Om den **registrerade** kolumnen innehåller ett **datum/tid**har hybrid Azure AD Join slutförts.
+
+### <a name="using-powershell"></a>Använda PowerShell
+
+Verifiera enhetens registrerings tillstånd i din Azure-klient med hjälp av **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)**. Denna cmdlet finns i [Azure Active Directory PowerShell-modulen](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+
+När du använder cmdleten **Get-MSolDevice** för att kontrol lera tjänst informationen:
+
+- Det måste finnas ett objekt med det **enhets-ID** som matchar ID: t för Windows-klienten.
+- Värdet för **DeviceTrustType** **är domänanslutna**. Den här inställningen motsvarar **hybrid Azure AD-anslutna** tillstånd på sidan **enheter** i Azure AD-portalen.
+- För enheter som används i villkorlig åtkomst är värdet för **Enabled** **True** och **DeviceTrustLevel** **hanteras**.
+
+1. Öppna Windows PowerShell som administratör.
+2. Ange `Connect-MsolService` för att ansluta till din Azure-klient.
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-excluding-pending-state"></a>Räkna alla hybrid Azure AD-anslutna enheter (exklusive **väntande** tillstånd)
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="count-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Räkna alla hybrid Azure AD-anslutna enheter med **väntande** tillstånd
+
+```azurepowershell
+(Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}).count
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices"></a>Lista alla hybrid Azure AD-anslutna enheter
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-all-hybrid-azure-ad-joined-devices-with-pending-state"></a>Lista alla hybrid Azure AD-anslutna enheter med **väntande** tillstånd
+
+```azurepowershell
+Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -eq 'Domain Joined') -and (-not([string]($_.AlternativeSecurityIds)).StartsWith("X509:"))}
+```
+
+#### <a name="list-details-of-a-single-device"></a>Visa information om en enskild enhet:
+
+1. Ange `get-msoldevice -deviceId <deviceId>` (detta är den **DeviceID** som hämtades lokalt på enheten).
+2. Kontrollera att **Aktiverad** är inställd på **SANT**.
 
 ## <a name="troubleshoot-your-implementation"></a>Felsöka din implementering
 
-Om du har problem med att slutföra Azure AD-hybridanslutningen för domänanslutna Windows-enheter kan du läsa:
+Om du får problem med att slutföra hybrid Azure AD Join för domänanslutna Windows-enheter, se:
 
-* [Felsöka Hybrid Azure AD-anslutningen för aktuella Windows-enheter](troubleshoot-hybrid-join-windows-current.md)
-* [Felsöka Hybrid Azure AD-anslutningen för äldre Windows-enheter](troubleshoot-hybrid-join-windows-legacy.md)
+- [Felsöka enheter med kommandot dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Felsöka hybrid Azure Active Directory anslutna enheter](troubleshoot-hybrid-join-windows-current.md)
+- [Felsöka hybrid Azure Active Directory anslutna enheter med äldre versioner](troubleshoot-hybrid-join-windows-legacy.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 593cca5fbf0aa6e4c162e541560763c50cbc067e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ec27d054055866c72148ad6eb024d4324f063ce8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711422"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774393"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Support policy för Azure Red Hat OpenShift
 
@@ -29,6 +29,8 @@ Vissa konfigurationer för Azure Red Hat OpenShift 4-kluster kan påverka klustr
 * Ta inte bort eller ändra Azure Red Hat OpenShift service Logging (mdsd poddar).
 * Ta inte bort eller ändra pull-hemligheten för arosvc.azurecr.io-klustret.
 * Alla virtuella kluster datorer måste ha direkt utgående Internet åtkomst, minst Azure Resource Manager (ARM) och service Logging (Genève).  Ingen form av HTTPS-proxyering stöds.
+* Ändra inte DNS-konfigurationen för klustrets virtuella nätverk. Standard Azure DNS matchare måste användas.
+* Åsidosätt inte något av klustrets MachineConfig-objekt (till exempel kubelet-konfigurationen) på något sätt.
 * Tjänsten Azure Red Hat OpenShift har åtkomst till ditt kluster via tjänsten Private Link.  Ta inte bort eller ändra tjänst åtkomst.
 * RHCOS Compute-noder stöds inte. Du kan till exempel inte använda en RHEL Compute-nod.
 
@@ -66,3 +68,11 @@ Azure Red Hat OpenShift 4 har stöd för Work Node-instanser på följande storl
 |Fsv2|Standard_F8s_v2|8|16|
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
+
+### <a name="master-nodes"></a>Huvudnoder
+
+|Serie|Storlek|Virtuell processor|Minne: GiB|
+|-|-|-|-|
+|Dsv3|Standard_D8s_v3|8|32|
+|Dsv3|Standard_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|

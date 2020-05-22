@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 2fc7435988a07968e65aaf265c33878c6e72e85b
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ac762450b19f2d3f82b6859de23e07afe2d10629
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569438"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780350"
 ---
 # <a name="monitor-your-azure-stack-edge"></a>Övervaka Azure Stack Edge
 
@@ -22,6 +22,7 @@ Den här artikeln beskriver hur du övervakar Azure Stack Edge. Du kan övervaka
 I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
+>
 > * Visa enhets händelser och motsvarande aviseringar
 > * Visa maskin varu status för enhets komponenter
 > * Visa kapacitets-och transaktions mått för din enhet
@@ -36,7 +37,7 @@ I den här artikeln kan du se hur du:
 Utför följande steg i det lokala webb gränssnittet för att Visa maskin varu statusen för dina enhets komponenter.
 
 1. Anslut till det lokala webb gränssnittet på enheten.
-2. Gå till **underhålls > maskin varu status**. Du kan visa hälso tillståndet för de olika enhets komponenterna. 
+2. Gå till **underhålls > maskin varu status**. Du kan visa hälso tillståndet för de olika enhets komponenterna.
 
     ![Visa maskin varu status](media/azure-stack-edge-monitor/view-hardware-status.png)
 
@@ -44,10 +45,43 @@ Utför följande steg i det lokala webb gränssnittet för att Visa maskin varu 
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-metrics.md)]
 
+### <a name="metrics-on-your-device"></a>Mått på enheten
+
+I det här avsnittet beskrivs övervaknings måtten på enheten. Måtten kan vara:
+
+* Kapacitets mått. Kapacitets måtten är relaterade till enhetens kapacitet.
+
+* Transaktions mått. Transaktions måtten är relaterade till Läs-och skriv åtgärder för att Azure Storage.
+
+* Kant beräknings mått. Kant beräknings måtten är relaterade till användningen av Edge-beräkningen på enheten.
+
+En fullständig lista över måtten visas i följande tabell:
+
+|Kapacitetsmått                     |Beskrivning  |
+|-------------------------------------|-------------|
+|**Tillgänglig kapacitet**               | Avser storleken på de data som kan skrivas till enheten. Med andra ord är detta den kapacitet som kan göras tillgänglig på enheten. <br></br>Du kan frigöra enhets kapaciteten genom att ta bort den lokala kopian av filer som har en kopia på både enheten och molnet.        |
+|**Total kapacitet**                   | Avser det totala antalet byte på enheten som data ska skrivas till. Detta kallas även för den totala storleken på det lokala cacheminnet. <br></br> Du kan nu öka kapaciteten för en befintlig virtuell enhet genom att lägga till en datadisk. Lägg till en datadisk via hypervisor-hantering för den virtuella datorn och starta sedan om den virtuella datorn. Den lokala lagringspoolen för gateway-enheten kommer att utökas för att hantera den nyligen tillagda data disken. <br></br>Mer information finns i lägga till [en hård disk för virtuell Hyper-V-dator](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
+
+|Transaktionsmått              | Beskrivning         |
+|-------------------------------------|---------|
+|**Överförda moln byte (enhet)**    | Summan av alla byte som laddats upp över alla resurser på enheten        |
+|**Överförda moln byte (resurs)**     | Överförda byte per resurs. Detta kan vara: <br></br> AVG, som är (summan av alla byte som överförs per resurs/antal resurser),  <br></br>Max, vilket är det maximala antalet byte som överförs från en resurs <br></br>Min, som är det minsta antalet byte som överförs från en resurs      |
+|**Data flöde för moln hämtning (resurs)**| Hämtade byte per resurs. Detta kan vara: <br></br> AVG, som är (summan av alla byte som lästs eller laddats ned till resurs/antal resurser) <br></br> Max, vilket är det maximala antalet byte som hämtas från en resurs<br></br> och min, som är det minsta antalet byte som hämtas från en resurs  |
+|**Moln läsnings data flöde**            | Summan av alla byte som lästs från molnet över alla resurser på enheten     |
+|**Moln överförings data flöde**          | Summan av alla byte som skrivits till molnet över alla resurser på enheten     |
+|**Moln överförings data flöde (resurs)**  | Summan av alla byte som skrivs till molnet från resurs/antal resurser är genomsnitt, max och min per resurs      |
+|**Läs data flöde (nätverk)**           | Innehåller systemets nätverks data flöde för alla byte som läses från molnet. Den här vyn kan innehålla data som inte är begränsade till resurser. <br></br>Vid delning visas trafiken över alla nätverkskort på enheten. Detta inkluderar kort som inte är anslutna eller aktiverade.      |
+|**Skriv data flöde (nätverk)**       | Innehåller systemets nätverks data flöde för alla byte som skrivs till molnet. Den här vyn kan innehålla data som inte är begränsade till resurser. <br></br>Vid delning visas trafiken över alla nätverkskort på enheten. Detta inkluderar kort som inte är anslutna eller aktiverade.          |
+
+| Kant beräknings mått              | Beskrivning         |
+|-------------------------------------|---------|
+|**Edge Compute-minnes användning**      |           |
+|**Edge Compute-procent CPU**    |         |
+
 ## <a name="manage-alerts"></a>Hantera aviseringar
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-manage-alerts.md)]
 
-## <a name="next-steps"></a>Nästa steg 
+## <a name="next-steps"></a>Nästa steg
 
 Lär dig att [hantera bandbredd](azure-stack-edge-manage-bandwidth-schedules.md).

@@ -5,14 +5,14 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 05/21/2020
 ms.author: charwen
-ms.openlocfilehash: 6bf80be4868295145fa79ae29d5322181b6131d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 617ec30fc9b97e89b6ccd0de6255d65da94d7b63
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619181"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780454"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Övervakning och hantering av sessioner för Azure-skydds
 
@@ -30,9 +30,6 @@ När skydds-tjänsten har tillhandahållits och distribuerats i det virtuella n�
 
    ![refresh](./media/session-monitoring/refresh.png)
 
->[!IMPORTANT]
-> Aktivera port 4443 för inkommande trafik från Gateway Manager för övervakning av sessionen för att fungera.
->
 
 ## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Ta bort eller tvinga bort en pågående fjärrsession
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: e3af10e5e9b56b537fedf0af7ffa7ddb37030c73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca5ba8d7b2d78440401e29344361538c3650ba48
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189189"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779165"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Data lagring och Inträng i Azure Time Series Insights för hands version
 
@@ -58,7 +58,7 @@ De data typer som stöds är:
 
 | Datatyp | Beskrivning |
 |---|---|
-| **boolesk** | En datatyp med ett av två tillstånd: `true` eller. `false` |
+| **boolesk** | En datatyp med ett av två tillstånd: `true` eller `false` . |
 | **dateTime** | Representerar en omedelbar tid, vanligt vis uttryckt som datum och tid på dagen. Uttryckt i [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) -format. |
 | **Dubbelklicka** | En dubbel precision 64-bitars [IEEE 754](https://ieeexplore.ieee.org/document/8766229) -svävande punkt. |
 | **sträng** | Text värden, bestående av Unicode-tecken.          |
@@ -78,6 +78,17 @@ Vi rekommenderar att du använder följande bästa praxis:
 * [Planera för skalnings behoven](time-series-insights-update-plan.md) genom att beräkna den förväntade inmatnings takten och kontrol lera att den ligger inom den frekvens som stöds nedan.
 
 * Lär dig hur du optimerar och formar dina JSON-data, samt de aktuella begränsningar som finns i förhands granskningen, genom [att läsa hur du kan forma JSON för ingress och fråga](./time-series-insights-update-how-to-shape-events.md).
+
+* Använd strömnings inmatning för nästan endast real tids data och senaste data, så stöds inte direkt uppspelning av historiska data.
+
+#### <a name="historical-data-ingestion"></a>Historisk data inmatning
+
+Det finns för närvarande inte stöd för att använda streaming-pipeline för att importera historiska data i Azure Time Series Insights Preview. Om du behöver importera tidigare data till din miljö följer du rikt linjerna nedan:
+
+* Strömma inte Live och historiska data parallellt. Om du matar ut data från varandra kommer du att leda till försämrade frågor.
+* Mata in historiska data i tidsordnad tid för bästa prestanda.
+* Håll koll på gräns värdena för inmatnings flödet nedan.
+* Inaktivera varmt Arkiv om data är äldre än lagrings perioden för din varma lagrings tid.
 
 ### <a name="ingress-scale-and-preview-limitations"></a>Ingress-skalning och för hands versions begränsningar
 
@@ -101,7 +112,7 @@ Som standard kan Time Series Insights för hands version mata in inkommande data
  
 * **Exempel 1:**
 
-    Contoso-leverans har 100 000 enheter som genererar en händelse tre gånger per minut. Storleken på en händelse är 200 byte. De använder en IoT-hubb med fyra partitioner som Time Series Insights händelse källa.
+    Contoso-leverans har 100 000 enheter som genererar en händelse tre gånger per minut. Storleken på en händelse är 200 byte. De använder en IoT Hub med fyra partitioner som Time Series Insights händelse källa.
 
     * Inmatnings takten för Time Series Insightss miljön blir: **100 000 enheter * 200 byte/event * (3/60 Event/s) = 1 Mbit/s**.
     * Inmatnings hastigheten per partition blir 0,25 Mbit/s.
@@ -229,7 +240,7 @@ I båda fallen motsvarar egenskapen Time för Parquet-filen den tid då bloben s
 >
 > * `<YYYY>`mappar till en 4-siffrig års representation.
 > * `<MM>`mappar till en tvåsiffrig månads representation.
-> * `<YYYYMMDDHHMMSSfff>`mappar till`YYYY`en tids stämplings representation med fyrsiffrigt år (), tvåsiffrig månad (`MM`), tvåsiffrig dag (`DD`), tvåsiffrig timme`HH`(), tvåsiffrig minut (`MM`), tvåsiffrig sekund (`SS`) och tresiffrig MS-siffrig MS (`fff`).
+> * `<YYYYMMDDHHMMSSfff>`mappar till en tids stämplings representation med fyrsiffrigt år ( `YYYY` ), tvåsiffrig månad ( `MM` ), tvåsiffrig dag (), tvåsiffrig timme (), tvåsiffrig `DD` `HH` minut () `MM` , tvåsiffrig sekund ( `SS` ) och tresiffrig MS-siffrig MS ( `fff` ).
 
 Time Series Insights för hands versions händelser mappas till fil innehållet i Parquet på följande sätt:
 

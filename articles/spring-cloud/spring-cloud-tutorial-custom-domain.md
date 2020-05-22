@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.openlocfilehash: 19ccdf85e1753bea202c5c157919ab4e8ff96d06
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ff38f923f7b33c4bc893246970c1e47d33e59269
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660254"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780408"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mappa en befintlig anpassad domän till Azure våren Cloud
 DNS (Distributed Name Service) är en teknik för att lagra namn på nätverks-noder i ett nätverk. Den här självstudien mappar en domän, till exempel www.contoso.com, med hjälp av en CNAME-post. Den säkrar den anpassade domänen med ett certifikat och visar hur du tvingar Transport Layer Security (TLS), även kallat Secure Sockets Layer (SSL). 
@@ -37,6 +37,30 @@ Så här överför du ditt certifikat till nyckel valvet:
 1. Klicka på **Skapa**.
 
     ![Importera certifikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
+
+För att ge Azure våren Cloud åtkomst till ditt nyckel valv innan du importerar certifikat:
+1. Gå till din Key Vault-instans.
+1. Klicka på **åtkomst principer**i det vänstra navigerings fönstret.
+1. I den övre menyn klickar du på **Lägg till åtkomst princip**.
+1. Fyll i informationen och klicka på knappen **Lägg till** och **Spara** sedan åtkomst principer.
+
+| Hemlig behörighet | Certifikat behörighet | Välj huvud konto |
+|--|--|--|
+| Hämta, lista | Hämta, lista | Azure våren Cloud-domän – hantering |
+
+![Importera certifikat 2](./media/custom-dns-tutorial/import-certificate-b.png)
+
+Du kan också använda Azure CLI för att ge Azure våren Cloud åtkomst till nyckel valvet.
+
+Hämta objekt-ID: t via följande kommando.
+```
+az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+```
+
+Ge Azure våren Cloud Läs åtkomst till Key Vault, Ersätt objekt-ID: t i följande kommando.
+```
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+``` 
 
 Importera certifikat till Azure våren-molnet:
 1. Gå till din tjänst instans. 

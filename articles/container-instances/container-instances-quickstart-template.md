@@ -6,18 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
-ms.openlocfilehash: f9f789d2f2c6c21e38f241b445c72b330c689a8d
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 17f71d1c383c72fab748a9bdb789158095616f2d
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930428"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779862"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-a-resource-manager-template"></a>Snabb start: Distribuera en behållar instans i Azure med hjälp av en Resource Manager-mall
 
-Använd Azure Container Instances för att köra Server lös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en behållar instans på begäran när du inte behöver en fullständig plattform för behållar dirigering som Azure Kubernetes-tjänsten.
-
-I den här snabb starten använder du en Azure Resource Manager-mall för att distribuera en isolerad Docker-behållare och göra dess webb program tillgänglig med en offentlig IP-adress. 
+Använd Azure Container Instances för att köra Server lös Docker-behållare i Azure med enkelhet och hastighet. Distribuera ett program till en behållar instans på begäran när du inte behöver en fullständig plattform för behållar dirigering som Azure Kubernetes-tjänsten. I den här snabb starten använder du en Azure Resource Manager-mall för att distribuera en isolerad Docker-behållare och göra dess webb program tillgänglig med en offentlig IP-adress.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,9 +29,9 @@ Inga.
 
 ### <a name="review-the-template"></a>Granska mallen
 
-Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip).
+Mallen som används i den här snabb starten är från [Azure snabb starts-mallar](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
-[!code-json[<Azure Resource Manager template create geo-replicated registry>](~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json" range="1-107" highlight="61-100":::
 
 Följande resurs definieras i mallen:
 
@@ -85,7 +83,7 @@ Använd Azure Portal eller ett verktyg som [Azure CLI](container-instances-quick
 
 Att visa loggar för en containerinstans är användbart när du felsöker problem med din container eller det program som den kör.
 
-Om du vill visa behållarens loggar går du till **Inställningar**och väljer **behållare** > **loggar**. Du bör se HTTP GET-begäran som genereras när du har granskat programmet i webbläsaren.
+Om du vill visa behållarens loggar går du till **Inställningar**och väljer **behållare**  >  **loggar**. Du bör se HTTP GET-begäran som genereras när du har granskat programmet i webbläsaren.
 
 ![Containerloggar i Azure-portalen](media/container-instances-quickstart-template/aci-logs.png)
 

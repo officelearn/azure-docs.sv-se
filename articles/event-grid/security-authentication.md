@@ -8,18 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 71d47c83586f7e5e31b148714e2804686422326a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bca450022322db7a7569fa1dc7ce80ec75a9ce69
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588266"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774314"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Autentisera åtkomst till Azure Event Grid resurser
 Den här artikeln innehåller information om följande scenarier:  
 
 - Autentisera klienter som publicerar händelser till Azure Event Grid ämnen med hjälp av signaturen för delad åtkomst (SAS) eller nyckel. 
-- Skydda webhook-slutpunkten med Azure Active Directory (Azure AD) för att autentisera Event Grid för att **leverera** händelser till slut punkten.
+- Skydda webhook-slutpunkten som används för att ta emot händelser från Event Grid att använda Azure Active Directory (Azure AD) eller en delad hemlighet.
 
 ## <a name="authenticate-publishing-clients-using-sas-or-key"></a>Autentisera publicerings klienter med SAS eller nyckel
 I anpassade avsnitt används antingen signatur för delad åtkomst (SAS) eller nyckel-autentisering. Vi rekommenderar SAS, men Key Authentication tillhandahåller enkel programmering och är kompatibel med många befintliga webhook-utgivare.
@@ -89,12 +89,12 @@ Alla händelser eller data som skrivs till disk av tjänsten Event Grid kryptera
 I följande avsnitt beskrivs hur du autentiserar händelse leverans till webhook-slutpunkter. Du måste använda en mekanism för validerings hand skakning oavsett vilken metod du använder. Mer information finns i avsnittet om att [leverera webhook-händelser](webhook-event-delivery.md) . 
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Använda Azure Active Directory (Azure AD)
-Du kan skydda webhook-slutpunkten genom att använda Azure Active Directory (Azure AD) för att autentisera och auktorisera Event Grid för att leverera händelser till dina slut punkter. Du måste skapa ett Azure AD-program, skapa en roll-och tjänst princip i ditt program för att auktorisera Event Grid och konfigurera händelse prenumerationen så att den använder Azure AD-programmet. [Lär dig hur du konfigurerar Azure Active Directory med event Grid](secure-webhook-delivery.md).
+Du kan skydda webhook-slutpunkten som används för att ta emot händelser från Event Grid med hjälp av Azure AD. Du måste skapa ett Azure AD-program, skapa en roll-och tjänst-huvudobjekt i ditt program som auktoriserar Event Grid och konfigurera händelse prenumerationen så att den använder Azure AD-programmet. Lär dig hur du [konfigurerar Azure Active Directory med event Grid](secure-webhook-delivery.md).
 
 ### <a name="using-client-secret-as-a-query-parameter"></a>Använda klient hemlighet som frågeparameter
-Du kan skydda webhook-slutpunkten genom att lägga till frågeparametrar till webhook-URL: en när du skapar en händelse prenumeration. Ange en av följande frågeparametrar som en klient hemlighet, till exempel en [åtkomsttoken](https://en.wikipedia.org/wiki/Access_token) eller en delad hemlighet. Webhooken kan använda hemligheten för att identifiera att händelsen kommer från Event Grid med giltiga behörigheter. Event Grid tar med dessa frågeparametrar i varje händelse leverans till webhooken. Om klient hemligheten uppdateras måste händelse prenumerationen också uppdateras. Undvik leverans problem under den här hemliga rotationen genom att göra så att webhooken accepterar både gamla och nya hemligheter under en begränsad tid. 
+Du kan också skydda webhook-slutpunkten genom att lägga till frågeparametrar i URL: en för webhook-målet som anges som en del av att skapa en händelse prenumeration. Ange att en av frågeparametrar ska vara en klient hemlighet, till exempel en [åtkomsttoken](https://en.wikipedia.org/wiki/Access_token) eller en delad hemlighet. Event Grid-tjänsten innehåller alla frågeparametrar i varje händelse leverans förfrågan till webhooken. Webhook-tjänsten kan hämta och verifiera hemligheten. Om klient hemligheten uppdateras måste händelse prenumerationen också uppdateras. Undvik leverans problem under den här hemliga rotationen genom att göra så att webhooken godkänner både gamla och nya hemligheter under en begränsad tid innan du uppdaterar händelse prenumerationen med den nya hemligheten. 
 
-Eftersom frågeparametrar kan innehålla klient hemligheter hanteras de med extra noggrannhet. De lagras som krypterade och inte tillgängliga för tjänst operatörer. De loggas inte som en del av tjänst loggarna/spårningarna. När du redigerar händelse prenumerationen visas eller returneras inte frågeparametrar om parametern [--include-full-URL-URL](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) används i Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Eftersom frågeparametrar kan innehålla klient hemligheter hanteras de med extra noggrannhet. De lagras som krypterade och är inte tillgängliga för tjänst operatörer. De loggas inte som en del av tjänst loggarna/spårningarna. När du hämtar egenskaperna för händelse prenumerationen returneras inte mål frågans parametrar som standard. Till exempel: [--include-fullständig-Endpoint-URL-](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter ska användas i Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 Mer information om att leverera händelser till Webhooks finns i avsnittet om [leverans av webhook-händelser](webhook-event-delivery.md)
 

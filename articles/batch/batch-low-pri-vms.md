@@ -5,21 +5,21 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39c4674da2ddf63c5fab8b39e16a0cc0d9f299ac
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726595"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780184"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Använda lågprioriterade virtuella datorer med Batch
 
 Azure Batch erbjuder virtuella datorer med låg prioritet (VM) för att minska kostnaderna för batch-arbetsbelastningar. Virtuella datorer med låg prioritet gör nya typer av batch-arbetsbelastningar möjliga genom att göra det möjligt att använda en stor mängd beräknings kraft för en mycket låg kostnad.
- 
+
 Virtuella datorer med låg prioritet drar nytta av överskotts kapacitet i Azure. När du anger virtuella datorer med låg prioritet i dina pooler kan Azure Batch använda detta överskott, om det är tillgängligt.
- 
+
 Kompromissen med att använda virtuella datorer med låg prioritet är att de virtuella datorerna kanske inte är tillgängliga för tilldelning eller kan avbrytas när som helst, beroende på tillgänglig kapacitet. Därför är de flesta virtuella datorer med låg prioritet lämplig för vissa typer av arbets belastningar. Använd virtuella datorer med låg prioritet för batch-och asynkron bearbetning av arbets belastningar där jobbets slut för ande tid är flexibelt och arbetet distribueras över flera virtuella datorer.
- 
+
 Virtuella datorer med låg prioritet erbjuds till ett avsevärt minskat pris jämfört med dedikerade virtuella datorer. Pris information finns i [batch-priser](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
@@ -28,7 +28,6 @@ Virtuella datorer med låg prioritet erbjuds till ett avsevärt minskat pris jä
 > Azure Batch pooler kommer att ha stöd för virtuella datorer för virtuella datorer inom några månader, som är allmänt tillgängliga, med nya versioner av [batch-API: er och verktyg](https://docs.microsoft.com/azure/batch/batch-apis-tools). När VM-stödet för virtuella datorer är tillgängligt kommer virtuella datorer med låg prioritet att bli inaktuella – de fortsätter att stödjas med aktuella API: er och verktygs versioner i minst 12 månader för att tillåta en tillräckligt lång tid för migrering till virtuella datorer. 
 >
 > Virtuella dator tjänster stöds inte för [konfigurations pooler för moln tjänsten](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) . Om du vill använda virtuella datorer för virtuella datorer måste du migrera moln tjänstens pooler till [konfigurationer för virtuella datorer](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
-
 
 ## <a name="use-cases-for-low-priority-vms"></a>Användnings fall för virtuella datorer med låg prioritet
 
@@ -72,8 +71,7 @@ Azure Batch innehåller flera funktioner som gör det enkelt att använda och dr
     Kvoten för virtuella datorer med låg prioritet är högre än kvoten för dedikerade virtuella datorer, eftersom kostnader för låg prioritets datorer är lägre. Mer information finns i [batch-tjänstens kvoter och begränsningar](batch-quota-limit.md#resource-quotas).    
 
 > [!NOTE]
-> Virtuella datorer med låg prioritet stöds för närvarande inte för batch-konton som skapats i [användar prenumerations läge](batch-api-basics.md#account).
->
+> Virtuella datorer med låg prioritet stöds för närvarande inte för batch-konton som skapats i [användar prenumerations läge](accounts.md).
 
 ## <a name="create-and-update-pools"></a>Skapa och uppdatera pooler
 
@@ -183,6 +181,6 @@ Visa mått i Azure Portal:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs [Översikt över Batch-funktioner för utvecklare](batch-api-basics.md). Här finns viktig information för alla som tänker använda Batch. Artikeln innehåller mer detaljerad information om Batch-tjänstresurser som pooler, noder, jobb och uppgifter, och de många API-funktioner som du kan använda när du skapar ett Batch-program.
+* Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
 * Läs om tillgängliga [Batch-API:er och verktyg](batch-apis-tools.md) för att skapa Batch-lösningar.
 * Börja planera flytten från virtuella datorer med låg prioritet till virtuella datorer med dekor prioritet. Om du använder virtuella datorer med låg prioritet med **konfigurations pooler för moln tjänster** planerar du att flytta till konfigurationer för **virtuella datorer** .

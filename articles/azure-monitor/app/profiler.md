@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4d41ece86240a20afea06bff3469b5c02c6e46ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f0702c09d2803507f07f74d97767c781825bf34f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121205"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778565"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilera Live Azure App Service-appar med Application Insights
 
@@ -21,7 +21,7 @@ Du kan köra profiler på ASP.NET och ASP.NET Core appar som körs på Azure App
 Följ anvisningarna nedan om du vill aktivera profiler för en app. Om du kör en annan typ av Azure-tjänst, finns här instruktioner för att aktivera profiler på andra plattformar som stöds:
 * [Molntjänster](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric program](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Virtuella datorer](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 Application Insights Profiler är förinstallerat som en del av App Services Runtime. I stegen nedan visas hur du aktiverar det för App Service. Följ dessa steg även om du har inkluderat App Insights SDK i ditt program i bygge-tid.
 
@@ -63,9 +63,9 @@ Om du vill aktivera profileraren för andra moln kan du använda inställningarn
 
 ## <a name="disable-profiler"></a>Inaktivera profiler
 
-För att stoppa eller starta om profiler för en enskild app-instans går du till app-resursen under **webb jobb**. Om du vill ta bort profiler går du till **tillägg**.
+Om du vill stoppa eller starta om profiler för en enskild app-instans går du till **WebJobs och stoppar Webbjobbet** med namnet ApplicationInsightsProfiler3. Även om profileraren är inaktive rad med växeln på Application Insights sidan enligt beskrivningen ovan, körs profilens process fortfarande. Profileraren kontrollerar om den är aktive rad. Om den är inaktive rad kommer den att försättas i vilo läge under en viss tids period innan kontrollen görs igen. Ingen profilering sker om den är inaktive rad. Om du inaktiverar det här webb jobbet körs inte profilers processen alls, även om du vill kontrol lera om den är aktive rad.
 
-![Inaktivera profiler för ett webb jobb][disable-profiler-webjob]
+  ![Inaktivera profiler för ett webb jobb][disable-profiler-webjob]
 
 Vi rekommenderar att du har profilerare aktiverat på alla dina appar för att upptäcka prestanda problem så tidigt som möjligt.
 

@@ -3,7 +3,7 @@ title: PowerShell-exempel Återställ geo-backup-Azure SQL Database
 description: Azure PowerShell exempel skript för att återställa en Azure SQL-hanterad instans databas från en Geo-redundant säkerhets kopia.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: f1b4166df2290c1250e3807b4a7133c3afae8e44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 62ed66c52375eb72394949fff384d012af49a7d7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74304079"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774502"
 ---
 # <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Använd PowerShell för att återställa en hanterad instans databas till en annan geo-region
 
@@ -71,7 +71,7 @@ Remove-AzResourceGroup -ResourceGroupName $TargetResourceGroupName
 
 Det här skriptet använder följande kommandon. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
-| Kommando | Obs! |
+| Kommando | Anteckningar |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/New-AzResourceGroup) | Skapar en resursgrupp där alla resurser lagras. |
 | [Get-AzSqlInstanceDatabaseGeoBackup](/powershell/module/az.sql/Get-AzSqlInstanceDatabaseGeoBackup) | Skapar en Geo-redundant säkerhets kopia av databasen för hanterade instanser. |

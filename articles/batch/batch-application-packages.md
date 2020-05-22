@@ -4,12 +4,12 @@ description: Använd funktionen programpaket i Azure Batch för att enkelt hante
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61e94ade21d8dd6fad2ba10dff87d4ba10333e3a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: fd5821a7876cc99be41fbb2c5b095b931653c345
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726884"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780316"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till Compute-noder med batch-programpaket
 
@@ -68,7 +68,7 @@ Med programpaket behöver inte poolens start uppgift ange en lång lista med ens
 Du kan använda [Azure Portal][portal] eller API: er för batch Management för att hantera programpaketen i batch-kontot. I kommande avsnitt visar vi först hur man länkar ett lagrings konto och diskuterar sedan att lägga till program och paket och hantera dem med portalen.
 
 ### <a name="link-a-storage-account"></a>Länka ett lagrings konto
-Om du vill använda programpaket måste du först länka ett [Azure Storage-konto](batch-api-basics.md#azure-storage-account) till batch-kontot. Om du ännu inte har konfigurerat ett lagrings konto visas en varning i Azure Portal första gången du klickar på **program** i batch-kontot.
+Om du vill använda programpaket måste du först länka ett [Azure Storage-konto](accounts.md#azure-storage-accounts) till batch-kontot. Om du ännu inte har konfigurerat ett lagrings konto visas en varning i Azure Portal första gången du klickar på **program** i batch-kontot.
 
 
 
@@ -248,7 +248,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Till exempel:
+På Linux-noder är formatet något annorlunda. Punkter (.), bindestreck (-) och nummer tecken (#) förenklas till under streck i miljö variabeln. Observera också att fallet med program-ID: t bevaras. Ett exempel:
 
 ```
 Linux:
@@ -285,9 +285,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Se [miljö inställningar för aktiviteter](batch-api-basics.md#environment-settings-for-tasks) i [översikts funktions översikten](batch-api-basics.md) för mer information om Compute Node-miljö inställningar.
-> 
-> 
+> Mer information om inställningar för Compute Node-miljön finns i [miljö inställningar för aktiviteter](jobs-and-tasks.md#environment-settings-for-tasks). 
 
 ## <a name="update-a-pools-application-packages"></a>Uppdatera programpaket för en pool
 Om en befintlig pool redan har kon figurer ATS med ett programpaket kan du ange ett nytt paket för poolen. Om du anger en ny paket referens för en pool gäller följande:

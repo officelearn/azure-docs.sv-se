@@ -4,21 +4,19 @@ description: Lär dig hur Visual Studio-projektmallar kan hjälpa dig att implem
 ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0dac39d1ff463dc4ba5efae50c7fc1ea9d36c829
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725830"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779520"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Använd Visual Studio-projektmallar för att komma igång med batch-lösningar
 
 Med **Visual Studio-mallarna** **Job Manager** och Task för batch får du en kod som hjälper dig att implementera och köra beräknings intensiva arbets belastningar på batch med minsta möjliga insats. Det här dokumentet beskriver de här mallarna och ger vägledning för hur du använder dem.
 
 > [!IMPORTANT]
-> I den här artikeln beskrivs bara information som gäller för dessa två mallar och förutsätter att du är bekant med batch-tjänsten och viktiga begrepp som är relaterade till den: pooler, Compute-noder, jobb och aktiviteter, jobb Manager-uppgifter, miljövariabler och annan relevant information. Du hittar mer information i [grunderna i Azure Batch](batch-technical-overview.md) och [Översikt över batch-funktioner för utvecklare](batch-api-basics.md).
-> 
-> 
+> I den här artikeln beskrivs bara information som gäller för dessa två mallar och förutsätter att du är bekant med batch-tjänsten och viktiga begrepp som är relaterade till den: pooler, Compute-noder, jobb och aktiviteter, jobb Manager-uppgifter, miljövariabler och annan relevant information. Du hittar mer information i [grunderna för Azure Batch](batch-technical-overview.md) och [batch-tjänstens arbets flöde och resurser](batch-service-workflow-features.md). 
 
 ## <a name="high-level-overview"></a>Översikt på hög nivå
 Du kan använda mallarna jobb hanterare och uppgifts processor för att skapa två användbara komponenter:
@@ -69,7 +67,7 @@ Med Job Manager-mallen kan du implementera en Job Manager-aktivitet som kan utf�
 * Skicka de aktiviteter som ska köras i batch.
 
 > [!NOTE]
-> Mer information om Job Manager-aktiviteter finns i [Översikt över batch-funktioner för utvecklare](batch-api-basics.md#job-manager-task).
+> Mer information om jobb Manager-aktiviteter finns i [jobb och uppgifter](jobs-and-tasks.md#job-manager-task).
 > 
 > 
 
@@ -188,7 +186,7 @@ En Job Manager-aktivitet som implementeras med mallen för jobb hanteraren kan r
 
 Om det uppstår ett aktivitets fel i Job Manager kan vissa aktiviteter fortfarande ha lagts till i tjänsten innan felet uppstod. De här uppgifterna kommer att köras som vanligt. Se "jobb delnings problem" ovan för diskussion av den här kod Sök vägen.
 
-All information som returneras av undantag skrivs till stdout. txt och stderr. txt-filer. Mer information finns i [fel hantering](batch-api-basics.md#error-handling).
+All information som returneras av undantag skrivs till stdout. txt och stderr. txt-filer. Mer information finns i [fel hantering](error-handling.md).
 
 ### <a name="client-considerations"></a>Klient överväganden
 I det här avsnittet beskrivs vissa klient implementerings krav när du anropar en jobb hanterare baserat på den här mallen. Information om hur du skickar parametrar och miljö inställningar finns i [så här skickar du parametrar och miljövariabler från klient koden](#pass-environment-settings) .

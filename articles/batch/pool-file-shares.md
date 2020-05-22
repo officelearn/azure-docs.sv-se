@@ -3,12 +3,12 @@ title: Azure-filresurs för Azure Batch pooler
 description: Montera en Azure Files resurs från datornoder i en Linux-eller Windows-pool i Azure Batch.
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 0aa8c8f6dcf1114688e6abaf1a17f2e8af6fa4fe
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723501"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780271"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Använda en Azure-filresurs med en batch-pool
 
@@ -172,6 +172,5 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Andra alternativ för att läsa och skriva data i batch finns i [Översikt över batch-funktionen](batch-api-basics.md) och [Spara jobb-och Uppgiftsutdata](batch-task-output.md).
-
+* Andra alternativ för att läsa och skriva data i batch finns i [Spara jobb-och Uppgiftsutdata](batch-task-output.md).
 * Se även [batch Shipyard](https://github.com/Azure/batch-shipyard) Toolkit, som innehåller [Shipyard-recept](https://github.com/Azure/batch-shipyard/tree/master/recipes) för att distribuera fil system för arbets belastningar för batch-behållare.

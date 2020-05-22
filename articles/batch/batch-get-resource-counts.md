@@ -4,12 +4,12 @@ description: Räkna antalet Azure Batch uppgifter och Compute-noder för att han
 ms.date: 09/07/2018
 ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: e063ef56deeb7fa0f2a217f48b1c23a810a9d890
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: d75ff1806f61b54bd058926f95c7c53b66aaf243
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726697"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780159"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Övervaka batch-lösningar genom att räkna aktiviteter och noder efter tillstånd
 
@@ -111,12 +111,12 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 Du kan använda ett liknande mönster för REST och andra språk som stöds för att hämta antal noder för pooler.
  
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om begrepp och funktioner relaterade till Batch-tjänsten finns i [funktionsöversikten för Batch](batch-api-basics.md). I artikeln beskrivs de primära batch-resurserna som pooler, datornoder, jobb och uppgifter och en översikt över tjänstens funktioner.
-
+* Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
 * Information om hur du använder filter för frågor som visar batch-resurser finns i [skapa frågor för att lista batch-resurser effektivt](batch-efficient-list-queries.md).
 
 

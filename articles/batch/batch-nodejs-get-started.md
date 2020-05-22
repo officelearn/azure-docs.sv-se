@@ -1,15 +1,14 @@
 ---
 title: Självstudie – Använd Azure Batch klient bibliotek för Node. js
 description: Lär dig de grundläggande principerna för Azure Batch och skapa en enkel lösning med Node.js.
-ms.assetid: ''
 ms.topic: tutorial
 ms.date: 05/22/2017
-ms.openlocfilehash: 57b411e3c9c96aab31e85c4022a5954f7215cf02
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4cecd25346d868dfb27deb9f768342ab2e72ade9
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724215"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780183"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Kom igång med Batch SDK för Node.js
 
@@ -346,6 +345,6 @@ Portalen har detaljerade vyer för aktiviteter och jobbstatusar. Du kan också a
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs artikeln [Översikt över Azure Batch-funktioner](batch-api-basics.md), som vi  rekommenderar om du inte har använt tjänsten.
+- Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
 - Se [Batch Node.js-referens](/javascript/api/overview/azure/batch) om du vill utforska Batch API.
 

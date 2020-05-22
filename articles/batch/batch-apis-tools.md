@@ -4,12 +4,12 @@ description: Läs mer om API:er och verktyg som är tillgängliga för utvecklin
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: e345e91b2f7d66f014427770614efe42b5fb7a44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7f4138398e28797d8acb6517f33f7f97f2054a93
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232691"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780260"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Översikt över Batch-API:er och verktyg
 
@@ -18,21 +18,21 @@ Bearbetning av parallella arbetsbelastningar med Azure Batch görs normalt progr
 Du kan effektivt bearbeta storskaliga arbetsbelastningar för din organisation eller tillhandahålla en tjänstportal för dina kunder så att de kan köra jobb och aktiviteter (på begäran eller enligt ett schema) på en eller flera hundra tusen noder. Du kan också använda Azure Batch som en del av ett större arbetsflöde, med verktyg som [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json).
 
 > [!TIP]
-> När du är redo att fördjupa dig i Batch-API:et rekommenderar vi att du börjar med [Batch-funktionsöversikten för utvecklare](batch-api-basics.md).
+> Mer information om de funktioner och arbets flöden som används i Azure Batch finns i [batch service-arbetsflöde och-funktioner](batch-service-workflow-features.md).
 > 
 > 
 
 ## <a name="azure-accounts-for-batch-development"></a>Azure-konton för Batch-utveckling
 När du utvecklar Batch-lösningar använder du följande konton i Azure-prenumerationen:
 
-* **Batch-konto** – Azure Batch resurser, inklusive pooler, Compute-noder, jobb och aktiviteter, är associerade med ett Azure [Batch-konto](batch-api-basics.md#account). När ditt program gör en begäran mot batchtjänsten, autentiserar det begäran med hjälp av Azure Batch-kontonamnet, URL:en för kontot och antingen en åtkomstnyckel eller en Azure Active Directory-token. Du kan [skapa ett Batch-konto](batch-account-create-portal.md) på Azure-portalen, eller programmässigt.
-* **Storage-konto** – Batch innehåller inbyggt stöd för att arbeta med filer i [Azure Storage][azure_storage]. Nästan alla Batch-scenarier använder Azure Blob Storage, dels för att mellanlagra programmen som dina aktiviteter kör och de data som de bearbetar, dels för att lagra de utdata som de genererar. För olika alternativ för lagringskonton, se [Översikt över Batch-funktionen](batch-api-basics.md#azure-storage-account).
+* **Batch-konto** – Azure Batch resurser, inklusive pooler, Compute-noder, jobb och aktiviteter, är associerade med ett Azure [Batch-konto](accounts.md). När ditt program gör en begäran mot batchtjänsten, autentiserar det begäran med hjälp av Azure Batch-kontonamnet, URL:en för kontot och antingen en åtkomstnyckel eller en Azure Active Directory-token. Du kan [skapa ett Batch-konto](batch-account-create-portal.md) på Azure-portalen, eller programmässigt.
+* **Storage-konto** – Batch innehåller inbyggt stöd för att arbeta med filer i [Azure Storage][azure_storage]. Nästan alla Batch-scenarier använder Azure Blob Storage, dels för att mellanlagra programmen som dina aktiviteter kör och de data som de bearbetar, dels för att lagra de utdata som de genererar. Varje batch-konto är vanligt vis kopplat till ett motsvarande lagrings konto.
 
 ## <a name="batch-service-apis"></a>API:er för Batch-tjänst
 
 Dina program och tjänster kan skicka direkta REST-API-anrop eller använda ett eller flera av följande klientbibliotek för att köra och hantera dina Azure Batch-arbetsbelastningar.
 
-| API | API-referens | Hämta | Självstudier | Kodexempel | Mer information |
+| API | API-referens | Ladda ned | Självstudier | Kodexempel | Mer information |
 | --- | --- | --- | --- | --- | --- |
 | **REST för Batch** |[docs.microsoft.com][batch_rest] |Ej tillämpligt |- |- | [Versioner som stöds](/rest/api/batchservice/batch-service-rest-api-versioning) |
 | **.NET för Batch** |[docs.microsoft.com][api_net] |[NuGet][api_net_nuget] |[Självstudier](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [Viktig information](https://aka.ms/batch-net-dataplane-changelog) |
@@ -44,7 +44,7 @@ Dina program och tjänster kan skicka direkta REST-API-anrop eller använda ett 
 
 Azure Resource Manager-API:erna för Batch ger programmatisk åtkomst till Batch-konton. Med dessa API:er kan du programmässigt hantera Batch-konton, kvoter, programpaket och andra resurser i Microsoft.Batch-providern.  
 
-| API | API-referens | Hämta | Självstudier | Kodexempel |
+| API | API-referens | Ladda ned | Självstudier | Kodexempel |
 | --- | --- | --- | --- | --- |
 | **Batch Management REST** |[docs.microsoft.com][api_rest_mgmt] |Ej tillämpligt |- |[GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
 | **Batch Management .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet][api_net_mgmt_nuget] | [Självstudier](batch-management-dotnet.md) |[GitHub][api_sample_net] |
@@ -74,7 +74,7 @@ Här är några fler användbara verktyg för att skapa och felsöka Batch-progr
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs [Översikt över Batch-funktioner för utvecklare](batch-api-basics.md). Här finns viktig information för alla som tänker använda Batch. Artikeln innehåller mer detaljerad information om Batch-tjänstresurser som pooler, noder, jobb och uppgifter, och de många API-funktioner som du kan använda när du skapar ett Batch-program.
+* Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
 * [Komma igång med Azure Batch-biblioteket för .NET](tutorial-parallel-dotnet.md) innehåller information om hur du använder C# och Batch .NET-biblioteket för att köra en enkel arbetsbelastning med ett vanligt Batch-arbetsflöde. En [Python-version](tutorial-parallel-python.md) och en [Node.js-självstudie](batch-nodejs-get-started.md) finns också tillgängliga.
 * Hämta [kodexemplet på GitHub][github_samples] om du vill se hur både C# och Python kan användas med Batch för att schemalägga och bearbeta exempelarbetsbelastningar.
 

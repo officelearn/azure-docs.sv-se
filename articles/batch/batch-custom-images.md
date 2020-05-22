@@ -3,12 +3,12 @@ title: Etablera en anpassad pool från en hanterad avbildning
 description: Skapa en batch-pool från en hanterad avbildnings resurs för att etablera Compute-noder med program vara och data för ditt program.
 ms.topic: article
 ms.date: 09/16/2019
-ms.openlocfilehash: 10e3932bc6006e1d91fbc7e4cf58a5d98c043520
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b08c6a609516bcebaca64cf1c186d75887b098e3
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117326"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780214"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Använd en hanterad avbildning för att skapa en pool med virtuella datorer
 
@@ -21,7 +21,7 @@ Om du vill skapa en anpassad avbildning för batch-poolens virtuella datorer kan
 
 - **En hanterad avbildnings resurs**. Om du vill skapa en pool med virtuella datorer med en anpassad avbildning måste du ha eller skapa en hanterad avbildnings resurs i samma Azure-prenumeration och region som batch-kontot. Avbildningen bör skapas från ögonblicks bilder av den virtuella datorns OS-disk och eventuellt anslutna data diskar. Mer information och steg för att förbereda en hanterad avbildning finns i följande avsnitt.
   - Använd en unik anpassad avbildning för varje pool som du skapar.
-  - Om du vill skapa en pool med avbildningen med hjälp av batch-API: erna anger du **resurs-ID** för avbildningen `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`, som är av typen. Använd **namnet** på bilden om du vill använda portalen.  
+  - Om du vill skapa en pool med avbildningen med hjälp av batch-API: erna anger du **resurs-ID** för avbildningen, som är av typen `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage` . Använd **namnet** på bilden om du vill använda portalen.  
   - Den hanterade avbildnings resursen måste finnas för att poolens livstid ska kunna skalas och kan tas bort när poolen har tagits bort.
 
 - **Autentisering med Azure Active Directory (AAD)**. Batch-klientens API måste använda AAD-autentisering. Azure Batch stöd för AAD dokumenteras i [autentisera batch service-lösningar med Active Directory](batch-aad-auth.md).
@@ -107,10 +107,10 @@ Att skapa en hanterad avbildnings resurs direkt med Packer kan bara göras med b
 
 Se till att resursen som används för att skapa den hanterade avbildningen finns för livs längden för alla pooler som refererar till den anpassade avbildningen. Om du inte gör det kan det leda till allokeringsfel och/eller ändra storlek på felen.
 
-Om avbildningen eller den underliggande resursen tas bort kan det hända att du får ett fel som `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`liknar:. Om du får det här felet kontrollerar du att den underliggande resursen inte har tagits bort.
+Om avbildningen eller den underliggande resursen tas bort kan det hända att du får ett fel som liknar: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed` . Om du får det här felet kontrollerar du att den underliggande resursen inte har tagits bort.
 
 Mer information om hur du använder Packer för att skapa en virtuell dator finns i [skapa en Linux-avbildning med Packer](../virtual-machines/linux/build-image-with-packer.md) eller [skapa en Windows-avbildning med Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-En djupgående översikt över batch finns i [utveckla storskaliga parallella beräknings lösningar med batch](batch-api-basics.md).
+- En djupgående översikt över batch finns i [batch-tjänstens arbets flöde och resurser](batch-service-workflow-features.md).

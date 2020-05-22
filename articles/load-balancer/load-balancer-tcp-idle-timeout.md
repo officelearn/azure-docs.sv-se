@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: d0bb73b58aa23e5f7eb784772acf37b05df463ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09d15877088fb6356419a9d31f8bef3164e76029
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79456836"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780606"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Konfigurera timeout-inställningar för TCP-inaktivitet för Azure Load Balancer
 
@@ -42,6 +42,10 @@ TCP Keep-Alive fungerar för scenarier där batteri tiden inte är en begränsni
 ![TCP-tidsgräns](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 I följande avsnitt beskrivs hur du ändrar inställningarna för inaktiv tids gräns för offentliga IP-och belastnings Utjämnings resurser.
+
+>[!NOTE]
+> Timeout för TCP-inaktivitet påverkar inte belastnings Utjämnings regler på UDP-protokoll.
+
 
 ## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Konfigurera TCP-tidsgräns för din offentliga IP-adress på instans nivå till 15 minuter
 

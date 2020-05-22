@@ -2,13 +2,13 @@
 title: Felsökning utan data, Application Insights för .NET
 description: Ser du inte data i Azure Application Insights? Prova här.
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: 34fc51f8f656ec0f630bd984ac1b28fbaa5e4dae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: 2770888c6cfacedcf186ed1612718133cc1ba363
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802594"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778683"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Fel sökning av inga data Application Insights för .NET/.NET Core
 
@@ -127,13 +127,13 @@ Löser
   ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Öppna [diagnostisk sökning](../../azure-monitor/app/diagnostic-search.md)i Application Insights-portalen. Data visas vanligt vis här först.
 * Klicka på knappen Uppdatera. Bladet uppdateras regelbundet, men du kan också göra det manuellt. Uppdaterings intervallet är längre för större tidsintervall.
-* Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten**. Öppna sedan ApplicationInsights. config i ditt projekt i Visual Studio och leta upp `<instrumentationkey>`. Kontrol lera att de två nycklarna är lika. Om inte:  
+* Kontrol lera Instrumentation Keys-matchningar. På huvud bladet för din app i Application Insights portal går du till kombinations rutan **Essentials** och tittar på **Instrumentation-tangenten**. Öppna sedan ApplicationInsights. config i ditt projekt i Visual Studio och leta upp `<instrumentationkey>` . Kontrol lera att de två nycklarna är lika. Om inte:  
   * I portalen klickar du på Application Insights och letar efter app-resursen med rätt nyckel. eller
   * I Visual Studio Solution Explorer högerklickar du på projektet och väljer Application Insights, konfigurera. Återställ appen för att skicka telemetri till rätt resurs.
   * Om du inte hittar matchande nycklar kontrollerar du att du använder samma inloggnings uppgifter i Visual Studio som i portalen.
 * Titta på Service Health kartan i [Microsoft Azure start-instrumentpanelen](https://portal.azure.com). Om det finns några aviserings indikationer väntar du tills de har kommit tillbaka till OK och stänger sedan och öppnar bladet Application Insights program igen.
 * Kontrol lera även [vår status blogg](https://blogs.msdn.microsoft.com/servicemap-status/).
-* Skrev du någon kod för SDK för [Server sidan](../../azure-monitor/app/api-custom-events-metrics.md) som kan ändra Instrumentation-nyckeln i `TelemetryClient` instanser eller i `TelemetryContext`? Eller har du skrivit ett [filter eller en samplings konfiguration](../../azure-monitor/app/api-filtering-sampling.md) som kan filtrera ut alltför mycket?
+* Skrev du någon kod för SDK för [Server sidan](../../azure-monitor/app/api-custom-events-metrics.md) som kan ändra Instrumentation-nyckeln i `TelemetryClient` instanser eller i `TelemetryContext` ? Eller har du skrivit ett [filter eller en samplings konfiguration](../../azure-monitor/app/api-filtering-sampling.md) som kan filtrera ut alltför mycket?
 * Om du redigerade ApplicationInsights. config bör du noggrant kontrol lera konfigurationen av [TelemetryInitializers och TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). En felaktigt namngiven typ eller parameter kan orsaka att SDK inte skickar några data.
 
 ## <a name="no-data-on-page-views-browsers-usage"></a><a name="q04"></a>Inga data för sid visningar, webbläsare, användning
@@ -143,7 +143,7 @@ Data kommer från skript på webb sidorna.
 
 * Om du har lagt till Application Insights till ett befintligt webb projekt måste [du lägga till skripten manuellt](../../azure-monitor/app/javascript.md).
 * Se till att Internet Explorer inte visar din webbplats i kompatibilitetsläge.
-* Använd webbläsarens fel söknings funktion (F12 på vissa webbläsare och välj sedan nätverk) för att kontrol lera att data skickas `dc.services.visualstudio.com`till.
+* Använd webbläsarens fel söknings funktion (F12 på vissa webbläsare och välj sedan nätverk) för att kontrol lera att data skickas till `dc.services.visualstudio.com` .
 
 ## <a name="no-dependency-or-exception-data"></a>Inga beroenden eller undantags data
 Se [beroende telemetri](../../azure-monitor/app/asp-net-dependencies.md) och [telemetri för undantag](asp-net-exceptions.md).
@@ -211,7 +211,7 @@ Följ de här anvisningarna för att avbilda fel söknings loggar för ditt ramv
 
 Den senaste versionen av Microsoft. ApplicationInsights. AspNetCore är 2.8.2 och refererar till Microsoft. ApplicationInsights version 2.11.2. Därför bör den version av Microsoft. ASPNET. ApplicationInsights. HostingStartup som ska installeras vara 2.11.2
 
-2. Ändra `ConfigureServices` Metod i `Startup.cs` klassen.:
+2. Ändra `ConfigureServices` metod i `Startup.cs` klassen.:
 
     ```csharp
     services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();
@@ -247,6 +247,14 @@ Du kan ändra dessa parametrar efter behov:
 Om du vill ha mer information läser du
 - [Prestanda spår registreras med PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Application Insights händelse källor](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+
+## <a name="collect-logs-with-dotnet-trace"></a>Samla in loggar med dotNet-trace
+
+En alternativ metod för att samla in loggar för fel sökning som kan vara särskilt användbart för Linux-baserade miljöer är[`dotnet-trace`](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-trace)
+
+```bash
+dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
+```
 
 ## <a name="how-to-remove-application-insights"></a>Ta bort Application Insights
 

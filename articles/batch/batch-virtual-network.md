@@ -4,12 +4,12 @@ description: Så här skapar du en batch-pool i ett virtuellt Azure-nätverk så
 ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6ca9a8bb60ecbea38da7dfdb44123d7201d6a112
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 5e973968e3396fbe714be5540244b867b7092e00
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726289"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779587"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Skapa en Azure Batch pool i ett virtuellt nätverk
 
@@ -64,5 +64,5 @@ När du lägger till en användardefinierad väg definierar du vägen för varje
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En djupgående översikt över batch finns i [utveckla storskaliga parallella beräknings lösningar med batch](batch-api-basics.md).
-- Mer information om hur du skapar en användardefinierad väg finns i [Create a User-Defined Route-Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).
+- Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
+- Information om hur du skapar en användardefinierad väg finns i [Create a User-Defined Route-Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).

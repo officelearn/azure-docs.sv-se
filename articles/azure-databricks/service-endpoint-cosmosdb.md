@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e18c2b0f03f9ac2155c441580d62d6085581de12
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74706153"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779603"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Självstudie: implementera Azure Databricks med en Cosmos DB-slutpunkt
 
@@ -55,11 +55,11 @@ Innan du börjar gör du följande:
 
 2. Fyll i **instans informationen** på fliken **grundläggande** med följande inställningar:
 
-   |Inställning|Värde|
+   |Inställningen|Värde|
    |-------|-----|
    |Prenumeration|*din prenumeration*|
-   |Resursgrupp|*din resurs grupp*|
-   |Kontonamn|DB-VNet-tjänst-slut punkt|
+   |Resource Group|*din resurs grupp*|
+   |Account Name|DB-VNet-tjänst-slut punkt|
    |API|Core (SQL)|
    |Plats|USA, västra|
    |Geo-redundans|Inaktivera|
@@ -98,7 +98,7 @@ Innan du börjar gör du följande:
 
     ![Käll information för Cosmos DB Data Migration Tool](./media/service-endpoint-cosmosdb/cosmos-source-information.png)
 
-3. Ange din anslutnings sträng på fliken **mål information** . Formatet för anslutnings strängen är `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>`. AccountEndpoint och AccountKey ingår i den primära anslutnings sträng som du sparade i föregående avsnitt. Lägg `Database=<your database name>` till i slutet av anslutnings strängen och välj **Verifiera**. Lägg sedan till samlings namnet och partitionsnyckel.
+3. Ange din anslutnings sträng på fliken **mål information** . Formatet för anslutnings strängen är `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>` . AccountEndpoint och AccountKey ingår i den primära anslutnings sträng som du sparade i föregående avsnitt. Lägg `Database=<your database name>` till i slutet av anslutnings strängen och välj **Verifiera**. Lägg sedan till samlings namnet och partitionsnyckel.
 
     ![Cosmos DB mål information för verktyget för datamigrering](./media/service-endpoint-cosmosdb/cosmos-target-information.png)
 
@@ -107,8 +107,6 @@ Innan du börjar gör du följande:
 ## <a name="create-a-cluster-and-add-library"></a>Skapa ett kluster och Lägg till bibliotek
 
 1. Gå till din Azure Databricks-tjänst i [Azure Portal](https://portal.azure.com) och välj **Starta arbets yta**.
-
-   ![Starta Databricks-arbetsyta](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
 2. Skapa ett nytt kluster. Välj ett kluster namn och godkänn resten av standardinställningarna.
 

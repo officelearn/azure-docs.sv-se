@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Använd Azure Policy för att tillämpa klusterkonfigurationer i stor skala
 keywords: Kubernetes, båge, Azure, K8s, behållare
-ms.openlocfilehash: 64be872e4e76545c015378417410cbbfad95ebfd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c017e9422733069ffd93f6dff72ecb884da057c4
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680669"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779953"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Använd Azure Policy om du vill använda klusterkonfigurationer i skala (för hands version)
 
@@ -64,4 +64,4 @@ När princip tilldelningen har skapats, för alla nya `connectedCluster` resurse
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använd Azure Policy för att styra kluster konfigurationen](./use-azure-policy.md)
+* [Konfigurera Azure Monitor för behållare med ARC-aktiverade Kubernetes-kluster](./deploy-azure-monitor-for-containers.md)

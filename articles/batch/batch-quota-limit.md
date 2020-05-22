@@ -4,12 +4,12 @@ description: Lär dig mer om standard Azure Batch kvoter, gränser och begränsn
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: f47f2df38a601c6359ed257a9787130ea95d2ac8
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b172800e6ed2a28315da3b45eb39f2207f8f1c16
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726578"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780008"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Kvoter och begränsningar för Batch-tjänsten
 
@@ -132,10 +132,10 @@ Batch-pooler i den virtuella dator konfigurationen som distribueras i ett virtue
 De här resurserna allokeras i prenumerationen som innehåller det virtuella nätverk som angavs när du skapade batch-poolen. Dessa resurser begränsas av prenumerationens [resurskvoter](../azure-resource-manager/management/azure-subscription-service-limits.md). Om du planerar distributioner av stora pooler i ett virtuellt nätverk kontrollerar du prenumerationens kvoter för dessa resurser. Om det behövs kan du begära en ökning av Azure Portal genom att välja **Hjälp + Support**.
 
 
-## <a name="related-topics"></a>Relaterade ämnen
-* [Skapa ett Azure Batch-konto med hjälp av Azure-portalen](batch-account-create-portal.md)
-* [Översikt över Azure Batch funktioner](batch-api-basics.md)
-* [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md)
+## <a name="next-steps"></a>Nästa steg
+* [Skapa ett Azure Batch konto med hjälp av Azure Portal](batch-account-create-portal.md).
+* Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
+* Lär dig mer om [Azure-prenumerationer, tjänst begränsningar, kvoter och begränsningar](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [portal]: https://portal.azure.com
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/

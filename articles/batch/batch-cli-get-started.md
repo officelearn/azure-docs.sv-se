@@ -4,12 +4,12 @@ description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9aa9a43dd036b4a547d1bff85b4431afcf74e23
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2bb3dd2e67c3c3bf9139a25935ab0dd074799c6f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726799"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780231"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -28,7 +28,7 @@ Du kan köra senaste Azure CLI i [Azure Cloud Shell](../cloud-shell/overview.md)
 
 ## <a name="command-help"></a>Kommandohjälp
 
-Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Till exempel:
+Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Ett exempel:
 
 * Om du vill få hjälp med `az`-kommandot anger du: `az -h`
 * Om du vill hämta en lista över alla Batch-kommandon i CLI använder du: `az batch -h`
@@ -111,7 +111,7 @@ Se [CLI-skriptexemplen](cli-samples.md) för att utföra vanliga uppgifter med B
 
 ## <a name="json-files-for-resource-creation"></a>JSON-filer för resursskapande
 
-När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Till exempel:
+När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Ett exempel:
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -162,9 +162,9 @@ Följande tips kan vara till hjälp när du felsöker problem med Azure CLI:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
-* Mer information om Batch-resurser finns i [Utveckla storskaliga parallella beräkningslösningar med Batch](batch-api-basics.md).
-* Mer information om hur du använder Batch-mallar för att skapa pooler, jobb och uppgifter utan att skriva kod, finns i [Använda Azure Batch CLI-mallar och filöverföring](batch-cli-templates.md).
+* Se [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
+* Lär dig mer om [batch-tjänstens arbets flöde och primära resurser](batch-service-workflow-features.md) som pooler, noder, jobb och aktiviteter.
+* Lär dig mer om att använda batch-mallar för att skapa pooler, jobb och uppgifter utan att skriva kod i [använda Azure Batch CLI-mallar och fil överföring](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx
